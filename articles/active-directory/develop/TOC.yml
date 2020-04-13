@@ -286,22 +286,51 @@
           href: single-multi-account.md
     - name: iOS & macOS
       items:
+        - name: Integrate with Azure AD B2C
+          href: config-authority.md#b2c
+        - name: Migrate to MSAL.iOS / macOS
+          href: migrate-objc-adal-msal.md
+        - name: Shared device mode for iOS devices
+          href: msal-ios-shared-devices.md
+          displayName: firstline worker, frontline worker
+        - name: SSO between MSAL apps
+          href: single-sign-on-macos-ios.md
+        - name: SSO between ADAL and MSAL apps
+          href: sso-between-adal-msal-apps-macos-ios.md
+        - name: Troubleshoot SSL issues (MSAL iOS/macOS)
+          href: ssl-issues.md
     - name: Java
       items:
+        - name: Migrate to MSAL for Java
+          href: migrate-adal-msal-java.md
+        - name: ADFS support in MSAL for Java
+          href: msal-java-adfs-support.md
     - name: JavaScript & Node.js
       items:
-    - name: Migration
+        - name: Initialize applications - JavaScript
+          href: msal-js-initializing-client-applications.md
+        - name: Integrate with Azure AD B2C
+          href: msal-b2c-overview.md
+        - name: Migrate to MSAL.js
+          href: msal-compare-msal-js-and-adal-js.md
+        - name: Single sign-on with MSAL.js
+          href: msal-js-sso.md
+        - name: Considerations - IE
+          href: msal-js-use-ie-browser.md
+        - name: Known issues - IE and Microsoft Edge
+          href: msal-js-known-issues-ie-edge-browsers.md
+        - name: Known issues - Safari
+          href: msal-js-known-issues-safari-browser.md
+    - name: Python
       items:
-      - name: Overview
-        href: msal-migration.md
-      - name: Migrate to MSAL.js
-        href: msal-compare-msal-js-and-adal-js.md
-      - name: Migrate to MSAL.iOS / macOS
-        href: migrate-objc-adal-msal.md
-      - name: Migrate to MSAL Python
-        href: migrate-python-adal-msal.md
-      - name: Migrate to MSAL for Java
-        href: migrate-adal-msal-java.md
+        - name: Migrate to MSAL Python
+          href: migrate-python-adal-msal.md
+        - name: ADFS support in MSAL for Python
+          href: msal-python-adfs-support.md
+#    - name: Migration
+#      items:
+#      - name: Overview
+#        href: msal-migration.md  # TODO: DELETE THIS ARTICLE
     - name: Supported authentication flows
       href: msal-authentication-flows.md
     - name: Acquire and cache tokens
@@ -332,56 +361,13 @@
         href: msal-client-applications.md
       - name: Application configuration
         href: msal-client-application-configuration.md
-      - name: Initialize applications - JavaScript
-        href: msal-js-initializing-client-applications.md
     - name: Handle errors and exceptions
       href: msal-handling-exceptions.md
     - name: Logging
       href: msal-logging.md
     - name: Shared devices
-      items:
-      - name: Overview - shared devices
-        href: msal-shared-devices.md
-        displayName: shared device mode, firstline worker, frontline worker
-      - name: Shared device mode for iOS devices
-        href: msal-ios-shared-devices.md
-        displayName: firstline worker, frontline worker
-    - name: Single sign-on
-      displayName: SSO
-      items:
-      - name: Single sign-on with MSAL.js
-        href: msal-js-sso.md
-      - name: Single sign-on with MSAL for iOS and macOS
-        items:
-        - name: SSO between MSAL apps
-          href: single-sign-on-macos-ios.md
-        - name: SSO between ADAL and MSAL apps
-          href: sso-between-adal-msal-apps-macos-ios.md
-    - name: Integrate with ADFS
-      displayName: Active Directory Federation Services
-      items:
-      - name: ADFS support in MSAL for Python
-        href: msal-python-adfs-support.md
-      - name: ADFS support in MSAL for Java
-        href: msal-java-adfs-support.md
-    - name: Integrate with Azure AD B2C
-      items:
-      - name: JavaScript
-        href: msal-b2c-overview.md
-      - name: iOS and macOS
-        href: config-authority.md#b2c
-    - name: Considerations and known issues
-      items:
-        - name: MSAL.js
-          items:
-          - name: Considerations - IE
-            href: msal-js-use-ie-browser.md
-          - name: Known issues - IE and Microsoft Edge
-            href: msal-js-known-issues-ie-edge-browsers.md
-          - name: Known issues - Safari
-            href: msal-js-known-issues-safari-browser.md
-        - name: Troubleshoot SSL issues (MSAL iOS/macOS)
-          href: ssl-issues.md
+      href: msal-shared-devices.md
+      displayName: shared device mode, firstline worker, frontline worker
   - name: Authentication protocols
     displayName: Auth protocol
     items:
