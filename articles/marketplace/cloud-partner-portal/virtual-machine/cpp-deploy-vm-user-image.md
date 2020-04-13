@@ -1,16 +1,18 @@
 ---
 title: Deploy an Azure VM from a user VHD | Azure Marketplace
 description: Explains how to deploy a user VHD image to create an Azure VM instance.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Deploy an Azure VM from a user VHD
+
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Azure VM image certification](https://aks.ms/CertifyVMimage) to manage your migrated offers.
 
 This article explains how to deploy a generalized VHD image to create a new Azure VM resource, using the supplied Azure Resource Manager template and Azure PowerShell script.
 

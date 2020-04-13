@@ -1,7 +1,7 @@
 ---
 title: "Configure networking for Azure Dev Spaces in different network topologies"
 services: azure-dev-spaces
-ms.date: 01/10/2020
+ms.date: 03/17/2020
 ms.topic: "conceptual"
 description: "Describes the networking requirements for running Azure Dev Spaces in Azure Kubernetes Services" 
 keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, CNI, kubenet, SDN, network"
@@ -15,7 +15,7 @@ Azure Dev Spaces runs on Azure Kubernetes Service (AKS) clusters with the defaul
 
 ## Virtual network or subnet configurations
 
-Your AKS cluster may have a different virtual network or subnet configuration to restrict ingress or egress traffic for your AKS cluster. For example, your cluster may be behind a firewall, such as Azure Firewall, or you might use Network Security Groups or custom roles for restricting network traffic.
+Your AKS cluster may have a different virtual network or subnet configuration to restrict ingress or egress traffic for your AKS cluster. For example, your cluster may be behind a firewall, such as Azure Firewall, or you might use Network Security Groups or custom roles for restricting network traffic. You can find an example network configuration in the [Azure Dev Spaces sample repository on GitHub][sample-repo].
 
 Azure Dev Spaces has certain requirements for *Ingress and Egress* network traffic as well as *Ingress only* traffic. If you are using Azure Dev Spaces on an AKS cluster with a virtual network or subnet configuration that restricts traffic for your AKS cluster, you must follow the following ingress only and ingress and egress traffic requirements in order for Azure Dev Spaces to function properly.
 
@@ -46,7 +46,7 @@ Azure Dev Spaces allows you to communicate directly with a pod in a dev space on
 
 ### Ingress only network traffic requirements
 
-Azure Dev Spaces provides routing between pods across namespaces. For example, namespaces with Azure Dev Spaces enabled can have a parent/child relationship, which allows network traffic to be routed between pods across the parent and child namespaces. For this feature to work, add a network policy that allows traffic between namespaces where network traffic is routed, such as parent/child namespaces. Also, if the ingress controller is deployed to the *azds* namespace, then the ingress controller needs to communicate with pods instrumented by Azure Dev Space in a different namespace. For the ingress controller to function properly, network traffic must be allowed from the *azds* namespace to the namespace where the instrumented pods are running.
+Azure Dev Spaces provides routing between pods across namespaces. For example, namespaces with Azure Dev Spaces enabled can have a parent/child relationship, which allows network traffic to be routed between pods across the parent and child namespaces. Azure Dev Spaces also exposes service endpoints using its own FQDN. To configure different ways of exposing services and how it impacts namespace level routing see [Using different endpoint options][endpoint-options].
 
 ## Using Azure CNI
 
@@ -59,6 +59,23 @@ AKS clusters allow you to configure additional security that limits which IP add
 ## Using AKS private clusters
 
 At this time, Azure Dev Spaces is not supported with [AKS private clusters][aks-private-clusters].
+
+## Using different endpoint options
+
+Azure Dev Spaces has the option to expose endpoints for your services running on AKS. When enabling Azure Dev Spaces on your cluster, you have the following options for configuring the endpoint type for your cluster:
+
+* A *public* endpoint, which is the default, deploys an ingress controller with a public IP address. The public IP address is registered on the cluster's DNS, allowing public access to your services using a URL. You can view this URL using `azds list-uris`.
+* A *private* endpoint deploys an ingress controller with a private IP address. With a private IP address, the load balancer for your cluster is only accessible from inside the virtual network of the cluster. The private IP address of the load balancer is registered on cluster's DNS so that services inside the cluster's virtual network can be accessed using a URL. You can view this URL using `azds list-uris`.
+* Setting *none* for the endpoint option causes no ingress controller to be deployed. With no ingress controller deployed, the [Azure Dev Spaces routing capabilities][dev-spaces-routing] will not work. Optionally, you can implement your own ingress controller solution using [traefik][traefik-ingress] or [NGINX][nginx-ingress], which will allow the routing capabilities to work again.
+
+To configure your endpoint option, use *-e* or *--endpoint* when enabling Azure Dev Spaces on your cluster. For example:
+
+> [!NOTE]
+> The endpoint option requires that you are running Azure CLI version 2.2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+
+```azurecli
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS -e private
+```
 
 ## Client requirements
 
@@ -81,7 +98,11 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 [aks-network-policies]: ../aks/use-network-policies.md
 [aks-private-clusters]: ../aks/private-clusters.md
 [auth-range-section]: #using-api-server-authorized-ip-ranges
+[azure-cli-install]: /cli/azure/install-azure-cli
 [dev-spaces-ip-auth-range-regions]: https://github.com/Azure/dev-spaces/tree/master/public-ips
+[dev-spaces-routing]: how-dev-spaces-works-routing.md
+[endpoint-options]: #using-different-endpoint-options
 [traefik-ingress]: how-to/ingress-https-traefik.md
 [nginx-ingress]: how-to/ingress-https-nginx.md
+[sample-repo]: https://github.com/Azure/dev-spaces/tree/master/advanced%20networking
 [team-quickstart]: quickstart-team-development.md

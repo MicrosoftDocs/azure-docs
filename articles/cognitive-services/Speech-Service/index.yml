@@ -13,7 +13,7 @@ metadata:
   manager: nitinme
   ms.service: speech-service
   ms.topic: hub-page
-  ms.date: 03/04/2020
+  ms.date: 03/24/2020
   ms.author: dapine
 
 highlightedContent:
@@ -22,15 +22,15 @@ highlightedContent:
     - title: What is the Speech service?
       itemType: overview
       url: overview.md
+    - title: About the Speech SDK
+      itemType: overview
+      url: speech-sdk.md
     - title: Speech SDK release notes
       itemType: whats-new
       url: releasenotes.md
-    - title: Language support in Speech services
+    - title: Language support in the Speech service
       itemType: reference
       url: language-support.md
-    - title: Create a Speech services resource
-      itemType: how-to-guide
-      url: get-started.md
 
 conceptualContent:
   items:
@@ -42,37 +42,37 @@ conceptualContent:
         - itemType: quickstart
           text: Recognize speech from a microphone
           url: quickstarts/speech-to-text-from-microphone.md
-        - itemType: how-to-guide
-          text: Customize speech recognition for your apps
-          url: how-to-custom-speech.md
+        - itemType: quickstart
+          text: Recognize speech from an audio file
+          url: quickstarts/speech-to-text-from-file.md
       footerLink:
         text: See more
         url: index-speech-to-text.yml
     - title: Text-to-speech
       links:
+        - itemType: how-to-guide
+          text: Speech synthesis basics
+          url: text-to-speech-basics.md
         - itemType: quickstart
           text: Synthesize speech to a speaker
           url: quickstarts/text-to-speech.md
         - itemType: quickstart
           text: Synthesize speech into an audio file
           url: quickstarts/text-to-speech-audio-file.md
-        - itemType: quickstart
-          text: Customize speech synthesis for your apps
-          url: how-to-custom-voice.md
       footerLink:
         text: See more
         url: index-text-to-speech.yml
     - title: Speech translation
       links:
+      - itemType: how-to-guide
+        text: Speech translation basics
+        url: speech-translation-basics.md
       - itemType: quickstart
         text: Translate speech-to-text
         url: quickstarts/translate-speech-to-text.md
       - itemType: quickstart
         text: Translate speech into multiple target languages
         url: quickstarts/translate-speech-to-text-multiple-languages.md
-      - itemType: quickstart
-        text: Translate speech-to-speech
-        url: quickstarts/translate-speech-to-speech.md
       footerLink:
         text: See more
         url: index-speech-translation.yml
@@ -93,10 +93,10 @@ conceptualContent:
     - title: Conversation scenarios
       links:
         - itemType: overview
-          text: About Conversation Transcription
+          text: About Conversation Transcription (meetings)
           url: conversation-transcription.md
         - itemType: overview
-          text: About multi-device conversations
+          text: About multi-device conversations (meetings)
           url: multi-device-conversation.md
         - itemType: how-to-guide
           text: Call center transcription

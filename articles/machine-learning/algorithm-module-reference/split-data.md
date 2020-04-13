@@ -61,7 +61,7 @@ This module is useful when you need to separate data into training and testing s
 
    With stratified sampling, the data is divided such that each output dataset gets roughly the same percentage of each target value. For example, you might want to ensure that your training and testing sets are roughly balanced with regard to the outcome or to some other column (such as gender).
 
-1. Run the pipeline.
+1. Submit the pipeline.
 
 
 ## Select a regular expression
@@ -74,7 +74,7 @@ This module is useful when you need to separate data into training and testing s
   
    The regular expression should follow Python syntax for regular expressions.
 
-1. Run the pipeline.
+1. Submit the pipeline.
 
    Based on the regular expression that you provide, the dataset is divided into two sets of rows: rows with values that match the expression and all remaining rows. 
 
@@ -116,7 +116,7 @@ The first result dataset contains all rows where the index column begins with on
    For **String column**:
    - The following operators are supported: `==`, `!=`.
 
-1. Run the pipeline.
+1. Submit the pipeline.
 
    The expression divides the dataset into two sets of rows: rows with values that meet the condition, and all remaining rows.
 

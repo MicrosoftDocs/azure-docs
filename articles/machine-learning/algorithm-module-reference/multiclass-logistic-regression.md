@@ -53,7 +53,7 @@ In multiclass logistic regression, the classifier can be used to predict multipl
 
     + If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.
 
-9. Run the pipeline.
+9. Submit the pipeline.
 
 
 

@@ -102,6 +102,8 @@
         href: concepts-data-access-and-security-private-link.md
       - name: Data Encryption
         href: concepts-data-encryption-postgresql.md
+      - name: Security baseline
+        href: security-baseline.md
     - name: Business continuity
       items:
       - name: Business continuity intro
@@ -147,6 +149,8 @@
       items:
       - name: Read replicas
         href: concepts-read-replicas.md
+      - name: Logical decoding
+        href: concepts-logical.md
   - name: Hyperscale (Citus)
     items:
     - name: Nodes
@@ -267,6 +271,8 @@
       items:
       - name: Azure portal
         href: howto-data-encryption-portal.md
+      - name: Azure CLI
+        href: howto-data-encryption-cli.md
     - name: Restart server
       items:
       - name: Azure portal
@@ -277,10 +283,6 @@
       items:
       - name: Azure portal
         href: howto-deny-public-network-access.md
-    - name: Minimum TLS configuration
-      items:
-      - name: Azure portal
-        href: howto-tls-configurations.md
     - name: Replication
       items:
       - name: Manage read replicas Azure portal

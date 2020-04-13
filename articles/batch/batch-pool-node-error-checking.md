@@ -59,17 +59,17 @@ Batch sets the [pool state](https://docs.microsoft.com/rest/api/batchservice/poo
 
 ## Pool compute node errors
 
-Even when Batch successfully allocates nodes in a pool, various issues can cause some of the nodes to be unhealthy and unable to run tasks. These nodes still incur charges, so it's important to detect problems to avoid paying for nodes that can't be used. In addition to common node errors, knowing the current [job state](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate) is useful for troubleshooting.
+Even when Batch successfully allocates nodes in a pool, various issues can cause some of the nodes to be unhealthy and unable to run tasks. These nodes still incur charges, so it's important to detect problems to avoid paying for nodes that can't be used. In addition to common node errors, knowing the current [job state](/rest/api/batchservice/job/get#jobstate) is useful for troubleshooting.
 
 ### Start task failures
 
-You might want to specify an optional [start task](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) for a pool. As with any task, you can use a command line and resource files to download from storage. The start task is run for each node after it's been started. The **waitForSuccess** property specifies whether Batch waits until the start task completes successfully before it schedules any tasks to a node.
+You might want to specify an optional [start task](/rest/api/batchservice/pool/add#starttask) for a pool. As with any task, you can use a command line and resource files to download from storage. The start task is run for each node after it's been started. The **waitForSuccess** property specifies whether Batch waits until the start task completes successfully before it schedules any tasks to a node.
 
 What if you've configured the node to wait for successful start task completion, but the start task fails? In that case, the node will not be usable, but will still incur charges.
 
-You can detect start task failures by using the [result](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) and  [failureInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) properties of the top-level [startTaskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) node property.
+You can detect start task failures by using the [result](/rest/api/batchservice/computenode/get#taskexecutionresult) and  [failureInfo](/rest/api/batchservice/computenode/get#taskfailureinformation) properties of the top-level [startTaskInfo](/rest/api/batchservice/computenode/get#starttaskinformation) node property.
 
-A failed start task also causes Batch to set the node [state](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) to **starttaskfailed** if  **waitForSuccess** was set to **true**.
+A failed start task also causes Batch to set the node [state](/rest/api/batchservice/computenode/get#computenodestate) to **starttaskfailed** if  **waitForSuccess** was set to **true**.
 
 As with any task, there can be many causes for the start task failing.  To troubleshoot, check the stdout, stderr, and any further task-specific log files.
 
@@ -79,19 +79,19 @@ Start tasks must be re-entrant, as it is possible the start task is run multiple
 
 You can specify one or more application packages for a pool. Batch downloads the specified package files to each node and uncompresses the files after the node has started, but before tasks are scheduled. It's common to use a start task command line in conjunction with application packages. For example, to copy files to a different location or to run setup.
 
-The node [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) property reports a failure to download and un-compress an application package; the node state is set to **unusable**.
+The node [errors](/rest/api/batchservice/computenode/get#computenodeerror) property reports a failure to download and un-compress an application package; the node state is set to **unusable**.
 
 ### Container download failure
 
-You can specify one or more container references on a pool. Batch downloads the specified containers to each node. The node [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) property reports a failure to download a container and sets the node state to **unusable**.
+You can specify one or more container references on a pool. Batch downloads the specified containers to each node. The node [errors](/rest/api/batchservice/computenode/get#computenodeerror) property reports a failure to download a container and sets the node state to **unusable**.
 
 ### Node in unusable state
 
-Azure Batch might set the [node state](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) to **unusable** for many reasons. With the node state set to **unusable**, tasks can't be scheduled to the node, but it still incurs charges.
+Azure Batch might set the [node state](/rest/api/batchservice/computenode/get#computenodestate) to **unusable** for many reasons. With the node state set to **unusable**, tasks can't be scheduled to the node, but it still incurs charges.
 
-Nodes in an **unusable** state, but without [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) means that Batch is unable to communicate with the VM. In this case, Batch always tries to recover the VM. Batch will not automatically attempt to recover VMs that failed to install application packages or containers even though their state is **unusable**.
+Nodes in an **unusable** state, but without [errors](/rest/api/batchservice/computenode/get#computenodeerror) means that Batch is unable to communicate with the VM. In this case, Batch always tries to recover the VM. Batch will not automatically attempt to recover VMs that failed to install application packages or containers even though their state is **unusable**.
 
-If Batch can determine the cause, the node [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) property reports it.
+If Batch can determine the cause, the node [errors](/rest/api/batchservice/computenode/get#computenodeerror) property reports it.
 
 Additional examples of causes for **unusable** nodes include:
 
@@ -109,7 +109,7 @@ Additional examples of causes for **unusable** nodes include:
 
 ### Node agent log files
 
-The Batch agent process that runs on each pool node can provide log files that might be helpful if you need to contact support about a pool node issue. Log files for a node can be uploaded via the Azure portal, Batch Explorer, or an [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs). It's useful to upload and save the log files. Afterward, you can delete the node or pool to save the cost of the running nodes.
+The Batch agent process that runs on each pool node can provide log files that might be helpful if you need to contact support about a pool node issue. Log files for a node can be uploaded via the Azure portal, Batch Explorer, or an [API](/rest/api/batchservice/computenode/uploadbatchservicelogs). It's useful to upload and save the log files. Afterward, you can delete the node or pool to save the cost of the running nodes.
 
 ### Node disk full
 
@@ -128,11 +128,12 @@ Other files are written out for each task that is run on a node, such as stdout 
 The size of the temporary drive depends on the VM size. One consideration when picking a VM size is to ensure the temporary drive has enough space.
 
 - In the Azure portal when adding a pool, the full list of VM sizes can be displayed and there is a 'Resource Disk Size' column.
-- The articles describing all VM sizes have tables with a 'Temp Storage' column; for example [Compute Optimized VM sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute)
+- The articles describing all VM sizes have tables with a 'Temp Storage' column; for example [Compute Optimized VM sizes](/azure/virtual-machines/windows/sizes-compute)
 
 For files written out by each task, a retention time can be specified for each task that determines how long the task files are kept before being automatically cleaned up. The retention time can be reduced to lower the storage requirements.
 
-If the temporary disk runs out of space (or is very close to running out of space), the node will move to [Unusable](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) state and a node error (use the link already there) will be reported saying that the disk is full.
+
+If the temporary disk runs out of space (or is very close to running out of space), the node will move to [Unusable](/rest/api/batchservice/computenode/get#computenodestate) state and a node error will be reported saying that the disk is full.
 
 ### What to do when a disk is full
 

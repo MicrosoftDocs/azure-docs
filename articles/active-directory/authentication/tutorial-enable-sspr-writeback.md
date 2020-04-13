@@ -50,10 +50,9 @@ Azure AD Connect lets you synchronize users, groups, and credential between an o
 To correctly work with SSPR writeback, the account specified in Azure AD Connect must have the appropriate permissions and options set. If you're not sure which account is currently in use, open Azure AD Connect and select the **View current configuration** option. The account that you need to add permissions to is listed under **Synchronized Directories**. The following permissions and options must be set on the account:
 
 * **Reset password**
-* **Change password**
 * **Write permissions** on `lockoutTime`
 * **Write permissions** on `pwdLastSet`
-* **Extended rights** on either:
+* **Extended rights** for "Unexpire Password" on either:
    * The root object of *each domain* in that forest
    * The user organizational units (OUs) you want to be in scope for SSPR
 
@@ -68,7 +67,6 @@ To set up the appropriate permissions for password writeback to occur, complete 
 1. For **Principal**, select the account that permissions should be applied to (the account used by Azure AD Connect).
 1. In the **Applies to** drop-down list, select **Descendant User objects**.
 1. Under *Permissions*, select the boxes for the following options:
-    * **Change password**
     * **Reset password**
 1. Under *Properties*, select the boxes for the following options. You need to scroll through the list to find these options, which may already be set by default:
     * **Write lockoutTime**

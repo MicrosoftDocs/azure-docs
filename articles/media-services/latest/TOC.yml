@@ -75,7 +75,7 @@
     items:
     - name: Overview
       href: encoding-concept.md   
-      displayName: encoding, presets, jobs, adaptive, bitrate, billing 
+      displayName: encode, encoding, presets, jobs, adaptive, bitrate, billing 
     - name: Standard Encoder formats
       displayName: containers, codecs    
       href: media-encoder-standard-formats.md
@@ -87,7 +87,7 @@
     items:
     - name: Overview
       href: analyzing-video-audio-files-concept.md
-      displayName: analyzing, presets, jobs
+      displayName: analyze, analyzing, presets, jobs
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md    
   - name: Live streaming 
@@ -113,7 +113,7 @@
   - name: Packaging and delivery
     items:
     - name: Dynamic packaging
-      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming  
+      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming, audio, video 
       href: dynamic-packaging-overview.md
     - name: Dynamic manifests
       href: filters-dynamic-manifest-overview.md 
@@ -202,20 +202,13 @@
   - name: Get started
     items:
     - name: Create an account
-      items:
-      - name: With portal
-        href: create-account-portal.md
-      - name: With CLI
-        href: create-account-cli-how-to.md  
-        displayName: storage
+      href: create-account-howto.md
+      displayName: portal, cli, storage
     - name: Reset the account credentials
       href: cli-reset-account-credentials.md   
-    - name: Access APIs
-      items:
-      - name: With portal
-        href: access-api-portal.md   
-      - name: With CLI
-        href: access-api-cli-how-to.md
+    - name: Access API
+      displayName: portal, cli
+      href: access-api-howto.md   
     - name: Scale Media Reserved Units
       href: media-reserved-units-cli-how-to.md   
     - name: Create an Asset
@@ -344,6 +337,7 @@
   - name: Troubleshoot
     items:
     - name: Frequently asked questions
+      displayName: faqs
       href: frequently-asked-questions.md      
     - name: Error codes
       items:
@@ -359,7 +353,7 @@
     href: https://aka.ms/ams-v3-rest-sdk
     displayName: schema
   - name: REST
-    href: https://aka.ms/ams-v3-rest-ref 
+    href: https://docs.microsoft.com/rest/api/media/ 
   - name: Azure CLI
     href: https://aka.ms/ams-v3-cli-ref    
   - name: SDKs
@@ -407,7 +401,7 @@
       href: https://aka.ms/ams-v3-ruby-sdk
   - name: Azure Media Services Explorer
     href: https://github.com/Azure/Azure-Media-Services-Explorer
-  - name: Quotas and limitations
+  - name: Quotas and limits
     href: limits-quotas-constraints.md       
   - name: Azure clouds and regions
     href: azure-clouds-regions.md

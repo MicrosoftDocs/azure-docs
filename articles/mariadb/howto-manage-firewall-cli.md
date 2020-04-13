@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 
 # Create and manage Azure Database for MariaDB firewall rules by using the Azure CLI

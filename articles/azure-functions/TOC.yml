@@ -22,8 +22,6 @@
       href: functions-create-your-first-function-visual-studio.md
     - name: Command line
       href: functions-create-first-azure-function-azure-cli.md
-    - name: Maven/Gradle (Java)
-      href: functions-create-first-java-maven.md
   - name: Connect to storage
     items:
     - name: Visual Studio Code
@@ -32,8 +30,6 @@
       href: functions-add-output-binding-storage-queue-vs.md
     - name: Command line
       href: functions-add-output-binding-storage-queue-cli.md
-    - name: Maven/Gradle (Java)
-      href: functions-add-output-binding-storage-queue-java.md
 - name: Tutorials
   items:
   - name: Functions with Logic Apps
@@ -145,6 +141,8 @@
     href: functions-networking-options.md
   - name: IP addresses
     href: ip-addresses.md
+  - name: Custom handlers
+    href: functions-custom-handlers.md
 - name: How-to guides
   items:
   - name: Develop
@@ -173,10 +171,16 @@
           href: create-visual-studio.md
         - name: Visual Studio Code
           href: create-visual-studio-code.md
+        - name: Java using Gradle
+          href: functions-create-first-java-gradle.md
         - name: Java using Eclipse
           href: functions-create-maven-eclipse.md
         - name: Java using IntelliJ IDEA
           href: functions-create-maven-intellij.md
+        - name: Kotlin using Maven
+          href: functions-create-first-kotlin-maven.md
+        - name: Kotlin using IntelliJ
+          href: functions-create-maven-kotlin-intellij.md
         - name: Linux App Service plan
           href: create-function-app-linux-app-service-plan.md
         - name: Linux Consumption plan
@@ -203,6 +207,8 @@
         href: add-output-binding-storage-queue-vs-code.md
       - name: Storage - Visual Studio
         href: add-output-binding-storage-queue-vs.md
+      - name: Storage - Java
+        href: functions-add-output-binding-storage-queue-java.md
     - name: Debug and test
       items:
         - name: Test functions

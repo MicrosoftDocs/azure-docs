@@ -28,6 +28,9 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+> [!NOTE]
+> Front Door does **not** support custom domains with [punycode](https://en.wikipedia.org/wiki/Punycode) characters. 
+
 ## Prerequisites
 
 Before you can complete the steps in this tutorial, you must first create a Front Door. For more information, see [Quickstart: Create a Front Door](quickstart-create-front-door.md).

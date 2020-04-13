@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/16/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -111,6 +111,7 @@ The name of the claim is the name of the Azure AD attribute unless the **Partner
 ## Requirements of an operation
 
 - There must be exactly one **InputClaim** element in the claims bag for all Azure AD technical profiles.
+- The [user profile attributes article](user-profile-attributes.md) describes the supported Azure AD B2C user profile attributes you can use in the input claims, output claims, and persisted claims. 
 - If the operation is `Write` or `DeleteClaims`, then it must also appear in a **PersistedClaims** element.
 - The value of the **userPrincipalName** claim must be in the format of `user@tenant.onmicrosoft.com`.
 - The **displayName** claim is required and cannot be an empty string.
@@ -250,7 +251,7 @@ The following technical profile deletes a social user account using **alternativ
 | ClientId | No | The client identifier for accessing the tenant as a third party. For more information, see [Use custom attributes in a custom profile edit policy](custom-policy-custom-attributes.md) |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 
-## Error messages
+### UI elements
  
 The following settings can be used to configure the error message displayed upon failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile. The error messages can be [localized](localization.md).
 

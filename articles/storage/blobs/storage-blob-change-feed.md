@@ -295,7 +295,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 
 In Azure Cloud Shell, run these commands:
 
-```cli
+```azurecli
 az feature register --namespace Microsoft.Storage --name Changefeed
 az provider register --namespace 'Microsoft.Storage'
 ```

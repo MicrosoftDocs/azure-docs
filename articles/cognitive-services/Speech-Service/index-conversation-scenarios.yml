@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Conversation scenarios documentation
-summary: Explore the various conversation scenarios, Conversation Transcription or multi-device conversation.
+summary: Explore the various conversation scenarios. Learn to use Conversation Transcription or Multi-device Conversation in meeting scenarios, and transcription in Call Center scenarios.
 metadata:
   title: Conversation scenarios documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
@@ -10,45 +10,45 @@ metadata:
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 03/10/2020
+  ms.date: 03/16/2020
   ms.author: dapine
 
 landingContent:
-- title: About Conversation Transcription
+- title: About Conversation Transcription (meeting scenario)
   linkLists:
     - linkListType: overview
       links:
-      - text: What is Conversation Transcription?
+      - text: What is Conversation Transcription in meetings?
         url: conversation-transcription.md
     - linkListType: how-to-guide
       links:
-        - text: Handle call center scenarios
-          url: call-center-transcription.md
         - text: Real-time Conversation Transcription
           url: how-to-use-conversation-transcription.md
         - text: Asynchronous Conversation Transcription
           url: how-to-async-conversation-transcription.md
-    - linkListType: reference
-      links:
-        - text: Conversation Transcription language support
-          url: conversation-transcription.md#language-support
-- title: About multi-device conversation
+- title: About Multi-device Conversation (meeting scenario)
   linkLists:
     - linkListType: overview
       links:
-      - text: What is multi-device conversation?
+      - text: What is Multi-device Conversation?
         url: multi-device-conversation.md
     - linkListType: quickstart
       links:
         - text: Start and join a conversation
           url: quickstarts/multi-device-conversation.md
-    - linkListType: reference
+- title: Call Center Transcription (custom/agent scenario)
+  linkLists:
+    - linkListType: overview
       links:
-        - text: Multi-device conversation language support
-          url: multi-device-conversation.md#language-support
+        - text: Handle call center scenarios
+          url: call-center-transcription.md
 - title: Reference
   linkLists:
     - linkListType: reference
       links:
+        - text: Conversation Transcription language support
+          url: conversation-transcription.md#language-support
+        - text: Multi-device conversation language support
+          url: multi-device-conversation.md#language-support
         - text: Speech transcription pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/

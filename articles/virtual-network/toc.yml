@@ -23,23 +23,10 @@
     href: tutorial-restrict-network-access-to-resources.md
   - name: Connect virtual networks
     href: tutorial-connect-virtual-networks-portal.md
-  - name: NAT
-    items:
-    - name: Create NAT gateway - Portal
-      href: quickstart-create-nat-gateway-portal.md
-    - name: Create NAT gateway - PowerShell
-      href: quickstart-create-nat-gateway-powershell.md
-    - name: Create NAT gateway - CLI
-      href: quickstart-create-nat-gateway-cli.md
-    - name: Create NAT gateway - ARM template
-      displayname: Resource Manager
-      href: quickstart-create-nat-gateway-template.md
-    - name: Create and validate NAT gateway - Portal
-      href: tutorial-create-validate-nat-gateway-portal.md
-    - name: Create and validate NAT gateway - PowerShell
-      href: tutorial-create-validate-nat-gateway-powershell.md
-    - name: Create and validate NAT gateway - CLI
-      href: tutorial-create-validate-nat-gateway-cli.md
+  - name: Create NAT gateway
+    href: quickstart-create-nat-gateway-portal.md
+  - name: Create and validate NAT gateway
+    href: tutorial-create-validate-nat-gateway-portal.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -84,8 +71,12 @@
       href: ../expressroute/cross-network-connectivity.md?toc=%2fazure%2fvirtual-network%2ftoc.json
     - name: Peering
       href: virtual-network-peering-overview.md
-    - name: Virtual network for Azure services
-      href: virtual-network-for-azure-services.md
+  - name: Integration for Azure services
+    items:
+    - name: Service endpoints
+      href: virtual-network-service-endpoints-overview.md
+    - name: Deploy a dedicated service
+      href: virtual-network-for-azure-services.md 
   - name: IP services
     items:
     - name: IP addressing
@@ -104,8 +95,6 @@
       href: application-security-groups.md
     - name: Service tags 
       href: service-tags-overview.md
-    - name: Service endpoints
-      href: virtual-network-service-endpoints-overview.md
     - name: Service endpoint policies
       href: virtual-network-service-endpoint-policies-overview.md
     - name: Kubernetes network policies
@@ -359,6 +348,19 @@
       href: move-across-regions-publicip-portal.md
     - name: Public IPs - PowerShell
       href: move-across-regions-publicip-powershell.md
+  - name: NAT
+    items:
+    - name: Create NAT gateway - PowerShell
+      href: quickstart-create-nat-gateway-powershell.md
+    - name: Create NAT gateway - CLI
+      href: quickstart-create-nat-gateway-cli.md
+    - name: Create NAT gateway - ARM template
+      displayname: Resource Manager
+      href: quickstart-create-nat-gateway-template.md
+    - name: Create and validate NAT gateway - PowerShell
+      href: tutorial-create-validate-nat-gateway-powershell.md
+    - name: Create and validate NAT gateway - CLI
+      href: tutorial-create-validate-nat-gateway-cli.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot virtual network peering issues

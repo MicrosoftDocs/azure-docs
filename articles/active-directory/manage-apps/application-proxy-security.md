@@ -95,7 +95,7 @@ A flow between the connector and the Application Proxy service is established wh
 * A user accesses a published application.
 
 >[!NOTE]
->All communications occur over SSL, and they always originate at the connector to the Application Proxy service. The service is outbound only.
+>All communications occur over TLS, and they always originate at the connector to the Application Proxy service. The service is outbound only.
 
 The connector uses a client certificate to authenticate to the Application Proxy service for nearly all calls. The only exception to this process is the initial setup step, where the client certificate is established.
 

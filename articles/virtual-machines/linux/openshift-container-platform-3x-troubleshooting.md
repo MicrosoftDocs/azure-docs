@@ -99,7 +99,7 @@ The private key is copied into the ansible playbook host - ~/.ssh/id_rsa. Confir
 
 When providing the input to the template or Marketplace offer, the incorrect information was provided. Make sure you use the correct appId (clientId) and password (clientSecret) for the service principal. Verify by issuing the following azure cli command.
 
-```bash
+```azurecli
 az login --service-principal -u <client id> -p <client secret> -t <tenant id>
 ```
 
@@ -107,7 +107,7 @@ az login --service-principal -u <client id> -p <client secret> -t <tenant id>
 
 If the Azure cloud provider is enabled, then the service principal used must have contributor access to the resource group. Verify by issuing the following azure cli command.
 
-```bash
+```azurecli
 az group update -g <openshift resource group> --set tags.sptest=test
 ```
 

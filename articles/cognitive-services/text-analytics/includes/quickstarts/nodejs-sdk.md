@@ -28,9 +28,9 @@ ms.reviewer: sumeh, assafi
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * The current version of [Node.js](https://nodejs.org/).
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. 
-    * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll do this later in the quickstart.
-    * You can use the free pricing tier to try the service, and upgrade later to a paid tier for production.
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
 
@@ -56,7 +56,7 @@ npm init
 Install the `@azure/ai-text-analytics` NPM packages:
 
 ```console
-npm install --save @azure/ai-text-analytics
+npm install --save @azure/ai-text-analytics@1.0.0-preview.3
 ```
 
 > [!TIP]

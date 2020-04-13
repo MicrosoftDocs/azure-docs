@@ -70,6 +70,14 @@ No. Azure Migrate supports migration only to managed disks (Standard HDD, Premiu
 
 Currently, you can migrate 100 VMs per instance of vCenter Server simultaneously. Migrate in batches of 10 VMs.
 
+## How do I throttle replication in using Azure Migrate appliance for agentless VMware replication?  
+
+You can throttle using NetQosPolicy. For example:
+
+The AppNamePrefix to use in the NetQosPolicy is "GatewayWindowsService.exe". You could create a policy on the Azure Migrate appliance to throttle replication traffic from the appliance by creating a policy such as this one:
+ 
+New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB
+
 ## When do I migrate machines as physical servers?
 
 Migrating machines by treating them as physical servers is useful in a number of scenarios:

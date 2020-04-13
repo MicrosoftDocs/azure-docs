@@ -1,15 +1,12 @@
 ---
 title: Go-To-Market Services - Marketing best practices | Azure
 description: Go-To-Market Services - this section describes marketing best practices for publishers of Azure Marketplace
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 6/24/2018
-ms.author: ellacroi
-
+ms.author: dsindona
 ---
 
 # Marketing best practices

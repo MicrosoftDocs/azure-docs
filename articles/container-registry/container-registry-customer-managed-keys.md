@@ -403,9 +403,9 @@ Revoking the key effectively blocks access to all registry data, since the regis
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
 [az-keyvault-create]: /cli/azure/keyvault#az-keyvault-create
-[az-keyvault-key-create]: /cli/azure/keyvault/keyt#az-keyvault-key-create
-[az-keyvault-set-policy]: /cli/azure/keyvault/keyt#az-keyvault-set-policy
-[az-keyvault-delete-policy]: /cli/azure/keyvault/keyt#az-keyvault-delete-policy
+[az-keyvault-key-create]: /cli/azure/keyvault/key#az-keyvault-key-create
+[az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy
+[az-keyvault-delete-policy]: /cli/azure/keyvault#az-keyvault-delete-policy
 [az-resource-show]: /cli/azure/resource#az-resource-show
 [az-acr-create]: /cli/azure/acr#az-acr-create
 [az-acr-show]: /cli/azure/acr#az-acr-show

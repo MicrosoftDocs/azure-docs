@@ -121,23 +121,8 @@ The following table summarizes the file fields to fill in:
 **Network In throughput** | No | Data received by the server, in MB per second.
 **Network Out throughput** | No | Data transmitted by the server, in MB per second.
 **Firmware type** | No | Server firmware. Values can be "BIOS" or "UEFI".
-**Server type** | No | Values can be "Physical" or "Virtual".
-**Hypervisor** | No | Hypervisor on which a machine is running. <br/> Values can be "VMware", "Hyper-V", "Xen", "AWS", "GCP", or "Other".
-**Hypervisor version number** | No | Hypervisor version.
-**Virtual machine ID** | No | VM identifier. This is the **InstanceUUid** value for a VMware vCenter VM, or the **Hyper-V VM ID** for Hyper-V.
-**Virtual machine manager ID** | No | This is the **InstanceUUid** value for VMWare vCenter. It isn't needed for Hyper-V.
 **MAC address**| No | Server MAC address.
-**BIOS ID** | No | Server BIOS ID.
-**Custom server ID** | No | Local, unique server ID on-premises. <br/> Useful for tracking the imported server by local ID.
-**Application 1 name** | No | Name of workload running on the server.<br/>You can add details for more apps by [adding columns](#add-multiple-applications) in the template. You can add up to five applications.
-**Application 1 type** | No | Type of workload running on the server
-**Application 1 version** | No | Version of the workload running on the server.
-**Application 1 license expiry** | No | License expiry of the workload (if applicable).
-**Business unit** | No | Business unit that the server belongs to.
-**Business owner** | No | Business unit owner.
-**Business application name** | No | Name of the application to which the app belongs.
-**Location** | No | Datacenter in which the server is located.
-**Server decommission date** | No | Decommission date of physical server or of the underlying physical server of the virtual server.
+
 
 ### Add operating systems
 
@@ -155,19 +140,6 @@ For example, to specify all fields for a second disk, add these columns:
 - Disk 2 read throughput
 - Disk 2 write throughput
 
-### Add multiple applications
-
-The template provides fields for a single application. You can add similar columns for up to five apps.  
-
-For example, to specify all fields for a second app, add these columns:
-
-- Application 2 name
-- Application 2 type
-- Application 2 version
-- Application 2 license expiry
-
-> [!NOTE]
-> App information is useful in evaluating your on-premises environment for migration. However, Azure Migrate Server Assessment doesn't currently perform app-level assessment or take apps into account when creating an assessment.
 
 ## Import the server information
 

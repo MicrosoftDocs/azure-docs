@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2018
+ms.date: 3/18/2020
 ---
 
 # Azure Database for MariaDB: Use MySQL Workbench to connect and query data

@@ -98,6 +98,10 @@ Running the pre-registration script performs the following functions:
   * SAP_INTERNAL_HANA_SUPPORT: to access a few private tables.
 * The script adds a key to **hdbuserstore** for AZUREWLBACKUPHANAUSER for the HANA backup plug-in to handle all operations (database queries, restore operations, configuring and running backup).
 
+>[!NOTE]
+> You can explicitly pass the user key listed as part of the [prerequisites](#prerequisites) as a parameter to the pre-registration script: `-sk SYSTEM_KEY_NAME, --system-key SYSTEM_KEY_NAME` <br><br>
+>To learn what other parameters the script accepts, use the command `bash msawb-plugin-config-com-sap-hana.sh --help`
+
 To confirm the key creation, run the HDBSQL command on the HANA machine with SIDADM credentials:
 
 ```hdbsql

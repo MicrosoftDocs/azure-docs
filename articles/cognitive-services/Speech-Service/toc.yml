@@ -18,8 +18,10 @@
       href: index-speech-to-text.yml
     - name: Overview
       items:
-        - name: What is speech-to-text?
+        - name: What is real-time speech-to-text?
           href: speech-to-text.md
+        - name: What is batch speech-to-text?
+          href: batch-transcription.md
         - name: Speech recognition basics
           href: speech-to-text-basics.md
     - name: Quickstart
@@ -40,18 +42,21 @@
           href: how-to-custom-speech.md
         - name: Use compressed audio input formats
           href: how-to-use-codec-compressed-audio-input-streams.md
+          displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
         - name: Improve accuracy with Phrase Lists
           href: how-to-phrase-lists.md
-        - name: Improve accuracy with tenant models
-          href: tutorial-tenant-model.md
         - name: Select a specific microphone input device
           href: how-to-select-audio-input-devices.md
         - name: Use automatic source language detection
           href: how-to-automatic-language-detection.md
+    - name: Tutorials
+      items:
+        - name: Improve accuracy with tenant models
+          href: tutorial-tenant-model.md
     - name: Customization
       items:
         - name: Prepare data for Custom Speech
-          href: how-to-custom-speech-test-data.md
+          href: how-to-custom-speech-test-and-train.md
         - name: Inspect Custom Speech data
           href: how-to-custom-speech-inspect-data.md
         - name: Evaluate Custom Speech accuracy
@@ -62,10 +67,6 @@
           href: how-to-custom-speech-deploy-model.md
         - name: Create human-labeled transcriptions
           href: how-to-custom-speech-human-labeled-transcriptions.md
-        - name: Custom keyword naming guidelines
-          href: speech-devices-sdk-kws-guidelines.md
-        - name: Custom keyword spotting
-          href: speech-devices-sdk-create-kws.md
     - name: Reference
       items:
         - name: Speech SDK APIs
@@ -95,12 +96,12 @@
           items:
             - name: Speech-to-text REST API
               href: rest-speech-to-text.md
-            - name: Batch transcription REST API
-              href: batch-transcription.md
-        - name: Language support
-          href: 'language-support.md#speech-to-text'
     - name: Resources
       items:
+        - name: Language support
+          href: language-support.md#speech-to-text
+        - name: Region support
+          href: regions.md#speech-to-text-text-to-speech-and-translation
         - name: Speech-to-text FAQ
           displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
           href: faq-stt.md
@@ -112,6 +113,8 @@
       items:
         - name: What is text-to-speech?
           href: text-to-speech.md
+        - name: Text-to-speech basics
+          href: text-to-speech-basics.md
     - name: Quickstart
       items:
         - name: Synthesize speech to a speaker
@@ -124,9 +127,6 @@
       items:
         - name: Improve synthesis with SSML
           href: speech-synthesis-markup.md
-        - name: Improve synthesis with Custom Voice
-          displayName: custom voice
-          href: how-to-custom-voice.md
         - name: Synthesize speech with Long Audio API
           href: long-audio-api.md
         - name: Get a list of voices with REST (Python)
@@ -193,14 +193,16 @@
           items:
             - name: Text-to-speech REST API
               href: rest-text-to-speech.md
-        - name: Standard voice support
-          href: 'language-support.md#standard-voices'
-        - name: Neural voice support
-          href: 'language-support.md#neural-voices'
-        - name: SSML phonetic sets
-          href: speech-ssml-phonetic-sets.md
     - name: Resources
       items:
+        - name: Standard voice support
+          href: language-support.md#standard-voices
+        - name: Neural voice support
+          href: language-support.md#neural-voices
+        - name: Region support
+          href: regions.md#speech-to-text-text-to-speech-and-translation
+        - name: SSML phonetic sets
+          href: speech-ssml-phonetic-sets.md
         - name: Text-to-speech FAQ
           displayName: 'FAQ,TTS FAQ,SS FAQ,frequently asked questions'
           href: faq-text-to-speech.md
@@ -212,6 +214,8 @@
       items:
         - name: What is speech translation?
           href: speech-translation.md
+        - name: Speech translation basics
+          href: speech-translation-basics.md
     - name: Quickstart
       items:
         - name: Translate speech-to-text
@@ -249,10 +253,12 @@
             - name: Release notes
               displayName: 'release notes,updates,what''s new,what is new,changes'
               href: releasenotes.md
-        - name: Language support
-          href: 'language-support.md#speech-translation'
     - name: Resources
       items:
+        - name: Language support
+          href: language-support.md#speech-translation
+        - name: Region support
+          href: regions.md#speech-to-text-text-to-speech-and-translation
         - name: Speech translation FAQ
           href: 'https://www.microsoft.com/translator/faq.aspx'
 - name: Intent recognition
@@ -297,6 +303,12 @@
           items:
             - name: LUIS developer resources
               href: https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource
+    - name: Resources
+      items:
+        - name: Language support
+          href: ../luis/luis-language-support.md
+        - name: Region support
+          href: regions.md#intent-recognition
 - name: Conversation scenarios
   items:
     - name: Conversation scenarios documentation
@@ -402,12 +414,8 @@
           href: direct-line-speech.md
         - name: Quickstarts
           items:
-            - name: 'C# (UWP)'
-              href: quickstart-voice-assistant-csharp-uwp.md
-            - name: 'Java (Windows, macOS, Linux)'
-              href: quickstart-voice-assistant-java-jre.md
-            - name: Java (Android)
-              href: quickstart-voice-assistant-java-android.md
+            - name: 'Create a custom voice assistant'
+              href: quickstarts/voice-assistants.md
         - name: Tutorials
           items:
             - name: Voice enable your bot with Speech SDK
@@ -440,6 +448,10 @@
         - name: Speech containers on Azure container instances
           displayName: 'ACI,azure container instances,container instances,containers'
           href: deploy-speech-on-container-instances.md
+    - name: Resources
+      items:
+      - name: Containers FAQ
+        href: speech-container-faq.md
 - name: Speech SDK
   items:
     - name: Overview
@@ -448,8 +460,6 @@
           href: speech-sdk.md
         - name: Scenario availability
           href: scenario-availability.md
-        - name: Ship an application
-          href: ship-application.md
     - name: Quickstart
       items:
         - name: Setup Speech SDK
@@ -464,6 +474,9 @@
         - name: Configure OpenSSL for Linux
           displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
           href: how-to-configure-openssl-linux.md
+        - name: Configure RHEL/CentOS 7
+          href: how-to-configure-rhel-centos-7.md
+          displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentOS
     - name: Samples
       items:
         - name: Speech SDK samples (GitHub)
@@ -536,6 +549,8 @@
       href: sovereign-clouds.md
     - name: Pricing and limits
       href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+    - name: Pricing calculator
+      href: https://azure.microsoft.com/pricing/calculator/#cognitive-services
     - name: Compliance
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - name: Encryption

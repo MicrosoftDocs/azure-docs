@@ -2,11 +2,13 @@
 title: Deploy resources with Azure CLI and template
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/25/2020
 ---
-# Deploy resources with Resource Manager templates and Azure CLI
+# Deploy resources with ARM templates and Azure CLI
 
-This article explains how to use Azure CLI with Resource Manager templates to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [template deployment overview](overview.md).
+This article explains how to use Azure CLI with Azure Resource Manager (ARM) templates to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [template deployment overview](overview.md).
+
+The deployment commands changed in Azure CLI version 2.2.0. The examples in this article require Azure CLI version 2.2.0 or later.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -64,7 +66,7 @@ The following example creates a resource group, and deploys a template from your
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.json \
@@ -79,13 +81,13 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 
 ## Deploy remote template
 
-Instead of storing Resource Manager templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
+Instead of storing ARM templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
 
 To deploy an external template, use the **template-uri** parameter. Use the URI in the example to deploy the sample template from GitHub.
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
@@ -100,7 +102,7 @@ In the Cloud Shell, use the following commands:
 
 ```azurecli-interactive
 az group create --name examplegroup --location "South Central US"
-az group deployment create --resource-group examplegroup \
+az deployment group create --resource-group examplegroup \
   --template-uri <copied URL> \
   --parameters storageAccountType=Standard_GRS
 ```
@@ -114,7 +116,7 @@ To pass parameter values, you can use either inline parameters or a parameter fi
 To pass inline parameters, provide the values in `parameters`. For example, to pass a string and array to a template is a Bash shell, use:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group testgroup \
   --template-file demotemplate.json \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
@@ -125,7 +127,7 @@ If you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, pass 
 You can also get the contents of file and provide that content as an inline parameter.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group testgroup \
   --template-file demotemplate.json \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
@@ -151,7 +153,7 @@ For more information about the parameter file, see [Create Resource Manager para
 To pass a local parameter file, use `@` to specify a local file named storage.parameters.json.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.json \
@@ -182,10 +184,10 @@ To deploy a template with multi-line strings or comments, you must use the `--ha
 
 ## Test a template deployment
 
-To test your template and parameter values without actually deploying any resources, use [az group deployment validate](/cli/azure/group/deployment#az-group-deployment-validate).
+To test your template and parameter values without actually deploying any resources, use [az deployment group validate](/cli/azure/group/deployment).
 
 ```azurecli-interactive
-az group deployment validate \
+az deployment group validate \
   --resource-group ExampleGroup \
   --template-file storage.json \
   --parameters @storage.parameters.json
@@ -235,7 +237,7 @@ If your template has a syntax error, the command returns an error indicating it 
 
 - To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
 - To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
-- To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
+- To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
 - For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
 - For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](secure-template-with-sas-token.md).
 - To safely roll out your service to more than one region, see [Azure Deployment Manager](deployment-manager-overview.md).
