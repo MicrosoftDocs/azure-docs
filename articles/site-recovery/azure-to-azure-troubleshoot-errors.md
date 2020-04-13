@@ -164,7 +164,7 @@ Because SUSE Linux uses symbolic links, or symlinks, to maintain a certificate l
    -rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0
    ```
 
-## Outbound connectivity for URLs or IP ranges (error code 151037 or 151072)
+## Outbound URLs or IP ranges (error code 151037 or 151072)
 
 For Site Recovery replication to work, outbound connectivity to specific URLs is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues. While we continue to support outbound access via URLs, using an allow list of IP ranges is no longer supported.
 
@@ -240,7 +240,7 @@ The custom proxy settings are invalid and the Mobility service agent didn't auto
 
 To specify the [required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), follow the guidance in [About networking in Azure to Azure replication](azure-to-azure-about-networking.md).
 
-## Disk not found in the machine (error code 150039)
+## Disk not found in VM (error code 150039)
 
 A new disk attached to the VM must be initialized. If the disk isn't found, the following message is displayed:
 
@@ -262,7 +262,7 @@ Make sure that the data disks are initialized, and then retry the operation.
 
 If the problem persists, contact support.
 
-## One or more disks are available for protection (error code 153039)
+## Multiple disks available for protection (error code 153039)
 
 ### Possible causes
 
@@ -337,7 +337,7 @@ A stale configuration can occur on an Azure VM if you enabled replication for th
 1. Run the script, _Cleanup-stale-asr-config-Azure-VM.ps1_. Provide the **Subscription ID**, **VM Resource Group**, and **VM name** as parameters.
 1. If you're prompted for Azure credentials, provide them. Then verify that the script runs without any failures.
 
-## Unable to select VM or resource group in the enable replication job
+## Can't select VM or resource group in enable replication job
 
 ### Issue 1: The resource group and source VM are in different locations
 
@@ -395,7 +395,7 @@ To enable replication on the VM, its provisioning state must be **Succeeded**. F
 - If the **provisioningState** is **Failed**, contact support with details to troubleshoot.
 - If the **provisioningState** is **Updating**, another extension might be being deployed. Check whether there are any ongoing operations on the VM, wait for them to finish, and then retry the failed Site Recovery job to enable replication.
 
-## Unable to select target VM (network selection tab is unavailable)
+## Unable to select target VM
 
 ### Issue 1: VM is attached to a network that's already mapped to a target network
 
@@ -453,7 +453,7 @@ The disk is smaller than the supported size of 1024 MB.
 
 Make sure that the disk size is within the supported size range, and then retry the operation.
 
-## Protection not enabled when GRUB uses device name rather than UUID (error code 151126)
+## Protection not enabled when GRUB uses device name (error code 151126)
 
 ### Possible causes
 
@@ -488,7 +488,7 @@ Replace each device name with the corresponding UUID:
 
 1. Retry the protection.
 
-## Enable protection failed because GRUB device doesn't exist (error code 151124)
+## Protection failed because GRUB device doesn't exist (error code 151124)
 
 ### Possible cause
 
@@ -521,7 +521,7 @@ The Site Recovery Mobility service has many components, one of which is called t
 >
 > Apart from the filter driver, the benefits of any other enhancements and fixes in the Mobility service update take effect without requiring a restart.
 
-## Protection not enabled because replica managed disk already exists
+## Protection not enabled if replica managed disk exists
 
 This error occurs when the replica managed disk already exists, without expected tags, in the target resource group.
 
