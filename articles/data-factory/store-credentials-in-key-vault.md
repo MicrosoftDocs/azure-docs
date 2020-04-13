@@ -11,7 +11,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 04/13/2020
 ms.author: jingwang
 ---
 
