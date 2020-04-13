@@ -141,4 +141,4 @@ A main feature of Azure Digital Twins is the ability to query your twin graph ea
 * Query twins based on relationships
     `queryTwins SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor1'`
 
-You can also play around with combining the above queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`.
+You can also combine the above queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`.

@@ -48,14 +48,13 @@ Run the following command to upload the models for *Floor* and *Room*.
 
 Afterwards, you can verify the models were created with the `listModels` command. 
 
-## Create your graph with twins and relationships
+## Create digital twins
 
-Now that you have uploaded some models to your Azure Digital Twins instance, you can create **digital twins** based on the model definitions. Digital twins represent the entities within your business environment, and can be things like sensors on a farm, rooms in a building, or lights in a car.
-These are the elements that you will connect via **relationships** to form a **twin graph** of your entire environment.
+Now that you have uploaded some models to your Azure Digital Twins instance, you can create **digital twins** based on the model definitions. Digital twins represent the entities within your business environment, and can be things like sensors on a farm, rooms in a building, or lights in a car. 
 
-To create a twin, you must reference the model that the twin is based on, and define values for any properties in the model.
+To create a twin, you reference the model that the twin is based on, and define values for any properties in the model.
 
-The following example creates several twins based on the *Floor* and *Room* models. Recall that *Room* has two properties, so the twins below must provide initial values to these as arguments.
+Run this code to create several twins based on the *Floor* and *Room* models. Recall that *Room* has two properties, so creating a twin of this type requires you to provide arguments with the initial values.
 
 ```csharp
 addTwin urn:example:Floor:1 floor0
@@ -63,10 +62,13 @@ addTwin urn:example:Room:1 room0 Temperature double 100 Humidity double 60
 addTwin urn:example:Room:1 room1 Temperature double 200 Humidity double 30
 ```
 
-Verify the twins were created by querying your Azure Digital Twins instance with `queryTwins`.
+Verify that the twins were created by querying your Azure Digital Twins instance with `queryTwins`.
+
    * Notice that `queryTwins` allows you to input SQL-like queries as an argument, but leaving it blank executes a `SELECT * FROM DIGITALTWINS` query.
 
-Next, we'll connect these twins using relationships. The following example adds a "contains" edge from the *Floor* twin to each of the *Room* twins.
+## Create a graph by adding relationships
+
+Next, we'll connect these twins using **relationships** to form a **twin graph** of your entire environment. The following example adds a "contains" edge from the *Floor* twin to each of the *Room* twins.
 
   ```csharp
   addEdge floor0 contains room0 edge0
