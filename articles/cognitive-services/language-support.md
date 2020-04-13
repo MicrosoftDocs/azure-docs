@@ -25,39 +25,38 @@ These Cognitive Services are language agnostic and don't have limitations based 
 
 ## Vision
 
-* [Computer Vision](./computer-vision/language-support)
-* [Form Recognizer (Preview)](./form-recognizer/language-support)
-* [Ink Recognizer (Preview)](./ink-recognizer/language-support)
+* [Computer Vision](./computer-vision/language-support.md)
+* [Form Recognizer (Preview)](./form-recognizer/language-support.md)
+* [Ink Recognizer (Preview)](./ink-recognizer/language-support.md)
 * [Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/language-identification-model#guidelines-and-limitations)
 
 ## Speech
 
-* [Custom Speech](./custom-speech-service/customspeech-how-to-topics/cognitive-services-custom-speech-change-locale)
-* [Speech Service: Speech-to-Text](./speech-service/supported-languages#speech-to-text)
-* [Speech Service:Text-to-Speech](./speech-service/supported-languages#text-to-speech)
-* [Speech Service: Speech Translation](./speech-service/supported-languages#speech-translation)
+* [Speech Service: Speech-to-Text](./speech-service/supported-languages.md#speech-to-text)
+* [Speech Service:Text-to-Speech](./speech-service/supported-languages.md#text-to-speech)
+* [Speech Service: Speech Translation](./speech-service/supported-languages.md#speech-translation)
 
 ## Language
 
-* [Immersive Reader (Preview)](./immersive-reader/language-support)
-* [Language Understanding (LUIS)](./luis/luis-supported-languages)
-* [QnA Maker](./qnamaker/overview/languages-supported)
-* [Translator Text](./translator/languages)
-* [Text Analytics](./text-analytics/text-analytics-supported-languages)
+* [Immersive Reader (Preview)](./immersive-reader/language-support.md)
+* [Language Understanding (LUIS)](./luis/luis-supported-languages.md)
+* [QnA Maker](./qnamaker/overview/languages-supported.md)
+* [Translator Text](./translator/languages.md)
+* [Text Analytics](./text-analytics/text-analytics-supported-languages.md)
 
 ## Search
 
-* [Bing Custom Search](./bing-custom-search/supported-countries-markets)
-* [Bing Image Search](./bing-image-search/supported-countries-markets)
-* [Bing News Search](./bing-news-search/supported-countries-markets)
-* [Bing Autosuggest](./Bing-Autosuggest/bing-autosuggest-supported-languages)
-* [Bing Spell Check](./bing-spell-check/bing-spell-check-supported-languages)
-* [Bing Visual Search](./bing-visual-search/supported-countries-markets)
-* [Bing Web Search](./bing-web-search/supported-countries-markets)
+* [Bing Custom Search](./bing-custom-search/supported-countries-markets.md)
+* [Bing Image Search](./bing-image-search/supported-countries-markets.md)
+* [Bing News Search](./bing-news-search/supported-countries-markets.md)
+* [Bing Autosuggest](./Bing-Autosuggest/bing-autosuggest-supported-languages.md)
+* [Bing Spell Check](./bing-spell-check/bing-spell-check-supported-languages.md)
+* [Bing Visual Search](./bing-visual-search/supported-countries-markets.md)
+* [Bing Web Search](./bing-web-search/supported-countries-markets.md)
 
 ## Decision
 
-* [Content Moderator](./content-moderator/text-moderation-api-languages)
+* [Content Moderator](./content-moderator/text-moderation-api-languages.md)
 
 ## See also
 
