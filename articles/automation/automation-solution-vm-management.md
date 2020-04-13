@@ -8,7 +8,7 @@ ms.topic: conceptual
 ---
 # Start/stop VMs during off-hours solution in Azure Automation
 
-The **Start/stop VMs during off-hours solution start or stops your Azure virtual machines. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/platform/action-groups.md). The solution supports both Azure Resource Manager and classic VMs for most scenarios. 
+The **Start/stop VMs during off-hours solution** starts or stops your Azure virtual machines. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/platform/action-groups.md). The solution supports both Azure Resource Manager and classic VMs for most scenarios. 
 
 This solution provides a decentralized low-cost automation option for users who want to optimize their VM costs. With this solution, you can:
 
@@ -85,7 +85,7 @@ The user deploying the solution needs the following roles:
 
 ## Solution components
 
-The **Start/stop VMs during off-hours solution include preconfigured runbooks, schedules, and integration with Azure Monitor logs. You can use these elements to tailor the startup and shutdown of your VMs to suit your business needs.
+The **Start/stop VMs during off-hours solution** includes preconfigured runbooks, schedules, and integration with Azure Monitor logs. You can use these elements to tailor the startup and shutdown of your VMs to suit your business needs.
 
 ### Runbooks
 
