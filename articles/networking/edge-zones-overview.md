@@ -105,7 +105,7 @@ We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to
 
 #### <a name="vnf"></a>Virtualized network functions (VNFs)
 
-**<a name="vEPC"></a>Virtualized Evolved Packet Core (vEPC) for mobile networks**
+##### <a name="vEPC"></a>Virtualized Evolved Packet Core (vEPC) for mobile networks
 
 - [Affirmed Networks](https://www.affirmednetworks.com/)
 - [Druid Software](https://www.druidsoftware.com/)
@@ -114,25 +114,25 @@ We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to
 - [Metaswitch](https://www.metaswitch.com/)
 - [Nokia Digital Automation Cloud](https://www.dac.nokia.com/)
 
-**<a name="mobile-radio"></a>Mobile radio partners**
+##### <a name="mobile-radio"></a>Mobile radio partners
 
 - [Commscope Ruckus](https://support.ruckuswireless.com/)
 
-**<a name="sdwan-vendors"></a>SD-WAN vendors**
+##### <a name="sdwan-vendors"></a>SD-WAN vendors
 
 - [NetFoundry](https://netfoundry.io/)
 - [Nuage Networks from Nokia](https://www.nuagenetworks.net/)
 - [VMware SD-WAN by Velocloud](https://www.velocloud.com/)
 
-**<a name="router-vendors"></a>Router vendors**
+##### <a name="router-vendors"></a>Router vendors
 
 - [Arista](https://www.arista.com/)
 
-**<a name="firewall-vendors"></a>Firewall vendors**
+##### <a name="firewall-vendors"></a>Firewall vendors
 
 - [Palo Alto Networks](https://www.paloaltonetworks.com/)
 
-**<a name="msp-mobile"></a>Managed Solutions Providers: Mobile operators and Global System Integrators (GSIs)**
+##### <a name="msp-mobile"></a>Managed Solutions Providers: Mobile operators and Global System Integrators (GSIs)
 
 | GSIs and operators | Mobile operators |
 | --- | --- |
