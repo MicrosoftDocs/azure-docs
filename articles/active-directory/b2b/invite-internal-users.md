@@ -40,7 +40,7 @@ In these instances, if the internal user must be changed to a B2B user, you shou
 
 **On-premises synced users**: For user accounts that are synced between on-premises and the cloud, the on-premises directory remains the source of authority after they’re invited to use B2B collaboration. Any changes you make to the on-premises account will sync to the cloud account, including disabling or deleting the account. Therefore, you can’t prevent the user from signing into their on-premises account while retaining their cloud account by simply deleting the on-premises account. Instead, you can set the on-premises account password to a random GUID or other unknown value.
 
-## To invite internal users to B2B collaboration
+## How to invite internal users to B2B collaboration
 
 You can use PowerShell or the invitation API to send a B2B invitation to the internal user. Make sure the email address you want to use for the invitation is set as the external email address on the internal user object.
 
@@ -53,7 +53,7 @@ By default, the invitation will send the user an email letting them know they’
 > [!NOTE]
 > To send your own email or other communication, you can use New-AzureADMSInvitation with -SendInvitationMessage:$false to invite users silently, and then send your own email message to the converted user. See [Azure AD B2B collaboration API and customization](customize-invitation-api.md).
 
-### Use PowerShell to send a B2B invitation
+## Use PowerShell to send a B2B invitation
 
 Use the following command to invite the user to B2B collaboration:
 
@@ -65,7 +65,7 @@ $msGraphUser = New-Object Microsoft.Open.MSGraph.Model.User -ArgumentList $ADGra
 New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitationMessage $True -InviteRedirectUrl "http://myapps.microsoft.com" -InvitedUser $msGraphUser
 ```
 
-### Use the invitation API to send a B2B invitation
+## Use the invitation API to send a B2B invitation
 
 The sample below illustrates how to call the invitation API to invite an internal user as a B2B user.
 
@@ -94,3 +94,7 @@ ContentType: application/json
 ```
 
 The response to the API is the same response you get when you invite a new guest user to the directory.
+
+## Next steps
+
+- [B2B collaboration invitation redemption](redemption-experience.md)
