@@ -18,7 +18,7 @@ Azure IoT Edge provides metrics that let you monitor real-time information on th
 
 * Azure CLI
 
-These metrics are obtained from the edgeAgent and edgeHub IoT Edge runtime modules. Specifically, real-time status values of deployed modules are read from the edgeHub reported properties by the device's or module's ID. A deployed module can set reported properties, and the solution backend can read and query them. Reported properties are used along with desired properties to synchronize module configuration or conditions. For details, see [Properties of the IoT Edge agent and IoT Edge hub module twins](module-edgeagent-edgehub.md).
+These metrics are obtained from the edgeAgent and edgeHub IoT Edge runtime modules. Specifically, real-time status values of deployed modules are read from the edgeHub reported properties. A deployed module can set reported properties, and the solution backend can read and query them. Reported properties are used along with desired properties to synchronize module configuration or conditions. For details on these properties, see [Properties of the IoT Edge agent and IoT Edge hub module twins](module-edgeagent-edgehub.md). In addition, custom properties can be configured in the deployment process. 
 
 ## Monitor a deployment in the Azure portal
 
@@ -45,10 +45,10 @@ To view the details of a deployment and monitor the devices running it, use the 
 
    ![View metrics for a selected deployment](./media/how-to-monitor-iot-edge-deployments/deployment-metrics-tab.png)
 
-1. Select the **Edit Metrics** button to view and edit the criteria for each metric. Every deployment has four default metrics. In this example, the custom metric `successfullyConfigured` is included for the current deployment.
+1. Select the **Edit Metrics** button to view and edit the criteria for each metric. Every deployment has four default metrics. In addition, the custom metric `successfullyConfigured` is included for the current deployment.
 
     | Metric | Type | Description |
-    | --- | --- | -- |
+    | --- | --- |--|
     | Targeted | Default | Shows the IoT Edge devices that match the Deployment targeting condition. |
     | Applied | Default | Shows the targeted IoT Edge devices that are not targeted by another deployment of higher priority. |
     | Reporting Success | Default | Shows the IoT Edge devices that have reported that the modules have been deployed successfully. |
@@ -101,4 +101,4 @@ The deployment show-metric command takes the following parameters:
 
 ## Next steps
 
-Learn how [communicate with edgeAgent using built-in direct methods](how-to-edgeagent-direct-method.md).
+Learn how [communicate with EdgeAgent using built-in direct methods](how-to-edgeagent-direct-method.md).
