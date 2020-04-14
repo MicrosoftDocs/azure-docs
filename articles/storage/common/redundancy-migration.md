@@ -42,7 +42,7 @@ The following table provides an overview of how to switch from each type of repl
 <sup>1</sup> Incurs a one-time egress charge.
 
 > [!CAUTION]
-> If you performed an [account failover](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance) for your (RA-)GRS or (RA-)GZRS account, it is configured to be locally redundant in the new primary region. Live migration to ZRS or GZRS for such LRS accounts is not supported. You will need to perform [manual migration](https://docs.microsoft.com/azure/storage/common/redundancy-migration#perform-a-manual-migration-to-zrs).
+> If you performed an [account failover](storage-disaster-recovery-guidance.md) for your (RA-)GRS or (RA-)GZRS account, the account is locally redundant in the new primary region after the failover. Live migration to ZRS or GZRS for an LRS account resulting from a failover is not supported. You will need to perform a [manual migration](#perform-a-manual-migration-to-zrs) to ZRS or GZRS.
 
 ## Change the replication setting
 
