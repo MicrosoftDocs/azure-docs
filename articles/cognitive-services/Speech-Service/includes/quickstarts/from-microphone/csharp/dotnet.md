@@ -94,4 +94,4 @@ Now you're ready to rebuild your app and test the speech recognition functionali
 
 ## Next steps
 
-[!INCLUDE [footer](../footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
