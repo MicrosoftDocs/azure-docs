@@ -1,10 +1,10 @@
 ---
-title: Change schema at runtime - LUIS
+title: Extend app at runtime - LUIS
 description:
 ms.topic: conceptual
 ms.date: 04/14/2020
 ---
-# Extend app schema at prediction runtime
+# Extend app at prediction runtime
 
 The app's schema (models and features) is trained and published to the prediction endpoint. This published model is used on the prediction runtime. You can pass new information, along with the user's utterance, to the prediction runtime to augment the prediction.
 
@@ -198,3 +198,5 @@ The prediction response includes that list entity, with all the other predicted 
 
 ## Next steps
 
+* [Prediction score](luis-concept-prediction-score.md)
+* [Authoring API V3 changes](luis-migration-api-v3.md)

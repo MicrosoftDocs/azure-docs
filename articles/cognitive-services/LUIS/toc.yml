@@ -99,7 +99,7 @@
     - name: Features
       href: luis-concept-feature.md
       displayName: descriptor, phrase list
-    - name: Runtime changes to models
+    - name: Extend app at runtime
       href: schema-change-prediction-runtime.md
   - name: Prediction score
     href: luis-concept-prediction-score.md
