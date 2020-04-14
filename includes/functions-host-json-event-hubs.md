@@ -6,7 +6,7 @@ ms.date: 09/04/2018
 ms.author: glenga
 ---
 
-### Azure Functions 1.0
+### Functions 1.x
 
 ```json
 {
