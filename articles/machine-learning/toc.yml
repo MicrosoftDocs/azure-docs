@@ -305,7 +305,6 @@
     - name: Visualize runs with TensorBoard
       displayName: log, monitor, metrics
       href: how-to-monitor-tensorboard.md
-
   - name: Deploy & serve models
     items: 
       - name: Where and how to deploy
