@@ -339,7 +339,7 @@
               href: how-to-deploy-existing-model.md
         - name: Troubleshoot & debug
           href: how-to-troubleshoot-deployment.md
-        - name: Create clients
+        - name: Call service endpoint
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
         - name: Monitor models

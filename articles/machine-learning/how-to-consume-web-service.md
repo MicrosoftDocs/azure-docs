@@ -1,7 +1,7 @@
 ---
 title: Create client for model deployed as web service
 titleSuffix: Azure Machine Learning
-description: Learn how to consume a web service that was generated when a model was deployed with Azure Machine Learning model. The web service exposes a REST API. Create clients for this API by using the programming language of your choice. 
+description: Learn how to call a web service endpoint that was generated when a model was deployed from Azure Machine Learning. The endpoint exposes a REST API, which you can call to perform inference with the model. Create clients for this API by using the programming language of your choice. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 01/07/2020
+ms.date: 04/14/2020
 ms.custom: seodec18
 
 
@@ -19,7 +19,7 @@ ms.custom: seodec18
 # Consume an Azure Machine Learning model deployed as a web service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Deploying an Azure Machine Learning model as a web service creates a REST API. You can send data to this API and receive the prediction returned by the model. In this document, learn how to create clients for the web service by using C#, Go, Java, and Python.
+Deploying an Azure Machine Learning model as a web service creates a REST API endpoint. You can send data to this endpoint and receive the prediction returned by the model. In this document, learn how to create clients for the web service by using C#, Go, Java, and Python.
 
 You create a web service when you deploy an image to Azure Container Instances, Azure Kubernetes Service, or field-programmable gate arrays (FPGA). You create images from registered models and scoring files. You retrieve the URI used to access a web service by using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). If authentication is enabled, you can also use the SDK to get the authentication keys or tokens.
 
