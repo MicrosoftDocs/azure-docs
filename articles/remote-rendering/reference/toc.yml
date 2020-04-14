@@ -10,3 +10,5 @@
   href: https://dev.azure.com/arrClient/arrClient/_git/arrClient
 - name: Azure Mixed Reality Resource Management REST API
   href: https://docs.microsoft.com/rest/api/mixedreality/
+- name: C# API documentation
+  href: https://review.docs.microsoft.com/dotnet/api/Microsoft.Azure.RemoteRendering
