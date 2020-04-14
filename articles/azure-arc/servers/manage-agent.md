@@ -251,7 +251,7 @@ To uninstall the Linux agent, the command to use depends on the Linux operating 
 
 ## Unregister machine
 
-If you are planning to stop managing the machine with supporting services in Azure, perform the following steps to unregister the machine with Arc for servers (preview). You can perform these step either before or after you have removed the Connected Machine agent from the machine.
+If you are planning to stop managing the machine with supporting services in Azure, perform the following steps to unregister the machine with Arc for servers (preview). You can perform these steps either before or after you have removed the Connected Machine agent from the machine.
 
 1. Open Azure Arc for servers (preview) by going to the [Azure portal](https://aka.ms/hybridmachineportal).
 
