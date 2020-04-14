@@ -25,7 +25,7 @@ You can trigger IntelliSense in any editor window by typing a trigger character,
 
 ### Types of completions
 
-Stream Analytics tools for VS Code IntelliSense offers different types of completions, including language server suggestions, snippets, and simple word based textual completions.
+Stream Analytics tools for VS Code IntelliSense offers different types of completions, including language server suggestions, snippets, and simple word-based textual completions.
 
 |       |         |       |
 | ----- | ------- | ----- |
