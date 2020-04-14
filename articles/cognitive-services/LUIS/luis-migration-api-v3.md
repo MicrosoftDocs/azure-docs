@@ -275,9 +275,12 @@ In V3, the same result with the `verbose` flag to return entity metadata:
 }
 ```
 
-## External entities passed in at prediction time
+<a name="external-entities-passed-in-at-prediction-time"></a>
+<a name="override-existing-model-predictions"></a>
 
-Learn [concepts](schema-change-prediction-runtime.md) about external entities sent with the user utterance at prediction runtime.
+## Extend the app at prediction time
+
+Learn [concepts](schema-change-prediction-runtime.md) about how to extend the app at prediction runtime.
 
 ## Deprecation
 

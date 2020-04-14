@@ -1,10 +1,16 @@
 ---
 title: Change schema at runtime - LUIS
-description: External entities give your LUIS app the ability to identify and label entities during runtime, which can be used as features to existing entities.
+description:
 ms.topic: conceptual
 ms.date: 04/14/2020
 ---
-# Change app schema at prediction runtime with external entities
+# Extend app schema at prediction runtime
+
+The app's schema (models and features) is trained and published to the prediction endpoint. This published model is used on the prediction runtime. You can pass new information, along with the user's utterance, to the prediction runtime to augment the prediction.
+
+Two prediction runtime schema changes include:
+* [External entities](#external-entities)
+* [Dynamic lists](#dynamic-lists)
 
 <a name="external-entities-passed-in-at-prediction-time"></a>
 
@@ -148,7 +154,7 @@ The `resolution` property can be a number, a string, an object, or an array:
 
 
 
-## Dynamic lists passed in at prediction time
+## Dynamic lists
 
 Dynamic lists allow you to extend an existing trained and published list entity, already in the LUIS app.
 
