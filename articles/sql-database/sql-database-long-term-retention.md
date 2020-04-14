@@ -78,7 +78,7 @@ Using long-term backup retention with an Azure SQL Database managed instances ha
 - **Limited public preview** - This preview is only available to EA and CSP subscriptions and is subject to limited availability.  
 - [**PowerShell only**](sql-database-managed-instance-long-term-backup-retention-configure.md) - There is currently no Azure portal support. LTR must be enabled using PowerShell. 
 
-To request enrollment, create an Azure support ticket under the support topic **Backup, Restore, and Business continuity / Long-term backup retention**.
+To request enrollment, create an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/) under the support topic **Backup, Restore, and Business continuity / Long-term backup retention**.
 
 
 ## Configure long-term backup retention
