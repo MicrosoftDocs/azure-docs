@@ -297,7 +297,7 @@ onboard machines to both pull from and report to Azure Automation State Configur
    Get-AzAutomationDscOnboardingMetaconfig @Params
    ```
 
-1. You should now have a **DscMetaConfigs** folder ontaining the PowerShell DSC metaconfigurations for the machines to onboard (as an administrator).
+1. You should now have a **DscMetaConfigs** folder containing the PowerShell DSC metaconfigurations for the machines to onboard (as an administrator).
 
     ```powershell
     Set-DscLocalConfigurationManager -Path $env:UserProfile\Desktop\DscMetaConfigs
