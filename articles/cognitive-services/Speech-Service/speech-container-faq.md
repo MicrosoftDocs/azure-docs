@@ -377,7 +377,7 @@ The doc says to expose a different port, which I do, but the LUIS container is s
 <b>How can I get non-batch APIs to handle audio &lt;15 seconds long?</b>
 </summary>
 
-**Answer:** This is in interactive mode. If you use dictation or conversation that is not a problem.
+**Answer:** This is in interactive mode with RecognizeOnce().  The 15 second limitiation is there because this mode is intended for Speech Commanding where the utterances are supposed to be short) . If you use dictation or conversation with StartContinuousRecognition() that is not a problem and there is no 15 second limitiation.
 
 
 <br>
