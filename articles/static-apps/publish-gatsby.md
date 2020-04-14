@@ -133,4 +133,5 @@ In this how to you created a Gatsby application and deployed it to App Service S
 
 Advance to the next article to learn how to add a custom domain to your application:
 
-> [!div class="nextstepaction"][setup a custom domain in app service static apps](static-apps-custom-domain.md)
+> [!div class="nextstepaction"]
+[setup a custom domain in app service static apps](static-apps-custom-domain.md)
