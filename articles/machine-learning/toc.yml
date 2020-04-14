@@ -305,52 +305,53 @@
     - name: Visualize runs with TensorBoard
       displayName: log, monitor, metrics
       href: how-to-monitor-tensorboard.md
-    - name: Deploy & serve models
-      items: 
-        - name: Where and how to deploy
-          displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
-          href: how-to-deploy-and-where.md
-        - name: Deployment scenarios
-          items: 
-            - name: Azure ML compute instances
-              href: how-to-deploy-local-container-notebook-vm.md
-            - name: Azure Kubernetes Service
-              displayName: aks, aad, authentication, azure active directory
-              href: how-to-deploy-azure-kubernetes-service.md
-            - name: Azure Container Instances
-              displayName: aci
-              href: how-to-deploy-azure-container-instance.md
-            - name: GPU inference
-              href: how-to-deploy-inferencing-gpus.md
-            - name: Azure App Service
-              displayName: web app
-              href: how-to-deploy-app-service.md
-            - name: Azure Functions
-              displayName: functions app
-              href: how-to-deploy-functions.md
-            - name: Azure IoT Edge devices
-              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
-            - name: FPGA inference
-              href: how-to-deploy-fpga-web-service.md
-            - name: Custom Docker images
-              href: how-to-deploy-custom-docker-image.md
-            - name: Non-Azure ML models
-              displayName: publish existing model
-              href: how-to-deploy-existing-model.md
-        - name: Troubleshoot & debug
-          href: how-to-troubleshoot-deployment.md
-        - name: Call service endpoint
-          displayName: create client consume request response synchronous
-          href: how-to-consume-web-service.md
-        - name: Monitor models
-          items: 
-            - name: Collect & evaluate model data
-              displayName: track production
-              href: how-to-enable-data-collection.md
-            - name: Detect data drift
-              href: how-to-monitor-data-drift.md
-            - name: Monitor with Application Insights
-              href: how-to-enable-app-insights.md
+
+  - name: Deploy & serve models
+    items: 
+      - name: Where and how to deploy
+        displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
+        href: how-to-deploy-and-where.md
+      - name: Deployment scenarios
+        items: 
+          - name: Azure ML compute instances
+            href: how-to-deploy-local-container-notebook-vm.md
+          - name: Azure Kubernetes Service
+            displayName: aks, aad, authentication, azure active directory
+            href: how-to-deploy-azure-kubernetes-service.md
+          - name: Azure Container Instances
+            displayName: aci
+            href: how-to-deploy-azure-container-instance.md
+          - name: GPU inference
+            href: how-to-deploy-inferencing-gpus.md
+          - name: Azure App Service
+            displayName: web app
+            href: how-to-deploy-app-service.md
+          - name: Azure Functions
+            displayName: functions app
+            href: how-to-deploy-functions.md
+          - name: Azure IoT Edge devices
+            href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+          - name: FPGA inference
+            href: how-to-deploy-fpga-web-service.md
+          - name: Custom Docker images
+            href: how-to-deploy-custom-docker-image.md
+          - name: Non-Azure ML models
+            displayName: publish existing model
+            href: how-to-deploy-existing-model.md
+      - name: Troubleshoot & debug
+        href: how-to-troubleshoot-deployment.md
+      - name: Call service endpoint
+        displayName: create client consume request response synchronous
+        href: how-to-consume-web-service.md
+      - name: Monitor models
+        items: 
+          - name: Collect & evaluate model data
+            displayName: track production
+            href: how-to-enable-data-collection.md
+          - name: Detect data drift
+            href: how-to-monitor-data-drift.md
+          - name: Monitor with Application Insights
+            href: how-to-enable-app-insights.md
 
   - name: Build & use ML pipelines
     displayName: pipelines
