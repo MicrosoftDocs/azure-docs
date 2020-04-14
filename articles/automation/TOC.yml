@@ -70,6 +70,16 @@
           href: python-packages.md
         - name: Troubleshoot shared resources
           href: /troubleshoot/shared-resources
+    - name: Start/Stop VMs during off hours
+      items:
+        - name: Overview
+          href: automation-solution-vm-management.md
+        - name: Enable 
+          href: automation-solution-vm-management-enable.md
+        - name: Configure
+          href: automation-solution-vm-management-config.md
+        - name: Analyze data with log queries
+          href: automation-solution-vm-management-logs.md
     - name: Manage software updates
       items:
         - name: Overview
@@ -148,3 +158,19 @@
               href: automation-role-based-access-control.md
             - name: Move your Automation Account to another subscription
               href: how-to/move-account.md
+        - name: Monitor
+          items:
+            - name: Forward job data to Azure Monitor Logs
+              href: automation-manage-send-joblogs-log-analytics.md
+        - Migrate:
+          items:
+            - name: Migrate from System Center Orchestrator
+              href: automation-orchestrator-migration.md
+- name: Reference
+  items: 
+    - name: PowerShell
+      href: https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-6.13.0
+    - name: .NET
+      href: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.automation?view=azure-dotnet
+    - name: REST
+      href: https://docs.microsoft.com/rest/api/automation/
