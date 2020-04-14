@@ -4,7 +4,7 @@ description: Azure Security Control Data Protection
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -22,7 +22,8 @@ Data protection recommendations focus on addressing issues related to encryption
 
 Use Tags to assist in tracking Azure resources that store or process sensitive information.
 
-- [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)\n
+- [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+
 ## 4.2: Isolate systems storing or processing sensitive information
 
 | Azure ID | CIS IDs | Responsibility |
@@ -35,7 +36,8 @@ Implement isolation using separate subscriptions and management groups for indiv
 
 - [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)\n
+- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+
 ## 4.3: Monitor and block unauthorized transfer of sensitive information
 
 | Azure ID | CIS IDs | Responsibility |
@@ -46,7 +48,8 @@ Leverage a third-party solution from Azure Marketplace on network perimeters tha
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)\n
+- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+
 ## 4.4: Encrypt all sensitive information in transit
 
 | Azure ID | CIS IDs | Responsibility |
@@ -57,7 +60,8 @@ Encrypt all sensitive information in transit. Ensure that any clients connecting
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
-- [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)\n
+- [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+
 ## 4.5: Use an active discovery tool to identify sensitive data
 
 | Azure ID | CIS IDs | Responsibility |
@@ -74,7 +78,8 @@ Use Azure SQL Information Protection to assist in the classification and labelin
 
 - [How to implement Azure Information Protection](https://docs.microsoft.com/azure/information-protection/deployment-roadmap)
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)\n
+- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+
 ## 4.6: Use Role-based access control to control access to resources
 
 | Azure ID | CIS IDs | Responsibility |
@@ -83,7 +88,8 @@ Use Azure SQL Information Protection to assist in the classification and labelin
 
 Use Azure AD RBAC to control access to data and resources, otherwise use service specific access control methods.
 
-- [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)\n
+- [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+
 ## 4.7: Use host-based data loss prevention to enforce access control
 
 | Azure ID | CIS IDs | Responsibility |
@@ -94,7 +100,8 @@ If required for compliance on compute resources, implement a third-party tool, s
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)\n
+- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+
 ## 4.8: Encrypt sensitive information at rest
 
 | Azure ID | CIS IDs | Responsibility |
@@ -105,7 +112,8 @@ Use  encryption at rest on all Azure resources. Microsoft recommends allowing Az
 
 - [Understand encryption at rest in Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
 
-- [How to configure customer managed encryption keys](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal)\n
+- [How to configure customer managed encryption keys](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal)
+
 ## 4.9: Log and alert on changes to critical Azure resources
 
 | Azure ID | CIS IDs | Responsibility |
@@ -114,4 +122,5 @@ Use  encryption at rest on all Azure resources. Microsoft recommends allowing Az
 
 Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to critical Azure resources.
 
-- [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)\n
+- [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+

@@ -4,7 +4,7 @@ description: Azure Security Control Network Security
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -18,7 +18,7 @@ Network security recommendations focus on specifying which network protocols, TC
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
-| 1.1 | 9.2, 9.4, 14.1-14.3 | Customer |
+| 1.1 | 9.2, 9.4, 14.1, 14.2, 14.3 | Customer |
 
 Ensure that all Virtual Network subnet deployments have a Network Security Group applied with network access controls specific to your application's trusted ports and sources. When available, use Private Endpoints with Private Link to secure your Azure service resources to your virtual network by extending VNet identity to the service. When Private Endpoints and Private Link not available, use Service Endpoints. For service specific requirements, please refer to the security recommendation for that specific service. 
 
@@ -32,7 +32,8 @@ Alternatively, if you have a specific use case, requirement may be met by implem
 
 - [How to create an NSG with a security configuration](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
-- [How to deploy and configure Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)\n
+- [How to deploy and configure Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+
 ## 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
 | Azure ID | CIS IDs | Responsibility |
@@ -45,7 +46,8 @@ Use Azure Security Center and follow network protection recommendations to help 
 
 - [How to Enable and use Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
 
-- [Understand Network Security provided by Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)\n
+- [Understand Network Security provided by Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+
 ## 1.3: Protect critical web applications
 
 | Azure ID | CIS IDs | Responsibility |
@@ -54,7 +56,8 @@ Use Azure Security Center and follow network protection recommendations to help 
 
 Deploy Azure Web Application Firewall (WAF) in front of critical web applications for additional inspection of incoming traffic. Enable Diagnostic Setting for WAF and ingest logs into a Storage Account, Event Hub, or Log Analytics Workspace.
 
-- [How to deploy Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)\n
+- [How to deploy Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
+
 ## 1.4: Deny communications with known malicious IP addresses
 
 | Azure ID | CIS IDs | Responsibility |
@@ -77,7 +80,8 @@ Use Azure Security Center Adaptive Network Hardening to recommend NSG configurat
 
 - [Understand Azure Security Center Adaptive Network Hardening](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
 
-- [Understand Azure Security Center Just In Time Network Access Control](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)\n
+- [Understand Azure Security Center Just In Time Network Access Control](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+
 ## 1.5: Record network packets
 
 | Azure ID | CIS IDs | Responsibility |
@@ -86,7 +90,8 @@ Use Azure Security Center Adaptive Network Hardening to recommend NSG configurat
 
 Enable Network Watcher packet capture to investigate anomalous activities.
 
-- [How to enable Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)\n
+- [How to enable Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+
 ## 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
 
 | Azure ID | CIS IDs | Responsibility |
@@ -101,7 +106,8 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 - [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
 
-- [How to configure alerts with Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)\n
+- [How to configure alerts with Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)
+
 ## 1.7: Manage traffic to web applications
 
 | Azure ID | CIS IDs | Responsibility |
@@ -114,7 +120,8 @@ Deploy Azure Application Gateway for web applications with HTTPS/SSL enabled for
 
 - [How to configure Application Gateway to use HTTPS](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)
 
-- [Understand layer 7 load balancing with Azure web application gateways](https://docs.microsoft.com/azure/application-gateway/overview)\n
+- [Understand layer 7 load balancing with Azure web application gateways](https://docs.microsoft.com/azure/application-gateway/overview)
+
 ## 1.8: Minimize complexity and administrative overhead of network security rules
 
 | Azure ID | CIS IDs | Responsibility |
@@ -127,7 +134,8 @@ You may also use Application Security Groups to help simplify complex security c
 
 - [Understand and use Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
 
-- [Understand and use Application Security Groups](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups)\n
+- [Understand and use Application Security Groups](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups)
+
 ## 1.9: Maintain standard security configurations for network devices
 
 | Azure ID | CIS IDs | Responsibility |
@@ -142,7 +150,8 @@ You may also use Azure Blueprints to simplify large scale Azure deployments by p
 
 - [Azure Policy samples for networking](https://docs.microsoft.com/azure/governance/policy/samples/#network)
 
-- [How to create an Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)\n
+- [How to create an Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+
 ## 1.10: Document traffic configuration rules
 
 | Azure ID | CIS IDs | Responsibility |
@@ -159,7 +168,8 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 - [How to create a Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
 
-- [How to create an NSG with a Security Config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)\n
+- [How to create an NSG with a Security Config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+
 ## 1.11: Use automated tools to monitor network resource configurations and detect changes
 
 | Azure ID | CIS IDs | Responsibility |
@@ -170,4 +180,5 @@ Use Azure Activity Log to monitor resource configurations and detect changes to 
 
 - [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
 
-- [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)\n
+- [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+

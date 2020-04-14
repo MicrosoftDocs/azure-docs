@@ -4,7 +4,7 @@ description: Azure Security Control Identity and Access Control
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -24,14 +24,16 @@ Azure AD has built-in roles that must be explicitly assigned and are queryable. 
 
 - [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)\n
+- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+
 ## 3.2: Change default passwords where applicable
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 3.2 | 4.2 | Customer |
 
-Azure AD does not have the concept of default passwords. Other Azure resources requiring a password forces a password to be created with complexity requirements and a minimum password length, which differs depending on the service. You are responsible for third-party applications and marketplace services that may use default passwords.\n
+Azure AD does not have the concept of default passwords. Other Azure resources requiring a password forces a password to be created with complexity requirements and a minimum password length, which differs depending on the service. You are responsible for third-party applications and marketplace services that may use default passwords.
+
 ## 3.3: Use dedicated administrative accounts
 
 | Azure ID | CIS IDs | Responsibility |
@@ -42,7 +44,8 @@ Create standard operating procedures around the use of dedicated administrative 
 
 You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity Management Privileged Roles for Microsoft Services, and Azure Resource Manager. 
 
-- [Learn more about Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)\n
+- [Learn more about Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+
 ## 3.4: Use single sign-on (SSO) with Azure Active Directory
 
 | Azure ID | CIS IDs | Responsibility |
@@ -51,7 +54,8 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 Wherever possible, use Azure Active Directory SSO instead than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
 
-- [Understand SSO with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)\n
+- [Understand SSO with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+
 ## 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
 | Azure ID | CIS IDs | Responsibility |
@@ -62,7 +66,8 @@ Enable Azure AD MFA and follow Azure Security Center Identity and Access Managem
 
 - [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
-- [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)\n
+- [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+
 ## 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
 | Azure ID | CIS IDs | Responsibility |
@@ -73,7 +78,8 @@ Use PAWs (privileged access workstations) with MFA configured to log into and co
 
 - [Learn about Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)\n
+- [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+
 ## 3.7: Log and alert on suspicious activities from administrative accounts
 
 | Azure ID | CIS IDs | Responsibility |
@@ -84,7 +90,8 @@ Use Azure Active Directory security reports for generation of logs and alerts wh
 
 - [How to identify Azure AD users flagged for risky activity](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
 
-- [How to monitor users' identity and access activity in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)\n
+- [How to monitor users' identity and access activity in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+
 ## 3.8: Manage Azure resources from only approved locations
 
 | Azure ID | CIS IDs | Responsibility |
@@ -93,7 +100,8 @@ Use Azure Active Directory security reports for generation of logs and alerts wh
 
 Use Conditional Access Named Locations to allow access from only specific logical groupings of IP address ranges or countries/regions.
 
-- [How to configure Named Locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)\n
+- [How to configure Named Locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+
 ## 3.9: Use Azure Active Directory
 
 | Azure ID | CIS IDs | Responsibility |
@@ -102,7 +110,8 @@ Use Conditional Access Named Locations to allow access from only specific logica
 
 Use Azure Active Directory (AAD) as the central authentication and authorization system. AAD protects data by using strong encryption for data at rest and in transit. AAD also salts, hashes, and securely stores user credentials.
 
-- [How to create and configure an AAD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)\n
+- [How to create and configure an AAD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+
 ## 3.10: Regularly review and reconcile user access
 
 | Azure ID | CIS IDs | Responsibility |
@@ -113,7 +122,8 @@ Azure AD provides logs to help discover stale accounts. In addition, use Azure I
 
 - [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
 
-- [How to use Azure Identity Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)\n
+- [How to use Azure Identity Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+
 ## 3.11: Monitor attempts to access deactivated credentials
 
 | Azure ID | CIS IDs | Responsibility |
@@ -124,7 +134,8 @@ You have access to Azure AD Sign-in Activity, Audit and Risk Event log sources, 
 
 You can streamline this process by creating Diagnostic Settings for Azure Active Directory user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure desired Alerts within Log Analytics Workspace.
 
-- [How to integrate Azure Activity Logs into Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)\n
+- [How to integrate Azure Activity Logs into Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+
 ## 3.12: Alert on account login behavior deviation
 
 | Azure ID | CIS IDs | Responsibility |
@@ -137,7 +148,8 @@ Use Azure AD Risk and Identity Protection features to configure automated respon
 
 - [How to configure and enable Identity Protection risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)\n
+- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+
 ## 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
 | Azure ID | CIS IDs | Responsibility |
@@ -146,4 +158,5 @@ Use Azure AD Risk and Identity Protection features to configure automated respon
 
 In support scenarios where Microsoft needs to access customer data, Customer Lockbox provides an interface for you to review, and approve or reject customer data access requests.
 
-- [Understand Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)\n
+- [Understand Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+

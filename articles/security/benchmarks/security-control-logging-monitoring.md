@@ -4,7 +4,7 @@ description: Azure Security Control Logging and Monitoring
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -24,7 +24,8 @@ Microsoft maintains time sources for Azure resources, however, you have the opti
 
 - [How to configure time synchronization for Azure Windows compute resources](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
 
-- [How to configure time synchronization for Azure Linux compute resources](https://docs.microsoft.com/azure/virtual-machines/linux/time-sync)\n
+- [How to configure time synchronization for Azure Linux compute resources](https://docs.microsoft.com/azure/virtual-machines/linux/time-sync)
+
 ## 2.2: Configure central security log management
 
 | Azure ID | CIS IDs | Responsibility |
@@ -41,7 +42,8 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 - [How to collect Azure Virtual Machine internal host logs with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
 
-- [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)\n
+- [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
+
 ## 2.3: Enable audit logging for Azure resources
 
 | Azure ID | CIS IDs | Responsibility |
@@ -52,7 +54,8 @@ Enable Diagnostic Settings on Azure resources for access to audit, security, and
 
 - [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
 
-- [Understand logging and different log types in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)\n
+- [Understand logging and different log types in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
+
 ## 2.4: Collect security logs from operating systems
 
 | Azure ID | CIS IDs | Responsibility |
@@ -63,7 +66,8 @@ If the compute resource is owned by Microsoft, then Microsoft is responsible for
 
 - [How to collect Azure Virtual Machine internal host logs with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
 
-- [Understand Azure Security Center data collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)\n
+- [Understand Azure Security Center data collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
+
 ## 2.5: Configure security log storage retention
 
 | Azure ID | CIS IDs | Responsibility |
@@ -74,7 +78,8 @@ Within Azure Monitor, set your Log Analytics Workspace retention period accordin
 
 - [Change the data retention period in Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
-- [How to configure retention policy for Azure Storage account logs](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)\n
+- [How to configure retention policy for Azure Storage account logs](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
+
 ## 2.6: Monitor and review Logs
 
 | Azure ID | CIS IDs | Responsibility |
@@ -89,7 +94,8 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 - [Understand Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
 
-- [How to perform custom queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)\n
+- [How to perform custom queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+
 ## 2.7: Enable alerts for anomalous activities
 
 | Azure ID | CIS IDs | Responsibility |
@@ -104,7 +110,8 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 - [How to manage alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
 
-- [How to alert on log analytics log data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)\n
+- [How to alert on log analytics log data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+
 ## 2.8: Centralize anti-malware logging
 
 | Azure ID | CIS IDs | Responsibility |
@@ -117,14 +124,16 @@ Enable antimalware event collection for Azure Virtual Machines and Cloud Service
 
 - [How to configure Microsoft Antimalware for Cloud Services](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
 
-- [Understand Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)\n
+- [Understand Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+
 ## 2.9: Enable DNS query logging
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 2.9 | 8.7 | Customer |
 
-Implement a third-party solution from Azure Marketplace for DNS logging solution as per your organizations need.  \n
+Implement a third-party solution from Azure Marketplace for DNS logging solution as per your organizations need.  
+
 ## 2.10: Enable command-line audit logging
 
 | Azure ID | CIS IDs | Responsibility |
@@ -137,4 +146,5 @@ Use Microsoft Monitoring Agent on all supported Azure Windows virtual machines t
 
 - [How to perform custom queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
 
-- [Syslog data sources in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-syslog)\n
+- [Syslog data sources in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-syslog)
+
