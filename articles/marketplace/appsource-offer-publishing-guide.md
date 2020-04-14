@@ -1,11 +1,11 @@
 ---
-title: Offer publishing guide for the Microsoft AppSource storefront in the commercial marketplace
+title: Offer publishing guide for Microsoft AppSource
 description: Step-by-step guide and publishing checklists for publishing apps to Microsoft AppSource for Office 365, Dynamics 365, Power BI, and Power Apps
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 04/14/2020
 ms.author: dsindona
 ---
 

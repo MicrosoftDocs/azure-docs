@@ -1,11 +1,11 @@
 ---
-title: ‎Commercial marketplace transact capabilities
+title: The Microsoft ‎commercial marketplace transact capabilities
 description: This article describes pricing, billing, invoicing, and payout considerations for the Microsoft commercial marketplace transact option.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 04/14/2020
 ms.author: dsindona
 
 ---
@@ -24,7 +24,7 @@ Either the publisher or Microsoft is responsible for managing software license t
 
 ### List, trial, and BYOL publishing options
 
-Publishers withe existing commerce capabilities can choose list, trial, and bring-your-own-license (BYOL) publishing options for promotional and user acquisition purposes. With these options, Microsoft doesn't participate directly in the publisher's software license transactions, and there is no associated transaction fee. Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to: order, fulfillment, metering, billing, invoicing, payment, and collection. With the list and trial publishing options, publishers keep 100% of publisher software licensing fees collected from the customer.
+Publishers with existing commerce capabilities can choose list, trial, and bring-your-own-license (BYOL) publishing options for promotional and user acquisition purposes. With these options, Microsoft doesn't participate directly in the publisher's software license transactions, and there is no associated transaction fee. Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to: order, fulfillment, metering, billing, invoicing, payment, and collection. With the list and trial publishing options, publishers keep 100% of publisher software licensing fees collected from the customer.
 
 ### Transact publishing option
 
