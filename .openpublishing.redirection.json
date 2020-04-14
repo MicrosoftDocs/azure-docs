@@ -245,6 +245,11 @@
       "redirect_url": "/azure/virtual-machines/shared-images-powershell",
       "redirect_document_id": false
     },
+	    {
+      "source_path": "articles/virtual-machines/linux/shared-images.md",
+      "redirect_url": "/azure/virtual-machines/shared-images-cli",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/virtual-machines/linux/cli-manage-nodejs.md",
       "redirect_url": "/azure/virtual-machines/linux/create-cli-complete",

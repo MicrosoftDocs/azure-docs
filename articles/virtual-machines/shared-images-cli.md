@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 03/26/2020
+ms.date: 04/14/2020
 ms.author: cynthn
 #PMcontact: akjosh
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.

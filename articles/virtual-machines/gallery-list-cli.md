@@ -1,18 +1,17 @@
 ---
- title: include file
- description: include file
+ title: List information about images, definitions and galleries
+ description: List information about Shared Image Gallery resources
  services: virtual-machines
  ms.subservice: imaging
  author: cynthn
  ms.service: virtual-machines
- ms.topic: include
+ ms.topic: article
  ms.date: 03/25/2020
  ms.author: cynthn
- ms.custom: include file
+ #pmcontact: akjosh
 ---
 
-
-## List information
+# List Shared Image Gallery information
 
 Get the location, status and other information about the available image galleries using [az sig list](/cli/azure/sig#az-sig-list).
 

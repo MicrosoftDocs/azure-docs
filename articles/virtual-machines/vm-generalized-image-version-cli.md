@@ -9,7 +9,6 @@ ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: cynthn
 #PMcontact: akjosh
-#Need to get info about the gallery and definition
 ---
 # Create a VM from a generalized image version using the CLI
 
