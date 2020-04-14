@@ -1,0 +1,1 @@
+This page contains common questions that frequently come up during Windows voice agent development.

@@ -1,0 +1,1 @@
+This page contains steps to begin developing a windows voice agent, including a reference to the sample code quickstart

@@ -1,0 +1,1 @@
+This page contains instructions to enable voice activation for a voice agent by default.

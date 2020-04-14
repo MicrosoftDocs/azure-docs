@@ -1,0 +1,1 @@
+This page outlines how to achieve custom lighting to enhance the interaction experience with a voice agent.

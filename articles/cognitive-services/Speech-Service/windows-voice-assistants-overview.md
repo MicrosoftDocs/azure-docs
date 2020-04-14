@@ -1,0 +1,1 @@
+This page contains an overview of the Windows voice assistant platform, including capabilities and resources available.
