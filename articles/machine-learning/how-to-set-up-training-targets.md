@@ -201,10 +201,10 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
    try:
     # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
 
-    # attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
-    #                                                      ssh_port=22, 
-    #                                                      username='<ssh-username>', 
-    #                                                      password='<ssh-pwd>')
+    attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
+                                                          ssh_port=22, 
+                                                          username='<ssh-username>', 
+                                                          password='<ssh-pwd>')
     hdi_compute = ComputeTarget.attach(workspace=ws, 
                                        name='myhdi', 
                                        attach_configuration=attach_config)
