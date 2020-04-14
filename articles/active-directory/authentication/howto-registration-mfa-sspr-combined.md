@@ -86,7 +86,7 @@ The following policy applies to all selected users, who attempt to register usin
 
 ## Next steps
 
-[Force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-authentication-methods)
+[Force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-user-authentication-options)
 
 [Available methods for Multi-Factor Authentication and SSPR](concept-authentication-methods.md)
 
