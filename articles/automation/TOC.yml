@@ -73,13 +73,13 @@
     - name: Start/Stop VMs during off hours
       items:
         - name: Overview
-          href: automation-solution-vm-management.md
+          href: /vm-management/automation-solution-vm-management.md
         - name: Enable 
-          href: automation-solution-vm-management-enable.md
+          href: /vm-management/automation-solution-vm-management-enable.md
         - name: Configure
-          href: automation-solution-vm-management-config.md
+          href: /vm-management/automation-solution-vm-management-config.md
         - name: Analyze data with log queries
-          href: automation-solution-vm-management-logs.md
+          href: /vm-management/automation-solution-vm-management-logs.md
     - name: Manage software updates
       items:
         - name: Overview
