@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 04/14/2020
 # As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio
 ---
 
@@ -101,6 +101,16 @@ You can also launch Jupyter or JupyterLab from the Notebook toolbar.  Azure Mach
 |Tab (when tab trap enabled) | Add a '\t' character (indent)
 |Tab (when tab trap disabled) | Change focus to next focusable item (delete cell button, run button, etc.)
 
+## Delete a notebook
+
+You *can't* delete the **Samples** notebooks.  These notebooks are part of the studio and are updated each time a new SDK is published.  
+
+You *can* delete **User files** notebooks in any of these ways:
+
+* In the studio, select the **...** at the end of a folder or file.  Make sure to use a supported browser (Microsoft Edge, Chrome, or Firefox).
+* From any Notebook toolbar, select **Terminal**  to access the terminal window for the compute instance.
+* In either Jupyter or JupyterLab with their tools.
+
 ## Run an experiment
 
 To run an experiment from a Notebook, you first connect to a running [compute instance](concept-compute-instance.md). If you don't have a compute instance, use these steps to create one: 
@@ -110,7 +120,7 @@ To run an experiment from a Notebook, you first connect to a running [compute in
 3. Select **Create**.
 4. The compute instance is connected to the Notebook automatically and you can now run your cells.
 
-Only you can see and use the compute instances you create.  
+Only you can see and use the compute instances you create.  Your **User files** are stored separately from the VM and are shared among all compute instances in the workspace.
 
 ### View logs and output
 
