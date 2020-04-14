@@ -1,3 +1,5 @@
+- name: Release notes
+  href: https://github.com/Azure/azure-remote-rendering/releases
 - name: Tools
   href: tools/toc.yml
 - name: Troubleshoot
