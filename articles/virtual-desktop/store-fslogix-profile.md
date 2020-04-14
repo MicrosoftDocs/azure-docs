@@ -48,7 +48,7 @@ Azure Files offers two different tiers of storage, premium and standard, to allo
 •	Premium file shares: Premium file shares are backed by solid-state drives (SSDs) and are deployed in the FileStorage storage account type. Premium file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for IO-intensive workloads. 
 •	Standard file shares: Standard file shares are backed by hard disk drives (HDDs) and are deployed in the general purpose version 2 (GPv2) storage account type. Standard file shares provide reliable performance for IO workloads that are less sensitive to performance variability such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
 
-Depends on the target performance, cost and regional considerations, you can select the most appropriate performance tier for storing the user profile data. We have included our recommendation based on the performance of the typical [remote desktop workloads types](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/remote-desktop-workloads). 
+Depends on the target performance, cost and regional considerations, you can select the most appropriate performance tier for storing the user profile data. We have included our recommendation based on the performance of the typical [remote desktop workloads types](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/remote-desktop-workloads). 
 
 |Workload type|File Tiers|
 |--------|-----------|
@@ -58,7 +58,7 @@ Depends on the target performance, cost and regional considerations, you can sel
 |Heavy|Premium file shares|
 |Power|Premium file shares|
 
-You can leverage the guidance above and further optimize for your WVD scenario. Detailed information of Azure Files on performance targets ([Standard](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets), [Premium](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares)) and [pricing](https://azure.microsoft.com/en-us/pricing/details/storage/files/) is available to help you further fine tune the file share solution.
+You can leverage the guidance above and further optimize for your WVD scenario. Detailed information of Azure Files on performance targets ([Standard](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets), [Premium](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares)) and [pricing](https://azure.microsoft.com/pricing/details/storage/files/) is available to help you further fine tune the file share solution.
 
 ## Next steps
 
