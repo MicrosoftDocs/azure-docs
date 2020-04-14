@@ -39,7 +39,7 @@ require (
 
 - "main" package definition
 - importing the necessary modules from the Speech SDK
-- variables for storing the ########TODO######## information that will be replaced later in this quickstart
+- variables for storing the subscription information that will be replaced later in this quickstart
 - a simple implementation using the microphone for audio input
 - event handlers for various events that take place during a speech recognition
 
