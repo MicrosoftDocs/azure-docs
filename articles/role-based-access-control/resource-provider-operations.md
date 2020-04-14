@@ -5177,7 +5177,7 @@ Azure service: [Key Vault](../key-vault/index.yml)
 
 ## Microsoft.Kusto
 
-Azure service: [Azure Data Explorer](../data-explorer/index.yml)
+Azure service: [Azure Data Explorer](/azure/data-explorer/)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
