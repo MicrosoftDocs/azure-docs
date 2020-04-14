@@ -22,8 +22,6 @@ To view general status of an application type, select **Apps** in the left navig
 
 **The Deployment status is reported as one of the following values:**
 
-Deployment.properties.Status
-
 | Enum | Definition |
 |:--:|:----------------:|
 | Running | The deployment runs properly |
@@ -34,8 +32,6 @@ Deployment.properties.Status
 | Failed | User's app failed to deploy due to lack of resources, or binary cannot be built from source code. |
 
 **The provisioning state is reported as one of the following values:**
-
-Deployment.properties.privioningState: 
 
 | Enum | Definition |
 |:--:|:----------------:|
@@ -65,8 +61,6 @@ To view the status of a specific instance of a deployed app, click the **Name** 
 
 **The instance status is reported as one of the following values:**
 
-Deployment.properties.appInstance.status: 
-
 | Enum | Definition |
 |:--:|:----------------:|
 | Pending | ASC is still allocating resources for the instance |
@@ -78,7 +72,6 @@ Deployment.properties.appInstance.status:
 
 **The discovery status of the instance is reported as one of the following values:**
 
-Deployment.properties.appInstance. DiscoveryStatus: 
 registered status of the instance in Eureka server, same as the definition in Eureka
 
 | Enum | Definition |
