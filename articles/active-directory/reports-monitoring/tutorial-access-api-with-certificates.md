@@ -68,7 +68,7 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
 
 4. Note the Application ID, and the thumbprint of the certificate you just registered with your application. To find the thumbprint, from your application page in the portal, go to **Certificates & secrets** under **Manage** section. The thumbprint will be under the **Certificates** list.
 
-5. Open the application manifest in the inline manifest editor and replace the *keyCredentials* property with your new certificate information using the following schema. 
+5. Open the application manifest in the inline manifest editor and verify the *keyCredentials* property is updated with your new certificate information as shown below - 
 
    ```
    "keyCredentials": [
@@ -80,11 +80,8 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
             "value":  "$base64Value" //base64 encoding of the certificate raw data
         }
     ]
-   ```
-
-6. Save the manifest. 
-  
-7. Now, you can get an access token for the MS Graph API using this certificate. Use the **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet from the MSCloudIdUtils PowerShell module, passing in the Application ID and the thumbprint you obtained from the previous step. 
+   ``` 
+6. Now, you can get an access token for the MS Graph API using this certificate. Use the **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet from the MSCloudIdUtils PowerShell module, passing in the Application ID and the thumbprint you obtained from the previous step. 
 
    ![Azure portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
