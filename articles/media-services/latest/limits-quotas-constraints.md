@@ -1,6 +1,6 @@
 ---
-title: Quotas and limitations in Azure Media Services  
-description: This topic describes quotas and limitations in Microsoft Azure Media Services.
+title: Quotas and limits in Azure Media Services  
+description: This topic describes quotas and limits in Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,10 +10,11 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 ms.author: juliako
 ---
 
+<!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # Azure Media Services quotas and limits
 
 This article lists some of the most common Microsoft Azure Media Services limits, which are also sometimes called quotas.
@@ -75,7 +76,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 | Live Outputs per Live Event |3 <sup>(5)</sup> |
 | Max Live Output duration | 25 hours |
 
-<sup>4</sup> For detailed information about Live Event limitations, see [Live Event types comparison and limitations](live-event-types-comparison.md).
+<sup>4</sup> For detailed information about Live Event limits, see [Live Event types comparison and limits](live-event-types-comparison.md).
 
 <sup>5</sup> Live Outputs start on creation and stop when deleted.
 
@@ -83,7 +84,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 
 | Resource | Default Limit | 
 | --- | --- | 
-| [Streaming Endpoints](streaming-endpoint-concept.md) (stopped or running) per Media Services account|2 (fixed)|
+| [Streaming Endpoints](streaming-endpoint-concept.md) (stopped or running) per Media Services account|2 |
 | [Dynamic Manifest Filters](filters-dynamic-manifest-overview.md)|100|
 | [Streaming Policies](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | Unique [Streaming Locators](streaming-locators-concept.md) associated with an Asset at one time | 100<sup>(7)</sup> (fixed) |

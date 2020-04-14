@@ -28,7 +28,7 @@ This article also provides detailed information about *advanced security setting
 > Unless specifically called out, using resources such as storage accounts or compute targets inside a virtual network will work with both machine learning pipelines, and non-pipeline workflows such as script runs.
 
 > [!WARNING]
-> Microsoft does not support using the Azure Machine Learning designer or automated machine learning (from the studio) with resources inside a virtual network.
+> Microsoft does not support using the Azure Machine Learning Studio features such as Automated ML, Datasets, Datalabeling, Designer, and Notebooks if the underlying storage has virtual network enabled.
 
 ## Prerequisites
 
@@ -39,6 +39,11 @@ This article also provides detailed information about *advanced security setting
 + A pre-existing virtual network and subnet to use with your compute resources.
 
 ## Use a storage account for your workspace
+
+> [!WARNING]
+> If you have data scientists that use the Azure Machine Learning designer, they will receive an error when visualizing data from a storage account inside a virtual network. The following text is the error that they receive:
+>
+> __Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__
 
 To use an Azure storage account for the workspace in a virtual network, use the following steps:
 
@@ -538,7 +543,7 @@ For more information on configuring a network rule, see [Deploy and configure Az
     > [!IMPORTANT]
     > Your storage account, compute cluster, and Azure Container Registry must all be in the same subnet of the virtual network.
     
-    For more information, see the [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none-) method reference.
+    For more information, see the [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) method reference.
 
 1. If you are using Private Link for your Azure Machine Learning workspace, and put the Azure Container Registry for your workspace in a virtual network, you must also apply the following Azure Resource Manager template. This template enables your workspace to communicate with ACR over the Private Link.
 

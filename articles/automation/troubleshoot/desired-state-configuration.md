@@ -42,7 +42,7 @@ For information on using xDscDiagnostics, see [Using xDscDiagnostics to analyze 
 
 ### 3. Ensure that nodes and the Automation workspace have required modules
 
-DSC depends on modules installed on the node. When using Azure Automation State Configuration, import any required modules into your Automation account using the steps listed in [Import Modules](../shared-resources/modules.md#import-modules). Configurations can also have a dependency on specific versions of modules. For more information, see [Troubleshoot Modules](shared-resources.md#modules).
+DSC depends on modules installed on the node. When using Azure Automation State Configuration, import any required modules into your Automation account using the steps listed in [Import Modules](../shared-resources/modules.md#importing-modules). Configurations can also have a dependency on specific versions of modules. For more information, see [Troubleshoot Modules](shared-resources.md#modules).
 
 ## Common errors when working with DSC
 
@@ -108,6 +108,8 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 ### Cause
 
 This issue is caused by a bad or expired certificate.  For more information, see [Certificate expiration and reregistration](../automation-dsc-onboarding.md#re-registering-a-node).
+
+This issue could also be caused by a proxy configuration not allowing access to ***.azure-automation.net**. For more information, see [Configuration of private networks](../automation-dsc-overview.md#network-planning). 
 
 ### Resolution
 

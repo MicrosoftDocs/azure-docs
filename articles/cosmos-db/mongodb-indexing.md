@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 04/03/2020
 author: timsander1
 ms.author: tisande
 
@@ -30,7 +30,7 @@ You can create indexes on any single field. The sort order of the single field i
 
 `db.coll.createIndex({name:1})`
 
-One query will utilize multiple single field indexes, where available.
+One query will utilize multiple single field indexes, where available. You can create up to 500 single field indexes per container.
 
 ### Compound indexes (3.6)
 

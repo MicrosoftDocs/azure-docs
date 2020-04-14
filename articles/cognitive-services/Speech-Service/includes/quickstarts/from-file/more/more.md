@@ -43,7 +43,7 @@ If you've clicked this tab, you probably didn't see a quickstart in your favorit
 [java-jre]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/jre
 
 [js-browser]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser
-[js-node]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node
+[js-node]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/from-file
 [js-code]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript
 
 [obj-iOS-qck]: ~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md
