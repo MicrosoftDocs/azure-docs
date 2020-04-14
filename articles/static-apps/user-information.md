@@ -1,6 +1,6 @@
 ---
 title: Accessing user information in an App Service Static Apps API
-description: #Required; article description that is displayed in search results. 
+description: Learn to read authorization provider-returned user data in a function.
 services: azure-functions
 author: craigshoemaker
 ms.service: azure-functions
@@ -16,7 +16,7 @@ ms.author: cshoe
 | `x-ms-client-principal-name` | The provider's unique identifier. Depending on the provider, this is either the user's email address or the person's username. |
 | `x-ms-client-principal-id`   | Either the user's ID for the identity provider, or a server-generated unique ID. |
 | `x-ms-client-principal-idp`     | The name of the identity provider used to login. |
-| `x-ms-client-principal`     | A serialized object containing the `x-ms-client-principal-id` value and the user's full name. |
+| `x-ms-client-principal`     | A serialized object containing values of each of the above data. |
 
 ## Next steps
 
