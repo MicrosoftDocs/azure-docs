@@ -95,7 +95,7 @@ There's no physical limit on number of keyspaces as they're metadata containers,
 
 ### Is it possible to bring in lot of data after starting from normal table?
 
-Yes, assuming uniformly distributed partitions, the storage capacity is automatically managed and increases as you push in more data. So you can confidently import as much data as you need without managing and provisioning nodes, and more. However, if you are anticipating a lot of immediate data growth, it makes more sense to directly [provision for the anticipated throughput](set-throughput) rather than starting lower and increasing it immediately.
+Yes, assuming uniformly distributed partitions, the storage capacity is automatically managed and increases as you push in more data. So you can confidently import as much data as you need without managing and provisioning nodes, and more. However, if you are anticipating a lot of immediate data growth, it makes more sense to directly [provision for the anticipated throughput](set-throughput.md) rather than starting lower and increasing it immediately.
 
 ### Is it possible to supply yaml file settings to configure Apache Casssandra API of Azure Cosmos DB behavior?
 
