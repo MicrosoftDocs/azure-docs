@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 # Hybrid identity considerations for Azure Government 
 The following document describes the considerations for implementing a hybrid environment with the Azure Government cloud.  This information is provide as reference for administrators and architects who are working with the Azure Government cloud.  
 > [!NOTE] 
-> Upgrade to the latest release of [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). 
+> In order to integrate an on-premises org with the Azure Governemnt cloud you need to upgrade to the latest release of [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). 
 
 > [!NOTE] 
 > For a full list of U.S. Government DoD Endpoints, refer to the [documentation](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) 
