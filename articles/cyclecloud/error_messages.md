@@ -51,7 +51,9 @@ A list of error messages one encounters in CycleCloud
 
 ## VM Booting and Configuration
 
-[Timeout awaiting system boot-up](common-issues/node_cyclecloud_connectivity.md)
+[Timeout awaiting system boot-up (node connectivity)](common-issues/node_cyclecloud_connectivity.md)
+
+[Timeout awaiting system boot-up (storage account)](common-issues/node_timeout_await_bootup.md)
 
 [Timed out connecting to CycleCloud](common-issues/node_cyclecloud_connectivity.md)
 
