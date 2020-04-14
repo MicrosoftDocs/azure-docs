@@ -199,7 +199,7 @@
       href: stream-analytics-tools-for-visual-studio-cicd.md
   - name: Visual Studio Code
     items:
-    - name: IntelliSense
+    - name: Complete code with IntelliSense
       href: vs-code-intellisense.md  
     - name: Test locally with sample data
       href: visual-studio-code-local-run.md
