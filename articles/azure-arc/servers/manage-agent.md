@@ -118,7 +118,7 @@ The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Arc for server
 
 * **Reconnect** - To reconnect a disconnected machine to Azure Arc
 
-* **Show** - View agent status and its configuration properties (Resource Group name, Subscription Id, version, etc.), which can help when troubleshooting an issue with the agent.
+* **Show** - View agent status and its configuration properties (Resource Group name, Subscription ID, version, etc.), which can help when troubleshooting an issue with the agent.
 
 * **-h or --help** - Shows available command-line parameters
 
