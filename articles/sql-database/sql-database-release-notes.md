@@ -44,6 +44,7 @@ This article lists SQL Database features that are currently in public preview. F
 | [Transactional Replication](sql-database-managed-instance-transactional-replication.md) | Replicate the changes from your tables into other databases placed on Managed Instances, Single Databases, or SQL Server instances, or update your tables when some rows are changed in other Managed Instances or SQL Server instance. For information, see [Configure replication in an Azure SQL Database managed instance database](replication-with-sql-database-managed-instance.md). |
 | Threat detection |For information, see [Configure threat detection in Azure SQL Database managed instance](sql-database-managed-instance-threat-detection.md).|
 | Long-term backup retention | For information, see [Configure long-term back up retention](sql-database-managed-instance-long-term-backup-retention-configure.md). | 
+
 ---
 
 ## Managed instance - new features and known issues
