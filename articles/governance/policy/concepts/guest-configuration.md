@@ -93,13 +93,13 @@ used to reference the Guest Configuration service.
 
 ### Communicate over private link in Azure
 
-Virtual machines can use [private link](../../../azure/private-link/)
+Virtual machines can use [private link](../../../azure/private-link/private-link-overview.md)
 for communication to the Guest Configuration service. Apply tag with the name
 `EnablePrivateNeworkGC` and value `TRUE` to enable this feature. The tag can be
 applied before or after Guest Configuration policies are applied to the machine.
 
 Traffic is routed using the Azure
-[virtual public IP address](../../../virtual-network/what-is-ip-address-168-63-129-16)
+[virtual public IP address](../../../azure/virtual-network/what-is-ip-address-168-63-129-16.md)
 to establish
 a secure, authenticated channel with Azure platform resources.
 
@@ -108,7 +108,7 @@ a secure, authenticated channel with Azure platform resources.
 Nodes located outside Azure that are connected by Azure Arc require connectivity
 to the Guest Configuration service.
 Details about network and proxy requirements provided in the
-[Azure Arc documentation](../../../azure-arc/servers/overview#networking-configuration).
+[Azure Arc documentation](../../../azure-arc/servers/overview.md#networking-configuration).
 
 ## Azure managed identity requirements
 
