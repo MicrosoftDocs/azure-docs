@@ -16,19 +16,17 @@ ms.custom: seodec18
 
 This article describes updates to data storage and ingress for Azure Time Series Insights Preview. It describes the underlying storage structure, file format, and Time Series ID property. The underlying ingress process, best practices, and current preview limitations are also described.
 
-## Data ingress
+## Streaming data ingestion
 
-Your Azure Time Series Insights environment contains an *ingestion engine* to collect, process, and store time-series data. 
-
-There are some considerations to be mindful of to ensure all incoming data is processed, to achieve high ingress scale, and minimize *ingestion latency* (the time taken by Time Series Insights to read and process data from the event source) when [planning your environment](time-series-insights-update-plan.md).
-
-Time Series Insights Preview data ingress policies determine where data can be sourced from and what format the data should have.
+There are some considerations to be mindful of to ensure all incoming data is processed, to achieve high ingress scale, and to minimize *ingestion latency* (the time taken by Time Series Insights to read and process data from the event source) when [planning your environment](time-series-insights-update-plan.md).
 
 ### Ingress policies
 
-*Data ingress* involves how data is sent to an Azure Time Series Insights Preview environment. 
+- Azure Time Series Insights supports Azure IoT Hub or Azure Event Hubs as event sources
+- Up to two event sources are supported per TSI environment
+- Messages should be sent as UTF-8 encoded uncompressed JSON
+- There is support for the following    
 
-Key configuration, formatting, and best practices are summarized below.
 
 #### Event Sources
 
