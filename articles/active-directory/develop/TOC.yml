@@ -335,6 +335,8 @@
       items:
       - name: Supported authentication flows
         href: msal-authentication-flows.md
+      - name: Acquire and cache tokens
+        href: msal-acquire-cache-tokens.md
       - name: Public & confidential client apps
         href: msal-client-applications.md
       - name: Application configuration
@@ -342,22 +344,8 @@
       - name: Shared devices
         href: msal-shared-devices.md
         displayName: shared device mode, firstline worker, frontline worker
-      - name: Tokens
-        items:
-        - name: Acquire and cache tokens
-          href: msal-acquire-cache-tokens.md
-        - name: Configure token lifetimes
-          href: active-directory-configurable-token-lifetimes.md
-        - name: Configure optional claims
-          href: active-directory-optional-claims.md
-        - name: Configure role claim
-          href: active-directory-enterprise-app-role-management.md
-        - name: Customize claims - Portal
-          href: active-directory-saml-claims-customization.md
-        - name: Customize claims - PowerShell
-          href: active-directory-claims-mapping.md
-        - name: Scopes for v1.0 apps
-          href: msal-v1-app-scopes.md
+#     - name: Scopes for v1.0 apps   # TODO: Move to v1 or delete this article
+#       href: msal-v1-app-scopes.md
       - name: Handle errors and exceptions
         href: msal-handling-exceptions.md
       - name: Handle SameSite cookie changes in Chrome browser
