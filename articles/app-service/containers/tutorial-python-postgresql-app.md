@@ -297,7 +297,7 @@ python manage.py runserver
 
 When the Django web app is fully loaded, it returns something like the following message:
 
-```
+<pre>
 Performing system checks...
 
 System check identified no issues (0 silenced).
@@ -305,7 +305,7 @@ December 13, 2019 - 10:54:59
 Django version 2.1.2, using settings 'azuresite.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
-```
+</pre>
 
 Go to *http:\//localhost:8000* in a browser. You should see the message **No polls are available**. 
 
@@ -321,9 +321,9 @@ To stop the Django server, type Ctrl+C.
 
 Just to see how making app updates works, make a small change in `polls/models.py`. Find the line:
 
-```python
+<pre>
 choice_text = models.CharField(max_length=200)
-```
+</pre>
 
 And change it to:
 
