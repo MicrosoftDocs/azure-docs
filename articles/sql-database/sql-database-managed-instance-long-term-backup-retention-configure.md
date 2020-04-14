@@ -15,7 +15,7 @@ ms.date: 04/14/2020
 ---
 # Manage Azure SQL Database managed instance long-term backup retention (PowerShell)
 
-In Azure SQL Database managed instance, you can configure a [long-term backup retention](sql-database-long-term-retention.md#managed-instance-support) policy (LTR) as a limited public preview feature. This allows you to to automatically retain database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups using PowerShell.
+In Azure SQL Database managed instance, you can configure a [long-term backup retention](sql-database-long-term-retention.md#managed-instance-support) policy (LTR) as a limited public preview feature. This allows you to to automatically retain database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups with PowerShell.
 
    > [!IMPORTANT]
    > LTR for managed instances is currently in limited preview and available for EA and CSP subscriptions on a case by case basis. To request enrollment, please create an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/) under the support topic **Backup, Restore, and Business Continuity/Long-term backup retention**. 
@@ -28,7 +28,7 @@ The following sections show you how to use PowerShell to configure the long-term
 For **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** and **Restore-AzSqlInstanceDatabase**, you will need to have one of the following roles:
 
 - Subscription Owner role or
-- SManaged Instance Contributor role or
+- Managed Instance Contributor role or
 - Custom role with the following permissions:
 
    ```Microsoft.Sql/locations/longTermRetentionManagedInstanceBackups/read```
@@ -43,7 +43,7 @@ For **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup**, you will need to ha
    ```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete```
 
 > [!NOTE]
-> The SManaged Instance Contributor role does not have permission to delete LTR backups.
+> The Managed Instance Contributor role does not have permission to delete LTR backups.
 
 RBAC permissions could be granted in either *subscription* or *resource group* scope. However, to access LTR backups that belong to a dropped instance, the permission must be granted in the *subscription* scope of that instance.
 
