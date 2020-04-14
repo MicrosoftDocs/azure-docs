@@ -37,11 +37,7 @@ Before you begin, make sure that:
 
 ### For service
 
-Before you begin, make sure that:
-
-- You have your Microsoft Azure storage account with access credentials.
-- The subscription you use for Data Box service is [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
-- You have owner or contributor access to the subscription to create a Data Box Heavy order.
+[!INCLUDE [Data Box service prerequisites](../includes/data-box-supported-subscriptions.md)]
 
 ### For device
 
@@ -55,7 +51,6 @@ Before you begin, make sure that:
     - For the 40-Gbps cable, device end of the cable needs to be QSFP+.
     - For the 10-Gbps cable, you need an SFP+ cable that plugs into a 10-G switch on one end, with a QSFP+ to SFP+ adapter (or the QSA adapter) for the end that plugs into the device.
 - The power cables are included in a tray at the back of the device.
-
 
 ## Sign in to Azure
 

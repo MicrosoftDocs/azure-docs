@@ -29,21 +29,13 @@ Complete the following configuration prerequisites for Data Box service and devi
 
 ### For service
 
-Before you begin, make sure that:
-- You have your Microsoft Azure storage account with access credentials.
-- Make sure that the subscription you use for Data Box service is one of the following types:
-    - Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Microsoft Azure Sponsorship. Learn more about [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/).
-
-- Ensure that you have owner or contributor access to the subscription to create a Data Box order.
+[!INCLUDE [Data Box service prerequisites](../includes/data-box-supported-subscriptions.md)]
 
 ### For device
 
 Before you begin, make sure that:
 - You should have a host computer connected to the datacenter network. Data Box will copy the data from this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
 - Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection is not available, a 1 GbE data link can be used but the copy speeds are impacted.
-
 
 ## Order Data Box
 

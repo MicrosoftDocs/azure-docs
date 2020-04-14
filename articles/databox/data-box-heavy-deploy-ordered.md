@@ -38,17 +38,9 @@ Before you begin, make sure that:
 - If installed on a floor other than the ground floor, you need access for the device via an elevator or a ramp. The device weighs approximately ~500 lbs.
 - Make sure that you have a flat site in the datacenter with proximity to an available network connection that can accommodate a device with this footprint.
 
-
 ### For service
 
-Before you begin, make sure that:
-- You have your Microsoft Azure storage account with access credentials.
-- Make sure that the subscription you use for Data Box service is one of the following types:
-    - Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Microsoft Azure Sponsorship. Learn more about [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/).
-
-- Ensure that you have owner or contributor access to the subscription to create a Data Box Heavy order.
+[!INCLUDE [Data Box service prerequisites](../includes/data-box-supported-subscriptions.md)]
 
 ### For device
 

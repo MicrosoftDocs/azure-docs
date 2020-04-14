@@ -28,12 +28,7 @@ Before you deploy, complete the following configuration prerequisites for Data B
 
 ### For service
 
-Before you begin, make sure that:
-- You have your Microsoft Azure storage account with access credentials.
-- Make sure that the subscription you use for Data Box service is one of the following types:
-    - Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-- Ensure that you have owner or contributor access to the subscription to create a Data Box order.
+[!INCLUDE [Data Box service prerequisites](../includes/data-box-supported-subscriptions.md)]
 
 ### For device
 
