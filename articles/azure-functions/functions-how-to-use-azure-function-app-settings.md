@@ -66,7 +66,7 @@ When you develop a function app locally, you must maintain local copies of these
 
 ## Platform features
 
-Function apps run in, and are maintained, by the Azure App Service platform. As such, your function apps have access to most of the features of Azure's core web hosting platform. The left pane is where you access the many features of the App Service platform that you can use in your function apps. 
+Function apps run in, and are maintained by, the Azure App Service platform. As such, your function apps have access to most of the features of Azure's core web hosting platform. The left pane is where you access the many features of the App Service platform that you can use in your function apps. 
 
 > [!NOTE]
 > Not all App Service features are available when a function app runs on the Consumption hosting plan.
