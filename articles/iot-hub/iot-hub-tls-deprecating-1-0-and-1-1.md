@@ -1,6 +1,6 @@
 ---
-title: Deprecating TLS 1.0 and 1.1 in IoT Hub and Device Provisioning Service (DPS) | Microsoft Docs
-description: Guidelines regarding deprecation of TLS 1.0 and 1.1 and supported ciphers in IoT Hub and DPS.
+title: Deprecating TLS 1.0 and 1.1 in IoT Hub | Microsoft Docs
+description: Guidelines regarding deprecation of TLS 1.0 and 1.1 and supported ciphers in IoT Hub.
 author: jlian
 ms.author: jlian
 ms.service: iot-hub
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ---
 
-# Deprecation of TLS 1.0 and 1.1 in IoT Hub and Device Provisioning Service
+# Deprecation of TLS 1.0 and 1.1 in IoT Hub
 
-To provide best-in-class encryption, IoT Hub and Device Provisioning Service (DPS) are moving to Transport Layer Security (TLS) 1.2 as the encryption mechanism of choice for IoT devices and services. 
+To provide best-in-class encryption, IoT Hub is moving to Transport Layer Security (TLS) 1.2 as the encryption mechanism of choice for IoT devices and services. 
 
 ## Timeline
 
-IoT Hub and DPS will continue to support TLS 1.0/1.1 until further notice. However, we recommend that all customers migrate to TLS 1.2 as soon as possible.
+IoT Hub will continue to support TLS 1.0/1.1 until further notice. However, we recommend that all customers migrate to TLS 1.2 as soon as possible.
 
 ## Supported ciphers
 
