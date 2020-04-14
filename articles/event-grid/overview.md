@@ -28,7 +28,7 @@ This image shows how Event Grid connects sources and handlers, and isn't a compr
 
 ## Event sources
 
-For full details on the capabilities of each source as well as related articles, see [event sources](event-sources.md). Currently, the following Azure services support sending events to Event Grid:
+Currently, the following Azure services support sending events to Event Grid:
 
 - [Azure App Configuration](event-schema-app-configuration.md)
 - [Azure Blob Storage](event-schema-blob-storage.md)
