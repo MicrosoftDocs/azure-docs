@@ -17,7 +17,7 @@ ms.custom: seo-lt-2019
 
 Recommendations on choosing the ideal number of data warehouse units (DWUs) to optimize price and performance, and how to change the number of units.
 
-### What are Data Warehouse Units
+## What are Data Warehouse Units
 
 A [Synapse SQL pool](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) represents a collection of analytic resources that are being provisioned. Analytic resources are defined as a combination of CPU, memory, and IO.
 
@@ -39,7 +39,7 @@ Increasing DWUs:
 - Increases the number of readers and writers for PolyBase load operations
 - Increases the maximum number of concurrent queries and concurrency slots.
 
-### Service Level Objective
+## Service Level Objective
 
 The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 are measured in compute data warehouse units (cDWU), for example DW2000c. Gen1 service levels are measured in DWUs, for example DW2000.
 
@@ -58,7 +58,7 @@ CREATE DATABASE mySQLDW
 ;
 ```
 
-### Performance Tiers and Data Warehouse Units
+## Performance Tiers and Data Warehouse Units
 
 Each performance tier uses a slightly different unit of measure for their data warehouse units. This difference is reflected on the invoice as the unit of scale directly translates to billing.
 
@@ -69,11 +69,11 @@ Both DWUs and cDWUs support scaling compute up or down, and pausing compute when
 
 Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
-#### Capacity limits
+## Capacity limits
 
 Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../../sql-database/sql-database-what-is-a-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
-### How many data warehouse units do I need
+## How many data warehouse units do I need
 
 The ideal number of data warehouse units depends very much on your workload and the amount of data you have loaded into the system.
 
@@ -91,13 +91,13 @@ To see its true capabilities for scaling, especially at larger DWUs, we recommen
 >
 > Query performance only increases with more parallelization if the work can be split between compute nodes. If you find that scaling is not changing your performance, you may need to tune your table design and/or your queries. For query tuning guidance, see [Manage user queries](cheat-sheet.md).
 
-### Permissions
+## Permissions
 
 Changing the data warehouse units requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Built-in roles for Azure resources such as SQL DB Contributor and SQL Server Contributor can change DWU settings.
 
-#### View current DWU settings
+## View current DWU settings
 
 To view the current DWU setting:
 
@@ -114,9 +114,9 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 ;
 ```
 
-### Change data warehouse units
+## Change data warehouse units
 
-#### Azure portal
+### Azure portal
 
 To change DWUs:
 
@@ -138,7 +138,7 @@ Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServi
 
 For more information, see [PowerShell cmdlets for SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
-#### T-SQL
+### T-SQL
 
 With T-SQL you can view the current DWUsettings, change the settings, and check the progress.
 
@@ -153,7 +153,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000c')
 ;
 ```
 
-#### REST APIs
+### REST APIs
 
 To change the DWUs, use the [Create or Update Database](/rest/api/sql/databases/createorupdate) REST API. The following example sets the service level objective to DW1000c for the database MySQLDW, which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
 
@@ -170,7 +170,7 @@ Content-Type: application/json; charset=UTF-8
 
 For more REST API examples, see [REST APIs for SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-### Check status of DWU changes
+## Check status of DWU changes
 
 DWU changes may take several minutes to complete. If you are scaling automatically, consider implementing logic to ensure that certain operations have been completed before proceeding with another action.
 
@@ -201,7 +201,7 @@ FROM      sys.databases
 
 This DMV returns information about various management operations on your SQL pool such as the operation and the state of the operation, which is either IN_PROGRESS or COMPLETED.
 
-### The scaling workflow
+## The scaling workflow
 
 When you start a scale operation, the system first kills all open sessions, rolling back any open transactions to ensure a consistent state. For scale operations, scaling only occurs after this transactional rollback has completed.  
 

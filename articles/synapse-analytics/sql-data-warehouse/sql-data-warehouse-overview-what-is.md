@@ -27,6 +27,8 @@ Azure Synapse has four components:
 
 > [!NOTE]
 > To access the preview features of Azure Synapse, request access [here](https://aka.ms/synapsepreview). Microsoft will triage all requests and respond as soon as possible.
+>
+> View the [Azure Synapse preview](../overview-what-is.md) documentation.
 
 ## Synapse SQL pool in Azure Synapse
 
