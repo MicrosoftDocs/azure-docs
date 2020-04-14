@@ -46,6 +46,7 @@ Once you've chosen your storage method, check out [Windows Virtual Desktop prici
 Azure Files offers two different tiers of storage, premium and standard, to allow you to tailor your shares to the performance and price requirements of your scenario:
 
 •	Premium file shares: Premium file shares are backed by solid-state drives (SSDs) and are deployed in the FileStorage storage account type. Premium file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for IO-intensive workloads. 
+
 •	Standard file shares: Standard file shares are backed by hard disk drives (HDDs) and are deployed in the general purpose version 2 (GPv2) storage account type. Standard file shares provide reliable performance for IO workloads that are less sensitive to performance variability such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
 
 Depends on the target performance, cost and regional considerations, you can select the most appropriate performance tier for storing the user profile data. We have included our recommendation based on the performance of the typical [remote desktop workloads types](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/remote-desktop-workloads). 
