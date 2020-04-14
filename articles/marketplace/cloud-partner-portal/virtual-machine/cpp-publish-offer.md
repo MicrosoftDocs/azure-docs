@@ -1,16 +1,18 @@
 ---
 title: Publish a virtual machine offer in the Azure Marketplace 
 description: Lists the steps required to publish an existing virtual machine offer onto the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Publish a virtual machine offer
+
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Virtual Machine offer](https://aka.ms/CreateAzureVMoffer) to manage your migrated offers.
 
  The last step, after you have defined the offer in the portal and created the associated technical assets, is to submit the offer for publishing. The following diagram depicts the main steps in the publishing process to "go live":
 

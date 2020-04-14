@@ -1,17 +1,16 @@
 ---
 title: Deploy Virtual Machine Scale Set using Visual Studio
 description: Deploy Virtual Machine Scale Sets using Visual Studio and a Resource Manager template
-ms.custom: vs-azure
+ms.custom: vs-azure, H1Hack27Feb2017
 ms.workload: azure-vs
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.author: manayar
-ms.custom: H1Hack27Feb2017
+ms.author: mimckitt
 
 ---
 # How to create a Virtual Machine Scale Set with Visual Studio
@@ -92,4 +91,4 @@ Select **View** > **Cloud Explorer** to view the new Virtual Machine Scale Set. 
 
 ## Next steps
 
-Once you’ve successfully deployed Virtual Machine Scale Sets through Visual Studio, you can further customize your project to suit your application requirements. For example, configure autoscale by adding an **Insights** resource. You could add infrastructure to your template, such as standalone virtual machines, or deploy applications using the custom script extension. Good example templates can be found in the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) GitHub repository. Search for `vmss`.
+Once you've successfully deployed Virtual Machine Scale Sets through Visual Studio, you can further customize your project to suit your application requirements. For example, configure autoscale by adding an **Insights** resource. You could add infrastructure to your template, such as standalone virtual machines, or deploy applications using the custom script extension. Good example templates can be found in the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) GitHub repository. Search for `vmss`.

@@ -1,16 +1,18 @@
 ---
 title: Storefront Details for a Power BI App offer | Azure Marketplace 
 description: Configure Storefront Details fields for a Power BI App offer for the Microsoft AppSource Marketplace. 
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.author: pabutler
+ms.date: 04/06/2020
+ms.author: dsindona
 ---
 
 # Power BI app Storefront Details tab
+
+>[!Important]
+>Starting April 13, 2020, we'll begin moving management of your Power BI app offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Power BI app creation overview](https://aka.ms/AzureCreatePBIServiceApp) to manage your migrated offers.
 
 On the **New Offer** page, use the **Storefront Details** tab to provide marketing, sales, and legal information for your prospective customers. On this tab you can also set up management for leads that the Azure Marketplace generates. This long form is divided into six sections: **Offer Details**, **Listing Details**, **Marketing Artifacts**, **Legal**, **Customer Support**, and **Lead Management**.  An asterisk (*) at the end of a field label means the field is required.
 

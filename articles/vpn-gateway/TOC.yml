@@ -16,6 +16,14 @@
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Work remotely
+    items:
+    - name: Support for working remotely
+      href: ../networking/working-remotely-support.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+    - name: Leveraging Azure VPN
+      href: work-remotely-support.md
+    - name: NVA configurations and remote work
+      href: nva-work-remotely-support.md
   - name: About VPN Gateway settings
     href: vpn-gateway-about-vpn-gateway-settings.md
   - name: About VPN devices
@@ -150,6 +158,8 @@
         href: vpn-gateway-howto-openvpn.md
       - name: Configure OpenVPN clients
         href: vpn-gateway-howto-openvpn-clients.md
+    - name: Move to OpenVPN protocol or IKEv2 from SSTP
+      href: ikev2-openvpn-from-sstp.md      
     - name: Transition to a public CA gateway certificate for P2S
       href: vpn-gateway-point-to-site-gateway-public-ca.md
     - name: Configure an Always On VPN device tunnel
@@ -217,7 +227,7 @@
       items:
       - name: Point-to-Site connection problems
         href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
-      - name: Point-to-Site connection problems - Mac OS X VPN client
+      - name: Point-to-Site connection problems - macOS X VPN client
         href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
       - name: Point-to-Site - Azure AD authentication
         href: troubleshoot-ad-vpn-client.md

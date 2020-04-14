@@ -1,5 +1,6 @@
 ---
 title: "Azure Cloud Services Def. WebRole Schema | Microsoft Docs"
+description: Azure web role is customized for web application programming supporting ASP.NET, PHP, WCF, and FastCGI. Learn about service definition elements of a web role.
 ms.custom: ""
 ms.date: "04/14/2015"
 services: cloud-services

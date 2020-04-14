@@ -3,7 +3,7 @@ title: Manage updates for multiple Azure virtual machines
 description: This article describes how to manage updates for Azure and non-Azure virtual machines.
 services: automation
 ms.subservice: update-management
-ms.date: 01/16/2020
+ms.date: 03/26/2020
 ms.topic: conceptual
 ---
 # Manage updates for multiple machines
@@ -23,21 +23,7 @@ To use Update Management, you need:
 
 - Access to an update repository for Linux VMs onboarded to the solution.
 
-## Supported operating systems
-
-Update Management is supported on the following operating systems:
-
-|Operating system  |Notes  |
-|---------|---------|
-|Windows Server 2008, Windows Server 2008 R2 RTM    | Supports only update assessments.         |
-|Windows Server 2008 R2 SP1 and later     |Windows PowerShell 4.0 or later is required. ([Download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))</br> Windows PowerShell 5.1 is recommended for increased reliability. ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))         |
-|CentOS 6 (x86/x64) and 7 (x64)      | |
-|Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | |
-|SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | |
-|Ubuntu 14.04 LTS, 16.04 LTS and 18.04 LTS (x86/x64)      | |
-
-> [!NOTE]
-> To prevent updates from being applied outside a maintenance window on Ubuntu, reconfigure the Unattended-Upgrade package to disable automatic updates. For more information, see the [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+To learn about the system requirements for Update Management, see [Update Management client requirements](automation-update-management.md#clients).
 
 ## Enable Update Management for Azure virtual machines
 
@@ -73,7 +59,7 @@ Computers that have recently been enabled for Update Management might not have b
 
 - **Not assessed**: The update assessment data hasn't been received from the computer within the expected timeframe. For Linux computers, the expect timeframe is in the last hour. For Windows computers, the expected timeframe is in the last 12 hours.
 
-To view the status of the agent, select the link in the **UPDATE AGENT READINESS** column. Selecting this option opens the **Hybrid Worker** pane, and shows the status of the Hybrid Worker. The following image shows an example of an agent that hasn't been connected to Update Management for an extended period of time:
+To view the status of the agent, select the link in the **Update agent readiness** column. Selecting this option opens the **Hybrid Worker** pane, and shows the status of the Hybrid Worker. The following image shows an example of an agent that hasn't been connected to Update Management for an extended period of time:
 
 ![View computers tab](./media/manage-update-multi/update-agent-broken.png)
 
@@ -126,7 +112,7 @@ In the **New update deployment** pane, specify the following information:
    >[!NOTE]
    >Selecting the Saved Search option does not return machine identities, only their names. If you have several VMs with the same name across multiple resource groups, they are returned in the results. Using the **Groups to update** option is recommended to ensure you include unique VMs matching your criteria.
 
-   If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. You can see the health state of the machine before you schedule the update deployment. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md)
+   If you choose **Machines**, the readiness of the machine is shown in the **Update agent readiness** column. You can see the health state of the machine before you schedule the update deployment. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md)
 
   ![New update deployment pane](./media/manage-update-multi/update-select-computers.png)
 
@@ -198,5 +184,4 @@ To see detailed information about any errors from the deployment, select **Error
 
 ## Next steps
 
-To learn more about Update Management, including logs, output, and errors, see [Update Management solution in Azure](../operations-management-suite/oms-solution-update-management.md).
-
+To learn more about Update Management logs, output, and errors, see [Query update records for Update Management](automation-update-management-query-logs.md).

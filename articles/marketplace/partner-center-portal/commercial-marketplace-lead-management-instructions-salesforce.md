@@ -1,18 +1,20 @@
 ---
 title: Configure lead management for Salesforce | Azure Marketplace
 description: Configure lead management on Salesforce for Azure Marketplace customers.
-services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.author: evansma
+ms.date: 03/30/2020
+ms.author: dsindona
 ---
 
 # Configure lead management for Salesforce
 
-This article describes how to setup your Salesforce system to process sales leads from your marketplace offer.
+This article describes how to set up your Salesforce system to process sales leads from your commercial marketplace offer.
+
+> [!Note]
+> Marketplace does not support pre-populated lists, such as a list of values for the **Country** field. Make sure there are no lists set up before you continue. Alternatively, you can configure an [HTTPS endpoint](./commercial-marketplace-lead-management-instructions-https.md) or an [Azure table](./commercial-marketplace-lead-management-instructions-azure-table.md) to receive leads.
 
 ## Set up your Salesforce system
 
@@ -22,14 +24,16 @@ This article describes how to setup your Salesforce system to process sales lead
     ![Salesforce setup](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-1.png)
 
     1. From the Setup page, navigate via the left navigation to **Platform Tools->Feature Settings->Marketing->Web-to-Lead**.
-    ![Salesforce Web-to-Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-2.png)
+
+        ![Salesforce Web-to-Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-2.png)
 
 3. If you are using the Salesforce Classic experience:
     1. Select **Setup** from Salesforce Home page.
     ![Salesforce classic setup](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-setup.png)
 
     1. From the Setup page, navigate via the left navigation to **Build ->Customize->Leads->Web-to-Lead**.
-    ![Salesforce classic web-to-lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png)
+
+        ![Salesforce classic web-to-lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png)
 
 The rest of the instructions are the same irrespective of which Salesforce experience you are using.
 
@@ -55,11 +59,15 @@ When you are ready to configure the lead management information for your offer i
 
 1. On the Connection details pop-up window, select **Salesforce** for the **Lead Destination** and paste in the `oid` from web-to-lead form you created by following earlier steps into the **Organization identifier** field.
 
-1. Select **Save**. 
+1. **Contact email** - Provide emails for people in your company who should receive email notifications when a new lead is received. You can provide multiple emails by separating them with semicolon.
 
-    >[!Note]
-    >You must finish configuring the rest of the offer and publish it before you can receive leads for the offer.
+1. Select **Ok**.
 
-    ![Connection details - Choose a lead destination](./media/commercial-marketplace-lead-management-instructions-salesforce/choose-lead-destination.png)
+To make sure you have successfully connected to a lead destination, click on the validate button. If successful, you will have a test lead in the lead destination.
 
-    ![Connection details - Choose a lead destination](./media/commercial-marketplace-lead-management-instructions-salesforce/connection-details.png)
+>[!Note]
+>You must finish configuring the rest of the offer and publish it before you can receive leads for the offer.
+
+![Connection details - Choose a lead destination](./media/commercial-marketplace-lead-management-instructions-salesforce/choose-lead-destination.png)
+
+![Connection details - Choose a lead destination](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-connection-details.png)

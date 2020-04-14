@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 04/07/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
@@ -23,6 +23,7 @@ We start by looking at these main deployment scenarios:
 
 * Configure connectors to bypass your on-premises outbound proxies.
 * Configure connectors to use an outbound proxy to access Azure AD Application Proxy.
+* Configure using a proxy between the connector and backend application.
 
 For more information about how connectors work, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md).
 
@@ -100,7 +101,7 @@ There are four aspects to consider at the outbound proxy:
 * Proxy outbound rules
 * Proxy authentication
 * Proxy ports
-* SSL inspection
+* TLS inspection
 
 #### Proxy outbound rules
 
@@ -125,14 +126,32 @@ Proxy authentication is not currently supported. Our current recommendation is t
 
 #### Proxy ports
 
-The connector makes outbound SSL-based connections by using the CONNECT method. This method essentially sets up a tunnel through the outbound proxy. Configure the proxy server to allow tunneling to ports 443 and 80.
+The connector makes outbound TLS-based connections by using the CONNECT method. This method essentially sets up a tunnel through the outbound proxy. Configure the proxy server to allow tunneling to ports 443 and 80.
 
 > [!NOTE]
 > When Service Bus runs over HTTPS, it uses port 443. However, by default, Service Bus attempts direct TCP connections and falls back to HTTPS only if direct connectivity fails.
 
-#### SSL inspection
+#### TLS inspection
 
-Do not use SSL inspection for the connector traffic, because it causes problems for the connector traffic. The connector uses a certificate to authenticate to the Application Proxy service, and that certificate can be lost during SSL inspection.
+Do not use TLS inspection for the connector traffic, because it causes problems for the connector traffic. The connector uses a certificate to authenticate to the Application Proxy service, and that certificate can be lost during TLS inspection.
+
+## Configure using a proxy between the connector and backend application
+Using a forward proxy for the communication towards the backend application might be a special requirement in some environments.
+To enable this, please follow the next steps:
+
+### Step 1: Add the required registry value to the server
+1. To enable using the default proxy add the following registry value (DWORD) 
+`UseDefaultProxyForBackendRequests = 1` to the Connector configuration registry key located in "HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft AAD App Proxy Connector".
+
+### Step 2: Configure the proxy server manually using netsh command
+1.	Enable the group policy Make proxy settings per-machine. This is found in: Computer Configuration\Policies\Administrative Templates\Windows Components\Internet Explorer. This needs to be set rather than having this policy set to per-user.
+2.	Run `gpupdate /force` on the server or reboot the server to ensure it uses the updated group policy settings.
+3.	Launch an elevated command prompt with admin rights and enter `control inetcpl.cpl`.
+4.	Configure the required proxy settings. 
+
+These settings make the connector use the same forward proxy for the communication to Azure and to the backend application. If the connector to Azure communication requires no forward proxy or a different forward proxy, you can set this up with modifying the file ApplicationProxyConnectorService.exe.config as described in the sections Bypass outbound proxies or Use the outbound proxy server.
+
+The connector updater service will use the machine proxy as well. This behavior can be changed by modifying the file ApplicationProxyConnectorUpdaterService.exe.config.
 
 ## Troubleshoot connector proxy problems and service connectivity issues
 

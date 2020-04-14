@@ -111,7 +111,7 @@ Change directories into the folder where your deployment manifest is saved. If y
 
 Use the following command to apply the configuration to an IoT Edge device:
 
-   ```cli
+   ```azurecli
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
@@ -125,7 +125,7 @@ Once you've deployed modules to your device, you can view all of them with the f
 
 View the modules on your IoT Edge device:
 
-   ```cli
+   ```azurecli
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 

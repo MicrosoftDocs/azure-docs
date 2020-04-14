@@ -8,19 +8,20 @@ metadata:
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 04/13/2020
   ms.author: dapine
 
 landingContent:
-- title: Get started
+- title: About speech translation
   linkLists:
     - linkListType: overview
       links:
       - text: What is speech translation?
         url: speech-translation.md
+      - text: Speech translation basics
+        url: speech-translation-basics.md
     - linkListType: quickstart
       links:
         - text: Translate speech-to-text
@@ -29,7 +30,7 @@ landingContent:
           url: quickstarts/translate-speech-to-text-multiple-languages.md
         - text: Translate speech-to-speech
           url: quickstarts/translate-speech-to-speech.md
-- title: Step-by-step guides
+- title: Develop with speech translation
   linkLists:
     - linkListType: learn
       links:
@@ -45,7 +46,7 @@ landingContent:
       links:
         - text: Language support
           url: language-support.md#speech-translation
-        - text: Pricing
-          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
         - text: Speech translation FAQ
           url: https://www.microsoft.com/translator/business/faq/
+        - text: Speech translation pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/

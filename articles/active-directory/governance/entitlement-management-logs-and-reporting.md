@@ -3,7 +3,7 @@ title: Archive & report with Azure Monitor - Azure AD entitlement management
 description: Learn how to archive logs and create reports with Azure Monitor in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: 
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/27/2020
-ms.author: ajburnle
+ms.date: 04/14/2020
+ms.author: barclayn
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
@@ -49,6 +49,38 @@ to send the Azure AD audit log to the Azure Monitor workspace.
 
     ![Log Analytics workspaces pane](./media/entitlement-management-logs-and-reporting/log-analytics-workspaces.png)
 
+1. Later, to see the range of dates held in your workspace, you can use the *Archived Log Date Range* workbook:  
+    
+    1. Select **Azure Active Directory** then click **Workbooks**. 
+    
+    1. Expand the section **Azure Active Directory Troubleshooting**, and click on **Archived Log Date Range**. 
+
+
+## View events for an access package  
+
+To view events for an access package, you must have access to the underlying Azure monitor workspace (see [Manage access to log data and workspaces in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) for information) and in one of the following roles: 
+
+- Global administrator  
+- Security administrator  
+- Security reader  
+- Report reader  
+- Application administrator  
+
+Use the following procedure to view events: 
+
+1. In the Azure portal, select **Azure Active Directory** then click **Workbooks**. If you only have one subscription, move on to step 3. 
+
+1. If you have multiple subscriptions, select the subscription that contains the workspace.  
+
+1. Select the workbook named *Access Package Activity*. 
+
+1. In that workbook, select a time range (change to **All** if not sure), and select an access package Id from the drop-down list of all access packages that had activity during that time range. The events related to the access package that occurred during the selected time range will be displayed.  
+
+    ![View access package events](./media/entitlement-management-logs-and-reporting/view-events-access-package.png) 
+
+    Each row includes the time, access package Id, the name of the operation, the object Id, UPN, and the display name of the user who started the operation.  Additional details are included in JSON.   
+
+
 ## Create custom Azure Monitor queries using the Azure portal
 You can create your own queries on Azure AD audit events, including entitlement management events.  
 
@@ -56,7 +88,7 @@ You can create your own queries on Azure AD audit events, including entitlement 
 
 1. Your workspace should be shown in the upper left of the query page. If you have multiple Azure Monitor workspaces, and the workspace you're using to store Azure AD audit events isn't shown, click **Select Scope**. Then, select the correct subscription and workspace.
 
-1. Next, in the query text area, delete the string “search *” and replace it with the following query:
+1. Next, in the query text area, delete the string "search *" and replace it with the following query:
 
     ```
     AuditLogs | where Category == "EntitlementManagement"
@@ -66,7 +98,7 @@ You can create your own queries on Azure AD audit events, including entitlement 
 
     ![Click Run to start query](./media/entitlement-management-logs-and-reporting/run-query.png)
 
-The table will show the Audit log events for entitlement management from the last hour by default. You can change the “Time range” setting to view older events. However, changing this setting will only show events that occurred after Azure AD was configured to send events to Azure Monitor.
+The table will show the Audit log events for entitlement management from the last hour by default. You can change the "Time range" setting to view older events. However, changing this setting will only show events that occurred after Azure AD was configured to send events to Azure Monitor.
 
 If you would like to know the oldest and newest audit events held in Azure Monitor, use the following query:
 
@@ -85,6 +117,7 @@ You can access logs through PowerShell after you've configured Azure AD to send 
 Make sure you, the user or service principal that will authenticate to Azure AD, are in the appropriate Azure role in the Log Analytics workspace. The role options are either Log Analytics Reader or the Log Analytics Contributor. If you're already in one of those roles, then skip to [Retrieve Log Analytics ID with one Azure subscription](#retrieve-log-analytics-id-with-one-azure-subscription).
 
 To set the role assignment and create a query, do the following steps:
+
 1. In the Azure portal, locate the [Log Analytics workspace](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces
 ).
 
@@ -96,13 +129,13 @@ To set the role assignment and create a query, do the following steps:
 
 ### Install Azure PowerShell module
 
-Once you have the appropriate role assignment, launch PowerShell, and [install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-3.3.0) (if you haven’t already), by typing:
+Once you have the appropriate role assignment, launch PowerShell, and [install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-3.3.0) (if you haven't already), by typing:
 
 ```azurepowershell
 install-module -Name az -allowClobber -Scope CurrentUser
 ```
     
-Now you're ready to authenticate to Azure AD, and retrieve the id of the Log Analytics workspace you’re querying.
+Now you're ready to authenticate to Azure AD, and retrieve the ID of the Log Analytics workspace you're querying.
 
 ### Retrieve Log Analytics ID with one Azure subscription
 If you have only a single Azure subscription, and a single Log Analytics workspace, then type the following to authenticate to Azure AD, connect to that subscription, and retrieve that workspace:
@@ -116,7 +149,7 @@ $wks = Get-AzOperationalInsightsWorkspace
 
  [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) operates in one subscription at a time. So, if you have multiple Azure subscriptions, you'll want to make sure you connect to the one that has the Log Analytics workspace with the Azure AD logs. 
  
- The following cmdlets display a list of subscriptions, and find the id of the subscription that has the Log Analytics workspace:
+ The following cmdlets display a list of subscriptions, and find the ID of the subscription that has the Log Analytics workspace:
  
 ```azurepowershell
 Connect-AzAccount
@@ -127,7 +160,7 @@ $subs | ft
 You can reauthenticate and associate your PowerShell session to that subscription using a command such as `Connect-AzAccount –Subscription $subs[0].id`. To learn more about how to authenticate to Azure from PowerShell, including non-interactively, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
 ).
 
-If you have multiple Log Analytics workspaces in that subscription, then the cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) returns the list of workspaces. Then you can find the one that has the Azure AD logs. The `CustomerId` field returned by this cmdlet is the same as the value of the "Workspace id" displayed in the Azure portal in the Log Analytics workspace overview.
+If you have multiple Log Analytics workspaces in that subscription, then the cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) returns the list of workspaces. Then you can find the one that has the Azure AD logs. The `CustomerId` field returned by this cmdlet is the same as the value of the "Workspace Id" displayed in the Azure portal in the Log Analytics workspace overview.
  
 ```powershell
 $wks = Get-AzOperationalInsightsWorkspace
@@ -149,7 +182,7 @@ $aResponse.Results |ft
 You can also retrieve entitlement management events using a query like:
 
 ```azurepowershell
-$bQuery = = 'AuditLogs | where Category == "EntitlementManagement"'
+$bQuery = 'AuditLogs | where Category == "EntitlementManagement"'
 $bResponse = Invoke-AzOperationalInsightsQuery -WorkspaceId $wks[0].CustomerId -Query $Query
 $bResponse.Results |ft 
 ```

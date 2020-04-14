@@ -11,7 +11,7 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/27/2017
-ms.author: ryanwi
+ROBOTS: NOINDEX
 ---
 
 # Error handling best practices for Azure Active Directory Authentication Library (ADAL) clients
@@ -184,7 +184,7 @@ The operating system can also generate a set of errors, which require error hand
 
 ### Error cases and actionable steps: Native client applications
 
-If you're building a native client application, there are a few error handling cases to consider which relate to network issues, transient failures, and other platform-specific errors. In most cases, an application shouldn’t perform immediate retries, but rather wait for end-user interaction that prompts a sign-in. 
+If you're building a native client application, there are a few error handling cases to consider which relate to network issues, transient failures, and other platform-specific errors. In most cases, an application shouldn't perform immediate retries, but rather wait for end-user interaction that prompts a sign-in. 
 
 There are a few special cases in which a single retry may resolve the issue. For example, when a user needs to enable data on a device, or completed the Azure AD broker download after the initial failure. 
 
@@ -538,7 +538,7 @@ To explore specific ADAL errors, the source code in the [azure-activedirectory-l
 
 #### Operating system errors
 
-iOS errors may arise during sign-in when users use web views, and the nature of authentication. This can be caused by conditions such as SSL errors, timeouts, or network errors:
+iOS errors may arise during sign-in when users use web views, and the nature of authentication. This can be caused by conditions such as TLS errors, timeouts, or network errors:
 
 - For Entitlement Sharing, logins are not persistent and the cache appears empty. You can resolve by adding the following line of code to the keychain:
   `[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`

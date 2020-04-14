@@ -1,5 +1,5 @@
 ---
-title: Enable Azure Monitor for VMs (classic) with PowerShell or templates
+title: Enable Azure Monitor for VMs with PowerShell or templates
 description: This article describes how you enable Azure Monitor for VMs for one or more Azure virtual machines or virtual machine scale sets by using Azure PowerShell or Azure Resource Manager templates.
 ms.subservice:
 ms.topic: conceptual
@@ -9,23 +9,17 @@ ms.date: 10/14/2019
 
 ---
 
-# Enable Azure Monitor for VMs (preview) using Azure PowerShell or Resource Manager templates
+# Enable Azure Monitor for VMs using Azure PowerShell or Resource Manager templates
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article explains how to enable Azure Monitor for VMs (preview) for Azure virtual machines or virtual machine scale sets by using Azure PowerShell or Azure Resource Manager templates. At the end of this process, you will have successfully begun monitoring all of your virtual machines and learn if any are experiencing performance or availability issues.
+This article explains how to enable Azure Monitor for VMs for Azure virtual machines or virtual machine scale sets by using Azure PowerShell or Azure Resource Manager templates. At the end of this process, you will have successfully begun monitoring all of your virtual machines and learn if any are experiencing performance or availability issues.
 
 ## Set up a Log Analytics workspace
 
 If you don't have a Log Analytics workspace, you need to create one. Review the methods that are suggested in the [Prerequisites](vminsights-enable-overview.md#log-analytics) section before you continue with the steps to configure it. Then you can finish the deployment of Azure Monitor for VMs by using the Azure Resource Manager template method.
 
-### Enable performance counters
-
-If the Log Analytics workspace that's referenced by the solution isn't already configured to collect the performance counters required by the solution, you need to enable them. You can do so in one of two ways:
-* Manually, as described in [Windows and Linux performance data sources in Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
-* By downloading and running a PowerShell script that's available from the [Azure PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
-
-### Install the ServiceMap solution
+### Install the VMInsights solution
 
 This method includes a JSON template that specifies the configuration for enabling the solution components in your Log Analytics workspace.
 
@@ -59,7 +53,7 @@ To use the Azure CLI, you first need to install and use the CLI locally. You mus
                     {
                         "apiVersion": "2015-11-01-preview",
                         "location": "[parameters('WorkspaceLocation')]",
-                        "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                        "name": "[concat('VMInsights', '(', parameters('WorkspaceName'),')')]",
                         "type": "Microsoft.OperationsManagement/solutions",
                         "dependsOn": [
                             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -69,9 +63,9 @@ To use the Azure CLI, you first need to install and use the CLI locally. You mus
                         },
 
                         "plan": {
-                            "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                            "name": "[concat('VMInsights', '(', parameters('WorkspaceName'),')')]",
                             "publisher": "Microsoft",
-                            "product": "[Concat('OMSGallery/', 'ServiceMap')]",
+                            "product": "[Concat('OMSGallery/', 'VMInsights')]",
                             "promotionCode": ""
                         }
                     }

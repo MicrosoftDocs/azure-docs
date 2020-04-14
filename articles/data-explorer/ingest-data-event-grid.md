@@ -66,7 +66,7 @@ Create a table in Azure Data Explorer where Event Hubs will send data. Create th
 
 1. Copy the following command into the window and select **Run** to create the table (TestTable) that will receive the ingested data.
 
-    ```Kusto
+    ```kusto
     .create table TestTable (TimeStamp: datetime, Value: string, Source:string)
     ```
 
@@ -74,7 +74,7 @@ Create a table in Azure Data Explorer where Event Hubs will send data. Create th
 
 1. Copy the following command into the window and select **Run** to map the incoming JSON data to the column names and data types of the table (TestTable).
 
-    ```Kusto
+    ```kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.TimeStamp"},{"column":"Value","path":"$.Value"},{"column":"Source","path":"$.Source"}]'
     ```
 
@@ -127,11 +127,11 @@ We'll work with a small shell script that issues a few basic Azure CLI commands 
 
 Save the data into a file and upload it with this script:
 
-```Json
+```json
 {"TimeStamp": "1987-11-16 12:00","Value": "Hello World","Source": "TestSource"}
 ```
 
-```bash
+```azurecli
 #!/bin/bash
 ### A simple Azure Storage example script
 
@@ -184,7 +184,7 @@ These properties can be set:
 > [!NOTE]
 > Azure Data Explorer has an aggregation (batching) policy for data ingestion designed to optimize the ingestion process.
 By default, the policy is configured to 5 minutes.
-You’ll be able to alter the policy at a later time if needed. In this article you can expect a latency of a few minutes.
+You'll be able to alter the policy at a later time if needed. In this article you can expect a latency of a few minutes.
 
 1. In the Azure portal, under your event grid, you see the spike in activity while the app is running.
 
@@ -192,14 +192,14 @@ You’ll be able to alter the policy at a later time if needed. In this article 
 
 1. To check how many messages have made it to the database so far, run the following query in your test database.
 
-    ```Kusto
+    ```kusto
     TestTable
     | count
     ```
 
 1. To see the content of the messages, run the following query in your test database.
 
-    ```Kusto
+    ```kusto
     TestTable
     ```
 

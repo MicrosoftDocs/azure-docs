@@ -22,6 +22,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 
 * You can currently enable this feature only when you create a registry.
 * After enabling a customer-managed key on a registry, you can't disable it.
+* [Content trust](container-registry-content-trust.md) is currently not supported in a registry encrypted with a customer-managed key.
 * In a registry encrypted with a customer-managed key, run logs for [ACR Tasks](container-registry-tasks-overview.md) are currently retained for only 24 hours. If you need to retain logs for a longer period, see guidance to [export and store task run logs](container-registry-tasks-logs.md#alternative-log-storage).
 
 ## Prerequisites
@@ -402,9 +403,9 @@ Revoking the key effectively blocks access to all registry data, since the regis
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
 [az-keyvault-create]: /cli/azure/keyvault#az-keyvault-create
-[az-keyvault-key-create]: /cli/azure/keyvault/keyt#az-keyvault-key-create
-[az-keyvault-set-policy]: /cli/azure/keyvault/keyt#az-keyvault-set-policy
-[az-keyvault-delete-policy]: /cli/azure/keyvault/keyt#az-keyvault-delete-policy
+[az-keyvault-key-create]: /cli/azure/keyvault/key#az-keyvault-key-create
+[az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy
+[az-keyvault-delete-policy]: /cli/azure/keyvault#az-keyvault-delete-policy
 [az-resource-show]: /cli/azure/resource#az-resource-show
 [az-acr-create]: /cli/azure/acr#az-acr-create
 [az-acr-show]: /cli/azure/acr#az-acr-show

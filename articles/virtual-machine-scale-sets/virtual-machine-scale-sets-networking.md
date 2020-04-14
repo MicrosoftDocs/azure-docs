@@ -1,14 +1,14 @@
 ---
 title: Networking for Azure virtual machine scale sets
 description: How to configuration some of the more advanced networking properties for Azure virtual machine scale sets.
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 07/17/2017
-ms.author: manayar
+ms.author: mimckitt
 
 ---
 # Networking for Azure virtual machine scale sets
@@ -19,6 +19,7 @@ You can configure all of the features covered in this article using Azure Resour
 
 ## Accelerated Networking
 Azure Accelerated Networking improves network performance by enabling single root I/O virtualization (SR-IOV) to a virtual machine. To learn more about using Accelerated networking, see Accelerated networking for [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) virtual machines. To use accelerated networking with scale sets, set enableAcceleratedNetworking to **true** in your scale set's networkInterfaceConfigurations settings. For example:
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -38,7 +39,8 @@ Azure Accelerated Networking improves network performance by enabling single roo
 
 ## Create a scale set that references an existing Azure Load Balancer
 When a scale set is created using the Azure portal, a new load balancer is created for most configuration options. If you create a scale set, which needs to reference an existing load balancer, you can do this using the CLI. The following example script creates a load balancer and then creates a scale set, which references it:
-```bash
+
+```azurecli
 az network lb create \
     -g lbtest \
     -n mylb \
@@ -60,11 +62,21 @@ az vmss create \
     --lb mylb \
     --backend-pool-name mybackendpool
 ```
+
 >[!NOTE]
 > After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again. 
 
+For more information on load balancer and virtual machine scale sets, see [Virtual networks and virtual machines in Azure](../../articles/virtual-machines/windows/network-overview.md).
+
+The following methods can be used to deploy a virtual machine scale set with an existing Azure load balancer.
+
+* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal](../../articles/load-balancer/configure-vm-scale-set-portal.md).
+* [Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell](../../articles/load-balancer/configure-vm-scale-set-powershell.md).
+* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI](../../articles/load-balancer/configure-vm-scale-set-cli.md).
+
 ## Create a scale set that references an Application Gateway
 To create a scale set that uses an application gateway, reference the backend address pool of the application gateway in the ipConfigurations section of your scale set as in this ARM template config:
+
 ```json
 "ipConfigurations": [{
   "name": "{config-name}",
@@ -87,10 +99,13 @@ By default, scale sets take on the specific DNS settings of the VNET and subnet 
 
 ### Creating a scale set with configurable DNS servers
 To create a scale set with a custom DNS configuration using the Azure CLI, add the **--dns-servers** argument to the **vmss create** command, followed by space separated server ip addresses. For example:
+
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
+
 To configure custom DNS servers in an Azure template, add a dnsSettings property to the scale set networkInterfaceConfigurations section. For example:
+
 ```json
 "dnsSettings":{
     "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -132,8 +147,9 @@ To set the domain name in an Azure template, add a **dnsSettings** property to t
 }
 ```
 
-The output, for an individual virtual machine dns name would be in the following form: 
-```
+The output, for an individual virtual machine dns name would be in the following form:
+
+```output
 <vm><vmindex>.<specifiedVmssDomainNameLabel>
 ```
 
@@ -155,17 +171,20 @@ To create a scale set using an Azure template, make sure the API version of the 
     }
 }
 ```
+
 Example template: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### Querying the public IP addresses of the virtual machines in a scale set
 To list the public IP addresses assigned to scale set virtual machines using the CLI, use the **az vmss list-instance-public-ips** command.
 
 To list scale set public IP addresses using PowerShell, use the _Get-AzPublicIpAddress_ command. For example:
+
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 You can also query the public IP addresses by referencing the resource ID of the public IP address configuration directly. For example:
+
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
@@ -191,6 +210,7 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
 ```
 
 Example output from the [Azure Resource Explorer](https://resources.azure.com) and Azure REST API:
+
 ```json
 {
   "value": [
@@ -314,7 +334,8 @@ Network Security Groups can be applied directly to a scale set, by adding a refe
 
 Application Security Groups can also be specified directly to a scale set, by adding a reference to the network interface ip configurations section of the scale set virtual machine properties.
 
-For example: 
+For example:
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -358,7 +379,7 @@ For example:
 
 To verify your Network Security Group is associated with your scale set, use the `az vmss show` command. The below example uses `--query` to filter the results and only show the relevant section of the output.
 
-```bash
+```azurecli
 az vmss show \
     -g myResourceGroup \
     -n myScaleSet \
@@ -374,7 +395,7 @@ az vmss show \
 
 To verify your Application Security Group is associated with your scale set, use the `az vmss show` command. The below example uses `--query` to filter the results and only show the relevant section of the output.
 
-```bash
+```azurecli
 az vmss show \
     -g myResourceGroup \
     -n myScaleSet \

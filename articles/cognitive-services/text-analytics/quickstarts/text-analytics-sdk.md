@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 03/12/2020
+ms.date: 03/24/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics
 ---
@@ -39,7 +39,6 @@ Use the Text Analytics client library to perform:
 
 > [!IMPORTANT]
 > * This quickstart is only for version `3.0-preview` of the Text Analytics client library, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
->    * Be sure to only follow the instructions for the version you are using.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]

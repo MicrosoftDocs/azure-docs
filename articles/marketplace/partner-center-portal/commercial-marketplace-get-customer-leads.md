@@ -1,13 +1,12 @@
 ---
 title: Configure customer leads | Azure Marketplace
 description: Configure customer leads in commercial marketplace.
-services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.author: evansma
+ms.date: 03/30/2020
+ms.author: dsindona
 ---
 
 # Customer leads from your marketplace offer
@@ -133,11 +132,11 @@ The Azure Blob lead destination is no longer supported so you are missing any cu
 
 ### I received an email from Marketplace, why can't I find the lead in my CRM?
 
-It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass PII data from .edu domain. Submit a support ticket through aka.ms/marketplacepublishersupport.
+It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass private identifiable information from .edu domain. Submit a support ticket through aka.ms/marketplacepublishersupport.
 
 ### I have configured Azure Table as my lead destination, how can I view the leads?
 
-You can access the lead data stored in the Azure Table from the Azure Portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) for free to view your Azure storage account's tables data.
+You can access the lead data stored in the Azure Table from the Azure portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) for free to view your Azure storage account's tables data.
 
 ### I have configured Azure Table as my lead destination, can I get notified whenever a new lead is sent by Marketplace?
 
@@ -149,13 +148,17 @@ Check if the "web to lead" form is a mandatory field based on a picklist. If yes
 
 ### There was an issue with my lead destination, and I missed some leads. Can I have them sent to me in an email?
 
-Due to PII (Private Identifiable Information) policies, we cannot share lead information through unsecured email.
+Due to private identifiable information policies, we cannot share lead information through unsecured email.
 
 ### I have configured Azure Table as my lead destination, how much will it cost?
 
 Lead gen data is low (<1 GB for almost all publishers). The cost will depend on number of leads received, if 1,000 leads are received in a month, it costs around 50 cents. For more information about storage pricing, see [storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 If your question is still not answered, contact Support through aka.ms/marketplacepublishersupport, then select **'offer creation'** → **your type of offer** → **'lead management configuration.'** 
+
+### I am receiving email notifications when new customer leads are received. How can I configure who to receive these emails?
+
+Access your offer in Partner Center and navigate to the **Offer setup** page -> **Lead Management** -> **Edit**. Update the email addresses under the **Contact email** field.
 
 ## Next steps
 

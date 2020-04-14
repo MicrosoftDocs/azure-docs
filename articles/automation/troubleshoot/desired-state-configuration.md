@@ -42,7 +42,7 @@ For information on using xDscDiagnostics, see [Using xDscDiagnostics to analyze 
 
 ### 3. Ensure that nodes and the Automation workspace have required modules
 
-DSC depends on modules installed on the node. When using Azure Automation State Configuration, import any required modules into your Automation account using the steps listed in [Import Modules](../shared-resources/modules.md#import-modules). Configurations can also have a dependency on specific versions of modules. For more information, see [Troubleshoot Modules](shared-resources.md#modules).
+DSC depends on modules installed on the node. When using Azure Automation State Configuration, import any required modules into your Automation account using the steps listed in [Import Modules](../shared-resources/modules.md#importing-modules). Configurations can also have a dependency on specific versions of modules. For more information, see [Troubleshoot Modules](shared-resources.md#modules).
 
 ## Common errors when working with DSC
 
@@ -107,7 +107,9 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### Cause
 
-This issue is caused by a bad or expired certificate.  For more information, see [Certificate expiration and reregistration](../automation-dsc-onboarding.md#certificate-expiration-and-re-registration).
+This issue is caused by a bad or expired certificate.  For more information, see [Certificate expiration and reregistration](../automation-dsc-onboarding.md#re-registering-a-node).
+
+This issue could also be caused by a proxy configuration not allowing access to ***.azure-automation.net**. For more information, see [Configuration of private networks](../automation-dsc-overview.md#network-planning). 
 
 ### Resolution
 
@@ -226,7 +228,7 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 #### Cause
 
-You've used a credential in a configuration but didn’t provide proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration.
+You've used a credential in a configuration but didn't provide proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration.
 
 #### Resolution
 
@@ -271,8 +273,8 @@ Treat the cross-subscription node as though it lives in a separate cloud, or on-
 
 Follow the steps below to register the node.
 
-* Windows - [Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS](../automation-dsc-onboarding.md#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances).
-* Linux - [Physical/virtual Linux machines on-premises, or in a cloud other than Azure](../automation-dsc-onboarding.md#physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
+* Windows - [Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances).
+* Linux - [Physical/virtual Linux machines on-premises, or in a cloud other than Azure](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
 
 ### <a name="agent-has-a-problem"></a>Scenario: Error message - "Provisioning Failed"
 
@@ -327,6 +329,20 @@ Known issue with the compilation service.
 #### Resolution
 
 The best workaround would be to compile locally or in a CI/CD pipeline and upload the MOF files directly to the service.  If compilation in the service is a requirement, the next best workaround would be to split the compilation jobs so there is no overlap in names.
+
+### <a name="gateway-timeout"></a>Scenario: Gateway timeout error on DSC configuration upload
+
+#### Issue
+
+You receive a `GatewayTimeout` error when uploading a DSC configuration. 
+
+#### Cause
+
+DSC configurations that take a long time to compile can cause this error.
+
+#### Resolution
+
+You can make your DSC configurations parse faster by explicitly including the `ModuleName` parameter for any `Import-DscResource` calls. For more information, see [Using Import-DSCResource](https://docs.microsoft.com/powershell/scripting/dsc/configurations/import-dscresource?view=powershell-5.1).
 
 ## Next steps
 

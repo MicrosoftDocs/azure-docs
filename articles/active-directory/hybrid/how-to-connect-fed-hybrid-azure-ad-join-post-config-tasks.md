@@ -39,9 +39,9 @@ All domain-joined devices running Windows 10 and Windows Server 2016 automatical
 ## 2. Configure network with device registration endpoints
 Make sure that the following URLs are accessible from computers inside your organizational network for registration to Azure AD:
 
-* https://enterpriseregistration.windows.net
-* https://login.microsoftonline.com
-* https://device.login.microsoftonline.com 
+* `https://enterpriseregistration.windows.net`
+* `https://login.microsoftonline.com`
+* `https://device.login.microsoftonline.com` 
 
 ## 3. Implement WPAD for Windows 10 devices
 If your organization accesses the Internet via an outbound proxy, implement Web Proxy Auto-Discovery (WPAD)to enable Windows 10 computers to register to Azure AD.
@@ -73,10 +73,10 @@ To register Windows down-level devices, you need to make sure that the Azure AD 
 ## 8. Add Azure AD endpoint to Windows down-level devices
 
 Add the Azure AD device authentication endpoint to the local Intranet zones on your Windows down-level devices to avoid certificate prompts when authenticating the devices:
-https://device.login.microsoftonline.com 
+`https://device.login.microsoftonline.com` 
 
 If you are using [Seamless SSO](how-to-connect-sso.md), also enable “Allow status bar updates via script” on that zone and add the following endpoint:
-https://autologon.microsoftazuread-sso.com 
+`https://autologon.microsoftazuread-sso.com` 
 
 ## 9. Install Microsoft Workplace Join on Windows down-level devices
 

@@ -28,7 +28,7 @@ When you have errors executing runbooks in Azure Automation, you can use the fol
 
 3. **Ensure that your nodes and Automation workspace have the required modules.** 
 
-    If your runbook imports any modules, verify that they are available to your Automation account using the steps listed in [Import modules](../shared-resources/modules.md#import-modules). Update your modules to the latest version by following the instructions at [Update Azure modules in Azure Automation](..//automation-update-azure-modules.md). For more troubleshooting information, see [Troubleshoot modules](shared-resources.md#modules).
+    If your runbook imports any modules, verify that they are available to your Automation account using the steps listed in [Import modules](../shared-resources/modules.md#importing-modules). Update your modules to the latest version by following the instructions at [Update Azure modules in Azure Automation](..//automation-update-azure-modules.md). For more troubleshooting information, see [Troubleshoot modules](shared-resources.md#modules).
 
 4. **Do if your runbook is suspended or unexpectedly fails.**
 
@@ -604,7 +604,7 @@ Run As accounts might not have the same permissions against Azure resources as y
 
 ### Issues passing parameters into webhooks
 
-For help with passing parameters into webhooks, see [Start a runbook from a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
+For help with passing parameters into webhooks, see [Start a runbook from a webhook](../automation-webhooks.md#parameters-used-when-the-webhook-starts-a-runbook).
 
 ### Issues using Az modules
 
@@ -625,7 +625,7 @@ Run As accounts might not have the same permissions against Azure resources as y
 
 ### Passing parameters into webhooks
 
-For help with passing parameters into webhooks, see [Start a runbook from a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
+For help with passing parameters into webhooks, see [Start a runbook from a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters-used-when-the-webhook-starts-a-runbook).
 
 ### Using Az modules
 
@@ -637,7 +637,7 @@ To use self-signed certificates, see [Creating a new certificate](https://docs.m
 
 ### Access denied when using Azure sandbox for a runbook
 
-The Azure sandbox prevents access to all out-of-process COM servers. For example, a sandboxed application or runbook can't call into Windows Management Instrumentation (WMI), or into the Windows Installer service (msiserver.exe). For details about the use of the sandbox, see [Runbook execution in Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution.md).
+The Azure sandbox prevents access to all out-of-process COM servers. For example, a sandboxed application or runbook can't call into Windows Management Instrumentation (WMI), or into the Windows Installer service (msiserver.exe). For details about the use of the sandbox, see [Runbook execution in Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution).
 
 ## Recommended Documents
 

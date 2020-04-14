@@ -1,7 +1,7 @@
 ---
 title: "Image classification tutorial: Deploy models"
 titleSuffix: Azure Machine Learning
-description: This tutorial shows how to use Azure Machine Learning to deploy an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is the second of a two-part series.
+description: This tutorial, second of a two-part series, shows how to use Azure Machine Learning to deploy an image classification model with scikit-learn in a Python Jupyter notebook.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,9 +17,7 @@ ms.custom: seodec18
 # Tutorial: Deploy an image classification model in Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace on the cloud.  
-
-Now you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). A web service is an image, in this case a Docker image. It encapsulates the scoring logic and the model itself. 
+This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace on the cloud.  Now you're ready to deploy the model as a web service. A web service is an image, in this case a Docker image. It encapsulates the scoring logic and the model itself. 
 
 In this part of the tutorial, you use Azure Machine Learning for the following tasks:
 
@@ -296,7 +294,6 @@ Get the scoring web service's HTTP endpoint, which accepts REST client calls. Yo
 ```python
 print(service.scoring_uri)
 ```
-
 
 ## Test the deployed service
 
