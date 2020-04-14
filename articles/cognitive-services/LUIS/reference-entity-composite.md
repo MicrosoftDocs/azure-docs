@@ -8,12 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
+ms.date: 04/14/2020
 ms.author: diberry
 ---
 # Composite entity
 
 A composite entity is made up of other entities, such as prebuilt entities, simple, regular expression, and list entities. The separate entities form a whole entity.
+
+> [!CAUTION]
+> This entity is **deprecated**. Please migrate to the [machine-learned entity](reference-entity-machine-learned-entity.md).
 
 **This entity is a good fit when the data:**
 
