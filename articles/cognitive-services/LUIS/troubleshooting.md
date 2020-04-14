@@ -49,7 +49,7 @@ See [entities](luis-concept-entity-types.md) and [data extraction](luis-concept-
 Use one of the following solutions:
 * Ignore [punctuation](luis-reference-application-settings.md#punctuation-normalization)
 * Add the different variations as example utterances to the intent
-* Sdd the pattern of the example utterance with the [syntax to ignore](luis-concept-patterns.md#pattern-syntax) the punctuation.
+* Add the pattern of the example utterance with the [syntax to ignore](luis-concept-patterns.md#pattern-syntax) the punctuation.
 
 ### Does LUIS currently support Cortana?
 
