@@ -17,8 +17,8 @@ The query prediction endpoint V3 APIs have changed. Use this guide to understand
 
 The V3 API provides the following new features:
 
-* [External entities](schema-change-prediction-runtime.md.md#external-entities-passed-in-at-prediction-time)
-* [Dynamic lists](schema-change-prediction-runtime.md.md#dynamic-lists-passed-in-at-prediction-time)
+* [External entities](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time)
+* [Dynamic lists](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
 * [Prebuilt entity JSON changes](#prebuilt-entity-changes)
 
 The prediction endpoint [request](#request-changes) and [response](#response-changes) have significant changes to support the new features listed above, including the following:

@@ -6,6 +6,10 @@ ms.date: 04/14/2020
 ---
 # Change app schema at prediction runtime with external entities
 
+<a name="external-entities-passed-in-at-prediction-time"></a>
+
+## External entities
+
 External entities give your LUIS app the ability to identify and label entities during runtime, which can be used as features to existing entities. This allows you to use your own separate and custom entity extractors before sending queries to your prediction endpoint. Because this is done at the query prediction endpoint, you don't need to retrain and publish your model.
 
 The client-application is providing its own entity extractor by managing entity matching and determining the location within the utterance of that matched entity and then sending that information with the request.
