@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 04/13/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -112,9 +112,6 @@ After that, you need to join an Active Directory connection.
     - For **SMB Server (Computer Account) Prefix**, enter the string you want to append to the computer account name.
     - For **Username**, enter the name of the account with permissions to perform domain join.
     - For **Password**, enter the account's password.
-
-  >[!NOTE]
-  >It's best practice to confirm that the computer account you created in [Join an Active Directory connection](create-fslogix-profile-container.md#join-an-active-directory-connection) has appeared in your domain controller under **Computers** or **your enterprise's relevant OU**.
 
 ## Create a new volume
 
