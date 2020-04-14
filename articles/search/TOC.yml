@@ -232,7 +232,7 @@
       items:
       - name: Create a suggester
         href: index-add-suggesters.md
-      - name: Add suggestions or autocomplete
+      - name: Add autocomplete and suggestions
         href: search-autocomplete-tutorial.md
     - name: Query from Power Apps   
       href: search-howto-powerapps.md  
