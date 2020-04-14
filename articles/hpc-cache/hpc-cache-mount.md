@@ -4,8 +4,8 @@ description: How to connect clients to an Azure HPC Cache service
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: rohogue
+ms.date: 04/14/2020
+ms.author: v-erkel
 ---
 
 # Mount the Azure HPC Cache
@@ -58,15 +58,23 @@ Before using the command on a client, make sure the client meets the prerequisit
 
 Follow this procedure to create the mount command.
 
-1. Customize the **Client path** field. This field gives an example command that you can use to create a local path on the client. This is the path that the client will use to access the content from the Azure HPC Cache.
+1. Customize the **Client path** field. This field gives an example command that you can use to create a local path on the client. The client accesses the content from the Azure HPC Cache locally in this directory.
 
-   Edit the command to contain the directory name you want. The name appears at the end of the string after `sudo mkdir -p`
+   Click the field and edit the command to contain the directory name you want. The name appears at the end of the string after `sudo mkdir -p`
+
+   ![screenshot of the client path field with cursor positioned at the end](media/mount-edit-client.png)
+
+   After you finish editing the field, the mount command at the bottom of the page updates with the new client path.
 
 1. Choose the **Cache mount address** from the list. This menu lists all of the cache's [client mount points](#find-mount-command-components).
 
    Balance client load across all of the available mount addresses for better cache performance.
 
+   ![screenshot of the cache mount address field, with selector showing three IP addresses to choose from](media/mount-select-ip.png)
+
 1. Choose the **Virtual namespace path** to use for the client. These paths link to exports on the back-end storage system.
+
+   ![screenshot of the namespace paths field, with selector open](media/mount-select-target.png)
 
    You can view and change virtual namespace paths on the Storage targets portal page. Read [Add storage targets](hpc-cache-add-storage.md) to see how.
 
@@ -75,6 +83,8 @@ Follow this procedure to create the mount command.
 1. The **Mount command** field in step three automatically populates with a customized mount command that uses the mount address, virtual namespace path, and client path that you set in the previous fields.
 
    Click the copy symbol at the right side of the field to automatically copy it to your clipboard.
+
+   ![screenshot of the namespace paths field, with selector open](media/mount-command-copy.png)
 
 1. Use the copied mount command on the client machine to connect it to the Azure HPC Cache. You can issue the command directly from the client command line, or include the mount command in a client setup script or template.
 
