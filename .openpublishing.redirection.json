@@ -20,7 +20,7 @@
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-cli",
       "redirect_document_id": false
     },
-	
+
     {
       "source_path": "articles/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md",
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file",
@@ -723,6 +723,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-composite-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/tutorial-entity-roles.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/tutorial-list-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/tutorial-regex-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-resources-faq.md",
       "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting",
       "redirect_document_id": false
@@ -754,12 +774,12 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-list-entity.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-list-entity",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intents-regex-entity.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-regex-entity",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
       "redirect_document_id": false
     },
     {
@@ -44248,7 +44268,7 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-hier-entity.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-entity-roles",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
       "redirect_document_id": true
     },
     {

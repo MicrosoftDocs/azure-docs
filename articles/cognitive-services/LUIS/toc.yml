@@ -45,18 +45,6 @@
       displayName: n-depth, constraint, descriptor, phrase list, entity
     - name: 3. Get sentiment from user utterances
       href: tutorial-publish-settings.md
-  - name: Create and use entities
-    items:
-    - name: Regular expression entities
-      href: tutorial-regex-entity.md
-    - name: List entities
-      href: tutorial-list-entity.md
-    - name: Entity roles
-      href: tutorial-entity-roles.md
-      displayName: roles, geographyV2, context
-    - name: Group and extract related data with composite entities
-      href: luis-tutorial-composite-entity.md
-      displayName: roles
   - name: Improve app
     items:
     - name: Fix unsure predictions
@@ -161,8 +149,6 @@
       items:
       - name: Build app programmatically using Node.js
         href: luis-tutorial-node-import-utterances-csv.md
-      - name: Use list entity to match exact text using Node.js
-        href: luis-tutorial-list-entity.md
   - name: Integrate
     items:
     - name: With Bing Spell Check v7
@@ -251,7 +237,7 @@
     - name: Recognizers-Text
       href: https://github.com/Microsoft/Recognizers-Text
     - name: Intelligent Kiosk
-      href: https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk      
+      href: https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk
 - name: Reference
   items:
   - name: Developer reference

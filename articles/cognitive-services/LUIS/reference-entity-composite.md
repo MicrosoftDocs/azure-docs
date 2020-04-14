@@ -1,7 +1,7 @@
 ---
 title: Composite entity type - LUIS
 titleSuffix: Azure Cognitive Services
-description: A composite entity is made up of other entities, such as prebuilt entities, simple, regular expression, and list entities. The separate entities form a whole entity.   
+description: A composite entity is made up of other entities, such as prebuilt entities, simple, regular expression, and list entities. The separate entities form a whole entity.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,13 +11,13 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ---
-# Composite entity 
+# Composite entity
 
-A composite entity is made up of other entities, such as prebuilt entities, simple, regular expression, and list entities. The separate entities form a whole entity. 
+A composite entity is made up of other entities, such as prebuilt entities, simple, regular expression, and list entities. The separate entities form a whole entity.
 
 **This entity is a good fit when the data:**
 
-* Are related to each other. 
+* Are related to each other.
 * Are related to each other in the context of the utterance.
 * Use a variety of entity types.
 * Need to be grouped and processed by the client application as a unit of information.
@@ -81,7 +81,7 @@ Composite entities are returned in a `compositeEntities` array and all entities 
       ]
     }
   ]
-```    
+```
 
 #### [V3 prediction endpoint response](#tab/V3)
 
@@ -163,7 +163,7 @@ This is the JSON if `verbose=true` is set in the query string:
 }
 ```
 
-* * * 
+* * *
 
 
 |Data object|Entity name|Value|
@@ -173,4 +173,7 @@ This is the JSON if `verbose=true` is set in the query string:
 
 ## Next steps
 
-In this [tutorial](luis-tutorial-composite-entity.md), add a **composite entity** to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
+Learn more about entities:
+
+* [Concepts](luis-concept-entity-types.md)
+* [How to create](luis-how-to-add-entities.md)
