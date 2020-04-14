@@ -39,6 +39,8 @@
     href: analysis-services-connect.md
   - name: High availability
     href: analysis-services-bcdr.md
+  - name: Understanding node movements
+    href: analysis-services-node-movement.md
   - name: Supported data sources
     href: analysis-services-datasource.md
 - name: How-to
