@@ -11,6 +11,9 @@ ms.author: dsindona
 
 # Virtual machine Support tab
 
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Virtual Machine offer](https://aka.ms/CreateAzureVMoffer) to manage your migrated offers.
+
 The **Support** tab of the **New Offer** page enables you to provide technical and user support resources for your offer.  It is divided into three areas: **Engineering**, **Customer Support**, and **Support URLs**.
 
 ![Support tab on the New Offer form for virtual machines](./media/publishvm_012.png)

@@ -36,18 +36,13 @@ Use the version identified to confirm which release has been applied to your SQL
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
 
-## March 2020
-
-| Service improvements                                         | Details                                                      |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **[Visual Studio 16.6 Preview 2](/visualstudio/releases/2019/release-notes-preview) - SQL Server Data Tools (SSDT)** | This release includes the following improvements and fixes: </br> </br> - Resolved an issue where changing a Table referenced by a Materialized View (MV) causes Alter View statements to be generated which is not supported for MVs<br/><br/> - Implemented a change to ensure the Schema Compare operation does not fail when Row-Level Security objects are present in the database or project. Row-level security objects is currently not supported for SSDT.  <br/><br/> - SQL Server Object Explorer timeout threshold has been increased to avoid timeouts when listing a large number of objects in the database<br/><br/> - Optimized the way SQL Server Object Explorer retrieves the list of database objects to reduce instability and increase performance when populating the object explorer |
-
-## February 2020
+## April 2020
 
 | Service improvements | Details |
 | --- | --- |
 |**Database compatibility level (Preview)**| With this release, users can now set a database's compatibility level to get the Transact-SQL language and query processing behaviors of a specific version of the Synapse SQL engine. For more information, see [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) and [Alter Database Scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
 |**Sp_describe_undeclared_parameters**| Allow users to see the metadata about undeclared parameters in a Transact-SQL batch. For more information, see [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
+|**[Visual Studio 16.6 Preview 2](/visualstudio/releases/2019/release-notes-preview) - SQL Server Data Tools (SSDT)** | This release includes the following improvements and fixes for SSDT: </br> </br> - Resolved an issue where changing a Table referenced by a Materialized View (MV) causes Alter View statements to be generated which is not supported for MVs<br/><br/> - Implemented a change to ensure the Schema Compare operation does not fail when Row-Level Security objects are present in the database or project. Row-level security objects is currently not supported for SSDT.  <br/><br/> - SQL Server Object Explorer timeout threshold has been increased to avoid timeouts when listing a large number of objects in the database<br/><br/> - Optimized the way SQL Server Object Explorer retrieves the list of database objects to reduce instability and increase performance when populating the object explorer |
 
 ## January 2020
 
