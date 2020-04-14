@@ -181,7 +181,7 @@ The training script calculates the `val_accuracy` and logs it as "accuracy", whi
 
 <a name='specify-early-termination-policy'/>
 
-## Specify early termination policy
+## <a name="early-termination"></a> Specify early termination policy
 
 Terminate poorly performing runs automatically with an early termination policy. Termination reduces wastage of resources and instead uses these resources for exploring other parameter configurations.
 
