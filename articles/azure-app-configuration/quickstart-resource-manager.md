@@ -3,7 +3,7 @@ title: Automated VM deployment with Azure App Configuration quickstart
 description: This quickstart demonstrates how to use the Azure PowerShell module and Azure Resource Manager templates to deploy an Azure App Configuration store. Then use the values in the store to deploy a VM.
 author: lisaguthrie 
 ms.author: lcozzens
-ms.date: 03/05/2020
+ms.date: 04/14/2020
 ms.topic: quickstart
 ms.service: azure-app-configuration
 ms.custom: [mvc, subject-armqs]
@@ -419,13 +419,13 @@ Now that you've added key-values to the store, you're ready to deploy a VM using
    |storageAccountName|A unique name for a storage account associated with the VM.|
    |domainNameLabel|A unique domain name.|
 
-1. In your PowerShell window, run the following command to deploy the Azure App Configuration store. Don't forget to replace the resource group name, template file path, and template parameter file path.
+1. In your PowerShell window, run the following command to deploy the VM. Don't forget to replace the resource group name, template file path, and template parameter file path.
 
    ```azurepowershell
    New-AzResourceGroupDeployment `
        -ResourceGroupName "<your resource group>"
-       -TemplateFile "<path to prereq.azuredeploy.json>" `
-       -TemplateParameterFile "<path to prereq.azuredeploy.parameters.json>"
+       -TemplateFile "<path to azuredeploy.json>" `
+       -TemplateParameterFile "<path to azuredeploy.parameters.json>"
    ```
 
 Congratulations! You've deployed a VM using configurations stored in Azure App Configuration.
