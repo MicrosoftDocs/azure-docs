@@ -40,11 +40,11 @@
   - name: Notifications (preview)
     items:
     - name: Monitor with Azure Event Grid (preview)
-    href: event-grid-overview.md
+      href: event-grid-overview.md
   - name: Soft delete
     items:
     - name: Azure Key Vault soft delete
-    href: overview-soft-delete.md
+      href: overview-soft-delete.md
   - name: Authentication, requests and responses
     href: authentication-requests-and-responses.md
   - name: Azure Key Vault throttling guidance
@@ -94,7 +94,7 @@
   - name: Troubleshoot
     items:
     - name: Change the key vault tenant ID after a subscription move
-    href: subscription-move-fix.md
+      href: subscription-move-fix.md
 - name: Reference
   items:
   - name: REST API error codes - Azure Key Vault
