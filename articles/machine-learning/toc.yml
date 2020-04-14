@@ -166,145 +166,145 @@
       displayName: deep learning vs machine learning, deep learning, vs, versus
       href: concept-deep-learning-vs-machine-learning.md
 - name: How-to guides
-  items: 
-    - name: Create & manage workspaces
-      items: 
-        - name: Use Azure portal
-          href: how-to-manage-workspace.md
-        - name: Use Azure CLI
-          href: how-to-manage-workspace-cli.md
-        - name: Use REST
-          href: how-to-manage-rest.md
-        - name: Use Resource Manager template
-          displayName: arm
-          href: how-to-create-workspace-template.md
-    - name: Set up your environment
-      items: 
-        - name: Set up dev environments
-          displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
-          href: how-to-configure-environment.md
-        - name: Set up software environments
-          displayName: pip, Conda, anaconda
-          href: how-to-use-environments.md
-        - name: Enable logging
-          displayName: troubleshoot, log, files, tracing
-          href: how-to-enable-logging.md
-        - name: Set input & output directories
-          displayName: large data, write, experiment files, size limit
-          href: how-to-save-write-experiment-files.md
-        - name: Interactive debugging
-          displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
-          href: how-to-set-up-vs-code-remote.md
-        - name: Git integration
-          displayName: github gitlab
-          href: concept-train-model-git-integration.md
-    - name: Work with data
-      items: 
-        - name: Label data
-          items: 
-            - name: Get data labeled
-              displayName: data, dataset, labeling
-              href: how-to-create-labeling-projects.md
-            - name: Label images
-              displayName: data, dataset, labeling
-              href: how-to-label-images.md
-            - name: Create datasets with labels
-              displayName: data, labels, torchvision
-              href: how-to-use-labeled-dataset.md
-        - name: Get data
-          items: 
-            - name: Data ingestion with Azure Data Factory
-              displayName: data, ingestion, adf
-              href: how-to-data-ingest-adf.md
-            - name: DevOps for data ingestion
-              displayName: data, ingestion, devops
-              href: how-to-cicd-data-ingestion.md
-            - name: Import data in the designer
-              displayName: designer, data, import, dataset, datastore
-              href: how-to-designer-import-data.md
-        - name: Access data
-          items: 
-            - name: Connect to Azure Storage
-              displayName: blob, get, fileshare, access, mount, download, data lake
-              href: how-to-access-data.md
-            - name: Get data from a datastore
-              displayName: data, data set, register, access data
-              href: how-to-create-register-datasets.md
-        - name: Manage & consume data
-          items: 
-            - name: Train with datasets
-              displayName: data, dataset, mount
-              href: how-to-train-with-datasets.md
-            - name: Detect drift on datasets
-              displayName: data, dataset
-              href: how-to-monitor-datasets.md
-            - name: Version & track datasets
-              displayName: data, data set
-              href: how-to-version-track-datasets.md
-    - name: Train models
-      items: 
-        - name: Use estimators for ML
-          items: 
-            - name: Create estimators in training
-              href: how-to-train-ml-models.md
-            - name: Set up training environments
-              displayName: run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-              href: how-to-set-up-training-targets.md
-            - name: Tune hyperparameters
-              displayName: parameter
-              href: how-to-tune-hyperparameters.md
-            - name: Use Key Vault when training
-              displayName: secrets keyvault
-              href: how-to-use-secrets-in-runs.md
-        - name: Scikit-learn
-          href: how-to-train-scikit-learn.md
-        - name: TensorFlow
-          href: how-to-train-tensorflow.md
-        - name: Keras
-          href: how-to-train-keras.md
-        - name: PyTorch
-          href: how-to-train-pytorch.md
-    - name: Interpret models
-      displayName: interpretability
-      items: 
-        - name: Interpret local and remote models
-          displayName: SDK, interpret
-          href: how-to-machine-learning-interpretability-aml.md
-        - name: Interpret automated ML models
-          displayName: SDK, interpret, automl
-          href: how-to-machine-learning-interpretability-automl.md
-    - name: Automate machine learning
-      displayName: automl, auto ml
-      items: 
-        - name: Use automated ML (Python)
-          displayName: SDK automl
-          href: how-to-configure-auto-train.md
-        - name: Use automated ML (interface)
-          href: how-to-use-automated-ml-for-ml-models.md
-        - name: Use remote compute targets
-          displayName: automl automated auto ml
-          href: how-to-auto-train-remote.md
-        - name: Define ML tasks
-          displayName: machine learning, task type
-          href: how-to-define-task-type.md
-        - name: Auto-train a forecast model
-          displayName: time series
-          href: how-to-auto-train-forecast.md
-        - name: Understand charts and metrics
-          href: how-to-understand-automated-ml.md
-    - name: Track & monitor experiments
-      items: 
-        - name: Start, monitor or cancel runs
-          displayName: cancel, fail, status, child run
-          href: how-to-manage-runs.md
-        - name: Log metrics for training runs
-          href: how-to-track-experiments.md
-        - name: Track experiments with MLflow
-          displayName: log, monitor, metrics, Databricks
-          href: how-to-use-mlflow.md
-        - name: Visualize runs with TensorBoard
-          displayName: log, monitor, metrics
-          href: how-to-monitor-tensorboard.md
+  items:
+  - name: Create & manage workspaces
+    items:
+    - name: Use Azure portal
+      href: how-to-manage-workspace.md
+    - name: Use Azure CLI
+      href: how-to-manage-workspace-cli.md
+    - name: Use REST
+      href: how-to-manage-rest.md
+    - name: Use Resource Manager template
+      displayName: arm
+      href: how-to-create-workspace-template.md
+  - name: Set up your environment 
+    items:
+    - name: Set up dev environments
+      displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
+      href: how-to-configure-environment.md
+    - name: Set up software environments
+      displayName: pip, Conda, anaconda
+      href: how-to-use-environments.md
+    - name: Enable logging
+      displayName: troubleshoot, log, files, tracing
+      href: how-to-enable-logging.md
+    - name: Set input & output directories
+      displayName: large data, write, experiment files, size limit
+      href: how-to-save-write-experiment-files.md
+    - name: Interactive debugging
+      displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
+      href: how-to-set-up-vs-code-remote.md
+    - name: Git integration
+      displayName: github gitlab
+      href: concept-train-model-git-integration.md 
+  - name: Work with data
+    items:
+    - name: Label data
+      items:
+      - name: Get data labeled
+        displayName: data, dataset, labeling
+        href: how-to-create-labeling-projects.md
+      - name: Label images
+        displayName: data, dataset, labeling
+        href: how-to-label-images.md
+      - name: Create datasets with labels
+        displayName: data, labels, torchvision
+        href: how-to-use-labeled-dataset.md
+    - name: Get data
+      items:
+      - name: Data ingestion with Azure Data Factory
+        displayName: data, ingestion, adf
+        href: how-to-data-ingest-adf.md
+      - name: DevOps for data ingestion
+        displayName: data, ingestion, devops
+        href: how-to-cicd-data-ingestion.md
+      - name: Import data in the designer
+        displayName: designer, data, import, dataset, datastore
+        href: how-to-designer-import-data.md
+    - name: Access data
+      items:
+      - name: Connect to Azure Storage
+        displayName: blob, get, fileshare, access, mount, download, data lake
+        href: how-to-access-data.md
+      - name: Get data from a datastore
+        displayName: data, data set, register, access data
+        href: how-to-create-register-datasets.md
+    - name: Manage & consume data
+      items:
+      - name: Train with datasets
+        displayName: data, dataset, mount
+        href: how-to-train-with-datasets.md
+      - name: Detect drift on datasets
+        displayName: data, dataset
+        href: how-to-monitor-datasets.md
+      - name: Version & track datasets
+        displayName: data, data set
+        href: how-to-version-track-datasets.md
+  - name: Train models
+    items:
+    - name: Use estimators for ML
+      items:
+      - name: Create estimators in training
+        href: how-to-train-ml-models.md
+      - name: Set up training environments
+        displayName: run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
+        href: how-to-set-up-training-targets.md
+      - name: Tune hyperparameters
+        displayName: parameter
+        href: how-to-tune-hyperparameters.md
+      - name: Use Key Vault when training
+        displayName: secrets keyvault
+        href: how-to-use-secrets-in-runs.md
+    - name: Scikit-learn
+      href: how-to-train-scikit-learn.md
+    - name: TensorFlow
+      href: how-to-train-tensorflow.md
+    - name: Keras
+      href: how-to-train-keras.md
+    - name: PyTorch
+      href: how-to-train-pytorch.md
+  - name: Explain models
+    displayName: interpretability
+    items:
+    - name: Explain ML models
+      displayName: SDK, interpret
+      href: how-to-machine-learning-interpretability-aml.md
+    - name: Explain automated ML models
+      displayName: SDK, interpret, automl
+      href: how-to-machine-learning-interpretability-automl.md
+  - name: Automate machine learning
+    displayName: automl, auto ml
+    items:
+    - name: Use automated ML (Python)
+      displayName: SDK automl
+      href: how-to-configure-auto-train.md
+    - name: Use automated ML (interface)
+      href: how-to-use-automated-ml-for-ml-models.md
+    - name: Use remote compute targets
+      displayName: automl automated auto ml
+      href: how-to-auto-train-remote.md
+    - name: Define ML tasks
+      displayName: machine learning, task type
+      href: how-to-define-task-type.md
+    - name: Auto-train a forecast model
+      displayName: time series
+      href: how-to-auto-train-forecast.md
+    - name: Understand charts and metrics
+      href: how-to-understand-automated-ml.md
+  - name: Track & monitor experiments
+    items:
+    - name: Start, monitor or cancel runs
+      displayName: cancel, fail, status, child run
+      href: how-to-manage-runs.md
+    - name: Log metrics for training runs
+      href: how-to-track-experiments.md
+    - name: Track experiments with MLflow
+      displayName: log, monitor, metrics, Databricks
+      href: how-to-use-mlflow.md
+    - name: Visualize runs with TensorBoard
+      displayName: log, monitor, metrics
+      href: how-to-monitor-tensorboard.md
     - name: Deploy & serve models
       items: 
         - name: Where and how to deploy
@@ -351,49 +351,52 @@
               href: how-to-monitor-data-drift.md
             - name: Monitor with Application Insights
               href: how-to-enable-app-insights.md
-    - name: Build & use ML pipelines
-      displayName: pipelines
-      items: 
-        - name: Create ML pipelines (Python)
-          href: how-to-create-your-first-pipeline.md
-        - name: Moving data into and between ML pipeline steps (Python)
-          href: how-to-move-data-in-out-of-pipelines.md
-        - name: Schedule a pipeline (Python)
-          href: how-to-schedule-pipelines.md
-        - name: Trigger a pipeline
-          href: how-to-trigger-published-pipeline.md
-        - name: Debug & troubleshoot pipelines
-          displayName: designer
-          href: how-to-debug-pipelines.md
-        - name: Debug pipelines in Application Insights
-          href: how-to-debug-pipelines-application-insights.md
-        - name: Azure Pipelines for CI/CD
-          displayName: continuous, integration, delivery
-          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
-        - name: Designer retrain using published pipelines
-          displayName: retrain, designer, published pipeline
-          href: how-to-retrain-designer.md
-        - name: Designer batch predictions
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-          href: how-to-run-batch-predictions-designer.md
-        - name: Designer execute Python code
-          displayName: feature extraction, feature engineering
-          href: how-to-designer-python.md
-        - name: Use parallel run step
-          displayName: score scoring batch consume pipeline parallelrunstep inference
-          href: how-to-use-parallel-run-step.md
-        - name: Debug & troubleshoot parallel run step
-          displayName: debug_batch consume pipeline parallelrunstep inference
-          href: how-to-debug-parallel-run-step.md
-    - name: Manage resource quotas
-      displayName: limits
-      href: how-to-manage-quotas.md
-    - name: Export and delete data
-      displayName: GDPR
-      href: how-to-export-delete-data.md
-    - name: Create event driven workflows
-      displayName: event grid
-      href: how-to-use-event-grid.md
+
+  - name: Build & use ML pipelines
+    displayName: pipelines
+    items:
+    - name: Create ML pipelines (Python)
+      href: how-to-create-your-first-pipeline.md
+    - name: Moving data into and between ML pipeline steps (Python)
+      href: how-to-move-data-in-out-of-pipelines.md
+    - name: Schedule a pipeline (Python)
+      href: how-to-schedule-pipelines.md
+    - name: Trigger a pipeline
+      href: how-to-trigger-published-pipeline.md
+    - name: Debug & troubleshoot pipelines
+      displayName: designer
+      href: how-to-debug-pipelines.md
+    - name: Debug pipelines in Application Insights
+      displayname: pipelines, log, monitor
+      href: how-to-debug-pipelines-application-insights.md
+    - name: 'Azure Pipelines for CI/CD'
+      displayName: continuous, integration, delivery
+      href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: 'Designer retrain using published pipelines'
+      displayName: retrain, designer, published pipeline
+      href: how-to-retrain-designer.md
+    - name: Designer batch predictions
+      displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+      href: how-to-run-batch-predictions-designer.md
+    - name: Designer execute Python code
+      displayName: feature extraction, feature engineering
+      href: how-to-designer-python.md
+    - name: Use parallel run step
+      displayName: score scoring batch consume pipeline parallelrunstep inference
+      href: how-to-use-parallel-run-step.md
+    - name: Debug & troubleshoot parallel run step
+      displayName: debug_batch consume pipeline parallelrunstep inference
+      href: how-to-debug-parallel-run-step.md
+  - name: Manage resource quotas
+    displayName: limits
+    href: how-to-manage-quotas.md
+  - name: Export and delete data
+    displayName: GDPR
+    href: how-to-export-delete-data.md
+  - name: Create event driven workflows
+    displayName: event grid
+    href: how-to-use-event-grid.md
+
 - name: Reference
   items: 
     - name: Python SDK

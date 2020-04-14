@@ -114,12 +114,6 @@
         href: index-add-language-analyzers.md
       - name: Add a custom analyzer
         href: index-add-custom-analyzers.md
-    - name: Typeahead
-      items:
-      - name: Create a suggester
-        href: index-add-suggesters.md
-      - name: Add suggestions or autocomplete
-        href: search-autocomplete-tutorial.md
     - name: Synonyms
       items:
       - name: Add synonyms
@@ -204,6 +198,8 @@
         href: cognitive-search-custom-skill-python.md
       - name: Example - Azure Functions
         href: cognitive-search-create-custom-skill-example.md
+      - name: Example - Azure Form Recognizer
+        href: cognitive-search-custom-skill-form.md
       - name: Example - Containers
         href: https://go.microsoft.com/fwlink/?linkid=2089500 
     - name: Design tips
@@ -230,6 +226,14 @@
       href: search-query-lucene-examples.md
     - name: Partial terms and special characters
       href: search-query-partial-matching.md
+    - name: Fuzzy search
+      href: search-query-fuzzy.md
+    - name: Autocomplete "Search-as-you-type"
+      items:
+      - name: Create a suggester
+        href: index-add-suggesters.md
+      - name: Add suggestions or autocomplete
+        href: search-autocomplete-tutorial.md
     - name: Query from Power Apps   
       href: search-howto-powerapps.md  
     - name: Syntax reference
