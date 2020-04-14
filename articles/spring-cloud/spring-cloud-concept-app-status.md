@@ -43,8 +43,6 @@ To view general status of an application type, select **Apps** in the left navig
 
 **The Discovery status is reported as one of the following values:**
 
-DiscoveryStatus: registered status of the instance in Eureka server, same as the definition in Eureka
-
 | Enum | Definition |
 |:--:|:----------------:|
 | Up | The app instance is registered to eureka and ready to receive traffic |
@@ -71,8 +69,6 @@ To view the status of a specific instance of a deployed app, click the **Name** 
 | Retiring | The app instance is for the previous deployment and should be retired after the current deployment operation. |
 
 **The discovery status of the instance is reported as one of the following values:**
-
-registered status of the instance in Eureka server, same as the definition in Eureka
 
 | Enum | Definition |
 |:--:|:----------------:|
