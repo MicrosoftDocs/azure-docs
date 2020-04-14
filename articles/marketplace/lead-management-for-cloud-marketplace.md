@@ -47,7 +47,7 @@ Once the technical set up is in place, you should incorporate these leads into y
 
 **Could not save the lead to Dynamics CRM. Check the Dynamics CRM account settings. LastCRMError: Unable to sign in to Dynamics CRM, LastCRMException:** 
 
-> If O365 authentication was selected, check if the user account and password is valid. If AAD was selected, check if the tenant ID, application ID and application secret key matches what was set up on AAD. Follow instructions [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).If the account username/password is valid, please make sure it has access to Dynamics 365 and has a license assigned (Steps 11-15 if using Azure Active Directory or Security Settings if using an Office user). 
+> If O365 authentication was selected, check if the user account and password is valid. If AAD was selected, check if the tenant ID, application ID and application secret key matches what was set up on AAD. Follow instructions [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). If the account username/password is valid, please make sure it has access to Dynamics 365 and has a license assigned (Steps 11-15 if using Azure Active Directory or Security Settings if using an Office user). 
 
 **Could not save the lead to Dynamics CRM. User does not have create permissions for the leadsourcecode attribute in the lead entity** 
 
@@ -55,11 +55,11 @@ Once the technical set up is in place, you should incorporate these leads into y
 
 **Could not save the lead to Dynamics CRM using AAD. Exception:: Tenant not found. This instance may happen if there are no active subscriptions for the tenant.**  
 
-> The Directory Id provided in the lead management section is not a valid directory. Please get the Directory Id based on the instructions at Step 2 (under Azure Active Directory, from [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md) 
+> The Directory Id provided in the lead management section is not a valid directory. Please get the Directory Id based on the instructions at Step 2 (under Azure Active Directory, from [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
 
 **Could not save the lead to Dynamics CRM. LastCRMError: SecLib::RetrievePrivilegeForUser failed - no roles are assigned to user.**  
 
-> Resolution: Assign Security role to Microsoft Marketplace lead writer. Follow instructions [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md) under Security settings 
+> Resolution: Assign Security role to Microsoft Marketplace lead writer. Follow instructions [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md) under Security settings.
 
 **Could not save the lead to Dynamics CRM using AAD. Exception:: Application with identifier was not found in the directory** 
 
@@ -75,7 +75,7 @@ Once the technical set up is in place, you should incorporate these leads into y
 
 **Could not save the lead to Dynamics CRM. LastCRMError: The request channel timed out while waiting for a reply after 00:02:00. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.**  
 
-> Resolution: Sign in to Partner Center, check Storefront details >> Lead destination >> URL, check if it's a valid Dynamic CRM instance
+> Resolution: Sign in to Partner Center, check Storefront details >> Lead destination >> URL, check if it's a valid Dynamic CRM instance.
 
 ## Frequently asked questions
 
@@ -178,11 +178,11 @@ Find out more under [Lead Info](./partner-center-portal/commercial-marketplace-g
 
 **I have configured Azure BLOB as my lead destination, why don't I see the lead?** 
 
-The lead only gets written when you select Azure BLOB storage as your lead destination. Switch to Azure table to receive the lead real time 
+The lead only gets written when you select Azure BLOB storage as your lead destination. Switch to Azure table to receive the lead real time.
 
 **I received an email from Marketplace, why can't I find the lead in my CRM?**  
 
-It's possible that the end user's email domain is from .edu. For privacy reasons we don't pass PII data from .edu domain. Submit a support ticket through aka.ms/marketplacepublishersupport 
+It's possible that the end user's email domain is from .edu. For privacy reasons we don't pass PII data from .edu domain. Submit a [support ticket](aka.ms/marketplacepublishersupport).
 
 **I have configured Azure Table/Azure BLOB as my lead destination, how can I view the leads?** 
 
