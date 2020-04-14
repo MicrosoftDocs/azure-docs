@@ -54,7 +54,7 @@ The parameter list is also displayed for nested functions. If you type a functio
 
 ### Quick Info
 
-As provided by the language service, you can see **quick info** for each identifier in your code (input, output, intermediate result set or function). When you move the mouse pointer over an identifier, its declaration is displayed in a pop-up window. The properties and data schemas for inputs(if configurued) and intermediate data set are shown.
+As provided by the language service, you can see **Quick Info** for each identifier in your code. Some examples of identifiers are input, output, an intermediate result set, or function. When you move the mouse pointer over an identifier, its declaration is displayed in a pop-up window. The properties and data schemas for inputs, if configured, and intermediate data set are shown.
 
 ![quick info](./media/vs-code-intellisense/quick_info.gif)
 
