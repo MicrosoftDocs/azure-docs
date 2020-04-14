@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 04/14/2020
+ms.date: 03/11/2020
 ---
 
 # Mapping data flows performance and tuning guide
@@ -32,7 +32,7 @@ While designing mapping data flows, you can unit test each transformation by cli
 
 ## Increasing compute size in Azure Integration Runtime
 
-An Integration Runtime with more cores increases the number of nodes in the Spark compute environments and provides more processing power to read, write, and transform your data. ADF Data Flows utilizes Spark for the compute engine. The Spark environment works very well on memory-optimized resources.
+An Integration Runtime with more cores increases the number of nodes in the Spark compute environments and provides more processing power to read, write, and transform your data.
 * Try a **Compute Optimized** cluster if you want your processing rate to be higher than your input rate.
 * Try a **Memory Optimized** cluster if you want to cache more data in memory. Memory optimized has a higher price-point per core than Compute Optimized, but will likely result in faster transformation speeds.
 
@@ -44,11 +44,7 @@ For more information how to create an Integration Runtime, see [Integration Runt
 
 By default, turning on debug will use the default Azure Integration runtime that is created automatically for each data factory. This default Azure IR is set for eight cores, four for a driver node and four for a worker node, using General Compute properties. As you test with larger data, you can increase the size of your debug cluster by creating an Azure IR with larger configurations and choose this new Azure IR when you switch on debug. This will instruct ADF to use this Azure IR for data preview and pipeline debug with data flows.
 
-### Decrease cluster compute start-up time with TTL
-
-There is a property in the Azure IR under Data Flow Properties that will allow you to stand-up a pool of cluster compute resources for your factory. With this pool, you can sequentially submit data flow activities for execution. Once the pool is established, each subsequent job will take 1-2 minutes for the on-demand Spark cluster to execute your job. The initial set-up of the resource pool will take around 6 minutes. Specify the amount of time that you wish to maintain the resource pool in the time-to-live (TTL) setting.
-
-## Optimizing for Azure SQL Database and Azure SQL Data Warehouse Synapse
+## Optimizing for Azure SQL Database and Azure SQL Data Warehouse
 
 ### Partitioning on source
 
