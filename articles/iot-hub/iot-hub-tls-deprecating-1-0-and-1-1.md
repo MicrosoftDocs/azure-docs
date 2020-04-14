@@ -15,9 +15,7 @@ To provide best-in-class encryption, IoT Hub and Device Provisioning Service (DP
 
 ## Timeline
 
-IoT Hub will continue to support TLS 1.0/1.1 until further notice. However, we recommend that all customers migrate to TLS 1.2 as soon as possible.
-
-DPS doesn't support TLS 1.0/1.1, so there's no timeline for deprecation.
+IoT Hub and DPS will continue to support TLS 1.0/1.1 until further notice. However, we recommend that all customers migrate to TLS 1.2 as soon as possible.
 
 ## Supported ciphers
 
