@@ -1692,6 +1692,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-arc/servers/azcmagent-reference.md",
+      "redirect_url": "/azure/azure-arc/servers/manage-agent",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/bing-web-search/computer-vision-web-search-tutorial.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/index",
       "redirect_document_id": false
