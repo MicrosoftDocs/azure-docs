@@ -13,15 +13,7 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Azure Synapse Analytics SQL resource consumption
-
-This article describes resource consumption models of SQL on-demand (preview) and SQL pool.
-
-## SQL on-demand
-
-SQL on-demand is a pay per query service that doesn't require you to pick the right size. The system automatically adjusts based on your requirements, freeing you up from managing your infrastructure and picking the right size for your solution.
-
-## SQL pool - Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUs)
+# Data Warehouse Units (DWUs)
 
 Recommendations on choosing the ideal number of data warehouse units (DWUs) to optimize price and performance, and how to change the number of units.
 
