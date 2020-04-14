@@ -17,7 +17,7 @@ IntelliSense is available for [Stream Analytics Query Language](https://docs.mic
 
 The IntelliSense features in Stream Analytics tools for VS Code are powered by a language service. A language service analyzes your source code and provides intelligent code completions based on language semantics. If a language service knows possible completions, IntelliSense suggestions pop up as you type. If you continue typing, a list of members, such as variables and methods, is filtered to only include members that contain the characters you typed. When you press the `Tab` or `Enter` keys, IntelliSense inserts the member you selected.
 
-You can trigger IntelliSense in any editor window by typing a trigger character (such as the dot character `(.)`).
+You can trigger IntelliSense in any editor window by typing a trigger character, such as the dot character `.`.
 
 ![intellisense autocompletion](./media/vs-code-intellisense/auto_completion.gif)
 
