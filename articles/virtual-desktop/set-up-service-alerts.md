@@ -27,12 +27,6 @@ In this tutorial, you'll learn how to:
 
 To learn more about Azure Service Health, see the [Azure Health Documentation](https://docs.microsoft.com/azure/service-health/).
 
-## Prerequisites
-
-- [Tutorial: Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)
-- [Tutorial: Create service principals and role assignments with PowerShell](./virtual-desktop-fall-2019/create-service-principal-role-powershell.md)
-- [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
-
 ## Create service alerts
 
 This section shows you how to configure Azure Service Health and how to set up notifications, which you can access on the Azure portal. You can set up different types of alerts and schedule them to notify you in a timely manner.
@@ -52,7 +46,7 @@ To configure service alerts:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **Service Health.**
-3. Use the instructions in [Create activity log alerts on service notifications](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) to set up your alerts and notifications.
+3. Follow the instructions in [Create activity log alerts on service notifications](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) to set up your alerts and notifications.
 
 ## Next steps
 
