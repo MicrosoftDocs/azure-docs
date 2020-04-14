@@ -47,7 +47,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     You can use [Azure Storage Explorer](https://archive.codeplex.com/?p=azurestorageexplorer) or any other tool to see the data in your storage table. You can also export the data in the Azure table. 
 
-## (Optional) Use Power Automate with an Azure table  
+## (Optional) Use Power Automate with an Azure table 
 
 You can use [Power Automate](https://docs.microsoft.com/flow/) to automate notifications every time a lead is added to an Azure table. If you don't have an account, you can [sign up for a free account](https://flow.microsoft.com/).
 
@@ -57,12 +57,12 @@ Use this example as a guide to create a simple flow that automatically sends an 
 
 1. Sign in to your Power Automate account.
 1. On the left bar, select **My flows**.
-1. On the top bar, select **+ New**.  
+1. On the top bar, select **+ New**. 
 1. In the drop-down list, select **+ Scheduled--from blank**.
 
    ![My flows + Scheduled--from blank](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
-1. In the **Build a scheduled flow** window, for **Repeat every**, select **1** for the interval and **Hour** for the frequency. Also, give the flow a name if you want. Select **Create**.
+1. In the Build a scheduled flow window, for **Repeat every**, select **1** for the interval and **Hour** for the frequency. Also, give the flow a name if you want. Select **Create**.
 
    >[!NOTE]
    >Although this example uses a one-hour interval, you can select the interval and frequency that's best for your business needs.
@@ -70,11 +70,11 @@ Use this example as a guide to create a simple flow that automatically sends an 
    ![Build a scheduled flow](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
 1. Select **+ New step**.
-1. In the **Choose an action** window, search for **get past time**. Then under **Actions**, select **Get past time**.
+1. In the Choose an action window, search for **get past time**. Then under **Actions**, select **Get past time**.
 
    ![Choose an action](./media/commercial-marketplace-lead-management-instructions-azure-table/choose-an-action.png)
 
-1. In the **Get past time** window, set **Interval** to **1**. From the **Time unit** drop-down list, select **Hour**.
+1. In the Get past time window, set **Interval** to **1**. From the **Time unit** drop-down list, select **Hour**.
 
     >[!IMPORTANT]
     >Make sure that the interval and time unit you sent in step 8 match the interval and frequency that you configured for recurrence in step 5.
@@ -84,43 +84,43 @@ Use this example as a guide to create a simple flow that automatically sends an 
    >[!TIP] 
    >You can check your flow at any time to verify each step is configured correctly. To check your flow, select **Flow checker** from the **Flow** menu bar.
 
-   In next set of steps, you'll connect to your Azure table and set up the processing logic to handle new leads.
+   In the next set of steps, you'll connect to your Azure table and set up the processing logic to handle new leads.
 
-1. After step 8, select **+ New step**. Then search for **Get entities** In the **Choose an action** window.
+1. After step 8, select **+ New step**. Then search for **Get entities** In the Choose an action window.
 1. Under **Actions**, select **Get entities (Azure Table Storage)**.
-1. In the **Azure Table Storage** window, provide information for the following fields and select **Create**:
+1. In the Azure Table Storage window, provide information for the following boxes and select **Create**:
 
     * **Connection Name**: Provide a meaningful name for the connection you're establishing between this flow and the Azure table.
     * **Storage Account Name**: Provide the name of the storage account for your Azure table. You can find this name on the storage account's **Access keys** page.
     * **Shared Storage Key**: Provide the key value for your store account for your Azure table. You can find this value on the storage account's **Access keys** page.
 
-      ![Azure Table Storage.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
+      ![Azure Table Storage window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
-   After you select **Create**, the **Get entities** window appears. Here, select **Show advanced options**, and provide information for the following fields:
+   After you select **Create**, the Get entities window appears. Here, select **Show advanced options**, and provide information for the following boxes:
 
    * **Table**: Select the name of your Azure table storage (from step 6 of the instructions in the "Configure an Azure table" section). The following image shows the prompt when "marketplaceleads" table is selected for this example.
 
-     ![Azure Table get entities.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
+     ![Get entities window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-   * **Filter Query**: Select this field, and paste this function into the field: `Timestamp gt datetime'@{body('Get_past_time')}'`
+   * **Filter Query**: Select this box, and paste this function into the box: `Timestamp gt datetime'@{body('Get_past_time')}'`
 
-     ![Azure Table get entities - Filter Query.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
+     ![Get entities, Filter Query box](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
 1. Now that you've completed setting up the connection to the Azure table, select **New step** to add a condition to scan the Azure table for new leads.
 
-1. In the **Choose an action** window, select **Actions**. Then select **Condition Control**.
+1. In the Choose an action window, select **Actions**. Then select **Condition Control**.
 
-    ![Azure Table - Choose an action](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-choose-an-action.png)
+    ![Choose an action window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-choose-an-action.png)
 
-1. In the **Condition** window, select **Choose a value**. Then select **Expression** in the pop-up window.
+1. In the Condition window, select **Choose a value**. Then select **Expression** in the pop-up window.
 
-1. Paste `length(body('Get_entities')?['value'])` into the **fx** field. Select **OK** to add this function. 
+1. Paste `length(body('Get_entities')?['value'])` into the **fx** box. Select **OK** to add this function. 
 
 1. To finish setting up the condition:
     1. Select **is greater than** from the drop-down list.
-    2. Enter **0** as the value
+    2. Enter **0** as the value.
 
-        ![Azure Table - Condition](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition.png)
+        ![Condition window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition.png)
 
    In the next few steps, you set up the action to take based on the result of the condition:
 
@@ -129,16 +129,16 @@ Use this example as a guide to create a simple flow that automatically sends an 
 
 1. Select **Add an action** under **If yes**.
 
-    ![Azure Table - Condition, **If yes**](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes.png)
+    ![Condition window, If yes, add an action](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes.png)
 
 1. Select **Send an email (Office 365 Outlook)**.
 
-    ![Azure Table - Condition, **If yes**, send email](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-send-email.png)
+    ![Condition window, If yes, send an email](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-send-email.png)
 
     >[!NOTE]
     >To use a different email provider, search for and select **Send an email notification (Mail)** as the action instead. The instructions show you how to configure by using Office 365 Outlook, but the instructions are similar for a different email provider.
 
-1. In the **Office 365 Outlook** window, provide information for the following fields:
+1. In the Office 365 Outlook window, provide information for the following boxes:
 
     1. **To**: Enter an email address for everyone who will get this notification.
     1. **Subject**: Provide a subject for the email. An example is New leads!
@@ -147,7 +147,7 @@ Use this example as a guide to create a simple flow that automatically sends an 
     >[!NOTE]
     >You can insert additional static or dynamic data points to the body of this email.
 
-    ![Azure Table - Condition, If yes, Office 365 Outlook window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-outlook.png)
+    ![Condition window, If yes, Office 365 Outlook window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-outlook.png)
 
 1. Select **Save** to save the flow. Power Automate automatically tests the flow for errors. If there aren't any errors, your flow starts running after it's saved.
 
@@ -159,7 +159,7 @@ The following image shows an example of how the final flow should look.
 
 Managing your flow after it's running is easy. You have complete control over your flow. For example, you can stop it, edit it, see a run history, and get analytics. The following image shows the options that are available to manage a flow.
 
- ![Managing a flow](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-manage-completed.png)
+ ![Manage a flow](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-manage-completed.png)
 
 The flow keeps running until you stop it by using the **Turn flow off** option.
 
@@ -173,7 +173,7 @@ When you're ready to configure the lead management information for your offer in
 
 1. Go to the **Offer setup** page for your offer.
 1. Select **Connect** under the **Lead management** section.
-1. In the **Connection details** pop-up window, select **Azure Table** for the **Lead destination**. Paste in the connection string from the Azure storage account you created by following earlier steps in the **Storage account connection string** field.
+1. In the **Connection details** pop-up window, select **Azure Table** for the **Lead destination**. Paste in the connection string from the Azure storage account you created by following earlier steps in the **Storage account connection string** box.
 1. **Contact email**: Provide emails for people in your company who should receive email notifications when a new lead is received. You can provide multiple emails by separating them with semicolons.
 1. Select **OK**.
 
@@ -186,7 +186,7 @@ When leads are generated, Microsoft sends leads to the Azure table. If you confi
 
 ![Lead management](./media/commercial-marketplace-lead-management-instructions-azure-table/lead-management.png)
 
-![Lead management - Connection details](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
+![Lead management, Connection details](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
 
-![Lead management - Connection details storage account](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
+![Lead management, Connection details storage account](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
 
