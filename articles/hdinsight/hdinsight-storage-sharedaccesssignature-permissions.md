@@ -34,7 +34,7 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
 
 * If using C#, Visual Studio must be version 2013 or higher.
 
-* The [URI scheme](./hdinsight-hadoop-linux-information.md#URI-and-scheme) for your storage account. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be `wasbs://`. See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
+* The [URI scheme](./hdinsight-hadoop-linux-information.md#URI-and-scheme) for your storage account. This scheme would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be `wasbs://`. See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
 
 * An existing HDInsight cluster to add a Shared Access Signature to. If not, you can use Azure PowerShell to create a cluster and add a Shared Access Signature during cluster creation.
 
@@ -49,11 +49,11 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
 
 There are two forms of Shared Access Signatures:
 
-* Ad hoc: The start time, expiry time, and permissions for the SAS are all specified on the SAS URI.
+* `Ad hoc`: The start time, expiry time, and permissions for the SAS are all specified on the SAS URI.
 
-* Stored access policy: A stored access policy is defined on a resource container, such as a blob container. A policy can be used to manage constraints for one or more shared access signatures. When you associate a SAS with a stored access policy, the SAS inherits the constraints - the start time, expiry time, and permissions - defined for the stored access policy.
+* `Stored access policy`: A stored access policy is defined on a resource container, such as a blob container. A policy can be used to manage constraints for one or more shared access signatures. When you associate a SAS with a stored access policy, the SAS inherits the constraints - the start time, expiry time, and permissions - defined for the stored access policy.
 
-The difference between the two forms is important for one key scenario: revocation. A SAS is a URL, so anyone who obtains the SAS can use it, regardless of who requested it to begin with. If a SAS is published publicly, it can be used by anyone in the world. A SAS that is distributed is valid until one of four things happens:
+The difference between the two forms is important for one key scenario: revocation. A SAS is a URL, so anyone who obtains the SAS can use it. It doesn't matter who requested it to begin with. If a SAS is published publicly, it can be used by anyone in the world. A SAS that is distributed is valid until one of four things happens:
 
 1. The expiry time specified on the SAS is reached.
 
@@ -75,7 +75,7 @@ For more information on Shared Access Signatures, see [Understanding the SAS mod
 
 ## Create a stored policy and SAS
 
-Save the SAS token that is produced at the end of each method. The token will look similar to the following:
+Save the SAS token that is produced at the end of each method. The token will look similar to the following output:
 
 ```output
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
@@ -217,9 +217,9 @@ You may need to execute `pip install --upgrade azure-storage` if you receive the
 
 ## Use the SAS with HDInsight
 
-When creating an HDInsight cluster, you must specify a primary storage account and you can optionally specify additional storage accounts. Both of these methods of adding storage require full access to the storage accounts and containers that are used.
+When creating an HDInsight cluster, you must specify a primary storage account. You can also specify additional storage accounts. Both of these methods of adding storage require full access to the storage accounts and containers that are used.
 
-To use a Shared Access Signature to limit access to a container, add a custom entry to the **core-site** configuration for the cluster. You can add the entry during cluster creation using PowerShell or after cluster creation using Ambari.
+Use a Shared Access Signature to limit container access. Add a custom entry to the **core-site** configuration for the cluster. You can add the entry during cluster creation using PowerShell or after cluster creation using Ambari.
 
 ### Create a cluster that uses the SAS
 
