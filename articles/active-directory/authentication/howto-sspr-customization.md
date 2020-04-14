@@ -78,7 +78,7 @@ To make things look more user-friendly, you can change organization name in the 
 
 If you use Active Directory Federation Services (AD FS) for user sign-in events, you can add a link to the sign-in page by using the guidance in the article to [Add sign-in page description](/windows-server/identity/ad-fs/operations/add-sign-in-page-description).
 
-Provide users with a link to the page for them to enter the SSPR workflow, such as *https://passwordreset.microsoftonline.com*. To add a link to the AD FS sign-in page, use the following command on your AD FS server.=:
+Provide users with a link to the page for them to enter the SSPR workflow, such as *https://passwordreset.microsoftonline.com*. To add a link to the AD FS sign-in page, use the following command on your AD FS server:
 
 ``` powershell
 Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><a href='https://passwordreset.microsoftonline.com' target='_blank'>Can't access your account?</a></p>"
