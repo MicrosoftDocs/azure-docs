@@ -14,7 +14,7 @@ ms.author: trbye
 
 # Learn the basics of SPX
 
-In this article, you learn the basic usage patterns of SPX. SPX is a command-line interface leveraging the back-end of the Speech service. You can quickly test out the main features of the Speech service, without creating development environments or writing any code, to see if your use-cases can be adequately met. Additionally, SPX is production ready and can be used to automate simple workflows in the Speech service.
+In this article, you learn the basic usage patterns of SPX, a command line tool to use the Speech service without writing code. You can quickly test out the main features of the Speech service, without creating development environments or writing any code, to see if your use-cases can be adequately met. Additionally, SPX is production ready and can be used to automate simple workflows in the Speech service, using `.bat` or shell scripts.
 
 ## Prerequisites
 
@@ -22,6 +22,12 @@ The only prerequisite is an Azure Speech subscription. See the [guide](get-start
 
 ## Download and install
 
+SPX is available on Windows and Linux. Start by downloading the [zip archive](https://crbn.us/spx.zip), then extract it. SPX requires the .NET Core runtime, and the following versions are supported by platform:
+
+* Windows: [4.7](https://dotnet.microsoft.com/download/dotnet-framework/net471), [2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
+* Linux: [2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
+
+After you've installed a runtime, go to the root directory `spx-zips` that you extracted from the download, and extract the subdirectory that you need (`spx-net471`, for example). In a command prompt, change directory to this location, and then run `spx` to start the application.
 
 ## Create subscription config
 
@@ -51,8 +57,19 @@ spx synthesize --text "Testing synthesis using SPX" --speakers
 To change the output to a file, switch the output from `--speakers` to `--audio output`, and enter a file path.
 
 ```shell
-spx synthesize --text "Synthesis to a file." --audio output some/file/path/spx.wav
+spx synthesize --text "Synthesis to a file." --audio output C:\some\file\path\spx.wav
 ```
+
+In addition to speech recognition and synthesis, you can also do speech translation with SPX. Similar to the speech recognition command above, run the following command to capture audio from your default microphone, and perform translation to text in the target language.
+
+```shell
+spx translate --microphone --source en-US --target ru-RU --output file C:\some\file\path\russian_translation.txt
+```
+
+In this command, you specify both the source (language to translate **from**), and the target (language to translate **to**) languages. Using the `--microphone` argument will listen to audio on the current active input device, and stop after you press `ENTER`. The output is a text translation to the target language, written to a text file.
+
+> [!NOTE]
+> See the [language and locale article](language-support.md) for a list of all supported languages with their corresponding locale codes.
 
 ## Batch operations
 
@@ -64,6 +81,9 @@ The commands in the previous section are great for quickly seeing how the Speech
 ## Batch speech recognition
 
 If you have a directory of audio files, it's easy with SPX to quickly run batch-speech recognition. Simply run the following command, pointing to your directory with the `--files` command. In this example, you append `\*.wav` to the directory to recognize all `.wav` files present in the dir. Additionally, specify the `--threads` argument to run the recognition on 10 parallel threads.
+
+> [!NOTE]
+> The `--threads` argument can be also used in the next section for `spx synthesize` commands, and the available threads will depend on the CPU and it's current load percentage.
 
 ```shell
 spx recognize --files C:\your_wav_file_dir\*.wav --output file C:\output_dir\speech_output.tsv --threads 10
@@ -77,7 +97,7 @@ The recognized speech output is written to `speech_output.tsv` using the `--outp
 
 ## Batch text-to-speech synthesis
 
-The easiest way to run batch text-to-speech is to create a new `.tsv` file, and leverage the `--foreach` command in SPX. Consider the following file `text_synthesis.tsv`:
+The easiest way to run batch text-to-speech is to create a new `.tsv` (tab-separated-value) file, and leverage the `--foreach` command in SPX. Consider the following file `text_synthesis.tsv`:
 
     audio.output    text
     C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
@@ -92,8 +112,9 @@ spx synthesize --foreach in @C:\your\path\to\text_synthesis.tsv
 
 This command is the equivalent of running `spx synthesize --text Sample text to synthesize --audio output C:\batch_wav_output\wav_1.wav` **for each** record in the `.tsv` file. A couple things to note:
 
-* The column headers, `audio.output` and `text`, correspond to the command line arguments `--audio output` and `--text`, respectively. Multi-part command line arguments like `--some arg` should be formatted in the file with no spaces, no leading dashes, and periods separating strings, e.g. `some.arg`. Any other existing command line arguments can be added to the file as additional columns using this pattern.
+* The column headers, `audio.output` and `text`, correspond to the command line arguments `--audio output` and `--text`, respectively. Multi-part command line arguments like `--audio output` should be formatted in the file with no spaces, no leading dashes, and periods separating strings, e.g. `audio.output`. Any other existing command line arguments can be added to the file as additional columns using this pattern.
 * When the file is formatted in this way, no additional arguments are required to be passed to `--foreach`.
+* Ensure to separate each value in the `.tsv` with a **tab**.
 
 However, if you have a `.tsv` file like the following example, with column headers that **do not match** command line arguments:
 
@@ -109,3 +130,5 @@ spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.ts
 ```
 
 ## Next steps
+
+* Complete the [speech recognition](./quickstarts/speech-to-text-from-microphone.md) or [speech synthesis](./quickstarts/text-to-speech.md) quickstarts using the SDK.
