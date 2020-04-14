@@ -48,7 +48,7 @@ In this preview release, you can manage administrative units using the Azure por
 
 Administrative units can be used to logically group Azure AD resources. For example, for an organization whose IT department is scattered globally, it might make sense to create administrative units that define those geographical boundaries. In another scenario where a multi-national organization has different "sub-organizations", that are semi-autonomous in operations, each sub-organization may be represented by an administrative unit.
 
-The criteria on which administrative units are created will be guided by the unique requirements of an organization. Administrative Units are a common way to define structure across M365 services. Therefore, a key point to consider is to ensure that how and when your administrative units are created makes sense across M365 services. You can get maximum value out of administrative units when you can associate common resources across M365 under an administrative unit.
+The criteria on which administrative units are created will be guided by the unique requirements of an organization. Administrative Units are a common way to define structure across M365 services. We recommend that you prepare your administrative units with their use across M365 services in mind. You can get maximum value out of administrative units when you can associate common resources across M365 under an administrative unit.
 
 You can expect the creation of administrative units in the organization to go through the following stages:
 
@@ -89,7 +89,11 @@ Permissions |   MS Graph/PowerShell   | Azure AD portal | Microsoft 365 admin ce
 administrative unit-scoped management of group properties and members     |  Supported   |    Supported    |  Not supported
 administrative unit-scoped management of group licensing   |    Supported  |    Supported   |   Not supported
 
-Administrative units apply scope only to management permissions. They do not prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside of the administrative unit. In the Office 365 portal, users outside of an administrative unit-scoped admin's administrative units are filtered out, but you can browse other users in the Azure AD portal, PowerShell, and other Microsoft services.
+> [!NOTE]
+>
+> Administrators with an admin unit scope can't manage dynamic group membership rules.
+
+Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside of the administrative unit. In the Office 365 portal, users outside of an administrative unit-scoped admin's administrative units are filtered out, but you can browse other users in the Azure AD portal, PowerShell, and other Microsoft services.
 
 ## Next steps
 
