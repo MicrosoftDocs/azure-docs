@@ -129,31 +129,17 @@ You can remove a slot via the [CLI](https://docs.microsoft.com/cli/azure/functio
 
     :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Find slots in the Azure portal." border="true":::
 
-1. Select **Delete**, and then select the setting name you want to stick with the current slot.
+1. Select **Delete*.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Configure the application setting for a slot in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Delete the deployment slot in the Azure portal." border="true":::
 
-1. Select **Deployment slot setting**, and then select **OK**.
+1. Type the name of the deployment slot you want to delete, and then select **Delete**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Configure the deployment slot setting." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Delete the deployment slot in the Azure portal." border="true":::
 
-1. Once setting section disappears, select **Save** to keep the changes
+1. Select **Delete**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Save the deployment slot setting." border="true":::
-
-
-
-
-
-
-
-
-
-1. Navigate to the function app Overview
-
-1. Click on the **Delete** button
-
-    ![Add Azure Functions deployment slot](./media/functions-deployment-slots/azure-functions-deployment-slots-delete.png)
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Deployment slot delete confirmation." border="true":::
 
 ## Automate slot management
 
