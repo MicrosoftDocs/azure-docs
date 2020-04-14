@@ -93,13 +93,13 @@ used to reference the Guest Configuration service.
 
 ### Communicate over private link in Azure
 
-Virtual machines can use [private link](../../../azure/private-link/private-link-overview.md)
+Virtual machines can use [private link](../../../private-link/private-link-overview.md)
 for communication to the Guest Configuration service. Apply tag with the name
 `EnablePrivateNeworkGC` and value `TRUE` to enable this feature. The tag can be
 applied before or after Guest Configuration policies are applied to the machine.
 
 Traffic is routed using the Azure
-[virtual public IP address](../../../azure/virtual-network/what-is-ip-address-168-63-129-16.md)
+[virtual public IP address](../../../virtual-network/what-is-ip-address-168-63-129-16.md)
 to establish
 a secure, authenticated channel with Azure platform resources.
 
