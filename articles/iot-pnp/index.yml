@@ -31,8 +31,6 @@ landingContent:
       links:
         - text: Connect a sample device to IoT Hub
           url: quickstart-connect-pnp-device-c-windows.md
-        - text: Connect a sample device to IoT Central
-          url: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - linkListType: tutorial
       links:
         - text: Use Visual Studio Code modeling and code generation tools

@@ -267,13 +267,13 @@
       href: how-to-train-keras.md
     - name: PyTorch
       href: how-to-train-pytorch.md
-  - name: Interpret models
+  - name: Explain models
     displayName: interpretability
     items:
-    - name: Interpret local and remote models
+    - name: Explain ML models
       displayName: SDK, interpret
       href: how-to-machine-learning-interpretability-aml.md
-    - name: Interpret automated ML models
+    - name: Explain automated ML models
       displayName: SDK, interpret, automl
       href: how-to-machine-learning-interpretability-automl.md
   - name: Automate machine learning

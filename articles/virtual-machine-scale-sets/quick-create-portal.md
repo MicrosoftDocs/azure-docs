@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Create a virtual machine scale set in the Azure portal
 description: Get started with your deployments by learning how to quickly create a virtual machine scale the Azure portal.
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
@@ -9,7 +9,7 @@ ms.tgt_pltfrm: vm
 ms.topic: quickstart
 ms.custom: mvc, H1Hack27Feb2017
 ms.date: 10/23/2019
-ms.author: cynthn
+ms.author: jushiman
 
 ---
 
