@@ -14,4 +14,4 @@ Before you begin, make sure that:
   * Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
   * Microsoft Azure Sponsorship. Learn more about [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/).
   * Microsoft Partner Network (MPN). Learn more about [Microsoft Partner Network](https://partner.microsoft.com/commercial#).
-* Ensure that you have owner or contributor access to the subscription to create a Data Box order.
+* Ensure that you have owner or contributor access to the subscription to create a device order.
