@@ -26,7 +26,7 @@ Azure Front Door is a highly scalable, globally distributed application and cont
 
 ## Does Azure WAF support HTTPS?
 
-Front Door offers SSL offloading. WAF is natively integrated with Front Door and can inspect a request after it's decrypted.
+Front Door offers TLS offloading. WAF is natively integrated with Front Door and can inspect a request after it's decrypted.
 
 ## Does Azure WAF support IPv6?
 
