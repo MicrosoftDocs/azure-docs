@@ -26,7 +26,20 @@ landingContent:
             url: overview.md
 
   # Card
-  - title: Get started
+  - title: Get started with Windows Virtual Desktop Spring 2020
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create a host pool with Azure Marketplace
+            url: create-host-pools-azure-marketplace.md
+          - text: Manage app groups for Windows Virtual Desktop
+            url: manage-app-groups.md
+          - text: Create a host pool to validate service updates
+            url: create-validation-host-pool.md
+          - text: Set up service alerts
+            url: set-up-service-alerts.md
+
+  - title: Get started with Windows Virtual Desktop Fall 2019
     linkLists:
       - linkListType: tutorial
         links:
