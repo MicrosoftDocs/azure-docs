@@ -322,11 +322,11 @@ Currently, you can consider redeploying your AAD DS using a new domain DNS name 
 ## Unable to mount Azure Files with AD credentials 
 
 ### Self diagnostics steps
-First, make sure that you have followed through all four steps to [enable Azure Files AD Authentication](http://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable).
+First, make sure that you have followed through all four steps to [enable Azure Files AD Authentication](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable).
 
-Second, try [mounting Azure file share with storage account key](http://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). If you failed to mount, download [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) to help you validate the client running environment, detect the incompatible client configuration which would cause access failure for Azure Files, gives prescriptive guidance on self-fix and, collect the diagnostics traces.
+Second, try [mounting Azure file share with storage account key](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). If you failed to mount, download [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) to help you validate the client running environment, detect the incompatible client configuration which would cause access failure for Azure Files, gives prescriptive guidance on self-fix and, collect the diagnostics traces.
 
-Third, you can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on [AzFilesHybrid v0.1.2+ version](http://github.com/Azure-Samples/azure-files-samples/releases). You need to run this cmdlet with an AD user that has owner permission on the target storage account.  
+Third, you can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on [AzFilesHybrid v0.1.2+ version](https://github.com/Azure-Samples/azure-files-samples/releases). You need to run this cmdlet with an AD user that has owner permission on the target storage account.  
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
