@@ -74,6 +74,8 @@
       href: security-info-setup-text-msg.md
     - name: Set up phone calls
       href: security-info-setup-phone-number.md
+    - name: Set up SMS sign-in
+      href: sms-sign-in-explainer.md
     - name: Set up security key
       href: security-info-setup-security-key.md      
     - name: Set up email
