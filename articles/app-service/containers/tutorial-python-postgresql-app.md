@@ -59,9 +59,9 @@ Take a look at *azuresite/production.py*, which makes the necessary configuratio
 
 - In *manage.py*, change the following line:
 
-    ```python
+    <pre>
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'azuresite.settings')
-    ```
+    </pre>
 
     To the following code:
 
