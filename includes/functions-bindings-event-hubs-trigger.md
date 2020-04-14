@@ -374,6 +374,6 @@ See [code examples](#example) that use these properties earlier in this article.
 ## host.json properties
 <a name="host-json"></a>
 
-The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) file contains settings that control Event Hubs trigger behavior.
+The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) file contains settings that control Event Hubs trigger behavior. The configuration is different depending on the Azure Functions version.
 
 [!INCLUDE [functions-host-json-event-hubs](../articles/azure-functions/../../includes/functions-host-json-event-hubs.md)]

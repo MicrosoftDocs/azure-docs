@@ -6,10 +6,6 @@ ms.date: 09/04/2018
 ms.author: glenga
 ---
 
-## host.json settings
-
-The host.json file contains settings which control Event Hubs trigger behavior.  The configuration is different depending on the Azure Functions version being used.
-
 ### Azure Functions 1.0
 
 ```json
