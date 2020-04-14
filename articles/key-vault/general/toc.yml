@@ -9,14 +9,14 @@
   items:
 - name: Tutorials 
   items:
+  - name: Azure Virtual Machine:
+    items:
+    - name: Use Azure Key Vault with a Windows virtual machine in .NET
+      href: tutorial-net-windows-virtual-machine.md
+    - name: Use Azure Key Vault with a Windows virtual machine in Python
+      href: tutorial-python-windows-virtual-machine.md
   - name: Use Azure Key Vault with an Azure web app in .NET
     href: tutorial-net-create-vault-azure-web-app.md
-  - name: Use Azure Key Vault with a Windows virtual machine in .NET
-    href: tutorial-net-windows-virtual-machine.md
-  - name: Use Azure Key Vault with a Windows virtual machine in Python
-    href: tutorial-python-windows-virtual-machine.md
-  - name: Receive and respond to key vault notifications with Azure Event Grid 
-    href: event-grid-tutorial.md
 - name: Concepts 
   items:
   - name: Basic concepts
@@ -37,10 +37,16 @@
       href: security-baseline.md
     - name: Security recommendations for Azure Key Vault
       href: security-recommendations.md
+  - name: Notifications (preview)
+    items:
+    - name: Monitor with Azure Event Grid (preview)
+    href: event-grid-overview.md
+  - name: Soft delete
+    items:
+    - name: Azure Key Vault soft delete
+    href: overview-soft-delete.md
   - name: Authentication, requests and responses
     href: authentication-requests-and-responses.md
-  - name: Azure Key Vault soft delete
-    href: overview-soft-delete.md
   - name: Azure Key Vault throttling guidance
     href: overview-throttling.md
   - name: Virtual network service endpoints for Azure Key Vault - Azure Key Vault
@@ -63,23 +69,31 @@
       href: service-to-service-authentication.md
     - name: Use Key Vault Connected Service
       href: vs-key-vault-add-connected-service.md
-  - name: Integrate with Azure Private Link Service
+  - name: Monitor and Govern
+    items:
+    - name: Integrate Azure Key Vault with Azure Policy
+      href: azure-policy.md
+    - name: Azure Key Vault logging
+      href: logging.md
+    - name: Receive notifications via Azure Event Grid and Logic Apps
+      href: event-grid-logicapps.md
+    - name: Receive notifications via Azure Event Grid and Azure Automation
+      href: event-grid-tutorial.md
+  - name: Secure
+    items:
+    - name: Integrate with Azure Private Link Service
     href: private-link-service.md
-  - name: Azure Key Vault logging
-    href: logging.md
-  - name: Monitor with Azure Event Grid (preview)
-    href: event-grid-overview.md
-  - name: Email when Key Vault status of the secret changes
-    href: event-grid-logicapps.md
-  - name: Access Key Vault behind a firewall - Azure Key Vault
+    - name: Access Key Vault behind a firewall - Azure Key Vault
     href: access-behind-firewall.md
-  - name: Integrate Azure Key Vault with Azure Policy
-    href: azure-policy.md
-  - name: Use soft delete with CLI
-    href: soft-delete-cli.md
-  - name: Use soft-delete with PowerShell
-    href: soft-delete-powershell.md
-  - name: Change the key vault tenant ID after a subscription move
+  - name: Soft-Delete
+    items:
+    - name: Use soft delete with CLI
+      href: soft-delete-cli.md
+    - name: Use soft-delete with PowerShell
+      href: soft-delete-powershell.md
+  - name: Troubleshoot:
+    items:
+    - name: Change the key vault tenant ID after a subscription move
     href: subscription-move-fix.md
 - name: Reference
   items:
