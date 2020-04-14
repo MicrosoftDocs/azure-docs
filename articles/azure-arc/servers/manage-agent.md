@@ -130,11 +130,13 @@ You can perform a **Connect**, **Disconnect**, and **Reconnect** manually while 
 
 ### Connect
 
+This parameter specifies a resource in Azure Resource Manager representing the machine is created in Azure. The resource is in the subscription and resource group specified, and data about the machine is stored in the Azure region specified by the `--location` setting. The default resource name is the hostname of this machine if not specified.
 
+A certificate corresponding to the System-Assigned Identity of the machine is then downloaded and stored locally. Once this step is completed, the Azure Connected Machine Metadata Service and Guest Configuration Agent begin synchronizing with Azure Arc for servers (preview).
 
 ### Disconnect
 
-This parameter specifies the agent deletes the Azure Resource Manager resource representing the machine in Azure. It does not delete the agent from the machine, this must be done as a separate step. After the machine is disconnected, if you want to re-register it with Azure Arc for servers (preview), use `azcmagent connect` so a new resource is created for it in Azure.
+This parameter specifies a resource in Azure Resource Manager representing the machine is deleted in Azure. It does not delete the agent from the machine, this must be done as a separate step. After the machine is disconnected, if you want to re-register it with Azure Arc for servers (preview), use `azcmagent connect` so a new resource is created for it in Azure.
 
 To disconnect using a service principal, run the following command:
 
