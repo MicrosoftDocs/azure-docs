@@ -16,7 +16,7 @@ ms.reviewer: jrasnick
 
 This document includes key concepts for designing tables with SQL pool and SQL on-demand (preview).  
 
-[SQL on-demand (preview)](on-demand.md) is a query service over the data in your data lake. It doesn't have local storage for data ingestion. [SQL pool](best-practices-sql-pool.md) represents a collection of analytic resources that are being provisioned when using Synapse SQL. The size of SQL pool is determined by Data Warehousing Units (DWU).
+[SQL on-demand (preview)](on-demand-workspace-overview.md) is a query service over the data in your data lake. It doesn't have local storage for data ingestion. [SQL pool](best-practices-sql-pool.md) represents a collection of analytic resources that are being provisioned when using Synapse SQL. The size of SQL pool is determined by Data Warehousing Units (DWU).
 
 The following table lists the topics that are relevant to SQL pool vs. SQL on-demand:
 
