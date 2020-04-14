@@ -111,9 +111,9 @@ Select **Save draft** before continuing.
 
 This page lets you define the categories and industries used to group your offer on the marketplace, your app version, and the legal contracts that support your offer.
 
-### Category
+### Categories
 
-Select a minimum of one and a maximum of three categories. These categories are used to place your offer in the appropriate marketplace search areas. In the offer description, explain how your offer supports these categories. Virtual machine offers appear under the **Compute** category in Azure Marketplace.
+Select a minimum of one and a maximum of five categories. These categories are used to place your offer in the appropriate marketplace search areas. In the offer description, explain how your offer supports these categories. Virtual machine offers appear under the **Compute** category in Azure Marketplace.
 
 ### Legal
 
@@ -229,7 +229,6 @@ Provide the support website where customers can reach your support team.
 
 - Azure Global support website
 - Azure Government support website
-- and so on
 
 ### Partner support contact
 
@@ -416,16 +415,16 @@ You can design each plan to be visible to everyone or to only a preselected audi
 
 #### Hide plan
 
-If your virtual machine is meant to be used only indirectly when referenced through another solution template or managed application, select this box to publish your virtual machine or offer but hide it from customers searching and browsing for it directly.
+If your virtual machine is meant to be used only indirectly when referenced through another solution template or managed application, select this box to publish your virtual machine but hide it from customers searching and browsing for it directly.
 
 > [!NOTE]
-> Hidden plans do not support preview links.
+> Hidden plans don't support preview links.
 
 Select **Save draft** before continuing.
 
 ### Technical configuration
 
-Provide the images and other technical properties associated with this plan.
+Provide the images and other technical properties associated with this plan. For details, see [Create an Azure VM technical asset](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
 
 > [!NOTE]
 > This tab isn't shown if you configured this plan to reuse packages from another plan on the **Plan setup** tab.
@@ -454,7 +453,7 @@ Open public or private ports on a deployed virtual machine.
 
 #### VM Images
 
-Provide a disk version and the SAS URI for the virtual machine images. Add up to 16 data disks for each VM image. Provide only one new image version per plan in a given submission. After an image has been published you can't edit it, but you can delete it. Deleting a version will prevent your users from deploying a new instance of the deleted version.
+Provide a disk version and the SAS URI for the virtual machine images. Add up to 16 data disks for each VM image. Provide only one new image version per plan in a given submission. After an image has been published you can't edit it, but you can delete it. Deleting a version will prevent both new and existing users from deploying a new instance of the deleted version.
 
 - **Disc version** is the version of the image you are providing.
 - **SAS URI** is the location in Azure Storage where you have stored the operating system VHD.
