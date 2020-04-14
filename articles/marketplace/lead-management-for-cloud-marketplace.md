@@ -27,21 +27,21 @@ To start getting leads, Lead Management connector in Partner Center is designed 
 
 Here are step-by-step instructions on how to connect each of the possible lead destinations:
 
-**Dynamics CRM Online** - [Click here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md) to get the instructions on how to configure Dynamics CRM Online for getting leads.
+**Dynamics CRM Online** - See [configure lead management for Dynamics 365 for Customer Engagement](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md) for instructions on how to configure Dynamics CRM Online for getting leads.
 
-**Marketo** - [Click here](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md) to get the instructions for setting up Marketo Lead Configuration to get leads.
+**Marketo** - See [configure lead management in Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md) for instructions on setting up Marketo Lead Configuration to get leads.
 
-**Salesforce** - [Click here](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md) to get instructions for setting up your Salesforce instance to get leads.
+**Salesforce** - See [configure lead management for Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md) for instructions on setting up your Salesforce instance to get leads.
 
-**Azure Table** - [Click here](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) to get the instructions for setting up your Azure storage account for getting leads in an Azure table.
+**Azure Table** - See [configure lead management using an Azure Table](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) for instructions on setting up your Azure storage account for getting leads in an Azure table.
 
-**Https Endpoint** - [Click here](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md) to get the instructions for setting up your Https Endpoint to get leads.
+**Https Endpoint** - See [configure lead management using an HTTPS endpoint](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md) for instructions on setting up your Https Endpoint to get leads.
 
 Once you have configured your lead destination properly and have hit Publish on your offer, we will validate the connection and send you a test lead. When you are viewing the offer before you go live, you can also test your lead connection by trying to acquire the offer yourself in the preview environment. It's important to make sure that your lead settings stay up-to-date so that you don't lose any leads, so make sure you update these connections whenever something has changed on your end.
 
 ### What are the next steps?
 
-Once the technical set up is in place, you should incorporate these leads into your current sales & marketing strategy and operational processes. We are interested in better understanding your overall sales process and want to work closely with you on providing high-quality leads and enough data to make you successful. We welcome your feedback on how we can optimize and enhance the leads we send you with additional data to help make these customers successful. Let us know if you're interested in providing feedback and suggestions to enable your sales team to be more successful with Marketplace Leads.
+Once the technical setup is in place, you should incorporate these leads into your current sales & marketing strategy and operational processes. We are interested in better understanding your overall sales process and want to work closely with you on providing high-quality leads and enough data to make you successful. We welcome your feedback on how we can optimize and enhance the leads we send you with additional data to help make these customers successful. Let us know if you're interested in providing feedback and suggestions to enable your sales team to be more successful with Marketplace Leads.
 
 ## Common lead configuration errors during publishing in Partner Center
 
@@ -71,7 +71,7 @@ Once the technical set up is in place, you should incorporate these leads into y
 
 **Could not save the lead to Dynamics CRM using AAD. Exception:: Error validating credentials.: Invalid client secret is provided.** 
 
-> Resolution: Sign in to the Azure Portal, check if the application key matches what's in the Partner Center. Please generate password based on the instruction at Step 10 (under Azure Active Directory), from [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md)). 
+> Resolution: Sign in to the Azure portal, check if the application key matches what's in the Partner Center. Please generate password based on the instruction at Step 10 (under Azure Active Directory), from [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md)). 
 
 **Could not save the lead to Dynamics CRM. LastCRMError: The request channel timed out while waiting for a reply after 00:02:00. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.**  
 
@@ -141,7 +141,7 @@ Each lead will have data passed in fields in your selected lead destination, the
 
     "DNC" - Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted. 
 
-    "Create" - This is inside Azure Portal only and is whenever a customer purchases your offer to their account. 
+    "Create" - This is inside Azure portal only and is whenever a customer purchases your offer to their account. 
 
     "StartTestDrive" - This is for Test Drives only and is whenever a customer starts their test drive. 
 
@@ -182,11 +182,11 @@ The lead only gets written when you select Azure BLOB storage as your lead desti
 
 **I received an email from Marketplace, why can't I find the lead in my CRM?**  
 
-It's possible that the end user's email domain is from .edu. For privacy reasons we don't pass PII data from .edu domain. Submit a [support ticket](https://aka.ms/marketplacepublishersupport).
+It's possible that the end user's email domain is from .edu. For privacy reasons we don't pass personal identifiable data from .edu domain. Submit a [support ticket](https://aka.ms/marketplacepublishersupport).
 
 **I have configured Azure Table/Azure BLOB as my lead destination, how can I view the leads?** 
 
-You can access the blob or table from Azure Portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) for free to view your Azure storage account's tables/blobs. 
+You can access the blob or table from Azure portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) for free to view your Azure storage account's tables/blobs. 
 
 **I have configured Azure Table as my lead destination, can I get notified whenever a new lead is sent by Marketplace?** 
 
@@ -198,7 +198,7 @@ Check if the web to lead form is a mandatory field based on a picklist. If yes, 
  
 **There was an issue with my lead destination, and I missed some leads. Can I have them sent to me in an email?** 
 
-Due to PII (Private Identifiable Information) policies, we cannot share lead information through unsecured email. 
+Due to privacy policies, we cannot share lead information through unsecured email. 
 
 **I have configured Azure Storage (BLOB/Table) as my lead destination, how much will it cost?** 
 
