@@ -23,7 +23,7 @@ ms.custom: seodec20
 
 ### What is the protocol version supported by Azure Cosmos DB Cassandra API? Is there a plan to support other protocols?
 
-Apache Cassandra API for Azure Cosmos DB supports CQL version 3.x. If you have feedback about supporting other protocols, let us know via [user voice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db) or send an email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
+Azure Cosmos DB Cassandra API supports CQL version 3.x. It's CQL compatibility is based on the public [Apache Cassandra GitHub repository](https://github.com/apache/cassandra/blob/trunk/doc/cql3/CQL.textile). If you have feedback about supporting other protocols, let us know via [user voice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db) or send an email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
 
 ### Why is choosing a throughput for a table a requirement?
 
