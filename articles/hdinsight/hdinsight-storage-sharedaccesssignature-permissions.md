@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.custom: hdinsightactive
+ms.date: 04/14/2020
 ---
 
 # Use Azure Storage Shared Access Signatures to restrict access to data in HDInsight
@@ -21,8 +21,6 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
 > HDInsight must have full access to the default storage for the cluster.
 
 ## Prerequisites
-
-* An Azure subscription.
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -200,7 +198,7 @@ Open the `SASToken.py` file and replace `storage_account_name`, `storage_account
 
 You may need to execute `pip install --upgrade azure-storage` if you receive the error message `ImportError: No module named azure.storage`.
 
-### Using C#
+### Using C\#
 
 1. Open the solution in Visual Studio.
 
@@ -208,13 +206,12 @@ You may need to execute `pip install --upgrade azure-storage` if you receive the
 
 3. Select **Settings** and add values for the following entries:
 
-   * StorageConnectionString: The connection string for the storage account that you want to create a stored policy and SAS for. The format should be `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` where `myaccount` is the name of your storage account and `mykey` is the key for the storage account.
-
-   * ContainerName: The container in the storage account that you want to restrict access to.
-
-   * SASPolicyName: The name to use for the stored policy to create.
-
-   * FileToUpload: The path to a file that is uploaded to the container.
+    |Item |Description |
+    |---|---|
+    |StorageConnectionString|The connection string for the storage account that you want to create a stored policy and SAS for. The format should be `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` where `myaccount` is the name of your storage account and `mykey` is the key for the storage account.|
+    |ContainerName|The container in the storage account that you want to restrict access to.|
+    |SASPolicyName|The name to use for the stored policy to create.|
+    |FileToUpload|The path to a file that is uploaded to the container.|
 
 4. Run the project. Save the SAS policy token, storage account name, and container name. These values are used when associating the storage account with your HDInsight cluster.
 
