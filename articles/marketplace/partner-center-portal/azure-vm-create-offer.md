@@ -383,6 +383,8 @@ Every plan must be available in at least one market. Select the check box for ev
 
 If you've already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to current exchange rates. Always review the price for each market before publishing. Review prices using the **Export prices (xlsx)** link after saving your changes.
 
+When you remove a market, customers from that market using active deployments will not be able to create new deployments or scale up their existing deployments. Existing deployments will not be affected.
+
 #### Pricing
 
 **License model** – Select **Usage-based monthly billed plan** to configure pricing for this plan or **Bring your own license** to let customers use this plan with their existing license.
