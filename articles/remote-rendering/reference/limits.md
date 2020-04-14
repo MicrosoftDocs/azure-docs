@@ -9,7 +9,7 @@ ms.topic: reference
 
 # Limits
 
-A number of features have size or count limitations due to internal details of the running system.
+A number of features have size, count, or other limitations due to internal details of the running system.
 
 ## Azure Frontend
 
@@ -35,4 +35,13 @@ The allowable number of polygons for all loaded models depends on the size of th
 |premium| no limit |
 
 
+## Platform limits
 
+Windows 10 desktop
+
+* PC Standalone deployment from Unity is not supported. Use UWP instead.
+* UWP x86 is the only supported UWP platform. UWP x64 is not supported.
+
+Hololens 2
+
+* [Render from PV camera](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) feature is not supported.

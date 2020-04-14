@@ -54,6 +54,9 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
   ![Solution configuration](./media/unity-deploy-config-pc.png)
 1. Build the solution (F7).
 
+> [!WARNING]
+> Make sure to select **x86** as **x64** is currently not supported, see [platform limits](../reference/limits.md#platform_limits).
+
 ## Launch the sample project
 
 Start the Debugger in Visual Studio (F5). It will automatically deploy the app to the PC.
