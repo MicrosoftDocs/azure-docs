@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 
 #Customer intent: As a developer of content management software, I want to find out whether Azure Content Moderator is the right solution for my moderation needs.
@@ -36,7 +36,7 @@ The following are a few scenarios in which a software developer or team would us
 
 ## What it includes
 
-The Content Moderator service consists of several web service APIs available through both REST calls and a .NET SDK. It also includes the human review tool, which allows human reviewers to aid the service and improve or fine-tune its moderation function.
+The Content Moderator service consists of several web service APIs available through both REST calls and a .NET SDK. It also includes the Review tool, which allows human reviewers to aid the service and improve or fine-tune its moderation function.
 
 ## Moderation APIs
 
@@ -63,11 +63,11 @@ The Review APIs let you integrate your moderation pipeline with human reviewers.
 
 ![block diagram for Content Moderator review APIs](images/content-moderator-rev-api.png)
 
-## The Review tool
+## Review tool
 
 The Content Moderator service also includes the web-based [Review tool](Review-Tool-User-Guide/human-in-the-loop.md), which hosts the content reviews for human moderators to process. The human input doesn't train the service, but the combined work of the service and human review teams allows developers to strike the right balance between efficiency and accuracy. The Review tool also provides a user-friendly front end for several Content Moderator resources.
 
-![Content Moderator human review tool homepage](images/homepage.PNG)
+![Content Moderator Review tool homepage](images/homepage.PNG)
 
 ## Data privacy and security
 
