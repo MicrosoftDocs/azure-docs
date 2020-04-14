@@ -7,7 +7,7 @@ manager: rkarlin
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: concepts
 ms.date: 11/12/2019
 ms.author: mbaldwin
 ---

@@ -40,8 +40,6 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Monitor a key vault with Event Grid (preview)
-            url: event-grid-overview.md
           - text: Key Vault from a web application
             url: tutorial-net-create-vault-azure-web-app.md
           - text: Key Vault with Azure Windows Virtual Machine
