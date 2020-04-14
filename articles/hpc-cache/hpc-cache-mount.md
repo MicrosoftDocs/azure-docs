@@ -126,9 +126,9 @@ If you want to create a mount command without using the **Mount instructions** p
 > [!NOTE]
 > The cache mount addresses correspond to network interfaces inside the cache's subnet. In a resource group, these NICs are listed with names ending in `-cluster-nic-` and a number. Do not alter or delete these interfaces, or the cache will become unavailable.
 
-The virtual namespace paths are shown on each storage target's details page.<!-- this is not a detail page though...  Click an individual storage target name to see its details, including aggregated namespace paths associated with it. -->
+The virtual namespace paths are shown on each storage target's details page. Click an individual storage target name to see its details, including aggregated namespace paths associated with it.
 
-<!-- update alt text and/or change screenshot -->![screenshot of the cache's Storage target panel, with a highlight box around an entry in the Path column of the table](media/hpc-cache-view-namespace-paths.png)
+![screenshot of a storage target's detail page (header "Update storage target"). There is a highlight box around an entry in the Virtual namespace path column of the table](media/hpc-cache-view-namespace-paths.png)
 
 ## Next steps
 
