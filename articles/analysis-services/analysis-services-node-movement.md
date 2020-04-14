@@ -15,7 +15,7 @@ In Azure Analysis Services, a *node* represents a set amount of processor, memor
 - "An error has occurred while trying to locate a long running XMLA request. The request might have been interrupted by service upgrade or server restart."
 - "Job with ID '<guid>for model '<database>' was canceled due to service error (inactivity) with message 'Cancelling the refresh request since it was stuck without any updates. This is an internal service issue. Please resubmit the job or file a ticket to get help if this issue happens repeatedly."
 
-There are many reasons why long running operations can fail. For example, updates must be performed in every cloud service, such as: 
+There are many reasons why long running operations can be disrupted. For example, updates in Azure such as: 
 - Operating System patches 
 - Security updates
 - Azure Analysis Services service updates
