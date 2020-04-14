@@ -61,8 +61,8 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| SecurityLevel | The level of security (SSL/TLS) that the driver uses for the connection to the data store. Example: `SecurityLevel=preferredSecured`. Supported values are:<br/>- **Only unsecured** (**onlyUnSecured**): The driver doesn't use SSL.<br/>- **Preferred unsecured (preferredUnSecured) (default)**: If the server provides a choice, the driver doesn't use SSL. <br/>- **Preferred secured (preferredSecured)**: If the server provides a choice, the driver uses SSL. <br/>- **Only secured (onlySecured)**: The driver doesn't connect unless an SSL connection is available. | No |
-| CaCertFile | The full path to the SSL certificate that's used by the server. Example: `CaCertFile=<cert path>;`| Yes, if SSL is enabled |
+| SecurityLevel | The level of security (SSL/TLS) that the driver uses for the connection to the data store. Example: `SecurityLevel=preferredSecured`. Supported values are:<br/>- **Only unsecured** (**onlyUnSecured**): The driver doesn't use TLS.<br/>- **Preferred unsecured (preferredUnSecured) (default)**: If the server provides a choice, the driver doesn't use TLS. <br/>- **Preferred secured (preferredSecured)**: If the server provides a choice, the driver uses TLS. <br/>- **Only secured (onlySecured)**: The driver doesn't connect unless an TLS connection is available. | No |
+| CaCertFile | The full path to the TLS/SSL certificate that's used by the server. Example: `CaCertFile=<cert path>;`| Yes, if TLS is enabled |
 
 **Example**
 
@@ -156,7 +156,7 @@ To copy data from Netezza, set the **source** type in Copy Activity to **Netezza
 |:--- |:--- |:--- |
 | type | The **type** property of the Copy Activity source must be set to **NetezzaSource**. | Yes |
 | query | Use the custom SQL query to read data. Example: `"SELECT * FROM MyTable"` | No (if "tableName" in dataset is specified) |
-| partitionOptions | Specifies the data partitioning options used to load data from Netezza. <br>Allow values are: **None** (default), **DataSlice**, and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from a Netezza database is controlled by [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. | No |
+| partitionOptions | Specifies the data partitioning options used to load data from Netezza. <br>Allow values are: **None** (default), **DataSlice**, and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from a Netezza database is controlled by [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when partition option isn't `None`. | No |
 | partitionColumnName | Specify the name of the source column **in integer type** that will be used by range partitioning for parallel copy. If not specified, the primary key of the table is autodetected and used as the partition column. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook `?AdfRangePartitionColumnName` in WHERE clause. See example in [Parallel copy from Netezza](#parallel-copy-from-netezza) section. | No |
 | partitionUpperBound | The maximum value of the partition column to copy data out. <br>Apply when partition option is `DynamicRange`. If you use query to retrieve source data, hook `?AdfRangePartitionUpbound` in the WHERE clause. For an example, see the [Parallel copy from Netezza](#parallel-copy-from-netezza) section. | No |
@@ -200,7 +200,7 @@ The Data Factory Netezza connector provides built-in data partitioning to copy d
 
 ![Screenshot of partition options](./media/connector-netezza/connector-netezza-partition-options.png)
 
-When you enable partitioned copy, Data Factory runs parallel queries against your Netezza source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Netezza database.
+When you enable partitioned copy, Data Factory runs parallel queries against your Netezza source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Netezza database.
 
 You are suggested to enable parallel copy with data partitioning especially when you load large amount of data from your Netezza database. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommanded to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
 

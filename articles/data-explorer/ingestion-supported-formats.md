@@ -15,19 +15,19 @@ Data ingestion is the process by which data is added to a table and is made avai
 
 |Format   |Extension   |Description|
 |---------|------------|-----------|
-|avro     |`.avro`     |An [Avro container file](https://avro.apache.org/docs/current/). The following codes are supported: `null`, `deflate` (`snappy` is currently not supported).|
+|Avro     |`.avro`     |An [Avro container file](https://avro.apache.org/docs/current/). The following codes are supported: `null`, `deflate` (`snappy` is currently not supported).|
 |CSV      |`.csv`      |A text file with comma-separated values (`,`). See [RFC 4180: _Common Format and MIME Type for Comma-Separated Values (CSV) Files_](https://www.ietf.org/rfc/rfc4180.txt).|
 |JSON     |`.json`     |A text file with JSON objects delimited by `\n` or `\r\n`. See [JSON Lines (JSONL)](http://jsonlines.org/).|
-|multijson|`.multijson`|A text file with a JSON array of property bags (each representing a record), or any number of property bags delimited by whitespace, `\n` or `\r\n`. Each property bag can be spread on multiple lines. This format is preferred over `JSON`, unless the data is non-property bags.|
-|orc      |`.orc`      |An [Orc file](https://en.wikipedia.org/wiki/Apache_ORC).|
-|parquet  |`.parquet`  |A [Parquet file](https://en.wikipedia.org/wiki/Apache_Parquet).|
-|psv      |`.psv`      |A text file with pipe-separated values (<code>&#124;</code>).|
-|raw      |`.raw`      |A text file whose entire contents is a single string value.|
-|scsv     |`.scsv`     |A text file with semicolon-separated values (`;`).|
-|sohsv    |`.sohsv`    |A text file with SOH-separated values. (SOH is ASCII codepoint 1; this format is used by Hive on HDInsight.)|
-|tsv      |`.tsv`      |A text file with tab-separated values (`\t`).|
-|tsve     |`.tsv`      |A text file with tab-separated values (`\t`). A backslash character (`\`) is used for escaping.|
-|txt      |`.txt`      |A text file with lines delimited by `\n`. Empty lines are skipped.|
+|MultiJSON|`.multijson`|A text file with a JSON array of property bags (each representing a record), or any number of property bags delimited by whitespace, `\n` or `\r\n`. Each property bag can be spread on multiple lines. This format is preferred over `JSON`, unless the data is non-property bags.|
+|ORC      |`.orc`      |An [Orc file](https://en.wikipedia.org/wiki/Apache_ORC).|
+|Parquet  |`.parquet`  |A [Parquet file](https://en.wikipedia.org/wiki/Apache_Parquet).|
+|PSV      |`.psv`      |A text file with pipe-separated values (<code>&#124;</code>).|
+|RAW      |`.raw`      |A text file whose entire contents is a single string value.|
+|SCsv     |`.scsv`     |A text file with semicolon-separated values (`;`).|
+|SOHsv    |`.sohsv`    |A text file with SOH-separated values. (SOH is ASCII codepoint 1; this format is used by Hive on HDInsight.)|
+|TSV      |`.tsv`      |A text file with tab-separated values (`\t`).|
+|TSVE     |`.tsv`      |A text file with tab-separated values (`\t`). A backslash character (`\`) is used for escaping.|
+|TXT      |`.txt`      |A text file with lines delimited by `\n`. Empty lines are skipped.|
 
 ## Supported data compression formats
 

@@ -1,5 +1,5 @@
 ---
-title: Model interpretability in automated machine learning
+title: Explanability in automated machine learning
 titleSuffix: Azure Machine Learning
 description: Learn how to get explanations for how your automated ML model determines feature importance and makes predictions when using the Azure Machine Learning SDK.
 services: machine-learning
@@ -8,15 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
-ms.reviewer: trbye
-ms.date: 10/25/2019
+ms.date: 03/11/2020
 ---
 
-# Model interpretability in automated machine learning
+# Interpretability: model explanations in automated machine learning
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to enable the interpretability features for automated machine learning (ML) in Azure Machine Learning. Automated ML helps you understand engineered feature importance. 
+In this article, you learn how to get explanations for automated machine learning (ML) in Azure Machine Learning. Automated ML helps you understand engineered feature importance. 
 
 All SDK versions after 1.0.85 set `model_explainability=True` by default. In SDK version 1.0.85 and earlier versions users need to set `model_explainability=True` in the `AutoMLConfig` object in order to use model interpretability. 
 

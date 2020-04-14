@@ -8,7 +8,7 @@ author: asudbring
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
@@ -188,11 +188,11 @@ SNAT ports allocations are IP transport protocol specific (TCP and UDP are maint
 This section is intended to help mitigate SNAT exhaustion and that can occur with outbound connections in Azure.
 
 ### <a name="snatexhaust"></a> Managing SNAT (PAT) port exhaustion
-[Ephemeral ports](#preallocatedports) used for [PAT](#pat) are an exhaustible resource, as described in [Standalone VM without a Public IP address](#defaultsnat) and [Load-balanced VM without a Public IP address](#lb).
+[Ephemeral ports](#preallocatedports) used for [PAT](#pat) are an exhaustible resource, as described in [Standalone VM without a Public IP address](#defaultsnat) and [Load-balanced VM without a Public IP address](#lb).You can monitor your usage of ephemeral ports and compare with your current allocation to determine the risk of or to confirm SNAT exhuastion using [this](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guide.
 
 If you know that you're initiating many outbound TCP or UDP connections to the same destination IP address and port, and you observe failing outbound connections or are advised by support that you're exhausting SNAT ports (preallocated [ephemeral ports](#preallocatedports) used by [PAT](#pat)), you have several general mitigation options. Review these options and decide what is available and best for your scenario. It's possible that one or more can help manage this scenario.
 
-If you are having trouble understanding the outbound connection behavior, you can use IP stack statistics (netstat). Or it can be helpful to observe connection behaviors by using packet captures. You can perform these packet captures in the guest OS of your instance or use [Network Watcher for packet capture](../network-watcher/network-watcher-packet-capture-manage-portal.md).
+If you are having trouble understanding the outbound connection behavior, you can use IP stack statistics (netstat). Or it can be helpful to observe connection behaviors by using packet captures. You can perform these packet captures in the guest OS of your instance or use [Network Watcher for packet capture](../network-watcher/network-watcher-packet-capture-manage-portal.md). 
 
 #### <a name="connectionreuse"></a>Modify the application to reuse connections 
 You can reduce demand for ephemeral ports that are used for SNAT by reusing connections in your application. This is especially true for protocols like HTTP/1.1, where connection reuse is the default. And other protocols that use HTTP as their transport (for example, REST) can benefit in turn. 
@@ -251,7 +251,6 @@ When you apply an NSG to a load-balanced VM, pay attention to the [service tags]
 If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, your VM health probe fails and the VM is marked down. Load Balancer stops sending new flows to that VM.
 
 ## Limitations
-- DisableOutboundSnat is not available as an option when configuring a load balancing rule in the portal.  Use REST, template, or client tools instead.
 - Web Worker Roles without a VNet and other Microsoft platform services can be accessible when only an internal Standard Load Balancer is used due to a side effect from how pre-VNet services and other platform services function. Do not rely on this side effect as the respective service itself or the underlying platform may change without notice. You must always assume you need to create outbound connectivity explicitly if desired when using an internal Standard Load Balancer only. The [default SNAT](#defaultsnat) scenario 3 described in this article is not available.
 
 ## Next steps

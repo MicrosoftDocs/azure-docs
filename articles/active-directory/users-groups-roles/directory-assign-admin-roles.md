@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 02/28/2020
+ms.date: 04/07/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 Using Azure Active Directory (Azure AD), you can designate limited administrators to manage identity tasks in less-privileged roles. Administrators can be assigned for such purposes as adding or changing users, assigning administrative roles, resetting user passwords, managing user licenses, and managing domain names. The default user permissions can be changed only in user settings in Azure AD.
 
-## Limit the use of Global administrator
+## Limit use of Global administrator
 
 Users who are assigned to the Global administrator role can read and modify every administrative setting in your Azure AD organization. By default, the person who signs up for an Azure subscription is assigned the Global administrator role for the Azure AD organization. Only Global administrators and Privileged Role administrators can delegate administrator roles. To reduce the risk to your business, we recommend that you assign this role to the fewest possible people in your organization.
 
@@ -1757,8 +1757,31 @@ The following roles should not be used. They have been deprecated and will be re
 * Mailbox Administrator
 * Workplace Device Join
 
+## Roles not shown in the portal
+
+Not every role returned by PowerShell or MS Graph API is visible in Azure portal. The following table organizes those differences.
+
+API name | Azure portal name | Notes
+-------- | ------------------- | -------------
+Company Administrator | Global Administrator | [Name changed for better clarity](directory-assign-admin-roles.md#role-template-ids)
+CRM Service Administrator | Dynamics 365 administrator | [Reflects current product branding](directory-assign-admin-roles.md#role-template-ids)
+Device Join | Deprecated | [Deprecated roles documentation](directory-assign-admin-roles.md#deprecated-roles)
+Device Managers | Deprecated | [Deprecated roles documentation](directory-assign-admin-roles.md#deprecated-roles)
+Device Users | Deprecated | [Deprecated roles documentation](directory-assign-admin-roles.md#deprecated-roles)
+Directory Synchronization Accounts | Not shown because it shouldn't be used | [Directory Synchronization Accounts documentation](directory-assign-admin-roles.md#directory-synchronization-accounts)
+Directory Writers | Not shown because it shouldn't be used | [Directory Writers documentation](directory-assign-admin-roles.md#directory-writers)
+Guest User | Not shown because it can't be used  | NA
+Lync Service Administrator | Skype for Business administrator | [Reflects current product branding](directory-assign-admin-roles.md#role-template-ids)
+Partner Tier 1 Support | Not shown because it shouldn't be used | [Partner Tier1 Support documentation](directory-assign-admin-roles.md#partner-tier1-support)
+Partner Tier 2 Support | Not shown because it shouldn't be used | [Partner Tier2 Support documentation](directory-assign-admin-roles.md#partner-tier2-support)
+Printer Administrator | Work in progress | Work in progress
+Printer Technician | Work in progress | Work in progress
+Restricted Guest User | Not shown because it can't be used | NA
+User | Not shown because it can't be used | NA
+Workplace Device Join | Deprecated | [Deprecated roles documentation](directory-assign-admin-roles.md#deprecated-roles)
+
 ## Next steps
 
-* To learn more about how to assign a user as an administrator of an Azure subscription, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md)
-* To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+* To learn more about how to assign a user as an administrator of an Azure subscription, see [Manage access using Azure roles (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
+* To learn more about how resource access is controlled in Microsoft Azure, see [Understand the different roles](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

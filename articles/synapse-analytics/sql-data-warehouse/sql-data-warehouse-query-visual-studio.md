@@ -1,12 +1,12 @@
 ---
 title: Connect with VSTS 
 description: Query Azure Synapse Analytics with Visual Studio.
-services: sql-data-warehouse
+services: synapse-analytics
 author: kevinvngo 
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: development
+ms.subservice: 
 ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan

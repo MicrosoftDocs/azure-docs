@@ -1,15 +1,15 @@
 ---
-title: Prepare to buy an Azure reservation
-description: Learn about important points before you buy an Azure reservation.
+title: Buy an Azure reservation
+description: Learn about important points to help you buy an Azure reservation.
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 04/07/2020
 ms.author: banders
 ---
 
-# Prepare to buy a reservation
+# Buy a reservation
 
 Azure Reservations help you save money by committing to one-year or three-years plans for many Azure resources. Before you enter a commitment to buy a reservation, be sure to review the following sections to prepare for your purchase.
 
@@ -27,7 +27,7 @@ You can scope a reservation to a subscription or resource groups. Setting the sc
 
 ### Reservation scoping options
 
-With resource group scoping you have three options to scope a reservation, depending on your needs:
+You have three options to scope a reservation, depending on your needs:
 
 - **Single resource group scope**—Applies the reservation discount to the matching resources in the selected resource group only.
 - **Single subscription scope**—Applies the reservation discount to the matching resources in the selected subscription.
@@ -39,21 +39,20 @@ While applying reservation discounts on your usage, Azure processes the reservat
 2. Single scope reservations
 3. Shared scope reservations
 
-A single resource group can get reservation discounts from multiple reservations, depending on how you scope your reservations.
-
-### Scope a reservation to a resource group
-
-You can scope the reservation to a resource group when you buy the reservation, or you set the scope after purchase. You must be a subscription owner to scope the reservation to a resource group.
-
-To set the scope, go to the [Purchase reservation](https://ms.portal.azure.com/#blade/Microsoft\_Azure\_Reservations/CreateBlade/referrer/Browse\_AddCommand) page in the Azure portal. Select the reservation type that you want to buy. On the **Select the product that you want to purchase** selection form, change the Scope value to Single resource group. Then, select a resource group.
-
-![Example showing VM reservation purchase selection](./media/prepare-buy-reservation/select-product-to-purchase.png)
-
-Purchase recommendations for the resource group in the virtual machine reservation are shown. Recommendations are calculated by analyzing your usage over the last 30 days. A purchase recommendation is made if the cost of running resources with reserved instances is cheaper than the cost of running resources with pay-as-you-go rates. For more information about reservation purchase recommendations, see [Get Reserved Instance purchase recommendations based on usage pattern](https://azure.microsoft.com/blog/get-usage-based-reserved-instance-recommendations).
-
 You can always update the scope after you buy a reservation. To do so, go to the reservation, click **Configuration**, and rescope the reservation. Rescoping a reservation isn't a commercial transaction. Your reservation term isn't changed. For more information about updating the scope, see [Update the scope after you purchase a reservation](manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 ![Example showing a reservation scope change](./media/prepare-buy-reservation/rescope-reservation-resource-group.png)
+
+## Discounted subscription and offer types
+
+Reservation discounts apply to the following eligible subscriptions and offer types.
+
+- Enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P)
+- Microsoft Customer Agreement subscriptions.
+- Individual plans with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P)
+- CSP subscriptions
+
+Resources that run in a subscription with other offer types don't receive the reservation discount.
 
 ## Purchase reservations
 
@@ -71,6 +70,54 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [SQL Database](../../sql-database/sql-database-reserved-capacity.md)
 - [SQL Data Warehouse](prepay-sql-data-warehouse-charges.md)
 - [Virtual machines](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+
+## Buy reservations with monthly payments
+
+You can pay for reservations with monthly payments. Unlike an up-front purchase where you pay the full amount, the monthly payment option divides the total cost of the reservation evenly over each month of the term. The total cost of up-front and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly.
+
+If reservation is purchased using Microsoft customer agreement (MCA), your monthly payment amount may vary, depending on the current month's market exchange rate for your local currency.
+
+Monthly payments are not available for: Databricks, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Compute.
+
+### View payments made
+
+You can view payments that were made using APIs, usage data, and in cost analysis. For reservations paid for monthly, the frequency value is shown as **recurring** in usage data and Reservation Charges API. For reservations paid up front, the value is shown as **onetime**.
+
+Cost analysis shows monthly purchases in the default view. Apply the **purchase** filter to **Charge type** and **recurring** for **Frequency** to see all purchases. To view only reservations, apply a filter for **Reservation**.
+
+![Example showing reservation purchase costs in cost analysis](./media/prepare-buy-reservation/cost-analysis.png)
+
+### Exchange and refunds
+
+Like other reservations, you can refund or exchange reservations purchased with monthly billing. 
+
+When you exchange a reservation that's paid for monthly, the total lifetime cost of the new purchase should be greater than the leftover payments that are canceled for the returned reservation. There are no other limits or fees for exchanges. You can exchange a reservation that's paid for up front to purchase a new reservation that's billed monthly. However, the lifetime value of the new reservation should be greater than the prorated value of the reservation being returned.
+
+If you cancel a reservation that's paid for monthly, canceled future payments accrue towards the $50,000 USD refund limit.
+
+For more information about exchange and refunds, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md).
+
+## Reservation notifications
+
+Depending on how you pay for your Azure subscription, email reservation notifications are sent to the following users in your organization. Notifications are sent for various events including: 
+
+- Purchase
+- Upcoming reservation expiration
+- Expiry
+- Renewal
+- Cancellation
+- Scope change
+
+For customers with EA subscriptions:
+
+- Notifications are sent only to the EA notification contacts.
+- Users added to a reservation using RBAC (IAM) permission don't receive any email notifications.
+
+For customers with individual subscriptions:
+
+- The purchaser receives a purchase notification.
+- At the time of purchase, the subscription billing account owner receives a purchase notification.
+- The account owner receives all other notifications.
 
 ## Next steps
 

@@ -452,7 +452,7 @@ For more information on the detailed Speech service phonetic alphabet, see the [
 
 ## Adjust prosody
 
-The `prosody` element is used to specify changes to pitch, countour, range, rate, duration, and volume for the text-to-speech output. The `prosody` element may contain text and the following elements: `audio`, `break`, `p`, `phoneme`, `prosody`, `say-as`, `sub`, and `s`.
+The `prosody` element is used to specify changes to pitch, contour, range, rate, duration, and volume for the text-to-speech output. The `prosody` element may contain text and the following elements: `audio`, `break`, `p`, `phoneme`, `prosody`, `say-as`, `sub`, and `s`.
 
 Because prosodic attribute values can vary over a wide range, the speech recognizer interprets the assigned values as a suggestion of what the actual prosodic values of the selected voice should be. The text-to-speech service limits or substitutes values that are not supported. Examples of unsupported values are a pitch of 1 MHz or a volume of 120.
 
@@ -594,7 +594,7 @@ The speech synthesis engine speaks the following example as "Your first request 
 
 Any audio included in the SSML document must meet these requirements:
 
-* The MP3 must be hosted on an Internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the MP3 file must present a valid, trusted SSL certificate.
+* The MP3 must be hosted on an Internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the MP3 file must present a valid, trusted TLS/SSL certificate.
 * The MP3 must be a valid MP3 file (MPEG v2).
 * The bit rate must be 48 kbps.
 * The sample rate must be 16,000 Hz.

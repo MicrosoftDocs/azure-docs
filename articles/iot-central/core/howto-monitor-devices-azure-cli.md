@@ -3,7 +3,7 @@ title: Monitor device connectivity using the Azure IoT Central Explorer
 description: Monitor device messages and observe device twin changes through the IoT Central Explorer CLI.
 author: viv-liu
 ms.author: viviali
-ms.date: 12/18/2019
+ms.date: 03/27/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -16,7 +16,7 @@ manager: corywink
 
 Use the Azure CLI IoT extension to see messages your devices are sending to IoT Central and observe changes in the device twin. You can use this tool to debug and observe device connectivity and diagnose issues of device messages not reaching the cloud or devices not responding to twin changes.
 
-[Visit the Azure CLI extensions reference for more details](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/central)
+[Visit the Azure CLI extensions reference for more details](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
 
 ## Prerequisites
 
@@ -27,19 +27,19 @@ Use the Azure CLI IoT extension to see messages your devices are sending to IoT 
 
 Run the following command from your command line to install:
 
-```cmd/sh
+```azurecli
 az extension add --name azure-iot
 ```
 
 Check the version of the extension by running:
 
-```cmd/sh
+```azurecli
 az --version
 ```
 
 You should see the azure-iot extension is 0.8.1 or higher. If it is not, run:
 
-```cmd/sh
+```azurecli
 az extension update --name azure-iot
 ```
 
@@ -53,24 +53,24 @@ The following sections describe common commands and options that you can use whe
 
 Start by signing into the Azure CLI. 
 
-```cmd/sh
+```azurecli
 az login
 ```
 
 ### Get the Application ID of your IoT Central app
-In **Administration/Application Settings**, copy the **Application ID**. You will use this in later steps.
+In **Administration/Application Settings**, copy the **Application ID**. You use this value in later steps.
 
 ### Monitor messages
-Monitor the messages that are being sent to your IoT Central app from your devices. This will include all headers and annotations.
+Monitor the messages that are being sent to your IoT Central app from your devices. The output includes all headers and annotations.
 
-```cmd/sh
+```azurecli
 az iot central app monitor-events --app-id <app-id> --properties all
 ```
 
 ### View device properties
 View the current read and read/write device properties for a given device.
 
-```cmd/sh
+```azurecli
 az iot central device-twin show --app-id <app-id> --device-id <device-id>
 ```
 

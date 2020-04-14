@@ -5,7 +5,6 @@
   - name: What is Azure Firewall?
     href: overview.md
 - name: Tutorials
-  expanded: true
   items:
   - name: Deploy and configure
     href: tutorial-firewall-deploy-portal.md
@@ -15,6 +14,15 @@
     href: tutorial-firewall-dnat.md
   - name: Monitor diagnostic logs
     href: tutorial-diagnostics.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Deploy with IP Groups
+    displayName: Resource Manager
+    href: quick-create-ipgroup-template.md
+  - name: Deploy with multiple addresses
+    displayName: Resource Manager
+    href: quick-create-multiple-ip-template.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -43,6 +51,8 @@
       href: compliance-certifications.md
     - name: Central management
       href: central-management.md
+    - name: Remote work support
+      href: remote-work-support.md
 - name: How-to guides
   items:
     - name: Deploy using Azure PowerShell

@@ -16,12 +16,14 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-  - name: Working remotely support
+  - name: Work remotely
     items:
-    - name: NVA configurations and remote work
-      href: nva-working-remotely-support.md
-    - name: Work remotely
+    - name: Support for working remotely
+      href: ../networking/working-remotely-support.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+    - name: Leveraging Azure VPN
       href: work-remotely-support.md
+    - name: NVA configurations and remote work
+      href: nva-work-remotely-support.md
   - name: About VPN Gateway settings
     href: vpn-gateway-about-vpn-gateway-settings.md
   - name: About VPN devices

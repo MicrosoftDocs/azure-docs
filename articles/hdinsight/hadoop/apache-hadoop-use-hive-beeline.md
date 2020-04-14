@@ -60,7 +60,7 @@ To find the JDBC URL from Ambari:
 
 ### Over public or private endpoints
 
-When connecting to a cluster using the public or private endpoints, you must provide the cluster login account name (default `admin`) and password. For example, using Beeline from a client system to connect to the `clustername.azurehdinsight.net` address. This connection is made over port `443`, and is encrypted using SSL.
+When connecting to a cluster using the public or private endpoints, you must provide the cluster login account name (default `admin`) and password. For example, using Beeline from a client system to connect to the `clustername.azurehdinsight.net` address. This connection is made over port `443`, and is encrypted using TLS/SSL.
 
 Replace `clustername` with the name of your HDInsight cluster. Replace `admin` with the cluster login account for your cluster. For ESP clusters, use the full UPN (for example, user@domain.com). Replace `password` with the password for the cluster login account.
 

@@ -1,16 +1,18 @@
 ---
 title: Azure Key Vault deployment template | Azure Marketplace
 description: Lists the Azure Resource Manager template required to deploy a new Azure Key Vault instance.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Key vault deployment template
+
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Azure VM image certification](https://aks.ms/CertifyVMimage) to manage your migrated offers.
 
 The following Azure Resource Manager template defines a new Azure Key Vault instance.  It is used in the article [Create key vault certificate](cpp-create-key-vault-cert.md). 
 
@@ -21,21 +23,21 @@ The following Azure Resource Manager template defines a new Azure Key Vault inst
   "parameters": {
     "keyVaultName": {
       "type": "string",
-	  "defaultValue":"isvkv0001",
+      "defaultValue":"isvkv0001",
       "metadata": {
         "description": "Name of the Vault"
       }
     },
     "tenantId": {
       "type": "string",
-	  "defaultValue":"72f988bf-86f1-41af-91ab-2d7cd011db47",
+      "defaultValue":"72f988bf-86f1-41af-91ab-2d7cd011db47",
       "metadata": {
         "description": "Tenant Id of the subscription. Get using Get-AzureSubscription cmdlet or Get Subscription API"
       }
     },
     "objectId": {
       "type": "string",
-	  "defaultValue":"d55739bf-d5d6-4ce0-be1c-49ade53c4315",
+      "defaultValue":"d55739bf-d5d6-4ce0-be1c-49ade53c4315",
       "metadata": {
         "description": "Object Id of the AD user. Get using Get-AzureADUser or Get-AzureADServicePrincipal cmdlets"
       }

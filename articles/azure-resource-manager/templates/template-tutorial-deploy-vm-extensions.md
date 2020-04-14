@@ -2,7 +2,7 @@
 title: Deploy VM extensions with template
 description: Learn how to deploy virtual machine extensions with Azure Resource Manager templates
 author: mumian
-ms.date: 11/13/2018
+ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -71,25 +71,25 @@ Add a virtual machine extension resource to the existing template with the follo
 
 ```json
 {
-    "type": "Microsoft.Compute/virtualMachines/extensions",
-    "apiVersion": "2018-06-01",
-    "name": "[concat(variables('vmName'),'/', 'InstallWebServer')]",
-    "location": "[parameters('location')]",
-    "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/',variables('vmName'))]"
-    ],
-    "properties": {
-        "publisher": "Microsoft.Compute",
-        "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.7",
-        "autoUpgradeMinorVersion":true,
-        "settings": {
-            "fileUris": [
-                "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1"
-            ],
-            "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File installWebServer.ps1"
-        }
-    }
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "apiVersion": "2018-06-01",
+  "name": "[concat(variables('vmName'),'/', 'InstallWebServer')]",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+      "[concat('Microsoft.Compute/virtualMachines/',variables('vmName'))]"
+  ],
+  "properties": {
+      "publisher": "Microsoft.Compute",
+      "type": "CustomScriptExtension",
+      "typeHandlerVersion": "1.7",
+      "autoUpgradeMinorVersion":true,
+      "settings": {
+        "fileUris": [
+          "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1"
+        ],
+        "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File installWebServer.ps1"
+      }
+  }
 }
 ```
 
@@ -99,6 +99,27 @@ For more information about this resource definition, see the [extension referenc
 * **dependsOn**: Create the extension resource after you've created the virtual machine.
 * **fileUris**: The locations where the script files are stored. If you choose not to use the provided location, you need to update the values.
 * **commandToExecute**: This command invokes the script.
+
+You must also open the HTTP port so that you would be able to access the web server.
+
+1. Find **securityRules** in the template.
+1. Add the following rule next to **default-allow-3389**.
+
+    ```json
+    {
+      "name": "AllowHTTPInBound",
+      "properties": {
+        "priority": 1010,
+        "access": "Allow",
+        "direction": "Inbound",
+        "destinationPortRange": "80",
+        "protocol": "Tcp",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "*",
+        "destinationAddressPrefix": "*"
+      }
+    }
+    ```
 
 ## Deploy the template
 

@@ -72,7 +72,7 @@ The following table describes JSON elements specific to an FTP linked service.
 | gatewayName |Specify the name of the gateway in Data Management Gateway to connect to an on-premises FTP server. |No |&nbsp; |
 | port |Specify the port on which the FTP server is listening. |No |21 |
 | enableSsl |Specify whether to use FTP over an SSL/TLS channel. |No |true |
-| enableServerCertificateValidation |Specify whether to enable server SSL certificate validation when you are using FTP over SSL/TLS channel. |No |true |
+| enableServerCertificateValidation |Specify whether to enable server TLS/SSL certificate validation when you are using FTP over SSL/TLS channel. |No |true |
 
 >[!NOTE]
 >The FTP connector supports accessing FTP server with either no encryption or explicit SSL/TLS encryption; it doesn’t support implicit SSL/TLS encryption.

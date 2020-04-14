@@ -1,11 +1,10 @@
 ---
-title: Select permissions for a given API | Microsoft Docs
+title: Select permissions for a given API
 description: Learn about how permissions requests work for client and resource applications for applications you are developing
 services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 

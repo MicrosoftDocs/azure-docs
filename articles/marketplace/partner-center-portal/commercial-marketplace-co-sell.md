@@ -1,28 +1,27 @@
 ---
 title: Co-sell option in Partner Center | Azure Marketplace
 description: The information you provide on the Co-sell tab of your offer will be used by Microsoft sales teams to learn more about your solution when evaluating its fit for customer needs.
-author: ChJenk 
-manager: evansma
-ms.author: v-chjen 
+author: dsindona 
+ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 03/31/2020
 ---
 
 # Co-sell option in Partner Center
 
-Providing information on the Co-sell tab is entirely optional. It is required to achieve Co-sell Ready and IP Co-sell Ready status. The information you provide will be used by Microsoft sales teams to learn more about your solution when evaluating its fit for customer needs. It is not available directly to customers. For more information, see [sell through Microsoft](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#sell-through-microsoft).
+Providing information on the Co-sell tab is entirely optional. It is required to achieve Co-sell Ready and IP Co-sell Ready status. The information you provide will be used by Microsoft sales teams to learn more about your solution when evaluating its fit for customer needs. It is not available directly to customers. For more information, see [sell through Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
 
 The co-sell option in Partner Center is currently available for some offer types. Support for additional offer types will be made available over time.
 
 | **Offer Type** | **Co-sell Page available in Partner Center** |
 |    -----------------------    |    -----------------------------  |
-| Software as a Service  (SaaS) |     General availability around Feb. 2020      |
+| Software as a Service  (SaaS) |     General availability April 2020      |
 | Dynamics 365 for Customer Engagement & PowerApps      |     Available now      |
 | Dynamics 365 for Operations     |     Available now       |
-| Dynamics 365 Business Central      |  General availability around Feb. 2020     |
-| Azure Application     |     General availability around Feb. 2020     |
+| Dynamics 365 Business Central      |  General availability April 2020     |
+| Azure Application     |     General availability April 2020     |
 | Azure Virtual Machine      |     To be announced       |
 | Azure Container     |     To be announced       |
 | Consulting Service      |     To be announced       |
@@ -62,8 +61,7 @@ You can provide collateral for Microsoft to use for evaluating your customer nee
 
 | **Documents**    | **Description**  |
 | :------------------- | :-------------------|
-| *Customer one-pager* | Customer-ready description of your offering. Microsoft sales teams may share this information with customers to help determine if your offering may be a good fit, and to ensure that it is customer ready. <br> <br> Use one of the relevant templates available in Partner Center: <br> <ul> <li> Microsoft Azure one-pager template </li> <li> Microsoft Dynamics 365 one-pager template </li> <li> Office 365 one-pager template </li> <li> Windows 10 one-pager template </li> </ul>
- |
+| *Customer one-pager* | Customer-ready description of your offering. Microsoft sales teams may share this information with customers to help determine if your offering may be a good fit, and to ensure that it is customer ready. <br> <br> Use one of the relevant templates available in Partner Center: <br> <ul> <li> Microsoft Azure one-pager template </li> <li> Microsoft Dynamics 365 one-pager template </li> <li> Office 365 one-pager template </li> <li> Windows 10 one-pager template </li> </ul> |
 | *Customer presentation* | Slide deck to pitch your solution and its value proposition. After ensuring that your offer is customer ready, Microsoft sales teams may share the presentation with customers to articulate the value that both companies bring when deploying a joint solution. The presentation should cover what your solution does, how it can help customers, what industries the solution is for, and how it compares to competing solutions. <br> <br> Use the template available in Partner Center.|
 | *Customer case study* | This information shows a potential customer how you and Microsoft have successfully deployed this solution in prior cases. <br> <br> Use the template available in Partner Center. |
 | *Verifiable customer wins (optional)* | Specific examples of customer successes after your solution has been deployed. |
