@@ -38,7 +38,7 @@ Stream Analytics tools for VS Code IntelliSense offers different types of comple
 
 Aside from keyword auto-completion, Stream Analytics tools for VS Code reads the list of job input and output names, as well as the names of the columns in your data sources when they are configured. The extension remembers this information to provide name completion capabilities that are useful for entering statements with few keystrokes:
 
-When coding, you do not need to leave the editor to perform searches on input/output and column names. You can keep your context, find the information you need, insert elements directly into your code, and even have IntelliSense complete your typing for you.
+While coding, you don't need to leave the editor to perform searches on job input names, output name, and column names. You can keep your context, find the information you need, insert elements directly into your code, and have IntelliSense complete your typing for you.
 
 Note that you need to configure either local input or live input and save the configuration file to be able to use name completion.
 
