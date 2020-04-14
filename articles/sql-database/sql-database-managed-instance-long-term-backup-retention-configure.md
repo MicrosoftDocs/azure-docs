@@ -33,7 +33,7 @@ For **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** and **Restore-AzSqlInst
 
    ```Microsoft.Sql/locations/longTermRetentionManagedInstanceBackups/read```
    ```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read```
-   ```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read``
+   ```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read```
 
 For **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup**, you will need to have one of the following roles:
 
