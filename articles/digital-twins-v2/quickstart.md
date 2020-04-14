@@ -28,15 +28,13 @@ In this section, you will set up to use Azure Digital Twins, create an instance 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-Before you start, download this entire repository to your machine. We recommend downloading as a ZIP file.
-
-Before you start, install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) version 16.5.1XXX or later on your development machine. If you have an older version installed already, open the *Visual Studio Installer* app on your machine and follow the prompts to update your installation.
-
-Next, run the following command in your Cloud Shell instance to add the Microsoft Azure IoT Extension for Azure CLI.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+Also before you start, complete the following setup:
+* Download this entire repository to your machine. We recommend downloading as a ZIP file.
+* Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) version 16.5.1XXX or later on your development machine. If you have an older version installed already, open the *Visual Studio Installer* app on your machine and follow the prompts to update your installation.
+* Run the following command in your Azure Cloud Shell instance to add the Microsoft Azure IoT Extension for Azure CLI.
+    ```azurecli-interactive
+    az extension add --name azure-iot
+    ```
 
 > [!NOTE]
 > This article uses the newest version of the Azure IoT extension, called `azure-iot`. The legacy version is called `azure-iot-cli-ext`.You should only have one version installed at a time. You can use the command `az extension list` to validate the currently installed extensions.
@@ -124,14 +122,14 @@ const string AdtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostNa
 
 Open _DigitalTwinsMetadata/**DigitalTwinsSample.sln**_ in Visual Studio. Run the project with this button in the toolbar:
 
-![The Visual Studio start button](media/quickstart/start-button.png)
+![The Visual Studio start button](media/quickstart/start-button-sample.png)
 
-
-A console window will open, carry out device authentication, and wait for a command. In this console, run the following command to create a sample Azure Digital Twins solution:
+A console window will open, carry out authentication, and wait for a command. In this console, run the following command to create a sample Azure Digital Twins solution:
 
 ```cmd/sh
 buildingScenario
 ```
+
 The output of this command is a series of confirmation messages as three twins are created and connected in your Azure Digital Twins instance: a floor named *floor1*, a room named *room21*, and a temperature sensor named *thermostat67*. They are connected into the following graph:
 
 ![A graph showing that floor1 contains room21, and room21 contains thermostat67](media/quickstart/building-scenario-graph.png)

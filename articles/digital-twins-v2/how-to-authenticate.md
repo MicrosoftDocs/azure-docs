@@ -51,11 +51,8 @@ Save this file as *manifest.json*.
 Next, run the following command to create an app registration (replacing placeholders as needed):
 
 ```bash
-az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses <path-to-manifest.json> --reply-url <one-or-more-reply-URLs>
+az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses <path-to-manifest.json> --reply-url http://localhost
 ```
-
-> [!TIP]
-> For a desktop or console app, a typical reply URL would be "http://localhost".
 
 From the output of this command, look for the `appId` field and note its value. You will need this **app registration ID** later, when you authenticate against the Azure Digital Twins APIs.
 
@@ -98,10 +95,7 @@ private AuthenticationResult authResult;
 static async Task Authenticate()
 {
     string[] scopes = new[] { adtAppId + "/.default" };
-    var app = PublicClientApplicationBuilder.Create(clientId)
-                                            .WithTenantId(tenantId)
-                                            .WithRedirectUri("http://localhost")
-                                            .Build();
+    var app = PublicClientApplicationBuilder.Create(clientId).WithTenantId(tenantId).WithRedirectUri("http://localhost").Build();
     var accounts = await app.GetAccountsAsync();
     try
     {

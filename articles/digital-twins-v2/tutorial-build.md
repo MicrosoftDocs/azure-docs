@@ -71,12 +71,11 @@ When you are finished, the updated model should look like this:
 
 Once you have designed your model(s), you need to upload them to your Azure Digital Twins instance before you can create twins that use them.
 
-Open Visual Studio 2019, and 
 Open _DigitalTwinsMetadata/**DigitalTwinsSample.sln**_ in Visual Studio. Run the project with this button in the toolbar:
 
-![The Visual Studio start button](media/quickstart/start-button.png)
+![The Visual Studio start button](media/quickstart/start-button-sample.png)
  
-A console window will open, carry out device authentication, and wait for a command. In this console, run the following command to upload both your edited model for *Room* and another model, *Floor*.
+A console window will open, carry out authentication, and wait for a command. In this console, run the following command to upload both your edited model for *Room* and another model, *Floor*.
 
 ```cmd
 addModels Room Floor
