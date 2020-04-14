@@ -136,6 +136,8 @@
       href: service-fabric-security-controls.md
     - name: Certificate-based authentication in Service Fabric 
       href: cluster-security-certificates.md
+    - name: Certificate management in Service Fabric
+      href: cluster-security-certificate-management.md
   - name: Terminology
     href: service-fabric-technical-overview.md
   - name: Building applications
