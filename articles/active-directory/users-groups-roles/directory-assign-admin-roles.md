@@ -327,6 +327,14 @@ Users with this role have global permissions within Microsoft Power BI, when the
 
 Users in this role can create and manage all aspects of environments, PowerApps, Flows, Data Loss Prevention policies. Additionally, users with this role have the ability to manage support tickets and monitor service health.
 
+### [Printer Administrator](#printer-administrator-permissions)
+
+Users in this role can register printers and manage all aspects of all printer configurations in the Microsoft Universal Print solution, including the Universal Print Connector settings. They can consent to all delegated print permission requests. Printer Administrators also have access to print reports.
+
+### [Printer Technician](#printer-technician-permissions)
+
+Users with this role can register printers and manage printer status in the Microsoft Universal Print solution. They can also read all connector information. Key task a Printer Technician cannot do is set user permissions on printers and sharing printers.
+
 ### [Privileged Authentication Administrator](#privileged-authentication-administrator-permissions)
 
 Users with this role can set or reset non-password credentials for all users, including global administrators, and can update passwords for all users. Privileged Authentication Administrators can force users to re-register against existing non-password credential (e.g. MFA, FIDO) and revoke 'remember MFA on the device', prompting for MFA on the next login of all users.
@@ -1373,6 +1381,34 @@ Can create and manage all aspects of Microsoft Dynamics 365, PowerApps and Micro
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
+### Printer Administrator permissions
+
+Can manage all aspects of printers and printer connectors.
+
+> [!NOTE]
+> This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+>
+>
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.azure.print/allEntities/allProperties/allTasks | Create and delete printers and connectors, and read and update all properties in Microsoft Print. |
+
+### Printer Technician permissions
+
+Can register and unregister printers and update printer status.
+
+> [!NOTE]
+> This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+>
+>
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.azure.print/connectors/allProperties/read | Read all properties of connectors in Microsoft Print. |
+| microsoft.azure.print/printers/allProperties/read | Read all properties of printers in Microsoft Print. |
+| microsoft.azure.print/printers/basic/update | Update basic properties of printers in Microsoft Print. |
+| microsoft.azure.print/printers/register | Register printers in Microsoft Print. |
+| microsoft.azure.print/printers/unregister | Unregister printers in Microsoft Print. |
+
 ### Privileged Authentication Administrator permissions
 
 Allowed to view, set and reset authentication method information for any user (admin or non-admin).
@@ -1726,6 +1762,8 @@ Partner Tier2 Support | Partner tier2 support | e00e864a-17c5-4a4b-9c06-f5b95a8d
 Password Administrator | Password administrator | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Power BI Service Administrator | Power BI administrator | a9ea8996-122f-4c74-9520-8edcd192826c
 Power Platform Administrator | Power platform administrator | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
+Printer Administrator | Printer administrator | 644ef478-e28f-4e28-b9dc-3fdde9aa0b1f
+Printer Technician | Printer technician | e8cef6f1-e4bd-4ea8-bc07-4b8d950f4477
 Privileged Authentication Administrator | Privileged authentication administrator | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 Privileged Role Administrator | Privileged role administrator | e8611ab8-c189-46e8-94e1-60213ab1f814
 Reports Reader | Reports reader | 4a5d8f65-41da-4de4-8968-e035b65339cf
