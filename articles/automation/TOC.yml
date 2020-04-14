@@ -104,8 +104,8 @@
       items:
         - name: Overview
           href: /change-tracking/change-tracking.md
-          - name: Enable
-            items:
+        - name: Enable
+          items:
             - name: Use a Resource Manager template
               href: /change-tracking/automation-update-management-deploy-template.md
             - name: Use Azure portal
