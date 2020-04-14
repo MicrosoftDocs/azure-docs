@@ -189,13 +189,13 @@ az storage blob upload \
 
 ### Create an Azure Active Directory user group or application
 
-The next step is to select a user group, user, or application for managing the resources on behalf of the customer. This identity has permissions on the managed resource group according to the role that is assigned. The role can be any built-in Role-Based Access Control (RBAC) role like Owner or Contributor. To create a new Active Directory user group, see [Create a group and add members in Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+The next step is to select a user group, user, or application for managing the resources for the customer. This identity has permissions on the managed resource group according to the role that is assigned. The role can be any built-in Role-Based Access Control (RBAC) role like Owner or Contributor. To create a new Active Directory user group, see [Create a group and add members in Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 You need the object ID of the user group to use for managing the resources. 
 
 # [PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 $groupID=(Get-AzADGroup -DisplayName mygroup).Id
 ```
 
@@ -213,7 +213,7 @@ Next, you need the role definition ID of the RBAC built-in role you want to gran
 
 # [PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 $ownerID=(Get-AzRoleDefinition -Name Owner).Id
 ```
 
@@ -231,7 +231,7 @@ If you don't already have a resource group for storing your managed application 
 
 # [PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 New-AzResourceGroup -Name appDefinitionGroup -Location westcentralus
 ```
 
@@ -247,7 +247,7 @@ Now, create the managed application definition resource.
 
 # [PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 $blob = Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
 
 New-AzManagedApplicationDefinition `
@@ -264,6 +264,8 @@ New-AzManagedApplicationDefinition `
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
+blob=$(az storage blob url --account-name mystorageaccount --container-name appcontainer --name app.zip --output tsv)
+
 az managedapp definition create \
   --name "ManagedStorage" \
   --location "westcentralus" \
@@ -272,7 +274,7 @@ az managedapp definition create \
   --display-name "Managed Storage Account" \
   --description "Managed Azure Storage Account" \
   --authorizations "$groupid:$ownerid" \
-  --package-file-uri "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed%20Application%20Sample%20Packages/201-managed-storage-account/managedstorage.zip"
+  --package-file-uri "$blob"
 ```
 
 ---
@@ -288,7 +290,7 @@ Some of the parameters used in the preceding example are:
 
 ## Bring your own storage for the managed application definition
 
-You can choose to store your managed application definition within a storage account provided by you during creation so that it's location and access can be fully managed by you for your regulatory needs.
+You can choose to store your managed application definition within a storage account provided by you during creation so that its location and access can be fully managed by you for your regulatory needs.
 
 > [!NOTE]
 > Bring your own storage is only supported with ARM Template or REST API deployments of the managed application definition.
@@ -307,7 +309,7 @@ Before your managed application definition can be deployed to your storage accou
 1. Select **Access control (IAM)** to display the access control settings for the storage account. Select the **Role assignments** tab to see the list of role assignments.
 1. In the **Add role assignment** window, select the **Contributor** role. 
 1. From the **Assign access to** field, select **Azure AD user, group, or service principal**.
-1. Under **Select** search for **Appliance Resource Provider** role and select it.
+1. Under **Select**, search for **Appliance Resource Provider** role and select it.
 1. Save the role assignment.
 
 ### Deploy the managed application definition with an ARM Template 
@@ -384,7 +386,7 @@ Use the following ARM Template to deploy your packaged managed application as a 
 }
 ```
 
-We have added a new property named **storageAccountId** to your applicationDefintion's properties and provide storage account id you wish to store your definition in as its value:
+We have added a new property named **storageAccountId** to your applicationDefintion's properties and provide storage account ID you wish to store your definition in as its value:
 
 You can verify that the application definition files are saved in your provided storage account in a container titled **applicationdefinitions**.
 
