@@ -55,7 +55,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Build the solution (F7).
 
 > [!WARNING]
-> Make sure to select **x86** as **x64** is currently not supported, see [platform limits](../reference/limits.md#platform_limits).
+> Make sure to select **x86** as **x64** is currently not supported, see [platform limits](../reference/limits.md#platform-limits).
 
 ## Launch the sample project
 
