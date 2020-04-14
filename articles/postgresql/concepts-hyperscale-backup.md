@@ -13,78 +13,76 @@ ms.date: 04/14/2020
 
 Azure Database for PostgreSQL – Hyperscale (Citus) automatically creates
 backups of each node and stores them in locally redundant storage. Backups can
-be used to restore your Hyperscale (Citus) cluster to a point-in-time. Backup
+be used to restore your Hyperscale (Citus) cluster to a specified time. Backup
 and restore are an essential part of any business continuity strategy because
 they protect your data from accidental corruption or deletion.
 
 ## Backups
 
-Azure Database for PostgreSQL takes snapshot backups of the data files and the
-transaction log.  Snapshot backups are taken at least once a day. These backups
-allow you to restore a server to any point-in-time within backup retention
-period. Currently all clusters have backup retention period is 35 days. All
-backups are encrypted using AES 256-bit encryption.
+At least once a day, Azure Database for PostgreSQL takes snapshot backups of
+data files and the database transaction log. The backups allow you to restore a
+server to any point in time within the retention period. (The retention period
+is currently 35 days for all clusters.) All backups are encrypted using AES
+256-bit encryption.
 
-In Azure regoins that support availability zones backup snapshots are stored in
-3 availability zones. It means that you would be able to restore your
-Hyperscale (Citus) cluster from backup as long as at least one availability
-zone is online.
+In Azure regions that support availability zones, backup snapshots are stored
+in three availability zones. As long as at least one availability zone is
+online, the Hyperscale (Citus) cluster is restorable.
 
-These backup files cannot be exported. The backups can only be used for restore
-operations in Azure Database for PostgreSQL.
+Backup files can't be exported. They may only be used for restore operations
+in Azure Database for PostgreSQL.
 
 ### Backup storage cost
 
-See Azure Database for PostgreSQL -Hyperscale (Citus) [pricing
-page](https://azure.microsoft.com/en-us/pricing/details/postgresql/hyperscale-citus/)
-for current backup storage pricing. 
+For current backup storage pricing, see the Azure Database for PostgreSQL -
+Hyperscale (Citus) [pricing
+page](https://azure.microsoft.com/en-us/pricing/details/postgresql/hyperscale-citus/).
 
 ## Restore
 
-In Azure Database for PostgreSQL, performing a restore creates a new Hyperscale
-(Citus) cluster from the original nodes’ backups.
+In Azure Database for PostgreSQL, restoring a Hyperscale (Citus) cluster
+creates a new cluster from the original nodes' backups.
 
 > [!IMPORTANT]
-> Deleted Hyperscale (Citus) clusters cannot be restored. If you delete the
-> cluster, all nodes that belong to the cluster are deleted and cannot be
+> Deleted Hyperscale (Citus) clusters can't be restored. If you delete the
+> cluster, all nodes that belong to the cluster are deleted and can't be
 > recovered. To protect cluster resources, post deployment, from accidental
 > deletion or unexpected changes, administrators can leverage [management
 > locks](/azure/azure-resource-manager/management/lock-resources).
 
 ### Point-in-time restore (PITR)
 
-You can perform a restore to any point in time within 35 days. A new cluster is
-created in the same Azure region, subscription, and resource group as the
-original one. It is created with the original cluster's configuration for the
-number of node, number of vCores, storage size, user roles, and server
-parameters.
+You can restore a cluster to any point in time within the last 35 days. The
+restore process creates a new cluster in the same Azure region, subscription,
+and resource group as the original. The cluster has the original's
+configuration: the same number of nodes, number of vCores, storage size, user
+roles, and server parameters.
 
 Point-in-time restore is useful in multiple scenarios. For example, when a user
 accidentally deletes data, drops an important table or database, or if an
-application accidentally overwrites good data with bad data due to an
-application defect.
+application accidentally overwrites good data with bad data.
 
 > [!IMPORTANT]
-> You will need to open a support request to perform point-in-time restore of
+> You'll need to open a support request to perform point-in-time restore of
 > your Hyperscale (Citus) cluster.
 
 ### Post-restore tasks
 
-After a restore from either recovery mechanism, you should perform the
-following tasks to get your users and applications back up and running:
+After a restore from either recovery mechanism, you should do the
+following to get your users and applications back up and running:
 
-• If the new server is meant to replace the original server, redirect clients
+* If the new server is meant to replace the original server, redirect clients
   and client applications to the new server
-• Ensure appropriate server-level firewall and VNet rules are in place for
-  users to connect. These rules are not copied over from the original server.
-• Ensure appropriate logins and database level permissions are in place
-• Configure alerts, as appropriate
+* Ensure appropriate server-level firewall and VNet rules are in place for
+  users to connect. These rules aren't copied from the original server.
+* Ensure appropriate logins and database level permissions are in place
+* Configure alerts, as appropriate
 
 ## Next steps
 
-• Learn how to restore using [the Azure
+* Learn how to restore using [the Azure
   portal](/azure/postgresql/howto-restore-server-portal).
-• Learn how to restore using [the Azure
+* Learn how to restore using [the Azure
   CLI](/azure/postgresql/howto-restore-server-cli).
-• To learn more about business continuity, see the [business continuity
+* To learn more about business continuity, see the [business continuity
   overview](/azure/postgresql/concepts-business-continuity).
