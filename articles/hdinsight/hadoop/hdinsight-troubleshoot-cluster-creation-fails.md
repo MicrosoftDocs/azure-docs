@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
-ms.date: 08/26/2019
+ms.date: 04/14/2020
 #Customer intent: As an HDInsight user, I would like to understand how to resolve common cluster creation failures.
 ---
 
