@@ -156,11 +156,11 @@ When working with virtual machine scale sets and load balancer, the following sh
 
   :::image type="content" source="./media/virtual-machines-common-network-overview/vmsslb.png" alt-text="Load balancing rule creation" border="true":::
 
-Below is the methods that can be used to deploy a virtual machine scale set with an existing Azure load balancer.
+The following methods can be used to deploy a virtual machine scale set with an existing Azure load balancer.
 
-* **[Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal](../articles/load-balancer/configure-vm-scale-set-portal.md).**
-* **[Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell](../articles/load-balancer/configure-vm-scale-set-powershell.md).**
-* **[Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI](../articles/load-balancer/configure-vm-scale-set-cli.md).**
+* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal](../articles/load-balancer/configure-vm-scale-set-portal.md).
+* [Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell](../articles/load-balancer/configure-vm-scale-set-powershell.md).
+* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI](../articles/load-balancer/configure-vm-scale-set-cli.md).
 
 ## VMs
 
