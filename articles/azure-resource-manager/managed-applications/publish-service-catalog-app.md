@@ -4,7 +4,7 @@ description: Shows how to create an Azure managed application that is intended f
 author: tfitzmac
 
 ms.topic: quickstart
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.author: tomfitz
 ---
 # Quickstart: Create and publish a managed application definition
@@ -18,8 +18,6 @@ To publish a managed application to your service catalog, you must:
 * Create a .zip package that contains the required template files.
 * Decide which user, group, or application needs access to the resource group in the user's subscription.
 * Create the managed application definition that points to the .zip package and requests access for the identity.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Create the ARM template
 
@@ -207,6 +205,8 @@ $groupID=(Get-AzADGroup -DisplayName mygroup).Id
 groupid=$(az ad group show --group mygroup --query objectId --output tsv)
 ```
 
+---
+
 ### Get the role definition ID
 
 Next, you need the role definition ID of the RBAC built-in role you want to grant access to the user, user group, or application. Typically, you use the Owner or Contributor or Reader role. The following command shows how to get the role definition ID for the Owner role:
@@ -223,6 +223,8 @@ $ownerID=(Get-AzRoleDefinition -Name Owner).Id
 ownerid=$(az role definition list --name Owner --query [].name --output tsv)
 ```
 
+---
+
 ### Create the managed application definition
 
 If you don't already have a resource group for storing your managed application definition, create one now:
@@ -238,6 +240,8 @@ New-AzResourceGroup -Name appDefinitionGroup -Location westcentralus
 ```azurecli-interactive
 az group create --name appDefinitionGroup --location westcentralus
 ```
+
+---
 
 Now, create the managed application definition resource.
 
@@ -270,6 +274,8 @@ az managedapp definition create \
   --authorizations "$groupid:$ownerid" \
   --package-file-uri "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed%20Application%20Sample%20Packages/201-managed-storage-account/managedstorage.zip"
 ```
+
+---
 
 When the command completes, you have a managed application definition in your resource group.
 
