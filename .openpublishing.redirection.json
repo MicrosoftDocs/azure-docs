@@ -4954,7 +4954,7 @@
     },
     {
       "source_path": "articles/event-grid/eventsources.md",
-      "redirect_url": "/azure/event-grid/overview.md#event-sources",
+      "redirect_url": "/azure/event-grid/overview#event-sources",
       "redirect_document_id": false
     },    
     {
