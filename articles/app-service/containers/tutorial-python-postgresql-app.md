@@ -340,19 +340,44 @@ To stop the Django server, type Ctrl+C.
 
 ### Update the app
 
-TODO HERE
+Just to see how making app updates works, make a small change in `polls/models.py`. Find the line:
 
-### Redeploy code
+```python
+choice_text = models.CharField(max_length=200)
+```
 
-To redeploy the changes, just run the following command from the repository root:
+And change it to:
+
+```python
+choice_text = models.CharField(max_length=100)
+```
+
+By changing the data model, you need to create a new Django migration. Do it with the following command:
+
+```
+python manage.py makemigrations
+```
+
+You can test your changes locally by running migrations, running the development server, and navigating to *http:\//localhost:8000/admin*:
+
+```
+python manage.py migrate
+python manage.py runserver
+```
+
+### Redeploy code to Azure
+
+To redeploy the changes, run the following command from the repository root:
 
 ```azurecli
 az webapp up --name <app-name>
 ```
 
-### Rerun migrations
+App Service detects that the app exists and just deploys the code.
 
-To rerun database migrations in App Service, open an SSH session in the browser by navigating to *https://\<app-name>.scm.azurewebsites.net/webssh/host*. Run the following commands:
+### Rerun migrations in Azure
+
+Because you made changes to the data model, you need to rerun database migrations in App Service. Open an SSH session in the browser by navigating to *https://\<app-name>.scm.azurewebsites.net/webssh/host*. Run the following commands:
 
 ```
 cd site/wwwroot
