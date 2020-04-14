@@ -7,7 +7,7 @@ ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: conceptual
 ---
-# IntelliSense for Stream Analytics query language
+# IntelliSense in Azure Stream Analytics tools for Visual Studio Code
 
 IntelliSense is available for [Stream Analytics Query Language](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fstream-analytics%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json) in [Azure Stream Analytics tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa&ssr=false#overview). IntelliSense is a code-completion aid that includes a number of features: List Members, Parameter Info, Quick Info, and Complete Word. IntelliSense features are sometimes called by other names such as "code completion", "content assist", and "code hinting".
 
@@ -19,7 +19,7 @@ The IntelliSense features in Stream Analytics tools for VS Code are powered by a
 
 You can trigger IntelliSense in any editor window by typing a trigger character, such as the dot character `.`.
 
-![intellisense autocompletion](./media/vs-code-intellisense/auto_completion.gif)
+![intellisense autocompletion](./media/vs-code-intellisense/auto-completion.gif)
 
 > **Tip:** The suggestions widget supports CamelCase filtering, meaning you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
 
@@ -33,6 +33,7 @@ Stream Analytics tools for VS Code IntelliSense offers different types of comple
 | Functions | `build-in function`, `user defined function`  |
 | Data Set Name| `input`, `output`, `intermediate result set`|
 | Data Set Column Name|`input`, `intermediate result set`|
+|
 
 #### Name Completion
 
@@ -42,7 +43,7 @@ While coding, you don't need to leave the editor to perform searches on job inpu
 
 Note that you need to configure either local input or live input and save the configuration file to be able to use name completion.
 
-![name completion](./media/vs-code-intellisense/name_completion.gif)
+![name completion](./media/vs-code-intellisense/name-completion.gif)
 
 ### Parameter Info
 
@@ -50,13 +51,13 @@ The IntelliSense **Parameter Info** option opens a parameters list that provides
 
 The parameter list is also displayed for nested functions. If you type a function as a parameter to another function, the parameter list displays the parameters for the inner function. Then, when the inner function parameter list is complete, the parameter list reverts to displaying the outer function parameters.
 
-![parameter info](./media/vs-code-intellisense/parameter_info.gif)
+![parameter info](./media/vs-code-intellisense/parameter-info.gif)
 
 ### Quick Info
 
 As provided by the language service, you can see **Quick Info** for each identifier in your code. Some examples of identifiers are input, output, an intermediate result set, or function. When you move the mouse pointer over an identifier, its declaration is displayed in a pop-up window. The properties and data schemas for inputs, if configured, and intermediate data set are shown.
 
-![quick info](./media/vs-code-intellisense/quick_info.gif)
+![quick info](./media/vs-code-intellisense/quick-info.gif)
 
 ## Troubleshoot IntelliSense
 
