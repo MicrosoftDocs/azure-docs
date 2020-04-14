@@ -28,7 +28,7 @@ Before you deploy, complete the following configuration prerequisites for Data B
 
 ### For service
 
-[!INCLUDE [Data Box service prerequisites](../includes/data-box-supported-subscriptions.md)]
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### For device
 

@@ -29,7 +29,7 @@ Complete the following configuration prerequisites for Data Box service and devi
 
 ### For service
 
-[!INCLUDE [Data Box service prerequisites](../includes/data-box-supported-subscriptions.md)]
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### For device
 
