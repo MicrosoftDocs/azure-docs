@@ -27,7 +27,7 @@ ms.author: glenga
 > [!NOTE]
 > For a reference of host.json in Azure Functions 1.x, see [host.json reference for Azure Functions 1.x](../articles/azure-functions/functions-host-json-v1.md).
 
-### Azure Functions 2.0 and higher
+### Functions 2.x and higher
 
 ```json
 {
