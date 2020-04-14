@@ -23,154 +23,154 @@ ms.collection: M365-identity-device-management
 
 In this tutorial, you'll learn how to integrate MongoDB Cloud with Azure Active Directory (Azure AD). When you integrate MongoDB Cloud with Azure AD, you can:
 
-* Control in Azure AD who has access to MongoDB Cloud, MongoDB Atlas, the MongoDB Community, University, and Support.
+* Control in Azure AD who has access to MongoDB Cloud, MongoDB Atlas, the MongoDB community, MongoDB University, and MongoDB Support.
 * Enable your users to be automatically signed-in to MongoDB Cloud with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location: the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Prerequisites
 
-To get started, you need the following items:
+To get started, you need:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* MongoDB Cloud single sign-on (SSO) enabled subscription.
+* A MongoDB Cloud subscription that is enabled for single sign-on (SSO).
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* MongoDB Cloud supports **SP and IDP** initiated SSO
-* MongoDB Cloud supports **Just In Time** user provisioning
-* Once you configure MongoDB Cloud you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* MongoDB Cloud supports **SP and IDP** initiated SSO.
+* MongoDB Cloud supports **Just In Time** user provisioning.
+* After you configure MongoDB Cloud, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. For more information, see [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## Adding MongoDB Cloud from the gallery
+## Add MongoDB Cloud from the gallery
 
 To configure the integration of MongoDB Cloud into Azure AD, you need to add MongoDB Cloud from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or a personal Microsoft account.
+1. On the left pane, select **Azure Active Directory**.
+1. Go to **Enterprise Applications**, and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **MongoDB Cloud** in the search box.
-1. Select **MongoDB Cloud** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Select **MongoDB Cloud** from results, and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
 ## Configure and test Azure AD single sign-on for MongoDB Cloud
 
-Configure and test Azure AD SSO with MongoDB Cloud using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in MongoDB Cloud.
+Configure and test Azure AD SSO with MongoDB Cloud, by using a test user called **B.Simon**. For SSO to work, you need to establish a linked relationship between an Azure AD user and the related user in MongoDB Cloud.
 
 To configure and test Azure AD SSO with MongoDB Cloud, complete the following building blocks:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure MongoDB Cloud SSO](#configure-mongodb-cloud-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create MongoDB Cloud test user](#create-mongodb-cloud-test-user)** - to have a counterpart of B.Simon in MongoDB Cloud that is linked to the Azure AD representation of user.
-1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+1. [Configure Azure AD SSO](#configure-azure-ad-sso) to enable your users to use this feature.
+    1. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with B.Simon.
+    1. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable B.Simon to use Azure AD single sign-on.
+1. [Configure MongoDB Cloud SSO](#configure-mongodb-cloud-sso) to configure the single sign-on settings on the application side.
+    1. [Create a MongoDB Cloud test user](#create-mongodb-cloud-test-user) to have a counterpart of B.Simon in MongoDB Cloud, linked to the Azure AD representation of the user.
+1. [Test SSO](#test-sso) to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **MongoDB Cloud** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **MongoDB Cloud** application integration page, find the **Manage** section. Select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up Single Sign-On with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot of Set up Single Sign-On with SAML page, with pencil icon highlighted](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. In the **Basic SAML Configuration** section, if you want to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Identifier** text box, type a URL that uses the following pattern:
     `https://www.okta.com/saml2/service-provider/<Customer_Unique>`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL that uses the following pattern:
     `https://auth.mongodb.com/sso/saml2/<Customer_Unique>`
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Select **Set additional URLs**, and perform the following step if you want to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type a URL that uses the following pattern:
     `https://cloud.mongodb.com/sso/<Customer_Unique>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [MongoDB Cloud Client support team](https://support.mongodb.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-on URL. To get these values, contact the [MongoDB Cloud Client support team](https://support.mongodb.com/). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. MongoDB Cloud application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. The MongoDB Cloud application expects the SAML assertions to be in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/default-attributes.png)
+	![Screenshot of default attributes](common/default-attributes.png)
 
-1. In addition to above, MongoDB Cloud application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition to the preceding attributes, the MongoDB Cloud application expects a few more attributes to be passed back in the SAML response. These attributes are also pre-populated, but you can review them as per your requirements.
 	
-	| Name | |  Source Attribute|
+	| Name | |  Source attribute|
 	| ---------------| --------------- | --------- |
 	| email | | user.userprincipalname |
 	| firstName | | user.givenname |
 	| lastName | | user.surname |
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML**. Select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+	![Screenshot of SAML Signing Certificate section, with Download link highlighted](common/metadataxml.png)
 
-1. On the **Set up MongoDB Cloud** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set up MongoDB Cloud** section, copy the appropriate URLs, based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Screenshot of Set up Mongo DB Cloud section, with URLs highlighted](common/copy-configuration-urls.png)
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you create a test user in the Azure portal called B.Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. From the left pane in the Azure portal, select **Azure Active Directory** > **Users** > **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter `B.Simon`.  
    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. Select the **Show password** check box, and then write the password down.
+   1. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to MongoDB Cloud.
+In this section, you enable B.Simon to use Azure single sign-on by granting access to MongoDB Cloud.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the Azure portal, select **Enterprise Applications** > **All applications**.
 1. In the applications list, select **MongoDB Cloud**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. In the app's overview page, find the **Manage** section, and select **Users and groups**.
 
-   ![The "Users and groups" link](common/users-groups-blade.png)
+   ![Screenshot of the Manage section, with Users and groups highlighted](common/users-groups-blade.png)
 
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. Select **Add user**. Then, in the **Add Assignment** dialog box, select **Users and groups**.
 
-	![The Add User link](common/add-assign-user.png)
+	![Screenshot of Users and groups page, with Add user highlighted](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+1. In the **Users and groups** dialog box, select **B.Simon** from the list of users. Then choose **Select** at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Then choose **Select** at the bottom of the screen.
+1. In the **Add Assignment** dialog box, select **Assign**.
 
 ## Configure MongoDB Cloud SSO
 
-To configure single sign-on on **MongoDB Cloud** side, you will need the appropriate URLs copied from the Azure portal, and you need to configure the Federation Application for your MongoDB Cloud Organization. Follow the instructions in the [MongoDB Cloud Docs](https://docs.atlas.mongodb.com/security/federated-authentication/index.html). If you encounter any issues, you can contact the [MongoDB Cloud support team](https://support.mongodb.com/) for assistance.
+To configure single sign-on on the MongoDB Cloud side, you need the appropriate URLs copied from the Azure portal. You also need to configure the Federation Application for your MongoDB Cloud Organization. Follow the instructions in the [MongoDB Cloud documentation](https://docs.atlas.mongodb.com/security/federated-authentication/index.html). If you have a problem, contact the [MongoDB Cloud support team](https://support.mongodb.com/).
 
-### Create MongoDB Cloud test user
+### Create a MongoDB Cloud test user
 
-In this section, a user called B.Simon is created in MongoDB Cloud. MongoDB Cloud supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in MongoDB Cloud, a new one is created after authentication.
+MongoDB Cloud supports just-in-time user provisioning, which is enabled by default. There is no additional action for you to take. If a user doesn't already exist in MongoDB Cloud, a new one is created after authentication.
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration by using Access Panel.
 
-When you click the MongoDB Cloud tile in the Access Panel, you should be automatically signed in to the MongoDB Cloud for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the MongoDB Cloud tile in Access Panel, you're automatically signed in to the MongoDB Cloud for which you set up SSO. For more information, see [Sign in and start apps from the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials for integrating SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Signup for MongoDB Atlas on Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/mongodb.mongodb_atlas_azure_08082019?tab=Overview)
+- [Sign up for MongoDB Atlas on Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/mongodb.mongodb_atlas_azure_08082019?tab=Overview)
 
 - [Try MongoDB Cloud with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [How to protect MongoDB Cloud with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Protect MongoDB Cloud with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
