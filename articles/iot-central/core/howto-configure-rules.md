@@ -34,7 +34,7 @@ In the following screenshot, the conditions check when the temperature is greate
 
 You can reference a cloud property from the device template in the **Value** field for a condition. The cloud property and telemetry value must have similar types. For example, if **Temperature** is a double, then only cloud properties of type double show as options in the **Value** drop-down.
 
-If you choose an event type telemetry value, the **Value** drop-down includes the option **[Any]**. The **[Any]** option means the rule fires when your application receives an event of that type, whatever the payload.
+If you choose an event type telemetry value, the **Value** drop-down includes the option **Any**. The **Any** option means the rule fires when your application receives an event of that type, whatever the payload.
 
 ## Use aggregate windowing
 
