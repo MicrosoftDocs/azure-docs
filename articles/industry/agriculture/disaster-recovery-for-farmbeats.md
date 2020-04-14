@@ -45,13 +45,13 @@ Copy the access key of the restored Cosmos DB and update the new FarmBeats Datah
 > [!NOTE]
 > Copy the URL of restored Cosmos DB and update it in the new FarmBeats Datahub App Service Configuration. You can now delete Cosmos DB account in the new FarmBeats deployment.
 
-  ![Disaster Recovery](./media/disaster-recovery-for-farmbeats/northeu-ehub-api-configuration.png)
+  ![Disaster Recovery](./media/disaster-recovery-for-farmbeats/configuration.png)
 
 ### Configure Storage Account
 
 Copy the access key of the restored storage account and update it in the new FarmBeats Datahub Key Vault.
 
-![Disaster Recovery](./media/disaster-recovery-for-farmbeats/key-vault-7-udqm-secrets.png)
+![Disaster Recovery](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
 
 >[!NOTE]
 > Ensure to Update Storage Account name in the new FarmBeats Batch VM config file.
