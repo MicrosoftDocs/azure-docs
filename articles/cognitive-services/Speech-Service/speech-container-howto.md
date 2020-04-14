@@ -254,27 +254,6 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
-### Call sentiment analysis with the speech container
-
-Starting in v2.2.0 of the speech services container, you can call v3 of the Sentiment Analysis API on the speech-to-text output. To call sentiment analysis, you will need a Text Analytics resource endpoint. For example: 
-* `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
-* `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
-
-If you're accessing a Text analytics endpoint in the cloud, you will need a key. If you're running Text Analytics locally, you may not need to provide this.
-
-The key and endpoint are passed to the Speech container as arguments, as in the following example.
-
-```bash
-docker run -it --rm -p 5000:5000 \
-containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY} \
-CloudAI:SentimentAnalysisSettings:TextAnalyticsHost={TEXT_ANALYTICS_HOST} \
-CloudAI:SentimentAnalysisSettings:SentimentAnalysisApiKey={SENTIMENT_APIKEY}
-```
-
-
 # [Custom Speech-to-text](#tab/cstt)
 
 The *Custom Speech-to-text* container relies on a custom speech model. The custom model has to have been [trained](how-to-custom-speech-train-model.md) using the [custom speech portal](https://speech.microsoft.com/customspeech).
