@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 04/14/2020
 ms.author: barclayn
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -149,7 +149,7 @@ $wks = Get-AzOperationalInsightsWorkspace
 
  [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) operates in one subscription at a time. So, if you have multiple Azure subscriptions, you'll want to make sure you connect to the one that has the Log Analytics workspace with the Azure AD logs. 
  
- The following cmdlets display a list of subscriptions, and find the id of the subscription that has the Log Analytics workspace:
+ The following cmdlets display a list of subscriptions, and find the ID of the subscription that has the Log Analytics workspace:
  
 ```azurepowershell
 Connect-AzAccount
