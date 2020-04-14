@@ -79,4 +79,4 @@ Do the following steps to delete a bandwidth schedule associated with your Azure
 
 ## Next steps
 
-- Learn how to [Manage shares](data-box-edge-manage-shares.md).
+- Learn how to [Manage shares](azure-stack-edge-manage-shares.md).

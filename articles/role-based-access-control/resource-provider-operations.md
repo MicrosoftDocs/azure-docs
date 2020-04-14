@@ -2715,7 +2715,7 @@ Azure service: [Azure Data Box](../databox-family/index.md)
 
 ## Microsoft.DataBoxEdge
 
-Azure service: [Azure Data Box Edge](../databox-online/data-box-edge-overview.md)
+Azure service: [Azure Data Box Edge](../databox-online/azure-stack-edge-overview.md)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |

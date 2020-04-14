@@ -33,7 +33,7 @@ Take the following steps in the local web UI to view the hardware status of your
 1. Connect to the local web UI of your device.
 2. Go to **Maintenance > Hardware status**. You can view the health of the various device components. 
 
-    ![View hardware status](media/data-box-edge-monitor/view-hardware-status.png)
+    ![View hardware status](media/azure-stack-edge-monitor/view-hardware-status.png)
 
 ## View metrics
 

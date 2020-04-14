@@ -9,7 +9,7 @@
       href: data-box-gateway-overview.md
   - name: Tutorials
     items:
-    - name: 1 - Prepare
+    - name: 1 - Prepare 
       href: data-box-gateway-deploy-prep.md
     - name: 2A - Provision in Hyper-V
       href: data-box-gateway-deploy-provision-hyperv.md
@@ -62,7 +62,7 @@
   - name: Overview
     items:
     - name: What is Azure Stack Edge?
-      href: data-box-edge-overview.md
+      href: azure-stack-edge-overview.md
   - name: Tutorials
     items:
     - name: 1 - Prepare
@@ -94,13 +94,13 @@
     - name: Manage 
       items:
       - name: Edge compute
-        href: data-box-edge-manage-compute.md
+        href: azure-stack-edge-manage-compute.md
       - name: Edge compute network
         href: azure-stack-edge-extend-compute-access-modules.md
       - name: Shares
-        href: data-box-edge-manage-shares.md
+        href: azure-stack-edge-manage-shares.md
       - name: Users
-        href: data-box-edge-manage-users.md
+        href: azure-stack-edge-manage-users.md
       - name: Bandwidth schedules
         href: azure-stack-edge-manage-bandwidth-schedules.md
       - name: Power, access, connectivity
@@ -112,9 +112,9 @@
     - name: Contact Microsoft Support
       href: azure-stack-edge-contact-microsoft-support.md
     - name: Monitor
-      href: data-box-edge-monitor.md
+      href: azure-stack-edge-monitor.md
     - name: Return or replace device
-      href: data-box-edge-return-device.md
+      href: azure-stack-edge-return-device.md
   - name: Release notes
     items:
     - name: 1906 - Current

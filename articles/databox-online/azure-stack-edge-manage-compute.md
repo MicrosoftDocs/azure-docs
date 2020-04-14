@@ -35,7 +35,7 @@ Take the following steps in the Azure portal to create a trigger.
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Edge compute > Trigger**. Select **+ Add trigger** on the command bar.
 
-    ![Select add trigger](media/data-box-edge-manage-compute/add-trigger-1.png)
+    ![Select add trigger](media/azure-stack-edge-manage-compute/add-trigger-1.png)
 
 2. In **Add trigger** blade, provide a unique name for your trigger.
     
@@ -45,17 +45,17 @@ Take the following steps in the Azure portal to create a trigger.
 
     - **File trigger** - Choose from the dropdown list a mounted share. When a file event is fired in this share, the trigger would invoke an Azure Function.
 
-        ![Add SMB share](media/data-box-edge-manage-compute/add-file-trigger.png)
+        ![Add SMB share](media/azure-stack-edge-manage-compute/add-file-trigger.png)
 
     - **Scheduled trigger** - Specify the start date/time, and the repeat interval in hours, minutes, or seconds. Also, enter the name for a topic. A topic will give you the flexibility to route the trigger to a module deployed on the device.
 
         An example route string is: `"route3": "FROM /* WHERE topic = 'topicname' INTO BrokeredEndpoint("modules/modulename/inputs/input1")"`.
 
-        ![Add NFS share](media/data-box-edge-manage-compute/add-scheduled-trigger.png)
+        ![Add NFS share](media/azure-stack-edge-manage-compute/add-scheduled-trigger.png)
 
 4. Select **Add** to create the trigger. A notification shows that the trigger creation is in progress. After the trigger is created, the blade updates to reflect the new trigger.
  
-    ![Updated trigger list](media/data-box-edge-manage-compute/add-trigger-2.png)
+    ![Updated trigger list](media/azure-stack-edge-manage-compute/add-trigger-2.png)
 
 ### Delete a trigger
 
@@ -63,15 +63,15 @@ Take the following steps in the Azure portal to delete a trigger.
 
 1. From the list of triggers, select the trigger that you want to delete.
 
-    ![Select trigger](media/data-box-edge-manage-compute/add-trigger-1.png)
+    ![Select trigger](media/azure-stack-edge-manage-compute/add-trigger-1.png)
 
 2. Right-click and then select **Delete**.
 
-    ![Select delete](media/data-box-edge-manage-compute/add-trigger-1.png)
+    ![Select delete](media/azure-stack-edge-manage-compute/add-trigger-1.png)
 
 3. When prompted for confirmation, click **Yes**.
 
-    ![Confirm delete](media/data-box-edge-manage-compute/add-trigger-1.png)
+    ![Confirm delete](media/azure-stack-edge-manage-compute/add-trigger-1.png)
 
 The list of triggers updates to reflect the deletion.
 
@@ -85,11 +85,11 @@ Take the following steps in the Azure portal to view the compute configuration f
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Edge compute > Modules**. Select **View compute** on the command bar.
 
-    ![Select View compute](media/data-box-edge-manage-compute/view-compute-1.png)
+    ![Select View compute](media/azure-stack-edge-manage-compute/view-compute-1.png)
 
 2. Make a note of the compute configuration on your device. When you configured compute, you created an IoT Hub resource. Under that IoT Hub resource, an IoT device and an IoT Edge device are configured. Only the Linux modules are supported to run on the IoT Edge device.
 
-    ![View configuration](media/data-box-edge-manage-compute/view-compute-2.png)
+    ![View configuration](media/azure-stack-edge-manage-compute/view-compute-2.png)
 
 
 ### Remove compute configuration
@@ -98,11 +98,11 @@ Take the following steps in the Azure portal to remove the existing Edge compute
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Edge compute > Get started**. Select **Remove compute** on the command bar.
 
-    ![Select Remove compute](media/data-box-edge-manage-compute/remove-compute-1.png)
+    ![Select Remove compute](media/azure-stack-edge-manage-compute/remove-compute-1.png)
 
 2. If you remove the compute configuration, you will need to reconfigure your device in case you need to use compute again. When prompted for confirmation, select **Yes**.
 
-    ![Select Remove compute](media/data-box-edge-manage-compute/remove-compute-2.png)
+    ![Select Remove compute](media/azure-stack-edge-manage-compute/remove-compute-2.png)
 
 ### Sync up IoT device and IoT Edge device access keys
 
@@ -116,11 +116,11 @@ Take the following steps in the Azure portal to sync the access keys for your de
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Edge compute > Get started**. Select **Refresh configuration** on the command bar.
 
-    ![Select Refresh configuration](media/data-box-edge-manage-compute/refresh-configuration-1.png)
+    ![Select Refresh configuration](media/azure-stack-edge-manage-compute/refresh-configuration-1.png)
 
 2. Select **Yes** when prompted for confirmation.
 
-     ![Select Yes when prompted](media/data-box-edge-manage-compute/refresh-configuration-2.png)
+     ![Select Yes when prompted](media/azure-stack-edge-manage-compute/refresh-configuration-2.png)
 
 3. Exit out of the dialog once the sync is complete.
 

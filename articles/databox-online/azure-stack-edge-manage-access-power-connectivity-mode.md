@@ -130,4 +130,4 @@ You can shut down or restart your physical device using the local web UI. We rec
 
 ## Next steps
 
-- Learn how to [Manage shares](data-box-edge-manage-shares.md).
+- Learn how to [Manage shares](azure-stack-edge-manage-shares.md).
