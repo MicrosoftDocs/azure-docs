@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2020
+ms.date: 04/14/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-sixteen
 ---
