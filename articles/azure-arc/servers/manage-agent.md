@@ -134,6 +134,18 @@ This parameter specifies a resource in Azure Resource Manager representing the m
 
 A certificate corresponding to the System-Assigned Identity of the machine is then downloaded and stored locally. Once this step is completed, the Azure Connected Machine Metadata Service and Guest Configuration Agent begin synchronizing with Azure Arc for servers (preview).
 
+To connect using a service principal, run the following command:
+
+`azcmagent connect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
+
+To connect using an access token, run the following command:
+
+`azcmagent connect --access-token <> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
+
+To connect with your elevated logged-on credentials (interactive), run the following command:
+
+`azcmagent connect --tenant-id <TenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
+
 ### Disconnect
 
 This parameter specifies a resource in Azure Resource Manager representing the machine is deleted in Azure. It does not delete the agent from the machine, this must be done as a separate step. After the machine is disconnected, if you want to re-register it with Azure Arc for servers (preview), use `azcmagent connect` so a new resource is created for it in Azure.
@@ -149,6 +161,9 @@ To disconnect using an access token, run the following command:
 To disconnect with your elevated logged-on credentials (interactive), run the following command:
 
 `azcmagent disconnect --tenant-id <tenantID>`
+
+### Reconnect
+
 
 ## Remove the agent
 
