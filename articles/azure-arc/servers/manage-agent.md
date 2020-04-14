@@ -132,7 +132,7 @@ You can perform a **Connect**, **Disconnect**, and **Reconnect** manually while 
 
 This parameter specifies a resource in Azure Resource Manager representing the machine is created in Azure. The resource is in the subscription and resource group specified, and data about the machine is stored in the Azure region specified by the `--location` setting. The default resource name is the hostname of this machine if not specified.
 
-A certificate corresponding to the System-Assigned Identity of the machine is then downloaded and stored locally. Once this step is completed, the Azure Connected Machine Metadata Service and Guest Configuration Agent begin synchronizing with Azure Arc for servers (preview).
+A certificate corresponding to the system-assigned identity of the machine is then downloaded and stored locally. Once this step is completed, the Azure Connected Machine Metadata Service and Guest Configuration Agent begin synchronizing with Azure Arc for servers (preview).
 
 To connect using a service principal, run the following command:
 
@@ -164,6 +164,7 @@ To disconnect with your elevated logged-on credentials (interactive), run the fo
 
 ### Reconnect
 
+This parameter specifies
 
 ## Remove the agent
 
