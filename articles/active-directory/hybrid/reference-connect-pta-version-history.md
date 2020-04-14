@@ -8,7 +8,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/01/2020
+ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -25,7 +25,7 @@ Here are related topics:
 
 ## 1.5.1742.0
 ### Release Status: 
-x/x/2020: Released for download
+04/09/2020: Released for download
 
 ### New features and improvements
 
