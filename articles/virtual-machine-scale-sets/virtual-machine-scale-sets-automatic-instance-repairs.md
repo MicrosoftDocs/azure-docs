@@ -221,7 +221,7 @@ az vmss update \
 Use [Get Instance View](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/getinstanceview) with API version 2019-12-01 or higher for virtual machine scale set to view the *serviceState* for automatic repairs under the property *orchestrationServices*. 
 
 ```http
-GET on '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2019-12-01
+GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2019-12-01
 ```
 
 ```json
