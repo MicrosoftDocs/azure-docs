@@ -85,15 +85,15 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
 
    ![Azure portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-8. Use the access token in your Powershell script to query the Graph API. Use the **Invoke-MSCloudIdMSGraphQuery** cmdlet from the MSCloudIDUtils to enumerate the signins and directoryAudits endpoint. This cmdlet handles multi-paged results, and sends those results to the PowerShell pipeline.
+7. Use the access token in your Powershell script to query the Graph API. Use the **Invoke-MSCloudIdMSGraphQuery** cmdlet from the MSCloudIDUtils to enumerate the signins and directoryAudits endpoint. This cmdlet handles multi-paged results, and sends those results to the PowerShell pipeline.
 
-9. Query the directoryAudits endpoint to retrieve the audit logs. 
+8. Query the directoryAudits endpoint to retrieve the audit logs. 
    ![Azure portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
-10. Query the signins endpoint to retrieve the sign-in logs.
+9. Query the signins endpoint to retrieve the sign-in logs.
     ![Azure portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
-11. You can now choose to export this data to a CSV and save to a SIEM system. You can also wrap your script in a scheduled task to get Azure AD data from your tenant periodically without having to store application keys in the source code. 
+10. You can now choose to export this data to a CSV and save to a SIEM system. You can also wrap your script in a scheduled task to get Azure AD data from your tenant periodically without having to store application keys in the source code. 
 
 ## Next steps
 
