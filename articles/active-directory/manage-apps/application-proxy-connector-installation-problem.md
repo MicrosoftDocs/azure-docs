@@ -90,8 +90,8 @@ Follow the steps to verify the certificate:
 
 Follow the steps to verify the certificate:
 
-1. Download [PsTools.zip](https://docs.microsoft.com/en-us/sysinternals/downloads/pstools)
-2. Extract [PsExec](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec) from the package and run **psexec -i -u "nt authority\network service" cmd.exe** from an elevated command prompt.
+1. Download [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
+2. Extract [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) from the package and run **psexec -i -u "nt authority\network service" cmd.exe** from an elevated command prompt.
 3. Run **certmgr.msc** in the newly appeared command prompt
 2. In the management console expand the Personal container and click on Certificates
 3. Locate the certificate issued by **connectorregistrationca.msappproxy.ne
@@ -110,7 +110,7 @@ Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-To learn more about the Register-AppProxyConnector command, please see [Create an unattended installation script for the Azure AD Application Proxy connector](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
+To learn more about the Register-AppProxyConnector command, please see [Create an unattended installation script for the Azure AD Application Proxy connector](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
 
 ## Verify admin is used to install the connector
 
