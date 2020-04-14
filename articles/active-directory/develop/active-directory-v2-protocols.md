@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 04/13/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
