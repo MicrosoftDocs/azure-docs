@@ -1,32 +1,32 @@
 ---
-title: C# tutorial on autocompletion and suggestions
+title: Autocomplete and suggestions
 titleSuffix: Azure Cognitive Search
-description:  This tutorial demonstrates autocompletion and suggestions as a way to collect search term input from users using dropdown list. It builds on an existing hotels project.
+description:  This tutorial demonstrates autocomplete and suggestions as a way to collect search term input from users using dropdown list. It builds on an existing hotels project.
 
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 03/12/2020
 ---
 
-# C# tutorial: Add autocompletion and suggestions - Azure Cognitive Search
+# C# tutorial: Add autocomplete and suggestions - Azure Cognitive Search
 
-Learn how to implement autocompletion (type-ahead and suggestions) when a user starts typing into your search box. In this tutorial, we will show type-ahead results and suggestion results separately, then show a method of combining them to create a richer user experience. A user may only have to type two or three keys to locate all the results that are available. This tutorial builds onto the paging project created in the [C# Tutorial: Search results pagination - Azure Cognitive Search](tutorial-csharp-paging.md) tutorial.
+Learn how to implement autocomplete (typeahead queries and suggested documents) when a user starts typing into a search box. In this tutorial, we will show autocompleted queries and suggestion results separately, then show a method of combining them to create a richer user experience. A user may only have to type two or three characters to locate all the results that are available.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Add suggestions
 > * Add highlighting to the suggestions
-> * Add autocompletion
+> * Add autocomplete
 > * Combine autocompletion and suggestions
 
 ## Prerequisites
 
-To complete this tutorial, you need to:
+This tutorial is part of a series and builds on the paging project created in the [C# Tutorial: Search results pagination - Azure Cognitive Search](tutorial-csharp-paging.md).
 
-Have the [C# Tutorial: Search results pagination - Azure Cognitive Search](tutorial-csharp-paging.md) project up and running. This project can either be your own version, that you completed in the previous tutorial, or install it from GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Alternatively, you can download and run the solution for this specific tutorial: [3-add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead).
 
 ## Add suggestions
 

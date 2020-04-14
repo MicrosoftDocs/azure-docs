@@ -1,12 +1,12 @@
 ---
 title: Tutorial - Install applications in a scale set with Azure PowerShell
 description: Learn how to use Azure PowerShell to install applications into virtual machine scale sets with the Custom Script Extension
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
 
 ---

@@ -4640,7 +4640,7 @@ Can manage service but not the APIs
 > | Microsoft.ApiManagement/service/managedeployments/action | Change SKU/units, add/remove regional deployments of API Management Service |
 > | Microsoft.ApiManagement/service/read | Read metadata for an API Management Service instance |
 > | Microsoft.ApiManagement/service/restore/action | Restore API Management Service from the specified container in a user provided storage account |
-> | Microsoft.ApiManagement/service/updatecertificate/action | Upload SSL certificate for an API Management Service |
+> | Microsoft.ApiManagement/service/updatecertificate/action | Upload TLS/SSL certificate for an API Management Service |
 > | Microsoft.ApiManagement/service/updatehostname/action | Setup, update or remove custom domain names for an API Management Service |
 > | Microsoft.ApiManagement/service/write | Create or Update API Management Service instance |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
