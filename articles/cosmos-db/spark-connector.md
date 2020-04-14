@@ -105,7 +105,7 @@ val writeConfig = Config(Map(
   "Masterkey" -> "YOUR-KEY-HERE",
   "Database" -> "DepartureDelays",
   "Collection" -> "flights_fromsea",
-  "Upsert" : "true"
+  "Upsert" -> "true"
 ))
 
 // Write to Cosmos DB from the flights DataFrame
