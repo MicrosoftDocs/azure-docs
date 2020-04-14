@@ -92,4 +92,4 @@ In this step, you use Azure SQL Managed Instance Agent to invoke SSIS packages t
  4. Stop corresponding operation based on **executionId**.
 
 ## Next Steps
- You can also schedule SSIS packages using Azure Data Factory. For step-by-step instructions, see [Azure Data Factory Event Trigger](how-to-create-event-trigger.md). 
+ You can also schedule SSIS packages using Azure Data Factory. For step-by-step instructions, see [Azure Data Factory Event Trigger](how-to-create-event-trigger.md).
