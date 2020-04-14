@@ -35,7 +35,7 @@ Enable and configure audit logging using the following steps:
     az mariadb server configuration set --name audit_log_enabled --resource-group myresourcegroup --server mydemoserver --value ON
     ```
 
-1. Select the [event types](concepts-audit-logs.md#configure-audit-logging) to be logged by updating the **audit_log_events** parameter.
+1. Select the [event types](concepts-audit-logs.md#configure-audit-logging) to be logged by updating the **audit_log_egitvents** parameter.
     ```azurecli-interactive
     az mariadb server configuration set --name audit_log_events --resource-group myresourcegroup --server mydemoserver --value "ADMIN,CONNECTION"
     ```
