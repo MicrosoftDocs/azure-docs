@@ -70,7 +70,7 @@ We recommend creating a datastore for an [Azure Blob container](https://docs.mic
 When you create a workspace, an Azure blob container and an Azure file share are automatically registered to the workspace. They're named `workspaceblobstore` and `workspacefilestore`, respectively. `workspaceblobstore` is used to store workspace artifacts and your machine learning experiment logs. `workspacefilestore` is used to store notebooks and R scripts authorized via [compute instance](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files). The `workspaceblobstore` container is set as the default datastore.
 
 > [!IMPORTANT]
-> Azure Machine Learning designer (preview) will create a datastore named **azureml_globaldatasets** automatically when you open a sample in the designer homepage. This datastore only contains sample datasets. Please **do not** use this datastore for any confidential data acces.
+> Azure Machine Learning designer (preview) will create a datastore named **azureml_globaldatasets** automatically when you open a sample in the designer homepage. This datastore only contains sample datasets. Please **do not** use this datastore for any confidential data access.
 > ![Auto-created datastore for designer sample datasets](media/how-to-access-data/datastore-designer-sample.png)
 
 <a name="access"></a>
