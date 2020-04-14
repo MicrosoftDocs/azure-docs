@@ -31,24 +31,24 @@ To step through this how-to guide, you need:
 Enable and configure audit logging using the following steps:
 
 1. Turn on audit logs by setting the **audit_logs_enabled** parameter to "ON". 
-```azurecli-interactive
-az mysql server configuration set --name audit_log_enabled --resource-group myresourcegroup --server mydemoserver --value ON
-```
+    ```azurecli-interactive
+    az mysql server configuration set --name audit_log_enabled --resource-group myresourcegroup --server mydemoserver --value ON
+    ```
 
 1. Select the [event types](concepts-audit-logs.md#configure-audit-logging) to be logged by updating the **audit_log_events** parameter.
-```azurecli-interactive
-az mysql server configuration set --name audit_log_events --resource-group myresourcegroup --server mydemoserver --value "ADMIN,CONNECTION"
-```
+    ```azurecli-interactive
+    az mysql server configuration set --name audit_log_events --resource-group myresourcegroup --server mydemoserver --value "ADMIN,CONNECTION"
+    ```
 
 1. Add any MySQL users to be excluded from logging by updating the **audit_log_exclude_users** parameter. Specify users by providing their MySQL user name.
-```azurecli-interactive
-az mysql server configuration set --name audit_log_exclude_users --resource-group myresourcegroup --server mydemoserver --value "azure_superuser"
-```
+    ```azurecli-interactive
+    az mysql server configuration set --name audit_log_exclude_users --resource-group myresourcegroup --server mydemoserver --value "azure_superuser"
+    ```
 
 1. Add any specific MySQL users to be included for logging by updating the **audit_log_include_users** parameter. Specify users by providing their MySQL user name.
-```azurecli-interactive
-az mysql server configuration set --name audit_log_include_users --resource-group myresourcegroup --server mydemoserver --value "sampleuser"
-```
+    ```azurecli-interactive
+    az mysql server configuration set --name audit_log_include_users --resource-group myresourcegroup --server mydemoserver --value "sampleuser"
+    ```
 
 ## Next steps
 - Learn more about [audit logs](concepts-audit-logs.md) in Azure Database for MySQL
