@@ -69,7 +69,7 @@ The following features were released at the Build 2019 Conference:
 * [Improved analytics dashboard](luis-how-to-use-dashboard.md)
 * [Improved prebuilt domains](luis-reference-prebuilt-domains.md)
 * [Dynamic list entities](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
-* [External entities](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
+* [External entities](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time)
 
 ## Blogs
 

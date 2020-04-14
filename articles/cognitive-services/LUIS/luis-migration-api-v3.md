@@ -11,8 +11,6 @@ ms.author: diberry
 
 The query prediction endpoint V3 APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
-
 **Generally available status** - this V3 API include significant JSON request and response changes from V2 API.
 
 The V3 API provides the following new features:
