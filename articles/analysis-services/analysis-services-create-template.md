@@ -38,7 +38,7 @@ A single [Microsoft.AnalysisServices/servers](https://docs.microsoft.com/azure/t
 
 1. Select the following Deploy to Azure link to sign in to Azure and open a template. The template is used to create an Analysis Services server resource and specify required and optional properties.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json"><img src="./media/analysis-services-create-rm/deploy-azure.png" alt="deploy to azure"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json"><img src="./media/analysis-services-create-template/deploy-azure.png" alt="deploy to azure"/></a>
 
 2. Select or enter the following values.
 
@@ -58,7 +58,7 @@ A single [Microsoft.AnalysisServices/servers](https://docs.microsoft.com/azure/t
 
 3. Select **Purchase**. After the server has been deployed successfully, you get a notification:
 
-   ![Resource Manager template, deploy portal notification](./media/analysis-services-create-rm/notification.png)
+   ![Resource Manager template, deploy portal notification](./media/analysis-services-create-template/notification.png)
 
 ## Validate the deployment
 
