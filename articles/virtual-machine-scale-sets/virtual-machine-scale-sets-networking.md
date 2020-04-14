@@ -66,13 +66,13 @@ az vmss create \
 >[!NOTE]
 > After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again. 
 
-For more information on load balancer and virtual machine scale sets, see **[Virtual networks and virtual machines in Azure](../../articles/virtual-machines/windows/network-overview.md)**.
+For more information on load balancer and virtual machine scale sets, see [Virtual networks and virtual machines in Azure](../../articles/virtual-machines/windows/network-overview.md).
 
-Below is the methods that can be used to deploy a virtual machine scale set with an existing Azure load balancer.
+The following methods can be used to deploy a virtual machine scale set with an existing Azure load balancer.
 
-* **[Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal](../../articles/load-balancer/configure-vm-scale-set-portal.md)**.
-* **[Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell](../../articles/load-balancer/configure-vm-scale-set-powershell.md)**.
-* **[Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI](../../articles/load-balancer/configure-vm-scale-set-cli.md)**.
+* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal](../../articles/load-balancer/configure-vm-scale-set-portal.md).
+* [Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell](../../articles/load-balancer/configure-vm-scale-set-powershell.md).
+* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI](../../articles/load-balancer/configure-vm-scale-set-cli.md).
 
 ## Create a scale set that references an Application Gateway
 To create a scale set that uses an application gateway, reference the backend address pool of the application gateway in the ipConfigurations section of your scale set as in this ARM template config:
