@@ -58,7 +58,7 @@ presence or absence of the **Web-Server** Windows Feature (IIS), depending on ho
         }
     }
     ```
-1. Save the file as `TestConfig.ps1`.
+1. Save the file as **TestConfig.ps1**.
 
 This configuration calls one resource in each node block, the [WindowsFeature resource](/powershell/scripting/dsc/reference/resources/windows/windowsfeatureresource), that ensures either the presence
 or absence of the **Web-Server** feature.
@@ -109,7 +109,7 @@ For more information about compiling configurations, see
    ![Screenshot of the TestConfig configuration page highlighting compile button](./media/automation-dsc-getting-started/CompileConfig.png)
 
 > [!NOTE]
-> When you compile a configuration in Azure Automation, it automatically deploys any created node configuration MOFs to the pull server.
+> When you compile a configuration in Azure Automation, it automatically deploys any created node configuration MOF files to the pull server.
 
 ## Viewing a compilation job
 
@@ -133,9 +133,9 @@ logs.
 
 Successful completion of a compilation job creates one or more new node configurations. A node
 configuration is a MOF document that is deployed to the pull server and ready to be pulled and
-applied by one or more nodes. You can view the node configurations in your Automation account in
+applied by one or more nodes. You can view the node configurations in your Automation account on
 the **State configuration (DSC)** page. A node configuration has a name with the form
-*ConfigurationName*.*NodeName*.
+`ConfigurationName.NodeName`.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the left, click **All resources** and then the name of your Automation account.
@@ -146,11 +146,10 @@ the **State configuration (DSC)** page. A node configuration has a name with the
 
 ## Onboarding an Azure VM for management with Azure Automation State Configuration
 
-You can use Azure Automation State Configuration to manage Azure VMs (both Classic and Resource
+You can use Azure Automation State Configuration to manage Azure VMs (both classic and Resource
 Manager), on-premises VMs, Linux machines, AWS VMs, and on-premises physical machines. In this
 article, you learn how to onboard only Azure Resource Manager VMs. For information about onboarding
-other types of machines, see [Onboarding machines for management by Azure Automation
-State Configuration](automation-dsc-onboarding.md).
+other types of machines, see [Onboarding machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
 
 ### To onboard an Azure Resource Manager VM for management by Azure Automation State Configuration
 
