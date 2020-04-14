@@ -62,11 +62,11 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
 
 1. Navigate to the [Azure portal](https://portal.azure.com), select **Azure Active Directory**, then select **App registrations** and choose your application from the list. 
 
-2. Select **Settings** > **Keys** and select **Upload Public Key**.
+2. Select **Certificates & secrets** under **Manage** section on Application registration blade and select **Upload Certificate**.
 
-3. Select the certificate file from the previous step and select **Save**. 
+3. Select the certificate file from the previous step and select **Add**. 
 
-4. Note the Application ID, and the thumbprint of the certificate you just registered with your application. To find the thumbprint, from your application page in the portal, go to **Settings** and click **Keys**. The thumbprint will be under the **Public Keys** list.
+4. Note the Application ID, and the thumbprint of the certificate you just registered with your application. To find the thumbprint, from your application page in the portal, go to **Certificates & secrets** under **Manage** section. The thumbprint will be under the **Certificates** list.
 
 5. Open the application manifest in the inline manifest editor and replace the *keyCredentials* property with your new certificate information using the following schema. 
 
