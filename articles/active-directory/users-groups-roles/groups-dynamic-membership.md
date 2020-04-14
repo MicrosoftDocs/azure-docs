@@ -1,5 +1,5 @@
 ---
-title: Rules for dynamic group membership - Azure AD | Microsoft Docs
+title: Rules for dynamically populated groups membership - Azure AD | Microsoft Docs
 description: How to create membership rules to automatically populate groups, and a rule reference.
 services: active-directory
 documentationcenter: ''
@@ -321,7 +321,7 @@ user.objectId -ne null
 If you want your group to exclude guest users and include only members of your tenant, you can use the following syntax:
 
 ```
-(user.objectId -ne null) -and (user.userType -eq “Member”)
+(user.objectId -ne null) -and (user.userType -eq "Member")
 ```
 
 ### Create an "All devices" rule

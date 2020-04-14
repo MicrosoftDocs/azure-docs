@@ -39,7 +39,7 @@ To complete this article, you need:
 
 ## Prepare a GitHub repository
 
-GitHub is used to store your project source code including Resource Manager templates. For other supported repositories, see [repositories supported by Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops#supported-repository-types).
+GitHub is used to store your project source code including Resource Manager templates. For other supported repositories, see [repositories supported by Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops).
 
 ### Create a GitHub repository
 

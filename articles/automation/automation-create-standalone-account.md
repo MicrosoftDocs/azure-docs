@@ -28,7 +28,7 @@ To create or update an Automation account, and to complete the tasks described i
 * To create an Automation account, your Azure AD user account must be added to a role with permissions equivalent to the Owner role for **Microsoft. Automation** resources. For more information, see [Role-Based Access Control in Azure Automation](automation-role-based-access-control.md).
 * In the Azure portal, under **Azure Active Directory** > **MANAGE** > **User settings**, if **App registrations** is set to **Yes**, non-admin users in your Azure AD tenant can [register Active Directory applications](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). If **App registrations** is set to **No**, the user who performs this action must be a global administrator in Azure AD.
 
-If you aren't a member of the subscription’s Active Directory instance before you are added to the subscription's global administrator/coadministrator role, you are added to Active Directory as a guest. In this scenario, you see this message on the **Add Automation Account** page: “You do not have permissions to create."
+If you aren't a member of the subscription's Active Directory instance before you are added to the subscription's global administrator/coadministrator role, you are added to Active Directory as a guest. In this scenario, you see this message on the **Add Automation Account** page: "You do not have permissions to create."
 
 If a user is added to the global administrator/coadministrator role first, you can remove them from the subscription's Active Directory instance, and then readd them to the full User role in Active Directory.
 
@@ -86,11 +86,11 @@ When the Automation account is successfully created, several resources are autom
 | AzureRunAsCertificate |A certificate asset that's automatically created when the Automation account is created, or by using a PowerShell script for an existing account. The certificate authenticates with Azure so you can manage Azure Resource Manager resources from runbooks. This certificate has a one-year lifespan. |
 | AzureRunAsConnection |A connection asset that's automatically created when the Automation account is created, or by using a PowerShell script for an existing account. |
 
-## Classic Run-As Accounts
+## Create a Classic Run As account
 
-Classic Run-As accounts are no longer created, by default, when you create an Azure Automation account. If you still require a Classic Run-As account, please perform the following steps.
+Classic Run As accounts are no longer created by default when you create an Azure Automation account. If you still require a Classic Run As account:
 
-1. From your **Automation Account** page, select **Run As Accounts** under **Account Settings**.
+1. From your Automation account, select **Run As Accounts** under **Account Settings**.
 2. Select **Azure Classic Run As Account**.
 3. Click **Create** to proceed with Classic Run As account creation.
 
@@ -99,5 +99,5 @@ Classic Run-As accounts are no longer created, by default, when you create an Az
 * To learn more about graphical authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
 * To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md).
 * To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md).
-* To get started with Python2 runbooks, see [My first Python2 runbook](automation-first-runbook-textual-python2.md).
+* To get started with Python 2 runbooks, see [My first Python2 runbook](automation-first-runbook-textual-python2.md).
 
