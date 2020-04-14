@@ -56,7 +56,7 @@ The following table describes the different types of moderation APIs.
 
 ## Review APIs
 
-The Review APIs let you integrate your moderation pipeline with human reviewers. Use the [Jobs](review-api.md#jobs), [Reviews](review-api.md#reviews), and [Workflow](review-api.md#workflows) operations to create and automate human-in-the-loop workflows with the [Review tool](#the-review-tool) (below).
+The Review APIs let you integrate your moderation pipeline with human reviewers. Use the [Jobs](review-api.md#jobs), [Reviews](review-api.md#reviews), and [Workflow](review-api.md#workflows) operations to create and automate human-in-the-loop workflows with the [Review tool](#review-tool) (below).
 
 > [!NOTE]
 > The Workflow API is not yet available in the .NET SDK but can be used with the REST endpoint.
