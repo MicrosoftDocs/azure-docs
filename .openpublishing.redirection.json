@@ -1698,6 +1698,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-arc/servers/azcmagent-reference.md",
+      "redirect_url": "/azure/azure-arc/servers/manage-agent",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/bing-web-search/computer-vision-web-search-tutorial.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/index",
       "redirect_document_id": false
@@ -38334,6 +38339,11 @@
     {
       "source_path": "articles/active-directory/authentication/howto-password-ban-bad.md",
       "redirect_url": "/azure/active-directory/authentication/howto-password-ban-bad-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/authentication/multi-factor-authentication-security-best-practices.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-mfa-getstarted",
       "redirect_document_id": false
     },
     {
