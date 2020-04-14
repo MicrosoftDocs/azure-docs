@@ -58,9 +58,7 @@ As provided by the language service, you can see **quick info** for each identif
 
 ![quick info](./media/vs-code-intellisense/quick_info.gif)
 
-## Common questions
-
-### Why am I not getting any name suggestions?
+## Troubleshoot IntelliSense
 
 This issue is caused by missing input configuration which provides data. You can check if a [local input](visual-studio-code-local-run.md#define-a-local-input) or [live input](visual-studio-code-local-run-live-input.md#define-a-live-stream-input) has been configured correctly.
 
