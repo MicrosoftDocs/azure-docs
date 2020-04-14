@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ---
 
-# Create a suggester to enable autocomplete and suggestions in Azure Cognitive Search
+# Create a suggester to enable autocomplete and suggested results in a query
 
 In Azure Cognitive Search, "search-as-you-type" is enabled through a **suggester** construct added to a [search index](search-what-is-an-index.md). A suggester supports two experiences: *autocomplete*, which completes the term or phrase, and *suggestions* that return a short list of matching documents.  
 
@@ -19,13 +19,13 @@ The following screenshot from [Create your first app in C#](tutorial-csharp-type
 
 ![Visual comparison of autocomplete and suggested queries](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Visual comparison of autocomplete and suggested queries")
 
-To implement these behaviors in Azure Cognitive Search, there is an index and query component. 
+You can use these features separately or together. To implement these behaviors in Azure Cognitive Search, there is an index and query component. 
 
 + In the index, add a suggester to an index. You can use the portal, [REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), or [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). The remainder of this article is focused on creating a suggester.
 
 + In the query request, call one of the [APIs listed below](#how-to-use-a-suggester).
 
-Search-as-you-type support is enabled on a per-field basis. You can implement both typeahead behaviors within the same search solution if you want an experience similar to the one indicated in the screenshot. Both requests target the *documents* collection of specific index and responses are returned after a user has provided at least a three character input string.
+Search-as-you-type support is enabled on a per-field basis for string fields. You can implement both typeahead behaviors within the same search solution if you want an experience similar to the one indicated in the screenshot. Both requests target the *documents* collection of specific index and responses are returned after a user has provided at least a three character input string.
 
 ## What is a suggester?
 
@@ -129,9 +129,9 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 <a name="how-to-use-a-suggester"></a>
 
-## Use a suggester in a query
+## Use a suggester
 
-After a suggester is created, call the appropriate API in your query logic to invoke the feature. 
+A suggester is used in a query. After a suggester is created, call the appropriate API in your query logic to invoke the feature. 
 
 + [Suggestions REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 
 + [Autocomplete REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
