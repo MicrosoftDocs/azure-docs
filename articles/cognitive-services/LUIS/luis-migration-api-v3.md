@@ -122,7 +122,7 @@ The V3 API has different query string parameters.
 |`dynamicLists`|array|V3 only|Not required.|[Dynamic lists](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) allow you to extend an existing trained and published list entity, already in the LUIS app.|
 |`externalEntities`|array|V3 only|Not required.|[External entities](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) give your LUIS app the ability to identify and label entities during runtime, which can be used as features to existing entities. |
 |`options.datetimeReference`|string|V3 only|No default|Used to determine [datetimeV2 offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). The format for the datetimeReference is [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
-|`options.preferExternalEntities`|boolean|V3 only|false|Specifies if user's [external entity (with same name as existing entity)](#override-existing-model-predictions) is used or the existing entity in the model is used for prediction. |
+|`options.preferExternalEntities`|boolean|V3 only|false|Specifies if user's [external entity (with same name as existing entity)](schema-change-prediction-runtime.md#override-existing-model-predictions) is used or the existing entity in the model is used for prediction. |
 |`query`|string|V3 only|Required.|**In V2**, the utterance to be predicted is in the `q` parameter. <br><br>**In V3**, the functionality is passed in the `query` parameter.|
 
 ## Response changes
@@ -277,7 +277,7 @@ In V3, the same result with the `verbose` flag to return entity metadata:
 
 ## External entities passed in at prediction time
 
-Learn [concepts](external-entities-prediction-runtime.md) about external entities sent with the user utterance at prediction runtime.
+Learn [concepts](schema-change-prediction-runtime.md) about external entities sent with the user utterance at prediction runtime.
 
 ## Deprecation
 
