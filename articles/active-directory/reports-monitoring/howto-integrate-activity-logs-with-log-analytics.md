@@ -57,6 +57,9 @@ To use this feature, you need:
 * A user who's a *global administrator* or *security administrator* for the Azure AD tenant.
 * A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
+## Licensing Requirements
+Using this feature requires an Azure AD Premium P1 or P2 license. To find the right license for your requirements, see[Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+
 ## Send logs to Azure Monitor
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
