@@ -1,6 +1,14 @@
-- name: Setting up a Unity project from scratch
-  href: unity/project-setup.md
-- name: Working with remote entities in Unity
-  href: unity/working-with-remote-entities.md
-- name: Changing environment and materials
-  href: unity/changing-environment-and-materials.md
+- name: Viewing a Remotely Rendered Model
+  href: unity/1-view-a-model/view-a-model.md
+- name: Loading Custom Models
+  href: unity/2-custom-models/custom-models.md
+- name: Manipulating Models
+  href: unity/3-manipulate-models/manipulate-models.md
+- name: Refining Materials, Lighting, and Effects
+  href: unity/4-materials-lighting-effects/materials-lighting-effects.md
+- name: Securing your Application
+  href: unity/5-security/security.md
+- name: Managing your Model Library
+  href: unity/6-model-library/model-library.md
+- name: Creating a Commercial Ready ARR Application
+  href: unity/7-commercial-ready/commercial-ready.md

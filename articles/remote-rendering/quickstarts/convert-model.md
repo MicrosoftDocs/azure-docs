@@ -152,7 +152,7 @@ Change **inputAssetPath** to the path of the model to be converted - the path is
 
 Once the model was converted it will be written back to the storage container given by **blobOutputContainerName**. A subpath can be specified by providing the optional **outputFolderPath**. In the example above the resulting "robot.arrAsset" will be copied to the output blob container under "converted/robot".
 
-The config setting **outputAssetFileName** determines the name of the converted asset - the parameter is optional and the output filename will be deduced from the input file name otherwise. 
+The config setting **outputAssetFileName** determines the name of the converted asset - the parameter is optional and the output filename will be deduced from the input file name otherwise.
 
 Open a PowerShell, make sure you installed the *Azure PowerShell* as mentioned in the [prerequisites](#prerequisites). Then log into your subscription with the following command and follow the on-screen directions:
 
@@ -171,6 +171,8 @@ Change to the `azure-remote-rendering\Scripts` directory and run the conversion 
 
 You should see something like this:
 ![Conversion.ps1](./media/successful-conversion.png)
+
+## Insert new model into Quickstart Sample App
 
 The conversion script generates a *Shared Access Signature (SAS)* URI for the converted model. You can now copy this URI as the **Model Name** into the quickstart sample app (see [Quickstart: Render a model with Unity](render-model.md)).
 
@@ -196,4 +198,4 @@ Now that you know the basics, have a look at our tutorials to gain more in-depth
 If you want to learn the details of model conversion, check out [the model conversion REST API](../how-tos/conversion/conversion-rest-api.md).
 
 > [!div class="nextstepaction"]
-> [Tutorial: Setting up a Unity project from scratch](../tutorials/unity/project-setup.md)
+> [Tutorial: Viewing remotely rendered models](../tutorials/unity/1-view-a-model/view-a-model.md)
