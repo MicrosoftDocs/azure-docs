@@ -146,7 +146,7 @@ Follow the steps above to label at least five of your forms.
 
 ### Specify tag value types
 
-Optionally, you can set the expected data type of each tag. Open the context menu to the right of a tag and select a type from the menu. This feature allows the detection algorithm to make certain assumptions that improve the text-detection accuracy. It also ensures that the detected values will be returned in a standardized format in the final JSON output. 
+Optionally, you can set the expected data type for each tag. Open the context menu to the right of a tag and select a type from the menu. This feature allows the detection algorithm to make certain assumptions that will improve the text-detection accuracy. It also ensures that the detected values will be returned in a standardized format in the final JSON output. 
 
 > [!div class="mx-imgBorder"]
 > ![Value type selection with sample labeling tool](../media/whats-new/formre-value-type.png)
@@ -163,7 +163,7 @@ The following value types and variations are currently supported:
 
 ## Train a custom model
 
-Click the Train icon (the train car) on the left pane to open the Training page. Then click the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
+Click the Train icon on the left pane to open the Training page. Then click the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
 
 * **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the REST API.
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and training again to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
@@ -178,7 +178,7 @@ After training finishes, examine the **Average Accuracy** value. If it's low, yo
 
 ## Analyze a form
 
-Click on the Predict (rectangles) icon on the left to test your model. Upload a form document that you haven't used in the training process. Then click the **Predict** button on the right to get key/value predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
+Click on the Predict (light bulb) icon on the left to test your model. Upload a form document that you haven't used in the training process. Then click the **Predict** button on the right to get key/value predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
 
 > [!TIP]
 > You can also run the Analyze API with a REST call. To learn how to do this, see [Train with labels using Python](./python-labeled-data.md).
