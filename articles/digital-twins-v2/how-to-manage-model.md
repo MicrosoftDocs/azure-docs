@@ -30,7 +30,7 @@ The first step towards the solution is to create models to represent aspects of 
 Models for Azure Digital Twins are written in DTDL. A patient room in this scenario might be described like this:
 
 ```json
-{
+[{
   "@id": "dtmi:com:contoso:PatientRoom;1",
   "@type": "Interface",
   "@context": "dtmi:dtdl:context;2",
@@ -56,7 +56,7 @@ Models for Azure Digital Twins are written in DTDL. A patient room in this scena
       "name": "hasDevices"
     }
   ]
-}
+}]
 ```
 
 This model defines a name and a unique ID for the patient room, and properties to represent visitor count and hand-wash status (these counters will be updated from motion sensors and smart soap dispensers, and will be used together to calculate a *handwash percentage* property). The model also defines a relationship *hasDevices*, which will be used to connect the Room twin to the actual devices.
@@ -263,13 +263,13 @@ Deletion is a multi-step process:
 2. After decommissioning a model, you will either delete existing digital twins of that model, or transition those digital twins to a different model.
 3. Once there are no more digital twins of a given model, and the model is no longer referenced by any other model, you can **delete** it. 
 
-Here is the  code to decommission a model:
+Here is the code to decommission a model:
 
 ```csharp
 DigitalTwinsClient client = new DigitalTwinsClient("...");  
 client.DecommissionModel(dtmiOfPlanetInterface);
 // Write some code that deletes or transitions digital twins
-...
+//...
 ```
 
 `DecommissionModel()` can take one or more URNs, so developers can process one or multiple models in one statement. 
