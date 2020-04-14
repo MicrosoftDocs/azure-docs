@@ -30,11 +30,9 @@
     items:
     - name: How password reset works
       href: concept-sspr-howitworks.md
-    - name: Password reset options
-      href: concept-sspr-customization.md
-    - name: Password reset policies
+    - name: Policies
       href: concept-sspr-policy.md
-    - name: What license do I need?
+    - name: Licenses
       href: concept-sspr-licensing.md
     - name: On-premises integration
       href: concept-sspr-writeback.md
@@ -64,6 +62,8 @@
     items:
     - name: Deployment guide
       href: howto-sspr-deployment.md
+    - name: User customization options
+      href: howto-sspr-customization.md
     - name: Pre-register authentication data
       href: howto-sspr-authenticationdata.md
     - name: SSPR for Windows clients

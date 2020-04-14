@@ -38347,6 +38347,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/concept-sspr-customization.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-sspr-customization",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-passwords-reset-register.md",
       "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-reset-register",
       "redirect_document_id": true
