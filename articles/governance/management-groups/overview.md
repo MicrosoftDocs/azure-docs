@@ -67,6 +67,7 @@ root group initially. After elevating access, the administrator can assign any R
 - All Azure customers can see the root management group, but not all customers have access to manage that root management group.
   - Everyone who has access to a subscription can see the context of where that subscription is in the hierarchy.  
   - No one is given default access to the root management group. Azure AD Global Administrators are the only users that can elevate themselves to gain access.  Once they have access to the root management group, the global administrators can assign any RBAC role to other users to manage it.  
+- In SDK, the root management group, or 'Tenant Root', operates as a management group.
 
 > [!IMPORTANT]
 > Any assignment of user access or policy assignment on the root management group **applies to all resources within the directory**.

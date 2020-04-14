@@ -48,13 +48,21 @@ This article provides answers to some of the most common questions about running
 
    Yes, by using PowerShell. For more information about deploying SQL Server VMs using PowerShell, see [How to provision SQL Server virtual machines with Azure PowerShell](create-vm-powershell.md).
 
-1. **Can I create a generalized Azure SQL Server Marketplace image of my SQL Server VM and use it to deploy VMs?**
+1. **How can I generalize SQL Server on Azure VM and use it to deploy new VMs?**
 
-   Yes, but you must then [register each SQL Server VM with the SQL Server VM resource provider](register-with-resource-provider.md) to manage your SQL Server VM in the portal, as well as utilize features such as automated patching and automatic backups. When registering with the resource provider, you will also need to specify the license type for each SQL Server VM. 
+   You can deploy a Windows Server VM (without any SQL Server installed on it) and use the [SQL sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) process to generalize SQL Server on Azure VM (Windows) with the SQL Server installation media. Customers who have [software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) can obtain their installation media from the [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Customers who don't have software assurance can use the setup media from a Marketplace SQL Server VM image that has the desired edition.
+
+   Alternatively, use one of the SQL Server images form Azure marketplace to generalize SQL Server on Azure VM. Note that you must delete the following registry key in the source image before creating your own image. Failure to do so can result in the bloating of the SQL Server setup bootstrap folder and/or SQL IaaS extension in failed state.
+
+   Registry Key path:  
+   `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
+
+   > [!NOTE]
+   > We recommend that all SQL Server Azure VMs, including those deployed from custom generalized images, be [registered with a SQL VM recourse provider](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) to meet the compliance requirements and to utilize optional features such as automated patching and automatic backups. It will also allow you to [specify the license type](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) for each SQL Server VM.
 
 1. **Can I use my own VHD to deploy a SQL Server VM?**
 
-   Yes, but you must then [register each SQL Server VM with the SQL Server VM resource provider](register-with-resource-provider.md) to manage your SQL Server VM in the portal, as well as utilize features such as automated patching and automatic backups.
+   Yes, but you must then [register each SQL Server VM with the SQL Server VM resource provider](register-with-resource-provider.md) to manage your SQL Server VM in the portal, as well as utilize features such as automated patching and automatic backups. When registering with the resource provider, you will also need to specify the license type for each SQL Server VM.
 
 1. **Is it possible to set up configurations not shown in the virtual machine gallery (For example Windows 2008 R2 + SQL Server 2012)?**
 
@@ -112,13 +120,13 @@ This article provides answers to some of the most common questions about running
    The passive SQL Server instance does not serve SQL Server data to clients or run active SQL Server workloads. It is only used to synchronize with the primary server and otherwise maintain the passive database in a warm standby state. If it is serving data, such as reports to clients running active SQL Server workloads, or performing any work other than what is specified in the product terms, it must be a paid licensed SQL Server instance. The following activity is permitted on the secondary instance: database consistency checks or CheckDB, full backups, transaction log backups, and monitoring resource usage data. You may also run the primary and corresponding disaster recovery instance simultaneously for brief periods of disaster recovery testing every 90 days.
    
 
-1. **What scenarios can utilize the Distaster Recovery (DR) benefit?**
+1. **What scenarios can utilize the Disaster Recovery (DR) benefit?**
 
    The [licensing guide](https://aka.ms/sql2019licenseguide) provides scenarios in which the Disaster Recovery Benefit can be utilized. Refer to your Product Terms and talk to your licensing contacts or account manager for more information.
 
 1. **Which subscriptions support the Disaster Recovery (DR) benefit?**
 
-   Comprehensive programs that offer Software Assurance equivalent subscription rights as a fixed benefit support the DR benefit. This includes. but is not limited to, the Open Value (OV), Open Value Subscription (OVS), Enterprise Agreement (EA), Enterprise Subscription Agreement (EAS), and the Server and Cloud Enrollment (SCE). Refer to the [product terms](https://www.microsoft.com/licensing/product-licensing/products) and talk to your licensing contacts or acocunt manager for more information. 
+   Comprehensive programs that offer Software Assurance equivalent subscription rights as a fixed benefit support the DR benefit. This includes. but is not limited to, the Open Value (OV), Open Value Subscription (OVS), Enterprise Agreement (EA), Enterprise Subscription Agreement (EAS), and the Server and Cloud Enrollment (SCE). Refer to the [product terms](https://www.microsoft.com/licensing/product-licensing/products) and talk to your licensing contacts or account manager for more information. 
 
    
  ## Resource provider
