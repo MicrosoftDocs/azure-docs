@@ -21,7 +21,7 @@ Additionally, depending on the target environment use one of the following:
 
 # [import](#tab/import)
 
-```javascriptscript
+```javascript
 import * as sdk from "microsoft-cognitiveservices-speech-sdk";
 ```
 
@@ -29,7 +29,7 @@ For more information on `import`, see <a href="https://javascript.info/import-ex
 
 # [require](#tab/require)
 
-```javascriptscript
+```javascript
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
 
