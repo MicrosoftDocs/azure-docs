@@ -573,9 +573,7 @@
         - name: What is Cassandra API in Cosmos DB?
           href: cassandra-introduction.md
         - name: Wire protocol support
-          href: cassandra-support.md
-        - name: Frequently asked questions
-          href: cassandra-faq.md          
+          href: cassandra-support.md       
       - name: Quickstarts
         items:
         - name: .NET
@@ -599,6 +597,8 @@
           href: cassandra-import-data.md
       - name: Concepts
         items:
+        - name: Frequently asked questions
+          href: cassandra-faq.md           
         - name: Elastic scale
           href: manage-scale-cassandra.md
         - name: Secondary Indexes

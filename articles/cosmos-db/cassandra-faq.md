@@ -10,31 +10,26 @@ ms.custom: seodec20
 ---
 # Frequently asked questions about the Azure Cosmos DB API for Cassandra
 
-### What are some reasons I would want to chose the Cosmos DB Cassandra API over a native Apache Cassandra implementation?
+### What are some key differences between Apache Cassandra and Cassandra API?
 
-- Cassandra API is fully managed Platform as a Service (PaaS) offering, providing consistent performance for reads/writes and throughput without the need for touching any of the typical configuration settings in a native Apache Cassandra setup. This significantly simplifies maintenance.
-- Despite the PaaS nature of Cassandra API, it still supports a large surface area of the native [Apache Cassandra wire protocol](cassandra-support.md), allowing you to build applications on a widely used and cloud agnostic open source standard.
-- Cassandra API provides a number of mechanisms and choices for [elastic scale](manage-scale-cassandra.md), which are much more difficult to achieve in a native Apache Cassandra implementation. 
-- Cassandra API provides access to a persistent change log, the [Change Feed](cassandra-change-feed.md), which can facilitate event sourcing directly from the database. In native Cassandra, the only equivalent is change data capture (CDC), which is merely a mechanism to flag specific tables for archival as well as rejecting writes to those tables once a configurable size-on-disk for the CDC log is reached (these capabilities are redundant in Cosmos DB as the relevant aspects are automatically governed).
-- Apache Cassandra has a 100MB limit on the size of a partition key. Cassandra API allows up to 10GB per partition.
+- Apache Cassandra recommends a 100MB limit on the size of a partition key. Cassandra API allows up to 10GB per partition.
 - Apache Cassandra allows you to disable durable commits - i.e. skip writing to the commit log and go directly to the Memtable(s). This can lead to data loss if the node goes down prior to Memtables being flushed to SStables on disk. Cosmos DB always does durable commits so you will never have data loss.
 - Apache Cassandra can see diminished performance if the workload involves a lot of replaces and/or deletes. The reason for this is tombstones that the read workload needs to skip over to fetch the latest data. Cassandra API will not see diminished read performance when the workload has a lot of replaces and/or deletes.
-- In addition, during high replace workload scenarios, compaction needs to run to merge SSTables on disk (merge is needed because native Cassandra's writes are append only, thus multiple updates are stored as individual SSTable entries that need to be periodically merged). This can also lead to lowered read performance during compaction. This is not a problem with Cassandra API as it does not allow compaction.
-- Setting a replication factor of 1 is possible with native Cassandra. However, this will lead to low availability should the only node with the data go down. This is not an issue with Cassandra API as there is always a replication factor = 4 (quorum of 3).
-- Adding/removing nodes in native Cassandra requires a lot of manual intervention, but also high CPU on the new node while existing nodes move some of their token ranges to the new node. This is the same when decommissioning an existing node. However, scaling out is done seamlessly under the hood in the Cassandra API, without any issues observed in the service/application.
-- There is no need to set num_tokens on each node in the cluster as in native Cassandra. Nodes and token ranges are fully managed by Cosmos DB.
-- No need for nodetool commands such as repair, decommission etc. as in native Cassandra. Cassandra API is fully managed by Cosmos DB and none of this is needed.
-
+- During high replace workload scenarios, compaction needs to run to merge SSTables on disk (merge is needed because Apache Cassandra's writes are append only, thus multiple updates are stored as individual SSTable entries that need to be periodically merged). This can also lead to lowered read performance during compaction. This does not occur in Cassandra API as it does not implement compaction.
+- Setting a replication factor of 1 is possible with Apache Cassandra. However, this will lead to low availability should the only node with the data go down. In Cassandra API as there is always a replication factor = 4 (quorum of 3).
+- Adding/removing nodes in Apache Cassandra requires a lot of manual intervention, but also high CPU on the new node while existing nodes move some of their token ranges to the new node. This is the same when decommissioning an existing node. However, scaling out is done seamlessly under the hood in the Cassandra API, without any issues observed in the service/application.
+- There is no need to set num_tokens on each node in the cluster as in Apache Cassandra. Nodes and token ranges are fully managed by Cosmos DB.
+- There is no need for nodetool commands such as repair, decommission etc. as in native Cassandra. Cassandra API is fully managed by Cosmos DB and none of this is needed.
 
 ### What is the protocol version supported by Azure Cosmos DB Cassandra API? Is there a plan to support other protocols?
 
-Apache Cassandra API for Azure Cosmos DB supports today CQL version 4. If you have feedback about supporting other protocols, let us know via [user voice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db) or send an email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
+Apache Cassandra API for Azure Cosmos DB supports CQL version 3.x. If you have feedback about supporting other protocols, let us know via [user voice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db) or send an email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
 
 ### Why is choosing a throughput for a table a requirement?
 
 Azure Cosmos DB sets default throughput for your container based on where you create the table from - portal or CQL.
 Azure Cosmos DB provides guarantees for performance and latency, with upper bounds on operation. This guarantee is possible when the engine can enforce governance on the tenant's operations. Setting throughput ensures that you get the guaranteed throughput and latency, because the platform reserves this capacity and guarantees operation success.
-You can elastically change throughput to benefit from the seasonality of your application and save costs.
+You can [elastically change throughput](manage-scale-cassandra.md) to benefit from the seasonality of your application and save costs.
 
 The throughput concept is explained in the [Request Units in Azure Cosmos DB](request-units.md) article. The throughput for a table is distributed across the underlying physical partitions equally.
 
@@ -100,7 +95,7 @@ There's no physical limit on number of keyspaces as they're metadata containers,
 
 ### Is it possible to bring in lot of data after starting from normal table?
 
-The storage capacity is automatically managed and increases as you push in more data. So you can confidently import as much data as you need without managing and provisioning nodes, and more.
+Yes, assuming uniformly distributed partitions, the storage capacity is automatically managed and increases as you push in more data. So you can confidently import as much data as you need without managing and provisioning nodes, and more. However, if you are anticipating a lot of immediate data growth, it makes more sense to directly [provision for the anticipated throughput](set-throughput) rather than starting lower and increasing it immediately.
 
 ### Is it possible to supply yaml file settings to configure Apache Casssandra API of Azure Cosmos DB behavior?
 
@@ -158,12 +153,17 @@ You can add as many regions as you want for the account and control where it can
 
 ### Does the Apache Cassandra API index all attributes of an entity by default?
 
-Cassandra API is planning to support Secondary indexing to help create selective index on certain attributes. 
+No. Cassandra API supports [secondary indexes](cassandra-secondary-index.md), which behaves in a very similar way to Apache Cassandra. It does not index every attribute by default.  
 
 
 ### Can I use the new Cassandra API SDK locally with the emulator?
 
 Yes this is supported. You can find details of how to enable this [here](local-emulator.md#cassandra-api)
+
+
+### How can I migrate data from their Apache Cassandra clusters to Cosmos DB?
+
+You can read about migration options [here](cassandra-import-data.md).
 
 
 ### Feature x of regular Cassandra API isn't working as today, where can the feedback be provided?
