@@ -81,16 +81,6 @@ func main() {
         return
     }
     defer connector.Close()
-    sessionStartedHandler := func(event speech.SessionEventArgs) {
-        defer event.Close()
-        fmt.Println("Session Started")
-    }
-    sessionStoppedHandler := func(event speech.SessionEventArgs) {
-        defer event.Close()
-        fmt.Println("Session Stopped")
-    }
-    connector.SessionStarted(sessionStartedHandler)
-    connector.SessionStopped(sessionStoppedHandler)
     activityReceivedHandler := func(event dialog.ActivityReceivedEventArgs) {
         defer event.Close()
         fmt.Println("Received an activity.")
@@ -131,7 +121,6 @@ You're now set up to build your project and test your custom voice assistant usi
 
 > [!NOTE]
 > The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
-
 
 ## Next steps
 
