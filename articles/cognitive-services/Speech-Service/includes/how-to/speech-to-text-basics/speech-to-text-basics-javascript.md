@@ -138,7 +138,7 @@ switch (result.reason) {
         const cancellation = sdk.CancellationDetails.fromResult(result);
         console.log(`CANCELED: Reason=${cancellation.Reason}`);
 
-        if (cancellation.Reason == CancellationReason.Error) {
+        if (cancellation.Reason == sdk.CancellationReason.Error) {
             console.log(`CANCELED: ErrorCode=${cancellation.ErrorCode}`);
             console.log(`CANCELED: ErrorDetails=${cancellation.ErrorDetails}`);
             console.log("CANCELED: Did you update the subscription info?");
