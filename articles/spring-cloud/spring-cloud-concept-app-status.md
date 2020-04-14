@@ -26,8 +26,8 @@ To view general status of an application type, select **Apps** in the left navig
 |:--:|:----------------:|
 | Running | The deployment runs properly |
 | Stopped | The deployment is stopped |
-| Compiling | ASC is compiling user's source code |
-| Allocating | ASC is acquiring resource for the deployment. Prevent user operation in this status. |
+| Compiling | Compiling user's source code |
+| Allocating | Acquiring resource for the deployment. Prevent user operation in this status. |
 | Upgrading | User's app is trying to boot up with given resources and binary deployment. |
 | Failed | User's app failed to deploy due to lack of resources, or binary cannot be built from source code. |
 
@@ -37,8 +37,8 @@ To view general status of an application type, select **Apps** in the left navig
 |:--:|:----------------:|
 | Creating | The resource is creating. |
 | Updating | The resource is updating. |
-| Succeeded | ASC successfully supplies resources and deploys the binary. |
-| Failed | ASC failed to achieve the *Succeeded* goal. |
+| Succeeded | Successfully supplied resources and deploys the binary. |
+| Failed | Failed to achieve the *Succeeded* goal. |
 | Deleting | The resource is being deleted. This prevents operation, and the resource is not available in this status. |
 
 **The Discovery status is reported as one of the following values:**
@@ -61,10 +61,10 @@ To view the status of a specific instance of a deployed app, click the **Name** 
 
 | Enum | Definition |
 |:--:|:----------------:|
-| Pending | ASC is still allocating resources for the instance |
+| Pending | Still allocating resources for the instance |
 | Starting | The binary is successfully deployed to the given instance. Instance booting the jar file may fail because jar cannot run properly. |
 | Running | The instance works. |
-| Failed | ASC failed to deploy the resource to the instance. |
+| Failed | Failed to deploy the resource to the instance. |
 | Terminating | The app instance is shutting down. |
 | Retiring | The app instance is for the previous deployment and should be retired after the current deployment operation. |
 
