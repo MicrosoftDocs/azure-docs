@@ -194,11 +194,11 @@ In this step, you manually trigger the pipeline you published in the previous st
 
 1. Go to the **Monitor** tab on the left. You see a pipeline run that is triggered by a manual trigger. You can use links under the **PIPELINE NAME** column to view activity details and to rerun the pipeline.
 
-    ![Monitor pipeline runs](./media/tutorial-copy-data-portal/monitor-pipeline.png)
+    [![Monitor pipeline runs](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox)
 
 1. To see activity runs associated with the pipeline run, select the **CopyPipeline** link under the **PIPELINE NAME** column. In this example, there's only one activity, so you see only one entry in the list. For details about the copy operation, select the **Details** link (eyeglasses icon) under the **ACTIVITY NAME** column. Select **All pipeline runs** at the top to go back to the Pipeline Runs view. To refresh the view, select **Refresh**.
 
-    ![Monitor activity runs](./media/tutorial-copy-data-portal/view-activity-runs.png)
+    [![Monitor activity runs](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
 
 1. Verify that two more rows are added to the **emp** table in the SQL database.
 
@@ -238,7 +238,7 @@ In this schedule, you create a schedule trigger for the pipeline. The trigger ru
 
 1. Go to the **Monitor** tab on the left to see the triggered pipeline runs.
 
-    ![Triggered pipeline runs](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)   
+    [![Triggered pipeline runs](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended#lightbox)
 
 1. To switch from the **Pipeline Runs** view to the **Trigger Runs** view, select **Trigger Runs** on the left side of the window.
 
