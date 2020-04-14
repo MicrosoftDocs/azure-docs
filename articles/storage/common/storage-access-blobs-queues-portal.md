@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 04/14/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -21,7 +21,7 @@ When you access blob or queue data using the [Azure portal](https://portal.azure
 
 Depending on how you want to authorize access to blob or queue data in the Azure portal, you'll need specific permissions. In most cases, these permissions are provided via role-based access control (RBAC). For more information about RBAC, see [What is role-based access control (RBAC)?](../../role-based-access-control/overview.md).
 
-### Account access key
+### Use the account access key
 
 To access blob and queue data with the account access key, you must have an RBAC role assigned to you that includes the RBAC action **Microsoft.Storage/storageAccounts/listkeys/action**. This RBAC role may be a built-in or a custom role. Built-in roles that support **Microsoft.Storage/storageAccounts/listkeys/action** include:
 
@@ -32,9 +32,9 @@ To access blob and queue data with the account access key, you must have an RBAC
 When you attempt to access blob or queue data in the Azure portal, the portal first checks whether you have been assigned a role with **Microsoft.Storage/storageAccounts/listkeys/action**. If you have been assigned a role with this action, then the portal uses the account key for accessing blob and queue data. If you have not been assigned a role with this action, then the portal attempts to access data using your Azure AD account.
 
 > [!NOTE]
-> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, including the **Microsoft.Storage/storageAccounts/listkeys/action**, so a user with one of these administrative roles can also access blob and queue data with the account key. For more information, see [Classic subscription administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, including the **Microsoft.Storage/storageAccounts/listkeys/action**, so a user with one of these administrative roles can also access blob and queue data with the account key. For more information, see [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
-### Azure AD account
+### Use your Azure AD account
 
 To access blob or queue data from the Azure portal using your Azure AD account, both of the following statements must be true for you:
 
@@ -50,7 +50,7 @@ The built-in roles that support access to your blob or queue data include:
 - [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Read-only permissions for blobs.
 - [Storage Queue Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Read/write/delete permissions for queues.
 - [Storage Queue Data Reader](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): Read-only permissions for queues.
-    
+
 Custom roles can support different combinations of the same permissions provided by the built-in roles. For more information about creating custom RBAC roles, see [Custom roles for Azure resources](../../role-based-access-control/custom-roles.md) and [Understand role definitions for Azure resources](../../role-based-access-control/role-definitions.md).
 
 Listing queues with a classic subscription administrator role is not supported. To list queues, a user must have assigned to them the Azure Resource Manager **Reader** role, the **Storage Queue Data Reader** role, or the **Storage Queue Data Contributor** role.
@@ -70,7 +70,7 @@ When you navigate to a container or a queue, the Azure portal indicates whether 
 
 The examples in this section show accessing a container and its blobs, but the portal displays the same message when you are accessing a queue and its messages, or listing queues.
 
-### Account access key
+### Authenticate with the account access key
 
 If you are authenticating using the account access key, you'll see **Access Key** specified as the authentication method in the portal:
 
@@ -82,7 +82,7 @@ To switch to using Azure AD account, click the link highlighted in the image. If
 
 Notice that no blobs appear in the list if your Azure AD account lacks permissions to view them. Click on the **Switch to access key** link to use the access key for authentication again.
 
-### Azure AD account
+### Authenticate with your Azure AD account
 
 If you are authenticating using your Azure AD account, you'll see **Azure AD User Account** specified as the authentication method in the portal:
 
@@ -93,6 +93,19 @@ To switch to using the account access key, click the link highlighted in the ima
 ![Error shown if you do not have access to account key](media/storage-access-blobs-queues-portal/auth-error-access-key.png)
 
 Notice that no blobs appear in the list if you do not have access to the account keys. Click on the **Switch to Azure AD User Account** link to use your Azure AD account for authentication again.
+
+## Specify how to authorize a blob upload operation
+
+When you upload a blob from the Azure portal, you can specify whether to authenticate and authorize that operation with the account access key or with your Azure AD credentials. By default, the portal uses the current authentication method, as shown in [Determine the current authentication method](#determine-the-current-authentication-method).
+
+To specify how to authorize a blob upload operation, follow these steps:
+
+1. In the Azure portal, navigate to the container where you wish to upload a blob.
+1. Select the **Upload** button.
+1. Expand the **Advanced** section to display the advanced properties for the blob.
+1. In the **Authentication Type** field, indicate whether you want to authorize the upload operation by using your Azure AD account or with the account access key, as shown in the following image:
+
+    :::image type="content" source="media/storage-access-blobs-queues-portal/auth-blob-upload.png" alt-text="Screenshot showing how to change authorization method on blob upload":::
 
 ## Next steps
 
