@@ -98,21 +98,15 @@
   items:    
   - name: Event Grid terminology
     href: concepts.md
-  - name: Event schema formats
-    items:    
-    - name: Event Grid event schema
-      href: event-schema.md
-    - name: Cloud event schema
-      href: cloud-event-schema.md
   - name: Custom topics
     href: custom-topics.md
   - name: System topics
     items: 
-    - name: Overview (system topics)
+    - name: Overview of system topics
       href: system-topics.md
     - name: Event sources
       items:
-      - name: List of event sources
+      - name: Overview of event sources
         href: event-sources.md
       - name: Azure App Configuration
         href: event-schema-app-configuration.md
@@ -140,6 +134,12 @@
         href: event-schema-azure-signalr.md
       - name: Azure subscriptions
         href: event-schema-subscriptions.md
+  - name: Event schema formats
+    items:    
+    - name: Event Grid event schema
+      href: event-schema.md
+    - name: Cloud event schema
+      href: cloud-event-schema.md
   - name: Event Domains
     href: event-domains.md
   - name: Event handlers
@@ -147,10 +147,10 @@
     href: event-handlers.md
   - name: Event delivery
     items: 
-    - name: Delivery and retry
-      href: delivery-and-retry.md
     - name: Event filtering
       href: event-filtering.md
+    - name: Delivery and retry
+      href: delivery-and-retry.md
   - name: Disaster recovery
     items:
     - name: Geo disaster recovery
