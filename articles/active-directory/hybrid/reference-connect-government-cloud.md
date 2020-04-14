@@ -53,8 +53,7 @@ AADApplicationProxyConnectorInstaller.exe ENVIRONMENTNAME="AzureUSGovernment"
 ## Single sign on 
 Set up your Azure AD Connect server: If you use Pass-through Authentication as your sign-in method, no additional prerequisite check is required. If you use password hash synchronization as your sign-in method, and if there is a firewall between Azure AD Connect and Azure AD, ensure that:
 - You use version 1.1.644.0 or later of Azure AD Connect. 
-- If your firewall or proxy allows DNS whitelisting, add the connections to the *.msapproxy.us URLs over port 443. If not, allow access to the Azure datacenter IP ranges, which are updated weekly. Th
-- is prerequisite is applicable only when you enable the feature. It is not required for actual user sign-ins. 
+- If your firewall or proxy allows DNS whitelisting, add the connections to the *.msapproxy.us URLs over port 443. If not, allow access to the Azure datacenter IP ranges, which are updated weekly. This prerequisite is applicable only when you enable the feature. It is not required for actual user sign-ins. 
 
 ### Rolling out seamless SSO 
 You can gradually roll out Seamless SSO to your users using the instructions provided below. You start by adding the following Azure AD URL to all or selected users' Intranet zone settings by using Group Policy in Active Directory: 
@@ -76,6 +75,6 @@ If you have overridden the `AuthNegotiateDelegateAllowlist` or the `AuthSe
 ### Google Chrome (all platforms) 
 If you have overridden the `AuthNegotiateDelegateWhitelist` or the `AuthServerWhitelist` policy settings in your environment, ensure that you add Azure AD's URL (https://autologon.microsoft.us) to them as well. 
 
-## Next Steps
+## Next steps
 [Pass-through Authentication](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites)
 [Single Sign-on](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites) 
