@@ -19,7 +19,7 @@ Authentication and authorization is enforced by rules defined in the _routes.jso
 - Twitter
 - Google
 
-The topics of authentication and authorization overlaps with routing rules. Make sure to read the routing guide along with this article.
+The topics of authentication and authorization overlaps with routing rules. Make sure to read the [routing guide](routes.md) along with this article.
 
 ## Roles
 
@@ -68,10 +68,7 @@ To add users to your site, you generate invitations which allow you to associate
 - Check the checkbox on the user's row
 - Click the **Delete** button
 
-Notes:
-
-- this invalidates the permissions for the user
-  - it may take a few minutes to propagate the change worldwide
+Removing a user also invalidates the permissions for the user. This action may take a few minutes to propagate the change worldwide.
 
 ## Login
 
@@ -103,12 +100,16 @@ The `/.auth/logout` route logs a user out of the website. You can add a link to 
 
 ## Block an authorization provider
 
-give reasoning
+You may want to restrict some apps from using an authorization provider. For instance, your app may want to standardize on providers that expose email addresses to your app, or your app must only use Azure Active Directory.
 
-- compliance issues
-- standardize to user accounts to only emails (email required providers)
+To block providers, a route rules are used to return a 404 when requesting the provider-specific route. For example, to restrict Twitter as provider, add the following route rule:
 
-example
+```json
+{
+  "route": "/.auth/login/twitter",
+  "statusCode": "404"
+}
+```
 
 ## Next steps
 
