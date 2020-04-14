@@ -9,7 +9,7 @@
       href: data-box-gateway-overview.md
   - name: Tutorials
     items:
-    - name: 1 - Prepare
+    - name: 1 - Prepare 
       href: data-box-gateway-deploy-prep.md
     - name: 2A - Provision in Hyper-V
       href: data-box-gateway-deploy-provision-hyperv.md
