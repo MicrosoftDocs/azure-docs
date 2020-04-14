@@ -26,3 +26,7 @@ Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are no
 
 - [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
+
+## Next Steps
+
+Return to the [Azure Security Benchmark overview](overview.md)

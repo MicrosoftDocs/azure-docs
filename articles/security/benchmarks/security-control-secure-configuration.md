@@ -192,3 +192,7 @@ Implement Credential Scanner to identify credentials within code. Credential Sca
 
 - [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
+
+## Next Steps
+
+See the next Security Control:  [Malware Defense](security-control-malware-defense.md)

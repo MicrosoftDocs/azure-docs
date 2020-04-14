@@ -64,3 +64,7 @@ Enable Soft-Delete and purge protection in Key Vault to protect keys against acc
 
 - [Soft delete for Azure Storage blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
+
+## Next Steps
+
+See the next Security Control:  [Incident Response](security-control-incident-response.md)

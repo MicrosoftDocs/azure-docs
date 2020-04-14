@@ -182,3 +182,6 @@ Use Azure Activity Log to monitor resource configurations and detect changes to 
 
 - [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
+## Next Steps
+
+See the next Security Control: [Logging and Monitoring](security-control-logging-monitoring.md)

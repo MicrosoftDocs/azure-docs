@@ -168,3 +168,7 @@ Software that is required for business operations, but may incur higher risk for
 
 - [How to create an NSG with a security config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
+
+## Next Steps
+
+See the next Security Control: [Secure Configuration](security-control-secure-configuration.md)
