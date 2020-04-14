@@ -53,7 +53,7 @@ Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database i
 - Once the previously impacted write region recovers, it becomes automatically available as a read region. You can switch back to the recovered region as the write region. You can switch the regions by using [PowerShell, Azure CLI or Azure portal](how-to-manage-database-account.md#manual-failover). There is **no data or availability loss** before, during or after you switch the write region and your application continues to be highly available.
 
 > [!IMPORTANT]
-> It is strongly recommended customers configure production Cosmos accounts to **enable automatic failover**. Manual failover requires connectivity between secondary and primary write region to complete a consistency check to ensure no data loss during the failover. If the primary region is unavailable, this consistency check cannot complete and the manual failover will not succeed, resulting in loss of write availability.
+> It is strongly recommended that you configure the Azure Cosmos accounts used for production workloads to **enable automatic failover**. Manual failover requires connectivity between secondary and primary write region to complete a consistency check to ensure there is no data loss during the failover. If the primary region is unavailable, this consistency check cannot complete and the manual failover will not succeed, resulting in loss of write availability.
 
 ### Multi-region accounts with a single-write region (read region outage)
 
