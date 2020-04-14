@@ -4,7 +4,7 @@ description: Azure Security Baseline for Backup
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -771,9 +771,8 @@ Understand Azure RBAC: https://docs.microsoft.com/azure/role-based-access-contro
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-Supporting documentation:
+How to create and use tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not applicable
 

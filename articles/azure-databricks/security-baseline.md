@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Databricks
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -30,7 +30,7 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2809).
 
-**Guidance**: Deploy Azure Databricks in your own Azure virtual network (VNet). The default deployment of Azure Databricks is a fully managed service on Azure: all data plane resources, including a VNet that all clusters will be associated with, are deployed to a locked resource group. If you require network customization, however, you can deploy Azure Databricks data plane resources in your own virtual network (sometimes called VNet injection), enabling you to implement custom network configurations, such as applying your own Network Security Group with custom rules to specify egress traffic restrictions.
+**Guidance**: Deploy Azure Databricks in your own Azure virtual network (VNet). The default deployment of Azure Databricks is a fully managed service on Azure: all data plane resources, including a VNet that all clusters will be associated with, are deployed to a locked resource group. If you require network customization, however, you can deploy Azure Databricks data plane resources in your own virtual network (VNet injection), enabling you to implement custom network configurations, such as applying your own Network Security Group with custom rules to specify egress traffic restrictions.
 
 Additionally, you may configure network security group (NSG) rules to specify egress traffic restrictions on the subnet that your Azure Databricks instance is deployed to.
 
@@ -47,7 +47,7 @@ How to manage NSGs: https://docs.microsoft.com/azure/virtual-network/manage-netw
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2810).
 
-**Guidance**: Deploy Azure Databricks in your own Azure virtual network (VNet); this will automatically create a network security group (NSG) with rules configured that are required for the functionality of your Azure Data Bricks implementation. Enable NSG flow logs and send logs into a storage account for traffic audit. You may also send flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
+**Guidance**: Deploy Azure Databricks in your own Azure virtual network (VNet); this will automatically create a network security group (NSG) with rules configured that are required for the functionality of your Azure Databricks implementation. Enable NSG flow logs and send logs into a storage account for traffic audit. You may also send flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
 How to deploy Azure Databricks into your own Virtual Network: https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject
 
@@ -92,7 +92,7 @@ Understand threat protection for Azure network layer in Azure Security Center: h
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/2813).
 
-**Guidance**: Deploy Azure Databricks in your own Azure virtual network (VNet); this will automatically create a network security group (NSG) with rules configured that are required for the functionality of your Azure Data Bricks implementation. Enable NSG flow logs and send logs into a storage account for traffic audit. You may also send flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
+**Guidance**: Deploy Azure Databricks in your own Azure virtual network (VNet); this will automatically create a network security group (NSG) with rules configured that are required for the functionality of your Azure Databricks implementation. Enable NSG flow logs and send logs into a storage account for traffic audit. You may also send flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
 How to deploy Azure Databricks into your own Virtual Network: https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject
 
