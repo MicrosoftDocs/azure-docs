@@ -597,7 +597,7 @@
           href: cassandra-import-data.md
       - name: Concepts
         items:
-        - name: Frequently asked questions
+        - name: FAQ
           href: cassandra-faq.md           
         - name: Elastic scale
           href: manage-scale-cassandra.md
