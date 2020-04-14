@@ -186,6 +186,7 @@ public class RemoteModelEntity : MonoBehaviour
     }
 }
 ```
+Do not assign this script to any game object as this will be done programmatically by the code below.
 
 Next up, we have to extend our *RemoteRaycaster* to add the *RemoteModelEntity* component to the object that we just picked.
 
