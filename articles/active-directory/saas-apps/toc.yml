@@ -7,8 +7,8 @@
       items:
       - name: 10,000ft Plans
         href: 10000ftplans-tutorial.md
-      - name: 123ContactForm
-        href: 123contactform-tutorial.md
+      - name: 123FormBuilder
+        href: 123formbuilder-tutorial.md
       - name: 15Five
         href: 15five-tutorial.md
       - name: 23 Video
@@ -1821,6 +1821,8 @@
         href: netsuite-provisioning-tutorial.md
       - name: OfficeSpace Software
         href: officespace-software-provisioning-tutorial.md
+      - name: Oracle Cloud Infrastructure Console
+        href: oracle-cloud-infratstructure-console-provisioning-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-provisioning-tutorial.md
       - name: Pingboard
