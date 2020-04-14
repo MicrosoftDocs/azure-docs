@@ -20,8 +20,8 @@ Get started with App Service Static Apps by adding a Serverless API to your stat
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Completion of [previous step](#TODO)
 - [Node.js](https://nodejs.org/), Active LTS, and Maintenance LTS versions (10.14.1 recommended). Use the node --version command to check your version.
-- The [Azure Functions Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local#v2) version 2.7.2254 or a later 2.x version.
-- The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) version 2.0.81 or later.
+- The [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2) version 2.7.2254 or a later 2.x version.
+- The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) version 2.0.81 or later.
 - Make sure Git is [available on your computer](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). 
 
 ### Prerequisite check
@@ -57,7 +57,7 @@ Then, navigate into the project folder:
 ```bash
 cd api
 ```
-This folder contains various files for the project, including configurations files named [local.settings.json](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local#local-settings-file) and [host.json](https://docs.microsoft.com/en-us/azure/azure-functions/functions-host-json).
+This folder contains various files for the project, including configurations files named [local.settings.json](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file) and [host.json](https://docs.microsoft.com/azure/azure-functions/functions-host-json).
 
 Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP), and the language type.
 
@@ -134,4 +134,4 @@ Select **Delete**, type **myResourceGroup** in the text box, and then select **D
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Next steps button](index.md)
+> [Next steps button](./)
