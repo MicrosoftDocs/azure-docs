@@ -1,5 +1,5 @@
 ---
-title: Built-in edgeAgent direct methods - Azure IoT Edge
+title: Monitor IoT Edge deployments - Azure IoT Edge
 description: High-level monitoring including edgeHub and edgeAgent reported properties and automatic deployment metrics. 
 author: kgremban
 manager: philmea
@@ -12,13 +12,26 @@ services: iot-edge
 ---
 # Monitor IoT Edge deployments
 
-Azure IoT Edge provides metrics that let you monitor real-time information on the modules deployed to your IoT Edge devices. You can monitor these metrics in two ways:
+Azure IoT Edge provides reporting that let you monitor real-time information on the modules deployed to your IoT Edge devices. The IoT Hub service retrieves status from the IoT Edge devices and makes them available to the operator. In addition to the need to monitor deployments made to individual devices, monitoring is important for [deployments made at scale](module-deployment-monitoring.md) that include automatic deployments and layered deployments.
 
-* IoT Hub in the Azure portal
+You must know the connectivity state for the devices and the status of their modules, also their versions and the times  devices connected and disconnected. This information is provided by the edgeHub runtime module and should satisfy the needs for monitoring single device deployments.
 
-* Azure CLI
+Automatic deployments are deployments made to devices that satisfy a target condition. Target conditions are configured using tags specified in the device twin.
 
-These metrics are obtained from the edgeAgent and edgeHub IoT Edge runtime modules. Specifically, real-time status values of deployed modules are read from the edgeHub reported properties. A deployed module can set reported properties, and the solution backend can read and query them. Reported properties are used along with desired properties to synchronize module configuration or conditions. For details on these properties, see [Properties of the IoT Edge agent and IoT Edge hub module twins](module-edgeagent-edgehub.md). In addition, custom properties can be configured in the deployment process. 
+Layered deployments have addition criterion such as to overwrite a module if a particular criterion is satisfied. This criteria is configured by adding desired properties in the module twin.
+
+The IoT Hub service collects the data reported by device and module twins and provides summary counts of the various states that devices may have in the deployment configuration. This data is organized into four groups of metrics:
+
+| Type | Description |
+| --- | ---|
+| Targeted | Shows the IoT Edge devices that match the Deployment targeting condition. |
+| Applied | Shows the targeted IoT Edge devices that are not targeted by another deployment of higher priority. |
+| Reporting Success | Shows the IoT Edge devices that have reported that the modules have been deployed successfully. |
+| Reporting Failure | Shows the IoT Edge devices that have reported that one or more modules haven't been deployed successfully. To further investigate the error, connect remotely to those devices and view the log files. |
+
+You can also define your own custom metrics.
+
+The IoT Hub service makes this data available in the Azure portal and in the Azure CLI.
 
 ## Monitor a deployment in the Azure portal
 
@@ -47,12 +60,7 @@ To view the details of a deployment and monitor the devices running it, use the 
 
 1. Select the **Edit Metrics** button to view and edit the criteria for each metric. Every deployment has four default metrics. In addition, the custom metric `successfullyConfigured` is included for the current deployment.
 
-    | Metric | Type | Description |
-    | --- | --- |--|
-    | Targeted | Default | Shows the IoT Edge devices that match the Deployment targeting condition. |
-    | Applied | Default | Shows the targeted IoT Edge devices that are not targeted by another deployment of higher priority. |
-    | Reporting Success | Default | Shows the IoT Edge devices that have reported that the modules have been deployed successfully. |
-    | Reporting Failure | Default | Shows the IoT Edge devices that have reported that one or more modules haven't been deployed successfully. To further investigate the error, connect remotely to those devices and view the log files. |
+
     | successfullyConfigured | Custom | Shows the number of devices that have a successful status. |
 
    ![View IoT Edge deployment metric criteria](./media/how-to-monitor-iot-edge-deployments/metric-list.png)
