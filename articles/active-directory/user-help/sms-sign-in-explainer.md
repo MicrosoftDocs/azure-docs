@@ -18,8 +18,6 @@ ms.custom: "user-help, seo-update-azuread-jan"
 
 Registering a device gives your phone access to your organization's services and doesn't allow your organization access to your phone. If you're an administrator, you can find more information in [Configure and enable users for SMS-based authentication](../authentication/howto-authentication-sms-signin.md).
 
-## When you register a phone number
-
 If your organization hasn't made SMS sign-in available, you won't see an option for it when registering a phone with your account.  
 
 ## When you have a new phone number
