@@ -1,5 +1,5 @@
 ---
-title: Limits
+title: Limitations
 description: Code limitations for SDK features
 author: erscorms
 ms.author: erscor
@@ -7,7 +7,7 @@ ms.date: 02/11/2020
 ms.topic: reference
 ---
 
-# Limits
+# Limitations
 
 A number of features have size, count, or other limitations due to internal details of the running system.
 
@@ -35,12 +35,12 @@ The allowable number of polygons for all loaded models depends on the size of th
 |premium| no limit |
 
 
-## Platform limits
+## Platform limitations
 
 Windows 10 desktop
 
-* PC Standalone deployment from Unity is not supported. Use UWP instead.
-* UWP x86 is the only supported UWP platform. UWP x64 is not supported.
+* "PC Standalone" deployment from Unity is not supported. Use UWP instead.
+* UWP/x86 is the only supported UWP platform. UWP/x64 is not supported.
 
 Hololens 2
 
