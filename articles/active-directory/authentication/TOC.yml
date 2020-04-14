@@ -30,12 +30,12 @@
     items:
     - name: How password reset works
       href: concept-sspr-howitworks.md
+    - name: On-premises integration
+      href: concept-sspr-writeback.md
     - name: Policies
       href: concept-sspr-policy.md
     - name: Licenses
       href: concept-sspr-licensing.md
-    - name: On-premises integration
-      href: concept-sspr-writeback.md
   - name: Multi-Factor Authentication
     items:
     - name: How MFA works
