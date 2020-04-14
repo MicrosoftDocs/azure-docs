@@ -119,7 +119,7 @@ The [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is a
 
 Use the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) command to create a new device identity in your IoT hub. For example:
 
-   ```cli
+   ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled
    ```
 
@@ -135,7 +135,7 @@ This command includes three parameters:
 
 Use the [az iot hub device-identity list](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-list) command to view all devices in your IoT hub. For example:
 
-   ```cli
+   ```azurecli
    az iot hub device-identity list --hub-name [hub name]
    ```
 
@@ -145,7 +145,7 @@ Any device that is registered as an IoT Edge device will have the property **cap
 
 When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub. Use the [az iot hub device-identity show-connection-string](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string) command to return the connection string for a single device:
 
-   ```cli
+   ```azurecli
    az iot hub device-identity show-connection-string --device-id [device id] --hub-name [hub name]
    ```
 

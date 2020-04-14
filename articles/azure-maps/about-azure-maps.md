@@ -1,8 +1,8 @@
 ---
 title: Overview | Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/15/2020
 ms.topic: overview
 ms.service: azure-maps
@@ -16,7 +16,7 @@ ms.custom: mvc
 
 Azure Maps is a collection of geospatial services that use fresh mapping data to provide geographic context to web and mobile applications. Azure Maps provides:
 
-* REST APIs to render maps in multiple styles and in satellite imagery.
+* REST APIs to render maps in multiple styles and in satellite imagery.''
 * Search services to locate addresses, places, and points of interest around the world.
 * Various routing options; such as point-to-point, multipoint, multipoint optimization, isochrone, commercial vehicle, traffic influenced, and matrix routing.
 * Traffic flow view and incidents view, for applications that require traffic information.

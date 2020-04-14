@@ -1,11 +1,11 @@
-- name: Azure Marketplace and AppSource documentation
+- name: Commercial marketplace documentation
   href: index.yml
   items:
-  - name: Azure Marketplace and AppSource roadmap
+  - name: Commercial marketplace roadmap
     href: ./marketplace-roadmap.md
-  - name: Azure Marketplace policies and terms
+  - name: Commercial marketplace policies and terms
     href: ./policies-terms.md
-  - name: Azure Marketplace and AppSource overview and benefits
+  - name: Commercial marketplace overview and benefits
     href: ./marketplace-publishers-guide.md
     items:
 #    - name: Become a publisher on the marketplace
@@ -22,7 +22,7 @@
       items:
       - name: Lead management
         href: ./lead-management-for-cloud-marketplace.md
-      - name: Transacting in Azure Marketplace
+      - name: Transacting in the commercial marketplace
         href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
       - name: Private Offers
         href: ./private-offers.md
@@ -75,7 +75,7 @@
         href: ./preferred-solutions.md
       - name: Integrated solutions
         href: ./integrated-solutions.md
-    - name: Support for Azure Marketplace and AppSource
+    - name: Support for the commercial marketplace
       href: ./support-azure-marketplace.md
       items:
       - name: Marketplace FAQs
@@ -87,6 +87,8 @@
   items:
   - name: Cloud Partner Portal migration to Partner Center
     href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md
+  - name: Migration FAQ
+    href: ./cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md
   - name: Portal Tour
     href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
     items:
@@ -436,12 +438,10 @@
       href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
   - name: Getting support
     href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
-- name: Commercial Marketplace Portal in Partner Center
+- name: Commercial marketplace in Partner Center
   items: 
-  - name: Overview
-    items:
-    - name: What is Commercial Marketplace?
-      href: ./partner-center-portal/commercial-marketplace-overview.md
+  - name: Overview of the commercial marketplace
+    href: ./partner-center-portal/commercial-marketplace-overview.md
   - name: Account Management
     items:
     - name: Create a new Partner Center account
@@ -462,6 +462,36 @@
           href: ./partner-center-portal/azure-apps-review-feedback.md
         - name: API for onboarding
           href: ./partner-center-portal/azure-app-apis.md
+    - name: Azure Container offers
+      items: 
+        - name: Prepare technical assets
+          href: ./partner-center-portal/create-azure-container-technical-assets.md
+        - name: Create an Azure Container offer
+          href: ./partner-center-portal/create-azure-container-offer.md
+    - name: Virtual Machine offer
+      items:
+        - name: Create an Azure Virtual Machine offer
+          href: ./partner-center-portal/azure-vm-create-offer.md
+        - name: Create Azure VM technical asset
+          items:
+            - name: Create Azure VM technical asset
+              href: ./partner-center-portal/create-azure-vm-technical-asset.md
+            - name: Azure VM technical asset FAQ
+              href: ./partner-center-portal/common-issues-during-vhd-creation.md
+            - name: Certify Azure VM image
+              href: ./partner-center-portal/azure-vm-image-certification.md
+            - name: SAS URI
+              items:
+                - name: Get SAS URI
+                  href: ./partner-center-portal/get-sas-uri.md
+                - name: SAS URI FAQ
+                  href: ./partner-center-portal/common-sas-uri-issues.md
+    - name: Consulting services
+      items: 
+        - name: Prerequisites
+          href: ./partner-center-portal/consulting-service-prerequisites.md
+        - name: Create a consulting service offer
+          href: ./partner-center-portal/create-consulting-service-offer.md
     - name: Dynamics 365 offers
       items: 
         - name: Create a Dynamics 365 for Customer Engagement & PowerApps offer
@@ -470,6 +500,22 @@
           href: ./partner-center-portal/create-new-operations-offer.md
         - name: Create a Dynamics 365 Business Central offer
           href: ./partner-center-portal/create-new-business-central-offer.md
+    - name: IoT Edge module offers
+      items:
+      - name: Prepare IoT Edge module technical assets
+        href: ./partner-center-portal/create-iot-edge-module-asset.md
+      - name: Create an IoT Edge module offer
+        href: ./partner-center-portal/azure-iot-edge-module-creation.md
+    - name: Managed Service offers
+      items:
+      - name: Create a Managed Service offer
+        href: ./partner-center-portal/create-new-managed-service-offer.md
+    - name: Power BI app offers
+      items:
+      - name: Publish overview
+        href: ./partner-center-portal/create-power-bi-app-overview.md
+      - name: Create Power BI app offer
+        href: ./partner-center-portal/create-power-bi-app-offer.md
     - name: SaaS offers
       items:
       - name: SaaS offer creation checklist
@@ -526,7 +572,7 @@
     href: ./partner-center-portal/support.md
   - name: Partner Center Analytics
     items:
-    - name: Analytics for the Commercial Marketplace
+    - name: Analytics for the commercial marketplace
       href: ./partner-center-portal/analytics.md
     - name: Summary dashboard
       href: ./partner-center-portal/summary-dashboard.md

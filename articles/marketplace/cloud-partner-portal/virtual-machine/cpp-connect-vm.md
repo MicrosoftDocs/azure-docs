@@ -1,16 +1,18 @@
 ---
 title: Connect to your Microsoft Azure-based virtual machine | Azure Marketplace
 description: Explains how to connect to the new virtual machine created on Azure.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Connect to your Azure-based virtual machine
+
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin the moving management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create your Azure Virtual Machine technical assets](https://aka.ms/AzureVMTechAsset) to manage your migrated offers.
 
 This article explains how to connect to and sign into the virtual machines (VMs) you created on Azure.  Once you've successfully connected, you can work with the VM as if you were locally logged on to its host server. 
 

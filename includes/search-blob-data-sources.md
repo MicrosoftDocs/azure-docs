@@ -1,6 +1,6 @@
 ---
 author: mgottein
-ms.service: search
+ms.service: cognitive-search
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: magottei

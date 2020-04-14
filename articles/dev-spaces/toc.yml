@@ -3,7 +3,7 @@
   items:
   - name: Overview
     items: 
-    - name: About Azure Dev Spaces
+    - name: What is Azure Dev Spaces?
       href: about.md
   - name: Quickstarts
     items:
@@ -58,7 +58,21 @@
   - name: Concepts
     items:
     - name: How Dev Spaces works
-      href: how-dev-spaces-works.md
+      items:
+      - name: Overview
+        href: how-dev-spaces-works.md
+      - name: Setting up a cluster
+        href: how-dev-spaces-works-cluster-setup.md
+      - name: Preparing a project
+        href: how-dev-spaces-works-prep.md
+      - name: Running your code
+        href: how-dev-spaces-works-up.md
+      - name: Routing between dev spaces
+        href: how-dev-spaces-works-routing.md
+      - name: Remote debugging
+        href: how-dev-spaces-works-remote-debugging.md
+      - name: Connecting your development computer to AKS
+        href: how-dev-spaces-works-connect.md
     - name: How VS Code works with Dev Spaces
       href: how-vs-code-works-with-dev-spaces.md
     - name: Networking configuration in different network topologies
@@ -95,7 +109,7 @@
       href: how-to/ingress-https-traefik.md
     - name: Use NGINX for custom ingress and HTTPS
       href: how-to/ingress-https-nginx.md
-    - name: Connect your development machine to an AKS cluster (preview)
+    - name: Connect your development computer to an AKS cluster (preview)
       href: how-to/connect.md
     - name: Configure your Azure Dev Spaces cluster to use Helm 3 (preview)
       href: how-to/helm-3.md

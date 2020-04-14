@@ -74,7 +74,15 @@ When using Visual Studio to prepare your project, you have the option of enablin
 
 ## Can I use pod managed identities with Azure Dev Spaces?
 
-Currently, Azure Dev Spaces does not support using [pod managed identities][aks-pod-managed-id] on AKS clusters with Azure Dev Spaces enabled. If you have pod managed identities installed and would like to uninstall it, you can find more details in the [uninstall notes][aks-pod-managed-id-uninstall].
+Yes, you can use [pod managed identities][aks-pod-managed-id] on AKS clusters with Azure Dev Spaces enabled, but there are [additional configuration steps][dev-spaces-pod-managed-id-steps] after you enable Azure Dev Spaces on your cluster with pod managed identities. If you have pod managed identities installed and would like to uninstall it, you can find more details in the [uninstall notes][aks-pod-managed-id-uninstall].
+
+## Can I use Azure Dev Spaces with multiple microservices in an application?
+
+Yes, you can use Azure Dev Spaces in an application with multiple microservices, but you must prepare and run the individual microservices at their root. The Azure Dev Spaces CLI, Azure Dev Spaces VS Code extension, and Visual Studio Azure Development workload expect the *azds.yaml* file to be at the root of the microservice in order to run and debug. See the [Bike Sharing sample application][bike-sharing] for an example of multiple microservices in a single application.
+
+In Visual Studio Code, it is possible to [open separate projects in a single workspace][vs-code-multi-root-workspaces] and debug them separately through Azure Dev Spaces. Each of the projects must be self-contained and prepared for Azure Dev Spaces.
+
+In Visual Studio, it is possible to configure .NET Core solutions for debugging through Azure Dev Spaces.
 
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
@@ -84,12 +92,15 @@ Currently, Azure Dev Spaces does not support using [pod managed identities][aks-
 [aks-pod-managed-id]: ../aks/developer-best-practices-pod-security.md#use-pod-managed-identities
 [aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
-[dev-spaces-prep]: how-dev-spaces-works.md#prepare-your-code
-[dev-spaces-routing]: how-dev-spaces-works.md#how-routing-works
+[bike-sharing]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
+[dev-spaces-pod-managed-id-steps]: troubleshooting.md#error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state
+[dev-spaces-prep]: how-dev-spaces-works-prep.md
+[dev-spaces-routing]: how-dev-spaces-works-routing.md#how-routing-works
 [ingress-nginx]: how-to/ingress-https-nginx.md#configure-a-custom-nginx-ingress-controller
 [ingress-traefik]: how-to/ingress-https-traefik.md#configure-a-custom-traefik-ingress-controller
 [ingress-https-nginx]: how-to/ingress-https-nginx.md#configure-the-nginx-ingress-controller-to-use-https
 [ingress-https-traefik]: how-to/ingress-https-traefik.md#configure-the-traefik-ingress-controller-to-use-https
 [quickstart-cli]: quickstart-cli.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
+[vs-code-multi-root-workspaces]: https://code.visualstudio.com/docs/editor/multi-root-workspaces
 [windows-containers]: how-to/run-dev-spaces-windows-containers.md

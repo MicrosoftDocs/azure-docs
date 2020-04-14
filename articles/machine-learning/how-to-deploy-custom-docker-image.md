@@ -91,6 +91,8 @@ If you've already trained or deployed models using Azure Machine Learning, a con
 
     Follow the prompts to authenticate to the subscription.
 
+    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+
 2. Use the following command to list the container registry for the workspace. Replace `<myworkspace>` with your Azure Machine Learning workspace name. Replace `<resourcegroup>` with the Azure resource group that contains your workspace:
 
     ```azurecli-interactive

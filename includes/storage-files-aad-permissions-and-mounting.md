@@ -5,14 +5,14 @@
  author: tamram
  ms.service: storage
  ms.topic: include
- ms.date: 12/12/2019
+ ms.date: 04/11/2019
  ms.author: rogara
  ms.custom: include file
 ---
 
-## Assign access permissions to an identity
+## 2. Assign access permissions to an identity
 
-To access Azure Files resources with identity based authentication, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows share permissions, where you specify the type of access that a particular user has to a file share. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity.
+To access Azure Files resources with identity based authentication, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows share permissions, where you specify the type of access that a particular user has to a file share. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity. 
 
 We have introduced three Azure built-in roles for granting share-level permissions to users:
 
@@ -27,6 +27,8 @@ You can use the Azure portal, PowerShell, or Azure CLI to assign the built-in ro
 
 > [!NOTE]
 > Remember to sync your AD credentials to Azure AD if you plan to use your AD for authentication. Password hash sync from AD to Azure AD is optional. Share level permission will be granted to the Azure AD identity that is synced from AD.
+
+The general recommendation is to use share level permission for high level access management to an AD group representing a group of users and identities, then leverage NTFS permissions for granular access control on directory/file level. 
 
 #### Azure portal
 To assign an RBAC role to an Azure AD identity, using the [Azure portal](https://portal.azure.com), follow these steps:
@@ -63,7 +65,7 @@ Before you run the following sample script, remember to replace placeholder valu
 az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
 
-## Configure NTFS permissions over SMB 
+## 3. Configure NTFS permissions over SMB 
 After you assign share-level permissions with RBAC, you must assign proper NTFS permissions at the root, directory, or file level. Think of share-level permissions as the high-level gatekeeper that determines whether a user can access the share. Whereas NTFS permissions act at a more granular level to determine what operations the user can do at the directory or file level.
 
 Azure Files supports the full set of NTFS basic and advanced permissions. You can view and configure NTFS permissions on directories and files in an Azure file share by mounting the share and then using Windows File Explorer or running the Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) or [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) command. 
@@ -91,7 +93,7 @@ For more information on how to use icacls to set NTFS permissions and on the dif
 
 ### Mount a file share from the command prompt
 
-Use the Windows **net use** command to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, see [Use an Azure file share with Windows](../articles/storage/files/storage-how-to-use-files-windows.md).
+Use the Windows **net use** command to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, see [Use an Azure file share with Windows](../articles/storage/files/storage-how-to-use-files-windows.md). 
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
@@ -108,15 +110,15 @@ Use Windows File Explorer to grant full permission to all directories and files 
 8.	In the Security tab, select all permissions you want to grant to the newly add user
 9.	Click on **Apply**
 
-## Mount a file share from a domain-joined VM
+## 4. Mount a file share from a domain-joined VM
 
-The following process verifies that your file share and access permissions were set up correctly and that you can access an Azure File share from a domain-joined VM:
+The following process verifies that your file share and access permissions were set up correctly and that you can access an Azure File share from a domain-joined VM. Be aware that the share level RBAC role assignment can take some time to be in effect. 
 
 Sign in to the VM by using the Azure AD identity to which you have granted permissions, as shown in the following image. If you have enabled AD authentication for Azure Files, use the AD credential. For Azure AD DS authentication, log in with Azure AD credential.
 
 ![Screenshot showing Azure AD sign-in screen for user authentication](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
-Use the following command to mount the Azure file share. Remember to replace the placeholder values with your own values. Because you've been authenticated, you don't need to provide the storage account key, the AD credentials, or the Azure AD credentials. Single sign-on experience is supported for authentication with either AD or Azure AD DS.
+Use the following command to mount the Azure file share. Remember to replace the placeholder values with your own values. Because you've been authenticated, you don't need to provide the storage account key, the AD credentials, or the Azure AD credentials. Single sign-on experience is supported for authentication with either AD or Azure AD DS. If you run into issues in mounting with AD credentials, check [Troubleshoot Azure Files problems in Windows](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) for self diagnostic guidance.
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>

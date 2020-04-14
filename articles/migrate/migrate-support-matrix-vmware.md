@@ -2,20 +2,20 @@
 title: VMware assessment support in Azure Migrate
 description: Learn about support for VMware VM assessment with Azure Migrate Server Assessment.
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 03/29/2020
 ---
 
 # Support matrix for VMware assessment 
 
-This article summarizes prerequisites and support requirements for assessing VMware VMs in preparation for migration to Azure. If you want to migrate VMware VMs to Azure, review the [migration support matrix](migrate-support-matrix-vmware-migration.md).
+This article summarizes prerequisites and support requirements when you assess VMware VMs for migration to Azure, using the Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. If you want to migrate VMware VMs to Azure, review the [migration support matrix](migrate-support-matrix-vmware-migration.md).
 
-You assess physical servers with the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. You create an Azure Migrate project, and then add the Server Assessment tool to the project. After the tool is added, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises machines, and sends machine metadata and performance data to Azure. After machine discovery, you gather discovered machines into groups, and run an assessment for a group.
+To assess VMware VMs, you create an Azure Migrate project, and then add the Server Assessment tool to the project. After the tool is added, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises machines, and sends machine metadata and performance data to Azure. After discovery is complete, you gather discovered machines into groups, and run an assessment for a group.
 
 ## Limitations
 
 **Support** | **Details**
 --- | ---
-**Project limits** | You can create multiple projects in an Azure subscription.<br/><br/> You can discover and assess up to 35,000 VMware VMs in a single [project](migrate-support-matrix.md#azure-migrate-projects). A project can include VMware VMs, physical servers, and Hyper-V VMs, up to the assessment limits for each.
+**Project limits** | You can create multiple projects in an Azure subscription.<br/><br/> You can discover and assess up to 35,000 VMware VMs in a single [project](migrate-support-matrix.md#azure-migrate-projects). A project can also include physical servers, and Hyper-V VMs, up to the assessment limits for each.
 **Discovery** | The Azure Migrate appliance can discover up to 10,000 VMware VMs on a vCenter Server.
 **Assessment** | You can add up to 35,000 machines in a single group.<br/><br/> You can assess up to 35,000 VMs in a single assessment.
 
@@ -24,11 +24,11 @@ You assess physical servers with the [Azure Migrate:Server Assessment](migrate-s
 
 ## Application discovery
 
-In addition to discovering machines, Azure Migrate: Server Assessment can discover apps, role, and features running on machines. Discovering your app inventory allows you to identify and plan a migration path tailored for your on-premises workloads. 
+In addition to discovering machines, Server Assessment can discover apps, role, and features running on machines. Discovering your app inventory allows you to identify and plan a migration path tailored for your on-premises workloads. 
 
 **Support** | **Details**
 --- | ---
-**Supported machines** | App discovery is currently supported for on-premises VMware VMs only.
+**Supported machines** | App discovery is currently supported for VMware VMs only.
 **Discovery** | App discovery is agentless. It uses machine guest credentials, and remotely accesses machines using WMI and SSH calls.
 **VM support** | App-discovery is supported for all  Windows and Linux versions.
 **vCenter credentials** | App discovery needs a vCenter Server account with read-only access, and privileges enabled for Virtual Machines > Guest Operations.
@@ -53,7 +53,7 @@ In addition to discovering machines, Azure Migrate: Server Assessment can discov
 
 ## Azure Migrate appliance requirements
 
-Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. The appliance for VMware is deployed using an OVA template, imported into vCenter Server. 
+Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. You can deploy the appliance as a VMWare VM using an OVA template, imported into vCenter Server, or using a [PowerShell script](deploy-appliance-script.md).
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---vmware) for VMware.
 - Learn about [URLs](migrate-appliance.md#url-access) the appliance needs to access.
@@ -62,7 +62,7 @@ Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for disco
 
 **Device** | **Connection**
 --- | ---
-Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Outbound connections on port 443 (HTTPS), 5671 and 5672 (AMQP) to send discovery and performance metadata to Azure Migrate.
+Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Outbound connections on port 443 (HTTPS), to send discovery and performance metadata to Azure Migrate.
 vCenter server | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br/><br/> The appliance connects to vCenter on port 443 by default. If the vCenter server listens on a different port, you can modify the port when you set up discovery.
 ESXi hosts (app discovery/agentless dependency analysis) | If you want to do [app discovery](how-to-discover-applications.md) or [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), then the appliance connects to ESXi hosts on TCP port 443, to discover applications, to and run agentless dependency visualization on VMs.
 
@@ -72,7 +72,7 @@ ESXi hosts (app discovery/agentless dependency analysis) | If you want to do [ap
 
 **Requirement** | **Details**
 --- | --- 
-**Before deployment** | You should have an Azure Migrate project in place, with the Azure Migrate: Server Assessment tool added to the project.<br/><br/>  You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises VMWare machines.<br/><br/> [Learn how](create-manage-projects.md) to create a project for the first time.<br/> [Learn how](how-to-assess.md) to add an assessment tool to an existing project.<br/> [Learn how](how-to-set-up-appliance-vmware.md) to set up the Azure Migrate appliance for assessment of VMware VMs.
+**Before deployment** | You should have an Azure Migrate project in place, with the Server Assessment tool added to the project.<br/><br/>  You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises VMWare machines.<br/><br/> [Learn how](create-manage-projects.md) to create a project for the first time.<br/> [Learn how](how-to-assess.md) to add an assessment tool to an existing project.<br/> [Learn how](how-to-set-up-appliance-vmware.md) to set up the Azure Migrate appliance for assessment of VMware VMs.
 **VM support** | Currently supported for VMware VMs only.
 **Windows VMs** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bit).
 **Windows account** |  For dependency analysis, the Azure Migrate appliance needs a local or a domain Administrator account to access Windows VMs.

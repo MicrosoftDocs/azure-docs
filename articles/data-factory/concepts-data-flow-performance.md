@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
+ms.date: 04/14/2020
 ---
 
 # Mapping data flows performance and tuning guide
@@ -16,7 +16,7 @@ Mapping Data Flows in Azure Data Factory provide a code-free interface to design
 When designing and testing Data Flows from the ADF UX, make sure to switch on debug mode to execute your data flows in real time without waiting for a cluster to warm up. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
 
 This video shows some sample timings transforming data with data flows:
-> [!VIDEO https://www.youtube.com/watch?v=6CSbWm4lRhw/player]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rNxM]
 
 ## Monitoring data flow performance
 
@@ -32,7 +32,7 @@ While designing mapping data flows, you can unit test each transformation by cli
 
 ## Increasing compute size in Azure Integration Runtime
 
-An Integration Runtime with more cores increases the number of nodes in the Spark compute environments and provides more processing power to read, write, and transform your data.
+An Integration Runtime with more cores increases the number of nodes in the Spark compute environments and provides more processing power to read, write, and transform your data. ADF Data Flows utilizes Spark for the compute engine. The Spark environment works very well on memory-optimized resources.
 * Try a **Compute Optimized** cluster if you want your processing rate to be higher than your input rate.
 * Try a **Memory Optimized** cluster if you want to cache more data in memory. Memory optimized has a higher price-point per core than Compute Optimized, but will likely result in faster transformation speeds.
 
@@ -44,7 +44,11 @@ For more information how to create an Integration Runtime, see [Integration Runt
 
 By default, turning on debug will use the default Azure Integration runtime that is created automatically for each data factory. This default Azure IR is set for eight cores, four for a driver node and four for a worker node, using General Compute properties. As you test with larger data, you can increase the size of your debug cluster by creating an Azure IR with larger configurations and choose this new Azure IR when you switch on debug. This will instruct ADF to use this Azure IR for data preview and pipeline debug with data flows.
 
-## Optimizing for Azure SQL Database and Azure SQL Data Warehouse
+### Decrease cluster compute start-up time with TTL
+
+There is a property in the Azure IR under Data Flow Properties that will allow you to stand-up a pool of cluster compute resources for your factory. With this pool, you can sequentially submit data flow activities for execution. Once the pool is established, each subsequent job will take 1-2 minutes for the on-demand Spark cluster to execute your job. The initial set-up of the resource pool will take around 6 minutes. Specify the amount of time that you wish to maintain the resource pool in the time-to-live (TTL) setting.
+
+## Optimizing for Azure SQL Database and Azure SQL Data Warehouse Synapse
 
 ### Partitioning on source
 
@@ -64,7 +68,7 @@ By default, turning on debug will use the default Azure Integration runtime that
 
 Under **Source Options** in the source transformation, the following settings can affect performance:
 
-* Batch size instructs ADF to store data in sets in memory instead of row-by-row. Batch size is an optional setting and you may run out of resources on the compute nodes if they aren't sized properly.
+* Batch size instructs ADF to store data in sets in Spark memory instead of row-by-row. Batch size is an optional setting and you may run out of resources on the compute nodes if they aren't sized properly. Not setting this property will utilize Spark caching batch defaults.
 * Setting a query can allow you to filter rows at the source before they arrive in Data Flow for processing. This can make the initial data acquisition faster. If you use a query, you can add optional query hints for your Azure SQL DB such as READ UNCOMMITTED.
 * Read uncommitted will provide faster query results on Source transformation
 
@@ -72,7 +76,7 @@ Under **Source Options** in the source transformation, the following settings ca
 
 ### Sink batch size
 
-To avoid row-by-row processing of your data flows, set **Batch size** in the Settings tab for Azure SQL DB and Azure SQL DW sinks. If batch size is set, ADF processes database writes in batches based on the size provided.
+To avoid row-by-row processing of your data flows, set **Batch size** in the Settings tab for Azure SQL DB and Azure SQL DW sinks. If batch size is set, ADF processes database writes in batches based on the size provided. Not setting this property will utilize Spark caching batch defaults.
 
 ![Sink](media/data-flow/sink4.png "Sink")
 

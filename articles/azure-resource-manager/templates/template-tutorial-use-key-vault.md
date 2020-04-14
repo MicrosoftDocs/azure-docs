@@ -8,9 +8,9 @@ ms.author: jgao
 ms.custom: seodec18
 ---
 
-# Tutorial: Integrate Azure Key Vault in your Resource Manager template deployment
+# Tutorial: Integrate Azure Key Vault in your ARM template deployment
 
-Learn how to retrieve secrets from an Azure key vault and pass the secrets as parameters when you deploy Azure Resource Manager. The parameter value is never exposed, because you reference only its key vault ID. For more information, see [Use Azure Key Vault to pass secure parameter value during deployment](./key-vault-parameter.md).
+Learn how to retrieve secrets from an Azure key vault and pass the secrets as parameters when you deploy an Azure Resource Manager (ARM) template. The parameter value is never exposed, because you reference only its key vault ID. For more information, see [Use Azure Key Vault to pass secure parameter value during deployment](./key-vault-parameter.md).
 
 In the [Set resource deployment order](./template-tutorial-create-templates-with-dependent-resources.md) tutorial, you create a virtual machine (VM). You need to provide the VM administrator username and password. Instead of providing the password, you can pre-store the password in an Azure key vault and then customize the template to retrieve the password from the key vault during the deployment.
 
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](use-vs-code-to-create-template.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create ARM templates](use-vs-code-to-create-template.md).
 * To increase security, use a generated password for the VM administrator account. Here's a sample for generating a password:
 
     ```console
@@ -44,7 +44,7 @@ To complete this article, you need:
 
 ## Prepare a key vault
 
-In this section, you create a key vault and add a secret to it, so that you can retrieve the secret when you deploy your template. There are many ways to create a key vault. In this tutorial, you use Azure PowerShell to deploy a [Resource Manager template](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). This template does the following:
+In this section, you create a key vault and add a secret to it, so that you can retrieve the secret when you deploy your template. There are many ways to create a key vault. In this tutorial, you use Azure PowerShell to deploy an [ARM template](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). This template does the following:
 
 * Creates a key vault with the `enabledForTemplateDeployment` property enabled. This property must be *true* before the template deployment process can access the secrets that are defined in the key vault.
 * Adds a secret to the key vault. The secret stores the VM administrator password.
@@ -92,7 +92,7 @@ Now you've prepared a key vault and a secret. The following sections show you ho
 
 ## Open a quickstart template
 
-Azure Quickstart Templates is a repository for Resource Manager templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template that's used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Azure Quickstart Templates is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template that's used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. In Visual Studio Code, select **File** > **Open File**.
 
@@ -102,7 +102,7 @@ Azure Quickstart Templates is a repository for Resource Manager templates. Inste
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 
-1. Select **Open** to open the file. The scenario is the same as the one that's used in [Tutorial: Create Azure Resource Manager templates with dependent resources](./template-tutorial-create-templates-with-dependent-resources.md).
+1. Select **Open** to open the file. The scenario is the same as the one that's used in [Tutorial: Create ARM templates with dependent resources](./template-tutorial-create-templates-with-dependent-resources.md).
    The template defines five resources:
 
    * `Microsoft.Storage/storageAccounts`. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
@@ -166,6 +166,8 @@ New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile "$HOME/azuredeploy.json" `
     -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 When you deploy the template, use the same resource group that you used in the key vault. This approach makes it easier for you to clean up the resources, because you need to delete only one resource group instead of two.
@@ -189,11 +191,13 @@ $projectName = Read-Host -Prompt "Enter the same project name that is used for c
 $resourceGroupName = "${projectName}rg"
 
 Remove-AzResourceGroup -Name $resourceGroupName
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 ## Next steps
 
-In this tutorial, you retrieved a secret from your Azure key vault. You then used the secret in your template deployment. To learn how to create linked templates, see:
+In this tutorial, you retrieved a secret from your Azure key vault. You then used the secret in your template deployment. To learn how to use virtual machine extensions to perform post deployment tasks, see:
 
 > [!div class="nextstepaction"]
-> [Create linked templates](./template-tutorial-create-linked-templates.md)
+> [Deploy virtual machine extensions](./template-tutorial-deploy-vm-extensions.md)
