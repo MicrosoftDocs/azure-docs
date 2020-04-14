@@ -20,6 +20,9 @@ templates in a central, secure location such as Azure Storage.
 In this article, we create a PowerShell runbook that uses a Resource Manager template stored in
 [Azure Storage](../storage/common/storage-introduction.md) to deploy a new Azure Storage account.
 
+>[!NOTE]
+>This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
+
 ## Prerequisites
 
 To complete this tutorial, you need the following items:
@@ -27,7 +30,7 @@ To complete this tutorial, you need the following items:
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or [sign up for a free account](https://azure.microsoft.com/free/).
 * [Automation account](automation-sec-configure-azure-runas-account.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
 * [Azure Storage account](../storage/common/storage-create-storage-account.md) in which to store the Resource Manager template
-* Azure Powershell installed on a local machine. See [Install and configure Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) for information about how to get Azure PowerShell.
+* Azure PowerShell installed on a local machine. See [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0) for information about how to get Azure PowerShell.
 
 ## Create the Resource Manager template
 
@@ -87,11 +90,11 @@ In a text editor, copy the following text:
 }
 ```
 
-Save the file locally as `TemplateTest.json`.
+Save the file locally as **TemplateTest.json**.
 
 ## Save the Resource Manager template in Azure Storage
 
-Now we use PowerShell to create an Azure Storage file share and upload the `TemplateTest.json` file.
+Now we use PowerShell to create an Azure Storage file share and upload the **TemplateTest.json** file.
 For instructions on how to create a file share and upload a file in the Azure portal, see
 [Get started with Azure File storage on Windows](../storage/files/storage-dotnet-how-to-use-files.md).
 
@@ -99,11 +102,11 @@ Launch PowerShell on your local machine, and run the following commands to creat
 and upload the Resource Manager template to that file share.
 
 ```powershell
-# Login to Azure
-Connect-AzureRmAccount
+# Log into Azure
+Connect-AzAccount
 
 # Get the access key for your storage account
-$key = Get-AzureRmStorageAccountKey -ResourceGroupName 'MyAzureAccount' -Name 'MyStorageAccount'
+$key = Get-AzStorageAccountKey -ResourceGroupName 'MyAzureAccount' -Name 'MyStorageAccount'
 
 # Create an Azure Storage context using the first access key
 $context = New-AzureStorageContext -StorageAccountName 'MyStorageAccount' -StorageAccountKey $key[0].value
@@ -119,7 +122,7 @@ Set-AzureStorageFileContent -ShareName $fileShare.Name -Context $context -Source
 
 ## Create the PowerShell runbook script
 
-Now we create a PowerShell script that gets the `TemplateTest.json` file from Azure Storage
+Now we create a PowerShell script that gets the **TemplateTest.json** file from Azure Storage
 and deploys the template to create a new Azure Storage account.
 
 In a text editor, paste the following text:
@@ -143,13 +146,11 @@ param (
     $StorageFileName
 )
 
-
-
 # Authenticate to Azure if running from Azure Automation
 $ServicePrincipalConnection = Get-AutomationConnection -Name "AzureRunAsConnection"
-Connect-AzureRmAccount `
+Connect-AzAccount `
     -ServicePrincipal `
-    -TenantId $ServicePrincipalConnection.TenantId `
+    -Tenant $ServicePrincipalConnection.TenantId `
     -ApplicationId $ServicePrincipalConnection.ApplicationId `
     -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint | Write-Verbose
 
@@ -166,10 +167,10 @@ Get-AzureStorageFileContent -ShareName 'resource-templates' -Context $Context -p
 $TemplateFile = Join-Path -Path 'C:\Temp' -ChildPath $StorageFileName
 
 # Deploy the storage account
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile $TemplateFile -TemplateParameterObject $Parameters 
+New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile $TemplateFile -TemplateParameterObject $Parameters 
 ``` 
 
-Save the file locally as `DeployTemplate.ps1`.
+Save the file locally as **DeployTemplate.ps1**.
 
 ## Import and publish the runbook into your Azure Automation account
 
@@ -178,7 +179,7 @@ and then publish the runbook.
 For information about how to import and publish a runbook in the Azure portal, see 
 [Manage runbooks in Azure Automation](manage-runbooks.md).
 
-To import `DeployTemplate.ps1` into your Automation account as a PowerShell runbook,
+To import **DeployTemplate.ps1** into your Automation account as a PowerShell runbook,
 run the following PowerShell commands:
 
 ```powershell
@@ -191,7 +192,7 @@ $importParams = @{
     AutomationAccountName = 'MyAutomationAccount'
     Type = 'PowerShell'
 }
-Import-AzureRmAutomationRunbook @importParams
+Import-AzAutomationRunbook @importParams
 
 # Publish the runbook
 $publishParams = @{
@@ -199,16 +200,15 @@ $publishParams = @{
     AutomationAccountName = 'MyAutomationAccount'
     Name = 'DeployTemplate'
 }
-Publish-AzureRmAutomationRunbook @publishParams
+Publish-AzAutomationRunbook @publishParams
 ```
 
 ## Start the runbook
 
 Now we start the runbook by calling the 
-[Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook)
-cmdlet.
-
-For information about how to start a runbook in the Azure portal, see
+[Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0
+)
+cmdlet. For information about how to start a runbook in the Azure portal, see
 [Starting a runbook in Azure Automation](automation-starting-a-runbook.md).
 
 Run the following commands in the PowerShell console:
@@ -222,7 +222,7 @@ $runbookParams = @{
     StorageFileName = 'TemplateTest.json' 
 }
 
-# Set up parameters for the Start-AzureRmAutomationRunbook cmdlet
+# Set up parameters for the Start-AzAutomationRunbook cmdlet
 $startParams = @{
     ResourceGroupName = 'MyResourceGroup'
     AutomationAccountName = 'MyAutomationAccount'
@@ -231,28 +231,28 @@ $startParams = @{
 }
 
 # Start the runbook
-$job = Start-AzureRmAutomationRunbook @startParams
+$job = Start-AzAutomationRunbook @startParams
 ```
 
 The runbook runs, and you can check its status by running `$job.Status`.
 
 The runbook gets the Resource Manager template and uses it to deploy a new Azure Storage account.
 You can see that the new storage account was created by running the following command:
+
 ```powershell
-Get-AzureRmStorageAccount
+Get-AzStorageAccount
 ```
 
 ## Summary
 
-That's it! Now you can use Azure Automation and Azure Storage,
-and Resource Manager templates to deploy all your Azure resources.
+That's it! Now you can use Azure Automation and Azure Storage with Resource Manager templates to deploy all your Azure resources.
 
 ## Next steps
 
-* To learn more about Resource Manager templates, see [Azure Resource Manager overview](../azure-resource-manager/management/overview.md)
+* To learn more about Resource Manager templates, see [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
 * To get started with Azure Storage, see [Introduction to Azure Storage](../storage/common/storage-introduction.md).
 * To find other useful Azure Automation runbooks, see
 [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md).
-* To find other useful Resource Manager templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/)
-
-
+* To find other useful Resource Manager templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/).
+* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
