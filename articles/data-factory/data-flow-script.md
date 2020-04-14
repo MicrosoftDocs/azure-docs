@@ -6,7 +6,7 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
+ms.date: 04/13/2020
 ---
 
 # Data flow script (DFS)
@@ -134,6 +134,11 @@ derive1 sink(allowSchemaDrift: true,
 ```
 
 ## Script snippets
+
+Script snippets are shareable code of Data Flow Script that you can use to share across data flows. This video below talks about how to use script snippets and utilizing Data Flow Script to copy and paste portions of the script behind your data flow graphs:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tA9b]
+
 
 ### Aggregated summary stats
 Add an Aggregate transformation to your data flow called "SummaryStats" and then paste in this code below for the aggregate function in your script, replacing the existing SummaryStats. This will provide a generic pattern for data profile summary statistics.
