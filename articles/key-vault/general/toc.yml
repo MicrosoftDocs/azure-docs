@@ -82,9 +82,9 @@
   - name: Secure
     items:
     - name: Integrate with Azure Private Link Service
-    href: private-link-service.md
+      href: private-link-service.md
     - name: Access Key Vault behind a firewall - Azure Key Vault
-    href: access-behind-firewall.md
+      href: access-behind-firewall.md
   - name: Soft-Delete
     items:
     - name: Use soft delete with CLI
