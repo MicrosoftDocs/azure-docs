@@ -65,7 +65,7 @@ When an instance goes through a state change operation because of a PUT, PATCH o
 
 Virtual machine scale sets provide the capability to temporarily suspend automatic instance repairs if needed. The *serviceState* for automatic repairs under the property *orchestrationServices* in instance view of virtual machine scale set can be used to suspend or resume the automatic repairs. When a scale set is opted into automatic repairs, the value of parameter *serviceState* is set to *Running*. When the automatic repairs are suspended for a scale set, the parameter *serviceState* is set to *Suspended*. If a scale set is not opted into the automatic repairs feature, then the parameter *serviceState* is set to *Not Running*.  
 
-If newly created instances for replacing the unhealthy ones in a scale set continue to remain unhealthy even after repeatedly performing repair operations, then as a safety measure the platform updates the *serviceState* for automatic repairs to *Suspended*. You can resume the automatic repairs again by setting the value of *serviceState* for automatic repairs to *Running*. Detailed instructions are provided in the section on [viewing and updating the service state of automatic repairs policy](#viewing-and-updating-the-service-state-of-automatic-repairs-policy) for your scale set. 
+If newly created instances for replacing the unhealthy ones in a scale set continue to remain unhealthy even after repeatedly performing repair operations, then as a safety measure the platform updates the *serviceState* for automatic repairs to *Suspended*. You can resume the automatic repairs again by setting the value of *serviceState* for automatic repairs to *Running*. Detailed instructions are provided in the section on [viewing and updating the service state of automatic repairs policy](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) for your scale set. 
 
 The automatic instance repairs process works as follows:
 
@@ -214,7 +214,7 @@ az vmss update \
   --automatic-repairs-period 30
 ```
 
-## Viewing and updating the service state of automatic instance repairs policy 
+## Viewing and updating the service state of automatic instance repairs policy
 
 ### REST API 
 
