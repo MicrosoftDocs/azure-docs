@@ -49,10 +49,10 @@ Like many Python web frameworks, Django [requires certain changes before they ca
 
 Take a look at *azuresite/production.py*, which makes the necessary configuration for App Service. It's added for convenience but not yet used by the app. Briefly, it does the following:
 
-    - Inherit all settings from *azuresite/settings.py*.
-    - Add the fully qualified domain name of the App Service app to the allowed hosts. 
-    - Use [WhiteNoise](https://whitenoise.evans.io/en/stable/) to enable serving static files in production, because Django by default doesn't serve static files in production. The WhiteNoise package is already included in *requirements.txt*.
-    - Add configuration for PostgreSQL database. By default, Django uses Sqlite3 as the database, but it's not suitable for production apps. The [psycopg2-binary](https://pypi.org/project/psycopg2-binary/) package is already included in *requirements.txt*.
+- Inherit all settings from *azuresite/settings.py*.
+- Add the fully qualified domain name of the App Service app to the allowed hosts. 
+- Use [WhiteNoise](https://whitenoise.evans.io/en/stable/) to enable serving static files in production, because Django by default doesn't serve static files in production. The WhiteNoise package is already included in *requirements.txt*.
+- Add configuration for PostgreSQL database. By default, Django uses Sqlite3 as the database, but it's not suitable for production apps. The [psycopg2-binary](https://pypi.org/project/psycopg2-binary/) package is already included in *requirements.txt*.
 
 Make the following changes to your app so that it uses *azuresite/production.py* when in App Service.
 
