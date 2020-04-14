@@ -3,6 +3,7 @@ title: Copy an image version from another gallery
 description: Copy an image version from another gallery with the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: imaging
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 04/09/2020

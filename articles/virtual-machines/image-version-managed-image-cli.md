@@ -3,9 +3,10 @@ title: Migrate from a managed image to an image version with the Azure CLI
 description: Learn how to migrate from a managed image to an image version in a Shared Image Gallery using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: imaging
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 03/24/2020
+ms.date: 04/13/2020
 ms.author: cynthn
 #PMcontact: akjosh
 #Need to show how to get the gallery and definition
@@ -35,7 +36,6 @@ Because managed images are always generalized images, you will create a an image
 
 Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. 
 
-
 For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
 
 Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
@@ -43,10 +43,13 @@ Create an image definition in the gallery using [az sig image-definition create]
 In this example, the image definition is named *myImageDefinition*, and is for a [generalized](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
 
 ```azurecli-interactive 
+resourceGroup=myGalleryRG
+gallery=myGallery
+imageDef=myImageDefinition
 az sig image-definition create \
-   --resource-group myGalleryRG \
-   --gallery-name myGallery \
-   --gallery-image-definition myImageDefinition \
+   --resource-group $resourceGroup \
+   --gallery-name $gallery \
+   --gallery-image-definition $imageDef \
    --publisher myPublisher \
    --offer myOffer \
    --sku mySKU \
@@ -55,26 +58,31 @@ az sig image-definition create \
 ```
 
 
-
-
 ## Create the image version
 
-Create versions using [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). You will need to pass in the ID of the managed image to use as a baseline for creating the image version. You can use [az image list](/cli/azure/image?view#az-image-list) to get information about images that are in a resource group. 
+Create versions using [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). You will need to pass in the ID of the managed image to use as a baseline for creating the image version. You can use [az image list](/cli/azure/image?view#az-image-list) to get the IDs for your images. 
+
+```azurecli-interactive
+az image list --query "[].[name, id]" -o tsv
+```
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
-In this example, the version of our image is *1.0.0* and we are going to create 2 replicas in the *West Central US* region, 1 replica in the *South Central US* region and 1 replica in the *East US 2* region using zone-redundant storage.
+In this example, the version of our image is *1.0.0* and we are going to create 1 replica in the *South Central US* region and 1 replica in the *East US 2* region using zone-redundant storage. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
+
+Pass the ID of the managed image in the `--managed-image` parameter.
 
 
 ```azurecli-interactive 
+imageID="/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
 az sig image-version create \
-   --resource-group myGalleryRG \
-   --gallery-name myGallery \
-   --gallery-image-definition myImageDefinition \
+   --resource-group $resourceGroup \
+   --gallery-name $gallery \
+   --gallery-image-definition $imageDef \
    --gallery-image-version 1.0.0 \
-   --target-regions "WestCentralUS" "SouthCentralUS=1" "EastUS2=1=Standard_ZRS" \
+   --target-regions "southcentralus=1" "eastus2=1=standard_zrs" \
    --replica-count 2 \
-   --managed-image "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
+   --managed-image $imageID
 ```
 
 > [!NOTE]

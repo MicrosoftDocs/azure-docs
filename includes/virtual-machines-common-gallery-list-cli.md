@@ -2,6 +2,7 @@
  title: include file
  description: include file
  services: virtual-machines
+ ms.subservice: imaging
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include

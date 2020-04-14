@@ -2,7 +2,8 @@
 title: Capture a managed image of a Linux VM using Azure CLI 
 description: Capture a managed image of an Azure VM to use for mass deployments by using the Azure CLI.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: imaging
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
