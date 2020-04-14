@@ -9,7 +9,7 @@
   items:
 - name: Tutorials 
   items:
-  - name: Azure Virtual Machine:
+  - name: Azure Virtual Machine
     items:
     - name: Use Azure Key Vault with a Windows virtual machine in .NET
       href: tutorial-net-windows-virtual-machine.md
@@ -91,7 +91,7 @@
       href: soft-delete-cli.md
     - name: Use soft-delete with PowerShell
       href: soft-delete-powershell.md
-  - name: Troubleshoot:
+  - name: Troubleshoot
     items:
     - name: Change the key vault tenant ID after a subscription move
     href: subscription-move-fix.md
