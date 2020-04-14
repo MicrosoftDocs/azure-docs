@@ -173,7 +173,7 @@ The worker nodes and Zookeeper nodes aren't directly accessible from the interne
     ssh sshuser@wn0-myhdi
     ```
 
-    To retrieve a list of the node names, see the [Manage HDInsight by using the Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) document.
+    To retrieve a list of the node names, see the [Manage HDInsight by using the Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes) document.
 
 If the SSH account is secured using a __password__, enter the password when connecting.
 
