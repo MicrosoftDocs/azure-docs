@@ -164,7 +164,21 @@ To disconnect with your elevated logged-on credentials (interactive), run the fo
 
 ### Reconnect
 
-This parameter specifies
+This parameter reconnects the already registered or connected machine with Azure Arc for servers (preview). This may be necessary if the machine has been turned off, at least 45 days, for its certificate to expire. This parameter uses the authentication options provided to retrieve new credentials corresponding to the Azure Resource Manager resource representing this machine.
+
+This command requires higher privileges than the [Azure Connected Machine Onboarding](overview.md#required-permissions) role.
+
+To reconnect using a service principal, run the following command:
+
+`azcmagent reconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
+
+To reconnect using an access token, run the following command:
+
+`azcmagent reconnect --access-token <accessToken>`
+
+To reconnect with your elevated logged-on credentials (interactive), run the following command:
+
+`azcmagent reconnect --tenant-id <tenantID>`
 
 ## Remove the agent
 
