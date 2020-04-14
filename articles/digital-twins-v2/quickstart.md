@@ -111,7 +111,7 @@ Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on 
 
 To get started with this app on your local machine, navigate to the sample project folder you downloaded from this repository.
 
-Open _DigitalTwinsMetadata > DigitalTwinsSample > **Program.cs**_, and change `AdtInstanceUrl` to your Azure Digital Twins instance hostName, `ClientId` to your *Application ID*, and `TenantId` to your *Directory ID*.
+Open _DigitalTwinsMetadata/DigitalTwinsSample/**Program.cs**_, and change `AdtInstanceUrl` to your Azure Digital Twins instance hostName, `ClientId` to your *Application ID*, and `TenantId` to your *Directory ID*.
 
 ```csharp
 private const string ClientId = "<your-application-ID>";
@@ -122,7 +122,12 @@ const string AdtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostNa
 
 ## Use the sample project to answer environment questions
 
-Start the *DigitalTwinsSample* project in Visual Studio. In the console that opens, run the following command to create a sample Azure Digital Twins solution:
+Open _DigitalTwinsMetadata/**DigitalTwinsSample.sln**_ in Visual Studio. Run the project with this button in the toolbar:
+
+![The Visual Studio start button](media/quickstart/start-button.png)
+
+
+A console window will open, carry out device authentication, and wait for a command. In this console, run the following command to create a sample Azure Digital Twins solution:
 
 ```cmd/sh
 buildingScenario
@@ -142,6 +147,9 @@ A main feature of Azure Digital Twins is the ability to query your twin graph ea
     This allows you to take stock of your environment at a glance, and make sure everything is represented as you'd like it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details.
 
     ![Results of twin query, showing floor1, room21, and thermostat67](media/quickstart/output-query-all.png)
+
+    >[!NOTE]
+    >Observe how `queryTwins` without any additional arguments is the equivalent of `queryTwins SELECT * FROM DIGITALTWINS`.
 
 * **What are all the thermostats in my environment?** (query by model)
 

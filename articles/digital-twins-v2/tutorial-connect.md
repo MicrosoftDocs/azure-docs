@@ -32,9 +32,9 @@ In this tutorial, you will...
 
 ## Prerequisites
 
-Before you start, install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) version 16.5.1XXX or later on your development machine. If you have an older version installed already, open the *Visual Studio Installer* app on your machine and follow the prompts to update your installation.
+This tutorial uses the Azure Digital Twins instance and configured sample project from the Azure Digital Twins [quickstart](quickstart.md). 
 
-This tutorial uses the Azure Digital Twins instance and configured sample project from the [quickstart](quickstart.md) for creating and configuring Azure Digital Twins. You will need to complete the quickstart before building on it in this tutorial.
+You should complete the quickstart through the "Configure the sample project" step, in order to set up an Azure Digital Twins workspace before continuing with this tutorial. (The final step in the quickstart, "Use the sample project to answer environment questions", is not required for this).
 
 ## Instantiate the building scenario
 
@@ -51,7 +51,7 @@ In this tutorial, you will work with pre-written sample app to work with Azure D
 * *HubtToDT* - An Azure Functions app to update your Azure Digital Twins graph as a result of telemetry from IoT Hub
 * *DTRoutedData* - An Azure Functions app to update your Azure Digital Twins graph according to Azure Digital Twins data 
 
-Start (![Visual Studio start button](media/tutorial-build/start-button.jpg)) the *DigitalTwinsSample* project in Visual Studio. In the console that opens, run the following command to create a sample Azure Digital Twins solution.
+Start (![Visual Studio start button](media/quickstart/start-button.png)) the *DigitalTwinsSample* project in Visual Studio. In the console that opens, run the following command to create a sample Azure Digital Twins solution.
 
 `buildingScenario`
 
@@ -203,7 +203,7 @@ deviceConnectionString = <device connection-string>
 
 ### Start the simulation
 
-To see the results of the data simulation that you've set up, start (![Visual Studio start button](media/tutorial-build/start-button.jpg)) the **DeviceSimulator** project in Visual Studio. This will run the simulated device.
+To see the results of the data simulation that you've set up, start (![Visual Studio start button](media/quickstart/start-button.png)) the **DeviceSimulator** project in Visual Studio. This will run the simulated device.
 
 A console window will open and display the following messages that the device is sending to IoT Hub.
 ![Console output of the device simulator showing temperature telemetry being sent](media/tutorial-connect/device-simulator.jpg)
@@ -212,7 +212,7 @@ You don't need to do anything else in this console, but leave it running while y
 
 The Azure function published earlier listens to the IoT Hub data and sends it on to Azure Digital Twins.
 
-To see the data from the Azure Digital Twins side, start (![Visual Studio start button](media/tutorial-build/start-button.jpg)) the **DigitalTwinsSample** project in Visual Studio. This will open a console for interacting with your Azure Digital Twins instance.
+To see the data from the Azure Digital Twins side, start (![Visual Studio start button](media/quickstart/start-button.png)) the **DigitalTwinsSample** project in Visual Studio. This will open a console for interacting with your Azure Digital Twins instance.
 
 Run the following command in the new console:
 
@@ -324,7 +324,7 @@ Select **Create** on the *Create Event Subscription* page.
 
 ### Start the simulation
 
-To see the results of the data simulation that you've set up, start (![Visual Studio start button](media/tutorial-build/start-button.jpg)) the **DeviceSimulator** project in Visual Studio.
+To see the results of the data simulation that you've set up, start (![Visual Studio start button](media/quickstart/start-button.png)) the **DeviceSimulator** project in Visual Studio.
 
 A console window will open and display the following messages that the device is sending to IoT Hub.
 ![Console output of the device simulator showing temperature telemetry being sent](media/tutorial-connect/device-simulator.jpg)
@@ -333,7 +333,7 @@ You don't need to do anything else in this console, but leave it running while y
 
 The Azure function published earlier listens to the device data and uses it to update the temperature property on a *Room*.
 
-To see the data from the Azure Digital Twins side, start (![Visual Studio start button](media/tutorial-build/start-button.jpg)) the **DigitalTwinsSample** project in Visual Studio
+To see the data from the Azure Digital Twins side, start (![Visual Studio start button](media/quickstart/start-button.png)) the **DigitalTwinsSample** project in Visual Studio
 
 Run the following command in the new console.
 

@@ -15,77 +15,139 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Azure Digital Twins basics
+# Build the basics of Azure Digital Twins
 
-This tutorial shows you how to set up and work with three major Azure Digital Twins concepts: models, digital twins, and the twin graph.
+This tutorial shows you how to set up and work with three major Azure Digital Twins concepts: models, digital twins, and the twin graph. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+You will start at the beginning of the solution process and use pre-written sample code to create models, digital twins, and relationships to form a sample graph.
 
 ## Prerequisites
 
-Before you start, install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) version 16.5.1XXX or later on your development machine. If you have an older version installed already, open the *Visual Studio Installer* app on your machine and follow the prompts to update your installation.
+This tutorial uses the Azure Digital Twins instance and configured sample project from the Azure Digital Twins [quickstart](quickstart.md). 
 
-This tutorial uses the Azure Digital Twins instance and configured sample project from the [quickstart](quickstart.md) for creating and configuring Azure Digital Twins. You will need to complete the quickstart before building on it in this tutorial.
+You should complete the quickstart through the "Configure the sample project" step, in order to set up an Azure Digital Twins workspace before continuing with this tutorial. (The final step in the quickstart, "Use the sample project to answer environment questions", is not required for this).
 
 ## Model a physical environment with DTDL
 
-The first step in crafting an Azure Digital Twins solution is concepting and defining twin [**models**](concepts-models.md) for your environment. Models are similar to classes in object-oriented programming languages; they provide user-defined templates for digital twins to follow and instantiate later. They are written in a JSON-like language called Digital Twins Definition Language (DTDL).
+The first step in building out an Azure Digital Twins solution is concepting and defining twin [**models**](concepts-models.md) for your environment. 
 
-You can see sample models in */DigitalTwinsMetadata/DigitalTwinsSample/Models*. Open *Floor.json* and *Room.json* and try making one of the following changes:
-* Update existing models (*Floor.json* or *Room.json*)
-  - Start by changing the `@id` value to `urn:example:<model-name>:2`. The "2" is the version number, so doing this will indicates that you are providing a more-updated version of this model. Any number greater than the current version number will also work.
-  - Then play around with adding/changing properties or relationships.
-* Create your own models
-  - Use the existing model examples to create your own models in the */DigitalTwinsMetadata/DigitalTwinsSample/Models* folder, and upload them using the process described earlier.
+Models are similar to classes in object-oriented programming languages; they provide user-defined templates for digital twins to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *commands*, *relationships*, and *components*.
 
-Once you are satisfied with the models, upload a model to your Azure Digital Twins instance by starting (![Visual Studio start button](media/tutorial-build/start-button.jpg)) the **DigitalTwinsSample** project in Visual Studio. A console window will open, carry out device authentication, and present action options.
+In the sample project you downloaded in the quickstart, you will find sample models in the *DigitalTwinsMetadata/DigitalTwinsSample/Models* folder. 
 
-Run the following command to upload the models for *Floor* and *Room*.
+Open *Room.json*, and change it in the following ways:
+* **Update the version number**, to indicate that you are providing a more-updated version of this model. Do this by changing the *1* at the end of the `@id` value to a *2*. Any number greater than the current version number will also work.
+* **Edit a property**. Change the name of the `Humidity` property to *HumidityLevel* (or something different if you'd like. If you use something different than *HumidityLevel*, remember what you used and continue using that instead of *HumidityLevel* throughout this tutorial).
+* **Add a property**. After the `HumidityLevel` property that ends on line 15, paste the following code to add a `DisplayName` property to the room:
 
- ```cmd
- addModels Floor Room
- ```
+    ```json
+    ,
+    {
+      "@type": "Property",
+      "name": "DisplayName",
+      "schema": "string"
+    }
+    ```
+* **Add a relationship**. After the `DisplayName` property that ends on line 20, paste the following code to add the ability for this type of twin to form *contains* relationships with other twins:
 
-Afterwards, you can verify the models were created with the `listModels` command. 
+    ```json
+    ,
+    {
+      "@type": "Relationship",
+      "@id": "urn:contosocom:DigitalTwins:contains:1",
+      "name": "contains",
+      "target": "*"
+    }
+    ```
+
+When you are finished, the updated model should look like this:
+
+![Edited Room.json with updated version number, HumidityLevel and DisplayName properties, and "contains" relationship](media/tutorial-build/room-model.png)
+
+> [!TIP]
+> If you want to try creating your own model, you can paste the Room model into a new file that you save with a *.json* extension in the *DigitalTwinsMetadata/DigitalTwinsSample/Models* folder. Then play around with adding properties and relationships to represent whatever you would like. You can also look at the other sample models in this folder for ideas.
+
+### Upload models to Azure Digital Twins
+
+Once you have designed your model(s), you need to upload them to your Azure Digital Twins instance before you can create twins that use them.
+
+Open Visual Studio 2019, and 
+Open _DigitalTwinsMetadata/**DigitalTwinsSample.sln**_ in Visual Studio. Run the project with this button in the toolbar:
+
+![The Visual Studio start button](media/quickstart/start-button.png)
+ 
+A console window will open, carry out device authentication, and wait for a command. In this console, run the following command to upload both your edited model for *Room* and another model, *Floor*.
+
+```cmd
+addModels Room Floor
+```
+
+> [!TIP]
+> If you designed your own model earlier, you can also upload it here, by adding the part of its file name before the *.json* extension to the `Room Floor` list in the command above.
+
+Verify the models were created by running the `listModels` command. This will query the Azure Digital Twins instance for all models that have been uploaded. If you have only uploaded the edited *Room* model, it will look like this:
+
+![Results of listModels, showing the updated Room model](media/tutorial-build/output-listModels.png)
+
+> [!NOTE]
+> If you've added models to this Azure Digital Twins instance in another quickstart or tutorial without deleting them, they will also show up with this command.
+
+Keep the project console window running for the next section.
 
 ## Create digital twins
 
-Now that you have uploaded some models to your Azure Digital Twins instance, you can create **digital twins** based on the model definitions. Digital twins represent the entities within your business environment, and can be things like sensors on a farm, rooms in a building, or lights in a car. 
+Now that some models have been uploaded to your Azure Digital Twins instance, you can create **digital twins** based on the model definitions. Digital twins represent the entities within your business environment—things like sensors on a farm, rooms in a building, or lights in a car. 
 
-To create a twin, you reference the model that the twin is based on, and define values for any properties in the model.
+To create a digital twin, you use the `addTwin` command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You do not have to pass any relationship information at this stage.
 
-Run this code to create several twins based on the *Floor* and *Room* models. Recall that *Room* has two properties, so creating a twin of this type requires you to provide arguments with the initial values.
+Run this code in the project console to create several twins based on the *Floor* and *Room* models. Recall that *Room* has three properties, so you can provide arguments with the initial values for these.
 
-```csharp
-addTwin urn:example:Floor:1 floor0
-addTwin urn:example:Room:1 room0 Temperature double 100 Humidity double 60
-addTwin urn:example:Room:1 room1 Temperature double 200 Humidity double 30
+```cmd
+addTwin urn:example:Floor:1 floor2
+addTwin urn:example:Room:2 room22 DisplayName string Room22 Temperature double 100 HumidityLevel double 60
+addTwin urn:example:Room:2 room23 DisplayName string Room23 Temperature double 200 HumidityLevel double 30
 ```
 
-Verify that the twins were created by querying your Azure Digital Twins instance with `queryTwins`.
+> [!TIP]
+> If you uploaded your own model earlier, try making your own `addTwin` command based on the commands above to add a twin of your own model type.
 
-   * Notice that `queryTwins` allows you to input SQL-like queries as an argument, but leaving it blank executes a `SELECT * FROM DIGITALTWINS` query.
+The output from these commands should indicate the twins were created successfully. Here is an excerpt showing the *Floor* twin and one of the *Room* twins:
+
+![Excerpt from the results of addTwin commands, showing floor2 and room22](media/tutorial-build/output-addTwin.png)
+
+You can also verify that the twins were created by running the `queryTwins` command. This command queries your Azure Digital Twins instance for all the digital twins it contains.
+
+> [!NOTE]
+> If you've added other twins to this Azure Digital Twins instance in another quickstart or tutorial without deleting them, they will also show up with this command.
 
 ## Create a graph by adding relationships
 
-Next, we'll connect these twins using **relationships** to form a **twin graph** of your entire environment. The following example adds a "contains" edge from the *Floor* twin to each of the *Room* twins.
+Next, you can create some **relationships** between these twins, to connect them into a **twin graph**. Twin graphs are used to represent an entire environment. 
 
-  ```csharp
-  addEdge floor0 contains room0 edge0
-  addEdge floor0 contains room1 edge1
-  ```
+To add a relationship, you use the `addEdge` command. Specify the twin that the relationship is coming from, the type of relationship to add, and the twin that the relationship is connecting to. Lastly, provide a name (ID) for the relationship.
 
-Verify the edges were created by running either of the following commands:
+The following example adds a "contains" relationship from *floor2* to each of the *Room* twins you created earlier. Note that there must be a *contains* relationship defined on the *Floor* model for this to be possible.
 
-  ```csharp
-  listEdges floor0
-  ```
-  or
-  ```csharp
-  getEdgeById floor0 contains edge0
-  getEdgeById floor0 contains edge1
-  ```
+```cmd
+addEdge floor2 contains room22 edge0
+addEdge floor2 contains room23 edge1
+```
 
-In this tutorial, you set up twins and relationships to form this graph:
+The output from these commands shows information about the edges being created:
 
-![A graph with a "Floor" node connected to two different "Room" nodes via "contains" relationships](media/tutorial-build/sample-graph.jpg)
+![Excerpt from the results of addEdge commands, showing edge0 and edge1](media/tutorial-build/output-addEdge.png)
+
+To verify the relationships were created successfully, use either of the following commands to query the relationships in your Azure Digital Twins instance.
+* To see all relationships coming off of floor2,
+    ```cmd
+    listEdges floor2
+    ```
+* To query for these relationships by ID, 
+    ```csharp
+    getEdgeById floor2 contains edge0
+    getEdgeById floor2 contains edge1
+    ```
+
+The twins and relationships you have set up in this tutorial form the following conceptual graph:
+
+![A graph showing floor2 connected via edge0 to room22, and edge1 to room23](media/tutorial-build/sample-graph.png)
