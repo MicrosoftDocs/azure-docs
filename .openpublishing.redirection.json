@@ -4953,6 +4953,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-grid/eventsources.md",
+      "redirect_url": "/azure/event-grid/overview.md#event-sources",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/event-grid/event-subscription-template.md",
       "redirect_url": "/azure/event-grid/template-samples",
       "redirect_document_id": false
