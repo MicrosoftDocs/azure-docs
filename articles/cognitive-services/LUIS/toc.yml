@@ -99,6 +99,8 @@
     - name: Features
       href: luis-concept-feature.md
       displayName: descriptor, phrase list
+    - name: Runtime changes to models
+      href: schema-change-prediction-runtime.md
   - name: Prediction score
     href: luis-concept-prediction-score.md
   - name: Best practices
@@ -251,7 +253,7 @@
     - name: Recognizers-Text
       href: https://github.com/Microsoft/Recognizers-Text
     - name: Intelligent Kiosk
-      href: https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk      
+      href: https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk
 - name: Reference
   items:
   - name: Developer reference
