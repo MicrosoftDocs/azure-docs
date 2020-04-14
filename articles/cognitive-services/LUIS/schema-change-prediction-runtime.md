@@ -152,7 +152,7 @@ The `resolution` property can be a number, a string, an object, or an array:
 * 12345
 * ["a", "b", "c"]
 
-
+<a name="dynamic-lists-passed-in-at-prediction-time"></a>
 
 ## Dynamic lists
 
