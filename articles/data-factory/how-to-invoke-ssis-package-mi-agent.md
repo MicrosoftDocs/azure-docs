@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: lle
 author: lle
-ms.date: 07/31/2020
+ms.date: 04/14/2020
 ---
 
 # Execute SSIS packages by Azure SQL Managed Instance Agent
