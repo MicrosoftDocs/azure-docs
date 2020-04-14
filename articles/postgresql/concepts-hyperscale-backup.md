@@ -36,7 +36,7 @@ in Azure Database for PostgreSQL.
 
 For current backup storage pricing, see the Azure Database for PostgreSQL -
 Hyperscale (Citus) [pricing
-page](https://azure.microsoft.com/en-us/pricing/details/postgresql/hyperscale-citus/).
+page](https://azure.microsoft.com/pricing/details/postgresql/hyperscale-citus/).
 
 ## Restore
 
