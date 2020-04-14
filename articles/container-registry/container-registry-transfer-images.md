@@ -2,7 +2,7 @@
 title: Transfer artifacts
 description: Transfer collections of images or other artifacts from one container registry to another registry by creating a transfer pipeline using Azure storage accounts
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 04/13/2020
 ms.custom: 
 ---
 
@@ -27,7 +27,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 * **Container registries** - You need an existing source registry with artifacts to transfer, and a target registry. ACR transfer is intended for movement across physically disconnected clouds. For testing, the source and target registries can be in the same or a different Azure subscription, Active Directory tenant, or cloud. If you need to create a registry, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md). 
 * **Storage accounts** - Create source and target storage accounts in a subscription and location of your choice. For testing purposes, you can use the same subscription or subscriptions as your source and target registries. For cross-cloud scenarios, typically you create a separate storage account in each cloud. If needed, create the storage accounts with the [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) or other tools. 
 
- Create a blob container for artifact transfer in each account. For example, create a container named *transfer*. Two or more transfer pipelines can share the same storage account, but should use different storage container scopes.
+  Create a blob container for artifact transfer in each account. For example, create a container named *transfer*. Two or more transfer pipelines can share the same storage account, but should use different storage container scopes.
 * **Key vaults** - Key vaults are needed to store SAS token secrets used to access source and target storage accounts. Create the source and target key vaults in the same Azure subscription or subscriptions as your source and target registries. If needed, create key vaults with the [Azure CLI](../key-vault/quick-create-cli.md) or other tools.
 * **Environment variables** - For example commands in this article, set the following environment variables for the source and target environments. All examples are formatted for the Bash shell.
   ```console
@@ -45,8 +45,8 @@ You create the following three pipeline resources for image transfer between reg
 
 Storage authentication uses SAS tokens, managed as secrets in key vaults. The pipelines use managed identities to read the secrets in the vaults.
 
-* **[ExportPipeline](#create-exportpipeline-with-resource-manager)** - Long-lasting resource that contains high-level information about the *source* registry and storage account. This information includes the source storage blob container URI and the key vault secret URI of the storage SAS token. 
-* **[ImportPipeline](#create-importpipeline-with-resource-manager)** - Long-lasting resource that contains high-level information about the *target* registry and storage account. This information includes the target storage blob container URI and the key vault secret URI of the storage SAS token. An import trigger is enabled by default, so the pipeline runs automatically when artifacts land in the target storage container. 
+* **[ExportPipeline](#create-exportpipeline-with-resource-manager)** - Long-lasting resource that contains high-level information about the *source* registry and storage account. This information includes the source storage blob container URI and the key vault managing the source SAS token. 
+* **[ImportPipeline](#create-importpipeline-with-resource-manager)** - Long-lasting resource that contains high-level information about the *target* registry and storage account. This information includes the target storage blob container URI and the key vault managing the target SAS token. An import trigger is enabled by default, so the pipeline runs automatically when an artifact blob lands     in the target storage container. 
 * **[PipelineRun](#create-pipelinerun-with-resource-manager)** - Resource used to invoke either an ExportPipeline or ImportPipeline resource.  
   * You run the ExportPipeline manually by creating a PipelineRun resource and specify the artifacts to export.  
   * If an import trigger is enabled, the ImportPipeline runs automatically. It can also be run manually using a PipelineRun. 
@@ -58,7 +58,7 @@ Storage authentication uses SAS tokens, managed as secrets in key vaults. The pi
 
 ## Create and store SAS keys
 
-Transfer uses shared access signature (SAS) tokens to access the designated storage accounts in the source and target environments. Generate and store tokens as described in the following sections.  
+Transfer uses shared access signature (SAS) tokens to access the storage accounts in the source and target environments. Generate and store tokens as described in the following sections.  
 
 ### Generate SAS token for export
 
@@ -71,7 +71,7 @@ In the following example, command output is assigned to the EXPORT_SAS environme
 ```azurecli
 EXPORT_SAS=?$(az storage container generate-sas \
   --name transfer \
-  --account-name $SA_SOURCE \
+  --account-name $SOURCE_SA \
   --expiry 2020-05-01 \
   --permissions alrw \
   --https-only \
@@ -100,7 +100,7 @@ In the following example, command output is assigned to the IMPORT_SAS environme
 ```azurecli
 IMPORT_SAS=?$(az storage container generate-sas \
   --name transfer \
-  --account-name $SA_TARGET \
+  --account-name $TARGET_SA \
   --expiry 2020-05-01 \
   --permissions dlr \
   --https-only \
@@ -120,7 +120,7 @@ az keyvault secret set \
 
 ## Create ExportPipeline with Resource Manager
 
-Create an ExportPipeline resource for your source container registry using Azure Resource Manager template deployment. The ExportPipeline resource is provisioned with the source user-assigned identity you created in the previous section.
+Create an ExportPipeline resource for your source container registry using Azure Resource Manager template deployment.
 
 Copy ExportPipeline Resource Manager [template files](https://github.com/Azure/acr/tree/master/docs/image-transfer/ExportPipelines) to a local folder.
 
@@ -138,9 +138,9 @@ Enter the following parameter values in the file `azuredeploy.parameters.json`:
 
 The `options` property for the export pipelines supports optional boolean values. The following values are recommended:
 
-|Parameter  |Description  |
+|Parameter  |Value  |
 |---------|---------|
-|options | OverwriteBlobs - Existing target blobs are overwritten<br/>ContinueOnErrors - Continue export of remaining artifacts in the source registry if one artifact export fails.
+|options | OverwriteBlobs - Overwrite existing target blobs<br/>ContinueOnErrors - Continue export of remaining artifacts in the source registry if one artifact export fails.
 
 ### Create the resource
 
@@ -166,7 +166,7 @@ EXPORT_RES_ID=$(az group deployment show \
 
 ## Create ImportPipeline with Resource Manager 
 
-Create an ImportPipeline resource in your target container registry using Azure Resource Manager template deployment. The ImportPipeline resource is provisioned with the target user-assigned identity you created previously. By default, the pipeline is enabled to import automatically when the storage account in the target environment has an artifact blob.
+Create an ImportPipeline resource in your target container registry using Azure Resource Manager template deployment. By default, the pipeline is enabled to import automatically when the storage account in the target environment has an artifact blob.
 
 Copy ImportPipeline Resource Manager [template files](https://github.com/Azure/acr/tree/master/docs/image-transfer/ImportPipelines) to a local folder.
 
@@ -184,9 +184,9 @@ Parameter  |Value  |
 
 The `options` property for the import pipeline supports optional boolean values. The following values are recommended:
 
-|Parameter  |Description  |
+|Parameter  |Value  |
 |---------|---------|
-|options | OverwriteTags - Existing target tags are overwritten<br/>DeleteSourceBlobOnSuccess - Delete the source storage blob after successful import to the target registry<br/>ContinueOnErrors - Continue import of remaining artifacts in the target registry if one artifact import fails.
+|options | OverwriteTags - Overwrite existing target tags<br/>DeleteSourceBlobOnSuccess - Delete the source storage blob after successful import to the target registry<br/>ContinueOnErrors - Continue import of remaining artifacts in the target registry if one artifact import fails.
 
 ### Create the resource
 
@@ -224,7 +224,7 @@ Enter the following parameter values in the file `azuredeploy.parameters.json`:
 |pipelineRunName     |  Name you choose for the run       |
 |pipelineResourceId     |  Resource ID of the export pipeline.<br/>Example: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/exportPipelines/myExportPipeline`|
 |targetName     |  Name you choose for the artifacts blob exported to your source storage account, such as *myblob*
-|artifacts | Array of source artifacts to transfer, as tags or manifest digests<br/>Example: `[samples/hello-world:v1", "samples/nginx:v1"]` |
+|artifacts | Array of source artifacts to transfer, as tags or manifest digests<br/>Example: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
 
 Run [az deployment group create][az-deployment-group-create] to create the PipelineRun resource. The following example names the deployment *exportPipelineRun*.
 
@@ -252,13 +252,13 @@ az storage blob list \
 
 Use the AzCopy tool or other methods to [transfer blob data](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) from the source storage account to the target storage account.
 
-For example, the following [`azcopy sync`](/azure/storage/common/storage-ref-azcopy-sync) command replicates the *transfer* container from the source storage account to the *transfer* container in the target account. Authentication uses SAS tokens with appropriate permissions for the source and target containers. (Steps to create tokens are not shown.)
+For example, the following [`azcopy copy`](/azure/storage/common/storage-ref-azcopy-copy) command copies myblob from the *transfer* container in the source account to the *transfer* container in the target account. If the blob exists in the target account, it's overwritten. Authentication uses SAS tokens with appropriate permissions for the source and target containers. (Steps to create tokens are not shown.)
 
 ```console
-azcopy sync \
-  'https://<source-storage-account-name>.blob.core.windows.net/transfer/'$SOURCE_SAS \
-  'https://<destination-storage-account-name>.blob.core.windows.net/transfer/'$TARGET_SAS \
-  --recursive 
+azcopy copy \
+  'https://<source-storage-account-name>.blob.core.windows.net/transfer/myblob'$SOURCE_SAS \
+  'https://<destination-storage-account-name>.blob.core.windows.net/transfer/myblob'$TARGET_SAS \
+  --overwrite true
 ```
 
 ## Trigger ImportPipeline resource
@@ -290,7 +290,7 @@ Run [az deployment group create][az-deployment-group-create] to run the resource
 
 ```azurecli
 az deployment group create \
-  --resource-group $resourceGroup \
+  --resource-group $TARGET_RG \
   --template-file azuredeploy.json \
   --parameters azuredeploy.parameters.json
 ```
