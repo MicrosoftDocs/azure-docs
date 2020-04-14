@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Role Based Access Control (RBAC)
+title: Configure Azure Role Based Access Control (RBAC) for Azure API for FHIR
 description: This article describes how to configure Azure RBAC for the Azure API for FHIR data plane
 author: hansenms
 ms.service: healthcare-apis
@@ -32,10 +32,10 @@ In the **Role** selection, search for one of the built-in roles for the FHIR dat
 
 You can choose between:
 
-1. FHIR Data Reader: Can read (and search) FHIR data.
-1. FHIR Data Writer: Can read, write, and soft delete FHIR data.
-1. FHIR Data Exporter: Can read and export (`$export` operator) data.
-1. FHIR Data Contributor: Can perform all data plane operations.
+* FHIR Data Reader: Can read (and search) FHIR data.
+* FHIR Data Writer: Can read, write, and soft delete FHIR data.
+* FHIR Data Exporter: Can read and export (`$export` operator) data.
+* FHIR Data Contributor: Can perform all data plane operations.
 
 If these roles are not sufficient for your need, you can also [create custom roles](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell).
 
@@ -43,7 +43,7 @@ In the **Select** box, search for a user, service principal, or group that you w
 
 ## Caching behavior
 
-The Azure API for FHIR will cache decisions for up to 5 minutes. If you grant a user access to the FHIR server by adding them to the list of allowed object ids, or you remove them from the list, you should expect it to take up to five minutes for changes in permissions to propagate.
+The Azure API for FHIR will cache decisions for up to 5 minutes. If you grant a user access to the FHIR server by adding them to the list of allowed object IDs, or you remove them from the list, you should expect it to take up to five minutes for changes in permissions to propagate.
 
 ## Next steps
 
