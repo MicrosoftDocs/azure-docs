@@ -115,7 +115,7 @@ The following table summarizes the high availability capability of various accou
 > [!NOTE]
 > To enable Availability Zone support for a multi region Azure Cosmos account, the account must have multi-master writes enabled.
 
-You can enable zone redundancy when adding a region to new or existing Azure Cosmos accounts. To enable zone redundancy on your Azure Cosmos account, you should set the `isZoneRedundant` flag to `true` for a specific location. You can set this flag within the locations property. For example, the following powershell snippet enables zone redundancy for the "Southeast Asia" region:
+You can enable zone redundancy when adding a region to new or existing Azure Cosmos accounts. To enable zone redundancy on your Azure Cosmos account, you should set the `isZoneRedundant` flag to `true` for a specific location. You can set this flag within the locations property. For example, the following PowerShell snippet enables zone redundancy for the "Southeast Asia" region:
 
 ```powershell
 $locations = @(
