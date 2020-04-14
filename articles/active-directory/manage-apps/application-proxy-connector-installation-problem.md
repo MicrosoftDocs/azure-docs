@@ -95,7 +95,6 @@ Follow the steps to verify the certificate:
 3. Run **certmgr.msc** in the newly appeared command prompt
 2. In the management console expand the Personal container and click on Certificates
 3. Locate the certificate issued by **connectorregistrationca.msappproxy.ne
-  <br>
 
 **To renew the client certificate:**
 
