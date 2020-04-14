@@ -1,60 +1,116 @@
 ---
 title: Authentication and authorization for App Service Static Apps
-description: #Required; article description that is displayed in search results. 
-services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
+description: Learn to use different authorization providers to secure your static app.
+services: azure-functions
 author: craigshoemaker
-
 ms.service: azure-functions
 ms.topic:  conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
 ---
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
-
 # Authentication and authorization for App Service Static Apps
 
-Introductory paragraph.
+Authentication and authorization is enforced by rules defined in the _routes.json_ file and managed through the role management features in the portal. Granting access to secured routes is enabled by creating invitations that associate a user to roles. Roles are defined in the _routes.json_ file and invitations are tied to one of the following authorization providers:
 
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental "why would I want to do this?" question.
---->
+- Azure Active Directory
+- GitHub
+- Facebook
+- Twitter
+- Google
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+The topics of authentication and authorization overlaps with routing rules. Make sure to read the routing guide along with this article.
 
-## Prerequisites
+## Roles
 
-- First prerequisite
-- Second prerequisite
-- Third prerequisite
-<!--- Make Prerequisites your first H2 if you have them.
-If there's something a customer needs to take care of before they start (for example, creating a VM) it's OK to link to that content before they begin.
---->
+Every user that accesses a static app belongs to one or more roles. There are two built-in roles that identify users as anonymous or authenticated.
 
-## <section>
+- **anonymous**: All users automatically belong to the _anonymous_ role.
+- **authenticated**: Any user that is logged in belongs to the _authenticated_ role.
 
-<!---Detail what the reader needs to know in each section
---->
+Beyond the built-in roles, you can create new roles in the _routes.json_ file and assign them to users via invitations.
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+## Add user
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
-   <!---   ![Browser](media/contribute-how-to-mvc-quickstart/browser.png) --->
-      <!---Use screenshots but be judicious to maintain a reasonable length. Make sure screenshots align to the [current standards](contribute-mvc-screen-shots.md).
-      If users access your product/service via a web browser the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.--->
-1. Step four of the procedure
+To add users to your site, you generate invitations which allow you to associate users to specific roles. Roles are defined and maintained in the _routes.json_ file.
+
+## Create an invitation
+
+- Navigate to a static app in the Azure portal
+- Under _Settings_, click on **Role Management**
+- Click on the **Invite** button
+- Select an _Authorization provider_ from the list of options
+- Add either the user account name or email address of the recipient in the _Invitee details_ box
+  - For GitHub and Twitter you enter the user account name. For all others, enter the recipients email address.
+- Select the domain of your static site from the _Domain_ drop down
+- Add a comma separated list of role names in the _Role_ box
+- Enter the maximum number of hours you want the invitation to remain valid.
+  - The maximum possible limit is 7 days, or 168 hours.
+- Click the **Generate** button
+- Copy the link from the _Invite link_ box
+- Email the invitation link to the person you are granting access to your app
+
+## Update role assignments
+
+- Navigate to a static app in the Azure portal
+- Under _Settings_, click on **Role Management**
+- Locate the user in the list
+- Check the checkbox on the user's row
+- Click the **Edit** button to open the _Edit user roles_ window
+- Edit the list of roles in the _Role_ box
+- Click the **Update** button
+
+## Remove user
+
+- Navigate to a static app in the Azure portal
+- Under _Settings_, click on **Role Management**
+- Locate the user in the list
+- Check the checkbox on the user's row
+- Click the **Delete** button
+
+Notes:
+
+- this invalidates the permissions for the user
+  - it may take a few minutes to propagate the change worldwide
+
+## Login
+
+An authorization provider is selected when invitations are created while granting user access to the site. Users need to follow a route that matches the provider they used to login.
+
+| Authorization provider | Login route             |
+| ---------------------- | ----------------------- |
+| Azure Active Directory | `/.auth/login/aad`      |
+| Facebook               | `/.auth/login/facebook` |
+| GitHub                 | `/.auth/login/github`   |
+| Google                 | `/.auth/login/google`   |
+| Twitter                | `/.auth/login/twitter`  |
+
+For example, to login with GitHub you could include a login link like the following snippet:
+
+```html
+<a href="/.auth/login/github">Login</a>
+```
+
+If you chose to support more than one provider, then you need to to provide a provider-specific link for each provider on your website.
+
+## Logout
+
+The `/.auth/logout` route logs a user out of the website. You can add a link to your site navigation to allow the user to log out as shown the the following example:
+
+```html
+<a href="/.auth/logout">Log out</a>
+```
+
+## Block an authorization provider
+
+give reasoning
+
+- compliance issues
+- standardize to user accounts to only emails (email required providers)
+
+example
 
 ## Next steps
 
-<!-- Uncomment this block and add the appropriate link
-
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
-
--->
-
-<!--- Required:
-A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn't fit.
---->
+> [Review pull requests in preproduction environments](review-publish-pull-requests.md)
