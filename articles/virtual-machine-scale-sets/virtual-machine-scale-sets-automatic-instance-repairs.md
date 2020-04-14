@@ -204,7 +204,7 @@ Update-AzVmss `
 
 ### Azure CLI 2.0
 
-The following is an example for updating the automatic instance repairs policy of an existing scale set.
+The following is an example for updating the automatic instance repairs policy of an existing scale set, using *[az vmss update](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)*.
 
 ```azurecli-interactive
 az vmss update \  
@@ -221,7 +221,7 @@ az vmss update \
 Use [Get Instance View](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/getinstanceview) with API version 2019-12-01 or higher for virtual machine scale set to view the *serviceState* for automatic repairs under the property *orchestrationServices*. 
 
 ```http
-GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2019-12-01
+GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2019-12-01'
 ```
 
 ```json
