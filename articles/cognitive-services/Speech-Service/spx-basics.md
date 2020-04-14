@@ -22,10 +22,10 @@ The only prerequisite is an Azure Speech subscription. See the [guide](get-start
 
 ## Download and install
 
-SPX is available on Windows and Linux. Start by downloading the [zip archive](https://crbn.us/spx.zip), then extract it. SPX requires the .NET Core runtime, and the following versions are supported by platform:
+SPX is available on Windows and Linux. Start by downloading the [zip archive](https://crbn.us/spx.zip), then extract it. SPX requires either the .NET Core or .NET Framework runtime, and the following versions are supported by platform:
 
-* Windows: [4.7](https://dotnet.microsoft.com/download/dotnet-framework/net471), [2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
-* Linux: [2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
+* Windows: [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net471), [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
+* Linux: [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 
 After you've installed a runtime, go to the root directory `spx-zips` that you extracted from the download, and extract the subdirectory that you need (`spx-net471`, for example). In a command prompt, change directory to this location, and then run `spx` to start the application.
 
@@ -48,16 +48,12 @@ This section shows a few basic SPX commands that are often useful for first-time
 spx recognize --microphone
 ```
 
-After entering the command, SPX will begin listening for audio on the current active input device, and stop after you press `ENTER`. The recorded speech is then recognized and converted to text in the console output. Text-to-speech synthesis is also easy to do using SPX. Running the following command will take the entered text as input, and output the synthesized speech to the current active output device.
+After entering the command, SPX will begin listening for audio on the current active input device, and stop after you press `ENTER`. The recorded speech is then recognized and converted to text in the console output. Text-to-speech synthesis is also easy to do using SPX. 
+
+Running the following command will take the entered text as input, and output the synthesized speech to the current active output device.
 
 ```shell
 spx synthesize --text "Testing synthesis using SPX" --speakers
-```
-
-To change the output to a file, switch the output from `--speakers` to `--audio output`, and enter a file path.
-
-```shell
-spx synthesize --text "Synthesis to a file." --audio output C:\some\file\path\spx.wav
 ```
 
 In addition to speech recognition and synthesis, you can also do speech translation with SPX. Similar to the speech recognition command above, run the following command to capture audio from your default microphone, and perform translation to text in the target language.
