@@ -162,7 +162,7 @@
           items:
             - name: Forward job data to Azure Monitor Logs
               href: automation-manage-send-joblogs-log-analytics.md
-        - Migrate:
+        - name: Migrate
           items:
             - name: Migrate from System Center Orchestrator
               href: automation-orchestrator-migration.md
