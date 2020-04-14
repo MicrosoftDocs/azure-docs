@@ -91,7 +91,7 @@ conceptualContent:
 
     - title: Managing storage keys
       links:
-        - url: ./secrets/overview-storage-keys-powershell.md
+        - url: ./secrets/overview-storage-keys.md
           itemType: overview
           text: Storage keys - CLI
         - url: ./secrets/overview-storage-keys-powershell.md
