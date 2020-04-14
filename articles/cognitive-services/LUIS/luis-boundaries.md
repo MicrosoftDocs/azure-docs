@@ -43,8 +43,8 @@ If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS
 
 Object names must be unique when compared to other objects of the same level.
 
-|Object level siblings|
-|--|
+|Objects|Restrictions|
+|--|--|
 |Intent, entity|All intent and entity names must be unique in a version of an app.|
 |ML entity components|All machine-learned entity components (child entities) must be unique, within that entity for components at the same level.|
 |Features | All named features, such as phrase lists, must be unique within a version of an app.|
