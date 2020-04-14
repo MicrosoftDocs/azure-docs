@@ -35,7 +35,7 @@ In this article, you learn how to:
 
 ## <a name="create-api"> </a>Import and publish a back-end API
 
-1. Select **APIs** from under **API MANAGEMENT**.
+1. Navigate to your API Management service in the Azure portal and select **APIs** from the menu.
 2. Select **API App** from the **Add a new API** list.
 
     ![API app](./media/import-api-app-as-api/api-app.png)
