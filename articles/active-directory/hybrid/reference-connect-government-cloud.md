@@ -7,21 +7,22 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Hybrid Identity Considerations for Azure Government 
-
+# Hybrid identity considerations for Azure Government 
+The following document describes the considerations for implementing a hybrid environment with the Azure Government cloud.  This information is provide as reference for administrators and architects who are working with the Azure Government cloud.  
 > [!NOTE] 
 > Upgrade to the latest release of [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). 
 
 > [!NOTE] 
 > For a full list of U.S. Government DoD Endpoints, refer to the [documentation](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) 
 
-## Pass Through Authentication 
+## Pass-Through Authentication 
+The following information is provided for implementation of pass-through authentication (PTA) and the Azure Government cloud.
 
 ### Allow access to URLs  
 Before deploying the pass-through authentication agent, verify if there is a firewall between your servers and Azure AD. If your firewall or proxy allows DNS whitelisting, whitelist the following connections: 
@@ -49,12 +50,12 @@ For Application Proxy:
 AADApplicationProxyConnectorInstaller.exe ENVIRONMENTNAME="AzureUSGovernment" 
 ```
 
-## Single Sign On 
+## Single sign on 
 Set up your Azure AD Connect server: If you use Pass-through Authentication as your sign-in method, no additional prerequisite check is required. If you use password hash synchronization as your sign-in method, and if there is a firewall between Azure AD Connect and Azure AD, ensure that:
 - You use version 1.1.644.0 or later of Azure AD Connect. 
 - If your firewall or proxy allows DNS whitelisting, whitelist the connections to the *.msapproxy.us URLs over port 443. If not, allow access to the Azure datacenter IP ranges, which are updated weekly. This prerequisite is applicable only when you enable the feature. It is not required for actual user sign-ins. 
 
-### Rolling Out Seamless SSO 
+### Rolling out seamless SSO 
 You can gradually roll out Seamless SSO to your users using the instructions provided below. You start by adding the following Azure AD URL to all or selected users' Intranet zone settings by using Group Policy in Active Directory: 
 https://autologon.microsoft.us 
 

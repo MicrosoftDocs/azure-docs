@@ -65,7 +65,7 @@ Ensure that the following prerequisites are in place.
    - Your Authentication Agents need access to **login.windows.net** and **login.microsoftonline.com** for initial registration. Open your firewall for those URLs as well.
    - For certificate validation, unblock the following URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, and **www\.microsoft.com:80**. Since these URLs are used for certificate validation with other Microsoft products you may already have these URLs unblocked.
 
-### Azure Government Cloud Prerequisite
+### Azure Government cloud prerequisite
 Prior to enabling Pass-through Authentication through Azure AD Connect with Step 2, download the latest release of the PTA agent from the Azure Portal.  You need to ensure that your agent is versions **x.x.xxx.x** or later.  To verify your agent see [Upgrade authentication agents](how-to-connect-pta-upgrade-preview-authentication-agents.md)
 
 After downloading the latest release of the agent, proceed with the below instructions to configure Pass-Through Authentication through Azure AD Connect.
