@@ -71,7 +71,10 @@ For this example, once detection has occurred, the platform will then take a sma
 3. when the detection has been communicated across the platform 
 
 you can assume the reaction to a time-out probe response will take between a minimum of just over 10 seconds and a maximum of slightly over 15 seconds to react to a change in the signal from the application.  This example is provided to illustrate what is taking place, however, it is not possible to forecast an exact duration beyond the above rough guidance illustrated in this example.
- 
+
+>[!NOTE]
+>The health probe will probe all running instances in the backend pool. If an instance is stopped it will not be probed until it has been started again.
+
 ## <a name="types"></a>Probe types
 
 The protocol used by the health probe can be configured to one of the following:

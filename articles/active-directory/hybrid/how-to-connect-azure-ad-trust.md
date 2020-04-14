@@ -58,7 +58,7 @@ Azure AD connect does not update all settings for Azure AD trust during configur
 | Add WAP server | None |
 | Device options | Issuance transform rules, IWA for device registration |
 | Add federated domain | If the domain is being added for the first time, that is, the setup is changing from single domain federation to multi-domain federation – Azure AD Connect will recreate the trust from scratch. If the trust with Azure AD is already configured for multiple domains, only Issuance transform rules are modified |
-| Update SSL | None |
+| Update TLS | None |
 
 During all operations, in which, any setting is modified, Azure AD Connect makes a backup of the current trust settings at **%ProgramData%\AADConnect\ADFS**
 

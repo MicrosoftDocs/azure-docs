@@ -41,7 +41,7 @@ When you create a variable with the Azure portal, you must specify a data type f
 
 The variable isn't restricted to the designated data type. You must set the variable using Windows PowerShell if you want to specify a value of a different type. If you indicate `Not defined`, the value of the variable is set to Null, and you must set the value with the [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) cmdlet or the `Set-AutomationVariable` activity.
 
-You can't use the portal to create or change the value for a complex variable type. However, you can provide a value of any type using Windows PowerShell. Complex types are retrieved as a [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
+You can't use the Azure portal to create or change the value for a complex variable type. However, you can provide a value of any type using Windows PowerShell. Complex types are retrieved as a [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
 You can store multiple values to a single variable by creating an array or hashtable and saving it to the variable.
 
@@ -71,8 +71,8 @@ The activities in the following table are used to access variables in runbooks a
 Note that `Get-AutomationVariable` does not work in PowerShell, but only in a runbook or DSC configuration. For example, to see the value of an encrypted variable, you might create a runbook to get the variable and then write it to the output stream:
  
 ```powershell
-$testEncryptVar = Get-AutomationVariable -Name TestVariable
-Write-output "The encrypted variable value is: $testEncryptVar"
+$mytestencryptvar = Get-AutomationVariable -Name TestVariable
+Write-output "The encrypted value of the variable is: $mytestencryptvar"
 ```
 
 ## Functions to access variables in Python 2 runbooks

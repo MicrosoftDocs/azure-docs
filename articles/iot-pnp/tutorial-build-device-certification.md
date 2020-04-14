@@ -86,7 +86,7 @@ To view the **Device Information** interface using the Azure CLI:
 
 1. Use the following Azure CLI command to show an interface with the Device Information interface ID:
 
-    ```cmd/sh
+    ```azurecli
     az iot pnp interface show --interface urn:azureiot:DeviceManagement:DeviceInformation:1
     ```
 

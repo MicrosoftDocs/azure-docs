@@ -115,6 +115,12 @@ Returns the first not null value from a set of inputs. All inputs should be of t
 * ``coalesce(10, 20) -> 10``
 * ``coalesce(toString(null), toString(null), 'dumbo', 'bo', 'go') -> 'dumbo'``
 ___
+### <code>columnNames</code>
+<code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
+Gets all output columns for a stream. You can pass a optional stream name as the second argument.
+* ``columnNames()``
+* ``columnNames('DeriveStream')``
+___
 ### <code>compare</code>
 <code><b>compare(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => integer</b></code><br/><br/>
 Compares two values of the same type. Returns negative integer if value1 < value2, 0 if value1 == value2, positive value if value1 > value2

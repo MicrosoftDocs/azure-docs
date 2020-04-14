@@ -97,6 +97,8 @@
       href: concepts-data-encryption-mysql.md
     - name: Azure AD authentication
       href: concepts-azure-ad-authentication.md
+    - name: Security baseline
+      href: security-baseline.md
   - name: Business continuity
     items:
     - name: Business continuity intro
@@ -202,6 +204,8 @@
       items: 
       - name: Azure portal
         href: howto-configure-audit-logs-portal.md
+      - name: Azure CLI
+        href: howto-configure-audit-logs-cli.md
   - name: Monitor
     items:
     - name: Create alerts on metrics
@@ -244,6 +248,8 @@
     items:
     - name: Azure portal
       href: howto-data-encryption-portal.md
+    - name: Azure CLI
+      href: howto-data-encryption-cli.md
   - name: Azure AD Integration
     items:
     - name: Configure Azure AD integration

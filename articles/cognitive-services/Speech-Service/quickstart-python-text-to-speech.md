@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 04/13/2020
 ms.author: dapine
 ---
 
@@ -21,7 +21,7 @@ This article requires an [Azure Cognitive Services account](https://docs.microso
 ## Prerequisites
 
 * Python 2.7.x or 3.x
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio  <span class="docon docon-navigate-external x-hidden-focus"></span></a>, <a href="https://code.visualstudio.com/download" target="_blank"> Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"></span></a>, or your favorite text editor
 * An Azure subscription key for the Speech service
 
 ## Create a project and import required modules
@@ -94,7 +94,7 @@ Next, you need to add required headers for the request. Make sure that you updat
 Then construct the request body using Speech Synthesis Markup Language (SSML). This sample defines the structure, and uses the `tts` input you created earlier.
 
 >[!NOTE]
-> This sample uses the `Guy24KRUS` voice font. For a complete list of Microsoft provided voices/languages, see [Language support](language-support.md).
+> This sample uses the `Guy24kRUS` voice font. For a complete list of Microsoft provided voices/languages, see [Language support](language-support.md).
 > If you're interested in creating a unique, recognizable voice for your brand, see [Creating custom voice fonts](how-to-customize-voice-font.md).
 
 Finally, you'll make a request to the service. If the request is successful, and a 200 status code is returned, the speech response is written to a timestamped file.
@@ -117,7 +117,7 @@ def save_audio(self):
     voice = ElementTree.SubElement(xml_body, 'voice')
     voice.set('{http://www.w3.org/XML/1998/namespace}lang', 'en-US')
     voice.set(
-        'name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
+        'name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)')
     voice.text = self.tts
     body = ElementTree.tostring(xml_body)
 
