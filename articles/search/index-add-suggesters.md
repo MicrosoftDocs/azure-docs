@@ -138,14 +138,14 @@ A suggester is used in a query. After a suggester is created, call one of the fo
 + [SuggestWithHttpMessagesAsync method](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
 + [AutocompleteWithHttpMessagesAsync method](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
 
+In a search application, client code should leverage a library like [jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) to collect the partial query and provide the match. For more information about this task, see [Add autocomplete or suggested results to client code](search-autocomplete-tutorial.md).
+
 API usage is illustrated in the following call to the Autocomplete REST API. There are two takeaways from this example. First, as with all queries, the operation is against the documents collection of an index and the query includes a **search** parameter, which in this case provides the partial query. Second, you must add **suggesterName** to the request. If a suggester is not defined in the index, a call to autocomplete or suggestions will fail.
 
 ```http
 GET https://[service name].search.windows.net/indexes/myxboxgames/docs/autocomplete?search=minecraf&suggesterName=sg  
 api-key: [admin or query key]
 ```
-
-In a search application, client code will leverage a library like [jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) to collect the partial query. For more information, see [Add autocomplete or suggested results to client code](search-autocomplete-tutorial.md).
 
 ## Sample code
 
