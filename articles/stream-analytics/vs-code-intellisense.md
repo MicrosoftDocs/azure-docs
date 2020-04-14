@@ -21,7 +21,8 @@ You can trigger IntelliSense in any editor window by typing a trigger character,
 
 ![intellisense autocompletion](./media/vs-code-intellisense/auto-completion.gif)
 
-> **Tip:** The suggestions widget supports CamelCase filtering, meaning you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
+> [!TIP]
+> The suggestions widget supports CamelCase filtering. You can type the letters which are uppercased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
 
 ### Types of completions
 
