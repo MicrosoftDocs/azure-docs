@@ -116,15 +116,14 @@
               href: /change-tracking/automation-onboard-solutions-from-automation-account.md
             - name: From an Automation runbook
               href: /change-tracking/automation-onboard-solutions.md
-          - name: View contents of tracked files
-            href: /change-tracking/change-tracking-file-contents.md
-          - name: Manage inventory collection from VMs
-            href: /inventory/automation-vm-inventory.md
-          - name: Troubleshoot onboarding issues
-            href: /troubleshoot/onboard-solutions.md
-          - name: Troubleshoot solution 
-            href: /troubleshoot/change-tracking.md
-          - name: Troubleshoot 
+        - name: View contents of tracked files
+          href: /change-tracking/change-tracking-file-contents.md
+        - name: Manage inventory collection from VMs
+          href: /inventory/automation-vm-inventory.md
+        - name: Troubleshoot onboarding issues
+          href: /troubleshoot/onboard-solutions.md
+        - name: Troubleshoot solution 
+          href: /troubleshoot/change-tracking.md
     - name: Cross-component scenarios
       items:
         - name: Send an email from a runbook
