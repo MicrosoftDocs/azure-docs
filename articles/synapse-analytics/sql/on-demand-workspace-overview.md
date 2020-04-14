@@ -104,7 +104,7 @@ SQL on-demand offers mechanisms to secure access to your data.
 
 ### Azure Active Directory integration and multi-factor authentication
 
-SQL on-demand enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). This capability simplifies permission management and enhances security. Azure Active Directory (AAD) supports [multi-factor authentication](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) to increase data and application security while supporting a single sign-on process.
+SQL on-demand enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](../../sql-database/sql-database-Azure AD-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). This capability simplifies permission management and enhances security. Azure Active Directory (Azure AD) supports [multi-factor authentication](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) to increase data and application security while supporting a single sign-on process.
 
 #### Authentication
 
@@ -116,7 +116,7 @@ SQL on-demand authentication refers to how users prove their identity when conne
 
 - **Azure Active Directory Authentication**:
 
-  This authentication method uses identities managed by Azure Active Directory. For AAD users, multi-factor authentication can be enabled. Use Active Directory authentication (integrated security) [whenever possible](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+  This authentication method uses identities managed by Azure Active Directory. For Azure AD users, multi-factor authentication can be enabled. Use Active Directory authentication (integrated security) [whenever possible](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 #### Authorization
 
@@ -124,7 +124,7 @@ Authorization refers to what a user can do within a SQL on-demand database, and 
 
 If SQL Authentication is used, the SQL user exists only in SQL on-demand and permissions are scoped to the objects in SQL on-demand. Access to securable objects in other services (such as Azure Storage) can't be granted to SQL user directly since it only exists in scope of SQL on-demand. The SQL user needs to use one of the [supported authorization types](develop-storage-files-storage-access-control.md#supported-storage-authorization-types) to access the files.
 
-If AAD authentication is used, a user can sign in to SQL on-demand and other services, like Azure Storage, and can grant permissions to the AAD user.
+If Azure AD authentication is used, a user can sign in to SQL on-demand and other services, like Azure Storage, and can grant permissions to the Azure AD user.
 
 ### Access to storage accounts
 
@@ -132,7 +132,7 @@ A user that is logged into the SQL on-demand service must be authorized to acces
 
 - **Shared access signature (SAS)** provides delegated access to resources in storage account. With a SAS, you can grant clients access to resources in storage account, without sharing account keys. A SAS gives you granular control over the type of access you grant to clients who have the SAS: validity interval, granted permissions, acceptable IP address range, acceptable protocol (https/http).
 
-- **User Identity** (also known as "pass-through") is an authorization type where the identity of the AAD user that logged into SQL on-demand is used to authorize  access to the data. Before accessing the data, Azure Storage administrator must grant permissions to AAD user for accessing the data. This authorization type uses the AAD user that logged into SQL on-demand, therefore it's not supported for SQL user types.
+- **User Identity** (also known as "pass-through") is an authorization type where the identity of the Azure AD user that logged into SQL on-demand is used to authorize  access to the data. Before accessing the data, Azure Storage administrator must grant permissions to Azure AD user for accessing the data. This authorization type uses the Azure AD user that logged into SQL on-demand, therefore it's not supported for SQL user types.
 
 ## Next steps
 Additional information on endpoint connection and querying files can be found in the following articles: 
