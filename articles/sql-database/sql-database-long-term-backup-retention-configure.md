@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 08/21/2019
+ms.date: 04/14/2020
 ---
 
 # Manage Azure SQL Database long-term backup retention

@@ -11,16 +11,15 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 08/21/2019
+ms.date: 04/14/2020
 ---
 # Manage Azure SQL Database managed instance long-term backup retention (PowerShell)
 
 In Azure SQL Database managed instance, you can configure a [long-term backup retention](sql-database-long-term-retention.md#managed-instance-support) policy (LTR) as a limited public preview feature. This allows you to to automatically retain database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups using PowerShell.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+   > [!IMPORTANT]
+   > LTR for managed instances is currently in limited preview and available for EA and CSP subscriptions on a case by case basis. To request enrollment, please create an Azure support ticket  under the support topic **Backup, Restore, and Business Continuity/Long-term backup retention**. 
 
-> [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database managed instance, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 The following sections show you how to use PowerShell to configure the long-term backup retention, view backups in Azure SQL storage, and restore from a backup in Azure SQL storage.
 
@@ -29,7 +28,7 @@ The following sections show you how to use PowerShell to configure the long-term
 For **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** and **Restore-AzSqlInstanceDatabase**, you will need to have one of the following roles:
 
 - Subscription Owner role or
-- SQL Server Contributor role or
+- SManaged Instance Contributor role or
 - Custom role with the following permissions:
 
    ```Microsoft.Sql/locations/longTermRetentionManagedInstanceBackups/read```
@@ -44,9 +43,9 @@ For **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup**, you will need to ha
    ```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete```
 
 > [!NOTE]
-> The SQL Server Contributor role does not have permission to delete LTR backups.
+> The SManaged Instance Contributor role does not have permission to delete LTR backups.
 
-RBAC permissions could be granted in either *subscription* or *resource group* scope. However, to access LTR backups that belong to a dropped server, the permission must be granted in the *subscription* scope of that server.
+RBAC permissions could be granted in either *subscription* or *resource group* scope. However, to access LTR backups that belong to a dropped instance, the permission must be granted in the *subscription* scope of that instance.
 
 ```Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete```
 
@@ -76,7 +75,7 @@ Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceNa
 
 ## View LTR policies
 
-This example shows how to list the LTR policies within a server
+This example shows how to list the LTR policies within an instance
 
 ```powershell
 # gets the current version of LTR policy for the database
@@ -96,7 +95,7 @@ Set-AzSqlInstanceDatabaseBackupLongTermRetentionPolicy -InstanceName $instanceNa
 
 ## View LTR backups
 
-This example shows how to list the LTR backups within a server.
+This example shows how to list the LTR backups within an instance.
 
 ```powershell
 # get the list of all LTR backups in a specific Azure region
@@ -128,21 +127,21 @@ Remove-AzSqlInstanceDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.Resou
 ```
 
 > [!IMPORTANT]
-> Deleting LTR backup is non-reversible. To delete an LTR backup after the server has been deleted you must have Subscription scope permission. You can set up notifications about each delete in Azure Monitor by filtering for operation 'Deletes a long term retention backup'. The activity log contains information on who and when made the request. See [Create activity log alerts](../azure-monitor/platform/alerts-activity-log.md) for detailed instructions.
+> Deleting LTR backup is non-reversible. To delete an LTR backup after the instance has been deleted you must have Subscription scope permission. You can set up notifications about each delete in Azure Monitor by filtering for operation 'Deletes a long term retention backup'. The activity log contains information on who and when made the request. See [Create activity log alerts](../azure-monitor/platform/alerts-activity-log.md) for detailed instructions.
 
 ## Restore from LTR backups
 
 This example shows how to restore from an LTR backup. Note, this interface did not change but the resource id parameter now requires the LTR backup resource id.
 
 ```powershell
-# restore a specific LTR backup as an P1 database on the server $serverName of the resource group $resourceGroup
+# restore a specific LTR backup as an P1 database on the instance $instanceName of the resource group $resourceGroup
 Restore-AzSqlInstanceDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId `
    -TargetInstanceName $instanceName -TargetResourceGroupName $resourceGroup -TargetInstanceDatabaseName $dbName
 
 ```
 
 > [!IMPORTANT]
-> To restore from an LTR backup after the server has been deleted, you must have permissions scoped to the server's subscription and that subscription must be active. You must also omit the optional -ResourceGroupName parameter.
+> To restore from an LTR backup after the instance has been deleted, you must have permissions scoped to the subscription of the instance and that subscription must be active. You must also omit the optional -ResourceGroupName parameter.
 
 > [!NOTE]
 > From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name. See [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore).

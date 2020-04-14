@@ -7,7 +7,7 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 04/14/2020
 ms.author: sstein
 ---
 # SQL Database release notes
@@ -43,7 +43,7 @@ This article lists SQL Database features that are currently in public preview. F
 | <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD server principals (logins)</a> | Create server-level logins using <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> statement. |
 | [Transactional Replication](sql-database-managed-instance-transactional-replication.md) | Replicate the changes from your tables into other databases placed on Managed Instances, Single Databases, or SQL Server instances, or update your tables when some rows are changed in other Managed Instances or SQL Server instance. For information, see [Configure replication in an Azure SQL Database managed instance database](replication-with-sql-database-managed-instance.md). |
 | Threat detection |For information, see [Configure threat detection in Azure SQL Database managed instance](sql-database-managed-instance-threat-detection.md).|
-
+| Long-term backup retention | For information, see [Configure long-term back up retention](sql-database-managed-instance-long-term-backup-retention-configure.md). | 
 ---
 
 ## Managed instance - new features and known issues
@@ -110,7 +110,7 @@ If failover group spans across instances in different Azure subscriptions or res
 
 ### SQL Agent roles need explicit EXECUTE permissions for non-sysadmin logins
 
-If non-sysadmin logins are added to any of [SQL Agent fixed database roles](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles), there exists an issue in which explicit EXECUTE permissions need to be granted to the master stored procedures for these logins to work. If this issue is encountered, the error message “The EXECUTE permission was denied on the object <object_name> (Microsoft SQL Server, Error: 229)” will be shown.
+If non-sysadmin logins are added to any of [SQL Agent fixed database roles](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles), there exists an issue in which explicit EXECUTE permissions need to be granted to the master stored procedures for these logins to work. If this issue is encountered, the error message "The EXECUTE permission was denied on the object <object_name> (Microsoft SQL Server, Error: 229)" will be shown.
 
 **Workaround**: Once you add logins to either of SQL Agent fixed database roles: SQLAgentUserRole, SQLAgentReaderRole or SQLAgentOperatorRole, for each of the logins added to these roles execute the below T-SQL script to explicitly grant EXECUTE permissions to the stored procedures listed.
 
@@ -163,7 +163,7 @@ Cross-database Service Broker dialogs will stop delivering the messages to the s
 ### Impersonification of Azure AD login types is not supported
 
 Impersonation using `EXECUTE AS USER` or `EXECUTE AS LOGIN` of following AAD principals is not supported:
--	Aliased AAD users. The following error is returned in this case `15517`.
+-    Aliased AAD users. The following error is returned in this case `15517`.
 - AAD logins and users based on AAD applications or service principals. The following errors are returned in this case `15517` and `15406`.
 
 ### @query parameter not supported in sp_send_db_mail
