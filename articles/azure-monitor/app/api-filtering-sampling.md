@@ -485,9 +485,37 @@ The following sample initializer sets cloud role name to every tracked telemetry
 ```csharp
 public void Initialize(ITelemetry telemetry)
 {
-    if(string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+    if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
     {
         telemetry.Context.Cloud.RoleName = "MyCloudRoleName";
+    }
+}
+```
+
+#### Add information from HttpContext
+
+The following sample initializer reads data from the [`HttpContext`](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) and appends it to a `RequestTelemetry` instance.
+
+```csharp
+public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
+{
+    private readonly IHttpContextAccessor httpContextAccessor;
+
+    public HttpContextRequestTelemetryInitializer(IHttpContextAccessor httpContextAccessor)
+    {
+        this.httpContextAccessor =
+            httpContextAccessor ??
+            throw new ArgumentNullException(nameof(httpContextAccessor));
+    }
+
+    public void Initialize(ITelemetry telemetry)
+    {
+        var requestTelemetry = telemetry as RequestTelemetry;
+        if (requestTelemetry == null) return;
+
+        var claims = this.httpContextAccessor.HttpContext.User.Claims;
+        Claim oidClaim = claims.FirstOrDefault(claim => claim.Type == "oid");
+        requestTelemetry.Properties.Add("UserOid", oidClaim?.Value);
     }
 }
 ```
