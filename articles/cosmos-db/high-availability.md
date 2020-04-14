@@ -64,7 +64,7 @@ Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database i
 - Subsequent reads are redirected to the recovered region without requiring any changes to your application code. During both failover and rejoining of a previously failed region, read consistency guarantees continue to be honored by Cosmos DB.
 
 > [!IMPORTANT]
-> Cosmos accounts using strong consistency with two or fewer read regions will lose write availability during a read region outage but will maintain read availability for remaining regions.
+> Azure Cosmos accounts using strong consistency with two or fewer read regions will lose write availability during a read region outage but will maintain read availability for remaining regions.
 
 - Even in a rare and unfortunate event when the Azure region is permanently irrecoverable, there is no data loss if your multi-region Cosmos account is configured with *Strong* consistency. In the event of a permanently irrecoverable write region, a multi-region Cosmos account configured with bounded-staleness consistency, the potential data loss window is restricted to the staleness window (*K* or *T*) where K=100,000 updates and T=5 minutes. For session, consistent-prefix and eventual consistency levels, the potential data loss window is restricted to a maximum of 15 minutes. For more information on RTO and RPO targets for Azure Cosmos DB, see [Consistency levels and data durability](consistency-levels-tradeoffs.md#rto)
 
