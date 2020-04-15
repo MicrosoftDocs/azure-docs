@@ -61,14 +61,18 @@
       href: stream-analytics-sql-output-perf.md
     - name: Blob custom path patterns
       href: stream-analytics-custom-path-patterns-blob-storage-output.md
-  - name: User-defined functions
+  - name: Extend queries with functions
     items:
-    - name: Machine learning UDF
-      href: machine-learning-udf.md
-    - name: C# UDF
-      href: stream-analytics-edge-csharp-udf-methods.md
+    - name: Functions overview
+      href: functions-overview.md
     - name: JavaScript UDF
       href: stream-analytics-javascript-user-defined-functions.md
+    - name: JavaScript UDA
+      href: stream-analytics-javascript-user-defined-aggregates.md
+    - name: C# UDF
+      href: stream-analytics-edge-csharp-udf-methods.md
+    - name: Machine learning UDF
+      href: machine-learning-udf.md
   - name: Optimize your Stream Analytics job
     items:
     - name: Understand and adjust Streaming Units
@@ -140,8 +144,6 @@
       href: stream-analytics-edge.md
     - name: Toll booth sensor data analysis
       href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
-    - name: Run a JavaScript UDA
-      href: stream-analytics-javascript-user-defined-aggregates.md
     - name: High-frequency trading
       href: stream-analytics-high-frequency-trading.md
     - name: Process IoT streaming data
@@ -197,6 +199,8 @@
       href: stream-analytics-tools-for-visual-studio-cicd.md
   - name: Visual Studio Code
     items:
+    - name: Complete code with IntelliSense
+      href: vs-code-intellisense.md  
     - name: Test locally with sample data
       href: visual-studio-code-local-run.md
     - name: Test locally with live data
