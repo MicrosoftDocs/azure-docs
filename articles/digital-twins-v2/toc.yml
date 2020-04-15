@@ -18,8 +18,8 @@
     href: tutorial-connect.md
 - name: Concepts
   items:
-  - name: Create a twin type
-    href: concepts-twin-types.md
+  - name: Create a twin model
+    href: concepts-models.md
   - name: Create digital twins and the twin graph
     href: concepts-twins-graph.md
   - name: Route events
@@ -40,20 +40,22 @@
     href: how-to-ingest-iot-hub-data.md
   - name: Use the APIs
     href: how-to-use-apis.md
-  - name: Manage a twin type
-    href: how-to-manage-twin-type.md
+  - name: Manage a twin model
+    href: how-to-manage-model.md
   - name: Manage a digital twin
     href: how-to-manage-twin.md
-  - name: Manage a twin graph
+  - name: Manage a twin graph with relationships
     href: how-to-manage-graph.md
+  - name: Manage endpoints and routes
+    href: how-to-manage-routes.md
   - name: Query the twin graph
     href: how-to-query-graph.md
-  - name: Set up endpoints and routes
-    href: how-to-create-endpoints-routes.md
   - name: Understand event data
     href: how-to-interpret-event-data.md
   - name: Set up an Azure Function
     href: how-to-create-azure-function.md
+  - name: Use the Azure Digital Twins CLI
+    href: how-to-use-cli.md
 - name: Reference
   items:
 - name: Resources

@@ -36,7 +36,7 @@ To create an app registration, you need to provide the resource IDs for the Azur
 
 ```json
 [{
-    "resourceAppId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0",
+    "resourceAppId": "https://digitaltwins.azure.net",
     "resourceAccess": [
      {
        "id": "4589bd03-58cb-4e6c-b17f-b580e39652f8",
@@ -50,7 +50,7 @@ Save this file as *manifest.json*.
 
 Next, run the following command to create an app registration (replacing placeholders as needed):
 
-```bash
+```Azure CLI
 az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses <path-to-manifest.json> --reply-url http://localhost
 ```
 
@@ -88,7 +88,7 @@ To authenticate a .NET app with Azure services, you can use the following minima
 > If your Azure subscription is created using a Microsoft account such as Live, Xbox, or Hotmail, you can find the tenant ID in the default directory overview in the Azure Active Directory section. 
 
 ```csharp
-private string adtAppId = "0b07f429-9f4b-4714-9392-cc5e8e80c8b0";
+private string adtAppId = "https://digitaltwins.azure.net";
 private string clientId = "<your-app-registration-ID>";
 private string tenantId = "<your-tenant-ID>";
 private AuthenticationResult authResult;
@@ -96,15 +96,7 @@ static async Task Authenticate()
 {
     string[] scopes = new[] { adtAppId + "/.default" };
     var app = PublicClientApplicationBuilder.Create(clientId).WithTenantId(tenantId).WithRedirectUri("http://localhost").Build();
-    var accounts = await app.GetAccountsAsync();
-    try
-    {
-        authResult = await app.AcquireTokenSilent(scopes, accounts.FirstOrDefault()).ExecuteAsync();
-    }
-    catch (MsalUiRequiredException)
-    {
-        authResult = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
-    }
+    authResult = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 }
 ```
 
@@ -132,7 +124,7 @@ namespace Azure Digital TwinsGettingStarted
     {
         private const string clientId = "<your-app-registration-ID>";
         // The Azure Digital Twins API resource ID
-        private const string adtAppId = "0b07f429-9f4b-4714-9392-cc5e8e80c8b0";
+        private const string adtAppId = "https://digitaltwins.azure.net";
         private static AuthenticationResult authResult;
 
         private static AzureDigitalTwinsAPIClient client;
@@ -158,16 +150,8 @@ namespace Azure Digital TwinsGettingStarted
         static async Task Authenticate()
         {
             string[] scopes = new[] { adtAppId + "/.default" };
-            var app = PublicClientApplicationBuilder.Create(clientId).WithRedirectUri("http://localhost").Build();
-            var accounts = await app.GetAccountsAsync();
-            try
-            {
-                authResult = await app.AcquireTokenSilent(scopes, accounts.FirstOrDefault()).ExecuteAsync();
-            }
-            catch (MsalUiRequiredException)
-            {
-                authResult = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
-            }
+            var app = PublicClientApplicationBuilder.Create(clientId).WithTenantId(tenantId).WithRedirectUri("http://localhost").Build();
+            authResult = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
         }
     }
 }
@@ -176,4 +160,4 @@ namespace Azure Digital TwinsGettingStarted
 ## Next steps
 
 See how to make API calls to your Azure Digital Twin instance:
-* [Manage an individual digital twin](how-to-manage-twin.md)
+* [Manage a digital twin](how-to-manage-twin.md)
