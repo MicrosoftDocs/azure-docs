@@ -154,7 +154,7 @@
           href: automation-update-management-groups.md
         - name: Query Update Management logs
           href: automation-update-management-query-logs.md
-    - name: Track Changes and Inventory
+    - name: Change Tracking and Inventory
       items:
         - name: Overview
           href: change-tracking.md
