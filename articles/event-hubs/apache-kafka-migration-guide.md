@@ -64,12 +64,8 @@ Run your Kafka application that sends events to the event hub. Then, verify that
 ## Next steps
 To learn more about Event Hubs and Event Hubs for Kafka, see the following articles:  
 
-- [Event Hubs for Apache Kafka - Overview](event-hubs-for-kafka-ecosystem-overview.md)
-- [Quickstart: Data streaming with Event Hubs using the Kafka protocol](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-- [Tutorial: Process Apache Kafka for Event Hubs events using Stream analytics](event-hubs-kafka-stream-analytics.md)
-- [Mirror a Kafka broker in an event hub](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Connect Apache Spark to an event hub](event-hubs-kafka-spark-tutorial.md)
-- [Integrate Apache Kafka Connect with a event hub (Preview)](event-hubs-kafka-connect-tutorial.md)
-- [Connect Akka Streams to an event hub](event-hubs-kafka-akka-streams-tutorial.md)
-- [Use the Spring Boot Starter for Apache Kafka with Azure Event Hubs](/azure/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub)
+- [Apache Kafka troubleshooting guide for Event Hubs](apache-kafka-troubleshooting-guide.md)
+- [Frequently asked questions - Event Hubs for Apache Kafka](apache-kafka-frequently-asked-questions.md)
+- [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md)
 
+- 
