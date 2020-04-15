@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/29/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -19,10 +19,6 @@ manager: lizross
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Windows Virtual Desktop is a service that gives users easy and secure access to their virtualized desktops and RemoteApps. This topic will tell you a bit more about the general structure of the Windows Virtual Desktop environment.
-
-## Tenants
-
-The Windows Virtual Desktop tenant is the primary interface for managing your Windows Virtual Desktop environment. Each Windows Virtual Desktop tenant must be associated with the Azure Active Directory containing the users who will sign in to the environment. From the Windows Virtual Desktop tenant, you can begin creating host pools to run your users' workloads.
 
 ## Host pools
 
@@ -49,9 +45,9 @@ To publish resources to users, you must assign them to app groups. When assignin
 - A user can't be assigned to both a desktop app group and a RemoteApp app group in the same host pool.
 - A user can be assigned to multiple app groups within the same host pool, and their feed will be an accumulation of both app groups.
 
-## Tenant groups
+## Workspaces
 
-In Windows Virtual Desktop, the Windows Virtual Desktop tenant is where most of the setup and configuration happens. The Windows Virtual Desktop tenant contains the host pools, app groups, and app group user assignments. However, there may be certain situations where you need to manage multiple Windows Virtual Desktop tenants at once, particularly if you're a Cloud Service Provider (CSP) or a hosting partner. In these situations, you can use a custom Windows Virtual Desktop tenant group to place each of the customers' Windows Virtual Desktop tenants and centrally manage access. However, if you're only managing a single Windows Virtual Desktop tenant, the tenant group concept doesn't apply and you can continue to operate and manage your tenant that exists in the default tenant group.
+A workspace is a logical grouping of application groups in Windows Virtual Desktop. Each Windows Virtual Desktop application group must be associated with a workspace for users to see the remote apps and desktops published to them.  
 
 ## End users
 
