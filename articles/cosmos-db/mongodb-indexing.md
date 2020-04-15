@@ -16,7 +16,7 @@ The Azure Cosmos DB API for MongoDB takes advantage of the core index-management
 
 ## Indexing for MongoDB server version 3.6
 
-MongoDB version 3.6 automatically indexes the `_id` field, which can't be dropped. The Azure Cosmos DB API for MongoDB automatically enforces uniqueness of the `_id` field per shard key.
+The Azure Cosmos DB API for MongoDB version 3.6 automatically indexes the `_id` field, which can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key.
 
 To index additional fields, you apply the MongoDB index-management commands. As in MongoDB, the Azure Cosmos DB API for MongoDB automatically indexes the `_id` field only. This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
 
