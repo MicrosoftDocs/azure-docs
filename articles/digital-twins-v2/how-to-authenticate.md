@@ -130,7 +130,7 @@ namespace Azure Digital TwinsGettingStarted
 {
     class Program
     {
-        private const string clientId = "<your-app-registration>";
+        private const string clientId = "<your-app-registration-ID>";
         // The Azure Digital Twins API resource ID
         private const string adtAppId = "0b07f429-9f4b-4714-9392-cc5e8e80c8b0";
         private static AuthenticationResult authResult;

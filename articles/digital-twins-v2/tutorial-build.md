@@ -36,6 +36,7 @@ Models are similar to classes in object-oriented programming languages; they pro
 In the sample project you downloaded in the quickstart, you will find sample models in the *DigitalTwinsMetadata/DigitalTwinsSample/Models* folder. 
 
 Open *Room.json*, and change it in the following ways:
+
 * **Update the version number**, to indicate that you are providing a more-updated version of this model. Do this by changing the *1* at the end of the `@id` value to a *2*. Any number greater than the current version number will also work.
 * **Edit a property**. Change the name of the `Humidity` property to *HumidityLevel* (or something different if you'd like. If you use something different than *HumidityLevel*, remember what you used and continue using that instead of *HumidityLevel* throughout this tutorial).
 * **Add a property**. After the `HumidityLevel` property that ends on line 15, paste the following code to add a `DisplayName` property to the room:
@@ -64,6 +65,8 @@ When you are finished, the updated model should look like this:
 
 ![Edited Room.json with updated version number, HumidityLevel and DisplayName properties, and "contains" relationship](media/tutorial-build/room-model.png)
 
+Make sure to save the file before moving on.
+
 > [!TIP]
 > If you want to try creating your own model, you can paste the Room model into a new file that you save with a *.json* extension in the *DigitalTwinsMetadata/DigitalTwinsSample/Models* folder. Then play around with adding properties and relationships to represent whatever you would like. You can also look at the other sample models in this folder for ideas.
 
@@ -91,7 +94,7 @@ Verify the models were created by running the `listModels` command. This will qu
 > [!NOTE]
 > If you've added models to this Azure Digital Twins instance in another quickstart or tutorial without deleting them, they will also show up with this command.
 
-Keep the project console window running for the next section.
+Keep the project console window running for the following steps.
 
 ## Create digital twins
 
@@ -99,7 +102,7 @@ Now that some models have been uploaded to your Azure Digital Twins instance, yo
 
 To create a digital twin, you use the `addTwin` command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You do not have to pass any relationship information at this stage.
 
-Run this code in the project console to create several twins based on the *Floor* and *Room* models. Recall that *Room* has three properties, so you can provide arguments with the initial values for these.
+Run this code in the running project console to create several twins based on the *Floor* and *Room* models. Recall that *Room* has three properties, so you can provide arguments with the initial values for these.
 
 ```cmd
 addTwin urn:example:Floor:1 floor2
@@ -125,7 +128,7 @@ Next, you can create some **relationships** between these twins, to connect them
 
 To add a relationship, you use the `addEdge` command. Specify the twin that the relationship is coming from, the type of relationship to add, and the twin that the relationship is connecting to. Lastly, provide a name (ID) for the relationship.
 
-The following example adds a "contains" relationship from *floor2* to each of the *Room* twins you created earlier. Note that there must be a *contains* relationship defined on the *Floor* model for this to be possible.
+Run the following code to add a "contains" relationship from *floor2* to each of the *Room* twins you created earlier. Note that there must be a *contains* relationship defined on the *Floor* model for this to be possible.
 
 ```cmd
 addEdge floor2 contains room22 edge0
@@ -150,3 +153,24 @@ To verify the relationships were created successfully, use either of the followi
 The twins and relationships you have set up in this tutorial form the following conceptual graph:
 
 ![A graph showing floor2 connected via edge0 to room22, and edge1 to room23](media/tutorial-build/sample-graph.png)
+
+## Clean up resources
+
+If you no longer need the resources used in this tutorial, follow these steps to delete them. If you plan to continue to the next Azure Digital Twins tutorial, keep the resources to continue building on them. 
+
+Using the Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group and the Azure Digital Twins instance.
+
+> [!IMPORTANT]
+> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
+
+    ```Azure CLI
+    az group delete --name <your-resource-group>
+    ```
+
+Next, delete the AAD app registration you created for your client app with this command:
+
+    ```Azure CLI
+    az ad app delete --id <your-application-ID>
+    ```
+
+Finally, delete the project sample folder you downloaded from your local machine.

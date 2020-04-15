@@ -118,6 +118,8 @@ private const string TenantId = "<your-directory-ID>";
 const string AdtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"
 ```
 
+Save the file.
+
 ## Use the sample project to answer environment questions
 
 Open _DigitalTwinsMetadata/**DigitalTwinsSample.sln**_ in Visual Studio. Run the project with this button in the toolbar:
@@ -134,9 +136,11 @@ The output of this command is a series of confirmation messages as three twins a
 
 ![A graph showing that floor1 contains room21, and room21 contains thermostat67](media/quickstart/building-scenario-graph.png)
 
+Keep the project running for the next step.
+
 ### Query the twin graph
 
-A main feature of Azure Digital Twins is the ability to query your twin graph easily and efficiently to answer questions about your environment. Run the following commands to get an idea of what this is like.
+A main feature of Azure Digital Twins is the ability to query your twin graph easily and efficiently to answer questions about your environment. Run the following commands in the running project console to get an idea of what this is like.
 
 * **What are all the entities in my environment represented in Azure Digital Twins?** (query all)
 
@@ -179,3 +183,24 @@ A main feature of Azure Digital Twins is the ability to query your twin graph ea
     You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result only includes spaces (not thermostats).
 
     ![Results of compound query, showing floor1 and room21](media/quickstart/output-query-compound.png)
+
+## Clean up resources
+
+If you no longer need the resources created in this quickstart, follow these steps to delete them. If you plan to continue to the Azure Digital Twins tutorials, keep the resources you set up here to continue building on them. 
+
+Using the Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group and the Azure Digital Twins instance.
+
+> [!IMPORTANT]
+> Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
+
+    ```Azure CLI
+    az group delete --name <your-resource-group>
+    ```
+
+Next, delete the AAD app registration you created for your client app with this command:
+
+    ```Azure CLI
+    az ad app delete --id <your-application-ID>
+    ```
+
+Finally, delete the project sample folder you downloaded from your local machine.
