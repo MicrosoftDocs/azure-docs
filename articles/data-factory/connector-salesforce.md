@@ -19,6 +19,8 @@ ms.date: 03/24/2020
 > * [Version 1](v1/data-factory-salesforce-connector.md)
 > * [Current version](connector-salesforce.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Salesforce. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 ## Supported capabilities

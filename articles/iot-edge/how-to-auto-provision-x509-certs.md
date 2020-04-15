@@ -5,7 +5,7 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: kevindaw
-ms.date: 03/06/2020
+ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -40,6 +40,12 @@ Device identity certificates are only used for provisioning the IoT Edge device 
 
 After you create the device identity certificate, you should have two files: a .cer or .pem file that contains the public portion of the certificate, and a .cer or .pem file with the private key of the certificate. If you plan to use group enrollment in DPS, you also need the public portion of an intermediate or root CA certificate in the same certificate chain of trust.
 
+You need the following files to set up automatic provisioning with X.509:
+
+* The device identity certificate and its private key certificate. The device identity certificate is uploaded to DPS if you create an individual enrollment. The private key is passed to the IoT Edge runtime.
+* A full chain certificate, which should have at least the device identity and the intermediate certificates in it. The full chain certificate is passed to the IoT Edge runtime.
+* An intermediate or root CA certificate from the certificate chain of trust. This certificate is uploaded to DPS if you create a group enrollment.
+
 ### Use test certificates
 
 If you don't have a certificate authority available to create new identity certs and want to try out this scenario, the Azure IoT Edge git repository contains scripts that you can use to generate test certificates. These certificates are designed for development testing only, and must not be used in production.
@@ -68,6 +74,9 @@ When you create an enrollment in DPS, you have the opportunity to declare an **I
 
 For more information about enrollments in the Device Provisioning Service, see [How to manage device enrollments](../iot-dps/how-to-manage-enrollments.md).
 
+   > [!TIP]
+   > In the Azure CLI, you can create an [enrollment](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) or an [enrollment group](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) and use the **edge-enabled** flag to specify that a device, or group of devices, is an IoT Edge device.
+
 1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub Device Provisioning Service.
 
 1. Under **Settings**, select **Manage enrollments**.
@@ -78,7 +87,7 @@ For more information about enrollments in the Device Provisioning Service, see [
 
    * **Primary Certificate .pem or .cer file**: Upload the public file from the device identity certificate. If you used the scripts to generate a test certificate, choose the following file:
 
-      `<WRKDIR>/certs/iot-edge-device-identity-<name>-full-chain.cert.pem`
+      `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
 
    * **IoT Hub Device ID**: Provide an ID for your device if you'd like. You can use device IDs to target an individual device for module deployment. If you don't provide a device ID, the common name (CN) in the X.509 certificate is used.
 
@@ -197,7 +206,7 @@ X.509 provisioning with DPS is only supported in IoT Edge version 1.0.9 or newer
 You'll need the following information when provisioning your device:
 
 * The DPS **ID Scope** value. You can retrieve this value from the overview page of your DPS instance in the Azure portal.
-* The device identity certificate file on the device.
+* The device identity certificate chain file on the device.
 * The device identity key file on the device.
 * An optional registration ID (pulled from the common name in the device identity certificate if not supplied).
 
@@ -209,7 +218,7 @@ Use the following link to install the Azure IoT Edge runtime on your device, usi
 
 When you add the X.509 certificate and key information to the config.yaml file, the paths should be provided as file URIs. For example:
 
-* `file:///<path>/identity_certificate.pem`
+* `file:///<path>/identity_certificate_chain.pem`
 * `file:///<path>/identity_key.pem`
 
 The section in the configuration file for X.509 automatic provisioning looks like this:
@@ -227,7 +236,7 @@ provisioning:
     identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
 ```
 
-Replace the placeholder values for `scope_id`, `identity_cert`, `identity_pk` with the scope ID from your DPS instance, and the URIs to the cert and key file locations on your device. Provide a `registration_id` for the device if you want, or leave this line commented out to register the device with the CN name of the identity certificate.
+Replace the placeholder values for `scope_id`, `identity_cert`, `identity_pk` with the scope ID from your DPS instance, and the URIs to the cert chain and key file locations on your device. Provide a `registration_id` for the device if you want, or leave this line commented out to register the device with the CN name of the identity certificate.
 
 Always restart the security daemon after updating the config.yaml file.
 
@@ -237,7 +246,7 @@ sudo systemctl restart iotedge
 
 ### Windows device
 
-Install the IoT Edge runtime on the device for which you generated the identity certificate and identity key. You'll configure the IoT Edge runtime for automatic, not manual, provisioning.
+Install the IoT Edge runtime on the device for which you generated the identity certificate chain and identity key. You'll configure the IoT Edge runtime for automatic, not manual, provisioning.
 
 For more detailed information about installing IoT Edge on Windows, including prerequisites and instructions for tasks like managing containers and updating IoT Edge, see [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
 
@@ -254,11 +263,11 @@ For more detailed information about installing IoT Edge on Windows, including pr
 
 1. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning unless you use the `-Dps` flag to use automatic provisioning.
 
-   Replace the placeholder values for `{scope_id}`, `{identity cert path}`, and `{identity key path}` with the appropriate values from your DPS instance and the file paths on your device. If you want to specify the registration ID, include `-RegistrationId {registration_id}` as well, replacing the placeholder as appropriate.
+   Replace the placeholder values for `{scope_id}`, `{identity cert chain path}`, and `{identity key path}` with the appropriate values from your DPS instance and the file paths on your device. If you want to specify the registration ID, include `-RegistrationId {registration_id}` as well, replacing the placeholder as appropriate.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -X509IdentityCertificate {identity cert path} -X509IdentityPrivateKey {identity key path}
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -X509IdentityCertificate {identity cert chain path} -X509IdentityPrivateKey {identity key path}
    ```
 
    >[!TIP]

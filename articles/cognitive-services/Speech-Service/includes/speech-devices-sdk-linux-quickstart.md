@@ -1,10 +1,10 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 In this quickstart, you'll learn how to use the Speech Devices SDK for Linux to build a speech-enabled product or use it as a [Conversation Transcription](../conversation-transcription-service.md) device. Currently only the [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) is supported.
@@ -94,7 +94,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.10.0</version>
+             <version>1.11.0</version>
         </dependency>
     </dependencies>
    ```

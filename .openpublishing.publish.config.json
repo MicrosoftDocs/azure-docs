@@ -164,6 +164,11 @@
       "branch": "dev"
     },
     {
+      "path_to_root": "functions-quickstart-java",
+      "url": "https://github.com/Azure-Samples/functions-quickstarts-java",
+      "branch": "master"
+    },
+    {
       "path_to_root": "functions-docs-csharp",
       "url": "https://github.com/Azure-Samples/functions-docs-csharp",
       "branch": "master"

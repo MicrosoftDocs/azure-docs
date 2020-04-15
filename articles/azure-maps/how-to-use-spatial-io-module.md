@@ -1,8 +1,8 @@
 ---
 title: How to use the Azure Maps spatial IO module | Microsoft Azure Maps
 description: Learn how to use the Spatial IO module provided by the Azure Maps Web SDK. This module provides robust features to make it easy for developers to integrate spatial data with the Azure Maps web sdk.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 02/28/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -22,6 +22,13 @@ The Azure Maps Web SDK provides the **Spatial IO module**, which integrates spat
 - [Leverage high-speed XML and delimited file reader and writer classes](spatial-io-core-operations.md).
 
 In this guide, we'll learn how to integrate and use the Spatial IO module in a web application.
+
+This video provides an overview of Spatial IO module in the Azure Maps Web SDK.
+
+<br/>
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="Easily integrate spatial data into the Azure Maps - Microsoft Channel 9 Video"></iframe>
+
 
 > [!WARNING]
 > Only use data and services that are from a source you trust, especially if referencing it from another domain. The spatial IO module does take steps to minimize risk, however the safest approach is too not allow any danagerous data into your application to begin with. 

@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 04/14/2020
 ms.custom: seodec18
 ---
 
@@ -40,7 +40,7 @@ Both data retention policies are described in greater detail below.
 
 - **Purge old data** is the default setting for Azure Time Series Insights environments.  
 - **Purge old data** is preferred when users want to always have their *most recent data* in their Time Series Insights environment.
-- The **Purge old data** setting *purges* data once the environment’s limits (retention time, size, or count, whichever comes first) are reached. Retention is set to 30 days by default.
+- The **Purge old data** setting *purges* data once the environment's limits (retention time, size, or count, whichever comes first) are reached. Retention is set to 30 days by default.
 - The oldest ingested data is purged first (the "First In First Out" approach).
 
 ### Example one
@@ -55,16 +55,16 @@ On the 61st day, the environment shows the freshest data, but purges the oldest 
 
 Consider an environment also configured retention behavior **Continue ingress and purge old data**. In this example, **Data retention time** is set to a lower value of 180 days. **Capacity** is set to S1 unit, which contains 30 GB of total capacity. In order to store data for the full 180 days, the daily ingress cannot exceed 0.166 GB (166 MB) per day.  
 
-Whenever this environment’s daily ingress rate exceeds of 0.166 GB per day, data cannot be stored for 180 days, since some data gets purged. Consider this same environment during a busy time frame. Assume the environment’s ingress rate may increase to an average 0.189 GB per day. In that busy time frame, about 158 days of data are retained (30GB/0.189 = 158.73 days of retention). This time is less than the desired data retention time frame.
+Whenever this environment's daily ingress rate exceeds of 0.166 GB per day, data cannot be stored for 180 days, since some data gets purged. Consider this same environment during a busy time frame. Assume the environment's ingress rate may increase to an average 0.189 GB per day. In that busy time frame, about 158 days of data are retained (30GB/0.189 = 158.73 days of retention). This time is less than the desired data retention time frame.
 
 ## Pause ingress
 
 - The **Pause ingress** setting is designed to ensure data is not purged if the size and count limits are reached prior to their retention period.  
 - **Pause ingress** provides additional time for the users to increase the capacity of their environment before data is purged due to breaching of retention period.
 - It helps protect you from data loss but can create an opportunity for the loss of your most recent data if ingress is paused beyond the retention period of your event source.
-- However, once an environment’s maximum capacity is reached, the environment pauses data ingress until the following additional actions occur:
+- However, once an environment's maximum capacity is reached, the environment pauses data ingress until the following additional actions occur:
 
-   - You increase the environment’s maximum capacity to add more scale units as described in [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
+   - You increase the environment's maximum capacity to add more scale units as described in [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
    - The data retention period is reached and data is purged, bringing the environment below its maximum capacity.
 
 ### Example three

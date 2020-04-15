@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 01/09/2020
+ms.date: 03/13/2020
 ---
 
 # Enterprise security for Azure Machine Learning
@@ -102,12 +102,42 @@ Azure Machine Learning relies on other Azure services for compute resources. Com
 
 For more information, see [How to run experiments and inference in a virtual network](how-to-enable-virtual-network.md).
 
+You can also enable Azure Private Link for your workspace. Private Link allows you to restrict communications to your workspace from an Azure Virtual Network. For more information, see [How to configure Private Link](how-to-configure-private-link.md).
+
+> [!TIP]
+> You can combine virtual network and Private Link together to protect communication between your workspace and other Azure resources. However, some combinations require an Enterprise edition workspace. Use the following table to understand what scenarios require Enterprise edition:
+>
+> | Scenario | Enterprise</br>edition | Basic</br>edition |
+> | ----- |:-----:|:-----:| 
+> | No virtual network or Private Link | ✔ | ✔ |
+> | Workspace without Private Link. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
+> | Workspace without Private Link. Other resources with Private Link | ✔ | |
+> | Workspace with Private Link. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
+> | Workspace and any other resource with Private Link | ✔ | |
+> | Workspace with Private Link. Other resources without Private Link or virtual network | ✔ | ✔ |
+> | Azure Container Registry in a virtual network | ✔ | |
+> | Customer Managed Keys for workspace | ✔ | |
+> 
+
+> [!WARNING]
+> Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
+> 
+> Azure Machine Learning does not support using an Azure Kubernetes Service that has private link enabled. Instead, you can use Azure Kubernetes Service in a virtual network. For more information, see [Secure Azure ML experimentation and inference jobs within an Azure Virtual Network](how-to-enable-virtual-network.md).
+
 ## Data encryption
 
 ### Encryption at rest
 
 > [!IMPORTANT]
-> If your workspace contains sensitive data we recommend setting the [hbi_workspace flag](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) while creating your workspace. This controls the amount of data Microsoft collects for diagnostic purposes and enables additional encryption in Microsoft managed environments.
+> If your workspace contains sensitive data we recommend setting the [hbi_workspace flag](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) while creating your workspace. 
+
+The `hbi_workspace` flag controls the amount of data Microsoft collects for diagnostic purposes and enables additional encryption in Microsoft managed environments. In addition it enables the following:
+
+* Starts encrypting the local scratch disk in your Amlcompute cluster provided you have not created any previous clusters in that subscription. Else, you need to raise a support ticket to enable encryption of the scratch disk of your compute clusters 
+* Cleans up your local scratch disk between runs
+* Securely passes credentials for your storage account, container registry and SSH account from the execution layer to your compute clusters using your key vault
+* Enables IP filtering to ensure the underlying batch pools cannot be called by any external services other than AzureMachineLearningService
+
 
 For more information on how encryption at rest works in Azure, see [Azure data encryption at rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
@@ -119,6 +149,8 @@ For information on how to use your own keys for data stored in Azure Blob storag
 
 Training data is typically also stored in Azure Blob storage so that it's accessible to training compute targets. This storage isn't managed by Azure Machine Learning but mounted to compute targets as a remote file system.
 
+If you need to __rotate or revoke__ your key, you can do so at any time. When rotating a key, the storage account will start using the new key (latest version) to encrypt data at rest. When revoking (disabling) a key, the storage account takes care of failing requests. It usually takes an hour for the rotation or revocation to be effective.
+
 For information on regenerating the access keys, see [Regenerate storage access keys](how-to-change-storage-access-key.md).
 
 #### Azure Cosmos DB
@@ -126,9 +158,6 @@ For information on regenerating the access keys, see [Regenerate storage access 
 Azure Machine Learning stores metrics and metadata in an Azure Cosmos DB instance. This instance is associated with a Microsoft subscription managed by Azure Machine Learning. All the data stored in Azure Cosmos DB is encrypted at rest with Microsoft-managed keys.
 
 To use your own (customer-managed) keys to encrypt the Azure Cosmos DB instance, you can create a dedicated Cosmos DB instance for use with your workspace. We recommend this approach if you want to store your data, such as run history information, outside of the multi-tenant Cosmos DB instance hosted in our Microsoft subscription. 
-
-> [!NOTE]
-> This feature is currently available only in US East, US West 2, US South Central.
 
 To enable provisioning a Cosmos DB instance in your subscription with customer-managed keys, perform the following actions:
 
@@ -155,6 +184,8 @@ This Cosmos DB instance is created in a Microsoft-managed resource group in your
 > * If you need to delete this Cosmos DB instance, you must delete the Azure Machine Learning workspace that uses it. 
 > * The default [__Request Units__](../cosmos-db/request-units.md) for this Cosmos DB account is set at __8000__. Changing this value is unsupported. 
 
+If you need to __rotate or revoke__ your key, you can do so at any time. When rotating a key, Cosmos DB will start using the new key (latest version) to encrypt data at rest. When revoking (disabling) a key, Cosmos DB takes care of failing requests. It usually takes an hour for the rotation or revocation to be effective.
+
 For more information on customer-managed keys with Cosmos DB, see [Configure customer-managed keys for your Azure Cosmos DB account](../cosmos-db/how-to-setup-cmk.md).
 
 #### Azure Container Registry
@@ -170,7 +201,21 @@ For an example of creating a workspace using an existing Azure Container Registr
 
 #### Azure Container Instance
 
-Azure Container Instance does not support disk encryption. If you need disk encryption, we recommend [deploying to an Azure Kubernetes Service instance](how-to-deploy-azure-kubernetes-service.md) instead. In this case, you may also want to use Azure Machine Learning’s support for role-based access controls to prevent deployments to an Azure Container Instance in your subscription.
+You may encrypt a deployed Azure Container Instance (ACI) resource using customer-managed keys. The customer-managed key used for ACI can be stored in the Azure Key Vault for your workspace. For information on generating a key, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
+
+To use the key when deploying a model to Azure Container Instance, create a new deployment configuration using `AciWebservice.deploy_configuration()`. Provide the key information using the following parameters:
+
+* `cmk_vault_base_url`: The URL of the key vault that contains the key.
+* `cmk_key_name`: The name of the key.
+* `cmk_key_version`: The version of the key.
+
+For more information on creating and using a deployment configuration, see the following articles:
+
+* [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) reference
+* [Where and how to deploy](how-to-deploy-and-where.md)
+* [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md)
+
+For more information on using a customer-managed key with ACI, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
 
 #### Azure Kubernetes Service
 
@@ -193,9 +238,9 @@ Azure Databricks can be used in Azure Machine Learning pipelines. By default, th
 
 ### Encryption in transit
 
-You can use SSL to secure internal communication between Azure Machine Learning microservices and to secure external calls to the scoring endpoint. All Azure Storage access also occurs over a secure channel.
+Azure Machine Learning uses TLS to secure internal communication between various Azure Machine Learning microservices. All Azure Storage access also occurs over a secure channel.
 
-For more information, see [Use SSL to secure a web service through Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
+To secure external calls to the scoring endpoint Azure Machine Learning uses TLS. For more information, see [Use TLS to secure a web service through Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service).
 
 ### Using Azure Key Vault
 
@@ -213,7 +258,7 @@ Each workspace has an associated system-assigned managed identity that has the s
 
 ### Microsoft collected data
 
-Microsoft may collect non-user identifying information like resource names (for example the dataset name, or the machine learning experiment name), or job environment variables for diagnostic purposes. All such data is stored using Microsoft-managed keys in storage hosted in Microsoft owned subscriptions and follows [Microsoft’s standard Privacy policy and data handling standards](https://privacy.microsoft.com/privacystatement).
+Microsoft may collect non-user identifying information like resource names (for example the dataset name, or the machine learning experiment name), or job environment variables for diagnostic purposes. All such data is stored using Microsoft-managed keys in storage hosted in Microsoft owned subscriptions and follows [Microsoft's standard Privacy policy and data handling standards](https://privacy.microsoft.com/privacystatement).
 
 Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables. Environment variables are logged, encrypted, and stored by us. Similarly when naming [runid](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), avoid including sensitive information such as user names or secret project names. This information may appear in telemetry logs accessible to Microsoft Support engineers.
 
@@ -326,14 +371,14 @@ Here are the details:
 * The user creates an image by using a model, a score file, and other model dependencies.
 * The Docker image is created and stored in Azure Container Registry.
 * The web service is deployed to the compute target (Container Instances/AKS) using the image created in the previous step.
-* Scoring request details are stored in Application Insights, which is in the user’s subscription.
+* Scoring request details are stored in Application Insights, which is in the user's subscription.
 * Telemetry is also pushed to the Microsoft/Azure subscription.
 
 [![Inference workflow](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing-expanded.png#lightbox)
 
 ## Next steps
 
-* [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
+* [Secure Azure Machine Learning web services with TLS](how-to-secure-web-service.md)
 * [Consume a Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 * [How to run batch predictions](how-to-use-parallel-run-step.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)

@@ -1,13 +1,12 @@
 ---
 title: Publish Azure application offer | Azure Marketplace 
 description: Describes the process and steps for publishing an Azure application offer on the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Publish Azure application offer

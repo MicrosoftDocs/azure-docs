@@ -1,6 +1,6 @@
 ---
 title: Develop on Azure Kubernetes Service (AKS) with Draft
-description: Use Draft with AKS and Azure Container Registry
+description: Use Draft with AKS and Azure Container Registry to package and run application containers in a cluster.
 services: container-service
 author: zr-msft
 ms.topic: article
@@ -301,7 +301,7 @@ az group delete --name MyResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
+> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete]. If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Next steps
 
