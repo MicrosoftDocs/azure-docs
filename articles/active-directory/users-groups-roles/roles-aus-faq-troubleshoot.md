@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Troubleshooting and FAQ for administrative units in Azure Active Directory
 
-For more granular administrative control in Azure ACtive Directory (Azure AD), you can assign users to an Azure AD role with a scope limited to one or more administrative units (AUs). You can find sample PowerShell scripts for common tasks at https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0.
+For more granular administrative control in Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope limited to one or more administrative units (AUs). You can find sample PowerShell scripts for common tasks at https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0.
 
 ## Frequently asked questions
 
