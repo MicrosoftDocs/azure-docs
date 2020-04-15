@@ -3,7 +3,7 @@ title: Implement dynamic styling for Private Atlas Indoor Maps | Microsoft Azure
 description: Learn how to Implement dynamic styling for Private Atlas indoor maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 03/19/2020
+ms.date: 04/13/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -12,9 +12,9 @@ manager: philmea
 
 # Implement dynamic styling for Private Atlas indoor maps
 
-Private Atlas lets you dynamically render certain parts of your indoor map data. For example, you may have indoor map data for a building with sensors collecting temperature information. You can render meeting rooms with styles based on the room temperature level. The [Feature State API](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) supports such scenarios in which the Tileset features render according to their states. In this article, we'll discuss how to dynamically render indoor map features based on associated feature states using the [Feature State API](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) and the [Indoor Web Module](how-to-use-indoor-module.md).
+Private Atlas lets you dynamically render certain parts of your indoor map data. For example, you may have indoor map data for a building with sensors collecting temperature information. You can render meeting rooms with styles based on the room temperature level. The [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) supports such scenarios in which the tileset features render according to their states. In this article, we'll discuss how to dynamically render indoor map features based on associated feature states using the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) and the [Indoor Web Module](how-to-use-indoor-module.md).
 
-When a web application uses the [Indoor Web Module](how-to-use-indoor-module.md) to render indoor maps, you can further leverage the Feature State set service for dynamic styling. In particular, the Get State Tile API allows for control over the Tileset style at the level of individual feature. So, the map rendering engine will not reparse the underlying geometry and data. This offers a significant boost in performance, especially in scenarios involving live data visualization.
+When a web application uses the [Indoor Web Module](how-to-use-indoor-module.md) to render indoor maps, you can further leverage the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) for dynamic styling. In particular, the [Get Map State Tile API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) allows for control over the tileset style at the level of individual feature. The map rendering engine will not reparse the underlying geometry and data, thus offering a significant boost in performance, especially in scenarios involving live data visualization.
 
 ## Prerequisites
 
@@ -29,7 +29,6 @@ When a web application uses the [Indoor Web Module](how-to-use-indoor-module.md)
 ## Implement dynamic styling
 
 Once you complete the prerequisites, you should have a simple web application configured with your tile set identifier, and state set identifier.
-
 
 ### Select features
 
@@ -108,27 +107,25 @@ The web application you previously opened in a browser should now automatically 
 Learn more by reading:
 
 > [!div class="nextstepaction"]
-> [Bulk import data to an existing data set](how-to-ingest-bulk-data-in-dataset.md)
-
-> [!div class="nextstepaction"]
-> [Use the Azure Maps QGIS Plug-in](azure-maps-qgis-plugin.md)
+> [Use the Azure Maps QGIS Plug-in](private-atlas-for-indoor-maps.md)
 
 See to the references for the APIs mentioned in this article:
 
 > [!div class="nextstepaction"]
-> [Data Upload]()
+> [Data Upload](private-atlas-for-indoor-maps.md#uploading-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Data Conversion]()
+> [Data Conversion](private-atlas-for-indoor-maps.md#converting-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Dataset]()
+> [Dataset](private-atlas-for-indoor-maps.md#datasets)
 
 > [!div class="nextstepaction"]
-> [Tileset]()
+> [Tileset](private-atlas-for-indoor-maps.md#tilesets)
 
 > [!div class="nextstepaction"]
-> [WFS service]()
+> [Feature State set](private-atlas-for-indoor-maps.md#feature-statesets)
 
 > [!div class="nextstepaction"]
-> [Feature State set]()
+> [WFS service](private-atlas-for-indoor-maps.md#web-feature-service-api)
+

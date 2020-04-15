@@ -1,9 +1,9 @@
 ---
-title: DWG package requirements in Private `Atlas  | Microsoft Docs
+title: Drawing package requirements in Private `Atlas  | Microsoft Docs
 description: Learn about the DWG package requirements to convert your facility design files to map data using the Azure Maps Conversion service
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/6/2020
+ms.date: 04/13/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -34,7 +34,7 @@ Acquaint yourself with the following terms before we explain the DWG package req
 
 A DWG package consists of DWG files and a manifest file for a single facility. The DWG files can be organized in any way inside the folder, but the manifest file must live at the root directory of the folder. The folder must be zipped in a single archive file, with a .zip extension. The next sections detail the requirements for the DWG files, manifest file, and the content of these files.  
 
-## DWG files requirements
+## Drawing files requirements
 
 A single DWG file is required for each level of the facility. And the level's data must be contained in a single DWG file. Any external references (xrefs) must be bound to the parent drawing. Additionally, each DWG file:
 

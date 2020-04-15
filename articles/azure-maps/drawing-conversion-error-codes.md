@@ -1,18 +1,18 @@
 ---
-title: DWG Conversion Error and Warning in Azure Maps | Microsoft Docs
+title: Drawing Conversion Error and Warning in Azure Maps | Microsoft Docs
 description: Learn about the Conversion errors and warnings you may meet while you're using the Azure Maps Conversion service. Read the recommendations on how to resolve the errors and the warnings, with some examples.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/06/2020
+ms.date: 04/13/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
 ---
 
-# DWG conversion errors and warnings
+# Drawing conversion errors and warnings
 
-The Azure Maps Conversion service lets you convert uploaded DWG designs into map data. However, the DWG files and the manifest describing the DWG files must adhere to the [DWG package requirements](dwg-requirements.md). If a requirement or more aren't met, then the Conversion service will return errors or warnings. This article lists DWG conversion error and warning codes, with recommendations on how to resolve them. We'll also describe some examples that cause the Conversion service to return these codes.
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion)  lets you convert uploaded Drawing packages into map data. Drawing packages must adhere to the [Drawing package requirements](drawing-requirements.md). If a requirement or more aren't met, then the Conversion service will return errors or warnings. This article lists the conversion error and warning codes, with recommendations on how to resolve them. We'll also describe some examples that cause the Conversion service to return these codes.
 
 ## Codes overview
 
@@ -49,7 +49,7 @@ The table lists the possible warning codes you may meet. Click on a warning cate
 
 ### geometryWarning
 
-Failed to build a feature from a DWG entity because a geometric constraint isn't met. For example, a self-intersecting polygon or other invalid topologies is used.
+Failed to build a feature from an entity because a geometric constraint isn't met. For example, a self-intersecting polygon or other invalid topologies is used.
 
 Manually inspect the `geometryWarning` warning for each geometry to ensure the geometry is the correct type. Check for topological errors; such as, PolyLine features not meeting perfectly at a point. Other mistakes include: unclosed polygons, gaps between polygon borders, or overlapping polygon border.
 
@@ -64,13 +64,13 @@ Inspect each error and remove the incompatible geometry. Otherwise, move the inc
 
 ### unsupportedFeatureRepresentation
 
-The Conversion service came across a DWG entity of an unsupported type. For example:
+The Conversion service came across an entity of an unsupported type. For example:
 
 * A multi-line text object in a label layer
 * A 3D Face in the unit layer
 * An old-style Polyline2D entity that hasn't been converted to a regular Polyline
 
-Only use the supported entity types listed under the [DWG files requirements section in the DWG package requirements article](dwg-requirements.md#dwg-files-requirements).
+Only use the supported entity types listed under the [Drawing files requirements section in the Drawing package requirements article](drawing-requirements.md#drawing-files-requirements).
 
 ### automaticRepairPerformed
 
@@ -107,13 +107,16 @@ Unable to read user data object from storage. For example:
 
 * User provided an incorrect `udid` parameter
 
-Make sure you provide a correct `udid` for the uploaded package. The Private Atlas subscription that you use to make the conversion request must match with the subscription you used to upload your package.
+To resolve this error:
+
+1. Make sure you provide a correct `udid` for the uploaded package.
+2. Make sure Private Atlas has been created for the Azure Maps account you used for uploading your Drawing package, and that the call to Conversion service matches Azure Maps account (for example, uses the same Azure Maps subscription key).
 
 ### dwgError
 
 Error when reading one or more DWG files from the archive. For example, the DWG file is:
 
-* Not a valid AutoCAD drawing
+* Not a valid AutoCAD DWG file format drawing
 * Corrupt
 * Listed in the manifest, but it's missing from the archive
 
@@ -139,7 +142,7 @@ Manifest is missing a required data. For example:
 * Manifest is missing a "version" object
 * Manifest is missing a "dwgLayers" object
 
-Verify that the manifest contains all required properties. For a full list of required manifest object, see the [manifest section in the DWG package requirements](dwg-requirements.md#manifest-file-requirements)  
+Verify that the manifest contains all required properties. For a full list of required manifest object, see the [manifest section in the Drawing package requirements](drawing-requirements.md#manifest-file-requirements)  
 
 ### missingManifest
 
@@ -172,7 +175,7 @@ For GeoJSON, the coordinates order is longitude and latitude. If you don't use t
 
 ### redundantAttribution
 
-More than one definition was found for a given zone or unit. For example, the manifest contains: 
+More than one definition was found for a given zone or unit. For example, the manifest contains:
 
 * Two `unitProperties` objects with the same `name`
 * Two `zoneProperties` objects with the same `name`
@@ -183,9 +186,9 @@ Remove redundant or conflicting object properties.
 
 ### wallOutsideLevel
 
-Wall geometry occurs outside the bounds of the level outline. 
+Wall geometry occurs outside the bounds of the level outline.
 
-The following two images show the error in red. The interior wall is outside the level boundary in the first image. In the second image, the exterior wall is outside the level boundary.
+The following two images show the error in red. The interior wall, shown in red, is outside the yellow level boundary in the first image. In the second image, the exterior wall, also shown in red, is outside the yellow level boundary.
 
 ![Interior wall goes outside the level boundary](./media/dwg-conversion-error-codes/interior-wall-outside-level-boundary.png)
 
@@ -242,16 +245,16 @@ Error creating a vertical penetration feature. For example:
 * A vertical penetration area with no overlapping vertical penetration areas on any levels above or below it
 * There exists a level with two or more vertical penetration features on it that overlap this one
 
-Read about how to use a vertical penetration feature in the [DWG package requirements](dwg-requirements.md) article.
+Read about how to use a vertical penetration feature in the [Drawing package requirements](drawing-requirements.md) article.
 
 ## Next steps
 
-After you resolve your DWG conversion errors, try to resolve your warnings.
+After you resolve your Drawing conversion errors, try to resolve your warnings.
 
-Once you successfully convert your uploaded DWG design into map data, you can use your converted data to render indoor maps. Learn more by reading the following articles:
-
-> [!div class="nextstepaction"]
-> [How to use Azure Maps DWG error visualizer](azure-maps-dwg-errors-visualizer.md)
+Once you successfully convert your uploaded Drawing package into map data, you can use your converted data to render indoor maps. Learn more by reading the following articles:
 
 > [!div class="nextstepaction"]
-> [Indoor Maps data management](how-to-manage-private-atlas.md)
+> [How to use Azure Maps Drawing error visualizer](azure-maps-drawing-errors-visualizer.md)
+
+> [!div class="nextstepaction"]
+> [Indoor Maps data management](private-atlas-for-indoor-maps.md)

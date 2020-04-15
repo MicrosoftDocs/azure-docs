@@ -3,7 +3,7 @@ title: Indoor Maps data management | Microsoft Azure Maps
 description: In this article, you'll learn how to use the Azure portal to manage  Private Atlas in a Microsoft Azure Maps account.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 03/30/2020
+ms.date: 04/13/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -76,23 +76,26 @@ Click the **Delete** button and type your Private Atlas name to confirm your des
 ![Private Atlas delete confirmation](./media/how-to-manage-private-atlas/private-atlas-delete-confirmation.png)
 
 ## Authentication
-Private Atlas inherits your Azure Maps Access Control (IAM) settings. Access to any data created and processed in Private Atlas such as converted data, Datasets, Tilesets, and Feature State sets is available via API calls only when passing the authentication and authorization rules defined in the IAM account to which Private Atlas belongs. In addition, Private Atlas usage data is incorporated in your Azure Maps usage charts and activity log.  See [Manage authentication in Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication) for more detail.
+Private Atlas inherits your Azure Maps Access Control (IAM) settings. Access to any data created and processed in Private Atlas such as converted data, datasets, tilesets, and feature statesets is available via API calls only when passing the authentication and authorization rules defined in the IAM account to which Private Atlas belongs. In addition, Private Atlas usage data is incorporated in your Azure Maps usage charts and activity log.  For more detail, see [Manage authentication in Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
 ## Next steps
 
 Introduction to Private Atlas for Indoor mapping:
 
 > [!div class="nextstepaction"]
-> [Data Conversion]()
+> [Data Upload](private-atlas-for-indoor-maps.md#uploading-a-dwg-package)
 
 > [!div class="nextstepaction"]
-> [Dataset]()
+> [Data Conversion](private-atlas-for-indoor-maps.md#converting-a-dwg-package)
 
 > [!div class="nextstepaction"]
-> [Tileset]()
+> [Dataset](private-atlas-for-indoor-maps.md#datasets)
 
 > [!div class="nextstepaction"]
-> [Feature State set]()
+> [Tileset](private-atlas-for-indoor-maps.md#tilesets)
+
+> [!div class="nextstepaction"]
+> [Feature State set](private-atlas-for-indoor-maps.md#feature-statesets)
 
 Learn how to use the Private Atlas to render indoor maps in your application:
 
