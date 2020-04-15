@@ -102,6 +102,8 @@ To make access reviews easier and faster for you, we also provide recommendation
 
 During the preview you can get to the My Access experience three different ways:
 
+**New experience banner**
+
 - Sign in to the MyApps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
     ![MyApps portal listing apps you have permissions to](./media/perform-access-review/myapps-access-panel.png)
@@ -115,9 +117,10 @@ During the preview you can get to the My Access experience three different ways:
 
         ![Pending access reviews list for apps and groups with the new experience available banner displayed during the preview](./media/perform-access-review/banner.png)
 
-    1. Click on **Try it!**
+    1. Click on **Try it!** This will take you to the new My Access experience.
   
 - **Email**:
+  You will need to have been whitelisted for the new experience or onboarded to access reviews after March 2020
 
     1. Look for an email from Microsoft asking you to review access. You can see an example email message below:
 
