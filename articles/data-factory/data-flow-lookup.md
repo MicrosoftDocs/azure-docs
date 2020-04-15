@@ -12,7 +12,7 @@ ms.date: 03/23/2020
 
 # Lookup transformation in mapping data flow
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Use the lookup transformation to reference data from another source in a data flow stream. The lookup transformation appends columns from matched data to your source data.
 

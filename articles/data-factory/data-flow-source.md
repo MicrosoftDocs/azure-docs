@@ -12,7 +12,7 @@ ms.date: 12/12/2019
 
 # Source transformation in mapping data flow 
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A source transformation configures your data source for the data flow. When designing data flows, your first step will always be configuring a source transformation. To add a source, click on the **Add Source** box in the data flow canvas.
 

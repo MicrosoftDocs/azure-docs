@@ -13,7 +13,7 @@ ms.date: 12/12/2019
 
 # Sink transformation in mapping data flow
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 After you transform your data, you can sink the data into a destination dataset. Every data flow requires at least one sink transformation, but you can write to as many sinks as necessary to complete your transformation flow. To write to additional sinks, create new streams via new branches and conditional splits.
 

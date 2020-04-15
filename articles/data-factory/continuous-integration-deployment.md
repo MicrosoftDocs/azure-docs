@@ -15,7 +15,7 @@ ms.date: 02/12/2020
 
 # Continuous integration and delivery in Azure Data Factory
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
 ## Overview
 
