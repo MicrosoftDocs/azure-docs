@@ -50092,6 +50092,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/hdinsight/spark/azure-synapse-analytics-job-definition.md",
+      "redirect_url": "../../synapse-analytics/spark/apache-spark-job-definitions.md",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/media-services/latest/access-api-portal.md",
       "redirect_url": "/azure/media-services/latest/access-api-howto",
       "redirect_document_id": false
@@ -50783,6 +50788,11 @@
     {
       "source_path": "articles/security/fundamentals/database-security-overview.md",
       "redirect_url": "/azure/sql-database/sql-database-security-overview",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/azure-monitor/insights/key-vault-insights-overview.md",
+      "redirect_url": "/azure/azure-monitor/overview",
       "redirect_document_id": false
     },
     {

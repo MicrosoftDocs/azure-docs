@@ -69,7 +69,7 @@ $vmExists = Get-AzResource -Name $vmName -ResourceGroupName $resourceGroupName
 if(!$vmExists)
     {
     Write-Output "VM $vmName does not exist, creating"
-    New-AzureRMVM -Name $vmName -ResourceGroupName $resourceGroupName -Credential $myCred
+    New-AzVM -Name $vmName -ResourceGroupName $resourceGroupName -Credential $myCred
     }
 else
     {
@@ -272,7 +272,7 @@ You can use the following steps to view the jobs for a runbook.
 
 ### Retrieving job status using PowerShell
 
-Use the `Get-AzAutomationJob` cmdlet to retrieve the jobs created for a runbook and the details of a particular job. If you start a runbook with PowerShell using `Start-AzAutomationRunbook`, it returns the resulting job. Use [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) to retrieve job output.
+Use the [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) cmdlet to retrieve the jobs created for a runbook and the details of a particular job. If you start a runbook with PowerShell using `Start-AzAutomationRunbook`, it returns the resulting job. Use [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) to retrieve job output.
 
 The following example gets the last job for a sample runbook and displays its status, the values provided for the runbook parameters, and the job output.
 
@@ -350,5 +350,5 @@ Using child runbooks decreases the total amount of time for the parent runbook t
 * To find out how to work with a runbook, see [Manage runbooks in Azure Automation](manage-runbooks.md).
 * To learn more about the methods that can be used to start a runbook in Azure Automation, see [Starting a runbook in Azure Automation](automation-starting-a-runbook.md).
 * For more information on PowerShell, including language reference and learning modules, see the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
-- For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).

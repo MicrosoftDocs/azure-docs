@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 04/15/2020
 ---
 
 # Security and data privacy in Azure Cognitive Search
@@ -27,7 +27,6 @@ Azure Cognitive Search is certified for the following standards, as [announced i
 + [GxP (21 CFR Part 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
 + [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
 + [PCI DSS Level 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
-+ [Australia IRAP Unclassified DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
 Standards compliance applies to generally available features. Preview features are certified when they transition to general availability, and must not be used in solutions having strict standards requirements. Compliance certification is documented in [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) and the [Trust Center](https://www.microsoft.com/en-us/trustcenter). 
 

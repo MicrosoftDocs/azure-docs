@@ -11,6 +11,8 @@ ms.author: abnarain
 
 # Troubleshoot self-hosted integration runtime
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article explores common troubleshooting methods for self-hosted integration runtime in Azure Data Factory.
 
 ## Common errors and resolutions
@@ -75,9 +77,9 @@ The following is the expected response:
 
 > [!NOTE] 
 > Proxy considerations:
-> *	Check whether the proxy server needs to be put on the Safe Recipients list. If so, make sure [these domains](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) are on the Safe Recipients list.
-> *	Check whether the TLS/SSL certificate "wu2.frontend.clouddatahub.net/" is trusted on the proxy server.
-> *	If you're using Active Directory authentication on the proxy, change the service account to the user account that can access the proxy as "Integration Runtime Service."
+> *    Check whether the proxy server needs to be put on the Safe Recipients list. If so, make sure [these domains](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) are on the Safe Recipients list.
+> *    Check whether the TLS/SSL certificate "wu2.frontend.clouddatahub.net/" is trusted on the proxy server.
+> *    If you're using Active Directory authentication on the proxy, change the service account to the user account that can access the proxy as "Integration Runtime Service."
 
 ### Error message: Self-hosted integration runtime node/ logical SHIR is in Inactive/ "Running (Limited)" state
 
@@ -112,7 +114,7 @@ This behavior occurs when nodes can't communicate with each other.
         
    ![Command-line error](media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png)
         
-1.	Check whether the error log contains the following:
+1.    Check whether the error log contains the following:
 
     ```Error log: Cannot connect to worker manager: net.tcp://xxxxxx:8060/ExternalService.svc/ No DNS entries exist for host azranlcir01r1. No such host is known Exception detail: System.ServiceModel.EndpointNotFoundException: No DNS entries exist for host xxxxx. ---> System.Net.Sockets.SocketException: No such host is known at System.Net.Dns.GetAddrInfo(String name) at System.Net.Dns.InternalGetHostByName(String hostName, Boolean includeIPv6) at System.Net.Dns.GetHostEntry(String hostNameOrAddress) at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri) --- End of inner exception stack trace --- Server stack trace: at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri)```
     
