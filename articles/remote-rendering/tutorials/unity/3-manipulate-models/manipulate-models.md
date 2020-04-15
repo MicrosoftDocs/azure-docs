@@ -31,9 +31,9 @@ To add MRTK, follow the steps defined in [Getting started with MRTK](https://mic
 
 ## Include the View Controller used by this tutorial
 
-This tutorial provides a few scripts, assets and Unity prefabs to get you started with interactive objects. These are bundled into a [Unity Asset Package](https://docs.unity3d.com/Manual/AssetPackages.html), which can be downloaded [here](todo\path\to\asset-package)
+This tutorial provides a few scripts, assets and Unity prefabs to get you started with interactive objects. These are bundled into a [Unity Asset Package](https://docs.unity3d.com/Manual/AssetPackages.html), which can be downloaded \[here](todo\path\to\asset-package)
 
-1. Download the package [here](todo\path\to\asset-package)
+1. Download the package \[here](todo\path\to\asset-package)
 1. In your Unity project, choose **Assets** > **Import Package** > **Custom Package**.
 1. In the file explorer, select the asset package you downloaded in step 1.
 1. Select the **Import** button to import the contents of the package into your project.
