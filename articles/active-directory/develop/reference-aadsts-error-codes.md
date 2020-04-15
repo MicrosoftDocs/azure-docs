@@ -28,12 +28,12 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 
 The [OAuth2.0 spec](https://tools.ietf.org/html/rfc6749#section-5.2) provides guidance on how to handle errors during authentication using the `error` portion of the error response. 
 
-Error responses will look like:
+Here is a sample error response:
 
 ```json
 {
   "error": "invalid_scope",
-  "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://foo.microsoft.com/mail.read is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
+  "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://example.contoso.com/activity.read is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
   "error_codes": [
     70011
   ],
@@ -47,14 +47,14 @@ Error responses will look like:
 | Parameter         | Description    |
 |-------------------|----------------|
 | `error`       | An error code string that can be used to classify types of errors that occur, and should be used to react to errors. |
-| `error_description` | A specific error message that can help a developer identify the root cause of an authentication error. Should never be used by your code to react to an error. |
+| `error_description` | A specific error message that can help a developer identify the root cause of an authentication error. Never use this field to react to an error in your code. |
 | `error_codes` | A list of STS-specific error codes that can help in diagnostics.  |
 | `timestamp`   | The time at which the error occurred. |
 | `trace_id`    | A unique identifier for the request that can help in diagnostics. |
 | `correlation_id` | A unique identifier for the request that can help in diagnostics across components. |
 | `error_uri` |  A link to the error lookup page with additional information about the error.  This is for developer usage only, do not present it to users.  Only present when the error lookup system has additional information about the error - not all error have additional information provided.|
 
-The `error` field has several possible values - review the protocol documentation links to learn more about specific errors (e.g. `authorization_pending` for the [device code flow](v2-oauth2-device-code.md)) and how to react to them.  Some common ones are listed here:
+The `error` field has several possible values - review the protocol documentation links and OAuth 2.0 specs to learn more about specific errors (for example, `authorization_pending` in the [device code flow](v2-oauth2-device-code.md)) and how to react to them.  Some common ones are listed here:
 
 | Error Code         | Description        | Client Action    |
 |--------------------|--------------------|------------------|
