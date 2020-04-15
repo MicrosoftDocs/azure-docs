@@ -15,9 +15,9 @@ Once logged in, each request to an API function includes authentication-related 
 
 | Header  | Description |
 |---------|-------------|
-| <nobr>`x-ms-client-principal-name`</nobr> | The provider's unique identifier. Depending on the provider, this is either the user's email address or the person's username. |
+| <nobr>`x-ms-client-principal-name`</nobr> | The provider's unique identifier. Depending on the provider, this value is either the user's email address or the person's username. |
 | `x-ms-client-principal-id`  | Either the user's ID for the identity provider, or a server-generated unique ID. |
-| `x-ms-client-principal-idp` | The name of the identity provider used to login. |
+| `x-ms-client-principal-idp` | The name of the identity provider used to log in. |
 | `x-ms-client-principal`     | A serialized object containing values of each of the above data. |
 
 ## In the API
