@@ -70,7 +70,6 @@ On the **Devices** list page you can:
 
 - Select **Add** to register a new device with your hub. Then enter a device ID. Use the default settings to automatically generate authentication keys and enable the connection to your hub.
 - Select a device and then select **Delete** to delete a device identity. Review the device details before you complete this action to be sure you're deleting the right device identity.
-- Query by `capabilityID` and `interfaceID`. Add either your `capabilityID` or `interfaceID` as a parameter to query your devices.
 
 ## Interact with a device
 
