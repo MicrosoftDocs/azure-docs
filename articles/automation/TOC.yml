@@ -12,7 +12,7 @@
       href: automation-quickstart-create-account.md
     - name: Create a PowerShell runbook
       href: automation-quickstart-create-runbook.md
-    - name: Manage configuration of a machine
+    - name: Enable Desired State Configuration for a machine
       href: automation-quickstart-dsc-configuration.md
 - name: Tutorials
   items:
