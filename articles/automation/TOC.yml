@@ -231,10 +231,9 @@
           href: change-tracking-file-contents.md
         - name: Manage inventory collection from VMs
           href: automation-vm-inventory.md
-        - name: Troubleshoot
-        - name: Onboarding
+        - name: Troubleshoot onboarding
           href: troubleshoot/onboarding.md
-        - name: Using Change Tracking and Inventory 
+        - name: Troubleshoot using Change Tracking and Inventory 
           href: troubleshoot/change-tracking.md
     - name: Cross-component scenarios
       items:
