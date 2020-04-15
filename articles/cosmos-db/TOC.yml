@@ -51,6 +51,8 @@
           href: sql-api-java-application.md
         - name: Node.js
           href: sql-api-nodejs-application.md
+      - name: Build a mobile app
+        items:
         - name: Xamarin
           href: mobile-apps-with-xamarin.md
     - name: 2 - Migrate data
@@ -480,6 +482,8 @@
       items:
       - name: Change feed overview
         href: change-feed.md
+      - name: Change feed design patterns
+        href: change-feed-design-patterns.md
       - name: Reading change feed
         href: read-change-feed.md
       - name: Change feed processor
@@ -597,6 +601,8 @@
         items:
         - name: Elastic scale
           href: manage-scale-cassandra.md
+        - name: Secondary Indexes
+          href: cassandra-secondary-index.md          
       - name: How-to guides
         items:
         - name: Change feed
@@ -1031,6 +1037,10 @@
       items:
       - name: Monitor Cosmos DB
         href: monitor-cosmos-db.md
+      - name: Monitor server-side latency
+        href: monitor-server-side-latency.md
+      - name: Monitor request unit usage
+        href: monitor-request-unit-usage.md
       - name: Monitor with diagnostic logs
         href: cosmosdb-monitor-resource-logs.md
       - name: Audit control plane logs
@@ -1153,7 +1163,7 @@
     - name: Query cheat sheet
       href: query-cheat-sheet.md
     - name: SQL playground
-      href: https://aka.ms/cosmos-db-playground
+      href: https://www.documentdb.com/sql/demo
     - name: FAQ
       href: faq.md
     - name: Whitepapers

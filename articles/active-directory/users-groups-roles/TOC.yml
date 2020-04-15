@@ -44,6 +44,8 @@
       href: users-bulk-add.md    
     - name: Manage user profiles
       href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: My Staff delegation
+      href: my-staff-configure.md
     - name: Download user info (preview)
       href: users-bulk-download.md
     - name: Share user accounts  
@@ -72,6 +74,8 @@
       href: domains-manage.md
     - name: Delete a directory    
       href: directory-delete-howto.md
+    - name: Administrative units
+      href: directory-administrative-units.md
     - name: Multiple directories    
       href: licensing-directory-independence.md
     - name: Self-service signup    
@@ -122,8 +126,10 @@
       items: 
       - name: Create a dynamic group    
         href: groups-create-rule.md
-      - name: Dynamic group rule syntax  
+      - name: Dynamic group rule syntax
         href: groups-dynamic-membership.md
+      - name: Validate a membership rule
+        href: groups-dynamic-rule-validation.md
       - name: Change group membership type  
         href: groups-change-type.md
   - name: Assign licenses
@@ -143,6 +149,7 @@
     - name: Service plan IDs for licensing
       href: licensing-service-plan-reference.md
   - name: Azure AD administrator roles    
+    expanded: true
     items: 
     - name: Roles and permissions
       href: directory-assign-admin-roles.md
@@ -174,8 +181,20 @@
         href: directory-admin-roles-secure.md  
       - name: Create emergency accounts    
         href: directory-emergency-access.md
-    - name: Administrative units    
-      href: directory-administrative-units.md
+    - name: Administrative units preview
+      items:
+      - name: Administrative units overview  
+        href: directory-administrative-units.md
+      - name: Add & manage AUs
+        href: roles-admin-units-manage.md
+      - name: Add & manage users in AUs
+        href: roles-admin-units-add-manage-users.md
+      - name: Add & manage groups in AUs
+        href: roles-admin-units-add-manage-groups.md
+      - name: Assign a role with AU scope
+        href: roles-admin-units-assign-roles.md
+      - name: FAQ and troubleshooting
+        href: roles-admin-units-faq-troubleshoot.md
   - name: Manage sign-in
     items:    
     - name: Customize company branding    

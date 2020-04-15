@@ -11,7 +11,9 @@ ms.custom: seo-lt-2019
 ms.date: 02/15/2019
 ---
 
-# Data transformation expressions in mapping data flow 
+# Data transformation expressions in mapping data flow
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 ## Expression functions
 
