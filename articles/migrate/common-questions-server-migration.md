@@ -88,6 +88,10 @@ Migrating machines by treating them as physical servers is useful in a number of
 - To migrate VMs that are currently running in private clouds to Azure
 - If you want to migrate VMs running in public clouds such as Amazon Web Services (AWS) or Google Cloud Platform (GCP), to Azure.
 
+## I deployed two (or more) appliances to discover VMs in my vCenter Server. However, when I try to migrate the VMs, I only see VMs corresponding to one of the appliance.
+
+While this may be a good use case, we currently do not support it. Deploying two (or more) appliances to discover same set of VMs causes a service issue in which VM ownership keeps toggling between the two appliances. This is the reason you see VMs appearing and disappearing. In such cases, to resolve the issue, you must delete one appliance and do a hard refresh.
+
 ## Do I need VMware vCenter to migrate VMware VMs?
 To [migrate VMware VMs](server-migrate-overview.md) using VMware agent-based or agentless migration, ESXi hosts on which VMs are located must be managed by vCenter Server. If you don't have vCenter Server, you can migrate VMware VMs by migrating them as physical servers. [Learn more](migrate-support-matrix-physical-migration.md).
  
