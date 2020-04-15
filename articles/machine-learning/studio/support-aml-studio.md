@@ -22,7 +22,6 @@ This article provides information on how to learn more about Azure Machine Learn
 See our learning resources:
 + [Tutorials and how-to articles](../studio/index.yml) 
 + [Beginner data science videos](../studio/data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) 
-+ [Algorithm cheat sheets](../../synapse-analytics/sql-data-warehouse/cheat-sheet.md) 
 
 ## Submit doc feedback
 
