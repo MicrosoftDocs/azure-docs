@@ -40,7 +40,7 @@ In [part three](sql-database-tutorial-predictive-model-deploy.md), you'll learn 
 
 * Azure subscription - If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/) before you begin.
 
-* [Azure SQL database with Machine Learning Services (with R)](sql-database-machine-learning-services-overview.md) enabled.
+* [Azure SQL Database with Machine Learning Services (with R)](sql-database-machine-learning-services-overview.md) enabled.
 
 * RevoScaleR package - See [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) for options to install this package locally.
 
