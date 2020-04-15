@@ -17,15 +17,6 @@ ms.custom: seo-lt-2019, azure-synapse
 
 This article lists common troubleshooting techniques around connecting to your SQL Analytics database.
 
-- [Check service availability](sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
-- [Check for paused or scaling operation](sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
-- [Check your firewall settings](sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
-- [Check your VNet/Service Endpoint settings](sql-data-warehouse-troubleshoot-connectivity.md#check-your-vnetservice-endpoint-settings)
-- [Check for the latest drivers](sql-data-warehouse-troubleshoot-connectivity.md#check-for-the-latest-drivers)
-- [Check your connection string](sql-data-warehouse-troubleshoot-connectivity.md#check-your-connection-string)
-- [Intermittent connection issues](sql-data-warehouse-troubleshoot-connectivity.md#intermittent-connection-issues)
-- [Common error messages](sql-data-warehouse-troubleshoot-connectivity.md#common-error-messages)
-
 ## Check service availability
 
 Check to see if the service is available. In the Azure portal, go to the Synapse SQL pool you're trying to connect. In the left TOC panel, click on **Diagnose and solve problems**.
