@@ -50,7 +50,7 @@ The following table compares key management options for Azure Storage encryption
 
 ## Next steps
 
-- [What is Azure Key Vault?](../../key-vault/key-vault-overview.md)
+- [What is Azure Key Vault?](../../key-vault/general/overview.md)
 - [Configure customer-managed keys for Azure Storage encryption from the Azure portal](storage-encryption-keys-portal.md)
 - [Configure customer-managed keys for Azure Storage encryption from PowerShell](storage-encryption-keys-powershell.md)
 - [Configure customer-managed keys for Azure Storage encryption from Azure CLI](storage-encryption-keys-cli.md)

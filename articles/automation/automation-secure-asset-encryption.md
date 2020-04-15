@@ -28,7 +28,7 @@ Each secure asset is encrypted and stored in Azure Automation using a unique key
 
 You can manage encryption of secure assets for your Automation account with your own keys. When you specify a customer-managed key at the level of the Automation account, that key is used to protect and control access to the account encryption key for the Automation account. This in turn is used to encrypt and decrypt all the secure assets. Customer-managed keys offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your secure assets.
 
-Use Azure Key Vault to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys.  For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md)
+Use Azure Key Vault to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys.  For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
 
 ## Enable customer-managed keys for an Automation account
 
@@ -188,7 +188,7 @@ To revoke access to customer-managed keys, use PowerShell or the Azure CLI. For 
 
 ## Next steps
 
-- [What is Azure Key Vault?](../key-vault/key-vault-overview.md)
+- [What is Azure Key Vault?](../key-vault/general/overview.md)
 
 - [Certificate assets in Azure Automation](shared-resources/certificates.md)
 
