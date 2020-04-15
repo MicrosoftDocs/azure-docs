@@ -62,9 +62,9 @@
     - name: Shared resources
       items:
         - name: Certificates
-          href: /shared-resources/certificates.md
+          href: shared-resources/certificates.md
         - name: Connections
-          href: /shared-resources/automation-connections.md
+          href: shared-resources/automation-connections.md
         - name: PowerShell modules
           items:
             - name: Manage modules in Azure Automation
@@ -74,13 +74,13 @@
             - name: Update Azure PowerShell modules
               href: automation-update-azure-modules.md
         - name: Schedules
-          href: /shared-resources/schedules.md
+          href: shared-resources/schedules.md
         - name: Variables
-          href: /shared-resources/variables.md
+          href: shared-resources/variables.md
         - name: Manage Python 2 packages
           href: python-packages.md
         - name: Troubleshoot shared resources
-          href: /troubleshoot/shared-resources
+          href: troubleshoot/shared-resources
     - name: Process automation
       items:
         - name: Runbook gallery
@@ -118,7 +118,7 @@
         - name: Troubleshoot
           items:
             - name: Troubleshooting runbooks
-              href: /troubleshoot/runbooks.md
+              href: troubleshoot/runbooks.md
             - name: Opening support case with Microsoft
               href: troubleshoot/collect-data-microsoft-azure-automation-case.md
         - name: Hybrid Runbook Worker
@@ -130,7 +130,7 @@
             - name: Run runbooks on Hybrid Runbook Worker
               href: automation-hrw-run-runbooks.md
             - name: Troubleshoot 
-              href: /troubleshoot/hybrid-runbook-worker
+              href: troubleshoot/hybrid-runbook-worker.md
         - name: Source control integration
           href: source-control-integration.md
     - name: State Configuration (DSC)
@@ -154,13 +154,13 @@
         - name: Integrate with Azure Monitor Logs
           href: automation-dsc-diagnostics.md
         - name: Troubleshoot issues with DSC
-          href: /troubleshoot/desired-state-configuration.md
+          href: troubleshoot/desired-state-configuration.md
     - name: Start/Stop VMs during off hours
       items:
         - name: Overview
           href: automation-solution-vm-management.md
         - name: Supported regions for linked Log Analytics workspace
-          href: /how-to/region-mappings.md
+          href: how-to/region-mappings.md
         - name: Enable 
           href: automation-solution-vm-management-enable.md
         - name: Configure
@@ -168,13 +168,13 @@
         - name: Analyze data with log queries
           href: automation-solution-vm-management-logs.md
         - name: Troubleshoot
-          href: /troubleshoot/start-stop-vm.md
+          href: troubleshoot/start-stop-vm.md
     - name: Update Management
       items:
         - name: Overview
           href: automation-update-management.md
         - name: Supported regions for linked Log Analytics workspace
-          href: /how-to/region-mappings.md
+          href: how-to/region-mappings.md
         - name: Enable
           items:
             - name: Use a Resource Manager template
@@ -204,19 +204,19 @@
         - name: Troubleshoot
           items:
             - name: Onboarding
-              href: /troubleshoot/onboarding.md
+              href: troubleshoot/onboarding.md
             - name: Using Update Management
-              href: /troubleshoot/update-management.md
+              href: troubleshoot/update-management.md
             - name: Troubleshooting Windows worker health issues
-              href: /troubleshoot/update-agent-issues.md
+              href: troubleshoot/update-agent-issues.md
             - name: Troubleshooting Linux worker health issues
-              href: /troubleshoot/update-agent-issues-linux.md
+              href: troubleshoot/update-agent-issues-linux.md
     - name: Change Tracking and Inventory
       items:
         - name: Overview
           href: change-tracking.md
         - name: Supported regions for linked Log Analytics workspace
-          href: /how-to/region-mappings.md
+          href: how-to/region-mappings.md
         - name: Enable
           items:
             - name: Use Azure portal
@@ -233,9 +233,9 @@
           href: automation-vm-inventory.md
         - name: Troubleshoot
         - name: Onboarding
-          href: /troubleshoot/onboard-solutions.md
+          href: troubleshoot/onboard-solutions.md
         - name: Using Change Tracking and Inventory 
-          href: /troubleshoot/change-tracking.md
+          href: troubleshoot/change-tracking.md
     - name: Cross-component scenarios
       items:
         - name: Send an email from a runbook
