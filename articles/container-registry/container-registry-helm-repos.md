@@ -72,6 +72,7 @@ helm create hello-world
 As a basic example, change directory to the `templates` folder and first delete the contents there:
 
 ```console
+cd hello-world/templates
 rm -rf *
 ```
 
