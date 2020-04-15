@@ -3,13 +3,13 @@ title: Install Speech containers
 titleSuffix: Azure Cognitive Services
 description: Details the speech-to-text helm chart configuration options.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/22/2019
-ms.author: dapine
+ms.author: trbye
 ---
 
 ### Speech-to-Text (sub-chart: charts/speechToText)

@@ -399,21 +399,20 @@ To enable replication on the VM, its provisioning state must be **Succeeded**. F
 
 ### Issue 1: VM is attached to a network that's already mapped to a target network
 
-If the source VM is part of a virtual network, and another VM from the same virtual network is already mapped with a network in the target resource group, the network selection drop-down list box is unavailable (appears dimmed) by default.
+During disaster recovery configuration, if the source VM is part of a virtual network, and another VM from the same virtual network is already mapped with a network in the target resource group, the network selection drop-down list box is unavailable (appears dimmed) by default.
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png" alt-text="Network selection list unavailable.":::
 
 ### Issue 2: You previously protected the VM and then you disabled the replication
 
-Disabling replication of a VM doesn't delete the network mapping. The mapping must be deleted from the Recovery Services vault where the VM was protected. Go to **Recovery Services vault** > **Site Recovery Infrastructure** > **Network Mapping**.
+Disabling replication of a VM doesn't delete the network mapping. The mapping must be deleted from the Recovery Services vault where the VM was protected. Select the **Recovery Services vault** and go to **Manage** > **Site Recovery Infrastructure** > **For Azure virtual machines** > **Network Mapping**.
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png" alt-text="Delete network mapping.":::
 
-The target network that was configured during the disaster recovery setup can be changed after the initial setup, and after the VM is protected:
+The target network that was configured during the disaster recovery setup can be changed after the initial setup, and after the VM is protected. To **Modify network mapping** select the network name:
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png" alt-text="Modify network mapping.":::
 
-Changing network mapping affects all protected VMs that use that same network mapping.
 
 ## COM+ or VSS (error code 151025)
 
