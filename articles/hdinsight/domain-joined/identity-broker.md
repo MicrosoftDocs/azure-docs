@@ -53,7 +53,7 @@ SSH authentication requires the hash to be available in Azure AD DS. If you want
 
 ## Clinets using OAuth to connect to HDInsight gateway with ID Broker setup
 
-In the ID broker setup, custom apps and clients connecting to the gateway can be updated to acquire the required OAuth token first. You can follow the steps in this [document](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-app) to acquire the token with the following information:
+In the ID broker setup, custom apps and clients connecting to the gateway can be updated to acquire the required OAuth token first. You can follow the steps in this [document](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) to acquire the token with the following information:
 
 *	OAuth resource uri: https://hib.azurehdinsight.net 
 * AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
