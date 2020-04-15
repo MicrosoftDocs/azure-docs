@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/03/2019
+ms.date: 04/29/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -26,10 +26,10 @@ Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microso
 
 ## VMs are not joined to the domain
 
-Follow these instructions if you're having issues joining VMs to the domain.
+Follow these instructions if you're having issues joining virtual machines (VMs) to the domain.
 
 - Join the VM manually using the process in [Join a Windows Server virtual machine to a managed domain](../active-directory-domain-services/join-windows-vm.md) or using the [domain join template](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
-- Try pinging the domain name from command line on VM.
+- Try pinging the domain name from a command line on the VM.
 - Review the list of domain join error messages in [Troubleshooting Domain Join Error Messages](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx).
 
 ### Error: Incorrect credentials
@@ -78,7 +78,7 @@ Follow these instructions if you're having issues joining VMs to the domain.
 
 ## Windows Virtual Desktop Agent and Windows Virtual Desktop Boot Loader are not installed
 
-The recommended way to provision VMs is using the Azure Resource Manager **Create and provision Windows Virtual Desktop host pool** template. The template automatically installs the Windows Virtual Desktop Agent and Windows Virtual Desktop Agent Boot Loader.
+The recommended way to provision VMs is using the Azure Portal creation template. The template automatically installs the Windows Virtual Desktop Agent and Windows Virtual Desktop Agent Boot Loader.
 
 Follow these instructions to confirm the components are installed and to check for error messages.
 
@@ -97,8 +97,8 @@ Follow these instructions to confirm the components are installed and to check f
 **Fix 2:** Confirm the items in the following list.
 
 - Make sure the account doesn't have MFA.
-- Confirm that the tenant name is accurate and the tenant exists in Windows Virtual Desktop.
-- Confirm the account has at least RDS Contributor permissions.
+- Confirm the host pool's name is accurate and the host pool exists in Windows Virtual Desktop.
+- Confirm the account has at least Contributor permissions on the Azure subscription or resource group.
 
 ### Error: Authentication failed, error in C:\Windows\Temp\ScriptLog.log
 
@@ -107,16 +107,16 @@ Follow these instructions to confirm the components are installed and to check f
 **Fix:** Confirm the items in the following list.
 
 - Manually register the VMs with the Windows Virtual Desktop service.
-- Confirm account used for connecting to Windows Virtual Desktop has permissions on the tenant to create host pools.
+- Confirm account used for connecting to Windows Virtual Desktop has permissions on the Azure subscription or resource group to create host pools.
 - Confirm account doesn't have MFA.
 
 ## Windows Virtual Desktop Agent is not registering with the Windows Virtual Desktop service
 
-When the Windows Virtual Desktop Agent is first installed on session host VMs (either manually or through the Azure Resource Manager template and PowerShell DSC), it provides a registration token. The following section covers troubleshooting issues applicable to the Windows Virtual Desktop Agent and the token.
+When the Windows Virtual Desktop Agent is first installed on session host VMs (either manually or through the Azure Resource Manager template and PowerShell DSC), it provides a registration token. The following section covers troubleshooting issues that apply to the Windows Virtual Desktop Agent and the token.
 
-### Error: The status filed in Get-RdsSessionHost cmdlet shows status as Unavailable
+### Error: The status filed in Get-AzWvdSessionHost cmdlet shows status as Unavailable
 
-![Get-RdsSessionHost cmdlet shows status as Unavailable.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![Get-AzWvdSessionHost cmdlet shows status as Unavailable.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Cause:** The agent isn't able to update itself to a new version.
 
@@ -129,17 +129,17 @@ When the Windows Virtual Desktop Agent is first installed on session host VMs (e
 5. Complete the installation Wizard.
 6. Open Task Manager and start the RDAgentBootLoader service.
 
-## Error:  Windows Virtual Desktop Agent registry entry IsRegistered shows a value of 0
+## Error: Windows Virtual Desktop Agent registry entry IsRegistered shows a value of 0
 
 **Cause:** Registration token has expired or has been generated with expiration value of 999999.
 
 **Fix:** Follow these instructions to fix the agent registry error.
 
-1. If there's already a registration token, remove it with Remove-RDSRegistrationInfo.
-2. Generate new token with Rds-NewRegistrationInfo.
-3. Confirm that the -ExpriationHours parameter is set to 72 (max value is 99999).
+1. If there's already a registration token, remove it with Remove-AzWvdRegistrationInfo. 
+2. Generate new token by running the **New-AzWvdRegistrationInfo** cmdlet. 
+3. Confirm that the *-ExpriationHours* parameter is set to 72 (the maximum recommended amount is a month in hours, or about 720 hours).
 
-### Error: Windows Virtual Desktop agent isn't reporting a heartbeat when running Get-RdsSessionHost
+### Error: Windows Virtual Desktop agent isn't reporting a heartbeat when running Get-AzWvdSessionHost
 
 **Cause 1:** RDAgentBootLoader service has been stopped.
 
@@ -181,7 +181,7 @@ The Windows Virtual Desktop side-by-side stack is automatically installed with W
 
 There are three main ways the side-by-side stack gets installed or enabled on session host pool VMs:
 
-- With the Azure Resource Manager **Create and provision new Windows Virtual Desktop host pool** template
+- With the Azure Portal creation template
 - By being included and enabled on the master image
 - Installed or enabled manually on each VM (or with extensions/PowerShell)
 
@@ -210,13 +210,7 @@ Examine the registry entries listed below and confirm that their values match. I
 **Fix:** Follow these instructions to install the side-by-side stack on the session host VM.
 
 1. Use Remote Desktop Protocol (RDP) to get directly into the session host VM as local administrator.
-2. Download and import [The Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already, then run this cmdlet to sign in to your account:
-
-    ```powershell
-    Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-    ```
-
-3. Install the side-by-side stack using [Create a host pool with PowerShell](create-host-pools-powershell.md).
+2. Install the side-by-side stack using [Create a host pool with PowerShell](create-host-pools-powershell.md).
 
 ## How to fix a Windows Virtual Desktop side-by-side stack that malfunctions
 
