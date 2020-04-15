@@ -1,3 +1,13 @@
+---
+title: Azure Private Endpoint DNS Configuration
+description: Learn Azure Private Endpoint DNS Configuration
+services: private-link
+author: mblanco77
+ms.service: private-link
+ms.topic: conceptual
+ms.date: 04/14/2020
+ms.author: allensu
+---
 # Azure Private Endpoint DNS Configuration
 
 ## DNS configuration 
@@ -63,14 +73,14 @@ These scenarios are oriented to guide you on how to get the dns resolution integ
 
 - Single VNET and Azure Provided DNS
 
-This an Azure only scenario where the client queries for the private endpoint IP to Azure provided DNS [168.63.129.16](https://docs.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16) that makes the authoritative resolution and then queries the azure private dns zone for the required record.
+This an Azure only scenario where the client queries for the private endpoint IP to Azure provided DNS [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16) that makes the authoritative resolution and then queries the azure private dns zone for the required record.
 
 
 ![single vnet and azure provided dns](media/private-endpoint-dns/single-vnet-azure-dns.png)
 
 - Hub and Spoke with Azure provided DNS
 
-In this scenario there's a [hub & spoke](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) networking topology with the spoke networks sharing a common private endpoint and all the spoke VNET are linked to the same private dns zone. 
+In this scenario there's a [hub & spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) networking topology with the spoke networks sharing a common private endpoint and all the spoke VNET are linked to the same private dns zone. 
 
 ![hub & spoke with azure provided dns](media/private-endpoint-dns/hubandspoke-azure-dns.png)
 
