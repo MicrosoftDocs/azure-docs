@@ -296,6 +296,10 @@ Users in this role can monitor all notifications in the Message Center, includin
 
 Users in this role can monitor notifications and advisory health updates in [Office 365 Message center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) for their organization on configured services such as Exchange, Intune, and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Office 365. In Azure AD, users assigned to this role will only have read-only access on Azure AD services such as users and groups. This role has no access to view, create, or manage support tickets.
 
+### [Network Administrator](#network-administrator-permissions)
+
+Users in this role can review network perimeter architecture recommendations from Microsoft that are based on network telemetry from their user locations. Network performance for Office 365 relies on careful enterprise customer network perimeter architecture which is generally user location specific. This role allows for editing of discovered user locations and configuration of network parameters for those locations to facilitate improved telemetry measurements and design recommendations. 
+
 ### [Office Apps Administrator](#office-apps-administrator-permissions)
 
 Users in this role can manage Office 365 apps' cloud settings. This includes managing cloud policies, self-service download management and the ability to view Office apps related report. This role additionally grants the ability to manage support tickets, and monitor service health within the main admin center. Users assigned to this role can also manage communication of new features in Office apps. 
@@ -1249,6 +1253,19 @@ Can read messages and updates for their organization in Office 365 Message Cente
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
 
+### Network Administrator permissions
+Can manage network locations and review enterprise network design insights for Microsoft 365 Software as a Service applications.
+
+> [!NOTE]
+> This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+>
+>
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.office365.network/performance/allProperties/read | Read network performance pages in M365 Admin Center.  |
+| microsoft.office365.network/locations/allProperties/allTasks | Read and configure network locations properties for each location. |
+
 ### Office Apps Administrator permissions
 Can manage Office apps' cloud services, including policy and settings management, and manage the ability to select, unselect and publish "what's new" feature content to end-user's devices.
 
@@ -1756,6 +1773,7 @@ License Administrator | License administrator | 4d6ac14f-3453-41d0-bef9-a3e0c569
 Lync Service Administrator | Skype for Business administrator | 75941009-915a-4869-abe7-691bff18279e
 Message Center Privacy Reader | Message center privacy reader | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Message Center Reader | Message center reader | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
+Network Administrator | Network administrator | d37c8bed-0711-4417-ba38-b4abe66ce4c2
 Office Apps Administrator | Office apps administrator | 2b745bdf-0803-4d80-aa65-822c4493daac
 Partner Tier1 Support | Partner tier1 support | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Partner Tier2 Support | Partner tier2 support | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
