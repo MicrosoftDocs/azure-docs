@@ -37,7 +37,7 @@ Logging data is available for download under **Endpoint > Details**.
 
 ## Next steps
 
-* Use your custom endpoint with the [Speech SDK](speech-sdk.md)
+* Learn how to use your custom model [here](how-to-specify-source-language.md)
 
 ## Additional resources
 
