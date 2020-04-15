@@ -50,13 +50,13 @@ The **tab** key can be used to tab through configurable properties on the storag
 
 ## Completion and validation
 
-One of the most powerful capabilities of the ARM Tools extension for VS Code is its integration with Azure schemas. Azure schemas provide the extension with completion and validation capabilities.
+One of the most powerful capabilities of the ARM Tools extension for VS Code is its integration with Azure schemas. Azure schemas provide the extension with completion and validation capabilities. Let's modify the storage account to see validation and completion in action. 
 
-Let's modify the storage account to see validation and completion in action. First, update the storage account kind to an invalid value such as `megaStorage`. Notice that this produces a warning indicating that `megaStorage` is not a valid value.
+First, update the storage account kind to an invalid value such as `megaStorage`. Notice that this produces a warning indicating that `megaStorage` is not a valid value.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/15.png)
 
-To use the completion capabilities, remove `megaStorage`, place the cursor inside of the double quotes, and press `ctrl` + `space. This presents a list of valid values.
+To use the completion capabilities, remove `megaStorage`, place the cursor inside of the double quotes, and press `ctrl` + `space`. This action presents a list of valid values.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
 
@@ -64,7 +64,7 @@ To use the completion capabilities, remove `megaStorage`, place the cursor insid
 
 Now create and use a parameter to specify the storage account name.
 
-Place your cursor in the parameters block, add a carriage return, type `par`, and then select `arm-param-value`. This adds a generic parameter to the template.
+Place your cursor in the parameters block, add a carriage return, type `par`, and then select the`arm-param-value` snippet. This adds a generic parameter to the template.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/7.png)
 
@@ -72,11 +72,11 @@ Update the name of the parameter to `storageAccountName` and the description to 
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/8.png)
 
-Azure storage accounts names have a minimum length of 3 characters and a maximum of 24. An ARM template parameter can help enforce these constraints by defining both `minLength` and `maxLength`. To do so, update the parameter with these properties and appropriate values.
+Azure storage accounts names have a minimum length of 3 characters and a maximum of 24. Add both `minLength` and `maxLength` to the parameter and provide appropriate values.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/14.png)
 
-Update the storage resources name property to use the parameter. To do so, remove the current name. Enter a double quote and an opening square bracket `[`, which produces a list of ARM functions. Type in `par` and select *parameters* from the list. 
+Now, on the storage resource, update the name property to use the parameter. To do so, remove the current name. Enter a double quote and an opening square bracket `[`, which produces a list of ARM functions. Type in `par` and select *parameters* from the list. 
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/12.png)
 
@@ -102,15 +102,34 @@ This will create a new parameters file and associate it with the template from w
 
 Now that the parameter file has been mapped to the template, the ARM Tools extension validates both the template and parameter file. To see this in practice, add a two-character value to the `storageAccountName` parameter in the parameter file.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/19.png)
+![](./media/quickstart-create-templates-use-visual-studio-code/20.png)
 
 Navigate back to the ARM template and notice that an error has been raised indicating that the value does not meet the parameter criteria.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/19.png)
+![](./media/quickstart-create-templates-use-visual-studio-code/21.png)
 
 Update the value to something appropriate, save the file, and navigate back to the template. Notice that the error on the parameter has been resolved.
 
 ## Template deployment
+
+Open the integrated VS Code terminal using the `ctrl` + ``` key combination and use either the Azure CLI or Azure PowerShell module to deploy the template.
+
+# [CLI](#tab/CLI)
+
+```azurecli
+az group create --name arm-vscode --location eastus
+
+az deployment group create --resource-group arm-vscode --template-file azuredeploy.json --parameters azuredeploy.parameters.json
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell
+New-AzResourceGroup -Name arm-vscode -Location eastus
+
+New-AzResourceGroupDeployment -ResourceGroupName arm-vscode -TemplateFile ./azuredeploy.json -TemplateParameterFile ./azuredeploy.parameters.json
+```
+---
 
 ## Clean up resources
 
