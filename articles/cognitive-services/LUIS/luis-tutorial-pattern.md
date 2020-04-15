@@ -2,7 +2,7 @@
 title: "Tutorial: Patterns - LUIS"
 description: Use patterns to increase intent and entity prediction while providing fewer example utterances in this tutorial. The pattern is provided as a template utterance example, which includes syntax to identify entities and ignorable text.
 ms.topic: tutorial
-ms.date: 04/01/2020
+ms.date: 04/14/2020
 #Customer intent: As a new user, I want to understand how and why to use patterns.
 ---
 
@@ -210,7 +210,7 @@ Template utterance examples for this intent include:
 |`Who does {Employee} report to[?]`|interchangeable `{Employee}`<br>ignore `[?]`|
 |`Who reports to {Employee}[?]`|interchangeable `{Employee}`<br>ignore `[?]`|
 
-The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. The optional syntax, `[?]`, marks words, or punctuation that is optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
+The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. The optional syntax, `[?]`, marks words, or [punctuation](luis-reference-application-settings.md#punctuation-normalization) that is optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
 
 While the syntax looks like a regular expression, it is not a regular expression. Only the curly bracket, `{}`, and square bracket, `[]`, syntax is supported. They can be nested up to two levels.
 
