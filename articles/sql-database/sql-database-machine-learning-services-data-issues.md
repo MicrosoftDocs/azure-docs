@@ -32,7 +32,7 @@ Common issues that you may encounter include:
 
 - If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/) before you begin.
 
-- To run the example code in these exercises, you must first have an Azure SQL database with Machine Learning Services (with R) enabled. During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database. Follow the steps in [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
+- To run the example code in these exercises, you must first have an Azure SQL database with Machine Learning Services (with R) enabled.
 
 - Make sure you've installed the latest [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). You can run R scripts using other database management or query tools, but in this quickstart you'll use SSMS.
 
