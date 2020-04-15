@@ -1,0 +1,65 @@
+- name: Azure VMware Solution (AVS)
+  href:
+- name: Overview
+  items:
+  - name: About AVS
+    href: introduction.md
+- name: Quickstarts
+  expanded: true
+  items:
+- name: Tutorials
+  items:
+  - name: 1 - Create an AVS private cloud
+    href: tutorial-create-private-cloud.md
+  - name: 2 - Configure networking
+    href: tutorial-configure-networking.md
+  - name: 3 - Create a Jumpbox
+    href: tutorial-create-jump-box.md
+  - name: x - Access a private cloud 
+    href: tutorials-access-private-cloud.md   
+  - name: x - Create an NSX-T network
+    href: tutorials-create-t1-ls.md
+  - name: x - Deploy a VM
+    href: tutorials-deploy-vm.md
+  - name: x - Scale a private cloud
+    href: tutorials-scale-private-cloud.md
+- name: Concepts
+  items:
+  - name: Private clouds and clusters
+    href: concepts-private-clouds-clusters.md
+  - name: Private cloud networking and inter-connectivity
+    href: concepts-networking.md
+  - name: Storage in private clouds
+    href: concepts-storage.md
+  - name: Access and identity for private clouds
+    href: concepts-identity.md
+  - name: Private cloud upgrades
+    href: concepts-upgrades.md
+  - name: Whitelisting and Quota management - TODO
+    href: 
+  - name: Network Architecture - TODO
+    href: 
+- name: How-to guides
+  items:
+  - name: Create DHCP Server - TODO
+    href: 
+  - name: Create Network Segments - TODO
+    href: 
+  - name: Internet Enable - TODO
+    href: 
+  - name: Set up NSX-T Best practices - TODO
+    href: 
+  - name: Azure Backup - TODO
+    href: 
+  - name: Migration using HCX - TODO
+    href: 
+  - name: Migration using vMotion - TODO
+    href: 
+  - name: Disaster Recovery - TODO
+    href: 
+- name: Reference
+  items:
+- name: Resources
+  items: 
+    - name: FAQ
+      href: faq.md
