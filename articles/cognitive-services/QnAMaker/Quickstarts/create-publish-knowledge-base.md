@@ -131,7 +131,7 @@ When you make changes to the knowledge base and republish, you don't need to tak
 
 ## What did you accomplish?
 
-You created a new knowledge base, added a public URL to the knowledge base, added your own QnA set, trained, tested, and published the knowledge base.
+You created a new knowledge base, added a public URL to the knowledge base, added your own QnA pair, trained, tested, and published the knowledge base.
 
 After publishing the knowledge base, you created a bot, and tested the bot.
 
