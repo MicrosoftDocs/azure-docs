@@ -16,7 +16,7 @@ The textual editor in Azure Automation can be used to edit [PowerShell runbooks]
 
 The textual editor includes a feature to insert code for cmdlets, assets, and child runbooks into a runbook. Instead of typing in the code yourself, you can select from a list of available resources and the editor inserts the appropriate code into the runbook.
 
-Each runbook in Azure Automation has two versions, Draft and Published. You edit the Draft version of the runbook and then publish it so it can be executed. The Published version cannot be edited. For more information, see [Publishing a runbook](manage-runbooks.md#publish-a-runbook).
+Each runbook in Azure Automation has two versions, Draft and Published. You edit the Draft version of the runbook and then publish it so it can be executed. The Published version cannot be edited. For more information, see [Publishing a runbook](manage-runbooks.md#publishing-a-runbook).
 
 This article provides detailed steps for performing different functions with this editor. These are not applicable to [graphical runbooks](automation-runbook-types.md#graphical-runbooks). To work with these runbooks, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
 
@@ -78,7 +78,7 @@ Export-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automation
 
 ### Change the contents of a runbook using Windows PowerShell
 
-The following sample commands show how to replace the existing contents of a runbook with the contents of a script file. This is the same sample procedure as in [To import a runbook from a script file with Windows PowerShell](manage-runbooks.md#import-a-runbook).
+The following sample commands show how to replace the existing contents of a runbook with the contents of a script file. This is the same sample procedure as in [To import a runbook from a script file with Windows PowerShell](manage-runbooks.md#importing-a-runbook).
 
 ```powershell-interactive
 $resourceGroupName = "MyResourceGroup"
@@ -100,4 +100,4 @@ Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automatio
 * [Credentials](automation-credentials.md)
 * [Schedules](automation-schedules.md)
 * [Variables](automation-variables.md)
-
+* [PowerShell cmdlet reference](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)

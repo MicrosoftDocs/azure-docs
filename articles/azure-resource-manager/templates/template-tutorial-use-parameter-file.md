@@ -2,7 +2,7 @@
 title: Tutorial - use parameter file to deploy template
 description: Use parameter files that contain the values to use for deploying your Azure Resource Manager template.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -66,6 +66,8 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+
 ```azurecli
 templateFile="{path-to-the-template-file}"
 devParameterFile="{path-to-azuredeploy.parameters.dev.json}"
@@ -112,6 +114,9 @@ az deployment group create \
 ```
 
 ---
+
+> [!NOTE]
+> If the deployment failed, use the **debug** switch with the deployment command to show the debug logs.  You can also use the **verbose** switch to show the full debug logs.
 
 ## Verify deployment
 

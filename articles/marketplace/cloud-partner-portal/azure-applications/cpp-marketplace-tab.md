@@ -1,13 +1,12 @@
 ---
 title: Azure application offer Marketplace tab 
 description: Use the Marketplace tab to identify marketing assets for an Azure application offer.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Azure application Marketplace tab
@@ -28,7 +27,7 @@ The following table describes the settings to use for creating a storefront for 
 | **Summary\***      | Short summary of the offer. The maximum length is  100 characters.           |
 | **Long Summary\*** | Longer summary of the offer (though it could be the same as the summary). The maximum length is  256 characters.           |
 | **Description\***  | Description of the offer. The maximum length is 3000 characters. Simple HTML formatting is allowed, including &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; and header tags.  |
-| **Marketing Identifier\*** | A unique URL to associate to this offer, typically includes your organization and solution name, maximum length 50 characters. Choose a short, friendly marketing identifier for your service. This will be used in marketplace URLs for this offer. For example, if your publisher ID is "contoso" and your marketing identifier is "sampleApp", the URL for your offer in Azure Marketplace will be https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
+| **Marketing Identifier\*** | A unique URL to associate to this offer, typically includes your organization and solution name, maximum length 50 characters. Choose a short, friendly marketing identifier for your service. This will be used in marketplace URLs for this offer. For example, if your publisher ID is "contoso" and your marketing identifier is "sampleApp", the URL for your offer in Azure Marketplace will be `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  
 | **Preview Subscription IDs\*** | Add from one to 100 subscription identifiers of previewers. These white-listed subscriptions will have access to your offer while it's available in preview after it's published, before it goes live.          |
 | **Useful Links**    | Optionally, you can provide links to various resources for users of your offer, such as support, documentation, forums, etc.  It is recommended that you add at least one link to your documentation.            |
 | **Suggested Categories (Max 5)\*** | Select one to five categories. The selected categories are used to map your offer to the product categories available in Azure Marketplace and Azure Portal. They'll be shown on browse pages and on your product details page. |
