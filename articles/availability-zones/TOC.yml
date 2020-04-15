@@ -8,12 +8,10 @@
   items:
   - name: High availability for Azure applications
     href: https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications
+  - name: Regions and Availability Zones
+    href: az-overview.md
   - name: Availability Zones Documentation
     items:
-    - name: What are Availability Zones?
-      href: az-overview.md
-    - name: Regions and Availability Zones
-      href: az-overview2.md
     - name: Virtual machines
       items:
       - name: Create a Linux VM in an Availability Zone with CLI
