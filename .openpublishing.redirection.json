@@ -50714,6 +50714,21 @@
       "source_path": "articles/security/fundamentals/database-best-practices.md",
       "redirect_url": "/azure/sql-database/sql-database-security-best-practice",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/remote-rendering/tutorials/unity/changing-environment-and-materials.md",
+      "redirect_url": "articles/remote-rendering/tutorials/unity/materials-lighting-effects",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/remote-rendering/tutorials/unity/project-setup.md",
+      "redirect_url": "articles/remote-rendering/tutorials/unity/view-remote-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/remote-rendering/tutorials/unity/working-with-remote-entities.md",
+      "redirect_url": "articles/remote-rendering/tutorials/unity/manipulate-models",
+      "redirect_document_id": false
     }
   ]
 }

@@ -1,5 +1,5 @@
 ---
-title: Loading Custom Models
+title: Loading custom models
 description: Ingest custom models to be rendered by Azure Remote Rendering
 author: michael-house
 ms.author: v-mihous
@@ -7,7 +7,7 @@ ms.date: 04/09/2020
 ms.topic: tutorial
 ---
 
-# Tutorial: Loading Custom Models
+# Tutorial: Loading custom models
 
 In this tutorial, you learn how to:
 
@@ -18,7 +18,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* This tutorial builds on top of [Tutorial: Viewing a Remotely Rendered Model](../1-view-a-model/view-a-model.md).
+* This tutorial builds on top of [Tutorial: Viewing a remotely rendered model](../view-remote-models/view-remote-models.md).
 
 ## Provision Blob Storage in Azure and custom model ingestion
 
@@ -28,7 +28,7 @@ Follow the steps specified in the [Quickstart: Convert a model for rendering](..
 
 1. Create a new GameObject in the scene and name it appropriately.
 1. Add the *RemoteRenderedModel* script to the newly created GameObject.\
- ![Add RemoteRenderedModel component](./media/add-remoterenderedmodel-script.png)
+ ![Add RemoteRenderedModel component](./media/add-remote-rendered-model-script.png)
 1. Position the GameObject in front of the camera
 1. Ensure **AutomaticallyLoad** is turned on.
 1. Press **Play** in the Unity Editor to test the application.
@@ -40,4 +40,4 @@ You will see the Console panel begin to populate with the current state and even
 You can now load your own models into Azure Remote Rendering and view them in your application. Next the tutorials will guide you through manipulating your models
 
 > [!div class="nextstepaction"]
-> [Next: Manipulating models](../3-manipulate-models/manipulate-models.md)
+> [Next: Manipulating models](../manipulate-models/manipulate-models.md)

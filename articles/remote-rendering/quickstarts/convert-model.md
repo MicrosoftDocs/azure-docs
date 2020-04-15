@@ -198,4 +198,4 @@ Now that you know the basics, have a look at our tutorials to gain more in-depth
 If you want to learn the details of model conversion, check out [the model conversion REST API](../how-tos/conversion/conversion-rest-api.md).
 
 > [!div class="nextstepaction"]
-> [Tutorial: Viewing remotely rendered models](../tutorials/unity/1-view-a-model/view-a-model.md)
+> [Tutorial: Viewing remotely rendered models](../tutorials/unity/view-remote-models/view-remote-models.md)

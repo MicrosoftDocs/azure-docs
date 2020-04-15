@@ -1,5 +1,5 @@
 ---
-title: Managing a Model Library
+title: Managing a model library
 description: Automation and strategies for organizing models
 author: michael-house
 ms.author: v-mihous
@@ -7,7 +7,7 @@ ms.date: 04/09/2020
 ms.topic: tutorial
 ---
 
-# Tutorial: Managing a Model Library
+# Tutorial: Managing a model library
 
 In this tutorial, you learn how to:
 
@@ -19,8 +19,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* This tutorial builds on top of [Tutorial: Refining Materials, Lighting, and Effects](..\4-materials-lighting-effects\materials-lighting-effects.md).
+* This tutorial builds on top of [Tutorial: Refining materials, lighting, and effects](..\materials-lighting-effects\materials-lighting-effects.md).
 
-## Model Ingestion
+/## Model Ingestion
 
-## Conversion flag setting options
+/## Conversion flag setting options

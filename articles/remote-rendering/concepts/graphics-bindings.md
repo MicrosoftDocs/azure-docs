@@ -152,4 +152,4 @@ else
 
 ## Next steps
 
-* [Tutorial: Viewing remotely rendered models](../tutorials/unity/1-view-a-model/view-a-model.md)
+* [Tutorial: Viewing remotely rendered models](../tutorials/unity/view-remote-models/view-remote-models.md)

@@ -36,15 +36,15 @@ The package is not part of the [ARR samples repository](https://github.com/Azure
 ```
 
 Once this has been added, you can use the Unity Package Manager to ensure you have the latest version.
-More comprehensive instructions are given in the [Tutorial: Viewing remotely rendered models](../../tutorials/unity/1-view-a-model/view-a-model.md).
+More comprehensive instructions are given in the [Tutorial: Viewing remotely rendered models](../../tutorials/unity/view-remote-models/view-remote-models.md).
 
 ## Unity render pipelines
 
 Remote Rendering works with both the **Universal render pipeline** and the **Standard render pipeline**. For performance reasons, the Universal render pipeline is recommended.
 
-To use the **Universal render pipeline**, its package has to be installed in Unity. This can either be done in Unity's **Package Manager** UI (package name **Universal RP**, version 7.2.1 or newer), or through the `Packages/manifest.json` file, as described in the [Tutorial: Viewing remotely rendered models](../../tutorials/unity/1-view-a-model/view-a-model.md#include-the-azure-remote-rendering-package).
+To use the **Universal render pipeline**, its package has to be installed in Unity. This can either be done in Unity's **Package Manager** UI (package name **Universal RP**, version 7.2.1 or newer), or through the `Packages/manifest.json` file, as described in the [Tutorial: Viewing remotely rendered models](../../tutorials/unity/view-remote-models/view-remote-models.md#include-the-azure-remote-rendering-package).
 
 ## Next steps
 
 * [Unity game objects and components](objects-components.md)
-* [Tutorial: Viewing remotely rendered models](../../tutorials/unity/1-view-a-model/view-a-model.md)
+* [Tutorial: Viewing remotely rendered models](../../tutorials/unity/view-remote-models/view-remote-models.md)

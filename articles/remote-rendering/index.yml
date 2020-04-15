@@ -66,17 +66,17 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Viewing a Remotely Rendered Model
-            url: tutorials/unity/1-view-a-model/view-a-model.md
-          - text: Loading Custom Models
-            url: tutorials/unity/2-custom-models/custom-models.md
-          - text: Manipulating Models
-            url: tutorials/unity/3-manipulate-models/manipulate-models.md
-          - text: Refining Materials, Lighting, and Effects
-            url: tutorials/unity/4-materials-lighting-effects/materials-lighting-effects.md
-          - text: Securing your Application
+          - text: Viewing a remotely rendered model
+            url: tutorials/unity/view-remote-models/view-remote-models.md
+          - text: Loading custom models
+            url: tutorials/unity/custom-models/custom-models.md
+          - text: Manipulating models
+            url: tutorials/unity/manipulate-models/manipulate-models.md
+          - text: Refining materials, lighting, and effects
+            url: tutorials/unity/materials-lighting-effects/materials-lighting-effects.md
+          - text: Securing Azure Remote Rendering and model storage
             url: tutorials/unity/5-security/security.md
-          - text: Managing your Model Library
-            url: tutorials/unity/6-model-library/model-library.md
-          - text: Creating a Commercial Ready ARR Application
-            url: tutorials/unity/7-commercial-ready/commercial-ready.md
+          - text: Managing your model library
+            url: tutorials/unity/model-library/model-library.md
+          - text: Creating a commercial ready Azure Remote Rendering application
+            url: tutorials/unity/commercial-ready/commercial-ready.md

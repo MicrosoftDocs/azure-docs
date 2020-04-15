@@ -1,5 +1,5 @@
 ---
-title: Viewing a Remotely Rendered Model
+title: Viewing a remotely rendered model
 description: The "Hello World" of Azure Remote Rendering, tutorial shows how to view a Model rendered remotely by Azure
 author: michael-house
 ms.author: v-mihous
@@ -7,7 +7,7 @@ ms.date: 04/09/2020
 ms.topic: tutorial
 ---
        
-# Tutorial: Viewing a Remotely Rendered Model
+# Tutorial: Viewing a remotely rendered model
 
 In this tutorial, you learn how to:
 
@@ -36,7 +36,7 @@ For this tutorial you need:
 
 To get access to the Azure Remote Rendering service, you first need to [create an account](../../../how-tos/create-an-account.md#create-an-account).
 
-You're required to complete the "Create an account" section for this tutorial, optionally you can complete the "Link storage accounts" section which is required for a future tutorial [Commercial Ready: Model Library](../7-commercial-ready/commercial-ready.md#model-library).
+You're required to complete the "Create an account" section for this tutorial, optionally you can complete the "Link storage accounts" section which is required for a future tutorial [Commercial ready: Model library](../commercial-ready/commercial-ready.md#model-library).
 
 ## Create a new Unity project
 
@@ -113,7 +113,7 @@ Select the **Main Camera** node.
 1. Select **Graphics** on the left.
 1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*. Skip this step if the Universal render pipeline is not used.
 
-    ![changing project graphics settings](./media/settings-graphics-lwrp.png)
+    ![changing project graphics settings](./media/settings-graphics-render-pipeline.png)
     Sometimes the UI does not populate the list of available pipeline types from the packages, in which case the *HybridRenderingPipeline* asset must be dragged onto the field manually:
     ![changing project graphics settings](./media/hybrid-rendering-pipeline.png)
 1. Select **Player** on the left.
@@ -146,7 +146,7 @@ Perform the following steps to validate that the project settings are correct.
 1. Choose the ValidateProject entry from the RemoteRendering menu in the Unity editor toolbar.
 1. Use the ValidateProject window to check for and fix project settings where necessary.
 
-    ![Unity editor project validation](./media/arr-unity-validation.png)
+    ![Unity editor project validation](./media/remote-render-unity-validation.png)
 
 ## Create a script to coordinate Azure Remote Rendering connection and state
 
@@ -395,7 +395,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 The remote rendering coordinator and a script it depends on (*ARRServiceUnity*) are both MonoBehaviours and are required to be attached to a GameObject in the scene.
 
 1. Create a new GameObject in the scene and name it **RemoteRenderingCoordinator**.
-1. Add the *RemoteRenderingCoordinator* script to the **RemoteRenderingCoordinator** GameObject. ![Add RemoteRenderingCoordinator component](./media/add-remoterenderingcoordinator-script.png)
+1. Add the *RemoteRenderingCoordinator* script to the **RemoteRenderingCoordinator** GameObject. ![Add RemoteRenderingCoordinator component](./media/add-coordinator-script.png)
 1. Confirm the *ARRServiceUnity* script is automatically added to the GameObject, this is a result of adding the attribute `[RequireComponent(typeof(ARRServiceUnity))]`.
 
 ## Initialize Azure Remote Rendering
@@ -407,7 +407,7 @@ When using ARR, we first need to initialize Azure Remote Rendering, tell it whic
 
 There are four basic stages to showing remotely rendered models, shown in the below graph. Each of these stages is required to be performed in order. Now that we have the framework for our coordinator, we will implement each of the four stages. In all cases except the **Initialize** stage, there is also an associated "undo" process that reverses that stage.
 
-![ARR stack 0](./media/arr-stack-0.png)
+![ARR stack 0](./media/remote-render-stack-0.png)
 
 ```csharp
 /// <summary>
@@ -429,11 +429,11 @@ public void InitializeARR()
 
 This code handles the first stage.
 
-![ARR stack 1](./media/arr-stack-1.png)
+![ARR stack 1](./media/remote-render-stack-1.png)
 
 ## Create or join a remote session
 
-Now we need to connect to a remote session where our models will be rendered. The `JoinRemoteSession()` method will attempt to join an existing session (if we're the one that created it, tracked with the `LastUsedSessionID` property). If no sessions are available, it will create a new session. Creating a new session is, unfortunately, a time consuming operation. Therefore one should try to create sessions rarely, and reuse them whenever possible (see [Commercial Ready: Session pooling, scheduling, and best practices](..\7-commercial-ready\commercial-ready.md#session-pooling-scheduling-and-best-practices) for more). `StopRemoteSession()` will end the currently active session. To prevent charges, you should always stop sessions when they are not needed anymore.
+Now we need to connect to a remote session where our models will be rendered. The `JoinRemoteSession()` method will attempt to join an existing session (if we're the one that created it, tracked with the `LastUsedSessionID` property). If no sessions are available, it will create a new session. Creating a new session is, unfortunately, a time consuming operation. Therefore one should try to create sessions rarely, and reuse them whenever possible (see [Commercial Ready: Session pooling, scheduling, and best practices](..\commercial-ready\commercial-ready.md#session-pooling-scheduling-and-best-practices) for more). `StopRemoteSession()` will end the currently active session. To prevent charges, you should always stop sessions when they are not needed anymore.
 
 Replace the `JoinRemoteSession()` and `StopRemoteSession()` with the completed examples below.
 
@@ -479,7 +479,7 @@ public void StopRemoteSession()
 
 We've now implemented the second stage.
 
-![ARR stack 2](./media/arr-stack-2.png)
+![ARR stack 2](./media/remote-render-stack-2.png)
 
 Due to the **Auto-Stop Session** property on the *ARRServiceUnity* component, which is on by default, the session will be stopped automatically for you. If everything fails, due to crashes or connection issues, your session may run for as long as your *MaxLeaseTime* before it is shut down by the server.
 
@@ -537,7 +537,7 @@ private void LateUpdate()
 
 Connecting to the runtime is the third stage.
 
-![ARR stack 3](./media/arr-stack-3.png)
+![ARR stack 3](./media/remote-render-stack-3.png)
 
 ## Loading a model
 
@@ -696,7 +696,7 @@ public class RemoteRenderedModel : MonoBehaviour
 
 Finally, we have all the code in place for the four stages.
 
-![ARR stack 4](./media/arr-stack-4.png)
+![ARR stack 4](./media/remote-render-stack-4.png)
 
 ## Loading the Test Model
 
@@ -704,9 +704,9 @@ The application now has everything in place required to load a view a remotely r
 
 1. Create a new GameObject in the scene and name it **TestEngine**.
 1. Add the *RemoteRenderedModel* script to **TestEngine**.\
- ![Add RemoteRenderedModel component](./media/add-remoterenderedmodel-script.png)
+ ![Add RemoteRenderedModel component](./media/add-remote-rendered-model-script.png)
 1. Position the **TestEngine** object in front of the camera, at position **x = 0, y = 0, z = 3**.\
- ![Position object on Z axis](./media/testmodel-position.png)
+ ![Position object on Z axis](./media/test-model-position.png)
 1. Ensure **AutomaticallyLoad** is turned on.
 1. Press **Play** in the Unity Editor to test the application.
 
@@ -721,4 +721,4 @@ Watch the Console panel as the application progresses through its states. Keep i
 Congratulations! You've created a basic application capable of viewing remotely rendered models. In the next tutorial, we will learn how to ingest and render your own models.
 
 > [!div class="nextstepaction"]
-> [Next: Loading Custom Models](../2-custom-models/custom-models.md)
+> [Next: Loading custom models](../custom-models/custom-models.md)

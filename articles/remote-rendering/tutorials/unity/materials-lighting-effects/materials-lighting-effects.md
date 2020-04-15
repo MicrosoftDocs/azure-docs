@@ -1,5 +1,5 @@
 ---
-title: Refining Materials, Lighting, and Effects
+title: Refining materials, lighting, and effects
 description: Modify model materials and lighting. Add additional effects like outlining and cut planes.
 author: michael-house
 ms.author: v-mihous
@@ -7,7 +7,7 @@ ms.date: 04/09/2020
 ms.topic: tutorial
 ---
 
-# Tutorial: Refining Materials, Lighting, and Effects
+# Tutorial: Refining materials, lighting, and effects
 
 In this tutorial, you learn how to:
 
@@ -21,12 +21,12 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* This tutorial builds on top of [Tutorial: Manipulating Models](..\3-manipulate-models\manipulate-models.md).
+* This tutorial builds on top of [Tutorial: Manipulating models](..\manipulate-models\manipulate-models.md).
 
-## Highlighting and outlining
+/## Highlighting and outlining
 
-## Cut planes
+/## Cut planes
 
-## Editing materials
+/## Editing materials
 
-## Lighting / sky box
+/## Lighting / sky box

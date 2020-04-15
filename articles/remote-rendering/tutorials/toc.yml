@@ -1,14 +1,14 @@
-- name: Viewing a Remotely Rendered Model
-  href: unity/1-view-a-model/view-a-model.md
-- name: Loading Custom Models
-  href: unity/2-custom-models/custom-models.md
-- name: Manipulating Models
-  href: unity/3-manipulate-models/manipulate-models.md
-- name: Refining Materials, Lighting, and Effects
-  href: unity/4-materials-lighting-effects/materials-lighting-effects.md
-- name: Securing your Application
+- name: Viewing a remotely rendered model
+  href: unity/view-remote-models/view-remote-models.md
+- name: Loading custom models
+  href: unity/custom-models/custom-models.md
+- name: Manipulating models
+  href: unity/manipulate-models/manipulate-models.md
+- name: Refining materials, lighting, and effects
+  href: unity/materials-lighting-effects/materials-lighting-effects.md
+- name: Securing Azure Remote Rendering and model storage
   href: unity/5-security/security.md
-- name: Managing your Model Library
-  href: unity/6-model-library/model-library.md
-- name: Creating a Commercial Ready ARR Application
-  href: unity/7-commercial-ready/commercial-ready.md
+- name: Managing your model library
+  href: unity/model-library/model-library.md
+- name: Creating a commercial ready Azure Remote Rendering application
+  href: unity/commercial-ready/commercial-ready.md
