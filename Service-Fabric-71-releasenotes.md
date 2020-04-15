@@ -9,14 +9,35 @@ Microsoft Azure Service Fabric 7.1 Release Notes
 - [Repositories and Download Links](#repositories-and-download-links)
 
 ## Key Annoucements
-- [Service Fabric Backup Explorer](https://github.com/microsoft/service-fabric-backup-explorer):  To ease management of Reliable Collections backup for Service Fabric Stateful applications, we are announcing public preview of Service Fabric Backup Explorer. It is a utility that  enables users to i)Audit and review the contents of the Reliable Collections, ii) update current state to a consistent view, iii) create Backup of the current snapshot of the Reliable Collections and iv) Fix data corruption.
+- [Service Fabric Backup Explorer](https://github.com/microsoft/service-fabric-backup-explorer):  To ease management of Reliable Collections backup for Service Fabric Stateful applications, we are announcing public preview of Service Fabric Backup Explorer. It is a utility that  enables users to 
+  -  Audit and review the contents of the Reliable Collections
+  -  Update current state to a consistent view
+  -  Create Backup of the current snapshot of the Reliable Collections and 
+  -  Fix data corruption.
 - Endpoint certificates of Service Fabric applications can be declared by subject common name.
   
 
 ## Breaking Changes
 - For customers using service fabric managed identities, **please switch to new environment variables ‘IDENTITY_ENDPOINT’ and ‘IDENTITY_HEADER’**. The prior environment variables'MSI_ENDPOINT' and 'MSI_SECRET' are now removed.
 - Service Fabric Managed Identity endpoint is now secure(HTTPs).
+- Currently Service Fabric ships the following nuget packages as a part of our    ASP.Net Integration and support:
+    -  Microsoft.ServiceFabric.AspNetCore.Abstractions
+    -  Microsoft.ServiceFabric.AspNetCore.Configuration
+    -  Microsoft.ServiceFabric.AspNetCore.Kestrel
+    -  Microsoft.ServiceFabric.AspNetCore.HttpSys
+    -  Microsoft.ServiceFabric.AspNetCore.WebListener
 
+   These packages are built against AspNetCore 1.0.0 binaries which have gone out of support (https://dotnet.microsoft.com/platform/support/policy/dotnet-core). Starting in Service Fabric 8.x we will start building Service Fabric AspNetCore integration against AspNetCore 2.1  and for netstandard 2.0. As a result, there will be following changes:
+    1. The following binaries and their nuget packages will be released for     
+      netstandard 2.0 only.These packages can be used in applications targeting .net framework <4.6.1 and .net core >=2.0
+            -  Microsoft.ServiceFabric.AspNetCore.Abstractions
+            -  Microsoft.ServiceFabric.AspNetCore.Configuration
+            -  Microsoft.ServiceFabric.AspNetCore.Kestrel
+            -  Microsoft.ServiceFabric.AspNetCore.HttpSys
+            
+    2. The following package will no longer be shipped:
+            - Microsoft.ServiceFabric.AspNetCore.WebListener:
+                 - Use Microsoft.ServiceFabric.AspNetCore.HttpSys instead.
 ## Service Fabric Runtime
 
 | Versions | IssueType | Description | Resolution | 
