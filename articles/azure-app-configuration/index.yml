@@ -72,6 +72,8 @@ landingContent:
         links:  
         - text: Integrate with a CI/CD pipeline
           url: integrate-ci-cd-pipeline.md
+        - text: Integrate with Kubernetes deployment using Helm
+          url: integrate-kubernetes-deployment-helm.md
       - linkListType: tutorial
         links:  
         - text: Use Key Vault references in an ASP.NET Core app
