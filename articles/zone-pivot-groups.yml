@@ -48,8 +48,6 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
-  - id: programming-language-javascript
-    title: JavaScript
   - id: programming-language-more
     title: More languages...
 - id: programming-languages-set-three
@@ -273,3 +271,35 @@ groups:
     title: Java
   - id: programming-language-more
     title: More languages...
+- id: programming-languages-speech-services-one
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-more
+    title: More languages...
+- id: programming-languages-speech-services-one-nomore
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript

@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: dapine
-zone_pivot_groups: programming-languages-set-three
+zone_pivot_groups: programming-languages-speech-services-one-nomore
 ---
 
 # Quickstart: Setup development environment

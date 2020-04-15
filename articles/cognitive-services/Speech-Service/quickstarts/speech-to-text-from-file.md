@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: dapine
-zone_pivot_groups: programming-languages-set-two
+zone_pivot_groups: programming-languages-speech-services-one
 ---
 
 # Quickstart: Recognize speech from an audio file

@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: qiohu
-zone_pivot_groups: programming-languages-set-two
+zone_pivot_groups: programming-languages-speech-services-one-nomore
 ---
 
 # Specify source language for speech to text

@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: dapine
-zone_pivot_groups: programming-languages-set-two
+zone_pivot_groups: programming-languages-speech-services-one
 ---
 
 # Quickstart: Recognize speech stored in blob storage
@@ -37,6 +37,12 @@ zone_pivot_groups: programming-languages-set-two
 [!INCLUDE [Header](../includes/quickstarts/from-blob/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/from-blob/python/header.md)]
 [!INCLUDE [python](../includes/quickstarts/from-blob/python/python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Header](../includes/quickstarts/from-blob/header.md)]
+[!INCLUDE [Header](../includes/quickstarts/from-blob/javascript/header.md)]
+[!INCLUDE [python](../includes/quickstarts/from-blob/javascript/javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

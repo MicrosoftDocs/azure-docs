@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: dapine
-zone_pivot_groups: programming-languages-set-two
+zone_pivot_groups: programming-languages-speech-services-one-nomore
 ---
 
 # Choose a speech recognition mode
