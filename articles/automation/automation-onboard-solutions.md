@@ -73,7 +73,7 @@ Now that the solutions are enabled, you can add an Azure VM to onboard to those 
 
 ## Install and update modules
 
-It's required to update to the latest Azure modules and import the [Az.OperationalInsights](https://docs.microsoft.com/en-us/powershell/module/az.operationalinsights/?view=azps-3.7.0) module to successfully automate solution onboarding.
+It's required to update to the latest Azure modules and import the [Az.OperationalInsights](https://docs.microsoft.com/powershell/module/az.operationalinsights/?view=azps-3.7.0) module to successfully automate solution onboarding.
 
 ## Update Azure Modules
 
