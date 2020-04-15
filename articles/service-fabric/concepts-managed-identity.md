@@ -6,7 +6,7 @@ ms.date: 12/09/2019
 ms.custom: sfrev
 ---
 
-# Using Managed identities for Azure with Service Fabric (Preview)
+# Using Managed identities for Azure with Service Fabric
 
 A common challenge when building cloud applications is how to securely manage the credentials in your code for authenticating to various services without saving them locally on a developer workstation or in source control. *Managed identities for Azure* solve this problem for all your resources in Azure Active Directory (Azure AD) by providing them with automatically managed identities within Azure AD. You can use a service's identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials stored in your code.
 
@@ -42,7 +42,7 @@ Managed identities for Service Fabric are only supported in Azure-deployed Servi
 
 The system-assigned identity of an application is unique to that application; a user-assigned identity is a standalone resource, which may be assigned to multiple applications. Within an application, a single identity (whether system-assigned or user-assigned) can be assigned to multiple services of the application, but each individual service can only be assigned one identity. Lastly, a service must be assigned an identity explicitly to have access to this feature. In effect, the mapping of an application's identities to its constituent services allows for in-application isolation — a service may only use the identity mapped to it.  
 
-Currently, the following scenarios are supported for this preview feature:
+Currently, the following scenarios are supported for this feature:
 
 - Deploy a new application with one or more services and one or more assigned identities
 
@@ -52,12 +52,7 @@ The following scenarios are not supported or not recommended; note these actions
 
 - Remove or change the identities assigned to an application; if you must make changes, submit separate deployments to first add a new identity assignment, and then to remove a previously assigned one. Removal of an identity from an existing application can have undesirable effects, including leaving your application in a state that is not upgradeable. It is safe to delete the application altogether if the removal of an identity is necessary; note this will delete the system-assigned identity (if so defined) associated with the application, and will remove any associations with the user-assigned identities assigned to the application.
 
-- Service Fabric support for managed identities is not integrated at this time into the [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md); the integration will be achieved by the end of the preview period for the managed identity feature.
-
->
-> [!NOTE]
->
-> This feature is in preview. It may be subject to frequent changes and not suitable for production deployments.
+- Service Fabric support for managed identities is not integrated at this time into the [AzureServiceTokenProvider](../key-vault/general/service-to-service-authentication.md).
 
 ## Next steps
 
