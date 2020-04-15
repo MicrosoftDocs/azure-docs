@@ -22,7 +22,7 @@ This article uses the Bot Framework v3 SDK. If you're interested in the Bot Fram
 
 ## Architecture
 
-![Graphic showing architecture of QnA Maker with language understanding](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![Graphic showing architecture of QnA Maker with Language Understanding](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
 The preceding graphic shows that QnA Maker first gets the intent of the incoming question from a LUIS model. Then, QnA Maker uses that intent to route the question to the correct QnA Maker knowledge base.
 
@@ -46,7 +46,7 @@ The preceding graphic shows that QnA Maker first gets the intent of the incoming
 
 ## Web app bot
 
-1. [Create a bot with Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0), which automatically includes a LUIS app. Select the C# programming language.
+1. [Create a "Basic" bot with Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0), which automatically includes a LUIS app. Select the C# programming language.
 
 1. After you create the web app bot, in the Azure portal, select the web app bot.
 1. In the web app bot service navigation, select **Application Settings**. Then scroll down to the **Application settings** section of available settings.
