@@ -1,16 +1,20 @@
 ---
 title: Azure Security Control - Secure Configuration
-description: Azure Security Control Secure Configuration
+description: Security Control Secure Configuration
 author: msmbaldwin
+manager: rkarlin
+
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 12/30/2019
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: security-recommendations
 
 ---
 
 # Security Control: Secure Configuration
+
+Establish, implement, and actively manage (track, report on, correct) the security configuration of Azure resources in order to prevent attackers from exploiting vulnerable services and settings.
 
 ## 7.1: Establish secure configurations for all Azure resources
 
@@ -18,19 +22,11 @@ ms.custom: security-benchmark
 |--|--|--|
 | 7.1 | 5.1 | Customer |
 
-Use Azure Policy aliases to create custom policies to audit or enforce the configuration of your Azure resources. You may also use built-in Azure Policy definitions.
+Use Azure Policy or Azure Security Center to maintain security configurations for all Azure Resources.
 
-Also, Azure Resource Manager has the ability to export the template in Java Script Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your organization.
+How to configure and manage Azure Policy:
 
-You may also use recommendations from Azure Security Center as a secure configuration baseline for your Azure resources.
-
-How to view available Azure Policy Aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-Tutorial: Create and manage policies to enforce compliance: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-Single and multi-resource export to a template in Azure portal: https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal
-
-Security recommendations - a reference guide: https://docs.microsoft.com/azure/security-center/recommendations-reference
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ## 7.2: Establish secure operating system configurations
 
@@ -38,18 +34,15 @@ Security recommendations - a reference guide: https://docs.microsoft.com/azure/s
 |--|--|--|
 | 7.2 | 5.1 | Customer |
 
-Use Azure Security Center recommendations to maintain security configurations on all compute resources.  Additionally, you may use custom operating system images or Azure Automation State configuration to establish the security configuration of the operating system required by your organization.
- 
+Use Azure Security Center recommendation &quot;Remediate Vulnerabilities in Security Configurations on your Virtual Machines&quot; to maintain security configurations on all compute resources.
 
-How to monitor Azure Security Center recommendations:  https://docs.microsoft.com/azure/security-center/security-center-recommendations
+How to monitor Azure Security Center recommendations:
 
-Security recommendations - a reference guide: https://docs.microsoft.com/azure/security-center/recommendations-reference
+https://docs.microsoft.com/azure/security-center/security-center-recommendations
 
-Azure Automation State Configuration Overview: https://docs.microsoft.com/azure/automation/automation-dsc-overview
+How to remediate Azure Security Center recommendations:
 
-Upload a VHD and use it to create new Windows VMs in Azure:  https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed
-
-Create a Linux VM from a custom disk with the Azure CLI:  https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd
+https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
 
 ## 7.3: Maintain secure Azure resource configurations
 
@@ -57,13 +50,15 @@ Create a Linux VM from a custom disk with the Azure CLI:  https://docs.microsoft
 |--|--|--|
 | 7.3 | 5.2 | Customer |
 
-Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.  In addition, you may use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. 
+Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
-Understand Azure Policy effects: https://docs.microsoft.com/azure/governance/policy/concepts/effects
+How to configure and manage Azure Policy:
 
-Create and manage policies to enforce compliance:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Azure Resource Manager templates overview:  https://docs.microsoft.com/azure/azure-resource-manager/templates/overview
+Understand Azure Policy Effects:
+
+https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 ## 7.4: Maintain secure operating system configurations
 
@@ -71,21 +66,17 @@ Azure Resource Manager templates overview:  https://docs.microsoft.com/azure/azu
 |--|--|--|
 | 7.4 | 5.2 | Shared |
 
-Follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure compute resources.  In addition, you may use Azure Resource Manager templates, custom operating system images or Azure Automation State configuration to maintain the security configuration of the operating system required by your organization.   The Microsoft virtual machine templates combined with the Azure Automation Desired State Configuration may assist in meeting and maintaining the security requirements. 
+Base operating system images are managed and maintained by Microsoft.
 
-Also, note that Azure Marketplace Virtual Machine Images published by Microsoft are managed and maintained by Microsoft. 
+However, you can apply security settings required by your organization using Azure Resource Manager templates and/or Desired State Configuration.
 
-How to implement Azure Security Center vulnerability assessment recommendations:  https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations
+How to create an Azure Virtual Machine from an Azure Resource Manager template:
 
-How to create an Azure Virtual Machine from an Azure Resource Manager template:  https://docs.microsoft.com/azure/virtual-machines/windows/ps-template
+https://docs.microsoft.com/azure/virtual-machines/windows/ps-template
 
-Azure Automation State Configuration Overview: https://docs.microsoft.com/azure/automation/automation-dsc-overview
+Understand Desired State Configuration for Azure Virtual Machines:
 
-Create a Windows virtual machine in the Azure portal :https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal
-
-Information on how to download the VM template: https://docs.microsoft.com/azure/virtual-machines/windows/download-template
-
-Sample script to upload a VHD to Azure and create a new VM:  https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script
+https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-overview
 
 ## 7.5: Securely store configuration of Azure resources
 
@@ -93,11 +84,15 @@ Sample script to upload a VHD to Azure and create a new VM:  https://docs.micros
 |--|--|--|
 | 7.5 | 5.3 | Customer |
 
-Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates and Desired State Configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
+If using custom Azure policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-How to store code in Azure DevOps:  https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+How to store code in Azure DevOps:
 
-About permissions and groups in Azure DevOps:  https://docs.microsoft.com/azure/devops/organizations/security/about-permissions
+https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+
+Azure Repos Documentation:
+
+https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 ## 7.6: Securely store custom operating system images
 
@@ -105,55 +100,61 @@ About permissions and groups in Azure DevOps:  https://docs.microsoft.com/azure/
 |--|--|--|
 | 7.6 | 5.3 | Customer |
 
-If using custom images, use role-based access control (RBAC) to ensure only authorized users may access the images. Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within your organization.  For container images, store them in Azure Container Registry and leverage RBAC to ensure only authorized users may access the images.  
+If using custom images, use RBAC to ensure only authorized users may access the images. For container images, store them in Azure Container Registry and leverage RBAC to ensure only authorized users may access the images.
 
-Understand RBAC in Azure:  https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
+Understand RBAC in Azure:
 
-Understand RBAC for Container Registry:  https://docs.microsoft.com/azure/container-registry/container-registry-roles
+https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
 
-How to configure RBAC in Azure:  https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
+Understand RBAC for Container Registry:
 
-Shared Image Gallery overview
+https://docs.microsoft.com/azure/container-registry/container-registry-roles
 
-https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries
+How to configure RBAC in Azure:
 
-## 7.7: Deploy configuration management tools for Azure resources
+https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
+
+## 7.7: Deploy system configuration management tools
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.7 | 5.4 | Customer |
 
-Define and implement standard security configurations for Azure resources using Azure Policy. Use Azure Policy aliases to create custom policies to audit or enforce the network configuration of your Azure resources. You may also make use of built-in policy definitions related to your specific resources.  Additionally, you may use Azure Automation to deploy configuration changes.
+Use Azure Policy to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
-How to configure and manage Azure Policy:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+How to configure and manage Azure Policy:
 
-How to use Aliases: https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-## 7.8: Deploy configuration management tools for operating systems
+## 7.8: Deploy system configuration management tools for operating systems
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.8 | 5.4 | Customer |
 
-Azure Automation State Configuration is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance to the desired state you specified. 
+Use Azure compute extensions such as PowerShell Desired State Configuration for Windows compute or Linux Chef Extension for Linux.
 
-Onboarding machines for management by Azure Automation State Configuration:  https://docs.microsoft.com/azure/automation/automation-dsc-onboarding
+How to install Virtual Machine Extensions in Azure:
 
-## 7.9: Implement automated configuration monitoring for Azure resources
+https://docs.microsoft.com/azure/virtual-machines/extensions/overview#how-can-i-install-an-extension
+
+## 7.9: Implement automated configuration monitoring for Azure services
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 7.9 | 5.5 | Customer |
 
-Use Azure Security Center to perform baseline scans for your Azure Resources.  Additionally, use Azure Policy to alert and audit Azure resource configurations.
+Use Azure Security Center to perform baseline scans for your Azure Resources
 
-How to remediate recommendations in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
+How to remediate recommendations in Azure Security Center:
+
+https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
 
 ## 7.10: Implement automated configuration monitoring for operating systems
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
-| 7.10 | 5.5 | Customer |
+| 7.1 | 5.5 | Customer |
 
 Use Azure Security Center to perform baseline scans for OS and Docker Settings for containers.
 
@@ -170,15 +171,18 @@ https://docs.microsoft.com/azure/security-center/security-center-container-recom
 Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications.
 
 How to integrate with Azure Managed Identities:
+
 https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
 How to create a Key Vault:
+
 https://docs.microsoft.com/azure/key-vault/quick-create-portal
 
 How to provide Key Vault authentication with a managed identity:
+
 https://docs.microsoft.com/azure/key-vault/managed-identity
 
-## 7.12: Manage identities securely and automatically 
+## 7.12: Manage identities securely and automatically
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
@@ -187,16 +191,21 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 Use Managed Identities to provide Azure services with an automatically managed identity in Azure AD. Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
 How to configure Managed Identities:
+
 https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
 ## 7.13: Eliminate unintended credential exposure
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
-| 7.13 | 18.1, 18.7 | Customer |
+| 7.13 | 13.3 | Customer |
 
 Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault. 
 
 How to setup Credential Scanner:
+
 https://secdevtools.azurewebsites.net/helpcredscan.html
 
+## Next steps
+
+See the next security control: [Malware Defense](security-control-malware-defense.md)
