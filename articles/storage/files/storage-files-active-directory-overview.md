@@ -35,7 +35,7 @@ It's helpful to understand some key terms relating to Azure AD Domain Service au
 
     Azure AD DS provides managed domain services such as domain join, group policies, LDAP, and Kerberos/NTLM authentication. These services are fully compatible with Active Directory Domain Services. For more information, see [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md).
 
-- **On-premises Active Directory Domain Services (AD DS, or on-premises AD DS)**
+- **On-premises Active Directory Domain Services (AD DS)**
 
     On-premises Active Directory Domain Services (AD DS) integration with Azure Files (preview) provides the methods for storing directory data while making it available to network users and administrators. Security is integrated with AD DS through logon authentication and access control to objects in the directory. With a single network logon, administrators can manage directory data and organization throughout their network, and authorized network users can access resources anywhere on the network. AD DS is commonly adopted by enterprises in on-premises and use AD DS credentials as the identity for access control. For more information, see [Active Directory Domain Services Overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
