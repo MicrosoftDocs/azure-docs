@@ -15,13 +15,14 @@ Microsoft Azure Service Fabric 7.1 Release Notes
 
 ## Breaking Changes
 - For customers using service fabric managed identities, **please switch to new environment variables ‘IDENTITY_ENDPOINT’ and ‘IDENTITY_HEADER’**. The prior environment variables'MSI_ENDPOINT' and 'MSI_SECRET' are now removed.
-- Service Fabric Managed Identity endpoint is now secure(HTTPs).
+- Service Fabric Managed Identity endpoint is now secure(HTTPs). There is additional guidance on how to validate the MITS server certificate in the docs.
 
 ## Service Fabric Runtime
 
 | Versions | IssueType | Description | Resolution | 
 |----------|-----------|-|-|
 | **Windows 7.1.*   <br> Ubuntu 7.1.*** | **Feature** | VeryHigh service move cost | **Brief desc** We have introduced new move cost value VeryHigh that provides additional flexibility in some usage scenarios. For more details please consult the [Service movement cost](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) documentation.
+| **Windows 7.1.** | **Bug** | Account created alerts | **Brief desc** In certain SF cluster configurations, the runtime would create user accounts with random names that would raise security alerts. These accounts now have standardized names with "WF-" prefix which can be used to identify them as Service Fabric accounts. This should stop automated alerts from being raised on these accounts.
 | **Windows 7.1.*   <br> Ubuntu 7.1.*** | **Bug** | Subclustered balancing | **Brief desc** Improved balancing for subclustered metrics which previously caused suboptimal balancing in some situations. For more information, see [Subclustering documentation](https://docs.microsoft.com/en-us/azure/service-fabric/cluster-resource-manager-subclustering).
 | **Windows 7.1.** | **Feature** | SSL certs declared by CN | **Brief desc** Application endpoint certificates can be declared by subject common name to enable auto-rollover. For more details please refer to [specifying endpoints in service manifest](https::/docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources.md).
 | **Ubuntu 7.1.*** | **Feature** | Custom cipher list | **Brief desc** Config setting TLS1_2_CipherList can now be used to configure a custom cipher list on Linux. See [documentation](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-fabric-settings) for details.
