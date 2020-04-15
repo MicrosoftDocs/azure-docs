@@ -16,7 +16,7 @@ You can use [Azure Resource Manager templates](../azure-resource-manager/templat
 
 * Creation of a Azure Monitor Log Analytics workspace.
 * Creation of an Azure Automation account.
-* Links the Automation account to the Log Analytics workspace if not already linked.
+* Links the Automation account to the Log Analytics workspace.
 
 The template does not automate the onboarding of one or more Azure or non-Azure VMs, or solutions.
 
