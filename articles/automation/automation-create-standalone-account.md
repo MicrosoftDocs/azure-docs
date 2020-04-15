@@ -86,11 +86,11 @@ When the Automation account is successfully created, several resources are autom
 | AzureRunAsCertificate |A certificate asset that's automatically created when the Automation account is created, or by using a PowerShell script for an existing account. The certificate authenticates with Azure so you can manage Azure Resource Manager resources from runbooks. This certificate has a one-year lifespan. |
 | AzureRunAsConnection |A connection asset that's automatically created when the Automation account is created, or by using a PowerShell script for an existing account. |
 
-## Create a Classic Run-As account
+## Create a Classic Run As account
 
-Classic Run-As accounts are no longer created, by default, when you create an Azure Automation account. If you still require a Classic Run-As account, please perform the following steps.
+Classic Run As accounts are no longer created by default when you create an Azure Automation account. If you still require a Classic Run As account:
 
-1. From your **Automation Account** page, select **Run As Accounts** under **Account Settings**.
+1. From your Automation account, select **Run As Accounts** under **Account Settings**.
 2. Select **Azure Classic Run As Account**.
 3. Click **Create** to proceed with Classic Run As account creation.
 
@@ -99,5 +99,6 @@ Classic Run-As accounts are no longer created, by default, when you create an Az
 * To learn more about graphical authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
 * To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md).
 * To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md).
-* To get started with Python2 runbooks, see [My first Python2 runbook](automation-first-runbook-textual-python2.md).
-
+* To get started with Python 2 runbooks, see [My first Python2 runbook](automation-first-runbook-textual-python2.md).
+* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

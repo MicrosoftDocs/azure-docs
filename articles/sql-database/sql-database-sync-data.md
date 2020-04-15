@@ -7,8 +7,8 @@ ms.subservice: data-movement
 ms.custom: data sync
 ms.devlang: 
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
 ---
@@ -72,7 +72,7 @@ A Sync Group has the following properties:
 | | Data Sync | Transactional Replication |
 |---|---|---|
 | Advantages | - Active-active support<br/>- Bi-directional between on-premises and Azure SQL Database | - Lower latency<br/>- Transactional consistency<br/>- Reuse existing topology after migration |
-| Disadvantages | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can’t publish from Azure SQL Database single database or pooled database<br/>-	High maintenance cost |
+| Disadvantages | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can't publish from Azure SQL Database single database or pooled database<br/>-    High maintenance cost |
 
 ## Get started with SQL Data Sync
 

@@ -25,7 +25,7 @@
     - name: Databricks
       href: prepay-databricks-reserved-capacity.md
     - name: Data Explorer
-      href: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Disk Storage
       href: ../../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Dedicated Host
