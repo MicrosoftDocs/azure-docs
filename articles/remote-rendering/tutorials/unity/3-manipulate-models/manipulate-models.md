@@ -55,4 +55,4 @@ This tutorial provides a few scripts, assets and Unity prefabs to get you starte
 You can manipulate and interact with your remotely rendered models. In the next tutorial we'll cover modifying materials, altering the lighting and applying certain effects to remotely rendered models.
 
 > [!div class="nextstepaction"]
-> [Next: Manipulating models](../3-manipulate-models/manipulate-models.md)
+> [Next: Refining Materials, Lighting, and Effects](../4-materials-lighting-effects/materials-lighting-effects.md)

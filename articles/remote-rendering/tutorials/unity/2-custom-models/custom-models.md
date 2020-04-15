@@ -18,11 +18,11 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* This tutorial builds on top of [Tutorial: Viewing a Remotely Rendered Model](..\1-view-a-model\view-a-model.md).
+* This tutorial builds on top of [Tutorial: Viewing a Remotely Rendered Model](../1-view-a-model/view-a-model.md).
 
 ## Provision Blob Storage in Azure and custom model ingestion
 
-Follow the steps specified in the [Quickstart: Convert a model for rendering](..\..\..\quickstarts\convert-model.md). Ignore the **Insert new model into Quickstart Sample App** section for the purpose of this tutorial. Once you have your ingested model's *Shared Access Signature (SAS)* URI, continue to the next step below.
+Follow the steps specified in the [Quickstart: Convert a model for rendering](../../../quickstarts/convert-model.md). Ignore the **Insert new model into Quickstart Sample App** section for the purpose of this tutorial. Once you have your ingested model's *Shared Access Signature (SAS)* URI, continue to the next step below.
 
 ## Loading and rendering a custom model
 
