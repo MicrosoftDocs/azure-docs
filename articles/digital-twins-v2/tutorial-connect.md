@@ -434,3 +434,12 @@ Next, delete the AAD app registration you created for your client app with this 
     ```
 
 Finally, delete the project sample folder you downloaded from your local machine.
+
+## Next steps
+
+In this tutorial, you created an end-to-end scenario that shows Azure Digital Twins being driven by live device data.
+
+Next, visit the concept documentation to learn more about the elements you worked with in the tutorial:
+* [Create a twin type](concepts-twin-types.md)
+* [Create digital twins and the twin graph](concepts-twins-graph.md)
+* [Azure Digital Twins query language](concepts-query-language.md)

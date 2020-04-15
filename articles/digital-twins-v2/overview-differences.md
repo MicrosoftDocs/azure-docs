@@ -34,7 +34,12 @@ The main changes in the newest preview release are:
 
 ## Next steps
 
-Learn about the key elements Azure Digital Twins in the current release:
+Learn about the key elements of Azure Digital Twins in the current release:
 * [Create a twin type](concepts-twin-types.md)
 * [Create digital twins and the twin graph](concepts-twins-graph.md)
 * [Azure Digital Twins query language](concepts-query-language.md)
+
+Or, go ahead and dive into working with Azure Digital Twins in the quickstart:
+
+> [!div class="nextstepaction"]
+> [Quickstart: Create and configure Azure Digital Twins](quickstart.md)

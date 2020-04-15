@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 This tutorial shows you how to set up and work with three major Azure Digital Twins concepts: models, digital twins, and the twin graph. 
 
-You will start at the beginning of the solution process and use pre-written sample code to create models, digital twins, and relationships to form a sample graph.
+You will start at the beginning of the solution process and reference pre-written sample code to create models, digital twins, and relationships to form a graph.
 
 ## Prerequisites
 
@@ -174,3 +174,12 @@ Next, delete the AAD app registration you created for your client app with this 
     ```
 
 Finally, delete the project sample folder you downloaded from your local machine.
+
+## Next steps
+
+In this tutorial, you built a basic Azure Digital Twins solutions from the beginning, by adding models, digital twins, and relationships.
+
+Continue to the next tutorial to connect to other Azure services for a complete, data-driven scenario: 
+
+> [!div class="nextstepaction"]
+> [Tutorial: Connect your solution to other Azure services](tutorial-connect.md)

@@ -86,7 +86,7 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 If you have worked with the previous preview release of Azure Digital Twins, learn what has changed:
 * [Differences from Public Preview 1](overview-differences.md)
 
-To start learning about the key elements of Azure Digital Twins, visit:
-* [Create a twin type](concepts-twin-types.md)
-* [Create digital twins and the twin graph](concepts-twins-graph.md)
-* [Azure Digital Twins query language](concepts-query-language.md)
+Or, go ahead and dive into working with Azure Digital Twins in the quickstart:
+
+> [!div class="nextstepaction"]
+> [Quickstart: Create and configure Azure Digital Twins](quickstart.md)

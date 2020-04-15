@@ -204,3 +204,17 @@ Next, delete the AAD app registration you created for your client app with this 
     ```
 
 Finally, delete the project sample folder you downloaded from your local machine.
+
+## Next steps
+
+In this quickstart, you got started with Azure Digital Twins by setting up an instance and a client application to interact with the instance. You then ran some queries on a sample solution to get an idea of what kinds of questions Azure Digital Twins can help you answer about an environment.
+
+To see how the sample solution was built and build your own Azure Digital Twins graph, continue on to this tutorial: 
+
+> [!div class="nextstepaction"]
+> [Tutorial: Build a basic Azure Digital Twins solution](tutorial-build.md)
+
+Or, see how to connect the sample solution to other Azure services to complete a data-driven, end-to-end scenario in this tutorial: 
+
+> [!div class="nextstepaction"]
+> [Tutorial: Connect your solution to other Azure services](tutorial-connect.md)
