@@ -1,7 +1,7 @@
 ---
 title: Create template - Visual Studio Code
 description: Use Visual Studio Code and the Azure Resource Manager tools extension to work on Resource Manager templates.
-author: nepeters
+author: neilpeterson
 ms.date: 03/27/2019
 ms.topic: quickstart
 ms.author: nepeters
@@ -28,11 +28,13 @@ This snippet creates the basic building blocks for an ARM template.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/2.png)
 
-Notice that the VS Code language mode has changed from *JSON* to *Azure Resource Manager Template*. The ARM Tools extension includes a language server specific to ARM templates which provides ARM template specific auto-completion, validation, and other language services.
+Notice that the VS Code language mode has changed from *JSON* to *Azure Resource Manager Template*. The ARM Tools extension includes a language server specific to ARM templates which provides ARM template specific completion, validation, and other language services.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/3.png)
 
-## Add storage account to template
+## Add a resource to the template
+
+The ARM Tools extension includes snippets for many Azure resources. These snippets can be used to easily add Azure resoucres to your tempatae deployment.
 
 Place the cursor in the template **resources** block, type in `storage`, and select the *arm-storage* snippet.
 
@@ -48,13 +50,13 @@ The **tab** key can be used to tab through configurable properties on the storag
 
 ## Explore template completion and validation
 
-One of the most powerful capabilities of the ARM Tools extension for VS Code is its integration with Azure schemas. Azure schemas provide the extension with resource configuration completion capability and the ability to validate that a resource has been properly configured.
+One of the most powerful capabilities of the ARM Tools extension for VS Code is its integration with Azure schemas. Azure schemas provide the extension with completion and validation capibilities.
 
-Let's modify the storage account to see both of these capabilities in action. First, update the storage account kind to an invalid value such as `superStorage`. Notice that this throws a warning indicating that `superStorage` is a valid configuration for the storage account kind.
+Let's modify the storage account to see validation and completion in action. First, update the storage account kind to an invalid value such as `megaStorage`. Notice that this produces a warning indicating that `megaStorage` is not a valid value.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/15.png)
 
-To use the completion capabilities, remove `superStorage`, place the cursor inside of the double quotes, and press `ctrl` + `space. This presents a list of valid storage account types.
+To use the completion capabilities, remove `megaStorage`, place the cursor inside of the double quotes, and press `ctrl` + `space. This presents a list of valid values.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
 
@@ -70,11 +72,11 @@ Update the name of the parameter to `storageAccountName` and the description to 
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/8.png)
 
-Notice that the template also has a warning indicating that the parameter is never used. This can be seen either by hovering over the yellow squiggle in the editor pane or by opening the VS Code problems panel.
+Azure storage accounts names have a minimum length of 3 characters and a maximum of 24. An ARM template parameter can help enforce these constraints by defining both `minLength` and `maxLength`. To do so, update the parameter with these properties and appropriate values.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/9.png)
+![](./media/quickstart-create-templates-use-visual-studio-code/14.png)
 
-Now update the storage resources name property to use the parameter. To do so, remove the current name. Enter a double quote and an opening square bracket `[`, which produces a list of ARM functions that can be used in ARM expressions. Type in `par` and select *parameters* from the list. 
+Update the storage resources name property to use the parameter. To do so, remove the current name. Enter a double quote and an opening square bracket `[`, which produces a list of ARM functions. Type in `par` and select *parameters* from the list. 
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/12.png)
 
@@ -82,10 +84,6 @@ Entering a single quote `'` inside of the round brackets produces a list of all 
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/13.png)
 
-Azure storage accounts names have a minimum length of 3 characters and a maximum of 24. An ARM template parameter can help enforce these constraints by defining both `minLength` and `maxLength`. To do so, update the parameter with these properties and appropriate values.
-
-![](./media/quickstart-create-templates-use-visual-studio-code/14.png)
- 
 ## Create a parameter file from the template
 
 An ARM template parameter file allows you to store environment-specific values and pass these in as a group at deployment time. For example, you may have a parameter file with values specific to a test environment and another for a production environment.
