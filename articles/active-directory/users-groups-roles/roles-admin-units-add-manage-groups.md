@@ -70,7 +70,7 @@ Example:
 
 Go to **Azure AD > Administrative units** in the portal. Select the administrative unit for which you want to list the users. By default, **All users** is selected already on the left panel. Select **All groups** and on the right you will find the list of groups that are members of the selected administrative unit.
 
-![Select an administrative unit to delete](./media/roles-admin-units-add-manage-groups/list-groups-admin-units.png)
+![Select an administrative unit to delete](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
 ### PowerShell
 
@@ -123,7 +123,7 @@ Select **Administrative units** in the left panel to list all the administrative
 
 Alternatively, you can go to **Azure AD** > **Administrative units** and select the administrative unit where the group is a member. Select **Groups** in the left panel to list the member groups. Select the group to be removed from the administrative unit and then select **Remove groups**.
 
-![List groups in an administrative unit](./media/roles-admin-units-add-manage-groups/list-groups-admin-units.png)
+![List groups in an administrative unit](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
 ### PowerShell
 
