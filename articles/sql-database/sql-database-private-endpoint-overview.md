@@ -3,19 +3,19 @@ title: Private Link
 description: Overview of Private endpoint feature
 author: rohitnayakmsft
 ms.author: rohitna
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.service: sql-database
 ms.topic: overview 
 ms.reviewer: vanto
 ms.date: 03/09/2020
 ---
 
-# Private Link for Azure SQL Database and Data Warehouse
+# Private Link for Azure SQL Database and Azure Synapse Analytics
 
 Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list to PaaS services that support Private Link functionality, go to the [Private Link Documentation](../private-link/index.yml) page. A private endpoint is a private IP address within a specific [VNet](../virtual-network/virtual-networks-overview.md) and Subnet. 
 
 > [!IMPORTANT]
-> This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. This article does *not* apply to a **managed instance** deployment in Azure SQL Database.
+> This article applies to Azure SQL server, and to both SQL Database and Azure Synapse Analytics databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and Azure Synapse Analytics. This article does *not* apply to a **managed instance** deployment in Azure SQL Database.
 
 ## Data exfiltration prevention
 
@@ -23,7 +23,7 @@ Data exfiltration in Azure SQL Database is when an authorized user, such as a da
 
 Consider a scenario with a user running SQL Server Management Studio (SSMS) inside an Azure VM connecting to a SQL Database. This SQL Database is in the West US data center. The example below shows how to limit access with public endpoints on SQL Database using network access controls.
 
-1. Disable all Azure service traffic to SQL Database via the public endpoint by setting Allow Azure Services to **OFF**. Ensure no IP addresses are allowed in the server and database level firewall rules. For more information, see [Azure SQL Database and Data Warehouse network access controls](sql-database-networkaccess-overview.md).
+1. Disable all Azure service traffic to SQL Database via the public endpoint by setting Allow Azure Services to **OFF**. Ensure no IP addresses are allowed in the server and database level firewall rules. For more information, see [Azure SQL Database and Azure Synapse Analytics network access controls](sql-database-networkaccess-overview.md).
 1. Only allow traffic to the SQL Database using the Private IP address of the VM. For more information, see the articles on [Service Endpoint](sql-database-vnet-service-endpoint-rule-overview.md) and [VNet firewall rules](sql-database-firewall-configure.md).
 1. On the Azure VM, narrow down the scope of outgoing connection by using [Network Security Groups (NSGs)](../virtual-network/manage-network-security-group.md) and Service Tags as follows
     - Specify an NSG rule to allow traffic for Service Tag = SQL.WestUs - only allowing connection to SQL Database in West US
@@ -138,7 +138,6 @@ Nmap done: 256 IP addresses (1 host up) scanned in 207.00 seconds
 
 The result shows that one IP address is up; which corresponds to the IP address for the private endpoint.
 
-
 ### Check Connectivity using SQL Server Management Studio (SSMS)
 > [!NOTE]
 > Use the **Fully Qualified Domain Name (FQDN)** of the server in connection strings for your clients. Any login attempts made directly to the IP address shall fail. This behavior is by design, since private endpoint routes traffic to the SQL Gateway in the region and the FQDN needs to be specified for logins to succeed.
@@ -170,9 +169,9 @@ To establish connectivity from an on-premises environment to the SQL Database, c
 - [ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 
-## Connecting from an Azure SQL Data Warehouse to Azure Storage using Polybase
+## Connecting from Azure Synapse Analytics to Azure Storage using Polybase
 
-PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure Storage accounts. If the Azure Storage account that you are loading data from limits access only to a set of VNet-subnets via Private Endpoints, Service Endpoints, or IP-based firewalls, the connectivity from PolyBase to the account will break. For enabling both PolyBase import and export scenarios with Azure SQL Data Warehouse connecting to Azure Storage that's secured to a VNet, follow the steps provided [here](sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
+PolyBase is commonly used to load data into Azure Synapse Analytics from Azure Storage accounts. If the Azure Storage account that you are loading data from limits access only to a set of VNet-subnets via Private Endpoints, Service Endpoints, or IP-based firewalls, the connectivity from PolyBase to the account will break. For enabling both PolyBase import and export scenarios with Azure Synapse Analytics connecting to Azure Storage that's secured to a VNet, follow the steps provided [here](sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
 
 

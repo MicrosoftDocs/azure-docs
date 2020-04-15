@@ -1,10 +1,10 @@
 ---
 title: Network Access Controls 
-description: Overview of network access controls for Azure SQL Database and Data Warehouse to manage access, and configure a single or pooled database.
+description: Overview of network access controls for Azure SQL Database and Azure Synapse Analytics to manage access, and configure a single or pooled database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -14,10 +14,10 @@ ms.reviewer: vanto
 ms.date: 03/09/2020
 ---
 
-# Azure SQL Database and Data Warehouse network access controls
+# Azure SQL Database and Azure Synapse Analytics network access controls
 
 > [!NOTE]
-> This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
+> This article applies to Azure SQL server, and to both SQL Database and Azure Synapse Analytics databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and Azure Synapse Analytics.
 
 > [!IMPORTANT]
 > This article does *not* apply to **Azure SQL Database Managed Instance**. for more information about the networking configuration, see [connecting to a Managed Instance](sql-database-managed-instance-connect-app.md) .
