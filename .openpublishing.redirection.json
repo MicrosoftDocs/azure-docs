@@ -4953,6 +4953,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-grid/event-sources.md",
+      "redirect_url": "/azure/event-grid/overview#event-sources",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/event-grid/event-subscription-template.md",
       "redirect_url": "/azure/event-grid/template-samples",
       "redirect_document_id": false
@@ -43789,6 +43794,76 @@
     {
       "source_path": "articles/cognitive-services/Acoustics/index.md",
       "redirect_url": "/azure/cognitive-services/acoustics/what-is-acoustics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/what-is-acoustics.md",
+      "redirect_url": "https://docs.microsoft.com/gaming/acoustics/what-is-acoustics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/unity-quickstart.md",
+      "redirect_url": "https://docs.microsoft.com/gaming/acoustics/unity-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/unreal-quickstart.md",
+      "redirect_url": "https://docs.microsoft.com/gaming/acoustics/unreal-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/unity-baking.md",
+      "redirect_url": "https://docs.microsoft.com/gaming/acoustics/unity-baking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/unity-workflow.md",
+      "redirect_url": "https://docs.microsoft.com/gaming/acoustics/unity-workflow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/unreal-baking.md",
+      "redirect_url": "https://docs.microsoft.com/gaming/acoustics/unreal-baking",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/unreal-workflow.md",
+      "redirect_url": "https://docs.microsoft.com/gaming/acoustics/unreal-workflow",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/design-process.md",
+      "redirect_url": "https://docs.microsoft.com/gaming/acoustics/design-process",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/bake-resolution.md",
+      "redirect_url": "https://docs.microsoft.com/gaming/acoustics/bake-resolution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/create-azure-account.md",
+      "redirect_url": "https://docs.microsoft.com/gaming/acoustics/create-azure-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/unity-integration.md",
+      "redirect_url": "https://docs.microsoft.com/gaming/acoustics/unity-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/unreal-integration.md",
+      "redirect_url": "https://docs.microsoft.com/gaming/acoustics/unreal-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/faq.md",
+      "redirect_url": "https://docs.microsoft.com/gaming/acoustics/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Acoustics/known-issues.md",
+      "redirect_url": "https://docs.microsoft.com/gaming/acoustics/known-issues",
       "redirect_document_id": false
     },
     {

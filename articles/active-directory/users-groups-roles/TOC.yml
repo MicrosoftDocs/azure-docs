@@ -44,6 +44,8 @@
       href: users-bulk-add.md    
     - name: Manage user profiles
       href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: My Staff delegation
+      href: my-staff-configure.md
     - name: Download user info (preview)
       href: users-bulk-download.md
     - name: Share user accounts  
@@ -72,6 +74,8 @@
       href: domains-manage.md
     - name: Delete a directory    
       href: directory-delete-howto.md
+    - name: Administrative units
+      href: directory-administrative-units.md
     - name: Multiple directories    
       href: licensing-directory-independence.md
     - name: Self-service signup    
@@ -176,8 +180,6 @@
         href: directory-admin-roles-secure.md  
       - name: Create emergency accounts    
         href: directory-emergency-access.md
-    - name: Administrative units    
-      href: directory-administrative-units.md
   - name: Manage sign-in
     items:    
     - name: Customize company branding    
