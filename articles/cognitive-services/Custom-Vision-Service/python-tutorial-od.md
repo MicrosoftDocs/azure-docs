@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: areddish
 ---
 
@@ -226,7 +226,7 @@ The output of the application should appear in the console. You can then verify 
 
 ## Next steps
 
-Now you have seen how every step of the object detection process can be done in code. This sample executes a single training iteration, but often you will need to train and test your model multiple times in order to make it more accurate. The following guide deals with image classification, but its principles are similar to object detection.
+Now you've seen how every step of the object detection process can be done in code. This sample executes a single training iteration, but often you'll need to train and test your model multiple times in order to make it more accurate. The following training guide deals with image classification, but its principles are similar to object detection.
 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](test-your-model.md)
