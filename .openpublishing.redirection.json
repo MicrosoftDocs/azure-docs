@@ -50790,6 +50790,11 @@
       "redirect_url": "/azure/sql-database/sql-database-security-overview",
       "redirect_document_id": false
     },
+	{
+      "source_path": "articles/azure-monitor/insights/key-vault-insights-overview.md",
+      "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/security/fundamentals/database-best-practices.md",
       "redirect_url": "/azure/sql-database/sql-database-security-best-practice",
