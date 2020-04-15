@@ -106,13 +106,11 @@ During the preview you can get to the My Access experience three different ways:
 **New experience banner**
 
 >[!IMPORTANT]
-These instructions only apply if you are not already in the preview. If you are already on the preview you will not see the banner.
+These instructions only apply if you are not already participating in the preview. If you are already on the preview you will not see the banner.
 
 1. Sign in to the MyApps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
     ![MyApps portal listing apps you have permissions to](./media/perform-access-review/myapps-access-panel.png)
-
-In the upper-right corner of the page, click the user next to your name and default organization. If more than one organization is listed, select the organization that requested an access review.
 
 2. Click the **Access reviews** tile to see a list of pending access reviews.
 
