@@ -14,7 +14,7 @@ ms.author: tisande
 
 The Azure Cosmos DB API for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes by using the Azure Cosmos DB API for MongoDB. You can also read an [overview of indexing in Azure Cosmos DB](index-overview.md) that's relevant across all APIs.
 
-## Indexing for MongoDB version 3.6
+## Indexing for MongoDB server version 3.6
 
 MongoDB version 3.6 automatically indexes the `_id` field, which can't be dropped. The Azure Cosmos DB API for MongoDB automatically enforces uniqueness of the `_id` field per shard key.
 
