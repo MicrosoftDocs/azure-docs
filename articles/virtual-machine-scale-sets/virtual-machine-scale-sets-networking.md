@@ -37,42 +37,27 @@ Azure Accelerated Networking improves network performance by enabling single roo
 }
 ```
 
-## Create a scale set that references an existing Azure Load Balancer
-When a scale set is created using the Azure portal, a new load balancer is created for most configuration options. If you create a scale set, which needs to reference an existing load balancer, you can do this using the CLI. The following example script creates a load balancer and then creates a scale set, which references it:
+## Azure virtual machine scale sets with Azure Load Balancer
 
-```azurecli
-az network lb create \
-    -g lbtest \
-    -n mylb \
-    --vnet-name myvnet \
-    --subnet mysubnet \
-    --public-ip-address-allocation Static \
-    --backend-pool-name mybackendpool
+When working with virtual machine scale sets and load balancer, the following should be considered:
 
-az vmss create \
-    -g lbtest \
-    -n myvmss \
-    --image Canonical:UbuntuServer:16.04-LTS:latest \
-    --admin-username negat \
-    --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
-    --upgrade-policy-mode Automatic \
-    --instance-count 3 \
-    --vnet-name myvnet \
-    --subnet mysubnet \
-    --lb mylb \
-    --backend-pool-name mybackendpool
-```
+* **Multiple virtual machine scale sets can't use the same load balancer**.
+* **Port Forwarding and inbound NAT rules**:
+  * Each virtual machine scale set must have an inbound NAT rule.
+  * After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
+  * When using the virtual machine scale set in the backend pool of the load balancer the default inbound NAT rules get created automatically.
+* **Load balancing rules**:
+  * When using the virtual machine scale set in the backend pool of the load balancer the default load balancing rule gets created automatically.
+* **Outbound rules**:
+  *  To create outbound rule for a backend pool which is already referenced by a load balancing rule, you need to first mark **"Create implicit outbound rules"** as **No** in the portal when the inbound load balancing rule is created.
 
->[!NOTE]
-> After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again. 
-
-For more information on load balancer and virtual machine scale sets, see [Virtual networks and virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/network-overview#load-balancers).
+  :::image type="content" source="./media/virtual-machines-common-network-overview/vmsslb.png" alt-text="Load balancing rule creation" border="true":::
 
 The following methods can be used to deploy a virtual machine scale set with an existing Azure load balancer.
 
-* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal](../../articles/load-balancer/configure-vm-scale-set-portal.md).
-* [Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell](../../articles/load-balancer/configure-vm-scale-set-powershell.md).
-* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI](../../articles/load-balancer/configure-vm-scale-set-cli.md).
+* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal](../articles/load-balancer/configure-vm-scale-set-portal.md).
+* [Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell](../articles/load-balancer/configure-vm-scale-set-powershell.md).
+* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI](../articles/load-balancer/configure-vm-scale-set-cli.md).
 
 ## Create a scale set that references an Application Gateway
 To create a scale set that uses an application gateway, reference the backend address pool of the application gateway in the ipConfigurations section of your scale set as in this ARM template config:
