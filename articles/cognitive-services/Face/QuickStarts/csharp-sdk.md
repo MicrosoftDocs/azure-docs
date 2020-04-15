@@ -123,17 +123,19 @@ You'll likely want to call this method in the `Main` method.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_client)]
 
-## Detect faces in an image
+### Declare helper fields
 
-At the root of your class, define the following URL string. This URL points to a set of sample images.
+The following fields are needed for several of the Face operations you'll add later. At the root of your class, define the following URL string. This URL points to a folder of sample images.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_image_url)]
 
-Optionally, you can choose which AI model to use to extract data from the detected face(s). See [Specify a recognition model](../Face-API-How-to-Topics/specify-recognition-model.md) for information on these options.
+Define strings to point to the different recognition model types. Later on, you'll be able to specify which recognition model you want to use for face detection. See [Specify a recognition model](../Face-API-How-to-Topics/specify-recognition-model.md) for information on these options.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_models)]
 
-The final Detect operation will take a **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** object, an image URL, and a recognition model.
+## Detect faces in an image
+
+Add the following method call to your **main** method. You'll define the method next. The final Detect operation will take a **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** object, an image URL, and a recognition model.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_call)]
 
@@ -178,14 +180,6 @@ The Identify operation takes an image of a person (or multiple people) and looks
 ### Create and train a person group
 
 The following code creates a **PersonGroup** with six different **Person** objects. It associates each **Person** with a set of example images, and then it trains to recognize each person by their facial characteristics. **Person** and **PersonGroup** objects are used in the Verify, Identify, and Group operations.
-
-If you haven't done so already, define the following URL string at the root of your class. This points to a set of sample images.
-
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_image_url)]
-
-The code later in this section will specify a recognition model to extract data from faces, and the following snippet creates references to the available models. See [Specify a recognition model](../Face-API-How-to-Topics/specify-recognition-model.md) for information on recognition models.
-
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_models)]
 
 #### Create PersonGroup
 
