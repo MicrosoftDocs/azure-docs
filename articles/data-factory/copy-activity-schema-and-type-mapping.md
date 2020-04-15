@@ -17,6 +17,7 @@ ms.author: jingwang
 
 ---
 # Schema mapping in copy activity
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes how the Azure Data Factory copy activity does schema mapping and data type mapping from source data to sink data when executing the data copy.
 

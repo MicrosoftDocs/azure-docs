@@ -16,6 +16,8 @@ ms.date: 04/15/2020
 
 # Customize the setup for an Azure-SSIS Integration Runtime
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 The custom setup for an Azure-SQL Server Integration Services Integration Runtime (Azure-SSIS IR) provides an interface for adding your own steps during the setup or reconfiguration of your Azure-SSIS IR. 
 
 By using the custom setup, you can alter the default operating configuration or environment to, for example, start additional Windows services, persist access credentials for file shares, or use strong cryptography/more secure network protocol (TLS 1.2). Or you can install additional components, such as assemblies, drivers, or extensions, on each node of your Azure-SSIS IR.

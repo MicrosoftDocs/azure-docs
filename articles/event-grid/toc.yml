@@ -132,14 +132,14 @@
         href: event-schema-azure-signalr.md
       - name: Azure subscriptions
         href: event-schema-subscriptions.md
+  - name: Event Domains
+    href: event-domains.md
   - name: Event schema formats
     items:    
     - name: Event Grid event schema
       href: event-schema.md
     - name: Cloud event schema
       href: cloud-event-schema.md
-  - name: Event Domains
-    href: event-domains.md
   - name: Event handlers
     displayName: Azure Automation, Functions, Event Hubs, Hybrid Connections, Logic Apps, Service Bus, Queue Storage, Webhooks
     href: event-handlers.md
