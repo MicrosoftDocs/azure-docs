@@ -46,11 +46,8 @@ Azure HPC Cache is available in these Azure regions:
 
 | North America      | Europe         | Asia            | Australia      |
 |--------------------|----------------|-----------------|----------------|
-| Canada Central   | North Europe | Korea Central | Australia East |
-| Central US       | UK South     | Southeast Asia |               |
-| East US          | West Europe  | | |
-| East US 2        | | | |
-| North Central US | | | |
+| East US            | North Europe   | Korea Central   | Australia East |
+| East US 2          | West Europe    | Southeast Asia  |               |
 | South Central US | | | |
 | West US 2        | | | |
 
