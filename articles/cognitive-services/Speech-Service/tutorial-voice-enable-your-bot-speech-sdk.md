@@ -284,6 +284,7 @@ Before we move on, make sure that your microphone and speakers are enabled and w
 1. Follow the instructions provided there to either
    * download a ZIP package containing the executable to run, or
    * build the executable yourself, by cloning the repository and building the project.
+   
 1. Launch the client application and configure it.
 1. Click **Reconnect** and make sure you see the message **Press the mic button, or type to start talking to your bot**.
 1. Let's test it out. Click the microphone button, and speak a few words in English. The recognized text will appear as you speak. When you're done speaking, the bot will reply in its own voice, saying "echo" followed by the recognized words.
