@@ -207,10 +207,31 @@
             - name: Migrate from System Center Orchestrator
               href: automation-orchestrator-migration.md
 - name: Reference
-  items: 
-    - name: PowerShell
-      href: https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-6.13.0
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.automation?view=azure-dotnet
-    - name: REST
-      href: https://docs.microsoft.com/rest/api/automation/
+  items:
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.automation
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.automation
+  - name: REST
+    href: /rest/api/automation
+- name: Resources
+  items:
+  - name: Automation introduction video
+    href: https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=management-tools&query=automation
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/automation/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Release notes
+    href: https://azure.microsoft.com/updates/?product=automation
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=automation
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-automation
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=automation
+
