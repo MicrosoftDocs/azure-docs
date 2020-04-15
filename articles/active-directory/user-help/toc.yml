@@ -24,6 +24,10 @@
     href: active-directory-passwords-reset-register.md
   - name: Reset your password
     href: active-directory-passwords-update-your-own-password.md
+- name: My staff portal help
+  items:
+  - name: My staff user management
+    href: my-staff-team-manager.md
 - name: Microsoft Authenticator app help
   items:
   - name: What is the Microsoft Authenticator app?
