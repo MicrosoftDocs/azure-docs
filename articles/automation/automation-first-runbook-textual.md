@@ -73,7 +73,7 @@ Before you publish the runbook to make it available in production, you should te
 1. Click **Start** to start the test, with testing the only enabled option.
 1. Note that a [runbook job](automation-runbook-execution.md) is created and its status is displayed in the pane.
 
-   The job status starts as `Queued`, indicating that the job is waiting for a runbook worker in the cloud to become available. The status changes to `Starting` when a worker claims the job. Finally, the status becomes `Running` when the runbook actually starts to run.
+   The job status starts as Queued, indicating that the job is waiting for a runbook worker in the cloud to become available. The status changes to Starting when a worker claims the job. Finally, the status becomes Running when the runbook actually starts to run.
 
 1. When the runbook job completes, the Test pane displays its output. In this case, you see `Hello World`.
 
@@ -101,7 +101,7 @@ The runbook that you've created is still in Draft mode. You must publish it befo
 
    ![Job Summary](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
 
-1. Once the runbook status shows `Completed`, click **Output**. The Output page is opened, where you can see your `Hello World` message.
+1. Once the runbook status shows Completed, click **Output**. The Output page is opened, where you can see your `Hello World` message.
 
    ![Job Summary](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)
 
@@ -111,7 +111,7 @@ The runbook that you've created is still in Draft mode. You must publish it befo
 
    ![Job Summary](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 
-1. Close the Streams pane and the Job pane to return to the **MyFirstRunbook** page.
+1. Close the Streams pane and the Job pane to return to the MyFirstRunbook page.
 1. Click **Jobs** under **Resources** to open the Jobs page for this runbook. This page lists all the jobs created by your runbook. You should only see one job listed, since you have run the job only once.
 
    ![Jobs](media/automation-first-runbook-textual/runbook-control-job-tile.png)
@@ -120,12 +120,12 @@ The runbook that you've created is still in Draft mode. You must publish it befo
 
 ## Step 5 - Add authentication to manage Azure resources
 
-You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. It can't do that unless it authenticates using the credentials for the subscription. Authentication uses the `Connect-AzAccount` cmdlet.
+You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. It can't do that unless it authenticates using the credentials for the subscription. Authentication uses the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) cmdlet.
 
 >[!NOTE]
 >For PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for `Connect-AzAccount`. You can use these cmdlets or you can [update your modules](automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account.
 
-1. Navigate to the **MyFirstRunbook-Workflow** page and open the textual editor by clicking **Edit**.
+1. Navigate to the MyFirstRunbook-Workflow page and open the textual editor by clicking **Edit**.
 2. Delete the `Write-Output` line.
 3. Position the cursor on a blank line between the braces.
 4. Type or copy and paste the following code, which handles the authentication with your Automation Run As account.
@@ -207,6 +207,8 @@ Your runbook currently starts the VM that you have hardcoded in the runbook. It 
 ## Next steps
 
 * For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
 * To get started with graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md).
 * To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md).
 * To learn more about runbook types and their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md).
