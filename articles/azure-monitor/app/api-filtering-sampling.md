@@ -494,7 +494,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### Add information from HttpContext
 
-The following sample initializer reads data from the [`HttpContext`](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) and appends it to a `RequestTelemetry` instance.
+The following sample initializer reads data from the [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) and appends it to a `RequestTelemetry` instance.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
