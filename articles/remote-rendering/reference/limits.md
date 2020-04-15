@@ -44,4 +44,4 @@ The allowable number of polygons for all loaded models depends on the size of th
 
 **Hololens 2**
 
-* [Render from PV camera](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) feature is not supported.
+* The [render from PV camera](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) feature is not supported.
