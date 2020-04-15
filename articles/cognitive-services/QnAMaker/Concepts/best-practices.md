@@ -134,7 +134,7 @@ QnA Maker allows users to [collaborate](../How-to/collaborate-knowledge-base.md)
 
 ## Active learning
 
-[Active learning](../How-to/improve-knowledge-base.md) does the best job of suggesting alternative questions when it has a wide range of quality and quantity of user-based queries. It is important to allow client-applications' user queries to participate in the active learning feedback loop without censorship. Once questions are suggested in the QnA Maker portal, you can **[filter by suggestions](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** then review and accept or reject those suggestions.
+[Active learning](../How-to/use-active-learning.md) does the best job of suggesting alternative questions when it has a wide range of quality and quantity of user-based queries. It is important to allow client-applications' user queries to participate in the active learning feedback loop without censorship. Once questions are suggested in the QnA Maker portal, you can **[filter by suggestions](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** then review and accept or reject those suggestions.
 
 ## Next steps
 

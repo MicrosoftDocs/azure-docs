@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/18/2020
+ms.date: 03/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -329,7 +329,7 @@ Azure service: [API Management](../api-management/index.yml)
 > | Action | Microsoft.ApiManagement/service/read | Read metadata for an API Management Service instance |
 > | Action | Microsoft.ApiManagement/service/delete | Delete API Management Service instance |
 > | Action | Microsoft.ApiManagement/service/updatehostname/action | Setup, update or remove custom domain names for an API Management Service |
-> | Action | Microsoft.ApiManagement/service/updatecertificate/action | Upload SSL certificate for an API Management Service |
+> | Action | Microsoft.ApiManagement/service/updatecertificate/action | Upload TLS/SSL certificate for an API Management Service |
 > | Action | Microsoft.ApiManagement/service/backup/action | Backup API Management Service to the specified container in a user provided storage account |
 > | Action | Microsoft.ApiManagement/service/restore/action | Restore API Management Service from the specified container in a user provided storage account |
 > | Action | Microsoft.ApiManagement/service/managedeployments/action | Change SKU/units, add/remove regional deployments of API Management Service |
@@ -445,10 +445,9 @@ Azure service: [API Management](../api-management/index.yml)
 > | Action | Microsoft.ApiManagement/service/gateways/read | Lists a collection of gateways registered with service instance. or Gets the details of the Gateway specified by its identifier. |
 > | Action | Microsoft.ApiManagement/service/gateways/write | Creates or updates an Gateway to be used in Api Management instance. or Updates the details of the gateway specified by its identifier. |
 > | Action | Microsoft.ApiManagement/service/gateways/delete | Deletes specific Gateway. |
-> | Action | Microsoft.ApiManagement/service/gateways/keys/action | Retrieves gateway keys. |
-> | Action | Microsoft.ApiManagement/service/gateways/regeneratePrimaryKey/action | Regenerates primary gateway key invalidationg any tokens created with it. |
-> | Action | Microsoft.ApiManagement/service/gateways/regenerateSecondaryKey/action | Regenerates secondary gateway key invalidationg any tokens created with it. |
-> | Action | Microsoft.ApiManagement/service/gateways/token/action | Gets the Shared Access Authorization Token for the gateway. |
+> | Action | Microsoft.ApiManagement/service/gateways/listKeys/action | Retrieves gateway keys. |
+> | Action | Microsoft.ApiManagement/service/gateways/regenerateKey/action | Regenerates specified gateway key invalidationg any tokens created with it. |
+> | Action | Microsoft.ApiManagement/service/gateways/generateToken/action | Gets the Shared Access Authorization Token for the gateway. |
 > |  | **service/gateways/apis** |  |
 > | Action | Microsoft.ApiManagement/service/gateways/apis/read | Lists a collection of the APIs associated with a gateway. |
 > | Action | Microsoft.ApiManagement/service/gateways/apis/write | Adds an API to the specified Gateway. |
@@ -480,7 +479,7 @@ Azure service: [API Management](../api-management/index.yml)
 > | Action | Microsoft.ApiManagement/service/namedValues/read | Lists a collection of named values defined within a service instance. or Gets the details of the named value specified by its identifier. |
 > | Action | Microsoft.ApiManagement/service/namedValues/write | Creates or updates named value. or Updates the specific named value. |
 > | Action | Microsoft.ApiManagement/service/namedValues/delete | Deletes specific named value from the API Management service instance. |
-> | Action | Microsoft.ApiManagement/service/namedValues/listSecrets/action | Gets the secrets of the named value specified by its identifier. |
+> | Action | Microsoft.ApiManagement/service/namedValues/listValue/action | Gets the secret of the named value specified by its identifier. |
 > |  | **service/networkstatus** |  |
 > | Action | Microsoft.ApiManagement/service/networkstatus/read | Gets the network access status of resources on which the service depends on. |
 > |  | **service/notifications** |  |
@@ -806,6 +805,18 @@ Azure service: [Automation](../automation/index.yml)
 > | Action | Microsoft.Automation/automationAccounts/nodes/reports/content/read | Reads Azure Automation DSC report contents |
 > |  | **automationAccounts/objectDataTypes/fields** |  |
 > | Action | Microsoft.Automation/automationAccounts/objectDataTypes/fields/read | Gets Azure Automation TypeFields |
+> |  | **automationAccounts/privateEndpointConnectionProxies** |  |
+> | Action | Microsoft.Automation/automationAccounts/privateEndpointConnectionProxies/read | Reads Azure Automation Private Endpoint Connection Proxy |
+> | Action | Microsoft.Automation/automationAccounts/privateEndpointConnectionProxies/write | Creates an Azure Automation Private Endpoint Connection Proxy |
+> | Action | Microsoft.Automation/automationAccounts/privateEndpointConnectionProxies/validate/action | Validate a Private endpoint connection request (groupId Validation) |
+> | Action | Microsoft.Automation/automationAccounts/privateEndpointConnectionProxies/delete | Delete an Azure Automation Private Endpoint Connection Proxy |
+> |  | **automationAccounts/privateEndpointConnectionProxies/operationResults** |  |
+> | Action | Microsoft.Automation/automationAccounts/privateEndpointConnectionProxies/operationResults/read | Get Azure Automation private endpoint proxy operation results. |
+> |  | **automationAccounts/privateEndpointConnections** |  |
+> | Action | Microsoft.Automation/automationAccounts/privateEndpointConnections/read | Get Azure Automation Private Endpoint Connection status |
+> | Action | Microsoft.Automation/automationAccounts/privateEndpointConnections/write | Approve or reject an Azure Automation Private Endpoint Connection |
+> |  | **automationAccounts/privateLinkResources** |  |
+> | Action | Microsoft.Automation/automationAccounts/privateLinkResources/read | Reads Group Information for private endpoints |
 > |  | **automationAccounts/python2Packages** |  |
 > | Action | Microsoft.Automation/automationAccounts/python2Packages/read | Gets an Azure Automation Python 2 package |
 > | Action | Microsoft.Automation/automationAccounts/python2Packages/write | Creates or updates an Azure Automation Python 2 package |
@@ -907,6 +918,8 @@ Azure service: core
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
 > | Action | Microsoft.AzureStack/register/action | Registers Subscription with Microsoft.AzureStack resource provider |
+> |  | **cloudManifestFiles** |  |
+> | Action | Microsoft.AzureStack/cloudManifestFiles/read | Gets the Cloud Manifest File |
 > |  | **Operations** |  |
 > | Action | Microsoft.AzureStack/Operations/read | Gets the properties of a resource provider operation |
 > |  | **registrations** |  |
@@ -924,8 +937,6 @@ Azure service: core
 > | Action | Microsoft.AzureStack/registrations/products/getProducts/action | Retrieves a list of Azure Stack Marketplace products |
 > | Action | Microsoft.AzureStack/registrations/products/getProduct/action | Retrieves Azure Stack Marketplace product |
 > | Action | Microsoft.AzureStack/registrations/products/uploadProductLog/action | Record Azure Stack Marketplace product operation status and timestamp |
-> |  | **verificationKeys** |  |
-> | Action | Microsoft.AzureStack/verificationKeys/getCurrentKey/action | Gets the current version of Azure Stack signing public key |
 
 ## Microsoft.Batch
 
@@ -969,6 +980,13 @@ Azure service: [Batch](../batch/index.yml)
 > | Action | Microsoft.Batch/batchAccounts/pools/delete | Deletes a pool from a Batch account |
 > | Action | Microsoft.Batch/batchAccounts/pools/stopResize/action | Stops an ongoing resize operation on a Batch account pool |
 > | Action | Microsoft.Batch/batchAccounts/pools/disableAutoscale/action | Disables automatic scaling for a Batch account pool |
+> |  | **batchAccounts/privateEndpointConnectionResults** |  |
+> | Action | Microsoft.Batch/batchAccounts/privateEndpointConnectionResults/read | Gets the results of a long running Batch account private endpoint connection operation |
+> |  | **batchAccounts/privateEndpointConnections** |  |
+> | Action | Microsoft.Batch/batchAccounts/privateEndpointConnections/write | Update an existing Private endpoint connection on a Batch account |
+> | Action | Microsoft.Batch/batchAccounts/privateEndpointConnections/read | Gets Private endpoint connection or Lists Private endpoint connections on a Batch account |
+> |  | **batchAccounts/privateLinkResources** |  |
+> | Action | Microsoft.Batch/batchAccounts/privateLinkResources/read | Gets the properties of a Private link resource or Lists Private link resources on a Batch account |
 > |  | **locations** |  |
 > | Action | Microsoft.Batch/locations/checkNameAvailability/action | Checks that the account name is valid and not in use. |
 > |  | **locations/accountOperationResults** |  |
@@ -1007,6 +1025,7 @@ Azure service: [Cost Management + Billing](../cost-management-billing/index.yml)
 > | Action | Microsoft.Billing/billingAccounts/billingProfiles/write |  |
 > | Action | Microsoft.Billing/billingAccounts/billingProfiles/read |  |
 > | Action | Microsoft.Billing/billingAccounts/billingProfiles/write |  |
+> | Action | Microsoft.Billing/billingAccounts/billingProfiles/write |  |
 > |  | **billingAccounts/billingProfiles/billingPermissions** |  |
 > | Action | Microsoft.Billing/billingAccounts/billingProfiles/billingPermissions/read |  |
 > |  | **billingAccounts/billingProfiles/customers** |  |
@@ -1016,6 +1035,7 @@ Azure service: [Cost Management + Billing](../cost-management-billing/index.yml)
 > |  | **billingAccounts/billingProfiles/invoiceSections** |  |
 > | Action | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/write |  |
 > | Action | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/read |  |
+> | Action | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/write |  |
 > |  | **billingAccounts/billingProfiles/invoiceSections/billingPermissions** |  |
 > | Action | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/billingPermissions/read |  |
 > |  | **billingAccounts/billingProfiles/invoiceSections/billingSubscriptions** |  |
@@ -1260,14 +1280,6 @@ Azure service: [Content Delivery Network](../cdn/index.yml)
 > | Action | Microsoft.Cdn/CheckNameAvailability/action |  |
 > | Action | Microsoft.Cdn/ValidateProbe/action |  |
 > | Action | Microsoft.Cdn/CheckResourceUsage/action |  |
-> |  | **cdnwebapplicationfirewallmanagedrulesets** |  |
-> | Action | Microsoft.Cdn/cdnwebapplicationfirewallmanagedrulesets/read |  |
-> | Action | Microsoft.Cdn/cdnwebapplicationfirewallmanagedrulesets/write |  |
-> | Action | Microsoft.Cdn/cdnwebapplicationfirewallmanagedrulesets/delete |  |
-> |  | **cdnwebapplicationfirewallpolicies** |  |
-> | Action | Microsoft.Cdn/cdnwebapplicationfirewallpolicies/read |  |
-> | Action | Microsoft.Cdn/cdnwebapplicationfirewallpolicies/write |  |
-> | Action | Microsoft.Cdn/cdnwebapplicationfirewallpolicies/delete |  |
 > |  | **edgenodes** |  |
 > | Action | Microsoft.Cdn/edgenodes/read |  |
 > | Action | Microsoft.Cdn/edgenodes/write |  |
@@ -1276,10 +1288,6 @@ Azure service: [Content Delivery Network](../cdn/index.yml)
 > | Action | Microsoft.Cdn/operationresults/read |  |
 > | Action | Microsoft.Cdn/operationresults/write |  |
 > | Action | Microsoft.Cdn/operationresults/delete |  |
-> |  | **operationresults/cdnwebapplicationfirewallpolicyresults** |  |
-> | Action | Microsoft.Cdn/operationresults/cdnwebapplicationfirewallpolicyresults/read |  |
-> | Action | Microsoft.Cdn/operationresults/cdnwebapplicationfirewallpolicyresults/write |  |
-> | Action | Microsoft.Cdn/operationresults/cdnwebapplicationfirewallpolicyresults/delete |  |
 > |  | **operationresults/profileresults** |  |
 > | Action | Microsoft.Cdn/operationresults/profileresults/read |  |
 > | Action | Microsoft.Cdn/operationresults/profileresults/write |  |
@@ -1303,6 +1311,10 @@ Azure service: [Content Delivery Network](../cdn/index.yml)
 > | Action | Microsoft.Cdn/operationresults/profileresults/endpointresults/customdomainresults/delete |  |
 > | Action | Microsoft.Cdn/operationresults/profileresults/endpointresults/customdomainresults/DisableCustomHttps/action |  |
 > | Action | Microsoft.Cdn/operationresults/profileresults/endpointresults/customdomainresults/EnableCustomHttps/action |  |
+> |  | **operationresults/profileresults/endpointresults/origingroupresults** |  |
+> | Action | Microsoft.Cdn/operationresults/profileresults/endpointresults/origingroupresults/read |  |
+> | Action | Microsoft.Cdn/operationresults/profileresults/endpointresults/origingroupresults/write |  |
+> | Action | Microsoft.Cdn/operationresults/profileresults/endpointresults/origingroupresults/delete |  |
 > |  | **operationresults/profileresults/endpointresults/originresults** |  |
 > | Action | Microsoft.Cdn/operationresults/profileresults/endpointresults/originresults/read |  |
 > | Action | Microsoft.Cdn/operationresults/profileresults/endpointresults/originresults/write |  |
@@ -1332,6 +1344,10 @@ Azure service: [Content Delivery Network](../cdn/index.yml)
 > | Action | Microsoft.Cdn/profiles/endpoints/customdomains/delete |  |
 > | Action | Microsoft.Cdn/profiles/endpoints/customdomains/DisableCustomHttps/action |  |
 > | Action | Microsoft.Cdn/profiles/endpoints/customdomains/EnableCustomHttps/action |  |
+> |  | **profiles/endpoints/origingroups** |  |
+> | Action | Microsoft.Cdn/profiles/endpoints/origingroups/read |  |
+> | Action | Microsoft.Cdn/profiles/endpoints/origingroups/write |  |
+> | Action | Microsoft.Cdn/profiles/endpoints/origingroups/delete |  |
 > |  | **profiles/endpoints/origins** |  |
 > | Action | Microsoft.Cdn/profiles/endpoints/origins/read |  |
 > | Action | Microsoft.Cdn/profiles/endpoints/origins/write |  |
@@ -1753,6 +1769,7 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
+> | Action | Microsoft.CognitiveServices/register/action | Subscription Registration Action |
 > | Action | Microsoft.CognitiveServices/register/action | Registers Subscription for Cognitive Services |
 > | Action | Microsoft.CognitiveServices/checkDomainAvailability/action | Reads available SKUs for a subscription. |
 > | Action | Microsoft.CognitiveServices/register/action | Registers Subscription for Cognitive Services |
@@ -1785,8 +1802,8 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/describe/action | This operation generates a description of an image in human readable language with complete sentences.<br> The description is based on a collection of content tags, which are also returned by the operation.<br>More than one description can be generated for each image.<br> Descriptions are ordered by their confidence score.<br>All descriptions are in English. |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/generatethumbnail/action | This operation generates a thumbnail image with the user-specified width and height.<br> By default, the service analyzes the image, identifies the region of interest (ROI), and generates smart cropping coordinates based on the ROI.<br> Smart cropping helps when you specify an aspect ratio that differs from that of the input image |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/ocr/action | Optical Character Recognition (OCR) detects text in an image and extracts the recognized characters into a machine-usable character stream.    |
-> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/recognizetext/action | Use this interface to get the result of a Recognize Text operation. When you use the Recognize Text interface, the response contains a field called “Operation-Location”. The “Operation-Location” field contains the URL that you must use for your Get Recognize Text Operation Result operation. |
-> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/tag/action | This operation generates a list of words, or tags, that are relevant to the content of the supplied image.<br>The Computer Vision API can return tags based on objects, living beings, scenery or actions found in images.<br>Unlike categories, tags are not organized according to a hierarchical classification system, but correspond to image content.<br>Tags may contain hints to avoid ambiguity or provide context, for example the tag “cello” may be accompanied by the hint “musical instrument”.<br>All tags are in English. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/recognizetext/action | Use this interface to get the result of a Recognize Text operation. When you use the Recognize Text interface, the response contains a field called "Operation-Location". The "Operation-Location" field contains the URL that you must use for your Get Recognize Text Operation Result operation. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/tag/action | This operation generates a list of words, or tags, that are relevant to the content of the supplied image.<br>The Computer Vision API can return tags based on objects, living beings, scenery or actions found in images.<br>Unlike categories, tags are not organized according to a hierarchical classification system, but correspond to image content.<br>Tags may contain hints to avoid ambiguity or provide context, for example the tag "cello" may be accompanied by the hint "musical instrument".<br>All tags are in English. |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/areaofinterest/action | This operation returns a bounding box around the most important area of the image. |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/detect/action | This operation Performs object detection on the specified image.  |
 > |  | **accounts/ComputerVision/models** |  |
@@ -1801,7 +1818,7 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > |  | **accounts/ComputerVision/read/operations** |  |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/read/operations/read | This interface is used for getting OCR results of Read operation. The URL to this interface should be retrieved from <b>"Operation-Location"</b> field returned from Batch Read File interface. |
 > |  | **accounts/ComputerVision/textoperations** |  |
-> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/textoperations/read | This interface is used for getting recognize text operation result. The URL to this interface should be retrieved from <b>“Operation-Location”</b> field returned from Recognize Text interface. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/textoperations/read | This interface is used for getting recognize text operation result. The URL to this interface should be retrieved from <b>"Operation-Location"</b> field returned from Recognize Text interface. |
 > |  | **accounts/ContentModerator** |  |
 > | DataAction | Microsoft.CognitiveServices/accounts/ContentModerator/imagelists/action | Create image list. |
 > | DataAction | Microsoft.CognitiveServices/accounts/ContentModerator/termlists/action | Create term list. |
@@ -1887,6 +1904,9 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > | DataAction | Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/read | Get a specific project. Get your projects.* |
 > | DataAction | Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/train/action | Queues project for training. |
 > | DataAction | Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/write | Update a specific project. |
+> | DataAction | Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/import/action | Imports a project. |
+> |  | **accounts/CustomVision.Prediction/projects/export** |  |
+> | DataAction | Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/export/read | Exports a project. |
 > |  | **accounts/CustomVision.Prediction/projects/images** |  |
 > | DataAction | Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/regions/action | This API accepts a batch of image regions, and optionally tags, to update existing images with region information. |
 > | DataAction | Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/files/action | This API accepts a batch of files, and optionally tags, to create images. There is a limit of 64 images and 20 tags. |
@@ -1940,6 +1960,8 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > | DataAction | Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/tags/write | Update a tag. |
 > |  | **accounts/CustomVision.Prediction/projects/tagsandregions** |  |
 > | DataAction | Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/tagsandregions/suggestions/action | This API will get suggested tags and regions for an array/batch of untagged images along with confidences for the tags. It returns an empty array if no tags are found. |
+> |  | **accounts/CustomVision.Prediction/projects/train** |  |
+> | DataAction | Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/train/advanced/action | Queues project for training with PipelineConfiguration and training type. |
 > |  | **accounts/CustomVision.Prediction/quota** |  |
 > | DataAction | Microsoft.CognitiveServices/accounts/CustomVision.Prediction/quota/delete | *NotDefined* |
 > |  | **accounts/CustomVision.Prediction/quota/refresh** |  |
@@ -2105,7 +2127,7 @@ Azure service: core
 > |  | **RateCard** |  |
 > | Action | Microsoft.Commerce/RateCard/read | Returns offer data, resource/meter metadata and rates for the given subscription. |
 > |  | **UsageAggregates** |  |
-> | Action | Microsoft.Commerce/UsageAggregates/read | Retrieves Microsoft Azure’s consumption  by a subscription. The result contains aggregates usage data, subscription and resource related information, on a particular time range. |
+> | Action | Microsoft.Commerce/UsageAggregates/read | Retrieves Microsoft Azure's consumption  by a subscription. The result contains aggregates usage data, subscription and resource related information, on a particular time range. |
 
 ## Microsoft.Compute
 
@@ -2311,6 +2333,10 @@ Azure service: [Virtual Machines](../virtual-machines/index.yml), [Virtual Machi
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/ipConfigurations/publicIPAddresses/read | Get properties of public IP address created using Virtual Machine Scale Set. Virtual Machine Scale Set can create at most one public IP per ipconfiguration (private IP) |
 > |  | **virtualMachineScaleSets/vmSizes** |  |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/vmSizes/read | List available sizes for creating or updating a virtual machine in the Virtual Machine Scale Set |
+> |  | **virtualMachineScaleSetVirtualMachines/extensions** |  |
+> | Action | Microsoft.Compute/virtualMachineScaleSetVirtualMachines/extensions/read | Get the properties of an extension for Virtual Machine in Virtual Machine Scale Set |
+> | Action | Microsoft.Compute/virtualMachineScaleSetVirtualMachines/extensions/write | Creates a new extension for Virtual Machine in Virtual Machine Scale Set or updates an existing one |
+> | Action | Microsoft.Compute/virtualMachineScaleSetVirtualMachines/extensions/delete | Deletes the extension for Virtual Machine in Virtual Machine Scale Set |
 > |  | **virtualMachines** |  |
 > | DataAction | Microsoft.Compute/virtualMachines/login/action | Log in to a virtual machine as a regular user |
 > | DataAction | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Log in to a virtual machine with Windows administrator or Linux root user privileges |
@@ -2444,6 +2470,8 @@ Azure service: [Container Registry](../container-registry/index.yml)
 > | Action | Microsoft.ContainerRegistry/registries/queueBuild/action | Creates a new build based on the request parameters and add it to the build queue. |
 > | Action | Microsoft.ContainerRegistry/registries/listBuildSourceUploadUrl/action | Get source upload url location for a container registry. |
 > | Action | Microsoft.ContainerRegistry/registries/scheduleRun/action | Schedule a run against a container registry. |
+> |  | **registries/agentpools** |  |
+> | Action | Microsoft.ContainerRegistry/registries/agentpools/listQueueStatus/action | List all queue status of an agentpool for a container registry. |
 > |  | **registries/artifacts** |  |
 > | Action | Microsoft.ContainerRegistry/registries/artifacts/delete | Delete artifact in a container registry. |
 > |  | **registries/builds** |  |
@@ -2507,6 +2535,8 @@ Azure service: [Container Registry](../container-registry/index.yml)
 > | Action | Microsoft.ContainerRegistry/registries/scopeMaps/operationStatuses/read | Gets a scope map async operation status. |
 > |  | **registries/sign** |  |
 > | Action | Microsoft.ContainerRegistry/registries/sign/write | Push/Pull content trust metadata for a container registry. |
+> |  | **registries/taskruns** |  |
+> | Action | Microsoft.ContainerRegistry/registries/taskruns/listDetails/action | List all details of a taskrun for a container registry. |
 > |  | **registries/tasks** |  |
 > | Action | Microsoft.ContainerRegistry/registries/tasks/read | Gets a task for a container registry or list all tasks. |
 > | Action | Microsoft.ContainerRegistry/registries/tasks/write | Creates or Updates a task for a container registry. |
@@ -2809,6 +2839,9 @@ Azure service: [Azure Databricks](../azure-databricks/index.yml)
 > | Action | Microsoft.Databricks/workspaces/delete | Removes a Databricks workspace. |
 > | Action | Microsoft.Databricks/workspaces/refreshPermissions/action | Refresh permissions for a workspace |
 > | Action | Microsoft.Databricks/workspaces/updateDenyAssignment/action | Update deny assignment not actions for a managed resource group of a workspace |
+> | Action | Microsoft.Databricks/workspaces/refreshWorkspaces/action | Refresh a workspace with new details like URL |
+> |  | **workspaces/dbWorkspaces** |  |
+> | Action | Microsoft.Databricks/workspaces/dbWorkspaces/write | Initializes the Databricks workspace (internal only) |
 > |  | **workspaces/providers/Microsoft.Insights/diagnosticSettings** |  |
 > | Action | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Sets the available diagnostic settings for the Databricks workspace |
 > | Action | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/write | Add or modify diagnostics settings. |
@@ -3142,12 +3175,6 @@ Azure service: [Azure Database Migration Service](../dms/index.yml)
 > | Action | Microsoft.DataMigration/services/projects/write | Run tasks Azure Database Migration Service tasks |
 > | Action | Microsoft.DataMigration/services/projects/delete | Deletes a resource and all of its children |
 > | Action | Microsoft.DataMigration/services/projects/accessArtifacts/action | Generate a URL that can be used to GET or PUT project artifacts |
-> |  | **services/projects/files** |  |
-> | Action | Microsoft.DataMigration/services/projects/files/read | Read information about resources |
-> | Action | Microsoft.DataMigration/services/projects/files/write | Create or update resources and their properties |
-> | Action | Microsoft.DataMigration/services/projects/files/delete | Deletes a resource and all of its children |
-> | Action | Microsoft.DataMigration/services/projects/files/read/action | Obtain a URL that can be used to read the content of the file |
-> | Action | Microsoft.DataMigration/services/projects/files/readWrite/action | Obtain a URL that can be used to read or write the content of the file |
 > |  | **services/projects/tasks** |  |
 > | Action | Microsoft.DataMigration/services/projects/tasks/read | Read information about resources |
 > | Action | Microsoft.DataMigration/services/projects/tasks/write | Run tasks Azure Database Migration Service tasks |
@@ -3467,7 +3494,7 @@ Azure service: [Azure Database for PostgreSQL](../postgresql/index.yml)
 > | Action | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/read | Gets the disagnostic setting for the resource |
 > | Action | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > |  | **servers/providers/Microsoft.Insights/logDefinitions** |  |
-> | Action | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for Postgres servers |
+> | Action | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for PostgreSQL servers |
 > |  | **servers/providers/Microsoft.Insights/metricDefinitions** |  |
 > | Action | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/metricDefinitions/read | Return types of metrics that are available for databases |
 > |  | **servers/queryTexts** |  |
@@ -3503,9 +3530,20 @@ Azure service: [Azure Database for PostgreSQL](../postgresql/index.yml)
 > | Action | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/read | Gets the disagnostic setting for the resource |
 > | Action | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > |  | **serversv2/providers/Microsoft.Insights/logDefinitions** |  |
-> | Action | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for Postgres servers |
+> | Action | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for PostgreSQL servers |
 > |  | **serversv2/providers/Microsoft.Insights/metricDefinitions** |  |
 > | Action | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/metricDefinitions/read | Return types of metrics that are available for databases |
+> |  | **singleservers** |  |
+> | Action | Microsoft.DBforPostgreSQL/singleservers/read | Return the list of servers or gets the properties for the specified server. |
+> | Action | Microsoft.DBforPostgreSQL/singleservers/write | Creates a server with the specified parameters or update the properties or tags for the specified server. |
+> | Action | Microsoft.DBforPostgreSQL/singleservers/delete | Deletes an existing server. |
+> |  | **singleservers/providers/Microsoft.Insights/diagnosticSettings** |  |
+> | Action | Microsoft.DBforPostgreSQL/singleservers/providers/Microsoft.Insights/diagnosticSettings/read | Gets the disagnostic setting for the resource |
+> | Action | Microsoft.DBforPostgreSQL/singleservers/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
+> |  | **singleservers/providers/Microsoft.Insights/logDefinitions** |  |
+> | Action | Microsoft.DBforPostgreSQL/singleservers/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for PostgreSQL servers |
+> |  | **singleservers/providers/Microsoft.Insights/metricDefinitions** |  |
+> | Action | Microsoft.DBforPostgreSQL/singleservers/providers/Microsoft.Insights/metricDefinitions/read | Return types of metrics that are available for databases |
 
 ## Microsoft.Devices
 
@@ -3594,6 +3632,7 @@ Azure service: [IoT Hub](../iot-hub/index.yml), [IoT Hub Device Provisioning Ser
 > | Action | Microsoft.Devices/iotHubs/listkeys/Action | Get all IotHub Keys |
 > | Action | Microsoft.Devices/iotHubs/exportDevices/Action | Export Devices |
 > | Action | Microsoft.Devices/iotHubs/importDevices/Action | Import Devices |
+> | Action | Microsoft.Devices/iotHubs/privateEndpointConnectionsApproval/Action | Approve or reject a private endpoint connection |
 > |  | **iotHubs/certificates** |  |
 > | Action | Microsoft.Devices/iotHubs/certificates/Read | Gets the Certificate |
 > | Action | Microsoft.Devices/iotHubs/certificates/Write | Create or Update Certificate |
@@ -3608,6 +3647,10 @@ Azure service: [IoT Hub](../iot-hub/index.yml), [IoT Hub Device Provisioning Ser
 > |  | **IotHubs/diagnosticSettings** |  |
 > | Action | Microsoft.Devices/IotHubs/diagnosticSettings/read | Gets the diagnostic setting for the resource |
 > | Action | Microsoft.Devices/IotHubs/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
+> |  | **iotHubs/digitalTwinsLinks** |  |
+> | Action | Microsoft.Devices/iotHubs/digitalTwinsLinks/Write |  |
+> | Action | Microsoft.Devices/iotHubs/digitalTwinsLinks/Read |  |
+> | Action | Microsoft.Devices/iotHubs/digitalTwinsLinks/Delete |  |
 > |  | **iotHubs/eventGridFilters** |  |
 > | Action | Microsoft.Devices/iotHubs/eventGridFilters/Write | Create new or Update existing Event Grid filter |
 > | Action | Microsoft.Devices/iotHubs/eventGridFilters/Read | Gets the Event Grid filter |
@@ -3628,6 +3671,21 @@ Azure service: [IoT Hub](../iot-hub/index.yml), [IoT Hub Device Provisioning Ser
 > | Action | Microsoft.Devices/IotHubs/metricDefinitions/read | Gets the available metrics for the IotHub service |
 > |  | **iotHubs/operationresults** |  |
 > | Action | Microsoft.Devices/iotHubs/operationresults/Read | Get Operation Result (Obsolete API) |
+> |  | **iotHubs/privateEndpointConnectionProxies** |  |
+> | Action | Microsoft.Devices/iotHubs/privateEndpointConnectionProxies/validate/Action | Validates private endpoint connection proxy input during create |
+> | Action | Microsoft.Devices/iotHubs/privateEndpointConnectionProxies/Read | Gets properties for specified private endpoint connection proxy |
+> | Action | Microsoft.Devices/iotHubs/privateEndpointConnectionProxies/Write | Creates or updates a private endpoint connection proxy |
+> | Action | Microsoft.Devices/iotHubs/privateEndpointConnectionProxies/Delete | Deletes an existing private endpoint connection proxy |
+> |  | **iotHubs/privateEndpointConnectionProxies/operationResults** |  |
+> | Action | Microsoft.Devices/iotHubs/privateEndpointConnectionProxies/operationResults/Read | Get the result of an async operation on a private endpoint connection proxy |
+> |  | **iotHubs/privateEndpointConnections** |  |
+> | Action | Microsoft.Devices/iotHubs/privateEndpointConnections/Read | Gets properties for specified private endpoint connection |
+> | Action | Microsoft.Devices/iotHubs/privateEndpointConnections/Delete | Deletes an existing private endpoint connection |
+> | Action | Microsoft.Devices/iotHubs/privateEndpointConnections/Write | Creates or updates a private endpoint connection |
+> |  | **iotHubs/privateEndpointConnections/operationResults** |  |
+> | Action | Microsoft.Devices/iotHubs/privateEndpointConnections/operationResults/Read | Get the result of an async operation on a private endpoint connection |
+> |  | **iotHubs/privateLinkResources** |  |
+> | Action | Microsoft.Devices/iotHubs/privateLinkResources/Read | Gets private link resources for IotHub |
 > |  | **iotHubs/quotaMetrics** |  |
 > | Action | Microsoft.Devices/iotHubs/quotaMetrics/Read | Get Quota Metrics |
 > |  | **iotHubs/routing** |  |
@@ -4118,6 +4176,17 @@ Azure service: [Event Grid](../event-grid/index.yml)
 > | Action | Microsoft.EventGrid/domains/delete | Delete a domain |
 > | Action | Microsoft.EventGrid/domains/listKeys/action | List keys for a domain |
 > | Action | Microsoft.EventGrid/domains/regenerateKey/action | Regenerate key for a domain |
+> |  | **domains/privateEndpointConnectionProxies** |  |
+> | Action | Microsoft.EventGrid/domains/privateEndpointConnectionProxies/validate/action | Validate PrivateEndpointConnectionProxies for domains |
+> | Action | Microsoft.EventGrid/domains/privateEndpointConnectionProxies/read | Read PrivateEndpointConnectionProxies for domains |
+> | Action | Microsoft.EventGrid/domains/privateEndpointConnectionProxies/write | Write PrivateEndpointConnectionProxies for domains |
+> | Action | Microsoft.EventGrid/domains/privateEndpointConnectionProxies/delete | Delete PrivateEndpointConnectionProxies for domains |
+> |  | **domains/privateEndpointConnections** |  |
+> | Action | Microsoft.EventGrid/domains/privateEndpointConnections/read | Read PrivateEndpointConnections for domains |
+> | Action | Microsoft.EventGrid/domains/privateEndpointConnections/write | Write PrivateEndpointConnections for domains |
+> | Action | Microsoft.EventGrid/domains/privateEndpointConnections/delete | Delete PrivateEndpointConnections for domains |
+> |  | **domains/privateLinkResources** |  |
+> | Action | Microsoft.EventGrid/domains/privateLinkResources/read | Get or List PrivateLinkResources for domains |
 > |  | **domains/providers/Microsoft.Insights/logDefinitions** |  |
 > | Action | Microsoft.EventGrid/domains/providers/Microsoft.Insights/logDefinitions/read | Allows access to diagnostic logs |
 > |  | **domains/providers/Microsoft.Insights/metricDefinitions** |  |
@@ -4157,12 +4226,56 @@ Azure service: [Event Grid](../event-grid/index.yml)
 > | Action | Microsoft.EventGrid/operations/read | List EventGrid operations. |
 > |  | **operationsStatus** |  |
 > | Action | Microsoft.EventGrid/operationsStatus/read | Read the status of an operation |
+> |  | **partnerNamespaces** |  |
+> | Action | Microsoft.EventGrid/partnerNamespaces/write | Create or update a partner namespace |
+> | Action | Microsoft.EventGrid/partnerNamespaces/read | Read a partner namespace |
+> | Action | Microsoft.EventGrid/partnerNamespaces/delete | Delete a partner namespace |
+> | Action | Microsoft.EventGrid/partnerNamespaces/listKeys/action | List keys for a partner namespace |
+> | Action | Microsoft.EventGrid/partnerNamespaces/regenerateKey/action | Regenerate key for a partner namespace |
+> |  | **partnerNamespaces/eventChannels** |  |
+> | Action | Microsoft.EventGrid/partnerNamespaces/eventChannels/read | Read an event channel |
+> | Action | Microsoft.EventGrid/partnerNamespaces/eventChannels/write | Create or update an event channel |
+> | Action | Microsoft.EventGrid/partnerNamespaces/eventChannels/delete | Delete an event channel |
+> |  | **partnerRegistrations** |  |
+> | Action | Microsoft.EventGrid/partnerRegistrations/write | Create or update a partner registration |
+> | Action | Microsoft.EventGrid/partnerRegistrations/read | Read a partner registration |
+> | Action | Microsoft.EventGrid/partnerRegistrations/delete | Delete a partner registration |
+> |  | **partnerTopics** |  |
+> | Action | Microsoft.EventGrid/partnerTopics/read | Read a partner topic |
+> | Action | Microsoft.EventGrid/partnerTopics/write | Create or update a partner topic |
+> | Action | Microsoft.EventGrid/partnerTopics/delete | Delete a partner topic |
+> | Action | Microsoft.EventGrid/partnerTopics/activate/action | Activate partner topic |
+> | Action | Microsoft.EventGrid/partnerTopics/deactivate/action | Deactivate partner topic |
+> |  | **sku** |  |
+> | Action | Microsoft.EventGrid/sku/read | Read available Sku Definitions for event grid resources |
+> |  | **systemTopics** |  |
+> | Action | Microsoft.EventGrid/systemTopics/read | Read a system topic |
+> | Action | Microsoft.EventGrid/systemTopics/write | Create or update a system topic |
+> | Action | Microsoft.EventGrid/systemTopics/delete | Delete a system topic |
+> |  | **systemTopics/providers/Microsoft.Insights/diagnosticSettings** |  |
+> | Action | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for system topics |
+> | Action | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for system topics |
+> |  | **systemTopics/providers/Microsoft.Insights/logDefinitions** |  |
+> | Action | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/logDefinitions/read | Allows access to diagnostic logs |
+> |  | **systemTopics/providers/Microsoft.Insights/metricDefinitions** |  |
+> | Action | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for system topics |
 > |  | **topics** |  |
 > | Action | Microsoft.EventGrid/topics/write | Create or update a topic |
 > | Action | Microsoft.EventGrid/topics/read | Read a topic |
 > | Action | Microsoft.EventGrid/topics/delete | Delete a topic |
 > | Action | Microsoft.EventGrid/topics/listKeys/action | List keys for a topic |
 > | Action | Microsoft.EventGrid/topics/regenerateKey/action | Regenerate key for a topic |
+> |  | **topics/privateEndpointConnectionProxies** |  |
+> | Action | Microsoft.EventGrid/topics/privateEndpointConnectionProxies/validate/action | Validate PrivateEndpointConnectionProxies for topics |
+> | Action | Microsoft.EventGrid/topics/privateEndpointConnectionProxies/read | Read PrivateEndpointConnectionProxies for topics |
+> | Action | Microsoft.EventGrid/topics/privateEndpointConnectionProxies/write | Write PrivateEndpointConnectionProxies for topics |
+> | Action | Microsoft.EventGrid/topics/privateEndpointConnectionProxies/delete | Delete PrivateEndpointConnectionProxies for topics |
+> |  | **topics/privateEndpointConnections** |  |
+> | Action | Microsoft.EventGrid/topics/privateEndpointConnections/read | Read PrivateEndpointConnections for topics |
+> | Action | Microsoft.EventGrid/topics/privateEndpointConnections/write | Write PrivateEndpointConnections for topics |
+> | Action | Microsoft.EventGrid/topics/privateEndpointConnections/delete | Delete PrivateEndpointConnections for topics |
+> |  | **topics/privateLinkResources** |  |
+> | Action | Microsoft.EventGrid/topics/privateLinkResources/read | Read PrivateLinkResources for topics |
 > |  | **topics/providers/Microsoft.Insights/diagnosticSettings** |  |
 > | Action | Microsoft.EventGrid/topics/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for topics |
 > | Action | Microsoft.EventGrid/topics/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for topics |
@@ -4256,6 +4369,11 @@ Azure service: [Event Hubs](../event-hubs/index.yml)
 > | Action | Microsoft.EventHub/namespaces/networkrulesets/delete | Delete VNET Rule Resource |
 > |  | **namespaces/operationresults** |  |
 > | Action | Microsoft.EventHub/namespaces/operationresults/read | Get the status of Namespace operation |
+> |  | **namespaces/privateEndpointConnectionProxies** |  |
+> | Action | Microsoft.EventHub/namespaces/privateEndpointConnectionProxies/validate/action | Validate Private Endpoint Connection Proxy |
+> | Action | Microsoft.EventHub/namespaces/privateEndpointConnectionProxies/read | Get Private Endpoint Connection Proxy |
+> | Action | Microsoft.EventHub/namespaces/privateEndpointConnectionProxies/write | Create Private Endpoint Connection Proxy |
+> | Action | Microsoft.EventHub/namespaces/privateEndpointConnectionProxies/delete | Delete Private Endpoint Connection Proxy |
 > |  | **namespaces/providers/Microsoft.Insights/diagnosticSettings** |  |
 > | Action | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Get list of Namespace diagnostic settings Resource Descriptions |
 > | Action | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Get list of Namespace diagnostic settings Resource Descriptions |
@@ -4882,6 +5000,8 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Action | Microsoft.Insights/myWorkbooks/Read | Read a private Workbook |
 > |  | **Operations** |  |
 > | Action | Microsoft.Insights/Operations/Read | Read operations |
+> |  | **PrivateLinkScopeOperationStatuses** |  |
+> | Action | Microsoft.Insights/PrivateLinkScopeOperationStatuses/Read | Read a private link scoped operation status |
 > |  | **PrivateLinkScopes** |  |
 > | Action | Microsoft.Insights/PrivateLinkScopes/Read | Read a private link scope |
 > | Action | Microsoft.Insights/PrivateLinkScopes/Write | Create or update a private link scope |
@@ -5057,7 +5177,7 @@ Azure service: [Key Vault](../key-vault/index.yml)
 
 ## Microsoft.Kusto
 
-Azure service: [Azure Data Explorer](../data-explorer/index.yml)
+Azure service: [Azure Data Explorer](/azure/data-explorer/)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -5077,6 +5197,9 @@ Azure service: [Azure Data Explorer](../data-explorer/index.yml)
 > | Action | Microsoft.Kusto/Clusters/DetachFollowerDatabases/action | Detaches follower's databases. |
 > | Action | Microsoft.Kusto/Clusters/ListFollowerDatabases/action | Lists the follower's databases. |
 > | Action | Microsoft.Kusto/Clusters/DiagnoseVirtualNetwork/action | Diagnoses network connectivity status for external resources on which the service is dependent on. |
+> | Action | Microsoft.Kusto/Clusters/ListLanguageExtensions/action | Lists language extensions. |
+> | Action | Microsoft.Kusto/Clusters/AddLanguageExtensions/action | Add language extensions. |
+> | Action | Microsoft.Kusto/Clusters/RemoveLanguageExtensions/action | Remove language extensions. |
 > |  | **Clusters/AttachedDatabaseConfigurations** |  |
 > | Action | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/read | Reads an attached database configuration resource. |
 > | Action | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/write | Writes an attached database configuration resource. |
@@ -5627,6 +5750,7 @@ Azure service: core
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
 > | Action | Microsoft.Marketplace/register/action | Registers Microsoft.Marketplace resource provider in the subscription. |
+> | Action | Microsoft.Marketplace/privateStores/action | Updates PrivateStore. |
 > |  | **offerTypes/publishers/offers/plans/agreements** |  |
 > | Action | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read | Returns an Agreement. |
 > | Action | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/write | Accepts a signed agreement. |
@@ -5634,6 +5758,14 @@ Azure service: core
 > | Action | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/read | Returns a config. |
 > | Action | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/write | Saves a config. |
 > | Action | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/importImage/action | Imports an image to the end user's ACR. |
+> |  | **privateStores** |  |
+> | Action | Microsoft.Marketplace/privateStores/write | Creates PrivateStore. |
+> | Action | Microsoft.Marketplace/privateStores/delete | Deletes PrivateStore. |
+> | Action | Microsoft.Marketplace/privateStores/offers/action | Updates offer in  PrivateStore. |
+> | Action | Microsoft.Marketplace/privateStores/read | Reads PrivateStores. |
+> |  | **privateStores/offers** |  |
+> | Action | Microsoft.Marketplace/privateStores/offers/write | Creates offer in  PrivateStore. |
+> | Action | Microsoft.Marketplace/privateStores/offers/delete | Deletes offer from  PrivateStore. |
 
 ## Microsoft.MarketplaceApps
 
@@ -5924,8 +6056,8 @@ Azure service: [Azure NetApp Files](../azure-netapp-files/index.yml)
 > | Action | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/read | Reads a volume resource. |
 > | Action | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/write | Writes a volume resource. |
 > | Action | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/delete | Deletes a volume resource. |
-> | Action | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/revert/action | Revert volume to specific snapshot |
-> | Action | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/break/action | Break volume replication relations |
+> | Action | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/Revert/action | Revert volume to specific snapshot |
+> | Action | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/BreakReplication/action | Break volume replication relations |
 > | Action | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/ReplicationStatus/action | Reads the statuses of the Volume Replication. |
 > | Action | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/AuthorizeReplication/action | Authorize the source volume replication |
 > | Action | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/ResyncReplication/action | Resync the replication on the destination volume |
@@ -5985,6 +6117,10 @@ Azure service: [Virtual Network](../virtual-network/index.yml), [Load Balancer](
 > | Action | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/read | Gets an Application Gateway WAF policy |
 > | Action | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/write | Creates an Application Gateway WAF policy or updates an Application Gateway WAF policy |
 > | Action | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/delete | Deletes an Application Gateway WAF policy |
+> |  | **applicationRuleCollections** |  |
+> | Action | Microsoft.Network/applicationRuleCollections/read | Gets Azure Firewall ApplicationRuleCollection |
+> | Action | Microsoft.Network/applicationRuleCollections/write | CreatesOrUpdates Azure Firewall ApplicationRuleCollection |
+> | Action | Microsoft.Network/applicationRuleCollections/delete | Deletes Azure Firewall ApplicationRuleCollection |
 > |  | **applicationSecurityGroups** |  |
 > | Action | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action | Joins an IP Configuration to Application Security Groups. Not alertable. |
 > | Action | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Joins a Security Rule to Application Security Groups. Not alertable. |
@@ -6039,48 +6175,48 @@ Azure service: [Virtual Network](../virtual-network/index.yml), [Load Balancer](
 > | Action | Microsoft.Network/dnszones/write | Create or update a DNS zone within a resource group.  Used to update the tags on a DNS zone resource. Note that this command can not be used to create or update record sets within the zone. |
 > | Action | Microsoft.Network/dnszones/delete | Delete the DNS zone, in JSON format. The zone properties include tags, etag, numberOfRecordSets, and maxNumberOfRecordSets. |
 > |  | **dnszones/A** |  |
-> | Action | Microsoft.Network/dnszones/A/read | Get the record set of type ‘A’, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/dnszones/A/write | Create or update a record set of type ‘A’ within a DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/dnszones/A/delete | Remove the record set of a given name and type ‘A’ from a DNS zone. |
+> | Action | Microsoft.Network/dnszones/A/read | Get the record set of type 'A', in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/dnszones/A/write | Create or update a record set of type 'A' within a DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/dnszones/A/delete | Remove the record set of a given name and type 'A' from a DNS zone. |
 > |  | **dnszones/AAAA** |  |
-> | Action | Microsoft.Network/dnszones/AAAA/read | Get the record set of type ‘AAAA’, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/dnszones/AAAA/write | Create or update a record set of type ‘AAAA’ within a DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/dnszones/AAAA/delete | Remove the record set of a given name and type ‘AAAA’ from a DNS zone. |
+> | Action | Microsoft.Network/dnszones/AAAA/read | Get the record set of type 'AAAA', in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/dnszones/AAAA/write | Create or update a record set of type 'AAAA' within a DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/dnszones/AAAA/delete | Remove the record set of a given name and type 'AAAA' from a DNS zone. |
 > |  | **dnszones/all** |  |
 > | Action | Microsoft.Network/dnszones/all/read | Gets DNS record sets across types |
 > |  | **dnszones/CAA** |  |
-> | Action | Microsoft.Network/dnszones/CAA/read | Get the record set of type ‘CAA’, in JSON format. The record set contains the TTL, tags, and etag. |
-> | Action | Microsoft.Network/dnszones/CAA/write | Create or update a record set of type ‘CAA’ within a DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/dnszones/CAA/delete | Remove the record set of a given name and type ‘CAA’ from a DNS zone. |
+> | Action | Microsoft.Network/dnszones/CAA/read | Get the record set of type 'CAA', in JSON format. The record set contains the TTL, tags, and etag. |
+> | Action | Microsoft.Network/dnszones/CAA/write | Create or update a record set of type 'CAA' within a DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/dnszones/CAA/delete | Remove the record set of a given name and type 'CAA' from a DNS zone. |
 > |  | **dnszones/CNAME** |  |
-> | Action | Microsoft.Network/dnszones/CNAME/read | Get the record set of type ‘CNAME’, in JSON format. The record set contains the TTL, tags, and etag. |
-> | Action | Microsoft.Network/dnszones/CNAME/write | Create or update a record set of type ‘CNAME’ within a DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/dnszones/CNAME/delete | Remove the record set of a given name and type ‘CNAME’ from a DNS zone. |
+> | Action | Microsoft.Network/dnszones/CNAME/read | Get the record set of type 'CNAME', in JSON format. The record set contains the TTL, tags, and etag. |
+> | Action | Microsoft.Network/dnszones/CNAME/write | Create or update a record set of type 'CNAME' within a DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/dnszones/CNAME/delete | Remove the record set of a given name and type 'CNAME' from a DNS zone. |
 > |  | **dnszones/MX** |  |
-> | Action | Microsoft.Network/dnszones/MX/read | Get the record set of type ‘MX’, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/dnszones/MX/write | Create or update a record set of type ‘MX’ within a DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/dnszones/MX/delete | Remove the record set of a given name and type ‘MX’ from a DNS zone. |
+> | Action | Microsoft.Network/dnszones/MX/read | Get the record set of type 'MX', in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/dnszones/MX/write | Create or update a record set of type 'MX' within a DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/dnszones/MX/delete | Remove the record set of a given name and type 'MX' from a DNS zone. |
 > |  | **dnszones/NS** |  |
 > | Action | Microsoft.Network/dnszones/NS/read | Gets DNS record set of type NS |
 > | Action | Microsoft.Network/dnszones/NS/write | Creates or updates DNS record set of type NS |
 > | Action | Microsoft.Network/dnszones/NS/delete | Deletes the DNS record set of type NS |
 > |  | **dnszones/PTR** |  |
-> | Action | Microsoft.Network/dnszones/PTR/read | Get the record set of type ‘PTR’, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/dnszones/PTR/write | Create or update a record set of type ‘PTR’ within a DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/dnszones/PTR/delete | Remove the record set of a given name and type ‘PTR’ from a DNS zone. |
+> | Action | Microsoft.Network/dnszones/PTR/read | Get the record set of type 'PTR', in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/dnszones/PTR/write | Create or update a record set of type 'PTR' within a DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/dnszones/PTR/delete | Remove the record set of a given name and type 'PTR' from a DNS zone. |
 > |  | **dnszones/recordsets** |  |
 > | Action | Microsoft.Network/dnszones/recordsets/read | Gets DNS record sets across types |
 > |  | **dnszones/SOA** |  |
 > | Action | Microsoft.Network/dnszones/SOA/read | Gets DNS record set of type SOA |
 > | Action | Microsoft.Network/dnszones/SOA/write | Creates or updates DNS record set of type SOA |
 > |  | **dnszones/SRV** |  |
-> | Action | Microsoft.Network/dnszones/SRV/read | Get the record set of type ‘SRV’, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/dnszones/SRV/read | Get the record set of type 'SRV', in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
 > | Action | Microsoft.Network/dnszones/SRV/write | Create or update record set of type SRV |
-> | Action | Microsoft.Network/dnszones/SRV/delete | Remove the record set of a given name and type ‘SRV’ from a DNS zone. |
+> | Action | Microsoft.Network/dnszones/SRV/delete | Remove the record set of a given name and type 'SRV' from a DNS zone. |
 > |  | **dnszones/TXT** |  |
-> | Action | Microsoft.Network/dnszones/TXT/read | Get the record set of type ‘TXT’, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/dnszones/TXT/write | Create or update a record set of type ‘TXT’ within a DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/dnszones/TXT/delete | Remove the record set of a given name and type ‘TXT’ from a DNS zone. |
+> | Action | Microsoft.Network/dnszones/TXT/read | Get the record set of type 'TXT', in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/dnszones/TXT/write | Create or update a record set of type 'TXT' within a DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/dnszones/TXT/delete | Remove the record set of a given name and type 'TXT' from a DNS zone. |
 > |  | **expressRouteCircuits** |  |
 > | Action | Microsoft.Network/expressRouteCircuits/read | Get an ExpressRouteCircuit |
 > | Action | Microsoft.Network/expressRouteCircuits/write | Creates or updates an existing ExpressRouteCircuit |
@@ -6256,6 +6392,24 @@ Azure service: [Virtual Network](../virtual-network/index.yml), [Load Balancer](
 > | Action | Microsoft.Network/locations/usages/read | Gets the resources usage metrics |
 > |  | **locations/virtualNetworkAvailableEndpointServices** |  |
 > | Action | Microsoft.Network/locations/virtualNetworkAvailableEndpointServices/read | Gets a list of available Virtual Network Endpoint Services |
+> |  | **natGateways** |  |
+> | Action | Microsoft.Network/natGateways/join/action | Joins a NAT Gateway |
+> |  | **natRuleCollections** |  |
+> | Action | Microsoft.Network/natRuleCollections/read | Gets Azure Firewall NatRuleCollection |
+> | Action | Microsoft.Network/natRuleCollections/write | CreatesOrUpdates Azure Firewall NatRuleCollection |
+> | Action | Microsoft.Network/natRuleCollections/delete | Deletes Azure Firewall NatRuleCollection |
+> |  | **networkExperimentProfiles** |  |
+> | Action | Microsoft.Network/networkExperimentProfiles/read | Get an Internet Analyzer profile |
+> | Action | Microsoft.Network/networkExperimentProfiles/write | Create or update an Internet Analyzer profile |
+> | Action | Microsoft.Network/networkExperimentProfiles/delete | Delete an Internet Analyzer profile |
+> |  | **networkExperimentProfiles/experiments** |  |
+> | Action | Microsoft.Network/networkExperimentProfiles/experiments/read | Get an Internet Analyzer test |
+> | Action | Microsoft.Network/networkExperimentProfiles/experiments/write | Create or update an Internet Analyzer test |
+> | Action | Microsoft.Network/networkExperimentProfiles/experiments/delete | Delete an Internet Analyzer test |
+> | Action | Microsoft.Network/networkExperimentProfiles/experiments/timeseries/action | Get an Internet Analyzer test's time series |
+> | Action | Microsoft.Network/networkExperimentProfiles/experiments/latencyScorecard/action | Get an Internet Analyzer test's latency scorecard |
+> |  | **networkExperimentProfiles/preconfiguredEndpoints** |  |
+> | Action | Microsoft.Network/networkExperimentProfiles/preconfiguredEndpoints/read | Get an Internet Analyzer profile's pre-configured endpoints |
 > |  | **networkIntentPolicies** |  |
 > | Action | Microsoft.Network/networkIntentPolicies/read | Gets an Network Intent Policy Description |
 > | Action | Microsoft.Network/networkIntentPolicies/write | Creates an Network Intent Policy or updates an existing Network Intent Policy |
@@ -6284,6 +6438,10 @@ Azure service: [Virtual Network](../virtual-network/index.yml), [Load Balancer](
 > | Action | Microsoft.Network/networkProfiles/setContainers/action | Sets Containers |
 > | Action | Microsoft.Network/networkProfiles/removeContainers/action | Removes Containers |
 > | Action | Microsoft.Network/networkProfiles/setNetworkInterfaces/action | Sets Container Network Interfaces |
+> |  | **networkRuleCollections** |  |
+> | Action | Microsoft.Network/networkRuleCollections/read | Gets Azure Firewall NetworkRuleCollection |
+> | Action | Microsoft.Network/networkRuleCollections/write | CreatesOrUpdates Azure Firewall NetworkRuleCollection |
+> | Action | Microsoft.Network/networkRuleCollections/delete | Deletes Azure Firewall NetworkRuleCollection |
 > |  | **networkSecurityGroups** |  |
 > | Action | Microsoft.Network/networkSecurityGroups/read | Gets a network security group definition |
 > | Action | Microsoft.Network/networkSecurityGroups/write | Creates a network security group or updates an existing network security group |
@@ -6362,40 +6520,40 @@ Azure service: [Virtual Network](../virtual-network/index.yml), [Load Balancer](
 > | Action | Microsoft.Network/privateDnsZones/delete | Delete a Private DNS zone. |
 > | Action | Microsoft.Network/privateDnsZones/join/action | Joins a Private DNS Zone |
 > |  | **privateDnsZones/A** |  |
-> | Action | Microsoft.Network/privateDnsZones/A/read | Get the record set of type ‘A’ within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/privateDnsZones/A/write | Create or update a record set of type ‘A’ within a Private DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/privateDnsZones/A/delete | Remove the record set of a given name and type ‘A’ from a Private DNS zone. |
+> | Action | Microsoft.Network/privateDnsZones/A/read | Get the record set of type 'A' within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/privateDnsZones/A/write | Create or update a record set of type 'A' within a Private DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/privateDnsZones/A/delete | Remove the record set of a given name and type 'A' from a Private DNS zone. |
 > |  | **privateDnsZones/AAAA** |  |
-> | Action | Microsoft.Network/privateDnsZones/AAAA/read | Get the record set of type ‘AAAA’ within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/privateDnsZones/AAAA/write | Create or update a record set of type ‘AAAA’ within a Private DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/privateDnsZones/AAAA/delete | Remove the record set of a given name and type ‘AAAA’ from a Private DNS zone. |
+> | Action | Microsoft.Network/privateDnsZones/AAAA/read | Get the record set of type 'AAAA' within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/privateDnsZones/AAAA/write | Create or update a record set of type 'AAAA' within a Private DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/privateDnsZones/AAAA/delete | Remove the record set of a given name and type 'AAAA' from a Private DNS zone. |
 > |  | **privateDnsZones/ALL** |  |
 > | Action | Microsoft.Network/privateDnsZones/ALL/read | Gets Private DNS record sets across types |
 > |  | **privateDnsZones/CNAME** |  |
-> | Action | Microsoft.Network/privateDnsZones/CNAME/read | Get the record set of type ‘CNAME’ within a Private DNS zone, in JSON format. |
-> | Action | Microsoft.Network/privateDnsZones/CNAME/write | Create or update a record set of type ‘CNAME’ within a Private DNS zone. |
-> | Action | Microsoft.Network/privateDnsZones/CNAME/delete | Remove the record set of a given name and type ‘CNAME’ from a Private DNS zone. |
+> | Action | Microsoft.Network/privateDnsZones/CNAME/read | Get the record set of type 'CNAME' within a Private DNS zone, in JSON format. |
+> | Action | Microsoft.Network/privateDnsZones/CNAME/write | Create or update a record set of type 'CNAME' within a Private DNS zone. |
+> | Action | Microsoft.Network/privateDnsZones/CNAME/delete | Remove the record set of a given name and type 'CNAME' from a Private DNS zone. |
 > |  | **privateDnsZones/MX** |  |
-> | Action | Microsoft.Network/privateDnsZones/MX/read | Get the record set of type ‘MX’ within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/privateDnsZones/MX/write | Create or update a record set of type ‘MX’ within a Private DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/privateDnsZones/MX/delete | Remove the record set of a given name and type ‘MX’ from a Private DNS zone. |
+> | Action | Microsoft.Network/privateDnsZones/MX/read | Get the record set of type 'MX' within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/privateDnsZones/MX/write | Create or update a record set of type 'MX' within a Private DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/privateDnsZones/MX/delete | Remove the record set of a given name and type 'MX' from a Private DNS zone. |
 > |  | **privateDnsZones/PTR** |  |
-> | Action | Microsoft.Network/privateDnsZones/PTR/read | Get the record set of type ‘PTR’ within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/privateDnsZones/PTR/write | Create or update a record set of type ‘PTR’ within a Private DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/privateDnsZones/PTR/delete | Remove the record set of a given name and type ‘PTR’ from a Private DNS zone. |
+> | Action | Microsoft.Network/privateDnsZones/PTR/read | Get the record set of type 'PTR' within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/privateDnsZones/PTR/write | Create or update a record set of type 'PTR' within a Private DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/privateDnsZones/PTR/delete | Remove the record set of a given name and type 'PTR' from a Private DNS zone. |
 > |  | **privateDnsZones/recordsets** |  |
 > | Action | Microsoft.Network/privateDnsZones/recordsets/read | Gets Private DNS record sets across types |
 > |  | **privateDnsZones/SOA** |  |
-> | Action | Microsoft.Network/privateDnsZones/SOA/read | Get the record set of type ‘SOA’ within a Private DNS zone, in JSON format. |
-> | Action | Microsoft.Network/privateDnsZones/SOA/write | Update a record set of type ‘SOA’ within a Private DNS zone. |
+> | Action | Microsoft.Network/privateDnsZones/SOA/read | Get the record set of type 'SOA' within a Private DNS zone, in JSON format. |
+> | Action | Microsoft.Network/privateDnsZones/SOA/write | Update a record set of type 'SOA' within a Private DNS zone. |
 > |  | **privateDnsZones/SRV** |  |
-> | Action | Microsoft.Network/privateDnsZones/SRV/read | Get the record set of type ‘SRV’ within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/privateDnsZones/SRV/write | Create or update a record set of type ‘SRV’ within a Private DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/privateDnsZones/SRV/delete | Remove the record set of a given name and type ‘SRV’ from a Private DNS zone. |
+> | Action | Microsoft.Network/privateDnsZones/SRV/read | Get the record set of type 'SRV' within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/privateDnsZones/SRV/write | Create or update a record set of type 'SRV' within a Private DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/privateDnsZones/SRV/delete | Remove the record set of a given name and type 'SRV' from a Private DNS zone. |
 > |  | **privateDnsZones/TXT** |  |
-> | Action | Microsoft.Network/privateDnsZones/TXT/read | Get the record set of type ‘TXT’ within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
-> | Action | Microsoft.Network/privateDnsZones/TXT/write | Create or update a record set of type ‘TXT’ within a Private DNS zone. The records specified will replace the current records in the record set. |
-> | Action | Microsoft.Network/privateDnsZones/TXT/delete | Remove the record set of a given name and type ‘TXT’ from a Private DNS zone. |
+> | Action | Microsoft.Network/privateDnsZones/TXT/read | Get the record set of type 'TXT' within a Private DNS zone, in JSON format. The record set contains a list of records as well as the TTL, tags, and etag. |
+> | Action | Microsoft.Network/privateDnsZones/TXT/write | Create or update a record set of type 'TXT' within a Private DNS zone. The records specified will replace the current records in the record set. |
+> | Action | Microsoft.Network/privateDnsZones/TXT/delete | Remove the record set of a given name and type 'TXT' from a Private DNS zone. |
 > |  | **privateDnsZones/virtualNetworkLinks** |  |
 > | Action | Microsoft.Network/privateDnsZones/virtualNetworkLinks/read | Get the Private DNS zone link to virtual network properties, in JSON format. |
 > | Action | Microsoft.Network/privateDnsZones/virtualNetworkLinks/write | Create or update a Private DNS zone link to virtual network. |
@@ -6926,6 +7084,10 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Action | microsoft.operationalinsights/unregister/action | Unregisters the subscription. |
 > |  | **availableservicetiers** |  |
 > | Action | microsoft.operationalinsights/availableservicetiers/read | Get the available service tiers. |
+> |  | **clusters** |  |
+> | Action | Microsoft.OperationalInsights/clusters/read | Get Cluster |
+> | Action | Microsoft.OperationalInsights/clusters/write | Create or updates a Cluster |
+> | Action | Microsoft.OperationalInsights/clusters/delete | Delete Cluster |
 > |  | **linkTargets** |  |
 > | Action | Microsoft.OperationalInsights/linkTargets/read | Lists existing accounts that are not associated with an Azure subscription. To link this Azure subscription to a workspace, use a customer id returned by this operation in the customer id property of the Create Workspace operation. |
 > |  | **locations/operationStatuses** |  |
@@ -6984,17 +7146,6 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Action | Microsoft.OperationalInsights/workspaces/notificationSettings/delete | Delete the user's notification settings for the workspace. |
 > |  | **workspaces/operations** |  |
 > | Action | microsoft.operationalinsights/workspaces/operations/read | Gets the status of an OperationalInsights workspace operation. |
-> |  | **workspaces/privateEndpointConnectionProxies** |  |
-> | Action | microsoft.operationalinsights/workspaces/privateEndpointConnectionProxies/read | Get Private Endpoint Connection Proxy. |
-> | Action | microsoft.operationalinsights/workspaces/privateEndpointConnectionProxies/write | Put Private Endpoint Connection Proxy. |
-> | Action | microsoft.operationalinsights/workspaces/privateEndpointConnectionProxies/delete | Delete Private Endpoint Connection Proxy. |
-> | Action | microsoft.operationalinsights/workspaces/privateEndpointConnectionProxies/validate/action | Validate Private Endpoint Connection Proxy. |
-> |  | **workspaces/privateEndpointConnections** |  |
-> | Action | microsoft.operationalinsights/workspaces/privateEndpointConnections/read | Get Private Endpoint Connection Proxy. |
-> | Action | microsoft.operationalinsights/workspaces/privateEndpointConnections/write | Put Private Endpoint Connection Proxy. |
-> | Action | microsoft.operationalinsights/workspaces/privateEndpointConnections/delete | Delete Private Endpoint Connection Proxy. |
-> |  | **workspaces/privateLinkResources** |  |
-> | Action | microsoft.operationalinsights/workspaces/privateLinkResources/read | Get Log Analytics Private Link Resources. |
 > |  | **workspaces/query** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/read | Run queries over the data in the workspace |
 > |  | **workspaces/query/AADDomainServicesAccountLogon** |  |
@@ -7027,6 +7178,18 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Action | Microsoft.OperationalInsights/workspaces/query/ADFActivityRun/read | Read data from the ADFActivityRun table |
 > |  | **workspaces/query/ADFPipelineRun** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ADFPipelineRun/read | Read data from the ADFPipelineRun table |
+> |  | **workspaces/query/ADFSSISIntegrationRuntimeLogs** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ADFSSISIntegrationRuntimeLogs/read | Read data from the ADFSSISIntegrationRuntimeLogs table |
+> |  | **workspaces/query/ADFSSISPackageEventMessageContext** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ADFSSISPackageEventMessageContext/read | Read data from the ADFSSISPackageEventMessageContext table |
+> |  | **workspaces/query/ADFSSISPackageEventMessages** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ADFSSISPackageEventMessages/read | Read data from the ADFSSISPackageEventMessages table |
+> |  | **workspaces/query/ADFSSISPackageExecutableStatistics** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ADFSSISPackageExecutableStatistics/read | Read data from the ADFSSISPackageExecutableStatistics table |
+> |  | **workspaces/query/ADFSSISPackageExecutionComponentPhases** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ADFSSISPackageExecutionComponentPhases/read | Read data from the ADFSSISPackageExecutionComponentPhases table |
+> |  | **workspaces/query/ADFSSISPackageExecutionDataStatistics** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ADFSSISPackageExecutionDataStatistics/read | Read data from the ADFSSISPackageExecutionDataStatistics table |
 > |  | **workspaces/query/ADFTriggerRun** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ADFTriggerRun/read | Read data from the ADFTriggerRun table |
 > |  | **workspaces/query/ADReplicationResult** |  |
@@ -7049,14 +7212,30 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Action | Microsoft.OperationalInsights/workspaces/query/AmlComputeJobEvent/read | Read data from the AmlComputeJobEvent table |
 > |  | **workspaces/query/ApiManagementGatewayLogs** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ApiManagementGatewayLogs/read | Read data from the ApiManagementGatewayLogs table |
+> |  | **workspaces/query/AppAvailabilityResults** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AppAvailabilityResults/read | Read data from the AppAvailabilityResults table |
+> |  | **workspaces/query/AppBrowserTimings** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AppBrowserTimings/read | Read data from the AppBrowserTimings table |
 > |  | **workspaces/query/AppCenterError** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AppCenterError/read | Read data from the AppCenterError table |
+> |  | **workspaces/query/AppDependencies** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AppDependencies/read | Read data from the AppDependencies table |
+> |  | **workspaces/query/AppEvents** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AppEvents/read | Read data from the AppEvents table |
 > |  | **workspaces/query/ApplicationInsights** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read | Read data from the ApplicationInsights table |
+> |  | **workspaces/query/AppMetrics** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AppMetrics/read | Read data from the AppMetrics table |
+> |  | **workspaces/query/AppPageViews** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AppPageViews/read | Read data from the AppPageViews table |
+> |  | **workspaces/query/AppPerformanceCounters** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AppPerformanceCounters/read | Read data from the AppPerformanceCounters table |
 > |  | **workspaces/query/AppPlatformLogsforSpring** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AppPlatformLogsforSpring/read | Read data from the AppPlatformLogsforSpring table |
 > |  | **workspaces/query/AppPlatformSystemLogs** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AppPlatformSystemLogs/read | Read data from the AppPlatformSystemLogs table |
+> |  | **workspaces/query/AppRequests** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AppRequests/read | Read data from the AppRequests table |
 > |  | **workspaces/query/AppServiceAppLogs** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AppServiceAppLogs/read | Read data from the AppServiceAppLogs table |
 > |  | **workspaces/query/AppServiceAuditLogs** |  |
@@ -7069,20 +7248,26 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Action | Microsoft.OperationalInsights/workspaces/query/AppServiceFileAuditLogs/read | Read data from the AppServiceFileAuditLogs table |
 > |  | **workspaces/query/AppServiceHTTPLogs** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AppServiceHTTPLogs/read | Read data from the AppServiceHTTPLogs table |
+> |  | **workspaces/query/AppSystemEvents** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AppSystemEvents/read | Read data from the AppSystemEvents table |
+> |  | **workspaces/query/AppTraces** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AppTraces/read | Read data from the AppTraces table |
 > |  | **workspaces/query/AuditLogs** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AuditLogs/read | Read data from the AuditLogs table |
 > |  | **workspaces/query/AutoscaleEvaluationsLog** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AutoscaleEvaluationsLog/read | Read data from the AutoscaleEvaluationsLog table |
 > |  | **workspaces/query/AutoscaleScaleActionsLog** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AutoscaleScaleActionsLog/read | Read data from the AutoscaleScaleActionsLog table |
-> |  | **workspaces/query/availabilityResults** |  |
-> | Action | Microsoft.OperationalInsights/workspaces/query/availabilityResults/read | Read data from the availabilityResults table |
 > |  | **workspaces/query/AWSCloudTrail** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AWSCloudTrail/read | Read data from the AWSCloudTrail table |
 > |  | **workspaces/query/AzureActivity** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AzureActivity/read | Read data from the AzureActivity table |
 > |  | **workspaces/query/AzureAssessmentRecommendation** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AzureAssessmentRecommendation/read | Read data from the AzureAssessmentRecommendation table |
+> |  | **workspaces/query/AzureDevOpsAuditing** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AzureDevOpsAuditing/read | Read data from the AzureDevOpsAuditing table |
+> |  | **workspaces/query/AzureDiagnostics** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AzureDiagnostics/read | Read data from the AzureDiagnostics table |
 > |  | **workspaces/query/AzureMetrics** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AzureMetrics/read | Read data from the AzureMetrics table |
 > |  | **workspaces/query/BaiClusterEvent** |  |
@@ -7097,8 +7282,6 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Action | Microsoft.OperationalInsights/workspaces/query/BlockchainProxyLog/read | Read data from the BlockchainProxyLog table |
 > |  | **workspaces/query/BoundPort** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/BoundPort/read | Read data from the BoundPort table |
-> |  | **workspaces/query/browserTimings** |  |
-> | Action | Microsoft.OperationalInsights/workspaces/query/browserTimings/read | Read data from the browserTimings table |
 > |  | **workspaces/query/CommonSecurityLog** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/CommonSecurityLog/read | Read data from the CommonSecurityLog table |
 > |  | **workspaces/query/ComputerGroup** |  |
@@ -7123,10 +7306,6 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Action | Microsoft.OperationalInsights/workspaces/query/ContainerServiceLog/read | Read data from the ContainerServiceLog table |
 > |  | **workspaces/query/CoreAzureBackup** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/CoreAzureBackup/read | Read data from the CoreAzureBackup table |
-> |  | **workspaces/query/customEvents** |  |
-> | Action | Microsoft.OperationalInsights/workspaces/query/customEvents/read | Read data from the customEvents table |
-> |  | **workspaces/query/customMetrics** |  |
-> | Action | Microsoft.OperationalInsights/workspaces/query/customMetrics/read | Read data from the customMetrics table |
 > |  | **workspaces/query/DatabricksAccounts** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksAccounts/read | Read data from the DatabricksAccounts table |
 > |  | **workspaces/query/DatabricksClusters** |  |
@@ -7371,12 +7550,8 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Action | Microsoft.OperationalInsights/workspaces/query/Operation/read | Read data from the Operation table |
 > |  | **workspaces/query/OutboundConnection** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/OutboundConnection/read | Read data from the OutboundConnection table |
-> |  | **workspaces/query/pageViews** |  |
-> | Action | Microsoft.OperationalInsights/workspaces/query/pageViews/read | Read data from the pageViews table |
 > |  | **workspaces/query/Perf** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/Perf/read | Read data from the Perf table |
-> |  | **workspaces/query/performanceCounters** |  |
-> | Action | Microsoft.OperationalInsights/workspaces/query/performanceCounters/read | Read data from the performanceCounters table |
 > |  | **workspaces/query/ProtectionStatus** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ProtectionStatus/read | Read data from the ProtectionStatus table |
 > |  | **workspaces/query/requests** |  |
@@ -7421,6 +7596,8 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Action | Microsoft.OperationalInsights/workspaces/query/SPAssessmentRecommendation/read | Read data from the SPAssessmentRecommendation table |
 > |  | **workspaces/query/SQLAssessmentRecommendation** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/SQLAssessmentRecommendation/read | Read data from the SQLAssessmentRecommendation table |
+> |  | **workspaces/query/SqlDataClassification** |  |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SqlDataClassification/read | Read data from the SqlDataClassification table |
 > |  | **workspaces/query/SQLQueryPerformance** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/SQLQueryPerformance/read | Read data from the SQLQueryPerformance table |
 > |  | **workspaces/query/SqlThreatProtectionLoginAudits** |  |
@@ -7441,14 +7618,10 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Action | Microsoft.OperationalInsights/workspaces/query/Syslog/read | Read data from the Syslog table |
 > |  | **workspaces/query/SysmonEvent** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/SysmonEvent/read | Read data from the SysmonEvent table |
-> |  | **workspaces/query/systemEvents** |  |
-> | Action | Microsoft.OperationalInsights/workspaces/query/systemEvents/read | Read data from the systemEvents table |
 > |  | **workspaces/query/Tables.Custom** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read | Reading data from any custom log |
 > |  | **workspaces/query/ThreatIntelligenceIndicator** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ThreatIntelligenceIndicator/read | Read data from the ThreatIntelligenceIndicator table |
-> |  | **workspaces/query/traces** |  |
-> | Action | Microsoft.OperationalInsights/workspaces/query/traces/read | Read data from the traces table |
 > |  | **workspaces/query/UAApp** |  |
 > | Action | Microsoft.OperationalInsights/workspaces/query/UAApp/read | Read data from the UAApp table |
 > |  | **workspaces/query/UAComputer** |  |
@@ -7670,105 +7843,105 @@ Azure service: [Site Recovery](../site-recovery/index.yml)
 > | --- | --- | --- |
 > | Action | Microsoft.RecoveryServices/register/action | Registers subscription for given Resource Provider |
 > |  | **Locations** |  |
-> | Action | microsoft.recoveryservices/Locations/backupPreValidateProtection/action |  |
-> | Action | microsoft.recoveryservices/Locations/backupStatus/action | Check Backup Status for Recovery Services Vaults |
-> | Action | microsoft.recoveryservices/Locations/backupValidateFeatures/action | Validate Features |
+> | Action | Microsoft.RecoveryServices/Locations/backupPreValidateProtection/action |  |
+> | Action | Microsoft.RecoveryServices/Locations/backupStatus/action | Check Backup Status for Recovery Services Vaults |
+> | Action | Microsoft.RecoveryServices/Locations/backupValidateFeatures/action | Validate Features |
 > | Action | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp is internal operation used by service |
 > | Action | Microsoft.RecoveryServices/locations/checkNameAvailability/action | Check Resource Name Availability is an API to check if resource name is available |
 > |  | **locations/allocatedStamp** |  |
 > | Action | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is internal operation used by service |
 > |  | **Locations/backupProtectedItem** |  |
-> | Action | microsoft.recoveryservices/Locations/backupProtectedItem/write | Create a backup Protected Item |
+> | Action | Microsoft.RecoveryServices/Locations/backupProtectedItem/write | Create a backup Protected Item |
 > |  | **Locations/backupProtectedItems** |  |
-> | Action | microsoft.recoveryservices/Locations/backupProtectedItems/read | Returns the list of all Protected Items. |
+> | Action | Microsoft.RecoveryServices/Locations/backupProtectedItems/read | Returns the list of all Protected Items. |
 > |  | **locations/operationStatus** |  |
 > | Action | Microsoft.RecoveryServices/locations/operationStatus/read | Gets Operation Status for a given Operation |
 > |  | **operations** |  |
 > | Action | Microsoft.RecoveryServices/operations/read | Operation returns the list of Operations for a Resource Provider |
 > |  | **Vaults** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupJobsExport/action | Export Jobs |
-> | Action | microsoft.recoveryservices/Vaults/backupSecurityPIN/action | Returns Security PIN Information for Recovery Services Vault. |
-> | Action | microsoft.recoveryservices/Vaults/backupValidateOperation/action | Validate Operation on Protected Item |
+> | Action | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Export Jobs |
+> | Action | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/action | Returns Security PIN Information for Recovery Services Vault. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Validate Operation on Protected Item |
 > | Action | Microsoft.RecoveryServices/Vaults/write | Create Vault operation creates an Azure resource of type 'vault' |
 > | Action | Microsoft.RecoveryServices/Vaults/read | The Get Vault operation gets an object representing the Azure resource of type 'vault' |
 > | Action | Microsoft.RecoveryServices/Vaults/delete | The Delete Vault operation deletes the specified Azure resource of type 'vault' |
 > |  | **Vaults/backupconfig** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupconfig/read | Returns Configuration for Recovery Services Vault. |
-> | Action | microsoft.recoveryservices/Vaults/backupconfig/write | Updates Configuration for Recovery Services Vault. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupconfig/read | Returns Configuration for Recovery Services Vault. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupconfig/write | Updates Configuration for Recovery Services Vault. |
 > |  | **Vaults/backupEncryptionConfigs** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupEncryptionConfigs/read | Gets Backup Resource Encryption Configuration. |
-> | Action | microsoft.recoveryservices/Vaults/backupEncryptionConfigs/write | Updates Backup Resource Encryption Configuration |
+> | Action | Microsoft.RecoveryServices/Vaults/backupEncryptionConfigs/read | Gets Backup Resource Encryption Configuration. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupEncryptionConfigs/write | Updates Backup Resource Encryption Configuration |
 > |  | **Vaults/backupEngines** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupEngines/read | Returns all the backup management servers registered with vault. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupEngines/read | Returns all the backup management servers registered with vault. |
 > |  | **Vaults/backupFabrics** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/refreshContainers/action | Refreshes the container list |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Refreshes the container list |
 > |  | **Vaults/backupFabrics/backupProtectionIntent** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionIntent/delete | Delete a backup Protection Intent |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionIntent/read | Get a backup Protection Intent |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionIntent/write | Create a backup Protection Intent |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/delete | Delete a backup Protection Intent |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Get a backup Protection Intent |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Create a backup Protection Intent |
 > |  | **Vaults/backupFabrics/operationResults** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/operationResults/read | Returns status of the operation |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Returns status of the operation |
 > |  | **Vaults/backupFabrics/operationsStatus** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/operationsStatus/read | Returns status of the operation |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/operationsStatus/read | Returns status of the operation |
 > |  | **Vaults/backupFabrics/protectableContainers** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectableContainers/read | Get all protectable containers |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Get all protectable containers |
 > |  | **Vaults/backupFabrics/protectionContainers** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/delete | Deletes the registered Container |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/inquire/action | Do inquiry for workloads within a container |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/read | Returns all registered containers |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/write | Creates a registered container |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/delete | Deletes the registered Container |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/inquire/action | Do inquiry for workloads within a container |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Returns all registered containers |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | Creates a registered container |
 > |  | **Vaults/backupFabrics/protectionContainers/items** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/items/read | Get all items in a container |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | Get all items in a container |
 > |  | **Vaults/backupFabrics/protectionContainers/operationResults** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/operationResults/read | Gets result of Operation performed on Protection Container. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Gets result of Operation performed on Protection Container. |
 > |  | **Vaults/backupFabrics/protectionContainers/operationsStatus** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/operationsStatus/read | Gets status of Operation performed on Protection Container. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationsStatus/read | Gets status of Operation performed on Protection Container. |
 > |  | **Vaults/backupFabrics/protectionContainers/protectedItems** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Performs Backup for Protected Item. |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/delete | Deletes Protected Item |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Returns object details of the Protected Item |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Create a backup Protected Item |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Performs Backup for Protected Item. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/delete | Deletes Protected Item |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Returns object details of the Protected Item |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Create a backup Protected Item |
 > |  | **Vaults/backupFabrics/protectionContainers/protectedItems/operationResults** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Gets Result of Operation Performed on Protected Items. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Gets Result of Operation Performed on Protected Items. |
 > |  | **Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Returns the status of Operation performed on Protected Items. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Returns the status of Operation performed on Protected Items. |
 > |  | **Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Provision Instant Item Recovery for Protected Item |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Get Recovery Points for Protected Items. |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Restore Recovery Points for Protected Items. |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Revoke Instant Item Recovery for Protected Item |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Provision Instant Item Recovery for Protected Item |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Get Recovery Points for Protected Items. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Restore Recovery Points for Protected Items. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Revoke Instant Item Recovery for Protected Item |
 > |  | **Vaults/backupJobs** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupJobs/cancel/action | Cancel the Job |
-> | Action | microsoft.recoveryservices/Vaults/backupJobs/read | Returns all Job Objects |
+> | Action | Microsoft.RecoveryServices/Vaults/backupJobs/cancel/action | Cancel the Job |
+> | Action | Microsoft.RecoveryServices/Vaults/backupJobs/read | Returns all Job Objects |
 > |  | **Vaults/backupJobs/operationResults** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupJobs/operationResults/read | Returns the Result of Job Operation. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Returns the Result of Job Operation. |
 > |  | **Vaults/backupJobs/operationsStatus** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupJobs/operationsStatus/read | Returns the status of Job Operation. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupJobs/operationsStatus/read | Returns the status of Job Operation. |
 > |  | **Vaults/backupOperationResults** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupOperationResults/read | Returns Backup Operation Result for Recovery Services Vault. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Returns Backup Operation Result for Recovery Services Vault. |
 > |  | **Vaults/backupOperations** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupOperations/read | Returns Backup Operation Status for Recovery Services Vault. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupOperations/read | Returns Backup Operation Status for Recovery Services Vault. |
 > |  | **Vaults/backupPolicies** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupPolicies/delete | Delete a Protection Policy |
-> | Action | microsoft.recoveryservices/Vaults/backupPolicies/read | Returns all Protection Policies |
-> | Action | microsoft.recoveryservices/Vaults/backupPolicies/write | Creates Protection Policy |
+> | Action | Microsoft.RecoveryServices/Vaults/backupPolicies/delete | Delete a Protection Policy |
+> | Action | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returns all Protection Policies |
+> | Action | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Creates Protection Policy |
 > |  | **Vaults/backupPolicies/operationResults** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupPolicies/operationResults/read | Get Results of Policy Operation. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Get Results of Policy Operation. |
 > |  | **Vaults/backupPolicies/operations** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupPolicies/operations/read | Get Status of Policy Operation. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | Get Status of Policy Operation. |
 > |  | **Vaults/backupProtectableItems** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupProtectableItems/read | Returns list of all Protectable Items. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupProtectableItems/read | Returns list of all Protectable Items. |
 > |  | **Vaults/backupProtectedItems** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupProtectedItems/read | Returns the list of all Protected Items. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Returns the list of all Protected Items. |
 > |  | **Vaults/backupProtectionContainers** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupProtectionContainers/read | Returns all containers belonging to the subscription |
+> | Action | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Returns all containers belonging to the subscription |
 > |  | **Vaults/backupProtectionIntents** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupProtectionIntents/read | List all backup Protection Intents |
+> | Action | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | List all backup Protection Intents |
 > |  | **Vaults/backupstorageconfig** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupstorageconfig/read | Returns Storage Configuration for Recovery Services Vault. |
-> | Action | microsoft.recoveryservices/Vaults/backupstorageconfig/write | Updates Storage Configuration for Recovery Services Vault. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupstorageconfig/read | Returns Storage Configuration for Recovery Services Vault. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupstorageconfig/write | Updates Storage Configuration for Recovery Services Vault. |
 > |  | **Vaults/backupUsageSummaries** |  |
-> | Action | microsoft.recoveryservices/Vaults/backupUsageSummaries/read | Returns summaries for Protected Items and Protected Servers for a Recovery Services . |
+> | Action | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Returns summaries for Protected Items and Protected Servers for a Recovery Services . |
 > |  | **Vaults/certificates** |  |
 > | Action | Microsoft.RecoveryServices/Vaults/certificates/write | The Update Resource Certificate operation updates the resource/vault credential certificate. |
 > |  | **Vaults/extendedInformation** |  |
@@ -7781,6 +7954,18 @@ Azure service: [Site Recovery](../site-recovery/index.yml)
 > |  | **Vaults/monitoringConfigurations** |  |
 > | Action | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/read | Gets the Recovery services vault notification configuration. |
 > | Action | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/write | Configures e-mail notifications to Recovery services vault. |
+> |  | **Vaults/privateEndpointConnectionProxies** |  |
+> | Action | Microsoft.RecoveryServices/Vaults/privateEndpointConnectionProxies/delete | Wait for a few minutes and then try the operation again. If the issue persists, please contact Microsoft support. |
+> | Action | Microsoft.RecoveryServices/Vaults/privateEndpointConnectionProxies/read | Get all protectable containers |
+> | Action | Microsoft.RecoveryServices/Vaults/privateEndpointConnectionProxies/validate/action | Get all protectable containers |
+> | Action | Microsoft.RecoveryServices/Vaults/privateEndpointConnectionProxies/write | Get all protectable containers |
+> |  | **Vaults/privateEndpointConnectionProxies/operationsStatus** |  |
+> | Action | Microsoft.RecoveryServices/Vaults/privateEndpointConnectionProxies/operationsStatus/read | Get all protectable containers |
+> |  | **Vaults/privateEndpointConnections** |  |
+> | Action | Microsoft.RecoveryServices/Vaults/privateEndpointConnections/delete | Delete Private Endpoint requests. This call is made by Backup Admin. |
+> | Action | Microsoft.RecoveryServices/Vaults/privateEndpointConnections/write | Approve or Reject Private Endpoint requests. This call is made by Backup Admin. |
+> |  | **Vaults/privateEndpointConnections/operationsStatus** |  |
+> | Action | Microsoft.RecoveryServices/Vaults/privateEndpointConnections/operationsStatus/read | Returns the operation status for a private endpoint connection. |
 > |  | **Vaults/registeredIdentities** |  |
 > | Action | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | The Register Service Container operation can be used to register a container with Recovery Service. |
 > | Action | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | The Get Containers operation can be used get the containers registered for a resource. |
@@ -7947,7 +8132,7 @@ Azure service: [Site Recovery](../site-recovery/index.yml)
 > |  | **vaults/replicationvCenters** |  |
 > | Action | Microsoft.RecoveryServices/vaults/replicationvCenters/read | Read any vCenters |
 > |  | **Vaults/usages** |  |
-> | Action | microsoft.recoveryservices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
+> | Action | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
 > | Action | Microsoft.RecoveryServices/vaults/usages/read | Read any Vault Usages |
 > |  | **Vaults/vaultTokens** |  |
 > | Action | Microsoft.RecoveryServices/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
@@ -8005,6 +8190,11 @@ Azure service: [Azure Relay](../service-bus-relay/relay-what-is-it.md)
 > | Action | Microsoft.Relay/namespaces/networkrulesets/delete | Delete VNET Rule Resource |
 > |  | **namespaces/operationresults** |  |
 > | Action | Microsoft.Relay/namespaces/operationresults/read | Get the status of Namespace operation |
+> |  | **namespaces/privateEndpointConnectionProxies** |  |
+> | Action | Microsoft.Relay/namespaces/privateEndpointConnectionProxies/validate/action | Validate Private Endpoint Connection Proxy |
+> | Action | Microsoft.Relay/namespaces/privateEndpointConnectionProxies/read | Get Private Endpoint Connection Proxy |
+> | Action | Microsoft.Relay/namespaces/privateEndpointConnectionProxies/write | Create Private Endpoint Connection Proxy |
+> | Action | Microsoft.Relay/namespaces/privateEndpointConnectionProxies/delete | Delete Private Endpoint Connection Proxy |
 > |  | **namespaces/providers/Microsoft.Insights/diagnosticSettings** |  |
 > | Action | Microsoft.Relay/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Get list of Namespace diagnostic settings Resource Descriptions |
 > | Action | Microsoft.Relay/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Get list of Namespace diagnostic settings Resource Descriptions |
@@ -8040,6 +8230,8 @@ Azure service: [Azure Service Health](../service-health/index.yml)
 > | Action | Microsoft.ResourceHealth/AvailabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > |  | **AvailabilityStatuses/current** |  |
 > | Action | Microsoft.ResourceHealth/AvailabilityStatuses/current/read | Gets the availability status for the specified resource |
+> |  | **emergingissues** |  |
+> | Action | Microsoft.ResourceHealth/emergingissues/read | Get Azure services' emerging issues |
 > |  | **events** |  |
 > | Action | Microsoft.ResourceHealth/events/read | Get Service Health Events for given subscription |
 > |  | **healthevent** |  |
@@ -8138,7 +8330,7 @@ Azure service: [Azure Resource Manager](../azure-resource-manager/index.yml)
 
 ## Microsoft.Scheduler
 
-Azure service: [Scheduler](../scheduler/index.md)
+Azure service: [Scheduler](../scheduler/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -8213,6 +8405,9 @@ Azure service: [Security Center](../security-center/index.yml)
 > |  | **assessments** |  |
 > | Action | Microsoft.Security/assessments/read | Get security assessments on your subscription |
 > | Action | Microsoft.Security/assessments/write | Create or update security assessments on your subscription |
+> |  | **autoProvisioningSettings** |  |
+> | Action | Microsoft.Security/autoProvisioningSettings/read | Get security auto provisioning setting for the subscription |
+> | Action | Microsoft.Security/autoProvisioningSettings/write | Create or update security auto provisioning setting for the subscription |
 > |  | **complianceResults** |  |
 > | Action | Microsoft.Security/complianceResults/read | Gets the compliance results for the resource |
 > |  | **informationProtectionPolicies** |  |
@@ -8403,6 +8598,11 @@ Azure service: [Service Bus](../service-bus/index.md)
 > | Action | Microsoft.ServiceBus/namespaces/networkrulesets/delete | Delete VNET Rule Resource |
 > |  | **namespaces/operationresults** |  |
 > | Action | Microsoft.ServiceBus/namespaces/operationresults/read | Get the status of Namespace operation |
+> |  | **namespaces/privateEndpointConnectionProxies** |  |
+> | Action | Microsoft.ServiceBus/namespaces/privateEndpointConnectionProxies/validate/action | Validate Private Endpoint Connection Proxy |
+> | Action | Microsoft.ServiceBus/namespaces/privateEndpointConnectionProxies/read | Get Private Endpoint Connection Proxy |
+> | Action | Microsoft.ServiceBus/namespaces/privateEndpointConnectionProxies/write | Create Private Endpoint Connection Proxy |
+> | Action | Microsoft.ServiceBus/namespaces/privateEndpointConnectionProxies/delete | Delete Private Endpoint Connection Proxy |
 > |  | **namespaces/providers/Microsoft.Insights/diagnosticSettings** |  |
 > | Action | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Get list of Namespace diagnostic settings Resource Descriptions |
 > | Action | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Get list of Namespace diagnostic settings Resource Descriptions |
@@ -8582,7 +8782,7 @@ Azure service: [Azure Managed Applications](../azure-resource-manager/managed-ap
 
 ## Microsoft.Sql
 
-Azure service: [Azure SQL Database](../sql-database/index.yml), [SQL Data Warehouse](../sql-data-warehouse/index.yml)
+Azure service: [Azure SQL Database](../sql-database/index.yml), [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
@@ -8710,6 +8910,8 @@ Azure service: [Azure SQL Database](../sql-database/index.yml), [SQL Data Wareho
 > | Action | Microsoft.Sql/locations/syncGroupOperationResults/read | Retrieve result of the sync group resource operation |
 > |  | **locations/syncMemberOperationResults** |  |
 > | Action | Microsoft.Sql/locations/syncMemberOperationResults/read | Retrieve result of the sync member resource operation |
+> |  | **locations/timeZones** |  |
+> | Action | Microsoft.Sql/locations/timeZones/read | Return the list of managed instance time zones by location. |
 > |  | **locations/transparentDataEncryptionAzureAsyncOperation** |  |
 > | Action | Microsoft.Sql/locations/transparentDataEncryptionAzureAsyncOperation/read | Gets in-progress operations on logical database transparent data encryption |
 > |  | **locations/transparentDataEncryptionOperationResults** |  |
@@ -9204,6 +9406,8 @@ Azure service: [SQL Server on Azure Virtual Machines](../virtual-machines/window
 > | --- | --- | --- |
 > | Action | Microsoft.SqlVirtualMachine/register/action | Register subscription with Microsoft.SqlVirtualMachine resource provider |
 > | Action | Microsoft.SqlVirtualMachine/unregister/action | Unregister subscription with Microsoft.SqlVirtualMachine resource provider |
+> |  | **locations** |  |
+> | Action | Microsoft.SqlVirtualMachine/locations/registerSqlVmCandidate/action | Register SQL Vm Candidate |
 > |  | **locations/availabilityGroupListenerOperationResults** |  |
 > | Action | Microsoft.SqlVirtualMachine/locations/availabilityGroupListenerOperationResults/read | Get result of an availability group listener operation |
 > |  | **locations/sqlVirtualMachineGroupOperationResults** |  |
@@ -9299,6 +9503,12 @@ Azure service: [Storage](../storage/index.yml)
 > | Action | Microsoft.Storage/storageAccounts/fileServices/shares/read |  |
 > | Action | Microsoft.Storage/storageAccounts/fileServices/shares/read |  |
 > | Action | Microsoft.Storage/storageAccounts/fileServices/shares/write |  |
+> |  | **storageAccounts/localUsers** |  |
+> | Action | Microsoft.Storage/storageAccounts/localUsers/delete |  |
+> | Action | Microsoft.Storage/storageAccounts/localusers/listKeys/action |  |
+> | Action | Microsoft.Storage/storageAccounts/localusers/read |  |
+> | Action | Microsoft.Storage/storageAccounts/localusers/read |  |
+> | Action | Microsoft.Storage/storageAccounts/localusers/write |  |
 > |  | **storageAccounts/managementPolicies** |  |
 > | Action | Microsoft.Storage/storageAccounts/managementPolicies/delete | Delete storage account management policies |
 > | Action | Microsoft.Storage/storageAccounts/managementPolicies/read | Get storage management account policies |
@@ -9420,7 +9630,7 @@ Azure service: [Storage](../storage/index.yml)
 
 ## Microsoft.StorSimple
 
-Azure service: [StorSimple](../storsimple/index.md)
+Azure service: [StorSimple](../storsimple/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |

@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity platform Windows desktop quickstart | Microsoft Docs
+title: Microsoft identity platform Windows desktop quickstart
 description: Learn how a Windows desktop .NET (XAML) application can get an access token and call an API protected by an Microsoft identity platform endpoint
 services: active-directory
 author: jmprieur
@@ -64,7 +64,7 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 > [!div class="sxs-lookup" renderon="portal"]
 > Run the project using Visual Studio 2019.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Download the code sample]()
+> [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
@@ -72,7 +72,7 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 > #### Step 3: Configure your Visual Studio project
@@ -175,8 +175,3 @@ Try out the Windows desktop tutorial for a complete step-by-step guide on buildi
 
 > [!div class="nextstepaction"]
 > [Call Graph API tutorial](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-windesktop)
-
-Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
-
-> [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

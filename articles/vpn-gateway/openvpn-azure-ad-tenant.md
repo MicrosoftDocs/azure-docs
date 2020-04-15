@@ -6,7 +6,7 @@ author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/03/2020
+ms.date: 03/05/2020
 ms.author: alzam
 
 ---
@@ -18,9 +18,10 @@ When connecting to your VNet, you can use certificate-based authentication or RA
 > Azure AD authentication is supported only for OpenVPN® protocol connections.
 >
 
-## <a name="tenant"></a>1. Create the Azure AD tenant
 
-Create an Azure AD tenant using the steps in the [Create a new tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) article:
+## <a name="tenant"></a>1. Verify Azure AD tenant
+
+Verify that you have an Azure AD tenant. If you don't have an Azure AD tenant, you can create one using the steps in the [Create a new tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) article:
 
 * Organizational name
 * Initial domain name
@@ -31,7 +32,7 @@ Example:
 
 ## <a name="users"></a>2. Create Azure AD tenant users
 
-Next, create two user accounts. Create one Global Admin account and one master user account. The master user account is used as your master embedding account (service account). When you create an Azure AD tenant user account, you adjust the Directory role for the type of user that you want to create.
+Your Azure AD tenant needs the following accounts: a Global Admin account and a master user account. The master user account is used as your master embedding account (service account). When you create an Azure AD tenant user account, you adjust the Directory role for the type of user that you want to create.
 
 Use the steps in [this article](../active-directory/fundamentals/add-users-azure-active-directory.md) to create at least two users for your Azure AD tenant. Be sure to change the **Directory Role** to create the account types:
 
@@ -96,7 +97,7 @@ Use the steps in [this article](../active-directory/fundamentals/add-users-azure
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name <name of VPN gateway> -ResourceGroupName <Resource group>
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientRootCertificates @()
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/" -VpnClientAddressPool 192.168.0.0/24 -VpnClientProtocol OpenVPN
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>/" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/" -VpnClientAddressPool 192.168.0.0/24 -VpnClientProtocol OpenVPN
     ```
 
    > [!NOTE]

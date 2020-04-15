@@ -57,7 +57,7 @@ The following table shows which types of storage accounts support ZRS in which r
 
 |    Storage account type    |    Supported regions    |    Supported services    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-|    General-purpose v2<sup>1</sup>    | Asia Southeast<br /> Europe North<br />  Europe West<br /> France Central<br /> Japan East<br /> UK South<br /> US Central<br /> US East<br /> US East 2<br /> US West 2    |    Block blobs<br /> Page blobs<sup>2</sup><br /> File shares (standard)<br /> Tables<br /> Queues<br /> |
+|    General-purpose v2<sup>1</sup>    | Asia Southeast<br /> Australia East<br /> Europe North<br />  Europe West<br /> France Central<br /> Japan East<br /> South Africa North<br /> UK South<br /> US Central<br /> US East<br /> US East 2<br /> US West 2    |    Block blobs<br /> Page blobs<sup>2</sup><br /> File shares (standard)<br /> Tables<br /> Queues<br /> |
 |    BlockBlobStorage<sup>1</sup>    | Europe West<br /> US East    |    Block blobs only    |
 |    FileStorage    | Europe West<br /> US East    |    Azure Files only    |
 
@@ -96,7 +96,7 @@ A write operation is first committed to the primary location and replicated usin
 
 Geo-zone-redundant storage (GZRS) (preview) combines the high availability provided by redundancy across availability zones with protection from regional outages provided by geo-replication. Data in a GZRS storage account is copied across three [Azure availability zones](../../availability-zones/az-overview.md) in the primary region and is also replicated to a secondary geographic region for protection from regional disasters. Microsoft recommends using GZRS for applications requiring maximum consistency, durability, and availability, excellent performance, and resilience for disaster recovery.
 
-With a GZRS storage account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data is also durable in the case of a complete regional outage or a disaster in which the primary region isn’t recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year.
+With a GZRS storage account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data is also durable in the case of a complete regional outage or a disaster in which the primary region isn't recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year.
 
 Only general-purpose v2 storage accounts support GZRS and RA-GZRS. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md). GZRS and RA-GZRS support block blobs, page blobs (except for VHD disks), files, tables, and queues.
 
@@ -105,10 +105,12 @@ GZRS and RA-GZRS are currently available for preview in the following regions:
 - Asia Southeast
 - Europe North
 - Europe West
+- Japan East
 - UK South
 - US East
 - US East 2
 - US Central
+- US West 2
 
 Microsoft continues to enable GZRS and RA-GZRS in additional Azure regions. Check the [Azure Service Updates](https://azure.microsoft.com/updates/) page regularly for information about supported regions.
 

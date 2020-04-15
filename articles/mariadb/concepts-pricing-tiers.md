@@ -5,7 +5,7 @@ author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 3/18/2020
 ---
 
 # Azure Database for MariaDB pricing tiers

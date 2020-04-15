@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 02/01/2020
+ms.date: 03/09/2020
 ---
 # Choose between the vCore and the DTU purchasing models
 
@@ -51,7 +51,7 @@ For a description of how compute capacity is defined and costs are calculated fo
 
 ## Storage costs
 
-Different types of storage are billed differently. For data storage, you're charged for the provisioned storage based upon the maximum database or pool size you select. The cost doesn't change unless you reduce or increase that maximum. Backup storage is associated with automated backups of your instance and is allocated dynamically. Increasing your backup-retention period increases the backup storage that’s consumed by your instance.
+Different types of storage are billed differently. For data storage, you're charged for the provisioned storage based upon the maximum database or pool size you select. The cost doesn't change unless you reduce or increase that maximum. Backup storage is associated with automated backups of your instance and is allocated dynamically. Increasing your backup-retention period increases the backup storage that's consumed by your instance.
 
 By default, 7 days of automated backups of your databases are copied to a read-access geo-redundant storage (RA-GRS) standard Blob storage account. This storage is used by weekly full backups, daily differential backups, and transaction log backups, which are copied every 5 minutes. The size of the transaction logs depends on the rate of change of the database. A minimum storage amount equal to 100 percent of the database size is provided at no extra charge. Additional consumption of backup storage is charged in GB per month.
 
@@ -79,6 +79,11 @@ To convert from the DTU-based purchasing model to the vCore-based purchasing mod
 
 - Every 100 DTUs in the standard tier require at least 1 vCore in the General Purpose service tier.
 - Every 125 DTUs in the premium tier require at least 1 vCore in the Business Critical service tier.
+
+> [!NOTE]
+> The DTU to vCore sizing guidelines are approximate, and are provided to help in the initial estimation of the target database service objective. The optimal configuration of the target database is workload-dependent. 
+> 
+> Achieving the optimal price/performance ratio may require leveraging the flexibility of the vCore model to adjust the number of vCores, the [hardware generation](sql-database-service-tiers-vcore.md#hardware-generations), the [service](sql-database-service-tiers-vcore.md#service-tiers) and [compute](sql-database-service-tiers-vcore.md#compute-tiers) tiers, as well as tuning of other database configuration parameters, such as [maximum degree of parallelism](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
 
 ## DTU-based purchasing model
 

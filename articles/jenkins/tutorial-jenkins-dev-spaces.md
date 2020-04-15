@@ -260,7 +260,7 @@ The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI p
 
 ![Jenkins pipeline flow](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-flow.png)
 
-1. Download a modified version of the *mywebapi* project from https://github.com/azure-devops/mywebapi. This project contains several files needed to create a pipeline, including the *Jenkinsfile*, *Dockerfiles*, and Helm chart.
+1. Download a modified version of the *mywebapi* project from [https://github.com/azure-devops/mywebapi](https://github.com/azure-devops/mywebapi). This project contains several files needed to create a pipeline, including the *Jenkinsfile*, *Dockerfiles*, and Helm chart.
 
 2. Log into Jenkins. From the menu on the left, select **Add Item**.
 

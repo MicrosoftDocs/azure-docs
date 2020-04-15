@@ -22,7 +22,7 @@ ms.service: media-services
 # manager: MSFT-alias-manager-or-PM-counterpart
 ---
  
-# Recommended live streaming encoders
+# Tested on-premises live streaming encoders
 
 In Azure Media Services, a [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) (channel) represents a pipeline for processing live-streaming content. The Live Event receives live input streams in one of two ways.
 
@@ -30,10 +30,12 @@ In Azure Media Services, a [Live Event](https://docs.microsoft.com/rest/api/medi
 
     If you are using multi-bitrates streams for the pass-through live event, the video GOP size and the video fragments on different bitrates must be synchronized to avoid unexpected behavior on the playback side.
 
-  > [!NOTE]
+  > [!TIP]
   > Using a pass-through method is the most economical way to do live streaming.
  
 * An on-premises live encoder sends a single-bitrate stream to the Live Event that is enabled to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (fragmented MP4). The Live Event then performs live encoding of the incoming single-bitrate stream to a multi-bitrate (adaptive) video stream.
+
+This article discusses tested on-premises live streaming encoders. For instructions on how to verify your on-premises live encoder, see [verify your on-premises encoder](become-on-premises-encoder-partner.md)
 
 For detailed information about live encoding with Media Services, see [Live streaming with Media Services v3](live-streaming-overview.md).
 
@@ -102,11 +104,18 @@ To play back content, both an audio and video stream must be present. Playback o
 - When using software-based encoders, close out any unnecessary programs.
 - Changing your encoder configuration after it has started pushing has negative effects on the event. Configuration changes can cause the event to become unstable. 
 - Ensure that you give yourself ample time to set up your event. For high-scale events, we recommend starting the setup an hour before your event.
+- Use the H.264 video and AAC audio codec output.
+- Ensure that there is key frame or GOP temporal alignment across video qualities.
+- Make sure there is a unique stream name for each video quality.
+- Use strict CBR encoding recommended for optimum adaptive bitrate performance.
+
+> [!IMPORTANT]
+> Watch the physical condition of the machine (CPU / Memory / etc) as uploading fragments to cloud involves CPU and IO operations. If you change any settings in the encoder, be certain reset the channels / live event for the change to take effect.
 
 ## See also
 
-[Become an on-premises encoder partner](become-on-premises-encoder-partner.md)
+[Live streaming with Media Services v3](live-streaming-overview.md)
 
 ## Next steps
 
-[Live streaming with Media Services v3](live-streaming-overview.md)
+[How to verify your encoder](become-on-premises-encoder-partner.md)

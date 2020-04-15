@@ -272,7 +272,7 @@ The following example shows the response of the command for a peering that does 
 ## Confirm the traffic flow
 To get the combined primary and secondary path traffic statistics--bytes in and out--of a peering context, use the following command:
 
-	Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private
+	Get-AzExpressRouteCircuitStats -ResourceGroupName $RG -ExpressRouteCircuitName $CircuitName -PeeringType 'AzurePrivatePeering'
 
 A sample output of the command is:
 

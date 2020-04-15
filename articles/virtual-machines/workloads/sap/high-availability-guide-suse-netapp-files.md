@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/02/2020
+ms.date: 03/27/2020
 ms.author: radeltch
 
 ---
@@ -101,8 +101,6 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA datab
 
 * Frontend configuration
   * IP address 10.1.1.20
-* Backend configuration
-  * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 * Probe Port
   * Port 620<strong>&lt;nr&gt;</strong>
 * Load-balancing rules
@@ -120,8 +118,6 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA datab
 
 * Frontend configuration
   * IP address 10.1.1.21
-* Backend configuration
-  * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 * Probe Port
   * Port 621<strong>&lt;nr&gt;</strong>
 * Load-balancing rules
@@ -132,6 +128,10 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA datab
     * 5<strong>&lt;nr&gt;</strong>13 TCP
     * 5<strong>&lt;nr&gt;</strong>14 TCP
     * 5<strong>&lt;nr&gt;</strong>16 TCP
+
+* Backend configuration
+  * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
+
 
 ## Setting up the Azure NetApp Files infrastructure 
 
@@ -242,7 +242,7 @@ In this example, the resources were deployed manually via the [Azure portal](htt
 
 ### Deploy Azure Load Balancer manually via Azure portal
 
-First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwards, you create a load balancer and use the virtual machines in the backend pools.
+First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwards, you create a load balancer and use the virtual machines in the backend pool.
 
 1. Create load balancer (internal, standard):  
    1. Create the frontend IP addresses
@@ -253,14 +253,13 @@ First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwa
          1. Click OK
       1. IP address 10.1.1.21 for the ASCS ERS
          * Repeat the steps above under "a" to create an IP address for the ERS (for example **10.1.1.21** and **frontend.QAS.ERS**)
-   1. Create the backend pools
-      1. Create a backend pool for the ASCS
-         1. Open the load balancer, select backend pools, and click Add
-         1. Enter the name of the new backend pool (for example **backend.QAS**)
-         1. Click Add a virtual machine.
-         1. Select Virtual machine
-         1. Select the virtual machines of the (A)SCS cluster and their IP addresses.
-         1. Click Add
+   1. Create the backend pool
+      1. Open the load balancer, select backend pools, and click Add
+      1. Enter the name of the new backend pool (for example **backend.QAS**)
+      1. Click Add a virtual machine.
+      1. Select Virtual machine
+      1. Select the virtual machines of the (A)SCS cluster and their IP addresses.
+      1. Click Add
    1. Create the health probes
       1. Port 620**00** for ASCS
          1. Open the load balancer, select health probes, and click Add
@@ -288,14 +287,13 @@ First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwa
          1. Click OK
       1. IP address 10.1.1.21 for the ASCS ERS
          * Repeat the steps above under "a" to create an IP address for the ERS (for example **10.1.1.21** and **frontend.QAS.ERS**)
-   1. Create the backend pools
-      1. Create a backend pool for the ASCS
-         1. Open the load balancer, select backend pools, and click Add
-         1. Enter the name of the new backend pool (for example **backend.QAS**)
-         1. Click Add a virtual machine.
-         1. Select the Availability Set you created earlier for ASCS 
-         1. Select the virtual machines of the (A)SCS cluster
-         1. Click OK
+   1. Create the backend pool
+      1. Open the load balancer, select backend pools, and click Add
+      1. Enter the name of the new backend pool (for example **backend.QAS**)
+      1. Click Add a virtual machine.
+      1. Select the Availability Set you created earlier for ASCS 
+      1. Select the virtual machines of the (A)SCS cluster
+      1. Click OK
    1. Create the health probes
       1. Port 620**00** for ASCS
          1. Open the load balancer, select health probes, and click Add
@@ -316,7 +314,7 @@ First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwa
       1. Additional ports for the ASCS
          * Repeat the steps above under "d" for ports 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 and TCP for the ASCS
       1. Additional ports for the ASCS ERS
-         * Repeat the steps above under "d" for ports 33**01**, 5**01**13, 5**01**14, 5**01**16 and TCP for the ASCS ERS
+         * Repeat the steps above under "d" for ports 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 and TCP for the ASCS ERS
 
       > [!Note]
       > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
@@ -454,9 +452,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>
    sudo vi /etc/auto.direct
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>QAS</b> -nfsvers=3,nobind,sync 10.1.0.4/usrsap<b>qas</b>/sapmnt<b>QAS</b>
-   /usr/sap/trans -nfsvers=3,nobind,sync 10.1.0.4:/trans
-   /usr/sap/<b>QAS</b>/SYS -nfsvers=3,nobind,sync 10.1.0.4/usrsap<b>qas</b>/usrsap<b>QAS</b>sys
+   /sapmnt/<b>QAS</b> -nfsvers=3,nobind 10.1.0.4/usrsap<b>qas</b>/sapmnt<b>QAS</b>
+   /usr/sap/trans -nfsvers=3,nobind 10.1.0.4:/trans
+   /usr/sap/<b>QAS</b>/SYS -nfsvers=3,nobind 10.1.0.4/usrsap<b>qas</b>/usrsap<b>QAS</b>sys
    </code></pre>
    
    If using NFSv4.1, create a file with:
@@ -464,9 +462,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>
    sudo vi /etc/auto.direct
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sync,sec=sys 10.1.0.4/usrsap<b>qas</b>/sapmnt<b>QAS</b>
-   /usr/sap/trans -nfsvers=4.1,nobind,sync,sec=sys 10.1.0.4:/trans
-   /usr/sap/<b>QAS</b>/SYS -nfsvers=4.1,nobind,sync,sec=sys 10.1.0.4/usrsap<b>qas</b>/usrsap<b>QAS</b>sys
+   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sec=sys 10.1.0.4/usrsap<b>qas</b>/sapmnt<b>QAS</b>
+   /usr/sap/trans -nfsvers=4.1,nobind,sec=sys 10.1.0.4:/trans
+   /usr/sap/<b>QAS</b>/SYS -nfsvers=4.1,nobind,sec=sys 10.1.0.4/usrsap<b>qas</b>/usrsap<b>QAS</b>sys
    </code></pre>
    
    > [!NOTE]
@@ -503,7 +501,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    > [!IMPORTANT]
    > Recent testing revealed situations, where netcat stops responding to requests due to backlog and its limitation of handling only one connection. The netcat resource stops listening to the Azure Load balancer requests and the floating IP becomes unavailable.  
-   > For existing Pacemaker clusters, we recommend replacing netcat with socat, following the instructions in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128). Note that the change will require brief downtime.  
+   > For existing Pacemaker clusters, we recommended in the past replacing netcat with socat. Currently we recommend using azure-lb resource agent, which is part of package resource-agents, with the following package version requirements:
+   > - For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.  
+   > - For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.  
+   >
+   > Note that the change will require brief downtime.  
+   > For existing Pacemaker clusters, if the configuration was already changed to use socat as described in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), there is no requirement to switch immediately to azure-lb resource agent.
 
    <pre><code>sudo crm node standby <b>anftstsapcl2</b>
    # If using NFSv3
@@ -522,9 +525,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params ip=<b>10.1.1.20</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>QAS</b>_ASCS anything \
-     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:620<b>00</b>,backlog=10,fork,reuseaddr /dev/null" \
-     op monitor timeout=20s interval=10 depth=0
+   sudo crm configure primitive nc_<b>QAS</b>_ASCS azure-lb port=620<b>00</b>
    
    sudo crm configure group g-<b>QAS</b>_ASCS fs_<b>QAS</b>_ASCS nc_<b>QAS</b>_ASCS vip_<b>QAS</b>_ASCS \
       meta resource-stickiness=3000
@@ -541,7 +542,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #
    # Resource Group: g-QAS_ASCS
    #     fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started anftstsapcl1</b>
-   #     nc_QAS_ASCS        (ocf::heartbeat:anything):      <b>Started anftstsapcl1</b>
+   #     nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      <b>Started anftstsapcl1</b>
    #     vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started anftstsapcl1</b>
    # stonith-sbd     (stonith:external/sbd): <b>Started anftstsapcl2</b>
    </code></pre>
@@ -583,12 +584,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params ip=<b>10.1.1.21</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>QAS</b>_ERS anything \
-    params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:621<b>01</b>,backlog=10,fork,reuseaddr /dev/null" \
-    op monitor timeout=20s interval=10 depth=0
-   
-   # WARNING: Resources nc_QAS_ASCS,nc_QAS_ERS violate uniqueness for parameter "binfile": "/usr/bin/socat"
-   # Do you still want to commit (y/n)? y
+   sudo crm configure primitive nc_<b>QAS</b>_ERS azure-lb port=621<b>01</b>
    
    sudo crm configure group g-<b>QAS</b>_ERS fs_<b>QAS</b>_ERS nc_<b>QAS</b>_ERS vip_<b>QAS</b>_ERS
    </code></pre>
@@ -605,11 +601,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # stonith-sbd     (stonith:external/sbd): <b>Started anftstsapcl2</b>
    #  Resource Group: g-QAS_ASCS
    #      fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started anftstsapcl2</b>
-   #      nc_QAS_ASCS        (ocf::heartbeat:anything):      <b>Started anftstsapcl2</b>
+   #      nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      <b>Started anftstsapcl2</b>
    #      vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started anftstsapcl2</b>
    #  Resource Group: g-QAS_ERS
    #      fs_QAS_ERS (ocf::heartbeat:Filesystem):    <b>Started anftstsapcl2</b>
-   #      nc_QAS_ERS (ocf::heartbeat:anything):      <b>Started anftstsapcl2</b>
+   #      nc_QAS_ERS (ocf::heartbeat:azure-lb):      <b>Started anftstsapcl2</b>
    #      vip_QAS_ERS  (ocf::heartbeat:IPaddr2):     <b>Started anftstsapcl2</b>
    </code></pre>
 
@@ -763,12 +759,12 @@ If using enqueue server 1 architecture (ENSA1), define the resources as follows:
    # stonith-sbd     (stonith:external/sbd): <b>Started anftstsapcl2</b>
    #  Resource Group: g-QAS_ASCS
    #      fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started anftstsapcl1</b>
-   #      nc_QAS_ASCS        (ocf::heartbeat:anything):      <b>Started anftstsapcl1</b>
+   #      nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      <b>Started anftstsapcl1</b>
    #      vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started anftstsapcl1</b>
    #      rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started anftstsapcl1</b>
    #  Resource Group: g-QAS_ERS
    #      fs_QAS_ERS (ocf::heartbeat:Filesystem):    <b>Started anftstsapcl2</b>
-   #      nc_QAS_ERS (ocf::heartbeat:anything):      <b>Started anftstsapcl2</b>
+   #      nc_QAS_ERS (ocf::heartbeat:azure-lb):      <b>Started anftstsapcl2</b>
    #      vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       <b>Started anftstsapcl2</b>
    #      rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   <b>Started anftstsapcl2</b>
    </code></pre>
@@ -851,9 +847,9 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    <pre><code>
    sudo vi /etc/auto.direct
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>QAS</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>/usrsap<b>qas</b>/sapmnt<b>QAS</b>
-   /usr/sap/trans -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/trans
-   /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>pas
+   /sapmnt/<b>QAS</b> -nfsvers=3,nobind <b>10.1.0.4</b>/usrsap<b>qas</b>/sapmnt<b>QAS</b>
+   /usr/sap/trans -nfsvers=3,nobind <b>10.1.0.4</b>:/trans
+   /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=3,nobind <b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>pas
    </code></pre>
 
    If using NFSv4.1, create a new file with:
@@ -861,9 +857,9 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    <pre><code>
    sudo vi /etc/auto.direct
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>/usrsap<b>qas</b>/sapmnt<b>QAS</b>
-   /usr/sap/trans -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>:/trans
-   /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>pas
+   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>/usrsap<b>qas</b>/sapmnt<b>QAS</b>
+   /usr/sap/trans -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>:/trans
+   /usr/sap/<b>QAS</b>/D<b>02</b> -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>pas
    </code></pre>
 
    Restart `autofs` to mount the new shares
@@ -886,9 +882,9 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    <pre><code>
    sudo vi /etc/auto.direct
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>QAS</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>/usrsap<b>qas</b>/sapmnt<b>QAS</b>
-   /usr/sap/trans -nfsvers=3,nobind,sync <b>10.1.0.4</b>:/trans
-   /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=3,nobind,sync <b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>aas
+   /sapmnt/<b>QAS</b> -nfsvers=3,nobind <b>10.1.0.4</b>/usrsap<b>qas</b>/sapmnt<b>QAS</b>
+   /usr/sap/trans -nfsvers=3,nobind <b>10.1.0.4</b>:/trans
+   /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=3,nobind <b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>aas
    </code></pre>
 
    If using NFSv4.1, create a new file with:
@@ -896,9 +892,9 @@ The following items are prefixed with either **[A]** - applicable to both PAS an
    <pre><code>
    sudo vi /etc/auto.direct
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>/usrsap<b>qas</b>/sapmnt<b>QAS</b>
-   /usr/sap/trans -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>:/trans
-   /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=4.1,nobind,sync,sec=sys <b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>aas
+   /sapmnt/<b>QAS</b> -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>/usrsap<b>qas</b>/sapmnt<b>QAS</b>
+   /usr/sap/trans -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>:/trans
+   /usr/sap/<b>QAS</b>/D<b>03</b> -nfsvers=4.1,nobind,sec=sys <b>10.1.0.4</b>/usrsap<b>qas</b>/usrsap<b>QAS</b>aas
    </code></pre>
 
    Restart `autofs` to mount the new shares
@@ -1045,13 +1041,13 @@ The following tests are a copy of the test cases in the [best practices guides o
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rscsap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Starting anftstsapcl1
    </code></pre>
@@ -1074,13 +1070,13 @@ The following tests are a copy of the test cases in the [best practices guides o
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    </code></pre>
@@ -1092,13 +1088,13 @@ The following tests are a copy of the test cases in the [best practices guides o
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    </code></pre>
@@ -1121,13 +1117,13 @@ The following tests are a copy of the test cases in the [best practices guides o
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1139,13 +1135,13 @@ The following tests are a copy of the test cases in the [best practices guides o
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1165,13 +1161,13 @@ The following tests are a copy of the test cases in the [best practices guides o
 
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
 
@@ -1202,13 +1198,13 @@ The following tests are a copy of the test cases in the [best practices guides o
    
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    </code></pre>
@@ -1220,13 +1216,13 @@ The following tests are a copy of the test cases in the [best practices guides o
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1251,13 +1247,13 @@ The following tests are a copy of the test cases in the [best practices guides o
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1269,13 +1265,13 @@ The following tests are a copy of the test cases in the [best practices guides o
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1297,13 +1293,13 @@ The following tests are a copy of the test cases in the [best practices guides o
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    </code></pre>
@@ -1315,13 +1311,13 @@ The following tests are a copy of the test cases in the [best practices guides o
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    </code></pre>
@@ -1343,13 +1339,13 @@ The following tests are a copy of the test cases in the [best practices guides o
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1361,13 +1357,13 @@ The following tests are a copy of the test cases in the [best practices guides o
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1387,13 +1383,13 @@ The following tests are a copy of the test cases in the [best practices guides o
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1405,13 +1401,13 @@ The following tests are a copy of the test cases in the [best practices guides o
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1430,13 +1426,13 @@ The following tests are a copy of the test cases in the [best practices guides o
    <pre><code>
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
-        nc_QAS_ASCS        (ocf::heartbeat:anything):      Started anftstsapcl2
+        nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    stonith-sbd     (stonith:external/sbd): Started anftstsapcl1
     Resource Group: g-QAS_ERS
         fs_QAS_ERS (ocf::heartbeat:Filesystem):    Started anftstsapcl1
-        nc_QAS_ERS (ocf::heartbeat:anything):      Started anftstsapcl1
+        nc_QAS_ERS (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_ERS        (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
@@ -1447,5 +1443,4 @@ The following tests are a copy of the test cases in the [best practices guides o
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
-* To learn how to establish high availability and plan for disaster recovery of SAP 
 * To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]

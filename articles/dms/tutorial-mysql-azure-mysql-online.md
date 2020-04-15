@@ -3,8 +3,8 @@ title: "Tutorial: Migrate MySQL online to Azure Database for MySQL"
 titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from MySQL on-premises to Azure Database for MySQL by using Azure Database Migration Service.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -220,6 +220,8 @@ After the service is created, locate it within the Azure portal, open it, and th
     If the target database contains the same database name as the source database, Azure Database Migration Service selects the target database by default.
 
     ![Map to target databases](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
+   > [!NOTE] 
+   > Though you can select multiple databases in this step, each instance of Azure Database Migration Service supports up to four databases for concurrent migration. Also, there is a limit of two instances of Azure Database Migration Service per region in a subscription. For example, if you have 40 databases to migrate, you can only migrate eight of them concurrently, and only if you have created two instances of Azure Database Migration Service.
 
 3. Select **Save**, on the **Migration summary** screen, in the **Activity name** text box, specify a name for the migration activity, and then review the summary to ensure that the source and target details match what you previously specified.
 

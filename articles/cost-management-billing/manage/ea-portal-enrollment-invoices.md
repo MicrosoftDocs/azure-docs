@@ -3,7 +3,7 @@ title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
@@ -25,8 +25,8 @@ The Azure Enterprise portal automatically generates a default purchase order (PO
 1. Select an **Invoice Period** from the date ranges drop-down menu.
 
    You can edit a PO number during a seven-day period after you get an invoice notification, but before you've paid the invoice.
-1. Enter a new PO number in the **PO Number** field.
-1. Select **Save** to submit your change.
+1. Enter a new PO number in the **PO Number** field.
+1. Select **Save** to submit your change.
 
 ### To update the Azure Marketplace purchase order number:
 
@@ -36,8 +36,8 @@ The Azure Enterprise portal automatically generates a default purchase order (PO
 1. Select an **Invoice Period** from the date ranges drop-down menu.
 
    You can edit a PO number during a seven-day period after you get an invoice notification, but before you've paid the invoice.
-1. Enter a new PO number in the **PO Number** field.
-1. Select **Save** to submit your change.
+1. Enter a new PO number in the **PO Number** field.
+1. Select **Save** to submit your change.
 
 ## Cadence of Azure Enterprise billing
 
@@ -489,6 +489,12 @@ The following services are billed separately:
 - Visual Studio Enterprise (Annual)
 - Visual Studio Professional (Monthly)
 - Visual Studio Professional (Annual)
+
+## What to expect after change of channel partner
+
+If the change of channel partner (COCP) happens in the middle of the month, a customer will receive an invoice for usage under the previous associated partner and another invoice for the usage under new partner.
+
+The invoices will be released following the month after the billing period ends. If the billing cadence is monthly, then September's invoice will be released in October for both partners. If the billing cycle is quarterly or annually, the customer can expect an invoice for the previous associated partner for the usage under their period and rest will be to the new partner based on the billing cadence.
 
 ## Azure Marketplace for EA customers
 

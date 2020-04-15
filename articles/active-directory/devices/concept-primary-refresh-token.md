@@ -29,7 +29,7 @@ The following Windows components play a key role in requesting and using a PRT:
 * **Azure AD CloudAP plugin**: An Azure AD specific plugin built on the CloudAP framework, that verifies user credentials with Azure AD during Windows sign in.
 * **Azure AD WAM plugin**: An Azure AD specific plugin built on the WAM framework, that enables SSO to applications that rely on Azure AD for authentication.
 * **Dsreg**: An Azure AD specific component on Windows 10, that handles the device registration process for all device states.
-* **Trusted Platform Module** (TPM): A TPM is a hardware component built into a device, that provides hardware-based security functions for user and device secrets. More details can be found in the article [Trusted Platform Module Technology Overview](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-overview).
+* **Trusted Platform Module** (TPM): A TPM is a hardware component built into a device, that provides hardware-based security functions for user and device secrets. More details can be found in the article [Trusted Platform Module Technology Overview](/windows/security/information-protection/tpm/trusted-platform-module-overview).
 
 ## What does the PRT contain?
 
@@ -44,7 +44,7 @@ A PRT is an opaque blob sent from Azure AD whose contents are not known to any c
 
 ## How is a PRT issued?
 
-Device registration is a prerequisite for device based authentication in Azure AD. A PRT is issued to users only on registered devices. For more in-depth details on device registration, see the article [Windows Hello for Business and Device Registration](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-how-it-works-device-registration). During device registration, the dsreg component generates two sets of cryptographic key pairs:
+Device registration is a prerequisite for device based authentication in Azure AD. A PRT is issued to users only on registered devices. For more in-depth details on device registration, see the article [Windows Hello for Business and Device Registration](/windows/security/identity-protection/hello-for-business/hello-how-it-works-device-registration). During device registration, the dsreg component generates two sets of cryptographic key pairs:
 
 * Device key (dkpub/dkpriv)
 * Transport key (tkpub/tkpriv)

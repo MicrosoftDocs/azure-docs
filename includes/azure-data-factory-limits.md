@@ -16,7 +16,7 @@ Azure Data Factory is a multitenant service that has the following default limit
 
 | Resource | Default limit | Maximum limit |
 | -------- | ------------- | ------------- |
-| Data factories in an Azure subscription |	50 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Data factories in an Azure subscription |	800 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Total number of entities, such as pipelines, data sets, triggers, linked services, and integration runtimes, within a data factory | 5,000 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Total CPU cores for Azure-SSIS Integration Runtimes under one subscription | 256 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Concurrent pipeline runs per data factory that's shared among all pipelines in the factory | 10,000  | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |

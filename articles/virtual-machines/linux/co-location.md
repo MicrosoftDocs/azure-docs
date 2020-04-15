@@ -1,14 +1,8 @@
 ---
-title: Co-locate Linux Azure VMs 
+title: Co-locate Linux VMs 
 description: Learn about how co-locating Azure VM resources can improve latency.
-services: virtual-machines-linux
-author: cynthn
-manager: gwallace
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: zivr
 ---

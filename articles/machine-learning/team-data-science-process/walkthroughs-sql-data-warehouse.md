@@ -15,7 +15,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 # SQL Data Warehouse data science walkthroughs using T-SQL and Python on Azure
 
-These walkthroughs use of SQL Data Warehouse to do predictive analytics. They follow the steps outlined in the Team Data Science Process. For an overview of the Team Data Science Process, see [Data Science Process](overview.md). For an introduction to SQL Data Warehouse, see [What is Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+These walkthroughs use of SQL Data Warehouse to do predictive analytics. They follow the steps outlined in the Team Data Science Process. For an overview of the Team Data Science Process, see [Data Science Process](overview.md). For an introduction to SQL Data Warehouse, see [What is Azure SQL Data Warehouse?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 Additional data science walkthroughs that execute the Team Data Science Process are grouped by the **platform** that they use. See [Walkthroughs executing the Team Data Science Process](walkthroughs.md) for an itemization of these examples.
 

@@ -59,7 +59,7 @@ To get started, make sure you've met these requirements.
 While [custom domains](application-proxy-configure-custom-domain.md) are optional for all other applications, they are a prerequisite for wildcard applications. Creating custom domains requires you to:
 
 1. Create a verified domain within Azure.
-1. Upload an SSL certificate in the PFX format to your application proxy.
+1. Upload a TLS/SSL certificate in the PFX format to your application proxy.
 
 You should consider using a wildcard certificate to match the application you plan to create. Alternatively, you can also use a certificate that only lists specific applications. In this case, only the applications listed in the certificate will be accessible through this wildcard application.
 
@@ -113,7 +113,7 @@ The wildcard application is represented with just one tile in the [MyApps panel]
 
 ### Kerberos constrained delegation
 
-For applications using [kerberos constrained delegation (KCD) as the SSO method](application-proxy-configure-single-sign-on-with-kcd.md), the SPN listed for the SSO method may also need a wildcard. For example, the SPN could be: `HTTP/*.adventure-works.com`. You still need to have the individual SPNs configured on your backend servers (for example, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
+For applications using [kerberos constrained delegation (KCD) as the SSO method](application-proxy-configure-single-sign-on-with-kcd.md), the SPN listed for the SSO method may also need a wildcard. For example, the SPN could be: `HTTP/*.adventure-works.com`. You still need to have the individual SPNs configured on your backend servers (for example, `HTTP/expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
 
 ## Scenario 1: General wildcard application
 

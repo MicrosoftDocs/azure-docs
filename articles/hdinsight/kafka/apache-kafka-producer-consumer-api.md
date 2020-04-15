@@ -214,5 +214,5 @@ To remove the resource group using the Azure portal:
 
 In this document, you learned how to use the Apache Kafka Producer and Consumer API with Kafka on HDInsight. Use the following to learn more about working with Kafka:
 
-> [!div class="nextstepaction"]
-> [Analyze Apache Kafka logs](apache-kafka-log-analytics-operations-management.md)
+* [Use Kafka REST Proxy](rest-proxy.md)
+* [Analyze Apache Kafka logs](apache-kafka-log-analytics-operations-management.md)

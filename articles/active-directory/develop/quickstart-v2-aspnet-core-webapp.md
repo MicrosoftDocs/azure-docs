@@ -5,14 +5,13 @@ services: active-directory
 author: jmprieur
 manager: CelesteDG
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40 
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
 #Customer intent: As an application developer, I want to know how to write an ASP.NET Core web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
 ---
 
@@ -65,14 +64,14 @@ In this quickstart, you use a code sample to learn how an ASP.NET Core web app c
 > [!div class="sxs-lookup" renderon="portal"]
 > Run the project using Visual Studio 2019.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Download the code sample]()
+> [Download the code sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
 > We have configured your project with values of your app's properties and it's ready to run. 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
 > #### Step 3: Run your Visual Studio project
 > 1. Extract the zip file to a local folder within the root folder - for example, **C:\Azure-Samples**
@@ -166,8 +165,3 @@ Check out the GitHub repo for this ASP.NET Core tutorial for more information in
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core Web App tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
-
-Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
-
-> [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

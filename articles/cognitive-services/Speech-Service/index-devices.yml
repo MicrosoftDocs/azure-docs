@@ -6,30 +6,29 @@ metadata:
   title: Speech devices documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
-  ms.author: dapine
+  ms.date: 03/10/2020
+  ms.author: trbye
 
 landingContent:
-- title: Get started
+- title: About the Speech devices SDK
   linkLists:
     - linkListType: overview
       links:
-        - text: About the Speech Devices SDK
+        - text: What is the Speech devices SDK?
           url: speech-devices-sdk.md
     - linkListType: quickstart
       links:
-        - text: Use Speech Device SDK (Windows)
+        - text: Use Speech devices SDK (Windows)
           url: speech-devices-sdk-quickstart.md?pivots=platform-windows
-        - text: Use Speech Device SDK (Linux)
+        - text: Use Speech devices SDK (Linux)
           url: speech-devices-sdk-quickstart.md?pivots=platform-linux
-        - text: Use Speech Device SDK (Android)
+        - text: Use Speech devices SDK (Android)
           url: speech-devices-sdk-quickstart.md?pivots=platform-android
-- title: Step-by-step guides
+- title: Develop with Speech devices SDK
   linkLists:
     - linkListType: how-to-guide
       links:

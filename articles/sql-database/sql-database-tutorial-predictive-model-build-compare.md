@@ -19,6 +19,8 @@ ms.date: 07/26/2019
 
 In part two of this three-part tutorial series, you'll create two predictive models in R and select the most accurate model. In the next part of this series, you'll deploy this model in a SQL database with Azure SQL Database Machine Learning Services (preview).
 
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
+
 In this article, you'll learn how to:
 
 > [!div class="checklist"]

@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 04/14/2020
 ms.author: victorh
 ---
 
@@ -97,4 +97,4 @@ $azFw | Set-AzFirewall
 
 ## Next steps
 
-* [Tutorial: Monitor Azure Firewall logs](./tutorial-diagnostics.md)
+* [Quickstart: Create an Azure Firewall with multiple public IP addresses - Resource Manager template](quick-create-multiple-ip-template.md)

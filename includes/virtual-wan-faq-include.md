@@ -5,10 +5,45 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 10/17/2019
+ ms.date: 03/24/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
+### Does the user need to have hub and spoke with SD-WAN/VPN devices to use Azure Virtual WAN?
+
+Virtual WAN provides many functionalities built into a single pane of glass such as Site/Site-to-site VPN connectivity, User/P2S connectivity, ExpressRoute connectivity, Virtual Network connectivity, VPN ExpressRoute Interconnectivity, VNET to VNET transitive connectivity, Centralized Routing, Azure firewall and firewall manager security, Monitoring, ExpressRoute Encryption and many other capabilities. You do not have to have all of these use cases to start using Virtual WAN. You can simply get started with just one use case. The Virtual WAN architecture is a hub and spoke architecture with scale and performance built-in where branches (VPN/SD-WAN devices), users (Azure VPN Clients, openVPN or IKEv2 Clients), ExpressRoute circuits, Virtual Networks serve as spokes to Virtual Hub(s). All hubs are connected in full mesh in a Standard Virtual WAN making it easy for the user to use the Microsoft backbone for any-to-any (any spoke) connectivity. For hub and spoke with SD-WAN/VPN devices, users can either manually set it up in the Azure Virtual WAN portal or use the Virtual WAN Partner CPE (SD-WAN/VPN) to set up connectivity to Azure. Virtual WAN partners provide automation for connectivity which is the ability to export the device info into Azure, download the Azure configuration and establish connectivity to the Azure Virtual WAN hub. For Point-to-site/User VPN connectivity, we support [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN or IKEv2 client. 
+
+### What client does the Azure Virtual WAN User VPN (Point-to-site) support?
+
+Virtual WAN supports [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN Client, or any IKEv2 client. Azure AD authentication is supported with Azure VPN Client.A minimum of Windows 10 client OS version 17763.0 or higher is required.  OpenVPN client(s) can support certificate based authentication. Once cert-based auth is selected on the gateway, you will see the .ovpn file to download to your device. Both certificate and RADIUS auth is supported with IKEv2. 
+
+### For User VPN (Point-to-site)- Why is the P2S client pool split into two routes?
+
+Each gateway has two instances, the split happens so that each gateway instance can independently allocate client IPs for connected clients and traffic from the virtual network is routed back to the correct gateway instance to avoid inter-gateway instance hop.
+
+### How do I add DNS servers for P2S clients?
+
+There are two options to add DNS servers for the P2S clients.
+
+1. Open a support ticket with Microsoft and have them add your DNS servers to the hub
+2. Or, if you are using the Azure VPN Client for Windows 10, you can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags before importing it.
+
+```
+<azvpnprofile>
+<clientconfig>
+
+	<dnsservers>
+		<dnsserver>x.x.x.x</dnsserver>
+        <dnsserver>y.y.y.y</dnsserver>
+	</dnsservers>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
+### For User VPN (Point-to-site)- how many clients are supported?
+
+Each User VPN P2S gateway has two instances and each instance supports upto certain users as the scale unit changes. Scale unit 1-3 supports 500 connections, Scale unit 4-6 supports 1000 connections, Scale unit 7-10 supports 5000 connections and Scale unit 11+ supports upto 10,000 connections. As an example, lets say the user chooses 1 scale unit. Each scale unit would imply an active-active gateway deployed and each of the instances (in this case 2) would support upto 500 connections. Since you can get 500 connections * 2 per gateway, it does not mean you plan for 1000 instead of  the 500 for this scale unit as instances may need to be serviced during which connectivity for the extra 500 may be interrupted if you surpass the recommended connection count.
 
 ### What is the difference between an Azure virtual network gateway (VPN Gateway) and an Azure Virtual WAN VPN gateway?
 
@@ -90,6 +125,8 @@ Yes. See the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/)
 
 * If you had ExpressRoute gateway due to ExpressRoute circuits connecting to a virtual hub, then you would pay for the scale unit price. Each scale unit in ER is 2 Gbps and each connection unit is charged at the same rate as the VPN Connection unit.
 
+* If you had Spoke VNETs connected to the hub, peering charges at the Spoke VNETs still apply. 
+
 ### How do new partners that are not listed in your launch partner list get onboarded?
 
 All virtual WAN APIs are open API. You can go over the documentation to assess technical feasibility. If you have any question, send an email to azurevirtualwan@microsoft.com. An ideal partner is one that has a device that can be provisioned for IKEv1 or IKEv2 IPsec connectivity.
@@ -167,6 +204,17 @@ Yes. An internet connection and physical device that supports IPsec, preferably 
 ### How do I enable default route (0.0.0.0/0) in a connection (VPN, ExpressRoute, or Virtual Network):
 
 A virtual hub can propagate a learned default route to a virtual network/site-to-site VPN/ExpressRoute connection if the flag is 'Enabled' on the connection. This flag is visible when the user edits a virtual network connection, a VPN connection, or an ExpressRoute connection. By default, this flag is disabled when a site or an ExpressRoute circuit is connected to a hub. It is enabled by default when a virtual network connection is added to connect a VNet to a virtual hub. The default route does not originate in the Virtual WAN hub; the default route is propagated if it is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled.
+
+### How does the virtual hub in a Virtual WAN select the best path for a route from multiple hubs
+
+If a Virtual Hub learns the same route from multiple remote hubs,  the order in which it decides is as follows
+1) Route Origin 
+	a) Network routes – VNET prefixes directly learnt by the Virtual Hub gateways
+	b) BGP
+	c) Hub RouteTable (statically configured routes)
+	d) InterHub routes
+2)	Route metric : Virtual WAN prefers ExpressRoute over VPN. ExpressRoute peer have a higher weightage compared to the VPN peer
+3)	AS path length
 
 ### What are the differences between the Virtual WAN types (Basic and Standard)?
 

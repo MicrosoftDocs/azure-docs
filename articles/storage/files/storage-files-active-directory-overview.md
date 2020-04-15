@@ -3,7 +3,8 @@ title: Overview - Azure Files identity-based authorization
 description: Azure Files supports identity-based authentication over SMB (Server Message Block) through Azure Active Directory Domain Services (AD DS) and Active Directory. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares using Azure AD credentials. 
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.subservice: files
+ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: rogarana
 ---
@@ -28,7 +29,7 @@ It's helpful to understand some key terms relating to Azure AD Domain Service au
 
 -   **Azure Active Directory (Azure AD)**
 
-    Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud-based directory and identity management service. Azure AD combines core directory services, application access management, and identity protection into a single solution. Azure AD enables your domain-joined Windows virtual machines (VMs) to access Azure file shares with your Azure AD credentials. For more information, see [What is Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
+    Azure Active Directory (Azure AD) is Microsoft's multi-tenant cloud-based directory and identity management service. Azure AD combines core directory services, application access management, and identity protection into a single solution. Azure AD enables your domain-joined Windows virtual machines (VMs) to access Azure file shares with your Azure AD credentials. For more information, see [What is Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
 
 -   **Azure AD Domain Services (Azure AD DS)**
 
@@ -94,7 +95,7 @@ When an identity associated with an application running on a VM attempts to acce
 
 ### Enable identity-based authentication
 
-You can enable identity-based authentication with either Azure AD DS (GA) or AD (preview) for Azure file shares on your new and existing storage accounts. Only one domain service can be used for file access authentication on the storage account, which applies to all file shares in the account. Detailed step by step guidance on setting up you file shares for authentication with Azure AD DS (GA) in our article [Enable Azure Active Directory Domain Services authentication on Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) and guidance for AD (preview) in our other article, [Enable Active Directory authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md).
+You can enable identity-based authentication with either Azure AD DS (GA) or AD (preview) for Azure file shares on your new and existing storage accounts. Only one domain service can be used for file access authentication on the storage account, which applies to all file shares in the account. Detailed step by step guidance on setting up your file shares for authentication with Azure AD DS (GA) in our article [Enable Azure Active Directory Domain Services authentication on Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) and guidance for AD (preview) in our other article, [Enable Active Directory authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md).
 
 ### Configure share-level permissions for Azure Files
 

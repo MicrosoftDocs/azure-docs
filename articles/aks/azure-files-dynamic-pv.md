@@ -1,5 +1,6 @@
 ---
-title: Dynamically create a Files volume for multiple pods in Azure Kubernetes Service (AKS)
+title: Dynamically create Azure Files share
+titleSuffix: Azure Kubernetes Service
 description: Learn how to dynamically create a persistent volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
@@ -27,11 +28,13 @@ A storage class is used to define how an Azure file share is created. A storage 
 
 * *Standard_LRS* - standard locally redundant storage (LRS)
 * *Standard_GRS* - standard geo-redundant storage (GRS)
+* *Standard_ZRS* - standard zone redundant storage (ZRS)
 * *Standard_RAGRS* - standard read-access geo-redundant storage (RA-GRS)
 * *Premium_LRS* - premium locally redundant storage (LRS)
+* *Premium_ZRS* - premium zone redundant storage (GRS)
 
 > [!NOTE]
-> Azure Files support premium storage in AKS clusters that run Kubernetes 1.13 or higher.
+> Azure Files support premium storage in AKS clusters that run Kubernetes 1.13 or higher, minimum premium file share is 100GB
 
 For more information on Kubernetes storage classes for Azure Files, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
@@ -46,11 +49,10 @@ provisioner: kubernetes.io/azure-file
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
-  - uid=1000
-  - gid=1000
+  - uid=0
+  - gid=0
   - mfsymlinks
-  - nobrl
-  - cache=none
+  - cache=strict
 parameters:
   skuName: Standard_LRS
 ```
@@ -161,7 +163,7 @@ Volumes:
 
 ## Mount options
 
-The default value for *fileMode* and *dirMode* is *0755* for Kubernetes version 1.9.1 and above. If using a cluster with Kuberetes version 1.8.5 or greater and dynamically creating the persistent volume with a storage class, mount options can be specified on the storage class object. The following example sets *0777*:
+The default value for *fileMode* and *dirMode* is *0777* for Kubernetes version 1.13.0 and above. If dynamically creating the persistent volume with a storage class, mount options can be specified on the storage class object. The following example sets *0777*:
 
 ```yaml
 kind: StorageClass
@@ -172,16 +174,13 @@ provisioner: kubernetes.io/azure-file
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
-  - uid=1000
-  - gid=1000
+  - uid=0
+  - gid=0
   - mfsymlinks
-  - nobrl
-  - cache=none
+  - cache=strict
 parameters:
   skuName: Standard_LRS
 ```
-
-If using a cluster of version 1.8.0 - 1.8.4, a security context can be specified with the *runAsUser* value set to *0*. For more information on Pod security context, see [Configure a Security Context][kubernetes-security-context].
 
 ## Next steps
 

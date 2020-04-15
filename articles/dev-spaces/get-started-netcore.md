@@ -75,7 +75,7 @@ Enter the following Azure CLI command, using the resource group that contains yo
 Rich features like Kubernetes debugging are available for .NET Core and Node.js developers using VS Code.
 
 1. If you don't have it, install [VS Code](https://code.visualstudio.com/Download).
-1. Download and install the [VS Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) and [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) extensions. For each extension, click install on the extension's Marketplace page, and again in VS Code.
+1. Download and install the [VS Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) and [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) extensions. For each extension, click install on the extension's Marketplace page, and again in VS Code.
 
 ## Create a web app running in a container
 
@@ -100,7 +100,7 @@ The Azure CLI's `azds prep` command generates Docker and Kubernetes assets with 
 * A [Helm chart](https://docs.helm.sh) under `./charts/webfrontend` describes how to deploy the container to Kubernetes.
 
 > [!TIP]
-> The [Dockerfile and Helm chart](how-dev-spaces-works.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
+> The [Dockerfile and Helm chart](how-dev-spaces-works-prep.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
 
 For now, it isn't necessary to understand the full content of these files. It's worth pointing out, however, that **the same Kubernetes and Docker configuration-as-code assets can be used from development through to production, thus providing better consistency across different environments.**
  

@@ -57,6 +57,8 @@
     href: test-your-model.md
   - name: Improve your classifier
     href: getting-started-improving-your-classifier.md
+  - name: Select a domain
+    href: select-domain.md
   - name: Use the prediction API
     href: use-prediction-api.md
   - name: Use Smart Labeler

@@ -30,7 +30,7 @@ The following table describes the features of Recovery Services vaults:
 **Data sources** | Maximum size of an individual [data source](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined) is 54,400 GB. This limit does not apply to Azure VM backups. No limits apply to the total amount of data you can back up to the vault.
 **Backups to vault** | **Azure VMs:** Once a day.<br/><br/>**Machines protected by DPM/MABS:** Twice a day.<br/><br/> **Machines backed up directly by using the MARS agent:** Three times a day.
 **Backups between vaults** | Backup is within a region.<br/><br/> You need a vault in every Azure region that contains VMs you want to back up. You can't back up to a different region.
-**Move vaults** | You can [move vaults](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) across subscriptions or between resource groups in the same subscription. However, moving vaults across regions isn’t supported.
+**Move vaults** | You can [move vaults](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) across subscriptions or between resource groups in the same subscription. However, moving vaults across regions isn't supported.
 **Move data between vaults** | Moving backed-up data between vaults isn't supported.
 **Modify vault storage type** | You can modify the storage replication type (either geo-redundant storage or locally redundant storage) for a vault before backups are stored. After backups begin in the vault, the replication type can't be modified.
 
@@ -79,7 +79,7 @@ Here's what's supported if you want to back up Linux machines:
 
 ## Daylight saving time support
 
-Azure Backup doesn't support automatic clock adjustment for daylight saving time for Azure VM backups. Modify backup policies manually as required.
+Azure Backup doesn't support automatic clock adjustment for daylight saving time for Azure VM backups. It does not shift the hour of the backup forward or backwards. To ensure the backup runs at the desired time, modify the backup policies manually as required.
 
 ## Disk deduplication support
 
@@ -146,7 +146,7 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 
 | Backup Management type | Supported                                                    | Supported Regions |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Yes. Public limited Preview  Supported for encrypted VMs and VMs with lesser than 4-TB  disks | West Central US   |
+| Azure VM               | Yes.   Supported for encrypted VMs and VMs with lesser than 4-TB  disks | All Azure public regions.  |
 | MARS Agent/On premises | No                                                           | N/A               |
 | SQL /SAP HANA          | No                                                           | N/A               |
 | AFS                    | No                                                           | N/A               |

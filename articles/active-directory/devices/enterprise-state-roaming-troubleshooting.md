@@ -22,7 +22,7 @@ This topic provides information on how to troubleshoot and diagnose issues with 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> This article applies to the Microsoft Edge Legacy HTML-based browser launched with Windows 10 in July 2015. The article does not apply to the new Microsoft Edge Chromium-based browser released on January 15, 2020. For more information on the Sync behavior for the new Microsoft Edge, see the article [Microsoft Edge Sync](https://docs.microsoft.com/deployedge/microsoft-edge-enterprise-sync).
+> This article applies to the Microsoft Edge Legacy HTML-based browser launched with Windows 10 in July 2015. The article does not apply to the new Microsoft Edge Chromium-based browser released on January 15, 2020. For more information on the Sync behavior for the new Microsoft Edge, see the article [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
 ## Preliminary steps for troubleshooting 
 

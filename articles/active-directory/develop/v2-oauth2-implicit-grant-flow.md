@@ -2,20 +2,15 @@
 title: OAuth 2.0 implicit grant flow - Microsoft identity platform | Azure
 description: Secure single-page apps using Microsoft identity platform implicit flow.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: ryanwi
+ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ---
@@ -28,7 +23,7 @@ With the Microsoft identity platform endpoint, you can sign users into your sing
 * Many authorization servers and identity providers do not support CORS requests.
 * Full page browser redirects away from the app become particularly invasive to the user experience.
 
-For these applications (AngularJS, Ember.js, React.js, and so on), Microsoft identity platform supports the OAuth 2.0 Implicit Grant flow. The implicit flow is described in the [OAuth 2.0 Specification](https://tools.ietf.org/html/rfc6749#section-4.2). Its primary benefit is that it allows the app to get tokens from Microsoft identity platform without performing a backend server credential exchange. This allows the app to sign in the user, maintain session, and get tokens to other web APIs all within the client JavaScript code. There are a few important security considerations to take into account when using the implicit flow specifically around [client](https://tools.ietf.org/html/rfc6749#section-10.3) and [user impersonation](https://tools.ietf.org/html/rfc6749#section-10.3).
+For these applications (Angular, Ember.js, React.js, and so on), Microsoft identity platform supports the OAuth 2.0 Implicit Grant flow. The implicit flow is described in the [OAuth 2.0 Specification](https://tools.ietf.org/html/rfc6749#section-4.2). Its primary benefit is that it allows the app to get tokens from Microsoft identity platform without performing a backend server credential exchange. This allows the app to sign in the user, maintain session, and get tokens to other web APIs all within the client JavaScript code. There are a few important security considerations to take into account when using the implicit flow specifically around [client](https://tools.ietf.org/html/rfc6749#section-10.3) and [user impersonation](https://tools.ietf.org/html/rfc6749#section-10.3).
 
 This article describes how to program directly against the protocol in your application.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
 
@@ -50,9 +45,9 @@ Currently, the preferred method of protecting calls to a Web API is to use the O
 * Tokens can be reliably obtained without any need for cross origin calls – mandatory registration of the redirect URI to which tokens are return guarantees that tokens are not displaced
 * JavaScript applications can obtain as many access tokens as they need, for as many Web APIs they target – with no restriction on domains
 * HTML5 features like session or local storage grant full control over token caching and lifetime management, whereas cookies management is opaque to the app
-* Access tokens aren’t susceptible to Cross-site request forgery (CSRF) attacks
+* Access tokens aren't susceptible to Cross-site request forgery (CSRF) attacks
 
-The implicit grant flow does not issue refresh tokens, mostly for security reasons. A refresh token isn’t as narrowly scoped as access tokens, granting far more power hence inflicting far more damage in case it is leaked out. In the implicit flow, tokens are delivered in the URL, hence the risk of interception is higher than in the authorization code grant.
+The implicit grant flow does not issue refresh tokens, mostly for security reasons. A refresh token isn't as narrowly scoped as access tokens, granting far more power hence inflicting far more damage in case it is leaked out. In the implicit flow, tokens are delivered in the URL, hence the risk of interception is higher than in the authorization code grant.
 
 However, a JavaScript application has another mechanism at its disposal for renewing access tokens without repeatedly prompting the user for credentials. The application can use a hidden iframe to perform new token requests against the authorization endpoint of Azure AD: as long as the browser still has an active session (read: has a session cookie) against the Azure AD domain, the authentication request can successfully occur without any need for user interaction.
 
@@ -62,9 +57,12 @@ This model grants the JavaScript application the ability to independently renew 
 
 The implicit grant presents more risks than other grants, and the areas you need to pay attention to are well documented (for example, [Misuse of Access Token to Impersonate Resource Owner in Implicit Flow][OAuth2-Spec-Implicit-Misuse] and [OAuth 2.0 Threat Model and Security Considerations][OAuth2-Threat-Model-And-Security-Implications]). However, the higher risk profile is largely due to the fact that it is meant to enable applications that execute active code, served by a remote resource to a browser. If you are planning an SPA architecture, have no backend components or intend to invoke a Web API via JavaScript, use of the implicit flow for token acquisition is recommended.
 
-If your application is a native client, the implicit flow isn’t a great fit. The absence of the Azure AD session cookie in the context of a native client deprives your application from the means of maintaining a long lived session. Which means your application will repeatedly prompt the user when obtaining access tokens for new resources.
+If your application is a native client, the implicit flow isn't a great fit. The absence of the Azure AD session cookie in the context of a native client deprives your application from the means of maintaining a long lived session. Which means your application will repeatedly prompt the user when obtaining access tokens for new resources.
 
-If you are developing a Web application that includes a backend, and consuming an API from its backend code, the implicit flow is also not a good fit. Other grants give you far more power. For example, the OAuth2 client credentials grant provides the ability to obtain tokens that reflect the permissions assigned to the application itself, as opposed to user delegations. This means the client has the ability to maintain programmatic access to resources even when a user is not actively engaged in a session, and so on. Not only that, but such grants give higher security guarantees. For instance, access tokens never transit through the user browser, they don’t risk being saved in the browser history, and so on. The client application can also perform strong authentication when requesting a token.
+If you are developing a Web application that includes a backend, and consuming an API from its backend code, the implicit flow is also not a good fit. Other grants give you far more power. For example, the OAuth2 client credentials grant provides the ability to obtain tokens that reflect the permissions assigned to the application itself, as opposed to user delegations. This means the client has the ability to maintain programmatic access to resources even when a user is not actively engaged in a session, and so on. Not only that, but such grants give higher security guarantees. For instance, access tokens never transit through the user browser, they don't risk being saved in the browser history, and so on. The client application can also perform strong authentication when requesting a token.
+
+[OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
+[OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819
 
 ## Protocol diagram
 
@@ -154,7 +152,7 @@ error=access_denied
 
 Now that you've signed the user into your single-page app, you can silently get access tokens for calling web APIs secured by Microsoft identity platform, such as the [Microsoft Graph](https://developer.microsoft.com/graph). Even if you already received a token using the `token` response_type, you can use this method to acquire tokens to additional resources without having to redirect the user to sign in again.
 
-In the normal OpenID Connect/OAuth flow, you would do this by making a request to the Microsoft identity platform `/token` endpoint. However, the Microsoft identity platform endpoint does not support CORS requests, so making AJAX calls to get and refresh tokens is out of the question. Instead, you can use the implicit flow in a hidden iframe to get new tokens for other web APIs: 
+In the normal OpenID Connect/OAuth flow, you would do this by making a request to the Microsoft identity platform `/token` endpoint. However, the Microsoft identity platform endpoint does not support CORS requests, so making AJAX calls to get and refresh tokens is out of the question. Instead, you can use the implicit flow in a hidden iframe to get new tokens for other web APIs:
 
 ```
 // Line breaks for legibility only
@@ -163,7 +161,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read 
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &response_mode=fragment
 &state=12345
 &nonce=678910
@@ -191,7 +189,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &state=12345
 &token_type=Bearer
 &expires_in=3599
-&scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fdirectory.read
 ```
 
 | Parameter | Description |

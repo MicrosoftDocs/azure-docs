@@ -2,11 +2,9 @@
 title: Azure Security Baseline for Key Vault
 description: Azure Security Baseline for Key Vault
 author: msmbaldwin
-manager: rkarlin
-
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/28/2020
+ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -16,7 +14,7 @@ ms.custom: security-benchmark
 
 The Azure Security Baseline for Key Vault contains recommendations that will help you improve the security posture of your deployment.
 
-The baseline for this services is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
+The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
 For more information, see [Azure Security Baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
@@ -27,11 +25,15 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 ### 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
 
 **Guidance**: Integrate Azure Key Vault with Azure Private Link. 
+
 Azure Private Link Service enables you to access Azure Services (for example, Azure Key Vault) and Azure hosted customer/partner services over an Private Endpoint in your virtual network.
+
 An Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
 How to integrate Key Vault with Azure Private Link:
+
 https://docs.microsoft.com/azure/key-vault/private-link-service
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -40,7 +42,6 @@ https://docs.microsoft.com/azure/key-vault/private-link-service
 ### 1.2: Monitor and log the configuration and traffic of Vnets, Subnets, and NICs
 
 **Guidance**: Use Azure Security Center and follow network protection recommendations to help secure your Key Vault-configured resources in Azure. 
-
 
 For more information about the Network Security provided by Azure Security Center: 
 
@@ -54,6 +55,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -64,7 +66,9 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
  
 Manage Azure DDoS Protection Standard using the Azure portal: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
+
 Threat detection for the Azure service layer in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -73,11 +77,14 @@ Threat detection for the Azure service layer in Azure Security Center: https://d
 ### 1.5: Record network packets and flow logs
 
 **Guidance**: Azure Key Vault does not use network security groups (NSG) and flow logs for Azure Key Vault are not captured. Instead, use Azure Private Link to secure your Azure Key Vault instances and enable diagnostic settings to record metrics and audit events.
+
 Integrate Key Vault with Azure Private Link:
+
 https://docs.microsoft.com/azure/key-vault/private-link-service
 
 Azure Key Vault logging:
 https://docs.microsoft.com/azure/key-vault/key-vault-logging
+
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -88,12 +95,12 @@ https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 **Guidance**: This requirement can be met by configuring advanced threat protection (ATP) for Azure Key Vault. ATP provides an additional layer of security intelligence. This tool detects potentially harmful attempts to access or exploit Azure Key Vault accounts.
 
-
 When Azure Security Center detects anomalous activity, it displays alerts. It also emails the subscription administrator with details of the suspicious activity and recommendations for how to investigate and remediate the identified threats.
 
-
 Set up advanced threat protection for Azure Key Vault:
+
 https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-vault
+
 
 
 **Azure Security Center monitoring**: Yes
@@ -104,6 +111,7 @@ https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -112,8 +120,8 @@ https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-
 
 **Guidance**: For resources that need access to your Azure Key Vault instances, use Azure service tags for the Azure Key Vault to define network access controls on network security groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-
 Azure service tags overview: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -123,14 +131,11 @@ Azure service tags overview: https://docs.microsoft.com/azure/virtual-network/se
 
 **Guidance**: Define and implement standard security configurations for network resources associated with your Azure Key Vault instances with Azure Policy. Use Azure Policy aliases in the "Microsoft.KeyVault" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure Key Vault instances. You may also make use of built-in policy definitions related to Azure Key Vault, such as:
 
-
 Key Vault should use a virtual network service endpoint
-
 
 Tutorial: Create and manage policies to enforce compliance:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
 
 Azure Policy Samples:
 
@@ -140,6 +145,7 @@ Quickstart: Define and assign a blueprint in the portal:
 
 https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
@@ -148,16 +154,14 @@ https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Guidance**: Use tags for resources related to network security and traffic flow for your Azure Key Vault instances to provide metadata and logical organization.
 
-
 Use any of the built-in Azure policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources.
 
-
 You may use Azure PowerShell or Azure CLI to look up or perform actions on resources based on their tags.
-
 
 Use tags to organize your Azure resources:
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -171,10 +175,10 @@ View and retrieve Azure Activity Log events:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
-
 Create, view, and manage activity log alerts by using Azure Monitor:
 
 https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -187,6 +191,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 ### 2.1: Use approved time synchronization sources
 
 **Guidance**: Not applicable; Microsoft maintains the time source used for Azure resources, such as Azure Key Vault, for timestamps in the logs.
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -204,6 +209,7 @@ Quickstart: How to on-board Azure Sentinel:
 
 https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
+
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
@@ -216,6 +222,7 @@ Azure Key Vault logging:
 
 https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
+
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
@@ -223,6 +230,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-logging
 ### 2.4: Collect security logs from operating systems
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -234,6 +242,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 Change the data retention period: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
@@ -242,16 +251,18 @@ Change the data retention period: https://docs.microsoft.com/azure/azure-monitor
 
 **Guidance**: Analyze and monitor logs for anomalous behavior and regularly review results for your Azure Key Vault-protected resources. Use Azure Monitor's Log Analytics workspace to review logs and perform queries on log data. Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM. 
 
-
 Quickstart: On-board Azure Sentinel:
+
 https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-
 Get started with Log Analytics in Azure Monitor:
+
 https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
 
 Get started with log queries in Azure Monitor:
+
 https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -269,10 +280,10 @@ Manage and respond to security alerts in Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts
 
-
 Respond to events with Azure Monitor Alerts:
 
 https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -282,6 +293,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 **Guidance**: Not applicable; Azure Key Vault does not process or produce anti-malware related logs.
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -290,6 +302,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 **Guidance**: Not applicable; Azure Key Vault does not process or produce DNS related logs.
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -297,6 +310,7 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 ### 2.10: Enable command-line audit logging
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -310,14 +324,16 @@ https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 **Guidance**: Maintain an inventory of your Azure Active Directory-registered applications, as well as any user accounts that have access to your Azure Key Vault keys, secrets, and certificates. You may use either the Azure portal or PowerShell to query and reconcile Key Vault access. To view access in PowerShell, use the following command:
 
-
 (Get-AzResource -ResourceId [KeyVaultResourceID]).Properties.AccessPolicies
 
 Registering an application with Azure Active Directory:
+
 https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#registering-an-application-with-azure-active-directory
 
 Secure access to a key vault:
+
 https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -327,6 +343,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 **Guidance**: Not applicable; Azure Key Vault does not have the concept of default passwords as authentication is provided by Active Directory and secured with Role-based access control.
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -335,10 +352,10 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts that have access to your Azure Key Vault instances. Use Azure Security Center Identity and Access Management (currently in preview) to monitor the number of active administrative accounts.
 
-
 Monitor identity and access (preview):
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -348,10 +365,10 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Guidance**: Use an Azure service principal in conjunction with the AppId, TenantID, and ClientSecret, to seamlessly authenticate your application and retrieve the token that will be used to access your Azure Key Vault secrets.
 
-
 Service-to-service authentication to Azure Key Vault using .NET:
 
 https://docs.microsoft.com/azure/key-vault/service-to-service-authentication
+
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -362,15 +379,14 @@ https://docs.microsoft.com/azure/key-vault/service-to-service-authentication
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center Identity and Access Management (currently in preview) recommendations to help protect your Event Hub-enabled resources.
 
-
 Planning a cloud-based Azure Multi-Factor Authentication deployment:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
-
 Monitor identity and access (preview):
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -383,6 +399,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 Privileged Access Workstations: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
 
 Planning a cloud-based Azure Multi-Factor Authentication deployment: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -406,6 +423,7 @@ Azure Active Directory risk detections: https://docs.microsoft.com/azure/active-
 Create and manage action groups in the Azure portal: https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
 
 
+
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
@@ -415,6 +433,7 @@ Create and manage action groups in the Azure portal: https://docs.microsoft.com/
 **Guidance**: Configure the location condition of a Conditional Access policy and manage your named locations. With named locations, you can create logical groupings of IP address ranges or countries and regions. You can restrict access to sensitive resources, such as your Key Vault secrets, to your configured named locations.
 
 What is the location condition in Azure Active Directory Conditional Access?: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+
 
 
 **Azure Security Center monitoring**: Currently not available
@@ -428,7 +447,9 @@ What is the location condition in Azure Active Directory Conditional Access?: ht
  
 
 Quickstart: Create a new tenant in Azure Active Directory:
+
 https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -438,15 +459,14 @@ https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-
 
 **Guidance**: Review Azure Active Directory (AAD) logs to help discover stale accounts with Azure Key Vault administrative roles. In addition, use AAD access reviews to efficiently manage group memberships, access to enterprise applications that may be used to access Azure Key Vault, and role assignments. User access should be reviewed on a regular basis such as every 90 days to make sure only the right users have continued access.
 
-
 Azure Active Directory reports and monitoring documentation:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/
 
-
 What are Azure AD access reviews?:
 
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -459,6 +479,8 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 Integrate Azure AD logs with Azure Monitor logs: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
 Migrating from the old Key Vault solution: https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault#migrating-from-the-old-key-vault-solution
+
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -474,6 +496,7 @@ How To: Configure and enable risk policies: https://docs.microsoft.com/azure/act
 
 How to onboard Azure Sentinel:  https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
+
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
@@ -482,7 +505,9 @@ How to onboard Azure Sentinel:  https://docs.microsoft.com/azure/sentinel/quicks
 
 **Guidance**: Not applicable; Customer Lockbox not supported for Azure Key Vault.
 
-Supported services and scenarios in general availability: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+Supported services and scenarios in general availability: 
+https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -500,6 +525,7 @@ Supported services and scenarios in general availability: https://docs.microsoft
 Use tags to organize your Azure resources: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
@@ -513,6 +539,7 @@ After firewall rules are in effect, you can only perform Azure Key Vault data pl
 Configure Azure Key Vault firewalls and virtual networks: https://docs.microsoft.com/azure/key-vault/key-vault-network-security
 
 Virtual network service endpoints for Azure Key Vault: https://docs.microsoft.com/azure/key-vault/key-vault-overview-vnet-service-endpoints
+
 
 
 **Azure Security Center monitoring**: Currently not available
@@ -530,6 +557,7 @@ Configure Azure Key Vault firewalls and virtual networks: https://docs.microsoft
 Azure Key Vault logging: https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 
+
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
@@ -541,6 +569,7 @@ Azure Key Vault logging: https://docs.microsoft.com/azure/key-vault/key-vault-lo
 Access Azure Key Vault behind a firewall: https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall
 
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Microsoft
@@ -549,18 +578,19 @@ Access Azure Key Vault behind a firewall: https://docs.microsoft.com/azure/key-v
 
 **Guidance**: Not applicable; all data within Azure Key Vault (secrets, keys, and certificates) is considered sensitive.
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
-### 4.6: Use an active discovery tool to identify sensitive data
+### 4.6: Use Azure RBAC to control access to resources
 
 **Guidance**: Secure access to the management and data plane of your Azure Key Vault instances.
-
 
 Secure access to a key vault:
 
 https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
+
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -570,12 +600,14 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 **Guidance**: Microsoft manages the underlying infrastructure for Azure Key Vault and has implemented strict controls to prevent the loss or exposure of customer data.
 
-
 What is Azure Key Vault?
+
 https://docs.microsoft.com/azure/key-vault/key-vault-overview
 
 Azure customer data protection:
+
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -585,9 +617,9 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Guidance**: All managed objects (key, certificates, and secrets) are encrypted at rest in Azure Key Vault.
 
+Supporting documentation:
 
-Security controls for Azure Key Vault:
-https://docs.microsoft.com/azure/key-vault/key-vault-security-controls
+- [Encryption Model and key management table](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#encryption-model-and-key-management-table)
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -599,7 +631,9 @@ https://docs.microsoft.com/azure/key-vault/key-vault-security-controls
 **Guidance**: Use the Azure Key Vault Analytics solution in Azure Monitor to review Azure Key Vault audit event logs.
 
 Azure Key Vault Analytics solution in Azure Monitor:
+
 https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault
+
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -613,6 +647,7 @@ https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault
 ### 5.1: Run automated vulnerability scanning tools
 
 **Guidance**: Microsoft performs vulnerability management on the underlying systems that support Azure Key Vault.
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -629,6 +664,7 @@ https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault
 ### 5.3: Deploy automated third-party software patch management solution
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -650,6 +686,7 @@ Improve your Secure Score in Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
@@ -663,12 +700,15 @@ https://docs.microsoft.com/azure/security-center/security-center-secure-score
 **Guidance**: Use Azure Resource Graph to query and discover all resources (including Azure Key Vault instances) within your subscription. Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer:
+
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Get subscriptions that the current account can access.:
+
 https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
 What is role-based access control (RBAC) for Azure resources?
+
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Azure Security Center monitoring**: Not applicable
@@ -678,7 +718,6 @@ https://docs.microsoft.com/azure/role-based-access-control/overview
 ### 6.2: Maintain asset metadata
 
 **Guidance**: Apply tags to Azure Key Vault resources giving metadata to logically organize them into a taxonomy.
-
 
 How to create and use Tags:
 
@@ -692,19 +731,17 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure Key Vault instances and related resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-
 Create an additional Azure subscription:
 
 https://docs.microsoft.com/azure/billing/billing-create-subscription
-
 
 Create management groups for resource organization and management:
 
 https://docs.microsoft.com/azure/governance/management-groups/create
 
-
 Use tags to organize your Azure resources:
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -723,6 +760,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 **Guidance**: Use Azure policies to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
 - Not allowed resource types
+
 - Allowed resource types
 
 In addition, use the Azure Resource Graph to query/discover resources within the subscription(s).
@@ -730,6 +768,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 Tutorial: Create and manage policies to enforce compliance: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -740,6 +779,7 @@ Quickstart: Run your first Resource Graph query using Azure Resource Graph Explo
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -748,6 +788,7 @@ Quickstart: Run your first Resource Graph query using Azure Resource Graph Explo
 
 **Guidance**: Not applicable; this recommendation is intended for Azure as a whole as well as compute resources.
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -755,6 +796,7 @@ Quickstart: Run your first Resource Graph query using Azure Resource Graph Explo
 ### 6.8: Use only approved applications
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -765,11 +807,13 @@ Quickstart: Run your first Resource Graph query using Azure Resource Graph Explo
 **Guidance**: Use Azure policies to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
 - Not allowed resource types
+
 - Allowed resource types
 
 Tutorial: Create and manage policies to enforce compliance: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Azure Policy Samples: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -780,6 +824,7 @@ Azure Policy Samples: https://docs.microsoft.com/azure/governance/policy/samples
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -788,9 +833,10 @@ Azure Policy Samples: https://docs.microsoft.com/azure/governance/policy/samples
 
 **Guidance**: Use the Azure Conditional Access to limit users' ability to interact with Azure Resource Manager (ARM) by configuring "Block access" for the "Microsoft Azure Management" App. This can prevent the creation and changes to resources within a high security environment, such as those with Key Vault configuration.
 
-
 Manage access to Azure management with Conditional Access:
+
 https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -800,6 +846,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -807,6 +854,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 ### 6.13: Physically or logically segregate high risk applications
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -820,7 +868,6 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.KeyVault" namespace to create custom policies to audit or enforce the configuration of your Azure Key Vault instances. You may also use built-in Azure Policy definitions for Azure Key Vault such as:
 
-
 Key Vault objects should be recoverable
 
 Deploy Diagnostic Settings for Key Vault to Log Analytics workspace
@@ -831,18 +878,16 @@ Key Vault should use a virtual network service endpoint
 
 Deploy Diagnostic Settings for Key Vault to Event Hub
 
-
 Use recommendations from Azure Security Center as a secure configuration baseline for your Azure Key Vault instances.
-
 
 How to view available Azure Policy Aliases:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-
 Tutorial: Create and manage policies to enforce compliance:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -852,6 +897,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -860,16 +906,15 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure Key Vault-enabled resources. 
 
-
 Tutorial: Create and manage policies to enforce compliance:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage 
-
 
   
 Understand Azure Policy effects: 
 
 https://docs.microsoft.com/azure/governance/policy/concepts/effects
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -879,6 +924,7 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -887,11 +933,9 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Guidance**: If using custom Azure Policy definitions for your Azure Key Vault enabled resources, use Azure Repos to securely store and manage your code.
 
-
 How to store code in Azure DevOps: 
 
 https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops 
-
 
 Azure Repos Documentation: 
 
@@ -905,6 +949,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -912,8 +957,6 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 ### 7.7: Deploy system configuration management tools
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.KeyVault" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
-
-
 
 How to configure and manage Azure Policy:
 
@@ -926,6 +969,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 ### 7.8: Deploy system configuration management tools for operating systems
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -949,6 +993,7 @@ https://docs.microsoft.com/azure/security-center/security-center-remediate-recom
 
 **Guidance**: Not applicable; this benchmark is intended for compute resources.
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -957,16 +1002,13 @@ https://docs.microsoft.com/azure/security-center/security-center-remediate-recom
 
 **Guidance**: Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications. Ensure that Azure Key Vault soft delete is enabled.
 
-
 How to integrate with Azure Managed Identities:
 
 https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-
 How to create a Key Vault:
 
 https://docs.microsoft.com/azure/key-vault/quick-create-portal
-
 
 How to provide Key Vault authentication with a managed identity: 
 
@@ -985,8 +1027,6 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 How to integrate with Azure Managed Identities: 
 
 https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity  
-
-
 
 How to create a Key Vault: 
 
@@ -1018,6 +1058,7 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft handles anti-malware for underlying platform.
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -1026,9 +1067,7 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
 **Guidance**: Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Key Vault), however, it does not run on customer content.
 
-
 Pre-scan any content being uploaded or sent to non-compute Azure resources such as Azure Key Vault. Microsoft cannot access your data in these instances.
-
 
 Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines:
  https://docs.microsoft.com/azure/security/fundamentals/antimalware
@@ -1040,6 +1079,7 @@ Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines:
 ### 8.3: Ensure anti-malware software and signatures are updated
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft handles anti-malware for underlying platform.
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1054,8 +1094,11 @@ Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines:
 **Guidance**: Ensure regular automated backups of your Key Vault Certificates, Keys, Managed Storage Accounts, and Secrets, with the following PowerShell commands:
 
 - Backup-AzKeyVaultCertificate
+
 - Backup-AzKeyVaultKey
+
 - Backup-AzKeyVaultManagedStorageAccount
+
 - Backup-AzKeyVaultSecret
 
 Optionally, you may store your Key Vault backups within Azure Backup.
@@ -1069,6 +1112,7 @@ How to backup Key Vault Managed Storage Accounts: https://docs.microsoft.com/pow
 How to backup Key Vault Secrets: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
 
 How to enable Azure Backup: https://docs.microsoft.com/azure/backup
+
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -1080,8 +1124,11 @@ How to enable Azure Backup: https://docs.microsoft.com/azure/backup
 **Guidance**: Perform backups of your Key Vault Certificates, Keys, Managed Storage Accounts, and Secrets, with the following PowerShell commands:
 
 - Backup-AzKeyVaultCertificate
+
 - Backup-AzKeyVaultKey
+
 - Backup-AzKeyVaultManagedStorageAccount
+
 - Backup-AzKeyVaultSecret
 
 Optionally, you may store your Key Vault backups within Azure Backup.
@@ -1096,6 +1143,8 @@ How to backup Key Vault Secrets: https://docs.microsoft.com/powershell/module/az
 
 How to enable Azure Backup: https://docs.microsoft.com/azure/backup
 
+
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
@@ -1105,8 +1154,11 @@ How to enable Azure Backup: https://docs.microsoft.com/azure/backup
 **Guidance**: Periodically perform data restoration of your Key Vault Certificates, Keys, Managed Storage Accounts, and Secrets, with the following PowerShell commands:
 
 - Restore-AzKeyVaultCertificate
+
 - Restore-AzKeyVaultKey
+
 - Restore-AzKeyVaultManagedStorageAccount
+
 - Restore-AzKeyVaultSecret
 
 How to restore Key Vault Certificates:  https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0
@@ -1117,6 +1169,7 @@ How to restore Key Vault Managed Storage Accounts: https://docs.microsoft.com/po
 
 How to restore Key Vault Secrets: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0
 
+
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
@@ -1124,7 +1177,6 @@ How to restore Key Vault Secrets: https://docs.microsoft.com/powershell/module/a
 ### 9.4: Ensure protection of backups and customer managed keys
 
 **Guidance**: Ensure that soft delete is enabled for Azure Key Vault. Soft delete allows recovery of deleted key vaults and vault objects such as keys, secrets, and certificates. 
-
 
 How to use Azure Key Vault's Soft Delete: 
 
@@ -1142,25 +1194,17 @@ https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review. These processes should have a focus on protecting sensitive systems, such as those using Key Vault secrets.
 
-
-
 How to configure Workflow Automations within Azure Security Center: 
 
 https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide   
-
-
 
 Guidance on building your own security incident response process:  
 
 https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
-
-
 Microsoft Security Response Center's Anatomy of an Incident:   
 
 https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process   
-
-
 
 Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan: 
 
@@ -1174,6 +1218,7 @@ https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 
 **Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert. Additionally, clearly mark subscriptions (for ex. production, non-prod) and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data such as Azure Key Vault secrets.
 
+
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
@@ -1181,7 +1226,6 @@ https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 ### 10.3: Test security response procedures
 
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence to help protect your Azure Key Vault instances and related resources. Identify weak points and gaps and revise plan as needed.
-
 
 Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities: 
 
@@ -1194,8 +1238,6 @@ https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party.  Review incidents after the fact to ensure that issues are resolved.
-
-
 
 How to set the Azure Security Center Security Contact:
 
@@ -1247,11 +1289,9 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 **Guidance**: You are not to perform pen testing on the Azure Key Vault service directly, however it is encouraged to test your Azure resources which are using Key Vault to ensure the security of the secrets.
 
-
 You will need to follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies:
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
-
 
 You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here: 
 

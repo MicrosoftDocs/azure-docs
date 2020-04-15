@@ -310,4 +310,5 @@ For more information, see [Microsoft-supported libraries by OS / language](refer
 
 ## Next steps
 
-Learn more about [Authentication basics](authentication-scenarios.md) and [Microsoft identity platform access tokens](access-tokens.md).
+* Learn more about [Authentication basics](authentication-scenarios.md) and [Microsoft identity platform access tokens](access-tokens.md).
+* Learn more about [Securing access to IoT apps](/azure/architecture/example-scenario/iot-aad/iot-aad).

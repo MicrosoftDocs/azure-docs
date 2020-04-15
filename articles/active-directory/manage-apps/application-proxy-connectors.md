@@ -113,7 +113,7 @@ For more information about configuring outbound firewall rules, see [Work with e
 
 Scale for the Application Proxy service is transparent, but scale is a factor for connectors. You need to have enough connectors to handle peak traffic. Since connectors are stateless, they aren't affected by the number of users or sessions. Instead, they respond to the number of requests and their payload size. With standard web traffic, an average machine can handle a couple thousand requests per second. The specific capacity depends on the exact machine characteristics.
 
-The connector performance is bound by CPU and networking. CPU performance is needed for SSL encryption and decryption, while networking is important to get fast connectivity to the applications and the online service in Azure.
+The connector performance is bound by CPU and networking. CPU performance is needed for TLS encryption and decryption, while networking is important to get fast connectivity to the applications and the online service in Azure.
 
 In contrast, memory is less of an issue for connectors. The online service takes care of much of the processing and all unauthenticated traffic. Everything that can be done in the cloud is done in the cloud.
 

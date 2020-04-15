@@ -6,56 +6,53 @@ metadata:
   title: Voice assistants documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
-  ms.author: dapine
+  ms.date: 03/10/2020
+  ms.author: trbye
 
 landingContent:
-- title: Get started
+- title: About voice assistants
   linkLists:
     - linkListType: overview
       links:
-      - text: Voice Assistant solutions
+      - text: What is a voice assistant?
         url: voice-assistants.md
-      - text: About Custom Commands
+      - text: What is a Custom Commands app?
         url: custom-commands.md
-      - text: About Direct Line Speech
+      - text: What is Direct Line Speech?
         url: direct-line-speech.md
     - linkListType: reference
       links:
-        - text: Pricing
-          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
         - text: Voice assistants FAQ
           url: faq-voice-assistants.md
-- title: Custom Commands
-  linkLists:          
+        - text: Voice assistants pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+- title: Develop with Custom Commands
+  linkLists:
     - linkListType: quickstart
       links:
-        - text: Create a Custom Command (preview)
+        - text: Create a Custom Commands app
           url: quickstart-custom-speech-commands-create-new.md
-        - text: Create a Custom Command with parameters (preview)
+        - text: Create a custom command with parameters
           url: quickstart-custom-speech-commands-create-parameters.md
-        - text: Use Custom Commands with Custom Voice (preview)
+        - text: Use Custom Commands with Custom Voice
           url: quickstart-custom-speech-commands-select-custom-voice.md
-        - text: Use Custom Commands with the Speech SDK (preview)
+        - text: Use Custom Commands with the Speech SDK
           url: quickstart-custom-speech-commands-speech-sdk.md
     - linkListType: how-to-guide
       links:
-      - text: Custom Commands with the Speech SDK
+      - text: Fulfill commands from a client
         url: how-to-custom-speech-commands-fulfill-sdk.md
-      - text: Fulfill Custom Commands with the Speech SDK
-        url: how-to-custom-speech-commands-fulfill-sdk.md
-      - text: Add parameter validation to a Custom Command
+      - text: Add parameter validation
         url: how-to-custom-speech-commands-validations.md
-      - text: Add a confirmation to a Custom Command
+      - text: Add a confirmation
         url: how-to-custom-speech-commands-confirmations.md
-      - text: Add a one-step correction to a Custom Command
+      - text: Add a one-step correction
         url: how-to-custom-speech-commands-one-step-correction.md
-- title: Direct Line Speech
+- title: Develop with Direct Line Speech
   linkLists:
     - linkListType: quickstart
       links:
@@ -69,3 +66,13 @@ landingContent:
       links:
         - text: Voice enable your bot with Speech SDK
           url: tutorial-voice-enable-your-bot-speech-sdk.md
+- title: Develop with Custom Keyword
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Create a Custom Keyword
+          url: speech-devices-sdk-create-kws.md
+    - linkListType: reference
+      links:
+        - text: Custom Keyword naming guidelines
+          url: speech-devices-sdk-kws-guidelines.md

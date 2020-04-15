@@ -18,7 +18,7 @@ This article describes how to use the **PCA-Based Anomaly Detection** module in 
 
 This module helps you build a model in scenarios where it is easy to obtain training data from one class, such as valid transactions, but difficult to obtain sufficient samples of the targeted anomalies. 
 
-For example, to detect fraudulent transactions, very often you don't have enough examples of fraud to train on, but have many examples of good transactions. The **PCA-Based Anomaly Detection** module solves the problem by analyzing available features to determine what constitutes a "normal" class, and applying distance metrics to identify cases that represent anomalies. This let you train a model using existing imbalanced data.
+For example, to detect fraudulent transactions, very often you don't have enough examples of fraud to train on, but have many examples of good transactions. The **PCA-Based Anomaly Detection** module solves the problem by analyzing available features to determine what constitutes a "normal" class, and applying distance metrics to identify cases that represent anomalies. This lets you train a model using existing imbalanced data.
 
 ## More about Principal Component Analysis
 
@@ -28,17 +28,17 @@ PCA works by analyzing data that contains multiple variables. It looks for corre
 
 For anomaly detection, each new input is analyzed, and the anomaly detection algorithm computes its projection on the eigenvectors, together with a normalized reconstruction error. The normalized error is used as the anomaly score. The higher the error, the more anomalous the instance is.
 
-For additional information about how PCA works, and about the implementation for anomaly detection, see these papers:
+For more information about how PCA works, and about the implementation for anomaly detection, see these papers:
 
-- [A randomized algorithm for principal component analysis](https://arxiv.org/abs/0809.2274). Rokhlin, Szlan and Tygert
+- [A randomized algorithm for principal component analysis](https://arxiv.org/abs/0809.2274). Rokhlin, Szlan, and Tygert
 
-- [Finding Structure with Randomness: Probabilistic Algorithms for Constructing Approximate Matrix Decompositions](http://users.cms.caltech.edu/~jtropp/papers/HMT11-Finding-Structure-SIREV.pdf) (PDF download). Halko, Martinsson and Tropp.
+- [Finding Structure with Randomness: Probabilistic Algorithms for Constructing Approximate Matrix Decompositions](http://users.cms.caltech.edu/~jtropp/papers/HMT11-Finding-Structure-SIREV.pdf) (PDF download). Halko, Martinsson, and Tropp.
 
 ## How to configure PCA Anomaly Detection
 
 1. Add the **PCA-Based Anomaly Detection** module to your pipeline in the designer. You can find this module in the **Anomaly Detection** category.
 
-2. In the **Properties** pane for the **PCA-Based Anomaly Detection** module, click the **Training mode** option, and indicate whether you want to train the model using a specific set of parameters, or use a parameter sweep to find the best parameters.
+2. In the right panel of the **PCA-Based Anomaly Detection** module, click the **Training mode** option, and indicate whether you want to train the model using a specific set of parameters, or use a parameter sweep to find the best parameters.
 
     - **Single Parameter**:  Select this option if you know how you want to configure the model, and provide a specific set of values as arguments.
 
@@ -57,7 +57,7 @@ For additional information about how PCA works, and about the implementation for
     - **Oversampling parameter for randomized PCA**: Type a single whole number that represents the ratio of oversampling of the minority class over the normal class. (Available when using the **Single parameter** training method.)
 
     > [!NOTE]
-    > You cannot view the oversampled data set. For additional details of how oversampling is used with PCA, see [Technical notes](#technical-notes).
+    > You cannot view the oversampled data set. For more information of how oversampling is used with PCA, see [Technical notes](#technical-notes).
 
 5. **Enable input feature mean normalization**:   Select this option to normalize all input features to a mean of zero. Normalization or scaling to zero is generally recommended for PCA, because the goal of PCA is to maximize variance among variables.
 
@@ -67,13 +67,13 @@ For additional information about how PCA works, and about the implementation for
 
     - If you set the **Create trainer mode** option to **Single Parameter**, use the [Train Anomaly Detection Model](train-anomaly-detection-model.md) module.
 
-7. Run the pipeline.
+7. Submit the pipeline.
 
 ## Results
 
 When training is complete, you can either save the trained model, or connect it to the [Score Model](score-model.md) module to predict anomaly scores.
 
-To evaluate the results of an anomaly detection models requires some additional steps:
+Evaluating the results of an anomaly detection model requires some additional steps:
 
 1. Ensure that a score column is available in both datasets
 
@@ -103,4 +103,4 @@ This algorithm uses PCA to approximate the subspace containing the normal class.
 
 See the [set of modules available](module-reference.md) to Azure Machine Learning. 
 
-See [Exceptions and error codes for the designer (preview)](designer-error-codes.md) for a list of errors specific to the designer modules.
+See [Exceptions and error codes for the designer (preview)](designer-error-codes.md) for a list of errors specific to the designer modules.''

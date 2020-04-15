@@ -4,7 +4,7 @@ description: Create test certificates and learn how to install them on an Azure 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/07/2019
+ms.date: 04/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -21,6 +21,15 @@ These certificates expire in 30 days, and should not be used in any production s
 You can create certificates on any machine, and then copy them over to your IoT Edge device.
 It's easier to use your primary machine to create the certificates rather than generating them on your IoT Edge device itself.
 By using your primary machine, you can set up the scripts once and then repeat the process to create certificates for multiple devices.
+
+Follow these steps to create demo certificates for testing your IoT Edge scenario:
+
+1. [Set up scripts](#set-up-scripts) for certificate generation on your device.
+2. [Create the root CA certificate](#create-root-ca-certificate) that you use to sign all the other certificates for your scenario.
+3. Generate the certificates you need for the scenario you want to test:
+   * [Create IoT Edge device identity certificates](#create-iot-edge-device-identity-certificates) to test automatic provisioning with the IoT Hub Device Provisioning Service.
+   * [Create IoT Edge device CA certificates](#create-iot-edge-device-ca-certificates) to test production scenarios or gateway scenarios.
+   * [Create downstream device certificates](#create-downstream-device-certificates) to test authenticating downstream devices to IoT Hub in a gateway scenario.
 
 ## Prerequisites
 
@@ -49,7 +58,7 @@ There are several ways to install OpenSSL, including the following options:
 
    1. Navigate to a directory where you want to install vcpkg. Follow the instructions to download and install [vcpkg](https://github.com/Microsoft/vcpkg).
 
-   2. Once vcpkg is installed, run the following command from a powershell prompt to install the OpenSSL package for Windows x64. The installation typically takes about 5 minutes to complete.
+   2. Once vcpkg is installed, run the following command from a PowerShell prompt to install the OpenSSL package for Windows x64. The installation typically takes about 5 minutes to complete.
 
       ```powershell
       .\vcpkg install openssl:x64-windows
@@ -169,7 +178,11 @@ Before proceeding with the steps in this section, follow the steps in the [Set u
 
 ## Create IoT Edge device CA certificates
 
-Every IoT Edge device going to production needs a device CA certificate that's referenced from the config.yaml file. The device CA certificate is responsible for creating certificates for modules running on the device. It's also how the IoT Edge device verifies its identity when connecting to downstream devices.
+Every IoT Edge device going to production needs a device CA certificate that's referenced from the config.yaml file.
+The device CA certificate is responsible for creating certificates for modules running on the device.
+It's also how the IoT Edge device verifies its identity when connecting to downstream devices.
+
+Device CA certificates go in the **Certificate** section of the config.yaml file on the IoT Edge device.
 
 Before proceeding with the steps in this section, follow the steps in the [Set up scripts](#set-up-scripts) and [Create root CA certificate](#create-root-ca-certificate) sections.
 
@@ -188,7 +201,9 @@ Before proceeding with the steps in this section, follow the steps in the [Set u
    * `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
 
-The gateway device name passed into those scripts should not be the same as the "hostname" parameter in config.yaml. The scripts help you avoid any issues by appending a ".ca" string to the gateway device name to prevent the name collision in case a user sets up IoT Edge using the same name in both places. However, it's good practice to avoid using the same name.
+The gateway device name passed into those scripts should not be the same as the "hostname" parameter in config.yaml, or the device's ID in IoT Hub.
+The scripts help you avoid any issues by appending a ".ca" string to the gateway device name to prevent the name collision in case a user sets up IoT Edge using the same name in both places.
+However, it's good practice to avoid using the same name.
 
 ### Linux
 
@@ -205,9 +220,51 @@ The gateway device name passed into those scripts should not be the same as the 
    * `<WRKDIR>/certs/iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-MyEdgeDeviceCA.key.pem`
 
-The gateway device name passed into those scripts should not be the same as the "hostname" parameter in config.yaml. The scripts help you avoid any issues by appending a ".ca" string to the gateway device name to prevent the name collision in case a user sets up IoT Edge using the same name in both places. However, it's good practice to avoid using the same name.
+The gateway device name passed into those scripts should not be the same as the "hostname" parameter in config.yaml, or the device's ID in IoT Hub.
+The scripts help you avoid any issues by appending a ".ca" string to the gateway device name to prevent the name collision in case a user sets up IoT Edge using the same name in both places.
+However, it's good practice to avoid using the same name.
 
-## Create X.509 certs for downstream devices
+## Create IoT Edge device identity certificates
+
+Device identity certificates are used to provision IoT Edge devices through the [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml).
+
+Device identity certificates go in the **Provisioning** section of the config.yaml file on the IoT Edge device.
+
+Before proceeding with the steps in this section, follow the steps in the [Set up scripts](#set-up-scripts) and [Create root CA certificate](#create-root-ca-certificate) sections.
+
+### Windows
+
+Create the IoT Edge device identity certificate and private key with the following command:
+
+```powershell
+New-CACertsEdgeDeviceIdentity "<name>"
+```
+
+The name that you pass in to this command will be the device ID for the IoT Edge device in IoT Hub.
+
+The new device identity command creates several certificate and key files, including three that you'll use when creating an individual enrollment in DPS and installing the IoT Edge runtime:
+
+* `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
+* `<WRKDIR>\certs\iot-edge-device-identity-<name>.cert.pem`
+* `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
+
+### Linux
+
+Create the IoT Edge device identity certificate and private key with the following command:
+
+```bash
+./certGen.sh create_edge_device_identity_certificate "<name>"
+```
+
+The name that you pass in to this command will be the device ID for the IoT Edge device in IoT Hub.
+
+The script creates several certificate and key files, including three that you'll use when creating an individual enrollment in DPS and installing the IoT Edge runtime:
+
+* `<WRKDIR>\certs\iot-edge-device-identity-<name>-full-chain.cert.pem`
+* `<WRKDIR>/certs/iot-edge-device-identity-<name>.cert.pem`
+* `<WRKDIR>/private/iot-edge-device-identity-<name>.key.pem`
+
+## Create downstream device certificates
 
 If you're setting up a downstream IoT device for a gateway scenario, you can generate demo certificates for X.509 authentication.
 There are two ways to authenticate an IoT device using X.509 certificates: using self-signed certs or using certificate authority (CA) signed certs.
