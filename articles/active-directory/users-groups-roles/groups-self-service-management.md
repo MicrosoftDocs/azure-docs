@@ -55,6 +55,8 @@ You can also use **Owners who can assign members as group owners in Azure portal
 
 When users can create groups, all users in your organization are allowed to create new groups and then can, as the default owner, add members to these groups. You can't specify individuals who can create their own groups. You can specify individuals only for making another group member a group owner.
 
+Please note: in order for users to request to join a Security or Office 365 group, and for owners to approve or deny membership requests, Azure Active Directory Premium (P1 or P2) license is required. Without Azure Active Directory Premium license, users can still manage their groups on Access Panel, but they will not be able to create a group that requires owner approval on Access Panel, or request to join groups. 
+
 ## Next steps
 
 These articles provide additional information on Azure Active Directory.
