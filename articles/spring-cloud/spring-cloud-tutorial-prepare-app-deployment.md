@@ -3,14 +3,14 @@ title: Tutorial - Prepare a Java Spring application for deployment in Azure Spri
 description: In this tutorial, you prepare a Java Spring application for deployment to Azure Spring Cloud.
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: howto
 ms.date: 02/03/2020
 ms.author: brendm
 
 ---
 # Prepare a Java Spring application for deployment in Azure Spring Cloud
 
-This quickstart shows how to prepare an existing Java Spring application for deployment to Azure Spring Cloud. If configured properly, Azure Spring Cloud provides robust services to monitor, scale, and update your Java Spring Cloud application.
+This topic shows how to prepare an existing Java Spring application for deployment to Azure Spring Cloud. If configured properly, Azure Spring Cloud provides robust services to monitor, scale, and update your Java Spring Cloud application.
 
 Other examples explain how to deploy an application to Azure Spring Cloud when the POM file is configured. 
 * [Launch App using the Azure portal](spring-cloud-quickstart-launch-app-portal.md)
@@ -148,9 +148,9 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 @EnableZuulProxy
 
 public class GatewayApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(GatewayApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(GatewayApplication.class, args);
+    }
 }
 ```
 
@@ -220,7 +220,7 @@ Include the following `spring-cloud-starter-sleuth` and `spring-cloud-starter-zi
 
 ## Next steps
 
-In this tutorial, you learned how to configure your Java Spring application for deployment to Azure Spring Cloud. To learn how to set up a Config Server instance, continue to the next tutorial.
+In this topic, you learned how to configure your Java Spring application for deployment to Azure Spring Cloud. To learn how to set up a Config Server instance, see the following article.
 
 > [!div class="nextstepaction"]
 > [Learn how to set up a Config Server instance](spring-cloud-tutorial-config-server.md)
