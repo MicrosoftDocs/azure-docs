@@ -102,7 +102,7 @@ The following information describes OS-specific client requirements. For additio
 
 Windows agents must be configured to communicate with a WSUS server, or they require access to Microsoft Update.
 
-You can use Update Management with Configuration Manager. To learn more about integration scenarios, see [Integrate Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md#configuration). The [Log Analytics Windows agent](../azure-monitor/platform/agent-windows.md) is required. The agent is installed automatically if you're onboarding an Azure VM.
+You can use Update Management with Configuration Manager. To learn more about integration scenarios, see [Integrate Configuration Manager with Update Management](updatemgmt-mecmintegration.md#configuration). The [Log Analytics Windows agent](../azure-monitor/platform/agent-windows.md) is required. The agent is installed automatically if you're onboarding an Azure VM.
 
 By default, Windows VMs that are deployed from the Azure Marketplace are set to receive automatic updates from Windows Update Service. This behavior doesn't change when you add this solution or add Windows VMs to your workspace. If you don't actively manage updates by using this solution, the default behavior (to automatically apply updates) applies.
 
@@ -233,7 +233,7 @@ To classify updates on Red Hat Enterprise version 6, you need to install the yum
 
 Customers who have invested in Microsoft Endpoint Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help them manage software updates. Configuration Manager is part of their software update management (SUM) cycle.
 
-To learn how to integrate the management solution with Configuration Manager, see [Integrate Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md).
+To learn how to integrate the management solution with Configuration Manager, see [Integrate Configuration Manager with Update Management](updatemgmt-mecmintegration.md).
 
 ### Third-party updates on Windows
 
