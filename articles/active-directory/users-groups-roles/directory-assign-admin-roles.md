@@ -271,6 +271,10 @@ Delegating administrative permissions over subsets of users and applying policie
 
 This role was previously called "Password Administrator" in the [Azure portal](https://portal.azure.com/). The "Helpdesk Administrator" name in Azure AD now matches its name in Azure AD PowerShell and the Microsoft Graph API.
 
+### [Hybrid Identity Administrator](#hybrid-identity-administrator-permissions)
+
+Users in this role can enable, configure and manage services and settings related to enabling hybrid identity in Azure AD. This role grants the ability to configure Azure AD to one of the three supported authentication methods, Password hash synchronization (PHS), Pass-through authentication (PTA) or Federation (AD FS or 3rd party federation provider), and to deploy related on-premises infrastructure to enable them. On-prem infrastructure includes Provisioning and PTA agents. This role grants the ability to enable Seamless Single Sign-On (S-SSO) to enable seamless authentication on non-Windows 10 devices or non-Windows Server 2016 computers. In addition, this role grants the ability to see sign-in logs and access to health and analytics for monitoring and troubleshooting purposes. 
+
 ### [Intune Administrator](#intune-service-administrator-permissions)
 
 Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control).
@@ -1005,6 +1009,7 @@ Can manage all aspects of the Exchange product.
 | microsoft.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
 | microsoft.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
 | microsoft.office365.exchange/allEntities/allTasks | Manage all aspects of Exchange Online. |
+| microsoft.office365.network/performance/allProperties/read | Read network performance pages in M365 Admin Center. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 | microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
@@ -1083,6 +1088,7 @@ Can read everything that a Global Administrator can, but not edit anything.
 | microsoft.office365.exchange/allEntities/read    | Read all aspects of Exchange Online. |
 | microsoft.office365.messageCenter/messages/read    | Read messages in microsoft.office365.messageCenter. |
 | microsoft.office365.messageCenter/securityMessages/read    | Read securityMessages in microsoft.office365.messageCenter. |
+| microsoft.office365.network/performance/allProperties/read | Read network performance pages in M365 Admin Center. |
 | microsoft.office365.protectionCenter/allEntities/read    | Read all aspects of Office 365 Protection Center. |
 | microsoft.office365.securityComplianceCenter/allEntities/read    | Read all standard properties in microsoft.office365.securityComplianceCenter. |
 | microsoft.office365.usageReports/allEntities/read    | Read Office 365 usage reports. |
@@ -1139,6 +1145,50 @@ Can reset passwords for non-administrators and Helpdesk Administrators.
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+
+### Hybrid Identity Administrator permissions
+
+Enable, deploy, configure, manage, monitor and troubleshoot cloud provisioning and authentication services. 
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.directory/applications/audience/update  | Update applications.audience property in Azure Active Directory. |
+| microsoft.directory/applications/authentication/update | Update applications.authentication property in Azure Active Directory.  |
+| microsoft.directory/applications/basic/update | Update basic properties on applications in Azure Active Directory. |
+| microsoft.directory/applications/create | Create applications in Azure Active Directory. |
+| microsoft.directory/applications/credentials/update | Update applications.credentials property in Azure Active Directory. |
+| microsoft.directory/applications/delete | Delete applications in Azure Active Directory. |
+| microsoft.directory/applications/owners/update | Update applications.owners property in Azure Active Directory. |
+| microsoft.directory/applications/permissions/update | Update applications.permissions property in Azure Active Directory. |
+| microsoft.directory/applications/policies/update | Update applications.policies property in Azure Active Directory. |
+| microsoft.directory/applicationTemplates/instantiate | Instantiate gallery applications from application templates. |
+| microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
+| microsoft.directory/cloudProvisioning/allProperties/allTasks | Read and configure all properties of Azure AD Cloud Provisioning service. |
+| microsoft.directory/federatedAuthentication/allProperties/allTasks | Manage all aspects of Active Directory Federated Services (ADFS) or 3rd party federation provider in Azure AD. |
+| microsoft.directory/organization/dirSync/update | Update organization.dirSync property in Azure Active Directory. |
+| microsoft.directory/passwordHashSync/allProperties/allTasks | Manage all aspects of Password Hash Sync (PHS) in Azure AD. |
+| microsoft.directory/passThroughAuthentication/allProperties/allTasks | Manage all aspects of Pass-through Authentication (PTA) in Azure AD. |
+| microsoft.directory/seamlessSSO/allProperties/allTasks | Manage all aspects of seamless single sign-on (SSO) in Azure AD. |
+| microsoft.directory/servicePrincipals/audience/update | Update servicePrincipals.audience property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/authentication/update | Update servicePrincipals.authentication property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/basic/update | Update basic properties on servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/create | Create servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/credentials/update | Update servicePrincipals.credentials property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/delete | Delete servicePrincipals in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/owners/update | Update servicePrincipals.owners property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/permissions/update | Update servicePrincipals.permissions property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/synchronizationJobs/manage | Manage all aspects of synchronization jobs in Azure AD. |
+| microsoft.directory/servicePrincipals/synchronizationSchema/manage | Manage all aspects of synchronization schema in Azure AD. |
+| microsoft.directory/servicePrincipals/synchronizationCredentials/manage | Manage all aspects of synchronization credentials in Azure AD. |
+| microsoft.directory/servicePrincipals/tag/update | Update servicePrincipals.tag property in Azure Active Directory. |
+| microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
+| microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+
 
 ### Intune Service Administrator permissions
 
@@ -1613,6 +1663,7 @@ Can manage all aspects of the SharePoint service.
 | microsoft.directory/groups/unified/delete | Delete Office 365 Groups. |
 | microsoft.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
 | microsoft.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
+| microsoft.office365.network/performance/allProperties/read | Read network performance pages in M365 Admin Center. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.sharepoint/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.office365.sharepoint. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -1678,6 +1729,8 @@ Can manage the Microsoft Teams service.
 
 | **Actions** | **Description** |
 | --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.directory/groups/hiddenMembers/read | Read groups.hiddenMembers property in Azure Active Directory. |
 | microsoft.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
 | microsoft.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
@@ -1685,12 +1738,11 @@ Can manage the Microsoft Teams service.
 | microsoft.directory/groups/unified/delete | Delete Office 365 Groups. |
 | microsoft.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
 | microsoft.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
-| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+| microsoft.office365.network/performance/allProperties/read | Read network performance pages in M365 Admin Center. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 | microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 ### User Administrator permissions
 Can manage all aspects of users and groups, including resetting passwords for limited admins.
@@ -1767,6 +1819,7 @@ Global Reader | Global reader | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 Groups Administrator | Groups administrator | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 Guest Inviter | Guest inviter | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Helpdesk Administrator | Helpdesk administrator | 729827e3-9c14-49f7-bb1b-9608f156bbb8
+Hybrid Identity Administrator | Hybrid identity administrator | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2
 Intune Service Administrator | Intune administrator | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Kaizala Administrator | Kaizala administrator | 74ef975b-6605-40af-a5d2-b9539d836353
 License Administrator | License administrator | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
