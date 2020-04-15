@@ -21,6 +21,26 @@ Virtual WAN supports [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=
 
 Each gateway has two instances, the split happens so that each gateway instance can independently allocate client IPs for connected clients and traffic from the virtual network is routed back to the correct gateway instance to avoid inter-gateway instance hop.
 
+### How do I add DNS servers for P2S clients?
+
+There are two options to add DNS servers for the P2S clients.
+
+1. Open a support ticket with Microsoft and have them add your DNS servers to the hub
+2. Or, if you are using the Azure VPN Client for Windows 10, you can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags before importing it.
+
+```
+<azvpnprofile>
+<clientconfig>
+
+	<dnsservers>
+		<dnsserver>x.x.x.x</dnsserver>
+        <dnsserver>y.y.y.y</dnsserver>
+	</dnsservers>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
 ### For User VPN (Point-to-site)- how many clients are supported?
 
 Each User VPN P2S gateway has two instances and each instance supports upto certain users as the scale unit changes. Scale unit 1-3 supports 500 connections, Scale unit 4-6 supports 1000 connections, Scale unit 7-10 supports 5000 connections and Scale unit 11+ supports upto 10,000 connections. As an example, lets say the user chooses 1 scale unit. Each scale unit would imply an active-active gateway deployed and each of the instances (in this case 2) would support upto 500 connections. Since you can get 500 connections * 2 per gateway, it does not mean you plan for 1000 instead of  the 500 for this scale unit as instances may need to be serviced during which connectivity for the extra 500 may be interrupted if you surpass the recommended connection count.

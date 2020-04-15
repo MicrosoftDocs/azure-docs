@@ -83,17 +83,11 @@ Once the tenant-wide policy has been defined, you can continue with the classifi
 
 4. To download a report in Excel format, click on the **Export** option in the top menu of the window.
 
-   ![Export to Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
-
 5. <a id="step-5"></a>To begin classifying your data, click on the **Classification tab** at the top of the window.
-
-    ![Classify you data](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png)
 
 6. The classification engine scans your database for columns containing potentially sensitive data and provides a list of **recommended column classifications**. To view and apply classification recommendations:
 
-   - To view the list of recommended column classifications, click on the recommendations panel at the bottom of the window:
-
-      ![Classify your data](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
+   - To view the list of recommended column classifications, click on the recommendations panel at the bottom of the window
 
    - Review the list of recommendations – to accept a recommendation for a specific column, check the checkbox in the left column of the relevant row. You can also mark *all recommendations* as accepted by checking the checkbox in the recommendations table header.
 
@@ -101,21 +95,15 @@ Once the tenant-wide policy has been defined, you can continue with the classifi
 
    - To apply the selected recommendations, click on the blue **Accept selected recommendations** button.
 
-      ![Apply recommendations](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png)
-
 7. You can also **manually classify** columns as an alternative, or in addition, to the recommendation-based classification:
 
    - Click on **Add classification** in the top menu of the window.
-
-      ![Manually add classification](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png)
 
    - In the context window that opens, select the schema > table > column that you want to classify, and the information type and sensitivity label. Then click on the blue **Add classification** button at the bottom of the context window.
 
       ![Select column to classify](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png)
 
 8. To complete your classification and persistently label (tag) the database columns with the new classification metadata, click on **Save** in the top menu of the window.
-
-   ![Save](./media/sql-data-discovery-and-classification/10_data_classification_save.png)
 
 ## <a id="subheading-3"></a>Auditing access to sensitive data
 
@@ -177,7 +165,7 @@ You can use PowerShell to manage classifications and recommendations for Azure S
 
 ## <a id="subheading-6"></a>Next steps
 
-- Learn more about [advanced data security](sql-database-advanced-data-security.md).
+- Learn more about [Advanced Data Security](sql-database-advanced-data-security.md).
 - Consider configuring [Azure SQL Database Auditing](sql-database-auditing.md) for monitoring and auditing access to your classified sensitive data.
 - For a YouTube presentation that includes Data Discovery & Classification, see [Discovering, classifying, labeling & protecting SQL data | Data Exposed](https://www.youtube.com/watch?v=itVi9bkJUNc).
 

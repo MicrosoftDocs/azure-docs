@@ -1,22 +1,24 @@
 ---
 title: T-SQL statements
-description: Links to the documentation for T-SQL statements supported in SQL Analytics.
-services: sql-data-warehouse
+description: Links to the documentation for T-SQL statements supported in Synapse SQL pool.
+services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: query
+ms.subservice: 
 ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
-# T-SQL statements supported in SQL Analytics
-Links to the documentation for T-SQL statements supported in SQL Analytics.
+# T-SQL statements supported in Synapse SQL pool
+
+Links to the documentation for T-SQL statements supported in Synapse SQL pool.
 
 ## Data Definition Language (DDL) statements
+
 * [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx)
 * [ALTER INDEX](https://msdn.microsoft.com/library/ms188388.aspx)
 * [ALTER MATERIALIZED VIEW](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) (Preview) 
@@ -55,11 +57,13 @@ Links to the documentation for T-SQL statements supported in SQL Analytics.
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 
 ## Data Manipulation Language (DML) statements
+
 * [DELETE](https://msdn.microsoft.com/library/ms189835.aspx)
 * [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)
 * [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx)
 
 ## Database Console Commands
+
 * [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 * [DBCC DROPRESULTSETCACHE](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest) (Preview)
 * [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/mt204018.aspx)
@@ -72,6 +76,7 @@ Links to the documentation for T-SQL statements supported in SQL Analytics.
 * [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/mt204043.aspx)
 
 ## Query statements
+
 * [SELECT](https://msdn.microsoft.com/library/ms189499.aspx)
 * [WITH common_table_expression](https://msdn.microsoft.com/library/ms175972.aspx)
 * [EXCEPT and INTERSECT](https://msdn.microsoft.com/library/ms188055.aspx)
@@ -90,6 +95,7 @@ Links to the documentation for T-SQL statements supported in SQL Analytics.
 * [Subqueries](https://msdn.microsoft.com/library/mt631613.aspx)
 
 ## Security statements
+
 * Permissions: [GRANT](https://msdn.microsoft.com/library/ms187965.aspx), [DENY](https://msdn.microsoft.com/library/ms188338.aspx), [REVOKE](https://msdn.microsoft.com/library/ms187728.aspx)
 * [ALTER AUTHORIZATION](https://msdn.microsoft.com/library/ms187359.aspx)
 * [ALTER CERTIFICATE](https://msdn.microsoft.com/library/ms189511.aspx)
@@ -115,4 +121,5 @@ Links to the documentation for T-SQL statements supported in SQL Analytics.
 * [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## Next steps
-For more reference information, see [T-SQL language elements in SQL Analytics](sql-data-warehouse-reference-tsql-language-elements.md), and [System views in SQL Analytics](sql-data-warehouse-reference-tsql-system-views.md).
+
+For more reference information, see [T-SQL language elements in Synapse SQL pool](sql-data-warehouse-reference-tsql-language-elements.md), and [System views in Synapse SQL pool](sql-data-warehouse-reference-tsql-system-views.md).

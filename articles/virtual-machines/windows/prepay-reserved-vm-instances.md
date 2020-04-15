@@ -9,7 +9,7 @@ ms.service: virtual-machines-windows
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/29/2019
+ms.date: 03/27/2020
 ms.author: banders
 
 ---

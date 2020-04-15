@@ -79,7 +79,7 @@ You can enable and manage metrics and diagnostic telemetry logging by using one 
 - Azure Resource Manager template
 
 > [!NOTE]
-> To enable audit log streaming of security telemetry, see [Set up auditing for your database](sql-database-auditing.md#subheading-2) and [auditing logs in Azure Monitor logs and Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> To enable audit log streaming of security telemetry, see [Set up auditing for your database](sql-database-auditing.md#setup-auditing) and [auditing logs in Azure Monitor logs and Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
 ## Configure the streaming export of diagnostic telemetry
 

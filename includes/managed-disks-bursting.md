@@ -5,12 +5,12 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 02/28/2020
+ ms.date: 03/29/2020
  ms.author: rogarana
  ms.custom: include file
 ---
 
-Disk bursting is currently a preview feature for premium SSDs. Bursting is supported on any premium SSD disk sizes <= 512 GiB (P20 or below). These disk sizes support bursting on a best effort basis and utilize a credit system to manage bursting. Credits accumulate in a burst bucket whenever disk traffic is below the provisioned performance target for their disk size, and consume credits when traffic bursts beyond the target. Disk traffic is tracked against both IOPS and bandwidth in the provisioned target. Disk bursting will not bypass virtual machine (VM) size limitations on IOPS or throughput.
+Disk bursting is supported for premium SSDs. Bursting is supported on any premium SSD disk sizes <= 512 GiB (P20 or below). These disk sizes support bursting on a best effort basis and utilize a credit system to manage bursting. Credits accumulate in a burst bucket whenever disk traffic is below the provisioned performance target for their disk size, and consume credits when traffic bursts beyond the target. Disk traffic is tracked against both IOPS and bandwidth in the provisioned target. Disk bursting will not bypass virtual machine (VM) size limitations on IOPS or throughput.
 
 Disk bursting is enabled by default on new deployments of the disk sizes that support it. Existing disk sizes, if they support disk bursting, can enable bursting through either of the following methods:
 
@@ -31,7 +31,7 @@ The disk sizes that provide bursting support along with the burst specifications
 
 ## Regional availability
 
-Currently, disk bursting is only available in the West Central US region.
+Disk bursting is available in all regions in Public Cloud.
 
 ## Disk sizes
 

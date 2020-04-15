@@ -1,12 +1,12 @@
 ---
 title: Create and query a Synapse SQL pool with Azure PowerShell
 description: Quickly create a Synapse SQL pool logical server with a server-level firewall rule using Azure PowerShell.
-services: sql-data-warehouse
+services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: development
+ms.subservice: 
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
@@ -27,24 +27,23 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Sign in to Azure
 
-Sign in to your Azure subscription using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions.
+Sign in to your Azure subscription using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) command and follow the on-screen directions.
 
 ```powershell
 Connect-AzAccount
 ```
 
-To see which subscription you're using, run [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
+To see which subscription you're using, run [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Get-AzSubscription
 ```
 
-If you need to use a different subscription than the default, run [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
+If you need to use a different subscription than the default, run [Set-AzContext](/powershell/module/az.accounts/set-azcontext?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
 ```
-
 
 ## Create variables
 
@@ -69,7 +68,7 @@ $databasename = "mySampleDataWarehouse"
 
 ## Create a resource group
 
-Create an [Azure resource group](../../azure-resource-manager/management/overview.md) using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
+Create an [Azure resource group](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the `westeurope` location.
 
 ```powershell
 New-AzResourceGroup -Name $resourcegroupname -Location $location
@@ -77,7 +76,7 @@ New-AzResourceGroup -Name $resourcegroupname -Location $location
 
 ## Create a logical server
 
-Create an [Azure SQL logical server](../../sql-database/sql-database-logical-servers.md) using the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin user named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
+Create an [Azure SQL logical server](../../sql-database/sql-database-logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) using the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) command. A logical server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin user named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $resourcegroupname `
@@ -88,7 +87,7 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## Configure a server firewall rule
 
-Create an [Azure SQL server-level firewall rule](../../sql-database/sql-database-firewall-configure.md) using the [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL pool through the SQL pool service firewall. 
+Create an [Azure SQL server-level firewall rule](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) using the [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) command. A server-level firewall rule allows an external application, such as SQL Server Management Studio or the SQLCMD utility to connect to a SQL pool through the SQL pool service firewall.
 
 In the following example, the firewall is only opened for other Azure resources. To enable external connectivity, change the IP address to an appropriate address for your environment. To open all IP addresses, use 0.0.0.0 as the starting IP address and 255.255.255.255 as the ending address.
 
@@ -102,9 +101,9 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 > SQL endpoints communicate over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you won't be able to connect to your Azure SQL server unless your IT department opens port 1433.
 >
 
-
 ## Create a SQL pool
-The following example creates a SQL pool using the previously defined variables.  It specifies the service objective as DW100c, which is a lower-cost starting point for your SQL pool. 
+
+The following example creates a SQL pool using the previously defined variables.  It specifies the service objective as DW100c, which is a lower-cost starting point for your SQL pool.
 
 ```Powershell
 New-AzSqlDatabase `
@@ -127,15 +126,14 @@ Required Parameters are:
 
 Optional Parameters are:
 
-- **CollationName**: The default collation if not specified is SQL_Latin1_General_CP1_CI_AS. Collation can't be changed on a database.
-- **MaxSizeBytes**: The default max size of a database is 240TB. The max size limits rowstore data. There is unlimited storage for columnar data.
+* **CollationName**: The default collation if not specified is SQL_Latin1_General_CP1_CI_AS. Collation can't be changed on a database.
+* **MaxSizeBytes**: The default max size of a database is 240TB. The max size limits rowstore data. There is unlimited storage for columnar data.
 
-For more information on the parameter options, see [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
-
+For more information on the parameter options, see [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## Clean up resources
 
-Other quickstart tutorials in this collection build upon this quickstart. 
+Other quickstart tutorials in this collection build upon this quickstart.
 
 > [!TIP]
 > If you plan to continue on to work with later quickstart tutorials, don't clean up the resources created in this quickstart. If you don't plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.

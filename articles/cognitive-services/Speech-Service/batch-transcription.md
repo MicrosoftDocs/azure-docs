@@ -38,6 +38,17 @@ Batch transcription jobs are scheduled on a best effort basis. Currently there i
 
 Next to the easy-to-use API, you don't need to deploy custom endpoints, and you don't have any concurrency requirements to observe.
 
+> [!TIP]
+> You can use the Swagger Editor to automatically generate client libraries for the batch transcription REST API. Thus Batch transcription can be used from nearly any programming language or environment that supports REST.<br> 
+> For example, to generate a Batch transcription client library.
+> 1. Copy the example URL below:
+>     ```http
+>     https://westus.cris.ai/docs/v2.0/swagger
+>     ```
+> 1. Navigate to the <a href="https://editor.swagger.io/" target="_blank">**Swagger Editor** <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> 1. Select **File** > **Import URL** and paste the URL
+> 1. Select **Generate Client** and choose your desired programming language
+
 ## Prerequisites
 
 ### Subscription Key
@@ -299,9 +310,6 @@ The transcription service can handle large number of submitted transcriptions. Y
 ## Sample code
 
 Complete samples are available in the [GitHub sample repository](https://aka.ms/csspeech/samples) inside the `samples/batch` subdirectory.
-
-> [!NOTE]
-> Batch transcription functionality is exposed via the REST API described above. Thus Batch transcription can be used from nearly any programming language or environment that supports REST. The examples below and samples in GitHub are merely representative and **do not** connote limits on where the API can be used.
 
 You have to customize the sample code with your subscription information, the service region, the SAS URI pointing to the audio file to transcribe, and model IDs in case you want to use a custom acoustic or language model.
 

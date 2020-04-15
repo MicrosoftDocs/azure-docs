@@ -96,7 +96,7 @@ In this quickstart, you use a code sample to learn how an ASP.NET web app to sig
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 
 ## More information
 

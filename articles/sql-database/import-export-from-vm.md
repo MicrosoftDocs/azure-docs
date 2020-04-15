@@ -55,7 +55,7 @@ The following steps show you how to connect to your virtual machine using a remo
 
 4. Close the **Connect to virtual machine** form.
 5. To connect to your VM, open the downloaded RDP file.
-6. When prompted, select **Connect**. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) from the Mac App Store.
+6. When prompted, select **Connect**. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) from the Mac App Store.
 
 7. Enter the username and password you specified when creating the virtual machine, then choose **OK**.
 

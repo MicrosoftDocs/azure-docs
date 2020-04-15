@@ -71,3 +71,7 @@ For scenarios that include both Azure Bastion and Azure Firewall/Network Virtual
 ### <a name="filetransfer"></a>Is file-transfer supported with Azure Bastion RDP session?
 
 We are working hard to add new features. As of now, file transfer is not supported but is part of our roadmap. Please feel free to share your feedback about new features on the [Azure Bastion Feedback page](https://feedback.azure.com/forums/217313-networking?category_id=367303).
+
+### <a name="udr"></a>How do I handle deployment failures?
+
+Review any error messages and [raise a support request in the Azure Portal](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) as needed. Deployment failures may result from [Azure subscription limits, quotas and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Specifically, customers may encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.

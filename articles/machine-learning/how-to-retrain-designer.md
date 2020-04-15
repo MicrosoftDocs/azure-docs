@@ -49,14 +49,14 @@ To retrain a model, you need an initial model. In this section, you learn how to
    For this example, the data is stored in an [Azure datastore](how-to-access-data.md). If you don't already have a datastore, you can create one now by selecting **New datastore**.
 
 1. Specify the path to your data. You can also select **Browse path** to browse to your datastore. 
-1. Select **Run** at the top of the canvas.
+1. Select **Submit** at the top of the canvas.
     
    > [!NOTE]
    > If you have already set a default compute for this pipeline draft, the pipeline will run automatically. Otherwise, you can follow the prompts on the settings pane to set one now.
 
 ### Find your trained model
 
-The designer saves all pipeline outputs, including trained models, to the default storage account. You can also access the trained model directly in the designer:
+The designer saves all pipeline outputs, including trained models, to the default storage account. However, you can also access trained models directly in the designer:
 
 1. Wait for the pipeline to finish running.
 1. Select the **Train Model** module.

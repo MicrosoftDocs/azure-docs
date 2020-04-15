@@ -29,11 +29,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You need these permissions for these tasks in Azure, before you can assess or migrate VMware VMs.
 
-**Permissions** | **Details**
---- | ---
-**Permissions to create a project** | Your Azure account needs permissions to create an Azure Migrate project.
-**Permissions to register the Azure Migrate appliance** | Azure Migrate uses a lightweight Azure Migrate appliance to discover VMs, and to send VM metadata/performance data to Azure Migrate. The appliance is used when assessing VMware VMs with Azure Migrate Server Assessment, and when migrating VMware VMs using [agentless migration](server-migrate-overview.md) with Azure Migrate:Server Migration. You need a couple of permissions to set up and register the appliance: <br/><br/> - **Register resource providers**: After deploying the appliance, you register these resource providers so that your Azure subscription can work with them: Microsoft.OffAzure, Microsoft.Migrate and Microsoft.KeyVault. To register the resource providers, you need a Contributor or Owner role on the subscription.<br/>- **Create Azure AD apps**: During onboarding, you need permissions for Azure Migrate to create two Azure Active Directory (Azure AD) apps.<br/><br/> - The first app is used for communication (authentication and authorization) between the agents running on the appliance with their respective services running on Azure. This app does not have privileges to make Azure Resource Manager calls, or RBAC access on any resource.<br/> - The second app is used exclusively to access KeyVault created in the user's subscription for agentless migration. It is provided with an RBAC access on the Azure Key Vault (created in customer's tenant) when discovery is initiated from the appliance.
-**Permissions to create a Key Vault** | To migrate VMware VMs using agentless migration, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. To create the vault, you need role assignment permissions on the resource group in which the Azure Migrate project resides.
+**Task** | **Details** 
+--- | --- 
+**Create an Azure Migrate project** | Your Azure account needs Contributor or Owner permissions to create a project. 
+**Register resource providers** | Azure Migrate uses a lightweight Azure Migrate appliance to discover and assess VMware VMs, and to migrate them to Azure with Azure Migrate:Server Assessment.<br/><br/> During appliance registration, resource providers are registered with the subscription chosen in the appliance. [Learn more](migrate-appliance-architecture.md#appliance-registration).<br/><br/> To register the resource providers, you need a Contributor or Owner role on the subscription.
+**Create Azure AD apps** | When registering the appliance, Azure Migrate creates Azure Active Directory (Azure AD) apps. <br/><br/> - The first app is used for communication between the agents running on the appliance, and their respective services running on Azure.<br/><br/> - The second app is used exclusively to access KeyVault created in the user's subscription for agentless VMware VM migration. [Learn more](migrate-appliance-architecture.md#appliance-registration).<br/><br/> You need permissions to create Azure AD apps (available in the Application Developer) role.
+**Create a Key Vault** | To migrate VMware VMs using agentless migration, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription.<br/><br/> To create the vault, you need role assignment permissions on the resource group in which the Azure Migrate project resides.
+
+
 
 
 ### Assign permissions to create project

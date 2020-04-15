@@ -47,7 +47,7 @@ Data scientists use various tools to complete these tasks. It can be time-consum
 
 The Linux DSVM can ease this burden substantially. Use the Linux DSVM to jump-start your analytics project. The Linux DSVM helps you work on tasks in various languages, including R, Python, SQL, Java, and C++. Eclipse provides an easy-to-use IDE for developing and testing your code. The Azure SDK, included in the DSVM, helps you build your applications by using various services on Linux for the Microsoft cloud platform. Other languages are preinstalled, including Ruby, Perl, PHP, and Node.js.
 
-There are no software charges for the DSVM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine you provision with the DSVM image. For more information about the compute fees, see the [Data Science Virtual Machine for Linux (CentOS) listing](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) in Azure Marketplace.
+There are no software charges for the DSVM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine you provision with the DSVM image. For more information about the compute fees, see the [Data Science Virtual Machine for Linux listing](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) in Azure Marketplace.
 
 
 ## Machine Learning Server
@@ -174,7 +174,7 @@ The open-source database PostgresSQL is available on the DSVM, with services run
 SQuirreL SQL is a graphical SQL client that can connect to various databases (including SQL Server, PostgresSQL, and MySQL) and run SQL queries. You can run SQuirreL SQL from a graphical desktop session (through the X2Go client, for example) by using a desktop icon. Or you can run the client by using the following command in the shell:
 
 ```bash
-/usr/local/squirrel-sql-3.7/squirrel-sql.sh	/usr/local/squirrel-sql-3.7/squirrel-sql.sh
+/usr/local/squirrel-sql-3.7/squirrel-sql.sh    /usr/local/squirrel-sql-3.7/squirrel-sql.sh
 ```
 
 Before the first use, set up your drivers and database aliases. The JDBC drivers are located at /usr/share/java/jdbcdrivers.

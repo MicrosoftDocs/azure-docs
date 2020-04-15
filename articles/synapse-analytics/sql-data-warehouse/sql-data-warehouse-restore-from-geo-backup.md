@@ -1,12 +1,12 @@
 ---
 title: Restore a data warehouse from a geo-backup 
 description: How-to guide for geo-restoring a SQL pool.
-services: sql-data-warehouse
+services: synapse-analytics
 author: anumjs
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: 
 ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
@@ -33,12 +33,12 @@ To restore from a geo-backup, use the [Get-AzSqlDatabaseGeoBackup](https://docs.
 
 1. Before you begin, make sure to [install Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Open PowerShell.
-2. Connect to your Azure account and list all the subscriptions associated with your account.
-3. Select the subscription that contains the data warehouse to be restored.
-4. Get the data warehouse you want to recover.
-5. Create the recovery request for the data warehouse.
-6. Verify the status of the geo-restored data warehouse.
-7. To configure your data warehouse after the restore has completed, see [Configure your database after recovery]( ../../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+3. Connect to your Azure account and list all the subscriptions associated with your account.
+4. Select the subscription that contains the data warehouse to be restored.
+5. Get the data warehouse you want to recover.
+6. Create the recovery request for the data warehouse.
+7. Verify the status of the geo-restored data warehouse.
+8. To configure your data warehouse after the restore has completed, see [Configure your database after recovery]( ../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
@@ -72,25 +72,25 @@ The recovered database will be TDE-enabled if the source database is TDE-enabled
 Follow the steps outlined below to restore a SQL pool from a geo-backup:
 
 1. Sign in to your [Azure portal](https://portal.azure.com/) account.
-1. Click **+ Create a 
-resource**. 
+2. Click **+ Create a resource**.
 
-![New DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
+   ![New DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
 3. Click **Databases** and then **Azure Synapse Analytics (formerly SQL DW) **.
 
-![New DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
+   ![New DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 
 4. Fill out the information requested in the **Basics** tab and click **Next: Additional settings**.
 
-![Basics](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+   ![Basics](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
 5. For **Use existing data** parameter, select **Backup** and select the appropriate backup from the scroll down options. Click **Review + Create**.
- 
-![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
+
+   ![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 
 6. Once the data warehouse has been restored, check that the **Status** is Online.
 
 ## Next Steps
+
 - [Restore an existing SQL pool](sql-data-warehouse-restore-active-paused-dw.md)
 - [Restore a deleted SQL pool](sql-data-warehouse-restore-deleted-dw.md)

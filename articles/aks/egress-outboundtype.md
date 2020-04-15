@@ -359,6 +359,12 @@ az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/
 
 ```
 
+ Use the [az aks get-credentials][az-aks-get-credentials] command to configure `kubectl` to connect to your newly created Kubernetes cluster. 
+
+ ```azure-cli
+ az aks get-credentials -g $RG -n $AKS_NAME
+ ```
+
 ### Setup the internal load balancer
 
 AKS has deployed a load balancer with the cluster which can be setup as an [internal load balancer](internal-lb.md).

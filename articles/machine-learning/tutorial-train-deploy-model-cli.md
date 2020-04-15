@@ -8,7 +8,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 03/26/2020
 ---
 
 # Tutorial: Train and deploy a model from the CLI
@@ -63,7 +63,7 @@ The `examples/cli-train-deploy` directory from the project contains the followin
 The repository contains the following files, which are used to deploy the trained model as a web service:
 
 * `aciDeploymentConfig.yml`: A __deployment configuration__ file. This file defines the hosting environment needed for the model.
-* `inferenceConfig.yml`: An __inference configuration__ file. This file defines the software environment used by the service to score data with the model.
+* `inferenceConfig.json`: An __inference configuration__ file. This file defines the software environment used by the service to score data with the model.
 * `score.py`: A python script that accepts incoming data, scores it using the model, and then returns a response.
 * `scoring-env.yml`: The conda dependencies needed to run the model and `score.py` script.
 * `testdata.json`: A data file that can be used to test the deployed web service.
@@ -198,10 +198,10 @@ The output of this command is similar to the following JSON:
 }
 ```
 
-This command creates a new compute target named `cpu`, with a maximum of four nodes. The VM size selected provides a VM with a GPU resource. For information on the VM size, see [VM types and sizes].
+This command creates a new compute target named `cpu-cluster`, with a maximum of four nodes. The VM size selected provides a VM with a GPU resource. For information on the VM size, see [VM types and sizes].
 
 > [!IMPORTANT]
-> The name of the compute target (`cpu` in this case), is important; it is referenced by the `.azureml/mnist.runconfig` file used in the next section.
+> The name of the compute target (`cpu-cluster` in this case), is important; it is referenced by the `.azureml/mnist.runconfig` file used in the next section.
 
 ## Define the dataset
 
@@ -299,7 +299,7 @@ For more information on run configuration files, see [Set up and use compute tar
 
 ## Submit the training run
 
-To start a training run on the `cpu-compute` compute target, use the following command:
+To start a training run on the `cpu-cluster` compute target, use the following command:
 
 ```azurecli-interactive
 az ml run submit-script -c mnist -e myexperiment --source-directory scripts -t runoutput.json
@@ -368,7 +368,7 @@ The first command downloads the registered model to the current directory. The f
 To deploy a model, use the following command:
 
 ```azurecli-interactive
-az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aciDeploymentConfig.yml
+az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.json --dc aciDeploymentConfig.yml
 ```
 
 > [!NOTE]
@@ -448,10 +448,10 @@ This command returns a JSON document that contains the name of the deleted servi
 
 ### Delete the training compute
 
-If you plan on continuing to use the Azure Machine Learning workspace, but want to get rid of the `cpu-compute` compute target created for training, use the following command:
+If you plan on continuing to use the Azure Machine Learning workspace, but want to get rid of the `cpu-cluster` compute target created for training, use the following command:
 
 ```azurecli-interactive
-az ml computetarget delete -n cpu
+az ml computetarget delete -n cpu-cluster
 ```
 
 This command returns a JSON document that contains the ID of the deleted compute target. It may take several minutes before the compute target has been deleted.

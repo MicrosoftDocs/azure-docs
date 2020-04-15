@@ -93,7 +93,7 @@ To lock down your application to accept traffic only from your specific Front Do
     > [!WARNING]
     > Front Door's backend IP space may change later, however, we will ensure that before that happens, that we would have integrated with [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519). We recommend that you subscribe to [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for any changes or updates.
 
--    Perform a GET operation on your Front Door with the API version `2020-01-01` or higher. The same operation can also be done by referring your Front Door profile in Azure portal. In the 'Overview' section in Azure portal, you will see a field named *Front Door ID" and in the API call this field is called `frontdoorID`. Filter on the incoming header '**X-Azure-FDID**' sent by Front Door to your backend with the value as that of the field `frontdoorID`. 
+-    Perform a GET operation on your Front Door with the API version `2020-01-01` or higher. In the API call, look for `frontdoorID` field. Filter on the incoming header '**X-Azure-FDID**' sent by Front Door to your backend with the value as that of the field `frontdoorID`. 
 
 ### Can the anycast IP change over the lifetime of my Front Door?
 
@@ -114,6 +114,9 @@ Learn more about the [Front Door supported HTTP headers](front-door-http-headers
 A new Front Door creation or any updates to an existing Front Door takes about 3 to 5 minutes for global deployment. That means in about 3 to 5 minutes, your Front Door configuration will be deployed across all of our POPs globally.
 
 Note - Custom SSL certificate updates take about 30 minutes to be deployed globally.
+
+Any updates to routes or backend pools etc. are seamless and will cause zero downtime (if the new configuration is correct). Certificate updates are also atomic and will not cause any outage, unless switching from 'AFD Managed' to 'Use your own cert' or vice versa.
+
 
 ## Configuration
 
