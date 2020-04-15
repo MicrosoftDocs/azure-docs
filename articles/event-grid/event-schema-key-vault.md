@@ -1,19 +1,21 @@
 ---
-title: Azure Event Grid event schema for Azure Key Vault
+title: Azure Key Vault as Event Grid source
 description: Describes the properties and schema provided for Azure Key Vault events with Azure Event Grid
 services: event-grid
-author: msmbaldwin
+author: spelluru
 ms.service: event-grid
-ms.topic: reference
-ms.date: 10/25/2019
-ms.author: mbaldwin
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
 ---
 
-# Azure Event Grid event schema for Azure Key Vault (preview)
+# Azure Key Vault as Event Grid source
 
 This article provides the properties and schema for events in [Azure Key Vault](../key-vault/index.yml), currently in preview. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
-## Available event types
+## Event Grid event schema
+
+### Available event types
 
 An Azure Key Vault account generates the following event types:
 
@@ -29,7 +31,7 @@ An Azure Key Vault account generates the following event types:
 | Microsoft.KeyVault.SecretNearExpiry | Secret Near Expiry | Triggered when the current version of a secret is about to expire. (The event is triggered  30 days before the expiration date.) |
 | Microsoft.KeyVault.SecretExpired | Secret Expired | Triggered when a secret is expired. |
 
-## Event examples
+### Event examples
 
 The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreated**:
 
@@ -56,7 +58,7 @@ The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreat
 ]
 ```
 
-## Event properties
+### Event properties
 
 An event has the following top-level data:
 
@@ -69,6 +71,12 @@ An event has the following top-level data:
 | version | string | The version of the object that triggered this event |
 | nbf | number | The not-before date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
 | exp | number | The expiration date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
+
+## Tutorials and how-tos
+|Title  |Description  |
+|---------|---------|
+| [Monitoring Key Vault events with Azure Event Grid](../key-vault/event-grid-overview.md) | Overview of integrating Key Vault with Event Grid. |
+| [Tutorial: Create and monitor Key Vault events with Event Grid](../key-vault/event-grid-tutorial.md) | Learn how to set up Event Grid notifications for Key Vault. |
 
 
 ## Next steps
