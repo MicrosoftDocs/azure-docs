@@ -3,7 +3,7 @@ title: Create a Windows Server container on an Azure Kubernetes Service (AKS) cl
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using the Azure CLI.
 services: container-service
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 04/14/2020
 
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
@@ -31,8 +31,8 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 The following additional limitations apply to Windows Server node pools:
 
-* The AKS cluster can have a maximum of eight node pools.
-* The AKS cluster can have a maximum of 400 nodes across those eight node pools.
+* The AKS cluster can have a maximum of 10 node pools.
+* The AKS cluster can have a maximum of 100 nodes in each node pool.
 * The Windows Server node pool name has a limit of 6 characters.
 
 ## Create a resource group
@@ -67,45 +67,32 @@ The following example output shows the resource group created successfully:
 
 ## Create an AKS cluster
 
-In order to run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]. Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster*. This command will create the necessary network resources if they don't exist.
-  * The cluster is configured with two nodes
-  * The *windows-admin-password* and *windows-admin-username* parameters set the admin credentials for any Windows Server containers created on the cluster.
+In order to run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]. Use the [az aks create][az-aks-create] command below to create an AKS cluster named *myAKSCluster*. This command will create the necessary network resources if they don't exist.
 
 > [!NOTE]
 > To ensure your cluster to operate reliably, you should run at least 2 (two) nodes in the default node pool.
 
-Provide your own secure *PASSWORD_WIN* (remember that the commands in this article are entered into a BASH shell):
-
 ```azurecli-interactive
-PASSWORD_WIN="P@ssw0rd1234"
-
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
-    --kubernetes-version 1.15.7 \
+    --kubernetes-version 1.16.7 \
     --generate-ssh-keys \
-    --windows-admin-password $PASSWORD_WIN \
-    --windows-admin-username azureuser \
     --vm-set-type VirtualMachineScaleSets \
     --load-balancer-sku standard \
     --network-plugin azure
 ```
 
 > [!Note]
-> If you get a password validation error, try creating your resource group in another region.
-> Then try creating the cluster with the new resource group.
-
-> [!Note]
 > If you are unable to create the AKS cluster because the version is not supported in this region then you can use the [az aks get-versions --location eastus] command to find the supported version list for this region.
 
-
-After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally the cluster can take longer than a few minutes to provision. Allow up to 10 minutes in these cases. 
+After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally the cluster can take longer than a few minutes to provision. Allow up to 10 minutes in these cases.
 
 ## Add a Windows Server node pool
 
-By default, an AKS cluster is created with a node pool that can run Linux containers. Use `az aks nodepool add` command to add an additional node pool that can run Windows Server containers.
+By default, an AKS cluster is created with a node pool that can run Linux containers. Use `az aks nodepool add` command to add an additional node pool that can run Windows Server containers alongside the Linux node pool.
 
 ```azurecli
 az aks nodepool add \
@@ -114,7 +101,7 @@ az aks nodepool add \
     --os-type Windows \
     --name npwin \
     --node-count 1 \
-    --kubernetes-version 1.15.7
+    --kubernetes-version 1.16.7
 ```
 
 The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. When creating a node pool to run Windows Server containers, the default value for *node-vm-size* is *Standard_D2s_v3*. If you choose to set the *node-vm-size* parameter, please check the list of [restricted VM sizes][restricted-vm-sizes]. The minimum recommended size is *Standard_D2s_v3*. The above command also uses the default subnet in the default vnet created when running `az aks create`.
@@ -143,8 +130,8 @@ The following example output shows the all the nodes in the cluster. Make sure t
 
 ```output
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.15.7
-aksnpwin987654                      Ready    agent   108s   v1.15.7
+aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.7
+aksnpwin987654                      Ready    agent   108s   v1.16.7
 ```
 
 ## Run the application
