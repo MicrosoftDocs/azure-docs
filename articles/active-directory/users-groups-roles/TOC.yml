@@ -149,6 +149,7 @@
     - name: Service plan IDs for licensing
       href: licensing-service-plan-reference.md
   - name: Azure AD administrator roles    
+    expanded: true
     items: 
     - name: Roles and permissions
       href: directory-assign-admin-roles.md
@@ -180,7 +181,6 @@
         href: directory-admin-roles-secure.md  
       - name: Create emergency accounts    
         href: directory-emergency-access.md
-<<<<<<< HEAD
     - name: Administrative units preview
       items:
       - name: Administrative units overview  
@@ -195,8 +195,6 @@
         href: roles-admin-units-assign-roles.md
       - name: FAQ and troubleshooting
         href: roles-admin-units-faq-troubleshoot.md
-=======
->>>>>>> adb6a18deb76ab9b5f461c69a4f08b2ced0544ab
   - name: Manage sign-in
     items:    
     - name: Customize company branding    

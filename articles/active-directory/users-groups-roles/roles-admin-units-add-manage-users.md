@@ -117,7 +117,7 @@ Edit the downloaded CSV template with the relevant user entries. Do not remove t
 
 Once you have saved the entries in the file, upload the file, select **Submit**.
 
-![Submit the bulk upload file](./media/roles-admin-units-add-manage-users/bulk-use-remove.png)
+![Submit the bulk upload file](./media/roles-admin-units-add-manage-users/bulk-user-remove.png)
 
 ## Next steps
 

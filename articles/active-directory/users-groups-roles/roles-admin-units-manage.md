@@ -93,5 +93,5 @@ The highlighted section may be changed as required for the specific environment.
 
 ## Next steps
 
-[Managing users in administrative unit](roles-aus-add-manage-users.md)
-[Managing groups in administrative unit](roles-aus-add-manage-groups.md)
+[Managing users in administrative unit](roles-admin-units-add-manage-users.md)
+[Managing groups in administrative unit](roles-admin-units-add-manage-groups.md)
