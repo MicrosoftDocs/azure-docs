@@ -9,8 +9,8 @@
  ms.author: rogarana
  ms.custom: include file
 ---
-Standard file shares with 100 TiB capacity limit are available globally in all Azure regions, except:
+Standard file shares with 100 TiB capacity has certain limitations.
 
-- Locally redundant storage: All regions, except for South Africa North, South Africa West, Germany West Central, and Germany North.
-- Zone redundant storage: Supported for all regions where Zone redundant storage is supported, except for Japan East, North Europe, South Africa North.
-- Geo-redundant/GeoZone redundant storage: Not supported.
+- Currently, only locally redundant storage (LRS) and zone redundant storage (ZRS) accounts are supported.
+- Once you enable large file shares, you can not convert storage accounts to geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS) accounts.
+- Once you enable large file shares, you can't disable it.
