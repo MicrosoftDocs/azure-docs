@@ -41,11 +41,11 @@ The following table lists the TinkerPop features that are implemented by Azure C
 | Edge features | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Supports creating, modifying, and deleting edges |
 | Edge property features | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Supports creating, modifying, and deleting edge properties |
 
-## Gremlin wire format: GraphSON
+## Gremlin wire format
 
-Azure Cosmos DB uses the [GraphSON format](https://tinkerpop.apache.org/docs/current/reference/#graphson) when returning results from Gremlin operations. Azure Cosmos DB currently supports "GraphSONv2" version. GraphSON is the Gremlin standard format for representing vertices, edges, and properties (single and multi-valued properties) using JSON.
+Azure Cosmos DB uses the JSON format when returning results from Gremlin operations. Azure Cosmos DB currently supports the JSON format which is similar to "GraphSONv2", although the returned results don't exactly match the GraphSON format. GraphSON is the Gremlin standard format for representing vertices, edges, and properties (single and multi-valued properties) using JSON.
 
-For example, the following snippet shows a GraphSON representation of a vertex *returned to the client* from Azure Cosmos DB. 
+For example, the following snippet shows a JSON representation of a vertex *returned to the client* from Azure Cosmos DB. 
 
 ```json
   {
@@ -84,7 +84,7 @@ For example, the following snippet shows a GraphSON representation of a vertex *
   }
 ```
 
-The properties used by GraphSON for vertices are described below:
+The properties used by the JSON format for vertices are described below:
 
 | Property | Description | 
 | --- | --- | --- |
