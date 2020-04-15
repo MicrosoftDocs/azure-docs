@@ -12,6 +12,9 @@ ms.date: 02/10/2020
 ---
 
 # Azure Data Factory FAQ
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article provides answers to frequently asked questions about Azure Data Factory.  
 
 ## What is Azure Data Factory? 
