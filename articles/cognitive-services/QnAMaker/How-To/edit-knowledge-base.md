@@ -25,25 +25,6 @@ QnA pairs are added from a datasource, such as a file or URL, or added as an edi
     > [!div class="mx-imgBorder"]
     > ![Add question and answer to QnA pair](../media/qnamaker-how-to-edit-kb/edit-qna-set-question-and-answer.png)
 
-1. Use the rich-text editor to write and format text and save as markdown.
-
-    > [!div class="mx-imgBorder"]
-    > ![Use the rich-text editor to write and format text and save as markdown.](../media/qnamaker-how-to-edit-kb/rich-text-edit-answer.png)
-
-    |Rich-text editor features|Keyboard shortcut|
-    |--|--|
-    |Toggle between rich-text editor and markdown. `</>`|CTRL+M|
-    |Bold. **B**|CTR+LB|
-    |Italics, indicated with an italicized **_I_**|CTRL+I|
-    |Unordered list||
-    |Ordered list||
-    |Header style||
-    |Image - add an image available from a public URL.|CTRL+G|
-    |Add link to publicly available URL.|CTRL+K|
-    |Emoticon - add from a selection of emoticons.|CTRL+E|
-    |Advanced menu - undo|CTRL+Z|
-    |Avanced menu - redo|CTRL+Y|
-
 1. Optionally, add **[alternate phrasing](../Quickstarts/add-question-metadata-portal.md#add-additional-alternatively-phrased-questions)**. Alternate phrasing is any form of the question that is significantly different from the original question but should provide the same answer.
 
     When your knowledge base is published, and you have [active learning](use-active-learning.md) turned on, QnA Maker collects alternate phrasing choices for you to accept. These choices are selected in order to increase the prediction accuracy.
@@ -53,6 +34,45 @@ QnA pairs are added from a datasource, such as a file or URL, or added as an edi
 1. Optionally, add **[follow-up prompts](multiturn-conversation.md)**. Follow-up prompts provide additional conversation paths to the client application to present to the user.
 
 1. Select **Save and train** to see predictions including the new QnA pair.
+
+## Rich-text editing for answer
+
+Rich-text editing of your answer text gives you markdown styling from a simple toolbar.
+
+1. Select the text area for an answer, the rich-text editor toolbar displays on the QnA pair row.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of the rich-text editor with the question and answer of a QnA pair row.](../media/qnamaker-how-to-edit-kb/rich-text-control-qna-pair-row.png)
+
+    Any text already in the answer displays correctly as your user will see it from a bot.
+
+1. Edit the text. Select formatting features from the rich-text editing toolbar or use the toggle feature to switch to markdown syntax.
+
+    > [!div class="mx-imgBorder"]
+    > ![Use the rich-text editor to write and format text and save as markdown.](../media/qnamaker-how-to-edit-kb/rich-text-display-image.png)
+
+    |Rich-text editor features|Keyboard shortcut|
+    |--|--|
+    |Toggle between rich-text editor and markdown. `</>`|CTRL+M|
+    |Bold. **B**|CTR+LB|
+    |Italics, indicated with an italicized **_I_**|CTRL+I|
+    |Unordered list||
+    |Ordered list||
+    |Paragraph style||
+    |Image - add an image available from a public URL.|CTRL+G|
+    |Add link to publicly available URL.|CTRL+K|
+    |Emoticon - add from a selection of emoticons.|CTRL+E|
+    |Advanced menu - undo|CTRL+Z|
+    |Avanced menu - redo|CTRL+Y|
+
+1. Add an image to the answer using the Image icon in the rich-text toolbar. The in-place editor needs the publicly accessible image URL and the alternate text for the image.
+
+
+    > [!div class="mx-imgBorder"]
+    > ![Use the rich-text editor add a publicly accessible image and its ALT text.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
+
+4. Add a link to a URL by either selecting the text in the answer, then selecting the Link icon in the toolbar or by selecting the Link icon in the toolbar then entering new text and the URL.
+
 
 ## Edit a QnA pair
 
