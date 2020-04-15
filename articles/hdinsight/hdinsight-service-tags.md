@@ -6,12 +6,12 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 03/10/2020
+ms.date: 04/15/2020
 ---
 
 # NSG service tags for Azure HDInsight
 
-Azure HDInsight service tags for network security groups (NSGs) are groups of IP addresses for health and management services. These groups help minimize complexity for security rule creation. [Service tags](../virtual-network/security-overview.md#service-tags) provide an alternative method for allowing inbound traffic from specific IP addresses without entering each of the [management IP addresses](hdinsight-management-ip-addresses.md) in your NSGs.
+Azure HDInsight service tags for network security groups (NSGs) are groups of IP addresses for health and management services. These groups help minimize complexity for security rule creation. [Service tags](../virtual-network/security-overview.md#service-tags) allow inbound traffic from specific IPs without entering each of the [management IP addresses](hdinsight-management-ip-addresses.md) in your NSGs.
 
 The HDInsight service manages these service tags. You can't create your own service tag or modify an existing tag. Microsoft manages the address prefixes that match to the service tag and automatically updates the service tag as addresses change.
 
@@ -41,13 +41,13 @@ This tag contains the IP addresses of health and management services for all reg
 
 ## Use regional HDInsight service tags
 
-If the global tag option won't work because you need more restrictive permissions, you can allow only the service tags that are applicable for your region. There may be one, two, or three applicable service tags, depending on the region where your cluster is created.
+If the global tag option won't work because you need more restrictive permissions, you can allow only the service tags  applicable for your region. There may be multiple service tags, depending on the region where your cluster is created.
 
 To find out which service tags to add for your region, read the following sections of the article.
 
 ### Use a single regional service tag
 
-If you prefer to use regional service tags and your cluster is located in one of the regions listed in this table, you only need to add a single regional service tag to your network security group.
+If your cluster is located in a region listed in this table, you only need to add a single regional service tag to your NSG.
 
 | Country | Region | Service tag |
 | ---- | ---- | ---- |
@@ -75,13 +75,13 @@ If you prefer to use regional service tags and your cluster is located in one of
 
 ### Use multiple regional service tags
 
-If you prefer to use regional service tags but the region where your cluster is created wasn't listed in the preceding table, you need to allow multiple regional service tags. The need to use more than one is due to differences in the arrangement of resource providers for the various regions.
+If the region where your cluster was created isn't listed in the preceding table, you need to allow multiple regional service tags. The need to use more than one is because of differences in the arrangement of resource providers for the various regions.
 
 The remaining regions are divided into groups based on which regional service tags they use.
 
 #### Group 1
 
-If your cluster is created in one of the regions in the following table, allow the service tags `HDInsight.WestUS` and `HDInsight.EastUS` in addition to the regional service tag listed. Regions in this section require three service tags.
+If your cluster is created in one of the regions in the following table, allow the service tags `HDInsight.WestUS` and `HDInsight.EastUS`. Also, the regional service tag listed. Regions in this section require three service tags.
 
 For example, if your cluster is created in the `East US 2` region, you'll need to add the following service tags to your network security group:
 
