@@ -338,6 +338,13 @@ public class RemoteRenderingCoordinator : MonoBehaviour
         ARRSessionService?.CurrentActiveSession?.Actions?.Update();
     }
 
+    /// <summary>
+    /// Loads a model into the remote session for rendering
+    /// </summary>
+    /// <param name="modelName">The model's path</param>
+    /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
+    /// <param name="parent">The parent Transform for this remote entity</param>
+    /// <returns>An awaitable Remote Rendering Entity</returns>
     public async Task<Entity> LoadModel(string modelName, ProgressHandler progress, Transform parent)
     {
         //Implement me!
@@ -395,7 +402,8 @@ The remote rendering coordinator and a script it depends on (*ARRServiceUnity*) 
 
 When using ARR, we first need to initialize Azure Remote Rendering, tell it which camera object to use for rendering, which account credentials to use when managing remote sessions and listen for state change events. We'll do this in the `InitializeARR()` method by completing it as follows:
 
-> [!CAUTION] Modifying the script and saving it while the play mode is active in Unity may result in Unity freezing and you are forced to shut it down through the task manager. Therefore, always stop the play mode before editing the RemoteRendering script.
+> [!CAUTION]
+> Modifying the script and saving it while the play mode is active in Unity may result in Unity freezing and you are forced to shut it down through the task manager. Therefore, always stop the play mode before editing the RemoteRendering script.
 
 There are four basic stages to showing remotely rendered models, shown in the below graph. Each of these stages is required to be performed in order. Now that we have the framework for our coordinator, we will implement each of the four stages. In all cases except the **Initialize** stage, there is also an associated "undo" process that reverses that stage.
 
@@ -536,6 +544,13 @@ Connecting to the runtime is the third stage.
 The application is now connected to a remote session and ready to render! Next the application has to tell the remote session to load a model and start rendering it. Then we'll start receiving frames from the remote session, and displaying them with the local runtime. The `LoadModel` method is designed to accept a model path, progress handler and parent Transform. These arguments will be used to load a model into the remote session, update the user on the loading progress and orient the remotely rendered model based on the parent Transform.
 
 ```csharp
+/// <summary>
+/// Loads a model into the remote session for rendering
+/// </summary>
+/// <param name="modelName">The model's path</param>
+/// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
+/// <param name="parent">The parent Transform for this remote entity</param>
+/// <returns>An awaitable Remote Rendering Entity</returns>
 public async Task<Entity> LoadModel(string modelName, ProgressHandler progress, Transform parent)
 {
     //Create a root object to parent a loaded model to
