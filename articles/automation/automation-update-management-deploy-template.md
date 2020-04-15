@@ -6,7 +6,7 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/30/2020
+ms.date: 04/15/2020
 
 ---
 
@@ -20,6 +20,9 @@ You can use [Azure Resource Manager templates](../azure-resource-manager/templat
 * Onboard the Azure Automation Update Management solution
 
 The template does not automate the onboarding of one or more Azure or non-Azure VMs.
+
+>[!NOTE]
+>Creation of the Automation Run As account is not supported when using an Azure Resource Manager template. To create a Run As account manually from the portal or with PowerShell, see [Manage Run As account](manage-runas-account.md).
 
 If you already have a Log Analytics workspace and Automation account deployed in a supported region in your subscription, they are not linked, and the workspace doesn't already have the Update Management solution deployed, using this template successfully creates the link and deploys the Update Management solution. 
 

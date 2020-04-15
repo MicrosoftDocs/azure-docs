@@ -18,7 +18,10 @@ You can use [Azure Resource Manager templates](../azure-resource-manager/templat
 * Creation of an Azure Automation account.
 * Links the Automation account to the Log Analytics workspace.
 
-The template does not automate the onboarding of one or more Azure or non-Azure VMs, or solutions.
+The template does not automate the onboarding of one or more Azure or non-Azure VMs, or solutions. 
+
+>[!NOTE]
+>Creation of the Automation Run As account is not supported when using an Azure Resource Manager template. To create a Run As account manually from the portal or with PowerShell, see [Manage Run As account](manage-runas-account.md).
 
 ## API versions
 
