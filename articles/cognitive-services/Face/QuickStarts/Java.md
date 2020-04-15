@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 #Customer intent: As a Java developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
 
 # Quickstart: Detect faces in an image using the REST API and Java
 
-In this quickstart, you will use the Azure Face REST API with Java to detect human faces in an image.
+In this quickstart, you'll use the Azure Face REST API with Java to detect human faces in an image.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 

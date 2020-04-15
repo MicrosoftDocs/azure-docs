@@ -7,7 +7,7 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 03/25/2020
+ms.date: 04/14/2020
 ms.author: cherylmc
 
 ---
@@ -77,7 +77,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[AIS](https://business.ais.co.th/solution/en/azure-expressroute.html)** | Supported | Supported | Bangkok |
 | **[Aryaka Networks](https://www.aryaka.com/)** |Supported |Supported |Amsterdam, Chicago, Dallas, Hong Kong SAR, Sao Paulo, Seattle, Silicon Valley, Singapore, Tokyo, Washington DC |
 | **[Ascenty Data Centers](https://www.ascenty.com/en/cloud/microsoft-express-route)** |Supported |Supported |Sao Paulo |
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Supported |Supported |Amsterdam, Chicago, Dallas, London, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Supported |Supported |Amsterdam, Chicago, Dallas, Frankfurt, London, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **[AT TOKYO](https://www.attokyo.com/service/cloudsconnection/forazure.html)** | Supported | Supported | Tokyo2 |
 | **[BBIX](https://www.bbix.net/en/service/ix/)** | Supported | Supported | Tokyo |
 | **[BCX](https://www.bcx.co.za/solutions)** |Supported |Supported |Cape Town|
@@ -134,7 +134,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Supported |Supported |Amsterdam, Amsterdam2, Dubai2, Frankfurt, Hong Kong SAR, Johannesburg, London, Paris, Sao Paulo, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Supported | Supported | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Supported |Supported |Chicago, Silicon Valley, Washington DC |
-| **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Supported |Supported |Chicago, Hong Kong SAR, London |
+| **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Supported |Supported |Chicago, Hong Kong SAR, London, Singapore2 |
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Supported |Supported |Seoul |
 | **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Supported |Supported | Washington DC |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Supported |Supported |Chennai, Mumbai2 |
