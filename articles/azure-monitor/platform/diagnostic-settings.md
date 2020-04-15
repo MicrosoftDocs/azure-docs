@@ -1,15 +1,15 @@
 ---
-title: Create diagnostic setting to collect logs and metrics in Azure
-description: Create diagnostic settings to forward Azure platform logs to Azure Monitor Logs, Azure storage, or Azure Event Hubs.
+title: Use diagnostic settings to collect platform metrics and resource logs and in Azure
+description: Send Azure Monitor platform metrics and logs to Azure Monitor Logs, Azure storage, or Azure Event Hubs using a diagnostic setting.
 author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 04/15/2020
 ms.subservice: logs
 ---
 
-# Create diagnostic setting to collect platform logs and metrics in Azure
+# Create diagnostic setting to collect resource logs and metrics in Azure
 
 [Platform logs](platform-logs-overview.md) in Azure, including Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. This article provides details on creating and configuring diagnostic settings to send platform logs to different destinations.
 
