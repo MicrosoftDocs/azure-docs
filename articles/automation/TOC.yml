@@ -102,6 +102,8 @@
               href: automation-runbook-output-and-messages.md
             - name: Error handling in Graphical runbooks
               href: automation-runbook-graphical-error-handling.md
+            - name: Forward job data to Azure Monitor Logs
+              href: automation-manage-send-joblogs-log-analytics.md
         - name: Hybird Runbook Worker
           items: 
             - name: Deploy Windows Hybrid Runbook Worker
@@ -197,11 +199,7 @@
             - name: Manage role-based access control
               href: automation-role-based-access-control.md
             - name: Move your Automation Account to another subscription
-              href: how-to/move-account.md
-        - name: Monitor
-          items:
-            - name: Forward job data to Azure Monitor Logs
-              href: automation-manage-send-joblogs-log-analytics.md
+              href: how-to/move-account.md            
         - name: Migrate
           items:
             - name: Migrate from System Center Orchestrator
