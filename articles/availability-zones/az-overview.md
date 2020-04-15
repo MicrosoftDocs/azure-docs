@@ -117,7 +117,7 @@ There is no additional cost for virtual machines deployed in an Availability Zon
 
 You can choose one or more regions to use based on availability of Azure services and capabilities. If a service is not available in a in a specific region or you are interested in additional regions, you can provide feedback by contacting your Microsoft sales representative.
 
-### Services that support Availability Zones
+### Services support by region
 
 The combinations of Azure services and regions that support Availability Zones are:
 
