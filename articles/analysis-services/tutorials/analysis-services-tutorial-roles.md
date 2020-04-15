@@ -4,7 +4,7 @@ description: Learn how to configure Azure Analysis Services administrator and us
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: owend
 #Customer intent: As a BI developer, I want to connect to my server by using SQL Server Management Studio to configure server administrator and model database user roles.
@@ -63,7 +63,7 @@ For the remaining tasks, you use SSMS to connect to and manage your server.
 
 ## Add a user account to the server administrator role
 
-In this task, you add a user or group account from your Azure AD to the server administrator role. If you're adding a security group, it must have the `MailEnabled` property set to `True`.
+In this task, you add a user or group account from your Azure AD to the server administrator role. If you're adding a security group, it must have the `MailEnabled` property set to `True`. When specifying a group by email address use `obj:groupid@tenantid`.
 
 1. In **Object Explorer**, right-click your server name, and then click **Properties**. 
 2. In the **Analysis Server Properties** window, click **Security** > **Add**.

@@ -9,7 +9,7 @@ ms.topic: how-to
 
 # Interact with Unity game objects and components
 
-Azure Remote Rendering (ARR) is optimized for vast numbers of objects (see [Limits](../../reference/limits.md)). While it's possible to manage large and complex hierarchies on the host, replicating them all in Unity on low-powered devices is unfeasible.
+Azure Remote Rendering (ARR) is optimized for vast numbers of objects (see [Limitations](../../reference/limits.md)). While it's possible to manage large and complex hierarchies on the host, replicating them all in Unity on low-powered devices is unfeasible.
 
 Therefore, when a model is loaded on the host, Azure Remote Rendering mirrors the information about the model structure on the client device (which will incur network traffic), but does not replicate the objects and components in Unity. Instead, it expects you to request the needed Unity game objects and components manually, such that you can limit the overhead to what is actually needed. This way you have more control over the client-side performance.
 
