@@ -53,13 +53,13 @@ Depends on the target performance, cost and regional considerations, you can sel
 
 |Workload type|File Tiers|
 |--------|-----------|
-|Light|Less than 200 users: Standard file shares|
-| |More than 200 users: Standard file shares. You may also consider using Standard file shares with multiple shares if you are scaling up from existing Standard file shares or plan to manage scale out for cost efficiency.|
+|Light|Less than 200 concurrent active users: Standard file shares|
+| |More than 200 concurrent active users: Standard file shares. You may also consider using Standard file shares with multiple shares if you are scaling up from existing Standard file shares or plan to manage scale out for cost efficiency.|
 |Medium|Premium file shares|
 |Heavy|Premium file shares|
 |Power|Premium file shares|
 
-You can leverage the guidance above and further optimize for your WVD scenario. Detailed information of Azure Files on performance targets ([Standard](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets), [Premium](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares)) and [pricing](https://azure.microsoft.com/pricing/details/storage/files/) is available to help you further fine tune the file share solution.
+You can leverage the guidance above and further optimize for your WVD scenario. Detailed information of Azure Files on performance targets ([Standard](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets), [Premium](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares)) and [pricing](https://azure.microsoft.com/pricing/details/storage/files/) is available to help you further fine tune the file share solution.
 
 ## Next steps
 
