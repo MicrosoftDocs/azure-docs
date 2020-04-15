@@ -81,7 +81,7 @@ After importing the cluster template and starting the cluster, the following com
 ```
 
 > [!NOTE]
-> The above queue definition will pack all VMs in the queue into a single VM Scaleset to support MPI jobs. To define the queue for serial jobs and allow multiple VM Scalesets, set `ungrouped = true` for both `resources_default` and `default_chunk`. You can also set `resources_default.place = pack` if you want the scheduler to pack jobs onto VMs instead of round-robin allocation of jobs. For more information on PBS job packing, see the official [PBS Professional OSS documentation](https://www.altair.com/pbs-works-documentation/).
+> The above queue definition will pack all VMs in the queue into a single VM scale set to support MPI jobs. To define the queue for serial jobs and allow multiple VM Scalesets, set `ungrouped = true` for both `resources_default` and `default_chunk`. You can also set `resources_default.place = pack` if you want the scheduler to pack jobs onto VMs instead of round-robin allocation of jobs. For more information on PBS job packing, see the official [PBS Professional OSS documentation](https://www.altair.com/pbs-works-documentation/).
 
 ## PBS Professional Configuration Reference
 

@@ -18,9 +18,9 @@ Clusters fundamentally comprise of nodes, each of which perform a specific role 
 
 :::image type="content" source="~/images/concept_architecture_diagram.png" alt-text="Architecture Diagram":::
 
-There are two separate incarnations of nodes in CycleCloud. The first as a standalone node and the second as a nodearray, which is a collection of identically configured nodes (The node vs nodearray distinction follows the DevOps Pets vs Cattle analogy in spirit). Broadly but not strictly speaking, standalone nodes are constructed from single VMs on Azure while nodearrays map to Virtual Machine ScaleSets (VMSS). 
+There are two separate incarnations of nodes in CycleCloud. The first as a standalone node and the second as a nodearray, which is a collection of identically configured nodes (The node vs nodearray distinction follows the DevOps Pets vs Cattle analogy in spirit). Broadly but not strictly speaking, standalone nodes are constructed from single VMs on Azure while nodearrays map to Virtual Machine scale sets (VMSS). 
 
-There are however crucial differences between nodearrays and VM scalesets, the primary one being that a single nodearray can comprise of multiple VM scalesets. This enables a single nodearray to be build from VMs of difference sizes, or even different VM families, with the only constrain being that all nodes in a nodearray perform the same role in the cluster, for example, providing resources to a single queue of a scheduler.
+There are however crucial differences between nodearrays and VM scale sets, the primary one being that a single nodearray can comprise of multiple VM scale sets. This enables a single nodearray to be build from VMs of difference sizes, or even different VM families, with the only constrain being that all nodes in a nodearray perform the same role in the cluster, for example, providing resources to a single queue of a scheduler.
 
 ## Cluster Templates
 
