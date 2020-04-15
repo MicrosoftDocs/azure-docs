@@ -41,7 +41,7 @@ You can add wildcard domains and their subdomains with certain limitations:
 
 - If a wildcard domain is added to an Azure Front Door profile:
   - The wildcard domain can't be added to any other Azure Front Door profile.
-  - Subdomains of the wildcard domain can't be added to another Azure Front Door profile or an Azure Content Delivery Network profile.
+  - First-level subdomains of the wildcard domain can't be added to another Azure Front Door profile or an Azure Content Delivery Network profile.
 - If a subdomain of a wildcard domain is added to an Azure Front Door profile or Azure Content Delivery Network profile, then the wildcard domain can't be added to other Azure Front Door profiles.
 - If two profiles (Azure Front Door or Azure Content Delivery Network) have various subdomains of a root domain, then wildcard domains can't be added to either of the profiles.
 
