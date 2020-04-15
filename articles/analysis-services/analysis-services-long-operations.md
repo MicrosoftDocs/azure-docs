@@ -40,7 +40,7 @@ Whether using REST or custom logic, client application queries can still return 
 By using read-only query replicas, while refreshes are being performed in batches, client application users can continue to query the old snapshot of data on the read-only replicas. Once refreshes are finished, a Synch operation can be performed to bring the read-only replicas up to date.
 
 
-## See also
+## Next steps
 
 [Asynchronous refresh with the REST API](analysis-services-async-refresh.md)  
 [Azure Analysis Services scale-out](analysis-services-scale-out.md)  
