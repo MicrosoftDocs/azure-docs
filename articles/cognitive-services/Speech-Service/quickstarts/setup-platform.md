@@ -3,13 +3,13 @@ title: 'Quickstart: Set up dev platform'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to install the Speech SDK for your preferred platform and programming language combination.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-three
 ---
 

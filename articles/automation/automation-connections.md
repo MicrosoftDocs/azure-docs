@@ -84,7 +84,7 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-You are able to use the script to create the connection asset because when you create your Automation account, it automatically includes several global modules by default along with the connection type `AzureServicePrincipal` to create the `AzureRunAsConnection` connection asset. This is important to keep in mind, because if you attempt to create a new connection asset to connect to a service or application with a different authentication method, it will fail because the connection type is not already defined in your Automation account. For more information on how to create your own connection type for your custom or module from the [PowerShell Gallery](https://www.powershellgallery.com), see [Integration Modules](automation-integration-modules.md)
+You are able to use the script to create the connection asset because when you create your Automation account, it automatically includes several global modules by default along with the connection type `AzureServicePrincipal` to create the `AzureRunAsConnection` connection asset. This is important to keep in mind, because if you attempt to create a new connection asset to connect to a service or application with a different authentication method, it will fail because the connection type is not already defined in your Automation account. For more information on how to create your own connection type for your custom or module from the [PowerShell Gallery](https://www.powershellgallery.com), see [Integration Modules](automation-integration-modules.md).
 
 ## Using a connection in a runbook or DSC configuration
 
@@ -108,7 +108,7 @@ You add a `Get-AutomationConnection` activity to a graphical runbook by right-cl
 
 ![add to canvas](media/automation-connections/connection-add-canvas.png)
 
-The following image shows an example of using a connection in a graphical runbook. This is the same example shown above for authenticating using the Run As account with a textual runbook. This example uses the `Constant value` data set for the `Get RunAs Connection` activity that uses a connection object for authentication. A [pipeline link](automation-graphical-authoring-intro.md#links-and-workflow) is used here since the `ServicePrincipalCertificate` parameter set is expecting a single object.
+The following image shows an example of using a connection in a graphical runbook. This is the same example as shown above for authenticating using the Run As account with a textual runbook. This example uses the `Constant value` data set for the `Get RunAs Connection` activity that uses a connection object for authentication. A [pipeline link](automation-graphical-authoring-intro.md#links-and-workflow) is used here since the `ServicePrincipalCertificate` parameter set is expecting a single object.
 
 ![get connections](media/automation-connections/automation-get-connection-object.png)
 
@@ -160,5 +160,6 @@ azure_credential = get_automation_runas_credential(runas_connection)
 ## Next steps
 
 - Review [Links in graphical authoring](automation-graphical-authoring-intro.md#links-and-workflow) to understand how to direct and control the flow of logic in your runbooks.
-
+* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
 - To learn more about Azure Automation's use of PowerShell modules and best practices for creating your own PowerShell modules to work as Integration Modules within Azure Automation, see [Integration Modules](automation-integration-modules.md).

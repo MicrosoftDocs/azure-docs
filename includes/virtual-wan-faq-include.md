@@ -205,6 +205,17 @@ Yes. An internet connection and physical device that supports IPsec, preferably 
 
 A virtual hub can propagate a learned default route to a virtual network/site-to-site VPN/ExpressRoute connection if the flag is 'Enabled' on the connection. This flag is visible when the user edits a virtual network connection, a VPN connection, or an ExpressRoute connection. By default, this flag is disabled when a site or an ExpressRoute circuit is connected to a hub. It is enabled by default when a virtual network connection is added to connect a VNet to a virtual hub. The default route does not originate in the Virtual WAN hub; the default route is propagated if it is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled.
 
+### How does the virtual hub in a Virtual WAN select the best path for a route from multiple hubs
+
+If a Virtual Hub learns the same route from multiple remote hubs,  the order in which it decides is as follows
+1) Route Origin 
+	a) Network routes – VNET prefixes directly learnt by the Virtual Hub gateways
+	b) BGP
+	c) Hub RouteTable (statically configured routes)
+	d) InterHub routes
+2)	Route metric : Virtual WAN prefers ExpressRoute over VPN. ExpressRoute peer have a higher weightage compared to the VPN peer
+3)	AS path length
+
 ### What are the differences between the Virtual WAN types (Basic and Standard)?
 
 The 'Basic' WAN type lets you create a basic hub (SKU = Basic). A 'Standard' WAN type lets you create standard hub (SKU = Standard). Basic hubs are limited to site-to-site VPN functionality. Standard hubs let you have ExpressRoute, User VPN (P2S), full mesh hub, and VNet-to-VNet transit through the hubs. You pay a base charge of $0.25/hr for standard hubs and a data processing fee for transiting through the hubs during VNet-to-VNet connectivity, as well as data processing for hub to hub traffic. For more information, see [Basic and Standard virtual WANs](../articles/virtual-wan/virtual-wan-about.md#basicstandard). For pricing, see the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.

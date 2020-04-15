@@ -319,7 +319,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/data-explorer.svg
       azureCategories:
         - analytics
-      url: data-explorer/index.yml
+      url: /azure/data-explorer
     # Card
     - title: Azure Data Lake Storage
       summary: Massively scalable, secure data lake functionality built on Azure Blob Storage

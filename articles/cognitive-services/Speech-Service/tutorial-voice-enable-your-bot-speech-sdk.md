@@ -3,13 +3,13 @@ title: "Tutorial: Voices enable your bot using Speech SDK - Speech service"
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, you'll create an Echo Bot using Microsoft Bot-Framework, deploy it to Azure, and register it with the Bot-Framework Direct Line Speech channel. Then you'll configure a sample client app for Windows that lets you speak to your bot and hear it respond back to you.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 # Tutorial: Voice-enable your bot using the Speech SDK
@@ -51,7 +51,7 @@ Here's what you'll need to complete this tutorial:
 
 - A Windows 10 PC with a working microphone and speakers (or headphones)
 - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or higher
-- [.NET Core SDK](https://dotnet.microsoft.com/download) version 2.1 or later
+- [.NET Framework Runtime 4.6.1](https://dotnet.microsoft.com/download) or higher
 - An Azure account. [Sign up for free](https://azure.microsoft.com/free/ai/).
 - A [GitHub](https://github.com/) account
 - [Git for Windows](https://git-scm.com/download/win)
@@ -272,19 +272,23 @@ Now it's time to register your bot with the Direct Line Speech channel. This cha
 > [!TIP]
 > If you'd like to learn more, see [Connect a bot to Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). This page includes additional information and known issues.
 
-## Build the Windows Voice Assistant Client
+## Run the Windows Voice Assistant Client
 
-In this step, you're going to build the Windows Voice Assistant Client. The client is a Windows Presentation Foundation (WPF) app in C# that uses the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk) to manage communication with your bot using the Direct Line Speech channel. Use it to interact with and test your bot before writing a custom client app.
+In this step, you're going to run the Windows Voice Assistant Client. The client is a Windows Presentation Foundation (WPF) app in C# that uses the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk) to manage communication with your bot using the Direct Line Speech channel. Use it to interact with and test your bot before writing a custom client app. It's open source, so you can either download the executable and run it, or build it yourself.
 
 The Windows Voice Assistant Client has a simple UI that allows you to configure the connection to your bot, view the text conversation, view Bot-Framework activities in JSON format, and display adaptive cards. It also supports the use of custom keywords. You'll use this client to speak with your bot and receive a voice response.
 
 Before we move on, make sure that your microphone and speakers are enabled and working.
 
 1. Navigate to the GitHub repository for the [Windows Voice Assistant Client](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/README.md).
-2. Follow the instructions provided to clone the repository, build the project, configure the client, and launch the client.
-3. Click **Reconnect** and make sure you see the message **Press the mic button, or type to start talking to your bot**.
-4. Let's test it out. Click the microphone button, and speak a few words in English. The recognized text will appear as you speak. When you're done speaking, the bot will reply in its own voice, saying "echo" followed by the recognized words.
-5. You can also use text to communicate with the bot. Just type in the text at the bottom bar. 
+1. Follow the instructions provided there to either
+   * download a ZIP package containing the executable to run, or
+   * build the executable yourself, by cloning the repository and building the project.
+
+1. Launch the client application and configure it.
+1. Click **Reconnect** and make sure you see the message **Press the mic button, or type to start talking to your bot**.
+1. Let's test it out. Click the microphone button, and speak a few words in English. The recognized text will appear as you speak. When you're done speaking, the bot will reply in its own voice, saying "echo" followed by the recognized words.
+1. You can also use text to communicate with the bot. Just type in the text at the bottom bar. 
 
 ### Troubleshooting errors in Windows Voice Assistant Client
 
@@ -421,7 +425,7 @@ Now that you've made the necessary change to the bot, the next step is to republ
 2. Your previous deployment configuration has already been loaded as the default. Simply click **Publish** next to **EchoBot20190805125647 - Web Deploy**.
 3. The **Publish Succeeded** message will appear in the Visual Studio output window, and a web page will launch with the message "Your bot is ready!".
 4. Open the Windows Voice Assistant Client app, click on the settings button (upper-right gear icon), and make sure you still have `de-de` in the Language field.
-5. Follow the instructions in [Build the Windows Voice Assistant Client](#build-the-windows-voice-assistant-client) to reconnect with your newly deployed bot, speak in the new language and hear you bot reply in that language with the new voice.
+5. Follow the instructions in [Run the Windows Voice Assistant Client](#run-the-windows-voice-assistant-client) to reconnect with your newly deployed bot, speak in the new language and hear you bot reply in that language with the new voice.
 
 ## Clean up resources
 

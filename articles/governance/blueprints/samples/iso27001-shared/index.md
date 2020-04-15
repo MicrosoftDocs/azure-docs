@@ -1,7 +1,7 @@
 ---
 title: ISO 27001 Shared Services blueprint sample overview
 description: Overview and architecture of the ISO 27001 Shared Services blueprint sample. This blueprint sample helps customers assess specific ISO 27001 controls.
-ms.date: 01/13/2020
+ms.date: 04/15/2020
 ms.topic: sample
 ---
 # Overview of the ISO 27001 Shared Services blueprint sample
@@ -22,7 +22,7 @@ VDC is a proven set of reference architectures, automation tooling, and engageme
 Microsoft with its largest enterprise customers. The Shared Services blueprint sample is based on a
 fully native Azure VDC environment shown below.
 
-![ISO 27001 Shared Services blueprint sample design](../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png)
+:::image type="content" source="../../media/sample-iso27001-shared/iso27001-shared-services-blueprint-sample-design.png" alt-text="ISO 27001 Shared Services blueprint sample design" border="false":::
 
 This environment is composed of several Azure services used to provide a secure, fully monitored,
 enterprise-ready shared services infrastructure based on ISO 27001 standards. This environment is

@@ -1,5 +1,5 @@
 ---
-title: Prepare your Azure Container technical assets
+title: Create an Azure VM technical asset
 description: This article describes the steps and requirements for configuring a container offer on Azure Marketplace.
 author: anbene
 ms.author: mingshen
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ---
 
-# Prepare your Azure Container technical assets
+# Create an Azure VM technical asset
 
 > [!IMPORTANT]
 > We're moving the management of your Azure Container offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Prepare your Container technical assets](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-create-technical-assets) for Cloud Partner Portal to manage your offers.
