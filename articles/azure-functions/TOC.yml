@@ -85,6 +85,10 @@
     href: functions-premium-plan.md
   - name: Deployments
     href: functions-deployment-technologies.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Events and messaging
     items:
     - name: Reliable event processing

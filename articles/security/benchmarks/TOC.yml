@@ -34,6 +34,10 @@
     href: security-baselines-overview.md
   - name: Azure Cache for Redis security baseline
     href: ../../azure-cache-for-redis/security-baseline.md
+  - name: Azure Functions security baseline
+    href: ../../azure-functions/security-baseline.md
+  - name: Backup security baseline
+    href: ../../backup/security-baseline.md
   - name: Batch security baseline
     href: ../../batch/security-baseline.md
   - name: Container Registry security baseline
@@ -56,3 +60,5 @@
     href: ../../postgresql/security-baseline.md
   - name: SQL Database security baseline
     href: ../../sql-database/security-baseline.md
+  - name: Storage security baseline
+    href: ../../storage/common/security-baseline.md

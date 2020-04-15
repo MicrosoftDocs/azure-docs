@@ -346,7 +346,9 @@
       href: backup-azure-security-feature.md
     - name: Built-in security controls
       href: backup-security-controls.md
-  - name: Troubleshoot
+    - name: Security baseline
+      href: security-baseline.md
+    - name: Troubleshoot
     items:
     - name: Azure VM
       href: backup-azure-vms-troubleshoot.md
