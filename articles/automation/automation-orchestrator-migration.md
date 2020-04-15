@@ -130,7 +130,7 @@ For example, a runbook may use a variable to populate a particular value in an a
 
 ### Input parameters
 
-Runbooks in Orchestrator accept input parameters with the **Initialize Data** activity.  If the runbook being converted includes this activity, then an [input parameter](automation-graphical-authoring-intro.md#runbook-input-and-output) in the Azure Automation runbook is created for each parameter in the activity.  A [Workflow Script control](automation-graphical-authoring-intro.md#activities) activity is created in the converted runbook that retrieves and returns each parameter.  Any activities in the runbook that use an input parameter refer to the output from this activity.
+Runbooks in Orchestrator accept input parameters with the `Initialize Data` activity.  If the runbook being converted includes this activity, then an [input parameter](automation-graphical-authoring-intro.md#runbook-input-and-output) in the Azure Automation runbook is created for each parameter in the activity.  A [Workflow Script control](automation-graphical-authoring-intro.md#activities) activity is created in the converted runbook that retrieves and returns each parameter.  Any activities in the runbook that use an input parameter refer to the output from this activity.
 
 The reason that this strategy is used is to best mirror the functionality in the Orchestrator runbook.  Activities in new graphical runbooks should refer directly to input parameters using a Runbook input data source.
 
