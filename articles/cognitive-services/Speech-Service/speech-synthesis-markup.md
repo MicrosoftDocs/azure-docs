@@ -191,7 +191,6 @@ By default, the text-to-speech service synthesizes text using a neutral speaking
 Currently, speaking style adjustments are supported for these neural voices:
 * `en-US-AriaNeural`
 * `zh-CN-XiaoxiaoNeural`
-* `pt-BR-FranciscaNeural`
 
 Changes are applied at the sentence level, and style vary by voice. If a style isn't supported, the service will return speech in the default neutral speaking style.
 
@@ -209,18 +208,17 @@ Changes are applied at the sentence level, and style vary by voice. If a style i
 
 Use this table to determine which speaking styles are supported for each neural voice.
 
-| Voice | Style | Description |
-|-------|------|-------------|
-| `en-US-AriaNeural` | `style="newscast"` | Expresses a formal and professional tone for narrating news |
-| | `style="customerservice"` | Expresses a friendly and helpful tone for customer support |
-| | `style="chat"` | Expresses a casual and relaxed tone |
-| | `style="cheerful"` | Expresses a positive and happy tone |
-| | `style="empathetic"` | Expresses a sense of caring and understanding |
-| `zh-CN-XiaoxiaoNeural` | `style="newscast"` | Expresses a formal and professional tone for narrating news |
-| | `style="customerservice"` | Expresses a friendly and helpful tone for customer support |
-| | `style="assistant"` | Expresses a warm and relaxed tone for digital assistants  |
-| | `style="lyrical"` | Expresses emotions in a melodic and sentimental way |
-| `pt-BR-FranciscaNeural` | `style="cheerful"` | Expresses a positive and happy tone |
+| Voice                   | Style                     | Description                                                 |
+|-------------------------|---------------------------|-------------------------------------------------------------|
+| `en-US-AriaNeural`      | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
+|                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
+|                         | `style="chat"`            | Expresses a casual and relaxed tone                         |
+|                         | `style="cheerful"`        | Expresses a positive and happy tone                         |
+|                         | `style="empathetic"`      | Expresses a sense of caring and understanding               |
+| `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
+|                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
+|                         | `style="assistant"`       | Expresses a warm and relaxed tone for digital assistants    |
+|                         | `style="lyrical"`         | Expresses emotions in a melodic and sentimental way         |
 
 **Example**
 
@@ -258,15 +256,14 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 | `strength` | Specifies the relative duration of a pause using one of the following values:<ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul> | Optional |
 | `time` | Specifies the absolute duration of a pause in seconds or milliseconds. Examples of valid values are `2s` and `500` | Optional |
 
-| Strength | Description |
-|----------|-------------|
-| None, or if no value provided | 0 ms |
-| x-weak | 250 ms |
-| weak | 500 ms |
-| medium | 750 ms |
-| strong | 1000 ms |
-| x-strong | 1250 ms |
-
+| Strength                      | Description |
+|-------------------------------|-------------|
+| None, or if no value provided | 0 ms        |
+| x-weak                        | 250 ms      |
+| weak                          | 500 ms      |
+| medium                        | 750 ms      |
+| strong                        | 1000 ms     |
+| x-strong                      | 1250 ms     |
 
 **Example**
 
@@ -367,9 +364,9 @@ Sometimes TTS cannot accurately pronounce a word, for example, a company or fore
 
 **Attributes**
 
-| Attribute | Description | Required / Optional |
-|-----------|-------------|---------------------|
-| `uri` | The address of the external PLS document. | Required. |
+| Attribute | Description                               | Required / Optional |
+|-----------|-------------------------------------------|---------------------|
+| `uri`     | The address of the external PLS document. | Required.           |
 
 **Usage**
 
@@ -609,9 +606,9 @@ Any audio included in the SSML document must meet these requirements:
 
 **Attributes**
 
-| Attribute | Description | Required / Optional |
-|-----------|-------------|---------------------|
-| `src` | Specifies the location/URL of the audio file. | Required if using the audio element in your SSML document. |
+| Attribute | Description                                   | Required / Optional                                        |
+|-----------|-----------------------------------------------|------------------------------------------------------------|
+| `src`     | Specifies the location/URL of the audio file. | Required if using the audio element in your SSML document. |
 
 **Example**
 
