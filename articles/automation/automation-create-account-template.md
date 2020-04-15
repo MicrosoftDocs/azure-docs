@@ -146,7 +146,43 @@ The following parameters in the template are set with a default value for the Lo
             "metadata": {
                 "description": "Specify the location in which to create the Automation account."
             }
-        }
+        },
+    	"sampleGraphicalRunbookName": {
+                "type": "String",
+    			"defaultValue": "AzureAutomationTutorial"
+            },
+            "sampleGraphicalRunbookDescription": {
+                "type": "String",
+    			"defaultValue": " An example runbook which gets all the ARM resources using the Run As Account (Service Principal)."
+            },
+            "sampleGraphicalRunbookContentUri": {
+                "type": "String",
+    			"defaultValue": "https://eus2oaasibizamarketprod1.blob.core.windows.net/marketplace-runbooks/AzureAutomationTutorial.graphrunbook"
+            },
+            "samplePowerShellRunbookName": {
+                "type": "String",
+    			"defaultValue": "AzureAutomationTutorialScript"
+            },
+            "samplePowerShellRunbookDescription": {
+                "type": "String",
+    			"defaultValue": " An example runbook which gets all the ARM resources using the Run As Account (Service Principal)."
+            },
+            "samplePowerShellRunbookContentUri": {
+                "type": "String",
+    			"defaultValue": "https://eus2oaasibizamarketprod1.blob.core.windows.net/marketplace-runbooks/AzureAutomationTutorial.ps1"
+            },
+            "samplePython2RunbookName": {
+                "type": "String",
+    			"defaultValue": "AzureAutomationTutorialPython2"
+            },
+            "samplePython2RunbookDescription": {
+                "type": "String",
+    			"defaultValue": " An example runbook which gets all the ARM resources using the Run As Account (Service Principal)."
+            },
+            "samplePython2RunbookContentUri": {
+                "type": "String",
+    			"defaultValue": "https://eus2oaasibizamarketprod1.blob.core.windows.net/marketplace-runbooks/AzureAutomationTutorialPython2.py"
+    		}
     },
     "resources": [
         {
@@ -167,18 +203,83 @@ The following parameters in the template are set with a default value for the Lo
                     "enableLogAccessUsingOnlyResourcePermissions": true
                 }
             },
+    	"resources": [
         {
             "type": "Microsoft.Automation/automationAccounts",
             "apiVersion": "2015-01-01-preview",
             "name": "[parameters('automationAccountName')]",
             "location": "[parameters('automationAccountLocation')]",
-            "dependsOn": [],
+            "dependsOn": [
+    		     "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
+    		],
             "tags": {},
             "properties": {
                 "sku": {
                     "name": "Basic"
                 }
             },
+    		"resources": [
+                    {
+                        "type": "runbooks",
+                        "apiVersion": "2015-01-01-preview",
+                        "name": "[parameters('sampleGraphicalRunbookName')]",
+                        "location": "[parameters('automationAccountLocation')]",
+                        "dependsOn": [
+                            "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
+                        ],
+                        "tags": {},
+                        "properties": {
+                            "runbookType": "GraphPowerShell",
+                            "logProgress": "false",
+                            "logVerbose": "false",
+                            "description": "[parameters('sampleGraphicalRunbookDescription')]",
+                            "publishContentLink": {
+                                "uri": "[parameters('sampleGraphicalRunbookContentUri')]",
+                                "version": "1.0.0.0"
+                            }
+                        }
+                    },
+                    {
+                        "type": "runbooks",
+                        "apiVersion": "2015-01-01-preview",
+                        "name": "[parameters('samplePowerShellRunbookName')]",
+                        "location": "[parameters('automationAccountLocation')]",
+                        "dependsOn": [
+                            "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
+                        ],
+                        "tags": {},
+                        "properties": {
+                            "runbookType": "PowerShell",
+                            "logProgress": "false",
+                            "logVerbose": "false",
+                            "description": "[parameters('samplePowerShellRunbookDescription')]",
+                            "publishContentLink": {
+                                "uri": "[parameters('samplePowerShellRunbookContentUri')]",
+                                "version": "1.0.0.0"
+                            }
+                        }
+                    },
+                    {
+                        "type": "runbooks",
+                        "apiVersion": "2015-01-01-preview",
+                        "name": "[parameters('samplePython2RunbookName')]",
+                        "location": "[parameters('automationAccountLocation')]",
+                        "dependsOn": [
+                            "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
+                        ],
+                        "tags": {},
+                        "properties": {
+                            "runbookType": "Python2",
+                            "logProgress": "false",
+                            "logVerbose": "false",
+                            "description": "[parameters('samplePython2RunbookDescription')]",
+                            "publishContentLink": {
+                                "uri": "[parameters('samplePython2RunbookContentUri')]",
+                                "version": "1.0.0.0"
+                            }
+                        }
+                    }
+                ]
         },
         {
             "apiVersion": "2015-11-01-preview",
@@ -193,7 +294,9 @@ The following parameters in the template are set with a default value for the Lo
                 "resourceId": "[resourceId('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
             }
         }
-      ]
+       ]
+      }
+     ]
     }
     ```
 
@@ -217,7 +320,7 @@ The following parameters in the template are set with a default value for the Lo
 
     The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
 
-    ![Example result when deployment is complete](media/automation-update-management-deploy-template/template-output.png)
+    ![Example result when deployment is complete](media/automation-create-account-template/template-output.png)
 
 ## Next steps
 
