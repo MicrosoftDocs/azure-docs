@@ -13,7 +13,7 @@ Using regional VNet Integration enables your app to access:
 * Resources across Azure ExpressRoute connections.
 * Resources in the VNet you're integrated with.
 * Resources across peered connections, which includes Azure ExpressRoute connections.
-* Private endpoints - Note: DNS must be managed separately rather than using Azure DNS private zones.
+* Private endpoints 
 
 When you use VNet Integration with VNets in the same region, you can use the following Azure networking features:
 
@@ -44,7 +44,7 @@ There are some limitations with using VNet Integration with VNets in the same re
 * You can only integrate with VNets in the same subscription as the app.
 * You can have only one regional VNet Integration per App Service plan. Multiple apps in the same App Service plan can use the same VNet.
 * You can't change the subscription of an app or a plan while there's an app that's using regional VNet Integration.
-* Your app cannot resolve addresses in Azure DNS Private Zones.
+* Your app cannot resolve addresses in Azure DNS Private Zones without configuration changes
 
 One address is used for each plan instance. If you scale your app to five instances, then five addresses are used. Since subnet size can't be changed after assignment, you must use a subnet that's large enough to accommodate whatever scale your app might reach. A /26 with 64 addresses is the recommended size. A /26 with 64 addresses accommodates a Premium plan with 30 instances. When you scale a plan up or down, you need twice as many addresses for a short period of time.
 
@@ -77,6 +77,16 @@ If you want to route all outbound traffic on-premises, you can use a route table
 
 Border Gateway Protocol (BGP) routes also affect your app traffic. If you have BGP routes from something like an ExpressRoute gateway, your app outbound traffic will be affected. By default, BGP routes affect only your RFC1918 destination traffic. If WEBSITE_VNET_ROUTE_ALL is set to 1, all outbound traffic can be affected by your BGP routes.
 
+### Azure DNS Private Zones 
+
+After your app is integrated with your VNet, it uses the same DNS server that your VNet is configured with. By default, your app won't work with Azure DNS Private Zones. To work with Azure DNS Private Zones you need to add the following app settings:
+
+1. WEBSITE_DNS_SERVER with value 168.63.129.16 
+1. WEBSITE_VNET_ROUTE_ALL with value 1
+
+### Private endpoints
+
+If you want to make calls to [Private Endpoints][privateendpoints], then you need to either integrate with Azure DNS Private Zones or manage the private endpoint in the DNS server used by your app. 
 
 <!--Image references-->
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
