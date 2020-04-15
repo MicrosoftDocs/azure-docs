@@ -46,7 +46,19 @@ The **tab** key can be used to tab through configurable properties on the storag
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/6.png)
 
-## Add parameters to template
+## Explore template completion and validation
+
+One of the most powerful capabilities of the ARM Tools extension for VS Code is its integration with Azure schemas. Azure schemas provide the extension with resource configuration completion capability and the ability to validate that a resource has been properly configured.
+
+Let's modify the storage account to see both of these capabilities in action. First, update the storage account kind to an invalid value such as `superStorage`. Notice that this throws a warning indicating that `superStorage` is a valid configuration for the storage account kind.
+
+![](./media/quickstart-create-templates-use-visual-studio-code/15.png)
+
+To use the completion capabilities, remove `superStorage`, place the cursor inside of the double quotes, and press `ctrl` + `space. This presents a list of valid storage account types.
+
+![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
+
+## Add parameters to the template
 
 Now create and use a parameter to specify the storage account name.
 
@@ -66,9 +78,17 @@ Now update the storage resources name property to use the parameter. To do so, r
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/12.png)
 
-Enter an opening round bracket `(` produces a list of all parameters defined in the template, in this case, *storageAccountName*. Select the parameter.
+Entering a single quote `'` inside of the round brackets produces a list of all parameters defined in the template, in this case, *storageAccountName*. Select the parameter.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/13.png)
+
+Azure storage accounts names have a minimum length of 3 characters and a maximum of 24. An ARM template parameter can help enforce these constraints by defining both `minLength` and `maxLength`. To do so, update the parameter with these properties and appropriate values.
+
+![](./media/quickstart-create-templates-use-visual-studio-code/14.png)
+ 
+## Create a parameter file from the template
+
+
 
 ## Clean up resources
 
