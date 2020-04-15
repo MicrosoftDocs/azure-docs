@@ -226,7 +226,7 @@ Not currently, but container-level keys are being considered.
 
 ### How do customer-managed keys affect a backup?
 
-Azure Cosmos DB takes [regular and automatic backups](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) of the data stored in your account. This operation backs up the encrypted data. To use the restored backup, the encryption key that you used at the time of the backup is required. This means that no revocation was made and the version of the key that was used at the time of the backup will still be enabled.
+Azure Cosmos DB takes [regular and automatic backups](./online-backup-and-restore.md) of the data stored in your account. This operation backs up the encrypted data. To use the restored backup, the encryption key that you used at the time of the backup is required. This means that no revocation was made and the version of the key that was used at the time of the backup will still be enabled.
 
 ### How do I revoke an encryption key?
 

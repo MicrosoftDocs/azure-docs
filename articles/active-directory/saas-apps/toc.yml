@@ -1532,6 +1532,8 @@
         href: trakstar-tutorial.md
       - name: Trello
         href: trello-tutorial.md
+      - name: Trend Micro Web Security(TMWS)
+        href: trend-micro-tutorial.md
       - name: TripActions
         href: tripactions-tutorial.md
       - name: Trisotech Digital Enterprise Server
@@ -1821,6 +1823,8 @@
         href: netsuite-provisioning-tutorial.md
       - name: OfficeSpace Software
         href: officespace-software-provisioning-tutorial.md
+      - name: Oracle Cloud Infrastructure Console
+        href: oracle-cloud-infratstructure-console-provisioning-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-provisioning-tutorial.md
       - name: Pingboard

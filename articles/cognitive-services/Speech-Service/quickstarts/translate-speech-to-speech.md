@@ -3,13 +3,13 @@ title: 'Quickstart: Translate speech-to-speech - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll use the Speech SDK to interactively translate speech from one language to text in another language.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ---
 
