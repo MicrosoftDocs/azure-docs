@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 In this tutorial, you'll learn how to integrate MongoDB Cloud with Azure Active Directory (Azure AD). When you integrate MongoDB Cloud with Azure AD, you can:
 
 * Control in Azure AD who has access to MongoDB Cloud, MongoDB Atlas, the MongoDB community, MongoDB University, and MongoDB Support.
-* Enable your users to be automatically signed-in to MongoDB Cloud with their Azure AD accounts.
+* Enable your users to be automatically signed in to MongoDB Cloud with their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
 
 To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
@@ -51,9 +51,9 @@ To configure the integration of MongoDB Cloud into Azure AD, you need to add Mon
 1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or a personal Microsoft account.
 1. On the left pane, select **Azure Active Directory**.
 1. Go to **Enterprise Applications**, and then select **All Applications**.
-1. To add new application, select **New application**.
+1. To add a new application, select **New application**.
 1. In the **Add from the gallery** section, type **MongoDB Cloud** in the search box.
-1. Select **MongoDB Cloud** from results, and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Select **MongoDB Cloud** from the results, and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
 ## Configure and test Azure AD single sign-on for MongoDB Cloud
@@ -99,7 +99,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Screenshot of default attributes](common/default-attributes.png)
 
-1. In addition to the preceding attributes, the MongoDB Cloud application expects a few more attributes to be passed back in the SAML response. These attributes are also pre-populated, but you can review them as per your requirements.
+1. In addition to the preceding attributes, the MongoDB Cloud application expects a few more attributes to be passed back in the SAML response. These attributes are also pre-populated, but you can review them per your requirements.
 	
 	| Name | |  Source attribute|
 	| ---------------| --------------- | --------- |
