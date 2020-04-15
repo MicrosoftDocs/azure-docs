@@ -65,7 +65,7 @@ Here are the general steps to configure and test Azure AD SSO with Profit.co SAM
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Profit.co SAML App SSO](#configure-profitco-saml-app-sso)** to configure the single sign-on settings on the application side.
-    1. **[Create Profit.co SAML App test user](#create-profitco-saml-app-test-user)** to have a counterpart of B.Simon in Profit.co SAML App. This counterpart is linked to the Azure AD representation of the user.
+    1. **[Create Profit.co SAML App test user](#create-a-profitco-saml-app-test-user)** to have a counterpart of B.Simon in Profit.co SAML App. This counterpart is linked to the Azure AD representation of the user.
 1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
 ## Configure Azure AD SSO
