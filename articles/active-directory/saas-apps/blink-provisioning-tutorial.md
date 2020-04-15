@@ -117,7 +117,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Blink in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Blink for update operations. Select the **Save** button to commit any changes.
 
-	![Blink User Attributes](media/blink-provisioning-tutorial/User_attributes.png)
+	![Blink User Attributes](media/blink-provisioning-tutorial/user-attributes.png)
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

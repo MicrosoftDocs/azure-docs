@@ -5739,7 +5739,12 @@
     },
     {
       "source_path": "articles/managed-applications/publish-managed-app-definition-quickstart.md",
-      "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-managed-app-definition-quickstart",
+      "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-service-catalog-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/managed-applications/publish-managed-app-definition-quickstart.md",
+      "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-service-catalog-app",
       "redirect_document_id": false
     },
     {
@@ -38580,6 +38585,11 @@
       "source_path": "articles/active-directory/authentication/multi-factor-authentication-security-best-practices.md",
       "redirect_url": "/azure/active-directory/authentication/howto-mfa-getstarted",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/authentication/concept-sspr-customization.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-sspr-customization",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/active-directory-passwords-reset-register.md",
