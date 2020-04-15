@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 04/09/2020
+ms.date: 04/14/2020
 ms.author: cynthn
 
 ---
@@ -17,8 +17,46 @@ Create a VM from a generalized image version stored in a Shared Image Gallery. I
 
 Once you have a generalized image version, you can create one or more new VMs. Using the [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. 
 
-Replace resource names as needed in this example. 
+Replace resource names as needed in these examples. 
 
+## Simplified parameter set
+
+You can use the simplified parameter set to quickly create a VM from an image. The simplified parameter set uses the VM name to automatically create some of the required resources, like vNet and public IP address, for you. 
+
+```azurepowershell-interactive
+# Create some variables for the new VM 
+$resourceGroup = "myResourceGroup"
+$location = "South Central US"
+$vmName = "myVMfromImage"
+
+# Get the image. Replace the name of your resource group, gallery, and image definition. This will create the VM from the latest image version available.
+
+$imageDefinition = Get-AzGalleryImageDefinition `
+   -GalleryName myGallery `
+   -ResourceGroupName myResourceGroup `
+   -Name myImageDefinition
+
+# Create user object
+$cred = Get-Credential `
+   -Message "Enter a username and password for the virtual machine."
+
+# Create a resource group
+New-AzResourceGroup `
+   -Name $resourceGroup `
+   -Location $location
+
+New-AzVM `
+   -ResourceGroupName $resourceGroup `
+   -Location $location `
+   -Name $vmName `
+   -Image $imageDefinition.Id
+```
+
+
+
+## Full parameter set
+
+You can create a VM using specific resources by using the full parameter set.
 
 ```azurepowershell-interactive
 # Create some variables for the new VM 

@@ -10,30 +10,13 @@
  ms.custom: include file
 ---
 
-## Shared image management 
+# Shared image management 
 
-Here are some examples of common management tasks and how to complete them using PowerShell.
+This article shows you how to use PowerShell cmdlets to manage resources in your Shared Image Gallery.
 
-List all galleries by name.
+[!INCLUDE [virtual-machines-common-gallery-list-ps](../../includes/virtual-machines-common-gallery-list-ps.md)]
 
-```azurepowershell-interactive
-$galleries = Get-AzResource -ResourceType Microsoft.Compute/galleries
-$galleries.Name
-```
-
-List all image definitions by name.
-
-```azurepowershell-interactive
-$imageDefinitions = Get-AzResource -ResourceType Microsoft.Compute/galleries/images
-$imageDefinitions.Name
-```
-
-List all image versions by name.
-
-```azurepowershell-interactive
-$imageVersions = Get-AzResource -ResourceType Microsoft.Compute/galleries/images/versions
-$imageVersions.Name
-```
+[!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 
 

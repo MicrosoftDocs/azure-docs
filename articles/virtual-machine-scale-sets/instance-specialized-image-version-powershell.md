@@ -1,6 +1,6 @@
 ---
-title: Create a scale set from a generalized image 
-description: Create a scale set using a generalized image in a Shared Image Gallery.
+title: Create a scale set from a specialized image 
+description: Create a scale set using a specialized image in a Shared Image Gallery.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
@@ -10,43 +10,15 @@ ms.date: 04/15/2020
 ms.author: cynthn
 ---
 
-# Create a scale set from a generalized image
-
-Create a VM from a generalized image version stored in a [Shared Image Gallery](shared-image-galleries.md). If want to create a scale set using a specialized image version, see [Create scale set instances from a specialized image version](instance-specialized-image-version-powershell.md).
-
-Once you have a generalized image version, you can create a virtual machine scale set using the [New-AzVmss](/powershell/module/az.compute/new-azvmss) cmdlet. The following examples create a scale set named *myScaleSet*, in the *myVMSSRG* resource group, in the *SouthCentralUS* location. The scale set will be created from the *myImageDefinition* image, in the *myGallery* image gallery in the *myGalleryRG* resource group. When prompted, set your own administrative credentials for the VM instances in the scale set.
 
 
-## Simplified parameter set
+# Create a scale set from a specialized image
 
-To quickly create a scale set, while providing minimal information, use the simplified parameter set to create a scale set from a Share Image Gallery image.
+Create a VM from a specialized image version stored in a [Shared Image Gallery](shared-image-galleries.md). If want to create a scale set using a generalized image version, see [Create scale set instances from a generalized image version](instance-generalized-image-version-powershell.md).
 
-```azurepowershell-interactive
-$imageDefinition = Get-AzGalleryImageDefinition `
-   -GalleryName myGallery `
-   -ResourceGroupName myGalleryRG `
-   -Name myImageDefinition
+Once you have a specialized image in your gallery, you can create a virtual machine scale set using the [New-AzVmss](/powershell/module/az.compute/new-azvmss) cmdlet. The following examples create a scale set named *myScaleSet*, in the *myVMSSRG* resource group, in the *SouthCentralUS* location. The scale set will be created from the *myImageDefinition* image, in the *myGallery* image gallery in the *myGalleryRG* resource group. When prompted, set your own administrative credentials for the VM instances in the scale set.
 
-# Create user object
 
-$cred = Get-Credential `
-   -Message "Enter a username and password for the virtual machine."
-
-# Create the resource group and scale set
-New-AzResourceGroup -ResourceGroupName myVMSSRG -Location SouthCentralUS
-New-AzVmss `
-   -Credential $cred `
-   -VMScaleSetName myScaleSet `
-   -ImageName $imageDefinition.Id `
-   -UpgradePolicyMode Automatic `
-   -ResourceGroupName myVMSSRG
-```
-
-It takes a few minutes to create and configure all the scale set resources and VMs.
-
-## Extended parameter set
-
-For full control over all of the resources, including naming, use the full parameter set to create a scale set using a Shared Image Gallery image. 
 
 ```azurepowershell-interactive
 # Get the image definition
@@ -140,10 +112,7 @@ Set-AzVmssStorageProfile $vmssConfig `
   -ImageReferenceId $imageDefinition.Id
 
 # Complete the configuration
-Set-AzVmssOsProfile $vmssConfig `
-  -AdminUsername $cred.UserName `
-  -AdminPassword $cred.Password `
-  -ComputerNamePrefix "myVM"
+ 
 Add-AzVmssNetworkInterfaceConfiguration `
   -VirtualMachineScaleSet $vmssConfig `
   -Name "network-config" `
@@ -169,3 +138,4 @@ You can also create Shared Image Gallery resource using templates. There are sev
 - [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
 For more information about Shared Image Galleries, see the [Overview](shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](troubleshooting-shared-images.md).
+
