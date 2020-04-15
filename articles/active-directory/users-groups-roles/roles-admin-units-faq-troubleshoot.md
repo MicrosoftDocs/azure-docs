@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: article
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/10/2020
+ms.date: 04/16/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -33,7 +33,7 @@ For more granular administrative control in Azure Active Directory (Azure AD), y
 
 **Q: I just added / removed a member of the administrative unit and it is still showing up in the UI**
 
-**A:** Sometimes processing of the addition or removal of one or more members of the administrative unit might take a few minutes to reflect under the **Administrative units** page. You may choose to wait for a few minutes for it to reflect under the administrative units. Alternatively, you can go directly to the associated resource's properties and see if the action has been completed. For more information about users and groups in AUs, see [List administrative units for a user](roles-aus-add-manage-users.md) and [List administrative units for a group](roles-aus-add-manage-groups.md).
+**A:** Sometimes processing of the addition or removal of one or more members of the administrative unit might take a few minutes to reflect under the **Administrative units** page. You may choose to wait for a few minutes for it to reflect under the administrative units. Alternatively, you can go directly to the associated resource's properties and see if the action has been completed. For more information about users and groups in AUs, see [List administrative units for a user](roles-admin-units-add-manage-users.md) and [List administrative units for a group](roles-admin-units-add-manage-groups.md).
 
 **Q: As a delegated password administrator on an administrative unit, I am unable to reset a specific user's password**
 
@@ -66,4 +66,4 @@ For more granular administrative control in Azure Active Directory (Azure AD), y
 ## Next steps
 
 - [Administrative units to restrict scope for roles overview](directory-administrative-units.md)
-- [Manage administrative units](roles-aus-manage-admin-units.md)
+- [Manage administrative units](roles-admin-units-manage.md)

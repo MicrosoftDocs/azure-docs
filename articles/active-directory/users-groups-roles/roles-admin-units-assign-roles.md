@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: article
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/10/2020
+ms.date: 04/16/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 In Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope limited to one or more administrative units (AUs) for more granular administrative control.
 
-For steps to prepare to use PowerShell and Microsoft Graph for administrative unit management, see [Getting started](roles-aus-manage-admin-units.md#getting-started).
+For steps to prepare to use PowerShell and Microsoft Graph for administrative unit management, see [Getting started](roles-admin-units-manage.md#getting-started).
 
 ## Roles available
 
@@ -39,11 +39,11 @@ User Administrator  |  Can manage all aspects of users and groups, including res
 
 Go to **Azure AD > Administrative units** in the portal. Select the administrative unit over which you want to assign the role to a user. On the left pane, select Roles and administrators to list all the available roles.
 
-![Select an administrative unit to change role scope](./media/roles-aus-assign-roles/select-role-to-scope.png)
+![Select an administrative unit to change role scope](./media/roles-admin-units-assign-roles/select-role-to-scope.png)
 
 Select the role to be assigned and then select **Add assignments**. This will slide open a panel on the right where you can select one or more users to be assigned to the role.
 
-![Select the role to scope and then select Add assignments](./media/roles-aus-assign-roles/select-add-assignment.png)
+![Select the role to scope and then select Add assignments](./media/roles-admin-units-assign-roles/select-add-assignment.png)
 
 ### PowerShell
 
@@ -89,4 +89,4 @@ The highlighted section may be changed as required for the specific environment.
 
 ## Next steps
 
-- [Administrative units troubleshooting and FAQ](roles-aus-faq-troubleshoot.md)
+- [Administrative units troubleshooting and FAQ](roles-admin-units-faq-troubleshoot.md)

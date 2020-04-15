@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: article
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/08/2020
+ms.date: 04/16/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
@@ -40,7 +40,7 @@ Using administrative units requires an Azure Active Directory Premium license fo
 
 In this preview release, you can manage administrative units using the Azure portal, PowerShell cmdlets and scripts, or the Microsoft Graph. You can refer to our documentation for details:
 
-- [Create, remove, populate, and add roles to administrative units](roles-aus-manage-admin-units.md): Complete how-to procedures
+- [Create, remove, populate, and add roles to administrative units](roles-admin-units-manage.md): Complete how-to procedures
 - [Working with Admin Units](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0): How to work with administrative units using PowerShell
 - [Administrative Unit Graph support](https://docs.microsoft.com/graph/api/resources/administrativeunit?view=graph-rest-beta): Detailed documentation on Microsoft Graph for administrative units.
 
@@ -93,11 +93,11 @@ administrative unit-scoped management of group licensing   |    Supported  |    
 >
 > Administrators with an administrative unit scope can't manage dynamic group membership rules.
 
-Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside of the administrative unit. In the Office 365 portal, users outside of an administrative unit-scoped admin's administrative units are filtered out, but you can browse other users in the Azure AD portal, PowerShell, and other Microsoft services.
+Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside of the administrative unit. In the Office 365 portal, users outside of a scoped admin's administrative units are filtered out, but you can browse other users in the Azure AD portal, PowerShell, and other Microsoft services.
 
 ## Next steps
 
-- [Managing AUs](roles-aus-manage-admin-units.md)
-- [Manage users in AUs](roles-aus-add-manage-users.md)
-- [Manage groups in AUs](roles-aus-add-manage-groups.md)
-- [Assign scoped roles to an AU](roles-aus-assign-roles.md)
+- [Managing AUs](roles-admin-units-manage.md)
+- [Manage users in AUs](roles-admin-units-add-manage-users.md)
+- [Manage groups in AUs](roles-admin-units-add-manage-groups.md)
+- [Assign scoped roles to an AU](roles-admin-units-assign-roles.md)

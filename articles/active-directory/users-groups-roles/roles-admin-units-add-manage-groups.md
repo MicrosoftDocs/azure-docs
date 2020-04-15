@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: article
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/09/2020
+ms.date: 04/16/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 In Azure Active Directory (Azure AD), you can add groups to an administrative unit (AU) for more granular administrative scope of control.
 
-For steps to prepare to use PowerShell and Microsoft Graph for administrative unit management, see [Getting started](roles-aus-manage-admin-units.md#getting-started).
+For steps to prepare to use PowerShell and Microsoft Graph for administrative unit management, see [Getting started](roles-admin-units-manage.md#getting-started).
 
 ## Add groups to an AU
 
@@ -32,13 +32,13 @@ In the preview, you can assign groups only individually to an administrative uni
 
     Open the Groups overview page in Azure AD and select the group that needs to be assigned to the administrative unit. On the left side, select **Administrative units** to list out the administrative units the group is assigned to. On the top you will find the option Assign to administrative unit and clicking on it will give a panel on right side to choose the administrative unit.
 
-    ![assign a group individually to an administrative unit](./media/roles-aus-add-manage-groups/assign-to-group-1.png)
+    ![assign a group individually to an administrative unit](./media/roles-admin-units-add-manage-groups/assign-to-group-1.png)
 
 1. From the **Azure AD > Administrative units > All Groups** page
 
     Open the All Groups blade in Azure AD > Administrative Units. If there are groups already assigned to the administrative unit, they will be displayed on the right side. Select **Add** on the top and a right panel will slide in listing the groups available in your Azure AD organization. Select one or more groups to be assigned to the administrative units.
 
-    ![select an administrative unit and then select Add member](./media/roles-aus-add-manage-groups/assign-to-admin-unit.png)
+    ![select an administrative unit and then select Add member](./media/roles-admin-units-add-manage-groups/assign-to-admin-unit.png)
 
 ### PowerShell
 
@@ -70,7 +70,7 @@ Example:
 
 Go to **Azure AD > Administrative units** in the portal. Select the administrative unit for which you want to list the users. By default, **All users** is selected already on the left panel. Select **All groups** and on the right you will find the list of groups that are members of the selected administrative unit.
 
-![Select an administrative unit to delete](./media/roles-aus-add-manage-groups/list-group-au.png)
+![Select an administrative unit to delete](./media/roles-admin-units-add-manage-groups/list-group-admin-units.png)
 
 ### PowerShell
 
@@ -100,7 +100,7 @@ This will help you get all the members of the administrative unit. If you want t
 
 In the Azure AD portal, you can open a group's details by opening **Groups**. Select a group to open the group's profile. Select **Administrative units** to list all the administrative units where the group is a member.
 
-![List administrative units for a group](./media/roles-aus-add-manage-groups/list-group-au.png)
+![List administrative units for a group](./media/roles-admin-units-add-manage-groups/list-group-au.png)
 
 ### PowerShell
 
@@ -119,11 +119,11 @@ There are two ways you can remove a group from an administrative unit in the Azu
 Open **Azure AD** > **Groups** and open the profile for group you want to remove from administrative unit. 
 Select **Administrative units** in the left panel to list all the administrative units where the group is a member. Select the administrative unit that you want to remove the group from, and then select **Remove from administrative unit**.
 
-![Remove a group from an administrative unit](./media/roles-aus-add-manage-groups/group-au-remove.png)
+![Remove a group from an administrative unit](./media/roles-admin-units-add-manage-groups/group-au-remove.png)
 
 Alternatively, you can go to **Azure AD** > **Administrative units** and select the administrative unit where the group is a member. Select **Groups** in the left panel to list the member groups. Select the group to be removed from the administrative unit and then select **Remove groups**.
 
-![List groups in an administrative unit](./media/roles-aus-add-manage-groups/list-group-au.png)
+![List groups in an administrative unit](./media/roles-admin-units-add-manage-groups/list-group-admin-units.png)
 
 ### PowerShell
 
@@ -135,5 +135,5 @@ Alternatively, you can go to **Azure AD** > **Administrative units** and select 
 
 ## Next steps
 
-- [Assign a role to an administrative unit](roles-aus-assign-roles.md)
-- [Manage users in an administrative unit](roles-aus-add-manage-users.md)
+- [Assign a role to an administrative unit](roles-admin-units-assign-roles.md)
+- [Manage users in an administrative unit](roles-admin-units-add-manage-users.md)
