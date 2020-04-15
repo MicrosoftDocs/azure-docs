@@ -91,11 +91,11 @@ Select **Administrative units** on the left panel to see the list of administrat
 
 ### Azure portal
 
-There are two ways you can remove a user from an administrative unit. In the Azure portal you can open a user's profile by going to Azure AD > Users. Click on the user to open the user's profile. Select the administrative unit you want the user to be removed from and click on Remove from administrative unit.
+There are two ways you can remove a user from an administrative unit. In the Azure portal you can open a user's profile by going to **Azure AD** > **Users**. Select the user to open the user's profile. Select the administrative unit you want the user to be removed from and select **Remove from administrative unit**.
 
 ![Remove a user from an administrative unit from the user profile](./media/roles-aus-add-manage-users/user_remove_au.png)
 
-Alternatively, go to Azure AD > Administrative units and select the administrative unit you want to remove users from. Select the user and click Remove member.
+You can also remove a user in **Azure AD** > **Administrative units** by selecting the administrative unit you want to remove users from. Select the user and select **Remove member**.
   
 ![Remove a user at the administrative unit level](./media/roles-aus-add-manage-users/au_remove_user.png)
 
