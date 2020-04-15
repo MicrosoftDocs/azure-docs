@@ -1,13 +1,13 @@
 ---
-title: Azure Marketplace SaaS Applications Technical Publishing Guide
+title: Azure Marketplace SaaS Applications Publishing Guide
 description: Step-by-step guide and publishing checklists for publishing SaaS applications to Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-author: keithcharlie
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: kevidal
+ms.date: 04/15/2020
+ms.author: dsindona
 ---
 
 # SaaS applications Offer Publishing Guide
@@ -105,8 +105,8 @@ Certify your Azure AD integration in a few different ways, depending on whether 
 **For multi-tenant applications:**  
 
 If you already support Azure AD, do the following:
-1.	Register your application in the Azure portal
-2.	Enable the multi-tenancy support feature in Azure AD to get a 'one-click' trial experience. More specific information can be found [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+1.    Register your application in the Azure portal
+2.    Enable the multi-tenancy support feature in Azure AD to get a 'one-click' trial experience. More specific information can be found [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
 If you are new to Azure AD Federated SSO, do the following: 
 1.  Register your application in the Azure portal
@@ -139,9 +139,9 @@ Microsoft hosts the commerce transaction. Microsoft bills your customer on your 
 ## Next steps
 If you haven't already done so,
 
-- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace.
+- [Learn](https://azuremarketplace.microsoft.com/sell) about the marketplace.
 
-If you're registered and are creating a new offer or working on an existing one,
+To register in Partner Center, start creating a new offer or working on an existing one:
 
-- [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer.
-- See [Azure SaaS application offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) for more information.
+- [Log in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
+- See [create a SaaS application offer](./partner-center-portal/create-new-saas-offer.md) for more information.

@@ -6,7 +6,7 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 04/15/2020
 ms.author: dsindona
 ---
 
@@ -35,19 +35,19 @@ Review the [publishing process and guidelines.](https://docs.microsoft.com/power
 #### Dynamics 365 for Finance and Operations
 When building for Enterprise Edition, review the [publishing process and guidelines](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
-See [Dynamics 365 for Finance and Operations offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer) for how to publish the offer in Cloud Partner Portal.
+See [Dynamics 365 for Finance and Operations offer](./partner-center-portal/create-new-operations-offer.md) for how to publish the offer in Partner Center.
 
 ### Dynamics 365 for Customer Engagement
 Review the [publishing process and guidelines](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource).
 
-See [Dynamics 365 for Customer Engagement offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-customer-engagement-offer) for how to publish the offer in Cloud Partner Portal.
+See [Dynamics 365 for Customer Engagement offer](./partner-center-portal/create-new-customer-engagement-offer.md) for how to publish the offer in Partner Center.
 
 ## Next steps
 
 If you haven't already done so, 
 
-- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace.
+- [Learn](https://azuremarketplace.microsoft.com/sell) about the marketplace.
 
-If you are registered and working in Cloud Partner Portal, 
+To register in Partner Center, start creating a new offer or working on an existing one:
 
-- [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer.
+- [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.

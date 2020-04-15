@@ -5,7 +5,7 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.author: dsindona
 ---
 
@@ -26,7 +26,7 @@ Customer usage attribution supports three deployment options:
 >
 >- Customer usage attribution is for new deployments and does NOT support tagging existing resources that have already been deployed.
 >
->- Customer usage attribution is required for [Azure Application](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) offers published to Azure Marketplace.
+>- Customer usage attribution is required for [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) offers published to Azure Marketplace.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -78,7 +78,7 @@ Many partner solutions are deployed using Azure Resource Manager templates. If y
 > [!NOTE]
 > For more information on creating and publishing Solution Templates, see
 > * [Create and deploy your first Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
->* [Azure Application offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
+>* [Azure Application offer](./partner-center-portal/create-new-azure-apps-offer.md).
 >* Video: [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 

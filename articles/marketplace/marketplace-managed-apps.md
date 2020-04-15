@@ -6,7 +6,7 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 04/15/2020
 ms.author: dsindona
 
 ---
@@ -30,7 +30,7 @@ Use the Azure app: managed app offer type when the following conditions are requ
 |---------|---------|
 |Deployed to a customer's Azure subscription | Managed Apps must be deployed in the customer's subscription and can be managed by a third party. | 
 |Billing and metering    |  The resources will be provisioned in the customer's Azure subscription. Pay-as-you-go (PAYGO) virtual machines will be transacted with the customer via Microsoft, billed via the customer's Azure subscription (PAYGO). <br> In the case of bring-your-own-license, while Microsoft will bill infrastructure costs incurred in the customer subscription, you will transact your software licensing fees to the customer directly.        |
-|Azure-compatible virtual hard disk (VHD)    |   VMs must be built on Windows or Linux.<ul> <ul> <li>For more information about creating a Linux VHD, see [Linux distributions endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>For more information about creating a Windows VHD, see [Create an Azure-compatible VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |
+|Azure-compatible virtual hard disk (VHD)    |   VMs must be built on Windows or Linux.<ul> <ul> <li>For more information about creating a Linux VHD, see [Linux distributions endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>For more information about creating a Windows VHD, see [create an Azure application offer](./partner-center-portal/create-new-azure-apps-offer.md).</li> </ul> |
 
 >[!NOTE]
 > Managed apps must be deployable through the Marketplace. If customer communication is a concern, then you should reach out to interested customers after you have enabled lead sharing.  
@@ -39,10 +39,12 @@ Use the Azure app: managed app offer type when the following conditions are requ
 >Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](./cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
 
 ## Next steps
+
 If you haven't already done so, 
 
-- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace.
+- [Learn](https://azuremarketplace.microsoft.com/sell) about the marketplace.
 
-If you're registered and are creating a new offer or working on an existing one,
+To register in Partner Center, start creating a new offer or working on an existing one:
 
-- [Sign in to the Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer.
+- [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
+- See [create an Azure application offer](./partner-center-portal/create-new-azure-apps-offer.md) for more information.

@@ -92,21 +92,21 @@ After your nomination is approved, use the linked program resources to develop y
 1. Complete the marketing collateral for the Microsoft AppSource or Azure Marketplace listing, including:
 
     * A combined solution name.
-    * A listing description of the integrated solution. Follow [offer-listing best practices](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
+    * A listing description of the integrated solution. Follow [offer-listing best practices](./gtm-offer-listing-best-practices.md).
     * A one-page pitch to customers. Use the [one-pager template](https://aka.ms/AA5s08a).
     * A customer presentation. Use the [presentation template](https://aka.ms/AA5s7ql).
     * A logo for the combined solution.
 
 ## Publish your integrated solution
 
-After you finish the technical integration and the marketing collateral, refer to the publisher guide for [Consulting services for Microsoft AppSource and Azure Marketplace](https://docs.microsoft.com/azure/marketplace/consulting-services). Use this resource to determine whether your solution will be published in Microsoft AppSource or Azure Marketplace. Also use the guide to prepare your publishing artifacts and complete the publishing process.
+After you finish the technical integration and the marketing collateral, refer to the publisher guide for [Consulting services for Microsoft AppSource and Azure Marketplace](./consulting-services.md). Use this resource to determine whether your solution will be published in Microsoft AppSource or Azure Marketplace. Also use the guide to prepare your publishing artifacts and complete the publishing process.
 
 Although five service types are available for consulting-service offers, an integrated solution must be either a proof of concept or a full implementation.
 
 ## Go to market with your integrated solution
 
-When your solution is live in Microsoft AppSource or Azure Marketplace, you'll want to drive awareness and demand through marketing activities. Review the activities listed in the [Project plan and timeline](https://aka.ms/AA5qiuc). This resource includes activities that partners can drive within their own teams and with one another. Then access the [go-to-market benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) for partners who publish in the marketplace. All integrated-solution offers are eligible for trial-level benefits.
+When your solution is live in Microsoft AppSource or Azure Marketplace, you'll want to drive awareness and demand through marketing activities. Review the activities listed in the [Project plan and timeline](https://aka.ms/AA5qiuc). This resource includes activities that partners can drive within their own teams and with one another. Then access the [go-to-market benefits](./gtm-your-marketplace-benefits.md#list-trial-and-consulting-benefits) for partners who publish in the marketplace. All integrated-solution offers are eligible for trial-level benefits.
 
 ## Next steps
 
-For information about purchasing an integrated solution in the marketplace, see [Integrated solutions](https://docs.microsoft.com/azure/marketplace/integrated-solutions).
+For information about purchasing an integrated solution in the marketplace, see [Integrated solutions](./integrated-solutions.md).

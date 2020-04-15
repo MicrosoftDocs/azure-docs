@@ -5,7 +5,7 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 04/15/2020
 ms.author: dsindona
 
 ---
@@ -82,5 +82,10 @@ Use Azure AD to support one of the following actions:
 
 ## Next steps
 
-- Make sure you've [registered in the Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
-- See [how to create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information on how to create or complete your offer.
+If you haven't already done so, 
+
+- [Learn](https://azuremarketplace.microsoft.com/sell) about the marketplace.
+
+To register in Partner Center, start creating a new offer or working on an existing one:
+
+- [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
