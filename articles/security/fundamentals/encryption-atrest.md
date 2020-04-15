@@ -159,7 +159,7 @@ For operations using encryption keys, a service identity can be granted access t
 To obtain a key for use in encrypting or decrypting data at rest the service identity that the Resource Manager service instance will run as must have UnwrapKey (to get the key for decryption) and WrapKey (to insert a key into key vault when creating a new key).
 
 >[!NOTE]
->For more detail on Key Vault authorization see the secure your key vault page in the [Azure Key Vault documentation](../../key-vault/key-vault-secure-your-key-vault.md).
+>For more detail on Key Vault authorization see the secure your key vault page in the [Azure Key Vault documentation](../../key-vault/general/secure-your-key-vault.md).
 
 **Advantages**
 
@@ -278,7 +278,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Azure Data Catalog               | Yes                | -                  | -                  |
 | Azure HDInsight                  | Yes                | All                | -                  |
 | Azure Monitor Application Insights | Yes                | Yes                | -                  |
-| Azure Monitor Log Analytics | Yes                | Yes                | -                  |
+| Azure Monitor Log Analytics      | Yes                | Yes                | -                  |
 | Azure Data Explorer              | Yes                | Yes                | -                  |
 | Azure Data Factory               | Yes                | Yes                | -                  |
 | Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
@@ -290,11 +290,12 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Virtual Machines                 | Yes                | Yes, RSA 2048-bit  | -                  |
 | Virtual Machine Scale Set        | Yes                | Yes, RSA 2048-bit  | -                  |
 | SAP HANA                         | Yes                | Yes, RSA 2048-bit  | -                  |
-| App Service                      | Yes                | Yes                | -                  |
-| Automation                       | Yes                | Yes                | -                  |
-| Azure Portal                     | Yes                | Yes                | -                  |
+| App Service                      | Yes                | Yes\*\*            | -                  |
+| Automation                       | Yes                | Yes\*\*            | -                  |
+| Azure Functions                  | Yes                | Yes\*\*            | -                  |
+| Azure Portal                     | Yes                | Yes\*\*            | -                  |
 | Logic Apps                       | Yes                | Yes                | -                  |
-| Azure Managed Applications       | Yes                | Yes                | -                  |
+| Azure Managed Applications       | Yes                | Yes\*\*            | -                  |
 | Service Bus                      | Yes                | Yes                | -                  |
 | Site Recovery                    | Yes                | Yes                | -                  |
 | **Databases**                    |                    |                    |                    |
@@ -308,6 +309,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Table Storage                    | Yes                | Yes                | Yes                |
 | Azure Cosmos DB                  | Yes                | Yes                | -                  |
 | Azure Databricks                 | Yes                | Yes                | -                  |
+| Azure Database Migration Service | Yes                | N/A\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
 | Azure DevOps Services            | Yes                | -                  | Yes                |
 | Azure Repos                      | Yes                | -                  | Yes                |
@@ -340,6 +342,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | File Sync                        | Yes                | Yes, RSA 2048-bit  | -                  |
 | Queue Storage                    | Yes                | Yes                | Yes                |
 | Avere vFXT                       | Yes                | -                  | -                  |
+| Azure Cache for Redis            | Yes                | N/A\*              | -                  |
 | Azure NetApp Files               | Yes                | Yes                | -                  |
 | Archive Storage                  | Yes                | Yes, RSA 2048-bit  | -                  |
 | StorSimple                       | Yes                | Yes, RSA 2048-bit  | Yes                |
@@ -348,6 +351,8 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Data Box Edge                    | Yes                | Yes                | -                  |
 
 \* This service doesn't persist data. Transient caches, if any, are encrypted with a Microsoft key.
+
+\*\* This service supports storing data in your own Key Vault, Storage Account, or other data persisting service that already supports Server-Side Encryption with Customer-Managed Key.
 
 ## Conclusion
 
