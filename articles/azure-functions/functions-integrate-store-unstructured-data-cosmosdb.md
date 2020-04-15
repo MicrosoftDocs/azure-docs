@@ -143,15 +143,15 @@ This code sample reads the HTTP Request query strings and assigns them to fields
     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Test the function." border="true":::
 
 
-1. On the left side of the Azure portal, expand the icon bar, type `cosmos` in the search field, and select **Azure Cosmos DB**.
+1. In the Azure portal, search for and select **Azure Cosmos DB**.
 
-    ![Search for the Cosmos DB service](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Search for the Cosmos DB service." border="true":::
 
 1. Choose your Azure Cosmos DB account, then select the **Data Explorer**.
 
-1. Expand the **Collections** nodes, select the new document, and confirm that the document contains your query string values, along with some additional metadata.
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmos-db-account.png" alt-text="Search for the Cosmos DB service." border="true":::
 
-    ![Verify Cosmos DB entry](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
+1. Expand the **Collections** nodes, select the new document, and confirm that the document contains your query string values, along with some additional metadata.
 
 You've successfully added a binding to your HTTP trigger to store unstructured data in an Azure Cosmos DB.
 
