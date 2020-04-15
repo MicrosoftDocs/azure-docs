@@ -124,7 +124,7 @@
           href: /vm-management/automation-solution-vm-management-config.md
         - name: Analyze data with log queries
           href: /vm-management/automation-solution-vm-management-logs.md
-    - name: Manage software updates
+    - name: Update Management
       items:
         - name: Overview
           href: /update-management/automation-update-management.md
@@ -154,7 +154,7 @@
           href: /update-management/automation-update-management-groups.md
         - name: Query Update Management logs
           href: /update-management/automation-update-management-query-logs.md
-    - name: Track changes and inventory
+    - name: Track Changes and Inventory
       items:
         - name: Overview
           href: /change-tracking/change-tracking.md
