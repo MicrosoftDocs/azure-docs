@@ -38,7 +38,7 @@ Review the [information for planning your network](#network-planning) before you
 
 The computer can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you're using the same account for both the solution and the Hybrid Runbook Worker group membership. This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.
 
-## Remove a Hybrid Runbook Worker from an on-premises computer
+## <a name="remove-a-hybrid-runbook-worker">Remove a Hybrid Runbook Worker from an on-premises computer
 
 You can remove a Hybrid Runbook Worker from an on-premises computer as described in this section for Windows and Linux.
 
