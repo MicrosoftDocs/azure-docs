@@ -19,9 +19,9 @@ This article explains how to use data from Azure App Configuration in Kubernetes
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- Install [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+- Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Install [Helm](https://helm.sh/docs/intro/install/)
-- Background knowledge for installing applications with Helm in [Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm)
+- Background knowledge for installing applications with Helm in [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-helm)
 
 ## Create Helm chart ##
 ```powershell
@@ -253,7 +253,7 @@ There are [two ways](https://helm.sh/docs/intro/using_helm/) to pass configurati
 helm upgrade --install -f $ConfigFilePath -f $SecretPath --set service.type=NodePort "example" ./mychart 
 ```
 
-We can verify by accessing [Kubernetes Dashboard](https://docs.microsoft.com/en-us/azure/aks/kubernetes-dashboard)
+We can verify by accessing [Kubernetes Dashboard](https://docs.microsoft.com/azure/aks/kubernetes-dashboard)
 ![Quickstart app launch local](./media/kubernetes-dashboard-env-variables.png)
 ![Quickstart app launch local](./media/kubernetes-dashboard-secrets.png)
 
