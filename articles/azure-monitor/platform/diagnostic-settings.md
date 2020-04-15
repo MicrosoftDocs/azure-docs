@@ -35,7 +35,7 @@ Platform logs can be sent to the destinations in the following table. The config
 |:---|:---|
 | [Log Analytics workspace](resource-logs-collect-workspace.md) | Collecting logs into a Log Analytics workspace allows you to analyze them with other monitoring data collected by Azure Monitor using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. |
 | [Event hubs](resource-logs-stream-event-hubs.md) | Sending logs to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other log analytics solutions. |
-| [Azure storage account](resource-logs-collect-storage.md) | Archiving logs to an Azure storage account is useful for audit, static analysis, or backup. |
+| [Azure storage account](resource-logs-collect-storage.md) | Archiving logs to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely. |
 
 ## Create diagnostic settings in Azure portal
 
@@ -47,11 +47,11 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
         ![Diagnostic settings](media/diagnostic-settings/menu-resource.png)
 
-    - For one or more resources, click **Diagnostic settings** under **Settings** in the Azure Monitor menu and then click on the resource.
-    
-        ![Diagnostic settings](media/diagnostic-settings/menu-monitor.png)
+   - For one or more resources, click **Diagnostic settings** under **Settings** in the Azure Monitor menu and then click on the resource.
 
-    - For the Activity log, click **Activity log** in the **Azure Monitor** menu and then **Diagnostic settings**. Make sure you disable any legacy configuration for the Activity log. See [Disable existing settings](/azure/azure-monitor/platform/activity-log-collect#collecting-activity-log) for details.
+      ![Diagnostic settings](media/diagnostic-settings/menu-monitor.png)
+
+   - For the Activity log, click **Activity log** in the **Azure Monitor** menu and then **Diagnostic settings**. Make sure you disable any legacy configuration for the Activity log. See [Disable existing settings](/azure/azure-monitor/platform/activity-log-collect#collecting-activity-log) for details.
 
         ![Diagnostic settings](media/diagnostic-settings/menu-activity-log.png)
 
@@ -82,15 +82,15 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
       ![Send to Log Analytics or Event Hubs](media/diagnostic-settings/send-to-log-analytics-event-hubs.png)
 
-    1. **Log Analytics** allows you to query, alert, and analyze all logs sent to it. Enter the subscription and workspace.  If you don't have a workspace, you need to [create one before proceeding](../learn/quick-create-workspace.md). 
+    1. **Log Analytics** - Enter the subscription and workspace.  If you don't have a workspace, you need to [create one before proceeding](../learn/quick-create-workspace.md). 
 
-    1. **Event hubs** allows you to stream log data to other third-party tools. For an Event hub specify the following criteria:
+    1. **Event hubs** - Specify the following criteria:
        - The subscription which the event hub is part of
        - The Event hub namespace - If you do not yet have one, you'll need [to create one](../../event-hubs/event-hubs-create)
        - An Event hub name - Optionally specify an event hub name to send all data to. If you don't specify a name, an event hub is created for each log category. If you are sending multiple categories, you may want to specify a name to limit the number of event hubs created. See [Azure Event Hubs quotas and limits](../../event-hubs/event-hubs-quotas.md) for details.
        - An Event Hub policy - Defines the permissions that the streaming mechanism has. If one is applicable, specify it here. For more information, see [Event-hubs-features](../../event-hubs/event-hubs-features.md#publisher-policy) >>>>>>>>>>**TODO ------------------------ FIND THE RIGHT LINK** 
  
-    1. **Storage** - Azure storage is best used for long-term storage of logs for archival or auditing. It is less expensive and logs can be kept there indefinitely vs long-term storage in Azure Logs/Log Analytics storage.  Choose the subscription, storage account, and retention policy. 
+    1. **Storage** - Choose the subscription, storage account, and retention policy. 
     
         ![Send to Storage](media/diagnostic-settings/storage-settings-new.png)
 
