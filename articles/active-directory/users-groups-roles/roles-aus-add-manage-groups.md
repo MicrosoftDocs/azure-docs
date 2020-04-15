@@ -100,7 +100,7 @@ This will help you get all the members of the administrative unit. If you want t
 
 In the Azure AD portal, you can open a group's details by opening **Groups**. Select a group to open the group's profile. Select **Administrative units** to list all the administrative units where the group is a member.
 
-![List administrative units for a group](./media/roles-aus-add-manage-groups/list_group_au.png)
+![List administrative units for a group](./media/roles-aus-add-manage-groups/list-group-au.png)
 
 ### PowerShell
 
