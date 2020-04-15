@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/23/2020
+ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
@@ -35,6 +35,20 @@ To configure the application manifest:
 ## Manifest reference
 
 This section describes the attributes found in the application manifest.
+
+### id attribute
+
+| Key | Value type |
+| :--- | :--- |
+| id | String |
+
+The unique identifier for the app in the directory. This ID is not the identifier used to identify the app in any protocol transaction. It's used for the referencing the object in directory queries.
+
+Example:
+
+```json
+    "id": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
+```
 
 ### accessTokenAcceptedVersion attribute
 
@@ -225,19 +239,7 @@ Example:
     "optionalClaims": null,
 ```
 
-### id attribute
 
-| Key | Value type |
-| :--- | :--- |
-| id | String |
-
-The unique identifier for the app in the directory. This ID is not the identifier used to identify the app in any protocol transaction. It's used for the referencing the object in directory queries.
-
-Example:
-
-```json
-    "id": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
-```
 
 ### identifierUris attribute
 
