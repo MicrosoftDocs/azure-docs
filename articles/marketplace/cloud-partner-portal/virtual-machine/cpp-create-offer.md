@@ -11,6 +11,9 @@ ms.author: dsindona
 
 # Create Virtual Machine offer
 
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Virtual Machine offer](https://aka.ms/CreateAzureVMoffer) to manage your migrated offers.
+
 This section lists the steps required to create a new virtual machine (VM) offer request for the Azure Marketplace.  Every offer appears as its own entity in Azure Marketplace and is associated with one or more SKUs.  A VM offer is composed of the following groupings of assets and supporting services: 
 
 ![Assets for a VM offer](./media/publishvm_002.png)
