@@ -18,7 +18,7 @@ tags: azure-synapse
 
 Data discovery and classification is built into Azure SQL Database. It provides advanced capabilities for discovering, classifying, labeling, and reporting the sensitive data in your databases.
 
-Discovering and classifying your most sensitive data, such as business, financial, healthcare, or personal data, can play a pivotal role in your organization's information-protection structure. It can serve as infrastructure for:
+Your most sensitive data might include business, financial, healthcare, or personal information. Discovering and classifying this data can play a pivotal role in your organization's information-protection approach. It can serve as infrastructure for:
 
 - Helping to meet standards for data privacy and requirements for regulatory compliance.
 - Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
@@ -35,7 +35,7 @@ Data discovery and classification introduces a set of advanced services and new 
 
 - **Discovery and recommendations:** The classification engine scans your database and identifies columns that contain potentially sensitive data. It then provides you with an easy way to review and apply recommended classification via the Azure portal.
 
-- **Labeling:** You can apply sensitivity-classification labels persistently to columns by using new metadata attributes for classification that have been introduced into the SQL database engine. This metadata can then be used for advanced, sensitivity-based auditing and protection scenarios.
+- **Labeling:** You can apply sensitivity-classification labels persistently to columns by using new metadata attributes that have been added to the SQL database engine. This metadata can then be used for advanced, sensitivity-based auditing and protection scenarios.
 
 - **Query result-set sensitivity:** The sensitivity of a query result set is calculated in real time for auditing purposes.
 
@@ -55,15 +55,15 @@ The classification includes two metadata attributes:
 
 ### Define and customize your classification taxonomy
 
-Data discovery and classification comes with a built-in set of sensitivity labels and a built-in set of information types and discovery logic. You now have the ability to customize this taxonomy and define a set and ranking of classification constructs specifically for your environment.
+Data discovery and classification comes with a built-in set of sensitivity labels and a built-in set of information types and discovery logic. You can now customize this taxonomy and define a set and ranking of classification constructs specifically for your environment.
 
-You define and customize of your classification taxonomy in one central place for your entire Azure organization. That location is in [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), as part of your security policy. Only someone with administrative rights on the organization's root management group can perform this task.
+You define and customize of your classification taxonomy in one central place for your entire Azure organization. That location is in [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), as part of your security policy. Only someone with administrative rights on the organization's root management group can do this task.
 
 As part of policy management for SQL information protection, you can define custom labels, rank them, and associate them with a selected set of information types. You can also add your own custom information types and configure them with string patterns. The patterns are added to the discovery logic for identifying this type of data in your databases.
 
 Learn more about customizing and managing your policy in the [SQL Information Protection policy how-to guide](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
 
-After the organization-wide policy has been defined, you can continue with the classification of individual databases by using your customized policy.
+After the organization-wide policy has been defined, you can continue classifying individual databases by using your customized policy.
 
 ### Classify your SQL database
 
@@ -87,13 +87,13 @@ After the organization-wide policy has been defined, you can continue with the c
 
    - To view the list of recommended column classifications, select the recommendations panel at the bottom of the pane.
 
-   - To accept a recommendation for a specific column, select the check box in the left column of the relevant row. You can also mark all recommendations as accepted by selecting the leftmost check box in the recommendations table header.
+   - To accept a recommendation for a specific column, select the check box in the left column of the relevant row. To mark all recommendations as accepted, select the leftmost check box in the recommendations table header.
 
        ![Review and select from list of classification recommendations](./media/sql-data-discovery-and-classification/6_data_classification_recommendations_list.png)
 
    - To apply the selected recommendations, select **Accept selected recommendations**.
 
-7. You can also manually classify columns as an alternative or in addition to the recommendation-based classification. To do this:
+7. You can also classify columns manually, as an alternative or in addition to the recommendation-based classification:
 
    1. Select **Add classification** in the top menu of the pane.
 
