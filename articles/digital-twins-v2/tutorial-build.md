@@ -27,6 +27,9 @@ This tutorial uses the Azure Digital Twins instance and configured sample projec
 
 You should complete the quickstart through the "Configure the sample project" step, in order to set up an Azure Digital Twins workspace before continuing with this tutorial. (The final step in the quickstart, "Use the sample project to answer environment questions", is not required for this).
 
+> [!TIP]
+> If you did complete the final quickstart step, there are already models, digital twins, and relationships in your Azure Digital Twins instance. These won't affect your ability to complete the tutorial, but be aware that they'll show up in query results. 
+
 ## Model a physical environment with DTDL
 
 The first step in building out an Azure Digital Twins solution is concepting and defining twin [**models**](concepts-models.md) for your environment. 
@@ -87,7 +90,7 @@ addModels Room Floor
 > [!TIP]
 > If you designed your own model earlier, you can also upload it here, by adding the part of its file name before the *.json* extension to the `Room Floor` list in the command above.
 
-Verify the models were created by running the `listModels` command. This will query the Azure Digital Twins instance for all models that have been uploaded. If you have only uploaded the edited *Room* model, it will look like this:
+Verify the models were created by running the `listModels` command. This will query the Azure Digital Twins instance for all models that have been uploaded. Look for the edited *Room* model in the results:
 
 ![Results of listModels, showing the updated Room model](media/tutorial-build/output-listModels.png)
 
@@ -117,7 +120,7 @@ The output from these commands should indicate the twins were created successful
 
 ![Excerpt from the results of addTwin commands, showing floor2 and room22](media/tutorial-build/output-addTwin.png)
 
-You can also verify that the twins were created by running the `queryTwins` command. This command queries your Azure Digital Twins instance for all the digital twins it contains.
+You can also verify that the twins were created by running the `queryTwins` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the *floor2*, *room22*, and *room23* twins in the results.
 
 > [!NOTE]
 > If you've added other twins to this Azure Digital Twins instance in another quickstart or tutorial without deleting them, they will also show up with this command.
