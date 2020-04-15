@@ -1,6 +1,6 @@
 ---
-title: Understanding node movements in Azure Analysis Services | Microsoft Docs
-description: This article describes assuring reliable refresh operations during node movement.
+title: Best practices for long running operations in Azure Analysis Services | Microsoft Docs
+description: This article describes best practices for long running operations.
 author: minewiskan
 ms.service: analysis-services
 ms.topic: conceptual
@@ -8,9 +8,9 @@ ms.date: 04/14/2020
 ms.author: owend
 
 ---
-# Understanding node movements
+# Best practices for long running operations
 
-In Azure Analysis Services, a *node* represents a set amount of processor, memory, and storage resources. A server resource runs within the context of a node. Some operations such as long running queries, refresh operations, and query scale-out synchronization can fail if a server resource moves to a different node. Common error messages in this scenario include:
+In Azure Analysis Services, a *node* represents a host virtual machine where a server resource is running. Some operations such as long running queries, refresh operations, and query scale-out synchronization can fail if a server resource moves to a different node. Common error messages in this scenario include:
 
 - "An error has occurred while trying to locate a long running XMLA request. The request might have been interrupted by service upgrade or server restart."
 - "Job with ID '<guid>for model '<database>' was canceled due to service error (inactivity) with message 'Cancelling the refresh request since it was stuck without any updates. This is an internal service issue. Please resubmit the job or file a ticket to get help if this issue happens repeatedly."
@@ -27,7 +27,7 @@ In addition to node movements, there are other failures that can occur. For exam
 
 ## Refresh REST API
 
-Service interruptions can be challenging for long running operations like data refresh. Azure Analysis Services includes a REST API to help mitigate negative impacts from service interruptions. To learn more, see [Asynchronous refresh with the REST API](analysis-services-async-refresh.md) .
+Service interruptions can be challenging for long running operations like data refresh. Azure Analysis Services includes a REST API to help mitigate negative impacts from service interruptions. To learn more, see [Asynchronous refresh with the REST API](analysis-services-async-refresh.md).
  
 Besides the REST API, there are other approaches you can use to minimize potential issues during long running refresh operations. The main goal is to avoid having to restart the refresh operation from the beginning, and instead perform refreshes in smaller batches that can be committed in stages. 
  
