@@ -15,6 +15,8 @@ ms.date: 1/10/2020
 ---
 # Configure an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) to join a virtual network
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This tutorial provides basic steps for using the Azure portal to configure an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) to join a virtual network.
 
 The steps include:
@@ -79,7 +81,7 @@ Use the Azure portal to configure a virtual network before you try to join an Az
 
     - Ensure that the subnet you select has enough available address space for the Azure-SSIS IR to use. Leave available IP addresses for at least two times the IR node number. Azure reserves some IP addresses within each subnet. These addresses can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance, and three more addresses are used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
     - Don't select the GatewaySubnet to deploy an Azure-SSIS IR. It's dedicated for virtual network gateways.
-    - Don’t use a subnet that is exclusively occupied by other Azure services (for example, SQL Database managed instance, App Service, and so on).
+    - Don't use a subnet that is exclusively occupied by other Azure services (for example, SQL Database managed instance, App Service, and so on).
 
 1. Verify that the Azure Batch provider is registered in the Azure subscription that has the virtual network. Or register the Azure Batch provider. If you already have an Azure Batch account in your subscription, your subscription is registered for Azure Batch. (If you create the Azure-SSIS IR in the Data Factory portal, the Azure Batch provider is automatically registered for you.)
 
