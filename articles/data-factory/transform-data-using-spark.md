@@ -17,6 +17,8 @@ ms.date: 05/31/2018
 > * [Version 1](v1/data-factory-spark.md)
 > * [Current version](transform-data-using-spark.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The Spark activity in a Data Factory [pipeline](concepts-pipelines-activities.md) executes a Spark program on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)  HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. When you use an on-demand Spark linked service, Data Factory automatically creates a Spark cluster for you just-in-time to process the data and then deletes the cluster once the processing is complete. 
 
 

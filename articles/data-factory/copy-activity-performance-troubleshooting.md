@@ -16,6 +16,8 @@ ms.date: 03/11/2020
 
 # Troubleshoot copy activity performance
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article outlines how to troubleshoot copy activity performance issue in Azure Data Factory. 
 
 After you run a copy activity, you can collect the run result and performance statistics in [copy activity monitoring](copy-activity-monitoring.md) view. The following is an example.

@@ -109,6 +109,8 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 This issue is caused by a bad or expired certificate.  For more information, see [Certificate expiration and reregistration](../automation-dsc-onboarding.md#re-register-a-node).
 
+This issue could also be caused by a proxy configuration not allowing access to ***.azure-automation.net**. For more information, see [Configuration of private networks](../automation-dsc-overview.md#network-planning). 
+
 ### Resolution
 
 Follow the steps listed below to re-register the failing DSC node.
@@ -271,7 +273,7 @@ Treat the cross-subscription node as though it lives in a separate cloud, or on-
 
 Follow the steps below to register the node.
 
-* Windows - [Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS](../automation-dsc-onboarding.md#onboard-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances).
+* Windows - [Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS](../automation-dsc-onboarding.md#onboard-physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure).
 * Linux - [Physical/virtual Linux machines on-premises, or in a cloud other than Azure](../automation-dsc-onboarding.md#onboard-physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
 
 ### <a name="agent-has-a-problem"></a>Scenario: Error message - "Provisioning Failed"
