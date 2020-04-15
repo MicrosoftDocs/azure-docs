@@ -1,11 +1,11 @@
 ---
 title: Azure Cosmos DB indexing policies
 description:  Learn how to configure and change the default indexing policy for automatic indexing and greater performance in Azure Cosmos DB.
-author: ThomasWeiss
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/10/2019
-ms.author: thweiss
+ms.date: 03/26/2020
+ms.author: tisande
 ---
 
 # Indexing policies in Azure Cosmos DB
@@ -25,11 +25,11 @@ Azure Cosmos DB supports two indexing modes:
 - **None**: Indexing is disabled on the container. This is commonly used when a container is used as a pure key-value store without the need for secondary indexes. It can also be used to improve the performance of bulk operations. After the bulk operations are complete, the index mode can be set to Consistent and then monitored using the [IndexTransformationProgress](how-to-manage-indexing-policy.md#use-the-net-sdk-v2) until complete.
 
 > [!NOTE]
-> Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. Additionally, using Lazy indexing in place of 'None' for bulk operations also provides no benefit as any change to the Index Mode will cause the index to be dropped and recreated. For these reasons we recommend against customers using it. To improve performance for bulk operations, set index mode to None, then return to Consistent mode and monitor the `IndexTransformationProgress` property on the container until complete.
+> Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query a Cosmos container, you should not select lazy indexing.
 
 By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure CosmosDB to automatically index documents as they are written.
 
-## Including and excluding property paths
+## <a id="include-exclude-paths"></a> Including and excluding property paths
 
 A custom indexing policy can specify property paths that are explicitly included or excluded from indexing. By optimizing the number of paths that are indexed, you can lower the amount of storage used by your container and improve the latency of write operations. These paths are defined following [the method described in the indexing overview section](index-overview.md#from-trees-to-property-paths) with the following additions:
 
@@ -68,9 +68,11 @@ Any indexing policy has to include the root path `/*` as either an included or a
 - Include the root path to selectively exclude paths that don't need to be indexed. This is the recommended approach as it lets Azure Cosmos DB proactively index any new property that may be added to your model.
 - Exclude the root path to selectively include paths that need to be indexed.
 
-- For paths with regular characters that include: alphanumeric characters and _ (underscore), you don’t have to escape the path string around double quotes (for example, "/path/?"). For paths with other special characters, you need to escape the path string around double quotes (for example, "/\"path-abc\"/?"). If you expect special characters in your path, you can escape every path for safety. Functionally it doesn’t make any difference if you escape every path Vs just the ones that have special characters.
+- For paths with regular characters that include: alphanumeric characters and _ (underscore), you don't have to escape the path string around double quotes (for example, "/path/?"). For paths with other special characters, you need to escape the path string around double quotes (for example, "/\"path-abc\"/?"). If you expect special characters in your path, you can escape every path for safety. Functionally it doesn't make any difference if you escape every path Vs just the ones that have special characters.
 
-- The system property "etag" is excluded from indexing by default, unless the etag is added to the included path for indexing.
+- The system property `_etag` is excluded from indexing by default, unless the etag is added to the included path for indexing.
+
+- If the indexing mode is set to **consistent**, the system properties `id` and `_ts` are automatically indexed.
 
 When including and excluding paths, you may encounter the following attributes:
 

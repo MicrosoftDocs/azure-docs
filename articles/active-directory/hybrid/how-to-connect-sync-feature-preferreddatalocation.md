@@ -46,6 +46,7 @@ The geos in Office 365 available for Multi-Geo are:
 | Japan | JPN |
 | Korea | KOR |
 | South Africa | ZAF |
+| Switzerland | CHE |
 | United Arab Emirates | ARE |
 | United Kingdom | GBR |
 | United States | NAM |
@@ -64,7 +65,7 @@ Azure AD Connect supports synchronization of the **preferredDataLocation** attri
 By default, **preferredDataLocation** is not enabled for synchronization. This feature is intended for larger organizations. The Active Directory schema in Windows Server 2019 has an attribute **msDS-preferredDataLocation** you should use for this purpose. If you have not updated the Active Directory schema and cannot do so, then you must identify an attribute to hold the Office 365 geo for your users. This is going to be different for each organization.
 
 > [!IMPORTANT]
-> Azure AD allows the **preferredDataLocation** attribute on **cloud User objects** to be directly configured by using Azure AD PowerShell. Azure AD no longer allows the **preferredDataLocation** attribute on **synchronized User objects** to be directly configured by using Azure AD PowerShell. To configure this attribute on **synchronized User objects**, you must use Azure AD Connect.
+> Azure AD allows the **preferredDataLocation** attribute on **cloud User objects** to be directly configured by using Azure AD PowerShell. To configure this attribute on **synchronized User objects**, you must use Azure AD Connect.
 
 Before enabling synchronization:
 
@@ -180,7 +181,7 @@ The outbound synchronization rule permits the attribute value to flow from the m
     | sourceObjectType | EQUAL | User |
     | cloudMastered | NOTEQUAL | True |
 
-    Scoping filter determines which Azure AD objects this outbound synchronization rule is applied to. In this example, we use the same scoping filter from “Out to Azure AD – User Identity” OOB (out-of-box) synchronization rule. It prevents the synchronization rule from being applied to **User** objects that are not synchronized from on-premises Active Directory. You might need to tweak the scoping filter according to your Azure AD Connect deployment.
+    Scoping filter determines which Azure AD objects this outbound synchronization rule is applied to. In this example, we use the same scoping filter from “Out to Azure AD – User Identity” OOB (out-of-box) synchronization rule. It prevents the synchronization rule from being applied to **User** objects that are not synchronized from an on-premises Active Directory. You might need to tweak the scoping filter according to your Azure AD Connect deployment.
 
 6. Go to the **Transformation** tab, and implement the following transformation rule:
 
@@ -255,7 +256,6 @@ It is now time to verify the configuration and enable it for your users.
 3. Using Exchange Online PowerShell, verify that the mailbox region has been set correctly.  
 ![Screenshot of Exchange Online PowerShell](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
 Assuming your tenant has been marked to be able to use this feature, the mailbox is moved to the correct geo. This can be verified by looking at the server name where the mailbox is located.
-4. To verify that this setting has been effective over many mailboxes, use the script in the [TechNet gallery](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). This script also has a list of the server prefixes of all Office 365 datacenters, and which geo it is located in. It can be used as a reference in the previous step to verify the location of the mailbox.
 
 ## Next steps
 

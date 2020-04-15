@@ -5,7 +5,7 @@ description: Learn about the supported scenarios and the requirements for config
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 
 ms.author: iainfou
@@ -24,7 +24,7 @@ iOS devices can use certificate-based authentication (CBA) to authenticate to Az
 
 Configuring this feature eliminates the need to enter a username and password combination into certain mail and Microsoft Office applications on your mobile device.
 
-This topic provides you with the requirements and the supported scenarios for configuring CBA on an iOS(Android) device for users of tenants in Office 365 Enterprise, Business, Education, US Government, China, and Germany plans.
+This topic provides you with the requirements and the supported scenarios for configuring CBA on an iOS device for users of tenants in Office 365 Enterprise, Business, Education, US Government, China, and Germany plans.
 
 This feature is available in preview in Office 365 US Government Defense and Federal plans.
 
@@ -67,7 +67,7 @@ As a best practice, you should update your organization's ADFS error pages with 
 
 For more information, see [Customizing the AD FS Sign-in Pages](https://technet.microsoft.com/library/dn280950.aspx).
 
-Some Office apps (with modern authentication enabled) send ‘*prompt=login*’ to Azure AD in their request. By default, Azure AD translates ‘*prompt=login*’ in the request to ADFS as ‘*wauth=usernamepassworduri*’ (asks ADFS to do U/P Auth) and ‘*wfresh=0*’ (asks ADFS to ignore SSO state and do a fresh authentication). If you want to enable certificate-based authentication for these apps, you need to modify the default Azure AD behavior. Just set the ‘*PromptLoginBehavior*’ in your federated domain settings to ‘*Disabled*‘.
+Some Office apps (with modern authentication enabled) send '*prompt=login*' to Azure AD in their request. By default, Azure AD translates '*prompt=login*' in the request to ADFS as '*wauth=usernamepassworduri*' (asks ADFS to do U/P Auth) and '*wfresh=0*' (asks ADFS to ignore SSO state and do a fresh authentication). If you want to enable certificate-based authentication for these apps, you need to modify the default Azure AD behavior. Just set the '*PromptLoginBehavior*' in your federated domain settings to '*Disabled*'.
 You can use the [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet to perform this task:
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`

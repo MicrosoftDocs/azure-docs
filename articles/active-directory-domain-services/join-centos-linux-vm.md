@@ -9,7 +9,7 @@ ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: iainfou
 
@@ -25,12 +25,12 @@ This article shows you how to join a CentOS Linux VM to an Azure AD DS managed d
 To complete this tutorial, you need the following resources and privileges:
 
 * An active Azure subscription.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, the first tutorial [creates and configures an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
-* A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
+* A user account that's part of the Azure AD DS managed domain.
 
 ## Create and connect to a CentOS Linux VM
 
@@ -94,15 +94,15 @@ Now that the required packages are installed on the VM, join the VM to the Azure
     * Check that the VM is deployed to the same, or a peered, virtual network in which the Azure AD DS managed domain is available.
     * Confirm that the DNS server settings for the virtual network have been updated to point to the domain controllers of the Azure AD DS managed domain.
 
-1. Now initialize Kerberos using the `kinit` command. Specify a user that belongs to the *AAD DC Administrators* group. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+1. Now initialize Kerberos using the `kinit` command. Specify a user that's a part of the Azure AD DS managed domain. If needed, [add a user account to a group in Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Again, the Azure AD DS managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@aaddscontoso.com` is used to initialize Kerberos. Enter your own user account that's a member of the *AAD DC Administrators* group:
+    Again, the Azure AD DS managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@aaddscontoso.com` is used to initialize Kerberos. Enter your own user account that's a part of the Azure AD DS managed domain:
 
     ```console
     kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. Finally, join the machine to the Azure AD DS managed domain using the `realm join` command. Use the same user account that's a member of the *AAD DC Administrators* group that you specified in the previous `kinit` command, such as `contosoadmin@AADDSCONTOSO.COM`:
+1. Finally, join the machine to the Azure AD DS managed domain using the `realm join` command. Use the same user account that's a part of the Azure AD DS managed domain that you specified in the previous `kinit` command, such as `contosoadmin@AADDSCONTOSO.COM`:
 
     ```console
     sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'

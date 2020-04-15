@@ -6,8 +6,9 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 03/13/2020
 ms.author: helohr
+manager: lizross
 ---
 # Tutorial: Create a host pool to validate service updates
 
@@ -57,9 +58,9 @@ The results from the cmdlet should look similar to this output:
     FriendlyName        :
     Description         :
     Persistent          : False 
-    CustomRdpProperty	: use multimon:i:0;
+    CustomRdpProperty    : use multimon:i:0;
     MaxSessionLimit     : 10
-    LoadBalancerType	: BreadthFirst
+    LoadBalancerType    : BreadthFirst
     ValidationEnv       : True
     Ring                :
 ```
@@ -70,7 +71,7 @@ Service updates happen monthly. If there are major issues, critical updates will
 
 ## Next steps
 
-Now that you've created a validation host pool, you can learn how to deploy and connect to a management tool for managing Microsoft Virtual Desktop resources.
+Now that you've created a validation host pool, you can learn how to use Azure Service Health to monitor your Windows Virtual Desktop deployment. 
 
 > [!div class="nextstepaction"]
-> [Deploy a management tool tutorial](./manage-resources-using-ui.md)
+> [Set up service alerts](./set-up-service-alerts.md)

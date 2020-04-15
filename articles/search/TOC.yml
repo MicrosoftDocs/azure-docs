@@ -21,6 +21,11 @@
       href: cognitive-search-quickstart-blob.md
     - name: Create a knowledge store
       href: knowledge-store-create-portal.md
+    - name: Query with Search explorer
+      href: search-explorer.md
+  - name: ARM template
+    displayName: Resource Manager 
+    href: search-get-started-arm.md
   - name: C#
     href: search-get-started-dotnet.md
   - name: Java
@@ -35,7 +40,7 @@
     href: search-get-started-python.md
 - name: Tutorials
   items:
-  - name: Create your first C# app
+  - name: Create a C# app
     items:
     - name: 1 - Basic search page
       href: tutorial-csharp-create-first-app.md
@@ -47,13 +52,15 @@
       href: tutorial-csharp-facets.md
     - name: 5 - Add results ordering
       href: tutorial-csharp-orders.md
-  - name: Index Azure SQL Database
-    href: search-indexer-tutorial.md
-  - name: Index Azure JSON blobs
-    href: search-semi-structured-data.md
-  - name: Index multiple Azure data sources 
-    href: tutorial-multiple-data-sources.md
-  - name: Enrich with AI (cognitive search)
+  - name: Index Azure data
+    items:
+    - name: Index Azure SQL Database
+      href: search-indexer-tutorial.md
+    - name: Index Azure JSON blobs
+      href: search-semi-structured-data.md
+    - name: Index multiple Azure data sources 
+      href: tutorial-multiple-data-sources.md
+  - name: Use AI to create content
     items:
     - name: C#
       href: cognitive-search-tutorial-blob-dotnet.md
@@ -73,14 +80,6 @@
     href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python
   - name: REST samples
     href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=rest
-- name: Training
-  items:
-  - name: Introduction (Microsoft Learn)
-    href: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
-  - name: Add search to apps (Pluralsight)
-    href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
-  - name: Developer course (Pluralsight)
-    href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
 - name: Concepts
   items:
   - name: Full-text search
@@ -115,12 +114,6 @@
         href: index-add-language-analyzers.md
       - name: Add a custom analyzer
         href: index-add-custom-analyzers.md
-    - name: Typeahead
-      items:
-      - name: Create a suggester
-        href: index-add-suggesters.md
-      - name: Add suggestions or autocomplete
-        href: search-autocomplete-tutorial.md
     - name: Synonyms
       items:
       - name: Add synonyms
@@ -205,6 +198,8 @@
         href: cognitive-search-custom-skill-python.md
       - name: Example - Azure Functions
         href: cognitive-search-create-custom-skill-example.md
+      - name: Example - Azure Form Recognizer
+        href: cognitive-search-custom-skill-form.md
       - name: Example - Containers
         href: https://go.microsoft.com/fwlink/?linkid=2089500 
     - name: Design tips
@@ -229,10 +224,18 @@
       href: search-query-simple-examples.md
     - name: Use full Lucene syntax
       href: search-query-lucene-examples.md
-    - name: Use Search Explorer (portal)
-      href: search-explorer.md
-    - name: Special characters and partial terms
+    - name: Partial terms and special characters
       href: search-query-partial-matching.md
+    - name: Fuzzy search
+      href: search-query-fuzzy.md
+    - name: Autocomplete "Search-as-you-type"
+      items:
+      - name: Create a suggester
+        href: index-add-suggesters.md
+      - name: Add suggestions or autocomplete
+        href: search-autocomplete-tutorial.md
+    - name: Query from Power Apps   
+      href: search-howto-powerapps.md  
     - name: Syntax reference
       items:
       - name: Simple query syntax
@@ -257,10 +260,12 @@
       href: search-example-adventureworks-multilevel-faceting.md
   - name: Results
     items:
-    - name: Page-related features
+    - name: Work with results
       href: search-pagination-page-layout.md
-    - name: Relevance tuning (scoring profiles)
+    - name: Relevance tuning (scoring profiles)    
       href: index-add-scoring-profiles.md
+    - name: Relevance tuning (similarity algorithm)  
+      href: index-ranking-similarity.md
   - name: Plan
     items:
     - name: Choose a tier
@@ -359,7 +364,7 @@
       href: /rest/api/searchservice
     - name: Search 2019-05-06-Preview
       href: /rest/api/searchservice/index-2019-05-06-preview
-    - name: Management 2015-08-15
+    - name: Management 2020-03-13
       href: /rest/api/searchmanagement
     - name: Management 2019-10-01-Preview
       href: /rest/api/searchmanagement/index-2019-10-01-preview
@@ -454,6 +459,14 @@
       href: https://aka.ms/azjobsdemo
     - name: Search use cases
       href: https://searchsamples.azurewebsites.net/
+  - name: Training
+    items:
+    - name: Introduction (Microsoft Learn)
+      href: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
+    - name: Add search to apps (Pluralsight)
+      href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
+    - name: Developer course (Pluralsight)
+      href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
   - name: FAQ
     href: search-faq-frequently-asked-questions.md
   - name: Pricing

@@ -1,16 +1,8 @@
 ---
 title: Lifecycle of knowledge base - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: QnA Maker learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.author: diberry
-ms.custom: seodec18
+ms.date: 02/27/2020
 ---
 
 # Knowledge base lifecycle in QnA Maker
@@ -19,7 +11,7 @@ QnA Maker learns best in an iterative cycle of model changes, utterance examples
 ![Authoring cycle](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)
 
 ## Creating a QnA Maker knowledge base
-QnA Maker knowledge base (KB) endpoint provides a best-match answer to a user query based on the content of the KB. Creating a knowledge base is a one-time action to setting up a content repository of questions, answers and associated metadata. A knowledge base can be created by crawling pre-existing content such as FAQ pages, product manuals or structured Q-A pairs. Learn how to [create a knowledge base](../quickstarts/create-publish-knowledge-base.md).
+QnA Maker knowledge base (KB) endpoint provides a best-match answer to a user query based on the content of the KB. Creating a knowledge base is a one-time action to setting up a content repository of questions, answers, and associated metadata. A knowledge base can be created by crawling pre-existing content such as FAQ pages, product manuals or structured Q-A pairs. Learn how to [create a knowledge base](../quickstarts/create-publish-knowledge-base.md).
 
 ## Testing and updating the knowledge base
 
@@ -82,4 +74,4 @@ The *published knowledge base* is the version that's used in your chat bot or ap
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Confidence score](./confidence-score.md)
+> [Active learning suggestions](./active-learning-suggestions.md)

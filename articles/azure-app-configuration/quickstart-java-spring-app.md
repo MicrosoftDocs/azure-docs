@@ -27,13 +27,15 @@ In this quickstart, you incorporate Azure App Configuration into a Java Spring a
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-1. Select **Configuration Explorer** > **+ Create** to add the following key-value pairs:
+6. Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
     | /application/config.message | Hello |
 
     Leave **Label** and **Content Type** empty for now.
+
+7. Select **Apply**.
 
 ## Create a Spring Boot app
 
@@ -61,7 +63,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-feature-management</artifactId>
+        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
         <version>1.1.2</version>
     </dependency>
     ```
@@ -71,7 +73,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-feature-management</artifactId>
+        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
         <version>1.2.2</version>
     </dependency>
     ```
@@ -142,7 +144,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 1. Set an environment variable named **APP_CONFIGURATION_CONNECTION_STRING**, and set it to the access key to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
 
-    ```CLI
+    ```cmd
         setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
     ```
 
@@ -154,7 +156,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
     If you use macOS or Linux, run the following command:
 
-    ```console
+    ```cmd
         export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
     ```
 
@@ -162,14 +164,14 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 1. Build your Spring Boot application with Maven and run it, for example:
 
-    ```CLI
+    ```cmd
     mvn clean package
     mvn spring-boot:run
     ```
 
 2. After your application is running, use *curl* to test your application, for example:
 
-      ```CLI
+      ```cmd
       curl -X GET http://localhost:8080/
       ```
 
@@ -181,7 +183,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and used it with a Java Spring app. For more information, see [Spring on Azure](https://docs.microsoft.com/java/azure/spring-framework/). To learn how to use an Azure managed identity to streamline access to App Configuration, continue to the next tutorial.
+In this quickstart, you created a new App Configuration store and used it with a Java Spring app. For more information, see [Spring on Azure](https://docs.microsoft.com/java/azure/spring-framework/). To learn how to enable your Java Spring app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
+> [Enable dynamic configuration](./enable-dynamic-configuration-java-spring-app.md)

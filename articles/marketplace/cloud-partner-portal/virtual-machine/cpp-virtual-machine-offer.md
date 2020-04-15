@@ -1,16 +1,18 @@
 ---
 title: Virtual machine offer in the Azure Marketplace 
 description: Overview of the process for publishing a VM offer on the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Virtual machine offer
+
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Virtual Machine offer](https://aka.ms/CreateAzureVMoffer) to manage your migrated offers.
 
 |    |    |
 |-----------------------------------------------------------------|------------------------------------------|

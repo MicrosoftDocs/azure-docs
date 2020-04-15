@@ -73,13 +73,13 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 
 1. Clone the Git repository by running the following command:
 
-    ```azurecli
+    ```console
     git clone https://github.com/Azure-Samples/PiggyMetrics
     ```
   
 1. Change directory and build the project by running the following command:
 
-    ```azurecli
+    ```console
     cd piggymetrics
     mvn clean package -DskipTests
     ```
@@ -88,7 +88,7 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 
 1. Generate configurations by running the following command in the root folder of PiggyMetrics containing the parent POM:
 
-    ```azurecli
+    ```console
     mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.0.0:config
     ```
 
@@ -102,7 +102,7 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 
 1. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command:
 
-   ```azurecli
+   ```console
    mvn azure-spring-cloud:deploy
    ```
 

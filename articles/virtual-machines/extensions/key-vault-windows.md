@@ -23,6 +23,11 @@ The Key Vault VM extension supports below versions of Windows:
 - Windows Server 2016
 - Windows Server 2012
 
+### Supported certificate content types
+
+- PKCS #12
+- PEM
+
 ## Extension schema
 
 The following JSON shows the schema for the Key Vault VM extension. The extension does not require protected settings - all its settings are considered public information. The extension requires a list of monitored certificates, polling frequency, and the destination certificate store. Specifically:  
@@ -97,6 +102,7 @@ The JSON configuration for a virtual machine extension must be nested inside the
       "typeHandlerVersion": "1.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
+        "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,

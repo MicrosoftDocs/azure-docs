@@ -5,8 +5,8 @@ description: In this quickstart, you learn how to use the Azure CLI upload a blo
 services: storage
 author: tamram
 
-ms.custom: mvc
 ms.service: storage
+ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: tamram
@@ -24,7 +24,7 @@ The Azure CLI is Azure's command-line experience for managing Azure resources. Y
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## Use the Azure CLI locally
+## Install the Azure CLI locally
 
 If you choose to install and use the Azure CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.46 or later. Run `az --version` to determine your version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -34,11 +34,13 @@ If you are running the Azure CLI locally, you must log in and authenticate. This
 az login
 ```
 
+For more information about authentication` with Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+
 ## Authorize access to Blob storage
 
 You can authorize access to Blob storage from the Azure CLI either with Azure AD credentials or by using the storage account access key. Using Azure AD credentials is recommended. This article shows how to authorize Blob storage operations using Azure AD.
 
-Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Azure AD credentials. For more information, see [Run Azure CLI commands with Azure AD credentials to access blob or queue data](../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Azure AD credentials. For more information, see [Authorize access to blob or queue data with Azure CLI](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Only Blob storage data operations support the `--auth-mode` parameter. Management operations, such as creating a resource group or storage account, automatically use Azure AD credentials for authorization.
 
@@ -147,7 +149,7 @@ azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the storage account you created in this quickstart, delete the resource group with the [az group delete](/cli/azure/group) command. Remember to replace placeholder values in angle brackets with your own values:
+If you want to delete the resources you created as part of this quickstart, including the storage account, delete the resource group by using the [az group delete](/cli/azure/group) command. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
 az group delete \

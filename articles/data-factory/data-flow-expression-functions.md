@@ -11,7 +11,9 @@ ms.custom: seo-lt-2019
 ms.date: 02/15/2019
 ---
 
-# Data transformation expressions in mapping data flow 
+# Data transformation expressions in mapping data flow
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 ## Expression functions
 
@@ -115,6 +117,12 @@ Returns the first not null value from a set of inputs. All inputs should be of t
 * ``coalesce(10, 20) -> 10``
 * ``coalesce(toString(null), toString(null), 'dumbo', 'bo', 'go') -> 'dumbo'``
 ___
+### <code>columnNames</code>
+<code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
+Gets all output columns for a stream. You can pass a optional stream name as the second argument.
+* ``columnNames()``
+* ``columnNames('DeriveStream')``
+___
 ### <code>compare</code>
 <code><b>compare(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => integer</b></code><br/><br/>
 Compares two values of the same type. Returns negative integer if value1 < value2, 0 if value1 == value2, positive value if value1 > value2
@@ -158,7 +166,7 @@ Calculates the CRC32 hash of set of column of varying primitive datatypes given 
 ___
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-Gets the current date when this job starts to run. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default.Refer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
+Gets the current date when this job starts to run. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default.Refer Java's SimpleDateFormat for available formats. ["https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
 * ``currentDate() == toDate('2250-12-31') -> false``
 * ``currentDate('PST')  == toDate('2250-12-31') -> false``
 * ``currentDate('America/New_York')  == toDate('2250-12-31') -> false``

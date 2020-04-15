@@ -57,11 +57,17 @@
     expanded: false
     items:
     - name: Configure additional Azure API for FHIR settings
-      href: azure-api-for-fhir-additional-settings.md 
+      href: azure-api-for-fhir-additional-settings.md
+    - name: Configure Azure RBAC
+      href: configure-azure-rbac.md
+    - name: Configure Local RBAC
+      href: configure-local-rbac.md
     - name: Configure database settings
       href: configure-database.md
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
+    - name: Configure Export
+      href: configure-export-data.md
   - name: Find identity object IDs
     href: find-identity-object-ids.md
   - name: Enable Diagnostics Logging in Azure API for FHIR®

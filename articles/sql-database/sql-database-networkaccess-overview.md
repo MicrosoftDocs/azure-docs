@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
-ms.date: 08/05/2019
+ms.date: 03/09/2020
 ---
 
 # Azure SQL Database and Data Warehouse network access controls
@@ -22,20 +22,28 @@ ms.date: 08/05/2019
 > [!IMPORTANT]
 > This article does *not* apply to **Azure SQL Database Managed Instance**. for more information about the networking configuration, see [connecting to a Managed Instance](sql-database-managed-instance-connect-app.md) .
 
-When you create a new Azure SQL Server [from Azure portal](sql-database-single-database-get-started.md), the result is a public endpoint in the format *yourservername.database.windows.net*. By design, all access to the public endpoint is denied. 
-You can then use the following network access controls to selectively allow access to the SQl Database via the public endpoint
-- Allow Azure Services: - When set to ON, other resources within the Azure boundary, for example an Azure Virtual Machine, can access SQL Database
+When you create a new Azure SQL Server from the [Azure portal](sql-database-single-database-get-started.md), the result is a public endpoint in the format, *yourservername.database.windows.net*.
 
-- IP firewall rules: - Use this feature to explicitly allow connections from a specific IP address, for example from on-premises machines.
+You can use the following network access controls to selectively allow access to the SQL Database via the public endpoint:
+- Allow Azure Services: When set to ON, other resources within the Azure boundary, for example an Azure Virtual Machine, can access SQL Database
 
-- Virtual Network firewall rules: - Use this feature to allow traffic from a specific Virtual Network within the Azure boundary
+- IP firewall rules: Use this feature to explicitly allow connections from a specific IP address, for example from on-premises machines
 
+You can also allow private access to the SQL Database from [Virtual Networks](../virtual-network/virtual-networks-overview.md) via:
+- Virtual Network firewall rules: Use this feature to allow traffic from a specific Virtual Network within the Azure boundary
+
+- Private Link: Use this feature to create a private endpoint for Azure SQL Server within a specific Virtual Network
+
+
+
+See the below video for a high level explanation of these access controls and what they do:
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--SQL-Database-Connectivity-Explained/player?WT.mc_id=dataexposed-c9-niner]
+
 
 ## Allow Azure services 
 During creation of a new Azure SQL Server [from  Azure portal](sql-database-single-database-get-started.md), this setting is left unchecked.
 
- ![Screenshot of new server create][1]
+
 
 You can also change this setting via the firewall pane after the Azure SQL Server is created as follows.
   
@@ -43,13 +51,13 @@ You can also change this setting via the firewall pane after the Azure SQL Serve
 
 When set  to **ON** Azure SQL Server allows communications from all resources inside the Azure boundary, that may or may not be part of your subscription.
 
-In many cases, the **ON** setting is more permissive than what most customers want.They may want to set this setting to **OFF** and replace it with more restrictive IP firewall rules or Virtual Network firewall rules. Doing so affects the following features that run on VMs in Azure that not part of your VNet and hence connect to Sql Database via an Azure IP address.
+In many cases, the **ON** setting is more permissive than what most customers want. They may want to set this setting to **OFF** and replace it with more restrictive IP firewall rules or Virtual Network firewall rules. Doing so affects the following features that run on VMs in Azure that not part of your VNet and hence connect to Sql Database via an Azure IP address.
 
 ### Import Export Service
-Import Export Service does not work  **Allow Azure services to access server** set to OFF. However you can work around the problem [by manually running sqlpackage.exe from an Azure VM or performing the export](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) directly in your code by using the DACFx API.
+Import Export Service does not work when **Allow access to Azure services** is set to **OFF**. However you can work around the problem [by manually running sqlpackage.exe from an Azure VM or performing the export](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) directly in your code by using the DACFx API.
 
 ### Data Sync
-To use the Data sync feature with **Allow Azure services to access server** set to OFF, you need to create individual firewall rule entries to [add IP addresses](sql-database-server-level-firewall-rule.md) from the **Sql service tag** for the region hosting the **Hub** database.
+To use the Data sync feature with **Allow access to Azure services** set to **OFF**, you need to create individual firewall rule entries to [add IP addresses](sql-database-server-level-firewall-rule.md) from the **Sql service tag** for the region hosting the **Hub** database.
 Add these server level firewall rules to the logical servers hosting both **Hub** and **Member** databases ( which may be in different regions)
 
 Use the following PowerShell script to generate the IP addresses corresponding to Sql service tag for West US region
@@ -125,6 +133,9 @@ Virtual network rules are easier alternative to establish and to manage access f
 > [!NOTE]
 > You cannot yet have SQL Database on a subnet. If your Azure SQL Database server was a node on a subnet in your virtual network, all nodes within the virtual network could communicate with your SQL Database. In this case, your VMs could communicate with SQL Database without needing any virtual network rules or IP rules.
 
+## Private Link 
+Private Link allows you to connect to Azure SQL Server via a **private endpoint**. A private endpoint is a private IP address within a specific [Virtual Network](../virtual-network/virtual-networks-overview.md) and Subnet.
+
 ## Next steps
 
 - For a quickstart on creating a server-level IP firewall rule, see [Create an Azure SQL database](sql-database-single-database-get-started.md).
@@ -142,3 +153,4 @@ Virtual network rules are easier alternative to establish and to manage access f
 <!--Image references-->
 [1]: ./media/sql-database-get-started-portal/new-server2.png
 [2]: ./media/sql-database-get-started-portal/manage-server-firewall.png
+

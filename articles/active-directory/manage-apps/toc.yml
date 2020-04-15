@@ -7,6 +7,8 @@
        href: what-is-application-management.md
      - name: What is Application Proxy for on-premises apps?
        href: what-is-application-proxy.md
+     - name: Common app management scenarios
+       href: common-scenarios.md
      - name: What is application provisioning?
        href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
   - name: Quickstarts
@@ -68,7 +70,7 @@
           href: manage-certificates-for-federated-single-sign-on.md
         - name: Tenant restrictions
           href: tenant-restrictions.md
-        - name: Configure SAML token encryption (Preview)
+        - name: Configure SAML token encryption
           href: howto-saml-token-encryption.md
         - name: End-user portals
           href: end-user-experiences.md
@@ -139,9 +141,7 @@
           href: grant-admin-consent.md
         - name: Configure admin consent workflow (preview)
           href: configure-admin-consent-workflow.md
-        - name: Methods for assigning users and groups to an app
-          href: methods-for-assigning-users-and-groups.md
-        - name: Assign a user to an app
+        - name: Assign a user or group to an app
           href: assign-user-or-group-access-portal.md
         - name: Create collections on My Apps
           href: access-panel-collections.md

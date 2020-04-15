@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 02/28/2020
 ms.author: diberry
 ---
 
@@ -30,7 +30,7 @@ For example, you are the owner of 2 LUIS apps, and you have different members wh
 
 Migration includes:
 
-* All users of LUIS, owners and contributors.
+* All users of LUIS, owners, and contributors.
 * **All** apps.
 * A **one-way** migration.
 
@@ -75,7 +75,7 @@ After the migration process, all your LUIS apps are now assigned to a single LUI
 
 You can create more authoring resources and assign from the **Manage -> Azure resources** page in the _LUIS portal_.
 
-You can add contributors to the authoring resource from the _Azure portal_, on the **Access Control (IAM)** page for that resource. See [add contributor access](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource) for more information.
+You can add contributors to the authoring resource from the _Azure portal_, on the **Access Control (IAM)** page for that resource. For more information, see [add contributor access](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource).
 
 |Portal|Purpose|
 |--|--|
@@ -99,12 +99,20 @@ The app owner needs to [add your email to the Azure authoring resource as a coll
 
 After the migration process, any apps you own are available on the **My apps** page of the LUIS portal.
 
-## Troubleshooting
+## Troubleshooting the migration process for LUIS authoring
 
-* LUIS authoring keys are only visible in the LUIS portal after the migration process is complete. If you create the authoring keys, such as with the LUIS CLI, the user still needs to complete the migration process.
+* LUIS authoring keys are only visible in the LUIS portal after the migration process is complete. If you create the authoring keys, such as with the LUIS CLI, the user still needs to complete the migration process in the LUIS portal.
 * If a migrated user adds a non-migrated user as a contributor on their azure resource, the non-migrated user will have no access to the apps unless they migrate.
-* If a non-migrated user is not an owner to any apps but he is a collaborator to other apps that are owned by others and the owners have undergone the migration process, this user will need to migrate to have access to the apps.
+* If a non-migrated user is not an owner to any apps but is a collaborator to other apps that are owned by others and the owners have undergone the migration process, this user will need to migrate to have access to the apps.
 * If a non-migrated user added another migrated user as a collaborator to their app, an error will occur as you will not be able to add a migrated user as a collaborator to an app. The non-migrated user will then have to go through the migration process and create an azure resource and add the migrated user as a contributor to that resource.
+
+You receive an error during the migration process if:
+* Your subscription doesn't authorize you to create Cognitive Services resources
+* Your migration negatively impacts any applications runtime. When migrating, any collaborators are removed from your apps and you are removed as a collaborator from other apps. This process means the keys you assigned get removed too. The migration gets blocked if you have assigned keys in other apps. Remove the key you assigned safely before migrating. If you know that the key that you assigned isn’t used in the runtime, then you need to remove it to be able to progress in the migration.
+
+Access your app's Azure resource list using the following URL format:
+
+`https://www.luis.ai/applications/REPLACE-WITH-YOUR-APP-ID/versions/REPLACE-WITH-YOUR-VERSION-ID/manage/resources`
 
 ## Next steps
 

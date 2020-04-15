@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 02/28/2020
 ---
 
 # Use Azure storage with Azure HDInsight clusters
@@ -20,11 +20,11 @@ In this article, you learn how Azure Storage works with HDInsight clusters. To l
 > [!IMPORTANT]  
 > Storage account kind **BlobStorage** can only be used as secondary storage for HDInsight clusters.
 
-| Storage account kind | Supported services | Supported performance tiers | Supported access tiers |
-|----------------------|--------------------|-----------------------------|------------------------|
-| StorageV2 (general-purpose v2)  | Blob     | Standard                    | Hot, Cool, Archive\*   |
-| Storage (general-purpose v1)   | Blob     | Standard                    | N/A                    |
-| BlobStorage                    | Blob     | Standard                    | Hot, Cool, Archive\*   |
+| Storage account kind | Supported services | Supported performance tiers |Not supported performance tiers| Supported access tiers |
+|----------------------|--------------------|-----------------------------|---|------------------------|
+| StorageV2 (general-purpose v2)  | Blob     | Standard                    |Premium| Hot, Cool, Archive\*   |
+| Storage (general-purpose v1)   | Blob     | Standard                    |Premium| N/A                    |
+| BlobStorage                    | Blob     | Standard                    |Premium| Hot, Cool, Archive\*   |
 
 We don't recommend that you use the default blob container for storing business data. Deleting the default blob container after each use to reduce storage cost is a good practice. The default container contains application and system logs. Make sure to retrieve the logs before deleting the container.
 
@@ -33,9 +33,9 @@ Sharing one blob container as the default file system for multiple clusters isn'
 > [!NOTE]  
 > The Archive access tier is an offline tier that has a several hour retrieval latency and isn't recommended for use with HDInsight. For more information, see [Archive access tier](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
 
-## Access files from the cluster
+## Access files from within cluster
 
-There are several ways you can access the files in Data Lake Storage from an HDInsight cluster. The URI scheme provides unencrypted access (with the *wasb:* prefix) and SSL encrypted access (with *wasbs*). We recommend using *wasbs* wherever possible, even when accessing data that lives inside the same region in Azure.
+There are several ways you can access the files in Data Lake Storage from an HDInsight cluster. The URI scheme provides unencrypted access (with the *wasb:* prefix) and TLS encrypted access (with *wasbs*). We recommend using *wasbs* wherever possible, even when accessing data that lives inside the same region in Azure.
 
 * **Using the fully qualified name**. With this approach, you provide the full path to the file that you want to access.
 
@@ -117,6 +117,17 @@ LOCATION 'wasbs:///example/data/';
 LOCATION '/example/data/';
 ```
 
+## Access files from outside cluster
+
+Microsoft provides the following tools to work with Azure Storage:
+
+| Tool | Linux | OS X | Windows |
+| --- |:---:|:---:|:---:|
+| [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
+| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
+| [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
+
 ## Identify storage path from Ambari
 
 * To identify the complete path to the configured default store, navigate to:
@@ -127,6 +138,8 @@ LOCATION '/example/data/';
 
     **HDFS** > **Configs** and enter `blob.core.windows.net` in the filter input box.
 
+To obtain the path using Ambari REST API, see [Get the default storage](./hdinsight-hadoop-manage-ambari-rest-api.md#get-the-default-storage).
+
 ## Blob containers
 
 To use blobs, you first create an [Azure Storage account](../storage/common/storage-create-storage-account.md). As part of this, you specify an Azure region where the storage account is created. The cluster and the storage account must be hosted in the same region. The Hive metastore SQL Server database and Apache Oozie metastore SQL Server database must also be located in the same region.
@@ -136,17 +149,6 @@ Wherever it lives, each blob you create belongs to a container in your Azure Sto
 The default Blob container stores cluster-specific information such as job history and logs. Don't share a default Blob container with multiple HDInsight clusters. This might corrupt job history. It's recommended to use a different container for each cluster and put shared data on a linked storage account specified in deployment of all relevant clusters rather than the default storage account. For more information on configuring linked storage accounts, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). However you can reuse a default storage container after the original HDInsight cluster has been deleted. For HBase clusters, you can actually keep the HBase table schema and data by creating a new HBase cluster using the default blob container that is used by an HBase cluster that has been deleted.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
-
-## Interacting with Azure storage
-
-Microsoft provides the following tools to work with Azure Storage:
-
-| Tool | Linux | OS X | Windows |
-| --- |:---:|:---:|:---:|
-| [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
-| [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
-| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
-| [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
 
 ## Use additional storage accounts
 

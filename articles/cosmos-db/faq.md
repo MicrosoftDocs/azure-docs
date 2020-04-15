@@ -213,7 +213,7 @@ The Azure Cosmos DB's API for MongoDB is a wire-protocol compatibility layer tha
 
 The quickest way to connect to a Cosmos database with Azure Cosmos DB's API for MongoDB is to head over to the [Azure portal](https://portal.azure.com). Go to your account and then, on the left navigation menu, click **Quick Start**. Quickstart is the best way to get code snippets to connect to your database.
 
-Azure Cosmos DB enforces strict security requirements and standards. Azure Cosmos DB accounts require authentication and secure communication via SSL, so be sure to use TLSv1.2.
+Azure Cosmos DB enforces strict security requirements and standards. Azure Cosmos DB accounts require authentication and secure communication via TLS, so be sure to use TLSv1.2.
 
 For more information, see [Connect to your Cosmos database with Azure Cosmos DB's API for MongoDB](connect-mongodb-account.md).
 
@@ -634,7 +634,7 @@ The output of the above profile shows how much time is spent obtaining the verte
 
 ## <a id="cassandra"></a> Cassandra API
 
-### What is the protocol version supported by Azure Cosmso DB Cassandra API? Is there a plan to support other protocols?
+### What is the protocol version supported by Azure Cosmos DB Cassandra API? Is there a plan to support other protocols?
 
 Apache Cassandra API for Azure Cosmos DB supports today CQL version 4. If you have feedback about supporting other protocols, let us know via [user voice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db) or send an email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
 

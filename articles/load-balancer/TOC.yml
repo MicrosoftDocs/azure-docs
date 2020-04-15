@@ -6,15 +6,16 @@
     href: load-balancer-overview.md
 - name: Quickstart
   items:
-  - name: Portal
+  - name: Create Load Balancer - Portal
     href: quickstart-load-balancer-standard-public-portal.md
-  - name: Azure CLI
+  - name: Create Load Balancer - Azure CLI
     href: quickstart-load-balancer-standard-public-cli.md
-  - name: Azure PowerShell
+  - name: Create Load Balancer - PowerShell
     href: quickstart-create-standard-load-balancer-powershell.md
-  - name: Azure Resource Manager template
+  - name: Create Load Balancer - ARM template
+    displayName: Resource Manager
     href: quickstart-load-balancer-standard-public-template.md
-    displayName: ARM
+  expanded: true
 - name: Tutorials
   items:
   - name: Load balance internet traffic to VMs
@@ -63,6 +64,14 @@
     href: load-balancer-security-controls.md
 - name: How to
   items:
+  - name: Virtual machine scale sets
+    items:
+    - name: Use with an existing Azure Load Balancer - Portal
+      href: configure-vm-scale-set-portal.md
+    - name: Use with an existing Azure Load Balancer - PowerShell
+      href: configure-vm-scale-set-powershell.md
+    - name: Use with an existing Azure Load Balancer - CLI
+      href: configure-vm-scale-set-cli.md
   - name: Upgrade a Basic Load Balancer to Standard Load Balancer
     items:
     - name: Upgrade a Basic Public Load Balancer
@@ -150,7 +159,7 @@
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-virtual-machines
+    href: /learn/browse/?products=azure-load-balancer
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Azure Load Balancer feedback

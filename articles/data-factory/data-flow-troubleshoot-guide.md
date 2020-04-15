@@ -7,9 +7,11 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/04/2020
+ms.date: 04/02/2020
 ---
 # Troubleshoot data flows in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article explores common troubleshooting methods for data flows in Azure Data Factory.
 
@@ -49,6 +51,18 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 - **Message**: Column name needs to be specified in the query, set an alias if using a SQL function
 - **Causes**: No column name was specified
 - **Recommendation**: Set an alias if using a SQL function such as min()/max(), etc.
+
+### Error code: GetCommand OutputAsync failed
+
+- **Message**: During Data Flow debug and data preview: GetCommand OutputAsync failed with ...
+- **Causes**: This is a back-end service error. You can retry the operation and also restart your debug session.
+- **Recommendation**: If retry and restart do not resolve the issue, contact customer support.
+
+### Error code: Hit unexpected exception and execution failed
+
+- **Message**: During Data Flow activity execution: Hit unexpected exception and execution failed.
+- **Causes**: This is a back-end service error. You can retry the operation and also restart your debug session.
+- **Recommendation**: If retry and restart do not resolve the issue, contact customer support.
 
 ## General troubleshooting guidance
 

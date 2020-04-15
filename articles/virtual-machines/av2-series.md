@@ -2,7 +2,7 @@
  title: Av2-series - Azure Virtual Machines
  description: Specifications for the Av2-series VMs.
  services: virtual-machines
- author: jonbeck7
+ author: migerdes
  ms.service: virtual-machines
  ms.topic: article
  ms.date: 02/03/2020
@@ -18,6 +18,10 @@ ACU: 100
 Premium Storage:  Not Supported
 
 Premium Storage caching:  Not Supported
+
+Live Migration: Supported
+
+Memory Preserving Updates: Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max data disks/throughput: IOPS | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|

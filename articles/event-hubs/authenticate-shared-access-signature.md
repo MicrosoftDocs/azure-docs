@@ -29,7 +29,7 @@ This article covers authenticating the access to Event Hubs resources using SAS.
 
 
 ## Configuring for SAS authentication
-You can configure the EventHubs shared access authorization rule on an Event Hubs namespace, or an entity (event hub instance or Kafka Topic in an Event Hubs for Kafka enabled namespace). Configuring a shared access authorization rule on a consumer group is currently not supported, but you can use rules configured on a namespace or entity to secure access to consumer group. 
+You can configure the EventHubs shared access authorization rule on an Event Hubs namespace, or an entity (event hub instance or Kafka Topic in an event hub). Configuring a shared access authorization rule on a consumer group is currently not supported, but you can use rules configured on a namespace or entity to secure access to consumer group. 
 
 The following image shows how the authorization rules apply on sample entities. 
 

@@ -392,14 +392,22 @@
     items:
     - name: Copy data using Copy Activity
       href: copy-activity-overview.md
+    - name: Monitor copy activity
+      href: copy-activity-monitoring.md
     - name: Delete files using Delete Activity
       href: delete-activity.md
     - name: Copy Data tool
       href: copy-data-tool.md
     - name: Format and compression support
       href: supported-file-formats-and-compression-codecs.md
-    - name: Performance and tuning
-      href: copy-activity-performance.md
+    - name: Copy activity performance
+      items:
+      - name: Performance and scalability guide
+        href: copy-activity-performance.md
+      - name: Troubleshoot performance
+        href: copy-activity-performance-troubleshooting.md
+      - name: Performance features
+        href: copy-activity-performance-features.md
     - name: Preserve metadata and ACLs
       href: copy-activity-preserve-metadata.md
     - name: Schema and type mapping
@@ -479,6 +487,8 @@
       href: control-flow-webhook-activity.md
   - name: Data flow transformations
     items:
+    - name: Transformation overview
+      href: data-flow-transformation-overview.md
     - name: Aggregate
       href: data-flow-aggregate.md
     - name: Alter row
@@ -491,6 +501,8 @@
       href: data-flow-exists.md
     - name: Filter
       href: data-flow-filter.md
+    - name: Flatten
+      href: data-flow-flatten.md
     - name: Join
       href: data-flow-join.md
     - name: Lookup
@@ -515,8 +527,6 @@
       href: data-flow-unpivot.md
     - name: Window
       href: data-flow-window.md
-    - name: Flatten
-      href: data-flow-flatten.md
   - name: Parameterize
     items:
     - name: Parameterizing linked services
@@ -571,6 +581,8 @@
     items:
     - name: Run SSIS packages in Azure from SSDT
       href: how-to-invoke-ssis-package-ssdt.md
+    - name: Run SSIS packages with Azure SQL Managed Instance Agent
+      href: how-to-invoke-ssis-package-managed-instance-agent.md
     - name: Run SSIS packages with Azure-enabled dtexec
       href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
     - name: Run SSIS packages with Execute SSIS Package activity
@@ -597,6 +609,8 @@
       href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: Clean up SSISDB logs with Elastic Database Jobs
       href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+    - name: Migrate SSIS jobs with SSMS
+      href: how-to-migrate-ssis-job-ssms.md
   - name: Create triggers
     items:
     - name: Create an event-based trigger
@@ -625,7 +639,7 @@
       href: solution-template-migration-s3-azure.md
     - name: Move files
       href: solution-template-move-files.md
-    - name: Transform data with Databricks
+    - name: Transformation with Azure Databricks
       href: solution-template-databricks-notebook.md
   - name: Troubleshooting guides
     items:
@@ -687,6 +701,8 @@
     href: frequently-asked-questions.md
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-factory
+  - name: Blog
+    href: https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog#
   - name: Ask a question - MSDN forum
     href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc
   - name: Ask a question - Stack Overflow

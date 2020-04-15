@@ -9,7 +9,7 @@ groups:
   - id: client-operating-system-linux
     title: Linux
   - id: client-operating-system-macos
-    title: MacOS
+    title: macOS
   - id: client-operating-system-windows
     title: Windows
 - id: URL-test-interface
@@ -135,7 +135,7 @@ groups:
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-java
-    title: Java 
+    title: Java
   - id: programming-language-other
     title: Other languages...
 - id: programming-languages-set-ten
@@ -151,6 +151,26 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: programming-languages-set-eleven
+# Owner: aahill
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-set-fifteen
+# Owner: aahill
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Go
 # Service-specific groups
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
@@ -168,14 +188,16 @@ groups:
   pivots:
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-java
+    title: Java
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-powershell
     title: PowerShell 
   - id: programming-language-python
     title: Python 
-  - id: programming-language-typescript
-    title: TypeScript
+  # - id: programming-language-typescript
+  #   title: TypeScript
 - id: programming-languages-text-analytics
   title: Programming languages
   prompt: Choose a programming language.
@@ -185,7 +207,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: programming-language-java
-    title: Java 
+    title: Java
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-other
@@ -200,6 +222,14 @@ groups:
     title: JavaScript
   - id: programming-language-python
     title: Python
+- id: java-build-tools-set
+  title: Build tools
+  prompt: Choose a build tool
+  pivots:
+  - id: java-build-tools-maven
+    title: Maven
+  - id: java-build-tools-gradle
+    title: Gradle
 - id: platforms-set-of-three
   title: Platforms
   prompt: Choose a platform
@@ -210,3 +240,59 @@ groups:
     title: Linux
   - id: platform-android
     title: Android
+- id: programming-languages-set-twelve
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C+
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-objectivec
+    title: Objective-C
+- id: programming-languages-set-thirteen
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C+
+  - id: programming-language-java
+    title: Java
+- id: code-editors-set-one
+  title: Code Editors
+  prompt: Choose a code editor
+  pivots:
+  - id: code-editor-vscode
+    title: Visual Studio Code
+  - id: code-editor-visualstudio
+    title: Visual Studio
+- id: programming-languages-set-fourteen
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-more
+    title: More languages...
+- id: programming-languages-set-sixteen
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-more
+    title: More languages...

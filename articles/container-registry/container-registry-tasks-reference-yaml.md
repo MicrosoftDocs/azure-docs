@@ -523,7 +523,7 @@ The following task aliases are available to use in place of [run variables](#run
 
 In task steps, precede an alias with the `$` directive, as in this example:
 
-```yaml
+```yml
 version: v1.1.0
 steps:
   - build: -t $Registry/hello-world:$ID -f hello-world.dockerfile .
@@ -542,7 +542,7 @@ Each of the following aliases points to a stable image in Microsoft Container Re
 
 The following example task uses several aliases to [purge](container-registry-auto-purge.md) image tags older than 7 days in the repo `samples/hello-world` in the run registry:
 
-```yaml
+```yml
 version: v1.1.0
 steps:
   - cmd: acr tag list --registry $RegistryName --repository samples/hello-world

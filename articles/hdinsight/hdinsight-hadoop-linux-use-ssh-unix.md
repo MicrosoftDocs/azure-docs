@@ -4,11 +4,10 @@ description: "You can access HDInsight using Secure Shell (SSH). This document p
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-keywords: hadoop commands in linux,hadoop linux commands,hadoop macos,ssh hadoop,ssh hadoop cluster
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/02/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.date: 02/28/2020
 ---
 
 # Connect to HDInsight (Apache Hadoop) using SSH
@@ -24,7 +23,7 @@ The following table contains the address and port information needed when connec
 | `<clustername>-ed-ssh.azurehdinsight.net` | 22 | edge node (ML Services on HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | edge node (any other cluster type, if an edge node exists) |
 
-Replace `<clustername>` with the name of your cluster. Replace `<edgenodename>` with the name of the edge node. 
+Replace `<clustername>` with the name of your cluster. Replace `<edgenodename>` with the name of the edge node.
 
 If your cluster contains an edge node, we recommend that you __always connect to the edge node__ using SSH. The head nodes host services that are critical to the health of Hadoop. The edge node runs only what you put on it. For more information on using edge nodes, see [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
 
@@ -39,7 +38,7 @@ Linux, Unix, and macOS systems provide the `ssh` and `scp` commands. The `ssh` c
 
 Microsoft Windows doesn't install any SSH clients by default. The `ssh` and `scp` clients are available for Windows through the following packages:
 
-* [OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). This is an optional feature introduced in the Windows 10 Fall Creators Update.
+* [OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). This client is an optional feature introduced in the Windows 10 Fall Creators Update.
 
 * [Bash on Ubuntu on Windows 10](https://docs.microsoft.com/windows/wsl/about).
 
@@ -88,7 +87,7 @@ You're prompted for information during the key creation process. For example, wh
 | Azure CLI | Use the `--sshPublicKey` parameter of the [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) command and pass the contents of the public key as a string. |
 | Resource Manager Template | For an example of using SSH keys with a template, see [Deploy HDInsight on Linux with SSH key](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/). The `publicKeys` element in the [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) file is used to pass the keys to Azure when creating the cluster. |
 
-## <a id="sshpassword"></a>Authentication: Password
+## Authentication: Password
 
 SSH accounts can be secured using a password. When you connect to HDInsight using SSH, you're prompted to enter the password.
 
@@ -104,18 +103,18 @@ SSH accounts can be secured using a password. When you connect to HDInsight usin
 | --------------- | ---------------- |
 | Azure portal | By default, the SSH user account has the same password as the cluster login account. To use a different password, uncheck __Use cluster login password for SSH__, and then enter the password in the __SSH password__ field.</br>![SSH password dialog in HDInsight cluster creation](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
 | Azure PowerShell | Use the `--SshCredential` parameter of the [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet and pass a `PSCredential` object that contains the SSH user account name and password. |
-| Azure CLI | Use the `--sshPassword` parameter of the [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) command and provide the password value. |
+| Azure CLI | Use the `--ssh-password` parameter of the [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) command and provide the password value. |
 | Resource Manager Template | For an example of using a password with a template, see [Deploy HDInsight on Linux with SSH password](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). The `linuxOperatingSystemProfile` element in the [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) file is used to pass the SSH account name and password to Azure when creating the cluster.|
 
 ### Change the SSH password
 
 For information on changing the SSH user account password, see the __Change passwords__ section of the [Manage HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords) document.
 
-## <a id="domainjoined"></a>Authentication: Domain-joined HDInsight
+## Authentication domain joined HDInsight
 
 If you're using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH local user. This command prompts you for a domain user and password, and authenticates your session with the Azure Active Directory domain associated with the cluster.
 
-You can also enable Kerberos Authentication on each domain joined node (for example, head node, edge node) in order to ssh using the domain account. To do this edit sshd config file:
+You can also enable Kerberos Authentication on each domain joined node (for example, head node, edge node) to ssh using the domain account. To do this edit sshd config file:
 
 ```bash
 sudo vi /etc/ssh/sshd_config
@@ -127,13 +126,13 @@ uncomment and change `KerberosAuthentication` to `yes`
 sudo service sshd restart
 ```
 
-At any time, in order to verify whether the Kerberos authentication was successful or not, use `klist` command.
+Use `klist` command to verify whether the Kerberos authentication was successful.
 
 For more information, see [Configure domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md).
 
 ## Connect to nodes
 
-The head nodes and edge node (if there is one) can be accessed over the internet on ports 22 and 23.
+The head nodes and edge node (if there's one) can be accessed over the internet on ports 22 and 23.
 
 * When connecting to the __head nodes__, use port __22__ to connect to the primary head node and port __23__ to connect to the secondary head node. The fully qualified domain name to use is `clustername-ssh.azurehdinsight.net`, where `clustername` is the name of your cluster.
 
@@ -174,7 +173,7 @@ The worker nodes and Zookeeper nodes aren't directly accessible from the interne
     ssh sshuser@wn0-myhdi
     ```
 
-    To retrieve a list of the node names, see the [Manage HDInsight by using the Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) document.
+    To retrieve a list of the node names, see the [Manage HDInsight by using the Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes) document.
 
 If the SSH account is secured using a __password__, enter the password when connecting.
 
