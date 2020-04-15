@@ -54,27 +54,27 @@ One of the most powerful capabilities of the ARM Tools extension for VS Code is 
 
 First, update the storage account kind to an invalid value such as `megaStorage`. Notice that this produces a warning indicating that `megaStorage` is not a valid value.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/15.png)
+![](./media/quickstart-create-templates-use-visual-studio-code/7.png)
 
 To use the completion capabilities, remove `megaStorage`, place the cursor inside of the double quotes, and press `ctrl` + `space`. This action presents a list of valid values.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
+![](./media/quickstart-create-templates-use-visual-studio-code/8.png)
 
 ## Add template parameters
 
 Now create and use a parameter to specify the storage account name.
 
-Place your cursor in the parameters block, add a carriage return, type `par`, and then select the`arm-param-value` snippet. This adds a generic parameter to the template.
+Place your cursor in the parameters block, add a carriage return, type `par`, and then select the `arm-param-value` snippet. This adds a generic parameter to the template.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/7.png)
+![](./media/quickstart-create-templates-use-visual-studio-code/9.png)
 
 Update the name of the parameter to `storageAccountName` and the description to `Storage Account Name`.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/8.png)
+![](./media/quickstart-create-templates-use-visual-studio-code/10.png)
 
 Azure storage accounts names have a minimum length of 3 characters and a maximum of 24. Add both `minLength` and `maxLength` to the parameter and provide appropriate values.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/14.png)
+![](./media/quickstart-create-templates-use-visual-studio-code/11.png)
 
 Now, on the storage resource, update the name property to use the parameter. To do so, remove the current name. Enter a double quote and an opening square bracket `[`, which produces a list of ARM functions. Type in `par` and select *parameters* from the list. 
 
@@ -90,29 +90,29 @@ An ARM template parameter file allows you to store environment-specific values a
 
 The ARM Tools extension for VS Code makes it easy to create a parameter file from your existing templates. To do so, right-click on the template in the code editor and select `Select/Create Parameter File`.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/17.png)
+![](./media/quickstart-create-templates-use-visual-studio-code/14.png)
 
 Select `New` > `All Parameters` > Select a name and location for the parameter file.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/18.png)
+![](./media/quickstart-create-templates-use-visual-studio-code/15.png)
 
 This will create a new parameters file and associate it with the template from which it was created. You can see which parameter file a template has been associated with, and update this mapping in the VS Code status bar.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/19.png)
+![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
 
 Now that the parameter file has been mapped to the template, the ARM Tools extension validates both the template and parameter file. To see this in practice, add a two-character value to the `storageAccountName` parameter in the parameter file.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/20.png)
+![](./media/quickstart-create-templates-use-visual-studio-code/17.png)
 
 Navigate back to the ARM template and notice that an error has been raised indicating that the value does not meet the parameter criteria.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/21.png)
+![](./media/quickstart-create-templates-use-visual-studio-code/18.png)
 
 Update the value to something appropriate, save the file, and navigate back to the template. Notice that the error on the parameter has been resolved.
 
 ## Template deployment
 
-Open the integrated VS Code terminal using the `ctrl` + ``` key combination and use either the Azure CLI or Azure PowerShell module to deploy the template.
+Open the integrated VS Code terminal using the `ctrl` + ````` key combination and use either the Azure CLI or Azure PowerShell module to deploy the template.
 
 # [CLI](#tab/CLI)
 
