@@ -50,8 +50,6 @@ Availability Zones are currently/planned to be available in most recommended reg
 - Mainstream VM and Disk types: generally are available in two or more zones in regions with zones; additional demand and capacity drives third Zone deployment
 - Specialized VM and Disk types: generally are available in one Zone in regions with zones; additional demand and capacity drives second and third Zone deployments
 
-For more information, see the [Service categories](#service-categories) section later in this article.
-
 ### Auxiliary/alternate regions
 
 An auxiliary/alternate region is a region that provides essential capabilities, which include the following:
@@ -67,8 +65,6 @@ The Azure services available in auxiliary/alternate regions support your busines
 - Mainstream – demand-driven availability in Auxiliary/alternate regions; not targeted at parity. 
 - Specialized – demand-driven availability across regions backed by customized/specialized hardware; not targeted at parity. 
 
-For more information, see the [Service categories](#service-categories) section later in this article.
-
 ### Comparing region types
 
 | Region type | Non-regional services | Foundational services | Mainstream services | Specialized services | Availability Zones | Data residency |
@@ -76,9 +72,7 @@ For more information, see the [Service categories](#service-categories) section 
 | Recommenced | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | :heavy_check_mark: | :heavy_check_mark: |
 | Auxiliary/alternate | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | Demand-driven | N/A | :heavy_check_mark: |
 
-###  Services resiliency
-
-All Azure management services are architected to be resilient from region-level failures. In the spectrum of failures, one or more Availability Zone failures within a region have a smaller failure radius compared to an entire region failure. Azure can recover from a zone-level failure of management services within the region or from another Azure region. Azure performs critical maintenance one zone at a time within a region, to prevent any failures impacting customer resources deployed across Availability Zones within a region.
+For more information, see the [Services](#services) section later in this article.
 
 ## Availability Zones
 
@@ -102,9 +96,26 @@ To achieve comprehensive business continuity on Azure, build your application ar
 
 There is no additional cost for virtual machines deployed in an Availability Zone. 99.99% VM uptime SLA is offered when two or more VMs are deployed across two or more Availability Zones within an Azure region. There will be additional inter-Availability Zone VM-to-VM data transfer charges. For more information, review the [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/) page.
 
+### Get started with Availability Zones
+
+- [Create a virtual machine](../virtual-machines/windows/create-portal-availability-zone.md)
+- [Add a Managed Disk using PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
+- [Create a zone redundant virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
+- [Load balance VMs across zones using a Standard Load Balancer with a zone-redundant frontend](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
+- [Load balance VMs within a zone using a Standard Load Balancer with a zonal frontend](../load-balancer/load-balancer-standard-public-zonal-cli.md)
+- [Zone-redundant storage](../storage/common/storage-redundancy-zrs.md)
+- [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
+- [Event Hubs geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md#availability-zones)
+- [Service Bus geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
+- [Create a zone-redundant virtual network gateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+- [Add zone redundant region for Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
+- [Getting Started Azure Cache for Redis Availability Zones](https://aka.ms/redis/az/getstarted)
+- [Create an Azure Active Directory Domain Services instance](../active-directory-domain-services/tutorial-create-instance.md)
+- [Create an Azure Kubernetes Service (AKS) cluster that uses Availability Zones](../aks/availability-zones.md)
+
 ## Services
 
-You can share your interest for additional regions or the availability of a service offering in a specific region by contacting your Microsoft sales representative.
+You can choose one or more regions to use based on availability of Azure services and capabilities. If a service is not available in a in a specific region or you are interested in additional regions, you can provide feedback by contacting your Microsoft sales representative.
 
 ### Services that support Availability Zones
 
@@ -143,6 +154,9 @@ The combinations of Azure services and regions that support Availability Zones a
 | **Identity**                     |            |              |           |           |                |              |          |             |            |                |
 | Azure AD Domain Services | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |
 
+###  Services resiliency
+
+All Azure management services are architected to be resilient from region-level failures. In the spectrum of failures, one or more Availability Zone failures within a region have a smaller failure radius compared to an entire region failure. Azure can recover from a zone-level failure of management services within the region or from another Azure region. Azure performs critical maintenance one zone at a time within a region, to prevent any failures impacting customer resources deployed across Availability Zones within a region.
 
 ### Service categories
 
@@ -198,25 +212,220 @@ Azure classifies services into three categories: foundational, mainstream, and s
 
 ### Mainstream services
 
+- Management
+- App Service
+- App Service: App Service Environments
+- Application Gateway : Application Gateway v2
+- Automation
+- Azure Active Directory
+- Azure Active Directory : Premium P1
+- Azure Active Directory : Premium P2
+- Azure Active Directory B2C
+- Azure Active Directory Domain Services
+- Azure Advanced Threat Protection
+- Azure Advisor
+- Azure Analysis Services
+- Azure Bastion
+- Azure Bot Service
+- Azure DDoS Protection Standard
+- Azure DNS
+- Azure DNS: Azure DNS private zones
+- Azure Data Box: Data Box
+- Azure Data Box: Data Box Disk
+- Azure Data Box: Data Box Edge
+- Azure Data Box: Data Box Gateway
+- Azure Data Explorer
+- Azure Data Share
+- Azure Data Share: Snapshot Execution
+- Azure Database Migration Service
+- Azure Database for MySQL
+- Azure Database for PostgreSQL
+- Azure Databricks
+- Azure DevOps
+- Azure DevTest Labs
+- Azure Firewall
+- Azure Front Door
+- Azure HPC Cache
+- Azure Information Protection
+- Azure Information Protection: Free
+- Azure Information Protection : Premium P1
+- Azure Information Protection : Premium P2
+- Azure Kubernetes Service (AKS)
+- Azure Lighthouse
+- Azure LockBox
+- Azure Managed Applications
+- Azure Maps
+- Azure Migrate
+- Azure Monitor
+- Azure Monitor : Application Insights
+- Azure Monitor : Log Analytics
+- Azure Open Datasets
+- Azure Policy
+- Azure Private Link
+- Azure Red Hat OpenShift (ARO)
+- Azure Resource Graph
+- Azure Search
+- Azure Search: Cognitive Search
+- Azure Security for IoT
+- Azure Sentinel
+- Azure SignalR Service
+- Azure Signup Portal
+- Azure Stack
+- Azure Synapse Analytics
+- Azure Web Application Firewall
+- Azure Web Application Firewall: Azure Web Application Firewall – Regional v2
+- Azure for Education
+- Batch
+- Cloud Shell
+- Cognitive Services
+- Cognitive Services: Computer Vision
+- Cognitive Services: Content Moderator
+- Cognitive Services: Face
+- Cognitive Services: Language Understanding
+- Cognitive Services: Personalizer
+- Cognitive Services: QnA Maker
+- Cognitive Services: Speech Services
+- Cognitive Services: Text Analytics
+- Cognitive Services: Translator Text
+- Container Instances
+- Container Registry
+- Content Delivery Network
+- Cost Management
+- Data Factory
+- Data Factory: Azure Integration Runtime
+- Data Factory: SSIS Integration Runtime
+- Dynamics 365 Customer Engagement
+- Dynamics 365 Customer Service
+- Dynamics 365 Field Service
+- Dynamics 365 Sales
+- Event Grid
+- Functions
+- Functions: Consumption Plan Linux
+- Functions: Premium Plan
+- Functions: Premium Plan Linux
+- Guest Configuration
+- HDInsight
+- HDInsight: Enterprise Security Package
+- Intune
+- IoT Hub
+- IoT Hub: IoT Hub Device Provisioning Service
+- Logic Apps
+- Machine Learning Service
+- Media Services
+- Microsoft Azure portal
+- Microsoft Cloud App Security
+- Microsoft Graph
+- Microsoft Managed Desktop
+- Microsoft Stream
+- Multi-Factor Authentication
+- Network Watcher
+- Network Watcher: Traffic Analytics
+- Notification Hubs
+- Power Apps
+- Power Automate
+- Power BI
+- Redis Cache
+- Security Center
+- Site Recovery
+- Storage: Archive Storage
+- Storage: Azure File Sync
+- Storage: Azure Premium Files
+- Storage: Azure Storage Reservations
+- Storage: Import/Export
+- Storage: Premium Block Blobs
+- Storage: Ultra Disk Storage
+- Stream Analytics
+- Traffic Manager
+- Virtual Machines: Azure Dedicated Host
+- Virtual Machines: Fsv2-Series
+- Virtual Machines: M-Series
+- Virtual Machines: Serial Console
+- Virtual Machines: Software Plan
+- Virtual WAN
+- Virtual WAN: ExpressRoute
+- Virtual WAN: Point-to-site VPN Gateway
+- Virtual WAN: Site-to-Site VPN Gateway
+- Windows Virtual Desktop
 
 ### Specialized services
 
-
-## Get started with Availability Zones
-- [Create a virtual machine](../virtual-machines/windows/create-portal-availability-zone.md)
-- [Add a Managed Disk using PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
-- [Create a zone redundant virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Load balance VMs across zones using a Standard Load Balancer with a zone-redundant frontend](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
-- [Load balance VMs within a zone using a Standard Load Balancer with a zonal frontend](../load-balancer/load-balancer-standard-public-zonal-cli.md)
-- [Zone-redundant storage](../storage/common/storage-redundancy-zrs.md)
-- [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
-- [Event Hubs geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md#availability-zones)
-- [Service Bus geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
-- [Create a zone-redundant virtual network gateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
-- [Add zone redundant region for Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
-- [Getting Started Azure Cache for Redis Availability Zones](https://aka.ms/redis/az/getstarted)
-- [Create an Azure Active Directory Domain Services instance](../active-directory-domain-services/tutorial-create-instance.md)
-- [Create an Azure Kubernetes Service (AKS) cluster that uses Availability Zones](../aks/availability-zones.md)
+- AI builder
+- Azure API for FHIR
+- Azure Container Service
+- Azure Data Box: Data Box Heavy
+- Azure Data Lake Storage Gen1
+- Azure Database for MariaDB
+- Azure Dedicated HSM
+- Azure Dev Spaces
+- Azure Lab Services
+- Azure NetApp Files
+- Chat for Dynamics 365
+- Cognitive Services: Bing Autosuggest
+- Cognitive Services: Bing Custom Search
+- Cognitive Services: Bing Entity Search
+- Cognitive Services: Bing Image Search
+- Cognitive Services: Bing News Search
+- Cognitive Services: Bing Speech
+- Cognitive Services: Bing Spell Check
+- Cognitive Services: Bing Video Search
+- Cognitive Services: Bing Visual Search
+- Cognitive Services: Bing Web Search
+- Cognitive Services: Custom Vision
+- Cognitive Services: Translator Speech
+- Data Catalog
+- Data Factory: Data Factory V1
+- Data Lake Analytics
+- Dynamics 365 AI Customer Insights
+- Dynamics 365 Business Central
+- Dynamics 365 Customer Service Insights
+- Dynamics 365 Finance
+- Dynamics 365 Fraud Protection
+- Dynamics 365 Guides
+- Dynamics 365 Human Resources
+- Dynamics 365 Marketing
+- Dynamics 365 Portals
+- Dynamics 365 Project Service Automation
+- Dynamics 365 Retail
+- Dynamics 365 Sales Insights
+- Dynamics 365 Supply Chain Management
+- Dynamics 365 Talent Attract & Onboard
+- HockeyApp
+- IoT Central
+- Machine Learning Studio
+- Media Services: Video Indexer
+- Microsoft Defender Advanced Threat Protection
+- Microsoft Defender Advanced Threat	Protection: Microsoft Defender non-E5
+- Microsoft Forms Pro
+- Microsoft Genomics
+- Microsoft Healthcare Bot
+- Power Virtual Agents
+- StorSimple
+- Time Series Insights
+- VMWare by CloudSimple
+- Virtual Machines: A8 - A11 (Compute Intensive)
+- Virtual Machines: DASv4-Series
+- Virtual Machines: DAv4-Series
+- Virtual Machines: EASv4-Series
+- Virtual Machines: EAv4-Series
+- Virtual Machines: G-Series
+- Virtual Machines: GS-Series
+- Virtual Machines: H-Series
+- Virtual Machines: HBv1-Series
+- Virtual Machines: HBv2-Series
+- Virtual Machines: HCv1-Series
+- Virtual Machines: LS-Series
+- Virtual Machines: LSv2-Series
+- Virtual Machines: Mv2 SKL-series
+- Virtual Machines: NC-Series
+- Virtual Machines: NCv2-Series
+- Virtual Machines: NCv3-Series
+- Virtual Machines: ND-Series
+- Virtual Machines: NV-Series
+- Virtual Machines: NVv3-Series
+- Virtual Machines: SAP HANA on Azure Large Instances
+- Visual Studio App Center
+- Windows 10 IoT Core Services
 
 ## Next steps
+
 - [Quickstart templates](https://aka.ms/azqs)
