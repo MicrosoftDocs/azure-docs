@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Tutorial to build out a sample Azure Digital Twins solution to update based on device data.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 4/13/2020
+ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
 
@@ -48,7 +48,7 @@ Here are the components implemented by the sample app:
 * SDK usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * *BuildingScenario* - A sample Azure Digital Twins solution
-* *HubtToDT* - An Azure Functions app to update your Azure Digital Twins graph as a result of telemetry from IoT Hub
+* *HubToDT* - An Azure Functions app to update your Azure Digital Twins graph as a result of telemetry from IoT Hub
 * *DTRoutedData* - An Azure Functions app to update your Azure Digital Twins graph according to Azure Digital Twins data 
 
 The sample project also contains an interactive authorization component. Every time you start up the project, a browser window will open, prompting you to log in with your Azure account.

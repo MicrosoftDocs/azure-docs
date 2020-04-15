@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Walk through an introductory Azure Digital Twins setup.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 4/13/2020
+ms.date: 4/15/2020
 ms.topic: quickstart
 ms.service: digital-twins
 

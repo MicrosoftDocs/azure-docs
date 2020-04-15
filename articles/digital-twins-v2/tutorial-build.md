@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Tutorial to set up models, digital twins, and a twin graph in Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 4/13/2020
+ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
 
