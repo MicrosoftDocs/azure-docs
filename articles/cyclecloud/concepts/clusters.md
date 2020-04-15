@@ -18,15 +18,15 @@ Clusters fundamentally comprise of nodes, each of which perform a specific role 
 
 :::image type="content" source="~/images/concept_architecture_diagram.png" alt-text="Architecture Diagram":::
 
-There are two separate incarnations of nodes in CycleCloud. The first as a standalone node and the second as a nodearray, which is a collection of identically configured nodes (The node vs nodearray distinction follows the DevOps Pets vs Cattle analogy in spirit). Broadly but not strictly speaking, standalone nodes are constructed from single VMs on Azure while nodearrays map to Virtual Machine ScaleSets (VMSSs). 
+There are two separate incarnations of nodes in CycleCloud. The first as a standalone node and the second as a nodearray, which is a collection of identically configured nodes (The node vs nodearray distinction follows the DevOps Pets vs Cattle analogy in spirit). Broadly but not strictly speaking, standalone nodes are constructed from single VMs on Azure while nodearrays map to Virtual Machine ScaleSets (VMSS). 
 
-There are however crucial differences between nodearrays and VM Scalesets, the primary one being that a single nodearray can comprise of multiple VM scalesets. This enables a single nodearray to be build from VMs of difference sizes, or even different VM families, with the only constrain being that all nodes in a nodearray perform the same role in the cluster, for example, providing resources to a single queue of a scheduler.
+There are however crucial differences between nodearrays and VM scalesets, the primary one being that a single nodearray can comprise of multiple VM scalesets. This enables a single nodearray to be build from VMs of difference sizes, or even different VM families, with the only constrain being that all nodes in a nodearray perform the same role in the cluster, for example, providing resources to a single queue of a scheduler.
 
 ## Cluster Templates
 
-The topology, or how nodes are organized in an CycleCloud cluster, are defined in text templates that lay out the relationships among nodes of a cluster, and in the case of nested clusters, the parent-child relationship of clusters. The templates also provide the means of defining the role each node play. 
+The topology, or how nodes are organized in a CycleCloud cluster, are defined in text templates that lay out the relationships among nodes of a cluster, and in the case of nested clusters, the parent-child relationship of clusters. The templates also provide the means of defining the role each node play. 
 
-Cluster templates are defined in an [INI format](https://en.wikipedia.org/wiki/INI_file). Sections, delineated using suare brackets `[`,`]`, are used to define clusters, nodes, and nodearrays. The basic element of INI files are key-value pair assertions that provide the configuration details of each section. These configuration details provide contextual information used to create each node of a cluster, from the virtual machine image used to boot the VM to the subnet that the VM is to be provisioned in. [Read more about the CycleCloud cluster templates](~/how-to/cluster-templates.md)
+Cluster templates are defined in an [INI format](https://en.wikipedia.org/wiki/INI_file). Sections, delineated using square brackets `[`,`]`, are used to define clusters, nodes, and nodearrays. The basic element of INI files are key-value pair assertions that provide the configuration details of each section. These configuration details provide contextual information used to create each node of a cluster, from the virtual machine image used to boot the VM to the subnet that the VM is to be provisioned in. [Read more about the CycleCloud cluster templates](~/how-to/cluster-templates.md)
 
 ## Node Preparation and Configuration
 
@@ -34,11 +34,11 @@ CycleCloud provisions VMs from base VM images defined in the cluster template, a
 
 :::image type="content" source="~/images/concept_node-prep_diagram.png" alt-text="Node Preparation Diagram":::
 
-Defined in the configuration section of each node are *cluster-init specs* -- specifications provided to each booting VM that are used to prepare it for a specific role in the cluster. CycleCloud utilizes [Chef](https://www.chef.io) as the infrastructure automation platform for preparing and configuring each node. In essence, each *cluster-init spec* map to one of more [Chef roles](https://docs.chef.io/roles.html) and/or [Cookbook Recipes](https://docs.chef.io/recipes.html) that need to be executed on the booting VM. 
+Defined in the configuration section of each node are *cluster-init specs* -- specifications provided to each booting VM that are used to prepare it for a specific role in the cluster. CycleCloud utilizes [Chef](https://www.chef.io) as the infrastructure automation platform for preparing and configuring each node. In essence, each *cluster-init spec* maps to one of more [Chef Roles](https://docs.chef.io/roles.html) and/or [Cookbook Recipes](https://docs.chef.io/recipes.html) that need to be executed on the booting VM. 
 
 CycleCloud utilizes Chef in a stand-alone mode that does not rely on a centralized Chef server. Instead, the entire set of Chef Cookbooks needed to prepare each VM are downloaded from an Azure Storage Account belonging to the user during the VM bootup phase. This set of Cookbooks are cached from the CycleCloud application server into the Storage Account during the cluster creation phase. 
 
-After these Cookbooks are downloaded, the Chef process proceeds to process the list of Recipes defined in the node's *cluster-init specs*, triggering a preparation and configuration phase that converts the VM into a working HPC node.
+After these Cookbooks are downloaded, the Chef processes the list of Recipes defined in the node's *cluster-init specs*, triggering a preparation and configuration phase that converts the VM into a working HPC node.
 
 Specs are authored as logical collections called *Projects*. For example, a project for a batch scheduler such as Slurm comprises of a minimum of two specs: one for the scheduler head nodes, and the other for the compute nodes. [Read more about the CycleCloud Projects](../projects.md) 
 
