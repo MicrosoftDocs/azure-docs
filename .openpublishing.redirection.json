@@ -50644,7 +50644,7 @@
     {
       "source_path": "articles/hdinsight/spark/azure-synapse-analytics-job-definition.md",
       "redirect_url": "../../synapse-analytics/spark/apache-spark-job-definitions.md",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/media-services/latest/access-api-portal.md",
