@@ -45,7 +45,7 @@ The Java client library for Event Hubs is available in the [Maven Central Reposi
 
 ### Write code to send messages to the event hub
 
-For the following sample, first create a new Maven project for a console/shell application in your favorite Java development environment. Add a class named `SimpleSend`, and add the following code to the class:
+For the following sample, first create a new Maven project for a console/shell application in your favorite Java development environment. Add a class named `Sender`, and add the following code to the class:
 
 ```java
 import com.azure.messaging.eventhubs.*;

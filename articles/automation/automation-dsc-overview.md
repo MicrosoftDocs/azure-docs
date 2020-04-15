@@ -1,5 +1,5 @@
 ---
-title: Azure Automation State Configuration Overview
+title: Azure Automation State Configuration overview
 description: This article is an overview of Azure Automation State Configuration (DSC), its terms, and its known issues.
 keywords: powershell dsc, desired state configuration, powershell dsc azure
 services: automation
@@ -11,7 +11,8 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ---
-# Azure Automation State Configuration overview
+
+# State Configuration overview
 
 Azure Automation State Configuration is an Azure service that allows you to write, manage, and compile PowerShell Desired State Configuration (DSC) [configurations](/powershell/scripting/dsc/configurations/configurations). The service also imports [DSC resources](/powershell/scripting/dsc/resources/resources) and assigns configurations to target nodes, all in the cloud.
 
@@ -23,7 +24,7 @@ Azure Automation State Configuration provides several advantages over using DSC 
 
 Azure Automation State Configuration provides a DSC pull server similar to the [Windows Feature DSC-Service](/powershell/scripting/dsc/pull-server/pullserver). Target nodes can automatically receive configurations, conform to the desired state, and report on their compliance. The built-in pull server in Azure Automation eliminates the need to set up and maintain your own pull server. Azure Automation can target virtual or physical Windows or Linux machines, in the cloud or on-premises.
 
-### Management of all your DSC artifacts
+### Manage all your DSC artifacts
 
 Azure Automation State Configuration brings the same management layer to [PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) as it offers for PowerShell scripting. From the Azure portal or from PowerShell, you can manage all your DSC configurations, resources, and target nodes.
 
@@ -87,7 +88,7 @@ For Linux nodes, the DSC agent supports the proxy and uses the `http_proxy` vari
 
 #### Azure Automation State Configuration network ranges and namespace
 
-We recommend that you use the IP addresses listed in the following table when you're defining exceptions. For IP addresses, you can download the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) XML file from the Microsoft Download Center. This file contains the currently deployed ranges and any upcoming changes to the IP ranges. It is updated weekly.
+When you're defining exceptions, we recommend that you use the IP addresses listed in the following table. For IP addresses, you can download the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) XML file from the Microsoft Download Center. This file contains the currently deployed ranges and any upcoming changes to the IP ranges. It is updated weekly.
 
 If you have an Automation account that's defined for a specific region, you can restrict communication to that regional datacenter. The following table provides the DNS record for each region:
 
@@ -119,6 +120,6 @@ If you're an Azure ExpressRoute user, note that this file is used to update the 
 - To get started using DSC in Azure Automation State Configuration, see [Get started with Azure Automation State Configuration](automation-dsc-getting-started.md).
 - To learn how to onboard nodes, see [Onboard machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
 - To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compile configurations in Azure Automation State Configuration](automation-dsc-compile.md).
-- For PowerShell cmdlet reference, see [Azure Automation State Configuration cmdlets](/powershell/module/azurerm.automation/#automation).
+- For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
 - For an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Continuous deployment to virtual machines using Azure Automation State Configuration and Chocolatey](automation-dsc-cd-chocolatey.md).

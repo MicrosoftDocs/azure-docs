@@ -1,13 +1,14 @@
-- name: Azure Synapse Analytics Documentation
+- name: Azure Synapse (SQL DW)
   href: index.yml
+- name: Switch to Azure Synapse (workspaces preview)
+  href: ../overview-what-is.md
 - name: Overview
   items:
   - name: What is Azure Synapse Analytics?
     href: sql-data-warehouse-overview-what-is.md
   - name: Azure Synapse Analytics architecture
     href: massively-parallel-processing-mpp-architecture.md
-  - name: Data warehouse units
-    href: what-is-a-data-warehouse-unit-dwu-cdwu.md
+
   - name: Cheat sheet
     href: cheat-sheet.md
   - name: Best practices
@@ -31,12 +32,10 @@
       href: create-data-warehouse-portal.md
     - name: PowerShell
       href: create-data-warehouse-powershell.md
-  - name: Pause and resume
-    items:
-    - name: Portal
-      href: pause-and-resume-compute-portal.md
-    - name: PowerShell
-      href: pause-and-resume-compute-powershell.md
+  - name: Load data
+    items: 
+    - name: COPY statement
+      href: quickstart-bulk-load-copy-tsql.md
   - name: Scale
     items:
     - name: Portal
@@ -55,6 +54,12 @@
       items:
       - name: T-SQL
         href: quickstart-configure-workload-isolation-tsql.md
+  - name: Pause and resume
+    items:
+    - name: Portal
+      href: pause-and-resume-compute-portal.md
+    - name: PowerShell
+      href: pause-and-resume-compute-powershell.md
 - name: Concepts
   items:
   - name: Security
