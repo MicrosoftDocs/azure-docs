@@ -88,7 +88,19 @@ Azure storage accounts names have a minimum length of 3 characters and a maximum
  
 ## Create a parameter file from the template
 
+An ARM template parameter file allows you to store environment-specific values and pass these in as a group at deployment time. For example, you may have a parameter file with values specific to a test environment and another for a production environment.
 
+The ARM Tools extension for VS Code makes it easy to create a parameter file from your existing templates. To do so, right-click on the template in the code editor and select `Select/Create Parameter File`.
+
+![](./media/quickstart-create-templates-use-visual-studio-code/17.png)
+
+Select `New` > `All Parameters` > Select a name and location for the parameter file.
+
+![](./media/quickstart-create-templates-use-visual-studio-code/18.png)
+
+This will create a new parameters file and associate it with the template from which it was created. You can see which parameter file a template has been associated with, and update this mapping in the VS Code status bar.
+
+![](./media/quickstart-create-templates-use-visual-studio-code/19.png)
 
 ## Clean up resources
 
