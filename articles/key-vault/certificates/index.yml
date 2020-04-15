@@ -46,16 +46,8 @@ landingContent:
             url: quick-create-portal.md
           - text: Python
             url: quick-create-python.md
-
-  # Card
-  - title: Tutorials
-    linkLists:
-      - linkListType: tutorial
-        links:
           - text: Import a certificate in Key Vault 
             url: tutorial-import-certificate.md
-          - text: Configure certificate rotation
-            url: tutorial-rotate-certificates.md
 
   # Card
   - title: More about Key Vault
