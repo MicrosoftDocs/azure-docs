@@ -10,6 +10,9 @@ ms.topic: conceptual
 
 You can use [Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json) to monitor base-level metrics and logs for most services in Azure. You can call Azure Automation runbooks by using [action groups](../azure-monitor/platform/action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) or by using classic alerts to automate tasks based on alerts. This article shows you how to configure and run a runbook by using alerts.
 
+>[!NOTE]
+>This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
+
 ## Alert types
 
 You can use automation runbooks with three alert types:
@@ -39,7 +42,7 @@ As described in the preceding section, each type of alert has a different schema
 
 This example uses an alert from a VM. It retrieves the VM data from the payload, and then uses that information to stop the VM. The connection must be set up in the Automation account where the runbook is run. When using alerts to trigger runbooks, it is important to check the status of the alert in the runbook that is triggered. The runbook will trigger each time the alert changes state. Alerts have multiple states, the two most common states are `Activated` and `Resolved`. Check for this state in your runbook logic to ensure that your runbook does not run more than once. The example in this article shows how to look for `Activated` alerts only.
 
-The runbook uses the **AzureRunAsConnection** [Run As account](automation-create-runas-account.md) to authenticate with Azure to perform the management action against the VM.
+The runbook uses the `AzureRunAsConnection` [Run As account](automation-create-runas-account.md) to authenticate with Azure to perform the management action against the VM.
 
 Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**. You can modify the PowerShell script, and use it with many different resources.
 
@@ -133,13 +136,13 @@ Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**.
                     throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
                 }
                 Write-Verbose "Authenticating to Azure with service principal." -Verbose
-                Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
+                Add-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
                 Write-Verbose "Setting subscription to work against: $SubId" -Verbose
-                Set-AzureRmContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
+                Set-AzContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
 
                 # Stop the Resource Manager VM
                 Write-Verbose "Stopping the VM - $ResourceName - in resource group - $ResourceGroupName -" -Verbose
-                Stop-AzureRmVM -Name $ResourceName -ResourceGroupName $ResourceGroupName -Force
+                Stop-AzVM -Name $ResourceName -ResourceGroupName $ResourceGroupName -Force
                 # [OutputType(PSAzureOperationResponse")]
             }
             else {
@@ -164,7 +167,7 @@ Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**.
 
 Alerts use action groups, which are collections of actions that are triggered by the alert. Runbooks are just one of the many actions that you can use with action groups.
 
-1. In your Automation Account, select **Alerts** under **Monitoring**.
+1. In your Automation account, select **Alerts** under **Monitoring**.
 1. Select **+ New alert rule**.
 1. Click **Select** under **Resource**. On the **Select a resource** page, select your VM to alert off of, and click **Done**.
 1. Click **Add condition** under **Condition**. Select the signal you want to use, for example **Percentage CPU** and click **Done**.
@@ -189,3 +192,5 @@ Alerts use action groups, which are collections of actions that are triggered by
 * For details about different ways to start a runbook, see [Starting a runbook](automation-starting-a-runbook.md).
 * To learn how to create an activity log alert, see [Create activity log alerts](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * To learn how to create a near real-time alert, see [Create an alert rule in the Azure portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
+* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

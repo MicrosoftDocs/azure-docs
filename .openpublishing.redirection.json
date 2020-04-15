@@ -20,6 +20,7 @@
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-cli",
       "redirect_document_id": false
     },
+	
     {
       "source_path": "articles/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md",
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file",
@@ -355,7 +356,7 @@
       "redirect_url": "/azure/machine-learning/data-science-virtual-machine/reference-deprecation",
       "redirect_document_id": true
     },
-    
+
     {
       "source_path": "articles/machine-learning/service/how-to-understand-accuracy-metrics.md",
       "redirect_url": "/azure/machine-learning/service/how-to-understand-automated-ml",
@@ -423,12 +424,17 @@
     },
     {
       "source_path": "articles/active-directory/saas-apps/realtimeboard-tutorial.md",
-      "redirect_url": "/articles/active-directory/saas-apps/miro-tutorial",
+      "redirect_url": "/azure/active-directory/saas-apps/miro-tutorial",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/saas-apps/redbrickhealth-tutorial.md",
-      "redirect_url": "/articles/active-directory/saas-apps/redbrick-health-tutorial",
+      "redirect_url": "/azure/active-directory/saas-apps/redbrick-health-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/saas-apps/adobe-identity-management-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
     },
     {
@@ -470,6 +476,11 @@
       "source_path": "articles/azure-arc/servers/quickstart-onboard-portal.md",
       "redirect_url": "/azure/azure-arc/servers/onboard-portal",
       "redirect_document_id": false
+    },
+	    {
+      "source_path": "articles/active-directory/saas-apps/123contactform-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/123formbuilder-tutorial",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/azure-arc/servers/quickstart-onboard-powershell.md",
@@ -533,7 +544,7 @@
     },
     {
       "source_path": "articles/site-recovery/vmware-physical-mobility-service-install-manual.md",
-      "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-mobility-agent-through-ui",
+      "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-the-mobility-service-using-ui",
       "redirect_document_id": false
     },
     {
@@ -1684,6 +1695,11 @@
     {
       "source_path": "articles/logic-apps/logic-apps-architectures-enterprise-integration-with-queues-events.md",
       "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/queues-events",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-arc/servers/azcmagent-reference.md",
+      "redirect_url": "/azure/azure-arc/servers/manage-agent",
       "redirect_document_id": false
     },
     {
@@ -5488,7 +5504,12 @@
     },
     {
       "source_path": "articles/managed-applications/publish-managed-app-definition-quickstart.md",
-      "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-managed-app-definition-quickstart",
+      "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-service-catalog-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/managed-applications/publish-managed-app-definition-quickstart.md",
+      "redirect_url": "/azure/azure-resource-manager/managed-applications/publish-service-catalog-app",
       "redirect_document_id": false
     },
     {
@@ -38326,6 +38347,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/authentication/multi-factor-authentication-security-best-practices.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-mfa-getstarted",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/authentication/concept-sspr-customization.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-sspr-customization",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-passwords-reset-register.md",
       "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-reset-register",
       "redirect_document_id": true
@@ -40082,12 +40113,12 @@
     },
     {
       "source_path": "articles/iot-central/tutorial-add-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-connect-pnp-device",
+      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/tutorial-define-device-type-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-set-up-template",
+      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device",
       "redirect_document_id": false
     },
     {
@@ -46282,7 +46313,7 @@
     },
     {
       "source_path": "articles/iot-central/quick-create-pnp-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-simulated-device/",
+      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device/",
       "redirect_document_id": false
     },
     {
@@ -46347,12 +46378,7 @@
     },
     {
       "source_path": "articles/iot-central/core/quick-create-pnp-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-simulated-device/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-central/core/quick-create-pnp-device.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-simulated-device/",
+      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device/",
       "redirect_document_id": false
     },
     {
@@ -46787,7 +46813,7 @@
     },
     {
       "source_path": "articles/iot-central/preview/quick-create-pnp-device.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-simulated-device/",
+      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device/",
       "redirect_document_id": false
     },
     {
@@ -50645,11 +50671,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/ansible/",
-      "redirect_url": "/azure/developer/ansible/",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/ansible/index.yml",
       "redirect_url": "/azure/developer/ansible/",
       "redirect_document_id": false
@@ -50680,13 +50701,18 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/chef/",
+      "source_path": "articles/chef/index.yml",
       "redirect_url": "/azure/developer/chef/",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/chef/index.yml",
-      "redirect_url": "/azure/developer/chef/",
+      "source_path": "articles/security/fundamentals/database-security-overview.md",
+      "redirect_url": "/azure/sql-database/sql-database-security-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/database-best-practices.md",
+      "redirect_url": "/azure/sql-database/sql-database-security-best-practice",
       "redirect_document_id": false
     }
   ]

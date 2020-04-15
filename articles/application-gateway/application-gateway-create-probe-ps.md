@@ -192,5 +192,5 @@ DnsSettings              : {
 
 ## Next steps
 
-Learn to configure SSL offloading by visiting: [Configure SSL Offload](application-gateway-ssl-arm.md)
+Learn to configure TLS offloading by visiting: [Configure TLS Offload](application-gateway-ssl-arm.md)
 
