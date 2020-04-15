@@ -742,8 +742,8 @@
           href: sql-database-managed-instance-configure-vm.md
         - name: Point-to-site connection
           href: sql-database-managed-instance-configure-p2s.md
-        - name: Long-term backup retention
-          href: sql-database-managed-instance-long-term-backup-retention-configure.md
+      - name: Long-term backup retention
+        href: sql-database-managed-instance-long-term-backup-retention-configure.md
       - name: Load data
         items:
         - name: Restore database backup
@@ -838,6 +838,11 @@
     - name: Azure CLI
       href: /cli/azure/sql
     - name: Azure PowerShell
+      href: sql-database-powershell-samples.md?tabs=single-database
+    - name: Azure Resource Manager
+      href: sql-database-resource-manager-samples.md?tabs=single-database
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?service=sql-database
       href: /powershell/module/az.sql
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.sql.models
@@ -864,14 +869,6 @@
       href: https://docs.microsoft.com/sql/tools/sqlpackage?toc=/azure/sql-database/toc.json
     - name: SQL Database Management Library package
       href: https://www.nuget.org/packages/Microsoft.Azure.Management.Sql
-
-  - name: Resources
-      href: sql-database-powershell-samples.md?tabs=single-database
-    - name: Azure Resource Manager
-      href: sql-database-resource-manager-samples.md?tabs=single-database
-    - name: Code samples
-      href: https://azure.microsoft.com/resources/samples/?service=sql-database
-
 
   - name: Tutorials
     items:
