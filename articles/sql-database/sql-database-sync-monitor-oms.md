@@ -7,8 +7,8 @@ ms.subservice: data-movement
 ms.custom: data sync
 ms.devlang: 
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ---
