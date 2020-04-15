@@ -67,7 +67,7 @@ There are a few ways that you can initialize a [`SpeechConfig`](https://docs.mic
 Let's take a look at how a [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) is created using a key and region. See the [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) page to find your region identifier.
 
 ```javascript
-const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
 ## Initialize a recognizer
@@ -128,7 +128,7 @@ You'll need to write some code to handle the result. This sample evaluates the [
 ```javascript
 switch (result.reason) {
     case sdk.ResultReason.RecognizedSpeech:
-        console.log(`RECOGNIZED: Text=${result.Text}`);
+        console.log(`RECOGNIZED: Text=${result.text}`);
         console.log("    Intent not recognized.");
         break;
     case sdk.ResultReason.NoMatch:
@@ -136,11 +136,11 @@ switch (result.reason) {
         break;
     case sdk.ResultReason.Canceled:
         const cancellation = sdk.CancellationDetails.fromResult(result);
-        console.log(`CANCELED: Reason=${cancellation.Reason}`);
+        console.log(`CANCELED: Reason=${cancellation.reason}`);
 
-        if (cancellation.Reason == sdk.CancellationReason.Error) {
+        if (cancellation.reason == sdk.CancellationReason.Error) {
             console.log(`CANCELED: ErrorCode=${cancellation.ErrorCode}`);
-            console.log(`CANCELED: ErrorDetails=${cancellation.ErrorDetails}`);
+            console.log(`CANCELED: ErrorDetails=${cancellation.errorDetails}`);
             console.log("CANCELED: Did you update the subscription info?");
         }
         break;
@@ -167,23 +167,23 @@ We'll subscribe to the events sent from the [`SpeechRecognizer`](https://docs.mi
 
 ```javascript
 recognizer.Recognizing = (s, e) => {
-    console.log(`RECOGNIZING: Text=${e.Result.Text}`);
+    console.log(`RECOGNIZING: Text=${e.Result.text}`);
 };
 
 recognizer.recognized = (s, e) => {
-    if (e.Result.Reason == sdk.ResultReason.RecognizedSpeech) {
+    if (e.Result.reason == sdk.ResultReason.RecognizedSpeech) {
         console.log(`RECOGNIZED: Text=${e.Result.Text}`);
     }
-    else if (e.Result.Reason == sdk.ResultReason.NoMatch) {
+    else if (e.Result.reason == sdk.ResultReason.NoMatch) {
         console.log("NOMATCH: Speech could not be recognized.");
     }
 };
 
 recognizer.Canceled = (s, e) => {
-    console.log(`CANCELED: Reason=${e.Reason}`);
+    console.log(`CANCELED: Reason=${e.reason}`);
 
-    if (e.Reason == sdk.CancellationReason.Error) {
-        console.log(`"CANCELED: ErrorCode=${e.ErrorCode}`);
+    if (e.reason == sdk.CancellationReason.Error) {
+        console.log(`"CANCELED: ErrorCode=${e.errorCode}`);
         console.log(`"CANCELED: ErrorDetails=${e.ErrorDetails}`);
         console.log("CANCELED: Did you update the subscription info?");
     }
