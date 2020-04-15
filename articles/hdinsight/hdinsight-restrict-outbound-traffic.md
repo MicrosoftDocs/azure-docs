@@ -216,7 +216,7 @@ The previous instructions help you configure Azure Firewall for restricting outb
 #### FQDN HTTP/HTTPS dependencies
 
 > [!Important]
-> The list below only gives a few of the most important FQDNs. You can get the full list of FQDNs for configuring your NVA [in this file](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
+> The list below only gives a few of the most important FQDNs. You can get the additional list of FQDNs (mostly Azure Storage and Azure Service Bus) for configuring your NVA [in this file](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
 
 | **Endpoint**                                                          |
 |---|
