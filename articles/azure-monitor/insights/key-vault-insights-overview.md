@@ -20,7 +20,7 @@ Before jumping into the experience, you should understand how it presents and vi
 -   **Drill down analysis** of a particular key vault to perform detailed analysis.
 -    **Customizable** where you can change which metrics you want to see, modify or set thresholds that align with your limits, and save your own workbook. Charts in the workbook can be pinned to Azure dashboards.
 
-Azure Monitor for Key Vaults combines both logs and metrics to provide a global monitoring solution. All users can access the metrics based monitoring data, however the inclusion of logs based visualizations may require users to [enable logging of their Azure Key Vaults](https://docs.microsoft.com/azure/key-vault/key-vault-logging).
+Azure Monitor for Key Vaults combines both logs and metrics to provide a global monitoring solution. All users can access the metrics-based monitoring data, however the inclusion of logs based visualizations may require users to [enable logging of their Azure Key Vaults](https://docs.microsoft.com/azure/key-vault/key-vault-logging).
 
 ## Configuring your Key Vaults for monitoring
 
