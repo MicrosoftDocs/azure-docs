@@ -37,7 +37,7 @@ Logging data is available for download under **Endpoint > Details**.
 
 ## Next steps
 
-* Learn how to use your custom model [here](how-to-specify-source-language.md)
+* Learn how to use your custom model [here](how-to-specify-source-language.md).
 
 ## Additional resources
 
