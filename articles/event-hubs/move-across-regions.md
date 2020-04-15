@@ -7,21 +7,24 @@ author: spelluru
 ms.service: event-hubs
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 09/27/2019
+ms.date: 04/14/2020
 ms.author: spelluru 
 ms.reviewer: shvija
 #Customer intent: As an Azure administrator, I want to move an Event Hubs namespace to a different region so that it's closer to customers.
 ---
 
 # Move an Azure Event Hubs namespace to another region
-There are various scenarios in which you'd want to move your existing Event Hubs namespace from one region to another. For example, you may want to create a namespace with the same configuration for testing. You may also want to move a namespace to another region as part of disaster recovery planning.
+There are various scenarios in which you'd want to move your existing Event Hubs namespace from one region to another. For example, you may want to create a namespace with the same configuration for testing. You may also want to create a secondary namespace in another region as part of [disaster recovery planning](event-hubs-geo-dr.md#setup-and-failover-flow).
+
+> [!NOTE]
+> This article shows you how to export an Azure Resource Manager template for an existing Event Hubs namespace and then use the template to create a namespace with same configuration settings in another region. However, this process doesn't move events that aren't processed yet. You need to process the events from the original namespace before deleting it.
 
 ## Prerequisites
 
 - Ensure that the services and features that your account uses are supported in the target region.
 - For preview features, ensure that your subscription is whitelisted for the target region.
-- If the Event Hubs namespace is in an **Event Hubs cluster**, [create a dedicated cluster](event-hubs-dedicated-cluster-create-portal.md) in the **target region** before you go through steps in this article. 
 - If you have **capture feature** enabled for event hubs in the namespace, move [Azure Storage or Azure Data Lake Store Gen 2](../storage/common/storage-account-move.md) or [Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-migration-cross-region.md) accounts before moving the Event Hubs namespace. You can also move the resource group that contains both Storage and Event Hubs namespaces to the other region by following steps similar to the ones described in this article. 
+- If the Event Hubs namespace is in an **Event Hubs cluster**, [create a dedicated cluster](event-hubs-dedicated-cluster-create-portal.md) in the **target region** before you go through steps in this article. 
 
 ## Prepare
 To get started, export, and then modify a Resource Manager template.
@@ -80,9 +83,13 @@ Deploy the template to create an Event Hubs namespace in the target region.
         2. If your source namespace was in an **Event Hubs cluster**, enter names of **resource group** and **Event Hubs cluster** as part of **external ID**. 
 
               ```
-              /subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/<CLUSTER'S RESOURCE GROUP>/providers/Microsoft.EventHub/clusters/<CLUSTER NAME>
+              /subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<CLUSTER'S RESOURCE GROUP>/providers/Microsoft.EventHub/clusters/<CLUSTER NAME>
               ```   
-    
+        3. If event hub in your namespace uses a Storage account for capturing events, specify the resource group name and the storage account for `StorageAccounts_<original storage account name>_external` field. 
+            
+            ```
+            /subscriptions/0000000000-0000-0000-0000-0000000000000/resourceGroups/<STORAGE'S RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>
+            ```    
     5. Select the **I agree to the terms and conditions stated above** checkbox. 
     
     6. Now, select **Select Purchase** to start the deployment process. 
