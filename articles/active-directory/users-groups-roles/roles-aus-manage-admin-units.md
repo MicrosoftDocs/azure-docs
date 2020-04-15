@@ -57,7 +57,7 @@ Install Azure AD PowerShell (preview version) before trying to perform the actio
 
 The values highlighted above can be modified as required.
 
-### The Microsoft Graph
+### Microsoft Graph
 
     Http Request
     POST /administrativeUnits

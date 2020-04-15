@@ -108,6 +108,8 @@ In the Azure AD portal, you can open a group's details by opening **Groups**. Se
 
 ### Graph
 
+    https://graph.microsoft.com/beta/groups/<group-id>/memberOf/$/Microsoft.Graph.AdministrativeUnit
+
 ## Remove a group from an AU
 
 ### Azure portal
@@ -128,7 +130,7 @@ Alternatively, you can go to **Azure AD** > **Administrative units** and select 
 
     Remove-AzureADAdministrativeUnitMember -ObjectId $auId -MemberId $memberGroupObjId
 
-### Graph 
+### Microsoft Graph
 
     https://graph.microsoft.com/beta/administrativeUnits/<adminunit-id>/members/<group-id>/$ref
 

@@ -58,7 +58,7 @@ You can expect the creation of administrative units in the organization to go th
 
 ## Currently supported scenarios
 
-Global administrators or Privileged Role Administrators can use the Azure AD portal to create administrative units, add users as members of administrative units, and then assign IT staff to administrative unit-scoped administrator roles. The administrative unit-scoped admins can then use the Office 365 portal for basic management of users in their administrative units.
+Global administrators or Privileged role administrators can use the Azure AD portal to create administrative units, add users as members of administrative units, and then assign IT staff to administrative unit-scoped administrator roles. The administrative unit-scoped admins can then use the Office 365 portal for basic management of users in their administrative units.
 
 Additionally, groups can be added as members of administrative unit, and an admin unit-scoped group administrator can manage them using PowerShell, the Microsoft Graph, and the Azure AD portal.
 
@@ -91,7 +91,7 @@ administrative unit-scoped management of group licensing   |    Supported  |    
 
 > [!NOTE]
 >
-> Administrators with an admin unit scope can't manage dynamic group membership rules.
+> Administrators with an administrative unit scope can't manage dynamic group membership rules.
 
 Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside of the administrative unit. In the Office 365 portal, users outside of an administrative unit-scoped admin's administrative units are filtered out, but you can browse other users in the Azure AD portal, PowerShell, and other Microsoft services.
 

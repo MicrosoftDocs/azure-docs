@@ -56,7 +56,16 @@ The highlighted section may be changed as required for the specific environment.
 
 ### Graph API
 
-<add info>
+    Http request
+    POST /administrativeUnits/{id}/scopedRoleMembers
+    
+    Request body
+    {
+      "roleId": "roleId-value",
+      "roleMemberInfo": {
+        "id": "id-value"
+      }
+    }
 
 ## List the scoped admins on an AU
 

@@ -39,9 +39,10 @@ You can assign users to administrative units in two ways.
         ![select an administrative unit and then select Add member](./media/roles-aus-add-manage-users/assign-to-admin-unit.png)
 
 1. Bulk assignment
+
     Go to Azure AD in the portal and select Administrative units. Select the administrative unit where users are to be added. Proceed by clicking on All users -> Add members from .csv file. You can then download the CSV template and edit the file. The format is simple and needs a single UPN to be added in each line. Once the file is ready, save it at an appropriate location and then upload it in step 3 as highlighted in the snapshot.
 
-        ![bulk assign users to an administrative unit](./media/roles-aus-add-manage-users/bulk-assign-to-admin-unit.png)
+    ![bulk assign users to an administrative unit](./media/roles-aus-add-manage-users/bulk-assign-to-admin-unit.png)
 
 ### PowerShell
 
@@ -51,7 +52,7 @@ You can assign users to administrative units in two ways.
 
 In the above example, the cmdlet Add-AzureADAdministrativeUnitMember is used to add the user to the administrative unit. The object ID of the Administrative Unit where user is to be added and the object ID of the user who is to be added are taken as argument. The highlighted section may be changed as required for the specific environment.
 
-### The Microsoft Graph
+### Microsoft Graph
 
     Http request
     POST /administrativeUnits/{Admin Unit id}/members/$ref
@@ -76,8 +77,8 @@ In the Azure portal you can open a user's profile by going to Azure AD > Users. 
 
 Select **Administrative units** on the left panel to see the list of administrative units where the user has been assigned.
 
-![List the administrative units for a user](./media/roles-aus-add-manage-users/list_group_au.png)
-list_user_au.png)
+![List the administrative units for a user](./media/roles-aus-add-manage-users/list-group-au.png)
+list-user-au.png)
 
 ### PowerShell
 
