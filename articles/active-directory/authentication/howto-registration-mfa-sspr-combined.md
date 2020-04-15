@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/07/2020
+ms.date: 04/15/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -15,7 +15,9 @@ ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
 ---
-# Enable combined security information registration
+# Enable combined security information registration in Azure Active Directory
+
+Before combined registration, users registered authentication methods for Azure Multi-Factor Authentication and self-service password reset (SSPR) separately. People were confused that similar methods were used for Multi-Factor Authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both Multi-Factor Authentication and SSPR.
 
 Before enabling the new experience, review the article [Combined security information registration](concept-registration-mfa-sspr-combined.md) to ensure you understand the functionality and effects of this feature.
 
@@ -30,9 +32,6 @@ Complete these steps to enable combined registration:
 3. Under **Users can use preview features for registering and managing security info**, choose to enable for a **Selected** group of users or for **All** users.
 
    ![Enable the combined security info preview experience for All users](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info-preview.png)
-
-> [!IMPORTANT]
-> Starting in March 2019, the phone call options won't be available to Multi-Factor Authentication and SSPR users in free/trial Azure AD tenants. SMS messages are not affected by this change. The phone call options will still be available to users in paid Azure AD tenants.
 
 > [!NOTE]
 > After you enable combined registration, users who register or confirm their phone number or mobile app through the new experience can use them for Multi-Factor Authentication and SSPR, if those methods are enabled in the Multi-Factor Authentication and SSPR policies. If you then disable this experience, users who go to the previous SSPR registration page at `https://aka.ms/ssprsetup` will be required to perform multi-factor authentication before they can access the page.
@@ -76,14 +75,10 @@ The following policy applies to all selected users, who attempt to register usin
 
 ## Next steps
 
-[Force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-user-authentication-options)
+If you need help, see how to [troubleshoot combined security info registration](howto-registration-mfa-sspr-combined-troubleshoot.md) or learn [What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md)
 
-[Available methods for Multi-Factor Authentication and SSPR](concept-authentication-methods.md)
+To enable the features in your Azure AD tenant, see the tutorials to [enable self-service password reset](tutorial-enable-sspr.md) and [enable Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
-[Configure self-service password reset](howto-sspr-deployment.md)
+Learn how to [enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md) or [force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
-[Configure Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
-
-[Troubleshooting combined security info registration](howto-registration-mfa-sspr-combined-troubleshoot.md)
-
-[What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md)
+You can also review the [available methods for Azure Multi-Factor Authentication and SSPR](concept-authentication-methods.md).
