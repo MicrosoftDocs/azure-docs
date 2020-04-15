@@ -133,13 +133,13 @@
             - name: Use a Resource Manager template
               href: automation-update-management-deploy-template.md
             - name: Use Azure portal
-              href: automation-onboard-solutions-from-browser.md
+              href: automation-onboard-solutions-from-browse.md
             - name: From an Azure VM
               href: automation-onboard-solutions-from-vm.md
             - name: From an Automation account
               href: automation-onboard-solutions-from-automation-account.md
         - name: Manage updates for your Azure VMs
-          href: automation-update-management-manage-vm.md
+          href: automation-tutorial-update-management.md
         - name: Manage updates for multiple VMs
           href: manage-update-multi.md
         - name: View update assessments
@@ -163,7 +163,7 @@
             - name: Use a Resource Manager template
               href: automation-update-management-deploy-template.md
             - name: Use Azure portal
-              href: automation-onboard-solutions-from-browser.md
+              href: automation-onboard-solutions-from-browse.md
             - name: From an Azure VM
               href: automation-onboard-solutions-from-vm.md
             - name: From an Automation account
