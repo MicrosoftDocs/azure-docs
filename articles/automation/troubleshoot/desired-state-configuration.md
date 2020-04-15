@@ -129,7 +129,7 @@ Second, uninstall the DSC extension from the node.
 
 Third, remove all bad or expired certificates from the node.
 
-On the failing node from an elevated Powershell Prompt, run the following:
+On the failing node from an elevated PowerShell prompt, run the following:
 
 ```powershell
 $certs = @()
