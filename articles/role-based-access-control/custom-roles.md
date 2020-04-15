@@ -27,7 +27,7 @@ ms.custom: H1Hack27Feb2017
 
 If the [built-in roles for Azure resources](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at management group, subscription, and resource group scopes.
 
-Custom roles can be shared between subscriptions that trust the same Azure AD directory. There is a limit of **5,000** custom roles per directory. (For Azure Germany and Azure China 21Vianet, the limit is 2,000 custom roles.) Custom roles can be created using the Azure portal (Preview), Azure PowerShell, Azure CLI, or the REST API.
+Custom roles can be shared between subscriptions that trust the same Azure AD directory. There is a limit of **5,000** custom roles per directory. (For Azure Germany and Azure China 21Vianet, the limit is 2,000 custom roles.) Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API.
 
 ## Custom role example
 
@@ -71,7 +71,7 @@ When you create a custom role, it appears in the Azure portal with an orange res
 
 1. Decide how you want to create the custom role
 
-    You can create custom roles using [Azure portal](custom-roles-portal.md) (Preview), [Azure PowerShell](custom-roles-powershell.md), [Azure CLI](custom-roles-cli.md), or the [REST API](custom-roles-rest.md).
+    You can create custom roles using [Azure portal](custom-roles-portal.md), [Azure PowerShell](custom-roles-powershell.md), [Azure CLI](custom-roles-cli.md), or the [REST API](custom-roles-rest.md).
 
 1. Determine the permissions you need
 
@@ -127,6 +127,6 @@ The following list describes the limits for custom roles.
 For more information about custom roles and management groups, see [Organize your resources with Azure management groups](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
 
 ## Next steps
-- [Create or update Azure custom roles using the Azure portal (Preview)](custom-roles-portal.md)
+- [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md)
 - [Understand role definitions for Azure resources](role-definitions.md)
 - [Troubleshoot RBAC for Azure resources](troubleshooting.md)
