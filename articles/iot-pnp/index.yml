@@ -21,6 +21,8 @@ landingContent:
       links:
         - text: What is IoT Plug and Play?
           url: overview-iot-plug-and-play.md
+        - text: Preview updates May 2020
+          url: overview-iot-plug-and-play-preview-updates.md
     - linkListType: video
       links:
         - text: Introduction to IoT Plug and Play
