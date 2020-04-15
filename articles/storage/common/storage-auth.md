@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 04/15/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -33,7 +33,7 @@ Each authorization option is briefly described below:
 
 - **Azure Active Directory Domain Services (Azure AD DS) authentication** for Azure Files. Azure Files supports identity-based authorization over Server Message Block (SMB) through Azure AD DS. You can use RBAC for fine-grained control over a client's access to Azure Files resources in a storage account. For more information regarding Azure Files authentication using domain services, refer to our [overview](../files/storage-files-active-directory-overview.md).
 
-- **On-premises Active Directory Domain Services (AD DS, or on-premises AD DS) authentication (preview)** for Azure Files. Azure Files supports identity-based authorization over SMB through AD DS. Your AD DS environment can be hosted in on-premises machines or in Azure VMs. SMB access to Files is supported using AD credentials from domain joined machines, either on-premises or in Azure. You can use a combination of RBAC for share level access control and NTFS DACLs for directory/file level permission enforcement. For more information regarding Azure Files authentication using domain services, refer to our [overview](../files/storage-files-active-directory-overview.md).
+- **On-premises Active Directory Domain Services (AD DS, or on-premises AD DS) authentication (preview)** for Azure Files. Azure Files supports identity-based authorization over SMB through AD DS. Your AD DS environment can be hosted in on-premises machines or in Azure VMs. SMB access to Files is supported using AD DS credentials from domain joined machines, either on-premises or in Azure. You can use a combination of RBAC for share level access control and NTFS DACLs for directory/file level permission enforcement. For more information regarding Azure Files authentication using domain services, refer to our [overview](../files/storage-files-active-directory-overview.md).
 
 - **Shared Key authorization** for blobs, files, queues, and tables. A client using Shared Key passes a header with every request that is signed using the storage account access key. For more information, see [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key/).
 - **Shared access signatures** for blobs, files, queues, and tables. Shared access signatures (SAS) provide limited delegated access to resources in a storage account. Adding constraints on the time interval for which the signature is valid or on permissions it grants provides flexibility in managing access. For more information, see [Using shared access signatures (SAS)](storage-sas-overview.md).
