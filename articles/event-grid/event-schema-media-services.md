@@ -1,24 +1,21 @@
 ---
-title: Azure Event Grid schemas for Media Services events
+title: Azure Media Services as Event Grid source
 description: Describes the properties that are provided for Media Services events with Azure Event Grid
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: femila
+author: spelluru
 editor: ''
 
-ms.service: media-services
+ms.service: event-grid
 ms.workload: 
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: juliako
+ms.author: spelluru
 ---
 
-# Azure Event Grid schemas for Media Services events
+# Azure Media Services as an Event Grid source
 
 This article provides the schemas and properties for Media Services events.
-
-For a list of sample scripts and tutorials, see [Media Services event source](../../event-grid/event-schema-subscriptions.md).
 
 ## Job related event types
 
@@ -324,7 +321,7 @@ The data object has the following properties:
 | encoderPort | string | Port of the encoder from where this stream is coming. |
 | resultCode | string | The reason the connection was rejected. The result codes are listed in the following table. |
 
-You can find the error result codes in [live Event error codes](live-event-error-codes.md).
+You can find the error result codes in [live Event error codes](../media-services/latest/live-event-error-codes.md).
 
 ### LiveEventEncoderConnected
 
@@ -394,7 +391,7 @@ The data object has the following properties:
 | encoderPort | string | Port of the encoder from where this stream is coming. |
 | resultCode | string | The reason for the encoder disconnecting. It could be graceful disconnect or from an error. The result codes are listed in the following table. |
 
-You can find the error result codes in [live Event error codes](live-event-error-codes.md).
+You can find the error result codes in [live Event error codes](../media-services/latest/live-event-error-codes.md).
 
 The graceful disconnect result codes are:
 
@@ -664,10 +661,10 @@ An event has the following top-level data:
 
 ## Next steps
 
-[Register for job state change events](job-state-events-cli-how-to.md)
+[Register for job state change events](../media-services/latest/job-state-events-cli-how-to.md)
 
 ## See also
 
 - [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
-- [Live Event error codes](live-event-error-codes.md)
+- [Live Event error codes](../media-services/latest/live-event-error-codes.md)
