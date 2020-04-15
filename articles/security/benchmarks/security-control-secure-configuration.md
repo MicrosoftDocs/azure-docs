@@ -195,4 +195,4 @@ Implement Credential Scanner to identify credentials within code. Credential Sca
 
 ## Next Steps
 
-See the next Security Control:  [Malware Defense](security-control-malware-defense.md)
+- See the next Security Control:  [Malware Defense](security-control-malware-defense.md)

@@ -171,4 +171,4 @@ Software that is required for business operations, but may incur higher risk for
 
 ## Next Steps
 
-See the next Security Control: [Secure Configuration](security-control-secure-configuration.md)
+- See the next Security Control: [Secure Configuration](security-control-secure-configuration.md)

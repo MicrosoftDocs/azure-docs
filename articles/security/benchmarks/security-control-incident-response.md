@@ -87,4 +87,4 @@ Use the Workflow Automation feature in Azure Security Center to automatically tr
 
 ## Next Steps
 
-See the next Security Control: [Penetration Tests and Red Team Exercises](security-control-penetration-tests-red-team-exercises.md)
+- See the next Security Control: [Penetration Tests and Red Team Exercises](security-control-penetration-tests-red-team-exercises.md)

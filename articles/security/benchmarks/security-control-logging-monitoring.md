@@ -151,4 +151,4 @@ Use Microsoft Monitoring Agent on all supported Azure Windows virtual machines t
 
 ## Next Steps
 
-See the next Security Control: [Identity and Access Control](security-control-identity-access-control.md)
+- See the next Security Control: [Identity and Access Control](security-control-identity-access-control.md)

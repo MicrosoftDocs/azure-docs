@@ -163,4 +163,4 @@ In support scenarios where Microsoft needs to access customer data, Customer Loc
 
 ## Next Steps
 
-See the next Security Control: [Data Protection](security-control-data-protection.md)
+- See the next Security Control: [Data Protection](security-control-data-protection.md)

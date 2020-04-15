@@ -29,4 +29,4 @@ Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are no
 
 ## Next Steps
 
-Return to the [Azure Security Benchmark overview](overview.md)
+- Return to the [Azure Security Benchmark overview](overview.md)

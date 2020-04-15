@@ -67,4 +67,4 @@ Enable Soft-Delete and purge protection in Key Vault to protect keys against acc
 
 ## Next Steps
 
-See the next Security Control:  [Incident Response](security-control-incident-response.md)
+- See the next Security Control:  [Incident Response](security-control-incident-response.md)
