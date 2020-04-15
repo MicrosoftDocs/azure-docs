@@ -32,7 +32,7 @@ You can create indexes on any single field. The sort order of the single-field i
 
 One query uses multiple single-field indexes where available. You can create up to 500 single-field indexes per container.
 
-### Compound indexes (MongoDB version 3.6)
+### Compound indexes (MongoDB server version 3.6)
 
 The Azure Cosmos DB API for MongoDB supports compound indexes for accounts that use the version 3.6 wire protocol. You can include up to eight fields in a compound index. Unlike in MongoDB, you should create a compound index only if your query needs to sort efficiently on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single-field indexes instead of a single compound index.
 
