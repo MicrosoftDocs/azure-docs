@@ -75,6 +75,9 @@ rhel-byos     |rhel-lvm74| LVM    | Linux Agent | RHEL 7.4 BYOS images, not atta
 |             |rhel-lvm77| LVM    | Linux Agent | RHEL 7.7 BYOS images, not attached to any source of updates, will not charge a RHEL premium.
 |             |rhel-lvm8 | LVM    | Linux Agent | RHEL 8 BYOS images (RHEL minor version is shown in the image version value), not attached to any source of updates, will not charge a RHEL premium.
 
+> [!NOTE]
+> The RHEL-SAP-HANA product offering is considered end of life by Red Hat. Existing deployments will continue to work normally, but Red Hat recommends that customers migrate from the RHEL-SAP-HANA images to the RHEL-SAP-HA images which includes the SAP HANA repositories as well as the HA add-on. More details about Red Hat's SAP cloud offerings are available [here](https://access.redhat.com/articles/3751271).
+
 ## Next steps
 * Learn more about the [Red Hat images in Azure](./redhat-images.md).
 * Learn more about the [Red Hat Update Infrastructure](./redhat-rhui.md).
