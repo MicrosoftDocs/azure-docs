@@ -29,9 +29,9 @@ This article describes the concepts and process involved with an account failove
 
 Azure Storage maintains multiple copies of your storage account to ensure durability and high availability. Which redundancy option you choose for your account depends on the degree of resiliency you need. For  protection against regional outages, choose geo-redundant storage, with or without the option of read access from the secondary region:  
 
-**Geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS) (preview)** copies your data asynchronously in two geographic regions that are at least hundreds of miles apart. If the primary region suffers an outage, then the secondary region serves as a redundant source for your data. You can initiate a failover to transform the secondary endpoint into the primary endpoint.
+**Geo-redundant storage (GRS) or geo-zone-redundant storage (GZRS)** copies your data asynchronously in two geographic regions that are at least hundreds of miles apart. If the primary region suffers an outage, then the secondary region serves as a redundant source for your data. You can initiate a failover to transform the secondary endpoint into the primary endpoint.
 
-**Read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS) (preview)** provides geo-redundant storage with the additional benefit of read access to the secondary endpoint. If an outage occurs in the primary endpoint, applications configured for RA-GRS and designed for high availability can continue to read from the secondary endpoint. Microsoft recommends RA-GRS for maximum resiliency for your applications.
+**Read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS)** provides geo-redundant storage with the additional benefit of read access to the secondary endpoint. If an outage occurs in the primary endpoint, applications configured for RA-GRS and designed for high availability can continue to read from the secondary endpoint. Microsoft recommends RA-GRS for maximum resiliency for your applications.
 
 For more information about redundancy in Azure Storage, see [Azure Storage redundancy](storage-redundancy.md).
 
