@@ -27,13 +27,13 @@
     - name: High availability options
       href: high-availability-dr.md
     - name: Always On availability group
-      href: portal-sql-availability-group-overview.md
+      href: portal-availability-group-overview.md
     - name: Backup and restore
       href: backup-recovery.md
     - name: Automated backup for SQL Server 2014
-      href: automated-backup.md
+      href: automated-backup-sql-2014.md
     - name: Automated backup for SQL Server 2016+
-      href: automated-backup-v2.md
+      href: automated-backup.md
   - name: Management
     items:
     - name: Dedicated host
@@ -41,7 +41,7 @@
     - name: With the Azure portal
       href: manage-portal.md
     - name: Extend support for SQL 2008 & R2
-      href: 2008-eos-extend-support.md
+      href: sql-2008-extend-end-of-support.md
     - name: Connect to a VM
       href: connect.md
     - name: Configure storage
@@ -49,7 +49,7 @@
     - name: Automate management tasks
       items:
       - name: Use the SQL Server IaaS Agent Extension
-        href: agent-extension.md
+        href: sql-iaas-agent-extension.md
       - name: Automated Patching
         href: automated-patching.md
       - name: Configure Azure Key Vault Integration
@@ -73,7 +73,7 @@
     items: 
     - name: Licensing model
       displayName: ahb, ahub, payg, change, modify, update
-      href: ahb.md
+      href: azure-hybrid-benefit-ahb.md
     - name: Edition 
       displayName: change, modify, update
       href: change-edition.md
