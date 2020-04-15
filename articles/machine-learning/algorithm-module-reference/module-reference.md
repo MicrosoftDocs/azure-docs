@@ -19,7 +19,7 @@ Each module represents a set of code that can run independently and perform a ma
 
 For help with choosing algorithms, see 
 * [How to select algorithms](../how-to-select-algorithms.md)
-* [Azure Machine Learning Algorithm Cheat Sheet](../../synapse-analytics/sql-data-warehouse/cheat-sheet.md)
+* [Azure Machine Learning Algorithm Cheat Sheet](../algorithm-cheat-sheet.md)
 
 > [!TIP]
 > In any pipeline in the designer, you can get information about a specific module. Select the module, then select the **more help** link in the **Quick Help** pane.

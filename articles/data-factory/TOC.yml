@@ -581,6 +581,8 @@
     items:
     - name: Run SSIS packages in Azure from SSDT
       href: how-to-invoke-ssis-package-ssdt.md
+    - name: Run SSIS packages with Azure SQL Managed Instance Agent
+      href: how-to-invoke-ssis-package-managed-instance-agent.md
     - name: Run SSIS packages with Azure-enabled dtexec
       href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
     - name: Run SSIS packages with Execute SSIS Package activity
@@ -607,6 +609,8 @@
       href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: Clean up SSISDB logs with Elastic Database Jobs
       href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+    - name: Migrate SSIS jobs with SSMS
+      href: how-to-migrate-ssis-job-ssms.md
   - name: Create triggers
     items:
     - name: Create an event-based trigger
@@ -675,8 +679,6 @@
       href: scenario-ssis-migration-overview.md
     - name: SSISDB migration to Azure SQL Database managed instance
       href: scenario-ssis-migration-ssisdb-mi.md
-    - name: SSIS jobs migration to Azure Data Factory
-      href: how-to-migrate-ssis-job-ssms.md
 - name: Reference
   items:
   - name: Data flow script

@@ -15,6 +15,8 @@ ms.date: 12/10/2019
 
 # Copy data from or to Azure File Storage by using Azure Data Factory
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article outlines how to copy data to and from Azure File Storage. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 ## Supported capabilities

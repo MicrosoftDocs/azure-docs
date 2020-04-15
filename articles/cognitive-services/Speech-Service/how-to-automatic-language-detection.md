@@ -3,13 +3,13 @@ title: How to use automatic language detection for speech to text
 titleSuffix: Azure Cognitive Services
 description: The Speech SDK supports automatic language detection for speech to text. When using this feature, the audio provided is compared against a provided list of languages, and the most likely match is determined. The returned value can then be used to select the language model used for speech to text.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ---
 
