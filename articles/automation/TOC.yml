@@ -104,7 +104,7 @@
               href: automation-runbook-graphical-error-handling.md
             - name: Forward job data to Azure Monitor Logs
               href: automation-manage-send-joblogs-log-analytics.md
-        - name: Hybird Runbook Worker
+        - name: Hybrid Runbook Worker
           items: 
             - name: Deploy Windows Hybrid Runbook Worker
               href: automation-windows-hrw-install.md
