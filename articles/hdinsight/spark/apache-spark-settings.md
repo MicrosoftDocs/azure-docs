@@ -24,7 +24,7 @@ The number of VMs, and VM sizes, for the nodes in your HDInsight cluster can aff
 
 Use the best Spark version for your cluster.  The HDInsight service includes several versions of both Spark and HDInsight itself.  Each version of Spark includes a set of default cluster settings.  
 
-When you create a new cluster, there are multiple Spark versions to choose from. To see the full list,  [HDInsight Components and Versions](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)
+When you create a new cluster, there are multiple Spark versions to choose from. To see the full list,  [HDInsight Components and Versions](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
 
 > [!NOTE]  
 > The default version of Apache Spark in the HDInsight service may change without notice. If you have a version dependency, Microsoft recommends that you specify that particular version when you create clusters using .NET SDK, Azure PowerShell, and Azure Classic CLI.
