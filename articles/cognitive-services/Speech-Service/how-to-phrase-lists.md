@@ -72,7 +72,7 @@ phrase_list_grammar.addPhrase("Move to Ted")
 
 ::: zone-end
 
-::: zone pivot="programming-language-more"
+::: zone pivot="programming-language-javascript"
 
 ```JavaScript
 var phraseListGrammar = SpeechSDK.PhraseListGrammar.fromRecognizer(reco);
