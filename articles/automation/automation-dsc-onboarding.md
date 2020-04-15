@@ -66,7 +66,7 @@ required for your use case. Optionally, you can enter a node configuration to as
 
 ### Onboard a VM using Azure Resource Manager templates
 
-You can deploy and onboard a VM to Azure Automation State Configuration using Azure Resource Manager templates. See [Server managed by Desired State Configuration service](https://azure.microsoft.com/resources/templates/101-automation-configuration/) for an example template that onboards an existing VM to Azure Automation State Configuration. If you are managing a VM Scale Set, see the example template in [VM Scale Set Configuration managed by Azure Automation](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
+You can deploy and onboard a VM to Azure Automation State Configuration using Azure Resource Manager templates. See [Server managed by Desired State Configuration service](https://azure.microsoft.com/resources/templates/101-automation-configuration/) for an example template that onboards an existing VM to Azure Automation State Configuration. If you are managing a virtual machine scale set, see the example template in [Virtual machine scale set configuration managed by Azure Automation](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
 
 ### Onboard machines using PowerShell
 
@@ -93,8 +93,8 @@ You can onboard Windows servers running on-premises or in other cloud environmen
    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
    ```
 
-1. If you can't apply the PowerShell DSC metaconfigurations remotely, copy the **metaconfigurations** folder to the machines that you are onboarding. Then add code to call `Set-DscLocalConfigurationManager` locally on the machines.
-1. Using the Azure portal or cmdlets, verify that the machines to onboard appear as a State Configuration nodes registered in your Azure Automation account.
+1. If you can't apply the PowerShell DSC metaconfigurations remotely, copy the **metaconfigurations** folder to the machines that you are onboarding. Then add code to call [Set-DscLocalConfigurationManager](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager?view=powershell-5.1) locally on the machines.
+1. Using the Azure portal or cmdlets, verify that the machines to onboard appear as State Configuration nodes registered in your Azure Automation account.
 
 ## Onboarding physical/virtual Linux machines on-premises, or in a cloud other than Azure
 
