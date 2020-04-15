@@ -46,7 +46,7 @@ In this step, you use Azure SQL Managed Instance Agent to invoke SSIS packages t
 9. Start the Agent Job to execute the SSIS package.
 
 
-## Run SSIS packages in File System by Azure SQL Managed Instance Agent
+## Run SSIS packages in file system by Azure SQL managed instance agent
 In this step, you use Azure SQL Managed Instance Agent to invoke SSIS packages that is stored in File System to run.
 1. In the latest version of SSMS, connect to Azure SQL Managed Instance.
 2. Create a new Agent Job and a new Job step.
@@ -78,7 +78,7 @@ In this step, you use Azure SQL Managed Instance Agent to invoke SSIS packages t
  10. Start the Agent Job to execute the SSIS package.
 
 
- ## Cancel SSIS Package Execution
+ ## Cancel SSIS package execution
  To cancel package execution from an Azure SQL Managed Agent job, you should follow below steps instead of directly stopping the agent job.
  1. Find your SQL agent **jobId** from **msdb.dbo.sysjobs**.
  2. Find corresponding SSIS **executionId** based on the job ID by below query:
@@ -91,5 +91,5 @@ In this step, you use Azure SQL Managed Instance Agent to invoke SSIS packages t
 
  4. Stop corresponding operation based on **executionId**.
 
-## Next Steps
+## Next steps
  You can also schedule SSIS packages using Azure Data Factory. For step-by-step instructions, see [Azure Data Factory Event Trigger](how-to-create-event-trigger.md). 
