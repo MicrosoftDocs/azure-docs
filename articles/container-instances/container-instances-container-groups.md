@@ -1,6 +1,6 @@
 ---
 title: Introduction to container groups
-description: Learn about container groups in Azure Container Instances, a collection of instances that share a lifecycle and resources such as storage and network
+description: Learn about container groups in Azure Container Instances, a collection of instances that share a lifecycle and resources such as CPUs, storage, and network
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
@@ -52,6 +52,9 @@ Each container instance in a group is allocated the resources specified in its r
 For example, in a group with two container instances each requesting 1 CPU, one of your containers might run a workload that requires more CPUs to run than the other.
 
 In this scenario, you could set a resource limit of 2 CPUs for the container instance. This configuration allows the container instance to use up to the full 2 CPUs if available.
+
+> [!NOTE]
+> A small amount of a container group's resources is used by the service's underlying infrastructure. Your containers will be able to access most but not all of the resources allocated to the group. For this reason, plan a small resource buffer when requesting resources for containers in the container group.
 
 ### Minimum and maximum allocation
 
