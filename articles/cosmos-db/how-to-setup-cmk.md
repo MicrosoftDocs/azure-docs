@@ -18,7 +18,7 @@ Data stored in your Azure Cosmos account is automatically and seamlessly encrypt
 
 ![Layers of encryption around customer data](./media/how-to-setup-cmk/cmk-intro.png)
 
-You must store customer-managed keys in [Azure Key Vault](../key-vault/key-vault-overview.md) and provide a key for each Azure Cosmos account that is enabled with customer-managed keys. This key is used to encrypt all the data stored in that account.
+You must store customer-managed keys in [Azure Key Vault](../key-vault/general/overview.md) and provide a key for each Azure Cosmos account that is enabled with customer-managed keys. This key is used to encrypt all the data stored in that account.
 
 > [!NOTE]
 > Currently, customer-managed keys are available only for new Azure Cosmos accounts. You should configure them during account creation.
@@ -39,8 +39,8 @@ Using customer-managed keys with Azure Cosmos DB requires you to set two propert
 
 To learn how to enable these properties on an existing Azure Key Vault instance, see the "Enabling soft-delete" and "Enabling Purge Protection" sections in one of the following articles:
 
-- [How to use soft-delete with PowerShell](../key-vault/key-vault-soft-delete-powershell.md)
-- [How to use soft-delete with Azure CLI](../key-vault/key-vault-soft-delete-cli.md)
+- [How to use soft-delete with PowerShell](../key-vault/general/soft-delete-powershell.md)
+- [How to use soft-delete with Azure CLI](../key-vault/general/soft-delete-cli.md)
 
 ## Add an access policy to your Azure Key Vault instance
 
