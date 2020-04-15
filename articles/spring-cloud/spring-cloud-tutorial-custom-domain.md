@@ -80,7 +80,7 @@ One app can have multiple domains, but one domain can only map to one app. When 
 ![Custom domain table](./media/custom-dns-tutorial/custom-domain-table.png)
 
 >[!NOTE]
-> A **Not Secure** label for your custom domain means that it's not yet bound to an SSL certificate. Any HTTPS request from a browser to your custom domain will receive and error or warning.
+> A **Not Secure** label for your custom domain means that it's not yet bound to an SSL certificate. Any HTTPS request from a browser to your custom domain will receive an error or warning.
 
 ## Add SSL binding
 In the custom domain table, select **Add ssl binding** as shown in the previous figure.  
@@ -100,8 +100,7 @@ In your app page, in the left navigation, select **Custom Domain**. Then, set **
 
 ![Add SSL binding](./media/custom-dns-tutorial/enforce-http.png)
 
-When the operation is complete, navigate to any of the HTTP URLs that point to your app. For example:
-* http://www.contoso.com
+When the operation is complete, navigate to any of the HTTPs URLs that point to your app. Note that HTTP URLs don't work.
 
 ## See also
 * [What is Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
