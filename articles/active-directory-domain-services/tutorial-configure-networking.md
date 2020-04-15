@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 03/30/2020
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to create and configure a virtual network subnet or network peering for application workloads in an Azure Active Directory Domain Services managed domain
@@ -27,14 +27,14 @@ In this tutorial, you learn how to:
 > * Create an IP address range and additional subnet in the Azure AD DS virtual network
 > * Configure virtual network peering to a network that's separate from Azure AD DS
 
-If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 To complete this tutorial, you need the following resources and privileges:
 
 * An active Azure subscription.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * You need *global administrator* privileges in your Azure AD tenant to enable Azure AD DS.
@@ -70,18 +70,18 @@ By default, the Azure virtual network created with the Azure AD DS managed domai
 To create a virtual network subnet for VMs and application workloads, complete the following steps:
 
 1. In the Azure portal, select the resource group of your Azure AD DS managed domain, such as *myResourceGroup*. From the list of resources, choose the default virtual network, such as *aadds-vnet*.
-1. In the left-hand menu of the virtual network window, select **Address space**. The virtual network is created with a single address space of *10.0.1.0/24*, which is used by the default subnet.
+1. In the left-hand menu of the virtual network window, select **Address space**. The virtual network is created with a single address space of *10.0.2.0/24*, which is used by the default subnet.
 
     Add an additional IP address range to the virtual network. The size of this address range and the actual IP address range to use depends on other network resources already deployed. The IP address range shouldn't overlap with any existing address ranges in your Azure or on-premises environment. Make sure that you size the IP address range large enough for the number of VMs you expect to deploy into the subnet.
 
-    In the following example, an additional IP address range of *10.0.2.0/24* is added. When ready, select **Save**.
+    In the following example, an additional IP address range of *10.0.3.0/24* is added. When ready, select **Save**.
 
     ![Add an additional virtual network IP address range in the Azure portal](./media/tutorial-configure-networking/add-vnet-address-range.png)
 
 1. Next, in the left-hand menu of the virtual network window, select **Subnets**, then choose **+ Subnet** to add a subnet.
 1. Enter a name for the subnet, such as *workloads*. If needed, update the **Address range** if you want to use a subset of the IP address range configured for the virtual network in the previous steps. For now, leave the defaults for options like network security group, route table, service endpoints.
 
-    In the following example, a subnet named *workloads* is created that uses the *10.0.2.0/24* IP address range:
+    In the following example, a subnet named *workloads* is created that uses the *10.0.3.0/24* IP address range:
 
     ![Add an additional virtual network subnet in the Azure portal](./media/tutorial-configure-networking/add-vnet-subnet.png)
 
@@ -128,7 +128,7 @@ In this tutorial, let's configure the Azure virtual network DNS servers to direc
 
 1. In the Azure portal, select the resource group of the peered virtual network, such as *myResourceGroup*. From the list of resources, choose the peered virtual network, such as *myVnet*.
 1. In the left-hand menu of the virtual network window, select **DNS servers**.
-1. By default, a virtual network uses the built-in Azure-provided DNS servers. Choose to use **Custom** DNS servers. Enter the IP addresses for the Azure AD DS domain controllers, which are usually *10.0.1.4* and *10.0.1.5*. Confirm these IP addresses on the **Overview** window of your Azure AD DS managed domain in the portal.
+1. By default, a virtual network uses the built-in Azure-provided DNS servers. Choose to use **Custom** DNS servers. Enter the IP addresses for the Azure AD DS domain controllers, which are usually *10.0.2.4* and *10.0.2.5*. Confirm these IP addresses on the **Overview** window of your Azure AD DS managed domain in the portal.
 
     ![Configure the virtual network DNS servers to use the Azure AD DS domain controllers](./media/tutorial-configure-networking/custom-dns.png)
 

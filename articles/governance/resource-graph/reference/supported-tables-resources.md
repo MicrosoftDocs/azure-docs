@@ -1,7 +1,7 @@
 ---
 title: Supported Resource Manager resource types
 description: Provide a list of the Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 03/23/2020
+ms.date: 04/15/2020
 ms.topic: reference
 ---
 # Azure Resource Graph table and resource type reference
@@ -184,6 +184,7 @@ part of a **table** in Resource Graph.
 - microsoft.eventhub/clusters
 - microsoft.eventhub/namespaces
 - microsoft.experimentation/experimentworkspaces
+- microsoft.falcon/namespaces
 - microsoft.gaming/titles
 - microsoft.genomics/accounts
 - microsoft.guestconfiguration/automanagedaccounts
@@ -286,6 +287,7 @@ part of a **table** in Resource Graph.
 - microsoft.network/networkexperimentprofiles
 - microsoft.network/networkintentpolicies
 - microsoft.network/networkinterfaces
+- microsoft.network/networkmanagers
 - microsoft.network/networkprofiles
 - microsoft.network/networksecuritygroups
 - microsoft.network/networkvirtualappliances
@@ -386,7 +388,6 @@ part of a **table** in Resource Graph.
 - microsoft.storagesyncint/storagesyncservices
 - microsoft.storsimple/managers
 - microsoft.streamanalytics/streamingjobs
-- microsoft.support/supporttickets
 - microsoft.synapse/workspaces
 - microsoft.synapse/workspaces/bigdatapools
 - microsoft.synapse/workspaces/sqlpools
@@ -442,6 +443,7 @@ part of a **table** in Resource Graph.
 - wandisco.fusion/fusiongroups
 - wandisco.fusion/fusiongroups/azurezones
 - wandisco.fusion/fusiongroups/azurezones/plugins
+- wandisco.fusion/fusiongroups/hivereplicationrules
 - wandisco.fusion/fusiongroups/managedonpremzones
 - wandisco.fusion/fusiongroups/onpremzones
 - wandisco.fusion/fusiongroups/replicationrules

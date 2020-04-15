@@ -23,15 +23,15 @@ This document shows how to create a Power Apps custom connector so that you can 
 
 There are two main steps to having a PowerApp that shows Azure Cognitive Search results. First, let's create a connector that can query the search index. In the [next section](#visualize-results-from-the-custom-connector) we will update your Power Apps application to visualize the results returned by the connector.
 
-
 1. Go to [make.powerapps.com](http://make.powerapps.com) and **Sign In**.
+
 1. Search for **Data** > **Custom Connectors**
  
-    ![Custom connector menu](./media/search-howto-powerapps/1-2-custom-connector.png "Custom connector menu")
+    :::image type="content" source="./media/search-howto-powerapps/1-2-custom-connector.png" alt-text="Custom connector menu" border="true":::
 
 1. Click  **+ New custom connector**  and then select **Create from blank**.
 
-    ![Create from blank menu](./media/search-howto-powerapps/1-3-create-blank.png "Create from blank menu")
+    :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Create from blank menu" border="true":::
 
 1. Give your custom connector a name. (that is, *AzureSearchQuery*), and then click **Continue**. This will bring up a wizard to create your new connector.
 
@@ -42,15 +42,16 @@ There are two main steps to having a PowerApp that shows Azure Cognitive Search 
     - In the Host, you will need to enter your search service URL (for instance, `<yourservicename>.search.windows.net`)
     - For Base URL, simply enter "/"
     
-    ![General information dialogue](./media/search-howto-powerapps/1-5-general-info.png "General information dialogue")
+    :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="General information dialogue" border="true":::
 
 1. In the Security Page, set *API Key* as the **Authentication Type**, set the parameter label, and parameter name fields as *api-key*. For **Parameter location**, select *Header* as shown below.
  
-    ![Authentication type options](./media/search-howto-powerapps/1-6-authentication-type.png "Authentication type options")
+    :::image type="content" source="./media/search-howto-powerapps/1-6-authentication-type.png" alt-text="Authentication type option" border="true":::
 
 1. In the Definitions Page, select **+ New Action** to create an action that will query the index. Enter the value "Query" for the summary and the name of the operation ID. Enter a description like *"Queries the search index"*.
  
-    ![New action options](./media/search-howto-powerapps/1-7-new-action.png "New action options")
+    :::image type="content" source="./media/search-howto-powerapps/1-7-new-action.png" alt-text="New action options" border="true":::
+
 
 1. Press the **+ Import from sample** button to define the parameters and headers. Next, you will define the query request.  
 
@@ -62,23 +63,22 @@ There are two main steps to having a PowerApp that shows Azure Cognitive Search 
 
     **Power Apps** will use the syntax to extract parameters from the query. Notice we explicitly defined the search field. 
 
-    ![Import from sample](./media/search-howto-powerapps/1-8-1-import-from-sample.png "Import from sample")
-    
+    :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Import from sample" border="false":::
+
 1.  Click **Import** to automatically pre-fill the Request dialog.
 
-    ![Import from sample](./media/search-howto-powerapps/1-8-2-import-from-sample.png "Import from sample")
+    :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Import from sample dialogue" border="false":::
 
 
 1. Complete setting the parameter metadata by clicking the **…** symbol next to each of the parameters.
 
     - For *search*: Set `*` as the **default value**, set **required** as *false* and set the **visibility** to *none*. 
 
-    ![Search parameter metadata](./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png "Search parameter metadata")
-
+    :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Search parameter metadata" border="true":::
 
     - For *api-version*: Set `2019-05-06-Preview` as the **default value**, set the **visibility** as internal and set **required** to *True*.  
 
-    ![Version parameter metadata](./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png "Version parameter metadata")
+    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Version parameter metadata" border="true":::
 
     - Similarly, for *api-key*, set it as **required**, with *internal* **visibility**. Enter your search service API key as the **default value**.
     
@@ -115,20 +115,19 @@ The goal of this tutorial is not to show you how to create fancy user experience
 
 1. Create new Power App. Go to the **Apps** section, click on **+ New app**, and select **Canvas**.
 
-     ![Create canvas app](./media/search-howto-powerapps/2-1-create-canvas.png "Create canvas app")
+    :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Create canvas app" border="true":::
 
 1. Select the type of application you would like. For this tutorial create a **Blank App** with the **Phone Layout**. The **Power Apps Studio** will appear.
 
 1. Once in the studio, select the **Data Sources**  tab, and click on the new Connector you have just created. In our case, it is called *AzureSearchQuery*. Click **Add a connection**.
 
-  
-    ![Connect connector](./media/search-howto-powerapps/2-3-connect-connector.png "connect connector")
+    :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="connect connector" border="true":::
 
     Now *AzureSearchQuery* is a data source that is available to be used from your application.
     
 1. Navigate to the **Insert tab**, so that we can add a few controls to our form.
 
-    ![Insert controls](./media/search-howto-powerapps/2-4-add-controls.png "Insert controls")
+    :::image type="content" source="./media/search-howto-powerapps/2-4-add-controls.png" alt-text="Insert controls" border="true":::
 
 1.  Insert the following elements:
     -   A Text Label with the value "Query:"
@@ -138,7 +137,7 @@ The goal of this tutorial is not to show you how to create fancy user experience
     
     Your form should look something like this:
 
-    ![Controls layout](./media/search-howto-powerapps/2-5-controls-layout.png "Controls layout")
+    :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="Controls layout" border="true":::
 
 1. To make the **Search button** issue a query, select the button, and Paste the following action to take on **OnSelect**:
 
@@ -146,8 +145,8 @@ The goal of this tutorial is not to show you how to create fancy user experience
     If(!IsBlank(txtQuery.Text),
         ClearCollect(azResult, AzureSearchQuery.Get({search: txtQuery.Text}).value))
     ```
- 
-    ![Button OnSelect](./media/search-howto-powerapps/2-6-search-button-event.png "Button OnSelect")
+
+    :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Button OnSelect" border="true":::
  
     This action will cause the button to update a new collection called *azResult* with the result of the search query, using the text in the *txtQuery* text box as the query term.
     
@@ -161,15 +160,14 @@ The goal of this tutorial is not to show you how to create fancy user experience
 
     Since we provided a sample result when we defined the connector, the app is aware of the fields available in your index.
     
-    ![Gallery Fields](./media/search-howto-powerapps/2-7-gallery-select-fields.png "Gallery Fields")
+    :::image type="content" source="./media/search-howto-powerapps/2-7-gallery-select-fields.png" alt-text="Gallery fields" border="true":::   
  
 1.  Press **F5** to preview the app.  
 
-      Remember that the fields can be set to calculated values.      
-      For the example, setting using the *"Image, Title and Subtitle"* layout and specifying the *Image* function as the concatenation of the root path for the data and the file name (for instance, `"https://mystore.blob.core.windows.net/multilang/" & ThisItem.metadata_storage_name`) will produce the result below.
+    Remember that the fields can be set to calculated values.      
+    For the example, setting using the *"Image, Title and Subtitle"* layout and specifying the *Image* function as the concatenation of the root path for the data and the file name (for instance, `"https://mystore.blob.core.windows.net/multilang/" & ThisItem.metadata_storage_name`) will produce the result below.
 
-
-     ![Final app](./media/search-howto-powerapps/2-8-2-final.png  "Final app")
+    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Final app" border="true":::        
 
 ## Next steps
 

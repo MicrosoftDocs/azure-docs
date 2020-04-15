@@ -10,6 +10,8 @@ ms.date: 03/24/2020
 
 # Mapping data flow video tutorials
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Below is a list of mapping data flow tutorial videos created by the Azure Data Factory team. 
 
 As updates are constantly made to the product, some features have added or different functionality in the current Azure Data Factory user experience.
@@ -87,6 +89,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Partition your files in the data lake](https://youtu.be/VNWv-MvLQ_0)
 
 [Data warehouse loading pattern](https://www.youtube.com/watch?v=7mLqwtmeQFg)
+
+[Data lake file output options](https://www.youtube.com/watch?v=NAPSbjvSQA8)
 
 ## Optimizing mapping data flows
 

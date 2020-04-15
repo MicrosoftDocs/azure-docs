@@ -17,6 +17,7 @@ ms.date: 02/17/2020
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-sap-hana-connector.md)
 > * [Current version](connector-sap-hana.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an SAP HANA database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -183,7 +184,7 @@ To copy data from SAP HANA, the following properties are supported in the copy a
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **SapHanaSource** | Yes |
 | query | Specifies the SQL query to read data from the SAP HANA instance. | Yes |
-| partitionOptions | Specifies the data partitioning options used to ingest data from SAP HANA. Learn more from  [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section.<br>Allow values are: **None** (default), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Learn more from  [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section. `PhysicalPartitionsOfTable` can only be used when copying data from a table but not query. <br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from SAP HANA is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. | False |
+| partitionOptions | Specifies the data partitioning options used to ingest data from SAP HANA. Learn more from  [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section.<br>Allow values are: **None** (default), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Learn more from  [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section. `PhysicalPartitionsOfTable` can only be used when copying data from a table but not query. <br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from SAP HANA is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | False |
 | partitionSettings | Specify the group of the settings for data partitioning.<br>Apply when partition option is `SapHanaDynamicRange`. | False |
 | partitionColumnName | Specify the name of the source column that will be used by partition for parallel copy. If not specified, the index or the primary key of the table is auto-detected and used as the partition column.<br>Apply when the partition option is `SapHanaDynamicRange`. If you use a query to retrieve the source data, hook `?AdfHanaDynamicRangePartitionCondition` in WHERE clause. See example in [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section. | Yes when using `SapHanaDynamicRange` partition. |
 | packetSize | Specifies the network packet size (in Kilobytes) to split data to multiple blocks. If you have large amount of data to copy, increasing packet size can increase reading speed from SAP HANA in most cases. Performance testing is recommended when adjusting the packet size. | No.<br>Default value is 2048 (2MB). |
@@ -228,7 +229,7 @@ The Data Factory SAP HANA connector provides built-in data partitioning to copy 
 
 ![Screenshot of partition options](./media/connector-sap-hana/connector-sap-hana-partition-options.png)
 
-When you enable partitioned copy, Data Factory runs parallel queries against your SAP HANA source to retrieve data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your SAP HANA.
+When you enable partitioned copy, Data Factory runs parallel queries against your SAP HANA source to retrieve data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your SAP HANA.
 
 You are suggested to enable parallel copy with data partitioning especially when you ingest large amount of data from your SAP HANA. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommended to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
 

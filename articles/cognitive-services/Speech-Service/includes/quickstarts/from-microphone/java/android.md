@@ -18,7 +18,7 @@ Before you get started:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=android)
+> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
 > * Make sure that you have access to a microphone for audio capture
 
 ## Create a user interface
@@ -73,5 +73,4 @@ Select the button in the application to begin a speech recognition section. The 
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
-
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

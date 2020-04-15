@@ -15,6 +15,8 @@ manager: mflasko
 
 # Create an Azure-SSIS integration runtime in Azure Data Factory
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article provides steps for provisioning an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory. An Azure-SSIS IR supports:
 
 - Running packages deployed into the SSIS catalog (SSISDB) hosted by an Azure SQL Database server or a managed instance (Project Deployment Model).

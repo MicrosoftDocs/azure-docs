@@ -105,6 +105,9 @@
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
+  - name: Synapse Analytics
+    tocHref: /azure/synapse-analytics/
+    topicHref: /azure/synapse-analytics/
   - name: ASC for IoT
     tocHref: /azure/asc-for-iot/
     topicHref: /azure/asc-for-iot/
@@ -152,6 +155,9 @@
   - name: Azure Spatial Anchors
     tocHref: /azure/spatial-anchors/
     topicHref: /azure/spatial-anchors/
+  - name: Azure Remote Rendering
+    tocHref: /azure/remote-rendering/
+    topicHref: /azure/remote-rendering/   
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -553,7 +559,20 @@
     topicHref: /azure/jenkins/
   - name: Key Vault
     tocHref: /azure/key-vault/
-    topicHref: /azure/key-vault/
+    topicHref: /azure/key-vault
+    items:
+      - name: General
+        tocHref: /azure/key-vault/general/
+        topicHref: /azure/key-vault/general/
+      - name: Certificates
+        tocHref: /azure/key-vault/certificates/
+        topicHref: /azure/key-vault/certificates/
+      - name: Keys
+        tocHref: /azure/key-vault/keys/
+        topicHref: /azure/key-vault/keys/
+      - name: Secrets
+        tocHref: /azure/key-vault/secrets/
+        topicHref: /azure/key-vault/secrets/
   - name: Azure Kinect DK
     tocHref: /azure/kinect-dk/
     topicHref: /azure/kinect-dk/

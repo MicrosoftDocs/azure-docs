@@ -1,5 +1,6 @@
 ---
-title: Create virtual nodes using the Azure CLI in Azure Kubernetes Services (AKS)
+title: Create virtual nodes using Azure CLI
+titleSuffix: Azure Kubernetes Service
 description: Learn how to use the Azure CLI to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
 services: container-service
 ms.topic: conceptual
@@ -15,7 +16,7 @@ This article shows you how to create and configure the virtual network resources
 
 ## Before you begin
 
-Virtual nodes enable network communication between pods that run in ACI and the AKS cluster. To provide this communication, a virtual network subnet is created and delegated permissions are assigned. Virtual nodes only work with AKS clusters created using *advanced* networking. By default, AKS clusters are created with *basic* networking. This article shows you how to create a virtual network and subnets, then deploy an AKS cluster that uses advanced networking.
+Virtual nodes enable network communication between pods that run in Azure Container Instances (ACI) and the AKS cluster. To provide this communication, a virtual network subnet is created and delegated permissions are assigned. Virtual nodes only work with AKS clusters created using *advanced* networking. By default, AKS clusters are created with *basic* networking. This article shows you how to create a virtual network and subnets, then deploy an AKS cluster that uses advanced networking.
 
 If you have not previously used ACI, register the service provider with your subscription. You can check the status of the ACI provider registration using the [az provider list][az-provider-list] command, as shown in the following example:
 
@@ -26,9 +27,9 @@ az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" 
 The *Microsoft.ContainerInstance* provider should report as *Registered*, as shown in the following example output:
 
 ```output
-Namespace                    RegistrationState
----------------------------  -------------------
-Microsoft.ContainerInstance  Registered
+Namespace                    RegistrationState    RegistrationPolicy
+---------------------------  -------------------  --------------------
+Microsoft.ContainerInstance  Registered           RegistrationRequired
 ```
 
 If the provider shows as *NotRegistered*, register the provider using the [az provider register][az-provider-register] as shown in the following example:
@@ -62,7 +63,7 @@ Virtual Nodes functionality is heavily dependent on ACI's feature set. The follo
 * [Host aliases](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Arguments](../container-instances/container-instances-exec.md#restrictions) for exec in ACI
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) will not deploy pods to the virtual node
-* [Windows Server nodes (currently in preview in AKS)](windows-container-cli.md) are not supported alongside virtual nodes. You can use virtual nodes to schedule Windows Server containers without the need for Windows Server nodes in an AKS cluster.
+* Virtual nodes support scheduling Linux pods. You can manually install the open source [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) provider to schedule Windows Server containers to ACI. 
 
 ## Launch Azure Cloud Shell
 
@@ -103,9 +104,9 @@ az network vnet subnet create \
     --address-prefixes 10.241.0.0/16
 ```
 
-## Create a service principal
+## Create a service principal or use a managed identity
 
-To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is used. This service principal can be automatically created by the Azure CLI or portal, or you can pre-create one and assign additional permissions.
+To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is used. This service principal can be automatically created by the Azure CLI or portal, or you can pre-create one and assign additional permissions. Alternatively, you can use a managed identity for permissions instead of a service principal. For more information, see [Use managed identities](use-managed-identity.md).
 
 Create a service principal using the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command. The `--skip-assignment` parameter limits any additional permissions from being assigned.
 
@@ -151,7 +152,7 @@ You deploy an AKS cluster into the AKS subnet created in a previous step. Get th
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Replace `<subnetId>` with the ID obtained in the previous step, and then `<appId>` and `<password>` with the 
+Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Replace `<subnetId>` with the ID obtained in the previous step, and then `<appId>` and `<password>` with the values gathered in the previous section.
 
 ```azurecli-interactive
 az aks create \
@@ -298,7 +299,7 @@ If you no longer wish to use virtual nodes, you can disable them using the [az a
 
 If necessary, go to [https://shell.azure.com](https://shell.azure.com) to open Azure Cloud Shell in your browser.
 
-First, delete the helloworld pod running on the virtual node:
+First, delete the `aci-helloworld` pod running on the virtual node:
 
 ```console
 kubectl delete -f virtual-node.yaml

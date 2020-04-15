@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/24/2020
+ms.date: 04/14/2020
 ms.topic: conceptual
 ---
 
@@ -57,6 +57,9 @@ The Setup Wizard discovers if a previous version exists, and then it automatical
 
 To update the agent on a Linux machine to the latest version, it involves two commands. One command to update the local package index with the list of latest available packages from the repositories, and one command to upgrade the local package. 
 
+> [!NOTE]
+> To upgrade the agent, you must have *root* access permissions or with an account that has elevated rights using Sudo.
+
 #### Upgrade Ubuntu
 
 1. To update the local package index with the latest changes made in the repositories, run the following command:
@@ -105,15 +108,85 @@ Actions of the [yum](https://access.redhat.com/articles/yum-cheat-sheet) command
 
 Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as installation and removal of packages, are logged in the `/var/log/zypper.log` log file. 
 
+## About the Azcmagent tool
+
+The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Arc for servers (preview) Connected Machine agent during installation, or modify the initial configuration of the agent after installation. Azcmagent.exe provides command-line parameters to customize the agent and view its status:
+
+* **Connect** - To connect the machine to Azure Arc
+
+* **Disconnect** - To disconnect the machine from Azure Arc
+
+* **Reconnect** - To reconnect a disconnected machine to Azure Arc
+
+* **Show** - View agent status and its configuration properties (Resource Group name, Subscription ID, version, etc.), which can help when troubleshooting an issue with the agent.
+
+* **-h or --help** - Shows available command-line parameters
+
+    For example, to see detailed help for the **Reconnect** parameter, type `azcmagent reconnect -h`. 
+
+* **-v or --verbose** - Enable verbose logging
+
+You can perform a **Connect**, **Disconnect**, and **Reconnect** manually while logged on interactively, or automate using the same service principal you used to onboard multiple agents or with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md). If you did not use a service principal to register the machine with Azure Arc for servers (preview), see the following [article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) to create a service principal.
+
+### Connect
+
+This parameter specifies a resource in Azure Resource Manager representing the machine is created in Azure. The resource is in the subscription and resource group specified, and data about the machine is stored in the Azure region specified by the `--location` setting. The default resource name is the hostname of this machine if not specified.
+
+A certificate corresponding to the system-assigned identity of the machine is then downloaded and stored locally. Once this step is completed, the Azure Connected Machine Metadata Service and Guest Configuration Agent begin synchronizing with Azure Arc for servers (preview).
+
+To connect using a service principal, run the following command:
+
+`azcmagent connect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
+
+To connect using an access token, run the following command:
+
+`azcmagent connect --access-token <> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
+
+To connect with your elevated logged-on credentials (interactive), run the following command:
+
+`azcmagent connect --tenant-id <TenantID> --subscription-id <subscriptionID> --resource-group <ResourceGroupName> --location <resourceLocation>`
+
+### Disconnect
+
+This parameter specifies a resource in Azure Resource Manager representing the machine is deleted in Azure. It does not delete the agent from the machine, this must be done as a separate step. After the machine is disconnected, if you want to re-register it with Azure Arc for servers (preview), use `azcmagent connect` so a new resource is created for it in Azure.
+
+To disconnect using a service principal, run the following command:
+
+`azcmagent disconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
+
+To disconnect using an access token, run the following command:
+
+`azcmagent disconnect --access-token <accessToken>`
+
+To disconnect with your elevated logged-on credentials (interactive), run the following command:
+
+`azcmagent disconnect --tenant-id <tenantID>`
+
+### Reconnect
+
+This parameter reconnects the already registered or connected machine with Azure Arc for servers (preview). This may be necessary if the machine has been turned off, at least 45 days, for its certificate to expire. This parameter uses the authentication options provided to retrieve new credentials corresponding to the Azure Resource Manager resource representing this machine.
+
+This command requires higher privileges than the [Azure Connected Machine Onboarding](overview.md#required-permissions) role.
+
+To reconnect using a service principal, run the following command:
+
+`azcmagent reconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
+
+To reconnect using an access token, run the following command:
+
+`azcmagent reconnect --access-token <accessToken>`
+
+To reconnect with your elevated logged-on credentials (interactive), run the following command:
+
+`azcmagent reconnect --tenant-id <tenantID>`
+
 ## Remove the agent
 
-Use one of the following procedures to uninstall the Windows or Linux agent using the command line or setup wizard described in this section. Before uninstalling the agent, first disconnect the machine from Azure Arc for servers (preview) by completing these steps: 
-
-1. Open Azure Arc for servers (preview) by going to the [Azure portal](https://aka.ms/hybridmachineportal).
-
-2. Select the machine in the list, select the ellipsis (**...**), and then select **Delete**.
+Perform one of the following methods to uninstall the Windows or Linux Connected Machine agent from the machine. Removing the agent does not unregister the machine with Arc for servers (preview), this is a separate process you perform when you no longer need to manage the machine in Azure.
 
 ### Windows agent
+
+Both of the following methods remove the agent, but they do not remove the *C:\Program Files\AzureConnectedMachineAgent* folder on the machine.
 
 #### Uninstall from Control Panel
 
@@ -153,6 +226,9 @@ To uninstall the agent manually from the Command Prompt or to use an automated m
 
 ### Linux agent
 
+> [!NOTE]
+> To uninstall the agent, you must have *root* access permissions or with an account that has elevated rights using Sudo.
+
 To uninstall the Linux agent, the command to use depends on the Linux operating system.
 
 - For Ubuntu, run the following command:
@@ -172,3 +248,11 @@ To uninstall the Linux agent, the command to use depends on the Linux operating 
     ```bash
     sudo zypper remove azcmagent
     ```
+
+## Unregister machine
+
+If you are planning to stop managing the machine with supporting services in Azure, perform the following steps to unregister the machine with Arc for servers (preview). You can perform these steps either before or after you have removed the Connected Machine agent from the machine.
+
+1. Open Azure Arc for servers (preview) by going to the [Azure portal](https://aka.ms/hybridmachineportal).
+
+2. Select the machine in the list, select the ellipsis (**...**), and then select **Delete**.

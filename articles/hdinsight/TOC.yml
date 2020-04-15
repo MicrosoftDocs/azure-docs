@@ -282,7 +282,7 @@
       - name: Run queries on an Apache Spark cluster
         href: ./spark/apache-spark-load-data-run-query.md
       - name: Failure spark job debugging in IntelliJ (preview)
-        href: ./spark/apache-spark-intellij-tool-failure-debug.md
+        href: ./spark/apache-spark-intellij-tool-failure-debug.md     
       - name: Analyze data using BI tools
         href: ./spark/apache-spark-use-bi-tools.md
       - name: Create a machine learning app
@@ -697,6 +697,10 @@
     items:
     - name: Analyze data with Interactive Query
       href: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
+  - name: Concepts
+    items: 
+    - name: Gateway best practices
+      href: ./interactive-query/gateway-best-practices.md
   - name: How to
     items:
     - name: Develop
@@ -816,6 +820,8 @@
     items:
     - name: Use Apache Storm to write to storage
       href: ./storm/apache-storm-write-data-lake-store.md
+    - name: Apache Kafka and Apache Storm (Java)
+      href: ./hdinsight-apache-storm-with-kafka.md
   - name: How to
     items:
     - name: Migrate Storm to Spark
@@ -836,10 +842,6 @@
           href: ./storm/apache-storm-example-topology.md
       - name: Streaming pipelines
         items:
-        - name: Apache Kafka and Apache Storm (Java)
-          href: ./hdinsight-apache-storm-with-kafka.md
-        - name: Event Hub, Storage, and Data Lake Storage (Java)
-          href: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
         - name: Event Hub and Apache Storm (C# & Java)
           href: ./storm/apache-storm-develop-csharp-event-hub-topology.md
     - name: Manage

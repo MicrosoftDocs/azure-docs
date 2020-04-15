@@ -92,7 +92,10 @@ The [Helm][helm] installation approach for Istio will be deprecated in the futur
 > Istio currently must be scheduled to run on Linux nodes. If you have Windows Server nodes in your cluster, you must ensure that the Istio pods are only scheduled to run on Linux nodes. We'll use [node selectors][kubernetes-node-selectors] to make sure pods are scheduled to the correct nodes.
 
 > [!CAUTION]
-> The [SDS (secret discovery service)][istio-feature-sds] and [Istio CNI][istio-feature-cni] Istio features are currently in [Alpha][istio-feature-stages], so thought should be given before enabling these. In addition, the [Service Account Token Volume Projection][kubernetes-feature-sa-projected-volume] Kubernetes feature (a requirement for SDS) is not enabled in current AKS versions.
+> The [SDS (secret discovery service)][istio-feature-sds] and [Istio CNI][istio-feature-cni] Istio features are currently in [Alpha][istio-feature-stages], so thought should be given before enabling these. 
+>
+> Note that the [Service Account Token Volume Projection][kubernetes-feature-sa-projected-volume] Kubernetes feature (a requirement for SDS) is now **enabled** for all Kubernetes 1.13 and higher versions on AKS.
+
 Create a file called `istio.aks.yaml` with the following content. This file will hold the [Istio control plane spec][istio-control-plane] details for configuring Istio.
 
 ```yaml

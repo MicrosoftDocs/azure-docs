@@ -1,5 +1,6 @@
 ---
-title: Use a Standard SKU load balancer in Azure Kubernetes Service (AKS)
+title: Use a Standard SKU load balancer
+titleSuffix: Azure Kubernetes Service
 description: Learn how to use a load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
 services: container-service
 author: zr-msft
@@ -28,7 +29,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 This article assumes you have an AKS cluster with the *Standard* SKU Azure Load Balancer. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-The AKS cluster service principal needs also permission to manage network resources if you use an existing subnet or resource group. In general, assign the *Network contributor* role to your service principal on the delegated resources. For more information on permissions, see [Delegate AKS access to other Azure resources][aks-sp].
+The AKS cluster service principal needs also permission to manage network resources if you use an existing subnet or resource group. In general, assign the *Network contributor* role to your service principal on the delegated resources. Instead of a service principal, you can also use the system assigned managed identity for permissions. For more information, see [Use managed identities](use-managed-identity.md). For more information on permissions, see [Delegate AKS access to other Azure resources][aks-sp].
 
 ### Moving from a Basic SKU Load Balancer to Standard SKU
 

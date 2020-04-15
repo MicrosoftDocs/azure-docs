@@ -15,6 +15,8 @@ ms.date: 02/12/2020
 
 # Continuous integration and delivery in Azure Data Factory
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 ## Overview
 
 Continuous integration is the practice of testing each change made to your codebase automatically and as early as possible. Continuous delivery follows the testing that happens during continuous integration and pushes changes to a staging or production system.
@@ -149,16 +151,16 @@ There are two ways to handle secrets:
 
     ```json
     {
-	    "parameters": {
-		    "azureSqlReportingDbPassword": {
-	    		"reference": {
-    				"keyVault": {
-					    "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
-			        },
-        		    "secretName": " < secret - name > "
-		        }
-		    }
-	    }
+        "parameters": {
+            "azureSqlReportingDbPassword": {
+                "reference": {
+                    "keyVault": {
+                        "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
+                    },
+                    "secretName": " < secret - name > "
+                }
+            }
+        }
     }
     ```
 
@@ -209,7 +211,7 @@ When running a post-deployment script, you will need to specify a variation of t
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 
-    ![Azure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
+![Azure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
 
 Here is the script that can be used for pre- and post-deployment. It accounts for deleted resources and resource references.
 
@@ -362,12 +364,12 @@ if ($predeployment -eq $true) {
     $triggerstostop | ForEach-Object { 
         Write-host "Disabling trigger " $_
         Remove-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force
-	$status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
-	while ($status.Status -ne "Disabled"){
-    		Start-Sleep -s 15
-    		$status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
-	}
-	Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+    $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    while ($status.Status -ne "Disabled"){
+            Start-Sleep -s 15
+            $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    }
+    Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 else {
@@ -461,12 +463,12 @@ else {
     $activeTriggerNames | ForEach-Object { 
         Write-host "Enabling trigger " $_
         Add-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force
-	$status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
-	while ($status.Status -ne "Enabled"){
-    		Start-Sleep -s 15
-    		$status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
-	}
-	Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+    $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    while ($status.Status -ne "Enabled"){
+            Start-Sleep -s 15
+            $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    }
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 ```
@@ -565,7 +567,7 @@ Here's an example of what a parameterization template might look like:
 Here's an explanation of how the preceding template is constructed, broken down by resource type.
 
 #### Pipelines
-	
+    
 * Any property in the path `activities/typeProperties/waitTimeInSeconds` is parameterized. Any activity in a pipeline that has a code-level property named `waitTimeInSeconds` (for example, the `Wait` activity) is parameterized as a number, with a default name. But it won't have a default value in the Resource Manager template. It will be a mandatory input during the Resource Manager deployment.
 * Similarly, a property called `headers` (for example, in a `Web` activity) is parameterized with type `object` (JObject). It has a default value, which is the same value as that of the source factory.
 
@@ -777,7 +779,7 @@ The following example shows how to add a single value to the default parameteriz
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
-		    "poolName": "=",
+            "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",
@@ -831,25 +833,25 @@ If you don't have Git configured, you can access the linked templates via **Expo
 
 If you deploy a factory to production and realize there's a bug that needs to be fixed right away, but you can't deploy the current collaboration branch, you might need to deploy a hotfix. This approach is as known as quick-fix engineering or QFE.
 
-1.	In Azure DevOps, go to the release that was deployed to production. Find the last commit that was deployed.
+1.    In Azure DevOps, go to the release that was deployed to production. Find the last commit that was deployed.
 
-2.	From the commit message, get the commit ID of the collaboration branch.
+2.    From the commit message, get the commit ID of the collaboration branch.
 
-3.	Create a new hotfix branch from that commit.
+3.    Create a new hotfix branch from that commit.
 
-4.	Go to the Azure Data Factory UX and switch to the hotfix branch.
+4.    Go to the Azure Data Factory UX and switch to the hotfix branch.
 
-5.	By using the Azure Data Factory UX, fix the bug. Test your changes.
+5.    By using the Azure Data Factory UX, fix the bug. Test your changes.
 
-6.	After the fix is verified, select **Export ARM Template** to get the hotfix Resource Manager template.
+6.    After the fix is verified, select **Export ARM Template** to get the hotfix Resource Manager template.
 
-7.	Manually check this build into the adf_publish branch.
+7.    Manually check this build into the adf_publish branch.
 
-8.	If you've configured your release pipeline to automatically trigger based on adf_publish check-ins, a new release will start automatically. Otherwise, manually queue a release.
+8.    If you've configured your release pipeline to automatically trigger based on adf_publish check-ins, a new release will start automatically. Otherwise, manually queue a release.
 
-9.	Deploy the hotfix release to the test and production factories. This release contains the previous production payload plus the fix that you made in step 5.
+9.    Deploy the hotfix release to the test and production factories. This release contains the previous production payload plus the fix that you made in step 5.
 
-10.	Add the changes from the hotfix to the development branch so that later releases won't include the same bug.
+10.    Add the changes from the hotfix to the development branch so that later releases won't include the same bug.
 
 ## Best practices for CI/CD
 

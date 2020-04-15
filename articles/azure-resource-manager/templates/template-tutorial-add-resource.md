@@ -2,7 +2,7 @@
 title: Tutorial - Add resource to template
 description: Describes the steps to create your first Azure Resource Manager template. You learn about the template file syntax and how to deploy a storage account.
 author: mumian
-ms.date: 02/24/2020
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -21,7 +21,7 @@ You must have Visual Studio Code with the Resource Manager Tools extension, and 
 
 To add a storage account definition to the existing template, look at the highlighted JSON in the following example. Instead of trying to copy sections of the template, copy the whole file and replace your template with its contents.
 
-Replace **{provide-unique-name}** with a unique storage account name.
+Replace **{provide-unique-name}** (including the curly brackets) with a unique storage account name.
 
 > [!IMPORTANT]
 > The storage account name must be unique across Azure. The name must have only lowercase letters or numbers. It can be no longer than 24 characters. You might try a naming pattern like using **store1** as a prefix and then adding your initials and today's date. For example, the name you use could look like **store1abc09092019**.
@@ -67,6 +67,8 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+
 ```azurecli
 az deployment group create \
   --name addstorage \
@@ -75,6 +77,9 @@ az deployment group create \
 ```
 
 ---
+
+> [!NOTE]
+> If the deployment failed, use the **debug** switch with the deployment command to show the debug logs.  You can also use the **verbose** switch to show the full debug logs.
 
 Two possible deployment failures that you might encounter:
 
