@@ -100,7 +100,7 @@ There are several file-copy tools available from Microsoft and others. To select
 
 * Does the tool have features that let it fit into your migration strategy?
 
-    For example, consider if the tool lets you minimize your downtime. A good question to ask is, "Can I run this copy multiple times by using an actively accessed location?" If so, you can reduce downtime significantly. Compare this situation to one where you guarantee a complete copy by starting the copy only after the source stops changing.
+    For example, consider whether the tool lets you minimize your downtime. A good question to ask is, "Can I run this copy multiple times on the same, by users actively accessed location?" If so, you can reduce downtime significantly. Compare this situation to one where you guarantee a complete copy by starting the copy only after the source stops changing.
 
 The following table classifies Microsoft tools and their current suitability for Azure file shares:
 
