@@ -164,3 +164,5 @@ The following are the Slurm specific configuration options you can toggle to cus
 | munge.user.name                      | Default: 'munge'. This is the username for the MUNGE authentication service to use. |
 | munge.user.uid                       | Default: '11101'. The User ID to use for the MUNGE user. |
 | munge.user.gid                       | Default: '11101'. The Group ID to use for the MUNGE user. |
+
+[!INCLUDE [scheduler-integration](~/includes/scheduler-integration.md)]

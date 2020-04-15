@@ -84,8 +84,6 @@ A sample submit file might look like this:
 
 ## HTCondor Configuration Reference
 
-CycleCloud supports a `standard set <autostop-attributes>` of autostop attributes for HTCondor.
-
 The following are the HTCondor-specific configuration options you can set to customize functionality:
 
 | HTCondor-Specific Configuration Options | Description  |
@@ -126,3 +124,5 @@ HTCondor has large number of configuration settings, including user-defined attr
 
 > [!NOTE]
 > HTCondor configuration attributes containing a . cannot be specified using this method. If such attributes are needed, they should be specified in a cookbook or a file installed with cluster-init.
+
+[!INCLUDE [scheduler-integration](~/includes/scheduler-integration.md)]

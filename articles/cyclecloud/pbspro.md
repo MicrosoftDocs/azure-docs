@@ -93,11 +93,4 @@ The following are the PBS Professional specific configuration options you can to
 | pbspro.slot_type                       | The name of type of 'slot' a node provides. The default is 'execute'. When a job is tagged with the hard resource 'slot_type=<type>', that job will *only* run on a machine of the same slot type. This allows you to create different software and hardware configurations per node and ensure an appropriate job is always scheduled on the correct type of node.  |
 | pbspro.version                         | Default: '18.1.3-0'. This is the PBS Professional version to install and run. This is currently the default and *only* option. In the future additional versions of the PBS Professional software may be supported. |
 
-CycleCloud supports a standard set of autostop attributes for PBS Pro:
-
-| Attribute   | Description |
-| ----------  | ----------- |
-| cyclecloud.cluster.autoscale.stop_enabled             | Is autostop enabled on this node? [true/false]  |
-| cyclecloud.cluster.autoscale.idle_time_after_jobs     | The amount of time (in seconds) for a node to sit idle after completing jobs before it is scaled down.    |
-| cyclecloud.cluster.autoscale.idle_time_before_jobs    |   The amount of time (in seconds) for a node to sit idle before completing jobs before it is scaled down. |
- 
+[!INCLUDE [scheduler-integration](~/includes/scheduler-integration.md)]
