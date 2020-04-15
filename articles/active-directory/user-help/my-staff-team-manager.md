@@ -87,7 +87,7 @@ After you register a phone number for a user, they can use it to sign in with SM
 
     ![Edit a staff member phone number in My Staff](media/my-staff-team-manager/editphone1.png)
 
-### Enable phone number sign-in for a suer
+### Enable phone number sign-in for a user
 
 If sign-in using a phone number as a username (SMS sign-in) is enabled in your organization, you can add this authentication to an existing user phone number.
 
