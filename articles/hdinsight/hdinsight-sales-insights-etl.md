@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
-ms.date: 03/27/2020
+ms.date: 04/15/2020
 ---
 
 # Tutorial: Create an end-to-end data pipeline to derive sales insights in Azure HDInsight
@@ -88,6 +88,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     ./scripts/resources.sh $resourceGroup LOCATION
     ```
 
+    If you're not sure which region to specify, you can retrieve a list of supported regions for your subscription with the [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations) command.
+
     The command will deploy the following resources:
 
     * An Azure Blob storage account. This account will hold the company sales data.
@@ -152,7 +154,7 @@ This data factory will have one pipeline with two activities:
 * The first activity will copy the data from Azure Blob storage to the Data Lake Storage Gen 2 storage account to mimic data ingestion.
 * The second activity will transform the data in the Spark cluster. The script transforms the data by removing unwanted columns. It also appends a new column that calculates the revenue that a single transaction generates.
 
-To set up your Azure Data Factory pipeline, execute the following command:
+To set up your Azure Data Factory pipeline, execute the  command below.  You should still be at the `hdinsight-sales-insights-etl` directory.
 
 ```bash
 blobStorageName=$(cat resourcesoutputs_storage.json | jq -r '.properties.outputs.blobStorageName.value')
@@ -186,6 +188,9 @@ To trigger the pipeline, you can either:
 * Trigger the Data Factory pipeline in PowerShell. Replace `RESOURCEGROUP`, and `DataFactoryName` with the appropriate values, then run the following commands:
 
     ```powershell
+    # If you have multiple subscriptions, set the one to use
+    # Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
+
     $resourceGroup="RESOURCEGROUP"
     $dataFactory="DataFactoryName"
 
