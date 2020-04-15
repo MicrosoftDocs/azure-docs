@@ -5,7 +5,7 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 04/14/2020
 ms.author: dsindona
 ---
 
@@ -40,7 +40,7 @@ The following table shows the publishing options for offer types in Microsoft Ap
 
 &#42; SaaS app Transact offers in Microsoft AppSource are currently credit card only.
 
-&#42;&#42; Dynamics 365 Transact offers are monetized via a paid SaaS offer.
+&#42;&#42; Microsoft 365 offers are free to install and can be monetized via SaaS offer as a licensing service. For more information, see [Monetize your Office 365 add-in through the Microsoft commercial marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
 ## Selecting a storefront
 
