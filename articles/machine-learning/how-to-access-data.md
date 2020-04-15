@@ -96,7 +96,7 @@ Select **Storage Accounts** on the left pane, and choose the storage account tha
 * For service principal items like, tenant ID and client ID, go to your **App registrations** and select which app you want to use. Its corresponding **Overview** page will contain these items.
 
 > [!IMPORTANT]
-> If your storage account is in a virtual network, only creation of Blob, File share, ADLS Gen 1 and ADLS Gen 2 datastores **via the SDK** is supported. To grant your workspace access to your storage account, set the parameter `grant_workspace_access` to `True`.
+> If your storage account is in a virtual network, only creation of datastores **via the SDK** is supported.
 
 The following examples show how to register an Azure blob container, an Azure file share, and Azure Data Lake Storage Generation 2 as a datastore. For other storage services, please see the [reference documentation for the applicable `register_azure_*` methods](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
 
@@ -118,6 +118,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
                                                          account_name=account_name,
                                                          account_key=account_key)
 ```
+If your blob container is in virtual network, set `skip_validation=True` using [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
 
 #### File share
 
@@ -137,6 +138,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
                                                      account_name=account_name,
                                                      account_key=account_key)
 ```
+If your file share is in virtual network, set `skip_validation=True` using [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
 
 #### Azure Data Lake Storage Generation 2
 
