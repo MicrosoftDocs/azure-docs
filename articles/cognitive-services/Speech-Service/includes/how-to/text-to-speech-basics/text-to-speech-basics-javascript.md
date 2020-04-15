@@ -22,10 +22,12 @@ Additionally, depending on the target environment use one of the following:
 # [import](#tab/import)
 
 ```javascript
+import { readFileSync } from "fs";
 import {
     AudioConfig,
     SpeechConfig,
-    SpeechSynthesizer
+    SpeechSynthesisOutputFormat,
+    SpeechSynthesizer 
 } from "microsoft-cognitiveservices-speech-sdk";
 ```
 
@@ -34,6 +36,7 @@ For more information on `import`, see <a href="https://javascript.info/import-ex
 # [require](#tab/require)
 
 ```javascript
+const readFileSync = require("fs").readFileSync;
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
 
@@ -72,11 +75,10 @@ In this example, you create a [`SpeechConfig`](https://docs.microsoft.com/javasc
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-    const synthesizer = new SpeechSynthesizer(speechConfig);
 }
 ```
 
-## Synthesize speech from a file
+## Synthesize speech to a file
 
 Next, you create a [`SpeechSynthesizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?view=azure-node-latest) object, which executes text-to-speech conversions and outputs to speakers, files, or other output streams. The [`SpeechSynthesizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?view=azure-node-latest) accepts as params the [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) object created in the previous step, and an [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) object that specifies how output results should be handled.
 
@@ -86,19 +88,30 @@ To start, create an `AudioConfig` to automatically write the output to a `.wav` 
 function synthesizeSpeech() {
     const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
     const audioConfig = AudioConfig.fromAudioFileOutput("path/to/file.wav");
-    const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
 }
 ```
 
-Next, instantiate a `SpeechSynthesizer` passing your `speechConfig` object and the `audioConfig` object as params. Then, executing speech synthesis and writing to a file is as simple as running `speakTextAsync()` with a string of text.
+Next, instantiate a `SpeechSynthesizer` passing your `speechConfig` object and the `audioConfig` object as params. Then, executing speech synthesis and writing to a file is as simple as running `speakTextAsync()` with a string of text. The result callback is a great place to call `synthesizer.close()`, in fact - this call is needed in order for synthesis to function correctly.
 
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-    const audioConfig = AudioConfig.fromAudioFileOutput("path/to/file.wav");
+    const audioConfig = AudioConfig.fromAudioFileOutput("path-to-file.wav");
 
     const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
-    synthesizer.speakTextAsync("A simple test to write to a file.");
+    synthesizer.speakTextAsync(
+        "A simple test to write to a file.",
+        result => {
+            if (result) {
+                console.log(JSON.stringify(result));
+            }
+            synthesizer.close();
+        }
+    },
+    error => {
+        console.log(error);
+        synthesizer.close();
+    });
 }
 ```
 
@@ -114,7 +127,18 @@ function synthesizeSpeech() {
     const audioConfig = AudioConfig.fromDefaultSpeakerOutput();
 
     const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
-    synthesizer.speakTextAsync("Synthesizing directly to speaker output.");
+    synthesizer.speakTextAsync(
+        "Synthesizing directly to speaker output.",
+        result => {
+            if (result) {
+                console.log(JSON.stringify(result));
+            }
+            synthesizer.close();
+        },
+        error => {
+            console.log(error);
+            synthesizer.close();
+        });
 }
 ```
 
@@ -126,17 +150,17 @@ For many scenarios in speech application development, you likely need the result
 * Integrate the result with other API's or services.
 * Modify the audio data, write custom `.wav` headers, etc.
 
-It's simple to make this change from the previous example. First, remove the `AudioConfig` block, as you will manage the output behavior manually from this point onward for increased control. Then pass `null` for the `AudioConfig` in the `SpeechSynthesizer` constructor. 
+It's simple to make this change from the previous example. First, remove the `AudioConfig` block, as you will manage the output behavior manually from this point onward for increased control. Then pass `undefined` for the `AudioConfig` in the `SpeechSynthesizer` constructor. 
 
 > [!NOTE]
-> Passing `null` for the `AudioConfig`, rather than omitting it like in the speaker output example above, will not play the audio by default on the current active output device.
+> Passing `undefined` for the `AudioConfig`, rather than omitting it like in the speaker output example above, will not play the audio by default on the current active output device.
 
 This time, you save the result to a [`SpeechSynthesisResult`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult?view=azure-node-latest) variable. The `SpeechSynthesisResult.audioData` property returns an `ArrayBuffer` of the output data. You can work with this `ArrayBuffer` manually.
 
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-    const synthesizer = new sdk.SpeechSynthesizer(speechConfig, null);
+    const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
     synthesizer.speakTextAsync(
         "Getting the response as an in-memory stream.",
@@ -144,8 +168,13 @@ function synthesizeSpeech() {
             // Interact with the audio ArrayBuffer data
             const audioData = result.audioData;
             console.log(`Audio data byte size: ${audioData.byteLength}.`)
+
+            synthesizer.close();
         },
-        error => console.log(error));
+        error => {
+            console.log(error);
+            synthesizer.close();
+        });
 }
 ```
 
@@ -172,14 +201,20 @@ function synthesizeSpeech() {
     // Set the output format
     speechConfig.speechSynthesisOutputFormat = SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm;
 
-    const synthesizer = new sdk.SpeechSynthesizer(speechConfig, null);
+    const synthesizer = new sdk.SpeechSynthesizer(speechConfig, undefined);
     synthesizer.speakTextAsync(
         "Customizing audio output format.",
         result => {
             // Interact with the audio ArrayBuffer data
             const audioData = result.audioData;
+            console.log(`Audio data byte size: ${audioData.byteLength}.`)
+
+            synthesizer.close();
         },
-        error => console.log(error));
+        error => {
+            console.log(error);
+            synthesizer.close();
+        });
 }
 ```
 
@@ -209,21 +244,29 @@ function xmlToString(filePath) {
 }
 ```
 
-From here, the result object is exactly the same as previous examples.
+For more information on `readFileSync`, see <a href="https://nodejs.org/api/fs.html#fs_fs_readlinksync_path_options" target="_blank">Node.js file system<span class="docon docon-navigate-external x-hidden-focus"></span></a>. From here, the result object is exactly the same as previous examples.
 
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-    const synthesizer = new sdk.SpeechSynthesizer(speechConfig, null);
+    const synthesizer = new sdk.SpeechSynthesizer(speechConfig, undefined);
 
-    const xml = xmlToString("ssml.xml");
+    const ssml = xmlToString("ssml.xml");
     synthesizer.speakSsmlAsync(
         ssml,
         result => {
-            // Interact with the audio ArrayBuffer data
-            const audioData = result.audioData;
+            if (result.errorDetails) {
+                console.error(result.errorDetails);
+            } else {
+                console.log(JSON.stringify(result));
+            }
+
+            synthesizer.close();
         },
-        error => console.log(error));
+        error => {
+            console.log(error);
+            synthesizer.close();
+        });
 }
 ```
 
