@@ -159,7 +159,7 @@ SSOInitiated = IdPAndSP
 
 Store your **Server Address** in the `Server.Address` value, and the **App Federation Metadata Url** in the `SAML.IdPMetaData` value.
 
-If you have trouble with configuration, you can read the [RStudio Connect Admin Guide](https://docs.rstudio.com/connect/admin/authentication.html#authentication-saml) or email the [RStudio support team](mailto:support@rstudio.com) for help.
+If you have trouble with configuration, you can read the [RStudio Connect Admin Guide](https://docs.rstudio.com/connect/admin/authentication/saml/) or email the [RStudio support team](mailto:support@rstudio.com) for help.
 
 ### Create an Azure AD test user 
 
