@@ -100,6 +100,7 @@ Alias is a unique moniker that is generated when the service owner creates the p
 When connecting to a private link resource using a fully qualified domain name (FQDN) as part of the connection string, it's important to correctly configure your DNS settings to resolve to the allocated private IP address. Existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. This needs to be overridden to connect using your private endpoint. 
  
 The network interface associated with the private endpoint contains the complete set of information required to configure your DNS, including FQDN and private IP addresses allocated for a given private link resource. 
+
 please review [integrate dns with private endpoints](private-endpoint-dns.md) for more details.
 
  
