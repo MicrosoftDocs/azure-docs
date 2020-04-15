@@ -12,6 +12,8 @@ ms.date: 04/14/2020
 
 # Sort transformation in mapping data flow
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 The sort transformation allows you to sort the incoming rows on the current data stream. You can choose individual columns and sort them in ascending or descending order.
 
 > [!NOTE]

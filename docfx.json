@@ -616,6 +616,8 @@
         "articles/governance/policy/**/*.md": "Azure Policy",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
         "articles/lighthouse/**/*.md": "Azure Lighthouse",
+        "articles/synapse-analytics/**/*.md": "Azure Synapse Analytics",
+        "articles/synapse-analytics/**/*.yml": "Azure Synapse Analytics",
         "articles/backup/**/*.md": "Azure Backup",
         "articles/backup/**/*.yml": "Azure Backup",
         "articles/blockchain/**/*.md": "Azure Blockchain",
