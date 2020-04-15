@@ -27,10 +27,7 @@ There are various scenarios in which you'd want to move your existing Event Hubs
 - If the Event Hubs namespace is in an **Event Hubs cluster**, [create a dedicated cluster](event-hubs-dedicated-cluster-create-portal.md) in the **target region** before you go through steps in this article. 
 
 ## Prepare
-To get started, export, and then modify a Resource Manager template.
-
-### Export a template
-This template contains settings that describe your Event Hubs namespace. 
+To get started, export a Resource Manager template. This template contains settings that describe your Event Hubs namespace.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
