@@ -1,8 +1,9 @@
 ---
-title: Troubleshoot Azure sign-up
-description: Resolving an issue when trying to sign-up for a new account in the Microsoft Azure portal account center.
+title: Unable to sign up a new Azure account
+description: Resolving an issue when trying to sign up for a new account in the Microsoft Azure portal account center.
+services: cost-management-billing
 author: v-miegge
-ms.reviewer: dcscontentpm
+manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
@@ -10,17 +11,17 @@ ms.date: 02/12/2020
 ms.author: v-miegge
 ---
 
-# Troubleshoot Azure sign-up
+# Troubleshoot issues when you sign up a new account in Azure portal or Azure account center
 
-You may experience an issue when you try to sign-up for a new account in the Microsoft Azure portal or Azure account center. Before you troubleshoot the issue, first verify the following:
+You may experience an issue when you try to sign up for a new account in the Microsoft Azure portal or Azure account center. Before you troubleshoot the issue, first verify the following:
 
 - The information that you provided for your Azure account profile (including contact email address, street address, and telephone number) is correct.
 - The credit card information is correct.
-- You don’t already have a Microsoft account that has the same information.
+- You don't already have a Microsoft account that has the same information.
 
 ## Resolutions
 
-To resolve any errors, select the issue that you experience when you try to sign-up for Azure.
+To resolve any errors, select the issue that you experience when you try to sign up for Azure.
 
 ### Error: *We cannot proceed with sign-up due to an issue with your account. Please contact billing support.*
 
@@ -32,9 +33,9 @@ To resolve the issue, follow these steps:
 
 3. Make sure that all address fields are completed and valid.
 
-4. When you sign-up for the Azure subscription, make sure that the billing address for the credit card registration matches your bank records.
+4. When you sign up for the Azure subscription, make sure that the billing address for the credit card registration matches your bank records.
 
-If you continue to receive the error message, try to sign-up by using a different browser.
+If you continue to receive the error message, try to sign up by using a different browser.
 
 ### Progress bar hangs in *Identity verification by card* section.
 
@@ -79,7 +80,7 @@ Have you used an Azure subscription in the past? The Azure Terms of Use agreemen
 
 ### I saw a charge on my Free Trial account
 
-You may see a small verification hold on your credit card account after you sign-up. This is removed within three to five days. If you are worried about managing costs, read more about [preventing unexpected costs](getting-started.md).
+You may see a small verification hold on your credit card account after you sign up. This is removed within three to five days. If you are worried about managing costs, read more about [preventing unexpected costs](getting-started.md).
 
 ### Can't activate Azure benefit plan like MSDN, BizSpark, BizSparkPlus, or MPN
 
@@ -105,13 +106,13 @@ To resolve this issue, double-check whether the following items are true:
 
 - The information that you provided for your Azure account profile (including contact email address, street address, and telephone number) is correct.
 - The credit card information is correct.
-- You don’t already have a Microsoft account that uses the same information.
+- You don't already have a Microsoft account that uses the same information.
 
 ### Error: *Your current account type is not supported*
 
-This issue can occur if the account is registered in an [unmanaged Azure AD directory](../../active-directory/users-groups-roles/directory-self-service-signup.md), and it is not in your organization’s Azure AD directory.
+This issue can occur if the account is registered in an [unmanaged Azure AD directory](../../active-directory/users-groups-roles/directory-self-service-signup.md), and it is not in your organization's Azure AD directory.
 
-To resolve this issue, sign-up the Azure account by using another account, or take over the unmanaged AD directory. For more information, see [Take over an unmanaged directory as administrator in Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md).
+To resolve this issue, sign up the Azure account by using another account, or take over the unmanaged AD directory. For more information, see [Take over an unmanaged directory as administrator in Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md).
 
 ## Additional help resources
 
