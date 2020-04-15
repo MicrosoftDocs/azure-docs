@@ -51,6 +51,14 @@ After ID Broker is enabled, you'll still need a password hash stored in Azure AD
 
 SSH authentication requires the hash to be available in Azure AD DS. If you want to use SSH for administrative scenarios only, you can create one cloud-only account and use that to SSH to the cluster. Other users can still use Ambari or HDInsight tools (such as the IntelliJ plug-in) without having the password hash available in Azure AD DS.
 
+## Clinets using OAuth to connect to HDInsight gateway with ID Broker setup
+
+In the ID broker setup, custom apps and clients connecting to the gateway can be updated to acquire the required OAuth token first. You can follow the steps in this [document](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) to acquire the token with the following information:
+
+*	OAuth resource uri: https://hib.azurehdinsight.net 
+* AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
+*	Permission: (name: Cluster.ReadWrite, id:8f89faa0-ffef-4007-974d-4989b39ad77d)
+
 ## Next steps
 
 * [Configure an HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](apache-domain-joined-configure-using-azure-adds.md)
