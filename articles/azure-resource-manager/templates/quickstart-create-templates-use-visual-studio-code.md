@@ -16,7 +16,7 @@ Learn how to use Visual Studio Code and the Azure Resource Manager Tools extensi
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Create an empty ARM template
+## Create an ARM template
 
 Create and open with Visual Studio Code a new file named *azuredeploy.json*. Enter `arm!` into the code editor which initiates ARM Tools snippets for scaffolding out an ARM template.
 
@@ -32,9 +32,9 @@ Notice that the VS Code language mode has changed from *JSON* to *Azure Resource
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/3.png)
 
-## Add a resource to the template
+## Add an Azure resource
 
-The ARM Tools extension includes snippets for many Azure resources. These snippets can be used to easily add Azure resoucres to your tempatae deployment.
+The ARM Tools extension includes snippets for many Azure resources. These snippets can be used to easily add Azure resources to your template deployment.
 
 Place the cursor in the template **resources** block, type in `storage`, and select the *arm-storage* snippet.
 
@@ -48,9 +48,9 @@ The **tab** key can be used to tab through configurable properties on the storag
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/6.png)
 
-## Explore template completion and validation
+## Completion and validation
 
-One of the most powerful capabilities of the ARM Tools extension for VS Code is its integration with Azure schemas. Azure schemas provide the extension with completion and validation capibilities.
+One of the most powerful capabilities of the ARM Tools extension for VS Code is its integration with Azure schemas. Azure schemas provide the extension with completion and validation capabilities.
 
 Let's modify the storage account to see validation and completion in action. First, update the storage account kind to an invalid value such as `megaStorage`. Notice that this produces a warning indicating that `megaStorage` is not a valid value.
 
@@ -60,7 +60,7 @@ To use the completion capabilities, remove `megaStorage`, place the cursor insid
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
 
-## Add parameters to the template
+## Add template parameters
 
 Now create and use a parameter to specify the storage account name.
 
@@ -84,7 +84,7 @@ Entering a single quote `'` inside of the round brackets produces a list of all 
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/13.png)
 
-## Create a parameter file from the template
+## Create a parameter file
 
 An ARM template parameter file allows you to store environment-specific values and pass these in as a group at deployment time. For example, you may have a parameter file with values specific to a test environment and another for a production environment.
 
@@ -99,6 +99,18 @@ Select `New` > `All Parameters` > Select a name and location for the parameter f
 This will create a new parameters file and associate it with the template from which it was created. You can see which parameter file a template has been associated with, and update this mapping in the VS Code status bar.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/19.png)
+
+Now that the parameter file has been mapped to the template, the ARM Tools extension validates both the template and parameter file. To see this in practice, add a two-character value to the `storageAccountName` parameter in the parameter file.
+
+![](./media/quickstart-create-templates-use-visual-studio-code/19.png)
+
+Navigate back to the ARM template and notice that an error has been raised indicating that the value does not meet the parameter criteria.
+
+![](./media/quickstart-create-templates-use-visual-studio-code/19.png)
+
+Update the value to something appropriate, save the file, and navigate back to the template. Notice that the error on the parameter has been resolved.
+
+## Template deployment
 
 ## Clean up resources
 
