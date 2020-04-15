@@ -210,6 +210,8 @@
       href: how-to-connect-pta-quick-start.md
     - name: Pass-through authentication FAQ
       href: how-to-connect-pta-faq.md
+    - name: Disable PTA with Azure AD Connect "Do not configure"
+      href: how-to-connect-pta-disable-do-not-configure.md
   - name: Manage Federation Services
     items:
     - name: Managing federation with Azure AD Connect
