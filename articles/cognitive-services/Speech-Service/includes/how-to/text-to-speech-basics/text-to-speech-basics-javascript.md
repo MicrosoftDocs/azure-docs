@@ -2,7 +2,7 @@
 author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/14/2020
+ms.date: 04/15/2020
 ms.author: trbye
 ---
 
@@ -248,7 +248,8 @@ To switch to a neural voice, change the `name` to one of the [neural voice optio
 > Neural voices are **only** supported for Speech resources created in *East US*, *South East Asia*, and *West Europe* regions.
 
 ```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+    xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
   <voice name="en-US-AriaNeural">
     <mstts:express-as style="cheerful">
       This is awesome!
