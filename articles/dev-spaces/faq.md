@@ -11,6 +11,10 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers,
 
 This addresses frequently asked questions about Azure Dev Spaces.
 
+## What versions of Kubernetes are supported for Azure Dev Spaces?
+
+Azure Dev Spaces supports all [currently supported general availability (GA) versions of Kubernetes in AKS][aks-supported-k8s].
+
 ## Which Azure regions currently provide Azure Dev Spaces?
 
 See [supported regions][supported-regions] for a complete list of available regions.
@@ -84,6 +88,10 @@ In Visual Studio Code, it is possible to [open separate projects in a single wor
 
 In Visual Studio, it is possible to configure .NET Core solutions for debugging through Azure Dev Spaces.
 
+## Can I use Azure Dev Spaces with a service mesh?
+
+At this time, you can't use Azure Dev Spaces with service meshes such as [Istio][istio] or [Linkerd][linkerd]. You can run Azure Dev Spaces and a service mesh on the same AKS cluster, but you can't have both Azure Dev Spaces and a service mesh enabled in the same namespace.
+
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
 [aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
@@ -92,6 +100,7 @@ In Visual Studio, it is possible to configure .NET Core solutions for debugging 
 [aks-pod-managed-id]: ../aks/developer-best-practices-pod-security.md#use-pod-managed-identities
 [aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
+[aks-supported-k8s]: ../aks/supported-kubernetes-versions.md#list-currently-supported-versions
 [bike-sharing]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
 [dev-spaces-pod-managed-id-steps]: troubleshooting.md#error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state
 [dev-spaces-prep]: how-dev-spaces-works-prep.md
@@ -100,6 +109,8 @@ In Visual Studio, it is possible to configure .NET Core solutions for debugging 
 [ingress-traefik]: how-to/ingress-https-traefik.md#configure-a-custom-traefik-ingress-controller
 [ingress-https-nginx]: how-to/ingress-https-nginx.md#configure-the-nginx-ingress-controller-to-use-https
 [ingress-https-traefik]: how-to/ingress-https-traefik.md#configure-the-traefik-ingress-controller-to-use-https
+[istio]: https://istio.io/
+[linkerd]: https://linkerd.io/
 [quickstart-cli]: quickstart-cli.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [vs-code-multi-root-workspaces]: https://code.visualstudio.com/docs/editor/multi-root-workspaces
