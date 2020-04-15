@@ -74,4 +74,4 @@ To learn more about Event Hubs and Event Hubs for Kafka, see the following artic
 - [Apache Kafka developer guide for Event Hubs](apache-kafka-developer-guide.md)
 - [Apache Kafka migration guide for Event Hubs](apache-kafka-migration-guide.md)
 - [Frequently asked questions - Event Hubs for Apache Kafka](apache-kafka-frequently-asked-questions.md)
-
+- [Recommended configurations](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
