@@ -22,11 +22,7 @@
   items:
   - name: Authentication methods
     href: concept-authentication-methods.md
-  - name: Passwordless authentication
-    href: concept-authentication-passwordless.md
-  - name: Security information registration
-    href: concept-registration-mfa-sspr-combined.md
-  - name: Password reset
+  - name: Self-service password reset
     items:
     - name: How password reset works
       href: concept-sspr-howitworks.md
@@ -48,12 +44,16 @@
       href: https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
     - name: FAQ
       href: multi-factor-authentication-faq.md
+  - name: Passwordless authentication
+    href: concept-authentication-passwordless.md
   - name: Password protection
     items:
     - name: Eliminate weak passwords in the cloud
       href: concept-password-ban-bad.md
     - name: Eliminate weak passwords on-premises
       href: concept-password-ban-bad-on-premises.md
+  - name: Security information registration
+    href: concept-registration-mfa-sspr-combined.md
   - name: Resilient access controls
     href: concept-resilient-controls.md
 - name: How-to guides
