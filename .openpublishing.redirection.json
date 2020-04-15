@@ -51114,6 +51114,16 @@
       "source_path": "articles/security/fundamentals/database-best-practices.md",
       "redirect_url": "/azure/sql-database/sql-database-security-best-practice",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/configure-azure-rbac.md",
+      "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir-additional-settings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/configure-local-rbac.md",
+      "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir-additional-settings",
+      "redirect_document_id": false
     }
   ]
 }
