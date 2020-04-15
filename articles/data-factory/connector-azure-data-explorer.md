@@ -16,6 +16,8 @@ ms.date: 02/18/2020
 
 # Copy data to or from Azure Data Explorer by using Azure Data Factory
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article describes how to use the copy activity in Azure Data Factory to copy data to or from [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). It builds on the [copy activity overview](copy-activity-overview.md) article, which offers a general overview of copy activity.
 
 >[!TIP]
