@@ -284,7 +284,7 @@ Before we move on, make sure that your microphone and speakers are enabled and w
 1. Follow the instructions provided there to either
    * download a ZIP package containing the executable to run, or
    * build the executable yourself, by cloning the repository and building the project.
-   
+
 1. Launch the client application and configure it.
 1. Click **Reconnect** and make sure you see the message **Press the mic button, or type to start talking to your bot**.
 1. Let's test it out. Click the microphone button, and speak a few words in English. The recognized text will appear as you speak. When you're done speaking, the bot will reply in its own voice, saying "echo" followed by the recognized words.
@@ -425,7 +425,7 @@ Now that you've made the necessary change to the bot, the next step is to republ
 2. Your previous deployment configuration has already been loaded as the default. Simply click **Publish** next to **EchoBot20190805125647 - Web Deploy**.
 3. The **Publish Succeeded** message will appear in the Visual Studio output window, and a web page will launch with the message "Your bot is ready!".
 4. Open the Windows Voice Assistant Client app, click on the settings button (upper-right gear icon), and make sure you still have `de-de` in the Language field.
-5. Follow the instructions in [Build the Windows Voice Assistant Client](#build-the-windows-voice-assistant-client) to reconnect with your newly deployed bot, speak in the new language and hear you bot reply in that language with the new voice.
+5. Follow the instructions in [Run the Windows Voice Assistant Client](#run-the-windows-voice-assistant-client) to reconnect with your newly deployed bot, speak in the new language and hear you bot reply in that language with the new voice.
 
 ## Clean up resources
 
