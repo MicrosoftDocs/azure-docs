@@ -129,7 +129,7 @@ This code sample reads the HTTP Request query strings and assigns them to fields
 
 ## Test the function and database
 
-1. Select **Test**. Under **Query**, click **+ Add parameter** and add the following parameters to the query string:
+1. Select **Test**. Under **Query**, select **+ Add parameter** and add the following parameters to the query string:
 
     + `name`
     + `task`
@@ -138,7 +138,7 @@ This code sample reads the HTTP Request query strings and assigns them to fields
     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png" alt-text="Test the function." border="true":::
 
 
-1. Click **Run** and verify that a 200 status is returned.
+1. Select **Run** and verify that a 200 status is returned.
 
     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Test the function." border="true":::
 
