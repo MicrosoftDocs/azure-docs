@@ -115,4 +115,4 @@ The following articles show you how to use deep learning technology in [Azure Ma
 
 - [Classify handwritten digits by using a Chainer model](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
 
-Also, use the [Machine Learning Algorithm Cheat Sheet](../synapse-analytics/sql-data-warehouse/cheat-sheet.md) to choose algorithms for your model.
+Also, use the [Machine Learning Algorithm Cheat Sheet](../algorithm-cheat-sheet.md) to choose algorithms for your model.
