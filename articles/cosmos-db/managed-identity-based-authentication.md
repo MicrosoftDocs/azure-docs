@@ -10,27 +10,27 @@ ms.reviewer: sngun
 
 ---
 
-# Use managed identities to access Azure Cosmos DB data
+# Use system-assigned managed identities to access Azure Cosmos DB data
 
-In this article you'll set up a **robust, key rotation agnostic** solution to access Azure Cosmos DB keys using [managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). The example in this article uses Azure Functions, but you can use any service that supports managed identities. 
+In this article, you'll set up a *robust, key rotation agnostic* solution to access Azure Cosmos DB keys by using [managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). The example in this article uses Azure Functions, but you can use any service that supports managed identities. 
 
-You'll learn how to create a function app that can access Azure Cosmos DB data without needing to copy any Azure Cosmos DB keys. The function app will wake up every minute and record the current temperature of an aquarium fish tank. To learn how to set up a timer-triggered function app see the [Create a function in Azure that is triggered by a timer](../azure-functions/functions-create-scheduled-function.md) article.
+You'll learn how to create a function app that can access Azure Cosmos DB data without needing to copy any Azure Cosmos DB keys. The function app will wake up every minute and record the current temperature of an aquarium fish tank. To learn how to set up a timer-triggered function app, see the [Create a function in Azure that is triggered by a timer](../azure-functions/functions-create-scheduled-function.md) article.
 
-To simplify the scenario, clean-up of older temperature documents is handled by a [Time To Live](./time-to-live.md) setting already configured. 
+To simplify the scenario, a [Time To Live](./time-to-live.md) setting is already configured to clean-up older temperature documents. 
 
 ## Assign a managed identity to a function app
 
 In this step, you'll assign a system-assigned managed identity to your function app.
 
-1. In the [Azure portal](https://portal.azure.com/), open the **Azure Function** pane and navigate to your function app. 
+1. In the [Azure portal](https://portal.azure.com/), open the **Azure Function** pane and go to your function app. 
 
 1. Open the **Platform features** > **Identity** tab: 
 
-   ![Identity Tab](./media/managed-identity-based-authentication/identity-tab-selection.png)
+   ![Screenshot showing Platform features and Identity options for the function app.](./media/managed-identity-based-authentication/identity-tab-selection.png)
 
 1. On the **Identity** tab, turn **On** the system identity **Status** and select **Save**. The **Identity** pane should look as follows:  
 
-   ![System Identity turned on](./media/managed-identity-based-authentication/identity-tab-system-managed-on.png)
+   ![Screenshot showing system identity Status set to On.](./media/managed-identity-based-authentication/identity-tab-system-managed-on.png)
 
 ## Grant access to your Azure Cosmos account
 
@@ -42,34 +42,34 @@ In this step, you'll assign a role to the function app's system-assigned managed
 |[Cosmos DB Account Reader](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Can read Azure Cosmos DB account data. Allows retrieval of read keys. |
 
 > [!IMPORTANT]
-> Role-based access control support in Azure Cosmos DB applies to control plane operations only. Data plane operations are secured using master keys or resource tokens. To learn more, see the [Secure access to data](secure-access-to-data.md) article.
+> Support for role-based access control in Azure Cosmos DB applies to control plane operations only. Data plane operations are secured through master keys or resource tokens. To learn more, see the [Secure access to data](secure-access-to-data.md) article.
 
 > [!TIP] 
-> When you assign roles, assign only the access needed. If your service need only read data, then assign the **Cosmos DB Account Reader** role to the managed identity. For more information about the importance of least privilege access, see the [Lower exposure of privileged accounts](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) article.
+> When you assign roles, assign only the needed access. If your service requires only reading data, then assign the **Cosmos DB Account Reader** role to the managed identity. For more information about the importance of least privilege access, see the [Lower exposure of privileged accounts](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) article.
 
 In this scenario, the function app will read the temperature of the aquarium, then write back that data to a container in Azure Cosmos DB. Because the function app must write the data, you'll need to assign the **DocumentDB Account Contributor** role. 
 
-1. Sign in to the Azure portal and navigate to your Azure Cosmos DB account. Open the **Access control (IAM)** pane, and then the **Role assignments** tab:
+1. Sign in to the Azure portal and go to your Azure Cosmos DB account. Open the **Access control (IAM)** pane, and then the **Role assignments** tab:
 
-   ![IAM Pane](./media/managed-identity-based-authentication/cosmos-db-iam-tab.png)
+   ![Screenshot showing the Access control pane and the Role assignments tab.](./media/managed-identity-based-authentication/cosmos-db-iam-tab.png)
 
 1. Select the **+ Add** button, then **Add role assignment**.
 
 1. The **Add role assignment** panel opens to the right:
 
-   ![Add Role](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png)
+   ![Screenshot showing the Add role assignment pane.](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png)
 
-   * **Role** - Select **DocumentDB Account Contributor**
-   * **Assign access to** - Under the **Select system-assigned managed identity** subsection, select  **Function App**.
-   * **Select** - The pane will be populated with all the function apps in your subscription that have a **Managed System Identity**. In this case I select the **SummaryService** function app: 
+   * **Role**: Select **DocumentDB Account Contributor**
+   * **Assign access to**: Under the **Select system-assigned managed identity** subsection, select  **Function App**.
+   * **Select**: The pane will be populated with all the function apps in your subscription that have a **Managed System Identity**. In this case select the **SummaryService** function app: 
 
-      ![Select Assignment](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png)
+      ![Screenshot showing the Add role assignment pane populated with examples.](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png)
 
-1. After you have selected your function app, click **Save**.
+1. After you have selected your function app, select **Save**.
 
-## Access the Azure Cosmos DB keys from the function app
+## Programmatically access the Azure Cosmos DB keys
 
-Now we have a function app that has a system-assigned managed identity with the **DocumentDB Account Contributor** role in the Azure Cosmos DB permissions. The following function app code sample will get the Azure Cosmos DB keys, create a CosmosClient object, get the temperature of the aquarium, and then save this to Cosmos DB.
+Now we have a function app that has a system-assigned managed identity with the **DocumentDB Account Contributor** role in the Azure Cosmos DB permissions. The following function app code will get the Azure Cosmos DB keys, create a CosmosClient object, get the temperature of the aquarium, and then save this to Azure Cosmos DB.
 
 This sample uses the [List Keys API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) to access your Azure Cosmos DB account keys.
 
@@ -91,7 +91,7 @@ namespace SummarizationService
 }
 ```
 
-The example also uses a simple document called "TemperatureRecord", which is defined as follows:
+The example also uses a simple document called "TemperatureRecord," which is defined as follows:
 
 ```csharp
 using System;
@@ -145,20 +145,20 @@ namespace Monitor
             // AzureServiceTokenProvider will help us to get the Service Managed token.
             var azureServiceTokenProvider = new AzureServiceTokenProvider();
 
-            // In order to get the Service Managed token we need to authenticate to the Azure Resource Manager.
+            // Authenticate to the Azure Resource Manager to get the Service Managed token.
             string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
 
-            // To get the Azure Cosmos DB keys setup the List Keys API:
+            // Setup the List Keys API to get the Azure Cosmos DB keys.
             string endpoint = $"https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/listKeys?api-version=2019-12-12";
 
-            // setup an HTTP Client and add the access token.
+            // Setup an HTTP Client and add the access token.
             HttpClient httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
             // Post to the endpoint to get the keys result.
             var result = await httpClient.PostAsync(endpoint, new StringContent(""));
 
-            // Get the Result back as a DatabaseAccountListKeysResult.
+            // Get the result back as a DatabaseAccountListKeysResult.
             DatabaseAccountListKeysResult keys = await result.Content.ReadAsAsync<DatabaseAccountListKeysResult>();
 
             log.LogInformation("Starting to create the client");
@@ -183,7 +183,7 @@ namespace Monitor
 
         private static int GetTemperature()
         {
-            // fake the temperature sensor for this demo
+            // Fake the temperature sensor for this demo.
             Random r = new Random(DateTime.UtcNow.Second);
             return r.Next(0, 120);
         }
