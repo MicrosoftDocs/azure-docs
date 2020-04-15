@@ -63,6 +63,8 @@
         href: add-users-administrator.md
       - name: Information workers adding B2B users
         href: add-users-information-worker.md
+      - name: Invite internal users to B2B
+        href: invite-internal-users.md
       - name: Google federation
         href: google-federation.md
       - name: One-time passcode authentication
