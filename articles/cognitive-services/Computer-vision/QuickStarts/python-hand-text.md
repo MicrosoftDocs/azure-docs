@@ -9,20 +9,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
 ---
-# Quickstart: Extract printed and handwritten text using the Computer Vision 2.0 and 2.1 REST API and Python
+# Quickstart: Extract printed and handwritten text using the Computer Vision REST API and Python
 
 In this quickstart, you will extract printed and/or handwritten text from an image using the Computer Vision REST API. With the [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) and [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream. The API will determine which recognition model to use for each line of text, so it supports images with both printed and handwritten text.
 
-Compared to Computer Vision 2.0 and 2.1, the Computer Vision 3.0 Public Preview provides:
+This functionality is available in both a v2.1 API and a v3.0 Public Preview API. Compared to v2.1, the 3.0 API has:
 
-* even better accuracy
-* a changed output format
-* confidence score for words
-* support of both Spanish and English languages with the additional language parameter
+* Improved accuracy
+* Confidence scores for words
+* Support for both Spanish and English with the additional `language` parameter
+* A different output format
+
+Select the tab below for the version you're using.
 
 #### [Version 2](#tab/version-2)
 
@@ -828,7 +830,9 @@ A successful response is returned in JSON. The sample webpage parses and display
 
 ## Next steps
 
-Explore a Python application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Next, explore a Python application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; and detect, categorize, tag, and describe visual features in images.
 
 > [!div class="nextstepaction"]
 > [Computer Vision API Python Tutorial](../Tutorials/PythonTutorial.md)
+
+* To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).

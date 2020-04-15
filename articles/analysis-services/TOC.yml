@@ -39,6 +39,8 @@
     href: analysis-services-connect.md
   - name: High availability
     href: analysis-services-bcdr.md
+  - name: Long running operations
+    href: analysis-services-long-operations.md
   - name: Supported data sources
     href: analysis-services-datasource.md
 - name: How-to

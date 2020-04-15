@@ -1,21 +1,23 @@
 ---
-title: Azure Event Grid Container Registry event schema
+title: Azure Container Registry as Event Grid source
 description: Describes the properties that are provided for Container Registry events with Azure Event Grid
 services: event-grid
 author: spelluru
 manager: timlt
 
 ms.service: event-grid
-ms.topic: reference
-ms.date: 03/12/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
 ---
 
-# Azure Event Grid event schema for Container Registry
+# Azure Container Registry as an Event Grid source
 
 This article provides the properties and schema for Container Registry events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
-## Available event types
+## Event Grid event schema
+
+### Available event types
 
 Azure Container Registry emits the following event types:
 
@@ -26,7 +28,7 @@ Azure Container Registry emits the following event types:
 | Microsoft.ContainerRegistry.ChartPushed | Raised when a Helm chart is pushed. |
 | Microsoft.ContainerRegistry.ChartDeleted | Raised when a Helm chart is deleted. |
 
-## Example event
+### Example event
 
 The following example shows the schema of an image pushed event: 
 
@@ -147,7 +149,7 @@ The schema for a chart deleted event is similar to the schema for an imaged dele
 }]
 ```
 
-## Event properties
+### Event properties
 
 An event has the following top-level data:
 
@@ -194,6 +196,12 @@ The request object has the following properties:
 | host | string | The externally accessible hostname of the registry instance, as specified by the http host header on incoming requests. |
 | method | string | The request method that generated the event. |
 | useragent | string | The user agent header of the request. |
+
+## Tutorials and how-tos
+|Title |Description  |
+|---------|---------|
+| [Quickstart: send container registry events](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send Container Registry events. |
+
 
 ## Next steps
 
