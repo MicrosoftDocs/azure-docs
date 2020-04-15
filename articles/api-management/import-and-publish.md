@@ -57,14 +57,15 @@ This section shows how to import and publish an OpenAPI Specification backend AP
    |**Description**|After you enter the preceding service URL, API Management fills out this field based on the JSON.|An optional description of the API.|
    |**URL scheme**|**HTTPS**|Which protocols can be used to access the API.|
    |**API URL suffix**|*conference*|The suffix appended to the base URL for the API Management service. API Management distinguishes APIs by their suffix, so the suffix must be unique for every API for a given publisher.|
-   |**Products**|**Unlimited**|Association of one or more APIs. Each API Management instance comes with two sample products: **Starter** and **Unlimited**. You publish an API by associating the API with a product, **Unlimited** in this example.<br/>You can include several APIs in a product and offer them to developers through the developer portal. To add this API to another product, type or select the product name. Repeat this step to add the API to multiple products. You can also add APIs to products later from the **Settings** page.<br/>To get access to the API, developers must first subscribe to a product. When they subscribe, they get a subscription key that's good for any API in that product. <br/>If you created the API Management instance, you're an administrator already, so you're subscribed to every product in the instance.|
    |**Tags**| |Tags for organizing APIs for searching, grouping, or filtering.|
+   |**Products**|**Unlimited**|Association of one or more APIs. Each API Management instance comes with two sample products: **Starter** and **Unlimited**. You publish an API by associating the API with a product, **Unlimited** in this example.<br/>You can include several APIs in a product and offer them to developers through the developer portal. To add this API to another product, type or select the product name. Repeat this step to add the API to multiple products. You can also add APIs to products later from the **Settings** page.<br/>To get access to the API, developers must first subscribe to a product. When they subscribe, they get a subscription key that's good for any API in that product. <br/>If you created the API Management instance, you're an administrator already, so you're subscribed to every product in the instance.|
+   |**Gateways**|**Managed**|Which API gateway(s) will the API be exposes through. Available only in the service tiers supporting [self-hosted API gateways](self-hosted-gateway-overview.md).<br/>**Managed** gateway indicates the gateway built-into the API Management service and hosted by Microsoft in the cloud. Other gateways are self-hosted gateways, which can reside in Microsoft Azure, on premises, or in other clouds.|
    |**Version this API?**|Select or deselect|For more information about versioning, see [Publish multiple versions of your API](api-management-get-started-publish-versions.md).|
    
    > [!NOTE]
-   > To publish the API, you must associate it with a product. You can do that from the **Settings** page.
+   > To publish the API to developer portal visitors, you must associate it with a product.
    
-1. Select **Create**.
+2. Select **Create**.
 
 If you have problems importing an API definition, see the [list of known issues and restrictions](api-management-api-import-restrictions.md).
 
