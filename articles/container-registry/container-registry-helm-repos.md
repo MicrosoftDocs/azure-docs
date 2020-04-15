@@ -72,18 +72,21 @@ helm create hello-world
 As a basic example, change directory to the `templates` folder and first delete the contents there:
 
 ```console
+cd hello-world/templates
 rm -rf *
 ```
 
 In the `templates` folder, create a file called `configmap.yaml` with the following contents:
 
-```yml
+```console
+cat <<EOF > configmap.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: hello-world-configmap
 data:
   myvalue: "Hello World"
+EOF
 ```
 
 For more about creating and running this example, see [Getting Started](https://helm.sh/docs/chart_template_guide/getting_started/) in the Helm Docs.
