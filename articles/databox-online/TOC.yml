@@ -80,13 +80,13 @@
   - name: Concepts
     items:
     - name: Review requirements
-      href: data-box-edge-system-requirements.md
+      href: azure-stack-edge-system-requirements.md
     - name: Understand limits
       href: azure-stack-edge-limits.md
     - name: Security overview
       href: azure-stack-edge-security.md
     - name: Review specifications
-      href: data-box-edge-technical-specifications-compliance.md
+      href: azure-stack-edge-technical-specifications-compliance.md
   - name: How to
     items:
     - name: Develop C# module
@@ -108,7 +108,7 @@
       - name: Via PowerShell
         href: azure-stack-edge-connect-powershell-interface.md
     - name: Troubleshoot 
-      href: data-box-edge-troubleshoot.md
+      href: azure-stack-edge-troubleshoot.md
     - name: Contact Microsoft Support
       href: azure-stack-edge-contact-microsoft-support.md
     - name: Monitor
