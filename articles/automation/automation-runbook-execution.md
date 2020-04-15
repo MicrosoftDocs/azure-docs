@@ -3,7 +3,7 @@ title: Runbook execution in Azure Automation
 description: Describes the details of how a runbook in Azure Automation is processed.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/04/2019
+ms.date: 04/14/2020
 ms.topic: conceptual
 ---
 # Runbook execution in Azure Automation
@@ -12,11 +12,11 @@ Process automation in Azure Automation allows you to create and manage PowerShel
 
 Automation executes your runbooks based on the logic defined inside them. If a runbook is interrupted, it restarts at the beginning. This behavior requires you to write runbooks that support being restarted if transient issues occur.
 
-Starting a runbook in Azure Automation creates a job, which is a single execution instance of the runbook. Each job accesses Azure resources by making a connection to your Azure subscription. The job can only access resources in your datacenter if those resources are accessible from the public cloud.
+Starting a runbook in Azure Automation creates a job, which is a single execution instance of the runbook. Each job accesses Azure resources by making a connection to your Azure subscription. The job can only access resources in your data center if those resources are accessible from the public cloud.
 
 Azure Automation assigns a worker to run each job during runbook execution. While workers are shared by many Azure accounts, jobs from different Automation accounts are isolated from one another. You can't control which worker services your job requests.
 
-When you view the list of runbooks in the Azure portal, it shows the status of each job that has been started for each runbook. Azure Automation stores job logs for a maximum of 30 days. 
+When you view the list of runbooks in the Azure portal, it shows the status of each job that has been started for each runbook. Azure Automation stores job logs for a maximum of 30 days.
 
 The following diagram shows the lifecycle of a runbook job for [PowerShell runbooks](automation-runbook-types.md#powershell-runbooks), [PowerShell Workflow runbooks](automation-runbook-types.md#powershell-workflow-runbooks), and [graphical runbooks](automation-runbook-types.md#graphical-runbooks).
 
@@ -29,7 +29,7 @@ The following diagram shows the lifecycle of a runbook job for [PowerShell runbo
 
 ## Where to run your runbooks
 
-Runbooks in Azure Automation can run on either an Azure sandbox or a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). You can easily run most runbooks in an Azure sandbox, which is a shared environment that multiple jobs can use. Jobs using the same sandbox are bound by the resource limitations of the sandbox.
+Runbooks in Azure Automation can run on either an Azure sandbox or a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). When runbooks are designed to authenticate and run against resources in Azure, they run in an Azure sandbox, which is a shared environment that multiple jobs can use. Jobs using the same sandbox are bound by the resource limitations of the sandbox.
 
 >[!NOTE]
 >The Azure sandbox environment does not support interactive operations. It also requires the use of local MOF files for runbooks that make Win32 calls.
@@ -38,21 +38,21 @@ You can use a Hybrid Runbook Worker to run runbooks directly on the computer tha
 
 The following table lists some runbook execution tasks with the recommended execution environment listed for each.
 
-|Task|Best Choice|Notes|
+|Task|Recommendation|Notes|
 |---|---|---|
 |Integrate with Azure resources|Azure Sandbox|Hosted in Azure, authentication is simpler. If you're using a Hybrid Runbook Worker on an Azure VM, you can use [managed identities for Azure resources](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources).|
 |Obtain optimal performance to manage Azure resources|Azure Sandbox|Script is run in the same environment, which has less latency.|
 |Minimize operational costs|Azure Sandbox|There is no compute overhead and no need for a VM.|
-|Execute long-running script|Hybrid Runbook Worker|Azure sandboxes have [limitations on resources](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
-|Interact with Local Services|Hybrid Runbook Worker|Can have direct access to host machine.|
+|Execute long-running script|Hybrid Runbook Worker|Azure sandboxes have [resource limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
+|Interact with local services|Hybrid Runbook Worker|Can directly access the host machine, or resources in other cloud environments, or in your on-premises environment. |
 |Require third-party software and executables|Hybrid Runbook Worker|You manage the operating system and can install software.|
 |Monitor a file or folder with a runbook|Hybrid Runbook Worker|Use a [Watcher task](automation-watchers-tutorial.md) on a Hybrid Runbook Worker.|
-|Run a resource-intensive script|Hybrid Runbook Worker| Azure sandboxes have [limitations on resources](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
-|Use modules with specific requirements| Hybrid Runbook Worker|Some examples are:</br> WinSCP - dependency on winscp.exe </br> IISAdministration - dependency on enabling of IIS.|
+|Run a resource-intensive script|Hybrid Runbook Worker| Azure sandboxes have [resource limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
+|Use modules with specific requirements| Hybrid Runbook Worker|Some examples are:</br> WinSCP - dependency on winscp.exe </br> IIS administration - dependency on enabling or managing IIS.|
 |Install a module with an installer|Hybrid Runbook Worker|Modules for sandbox must support copying.|
-|Use runbooks or modules that require .NET Framework version different from 4.7.2|Hybrid Runbook Worker|Automation sandboxes have .NET Framework 4.7.2, and there's no way to upgrade the version.|
+|Use runbooks or modules that require .NET Framework version different from 4.7.2|Hybrid Runbook Worker|Automation sandboxes support .NET Framework 4.7.2, and upgrading to a different version is not supported.|
 |Run scripts that require elevation|Hybrid Runbook Worker|Sandboxes don't allow elevation. With a Hybrid Runbook Worker, you can turn off UAC and use [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) when running the command that requires elevation.|
-|Run scripts that require access to Windows Management Instrumentation (WMI)|Hybrid Runbook Worker|Jobs running in sandboxes in the cloud can't access WMI. |
+|Run scripts that require access to Windows Management Instrumentation (WMI)|Hybrid Runbook Worker|Jobs running in sandboxes in the cloud can't access WMI provider. |
 
 ## Runbook behavior
 
@@ -350,3 +350,5 @@ Using child runbooks decreases the total amount of time for the parent runbook t
 * To find out how to work with a runbook, see [Manage runbooks in Azure Automation](manage-runbooks.md).
 * To learn more about the methods that can be used to start a runbook in Azure Automation, see [Starting a runbook in Azure Automation](automation-starting-a-runbook.md).
 * For more information on PowerShell, including language reference and learning modules, see the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+- For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
