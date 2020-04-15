@@ -314,11 +314,15 @@ supported conditions are:
 - `"notIn": ["stringValue1","stringValue2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
-- `"less": "value"`
-- `"lessOrEquals": "value"`
-- `"greater": "value"`
-- `"greaterOrEquals": "value"`
+- `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
+- `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
+- `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
 - `"exists": "bool"`
+
+For **less**, **lessOrEquals**, **greater**, and **greaterOrEquals**, if the property type doesn't
+match the condition type, an error is thrown. String comparisons are made using
+`InvariantCultureIgnoreCase`.
 
 When using the **like** and **notLike** conditions, you provide a wildcard `*` in the value.
 The value shouldn't have more than one wildcard `*`.
