@@ -113,7 +113,7 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {
 }
 ```
 
-In the preceding example, omitting the ```"university":1``` clause would return an error with the following message:
+In the preceding example, omitting the ```"university":1``` clause returns an error with the following message:
 
 ```"cannot create unique index over {student_id : 1.0} with shard key pattern { university : 1.0 }"```
 
