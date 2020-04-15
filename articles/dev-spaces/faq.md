@@ -74,7 +74,7 @@ When using Visual Studio to prepare your project, you have the option of enablin
 
 ## Can I use pod managed identities with Azure Dev Spaces?
 
-Currently, Azure Dev Spaces does not support using [pod managed identities][aks-pod-managed-id] on AKS clusters with Azure Dev Spaces enabled. If you have pod managed identities installed and would like to uninstall it, you can find more details in the [uninstall notes][aks-pod-managed-id-uninstall].
+Yes, you can use [pod managed identities][aks-pod-managed-id] on AKS clusters with Azure Dev Spaces enabled, but there are [additional configuration steps][dev-spaces-pod-managed-id-steps] after you enable Azure Dev Spaces on your cluster with pod managed identities. If you have pod managed identities installed and would like to uninstall it, you can find more details in the [uninstall notes][aks-pod-managed-id-uninstall].
 
 ## Can I use Azure Dev Spaces with multiple microservices in an application?
 
@@ -93,6 +93,7 @@ In Visual Studio, it is possible to configure .NET Core solutions for debugging 
 [aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
 [bike-sharing]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
+[dev-spaces-pod-managed-id-steps]: troubleshooting.md#error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state
 [dev-spaces-prep]: how-dev-spaces-works-prep.md
 [dev-spaces-routing]: how-dev-spaces-works-routing.md#how-routing-works
 [ingress-nginx]: how-to/ingress-https-nginx.md#configure-a-custom-nginx-ingress-controller
