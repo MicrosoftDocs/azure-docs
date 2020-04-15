@@ -160,7 +160,7 @@
             - name: From an Azure VM
               href: automation-onboard-solutions-from-vm.md
             - name: From an Automation account
-              href: automation-onboard-solutions-from-automation-account.md
+              href: automation-onboard-solutions-from-automation-account.md      
         - name: Manage updates for your Azure VMs
           href: automation-tutorial-update-management.md
         - name: Manage updates for multiple VMs
@@ -177,6 +177,16 @@
           href: automation-update-management-groups.md
         - name: Query Update Management logs
           href: automation-update-management-query-logs.md
+        - name: Troubleshoot
+          items:
+            - name: Onboarding
+              href: /troubleshoot/onboarding.md
+            - name: Using Update Management
+              href: /troubleshoot/update-management.md
+            - name: Troubleshooting Windows worker health issues
+              href: /troubleshoot/update-agent-issues.md
+            - name: Troubleshooting Linux worker health issues
+              href: /troubleshoot/update-agent-issues-linux.md
     - name: Change Tracking and Inventory
       items:
         - name: Overview
@@ -197,9 +207,10 @@
           href: change-tracking-file-contents.md
         - name: Manage inventory collection from VMs
           href: automation-vm-inventory.md
-        - name: Troubleshoot onboarding issues
+        - name: Troubleshoot
+        - name: Onboarding
           href: /troubleshoot/onboard-solutions.md
-        - name: Troubleshoot solution 
+        - name: Using Change Tracking and Inventory 
           href: /troubleshoot/change-tracking.md
     - name: Cross-component scenarios
       items:
