@@ -161,7 +161,7 @@ Most stateless applications in AKS should use the deployment model rather than s
 
 If an application requires a quorum of instances to always be available for management decisions to be made, you don't want an update process to disrupt that ability. *Pod Disruption Budgets* can be used to define how many replicas in a deployment can be taken down during an update or node upgrade. For example, if you have *5* replicas in your deployment, you can define a pod disruption of *4* to only permit one replica from being deleted/rescheduled at a time. As with pod resource limits, a best practice is to define pod disruption budgets on applications that require a minimum number of replicas to always be present.
 
-Deployments are typically created and managed with `kubectl create` or `kubectl apply`. To create a deployment, you define a manifest file in the YAML (YAML Ain't Markup Language) format. The following example creates a basic deployment of the NGINX web server. The deployment specifies *3* replicas to be created, and that port *80* be open on the container. Resource requests and limits are also defined for CPU and memory.
+Deployments are typically created and managed with `kubectl create` or `kubectl apply`. To create a deployment, you define a manifest file in the YAML (Yet Another Markup Language) format. The following example creates a basic deployment of the NGINX web server. The deployment specifies *3* replicas to be created, and that port *80* be open on the container. Resource requests and limits are also defined for CPU and memory.
 
 ```yaml
 apiVersion: apps/v1
