@@ -21,8 +21,8 @@ To set up a full end-to-end solution driven by live data from your environment, 
 
 In this tutorial, you will...
 * Learn about the sample building scenario and instantiate the pre-written components
-* Use an Azure Functions app to route simulated telemetry from an IoT Hub device into digital twin properties
-* Propagate changes through the twin graph, by processing digital twin notifications with endpoints and routes
+* Use an [Azure Functions](../azure-functions/functions-overview.md) app to route simulated telemetry from an [IoT Hub](../iot-hub/about-iot-hub.md) device into digital twin properties
+* Propagate changes through the twin graph, by processing digital twin notifications with Azure Functions, endpoints, and routes
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -34,7 +34,7 @@ You should complete the quickstart through the "Configure the sample project" st
 
 ## Get started with the building scenario
 
-The sample project used in this tutorial represents a real-world **building scenario**, containing a floor, a room, and a thermostat device. These components will be digitally represented in an Azure Digital Twins instance, which will then be connected to IoT Hub, Event Grid and two Azure Functions to facilitate movement of and responses to data.
+The sample project used in this tutorial represents a real-world **building scenario**, containing a floor, a room, and a thermostat device. These components will be digitally represented in an Azure Digital Twins instance, which will then be connected to [IoT Hub](../iot-hub/about-iot-hub.md), [Event Grid](../event-grid/overview.md), and two [Azure functions](../azure-functions/functions-overview.md) to facilitate movement of and responses to data.
 
 Here is an overview of data flow through the entire scenario:
 
@@ -81,7 +81,7 @@ After this, you can stop running the project. Keep the solution open in Visual S
 
 An Azure Digital Twins graph is meant to be driven by telemetry from real devices. 
 
-In this step, you will connect a simulated thermostat device registered in IoT Hub to the digital twin that represents it in Azure Digital Twins. As the simulated device emits telemetry, the data will be directed through an Azure Functions app that triggers a corresponding update in the digital twin. In this way, the digital twin stays up to date with the real device's data.
+In this step, you will connect a simulated thermostat device registered in [IoT Hub](../iot-hub/about-iot-hub.md) to the digital twin that represents it in Azure Digital Twins. As the simulated device emits telemetry, the data will be directed through an [Azure Functions](../azure-functions/functions-overview.md) app that triggers a corresponding update in the digital twin. In this way, the digital twin stays up to date with the real device's data.
 
 This activity happens within this piece of the end-to-end scenario:
 
@@ -98,7 +98,7 @@ Here are the actions you will complete to set up this device connection:
 
 ### Publish the sample function app
 
-The first part of this step is setting up and publishing an Azure function that will be used to process IoT Hub data and update Azure Digital Twins accordingly. This tutorial uses the pre-written *HubtToDT* solution from the sample project, which calls an Azure Digital Twins API to update the *Temperature* property on the *thermostat67* twin.
+The first part of this step is setting up and publishing an [Azure function](../azure-functions/functions-overview.md) that will be used to process IoT Hub data and update Azure Digital Twins accordingly. This tutorial uses the pre-written *HubtToDT* solution from the sample project, which calls an Azure Digital Twins API to update the *Temperature* property on the *thermostat67* twin.
 
 To configure the function, you will need the *resourceGroup* and *hostName* of your Azure Digital Twins instance. You may have saved these values during the quickstart, or you can run this command in Azure Cloud Shell to see them outputted along with other properties of the instance: `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
@@ -161,7 +161,7 @@ The result of this command is outputted information about the role assignment yo
 
 ### Create an IoT Hub instance
 
-Azure Digital Twins is designed to work alongside IoT Hub, an Azure service for managing devices and their data. In this step, you will set up an IoT hub that will manage the sample device in this tutorial.
+Azure Digital Twins is designed to work alongside [IoT Hub](../iot-hub/about-iot-hub.md), an Azure service for managing devices and their data. In this step, you will set up an IoT hub that will manage the sample device in this tutorial.
 
 In Azure Cloud Shell, use this command to create a new IoT hub:
 
@@ -272,14 +272,14 @@ Once you've verified this is working successfully, you can stop running both pro
 
 So far in this tutorial, you've seen how Azure Digital Twins can be updated from external device data. Next, you'll see how changes to one digital twin can propagate through the Azure Digital Twins graph—in other words, how to update twins from service-internal data.
 
-To do this, you'll deploy an Azure Functions app that updates a *Room* twin when the connected *Thermostat* twin is updated. This happens within this piece of the end-to-end scenario:
+To do this, you'll deploy an [Azure Functions](../azure-functions/functions-overview.md) app that updates a *Room* twin when the connected *Thermostat* twin is updated. This happens within this piece of the end-to-end scenario:
 
 ![An excerpt from the full building scenario graphic, highlighting the elements after Azure Digital Twins: the Event Grid and second Azure function](media/tutorial-connect/building-scenario-3.png)
 
 Here are the actions you will complete to set up this data flow:
 1. Create an Azure Digital Twins endpoint that connects the instance to Event Grid
 2. Set up a route within Azure Digital Twins to send twin property change events to the endpoint
-3. Deploy an Azure Functions app that listens (through Event Grid) on the endpoint, and updates other twins accordingly
+3. Deploy an Azure Functions app that listens (through [Event Grid](../event-grid/overview.md)) on the endpoint, and updates other twins accordingly
 4. Run the simulated device and query Azure Digital Twins to see the live results
 
 ### Set up endpoint
@@ -328,7 +328,7 @@ The output from this command is some information about the route you've created.
 
 ### Deploy the Azure Functions app
 
-This section publishes an Azure Functions app containing a pre-written Azure function called **DTRoutedData**. The function app will be connected to your event grid topic at the end of the flow you set up in the previous step, and when it receives a telemetry event, it will call an Azure Digital Twins API to update the *Temperature* field on the *room21* twin accordingly.
+This section publishes an [Azure Functions](../azure-functions/functions-overview.md) app containing a pre-written Azure function called **DTRoutedData**. The function app will be connected to your event grid topic at the end of the flow you set up in the previous step, and when it receives a telemetry event, it will call an Azure Digital Twins API to update the *Temperature* field on the *room21* twin accordingly.
 
 Go to your Visual Studio window where the _**DigitalTwinsSample**_ project is open. Open _*DTRoutedData > **ProcessDTRoutedData.cs**_ in the editing window, and change the value of `AdtInstanceUrl` to your Azure Digital Twins instance's *hostName*. 
 
@@ -418,12 +418,12 @@ Here is a review of the Azure Digital Twins scenario that you built out in this 
 
 If you no longer need the resources created in this quickstart, follow these steps to delete them. 
 
-Using the Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group; the Azure Digital Twins instance; the IoT hub and the hub device registration; the event grid topic and associated subscriptions; and both Azure Functions apps, including associated resources like storage.
+Using the Azure Cloud Shell, you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group; the Azure Digital Twins instance; the IoT hub and the hub device registration; the event grid topic and associated subscriptions; and both Azure Functions apps, including associated resources like storage.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
 
-    ```Azure CLI
+    ```azurecli-interactive
     az group delete --name <your-resource-group>
     ```
 

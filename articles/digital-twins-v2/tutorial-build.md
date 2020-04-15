@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Build the basics of Azure Digital Twins
 
-This tutorial shows you how to set up and work with three major Azure Digital Twins concepts: models, digital twins, and the twin graph. 
+This tutorial shows you how to set up and work with three major Azure Digital Twins concepts: [models](concepts-models.md),  [digital twins](concepts-twins-graph.md), and the twin graph. 
 
 You will start at the beginning of the solution process and reference pre-written sample code to create models, digital twins, and relationships to form a graph.
 
@@ -101,7 +101,7 @@ Keep the project console window running for the following steps.
 
 ## Create digital twins
 
-Now that some models have been uploaded to your Azure Digital Twins instance, you can create **digital twins** based on the model definitions. Digital twins represent the entities within your business environment—things like sensors on a farm, rooms in a building, or lights in a car. 
+Now that some models have been uploaded to your Azure Digital Twins instance, you can create [**digital twins**](concepts-twins-graph.md) based on the model definitions. Digital twins represent the entities within your business environment—things like sensors on a farm, rooms in a building, or lights in a car. 
 
 To create a digital twin, you use the `addTwin` command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You do not have to pass any relationship information at this stage.
 
@@ -138,7 +138,7 @@ addEdge floor2 contains room22 edge0
 addEdge floor2 contains room23 edge1
 ```
 
-The output from these commands shows information about the edges being created:
+The output from these commands shows information about the relationships being created:
 
 ![Excerpt from the results of addEdge commands, showing edge0 and edge1](media/tutorial-build/output-addEdge.png)
 

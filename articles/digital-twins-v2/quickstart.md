@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Getting started with the Azure Digital Twins sample app
 
-In this section, you will set up to use Azure Digital Twins, create an instance and configure your application, and perform some sample actions on the solution.
+In this section, you will create an instance of Azure Digital Twins, configure a client application to interact with the instance, and perform some actions on a sample solution.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Also before you start, complete the following setup:
 * Download this entire repository to your machine. We recommend downloading as a ZIP file.
 * Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) version 16.5.1XXX or later on your development machine. If you have an older version installed already, open the *Visual Studio Installer* app on your machine and follow the prompts to update your installation.
-* Run the following command in your Azure Cloud Shell instance to add the Microsoft Azure IoT Extension for Azure CLI.
+* Run the following command in your Cloud Shell instance to add the Microsoft Azure IoT Extension for Azure CLI.
     ```azurecli-interactive
     az extension add --name azure-iot
     ```
@@ -47,17 +47,17 @@ Also before you start, complete the following setup:
 
 ## Create an Azure Digital Twins instance
 
-Begin by logging in and setting the shell context to your subscription.
+Begin by logging in, setting the shell context to your subscription, and registering with the Azure Digital Twins namespace.
 
 ```Azure CLI
 az login
 az account set --subscription <your-subscription-ID>
+az provider register --namespace 'Microsoft.DigitalTwins'
 ```
 
-Run the following commands to register with the Azure Digital Twins namespace, create a new resource group to use in this tutorial, and create your Azure Digital Twins instance.
+Next, run the following commands to create a new Azure resource group for use in this tutorial, and then create a new instance of Azure Digital Twins in this resource group.
 
 ```Azure CLI
-az provider register --namespace 'Microsoft.DigitalTwins'
 
 az group create --location "westcentralus" --name <name-for-your-resource-group>
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group>
@@ -107,7 +107,7 @@ Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on 
 
 ## Configure the sample project
 
-To get started with this app on your local machine, navigate to the sample project folder you downloaded from this repository.
+To get started with the sample project, navigate on your local machine to the project folder you downloaded from this repository.
 
 Open _DigitalTwinsMetadata/DigitalTwinsSample/**Program.cs**_, and change `AdtInstanceUrl` to your Azure Digital Twins instance hostName, `ClientId` to your *Application ID*, and `TenantId` to your *Directory ID*.
 
@@ -126,7 +126,7 @@ Open _DigitalTwinsMetadata/**DigitalTwinsSample.sln**_ in Visual Studio. Run the
 
 ![The Visual Studio start button](media/quickstart/start-button-sample.png)
 
-A console window will open, carry out authentication, and wait for a command. In this console, run the following command to create a sample Azure Digital Twins solution:
+A console window will open, carry out authentication, and wait for a command. In this console, run the following command to build out a sample Azure Digital Twins graph in the Azure Digital Twins instance you created earlier:
 
 ```cmd/sh
 buildingScenario
@@ -140,7 +140,7 @@ Keep the project running for the next step.
 
 ### Query the twin graph
 
-A main feature of Azure Digital Twins is the ability to query your twin graph easily and efficiently to answer questions about your environment. Run the following commands in the running project console to get an idea of what this is like.
+A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. Run the following commands in the running project console to get an idea of what this is like.
 
 * **What are all the entities in my environment represented in Azure Digital Twins?** (query all)
 
@@ -188,12 +188,12 @@ A main feature of Azure Digital Twins is the ability to query your twin graph ea
 
 If you no longer need the resources created in this quickstart, follow these steps to delete them. If you plan to continue to the Azure Digital Twins tutorials, keep the resources you set up here to continue building on them. 
 
-Using the Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group and the Azure Digital Twins instance.
+Using the Azure Cloud Shell, you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group and the Azure Digital Twins instance.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
 
-    ```Azure CLI
+    ```azurecli-interactive
     az group delete --name <your-resource-group>
     ```
 
