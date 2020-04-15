@@ -11,16 +11,16 @@ ms.author: rogarana
 
 # Enable on-premises Active Directory Domain Services authentication over SMB for Azure file shares
 
-[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: Azure Active Directory Domain Services (Azure AD DS) (GA) and on-premises Active Directory Domain Services (AD DS, or on-premises AD DS) (preview). This article focuses on the newly introduced (preview) support of leveraging Active Directory Domain Service for authentication to Azure file shares. If you are interested in enabling Azure AD DS (GA) authentication for Azure file shares, refer to [our article on the subject](storage-files-identity-auth-active-directory-domain-service-enable.md).
+[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: Azure Active Directory Domain Services (Azure AD DS) and on-premises Active Directory Domain Services (AD DS) (preview). This article focuses on the newly introduced (preview) support of leveraging Active Directory Domain Service for authentication to Azure file shares. If you are interested in enabling Azure AD DS (GA) authentication for Azure file shares, refer to [our article on the subject](storage-files-identity-auth-active-directory-domain-service-enable.md).
 
 > [!NOTE]
 > Azure file shares only support authentication against one domain service, either Azure Active Directory Domain Service (Azure AD DS) or on-premises Active Directory Domain Services (AD DS). 
 >
-> Active Directory identities used for Azure file share authentication must be synced to Azure AD. Password hash synchronization is optional. 
+> AD DS identities used for Azure file share authentication must be synced to Azure AD. Password hash synchronization is optional. 
 > 
-> On-premises AD DS authentication does not support authentication against Computer accounts created in Active Directory. 
+> On-premises AD DS authentication does not support authentication against Computer accounts created in AD DS. 
 > 
-> On-premises AD DS authentication can only be supported against one AD forest where the storage account is registered to. You can only access Azure file shares with the AD DS credentials from a single AD forest by default. If you need to access your Azure file share from a different forest, make sure that you have the proper forest trust configured, see [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) for details.  
+> On-premises AD DS authentication can only be supported against one AD forest where the storage account is registered to. You can only access Azure file shares with the AD DS credentials from a single forest by default. If you need to access your Azure file share from a different forest, make sure that you have the proper forest trust configured, see [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) for details.  
 > 
 > AD DS authentication for SMB access and ACL persistence is supported for Azure file shares managed by Azure File Sync.
 >
@@ -28,7 +28,7 @@ ms.author: rogarana
 
 When you enable AD DS for Azure file shares over SMB, your AD DS domain joined machines can mount Azure file shares using your existing AD credentials. This capability can be enabled with an AD DS environment hosted either in on-prem machines or hosted in Azure.
 
-Identities used to access Azure file shares must be synced to Azure AD to enforce share level file permissions through the [role-based access control (RBAC)](../../role-based-access-control/overview.md) model. [Windows-style DACLs](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) on files/directories carried over from existing file servers will be preserved and enforced. This feature offers seamless integration with your enterprise AD domain infrastructure. As you replace on-prem file servers with Azure file shares, existing users can access Azure file shares from their current clients with a single sign-on experience, without any change to the credentials in use.  
+Identities used to access Azure file shares must be synced to Azure AD to enforce share level file permissions through the [role-based access control (RBAC)](../../role-based-access-control/overview.md) model. [Windows-style DACLs](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) on files/directories carried over from existing file servers will be preserved and enforced. This feature offers seamless integration with your enterprise AD DS environment. As you replace on-prem file servers with Azure file shares, existing users can access Azure file shares from their current clients with a single sign-on experience, without any change to the credentials in use.  
 
 > [!NOTE]
 > To help you setup Azure Files AD authentication for some common use cases, we published [two videos](https://docs.microsoft.com/azure/storage/files/storage-files-introduction#videos) with step by step guidance:
@@ -39,11 +39,11 @@ Identities used to access Azure file shares must be synced to Azure AD to enforc
 
 Before you enable AD DS authentication for Azure file shares, make sure you have completed the following prerequisites: 
 
-- Select or create your AD DS environment and sync it to Azure AD. 
+- Select or create your AD DS environment and [sync it to Azure AD](../../active-directory/hybrid/how-to-connect-install-roadmap.md). 
 
     You can enable the feature on a new or existing on-premises AD DS environment. Identities used for access must be synced to Azure AD. The Azure AD tenant and the file share that you are accessing must be associated with the same subscription. 
 
-    To setup an AD domain environment, refer to [Active Directory Domain Services Overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). If you have not synced your AD to your Azure AD, follow the guidance in [What is hybrid identity with Azure Active Directory?](../../active-directory/hybrid/whatis-hybrid-identity.md) in order to determine your preferred authentication method and Azure AD Connect setup option. 
+    To setup an AD domain environment, refer to [Active Directory Domain Services Overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview). If you have not synced your AD to your Azure AD, follow the guidance in [Azure AD Connect and Azure AD Connect Health installation roadmap](../../active-directory/hybrid/how-to-connect-install-roadmap.md) to configure and set up Azure AD Connect. 
 
 - Domain-join an on-premises machine or an Azure VM to on-premises AD DS. 
 
@@ -165,7 +165,7 @@ First, it checks your environment. Specifically it checks if the [Active Directo
 
 #### b. Creating an identity representing the storage account in your AD manually
 
-To create this account manually, create a new kerberos key for your storage account using `New-AzStorageAccountKey -KeyName kerb1`. Then, use that kerberos key as the password for your account. This key is only used during set up and cannot be used for any control or data plane operations against the storage account.
+To create this account manually, create a new Kerberos key for your storage account using `New-AzStorageAccountKey -KeyName kerb1`. Then, use that Kerberos key as the password for your account. This key is only used during set up and cannot be used for any control or data plane operations against the storage account.
 
 Once you have that key, create either a service or computer account under your OU. Use the following specification:
 SPN: "cifs/your-storage-account-name-here.file.core.windows.net"
