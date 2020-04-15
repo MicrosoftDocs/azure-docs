@@ -148,12 +148,54 @@ To provide a secure service, connectors have to authenticate toward the service,
 
 The certificates used are specific to the Application Proxy service. They get created during the initial registration and are automatically renewed by the connectors every couple of months.
 
-If a connector is not connected to the service for several months, its certificates may be outdated. In this case, uninstall and reinstall the connector to trigger registration. You can run the following PowerShell commands:
+The thumbprint of the current client certificate and the certificate store are written in %ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<ConnectorTrustSettingsFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CloudProxyTrust>
+    <Thumbprint>4905CC64B2D81BBED60962ECC5DCF63F643CCD55</Thumbprint>
+    <IsInUserStore>false</IsInUserStore>
+  </CloudProxyTrust>
+</ConnectorTrustSettingsFile>
+```
+
+Possible **IsInUserStore** values and meanings:
+
+- **false** - The client certificate was created during the installation or registration initiated by Register-AppProxyConnector command. It is stored in the personal container in the certificate store of the local machine. 
+
+Follow the steps to verify the certificate:
+
+1. Run **certlm.msc**
+2. In the management console expand the Personal container and click on Certificates
+3. Locate the certificate issued by **connectorregistrationca.msappproxy.net**
+
+- **true** - The automatically renewed certificate is stored in the personal container in the user certificate store of the Network Service. 
+
+Follow the steps to verify the certificate:
+
+1. Download [PsTools.zip](https://docs.microsoft.com/en-us/sysinternals/downloads/pstools)
+2. Extract [PsExec](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec) from the package and run **psexec -i -u "nt authority\network service" cmd.exe** from an elevated command prompt.
+3. Run **certmgr.msc** in the newly appeared command prompt
+2. In the management console expand the Personal container and click on Certificates
+3. Locate the certificate issued by **connectorregistrationca.msappproxy.net**
+
+If a connector is not connected to the service for several months, its certificates may be outdated. The failure of the certificate renewal leads to an expired certificate. This makes the connector service to stop working. The event 1000 is recorded in the admin log of the connector:
+
+"Connector re-registration failed: The Connector trust certificate expired. Run the PowerShell cmdlet Register-AppProxyConnector on the computer on which the Connector is running to re-register your Connector."
+
+In this case, uninstall and reinstall the connector to trigger registration or you can run the following PowerShell commands:
 
 ```
 Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
+
+To learn more about the Register-AppProxyConnector command, please see [Create an unattended installation script for the Azure AD Application Proxy connector](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
+
+After the first successful certificate renewal the Azure AD Application Proxy Connector service (Network Service) has no permission to remove the old certificate from the local machine store. If the certificate has expired or it won't be used by the service anymore, you can delete it safely.
+
+To avoid problems with the certificate renewal, ensure that the network communication from the connector towards the [documented destinations](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) is enabled.
 
 ## Under the hood
 
