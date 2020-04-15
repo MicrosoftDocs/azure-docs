@@ -28,6 +28,8 @@ The following diagram illustrates how synchronization works between Azure AD DS,
 
 User accounts, group memberships, and credential hashes are synchronized one way from Azure AD to Azure AD DS. This synchronization process is automatic. You don't need to configure, monitor, or manage this synchronization process. The initial synchronization may take a few hours to a couple of days, depending on the number of objects in the Azure AD directory. After the initial synchronization is complete, changes that are made in Azure AD, such as password or attribute changes, are then automatically synchronized to Azure AD DS.
 
+When a user is created in Azure AD, they're not synchronized to Azure AD DS until they change their password in Azure AD. This password change process causes the password hashes for Kerberos and NTLM authentication to be generated and stored in Azure AD. The password hashes are needed to successfully authenticate a user in Azure AD DS.
+
 The synchronization process is one way / unidirectional by design. There's no reverse synchronization of changes from Azure AD DS back to Azure AD. An Azure AD DS managed domain is largely read-only except for custom OUs that you can create. You can't make changes to user attributes, user passwords, or group memberships within an Azure AD DS managed domain.
 
 ## Attribute synchronization and mapping to Azure AD DS
@@ -130,7 +132,7 @@ The encryption keys are unique to each Azure AD tenant. These hashes are encrypt
 
 Legacy password hashes are then synchronized from Azure AD into the domain controllers for an Azure AD DS managed domain. The disks for these managed domain controllers in Azure AD DS are encrypted at rest. These password hashes are stored and secured on these domain controllers similar to how passwords are stored and secured in an on-premises AD DS environment.
 
-For cloud-only Azure AD environments, [users must reset/change their password](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) in order for the required password hashes to be generated and stored in Azure AD. For any cloud user account created in Azure AD after enabling Azure AD Domain Services, the password hashes are generated and stored in the NTLM and Kerberos compatible formats. Those new accounts don't need to reset or change their password generate the legacy password hashes.
+For cloud-only Azure AD environments, [users must reset/change their password](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) in order for the required password hashes to be generated and stored in Azure AD. For any cloud user account created in Azure AD after enabling Azure AD Domain Services, the password hashes are generated and stored in the NTLM and Kerberos compatible formats. All user accounts must change their password before they're synchronized to Azure AD DS.
 
 For hybrid user accounts synced from on-premises AD DS environment using Azure AD Connect, you must [configure Azure AD Connect to synchronize password hashes in the NTLM and Kerberos compatible formats](tutorial-configure-password-hash-sync.md).
 
