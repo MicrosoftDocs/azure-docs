@@ -117,63 +117,63 @@
     - name: Start/Stop VMs during off hours
       items:
         - name: Overview
-          href: /vm-management/automation-solution-vm-management.md
+          href: automation-solution-vm-management.md
         - name: Enable 
-          href: /vm-management/automation-solution-vm-management-enable.md
+          href: automation-solution-vm-management-enable.md
         - name: Configure
-          href: /vm-management/automation-solution-vm-management-config.md
+          href: automation-solution-vm-management-config.md
         - name: Analyze data with log queries
-          href: /vm-management/automation-solution-vm-management-logs.md
+          href: automation-solution-vm-management-logs.md
     - name: Update Management
       items:
         - name: Overview
-          href: /update-management/automation-update-management.md
+          href: automation-update-management.md
         - name: Enable
           items:
             - name: Use a Resource Manager template
-              href: /update-management/automation-update-management-deploy-template.md
+              href: automation-update-management-deploy-template.md
             - name: Use Azure portal
-              href: /update-management/automation-onboard-solutions-from-browser.md
+              href: automation-onboard-solutions-from-browser.md
             - name: From an Azure VM
-              href: /update-management/automation-onboard-solutions-from-vm.md
+              href: automation-onboard-solutions-from-vm.md
             - name: From an Automation account
-              href: /update-management/automation-onboard-solutions-from-automation-account.md
+              href: automation-onboard-solutions-from-automation-account.md
         - name: Manage updates for your Azure VMs
-          href: /update-management/automation-update-management-manage-vm.md
+          href: automation-update-management-manage-vm.md
         - name: Manage updates for multiple VMs
-          href: /update-management/manage-update-multi.md
+          href: manage-update-multi.md
         - name: View update assessments
-          href: /update-management/automation-view-update-assessments.md
+          href: automation-view-update-assessments.md
         - name: Manage pre and post scripts
-          href: /update-management/pre-post-scripts.md
+          href: pre-post-scripts.md
         - name: Integrate with Configuration Manager
-          href: /update-management/updatemgmt-mecmintegration.md
+          href: updatemgmt-mecmintegration.md
         - name: Configure Windows Update client
-          href: /update-management/automation-configure-windows-update.md
+          href: automation-configure-windows-update.md
         - name: Using dynamic groups
-          href: /update-management/automation-update-management-groups.md
+          href: automation-update-management-groups.md
         - name: Query Update Management logs
-          href: /update-management/automation-update-management-query-logs.md
+          href: automation-update-management-query-logs.md
     - name: Track Changes and Inventory
       items:
         - name: Overview
-          href: /change-tracking/change-tracking.md
+          href: change-tracking.md
         - name: Enable
           items:
             - name: Use a Resource Manager template
-              href: /change-tracking/automation-update-management-deploy-template.md
+              href: automation-update-management-deploy-template.md
             - name: Use Azure portal
-              href: /change-tracking/automation-onboard-solutions-from-browser.md
+              href: automation-onboard-solutions-from-browser.md
             - name: From an Azure VM
-              href: /change-tracking/automation-onboard-solutions-from-vm.md
+              href: automation-onboard-solutions-from-vm.md
             - name: From an Automation account
-              href: /change-tracking/automation-onboard-solutions-from-automation-account.md
+              href: automation-onboard-solutions-from-automation-account.md
             - name: From an Automation runbook
-              href: /change-tracking/automation-onboard-solutions.md
+              href: automation-onboard-solutions.md
         - name: View contents of tracked files
-          href: /change-tracking/change-tracking-file-contents.md
+          href: change-tracking-file-contents.md
         - name: Manage inventory collection from VMs
-          href: /inventory/automation-vm-inventory.md
+          href: automation-vm-inventory.md
         - name: Troubleshoot onboarding issues
           href: /troubleshoot/onboard-solutions.md
         - name: Troubleshoot solution 
