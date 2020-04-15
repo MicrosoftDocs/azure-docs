@@ -1,7 +1,7 @@
 ---
 title: Onboard a customer to Azure delegated resource management
 description: Learn how to onboard a customer to Azure delegated resource management, allowing their resources to be accessed and managed through your own tenant.
-ms.date: 03/24/2020
+ms.date: 04/16/2020
 ms.topic: conceptual
 ---
 
@@ -201,14 +201,14 @@ Because this is a subscription-level deployment, it cannot be initiated in the A
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
 # Deploy Azure Resource Manager template using template and parameter file locally
-New-AzDeployment -Name <deploymentName> `
+New-AzSubscriptionDeployment -Name <deploymentName> `
                  -Location <AzureRegion> `
                  -TemplateFile <pathToTemplateFile> `
                  -TemplateParameterFile <pathToParameterFile> `
                  -Verbose
 
 # Deploy Azure Resource Manager template that is located externally
-New-AzDeployment -Name <deploymentName> `
+New-AzSubscriptionDeployment -Name <deploymentName> `
                  -Location <AzureRegion> `
                  -TemplateUri <templateUri> `
                  -TemplateParameterUri <parameterUri> `
