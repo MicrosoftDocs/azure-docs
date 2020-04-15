@@ -53,6 +53,36 @@ qsub -l nodes=8:ppn=16:nodearray=hpc:machinetype=Standard_HB60rs my-simulation.s
 
 which will autoscale only if the 'Standard_HB60rs' machines are specified an the 'hpc' node array.
 
+## Adding additional queues assigned to nodearrays
+
+On clusters with multiple nodearrays, it's common to create separate queues to automatically route jobs to the appropriate VM type. In this example, we'll assume the following "gpu" nodearray has been defined in your cluster template:
+
+```bash
+    [[nodearray gpu]]
+    Extends = execute
+    MachineType = Standard_NC24rs
+
+        [[[configuration]]]
+        pbspro.slot_type = gpu
+```
+
+After importing the cluster template and starting the cluster, the following commands can be ran on the master node to create the "gpu" queue:
+
+```bash
+/opt/pbs/bin/qmgr -c "create queue gpu"
+/opt/pbs/bin/qmgr -c "set queue gpu queue_type = Execution"
+/opt/pbs/bin/qmgr -c "set queue gpu resources_default.ungrouped = false"
+/opt/pbs/bin/qmgr -c "set queue gpu resources_default.place = scatter"
+/opt/pbs/bin/qmgr -c "set queue gpu resources_default.slot_type = gpu"
+/opt/pbs/bin/qmgr -c "set queue gpu default_chunk.ungrouped = false"
+/opt/pbs/bin/qmgr -c "set queue gpu default_chunk.slot_type = gpu"
+/opt/pbs/bin/qmgr -c "set queue gpu enabled = true"
+/opt/pbs/bin/qmgr -c "set queue gpu started = true"
+```
+
+> [!NOTE]
+> The above queue definition will pack all VMs in the queue into a single VM Scaleset to support MPI jobs. To define the queue for serial jobs and allow multiple VM Scalesets, set `ungrouped = true` for both `resources_default` and `default_chunk`. You can also set `resources_default.place = pack` if you want the scheduler to pack jobs onto VMs instead of round-robin allocation of jobs. For more information on PBS job packing, see the official [PBS Professional OSS documentation](https://www.altair.com/pbs-works-documentation/).
+
 ## PBS Professional Configuration Reference
 
 The following are the PBS Professional specific configuration options you can toggle to customize functionality:
