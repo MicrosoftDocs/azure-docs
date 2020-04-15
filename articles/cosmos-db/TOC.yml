@@ -759,14 +759,6 @@
         items:
         - name: 1 - Query data
           href: tutorial-query-graph.md
-      - name: Reference
-        items:
-        - name: Response Headers
-          href: gremlin-headers.md
-        - name: Limits
-          href: gremlin-limits.md
-        - name: Compatibility
-          href: gremlin-compatibility.md
       - name: How-to guides
         items:
         - name: Graph data modeling
@@ -794,6 +786,14 @@
           href: powershell-samples-gremlin.md
         - name: Manage using Azure CLI
           href: cli-samples-gremlin.md
+      - name: Reference
+        items:
+        - name: Response Headers
+          href: gremlin-headers.md
+        - name: Limits
+          href: gremlin-limits.md
+        - name: Compatibility
+          href: gremlin-compatibility.md
     - name: Table API
       items:
       - name: Overview
