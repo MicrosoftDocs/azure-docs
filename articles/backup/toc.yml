@@ -348,7 +348,7 @@
       href: backup-security-controls.md
     - name: Security baseline
       href: security-baseline.md
-    - name: Troubleshoot
+  - name: Troubleshoot
     items:
     - name: Azure VM
       href: backup-azure-vms-troubleshoot.md
