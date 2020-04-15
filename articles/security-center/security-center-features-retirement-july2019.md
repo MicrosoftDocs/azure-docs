@@ -93,7 +93,7 @@ All the features of the **Identity & Access** dashboard in Log Analytics can be 
 
 ## Security events map<a name="menu_securityeventsmap"></a>
 
-Security Center provides you with a [security alerts map](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) to help identify security threats. The **Go to security events map** button in that map opens a dashboard that allows you to view raw security events on the selected workspace.
+Security Center provides you with a security alerts map to help identify security threats. The **Go to security events map** button in that map opens a dashboard that allows you to view raw security events on the selected workspace.
 
 We removed the **Go to security events map** button and the per-workspace dashboard.
 
@@ -132,7 +132,7 @@ For more information on custom alerts retirement, see [Custom Alert Rules in Azu
 
 ## Security alerts investigation<a name="menu_investigate"></a>
 
-[The Investigation feature](https://docs.microsoft.com/azure/security-center/security-center-investigation) in Security Center helps you triage a potential security incident. The feature allows you to understand the scope of an incident and track down its root cause. We removed this feature from Security Center because it's been replaced with an improved experience in [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/).
+The Investigation feature in Security Center helps you triage a potential security incident. The feature allows you to understand the scope of an incident and track down its root cause. We removed this feature from Security Center because it's been replaced with an improved experience in [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/).
 
 ![Security incident][14]
 

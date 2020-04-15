@@ -103,7 +103,7 @@ https://azuremarketplace.microsoft.com/marketplace/?term=Firewall
 
 How to add a firewall rule in Event Hubs for a specified IP address:
 
- https://docs.microsoft.com/azure/event-hubs/event-hubs-tutorial-virtual-networks-firewalls#add-firewall-for-specified-ip
+ https://docs.microsoft.com/azure/event-hubs/event-hubs-ip-filtering
 
 **Azure Security Center monitoring**: Not yet available
 
@@ -137,7 +137,7 @@ Azure Built-in Policy for Event Hubs namespace:  https://docs.microsoft.com/azur
 
 ​
 
-Azure Policy samples for networking:​ https://docs.microsoft.com/azure/governance/policy/samples/#network​
+Azure Policy samples for networking:​ https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
 ​
 
@@ -955,7 +955,7 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 **Guidance**: Configure geo-disaster recovery for Azure Event Hubs. When entire Azure regions or datacenters (if no availability zones are used) experience downtime, it is critical for data processing to continue to operate in a different region or datacenter. As such, Geo-disaster recovery and Geo-replication are important features for any enterprise. Azure Event Hubs supports both geo-disaster recovery and geo-replication, at the namespace level. 
 
-Understand geo-disaster recovery for Azure Event Hubs: https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones-preview
+Understand geo-disaster recovery for Azure Event Hubs: https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones
 
 **Azure Security Center monitoring**: Currently not available
 

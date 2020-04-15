@@ -1,14 +1,15 @@
 ---
 title: Microsoft identity platform videos | Azure
-description: A list of videos about the Microsoft identity platform
+description: A list of videos about modern authentication and the Microsoft identity platform
 services: active-directory
 author: mmacy
 manager: CelesteDG
+
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/29/2020
+ms.date: 04/08/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
@@ -16,11 +17,60 @@ ms.reviewer: celested
 
 # Microsoft identity platform videos
 
-Learn about the Microsoft identity platform and the Microsoft Authentication libraries (MSAL). They're typically 1-2 minutes long.
+Learn the basics of modern authentication, the Microsoft identity platform, and the Microsoft Authentication Libraries (MSAL).
+
+## Authentication fundamentals
+
+If you're new to concepts like identity providers, security tokens, claims, and audience, this video series is a good place to start.
+___
+
+:::row:::
+    :::column:::
+        1 - Basics: The concepts of modern authentication (4:33)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+     :::column:::
+        2 - Modern authentication for web applications (6:02)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/tCNcG1lcCHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        3 - Web single sign-on (4:13)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/51B-jSOBF8U?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+    :::column:::
+        4 - Federated web authentication (6:19)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        5 - Native client applications - Part 1 (8:12)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/OGMDnuDrAcQ?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+    :::column:::
+        6 - Native client applications - Part 2 (5:33)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/2RE6IhXfmHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+    :::column-end:::
+:::row-end:::
 
 ## Microsoft identity platform basics
 
-**Learn basic Microsoft identity platform concepts**
+Learn about the components of the Microsoft identity platform, the Microsoft Authentication Libraries (MSAL), and how these components interact with Azure Active Directory. The One Dev Question videos are 1-2 minutes in length.
+___
 
 :::row:::
     :::column:::
@@ -107,7 +157,8 @@ Learn about the Microsoft identity platform and the Microsoft Authentication lib
 
 ## Migrate from v1.0 to v2.0
 
-**Learn about migrating to the the latest version of the Microsoft identity platform**
+Learn about migrating to the latest version of the Microsoft identity platform, including moving from the Active Directory Authentication Library (ADAL) to MSAL.
+___
 
 :::row:::
     :::column:::

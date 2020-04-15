@@ -12,7 +12,7 @@ manager: philmea
 
 # Create and manage multiple dashboards
 
-The **Dashboard** is the page that loads when you first navigate to your application. An **builder** in your application defines the default application dashboard for all users. You can replace this default dashboard with your own, personalized application dashboard. You can have several dashboards that display different data and switch between them. 
+The **Dashboard** is the page that loads when you first navigate to your application. An **builder** in your application defines the default application dashboard for all users. You can additionally create your own, personalized application dashboard. You can have several dashboards that display different data and switch between them.
 
 If you are an **admin** of the application, you also can create up to 10 application level dashboards to share with other users of the application. Only **admins** have the ability to create, edit, and delete application level dashboards. 
 
