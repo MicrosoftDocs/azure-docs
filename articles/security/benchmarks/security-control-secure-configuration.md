@@ -22,7 +22,7 @@ Establish, implement, and actively manage (track, report on, correct) the securi
 
 Use Azure Policy aliases to create custom policies to audit or enforce the configuration of your Azure resources. You may also use built-in Azure Policy definitions.
 
-Also, Azure Resource Manager has the ability to export the template in Java Script Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your organization.
+Also, Azure Resource Manager has the ability to export the template in JavaScript Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your organization.
 
 You may also use recommendations from Azure Security Center as a secure configuration baseline for your Azure resources.
 
@@ -193,6 +193,6 @@ Implement Credential Scanner to identify credentials within code. Credential Sca
 - [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 
-## Next Steps
+## Next steps
 
 - See the next Security Control:  [Malware Defense](security-control-malware-defense.md)

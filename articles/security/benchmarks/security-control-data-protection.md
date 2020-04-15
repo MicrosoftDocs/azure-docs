@@ -125,6 +125,6 @@ Use Azure Monitor with the Azure Activity Log to create alerts for when changes 
 - [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
 
-## Next Steps
+## Next steps
 
 - See the next Security Control:  [Vulnerability Management](security-control-vulnerability-management.md)

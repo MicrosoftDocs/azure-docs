@@ -85,6 +85,6 @@ Use the Workflow Automation feature in Azure Security Center to automatically tr
 - [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
 
 
-## Next Steps
+## Next steps
 
 - See the next Security Control: [Penetration Tests and Red Team Exercises](security-control-penetration-tests-red-team-exercises.md)

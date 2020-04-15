@@ -161,6 +161,6 @@ In support scenarios where Microsoft needs to access customer data, Customer Loc
 - [Understand Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
 
-## Next Steps
+## Next steps
 
 - See the next Security Control: [Data Protection](security-control-data-protection.md)

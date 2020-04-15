@@ -149,6 +149,6 @@ Use Microsoft Monitoring Agent on all supported Azure Windows virtual machines t
 - [Syslog data sources in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-syslog)
 
 
-## Next Steps
+## Next steps
 
 - See the next Security Control: [Identity and Access Control](security-control-identity-access-control.md)

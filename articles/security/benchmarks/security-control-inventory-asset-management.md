@@ -60,7 +60,7 @@ Use tagging, management groups, and separate subscriptions, where appropriate, t
 |--|--|--|
 | 6.4 | 2.1 | Customer |
 
-Create an inventory of approved Azure resources and approved software for compute resources as pery our organizational needs.
+Create an inventory of approved Azure resources and approved software for compute resources as per our organizational needs.
 
 ## 6.5: Monitor for unapproved Azure resources
 
@@ -82,7 +82,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 |--|--|--|
 | 6.6 | 2.3, 2.4 | Customer |
 
-Use Azure virtual machine Inventory to automate the collection of information about all software on Virtual Machines. Software Name, Version, Publisher, and Refresh time are available from the Azure Portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event Logs into a Log Analytics Workspace.
+Use Azure virtual machine Inventory to automate the collection of information about all software on Virtual Machines. Software Name, Version, Publisher, and Refresh time are available from the Azure portal. To get access to install date and other information, enable guest-level diagnostics and bring the Windows Event Logs into a Log Analytics Workspace.
 
 - [How to enable Azure virtual machine Inventory](https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software)
 
@@ -169,6 +169,6 @@ Software that is required for business operations, but may incur higher risk for
 - [How to create an NSG with a security config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
 
-## Next Steps
+## Next steps
 
 - See the next Security Control: [Secure Configuration](security-control-secure-configuration.md)
