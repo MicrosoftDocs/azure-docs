@@ -161,7 +161,9 @@ The twins and relationships you have set up in this tutorial form the following 
 
 If you no longer need the resources used in this tutorial, follow these steps to delete them. If you plan to continue to the next Azure Digital Twins tutorial, keep the resources to continue building on them. 
 
-Using the Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group and the Azure Digital Twins instance.
+Using the Azure CLI via the [Azure Cloud Shell](../cloud-shell/overview.md), you can quickly run commands to delete Azure resources. Use this link to [![Launch Cloud Shell in a new window](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com).
+
+To delete all Azure resources in a resource group, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group and the Azure Digital Twins instance.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
