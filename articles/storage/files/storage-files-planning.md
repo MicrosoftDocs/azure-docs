@@ -148,7 +148,7 @@ New file shares start with the full number of credits in its burst bucket. Burst
 ### Enable standard file shares to span up to 100 TiB
 [!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
 
-#### Regional availability
+#### Limitations
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## Redundancy
