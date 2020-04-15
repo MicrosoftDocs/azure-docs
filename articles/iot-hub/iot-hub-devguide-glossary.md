@@ -20,7 +20,7 @@ This article lists some of the common terms used in the IoT Hub articles.
 
 ## Automatic Device Management
 
-Automatic Device Management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. With Automatic Device Management, you can target a set of devices based on their properties, define a desired configuration, and let IoT Hub update devices whenever they come into scope.  Consists of [automatic device configurations](iot-hub-auto-device-config.md) and [IoT Edge automatic deployments](../iot-edge/how-to-deploy.md).
+Automatic Device Management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. With Automatic Device Management, you can target a set of devices based on their properties, define a desired configuration, and let IoT Hub update devices whenever they come into scope.  Consists of [automatic device configurations](iot-hub-auto-device-config.md) and [IoT Edge automatic deployments](../iot-edge/how-to-deploy-at-scale.md).
 
 ## Automatic device configuration
 

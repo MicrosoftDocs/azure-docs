@@ -12,15 +12,25 @@ services: iot-edge
 ---
 # Monitor IoT Edge deployments
 
-Azure IoT Edge provides reporting that let you monitor real-time information on the modules deployed to your IoT Edge devices. The IoT Hub service retrieves the status from the IoT Edge devices and makes them available to the operator. In addition to the need to monitor deployments made to individual devices, monitoring is important for [deployments made at scale](module-deployment-monitoring.md) that include automatic deployments and layered deployments.
+Azure IoT Edge provides reporting that lets you monitor real-time information on the modules deployed to your IoT Edge devices. The IoT Hub service retrieves the status from the IoT Edge devices and makes them available to the operator. In addition to the need to monitor deployments made to individual devices, monitoring is important for [deployments made at scale](module-deployment-monitoring.md) that include automatic deployments and layered deployments.
 
-You must know the connectivity state for the devices and the status of their modules, also their versions and the times  devices connected and disconnected. This information is provided by the edgeHub runtime module and should satisfy the needs for monitoring single device deployments.
+Successful deployments require monitoring the following information:
+
+* The last time the device or module connected or disconnected.
+
+* Connectivity status of the device or module.
+
+* Status codes of the IoT Edge runtime modules.
+
+* Versions of deployed modules.
+
+Both devices and modules have similar data, such as connectivity, so values are obtained according the device ID or the module ID.
 
 Automatic deployments are deployments made to devices that satisfy a target condition. Target conditions are configured using tags specified in the device twin.
 
 Layered deployments have addition criterion such as to overwrite a module if a particular criterion is satisfied. This criteria is configured by adding desired properties in the module twin.
 
-The IoT Hub service collects the data reported by device and module twins and provides summary counts of the various states that devices may have in the deployment configuration. This data is organized into four groups of metrics:
+The IoT Hub service collects the data reported by device and module twins and provides aggregated counts of the various states that devices may have. The IoT Hub service organizes this data into four groups of metrics:
 
 | Type | Description |
 | --- | ---|
@@ -31,7 +41,7 @@ The IoT Hub service collects the data reported by device and module twins and pr
 
 You can also define your own custom metrics.
 
-The IoT Hub service makes this data available in the Azure portal and in the Azure CLI.
+The IoT Hub service makes this data available for you to monitor in the Azure portal and in the Azure CLI.
 
 ## Monitor a deployment in the Azure portal
 
@@ -58,10 +68,7 @@ To view the details of a deployment and monitor the devices running it, use the 
 
    ![View metrics for a selected deployment](./media/how-to-monitor-iot-edge-deployments/deployment-metrics-tab.png)
 
-1. Select the **Edit Metrics** button to view and edit the criteria for each metric. Every deployment has four default metrics. In addition, the custom metric `successfullyConfigured` is included for the current deployment.
-
-
-    | successfullyConfigured | Custom | Shows the number of devices that have a successful status. |
+1. Select the **Edit Metrics** button to view and edit the criteria for each metric. In addition to the four default metrics, custom defined metrics will appear in this list.
 
    ![View IoT Edge deployment metric criteria](./media/how-to-monitor-iot-edge-deployments/metric-list.png)
 
