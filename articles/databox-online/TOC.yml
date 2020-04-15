@@ -84,7 +84,7 @@
     - name: Understand limits
       href: azure-stack-edge-limits.md
     - name: Security overview
-      href: data-box-edge-security.md
+      href: azure-stack-edge-security.md
     - name: Review specifications
       href: data-box-edge-technical-specifications-compliance.md
   - name: How to
