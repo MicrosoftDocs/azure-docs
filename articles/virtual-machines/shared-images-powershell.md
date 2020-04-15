@@ -27,10 +27,10 @@ The Shared Image Gallery feature has multiple resource types.
 [!INCLUDE [virtual-machines-common-shared-images-powershell](../../includes/virtual-machines-common-shared-images-powershell.md)]
 
 
-
 ## Next steps
 
-Create an image from a [VM](image-version-vm-powershell.md), a [managed image](image-version-managed-image-powershell.md), or an [image in another gallery](./windows/image-version-another-gallery-powershell.md).
+Create an image from a [VM](image-version-vm-powershell.md), a [managed image](image-version-managed-image-powershell.md), or an [image in another gallery](image-version-another-gallery-powershell.md).
+
 [Azure Image Builder (preview)](./windows/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./windows/image-builder-gallery-update-image-version.md). 
 
 You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 

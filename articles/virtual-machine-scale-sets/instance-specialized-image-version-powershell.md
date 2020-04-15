@@ -129,7 +129,7 @@ New-AzVmss `
 It takes a few minutes to create and configure all the scale set resources and VMs.
 
 ## Next steps
-[Azure Image Builder (preview)](./windows/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./windows/image-builder-gallery-update-image-version.md). 
+[Azure Image Builder (preview)](../virtual-machines/linux/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](../virtual-machines/linux/image-builder-gallery-update-image-version.md).  
 
 You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
 

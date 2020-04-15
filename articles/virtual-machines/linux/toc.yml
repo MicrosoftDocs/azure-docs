@@ -467,8 +467,6 @@
             href: ../image-version-another-gallery-cli.md
         - name: Create a VM
           items:
-          - name: Specialized
-            href: ../vm-generalized-image-version-cli.md
           - name: Generalized
             href: ../vm-specialized-image-version-cli.md
         - name: Update image resources
