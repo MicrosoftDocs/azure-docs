@@ -36,43 +36,43 @@ conceptualContent:
   items:
     - title: Speech-to-text
       links:
-        - itemType: how-to-guide
-          text: Speech recognition basics
-          url: speech-to-text-basics.md
         - itemType: quickstart
           text: Recognize speech from a microphone
           url: quickstarts/speech-to-text-from-microphone.md
         - itemType: quickstart
           text: Recognize speech from an audio file
           url: quickstarts/speech-to-text-from-file.md
+        - itemType: how-to-guide
+          text: Speech recognition basics
+          url: speech-to-text-basics.md          
       footerLink:
         text: See more
         url: index-speech-to-text.yml
     - title: Text-to-speech
       links:
-        - itemType: how-to-guide
-          text: Speech synthesis basics
-          url: text-to-speech-basics.md
         - itemType: quickstart
           text: Synthesize speech to a speaker
           url: quickstarts/text-to-speech.md
         - itemType: quickstart
           text: Synthesize speech into an audio file
           url: quickstarts/text-to-speech-audio-file.md
+        - itemType: how-to-guide
+          text: Speech synthesis basics
+          url: text-to-speech-basics.md          
       footerLink:
         text: See more
         url: index-text-to-speech.yml
     - title: Speech translation
       links:
-      - itemType: how-to-guide
-        text: Speech translation basics
-        url: speech-translation-basics.md
       - itemType: quickstart
         text: Translate speech-to-text
         url: quickstarts/translate-speech-to-text.md
       - itemType: quickstart
         text: Translate speech into multiple target languages
         url: quickstarts/translate-speech-to-text-multiple-languages.md
+      - itemType: how-to-guide
+        text: Speech translation basics
+        url: speech-translation-basics.md        
       footerLink:
         text: See more
         url: index-speech-translation.yml
