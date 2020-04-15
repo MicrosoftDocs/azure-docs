@@ -9,35 +9,14 @@ Microsoft Azure Service Fabric 7.1 Release Notes
 - [Repositories and Download Links](#repositories-and-download-links)
 
 ## Key Annoucements
-- [Service Fabric Backup Explorer](https://github.com/microsoft/service-fabric-backup-explorer):  To ease management of Reliable Collections backup for Service Fabric Stateful applications, we are announcing public preview of Service Fabric Backup Explorer. It is a utility that  enables users to 
-  -  Audit and review the contents of the Reliable Collections
-  -  Update current state to a consistent view
-  -  Create Backup of the current snapshot of the Reliable Collections and 
-  -  Fix data corruption.
+- [Service Fabric Backup Explorer](https://github.com/microsoft/service-fabric-backup-explorer):  To ease management of Reliable Collections backup for Service Fabric Stateful applications, we are announcing public preview of Service Fabric Backup Explorer. It is a utility that  enables users to i)Audit and review the contents of the Reliable Collections, ii) update current state to a consistent view, iii) create Backup of the current snapshot of the Reliable Collections and iv) Fix data corruption.
 - Endpoint certificates of Service Fabric applications can be declared by subject common name.
   
 
 ## Breaking Changes
 - For customers using service fabric managed identities, **please switch to new environment variables ‘IDENTITY_ENDPOINT’ and ‘IDENTITY_HEADER’**. The prior environment variables'MSI_ENDPOINT' and 'MSI_SECRET' are now removed.
 - Service Fabric Managed Identity endpoint is now secure(HTTPs).
-- Currently Service Fabric ships the following nuget packages as a part of our    ASP.Net Integration and support:
-    -  Microsoft.ServiceFabric.AspNetCore.Abstractions
-    -  Microsoft.ServiceFabric.AspNetCore.Configuration
-    -  Microsoft.ServiceFabric.AspNetCore.Kestrel
-    -  Microsoft.ServiceFabric.AspNetCore.HttpSys
-    -  Microsoft.ServiceFabric.AspNetCore.WebListener
 
-   These packages are built against AspNetCore 1.0.0 binaries which have gone out of support (https://dotnet.microsoft.com/platform/support/policy/dotnet-core). Starting in Service Fabric 8.x we will start building Service Fabric AspNetCore integration against AspNetCore 2.1  and for netstandard 2.0. As a result, there will be following changes:
-    1. The following binaries and their nuget packages will be released for     
-      netstandard 2.0 only.These packages can be used in applications targeting .net framework <4.6.1 and .net core >=2.0
-            -  Microsoft.ServiceFabric.AspNetCore.Abstractions
-            -  Microsoft.ServiceFabric.AspNetCore.Configuration
-            -  Microsoft.ServiceFabric.AspNetCore.Kestrel
-            -  Microsoft.ServiceFabric.AspNetCore.HttpSys
-            
-    2. The following package will no longer be shipped:
-            - Microsoft.ServiceFabric.AspNetCore.WebListener:
-                 - Use Microsoft.ServiceFabric.AspNetCore.HttpSys instead.
 ## Service Fabric Runtime
 
 | Versions | IssueType | Description | Resolution | 
@@ -78,17 +57,17 @@ Follow this guidance for setting up your developer environment:
 
 | Area | Package | Version | Repository | Direct Download Link |
 |-|-|-|-|-|
-|Service Fabric Runtime |Ubuntu Developer Set-up | 7.0.457.1 |N/A | Cluster Runtime: https://apt-mo.trafficmanager.net/repos/servicefabric/pool/main/s/servicefabric <br> Service Fabric SDK for local cluster setup: https://apt-mo.trafficmanager.net/repos/servicefabric/pool/main/s/servicefabricsdkcommon/ <br> Container image: https://hub.docker.com/r/microsoft/service-fabric-onebox/ 
-|| Windows Developer Set-up| 7.0.457.9590 | N/A | https://download.microsoft.com/download/5/e/e/5ee43eba-5c87-4d11-8a7c-bb26fd162b29/MicrosoftServiceFabric.7.0.457.9590.exe |
-|Service Fabric for Windows Server |Service Fabric Standalone Installer Package | 7.0.457.9590 |N/A | https://download.microsoft.com/download/8/3/6/836E3E99-A300-4714-8278-96BC3E8B5528/7.0.457.9590/Microsoft.Azure.ServiceFabric.WindowsServer.7.0.457.9590.zip |
-||Service Fabric Standalone Runtime | 7.0.457.9590 |N/A | https://download.microsoft.com/download/B/0/B/B0BCCAC5-65AA-4BE3-AB13-D5FF5890F4B5/7.0.457.9590/MicrosoftAzureServiceFabric.7.0.457.9590.cab |
-|.NET SDK |Windows .NET SDK | 4.0.457 |N/A | https://download.microsoft.com/download/5/e/e/5ee43eba-5c87-4d11-8a7c-bb26fd162b29/MicrosoftServiceFabricSDK.4.0.457.msi |
-||Microsoft.ServiceFabric | 7.0.457 |N/A |https://www.nuget.org |
-||Reliable Services and Reliable Actors<br>\-Microsoft.ServiceFabric.Services<br>\-Microsoft.ServiceFabric.Services.Remoting<br>\-Microsoft.ServiceFabric.Services.Wcf <br>\-Microsoft.ServiceFabric.Actors <br>\-Microsoft.ServiceFabric.Actors.Wcf | 4.0.457 |https://github.com/Azure/service-fabric-services-and-actors-dotnet |https://www.nuget.org |
-||ASP.NET Core Service Fabric integration<br>\-Microsoft.ServiceFabric.Services.AspNetCore.*| 4.0.457 |https://github.com/Azure/service-fabric-aspnetcore |https://www.nuget.org |
-||Data, Diagnostics and Fabric transport<br>\-Microsoft.ServiceFabric.Data <br>\-Microsoft.ServiceFabric.Data.Interfaces <br>\-Microsoft.ServiceFabric.Diagnostics.Internal <br>\-Microsoft.ServiceFabric.FabricTransport/Internal | 4.0.457 |N/A| https://www.nuget.org |
-||Microsoft.ServiceFabric.Data.Extensions | 4.0.457 | N/A |https://www.nuget.org |
-|Java SDK |Java SDK | 1.0.5 |N/A |https://mvnrepository.com/artifact/com.microsoft.servicefabric/sf-actors/1.0.5 |
+|Service Fabric Runtime |Ubuntu Developer Set-up | 7.1.410.1 |N/A | Cluster Runtime: https://apt-mo.trafficmanager.net/repos/servicefabric/pool/main/s/servicefabric <br> Service Fabric SDK for local cluster setup: https://apt-mo.trafficmanager.net/repos/servicefabric/pool/main/s/servicefabricsdkcommon/ <br> Container image: https://hub.docker.com/r/microsoft/service-fabric-onebox/ 
+|| Windows Developer Set-up| 7.1.409.9590 | N/A | https://download.microsoft.com/download/c/8/c/c8c98ab2-6e7a-4d9a-a0a5-506b18111677/MicrosoftServiceFabric.7.1.409.9590.exe |
+|Service Fabric for Windows Server |Service Fabric Standalone Installer Package | 7.1.409.9590 |N/A | https://download.microsoft.com/download/8/3/6/836E3E99-A300-4714-8278-96BC3E8B5528/7.1.409.9590/Microsoft.Azure.ServiceFabric.WindowsServer.7.1.409.9590.zip |
+||Service Fabric Standalone Runtime | 7.1.409.9590 |N/A | https://download.microsoft.com/download/B/0/B/B0BCCAC5-65AA-4BE3-AB13-D5FF5890F4B5/7.1.409.9590/MicrosoftAzureServiceFabric.7.1.409.9590.cab |
+|.NET SDK |Windows .NET SDK | 4.1.409 |N/A | https://download.microsoft.com/download/c/8/c/c8c98ab2-6e7a-4d9a-a0a5-506b18111677/MicrosoftServiceFabricSDK.4.1.409.msi |
+||Microsoft.ServiceFabric | 7.1.409 |N/A |https://www.nuget.org |
+||Reliable Services and Reliable Actors<br>\-Microsoft.ServiceFabric.Services<br>\-Microsoft.ServiceFabric.Services.Remoting<br>\-Microsoft.ServiceFabric.Services.Wcf <br>\-Microsoft.ServiceFabric.Actors <br>\-Microsoft.ServiceFabric.Actors.Wcf | 4.1.409 |https://github.com/Azure/service-fabric-services-and-actors-dotnet |https://www.nuget.org |
+||ASP.NET Core Service Fabric integration<br>\-Microsoft.ServiceFabric.Services.AspNetCore.*| 4.1.409 |https://github.com/Azure/service-fabric-aspnetcore |https://www.nuget.org |
+||Data, Diagnostics and Fabric transport<br>\-Microsoft.ServiceFabric.Data <br>\-Microsoft.ServiceFabric.Data.Interfaces <br>\-Microsoft.ServiceFabric.Diagnostics.Internal <br>\-Microsoft.ServiceFabric.FabricTransport/Internal | 4.1.409 |N/A| https://www.nuget.org |
+||Microsoft.ServiceFabric.Data.Extensions | 4.1.409 | N/A |https://www.nuget.org |
+|Java SDK |Java SDK | 1.0.6 |N/A |https://mvnrepository.com/artifact/com.microsoft.servicefabric/sf-actors/1.0.6 |
 |Eclipse |Service Fabric plug-in for Eclipse | 2.0.7 | N/A |N/A |
 |Yeoman |Azure Service Fabric Java generator | 1.0.7 |https://github.com/Azure/generator-azuresfjava |N/A |
 ||Azure Service Fabric C# generator | 1.0.9 |https://github.com/Azure/generator-azuresfcsharp |N/A |
