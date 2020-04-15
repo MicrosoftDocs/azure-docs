@@ -92,16 +92,10 @@ If the connector servers and the web application service account are in the same
 
 If the connector servers and the web application service account are in different domains, Resource-based delegation is used. The delegation permissions are configured on the target web server and web application service account. This method of Constrained Delegation is relatively new. The method was introduced in Windows Server 2012, which supports cross-domain delegation by allowing the resource (web service) owner to control which machine and service accounts can delegate to it. There's no UI to assist with this configuration, so you'll need to use PowerShell.
 For more information, see the whitepaper [Understanding Kerberos Constrained Delegation with Application Proxy](https://aka.ms/kcdpaper).
-### Does NTLM authentication work with Azure AD Application Proxy?
-
-NTLM authentication can’t be used as a pre-authentication or single sign-on method. NTLM authentication can only be used when it can be negotiated directly between the client and the published web application. Using NTLM authentication usually causes a sign-in prompt to appear in the browser.
 
 ### Does NTLM authentication work with Azure AD Application Proxy?
 
-NTLM authentication cannot be used as pre-authentication or single sing-on method.
-NTLM authentication only works, when it will be negotiated directly between the client and the published web application.
-
-NTLM authentication causes usually a credential window popping up in the browser.
+NTLM authentication can’t be used as a pre-authentication or single sign-on method. NTLM authentication can be used only when it can be negotiated directly between the client and the published web application. Using NTLM authentication usually causes a sign-in prompt to appear in the browser.
 
 ## Pass-through authentication
 
