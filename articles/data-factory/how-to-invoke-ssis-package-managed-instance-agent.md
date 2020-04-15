@@ -26,21 +26,21 @@ In this step, you use Azure SQL Managed Instance Agent to invoke SSIS packages t
 1. In the latest version of SSMS, connect to Azure SQL Managed Instance.
 2. Create a new Agent Job and a new Job step.
 
-![New Agent Job](./media/how-to-invoke-ssis-package-mi-agent/new-agent-job.png)
+![New Agent Job](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
 
 3. In the **New Job Step** page, choose **SQL Server Integration Services Package** type.
 
-![New SSIS Job step](./media/how-to-invoke-ssis-package-mi-agent/new-ssis-job-step.png)
+![New SSIS Job step](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
 
 4. In the **Package** tab, choose **SSIS Catalog** as package source type.
 5. Because the SSISDB is in the same Azure SQL Managed Instance, you don't need to specify authentication.
 6. Specify an SSIS package from your SSISDB.
 
-![Package Source Type - SSIS Catalog](./media/how-to-invoke-ssis-package-mi-agent/package-source-ssisdb.png)
+![Package Source Type - SSIS Catalog](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb.png)
 
 7. In the **Configurations** tab, you can specify **parameter** values, override values in **Connection Managers**, override **Property** and choose **Logging level**.
 
-![Package Source Type - SSIS Catalog Configuration](./media/how-to-invoke-ssis-package-mi-agent/package-source-ssisdb-configuration.png)
+![Package Source Type - SSIS Catalog Configuration](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb-configuration.png)
 
 8. After you finished all configuration above, click **OK** to save the Agent Job configuration.
 9. Start the Agent Job to execute the SSIS package.
@@ -51,15 +51,15 @@ In this step, you use Azure SQL Managed Instance Agent to invoke SSIS packages t
 1. In the latest version of SSMS, connect to Azure SQL Managed Instance.
 2. Create a new Agent Job and a new Job step.
 
-   ![New Agent Job](./media/how-to-invoke-ssis-package-mi-agent/new-agent-job.png)
+   ![New Agent Job](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
 
 3. In the **New Job Step** page, choose **SQL Server Integration Services Package** type.
 
-   ![New SSIS Job step](./media/how-to-invoke-ssis-package-mi-agent/new-ssis-job-step.png)
+   ![New SSIS Job step](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
 
 4. In the **Package** tab, choose **File system** as package source type.
 
-   ![Package Source Type - File System](./media/how-to-invoke-ssis-package-mi-agent/package-source-file-system.png)
+   ![Package Source Type - File System](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
 
    1. If your package is uploaded to Azure File, choose **Azure file share** as file source type.
       - The package path is **\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx**
@@ -87,7 +87,7 @@ In this step, you use Azure SQL Managed Instance Agent to invoke SSIS packages t
     ```
  3. Select **Active Operations** under SSIS catalog.
 
-    ![Package Source Type - File System](./media/how-to-invoke-ssis-package-mi-agent/catalog-active-operations.png)
+    ![Package Source Type - File System](./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png)
 
  4. Stop corresponding operation based on **executionId**.
 
