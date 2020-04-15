@@ -40,9 +40,10 @@ Update-DscConfiguration -Wait -Verbose
 
 Similar functionality isn't currently available for Linux servers.
 The only option is to repeat the registration process.
+
 For Azure nodes, you can correct drift from the Azure portal
 or using Az module cmdlets. Details about this process are documented in 
-[Onboarding machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md#onboard-a-vm-using-azure-portal).
+[Onboarding machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md#onboard-vms-by-using-the-azure-portal).
 For hybrid nodes, you can correct drift using the included Python scripts.
 See [PowerShell DSC for Linux repo](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
 
