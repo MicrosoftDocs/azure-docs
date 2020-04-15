@@ -131,7 +131,7 @@ A user who has previously set up at least one method that can be used for Multi-
 
 ## Next steps
 
-[Force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-authentication-methods)
+[Force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-user-authentication-options)
 
 [Enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md)
 

@@ -9,12 +9,12 @@ metadata:
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   description: Recognize speech, synthesize speech, get real-time translations, transcribe conversations, or integrate speech into your bot experiences.
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: hub-page
   ms.date: 03/24/2020
-  ms.author: dapine
+  ms.author: trbye
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -50,7 +50,7 @@ conceptualContent:
         url: index-speech-to-text.yml
     - title: Text-to-speech
       links:
-        - itemType: quickstart
+        - itemType: how-to-guide
           text: Speech synthesis basics
           url: text-to-speech-basics.md
         - itemType: quickstart
@@ -64,15 +64,15 @@ conceptualContent:
         url: index-text-to-speech.yml
     - title: Speech translation
       links:
+      - itemType: how-to-guide
+        text: Speech translation basics
+        url: speech-translation-basics.md
       - itemType: quickstart
         text: Translate speech-to-text
         url: quickstarts/translate-speech-to-text.md
       - itemType: quickstart
         text: Translate speech into multiple target languages
         url: quickstarts/translate-speech-to-text-multiple-languages.md
-      - itemType: quickstart
-        text: Translate speech-to-speech
-        url: quickstarts/translate-speech-to-speech.md
       footerLink:
         text: See more
         url: index-speech-translation.yml
