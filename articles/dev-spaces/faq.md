@@ -84,6 +84,10 @@ In Visual Studio Code, it is possible to [open separate projects in a single wor
 
 In Visual Studio, it is possible to configure .NET Core solutions for debugging through Azure Dev Spaces.
 
+## Can I use Azure Dev Spaces with a service mesh?
+
+At this time, you can't use Azure Dev Spaces with service meshes such as [Istio][istio] or [Linkerd][linkerd]. You can run Azure Dev Spaces and a service mesh on the same AKS cluster, but you can't have both Azure Dev Spaces and a service mesh enabled in the same namespace.
+
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
 [aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
@@ -100,6 +104,8 @@ In Visual Studio, it is possible to configure .NET Core solutions for debugging 
 [ingress-traefik]: how-to/ingress-https-traefik.md#configure-a-custom-traefik-ingress-controller
 [ingress-https-nginx]: how-to/ingress-https-nginx.md#configure-the-nginx-ingress-controller-to-use-https
 [ingress-https-traefik]: how-to/ingress-https-traefik.md#configure-the-traefik-ingress-controller-to-use-https
+[istio]: https://istio.io/
+[linkerd]: https://linkerd.io/
 [quickstart-cli]: quickstart-cli.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [vs-code-multi-root-workspaces]: https://code.visualstudio.com/docs/editor/multi-root-workspaces
