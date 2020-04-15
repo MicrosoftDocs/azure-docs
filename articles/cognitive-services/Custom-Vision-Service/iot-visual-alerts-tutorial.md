@@ -9,15 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ---
 
 # Tutorial: Use Custom Vision with an IoT device to report visual states
 
-This sample app illustrates how to use Custom Vision to train a device with a camera to detect visual states. You can run this detection scenario on an IoT device by using an ONNX model exported from the Custom Vision service.
+This sample app illustrates how to use Custom Vision to train a device with a camera to detect visual states. You can run this detection scenario on an IoT device by using an exported ONNX model.
 
-A visual state describes the content of an image: an empty room or a room with people, an empty driveway or a driveway with a truck, and so on. In the image below, you can see the app detect when a banana or an apple is placed in front of the camera.
+A visual state describes the content of an image: an empty room or a room with people, an empty driveway with a truck, and so on. In the image below, you can see the app detect when a banana or an apple is placed in front of the camera.
 
 ![Animation of a UI labeling fruit in front of the camera](./media/iot-visual-alerts-tutorial/scoring.gif)
 
@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 * You'll also need to [create an IoT Hub resource](https://ms.portal.azure.com/#create/Microsoft.IotHub) on Azure.
 * [Visual Studio 2015 or later](https://www.visualstudio.com/downloads/)
 * Optionally, an IoT device running Windows 10 IoT Core version 17763 or higher. You can also run the app directly from your PC.
-   * For Raspberry Pi 2 and 3, you can set up Windows 10 directly from the IoT Dashboard app. For other devices such as DrangonBoard, you'll need to flash it using the [eMMC method](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices). If you need help setting up a new device, see [Setting up your device](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup) in the Windows IoT documentation.
+   * For Raspberry Pi 2 and 3, you can set up Windows 10 directly from the IoT Dashboard app. For other devices such as DrangonBoard, you'll need to flash it using the [eMMC method](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices). If you need help with setting up a new device, see [Setting up your device](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup) in the Windows IoT documentation.
 
 ## About the Visual Alerts app
 
@@ -88,7 +88,7 @@ To set up a model, you need to put the app in the **Capturing Training Images** 
 * If you're running the app on PC, use the button on the top-right corner of the UI.
 * If you're running the app on an IoT device, call the `EnterLearningMode` method on the device through the IoT Hub. You can call it through the device entry in the IoT Hub menu on the Azure portal, or with a tool such as [IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
  
-When the app enters the **Capturing Training Images** state, it will capture about two images every second until it has reached the target number of images. By default, this is 30 images, but you can set this parameter by passing the desired number as an argument to the `EnterLearningMode` IoT Hub method. 
+When the app enters the **Capturing Training Images** state, it will capture about two images every second until it has reached the target number of images. By default, the target is 30 images, but you can set this parameter by passing the desired number as an argument to the `EnterLearningMode` IoT Hub method. 
 
 While the app is capturing images, you must expose the camera to the types of visual states that you want to detect (for example, an empty room, a room with
 people, an empty desk, a desk with a toy truck, and so on).
