@@ -12,6 +12,8 @@
     items:
     - name: What are Availability Zones?
       href: az-overview.md
+    - name: Regions and Availability Zones
+      href: az-overview2.md
     - name: Virtual machines
       items:
       - name: Create a Linux VM in an Availability Zone with CLI
