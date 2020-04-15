@@ -71,8 +71,10 @@ Rich-text editing of your answer text gives you markdown styling from a simple t
     > [!div class="mx-imgBorder"]
     > ![Use the rich-text editor add a publicly accessible image and its ALT text.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
 
-4. Add a link to a URL by either selecting the text in the answer, then selecting the Link icon in the toolbar or by selecting the Link icon in the toolbar then entering new text and the URL.
+1. Add a link to a URL by either selecting the text in the answer, then selecting the Link icon in the toolbar or by selecting the Link icon in the toolbar then entering new text and the URL.
 
+    > [!div class="mx-imgBorder"]
+    > ![Use the rich-text editor add a publicly accessible image and its ALT text.](../media/qnamaker-how-to-edit-kb/add-link-to-answer-rich-text-editor.png)
 
 ## Edit a QnA pair
 
