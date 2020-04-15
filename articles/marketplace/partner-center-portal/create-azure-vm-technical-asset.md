@@ -280,4 +280,4 @@ If you encountered difficulty creating your new Azure-based VHD, see [Common iss
 
 Otherwise:
 
-* [Certify your VM image](https://aks.ms/CertifyVMimage) explains how to test and submit a VM image for Azure Marketplace certification, including where to get the *Certification Test Tool for Azure Certified* tool and how to use it to certify your VM image.
+* [Certify your VM image](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/get-sas-uri) explains how to test and submit a VM image for Azure Marketplace certification, including where to get the *Certification Test Tool for Azure Certified* tool and how to use it to certify your VM image.
