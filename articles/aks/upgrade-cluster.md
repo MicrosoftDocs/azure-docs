@@ -11,7 +11,7 @@ ms.date: 05/31/2019
 
 As part of the lifecycle of an AKS cluster, you often need to upgrade to the latest Kubernetes version. It is important you apply the latest Kubernetes security releases, or upgrade to get the latest features. This article shows you how to upgrade the master components or a single, default node pool in an AKS cluster.
 
-For AKS clusters that use multiple node pools or Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade].
+For AKS clusters that use multiple node pools, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
 ## Before you begin
 
