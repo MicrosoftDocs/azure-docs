@@ -11,6 +11,10 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers,
 
 This addresses frequently asked questions about Azure Dev Spaces.
 
+## What versions of Kubernetes are supported for Azure Dev Spaces?
+
+Azure Dev Spaces supports all [currently supported general availability (GA) versions of Kubernetes in AKS][aks-supported-k8s].
+
 ## Which Azure regions currently provide Azure Dev Spaces?
 
 See [supported regions][supported-regions] for a complete list of available regions.
@@ -92,6 +96,7 @@ In Visual Studio, it is possible to configure .NET Core solutions for debugging 
 [aks-pod-managed-id]: ../aks/developer-best-practices-pod-security.md#use-pod-managed-identities
 [aks-pod-managed-id-uninstall]: https://github.com/Azure/aad-pod-identity#uninstall-notes
 [aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
+[aks-supported-k8s]: ../aks/supported-kubernetes-versions.md#list-currently-supported-versions
 [bike-sharing]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
 [dev-spaces-pod-managed-id-steps]: troubleshooting.md#error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state
 [dev-spaces-prep]: how-dev-spaces-works-prep.md
