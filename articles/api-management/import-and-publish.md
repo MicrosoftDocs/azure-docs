@@ -63,7 +63,7 @@ This section shows how to import and publish an OpenAPI Specification backend AP
    |**Version this API?**|Select or deselect|For more information about versioning, see [Publish multiple versions of your API](api-management-get-started-publish-versions.md).|
    
    > [!NOTE]
-   > To publish the API to API consumer, you must associate it with a product.
+   > To publish the API to API consumers, you must associate it with a product.
    
 2. Select **Create**.
 
