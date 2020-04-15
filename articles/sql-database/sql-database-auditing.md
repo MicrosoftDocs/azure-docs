@@ -75,7 +75,7 @@ The following section describes the configuration of auditing using the Azure po
 2. Navigate to **Auditing** under the Security heading in your SQL database/server pane.
 3. If you prefer to set up a server auditing policy, you can select the **View server settings** link on the database auditing page. You can then view or modify the server auditing settings. Server auditing policies  apply to all existing and newly created databases on this server.
 
-    ![Navigation pane][2]
+    ![Navigation pane](./media/sql-database-auditing-get-started/2_auditing_get_started_server_inherit.png)
 
 4. If you prefer to enable auditing on the database level, switch **Auditing** to **ON**. If server auditing is enabled, the database-configured audit will exist side-by-side with the server audit.
 
@@ -158,7 +158,7 @@ If you chose to write audit logs to an Azure storage account, there are several 
 
 - Use the [Azure portal](https://portal.azure.com).  Open the relevant database. At the top of the database's **Auditing** page, click **View audit logs**.
 
-    ![Navigation pane][7]
+    ![Navigation pane](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
 
     **Audit records** opens, from which you'll be able to view the logs.
 
@@ -166,14 +166,14 @@ If you chose to write audit logs to an Azure storage account, there are several 
   - You can switch between audit records that were created by the *server audit policy* and the *database audit policy* by toggling **Audit Source**.
   - You can view only SQL injection related audit records by checking  **Show only audit records for SQL injections** checkbox.
 
-       ![Navigation pane][8]
+       ![Navigation pane]( ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png)
 
 - Use the system function **sys.fn_get_audit_file** (T-SQL) to return the audit log data in tabular format. For more information on using this function, see [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Use **Merge Audit Files** in SQL Server Management Studio (starting with SSMS 17):
     1. From the SSMS menu, select **File** > **Open** > **Merge Audit Files**.
 
-        ![Navigation pane][9]
+        ![Navigation pane](./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png)
     2. The **Add Audit Files** dialog box opens. Select one of the **Add** options to choose whether to merge audit files from a local disk or import them from Azure Storage. You are required to provide your Azure Storage details and account key.
 
     3. After all files to merge have been added, click **OK** to complete the merge operation.
@@ -214,10 +214,10 @@ In production, you are likely to refresh your storage keys periodically. When wr
 
 1. Open **Storage Details**. In the **Storage Access Key** box, select **Secondary**, and click **OK**. Then click **Save** at the top of the auditing configuration page.
 
-    ![Navigation pane][5]
+    ![Navigation pane](./media/sql-database-auditing-get-started/5_auditing_get_started_storage_key_regeneration.png)
 2. Go to the storage configuration page and regenerate the primary access key.
 
-    ![Navigation pane][6]
+    ![Navigation pane](./media/sql-database-auditing-get-started/6_auditing_get_started_regenerate_key.png)
 3. Go back to the auditing configuration page, switch the storage access key from secondary to primary, and then click **OK**. Then click **Save** at the top of the auditing configuration page.
 4. Go back to the storage configuration page and regenerate the secondary access key (in preparation for the next key's refresh cycle).
 
@@ -262,15 +262,3 @@ You can manage Azure SQL database auditing using [Azure Resource Manager](../azu
 
 > [!NOTE]
 > The linked samples are on an external public repository and are provided 'as is', without warranty, and are not supported under any Microsoft support program/service.
-
-<!--Image references-->
-[1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
-[2]: ./media/sql-database-auditing-get-started/2_auditing_get_started_server_inherit.png
-[3]: ./media/sql-database-auditing-get-started/3_auditing_get_started_turn_on.png
-[4]: ./media/sql-database-auditing-get-started/4_auditing_get_started_storage_details.png
-[5]: ./media/sql-database-auditing-get-started/5_auditing_get_started_storage_key_regeneration.png
-[6]: ./media/sql-database-auditing-get-started/6_auditing_get_started_regenerate_key.png
-[7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png
-[8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
-[9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
-[10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png 
