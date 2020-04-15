@@ -1,12 +1,11 @@
 ---
-title: AVS Disaster Recovery- Azure VMWare Solution
+title: Disaster Recovery - Azure VMWare Solution
 description: tutorial to perform a Disaster Recovery operation of virtual machines.
 author: dikamath
 ms.author: dikamath
 ms.service: azure-vmware
 ms.topic: how-to
 ms.date: 04/07/2020
-ms.custom:
 ---
 
 # Perform a Disaster Recovery operation of virtual machine or group of virtual machines
