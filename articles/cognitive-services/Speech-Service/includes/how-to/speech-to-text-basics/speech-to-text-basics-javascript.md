@@ -2,7 +2,7 @@
 author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/14/2020
+ms.date: 04/15/2020
 ms.author: trbye
 ---
 
