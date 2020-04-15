@@ -10,7 +10,9 @@ ms.custom: seo-lt-2019
 ms.date: 03/24/2020
 ---
 
-# Aggregate transformation in mapping data flow 
+# Aggregate transformation in mapping data flow
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 The Aggregate transformation defines aggregations of columns in your data streams. Using the Expression Builder, you can define different types of aggregations such as SUM, MIN, MAX, and COUNT grouped by existing or computed columns.
 

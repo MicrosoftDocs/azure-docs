@@ -1,9 +1,9 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 When developing for macOS, there are three Speech SDKs available.
