@@ -84,18 +84,7 @@ landingContent:
           - text: Deploy Azure Policy at scale
             url: ./how-to/policy-at-scale.md
           - text: Deploy a policy that can be remediated
-            url: ./how-to/deploy-policy-remediation
-
-  - title: Reference - Downloads
-    linkLists:
-      - linkListType: download
-        links:
-          - text: OpenAPI - 2019-06-01
-            url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01
-          - text: SDK for .NET - NuGet
-            url: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
-          - text: SDK for Python - PyPi
-            url: https://pypi.org/project/azure-mgmt-managedservices/
+            url: ./how-to/deploy-policy-remediation.md
 
   - title: Reference - SDKs
     linkLists:
@@ -112,6 +101,17 @@ landingContent:
           - text: Python
             url: /python/api/azure-mgmt-managedservices
   
+  - title: Reference - Downloads
+    linkLists:
+      - linkListType: download
+        links:
+          - text: OpenAPI - 2019-06-01
+            url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01
+          - text: SDK for .NET - NuGet
+            url: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
+          - text: SDK for Python - PyPi
+            url: https://pypi.org/project/azure-mgmt-managedservices/
+
   - title: Get involved
     linkLists:
       - linkListType: get-started
