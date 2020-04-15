@@ -605,6 +605,8 @@
         "articles/service-health/*.yml": "Azure Service Health",
         "articles/advisor/**/*.md": "Azure Advisor",
         "articles/advisor/*.yml": "Azure Advisor",
+        "articles/asc-for-iot/**/*.md": "Azure Security Center for IoT",
+        "articles/asc-for-iot/**/*.yml": "Azure Security Center for IoT",
         "articles/azure-monitor/**/*.yml" : "Azure Monitor",
         "articles/azure-monitor/**/*.md" : "Azure Monitor",
         "articles/connectors/*.md": "Azure Logic Apps",
