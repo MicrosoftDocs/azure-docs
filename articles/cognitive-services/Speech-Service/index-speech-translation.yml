@@ -10,7 +10,7 @@ metadata:
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 03/10/2020
+  ms.date: 04/13/2020
   ms.author: dapine
 
 landingContent:
@@ -20,6 +20,8 @@ landingContent:
       links:
       - text: What is speech translation?
         url: speech-translation.md
+      - text: Speech translation basics
+        url: speech-translation-basics.md
     - linkListType: quickstart
       links:
         - text: Translate speech-to-text

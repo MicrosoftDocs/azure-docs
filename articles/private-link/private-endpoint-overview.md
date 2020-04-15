@@ -109,7 +109,7 @@ You can use the following options to configure your DNS settings for private end
 > [!IMPORTANT]
 > It's not recommended to override a zone that is actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service below. 
  
-For Azure services, use the recommended zone names as described in the following table:
+For Azure services, use the zone names as described in the following table:
 
 |Private Link resource type   |Subresource  |Zone name  |
 |---------|---------|---------|
@@ -140,7 +140,7 @@ For Azure services, use the recommended zone names as described in the following
 |Azure Relay (Microsoft.Relay/namespaces) | namespace |privatelink.servicebus.windows.net|
 |Azure Event Grid (Microsoft.EventGrid/topics)	 | topic | topic.{region}.privatelink.eventgrid.azure.net|
 |Azure Event Grid (Microsoft.EventGrid/domains) | domain | domain.{region}.privatelink.eventgrid.azure.net |
-|Azure WebApps(Microsoft.Web/sites)	| site | privatelink.azurewebsites.net |
+|Azure WebApps (Microsoft.Web/sites)	| site | privatelink.azurewebsites.net |
 |Azure Machine Learning(Microsoft.MachineLearningServices/workspaces)	| workspace | privatelink.api.azureml.ms |
  
 Azure will create a canonical name DNS record (CNAME) on the public DNS to redirect the resolution to the suggested domain names. You'll be able to override the resolution with the private IP address of your private endpoints. 

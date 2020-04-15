@@ -75,6 +75,7 @@ The NPS server needs to be able to communicate with the following URLs over port
 
 - https:\//adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
+- https:\//credentials.azure.com
 
 Additionally, connectivity to the following URLs is required to complete the [setup of the adapter using the provided PowerShell script](#run-the-powershell-script)
 
@@ -278,7 +279,7 @@ The following command will create a file named "npscertificate" on your "C:" dri
 ``` PowerShell
 import-module MSOnline
 Connect-MsolService
-Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertificate.cer
 ```
 
 Once you run this command, go to your C drive, locate the file and double-click on it. Go to details and scroll down to "thumbprint", compare the thumbprint of the certificate installed on the server to this one. The certificate thumbprints should match.
