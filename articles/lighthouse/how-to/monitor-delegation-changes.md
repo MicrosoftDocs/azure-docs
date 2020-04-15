@@ -39,7 +39,7 @@ Because this is a broad level of access, we recommend that you assign this role 
 
 - [Create a new service principal account](../../active-directory/develop/howto-create-service-principal-portal.md) to be used only for this function, rather than assigning this role to an existing service principal used for other automation.
 - Be sure that this service principal does not have access to any delegated customer resources.
-- [Use a certificate to authenticate](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) and [store it securely in Azure Key Vault](../../key-vault/key-vault-best-practices.md).
+- [Use a certificate to authenticate](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) and [store it securely in Azure Key Vault](../../key-vault/general/best-practices.md).
 - Limit the users who have access to act on behalf of the service principal.
 
 Use one of the following methods to make the root scope assignments.
@@ -68,7 +68,7 @@ After you've created your service principal account and assigned the Monitoring 
 
 Once you've created a new service principal account with Monitoring Reader access to the root scope of your managing tenant, you can use it to query and report on delegation activity in your tenant. 
 
-[This Azure PowerShell script](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/tools/monitor-delegation-changes) can be used to query the past 1 day of activity and reports on any added or removed delegations (or attempts that were not successful). It queries the [Tenant Activity Log](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) data, then constructs the following values to report on delegations that are added or removed:
+[This Azure PowerShell script](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) can be used to query the past 1 day of activity and reports on any added or removed delegations (or attempts that were not successful). It queries the [Tenant Activity Log](https://docs.microsoft.com/rest/api/monitor/TenantActivityLogs/List) data, then constructs the following values to report on delegations that are added or removed:
 
 - **DelegatedResourceId**: The ID of the delegated subscription or resource group
 - **CustomerTenantId**: The customer tenant ID

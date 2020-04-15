@@ -25,17 +25,17 @@ A combination of the resource type (available in the `resourceId` property) and 
 | tenantId | Required for tenant logs | The tenant ID of the Active Directory tenant that this event is tied to. This property is only used for tenant-level logs, it does not appear in resource-level logs. |
 | operationName | Required | The name of the operation represented by this event. If the event represents an RBAC operation, this is the RBAC operation name (eg. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Typically modeled in the form of a Resource Manager operation, even if they are not actual documented Resource Manager operations (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Optional | The api-version associated with the operation, if the operationName was performed using an API (eg. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). If there is no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
-| category | Required | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. Typical log categories are “Audit” “Operational” “Execution” and “Request.” |
+| category | Required | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. Typical log categories are "Audit" "Operational" "Execution" and "Request." |
 | resultType | Optional | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
 | resultSignature | Optional | The sub status of the event. If this operation corresponds to a REST API call, this is the HTTP status code of the corresponding REST call. |
-| resultDescription | Optional | The static text description of this operation, eg. “Get storage file.” |
+| resultDescription | Optional | The static text description of this operation, eg. "Get storage file." |
 | durationMs | Optional | The duration of the operation in milliseconds. |
 | callerIpAddress | Optional | The caller IP address, if the operation corresponds to an API call that would come from an entity with a publicly-available IP address. |
-| correlationId | Optional | A GUID used to group together a set of related events. Typically, if two events have the same operationName but two different statuses (eg. “Started” and “Succeeded”), they share the same correlation ID. This may also represent other relationships between events. |
+| correlationId | Optional | A GUID used to group together a set of related events. Typically, if two events have the same operationName but two different statuses (eg. "Started" and "Succeeded"), they share the same correlation ID. This may also represent other relationships between events. |
 | identity | Optional | A JSON blob that describes the identity of the user or application that performed the operation. Typically this will include the authorization and claims / JWT token from active directory. |
 | Level | Optional | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
-| location | Optional | The region of the resource emitting the event, eg. “East US” or “France South” |
-| properties | Optional | Any extended properties related to this particular category of events. All custom/unique properties must be put inside this “Part B” of the schema. |
+| location | Optional | The region of the resource emitting the event, eg. "East US" or "France South" |
+| properties | Optional | Any extended properties related to this particular category of events. All custom/unique properties must be put inside this "Part B" of the schema. |
 
 ## Service-specific schemas for resource logs
 The schema for resource diagnostic logs varies depending on the resource and log category. This list shows all services that make available resource logs and links to the service and category-specific schema where available.
@@ -50,7 +50,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Azure Batch |[Azure Batch logging](../../batch/batch-diagnostics.md) |
 | Azure Database for MySQL | [Azure Database for MySQL diagnostic logs](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Azure Database for PostgreSQL logs](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| Azure Data Explorer | [Azure Data Explorer logs](../../data-explorer/using-diagnostic-logs.md) |
+| Azure Data Explorer | [Azure Data Explorer logs](/azure/data-explorer/using-diagnostic-logs) |
 | Cognitive Services | [Logging for Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Container Registry | [Logging for Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Content Delivery Network | [Azure Logs for CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
@@ -62,7 +62,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Express Route | Schema not available. |
 | Azure Firewall | Schema not available. |
 | IoT Hub | [IoT Hub Operations](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Key Vault |[Azure Key Vault Logging](../../key-vault/key-vault-logging.md) |
+| Key Vault |[Azure Key Vault Logging](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Azure Kubernetes Logging](../../aks/view-master-logs.md#log-event-schema) |
 | Load Balancer |[Log analytics for Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B custom tracking schema](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |

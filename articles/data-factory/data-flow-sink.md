@@ -13,6 +13,8 @@ ms.date: 12/12/2019
 
 # Sink transformation in mapping data flow
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 After you transform your data, you can sink the data into a destination dataset. Every data flow requires at least one sink transformation, but you can write to as many sinks as necessary to complete your transformation flow. To write to additional sinks, create new streams via new branches and conditional splits.
 
 Each sink transformation is associated with exactly one Data Factory dataset. The dataset defines the shape and location of the data you want to write to.
@@ -34,7 +36,9 @@ Azure Data Factory has access to over [90 native connectors](connector-overview.
 
 ## Sink settings
 
-Once you have added a sink, configure via the **Sink** tab. Here you can pick or create the dataset your sink writes to 
+Once you have added a sink, configure via the **Sink** tab. Here you can pick or create the dataset your sink writes to. Below is a video explaining a number of different Sink options for text delimited file types:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tf7T]
 
 ![Sink settings](media/data-flow/sink-settings.png "Sink Settings")
 
