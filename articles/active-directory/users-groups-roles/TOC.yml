@@ -74,8 +74,6 @@
       href: domains-manage.md
     - name: Delete a directory    
       href: directory-delete-howto.md
-    - name: Administrative units
-      href: directory-administrative-units.md
     - name: Multiple directories    
       href: licensing-directory-independence.md
     - name: Self-service signup    
@@ -86,42 +84,16 @@
       href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Manage groups
     items: 
-    - name: Search group and member lists (preview)    
-      href: groups-members-owners-search.md
     - name: Create a group (Azure portal)    
       href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Assign sensitivity labels (preview)
-      href: groups-assign-sensitivity-labels.md
     - name: Manage groups PowerShell for Graph (v2)   
       href: groups-settings-v2-cmdlets.md
-    - name: Manage groups PowerShell MSOnline    
+    - name: Manage groups with PowerShell MSOnline    
       href: groups-settings-cmdlets.md
+    - name: Search group and member lists (preview)    
+      href: groups-members-owners-search.md
     - name: Add or remove group members    
       href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Bulk add members (preview)
-      href: groups-bulk-import-members.md
-    - name: Bulk remove members (preview)
-      href: groups-bulk-remove-members.md
-    - name: Bulk download member list (preview)
-      href: groups-bulk-download-members.md
-    - name: Manage group owners
-      href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Bulk download groups list (preview)
-      href: groups-bulk-download.md
-    - name: Manage groups in groups
-      href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Add group access to SaaS apps
-      href: groups-saasapps.md
-    - name: Groups naming reference
-      href: groups-naming-policy.md
-    - name: Groups expiration reference    
-      href: groups-lifecycle.md
-    - name: Restore deleted groups   
-      href: groups-restore-deleted.md
-    - name: Manage group settings
-      href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context 
-    - name: Set up group self-service    
-      href: groups-self-service-management.md
     - name: Dynamic groups    
       items: 
       - name: Create a dynamic group    
@@ -132,6 +104,32 @@
         href: groups-dynamic-rule-validation.md
       - name: Change group membership type  
         href: groups-change-type.md
+    - name: Bulk add members (preview)
+      href: groups-bulk-import-members.md
+    - name: Bulk remove members (preview)
+      href: groups-bulk-remove-members.md
+    - name: Bulk download member list (preview)
+      href: groups-bulk-download-members.md
+    - name: Bulk download groups list (preview)
+      href: groups-bulk-download.md
+    - name: Restore deleted groups   
+      href: groups-restore-deleted.md
+    - name: Manage group settings
+      href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context 
+    - name: Manage group owners
+      href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Manage groups in groups
+      href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Add group access to SaaS apps
+      href: groups-saasapps.md
+    - name: Set group naming policy
+      href: groups-naming-policy.md
+    - name: Set group expiration policy    
+      href: groups-lifecycle.md
+    - name: Set up group self-service    
+      href: groups-self-service-management.md
+    - name: Assign sensitivity labels (preview)
+      href: groups-assign-sensitivity-labels.md
   - name: Assign licenses
     items:
     - name: Assign licenses to a group    
