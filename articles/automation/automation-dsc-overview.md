@@ -7,7 +7,7 @@ ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/06/2018
+ms.date: 04/15/2020
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -30,9 +30,9 @@ Azure Automation State Configuration brings the same management layer to [PowerS
 
 ![Screenshot of the Azure Automation page](./media/automation-dsc-overview/azure-automation-blade.png)
 
-### Import reporting data into Azure Monitor logs
+### Import reporting data into Azure Monitor Logs
 
-Nodes that are managed with Azure Automation State Configuration send detailed reporting status data to the built-in pull server. You can configure Azure Automation State Configuration to send this data to your Log Analytics workspace. For more information, see [Forward Azure Automation State Configuration reporting data to Azure Monitor logs](automation-dsc-diagnostics.md).
+Nodes that are managed with Azure Automation State Configuration send detailed reporting status data to the built-in pull server. You can configure Azure Automation State Configuration to send this data to your Log Analytics workspace. For more information, see [Forward Azure Automation State Configuration reporting data to Azure Monitor Logs](automation-dsc-diagnostics.md).
 
 ## Prerequisites
 
@@ -74,8 +74,7 @@ If your nodes are located in a private network, the following port and URLs are 
 * Global URL of US Gov Virginia: ***.azure-automation.us**
 * Agent service: **https://\<workspaceId\>.agentsvc.azure-automation.net**
 
-If you are using DSC resources that communicate between nodes,
-such as the [WaitFor* resources](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), you also need to allow traffic between nodes. See the documentation for each DSC resource to understand these network requirements.
+If you are using DSC resources that communicate between nodes, such as the [WaitFor* resources](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), you also need to allow communication between nodes. To understand these network requirements, see the documentation for each DSC resource.
 
 #### Proxy support
 
@@ -84,7 +83,7 @@ Proxy support for the DSC agent is available in Windows version 1809 and later. 
 >[!NOTE]
 >Azure Automation State Configuration doesn't provide DSC proxy support for earlier versions of Windows.
 
-For Linux nodes, the DSC agent supports the proxy and uses the `http_proxy` variable to determine the URL.
+For Linux nodes, the DSC agent supports a proxy server and uses the `http_proxy` variable to specify the URL.
 
 #### Azure Automation State Configuration network ranges and namespace
 
