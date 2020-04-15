@@ -48,7 +48,7 @@ In the preview, you can assign groups only individually to an administrative uni
 
 In this example, the cmdlet Add-AzureADAdministrativeUnitMember is used to add the group to the administrative unit. The object ID of the administrative unit and the object ID of the group to be added are taken as argument. The highlighted section may be changed as required for the specific environment.
 
-### Graph API
+### Microsoft Graph
 
     Http request
     POST /administrativeUnits/{Admin Unit id}/members/$ref
@@ -87,7 +87,7 @@ This will help you get all the members of the administrative unit. If you want t
     }
     }
 
-### Graph API
+### Microsoft Graph
 
     HTTP request
     GET /administrativeUnits/{Admin id}/members/$/microsoft.graph.group
@@ -106,7 +106,7 @@ In the Azure AD portal, you can open a group's details by opening **Groups**. Se
 
     Get-AzureADAdministrativeUnit | where { Get-AzureADAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $groupObjId} }
 
-### Graph
+### Microsoft Graph
 
     https://graph.microsoft.com/beta/groups/<group-id>/memberOf/$/Microsoft.Graph.AdministrativeUnit
 

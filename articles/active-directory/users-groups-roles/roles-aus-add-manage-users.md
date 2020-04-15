@@ -84,7 +84,7 @@ list-user-au.png)
 
     Get-AzureADAdministrativeUnit | where { Get-AzureADAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $userObjId} }
 
-### Graph
+### Microsoft Graph
 
     https://graph.microsoft.com/beta/users//memberOf/$/Microsoft.Graph.AdministrativeUnit
 
@@ -104,7 +104,7 @@ Alternatively, go to Azure AD > Administrative units and select the administrati
 
     Remove-AzureADAdministrativeUnitMember -ObjectId $auId -MemberId $memberUserObjId
 
-### Graph
+### Microsoft Graph
 
    https://graph.microsoft.com/beta/administrativeUnits/<adminunit-id>/members/<user-id>/$ref
 

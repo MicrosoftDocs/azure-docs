@@ -54,7 +54,7 @@ Select the role to be assigned and then select **Add assignments**. This will sl
 
 The highlighted section may be changed as required for the specific environment.
 
-### Graph API
+### Microsoft Graph
 
     Http request
     POST /administrativeUnits/{id}/scopedRoleMembers
@@ -80,7 +80,7 @@ All the role assignments done with an administrative unit scope can be viewed in
 
 The highlighted section may be changed as required for the specific environment.
 
-### Graph API
+### Microsoft Graph
 
     Http request
     GET /administrativeUnits/{id}/scopedRoleMembers
