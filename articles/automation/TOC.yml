@@ -64,7 +64,7 @@
         - name: Certificates
           href: shared-resources/certificates.md
         - name: Connections
-          href: shared-resources/automation-connections.md
+          href: automation-connections.md
         - name: PowerShell modules
           items:
             - name: Manage modules in Azure Automation
@@ -80,7 +80,7 @@
         - name: Manage Python 2 packages
           href: python-packages.md
         - name: Troubleshoot shared resources
-          href: troubleshoot/shared-resources
+          href: troubleshoot/shared-resources.md
     - name: Process automation
       items:
         - name: Runbook gallery
@@ -233,7 +233,7 @@
           href: automation-vm-inventory.md
         - name: Troubleshoot
         - name: Onboarding
-          href: troubleshoot/onboard-solutions.md
+          href: troubleshoot/onboarding.md
         - name: Using Change Tracking and Inventory 
           href: troubleshoot/change-tracking.md
     - name: Cross-component scenarios
