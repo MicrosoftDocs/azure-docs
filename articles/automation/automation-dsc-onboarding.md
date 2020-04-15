@@ -49,7 +49,7 @@ To onboard Azure VMs to Azure Automation State Configuration through the [Azure 
 
 1. Go to the Azure Automation account in which you want to onboard VMs. 
 
-1. On the **State Configuration** page, select the **Nodes** tab, then select **Add**.
+1. On the **State Configuration** page, select the **Nodes** tab, and then select **Add**.
 
 1. Choose a VM to onboard.
 
