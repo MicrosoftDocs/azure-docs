@@ -79,6 +79,8 @@ The following example script:
 * Creates an AKS cluster in the defined virtual network and enables network policy.
     * The *azure* network policy option is used. To use Calico as the network policy option instead, use the `--network-policy calico` parameter. Note: Calico could be used with either `--network-plugin azure` or `--network-plugin kubenet`.
 
+Note that instead of using a service principal, you can use a managed identity for permissions. For more information, see [Use managed identities](use-managed-identity.md).
+
 Provide your own secure *SP_PASSWORD*. You can replace the *RESOURCE_GROUP_NAME* and *CLUSTER_NAME* variables:
 
 ```azurecli-interactive
