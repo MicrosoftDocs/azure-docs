@@ -12,34 +12,6 @@ ms.service: azure-project-spool
 
 ---
 
-#### Temporary:
-
--  Customer intent statements: 
-   - I want to know how to send SMS messages to my users.
-   - I want to know how to receive and process SMS messages.
-   - I want to know how to send MMS messages to my users.
-
-- Resources: 
-  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
-
-- Gold Standard Docs:
-  - TODO
-
-- Discussion:
-  - {shawn} This is about more than just web services - simple outbound scenarios may be mature, but Spool's offering includes "inbound IVR scenarios". This isn't coming in as soon - still needs work. 
-  - {shawn} While there's a mature M365 SDK, leveraging through spool isn't very easy.
-
-- TODOs:
-  - Find related gold standard docs
-  - Editorial Pass
-  - Test links
-  - Add context
-  - Remove relative links
-  
-<br>
-<br>
-<br>
-
 # Quickstart: Add SMS to your web app
 
 Get started with the SMS SDK. Follow these steps to install the package and try out the example code to send SMS.
@@ -166,3 +138,32 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 Todo: more enhanced steps like recieving SMS, analysing text using AI, etc.
+
+
+#### meta:
+
+-  Customer intent statements: 
+   - I want to know how to send SMS messages to my users.
+   - I want to know how to receive and process SMS messages.
+   - I want to know how to send MMS messages to my users.
+
+- Resources: 
+  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
+
+- Gold Standard Docs:
+  - TODO
+
+- Discussion:
+  - {shawn} This is about more than just web services - simple outbound scenarios may be mature, but Spool's offering includes "inbound IVR scenarios". This isn't coming in as soon - still needs work. 
+  - {shawn} While there's a mature M365 SDK, leveraging through spool isn't very easy.
+
+- TODOs:
+  - Find related gold standard docs
+  - Editorial Pass
+  - Test links
+  - Add context
+  - Remove relative links
+  
+<br>
+<br>
+<br>

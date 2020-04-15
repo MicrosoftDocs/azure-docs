@@ -69,6 +69,7 @@ TODO
 
 - Discussion:
   - Do you have any feedback on this initial draft?
+  - When do our customers need to care about each of these protocols?
   - How should we articulate how spool ties it all together?
   - What tutorials / quickstarts / concepts should be referenced within this page?
   - Is this technically accurate?
