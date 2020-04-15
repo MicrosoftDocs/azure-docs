@@ -11,6 +11,8 @@ ms.date: 10/15/2019
 
 # Derived column transformation in mapping data flow
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Use the derived column transformation to generate new columns in your data flow or to modify existing fields.
 
 ## Derived column settings
