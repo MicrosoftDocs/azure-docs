@@ -30,7 +30,7 @@ Cluster templates are defined in an [INI format](https://en.wikipedia.org/wiki/I
 
 ## Node Preparation and Configuration
 
-CycleCloud provisions VM using base VM images defined in the cluster template, and there usually are a series of steps that are needed to be executed during VM boot-up to convert the VM into a working HPC node. These steps range from scripts to install and configure the scheduling software, to last-mile configuration for mounting a file system.
+CycleCloud provisions VMs from base VM images defined in the cluster template, and through a series of steps managed by the CycleCloud agent (jetpack) during the boot process, initializes and configures the OS on the VM to convert it into a working HPC node. These steps range from scripts to install and configure the scheduling software, to last-mile configuration for mounting a file system.
 
 :::image type="content" source="~/images/concept_node-prep_diagram.png" alt-text="Node Preparation Diagram":::
 
@@ -39,6 +39,8 @@ Defined in the configuration section of each node are *cluster-init specs* -- sp
 CycleCloud utilizes Chef in a stand-alone mode that does not rely on a centralized Chef server. Instead, the entire set of Chef Cookbooks needed to prepare each VM are downloaded from an Azure Storage Account belonging to the user during the VM bootup phase. This set of Cookbooks are cached from the CycleCloud application server into the Storage Account during the cluster creation phase. 
 
 After these Cookbooks are downloaded, the Chef process proceeds to process the list of Recipes defined in the node's *cluster-init specs*, triggering a preparation and configuration phase that converts the VM into a working HPC node.
+
+Specs are authored as logical collections called *Projects*. For example, a project for a batch scheduler such as Slurm comprises of a minimum of two specs: one for the scheduler head nodes, and the other for the compute nodes. [Read more about the CycleCloud Projects](../projects.md) 
 
 ## Node Orchestration
 
