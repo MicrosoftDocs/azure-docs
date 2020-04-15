@@ -582,7 +582,7 @@
     - name: Run SSIS packages in Azure from SSDT
       href: how-to-invoke-ssis-package-ssdt.md
     - name: Run SSIS packages with Azure SQL Managed Instance Agent
-      href: how-to-invoke-ssis-package-mi-agent.md
+      href: how-to-invoke-ssis-package-managed-instance-agent.md
     - name: Run SSIS packages with Azure-enabled dtexec
       href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
     - name: Run SSIS packages with Execute SSIS Package activity
