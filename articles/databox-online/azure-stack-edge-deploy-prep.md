@@ -71,7 +71,7 @@ Before you deploy a physical device, make sure that:
 
 Before you begin, make sure that:
 
-- The network in your datacenter is configured per the networking requirements for your Azure Stack Edge device. For more information, see [Azure Stack Edge System Requirements](data-box-edge-system-requirements.md).
+- The network in your datacenter is configured per the networking requirements for your Azure Stack Edge device. For more information, see [Azure Stack Edge System Requirements](azure-stack-edge-system-requirements.md).
 
 - For normal operating conditions of your Azure Stack Edge, you have:
 

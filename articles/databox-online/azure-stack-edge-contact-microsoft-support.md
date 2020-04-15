@@ -94,5 +94,5 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
    
 ## Next steps
 
-Learn how to [Troubleshoot issues related to Azure Stack Edge](data-box-edge-troubleshoot.md).
+Learn how to [Troubleshoot issues related to Azure Stack Edge](azure-stack-edge-troubleshoot.md).
 Learn how to [Troubleshoot issues related to Data Box Gateway](data-box-gateway-troubleshoot.md).

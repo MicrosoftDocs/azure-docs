@@ -47,7 +47,7 @@ Azure Stack Edge has the following capabilities:
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
 |Cloud-managed     |Device and service are managed via the Azure portal.  |
 |Offline upload     | Disconnected mode supports offline upload scenarios.|
-|Supported protocols     | Support for standard SMB and NFS protocols for data ingestion. <br> For more information on supported versions, see [Azure Stack Edge system requirements](data-box-edge-system-requirements.md).|
+|Supported protocols     | Support for standard SMB and NFS protocols for data ingestion. <br> For more information on supported versions, see [Azure Stack Edge system requirements](azure-stack-edge-system-requirements.md).|
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
 |Encryption    | BitLocker support to locally encrypt data and secure data transfer to cloud over *https*.|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours.|
@@ -81,6 +81,6 @@ Azure Stack Edge physical device, Azure resource, and target storage account to 
 
 ## Next steps
 
-- Review the [Azure Stack Edge system requirements](data-box-edge-system-requirements.md).
+- Review the [Azure Stack Edge system requirements](azure-stack-edge-system-requirements.md).
 - Understand the [Azure Stack Edge limits](azure-stack-edge-limits.md).
 - Deploy [Azure Stack Edge](azure-stack-edge-deploy-prep.md) in Azure portal.

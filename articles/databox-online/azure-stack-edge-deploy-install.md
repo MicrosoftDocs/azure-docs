@@ -53,7 +53,7 @@ Before you deploy a device:
 
 Before you begin:
 
-- Review the networking requirements for deploying Azure Stack Edge, and configure the datacenter network per the requirements. For more information, see [Azure Stack Edge networking requirements](data-box-edge-system-requirements.md#networking-port-requirements).
+- Review the networking requirements for deploying Azure Stack Edge, and configure the datacenter network per the requirements. For more information, see [Azure Stack Edge networking requirements](azure-stack-edge-system-requirements.md#networking-port-requirements).
 
 - Make sure that the minimum Internet bandwidth is 20 Mbps for optimal functioning of the device.
 

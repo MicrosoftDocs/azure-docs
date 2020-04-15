@@ -48,7 +48,7 @@ landingContent:
           - text: Data Box Gateway requirements
             url: data-box-gateway-system-requirements.md
           - text: Azure Stack Edge requirements
-            url: data-box-edge-system-requirements.md
+            url: azure-stack-edge-system-requirements.md
           - text: Data Box Gateway limits
             url: data-box-gateway-limits.md
           - text: Azure Stack Edge limits
@@ -98,7 +98,7 @@ landingContent:
           - text: Data Box Gateway
             url: data-box-gateway-troubleshoot.md
           - text: Azure Stack Edge
-            url: data-box-edge-troubleshoot.md
+            url: azure-stack-edge-troubleshoot.md
           - text: Edge compute modules
             url: azure-stack-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules            
           - text: Return or replace Azure Stack Edge

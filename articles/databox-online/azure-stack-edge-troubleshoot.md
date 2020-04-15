@@ -28,15 +28,15 @@ To diagnose and troubleshoot any device errors, you can run the diagnostics test
 
 1. In the local web UI, go to **Troubleshooting > Diagnostic tests**. Select the test you want to run and click **Run test**. This runs the tests to diagnose any possible issues with your network, device, web proxy, time, or cloud settings. You are notified that the device is running tests.
 
-    ![Select tests](media/data-box-edge-troubleshoot/run-diag-1.png)
+    ![Select tests](media/azure-stack-edge-troubleshoot/run-diag-1.png)
  
 2. After the tests have completed, the results are displayed. 
 
-    ![Review test results](media/data-box-edge-troubleshoot/run-diag-2.png)
+    ![Review test results](media/azure-stack-edge-troubleshoot/run-diag-2.png)
 
     If a test fails, then a URL for recommended action is presented. You can click the URL to view the recommended action.
  
-    ![Review warnings for failed tests](media/data-box-edge-troubleshoot/run-diag-3.png)
+    ![Review warnings for failed tests](media/azure-stack-edge-troubleshoot/run-diag-3.png)
 
 
 ## Collect Support package
@@ -47,11 +47,11 @@ Do the following steps to collect a Support package.
 
 1. In the local web UI, go to **Troubleshooting > Support**. Click **Create support package**. The system starts collecting support package. The package collection may take several minutes.
 
-    ![Click add user](media/data-box-edge-troubleshoot/collect-logs-1.png)
+    ![Click add user](media/azure-stack-edge-troubleshoot/collect-logs-1.png)
  
 2. After the Support package is created, click **Download Support package**. A zipped package is downloaded on the path you chose. You can unzip the package and the view the system log files.
 
-    ![Click add user](media/data-box-edge-troubleshoot/collect-logs-2.png)
+    ![Click add user](media/azure-stack-edge-troubleshoot/collect-logs-2.png)
 
 ## Use logs to troubleshoot
 
@@ -59,7 +59,7 @@ Any errors experienced during the upload and refresh processes are included in t
 
 1. To view the error files, go to your share and click the share to view the contents. 
 
-      ![Connect to and view share contents](media/data-box-edge-troubleshoot/troubleshoot-logs-1.png)
+      ![Connect to and view share contents](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
 
 2. Click the _Microsoft Azure Stack Edge folder_. This folder has two subfolders:
 
