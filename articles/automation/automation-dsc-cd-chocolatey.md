@@ -137,7 +137,7 @@ down into details and ultimately import into your Automation account. This is a 
 your modules up to date from time to time. And, the import feature checks dependencies with other
 modules to ensure nothing gets out of sync.
 
-Or, there's the manual approach. This approach is used only once per resource, unless you want to upgrade it later. For more information on authoring PowerShell integration modules, see [Authoring Integration Modules for Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/).
+There's also a manual approach, used only once per resource, unless you want to upgrade it later. For more information on authoring PowerShell integration modules, see [Authoring Integration Modules for Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/).
 
 >[!NOTE]
 >The folder structure of a PowerShell integration module for a Windows computer is a little different from the folder structure expected by the Azure Automation. 
@@ -163,7 +163,7 @@ Or, there's the manual approach. This approach is used only once per resource, u
     ```azurepowershell-interactive
     New-AzAutomationModule `
       -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
-      -Name MODULE-NAME –ContentLink 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
+      -Name MODULE-NAME –ContentLinkUri 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
     ```
 
 The included example implements these steps for cChoco and xNetworking. 
@@ -241,16 +241,15 @@ These steps result in a new node configuration named **ISVBoxConfig.isvbox** bei
 
 ## Step 5: Create and maintain package metadata
 
-For each package that you put into the package repository, you need a nuspec that describes it.
-That nuspec must be compiled and stored in your NuGet server. This process is described
-[here](https://docs.nuget.org/create/creating-and-publishing-a-package). You can use MyGet.org as a
-NuGet server. They sell this service, but have a starter SKU that's free. At NuGet.org, you'll find
-instructions on installing your own NuGet server for your private packages.
+For each package that you put into the package repository, you need a Nuspec that describes it. It must be compiled and stored on your NuGet server. This process is described
+[here](https://docs.nuget.org/create/creating-and-publishing-a-package). 
+
+You can use **MyGet.org** as a NuGet server. You can buy this service, but thee is a free starter SKU. At [NuGet](https://www.nuget.org/), you'll find instructions on installing your own NuGet server for your private packages.
 
 ## Step 6: Tie it all together
 
 Each time a version passes QA and is approved for deployment, the package is created, and nuspec and
-nupkg are updated and deployed to the NuGet server. The configuration (Step 4 above) must also
+nupkg are updated and deployed to the NuGet server. The configuration (step 4) must also
 be updated to agree with the new version number. It must then be sent to the pull server and compiled.
 
 From that point on, it's up to the VMs that depend on that configuration to pull the update and
@@ -260,8 +259,7 @@ together in a build. This
 provides more details. This [GitHub repo](https://github.com/Microsoft/vso-agent-tasks) details the available build tasks.
 
 ## Related articles
-* [Azure Automation DSC Overview](automation-dsc-overview.md)
-* [Azure Automation DSC cmdlets](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
+* [Azure Automation DSC overview](automation-dsc-overview.md)
 * [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md)
 
 ## Next steps

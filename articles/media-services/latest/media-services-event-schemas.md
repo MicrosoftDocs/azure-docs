@@ -18,7 +18,7 @@ ms.author: juliako
 
 This article provides the schemas and properties for Media Services events.
 
-For a list of sample scripts and tutorials, see [Media Services event source](../../event-grid/event-sources.md#azure-subscriptions).
+For a list of sample scripts and tutorials, see [Media Services event source](../../event-grid/event-schema-subscriptions.md).
 
 ## Job related event types
 

@@ -11,7 +11,7 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 03/27/2020
+ms.date: 04/15/2020
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
@@ -27,7 +27,7 @@ You can do custom setups on your Azure-SSIS IR in either of two ways:
 You can install both free, unlicensed components and paid, licensed components with express and standard custom setups. If you're an independent software vendor (ISV), see [Develop paid or licensed components for an Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
 
 > [!IMPORTANT]
-> Because v2-series nodes of an Azure-SSIS IR are not suitable for custom setup, use v3-series nodes instead. If you're already using v2-series nodes, switch to v3-series nodes as soon as possible.
+> To benefit from future enhancements, we recommend using v3 or later series of nodes for your Azure-SSIS IR with custom setup.
 
 ## Current limitations
 
