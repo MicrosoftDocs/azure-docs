@@ -10,9 +10,10 @@ Microsoft Azure Service Fabric 7.1 Release Notes
 
 ## Key Annoucements
 - [Service Fabric Backup Explorer](https://github.com/microsoft/service-fabric-backup-explorer):  To ease management of Reliable Collections backup for Service Fabric Stateful applications, we are announcing public preview of Service Fabric Backup Explorer. It is a utility that  enables users to i)Audit and review the contents of the Reliable Collections, ii) update current state to a consistent view, iii) create Backup of the current snapshot of the Reliable Collections and iv) Fix data corruption.
-- Endpoint certificates of Service Fabric applications can be declared by subject common name.
+- Endpoint certificates of Service Fabric applications can be declared by subject common name.  
+- [**FabricObserver (FO) 2.0**](https://github.com/microsoft/service-fabric-observer). Bug fixes and enhancements, structured telemetry implementations for ApplicationInsights, LogAnalytics, EventSource. Production-ready, including [sfpkgs with Microsoft-signed binares](https://github.com/microsoft/service-fabric-observer/releases).
+- [**ClusterObserver (CO) 1.1**](https://github.com/microsoft/service-fabric-observer/tree/master/ClusterObserver). Bug fixes, enhancements, new features including node status monitoring capability for when a node is Down or Disabled/Disabling for longer than a user-configured amount of time. Structured telemetry implementations for ApplicationInsights, LogAnalytics, EventSource. Production-ready, including [sfpkgs with Microsoft-signed binares](https://github.com/microsoft/service-fabric-observer/releases).
   
-
 ## Breaking Changes
 - For customers using service fabric managed identities, **please switch to new environment variables ‘IDENTITY_ENDPOINT’ and ‘IDENTITY_HEADER’**. The prior environment variables'MSI_ENDPOINT' and 'MSI_SECRET' are now removed.
 - Service Fabric Managed Identity endpoint is now secure(HTTPs).
