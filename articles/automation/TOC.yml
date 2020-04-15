@@ -12,6 +12,8 @@
       href: automation-quickstart-create-account.md
     - name: Create a PowerShell runbook
       href: automation-quickstart-create-runbook.md
+    - name: Manage configuration of a machine
+      href: automation-quickstart-dsc-configuration.md
 - name: Tutorials
   items:
     - name: Create a Graphical runbook
@@ -131,6 +133,28 @@
               href: /troubleshoot/hybrid-runbook-worker
         - name: Source control integration
           href: source-control-integration.md
+    - name: State Configuration (DSC)
+      items:
+        - name: Overview
+          href: automation-dsc-overview.md
+        - name: Get started using DSC
+          href: automation-dsc-getting-started.md
+        - name: Onboard machines for management
+          href: automation-dsc-onboarding.md
+        - name: Configure machines to a desired state
+          href: tutorial-configure-servers-desired-state.md
+        - name: Compile DSC configurations
+          href: automation-dsc-compile.md
+        - name: Remediate configuration drift
+          href: automation-dsc-remediate.md
+        - name: Compose DSC configurations
+          href: compose-configurationwithcompositeresources.md
+        - name: Setup continuous deployment with Chocolatey
+          href: automation-dsc-cd-chocolatey.md
+        - name: Integrate with Azure Monitor Logs
+          href: automation-dsc-diagnostics.md
+        - name: Troubleshoot issues with DSC
+          href: /troubleshoot/desired-state-configuration.md
     - name: Start/Stop VMs during off hours
       items:
         - name: Overview
