@@ -78,7 +78,6 @@ In the Azure portal you can open a user's profile by going to Azure AD > Users. 
 Select **Administrative units** on the left panel to see the list of administrative units where the user has been assigned.
 
 ![List the administrative units for a user](./media/roles-aus-add-manage-users/list-group-au.png)
-list-user-au.png)
 
 ### PowerShell
 
