@@ -83,10 +83,10 @@ Private Atlas inherits your Azure Maps Access Control (IAM) settings. Access to 
 Introduction to Private Atlas for Indoor mapping:
 
 > [!div class="nextstepaction"]
-> [Data Upload](private-atlas-for-indoor-maps.md#uploading-a-dwg-package)
+> [Data Upload](private-atlas-for-indoor-maps.md#uploading-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Data Conversion](private-atlas-for-indoor-maps.md#converting-a-dwg-package)
+> [Data Conversion](private-atlas-for-indoor-maps.md#converting-a-drawing-package)
 
 > [!div class="nextstepaction"]
 > [Dataset](private-atlas-for-indoor-maps.md#datasets)

@@ -29,80 +29,47 @@ Once the QGIS Desktop has been successfully downloaded, you can follow the steps
 
 1. Launch the QGIS application.
 
-   <center>
-
    ![Qgis application](./media/azure-maps-qgis-plugin/qgis.png)
 
-   </center>
 
 2. Click on the **Plugins** option in the main menu and select **Manage and Install Plugins**.
 
-   <center>
-
    ![Plugins menu](./media/azure-maps-qgis-plugin/plugin-menu.png)
-
-   </center>
 
 3. In the **Plugins** window, select the **settings** tab. Enable the **Show also experimental plugins** option.
 
-   <center>
-
    ![Settings](./media/azure-maps-qgis-plugin/enable-experimental-plugins.png)
-
-   </center>
 
 4. In the same **Plugins** window, select the **All** tab. Type "Azure Maps" in the search bar to find the Azure Maps plug-in, it should be listed in the results. Click on the **Install Plugin** button. Once the plug-in is installed, you can upgrade to a newer version, if available. Or, you may uninstall and reinstall the plug-in at any time. For more information on how to work with plugins in QGIS, visit the [QGIS plugin documentation](https://docs.qgis.org/3.4/en/docs/user_manual/plugins/plugins.html) page.
 
-   <center>
-
    ![Install plugin](./media/azure-maps-qgis-plugin/install-plugin.png)
-
-   </center>
 
 ## Use the Azure Maps QGIS Plugin
 
 After the installation is complete, the Azure Maps plug-in will be accessible via the QGIS plug-in toolbar.
-
-   <center>
-
+  
    ![Plugin icon](./media/azure-maps-qgis-plugin/plugin-icon.png)
 
-   </center>
 
 Click on the Azure Maps QGIS plug-in icon to open the **Azure Maps** window. In the **Private Atlas** tab, provide your **datasetId**. Provide your Azure Maps **primary subscription key** in the **Authentication** tab. Providing your **datasetId** and **primary subscription key** allows you to access and save the Private Atlas data set. And the modifications you make in the plug-in, will also be with the Azure Maps resources.
 
-   <center>
-
    ![Private Atlas tab](./media/azure-maps-qgis-plugin/private-atlas-tab.png)
    ![Authentication tab](./media/azure-maps-qgis-plugin/authentication-tab.png)
-
-   </center>
 
 You can optionally set the spatial extents for the rendered indoor map in the **Private Atlas** tab. The spatial extent is a bounding box defined by four latitude and longitude coordinates. The coordinates represent the smallest rectangle that encloses all the referenced map data. To obtain your bounding box information, use the [Tileset List API]() from the Azure Maps Tileset service.
 
 The **Floor Picker** tab lets you select the floor number. The map of the selected floor will render in the QGIS application window, so you can make edits to this floor map data. Initially, this option is greyed out because you need to load your data set before you can select a floor number.
 
-   <center>
-
    ![Floor picker](./media/azure-maps-qgis-plugin/floor-picker.png)
-
-   </center>
  
-To load your data set, provide the **datasetId** and the **primary subscription key**. And press the **get features** button in the **Private Atlas** tab. Once this request completes successfully, you'll see layers with the features of your data set in the **Layers** panel. The layers reflect the content of your DWG package. The features in your data may not encompass all the [feature collections](#full-list-of-feature-collections) that the **Layers** panel supports. And, you may not have used all the [supported layers](dwg-requirements.md#dwg-files-requirements). However, you'll definitely see the _Unit_ and the _Exterior_ layers because they're [required](dwg-requirements.md) to convert a DWG package into map data.
-
-   <center>
+To load your data set, provide the **datasetId** and the **primary subscription key**. And press the **get features** button in the **Private Atlas** tab. Once this request completes successfully, you'll see layers with the features of your data set in the **Layers** panel. The layers reflect the content of your Drawing package. The features in your data may not encompass all the [feature collections](#full-list-of-feature-collections) that the **Layers** panel supports. And, you may not have used all the [supported layers](drawing-requirements.md#drawing-files-requirements). However, you'll definitely see the _Unit_ and the _Exterior_ layers because they're [required](drawing-requirements.md) to convert a Drawing package into map data.
 
    ![Layers panel](./media/azure-maps-qgis-plugin/layers-panel.png)
 
-   </center>
 
 You can zoom into a layer by right-clicking on the layer and choosing **Zoom to Layer**. You may also edit the layer by right-clicking and choosing **Open Attribute Table**. In the **Attribute Table** window, click the **toggle** icon to make the data editable. When you're done editing the data, click the **save** icon. The next section shows you common data edits, you'll likely perform on your data set.
 
-   <center>
-
    ![Layers panel options](./media/azure-maps-qgis-plugin/layer-panel-options.png)
-
-   </center>
 
 ### Edit a data set
 
@@ -112,33 +79,22 @@ Although the QGIS application lets you make geometry changes, add features, or d
 
 #### Update a feature collection
 
-The feature collection in your **Layers** panel is imported using the **DWG conversion API**. All the features listed in the [feature table](#full-list-of-feature-collections) can be updated, except the _point_, _line_, and _area_element_ feature. Follow the steps below to change the name of a unit, assuming the building unit has been repurposed.
+The feature collection in your **Layers** panel is imported using the **Data conversion API**. All the features listed in the [feature table](#full-list-of-feature-collections) can be updated, except the _point_, _line_, and _area_element_ feature. Follow the steps below to change the name of a unit, assuming the building unit has been repurposed.
 
 1. In the Azure Maps plug-in, select the **Floor Picker** tab. Choose the floor where the unit to be edited is mapped.
 
 2. In the **Layers** panel in the QGIS application, make sure the **unit** layer is selected. Right-click on the **unit** layer, and select **Open Attribute Table** from the menu.
 
-   <center>
-
    ![Unit menu](./media/azure-maps-qgis-plugin/unit-menu.png)
-
-   </center>
 
 3. In the attribute table, click on the **edit** icon near the top-left of the window. Double-click the name of the unit that you want to rename, and rename it. Click the **save** icon in the toolbar menu.
 
-   <center>
-
    ![Unit attribute table](./media/azure-maps-qgis-plugin/attribute-table.png)
-
-   </center>
 
 If the changes made to the data set are successful, you'll see a success message like the one below. In case your changes aren't successful, you'll see a failure message with details.
 
-   <center>
-
    ![Success message](./media/azure-maps-qgis-plugin/success.png)
 
-   </center>
 
 #### Update project-specific features
 
@@ -148,45 +104,33 @@ The first step in adding a feature to the map is to decide the category and the 
 
 1. Click on the **category** layer in the **Layers** panel, and click on the **edit** icon in the toolbar. Then, click the **Add Record** icon in the toolbar, it's next to the **edit** button.
 
-   <center>
-
    ![Add category](./media/azure-maps-qgis-plugin/add-category.png)
-
-   </center>
 
 2. In the **Feature Attribute** window, define the attributes for the category. The list of supported categories can be found [here](https://aka.ms/pa-indoor-spacecategories). In the example below, we're adding the **furniture.desk** category, which will be used when creating an _area_element_ for the desk.
 
-   <center>
-
    ![Category features](./media/azure-maps-qgis-plugin/category-feature-attributes.png)
-
-   </center>
 
 3. Click the **Save Layer Edits** button, next to the **Add Record** button, to save the new category to the data set. Upon a successful save, you'll see a success message. Otherwise, you'll see a failure message.
 
-   <center>
-
    ![Add category](./media/azure-maps-qgis-plugin/plugin-save-icon.png)
 
-   </center>
+   
 
 4. To see the assigned category ID, reload the data set by clicking the **Get Features** button in the **Private Atlas** tab. If you closed the **Azure Maps** plug-in window, you can reopen the window and click **Get Features**.
 
 5. Right click on the **category** layer in **Layers** panel. Click on **Open Attributes Table**, and you should see the new category in the list along with its unique category ID. Copy the **ID** for the category, you may right-click and select **Copy Cell Content**.
 
-   <center>
-
    ![Category table](./media/azure-maps-qgis-plugin/categories-table.png)
 
-   </center>
+   
 
 6. Right click on the **unit** layer in the **Layers** panel. Click on **OpenAttribute Table**. Copy the **ID** of the chosen unit.
 
-   <center>
+   
 
    ![Unit table](./media/azure-maps-qgis-plugin/unit-table.png)
 
-   </center>
+   
 
 7. Choose **area_element** in the **Layers** panel. Click the **edit** icon, then click on the **Add Polygon Feature** button in the toolbar. 
 
@@ -201,29 +145,29 @@ The first step in adding a feature to the map is to decide the category and the 
    | **unit_ID** | provide the unit ID to add the desk to this unit |
    | **name** | Give a name for the element |
 
-   <center>
+   
 
    ![Element features attributes](./media/azure-maps-qgis-plugin/feature-attributes.png)
 
-   </center>
+   
 
 10. Now that you provide the required information, you should see the element on the map. Click the **Save Layer Edits** button in the toolbar to save changes to your data set.
 
-   <center>
+   
 
    ![Element map](./media/azure-maps-qgis-plugin/element-map.png)
 
-   </center>
+   
 
 5. You should see the new category we generated. Right click on **area_element** layer in the **Layers** panel. Click on the **Open Attributes Table**. Check the new category in the list along with the unique category ID that we generated in a previous step.
 
-   <center>
+   
 
     ![Element table](./media/azure-maps-qgis-plugin/element-table.png)
 
-   <center>
+   
 
-You can use the same thinking processes and steps to add additional features to your map. See the [supported categories](https://aka.ms/pa-indoor-spacecategories) and [supported map layer](dwg-requirements.md#dwg-files-requirements) to decide where to add your features.
+You can use the same thinking processes and steps to add additional features to your map. See the [supported categories](https://aka.ms/pa-indoor-spacecategories) and [supported map layer](drawing-requirements.md#drawing-files-requirements) to decide where to add your features.
 
 ## Full list of feature collections
 

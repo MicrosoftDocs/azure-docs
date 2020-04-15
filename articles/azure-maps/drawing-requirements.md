@@ -78,7 +78,7 @@ The next sections detail the requirements for each layer.
 
 The DWG file for each level must contain a layer to define that level's perimeter. This layer is referred  to as the exterior layer. For example, if a facility contains two levels, then it needs to have two DWG files, with an exterior layer for each file.
 
-Regardless of how many entity drawings are in the exterior layer, the [resulting facility Dataset](tutorial-private-atlas-indoor-maps.md#create-a-feature-state-set) will contain only **one** level feature for each DWG file. Additionally:
+Regardless of how many entity drawings are in the exterior layer, the [resulting facility dataset](tutorial-private-atlas-indoor-maps.md#create-a-feature-stateset) will contain only **one** level feature for each DWG file. Additionally:
 
 * Exteriors must be drawn as Polygon, PolyLine (closed), Circle
 

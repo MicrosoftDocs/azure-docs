@@ -116,8 +116,8 @@ Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpr
     }
     ```
 
-> [!NOTE]
-> The Postman application does not natively support HTTP Long Running Requests. As a result, you may notice a long delay while making a **GET** request at the status URL.  Wait about thirty seconds and try clicking the **Send** button again. The request will be resent and the response will return a status message. For more information on how to make HTTP Long Running Requests, see [Private Atlas Long-Running Operation APIs](private-atlas-long-running-operation.md) and [Asynchronous Reply Patterns](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply).
+    > [!NOTE]
+    > The Postman application does not natively support HTTP Long Running Requests. As a result, you may notice a long delay while making a **GET** request at the status URL.  Wait about thirty seconds and try clicking the **Send** button again. The request will be resent and the response will return a status message. For more information on how to make HTTP Long Running Requests, see [Private Atlas Long-Running Operation APIs](https://docs.microsoft.com/azure/maps/private-atlas-long-running-operation.md) and [Asynchronous Reply Patterns](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply).
 
 If you meet errors while you're converting your Drawing package, see the [Drawing conversion errors and warnings](drawing-conversion-error-codes.md). It provides recommendations on how to resolve conversion issues, with some examples. You may also use the [Drawing error visualizer](azure-maps-drawing-errors-visualizer.md) to conveniently see the errors and warnings on your indoor map.
 
@@ -343,7 +343,7 @@ In this tutorial, you learned how to:
 > * Create a feature stateset by using your map features and the data in your dataset
 > * Update your feature stateset
 
-You're now equipped with the skills you need to move on to the next guides: 
+You're now equipped with the skills you need to move on to the next guides:
 
 > [!div class="nextstepaction"]
 > [Use the Indoor Maps module](how-to-use-indoor-module.md)
@@ -360,10 +360,10 @@ You're now equipped with the skills you need to move on to the next guides:
 Learn more about the different Azure Maps services discussed in this article:
 
 > [!div class="nextstepaction"]
-> [Data Upload](private-atlas-for-indoor-maps.md#uploading-a-dwg-package)
+> [Data Upload](private-atlas-for-indoor-maps.md#uploading-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Data Conversion](private-atlas-for-indoor-maps.md#converting-a-dwg-package)
+> [Data Conversion](private-atlas-for-indoor-maps.md#converting-a-drawing-package)
 
 > [!div class="nextstepaction"]
 > [Dataset](private-atlas-for-indoor-maps.md#datasets)
@@ -375,5 +375,4 @@ Learn more about the different Azure Maps services discussed in this article:
 > [Feature State set](private-atlas-for-indoor-maps.md#feature-statesets)
 
 > [!div class="nextstepaction"]
-> [WFS service](private-atlas-for-indoor-maps.md#web-feature-services-api)
-
+> [WFS service](private-atlas-for-indoor-maps.md#web-feature-service-api)

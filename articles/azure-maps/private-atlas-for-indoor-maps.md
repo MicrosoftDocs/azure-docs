@@ -25,7 +25,7 @@ After you create Private Atlas, you are now ready to upload data, convert data, 
 
 ## Drawing package requirements
 
-Private Atlas collects indoor map data by converting a Drawing package that represents a facility. The Drawing package must contain the DWG files that were typically produced by means of CAD tools during the facility construction or remodeling phase.
+Private Atlas collects indoor map data by converting a Drawing package that represents a facility. The Drawing package must contain the Drawing files that were typically produced by means of CAD tools during the facility construction or remodeling phase.
 
 In addition, the Drawing package must contain a _manifest.json_ file that defines additional metadata to be included in the indoor map data. This metadata file is meant to provide you with an option for adding metadata not included in the CAD drawings.
 
@@ -39,7 +39,7 @@ Once the Drawing package is successfully uploaded, the `udid` (user data identif
 
 ## Converting a Drawing package
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) converts and validates an uploaded Drawing package into indoor map data.  Validation issues are mainly classified into two types: errors and warnings. If any errors are detected, the conversion process fails. If either warnings are detected or neither warnings nor errors, the indoor map data is created and stored in Private Atlas.  To get more information on Drawing package errors and warnings, see [Drawing package warnings and errors](dwg-conversion-error-codes.md).
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) converts and validates an uploaded Drawing package into indoor map data.  Validation issues are mainly classified into two types: errors and warnings. If any errors are detected, the conversion process fails. If either warnings are detected or neither warnings nor errors, the indoor map data is created and stored in Private Atlas.  To get more information on Drawing package errors and warnings, see [Drawing package warnings and errors](drawing-conversion-error-codes.md).
 
 If the Drawing package fails to convert due to validation errors, you will have to fix the error or errors and reupload the Drawing package. To help inspect errors and warnings detected during conversion, the Conversion service provides a means to download the [Azure Maps Drawing Error Visualizer](azure-maps-drawing-errors-visualizer.md), a standalone web application for visualizing and inspecting Drawing package conversion errors and warnings.
 
@@ -77,7 +77,7 @@ The value of each *state* in a stateset can be updated or retrieved by IoT devic
 
 Like tilesets, changing a dataset does not affect the existing feature stateset and deleting a feature stateset will have no effect on the dataset to which it is attached.
 
-For more information on how feature statesets are used to dynamically broadcast state changes, see the [Render V2 API](#render-v2-api) section below.
+For more information on how feature statesets are used to dynamically broadcast state changes, see the [Render V2 API](#render-v2-service) section below.
 
 ## Using indoor maps
 
@@ -114,7 +114,7 @@ As you begin to develop solutions for indoor maps, more can be done by leveragin
 
 If you wish to add a new facility to a dataset and tileset that is currently in production and consumed by one or more applications, you can update the dataset by uploading and converting a new Drawing package that contains the new facility data. Once the package has been successfully uploaded and converted, you can then simply update the current dataset by calling the [Dataset Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). You then would generate a new tileset from the updated dataset and update the application with the new tileset identifier. The entire process is outlined in the following steps.
 
-1. Follow steps in the [Uploading a Drawing package](#uploading-a-dwg-package)] and [Converting a Drawing package](#converting-a-dwg-package) sections to upload and convert the new Drawing package.
+1. Follow steps in the [Uploading a Drawing package(#uploading-a-drawing-package)] and [Converting a Drawing package](#converting-a-drawing-package) sections to upload and convert the new Drawing package.
 
 2. Use the [Dataset Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview) to append the converted data to the existing campus dataset.
 
