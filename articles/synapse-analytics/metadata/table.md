@@ -27,8 +27,6 @@ Mapping of tables to external tables, data sources and file formats.
 
 ## Manage a Spark created table
 
-[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
-
 Use Spark to manage Spark created databases. For example, delete it through a Spark pool job, and create tables in it from Spark.
 
 If you create objects in such a database from SQL on-demand or try to drop the database, the operation will succeed, but the original Spark database will not be changed.
@@ -36,8 +34,6 @@ If you create objects in such a database from SQL on-demand or try to drop the d
 If you try to drop the synchronized schema in a SQL pool, or try to create a table in it, Azure returns an error.
 
 ## Exposing a Spark table in SQL
-
-[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 ### Which Spark tables are shared
 
@@ -87,8 +83,6 @@ Spark tables provide different data types than the Synapse SQL engines. The foll
 
 ## Security model
 
-[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
-
 The Spark databases and tables, as well as their synchronized representations in the SQL engines will be secured at the underlying storage level. Since they do not currently have permissions on the objects themselves, the objects can be seen in the object explorer.
 
 The security principal who creates a managed table is considered the owner of that table and has all the rights to the table as well as the underlying folders and files. In addition, the owner of the database will automatically become co-owner of the table.
@@ -100,8 +94,6 @@ For more information on how to set permissions on the folders and files, see [Az
 ## Examples
 
 ### Create a managed table backed by Parquet in Spark and query from SQL on-demand
-
-[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 In this scenario, you have a Spark database named `mytestdb`. See [Create & connect to Spark database - SQL on-demand](database.md#create--connect-to-spark-database---sql-on-demand).
 
@@ -162,8 +154,6 @@ id | name | birthdate
 
 ### Creating an external table backed by Parquet in Spark and querying it from SQL on-demand
 
-[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
-
 In this example, create an external Spark table over the Parquet data files that got created in the previous example for the managed table.
 
 For example, with SparkSQL run:
@@ -200,8 +190,6 @@ id | name | birthdate
 ```
 
 ### Querying Spark tables in a SQL pool
-
-[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 With the tables created in the previous examples, now create a SQL pool in your workspace named `mysqlpool` that enables metadata synchronization (or use the already created pool from [Exposing a Spark database in a SQL pool](database.md#exposing-a-spark-database-in-a-sql-pool).
 
