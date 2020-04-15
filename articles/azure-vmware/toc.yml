@@ -55,8 +55,8 @@
     href: 
   - name: Migration using vMotion - TODO
     href: 
-  - name: Disaster Recovery - TODO
-    href: 
+  - name: Disaster Recovery
+    href: disaster-recovery.md
 - name: Reference
   items:
 - name: Resources
