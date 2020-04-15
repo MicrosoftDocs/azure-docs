@@ -4,9 +4,7 @@
 
 The status of Spool Docs is being tracked in [this spreadsheet](https://microsoft.sharepoint-df.com/:x:/t/IC3SDK/EasbZy5MyMBLq2S0NyTNBVABhKiR6r8bq8Ld8clQQkgOeA?e=AYC94P).
 
-You may need to open it in the **desktop version of Excel**. You can access this spreadsheet by navigating to the Spool Teams channel > Files > Spool Docs Status.xlsx:
-
-![Edit File](./media/docs-status-spreadsheet.png)
+Open issues are being discussed in [this document](https://microsoft.sharepoint-df.com/:w:/t/IC3SDK/Eer2632Xk-hHgCtvPAj6kgkBPlV42XZmsZ8TG4GwsvZf0A?e=p3yxen).
 
 
 --------------

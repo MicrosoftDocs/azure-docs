@@ -26,6 +26,7 @@ ms.service: azure-project-spool
 - Discussion:
   - {shawn} This is about more than just web services - simple outbound scenarios may be mature, but Spool's offering includes "inbound IVR scenarios". This isn't coming in as soon - still needs work. 
   - {shawn} While there's a mature M365 SDK, leveraging through spool isn't very easy.
+  - This may be one of the more mature features
 
 - TODOs:
   - Draft initial content

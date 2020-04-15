@@ -24,7 +24,7 @@ ms.service: azure-project-spool
   - TODO
 
 - Discussion:
-  - TODO
+  - This would be specifically for TURN / STUN
 
 - TODOs:
   - Draft initial content
