@@ -89,7 +89,7 @@ For more information about creating key vaults and adding secrets, see:
 - [Set and retrieve a secret by using Powershell](../../key-vault/secrets/quick-create-powershell.md)
 - [Set and retrieve a secret by using the portal](../../key-vault/secrets/quick-create-portal.md)
 - [Set and retrieve a secret by using .NET](../../key-vault/secrets/quick-create-net.md)
-- [Set and retrieve a secret by using Node.js](../../key-vault/secrets/node.md)
+- [Set and retrieve a secret by using Node.js](../../key-vault/secrets/quick-create-node.md)
 
 ## Grant access to the secrets
 
