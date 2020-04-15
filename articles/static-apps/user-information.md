@@ -57,6 +57,24 @@ Using libraries like [axios](https://github.com/axios/axios) make the process of
 axios.get(`/api/user`).then(response => console.log(response.data));
 ```
 
+## Example output
+
+The following response is similar to what is sent to the browser based on the example shown in this article.
+
+```json
+{
+    "id": "55545156",
+    "name": "staticwebdev",
+    ​"principal": {
+      "identityProvider": "github",
+      "userId": "55545156",
+      "userDetails": "staticwebdev",
+      "userRoles":["anonymous", "authenticated"]
+      },
+​    "provider": "github"
+}
+```
+
 ## Next steps
 
 > [!div class="nextstepaction"]
