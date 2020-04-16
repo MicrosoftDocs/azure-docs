@@ -53,7 +53,7 @@ There are some cases where the invitation email is recommended over a direct lin
 
 ## Invitation redemption flow
 
-When a user clicks **Get Started** link in an [invitation email](invitation-email-elements.md), Azure AD automatically redeems the invitation based on the redemption flow as shown below:
+When a user clicks the **Accept invitation** link in an [invitation email](invitation-email-elements.md), Azure AD automatically redeems the invitation based on the redemption flow as shown below:
 
 ![Screenshot showing the redemption flow diagram](media/redemption-experience/invitation_redemption_flow.png)
 
