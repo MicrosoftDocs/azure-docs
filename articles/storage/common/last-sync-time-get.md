@@ -66,4 +66,4 @@ $lastSyncTime=$(az storage account show \
 
 - [Azure Storage redundancy](storage-redundancy.md)
 - [Change the redundancy option for a storage account](redundancy-migration.md)
-- [Designing highly available applications using read-access geo-redundant storage](storage-designing-ha-apps-with-ragrs.md)
+- [Use geo-redundancy to design highly available applications](geo-redundant-design.md)

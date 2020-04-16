@@ -102,7 +102,7 @@ The following sections depict how to simulate a failure and primary endpoint res
 
 Open Fiddler, select **Rules** and **Customize Rules**.
 
-![Customize Fiddler rules](media/storage-simulate-failure-ragrs-account-app/figure1.png)
+![Customize Fiddler rules](media/simulate-primary-region-failure/figure1.png)
 
 The Fiddler ScriptEditor launches and displays the **SampleRules.js** file. This file is used to customize Fiddler.
 
@@ -126,7 +126,7 @@ Once complete, select **File** and **Save** to save your changes. Leave the Scri
     */
 ```
 
-![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure2.png)
+![Paste customized rule](media/simulate-primary-region-failure/figure2.png)
 
 ### Start and pause the application
 
@@ -151,6 +151,6 @@ In part two of the series, you learned about simulating a failure to test read a
 To learn more about how RA-GZRS storage works, as well as its associated risks, read the following article:
 
 > [!div class="nextstepaction"]
-> [Designing HA apps with RA-GZRS](../common/storage-designing-ha-apps-with-ragrs.md)
+> [Designing HA apps with RA-GZRS](../common/geo-redundant-design.md)
 
 [previous-tutorial]: storage-create-geo-redundant-storage.md

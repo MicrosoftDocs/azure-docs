@@ -345,4 +345,4 @@ In part one of the series, you learned about making an application highly availa
 Advance to part two of the series to learn how to simulate a failure and force your application to use the secondary RA-GZRS endpoint.
 
 > [!div class="nextstepaction"]
-> [Simulate a failure in reading from the primary region](storage-simulate-failure-ragrs-account-app.md)
+> [Simulate a failure in reading from the primary region](simulate-primary-region-failure.md)

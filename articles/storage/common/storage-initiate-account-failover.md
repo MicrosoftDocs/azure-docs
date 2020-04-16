@@ -106,5 +106,5 @@ az storage account failover \ --name accountName
 ## Next steps
 
 - [Disaster recovery and account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md)
-- [Designing highly available applications using RA-GRS](storage-designing-ha-apps-with-ragrs.md)
+- [Use geo-redundancy to design highly available applications](geo-redundant-design.md)
 - [Tutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md) 

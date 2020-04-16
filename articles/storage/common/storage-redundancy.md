@@ -108,7 +108,7 @@ Geo-redundant storage (with GRS or GZRS) replicates your data to another physica
 
 ### Design your applications for read access to the secondary
 
-If your storage account is configured for read access to the secondary region, then you can design your applications to seamlessly shift to reading data from the secondary region if the primary region becomes unavailable for any reason. The secondary region is always available for read access, so you can test your application to make sure that it will read from the secondary in the event of an outage. For more information about how to design your applications for high availability, see [Designing highly available applications using read-access geo-redundant storage](storage-designing-ha-apps-with-ragrs.md).
+If your storage account is configured for read access to the secondary region, then you can design your applications to seamlessly shift to reading data from the secondary region if the primary region becomes unavailable for any reason. The secondary region is always available for read access, so you can test your application to make sure that it will read from the secondary in the event of an outage. For more information about how to design your applications for high availability, see [Use geo-redundancy to design highly available applications](geo-redundant-design.md).
 
 When read access to the secondary is enabled, your data can be read from the secondary endpoint as well as from the primary endpoint for your storage account. The secondary endpoint appends the suffix *–secondary* to the account name. For example, if your primary endpoint for Blob storage is `myaccount.blob.core.windows.net`, then the secondary endpoint is `myaccount-secondary.blob.core.windows.net`. The account access keys for your storage account are the same for both the primary and secondary endpoints.
 
@@ -154,5 +154,5 @@ Azure Storage regularly verifies the integrity of data stored using cyclic redun
 
 - [Check the Last Sync Time property for a storage account](last-sync-time-get.md)
 - [Change the redundancy option for a storage account](redundancy-migration.md)
-- [Designing highly available applications using RA-GRS Storage](../storage-designing-ha-apps-with-ragrs.md)
+- [Use geo-redundancy to design highly available applications Storage](../geo-redundant-design.md)
 - [Disaster recovery and account failover (preview)](storage-disaster-recovery-guidance.md)

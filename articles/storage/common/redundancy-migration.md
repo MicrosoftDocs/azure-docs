@@ -191,4 +191,4 @@ If you migrate your storage account from GRS to LRS, there is no additional cost
 
 - [Azure Storage redundancy](storage-redundancy.md)
 - [Check the Last Sync Time property for a storage account](last-sync-time-get.md)
-- [Designing highly available applications using read-access geo-redundant storage](storage-designing-ha-apps-with-ragrs.md)
+- [Use geo-redundancy to design highly available applications](geo-redundant-design.md)

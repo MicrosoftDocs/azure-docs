@@ -15,21 +15,17 @@ ms.subservice: common
 
 # Use geo-redundancy to design highly available applications
 
-A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available platform for hosting applications. Developers of cloud-based applications must consider carefully how to leverage this platform to deliver highly available applications to their users. This article focuses on how developers can use one of Azure's geo-redundant replication options to ensure that their Azure Storage applications are highly available.
+A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available and durable platform for hosting data and applications. Developers of cloud-based applications must consider carefully how to leverage this platform to maximize those advantages for their users. Azure Storage offers geo-redundant storage to ensure high availability even in the event of a regional outage. Storage accounts configured for geo-redundant replication are synchronously replicated in the primary region, and then asynchronously replicated to a secondary region that is hundreds of miles away.
 
-Storage accounts configured for geo-redundant replication are synchronously replicated in the primary region, and then asynchronously replicated to a secondary region that is hundreds of miles away. Azure Storage offers two types of geo-redundant replication:
+Azure Storage offers two options for geo-redundant replication. The only difference between these two options is how data is replicated in the primary region:
 
-* [Geo-zone-redundant storage (GZRS)](storage-redundancy.md) provides replication for scenarios requiring both high availability and maximum durability. Data is replicated synchronously across three Azure availability zones in the primary region using zone-redundant storage (ZRS), then replicated asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-zone-redundant storage (RA-GZRS).
+* [Geo-zone-redundant storage (GZRS)](storage-redundancy.md): Data is replicated synchronously across three Azure availability zones in the primary region using *zone-redundant storage (ZRS)*, then replicated asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-zone-redundant storage (RA-GZRS).
 
-    Microsoft recommends using GZRS/RA-GZRS for applications that require superior availability and durability.
+    Microsoft recommends using GZRS/RA-GZRS for scenarios that require both high availability and maximum durability.
 
-* [Geo-redundant storage (GRS)](storage-redundancy.md) provides cross-regional replication to protect against regional outages. Data is replicated synchronously three times in the primary region using locally redundant storage (LRS), then replicated asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-redundant storage (RA-GRS).
+* [Geo-redundant storage (GRS)](storage-redundancy.md): Data is replicated synchronously three times in the primary region using *locally redundant storage (LRS)*, then replicated asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-redundant storage (RA-GRS).
 
 This article shows how to design your application to handle an outage in the primary region. If the primary region becomes unavailable, your application can adapt to perform read operations against the secondary region instead. Make sure that your storage account is configured for RA-GRS or RA-GZRS before you get started.
-
-For information about which primary regions are paired with which secondary regions, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
-
-There are code snippets included in this article, and a link to a complete sample at the end that you can download and run.
 
 ## Application design considerations when reading from the secondary
 
