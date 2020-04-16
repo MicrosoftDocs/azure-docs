@@ -740,6 +740,8 @@
       href: insights/containers.md
   - name: Monitor other resources
     items:
+    - name: Key Vault
+      href: insights/key-vault-insights-overview.md
     - name: Storage
       items:
       - name: Azure Monitor for Storage

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
@@ -16,13 +16,11 @@ ms.custom: "user-help, seo-update-azuread-jan"
 
 # Use your phone number as a user name (preview)
 
-Registering your device gives your phone access to your organization's services and doesn't allow your organization access to your phone.
-
-## User registers a number
+Registering a device gives your phone access to your organization's services and doesn't allow your organization access to your phone. If you're an administrator, you can find more information in [Configure and enable users for SMS-based authentication](../authentication/howto-authentication-sms-signin.md).
 
 If your organization hasn't made SMS sign-in available, you won't see an option for it when registering a phone with your account.  
 
-## User with new phone number
+## When you have a new phone number
 
 If you get a new phone or new number and you register it with an organization for which SMS sign-in is available, you experience the normal phone registration process:
 
@@ -35,7 +33,7 @@ If you get a new phone or new number and you register it with an organization fo
 > [!Important]
 > Due to a known issue in the preview, for a short time adding phone number will not register the number for SMS sign-in. You'll have to sign in with the added number and then follow the prompts to register the number for SMS sign-in.
 
-### The phone number is in use
+### When the phone number is in use
 
 If you try to use a phone number that someone else in your organization is using, you'll see the following message:
 
@@ -43,7 +41,7 @@ If you try to use a phone number that someone else in your organization is using
 
 Reach out to your admin to remediate the problem.
 
-## User with an existing number
+## When you have an existing number
 
 If you are already using a phone number with an organization, and using your phone number as a user name becomes available, the following steps can help you sign in.
 
@@ -61,7 +59,7 @@ If you are already using a phone number with an organization, and using your pho
 
 1. Select **Enable**.
 
-## Delete phone number
+## When you remove your phone number
 
 1. To delete the phone number, select the delete button on the SMS sign-in phone method tile.
 
