@@ -94,7 +94,7 @@ The runbook that you have created is still in Draft mode. It needs to be publish
 1. Click **All Logs** to open the Streams pane for the runbook job. You should only see `Hello World` in the output stream. 
 
     Note that the Streams pane can show other streams for a runbook job, such as Verbose and Error streams, if the runbook writes to them.
-1. Close the Streams pane and the Job pane to return to the  **MyFirstRunbook-Graphical**  page.
+1. Close the Streams pane and the Job pane to return to the MyFirstRunbook-Graphical page.
 1. To view all the jobs for the runbook, select **Jobs** under **Resources**. The Jobs page lists all the jobs created by your runbook. You should see only one job listed, since you have only run the job once.
 1. Click the job name to open the same Job pane that you viewed when you started the runbook. Use this pane to view the details of any job created for the runbook.
 
@@ -120,7 +120,7 @@ Now that you have a variable to hold the subscription ID, you can configure the 
 >[!NOTE]
 >For PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for `Connect-AzAccount`. Note that these aliases are not available for your graphical runbooks. A graphical runbook can only use `Connect-AzAccount`itself.
 
-1. Navigate to your runbook and select **Edit** on the **MyFirstRunbook-Graphical** page.
+1. Navigate to your runbook and select **Edit** on the MyFirstRunbook-Graphical page.
 1. You don't need the `Write Hello World to output` entry any more. Just click the ellipsis and select **Delete**.
 1. In the Library control, expand **ASSETS**, then **Connections**. Add `AzureRunAsConnection` to the canvas by selecting **Add to canvas**.
 1. Rename `AzureRunAsConnection` to `Get Run As Connection`.
@@ -135,7 +135,7 @@ Now that you have a variable to hold the subscription ID, you can configure the 
 
    * **Data source** -- select **Activity output**.
    * Data source list -- select **Get Automation Connection**.
-   * **Field path** -- type `ApplicationId`. You are specifying the name of the property for the field path because the activity outputs an object with multiple properties.
+   * **Field path** -- type `ApplicationId`. You're specifying the name of the property for the field path because the activity outputs an object with multiple properties.
 
 1. Click **CERTIFICATETHUMBPRINT**, and on the Parameter Value page, make the following settings and then click **OK**.
 
@@ -179,7 +179,7 @@ Now you must add a `Start-AzVM` activity to start a virtual machine. You can pic
 
 Your runbook currently starts the VM in the resource group that you specified for the `Start-AzVM` cmdlet. The runbook will be more useful if you specify both name and resource group when the runbook is started. Let's add input parameters to the runbook to provide that functionality.
 
-1. Open the graphical editor by clicking **Edit** on the **MyFirstRunbook-Graphical** pane.
+1. Open the graphical editor by clicking **Edit** on the MyFirstRunbook-Graphical page.
 1. Select **Input and output** and then **Add input** to open the Runbook Input Parameter pane.
 1. Make the following settings in the provided fields and then click **OK**.
    * **Name** -- specify `VMName`.
@@ -237,7 +237,7 @@ You can now modify the runbook so that it only attempts to start the VM if it is
 1. For the first `Write-Output` control, click **Parameters** and change the **Label** value to **Notify VM Started**.
 1. For **InputObject**, change **Data source** to **PowerShell expression**, and type in the expression `$VMName successfully started.`.
 1. On the second `Write-Output` control, click **Parameters** and change the **Label** value to **Notify VM Start Failed**.
-1. For **InputObject**, change **Data source** to **PowerShell expression**, and type in the expression `$VMName could not start.`.
+1. For **InputObject**, change **Data source** to **PowerShell expression**, and type in the expression `$VMName could not start`.
 1. Create links from `Start-AzVM` to `Notify VM Started` and `Notify VM Start Failed`.
 1. Select the link to `Notify VM Started` and change **Apply condition** to true.
 1. For the **Condition expression**, type `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true`. This `Write-Output` control now only runs if the VM starts successfully.
@@ -253,3 +253,5 @@ You can now modify the runbook so that it only attempts to start the VM if it is
 * To learn more about graphical authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
 * To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md).
 * To get started with PowerShell Workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md).
+* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).
