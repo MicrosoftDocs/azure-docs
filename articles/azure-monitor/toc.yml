@@ -250,15 +250,19 @@
             href: app/java-standalone-config.md 
       - name: On-Premises servers
         items:
-        - name: Overview
-          displayname: IIS monitoring, on premises monitoring, on prem, 
-          href: app/status-monitor-v2-overview.md
-        - name: Getting started
-          href: app/status-monitor-v2-get-started.md
-        - name: Detailed instructions
-          href: app/status-monitor-v2-detailed-instructions.md
-        - name: Troubleshooting and known issues
-          href: app/status-monitor-v2-troubleshoot.md
+        - name: .NET
+          items: 
+          - name: Overview
+            displayname: IIS monitoring, on premises monitoring, on prem, 
+            href: app/status-monitor-v2-overview.md
+          - name: Getting started
+            href: app/status-monitor-v2-get-started.md
+          - name: Detailed instructions
+            href: app/status-monitor-v2-detailed-instructions.md
+          - name: Troubleshooting and known issues
+            href: app/status-monitor-v2-troubleshoot.md
+        - name: Java
+          href: app/java-on-premises.md
     - name: Create a resource
       href: app/create-new-resource.md 
     - name: Application dashboard
@@ -269,7 +273,7 @@
       href: app/app-map.md
     - name: Transaction diagnostics
       href: app/transaction-diagnostics.md
-      displayname: e2e, end-to-end, component, dependency, cross-compoent transaction, operation ID, dependencies
+      displayname: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
     - name: Availability
       items:
       - name: URL tests
