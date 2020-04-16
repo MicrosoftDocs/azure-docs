@@ -38,13 +38,13 @@ Learn more about how billing works at the [triggers](#triggers) and [actions](#a
 
 ## Fixed pricing model
 
-An [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) provides an isolated way for you to create and run logic apps that can access resources in an Azure virtual network. You can choose from these [ISE levels or "SKUs"](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus), which have different [pricing rates](https://azure.microsoft.com/pricing/details/logic-apps):
+An [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) provides an isolated way for you to create and run logic apps that can access resources in an Azure virtual network. Logic apps that run in an ISE don't incur data retention costs. When you create an ISE, and only during creation, you can choose an [ISE level or "SKU"](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), which have different [pricing rates](https://azure.microsoft.com/pricing/details/logic-apps):
 
-* [Premium ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus): This SKU's base unit has fixed capacity. If you need more throughput, you can [add more scale units](../logic-apps/ise-manage-integration-service-environment.md#add-capacity), either during creation or afterwards. For information about Premium ISE limits, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
+* **Premium** ISE: This SKU's base unit has fixed capacity, but if you need more throughput, you can [add more scale units](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) during ISE creation or afterwards. For ISE limits, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
 
-* [Developer ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus): This SKU doesn't have the capability to add more scale units. Logic apps that run in an ISE don't incur data retention costs. The Developer ISE has no published limits as this SKU doesn't have any service-level agreement (SLA) or capabilities for scaling up. Use this SKU only for experimenting, development, and testing, not production or performance testing.
+* **Developer** ISE: This SKU has no capability for scaling up, no service-level agreement (SLA), and no published limits. Use this SKU only for experimenting, development, and testing, not production or performance testing.
 
-For new logic apps that run in an ISE, you pay a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps) for these capabilities:
+For logic apps that you create and run in an ISE, you pay a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps) for these capabilities:
 
 * [Built-in](../connectors/apis-list.md#built-in) triggers and actions
 
@@ -56,15 +56,15 @@ For new logic apps that run in an ISE, you pay a [fixed monthly price](https://a
 
 * [Integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) usage at no additional cost, based on your [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 
-  * **Premium SKU**: A single [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
+  * **Premium** ISE SKU: A single [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
 
-  * **Developer SKU**: A single [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
+  * **Developer** ISE SKU: A single [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
 
   Each ISE SKU is limited to 5 total integration accounts. For an additional cost, you can have more integration accounts, based on your ISE SKU:
 
-  * **Premium SKU**: Up to four more Standard accounts. No Free or Basic accounts.
+  * **Premium** ISE SKU: Up to four more Standard accounts. No Free or Basic accounts.
 
-  * **Developer SKU**: Either up to 4 more Standard accounts, or up to 5 total Standard accounts. No Basic accounts.
+  * **Developer** ISE SKU: Either up to 4 more Standard accounts, or up to 5 total Standard accounts. No Basic accounts.
 
   For more information about integration account limits, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). You can learn more about [integration account tiers and their pricing model](#integration-accounts) later in this topic.
 
