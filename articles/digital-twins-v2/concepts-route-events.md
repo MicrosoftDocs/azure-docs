@@ -68,13 +68,12 @@ The endpoint APIs that are available in control plane are:
 Event routes are created in a client application with the following [Azure Digital Twins API](how-to-use-apis.md) call: 
 
 ```csharp
-await client.EventRoutes.AddAsync("<name-for-the-new-route>", 
-                                   new EventRoute("<endpoint-ID>"));
+await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-ID>"));
 ```
 
 * The `endpoint-ID` identifies an endpoint, such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
 
-The event route object passed to `EventRoutes.Add` also takes a **filter** parameter. However, during the preview release, this filter parameter does nothing. We recommend using Event Grid as the endpoint, and the Event Grid subscription filter during preview. 
+The event route object passed to `EventRoutes.Add` also takes a **filter** parameter, which can be used to restrict the types of events that follow this route.
 
 Routes can be also created using [Azure Digital Twins CLI for Routes](https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI#adt-routes).
 
