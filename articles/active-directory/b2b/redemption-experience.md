@@ -67,7 +67,7 @@ When a user clicks **Get Started** link in an [invitation email](invitation-emai
 
 5. Once the user’s **home directory** is identified, the user is sent to the corresponding identity provider to sign in.  
 
-6. If steps 1 to 4 fail to find a home directory for the invited user, Azure AD determines whether the inviting tenant has enabled [email One-Time Passcode (OTP)](one-time-passcode.md) for guests.
+6. If steps 1 to 4 fail to find a home directory for the invited user, Azure AD determines whether the inviting tenant has enabled the [Email one-time passcode (OTP)](one-time-passcode.md) feature for guests.
 
 7. If [Email one-time passcode for guests is enabled](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode), a passcode is sent to the user through the invited email. The user will retrieve and enter this passcode in the Azure AD sign-in page.
 
