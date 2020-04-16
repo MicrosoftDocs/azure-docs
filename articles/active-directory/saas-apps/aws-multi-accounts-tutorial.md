@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/03/2020
+ms.date: 04/16/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 ![Amazon Web Services (AWS) in the results list](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 > [!NOTE]
-> Please note connecting one AWS app to all your AWS accounts is not our recommended approach. Instead we recommend you to use [this](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) approach to configure multiple instances of AWS account to Multiple instances of AWS apps in Azure AD. You should only use [this](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) approach if you have very less number of AWS Accounts and Roles in it. [this](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) model is not scalable as the AWS accounts and roles inside these accounts grows. Also [this](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) approach does not use AWS Role import functionality using Azure AD User Provisioning and so you have to manually add/update/delete the roles. For other limitations on [this](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) approach please see the details below.
+> Please note connecting one AWS app to all your AWS accounts is not our recommended approach. Instead we recommend you to use [this](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) approach to configure multiple instances of AWS account to Multiple instances of AWS apps in Azure AD. You should only use this approach if you have very less number of AWS Accounts and Roles in it, this model is not scalable as the AWS accounts and roles inside these accounts grows. Also this approach does not use AWS Role import functionality using Azure AD User Provisioning and so you have to manually add/update/delete the roles. For other limitations on this approach please see the details below.
 
 **Please note that we do not recommend to use this approach for following reasons:**
 
