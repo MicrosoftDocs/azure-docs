@@ -41,7 +41,7 @@ To upload a block blob to your new container in the Azure portal, follow these s
 
 1. In the Azure portal, navigate to the container you created in the previous section.
 1. Select the container to show a list of blobs it contains. This container is new, so it won't yet contain any blobs.
-1. Select the **Upload** button to open the upload blade and browse your local file system to find a file to upload as a block blob. You can optionally, expand the advanced section to configure other settings for the upload operation.
+1. Select the **Upload** button to open the upload blade and browse your local file system to find a file to upload as a block blob. You can optionally expand the advanced section to configure other settings for the upload operation.
 
     ![Screenshot showing how to upload a blob from your local drive](media/storage-quickstart-blobs-portal/upload-blob.png)
 
