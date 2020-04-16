@@ -40,7 +40,7 @@ To get started, you need:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* MongoDB Cloud supports **SP and IDP** initiated SSO.
+* MongoDB Cloud supports **SP** and **IDP** initiated SSO.
 * MongoDB Cloud supports **Just In Time** user provisioning.
 * After you configure MongoDB Cloud, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. For more information, see [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
@@ -162,7 +162,7 @@ When you select the MongoDB Cloud tile in Access Panel, you're automatically sig
 
 - [Tutorials for integrating SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
