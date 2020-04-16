@@ -84,13 +84,10 @@ The relevant HTTP methods for suppression rules in the REST API are:
 
 - **DELETE**: Deletes an existing rule (but doesn't change the status of alerts already dismissed by it).
 
-
+For full details and usage examples, see the [API documentation](https://docs.microsoft.com/api/securitycenter/). 
 
 --- 
 
-
-
+## Editing
 
 ## Deleting
-
-## Editing
