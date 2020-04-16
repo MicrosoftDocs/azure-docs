@@ -22,9 +22,6 @@ QnA pairs are added from a datasource, such as a file or URL, or added as an edi
 
 1. In the new QnA pair row, add the required question and answer fields. The other fields are optional. All fields can be changed at any time.
 
-    > [!div class="mx-imgBorder"]
-    > ![Add question and answer to QnA pair](../media/qnamaker-how-to-edit-kb/edit-qna-set-question-and-answer.png)
-
 1. Optionally, add **[alternate phrasing](../Quickstarts/add-question-metadata-portal.md#add-additional-alternatively-phrased-questions)**. Alternate phrasing is any form of the question that is significantly different from the original question but should provide the same answer.
 
     When your knowledge base is published, and you have [active learning](use-active-learning.md) turned on, QnA Maker collects alternate phrasing choices for you to accept. These choices are selected in order to increase the prediction accuracy.
