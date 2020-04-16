@@ -100,7 +100,7 @@ OBS starts with a default scene but with no inputs selected.
 
    ![OBS audio source with add existing selected ](media/live-events-obs-quickstart/live-event-obs-new-audio-source.png)
 
-1. From the **Device** dropdown list, select the audio capture device you want to use for your broadcast. Leave the rest of the settings alone for now, and click OK. This will add the audio capture device to the audio mixer panel.
+1. From the **Device** dropdown list, select the audio capture device you want to use for your broadcast. Leave the rest of the settings alone for now, and click OK. The audio capture device will be added to the audio mixer panel.
 
    ![OBS audio device selection dropdown list](media/live-events-obs-quickstart/live-event-select-audio-device.png)
 
@@ -158,12 +158,12 @@ This part will set up your outputs and enable you to save a recording of your li
 > For you to stream this output, the streaming endpoint must be running. See the later [Run the default streaming endpoint](#run-the-default-streaming-endpoint) section.
 
 1. Select the **Create outputs** link below the **Outputs** video viewer.
-1. If you like, edit the name of the output in the **Name** box to something more user friendly so it's easy to find later.
+1. If you like, edit the name of the output in the **Name** box to something more user-friendly so it's easy to find later.
 
    ![Output name box](media/live-events-wirecast-quickstart/output-name.png)
 1. Leave all the rest of the boxes alone for now.
 1. Select **Next** to add a streaming locator.
-1. Change the name of the locator to something more user friendly, if you want.
+1. Change the name of the locator to something more user-friendly, if you want.
 
    ![Locator name box](media/live-events-wirecast-quickstart/live-event-locator.png)
 1. Leave everything else on this screen alone for now.
