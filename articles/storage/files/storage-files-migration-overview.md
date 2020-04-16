@@ -17,11 +17,11 @@ This article contains migration basics and a table of migration guides. These gu
 
 ## Migration basics
 
-Azure has multiple available types of cloud storage. A fundamental aspect of file migration to Azure is determining which Azure storage option is right for your data.
+Azure has multiple available types of cloud storage. A fundamental aspect of file migrations to Azure is determining which Azure storage option is right for your data.
 
-Azure file shares are suitable for general purpose file data. This data includes anything you use an on-premises SMB or NFS share for. With [Azure File Sync](storage-sync-files-planning.md), you can cache the contents of several Azure file shares on Windows Servers on-premises.
+[Azure file shares](storage-files-introduction.md) are suitable for general purpose file data. This data includes anything you use an on-premises SMB or NFS share for. With [Azure File Sync](storage-sync-files-planning.md), you can cache the contents of several Azure file shares on Windows Servers on-premises.
 
-For an app that currently runs on an on-premises server, storing files in Azure file shares might be right for you. You can move the app to Azure and use Azure file shares as shared storage. You can also consider [Azure Disks](../../virtual-machines/windows/managed-disks-overview.md) for this scenario.
+For an app that currently runs on an on-premises server, storing files in an Azure file share might be a good choice. You can move the app to Azure and use Azure file shares as shared storage. You can also consider [Azure Disks](../../virtual-machines/windows/managed-disks-overview.md) for this scenario.
 
 Some cloud apps don't depend on SMB or on machine-local data access or shared access. For those apps, object storage like [Azure blobs](../blobs/storage-blobs-overview.md) is often the best choice.
 
@@ -46,13 +46,13 @@ To ensure your migration proceeds smoothly, identify [the best copy tool for you
 
 Taking the previous information into account, you can see that the target storage for general purpose files in Azure is [Azure file shares](storage-files-introduction.md).
 
-Unlike object storage in Azure blobs, an Azure file share can natively store file metadata. Azure file shares also preserve the file and folder hierarchy. And NTFS permissions can be stored on files and folders because they're on-premises.
+Unlike object storage in Azure blobs, an Azure file share can natively store file metadata. Azure file shares also preserve the file and folder hierarchy, attributes, and permissions. NTFS permissions can be stored on files and folders because they're on-premises.
 
-A user of Azure Active Directory Domain Services (Azure AD DS) can natively access an Azure file share. They use their current identity to get access based on share permissions and on file and folder ACLs. This behavior is similar to a user connecting to an on-premises file share.
+A user of Azure Active Directory (Azure AD) or Azure Active Directory Domain Services (Azure AD DS) can natively access an Azure file share. They use their current identity to get access based on share permissions and on file and folder ACLs. This behavior is similar to a user connecting to an on-premises file share.
 
 The alternative data stream is the primary aspect of file fidelity that currently can't be stored on a file in an Azure file share. It's preserved on-premises when Azure File Sync is used.
 
-Learn more about [Azure Active Directory (Azure AD) authentication](storage-files-identity-auth-active-directory-enable.md) and [Azure AD DS authentication](storage-files-identity-auth-active-directory-domain-service-enable.md) for Azure file shares.
+Learn more about [Azure AD authentication](storage-files-identity-auth-active-directory-enable.md) and [Azure AD DS authentication](storage-files-identity-auth-active-directory-domain-service-enable.md) for Azure file shares.
 
 ## Migration guides
 
@@ -100,7 +100,13 @@ There are several file-copy tools available from Microsoft and others. To select
 
 * Does the tool have features that let it fit into your migration strategy?
 
-    For example, consider whether the tool lets you minimize your downtime. A good question to ask is, "Can I run this copy multiple times on the same, by users actively accessed location?" If so, you can reduce downtime significantly. Compare this situation to one where you guarantee a complete copy by starting the copy only after the source stops changing.
+    For example, consider whether the tool lets you minimize your downtime.
+    
+    When a tool supports an option to mirror a source to a target, you can often run it multiple times on the same source and target while the source stays accessible.
+
+    The first time you run the tool, it copies the bulk of the data. This initial run might last a while. It often lasts longer than you want for taking the data source offline for your business processes.
+
+    By mirroring a source to a target (as with **robocopy /MIR**), you can run the tool again on that same source and target. The run is much faster because it needs to transport only source changes that occur after the previous run. Rerunning a copy tool this way can reduce downtime significantly.
 
 The following table classifies Microsoft tools and their current suitability for Azure file shares:
 
