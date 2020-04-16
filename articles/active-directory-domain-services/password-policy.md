@@ -9,7 +9,7 @@ ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
 
@@ -41,6 +41,11 @@ To complete this article, you need the following resources and privileges:
 ## Default password policy settings
 
 Fine-grained password policies (FGPPs) let you apply specific restrictions for password and account lockout policies to different users in a domain. For example, to secure privileged accounts you can apply stricter account lockout settings than regular non-privileged accounts. You can create multiple FGPPs within an Azure AD DS managed domain and specify the order of priority to apply them to users.
+
+For more information about password policies and using the Active Directory Administration Center, see the following articles:
+
+* [Learn about fine-grained password policies](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
+* [Configure fine-grained password policies using AD Administration Center](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
 
 Policies are distributed through group association in an Azure AD DS managed domain, and any changes you make are applied at the next user sign-in. Changing the policy doesn't unlock a user account that's already locked out.
 

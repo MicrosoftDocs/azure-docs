@@ -4,7 +4,7 @@ description: This article provides an overview of how to use Azure Automation Up
 services: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 03/04/2020
+ms.date: 04/06/2020
 ms.custom: mvc
 ---
 # Manage updates and patches for your Azure VMs
@@ -117,7 +117,7 @@ Under **New update deployment**, specify the following information:
 
    For descriptions of the classification types, see [Update classifications](automation-view-update-assessments.md#update-classifications).
 
-* **Updates to include/exclude** - Opens the Include/Exclude page. Updates to be included or excluded are on separate tabs.
+* **Updates to include/exclude** - Opens the Include/Exclude page. Updates to be included or excluded are on separate tabs by specifying the KB Article ID numbers. When specifying one or more ID numbers, you need to remove or un-check all classifications with the update deployment. This ensures that no other updates are included in your update package when specifying update IDs.
 
 > [!NOTE]
 > It's important to know that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, Update Management installs no patches or packages, as they're all excluded. Excluded patches still show as missing from the machine. For Linux machines, if you include a package that has a dependent package that has been excluded, Update Management doesn't install the main package.

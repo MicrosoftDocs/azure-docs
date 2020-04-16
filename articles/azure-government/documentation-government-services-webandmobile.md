@@ -60,19 +60,10 @@ those apps created in the public cloud:
 Some App Service features available in the public cloud are not yet available 
 in Azure Government:
 
-- Diagnose and solve problems
 - Deployment
     - Deployment Options: Only Local Git Repository and External Repository are available.
-    - Deployment Center
-- Settings
-    - Application Insights
 - Development Tools
-    - Performance test
     - Resource explorer
-    - PHP Debugging
-- Support & Troubleshooting
-    - App Service Advisor
-- App Service Certificates
 
 
 ### Considerations

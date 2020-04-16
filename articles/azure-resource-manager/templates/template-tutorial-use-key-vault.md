@@ -166,6 +166,8 @@ New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile "$HOME/azuredeploy.json" `
     -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 When you deploy the template, use the same resource group that you used in the key vault. This approach makes it easier for you to clean up the resources, because you need to delete only one resource group instead of two.
@@ -189,11 +191,13 @@ $projectName = Read-Host -Prompt "Enter the same project name that is used for c
 $resourceGroupName = "${projectName}rg"
 
 Remove-AzResourceGroup -Name $resourceGroupName
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 ## Next steps
 
-In this tutorial, you retrieved a secret from your Azure key vault. You then used the secret in your template deployment. To learn how to create linked templates, see:
+In this tutorial, you retrieved a secret from your Azure key vault. You then used the secret in your template deployment. To learn how to use virtual machine extensions to perform post deployment tasks, see:
 
 > [!div class="nextstepaction"]
-> [Create linked templates](./template-tutorial-create-linked-templates.md)
+> [Deploy virtual machine extensions](./template-tutorial-deploy-vm-extensions.md)

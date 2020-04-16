@@ -161,8 +161,13 @@
     - name: Code-based monitoring
       items:
       - name: ASP.NET Core 
-        displayname: Core, .NET Core, services.add, dotnetcore, c#, csharp
-        href: app/asp-net-core.md
+        items:
+        - name: ASP.NET Core App Monitoring
+          displayname: Core, .NET Core, services.add, dotnetcore, c#, csharp
+          href: app/asp-net-core.md
+        - name: ILogger
+          displayname: ilogger, logging, log 
+          href: app/ilogger.md
       - name: ASP.NET
         displayname: ASP.NET, c#, csharp, .NET, NET, dotnet 
         href: app/asp-net.md
@@ -172,9 +177,6 @@
       - name: .NET Console
         displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
         href: app/console.md
-      - name: ILogger
-        displayname: ilogger, logging, log 
-        href: app/ilogger.md
       - name: Java
         items:
           - name: Web apps
@@ -220,8 +222,12 @@
         href: app/api-custom-events-metrics.md
       - name: Troubleshoot ASP.NET
         href: app/asp-net-troubleshoot-no-data.md
+      - name: Remove Application Insights 
+        href: app/remove-application-insights.md
     - name: Codeless monitoring
       items: 
+      - name: Any environment - Java (preview)
+        href: app/java-in-process-agent.md
       - name: Azure VM and scale set
         href: app/azure-vm-vmss-apps.md
       - name: Azure App Service
@@ -734,6 +740,8 @@
       href: insights/containers.md
   - name: Monitor other resources
     items:
+    - name: Key Vault
+      href: insights/key-vault-insights-overview.md
     - name: Storage
       items:
       - name: Azure Monitor for Storage
@@ -1069,6 +1077,8 @@
         href: platform/itsmc-connections.md
       - name: Create Service Manager web app
         href: platform/itsmc-service-manager-script.md
+      - name: Fix ServiceNow ITSM sync problems
+        href: platform/itsmc-resync-servicenow.md
   - name: Automate 
     items:
     - name: Autoscale

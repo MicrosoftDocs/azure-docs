@@ -1,5 +1,6 @@
 ---
-title: Operator best practices - Advanced scheduler features in Azure Kubernetes Services (AKS)
+title: Best practices for scheduler features
+titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for using advanced scheduler features such as taints and tolerations, node selectors and affinity, or inter-pod affinity and anti-affinity in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual

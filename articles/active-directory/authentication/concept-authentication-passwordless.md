@@ -159,7 +159,7 @@ Use the following table to choose which method will support your requirements an
 
 ## Next steps
 
-[Enable FIDO2 security key passwordlesss options in your organization](howto-authentication-passwordless-security-key.md)
+[Enable FIDO2 security key passwordless options in your organization](howto-authentication-passwordless-security-key.md)
 
 [Enable phone-based passwordless options in your organization](howto-authentication-passwordless-phone.md)
 

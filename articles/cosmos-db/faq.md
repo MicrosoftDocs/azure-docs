@@ -28,7 +28,7 @@ Azure Cosmos DB has a schema agnostic indexing engine capable of automatically i
 
 ### Can I use multiple APIs to access my data?
 
-Azure Cosmos DB is Microsoft's globally distributed, multi-model database service. Where multi-model means Azure Cosmos DB supports multiple APIs and multiple data models, different APIs use different data formats for storage and wire protocol. For example, SQL uses JSON, MongoDB uses BSON, Table uses EDM, Cassandra uses CQL, Gremlin uses GraphSON. As a result, we recommend using the same API for all access to the data in a given account.
+Azure Cosmos DB is Microsoft's globally distributed, multi-model database service. Where multi-model means Azure Cosmos DB supports multiple APIs and multiple data models, different APIs use different data formats for storage and wire protocol. For example, SQL uses JSON, MongoDB uses BSON, Table uses EDM, Cassandra uses CQL, Gremlin uses JSON format. As a result, we recommend using the same API for all access to the data in a given account.
 
 Each API operates independently, except the Gremlin and SQL API, which are interoperable.
 
@@ -228,7 +228,7 @@ Along with the common MongoDB error codes, the Azure Cosmos DB's API for MongoDB
 
 ### Is the Simba driver for MongoDB supported for use with Azure Cosmos DB's API for MongoDB?
 
-Yes, you can use Simba’s Mongo ODBC driver with Azure Cosmos DB's API for MongoDB
+Yes, you can use Simba's Mongo ODBC driver with Azure Cosmos DB's API for MongoDB
 
 ## <a id="table"></a>Table API
 
@@ -398,7 +398,7 @@ You can add as many regions as you want for the account and control where it can
 
 ### Is the Table API enabled for backups?
 
-Yes, the Table API leverages the platform of Azure Cosmos DB for backups. Backups are made automatically. For more information, see [Online backup and restore with Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+Yes, the Table API leverages the platform of Azure Cosmos DB for backups. Backups are made automatically. For more information, see [Online backup and restore with Azure Cosmos DB](online-backup-and-restore.md).
 
 ### Does the Table API index all attributes of an entity by default?
 
@@ -517,7 +517,7 @@ All graph objects, vertices, and edges, are shown as JSON documents in the backe
 
 The RU charge is based on the working data set of the traversal, and not the result set. For example, if a query aims to obtain a single vertex as a result but needs to traverse more than one other object on the way, then the cost will be based on all the graph objects that it will take to compute the one result vertex.
 
-### What’s the maximum scale that a graph database can have in Azure Cosmos DB Gremlin API?
+### What's the maximum scale that a graph database can have in Azure Cosmos DB Gremlin API?
 
 Azure Cosmos DB makes use of [horizontal partitioning](partition-data.md) to automatically address increase in storage and throughput requirements. The maximum throughput and storage capacity of a workload is determined by the number of partitions that are associated with a given container. However, a Gremlin API container has a specific set of guidelines to ensure a proper performance experience at scale. For more information about partitioning, and best practices, see [partitioning in Azure Cosmos DB](partition-data.md) article.
 
@@ -525,13 +525,13 @@ Azure Cosmos DB makes use of [horizontal partitioning](partition-data.md) to aut
 
 Most native Apache Tinkerpop Gremlin drivers allow the option to provide a dictionary of parameters for query execution. This is an example of how to do it in [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) and in [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
-### Why am I getting the “Gremlin Query Compilation Error: Unable to find any method” error?
+### Why am I getting the "Gremlin Query Compilation Error: Unable to find any method" error?
 
 Azure Cosmos DB Gremlin API implements a subset of the functionality defined in the Gremlin surface area. For supported steps and more information, see [Gremlin support](gremlin-support.md) article.
 
 The best workaround is to rewrite the required Gremlin steps with the supported functionality, since all essential Gremlin steps are supported by Azure Cosmos DB.
 
-### Why am I getting the “WebSocketException: The server returned status code '200' when status code '101' was expected” error?
+### Why am I getting the "WebSocketException: The server returned status code '200' when status code '101' was expected" error?
 
 This error is likely thrown when the wrong endpoint is being used. The endpoint that generates this error has the following pattern:
 
@@ -541,7 +541,7 @@ This is the documents endpoint for your graph database.  The correct endpoint to
 
 `https://YOUR_DATABASE_ACCOUNT.gremlin.cosmosdb.azure.com:443/`
 
-### Why am I getting the “RequestRateIsTooLarge” error?
+### Why am I getting the "RequestRateIsTooLarge" error?
 
 This error means that the allocated Request Units per second aren't enough to serve the query. This error is usually seen when you run a query that obtains all vertices:
 
@@ -556,7 +556,7 @@ This query will attempt to retrieve all vertices from the graph. So, the cost of
 
 A Gremlin connection is made through a WebSocket connection. Although WebSocket connections don't have a specific time to live, Azure Cosmos DB Gremlin API will terminate idle connections after 30 minutes of inactivity.
 
-### Why can’t I use fluent API calls in the native Gremlin drivers?
+### Why can't I use fluent API calls in the native Gremlin drivers?
 
 Fluent API calls aren't yet supported by the Azure Cosmos DB Gremlin API. Fluent API calls require an internal formatting feature known as bytecode support that currently isn't supported by Azure Cosmos DB Gremlin API. Due to the same reason, the latest Gremlin-JavaScript driver is also currently not supported.
 
@@ -634,7 +634,7 @@ The output of the above profile shows how much time is spent obtaining the verte
 
 ## <a id="cassandra"></a> Cassandra API
 
-### What is the protocol version supported by Azure Cosmso DB Cassandra API? Is there a plan to support other protocols?
+### What is the protocol version supported by Azure Cosmos DB Cassandra API? Is there a plan to support other protocols?
 
 Apache Cassandra API for Azure Cosmos DB supports today CQL version 4. If you have feedback about supporting other protocols, let us know via [user voice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db) or send an email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
 
@@ -756,7 +756,7 @@ At present Azure Cosmos DB has an optimized experience for cloud environment wit
 ### Does Cassandra API provide full backups?
 
 Azure Cosmos DB provides two free full backups taken at four hours interval today across all APIs. This ensures you don't need to set up a backup schedule and other things.
-If you want to modify retention and frequency, send an email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) or raise a support case. Information about backup capability is provided in the [Automatic online backup and restore with Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) article.
+If you want to modify retention and frequency, send an email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) or raise a support case. Information about backup capability is provided in the [Automatic online backup and restore with Azure Cosmos DB](online-backup-and-restore.md) article.
 
 ### How does the Cassandra API account handle failover if a region goes down?
 

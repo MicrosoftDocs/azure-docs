@@ -24,7 +24,7 @@ Once a capability is live, it will be removed from the roadmap. Functionality th
 
 * [Marketplace + CSP Update Blog](https://aka.ms/marketplacemarchupdateblog)
 * [Publish offerings into CSP channel (ISV)](https://aka.ms/publishtocsp)
-* [Resell Marketplace offerings (CSP)](hhttps://aka.ms/marketplaceincsp)
+* [Resell Marketplace offerings (CSP)](https://aka.ms/marketplaceincsp)
 * [Standard Contract](https://aka.ms/standardcontract)
 * [SaaS Fulfillment API](https://aka.ms/saasapiv2)
 * [Marketplace Geos and Currencies](https://aka.ms/marketplacegeos)

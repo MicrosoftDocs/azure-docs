@@ -11,6 +11,8 @@ ms.date: 11/04/2019
 
 # Mapping data flow graphs
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 The mapping data flows design surface is a "construction" surface where you build data flows top-down, left-to-right. There is a toolbox attached to each transform with a plus (+) symbol. Concentrate on your business logic instead of connecting nodes via edges in a free-form DAG environment.
 
 Below are built-in mechanisms to manage the data flow graph.

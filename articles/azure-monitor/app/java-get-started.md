@@ -85,7 +85,7 @@ Download the [latest version](https://github.com/Microsoft/ApplicationInsights-J
     * Download the latest [Application Insights SDK for Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and replace the old ones. Changes are described in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 ## Add an *ApplicationInsights.xml* file
-Add *ApplicationInsights.xml* to the resources folder in your project, or make sure it's added to your project’s deployment class path. Copy the following XML into it.
+Add *ApplicationInsights.xml* to the resources folder in your project, or make sure it's added to your project's deployment class path. Copy the following XML into it.
 
 Replace the instrumentation key with the one that you got from the Azure portal.
 
@@ -222,7 +222,7 @@ And for automatic operation naming.
 
 The Application Insights Java SDK now supports [W3C distributed tracing](https://w3c.github.io/trace-context/).
 
-The incoming SDK configuration is explained further in our article on [correlation](correlation.md#telemetry-correlation-in-the-java-sdk).
+The incoming SDK configuration is explained further in our article on [correlation](correlation.md).
 
 Outgoing SDK configuration is defined in the [AI-Agent.xml](java-agent.md) file.
 
@@ -257,7 +257,7 @@ You can specify additional performance counters to be collected.
 * `displayName` – The name displayed in the Application Insights portal.
 * `objectName` – The JMX object name.
 * `attribute` – The attribute of the JMX object name to fetch
-* `type` (optional) - The type of JMX object’s attribute:
+* `type` (optional) - The type of JMX object's attribute:
   * Default: a simple type such as int or long.
   * `composite`: the perf counter data is in the format of 'Attribute.Data'
   * `tabular`: the perf counter data is in the format of a table row

@@ -15,7 +15,7 @@ In part three of the series, you learn how to:
 > [!div class="checklist"]
 > * Define an HTTPS endpoint in the service
 > * Configure Kestrel to use HTTPS
-> * Install the SSL certificate on the remote cluster nodes
+> * Install the TLS/SSL certificate on the remote cluster nodes
 > * Give NETWORK SERVICE access to the certificate's private key
 > * Open port 443 in the Azure load balancer
 > * Deploy the application to a remote cluster
@@ -151,27 +151,42 @@ Replace "&lt;your_CN_value&gt;" with "mytestcert" if you created a self-signed c
 Be aware that in the case of local deployment to `localhost` it's preferable to use "CN=localhost" to avoid authentication exceptions.
 
 ```csharp
-private X509Certificate2 GetHttpsCertificateFromStore()
+private X509Certificate2 FindMatchingCertificateBySubject(string subjectCommonName)
 {
 	using (var store = new X509Store(StoreName.My, StoreLocation.LocalMachine))
 	{
-		store.Open(OpenFlags.ReadOnly);
+		store.Open(OpenFlags.OpenExistingOnly | OpenFlags.ReadOnly);
 		var certCollection = store.Certificates;
-		var currentCerts = certCollection.Find(X509FindType.FindBySubjectDistinguishedName, "CN=<your_CN_value>", false);
+		var matchingCerts = new X509Certificate2Collection();
+    
+    foreach (var enumeratedCert in certCollection)
+    {
+      if (StringComparer.OrdinalIgnoreCase.Equals(subjectCommonName, enumeratedCert.GetNameInfo(X509NameType.SimpleName, forIssuer: false))
+        && DateTime.Now < enumeratedCert.NotAfter
+        && DateTime.Now >= enumeratedCert.NotBefore)
+        {
+          matchingCerts.Add(enumeratedCert);
+        }
+    }
+
+		if (matchingCerts.Count == 0)
+    {
+        throw new Exception($"Could not find a match for a certificate with subject 'CN={subjectCommonName}'.");
+    }
 		
-		if (currentCerts.Count == 0)
-                {
-                    throw new Exception("Https certificate is not found.");
-                }
-		
-		return currentCerts[0];
+		return matchingCerts[0];
 	}
 }
+
+
 ```
 
-## Give NETWORK SERVICE access to the certificate's private key
+## Grant NETWORK SERVICE access to the certificate's private key
 
 In a previous step, you imported the certificate into the `Cert:\LocalMachine\My` store on the development computer.  Now, explicitly give the account running the service (NETWORK SERVICE, by default) access to the certificate's private key. You can do this step manually (using the certlm.msc tool), but it's better to automatically run a PowerShell script by [configuring a startup script](service-fabric-run-script-at-service-startup.md) in the **SetupEntryPoint** of the service manifest.
+
+>[!NOTE]
+> Service Fabric supports declaring endpoint certificates by thumbprint or subject common name. In that case, the runtime will set up the binding and ACL the certificate's private key to the identity that the service is running as. The runtime will also monitor the certificate for changes/renewals, and re-ACL the corresponding private key accordingly.
 
 ### Configure the service setup entry point
 
@@ -391,7 +406,7 @@ In this part of the tutorial, you learned how to:
 > [!div class="checklist"]
 > * Define an HTTPS endpoint in the service
 > * Configure Kestrel to use HTTPS
-> * Install the SSL certificate on the remote cluster nodes
+> * Install the TLS/SSL certificate on the remote cluster nodes
 > * Give NETWORK SERVICE access to the certificate's private key
 > * Open port 443 in the Azure load balancer
 > * Deploy the application to a remote cluster

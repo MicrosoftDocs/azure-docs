@@ -3,7 +3,6 @@ title: How to handle SameSite cookie changes in Chrome browser | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to handle SameSite cookie changes in Chrome browser.
 services: active-directory
-documentationcenter: ''
 author: jmprieur
 manager: CelesteDG
 

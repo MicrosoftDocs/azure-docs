@@ -2,7 +2,7 @@
 title: Store unstructured data using Azure Cosmos DB and Functions 
 description: Store unstructured data using Azure Functions and Cosmos DB
 
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc
 ---

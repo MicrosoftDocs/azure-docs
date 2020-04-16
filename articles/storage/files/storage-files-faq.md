@@ -40,7 +40,7 @@ This article answers common questions about Azure Files features and functionali
 
     Azure Files is specifically a file system. Azure Files has all the file abstracts that you know and love from years of working with on-premises operating systems. Like Azure Blob storage, Azure Files offers a REST interface and REST-based client libraries. Unlike Azure Blob storage, Azure Files offers SMB access to Azure file shares. By using SMB, you can mount an Azure file share directly on Windows, Linux, or macOS, either on-premises or in cloud VMs, without writing any code or attaching any special drivers to the file system. You also can cache Azure file shares on on-premises file servers by using Azure File Sync for quick access, close to where the data is used. 
    
-    For a more in-depth description on the differences between Azure Files and Azure Blob storage, see [Deciding when to use Azure Blob storage, Azure Files, or Azure Disks](../common/storage-decide-blobs-files-disks.md). To learn more about Azure Blob storage, see [Introduction to Blob storage](../blobs/storage-blobs-introduction.md).
+    For a more in-depth description on the differences between Azure Files and Azure Blob storage, see [Introduction to the core Azure Storage services](../common/storage-introduction.md). To learn more about Azure Blob storage, see [Introduction to Blob storage](../blobs/storage-blobs-introduction.md).
 
 * <a id="files-versus-disks"></a>**Why would I use an Azure file share instead of Azure Disks?**  
     A disk in Azure Disks is simply a disk. To get value from Azure Disks, you must attach a disk to a virtual machine that's running in Azure. Azure Disks can be used for everything that you would use a disk for on an on-premises server. You can use it as an OS system disk, as swap space for an OS, or as dedicated storage for an application. An interesting use for Azure Disks is to create a file server in the cloud to use in the same places where you might use an Azure file share. Deploying a file server in Azure Virtual Machines is a high-performance way to get file storage in Azure when you require deployment options that currently are not supported by Azure Files (such as NFS protocol support or premium storage). 
@@ -49,7 +49,7 @@ This article answers common questions about Azure Files features and functionali
 
     One approach to getting the best of both Azure Files and a file server that's hosted in Azure Virtual Machines (in addition to using Azure Disks as back-end storage) is to install Azure File Sync on a file server that's hosted on a cloud VM. If the Azure file share is in the same region as your file server, you can enable cloud tiering and set the volume of free space percentage to maximum (99%). This ensures minimal duplication of data. You also can use any applications you want with your file servers, like applications that require NFS protocol support.
 
-    For information about an option for setting up a high-performance and highly available file server in Azure, see [Deploying IaaS VM guest clusters in Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). For a more in-depth description of the differences between Azure Files and Azure Disks, see [Deciding when to use Azure Blob storage, Azure Files, or Azure Disks](../common/storage-decide-blobs-files-disks.md). To learn more about Azure Disks, see [Azure Managed Disks overview](../../virtual-machines/windows/managed-disks-overview.md).
+    For information about an option for setting up a high-performance and highly available file server in Azure, see [Deploying IaaS VM guest clusters in Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). For a more in-depth description of the differences between Azure Files and Azure Disks, see [Introduction to the core Azure Storage services](../common/storage-introduction.md). To learn more about Azure Disks, see [Azure Managed Disks overview](../../virtual-machines/windows/managed-disks-overview.md).
 
 * <a id="get-started"></a>
   **How do I get started using Azure Files?**  
@@ -194,16 +194,6 @@ This article answers common questions about Azure Files features and functionali
 
     No, authentication from Linux VMs is not supported.
 
-* <a id="ad-multiple-forest"></a>
-**Does Azure Files AD authentication support integration with an AD environment using multiple forests?**    
-
-    Azure Files AD authentication only integrates with the forest of the AD domain service that the storage account is registered to. To support authentication from another AD forest, your environment must have forest trust configured properly. The way Azure Files register to an AD domain service is mostly the same as a regular file server, where it creates an identity (computer or service logon account) in AD for authentication. The only difference is that the registered SPN of the storage account ends with "file.core.windows.net" which does not match with the domain suffix. Consult your domain administrator to see if any update to your DNS routing policy is required to enable multiple forest authentication due to the different domain suffix.
-
-* <a id=""></a>
-**What regions are available for Azure Files AD authentication (preview)?**
-
-    Refer to [AD regional availability](storage-files-identity-auth-active-directory-enable.md#regional-availability) for details.
-
 * <a id="ad-aad-smb-afs"></a>
 **Can I leverage Azure Files Azure AD DS authentication or Active Directory (AD) authentication (preview) on file shares managed by Azure File Sync?**
 
@@ -212,8 +202,8 @@ This article answers common questions about Azure Files features and functionali
 * <a id="ad-aad-smb-files"></a>
 **How can I check if I have enabled AD authentication on my storage account and the AD domain information?**
 
-    You can refer to the instructions provided [here](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) to validate if Azure Files AD Authentication is enabled on your storage account and retrieve the AD domain information.
-    
+    You can refer to the instructions provided [here](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#1-enable-ad-authentication-for-your-account) to validate if Azure Files AD Authentication is enabled on your storage account and retrieve the AD domain information.
+
 * <a id="encryption-at-rest"></a>
 **How can I ensure that my Azure file share is encrypted at rest?**  
 
@@ -238,6 +228,37 @@ This article answers common questions about Azure Files features and functionali
 **What data compliance policies does Azure Files support?**  
 
    Azure Files runs on top of the same storage architecture that's used in other storage services in Azure Storage. Azure Files applies the same data compliance policies that are used in other Azure storage services. For more information about Azure Storage data compliance, you can refer to [Azure Storage compliance offerings](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings), and go to the [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx).
+   
+### AD Authentication
+* <a id=""></a>
+**Does Azure Files Azure AD authentication support Linux VMs?**
+
+    No, authentication from Linux VMs is not supported.
+
+* <a id="ad-multiple-forest"></a>
+**Does Azure Files AD authentication support integration with an AD environment using multiple forests?**    
+
+    Azure Files AD authentication only integrates with the forest of the AD domain service that the storage account is registered to. To support authentication from another AD forest, your environment must have forest trust configured properly. The way Azure Files register to an AD domain service is mostly the same as a regular file server, where it creates an identity (computer or service logon account) in AD for authentication. The only difference is that the registered SPN of the storage account ends with "file.core.windows.net" which does not match with the domain suffix. Consult your domain administrator to see if any update to your DNS routing policy is required to enable multiple forest authentication due to the different domain suffix.
+
+* <a id=""></a>
+**What regions are available for Azure Files AD authentication (preview)?**
+
+    Refer to [AD regional availability](storage-files-identity-auth-active-directory-enable.md#regional-availability) for details.
+
+* <a id="ad-aad-smb-afs"></a>
+**Can I leverage Azure Files Active Directory (AD) authentication (preview) on file shares managed by Azure File Sync?**
+
+    Yes, you can enable AD authentication on a file share managed by Azure file sync. Changes to the directory/file NTFS ACLs on local file servers will be tiered to Azure Files and vice-versa.
+
+* <a id="ad-aad-smb-files"></a>
+**How can I check if I have enabled AD authentication on my storage account and the AD domain information?**
+
+    You can refer to the instructions provided [here](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) to validate if Azure Files AD Authentication is enabled on your storage account and retrieve the AD domain information.
+
+* <a id="ad-aad-smb-files"></a>
+**Is there any difference in creating a computer account or service logon account to represent my storage account in AD?**
+
+    Creating either a [computer account](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) has no difference on how the authentication would work with Azure Files. You can make your own choice on how to represent a storage account as an identity in your AD environment. The default DomainAccountType set in Join-AzStorageAccountForAuth cmdlet is computer account. However, the password expiration age configured in your AD environment can be different for computer or service logon account and you need to take that into consideration for [Update the password of your storage account identity in AD](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#5-update-ad-account-password).
 
 ## On-premises access
 

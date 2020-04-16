@@ -3,19 +3,16 @@ title: Acquire a token to call a web API (mobile apps) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a mobile app that calls web APIs. (Get a token for the app.)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
-ms.reviwer: brandwe
+ms.reviewer: brandwe
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
 ---
@@ -149,7 +146,7 @@ If MSAL returns `MSALErrorInteractionRequired`, then try acquiring tokens intera
 
 ```objc
 UIViewController *viewController = ...; // Pass a reference to the view controller that should be used when getting a token interactively
-MSALWebviewParameters *webParameters = [[MSALWebviewParameters alloc] initWithParentViewController:viewController];
+MSALWebviewParameters *webParameters = [[MSALWebviewParameters alloc] initWithAuthPresentationViewController:viewController];
 MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopes webviewParameters:webParameters];
 [application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) {
 	if (!error)	
@@ -165,7 +162,7 @@ MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParame
 
 ```swift
 let viewController = ... // Pass a reference to the view controller that should be used when getting a token interactively
-let webviewParameters = MSALWebviewParameters(parentViewController: viewController)
+let webviewParameters = MSALWebviewParameters(authPresentationViewController: viewController)
 let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopes, webviewParameters: webviewParameters)
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in
                 

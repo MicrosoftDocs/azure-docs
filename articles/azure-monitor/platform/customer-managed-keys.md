@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 03/26/2020
+ms.date: 04/12/2020
 
 ---
 # Azure Monitor customer-managed key configuration 
@@ -28,7 +28,7 @@ We recommend you review [Limitations and constraints](#limitations-and-constrain
 
 > [!NOTE]
 > Log Analytics and Application Insights are using the same data-store platform and query engine.
-> We are bringing these two stores together via integration of Application Insights into Log Analytics to create a single unified logs store under Azure Monitor. This change is planned for the second quarter of calendar year 2020. If you don’t have to deploy CMK for your Application Insights data by then, we recommend waiting for the completion of the consolidation since such deployments will be disrupted by the consolidation and you will have to re-configure CMK after the migration to Log Analytics workspace. The 1TB per day minimum applies at the cluster level and until the consolidation completes during second quarter, Application Insights and Log Analytics require separate clusters.
+> We are bringing these two stores together via integration of Application Insights into Log Analytics to create a single unified logs store under Azure Monitor. This change is planned for the second quarter of calendar year 2020. If you don't have to deploy CMK for your Application Insights data by then, we recommend waiting for the completion of the consolidation since such deployments will be disrupted by the consolidation and you will have to re-configure CMK after the migration to Log Analytics workspace. The 1TB per day minimum applies at the cluster level and until the consolidation completes during second quarter, Application Insights and Log Analytics require separate clusters.
 
 ## Customer-managed key (CMK) overview
 
@@ -69,11 +69,11 @@ with your Key Vault key. The underlay ADX cluster storage uses the
 managed identity that\'s associated with the *Cluster* resource to
 authenticate and access your Azure Key Vault via Azure Active Directory.
 
-![CMK Overview](media/customer-managed-keys/cmk-overview.png)
-1.	Customer’s Key Vault.
-2.	Customer’s Log Analytics *Cluster* resource having managed identity with permissions to Key Vault – The identity is supported at the data-store (ADX cluster) level.
-3.	Azure Monitor dedicated ADX cluster.
-4.	Customer’s workspaces associated to *Cluster* resource for CMK encryption.
+![CMK Overview](media/customer-managed-keys/cmk-overview-8bit.png)
+1.    Customer's Key Vault.
+2.    Customer's Log Analytics *Cluster* resource having managed identity with permissions to Key Vault – The identity is supported at the data-store (ADX cluster) level.
+3.    Azure Monitor dedicated ADX cluster.
+4.    Customer's workspaces associated to *Cluster* resource for CMK encryption.
 
 ## Encryption keys management
 
@@ -119,8 +119,7 @@ The procedure is not supported in the UI currently and the provisioning process 
 For example:
 
 ```rst
-GET
-https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>?api-version=2015-11-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
 Authorization: Bearer eyJ0eXAiO....
 ```
 
@@ -130,10 +129,61 @@ You can acquire the token using one of these methods:
 
 1. Use [App registrations](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens) method.
 2. In the Azure portal
-    1. Navigate to Azure portal in "developer tool (F12)
-    1. Look for authorization string under "Request Headers" in one of the "batch?api-version" instances. It looks like: "authorization: Bearer \<token\>". 
+    1. Navigate to Azure portal while in "developer tool" (F12)
+    1. Look for authorization string under "Request Headers" in one of the "batch?api-version" instances. It looks like: "authorization: Bearer eyJ0eXAiO....". 
     1. Copy and add it to your API call per the examples below.
 3. Navigate to Azure REST documentation site. Press "Try it" on any API and copy the Bearer token.
+
+### Asynchronous operations and status check
+
+Some of the operations in this configuration procedure run asynchronously because they can't be completed quickly. The response for asynchronous operation initially returns an HTTP status code 200 (OK) and header with *Azure-AsyncOperation* property when accepted:
+```json
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-03-01-preview"
+```
+
+You can check the status of the asynchronous operation by sending a GET request to the *Azure-AsyncOperation* header value:
+```rst
+GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-03-01-preview
+Authorization: Bearer <token>
+```
+
+The response contains information about the operation and its *Status*. It can be one of the followings:
+
+Operation is in progress
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "InProgress", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+}
+```
+
+Operation is completed
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Succeeded", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
+}
+```
+
+Operation failed
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Failed", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
+    "error" : { 
+        "code": "error-code",  
+        "message": "error-message" 
+    }
+}
+```
 
 ### Subscription whitelisting
 
@@ -146,19 +196,23 @@ CMK capability is an early access feature. The subscriptions where you plan to c
 
 Create or use an Azure Key Vault that you already have to generate, or import a key to be used for data encryption. The Azure Key Vault must be configured as recoverable to protect your key and the access to your data in Azure Monitor. You can verify this configuration under properties in your Key Vault, both *Soft delete* and *Purge protection* should be enabled.
 
+![Soft delete and purge protection settings](media/customer-managed-keys/soft-purge-protection.png)
+
 These settings are available via CLI and PowerShell:
 - [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
 - [Purge protection](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) guards against force deletion of the secret / vault even after soft delete
 
 ### Create *Cluster* resource
 
-This resource is used as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. After you receive confirmation that your subscriptions were whitelisted, create a Log Analytics *Cluster* resource at the region where your workspaces are located. Application Insights and Log Analytics require separate *Cluster* resources types. The type of the *Cluster* resource is defined at creation time by setting the *clusterType* property to either *LogAnalytics*, or *ApplicationInsights*. The Cluster resource type can’t be altered after.
+This resource is used as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. After you receive confirmation that your subscriptions were whitelisted, create a Log Analytics *Cluster* resource at the region where your workspaces are located. Application Insights and Log Analytics require separate *Cluster* resources types. The type of the *Cluster* resource is defined at creation time by setting the *clusterType* property to either *LogAnalytics*, or *ApplicationInsights*. The Cluster resource type can't be altered after.
 
 For Application Insights CMK configuration, follow the Appendix content.
 
-You must specify the capacity reservation level (sku) when creating a *Cluster* resource. The capacity reservation level can be in the range of 1,000 to 2,000 GB per day and you can update it in steps of 100 later. If you need capacity reservation level higher than 2,000 GB per day, reach your Microsoft contact to enable it. This property doesn’t affect billing currently -- once pricing model for dedicated cluster is introduced, billing will apply to any existing CMK deployments.
+You must specify the capacity reservation level (sku) when creating a *Cluster* resource. The capacity reservation level can be in the range of 1,000 to 2,000 GB per day and you can update it in steps of 100 later. If you need capacity reservation level higher than 2,000 GB per day, reach your Microsoft contact to enable it. This property doesn't affect billing currently -- once pricing model for dedicated cluster is introduced, billing will apply to any existing CMK deployments.
 
 **Create**
+
+This Resource Manager request is asynchronous operation.
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
@@ -183,10 +237,10 @@ The identity is assigned to the *Cluster* resource at creation time.
 
 **Response**
 
-202 Accepted. This is a standard Resource Manager response for asynchronous operations.
-
->[!Important]
-> It takes the provisioning of the underly ADX cluster a while to complete. You can verify the provisioning state when performing GET REST API call on the *Cluster* resource and looking at the *provisioningState* value. It is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
+200 OK and header.
+During the early access period of the feature, the ADX cluster is provisioned manually. While it takes the provisioning of the underly ADX cluster a while to complete, you can check the provisioning state in two ways:
+1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
+2. Send a GET request on the *Cluster* resource and look at the *provisioningState* value. It is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
 ### Azure Monitor data-store (ADX cluster) provisioning
 
@@ -198,9 +252,10 @@ Authorization: Bearer <token>
 ```
 
 > [!IMPORTANT]
-> Copy and save the response since you will need its details in later steps
+> Copy and save the response since you will need the details in next steps.
 
 **Response**
+
 ```json
 {
   "identity": {
@@ -234,13 +289,13 @@ Update your Key Vault with a new access policy that grants permissions to your *
 - Key permissions: select 'Get', 'Wrap Key' and 'Unwrap Key' permissions.
 - Select principal: enter the principal-id value that returned in the response in the previous step.
 
-![grant Key Vault permissions](media/customer-managed-keys/grant-key-vault-permissions.png)
+![grant Key Vault permissions](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
 The *Get* permission is required to verify that your Key Vault is configured as recoverable to protect your key and the access to your Azure Monitor data.
 
 ### Update Cluster resource with Key identifier details
 
-This step applies per initial and future key version updates in your Key Vault. It informs Azure Monitor Storage about the key version to be used for data encryption. When updated, your new key is being used to wrap and unwrap to Storage key (AEK).
+This step is performed during initial and in future key version updates in your Key Vault. It informs Azure Monitor Storage about the key version to be used for data encryption. When updated, your new key is being used to wrap and unwrap to Storage key (AEK).
 
 To update the *Cluster* resource with your Key Vault *Key identifier* details, select the current version of your key in Azure Key Vault to get the Key identifier details.
 
@@ -251,11 +306,13 @@ details.
 
 **Update**
 
->[!Warning]
+This Resource Manager request is asynchronous operation.
+
+> [!Warning]
 > You must provide a full body in *Cluster* resource update that includes *identity*, *sku*, *KeyVaultProperties* and *location*. Missing the *KeyVaultProperties* details will remove the key identifier from the *Cluster* resource and cause [key revocation](#cmk-kek-revocation).
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -280,6 +337,13 @@ Content-type: application/json
 "KeyVaultProperties" contains the Key Vault key identifier details.
 
 **Response**
+
+200 OK and header.
+It takes the propagation of the Key identifier a few minutes to complete. You can check the provisioning state in two ways:
+1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
+2. Send a GET request on the *Cluster* resource and look at the *KeyVaultProperties* properties. Your recently updated Key identifier details should return in the response.
+
+A response to GET request on the *Cluster* resource should look like this when Key identifier update is complete:
 
 ```json
 {
@@ -311,21 +375,22 @@ Content-type: application/json
 ```
 
 ### Workspace association to *Cluster* resource
-
 For Application Insights CMK configuration, follow the Appendix content for this step.
-
-> [!IMPORTANT]
-> This step should be performed only after ADX cluster provisioning. If you associate workspaces and ingest data prior to the provisioning, ingested data will be dropped and won't be recoverable.
-> To verify that the ADX cluster is provisioned, execute *Cluster* resource Get REST API and check that the *provisioningState* value is *Succeeded*.
 
 You need to have 'write' permissions to both your workspace and *Cluster* resource to perform this operation, which include these actions:
 
 - In workspace: Microsoft.OperationalInsights/workspaces/write
 - In *Cluster* resource: Microsoft.OperationalInsights/clusters/write
 
+> [!IMPORTANT]
+> This step should be performed only after ADX cluster provisioning. If you associate workspaces and ingest data prior to the provisioning, ingested data will be dropped and won't be recoverable.
+
 **Associate a workspace**
+
+This Resource Manager request is asynchronous operation.
+
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2019-08-01-preview 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -338,24 +403,13 @@ Content-type: application/json
 
 **Response**
 
-```json
-{
-  "properties": {
-    "WriteAccessResourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
-    },
-  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name/linkedservices/cluster",
-  "name": "workspace-name/cluster",
-  "type": "microsoft.operationalInsights/workspaces/linkedServices",
-}
-```
-
-The workspace association is performed via Resource Manager asynchronous operations, which can take up to 90 minutes to complete. The next step shows you how workspace association state can be checked. After the workspaces association, data ingested to your workspaces is stored encrypted with your managed key.
-
-### Workspace association verification
-You can verify if a workspace is associated to a *Cluster* resource by looking at the [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) response. Associated workspaces will have a 'clusterResourceId' property with a *Cluster* resource ID.
+200 OK and header.
+Ingested data is stored encrypted with your managed key after association operation, which can take up to 90 minutes to complete. You can check the workspace association state in two ways:
+1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
+2. Send a [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) request and observe the response, associated workspace will have a clusterResourceId under "features".
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
 ```
 
 **Response**
@@ -429,7 +483,7 @@ All your data is accessible after the key rotation operation including data inge
     must be turned on
   - [Purge protection](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) should be turned on to guard against force deletion of the secret / vault even after soft delete
 
-- Application Insights and Log Analytics require separate *Cluster* resources. The type of the *Cluster* resource is defined at creation time by setting the “clusterType” property to either ‘LogAnalytics’, or ‘ApplicationInsights’. The *Cluster* resource type can’t be altered.
+- Application Insights and Log Analytics require separate *Cluster* resources. The type of the *Cluster* resource is defined at creation time by setting the "clusterType" property to either 'LogAnalytics', or 'ApplicationInsights'. The *Cluster* resource type can't be altered.
 
 - *Cluster* resource move to another resource group or subscription
     isn't supported currently.
@@ -458,7 +512,7 @@ All your data is accessible after the key rotation operation including data inge
 - Get all *Cluster* resources for a resource group:
 
   ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
   Authorization: Bearer <token>
   ```
     
@@ -495,7 +549,7 @@ All your data is accessible after the key rotation operation including data inge
 - Get all *Cluster* resources for a subscription:
 
   ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
+  GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
   Authorization: Bearer <token>
   ```
     
@@ -503,12 +557,11 @@ All your data is accessible after the key rotation operation including data inge
     
   The same response as for '*Cluster* resources for a resource group', but in subscription scope.
     
-- Delete your *Cluster* resource -- a soft-delete operation is performed to allow the recovery of your Cluster resource, your data and associated workspaces within 14 days, whether the deletion was accidental or intentional. The *Cluster* resource name remains reserved during the soft-delete period and you can’t create a new cluster with that name. 
+- Delete your *Cluster* resource -- a soft-delete operation is performed to allow the recovery of your Cluster resource, your data and associated workspaces within 14 days, whether the deletion was accidental or intentional. The *Cluster* resource name remains reserved during the soft-delete period and you can't create a new cluster with that name. 
 After the soft-delete period, your *Cluster* resource and data are non-recoverable. Associated workspaces are de-associated from the *Cluster* resource and new data is ingested to shared Storage and encrypted with Microsoft key.
 
   ```rst
-  DELETE
-  https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
   Authorization: Bearer <token>
   ```
 
@@ -533,7 +586,7 @@ possible while the configuration of CMK on your workspace, will also
 apply to your Application Insights data.
 
 > [!NOTE]
-> If you don’t have to deploy CMK for your Application Insight data before the integration, we recommend waiting with Application Insights CMK since such deployments will be disrupted by the integration and you will have to re-configure CMK after the migration to Log Analytics workspace. The 1TB per day minimum applies at the cluster level and until the consolidation completes during second quarter, Application Insights and Log Analytics require separate clusters.
+> If you don't have to deploy CMK for your Application Insight data before the integration, we recommend waiting with Application Insights CMK since such deployments will be disrupted by the integration and you will have to re-configure CMK after the migration to Log Analytics workspace. The 1TB per day minimum applies at the cluster level and until the consolidation completes during second quarter, Application Insights and Log Analytics require separate clusters.
 
 ## Application Insights CMK configuration
 
@@ -547,12 +600,14 @@ of the ones listed above.
 
 ### Create a *Cluster* resource
 
-This resource is used as intermediate identity connection between your Key Vault and your components. AFTER you received a confirmation that your subscriptions were whitelisted, create a Log Analytics *Cluster* resource at the region where your components are located. The type of the *Cluster* resource is defined at creation time by setting the *clusterType* property to either *LogAnalytics*, or *ApplicationInsights*. It should be *ApplicationInsights* for Application Insights CMK. The *clusterType* setting can’t be altered after the configuration.
+This resource is used as intermediate identity connection between your Key Vault and your components. AFTER you received a confirmation that your subscriptions were whitelisted, create a Log Analytics *Cluster* resource at the region where your components are located. The type of the *Cluster* resource is defined at creation time by setting the *clusterType* property to either *LogAnalytics*, or *ApplicationInsights*. It should be *ApplicationInsights* for Application Insights CMK. The *clusterType* setting can't be altered after the configuration.
 
 **Create**
 
+This Resource Manager request is asynchronous operation.
+
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -573,10 +628,10 @@ Content-type: application/json
 
 **Response**
 
-202 Accepted. This is a standard Resource Manager response for asynchronous operations.
-
->[!Important]
-> It takes the provisioning of the underly ADX cluster a few minutes to complete. You can verify the provisioning state when performing GET REST API call on the *Cluster* resource and looking at the *provisioningState* value. It is *ProvisioningAccount* while provisioning and "Succeeded" when completed.
+200 OK and header.
+During the early access period of the feature, the ADX cluster is provisioned manually. While it takes the provisioning of the underly ADX cluster a while to complete, you can check the provisioning state in two ways:
+1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
+2. Send a GET request on the *Cluster* resource and look at the *provisioningState* value. It is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
 ### Associate a component to a *Cluster* resource using [Components - Create Or Update](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
 
@@ -590,7 +645,7 @@ You need to have 'write' permissions on both your component and *Cluster* resour
 > To verify that the ADX cluster is provisioned, execute *Cluster* resource Get REST API and check that the *provisioningState* value is *Succeeded*.
 
 ```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 ```
 
@@ -625,7 +680,7 @@ Authorization: Bearer <token>
 ```
 
 > [!IMPORTANT]
-> Copy and keep the "principle-id" value since you will need it in next steps.
+> Copy and keep the response since you will need it in next steps.
 
 **Associate a component**
 

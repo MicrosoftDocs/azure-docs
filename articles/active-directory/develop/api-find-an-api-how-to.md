@@ -5,9 +5,8 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/28/2019
