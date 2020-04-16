@@ -70,7 +70,7 @@ Before you proceed, note the Log Analytics workspace that your Automation accoun
 
 1. Enable the Automation Hybrid Worker solution in Azure by using one of the following methods:
 
-   * Add the Automation Hybrid Worker solution to your subscription by using the procedure at [Add Azure Monitor logs solutions to your workspace](../log-analytics/log-analytics-add-solutions.md).
+   * Add the Automation Hybrid Worker solution to your subscription by using the procedure at [Add Azure Monitor log solutions to your workspace](../log-analytics/log-analytics-add-solutions.md).
    * Run the following cmdlet:
 
         ```azurepowershell-interactive

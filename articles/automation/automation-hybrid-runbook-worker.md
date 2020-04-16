@@ -62,7 +62,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 ```
 
 > [!NOTE]
-> This code doesn't remove the Microsoft Monitoring Agent from the computer. It only removes the functionality and configuration of the Hybrid Runbook Worker role.
+> This code doesn't remove the Log Analytics agent for Linux from the computer. It only removes the functionality and configuration of the Hybrid Runbook Worker role.
 
 ## Remove a Hybrid Worker group
 
@@ -83,7 +83,7 @@ To remove a Hybrid Runbook Worker group, you first need to remove the Hybrid Run
 
 ### Hybrid Worker role
 
-For the Hybrid Runbook Worker to connect to and register with Azure Automation, it must have access to the port number and the URLs that are described in this section. This access is on top to the [ports and URLs required for Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) to connect to Azure Monitor logs.
+For the Hybrid Runbook Worker to connect to and register with Azure Automation, it must have access to the port number and the URLs that are described in this section. This access is on top to the [ports and URLs required for Log Analytics agent](../azure-monitor/platform/agent-windows.md) to connect to Azure Monitor logs.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
