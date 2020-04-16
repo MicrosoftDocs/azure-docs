@@ -96,8 +96,7 @@ When a guest signs in to access resources in a partner organization for the firs
 
    ![Screenshot showing new terms of use](media/redemption-experience/terms-of-use-accept.png) 
 
-   > NOTE:
-   > You can configure see [terms of use](../governance/active-directory-tou.md) in **Manage** > **Organizational relationships** > **Terms of use**.
+   You can configure see [terms of use](../governance/active-directory-tou.md) in **Manage** > **Organizational relationships** > **Terms of use**.
 
 3. Unless otherwise specified, the guest is redirected to the Apps access panel, which lists the applications the guest can access.
 
