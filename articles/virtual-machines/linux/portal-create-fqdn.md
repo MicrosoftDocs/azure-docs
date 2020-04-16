@@ -5,7 +5,7 @@ services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.assetid: 2cd6c249-a737-4a0a-b5ba-e1c09e551b30
