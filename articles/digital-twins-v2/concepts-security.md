@@ -63,7 +63,7 @@ For more detailed steps on how to do this, you can also visit the Azure Digital 
 Before you assign an RBAC role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's best to grant only the narrowest possible scope.
 
 The following list describes the levels at which you can scope access to Azure Digital Twins resources.
-* Models: The actions for this resource dictate control over twin types (models) uploaded in Azure Digital Twins.
+* Models: The actions for this resource dictate control over models (models) uploaded in Azure Digital Twins.
 * Query Digital Twins Graph: The actions for this resource determine ability to run SQL query operations on twins within the Azure Digital Twins graph.
 * Digital Twin: The actions for this resource provide control over CRUD operations on digital twins in the twin graph.
 * Digital Twin relationship: The actions for this resource define control over CRUD operations on relationships between digital twins in the twin graph.

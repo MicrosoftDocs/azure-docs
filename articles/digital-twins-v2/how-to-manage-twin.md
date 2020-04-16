@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Retrieve, update, and delete digital twins and relationships
+title: Manage a digital twin
 titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/12/2020
+ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -15,15 +15,103 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Retrieve, update, and delete digital twins and relationships
+# Create and manage digital twins
 
-Azure Digital Twins **DigitalTwins APIs** let developers create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance.
+Entities in your environment are represented by [digital twins](concepts-twins-graph.md).
+
+Once you have a working [Azure Digital Twins instance](how-to-set-up-instance.md) and have set up [authentication](how-to-authenticate.md) for your client app, you can use the **DigitalTwins APIs** to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. This article focuses on managing digital twins; to work with relationships and the graph as a whole, see [Manage a twin graph with relationships](how-to-manage-graph.md).
 
 [!INCLUDE [digital-twins-generate-sdk.md](../../includes/digital-twins-generate-sdk.md)]
 
+## Create a digital twin (preview)
+
+To create a twin, you use the `DigitalTwins.Add` method on the service client like this:
+
+```csharp
+await client.DigitalTwins.AddAsync("myNewTwinID", initData);
+```
+
+> [!TIP]
+> All SDK functions come in synchronous and asynchronous versions.
+
+To create a digital twin in this preview release, you need to provide:
+* The desired ID for the digital twin
+* The [model](concepts-models.md) you want to use 
+* Initial values for all properties of the digital twin
+
+The model and initial property values are provided through the `initData` parameter.
+
+### Initialize properties
+
+All non-optional properties and components of digital twins must be initialized at creation time, and are provided in the create call as `initData`. 
+
+> [!NOTE]
+> Relationships may be initialized, but do not need to be. 
+
+The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [Create digital twins and the twin graph](concepts-twins-graph.md) for a description of the JSON format for a twin.
+
+You can create a serializable parameter object with the following example code, which sets up some twin properties:
+
+```csharp
+Dictionary<string, object> moonData = new Dictionary<string, object>()
+{
+    { "name", "MyMoon" },
+    { "mass", 100 }
+};
+```
+
+One mandatory property for a digital twin is the model. This can be set using the property "$model" in the metadata section of the initialization data. Here is a code sample that sets a model along with a few other twin properties:
+
+```csharp
+// Define the model type for the twin to be created
+Dictionary<string, object> meta = new Dictionary<string, object>()
+{
+    { "$model", "dtmi:com:contoso:Room;1" }
+};
+// Initialize the twin properties
+Dictionary<string, object> initData = new Dictionary<string, object>()
+{
+    { "$metadata", meta },
+    { "Temperature", temperature},
+    { "Humidity", humidity},
+};
+```
+
+### Full twin creation code
+
+The following code sample uses the information you've learned in this section to create a twin of type *Room* and initialize it:
+
+```csharp
+public Task<boolean> CreateRoom(string id, double temperature, double humidity) 
+{
+    // Define the model for the twin to be created
+    Dictionary<string, object> meta = new Dictionary<string, object>()
+    {
+      { "$model", "dtmi:com:contoso:Room;1" }
+    };
+    // Initialize the twin properties
+    Dictionary<string, object> initData = new Dictionary<string, object>()
+    {
+      { "$metadata", meta },
+      { "Temperature", temperature},
+      { "Humidity", humidity},
+    };
+    try
+    {
+      await client.DigitalTwins.AddAsync(id, initData);
+      return true;
+    }
+    catch (ErrorResponseException e)
+    {
+      Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}");
+      return false;
+    }
+}
+```
+
 ## Get twin data for an entire digital twin
 
-You can access data on any digital twin by calling:
+You can access the data of any digital twin by calling:
 
 ```csharp
 object result = await client.DigitalTwins.GetByIdAsync(id);
@@ -34,13 +122,13 @@ object result = await client.DigitalTwins.GetByIdAsync(id);
 
 This call returns twin data in a JSON.Net object form during preview. 
 
-Consider the following twin type (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)) that defines a *Moon*:
+Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)) that defines a *Moon*:
 
 ```json
 {
-    "@id": " urn:contosocom:example:Moon:1",
+    "@id": " dtmi:com:contoso:Moon;1",
     "@type": "Interface",
-    "@context": "http://azure.com/v3/contexts/Model.json",
+    "@context": "dtmi:dtdl:context;2",
     "contents": [
         {
             "@type": "Property",
@@ -66,7 +154,7 @@ The result of calling `object result = await client.DigitalTwins.GetByIdAsync("m
   "radius": 1737.1,
   "mass": 0.0734,
   "$metadata": {
-    "$model": "urn:contosocom:example:Moon:1",
+    "$model": "dtmi:com:contoso:Moon;1",
     "radius": {
       "desiredValue": 1737.1,
       "desiredVersion": 5,
@@ -88,17 +176,17 @@ The result of calling `object result = await client.DigitalTwins.GetByIdAsync("m
 The defined properties of the digital twin are returned as top-level properties on the digital twin. Metadata or system information that is not part of the DTDL definition is returned with a `$` prefix. Metadata properties include:
 * The ID of the digital twin in this Azure Digital Twins instance, as `$dtId`.
 * Other properties in a `$metadata` section. This includes:
-    - The DTMI of the twin type of the digital twin.
+    - The DTMI of the model of the digital twin.
     - Synchronization status for each writeable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. For more information about sync status, see [this IoT Hub tutorial](../iot-hub/tutorial-device-twins.md) on synchronizing device state.
     - Service-specific metadata, like from IoT Hub or Azure Digital Twins. 
 
-## Patch digital twins
+## Update a digital twin
 
 To update properties a digital twin, you write the information you want to replace in [JSON Patch](http://jsonpatch.com/) format. In this way, you can replace multiple properties at once. You then pass the JSON Patch document into an `Update` method:
 
 `await client.DigitalTwins.UpdateAsync(id, patch);`.
 
-Here is an example of JSON Patch code. This document replaces the *mass* and *temperature* property values of the digital twin it is applied to.
+Here is an example of JSON Patch code. This document replaces the *mass* and *radius* property values of the digital twin it is applied to.
 
 ```json
 [
@@ -109,15 +197,15 @@ Here is an example of JSON Patch code. This document replaces the *mass* and *te
   },
   {
     "op": "replace",
-    "path": "/temperature",
+    "path": "/radius",
     "value": 0.800
   }
 ]
 ```
 
-### Patch properties in components
+### Update properties in components
 
-Recall that a twin type may contain components, allowing it to be made up of other twin types. 
+Recall that a model may contain components, allowing it to be made up of other models. 
 
 To patch properties in a digital twin's components, you will use path syntax in JSON Patch:
 
@@ -131,58 +219,67 @@ To patch properties in a digital twin's components, you will use path syntax in 
 ]
 ```
 
-## Change the twin type
+### Change the twin's model
 
-The `Update` function can also be used to migrate a digital twin to a different twin type. 
+The `Update` function can also be used to migrate a digital twin to a different model. 
 
-For example, consider the following JSON Patch document that replaces the digital twin's metadata `$model` (twin type) field:
+For example, consider the following JSON Patch document that replaces the digital twin's metadata `$model` field:
 
 ```json
 [
   {
     "op": "replace",
     "path": "/$metadata/$model",
-    "value": "urn:contosocom:example:foo:1"
+    "value": "dtmi:com:contoso:foo;1"
   }
 ]
 ```
 
-This operation will only succeed if the digital twin being modified by the patch conforms with the new twin type. 
+This operation will only succeed if the digital twin being modified by the patch conforms with the new model. 
 
 Consider the following example:
-1. Imagine a digital twin with a twin type of *foo_old*. *Foo_old* defines a required property *temperature*.
-2. The new twin type *foo* defines a property temperature, and adds a new required property *humidity*.
-3. After the patch, the digital twin must have both a temperature and humidity property. 
+1. Imagine a digital twin with a model of *foo_old*. *foo_old* defines a required property *mass*.
+2. The new model *foo_new* defines a property mass, and adds a new required property *temperature*.
+3. After the patch, the digital twin must have both a mass and temperature property. 
 
-The patch for this situation needs to update both the model and the humidity property, like this:
+The patch for this situation needs to update both the model and the twin's temperature property, like this:
 
 ```json
 [
   {
     "op": "replace",
     "path": "$metadata.$model",
-    "value": "urn:contosocom:example:foo"
+    "value": "dtmi:com:contoso:foo_new"
   },
   {
     "op": "add",
-    "path": "humidity",
-    "value": 100
+    "path": "temperature",
+    "value": 60
   }
 ]
 ```
 
-## List relationships
+## Delete a digital twin
 
-To access the list of relationships in the twin graph, you can write:
+You can delete twins using `DigitalTwins.Delete(ID)`. However, you can only delete a twin when it has no more relationships. You must delete all relationships first. 
 
-```csharp
-await client.DigitalTwins.ListEdgesAsync(id)
-```
-
-Here is a more sophisticated example, that gets relationships in the context of a larger method and includes paging on the result.
+Here is an example of the code for this:
 
 ```csharp
-static async Task ListOutgoingRelationships(string id)
+static async Task DeleteTwin()
+{
+    await FindAndDeleteOutgoingRelationships("Floor01");
+    await FindAndDeleteIncomingRelationships("Floor01");
+    try
+    {
+        await client.DigitalTwins.DeleteAsync("Floor01");
+    } catch (ErrorResponseException e)
+    {
+        COnsole.WriteLine($"*** Error deleting Floor01: {e.Response.StatusCode}");
+    }
+}
+
+static async Task FindAndDeleteOutgoingRelationships(string id)
 {
     // Find the relationships for the twin
     try
@@ -205,7 +302,9 @@ static async Task ListOutgoingRelationships(string id)
         {
             string relId = r.Value<string>("$edgeId");
             string relName = r.Value<string>("$relationship");
-            Console.WriteLine($"Found relationship {relId} from {id}");
+            // Need twin ID, relationship name, and edge ID to uniquely identify a particular relationship
+            await client.DigitalTwins.DeleteEdgeAsync(id, relName, relId);
+            Console.WriteLine($"Deleting relationship {relId} from {id}");
         }
     }
     catch (ErrorResponseException e)
@@ -213,24 +312,7 @@ static async Task ListOutgoingRelationships(string id)
         Console.WriteLine($"*** Error retrieving relationships for {id}: {e.Response.StatusCode}");
     }
 }
-```
 
-You can use retrieved relationships to navigate to other twins in your graph. To do this, retrieve the `target` field from the relationship that is returned, and use it as the ID for your next call to `DigitalTwins.GetById`. 
-
-## Delete Relationships
-
-You can delete relationships using `DigitalTwins.DeleteEdgeAsync(source, relName, relId);`.
-
-The first parameter specifies the source twin (the twin where the relationship originates). The other parameters are the relationship's name and the relationship's ID. All of these parameters are needed, because a relationship ID only needs to be unique within the scope of a given twin and relationship name. Relationship IDs do not need to be globally unique.
-
-
-## Find incoming relationships
-
-Azure Digital Twins also has an API to find all incoming relationships to a given twin. This is often useful for reverse navigation, or when deleting a twin.
-
-The previous code sample focused on finding outgoing relationships. The following example is similar, but finds incoming relationships instead. It also deletes them once they are found.
-
-```csharp
 static async Task FindAndDeleteIncomingRelationships(string id)
 {
     // Find the incoming relationships for the twin
@@ -267,8 +349,78 @@ static async Task FindAndDeleteIncomingRelationships(string id)
 }
 ```
 
+### Delete all digital twins
+
+The following example shows how to delete all twins in the system at once.
+
+```csharp
+static async Task DeleteAllTwins()
+{
+    Log($"\nDeleting All Twins", ConsoleColor.DarkYellow);
+    Log($"Step 1: Find all twins", ConsoleColor.DarkYellow);
+    List<object> twins = await ListTwins();
+    Log($"Step 2: Find relationship for each twin...", ConsoleColor.DarkYellow);
+    foreach (JObject twin in twins)
+    {
+        string id = twin.Value<string>("$dtId");
+        // Find the relationships for the twin
+        await FindAndDeleteOutgoingRelationships(id);
+    }
+    Log($"Step 3: Delete all twins", ConsoleColor.DarkYellow);
+    foreach (JObject twin in twins)
+    {
+        string id = twin.Value<string>("$dtId");
+        try
+        {
+            await client.DigitalTwins.DeleteAsync(id);
+            Log($"Deleted twin {id}");
+        }
+        catch (ErrorResponseException e)
+        {
+            Log($"*** Error deleting twin {id}: {e.Response.StatusCode}", ConsoleColor.Red);
+        }
+    }
+}
+
+static async Task<List<object>> ListTwins()
+{
+    string query = "SELECT * FROM digitaltwins";
+    List<object> results = new List<object>();
+    // Repeat the query while there are pages
+    string conToken = null;
+    try
+    {
+        int page = 0;
+        do
+        {
+            QuerySpecification spec = new QuerySpecification(query, conToken);
+            QueryResult qr = await client.Query.QueryTwinsAsync(spec);
+            page++;
+            Log($"== Query results page {page}:", ConsoleColor.DarkYellow);
+            if (qr.Items != null)
+            {
+                results.AddRange(qr.Items);
+                // Query returns are JObjects
+                foreach(JObject o in qr.Items)
+                {
+                    string twinId = o.Value<string>("$dtId");
+                    Log($"  Found {twinId}");
+                }
+            }
+            Log($"== End query results page {page}", ConsoleColor.DarkYellow);
+            conToken = qr.ContinuationToken;
+        } while (conToken != null);
+    } catch (ErrorResponseException e)
+    {
+        Log($"*** Error in twin query: ${e.Response.StatusCode}\n${e.Response.ReasonPhrase}", ConsoleColor.Red);
+    }
+    return results;
+}
+```
+
+
 ## Next steps
 
 Learn about managing the other key elements of an Azure Digital Twins solution:
-* [Manage a twin type](how-to-manage-twin-type.md)
-* [Manage a twin graph](how-to-manage-graph.md)
+* [Manage a twin model](how-to-manage-model.md)
+* [Manage a twin graph with relationships](how-to-manage-graph.md)

@@ -25,7 +25,7 @@ This article gives a brief overview of the API surface of Azure Digital Twins, a
 
 The Azure Digital Twins API surface can be broadly divided into the following categories: 
 
-* **DigitalTwinsModels** - The DigitalTwinsModels category contains APIs to manage the [twin types](concepts-twin-types.md) in an Azure Digital Twins instance. Management activities include upload, validation, and retrieval of twin types authored in DTDL.
+* **DigitalTwinsModels** - The DigitalTwinsModels category contains APIs to manage the [models](concepts-models.md) in an Azure Digital Twins instance. Management activities include upload, validation, and retrieval of models authored in DTDL.
 * **DigitalTwins** - The DigitalTwins category contains the APIs that let developers create, modify, and delete [digital twins](concepts-twins-graph.md) and their relationships in an Azure Digital Twins instance.
 * **Query** - The Query category lets developers [find sets of digital twins in the twin graph](how-to-query-graph.md) across relationships.
 * **EventRoutes** - The EventRoutes category contains APIs to [route data](concepts-route-events.md), through the system and to downstream services.
@@ -37,10 +37,10 @@ During this preview release, Azure Digital Twins does not ship with an SDK. You 
 To generate an SDK, you will need:
 * [AutoRest](https://github.com/Azure/autorest), version 2.0.4413
 * [Node.js](https://nodejs.org) as a pre-requisite to AutoRest
-* The [Azure Digital Twins API definitions](https://msazure.visualstudio.com/One/_git/Azure-IoT-DigitalTwins-Main?path=%2Fproducts%2Fswagger%2Fexternal-data-plane%2Fpreview%2F2020-03-01-preview%2Fdigitaltwins.json&version=GBmaster&_a=contents) OpenAPI (Swagger) file
+* The [Azure Digital Twins API definitions](https://dev.azure.com/ADT-PM-STAGING/PrivatePreviewStage/_git/PrivatePreviewStage?path=%2FOpenApiSpec%2Fdigitaltwins.json) OpenAPI (Swagger) file
 
 If you have Node.js installed, you can run this command to make sure you have the right version of AutoRest installed:
-```bash
+```cmd/sh
 npm install -g autorest@2.0.4413
 ```
 
@@ -49,7 +49,7 @@ To run AutoRest against the Azure Digital Twins Swagger file, follow these steps
 2. On a command prompt, switch to that working directory.
 3. Run AutoRest with the following command.
 
-```bash
+```cmd/sh
 autorest --input-file=adtApiSwagger.json --csharp --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
@@ -195,7 +195,7 @@ try
 
 ## Next steps
 
-See how to use the APIs to manage twin types, digital twins, and twin graphs:
-* [Manage a twin type](how-to-manage-twin-type.md)
-* [Manage an individual digital twin](how-to-manage-twin.md)
-* [Manage a twin graph](how-to-manage-graph.md)
+See how to use the APIs to manage models, digital twins, and twin graphs:
+* [Manage a twin model](how-to-manage-model.md)
+* [Manage a digital twin](how-to-manage-twin.md)
+* [Manage a twin graph with relationships](how-to-manage-graph.md)

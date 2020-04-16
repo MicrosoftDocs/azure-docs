@@ -36,20 +36,20 @@ The remainder of this article walks through the Azure function setup steps, one 
 
 In Visual Studio 2019, select *File > New Project*. Search for the *Azure Functions* template, select it, and press "Next".
 
-![Visual Studio: new project](media/how-to-create-azure-function/visual-studio-new-project.png)
+![Visual Studio: new project dialog](media/how-to-create-azure-function/visual-studio-new-project.png)
 
 Specify a name for the function app and press "Create".
 
-![Visual Studio: configure project](media/how-to-create-azure-function/visual-studio-project-config.png)
+![Visual Studio: configure project dialog](media/how-to-create-azure-function/visual-studio-project-config.png)
 
 Select the *Event Grid trigger* and press "Create".
 
-![Visual Studio: project trigger](media/how-to-create-azure-function/visual-studio-project-trigger.png)
+![Visual Studio: Azure Function project trigger dialog](media/how-to-create-azure-function/visual-studio-project-trigger.png)
 
 
 ## Write an Azure function with an Event Grid trigger
 
-The following code creates a short Azure function that you can use to for this how-to: 
+The following code creates a short Azure function that you can use to log events: 
 
 ```csharp
 // Default URL for triggering Event Grid function in the local environment
@@ -114,7 +114,7 @@ namespace adtIngestFunctionSample
 {
     public static class Function1
     {
-        const string AdtAppId = "0b07f429-9f4b-4714-9392-cc5e8e80c8b0";
+        const string AdtAppId = "https://digitaltwins.azure.net";
         const string AdtInstanceUrl = "<your-Azure-Digital-Twins-instance-URL>";
         static AzureDigitalTwinsAPIClient client;
 
@@ -175,7 +175,7 @@ namespace adtIngestFunctionSample
 {
     public static class Function1
     {
-        const string AdtAppId = "0b07f429-9f4b-4714-9392-cc5e8e80c8b0";
+        const string AdtAppId = "https://digitaltwins.azure.net";
         const string AdtInstanceUrl = "<your-Azure-Digital-Twins-instance-URL>";
         static AzureDigitalTwinsAPIClient client;
 
@@ -224,14 +224,14 @@ To publish the function app to Azure, right-select the function project (not the
 
 The following tab will appear:
 
-![Visual Studio: publish function](media/how-to-create-azure-function/visual-studio-publish-1.png)
+![Visual Studio: publish function dialog, page 1](media/how-to-create-azure-function/visual-studio-publish-1.png)
 
 Select or create an App Service plan to use with Azure Functions. If unsure, start out using the default consumption plan.
 
 > [!IMPORTANT] 
 > Publishing an Azure function will incur additional charges on your subscription, independent of Azure Digital Twins.
 
-![Visual Studio: publish function 2](media/how-to-create-azure-function/visual-studio-publish-2.png)
+![Visual Studio: publish function dialog, page 2](media/how-to-create-azure-function/visual-studio-publish-2.png)
 
 On the following page, enter the desired name for the new function app, a resource group, and other details.
 
@@ -243,22 +243,24 @@ To set this up, go to the [Azure portal](https://portal.azure.com/) and navigate
 
 In the *Platform features* tab, select *Identity*:
 
-![Visual Studio: function MSI](media/how-to-create-azure-function/visual-studio-msi-1.png)
+![Azure portal: Selecting Identity for an Azure Function](media/how-to-create-azure-function/visual-studio-msi-1.png)
 
 On the identity page, set the *Status* toggle to *On*. 
 
-![Visual Studio: function MSI 2](media/how-to-create-azure-function/visual-studio-msi-2.png)
+![Azure portal: Turning on identity status](media/how-to-create-azure-function/visual-studio-msi-2.png)
+
+Also note the **object ID** shown on this page, as it will be used in the next section.
 
 ### Access roles
 
-Because Azure Digital Twins uses role-based access control to manage access (see [Secure Azure Digital Twins solutions](concepts-security.md) for more information on this), you also need to add a role for each function that you want to allow to access Azure Digital Twins.
+Because Azure Digital Twins uses role-based access control to manage access (see [Secure Azure Digital Twins solutions](concepts-security.md) for more information on this), you also need to add a role for each function app that you want to allow to access Azure Digital Twins.
 
 [!INCLUDE [digital-twins-resource-id.md](../../includes/digital-twins-resource-id.md)]
 
-Use the resource ID along with the Azure function ID in the command below:
+Use the resource ID along with the Azure function's object ID from earlier in the command below:
 
-```bash
-az role assignment create --role "Azure Digital Twins Owner (Preview)" --assignee <Azure-function-ID> --scope <resource-ID>
+```Azure CLI
+az role assignment create --role "Azure Digital Twins Owner (Preview)" --assignee <object-ID> --scope <resource-ID>
 ```
 
 ## Next steps
