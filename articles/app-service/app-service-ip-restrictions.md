@@ -10,7 +10,7 @@ ms.author: ccompy
 ms.custom: seodec18
 
 ---
-# Azure App Service access restrictions #
+# Azure App Service access restrictions
 
 Access restrictions enable you to define a priority ordered allow/deny list that controls network access to your app. The list can include IP addresses or Azure Virtual Network subnets. When there are one or more entries, there is then an implicit "deny all" that exists at the end of the list.
 
