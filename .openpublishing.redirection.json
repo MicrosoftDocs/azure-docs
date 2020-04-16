@@ -51120,6 +51120,11 @@
       "redirect_url": "/azure/azure-monitor/overview",
       "redirect_document_id": false
     },
+	{
+      "source_path": "articles/azure-monitor/app/metrics-explorer.md",
+      "redirect_url": "/azure/azure-monitor/platform/metrics-charts",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/security/fundamentals/database-best-practices.md",
       "redirect_url": "/azure/sql-database/sql-database-security-best-practice",
