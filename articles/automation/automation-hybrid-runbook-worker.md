@@ -14,23 +14,23 @@ The following image illustrates this functionality:
 
 ![Hybrid Runbook Worker overview](media/automation-hybrid-runbook-worker/automation.png)
 
-Each Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you specify when you install the agent. A group can include a single agent, but you can install multiple agents in a group for high availability. Each machine can host one Hybrid Worker reporting to one Automation Account.
+Each Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you specify when you install the agent. A group can include a single agent, but you can install multiple agents in a group for high availability. Each machine can host one Hybrid Worker reporting to one Automation account.
 
-When you start a runbook on a Hybrid Runbook Worker, you specify the group that it runs on. Each worker in the group polls Azure Automation to see if any jobs are available. If a job is available, the first worker to get the job takes it. The processing time of the jobs queue depends on the Hybrid worker hardware profile and load. You can't specify a particular worker. Hybrid Runbook Workers don't share many of the limits that Azure sandboxes have. They don't have the same limits on disk space, memory, or network sockets. Hybrid Runbook Workers are only limited by the resources on the Hybrid Runbook Worker itself. In addition, Hybrid Runbook Workers do not share the 180 minute [fair share](automation-runbook-execution.md#fair-share) time limit that Azure sandboxes do. To learn more about the service limits for Azure sandboxes and Hybrid Runbook Workers, see the job [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) page.
+When you start a runbook on a Hybrid Runbook Worker, you specify the group that it runs on. Each worker in the group polls Azure Automation to see if any jobs are available. If a job is available, the first worker to get the job takes it. The processing time of the jobs queue depends on the Hybrid worker hardware profile and load. You can't specify a particular worker. Hybrid Runbook Workers don't share many of the limits that Azure sandboxes have. They don't have the same limits on disk space, memory, or network sockets. Hybrid Runbook Workers are only limited by the resources on the Hybrid Runbook Worker itself. In addition, Hybrid Runbook Workers do not share the 180-minute [fair share](automation-runbook-execution.md#fair-share) time limit that Azure sandboxes have. To learn more about the service limits for Azure sandboxes and Hybrid Runbook Workers, see the job [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
 
 ## Install a Hybrid Runbook Worker
 
-The process to install a Hybrid Runbook Worker depends on the OS. The following table contains links to the methods that you can use for the installation.
-
-To install and configure a Windows Hybrid Runbook Worker, you can use two methods. The recommended method is using an Automation runbook to completely automate the process of configuring a Windows computer. The second method is following a step-by-step procedure to manually install and configure the role. For Linux machines, you run a Python script to install the agent on the machine.
+The process to install a Hybrid Runbook Worker depends on the operating system. The table below defines the deployment types.
 
 |OS  |Deployment types  |
 |---------|---------|
 |Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manual](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
 
+The recommended installation method is to use an Automation runbook to completely automate the process of configuring a Windows computer. The second method is to follow a step-by-step procedure to manually install and configure the role. For Linux machines, you run a Python script to install the agent on the machine.
+
 > [!NOTE]
-> To manage the configuration of your servers that support the Hybrid Runbook Worker role with Desired State Configuration (DSC), you need to add them as DSC nodes. For more information about onboarding them for management with DSC, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md).
+> To manage the configuration of your servers that support the Hybrid Runbook Worker role with Desired State Configuration (DSC), you need to add the servers as DSC nodes. For more information about onboarding them for management with DSC, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md).
 >
 >If you enable the [Update Management solution](automation-update-management.md), any computer that's connected to your Azure Log Analytics workspace is automatically configured as a Hybrid Runbook Worker to support runbooks included in this solution. However, the computer is not registered with any Hybrid Worker groups already defined in your Automation account. The computer can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you're using the same account for both the solution and the Hybrid Runbook Worker group membership. This functionality has been added to version 7.2.12024.0 of Hybrid Runbook Worker.
 
@@ -38,44 +38,38 @@ Review the [information for planning your network](#network-planning) before you
 
 The computer can be added to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks as long as you're using the same account for both the solution and the Hybrid Runbook Worker group membership. This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.
 
-## Remove a Hybrid Runbook Worker
+## <a name="remove-a-hybrid-runbook-worker">Remove a Hybrid Runbook Worker from an on-premises computer
 
-You can remove one or more Hybrid Runbook Workers from a group, or you can remove the group, depending on your requirements. To remove a Hybrid Runbook Worker from an on-premises computer, use the following steps:
+You can remove a Hybrid Runbook Worker from an on-premises computer as described in this section for Windows and Linux.
+
+### Remove the worker on Windows
 
 1. In the Azure portal, go to your Automation account.
-2. Under **Account Settings**, select **Keys** and note the values for **URL** and **Primary Access Key**. You need this information for the next step.
+2. Under **Account Settings**, select **Keys** and note the values for **URL** and **Primary Access Key**.
 
-### Windows
-
-Open a PowerShell session in Administrator mode and run the following command. Use the **-Verbose** switch for a detailed log of the removal process.
-
-```powershell-interactive
-Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
-```
-
-To remove stale machines from your Hybrid Worker group, use the optional `machineName` parameter.
+3. Open a PowerShell session in Administrator mode and run the following command with your URL and primary access key values. Use the `Verbose` parameter for a detailed log of the removal process. To remove stale machines from your Hybrid Worker group, use the optional `machineName` parameter.
 
 ```powershell-interactive
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <ComputerName>
 ```
 
-### Linux
+### Remove the worker on Linux
 
-You can use the command `ls /var/opt/microsoft/omsagent` on the Hybrid Runbook Worker to get the workspaceid. There is a folder in the directory in which the name of the folder is the workspace Id.
+You can use the command `ls /var/opt/microsoft/omsagent` on the Hybrid Runbook Worker to get the workspace ID. A folder is created that is named with the workspace ID.
 
 ```bash
 sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
 ```
 
 > [!NOTE]
-> This code does not remove the Microsoft Monitoring Agent from the computer, only the functionality and configuration of the Hybrid Runbook Worker role.
+> This code doesn't remove the Log Analytics agent for Linux from the computer. It only removes the functionality and configuration of the Hybrid Runbook Worker role.
 
 ## Remove a Hybrid Worker group
 
-To remove a group, you first need to remove the Hybrid Runbook Worker from every computer that is a member of the group by using the procedure shown earlier. Then, use the following steps to remove the group:
+To remove a Hybrid Runbook Worker group, you first need to remove the Hybrid Runbook Worker from every computer that is a member of the group. Then use the following steps to remove the group:
 
 1. Open the Automation account in the Azure portal.
-2. Under **Process Automation**, select **Hybrid worker groups**. Select the group that you want to delete. The properties page for that group appears.
+2. Select **Hybrid worker groups** under **Process Automation**. Select the group that you want to delete. The properties page for that group appears.
 
    ![Properties page](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
@@ -89,7 +83,7 @@ To remove a group, you first need to remove the Hybrid Runbook Worker from every
 
 ### Hybrid Worker role
 
-For the Hybrid Runbook Worker to connect to and register with Azure Automation, it must have access to the port number and the URLs that are described in this section. This access is on top to the [ports and URLs required for Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) to connect to Azure Monitor logs.
+For the Hybrid Runbook Worker to connect to and register with Azure Automation, it must have access to the port number and the URLs that are described in this section. This access is on top to the [ports and URLs required for Log Analytics agent](../azure-monitor/platform/agent-windows.md) to connect to Azure Monitor logs.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -102,7 +96,7 @@ The following port and URLs are required for the Hybrid Runbook Worker role to c
 * Global URL of US Gov Virginia: *.azure-automation.us
 * Agent service: https://\<workspaceId\>.agentsvc.azure-automation.net
 
-It is recommended to use the addresses listed when defining exceptions. For IP addresses you can download the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519). This file is updated weekly, and has the currently deployed ranges and any upcoming changes to the IP ranges.
+It's recommended to use the addresses listed when defining exceptions. For IP addresses, you can download the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519). This file is updated weekly, and has the currently deployed ranges and any upcoming changes to the IP ranges.
 
 If you have an Automation account that's defined for a specific region, you can restrict communication to that regional datacenter. The following table provides the DNS record for each region:
 
@@ -146,5 +140,4 @@ On top of the standard addresses and ports that the Hybrid Runbook Worker requir
 ## Next steps
 
 * To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
-* To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshooting Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#general)
-
+* To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshooting Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#general).
