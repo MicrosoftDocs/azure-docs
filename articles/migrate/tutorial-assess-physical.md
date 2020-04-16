@@ -93,16 +93,24 @@ Download the zipped file for the appliance.
 Check that the zipped file is secure, before you deploy it.
 
 1. On the machine to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the zipped file
+2. Run the following command to generate the hash for the zipped file:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
+    - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+    - Example usage for government cloud: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
+3.  Verify hash values:
+ 
+    - For the public cloud (for the latest appliance version):
 
-3.  For the latest appliance version, the generated hash should match these settings.
+        **Algorithm** | **Hash value**
+          --- | ---
+          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 
-  **Algorithm** | **Hash value**
-  --- | ---
-  MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-  SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+    - For Azure government (for the latest appliance version):
+
+        **Algorithm** | **Hash value**
+          --- | ---
+          MD5 | f81c155fc4a1409901caea948713913f
 
 ### Run the Azure Migrate installer script
 
@@ -113,24 +121,22 @@ The installer script does the following:
 - Download and installs an IIS rewritable module. [Learn more](https://www.microsoft.com/download/details.aspx?id=7435).
 - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
 - Creates the following files under the path:
-    - **Config Files**: %ProgramData%\Microsoft Azure\Config
-    - **Log Files**: %ProgramData%\Microsoft Azure\Logs
+    - **Config Files**: %Programdata%\Microsoft Azure\Config
+    - **Log Files**: %Programdata%\Microsoft Azure\Logs
 
 Run the script as follows:
 
-1. Extract the zipped file to a folder on the server that will host the appliance.
+1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a machine on an existing Azure Migrate appliance.
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
 4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
-    ```
-    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
-    ```
-The script will launch the appliance web application when it finishes successfully.
 
-If you find any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
+    - For the public cloud: ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
+    - For Azure Government: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 
-> [!NOTE]
-> Please do not execute the Azure Migrate installer script on an existing Azure Migrate appliance.
+    The script will launch the appliance web application when it finishes successfully.
+
+If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
 ### Verify appliance access to Azure
 
