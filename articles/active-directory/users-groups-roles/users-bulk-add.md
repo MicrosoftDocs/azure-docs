@@ -46,7 +46,7 @@ If there are errors, you can download and view the results file on the **Bulk op
 
 You can see the status of all of your pending bulk requests in the **Bulk operation results** page.
 
-   ![Check upload status in the Bulk Operations Results page](./media/users-bulk-add/bulk-center.png)
+   [![](media/users-bulk-add/bulk-center.png "Check create status in the Bulk Operations Results page")](media/users-bulk-add/bulk-center.png#lightbox)
 
 Next, you can check to see that the users you created exist in the Azure AD organization either in the Azure portal or by using PowerShell.
 

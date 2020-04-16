@@ -42,7 +42,7 @@ Using Azure Active Directory (Azure AD) portal, you can remove a large number of
 
 You can see the status of all of your pending bulk requests in the **Bulk operation results** page.
 
-   ![The Bulk operations results page shows you bulk request status](./media/groups-bulk-remove-members/bulk-center.png)
+[![](media/groups-bulk-remove-members/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-remove-members/bulk-center.png#lightbox)
 
 For details about each line item within the bulk operation, select the values under the **# Success**, **# Failure**, or **Total Requests** columns. If failures occurred, the reasons for failure will be listed.
 

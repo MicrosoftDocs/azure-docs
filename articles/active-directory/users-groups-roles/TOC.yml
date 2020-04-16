@@ -92,7 +92,7 @@
       href: groups-settings-v2-cmdlets.md
     - name: Manage groups with PowerShell MSOnline    
       href: groups-settings-cmdlets.md
-    - name: Search group and member lists (preview)    
+    - name: Search group and member lists   
       href: groups-members-owners-search.md
     - name: Add or remove group members    
       href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
@@ -106,13 +106,13 @@
         href: groups-dynamic-rule-validation.md
       - name: Change group membership type  
         href: groups-change-type.md
-    - name: Bulk add members (preview)
+    - name: Bulk add members
       href: groups-bulk-import-members.md
     - name: Bulk remove members
       href: groups-bulk-remove-members.md
     - name: Bulk download member list
       href: groups-bulk-download-members.md
-    - name: Bulk download groups list (preview)
+    - name: Bulk download groups list
       href: groups-bulk-download.md
     - name: Restore deleted groups   
       href: groups-restore-deleted.md
@@ -130,7 +130,7 @@
       href: groups-lifecycle.md
     - name: Set up group self-service    
       href: groups-self-service-management.md
-    - name: Assign sensitivity labels (preview)
+    - name: Assign sensitivity labels
       href: groups-assign-sensitivity-labels.md
   - name: Assign licenses
     items:
