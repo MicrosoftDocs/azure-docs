@@ -75,6 +75,7 @@ These are the types of information you can add:
 
 - **RemediationDescription** – String
 - **Severity** – Enum [Unknown, Low, Medium, High]
+
 The metadata should be added to the policy definition under the ‘SecurityCenter’ property, as shown:
 
 ![Example of the SecurityCenter property with custom metadata](media/custom-security-policies/custom-policy-metadata.png)
