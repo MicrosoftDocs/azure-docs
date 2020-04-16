@@ -4,7 +4,7 @@ description: Azure Security Baseline for Stream Analytics
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/15/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 

@@ -4,7 +4,7 @@ description: Azure Security Baseline for Azure Data Factory
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/15/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -30,19 +30,21 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/1006).
 
-**Guidance**: When creating an Azure-SSIS Integration Runtime (IR), you have the option to join it with a virtual network. This will allow Azure Data Factory to create certain network resources, such as a network security group (NSG) and a load balancer. On the NSG that is automatically created by Azure Data Factory, port 3389 is open to all traffic by default. Lock this down to ensure that only your administrators have access.
+**Guidance**: When creating an Azure-SSIS Integration Runtime (IR), you have the option to join it with a virtual network. This will allow Azure Data Factory to create certain network resources, such as a network security group (NSG) and a load balancer. You also have the ability to provide your own static public IP address or have Azure Data Factory create one for you.  On the NSG that is automatically created by Azure Data Factory, port 3389 is open to all traffic by default. Lock this down to ensure that only your administrators have access.
 
-Self-Hosted IRs can be deployed on an on-premises machine or Azure virtual machine inside a virtual network. Ensure that your virtual network subnet deployment has an  NSG configured to allow only administrative access.
+Self-Hosted IRs can be deployed on an on-premises machine or Azure virtual machine inside a virtual network. Ensure that your virtual network subnet deployment has an  NSG configured to allow only administrative access. Azure-SSIS IR has disallowed port 3389 outbound by default at windows firewall rule on each IR node for protection. You can secure your virtual network-configured resources by associating an NSG with the subnet and setting strict rules.
 
 Where Private Link is available, use private endpoints to secure any resources being linked to your Azure Data Factory pipeline, such as Azure SQL Server. With Private Link, traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet.
 
-How to create an Azure-SSIS IR: https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)
+How to create an Azure-SSIS IR: https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime
 
-How to create and configure a self-hosted IR: https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
+How to create and configure a self-hosted IR: https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime
 
-How to create a Virtual Network: https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+How to create a Virtual Network: https://docs.microsoft.com/azure/virtual-network/quick-create-portal
 
-How to create an NSG with a security configuration: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+How to create an NSG with a security configuration: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
+
+Join an Azure-SSIS IR to a virtual network: https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#virtual-network-configuration
 
 Understand Azure Private Link: https://docs.microsoft.com/azure/private-link/private-link-overview)
 

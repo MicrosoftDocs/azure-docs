@@ -4,7 +4,7 @@ description: Azure Security Baseline for API Management
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/15/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -30,7 +30,7 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/826).
 
-**Guidance**: Azure API Management can be deployed inside an Azure Virtual Network (Vnet), so it can access back-end services within the network. The developer portal and API gateway, can be configured to be accessible either from the Internet (External) or only within the Vnet (Internal).
+**Guidance**: Azure API Management can be deployed inside an Azure Virtual Network (Vnet), so it can access backend services within the network. The developer portal and API Management gateway, can be configured to be accessible either from the Internet (External) or only within the Vnet (Internal).
 
 - External: the API Management gateway and developer portal are accessible from the public internet via an external load balancer. The gateway can access resources within the virtual network.
 
@@ -38,7 +38,13 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 
 Inbound and outbound traffic into the subnet in which API Management is deployed can be controlled using Network Security Group.
 
-How to use Azure API Management with virtual networks: https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet
+How to use Azure API Management with virtual networks:
+https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet
+https://docs.microsoft.com/azure/api-management/api-management-using-with-internal-vnet
+
+https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
+
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -49,7 +55,7 @@ How to use Azure API Management with virtual networks: https://docs.microsoft.co
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/827).
 
-**Guidance**: Inbound and Outbound traffic into the subnet in which API Management is deployed can be controlled using Network Security groups (NSGs).  Deploy an NSG to your API Management subnet and enable NSG flow logs and send logs into an Azure Storage account for traffic audit. You may also send NSG flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
+**Guidance**: Inbound and outbound traffic into the subnet in which API Management is deployed can be controlled using Network Security groups (NSGs).  Deploy an NSG to your API Management subnet and enable NSG flow logs and send logs into an Azure Storage account for traffic audit. You may also send NSG flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
 Caution: When configuring an NSG on the API Management subnet, there are a set of ports that are required to be open.  If any of these ports are unavailable, API Management may not operate properly and may become inaccessible. 
 
@@ -66,21 +72,22 @@ Understand NSG configurations for Azure API Management: https://docs.microsoft.c
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/828).
 
-**Guidance**: Configure API Management within a Virtual Network (VNet) in internal mode, and configure an Azure Application Gateway. Azure Application Gateway, a PAAS Service, which provides a Layer-7 load balancer. The Application Gateway acts as a reverse-proxy service and provides other features such as Azure Web Application Firewall (WAF).  Azure WAF provides centralized protection of your web applications from common exploits and vulnerabilities.
+**Guidance**: To protect critical Web/HTTP APIs configure API Management within a Virtual Network (Vnet) in internal mode and configure an Azure Application Gateway. Application Gateway is a PaaS service. It acts as a reverse-proxy and provides L7 load balancing, routing, web application firewall (WAF), and other services.
 
-Combining API Management provisioned in an internal Virtual Network with the Application Gateway frontend enables the following scenarios:
+Combining API Management provisioned in an internal Vnet with the Application Gateway frontend enables the following scenarios:
 
-- Use the same API Management resource for consumption by both internal consumers and external consumers.
+- Use a single API Management resource for exposing all APIs to both internal consumers and external consumers.
 
-- Use a single API Management resource and have a subset of APIs defined in API Management available for external consumers.
+- Use a single API Management resource for exposing a subset of APIs to external consumers.
 
-- Provide a turn-key way to switch access to API Management from the public Internet on and off.
+- Provide a way of switching access to API Management from the public Internet on and off.
 
 Note: This feature is available in the Premium and Developer tiers of API Management.
 
-How to integrate API Management in an internal VNET with Application Gateway: https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
+How to integrate API Management in an internal VNET with Application Gateway: https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway 
 
-Understand Azure WAF: https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview
+Understand Azure Application Gateway: https://docs.microsoft.com/azure/application-gateway/
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -91,27 +98,25 @@ Understand Azure WAF: https://docs.microsoft.com/azure/web-application-firewall/
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/829).
 
-**Guidance**: Configure API Management within a Virtual Network (VNet) in internal mode, and configure an Azure Application Gateway. Azure Application Gateway, a PAAS Service, which provides a Layer-7 load balancer. The Application Gateway acts as a reverse-proxy service and provides other features such as Azure Web Application Firewall (WAF).  Azure WAF provides centralized protection of your web applications from common exploits and vulnerabilities.
-
-Combining API Management provisioned in an internal Virtual Network with the Application Gateway frontend enables the following scenarios:
-
-- Use the same API Management resource for consumption by both internal consumers and external consumers.
-
-- Use a single API Management resource and have a subset of APIs defined in API Management available for external consumers.
-
-- Provide a turn-key way to switch access to API Management from the public Internet on and off.
-
+**Guidance**: Configure API Management within a Virtual Network (Vnet) in internal mode and configure an Azure Application Gateway. Application Gateway is a PaaS service. It acts as a reverse-proxy and provides L7 load balancing, routing, web application firewall (WAF), and other services.
+Combining API Management provisioned in an internal Vnet with the Application Gateway frontend enables the following scenarios:
+- Use a single API Management resource for exposing all APIs to both internal consumers and external consumers.
+- Use a single API Management resource for exposing a subset of APIs to external consumers.
+- Provide a way of switching access to API Management from the public Internet on and off.
 Note: This feature is available in the Premium and Developer tiers of API Management.
 
-In addition, enable DDoS Standard protection on the VNet associated with your API Management deployment for protections from distributed denial of service (DDoS) attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
+Enable Azure DDoS Protection Standard on the Vnet associated with your API Management deployment to protect from distributed denial of service (DDoS) attacks. 
 
-How to integrate API Management in an internal VNET with Application Gateway: https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
+Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
 
-Understand Azure WAF: https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview
+How to integrate API Management in an internal VNET with Application Gateway: https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway 
 
-How to configure DDoS protection: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
+Understand Azure Application Gateway: https://docs.microsoft.com/azure/application-gateway/
 
-Understand Azure Security Center Integrated Threat Intelligence: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
+How to configure Azure DDoS Protection Standard: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection 
+
+Understand Azure Security Center Integrated Threat Intelligence: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer 
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -122,7 +127,7 @@ Understand Azure Security Center Integrated Threat Intelligence: https://docs.mi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/830).
 
-**Guidance**: Inbound and Outbound traffic into the subnet in which API Management is deployed can be controlled using Network Security groups (NSGs).  Deploy an NSG to your API Management subnet and enable NSG flow logs and send logs into an Azure Storage account for traffic audit. You may also send NSG flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
+**Guidance**: Inbound and outbound traffic into the subnet in which API Management is deployed can be controlled using Network Security Groups (NSG).  Deploy an NSG to your API Management subnet and enable NSG flow logs and send logs into an Azure Storage account for traffic audit. You may also send NSG flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
 Caution: When configuring an NSG on the API Management subnet, there are a set of ports that are required to be open.  If any of these ports are unavailable, API Management may not operate properly and may become inaccessible.
 
@@ -141,25 +146,22 @@ How to Enable and use Traffic Analytics: https://docs.microsoft.com/azure/networ
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/831).
 
-**Guidance**: Configure API Management within a Virtual Network (VNet) in internal mode, and configure an Azure Application Gateway. The Application Gateway acts as a reverse-proxy service and provides other features such as Azure Web Application Firewall (WAF).  Azure WAF provides centralized protection of your web applications from common exploits and vulnerabilities. The Application Gateway WAF can be configured to run in the following two modes:
+**Guidance**: Configure API Management within a Virtual Network (Vnet) in internal mode and configure an Azure Application Gateway. Application Gateway is a PaaS service. It acts as a reverse-proxy and provides L7 load balancing, routing, web application firewall (WAF), and other services. Application Gateway WAF provides protection from common security exploits and vulnerabilities and can run in the following two modes:
 
 - Detection mode: Monitors and logs all threat alerts. You turn on logging diagnostics for Application Gateway in the Diagnostics section. You must also make sure that the WAF log is selected and turned on. Web application firewall doesn't block incoming requests when it's operating in Detection mode.
 
 - Prevention mode: Blocks intrusions and attacks that the rules detect. The attacker receives a "403 unauthorized access" exception, and the connection is closed. Prevention mode records such attacks in the WAF logs.
 
-Combining API Management provisioned in an internal Virtual Network with the Application Gateway frontend enables the following scenarios:
-
-- Use the same API Management resource for consumption by both internal consumers and external consumers.
-
-- Use a single API Management resource and have a subset of APIs defined in API Management available for external consumers.
-
-- Provide a turn-key way to switch access to API Management from the public Internet on and off.
+Combining API Management provisioned in an internal Vnet with the Application Gateway frontend enables the following scenarios:
+- Use a single API Management resource for exposing all APIs to both internal consumers and external consumers.
+- Use a single API Management resource for exposing a subset of APIs to external consumers.
+- Provide a way of switching access to API Management from the public Internet on and off.
 
 Note: This feature is available in the Premium and Developer tiers of API Management.
 
-How to integrate API Management in an internal VNET with Application Gateway: https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
+How to integrate API Management in an internal VNET with Application Gateway: https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway 
+Understand Azure Application Gateway WAF: https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview
 
-Understand Azure WAF: https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -170,21 +172,24 @@ Understand Azure WAF: https://docs.microsoft.com/azure/web-application-firewall/
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/832).
 
-**Guidance**: Configure API Management within a Virtual Network (VNet) in internal mode, and configure an Azure Application Gateway. Azure Application Gateway, a PAAS Service, which provides a Layer-7 load balancer. The Application Gateway acts as a reverse-proxy service and provides other features such as Azure Web Application Firewall (WAF).  Azure WAF provides centralized protection of your web applications from common exploits and vulnerabilities.
+**Guidance**: 
+To manage traffic flowing to Web/HTTP APIs deploy API Management to a Virtual Network (Vnet) associated with App Service Environment in external or internal mode. 
 
-Combining API Management provisioned in an internal Virtual Network with the Application Gateway frontend enables the following scenarios:
+In internal mode, configure an Azure Application Gateway in front of API Management. Application Gateway is a PaaS service. It acts as a reverse-proxy and provides L7 load balancing, routing, web application firewall (WAF), and other services. Application Gateway WAF provides protection from common security exploits and vulnerabilities.
 
-- Use the same API Management resource for consumption by both internal consumers and external consumers.
-
-- Use a single API Management resource and have a subset of APIs defined in API Management available for external consumers.
-
-- Provide a turn-key way to switch access to API Management from the public Internet on and off.
-
+Combining API Management provisioned in an internal Vnet with the Application Gateway frontend enables the following scenarios:
+- Use a single API Management resource for exposing all APIs to both internal consumers and external consumers.
+- Use a single API Management resource for exposing a subset of APIs to external consumers.
+- Provide a way of switching access to API Management from the public Internet on and off.
 Note: This feature is available in the Premium and Developer tiers of API Management.
+How to expose private APIs to external consumers: https://docs.microsoft.com/azure/architecture/example-scenario/apps/publish-internal-apis-externally
 
-How to integrate API Management in an internal VNET with Application Gateway: https://docs.microsoft.com/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
+How to use API Management within a Vnet: https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet 
 
-Understand Azure WAF: https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview
+Understand Azure Application Gateway WAF: https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview
+
+Understand Azure Application Gateway WAF: https://docs.microsoft.com/azure/application-gateway/overview
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -195,9 +200,9 @@ Understand Azure WAF: https://docs.microsoft.com/azure/web-application-firewall/
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/833).
 
-**Guidance**: Use Virtual Network (Vnet) Service Tags to define network access controls on Network Security groups (NSGs) used on your API Management subnets. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
+**Guidance**: Use Virtual Network (Vnet) Service Tags to define network access controls on Network Security Groups (NSGs) used on your API Management subnets. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-Inbound and Outbound traffic into the Subnet in which API Management is deployed can be controlled using NSGs. If any of these ports are unavailable, API Management may not operate properly and may become inaccessible. Having one or more of these ports blocked is another common misconfiguration issue when using API Management with a VNet. Refer to the API Management documentation for IP address, ports, and Service Tags required for functionality.
+Caution: When configuring an NSG on the API Management subnet, there are a set of ports that are required to be open. If any of these ports are unavailable, API Management may not operate properly and may become inaccessible.
 
 Understanding and using Service Tags: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
@@ -212,7 +217,7 @@ Ports required for API Management: https://docs.microsoft.com/azure/api-manageme
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/834).
 
-**Guidance**: Define and implement standard security configurations for network settings related to your Azure API Management deployments. Use Azure Policy aliases in the "Microsoft.ApiManagement" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure API Management deployments and related resources. You may also make use of built-in policy definitions for Azure Virtual Networks, such as:
+**Guidance**: Define and implement standard security configurations for network settings related to your Azure API Management deployments. Use Azure Policy aliases in the "Microsoft.ApiManagement" and "Microsoft.Network" namespaces to create custom policies to audit or enforce network configuration of your Azure API Management deployments and related resources. You may also make use of built-in policy definitions for Azure Virtual Networks, such as:
 
 - DDoS Protection Standard should be enabled
 
@@ -248,7 +253,7 @@ How to create an NSG with a Security Config: https://docs.microsoft.com/azure/vi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/836).
 
-**Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Azure API Management deployments. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
+**Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes to network resources associated with your Azure API Management deployments. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
 How to view and retrieve Azure Activity Log events: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
