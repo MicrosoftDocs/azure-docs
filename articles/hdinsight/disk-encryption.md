@@ -123,7 +123,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 
 The following example shows how to use an Azure Resource Manager template to create a new Apache Spark cluster with disk encryption enabled. For more information, see [What are ARM templates?](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
 
-This example uses Powershell to call the template.
+This example uses PowerShell to call the template.
 
 ```powershell
 $templateFile = "azuredeploy.json"
