@@ -38,8 +38,7 @@ Task hubs are identified by a name that conforms to these rules:
 
 The task hub name is declared in the *host.json* file, as shown in the following example:
 
-### host.json (Func
-tions 2.0)
+### host.json (Functions 2.0)
 
 ```json
 {
