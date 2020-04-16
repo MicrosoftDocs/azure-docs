@@ -19,13 +19,13 @@ The following is officially supported with Azure Monitor for containers.
     
     * AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
     
-    * [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4.3 on-premises or other cloud environment. 
+    * [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4 on-premises or other cloud environment. 
 
 * Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
 
-* Container Runtime: Docker and Moby
+* Container Runtime: Docker, Moby, and CRI-O
 
-* Linux OS release for master and worked nodes: Ubuntu (18.04 LTS and 16.04 LTS)
+* Linux OS release for master and worked nodes: Ubuntu (18.04 LTS and 16.04 LTS), and Red Hat OpenShift (see list from Ganga)
 
 * Access control supported: Kubernetes RBAC and non-RBAC
 
