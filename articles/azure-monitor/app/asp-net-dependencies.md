@@ -2,7 +2,7 @@
 title: Dependency Tracking in Azure Application Insights | Microsoft Docs
 description: Monitor dependency calls from your on-premises or Microsoft Azure web application with Application Insights.
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 03/26/2020
 
 ---
 
@@ -30,12 +30,14 @@ If you're missing a dependency, or using a different SDK make sure it's in the l
 
 ## Setup automatic dependency tracking in Console Apps
 
-To automatically track dependencies from .NET/.NET Core console apps, install the Nuget package `Microsoft.ApplicationInsights.DependencyCollector`, and initialize `DependencyTrackingTelemetryModule` as follows:
+To automatically track dependencies from .NET console apps, install the Nuget package `Microsoft.ApplicationInsights.DependencyCollector`, and initialize `DependencyTrackingTelemetryModule` as follows:
 
 ```csharp
     DependencyTrackingTelemetryModule depModule = new DependencyTrackingTelemetryModule();
     depModule.Initialize(TelemetryConfiguration.Active);
 ```
+
+For .NET Core console apps TelemetryConfiguration.Active is obsolete. Refer to the guidance in the [worker service documentation](https://docs.microsoft.com/azure/azure-monitor/app/worker-service) and the [ASP.NET Core monitoring documentation](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)
 
 ### How automatic dependency monitoring works?
 

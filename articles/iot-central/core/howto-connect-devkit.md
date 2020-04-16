@@ -4,7 +4,7 @@ description: As a device developer, learn how to connect an MXChip IoT DevKit de
 author: liydu
 ms.author: liydu
 ms.date: 12/03/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: jeffya

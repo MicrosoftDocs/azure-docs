@@ -1,14 +1,12 @@
 ---
 title: Marketplace criteria content validation | Azure Marketplace 
 description: This article describes how to become a publisher on the marketplace.  
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
-manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/31/2019
-ms.author: evansma
+ms.author: dsindona
 ---
 
 # Azure Marketplace listing guidelines

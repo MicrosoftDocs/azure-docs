@@ -5,10 +5,12 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 03/04/2020
+ms.date: 03/24/2020
 ---
 
 # Mapping data flow video tutorials
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Below is a list of mapping data flow tutorial videos created by the Azure Data Factory team. 
 
@@ -88,6 +90,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Data warehouse loading pattern](https://www.youtube.com/watch?v=7mLqwtmeQFg)
 
+[Data lake file output options](https://www.youtube.com/watch?v=NAPSbjvSQA8)
+
 ## Optimizing mapping data flows
 
 [Data lineage](https://www.youtube.com/watch?v=5KvqYF-y93s)
@@ -145,3 +149,5 @@ As updates are constantly made to the product, some features have added or diffe
 [Splitting Arrays and Case Statement](https://www.youtube.com/watch?v=DHNH8ZO7YjI)
 
 [Fun with string interpolation and parameters](https://youtu.be/hb3-cn2CMgM)
+
+[Data Flow Script Intro: Copy, Paste, Snippets](https://www.youtube.com/watch?v=3_1I4XdoBKQ)

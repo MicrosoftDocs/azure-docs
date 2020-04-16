@@ -205,6 +205,7 @@ You should see these two directories created during image customization:
 When you are done, delete the resources.
 
 ### Delete the image builder template
+
 ```azurecli-interactive
 az resource delete \
     --resource-group $imageResourceGroup \
@@ -213,6 +214,7 @@ az resource delete \
 ```
 
 ### Delete the image resource group
+
 ```azurecli-interactive
 az group delete -n $imageResourceGroup
 ```

@@ -244,7 +244,7 @@ To bind the load balancer with the virtual server:
 
 ### Bind the certificate
 
-To publish this service as SSL, bind the server certificate, and then test your application:
+To publish this service as TLS, bind the server certificate, and then test your application:
 
 1. Under **Certificate**, select **No Server Certificate**.
 

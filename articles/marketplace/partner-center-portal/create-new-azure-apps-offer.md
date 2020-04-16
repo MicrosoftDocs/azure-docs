@@ -1,9 +1,8 @@
 ---
-title: Create a new Azure Apps offer in the Commercial Marketplace 
+title: Create a new Azure Apps offer in the commercial marketplace 
 description: How to create a new Azure Apps offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
-author: MaggiePucciEvans 
-manager: evansma
-ms.author: evansma
+author: dsindona 
+ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -54,7 +53,7 @@ Review the following Azure application documentation, which provides Quickstarts
 
     * [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
     * [GitHub Azure Quickstart templates](https://github.com/azure/azure-quickstart-templates)
-    * [Publish application definition](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
+    * [Publish application definition](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Deploy service catalog app](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
 * Tutorials:
@@ -99,7 +98,7 @@ You can review the available tools in the [Azure Developer Tools](https://azure.
 
 ## Create an Azure application offer
 
-Before you can create an Azure application offer, you must first [Create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
+Before you can create an Azure application offer, you must first [create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and open the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
 >[!Note]
 >Once an offer is published, edits to the offer made in Partner Center will only be updated in the system and storefronts after re-publishing.  Please ensure that you submit the offer for publication after you changes are made.
@@ -110,7 +109,7 @@ Select the **+ New offer** button, then select the **Azure Application** menu it
 
 ### Offer ID and alias
 
-* **Offer ID**: A unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). <br> <br> Your Offer ID must be lowercase alphanumeric characters (including hyphens and underscores, but no whitespace). It is limited to 50 characters and can’t be changed after you select Create. <br> <br> For example, if you enter `test-offer-1` here, the offer URL will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`. 
+* **Offer ID**: A unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). <br> <br> Your Offer ID must be lowercase alphanumeric characters (including hyphens and underscores, but no whitespace). It is limited to 50 characters and can't be changed after you select Create. <br> <br> For example, if you enter `test-offer-1` here, the offer URL will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`. 
 
 * **Offer alias**: The name used to refer to the offer within the Partner Center. This name won't be used in the marketplace and is different from the offer name and other values that will be shown to customers. This value can't be changed after you select **Create**.
 
@@ -425,7 +424,7 @@ Specify an HTTPS Webhook endpoint to receive notifications about all CRUD operat
 
 ### Customize allowed customer actions
 
-Select this option to specify which actions customers can perform on the managed resources in addition to the “`*/read`” actions that is available by default. 
+Select this option to specify which actions customers can perform on the managed resources in addition to the "`*/read`" actions that is available by default. 
 
 List the additional actions you would like to enable your customer to perform here, separated by semicolons.  For more information, see [Understanding deny assignments for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments).  For available actions, see [Azure Resource Manager resource provider operations](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations). For example, to permit consumers to restart virtual machines, add `Microsoft.Compute/virtualMachines/restart/action` to the allowed actions.
 
@@ -440,7 +439,7 @@ Indicate who should have management access to this managed application in each s
 For each principal, select one of the Azure AD built-in roles from the list (Owner or Contributor). The role you select will describe the permissions the principal will have on the resources in the customer subscription. For more information, see [Built-in roles for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).  For more information about role-based access control (RBAC), see [Get started with RBAC in the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 >[!Note]
->Although you may add up to 100 authorizations per cloud, it’s generally easier to create an Active Directory user group and specify its ID in the "Principal ID."  This will enable you to add more users to the management group after the plan is deployed and reduce the need to update the plan just to add more authorizations.
+>Although you may add up to 100 authorizations per cloud, it's generally easier to create an Active Directory user group and specify its ID in the "Principal ID."  This will enable you to add more users to the management group after the plan is deployed and reduce the need to update the plan just to add more authorizations.
 
 ### Policy settings
 

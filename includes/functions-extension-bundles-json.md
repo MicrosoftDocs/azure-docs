@@ -25,4 +25,4 @@ The following properties are available in `extensionBundle`:
 
 Bundle versions increment as packages in the bundle change. Major version changes occur when packages in the bundle increment by a major version. Major version changes in the bundle usually coincide with a change in the major version of the Functions runtime.  
 
-The current set of extensions installed by the default bundle is enumerated in this [extensions.json file](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
+The current set of extensions installed by the default bundle is enumerated in this [extensions.json file](https://github.com/Azure/azure-functions-extension-bundles/blob/dev/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).

@@ -1,14 +1,12 @@
 ---
 title: Azure IoT Edge Modules 
 description: The IoT Edge Module Offer in the Azure Marketplace for app and service publishers.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, IoT Edge module offer
 author: qianw211
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/22/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # IoT Edge modules

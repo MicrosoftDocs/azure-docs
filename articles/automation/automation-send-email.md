@@ -80,7 +80,7 @@ To use Azure KeyVault within a runbook, your Automation Account will need the fo
 
 Click <kbd>Deploy to Azure Automation</kbd> on the Azure Automation tab under Installation Options. This action opens up the Azure portal. On the Import page, select your Automation Account and click <kbd>OK</kbd>.
 
-For additional methods for adding the required modules, see [Import Modules](/azure/automation/shared-resources/modules#import-modules).
+For additional methods for adding the required modules, see [Import Modules](/azure/automation/shared-resources/modules#importing-modules).
 
 ## Create the runbook to send an email
 
@@ -152,7 +152,7 @@ it for different scenarios.
 
 7. Select **Publish** to save and publish the runbook.
 
-To verify that the runbook executes successfully you can follow the steps under [Test a runbook](manage-runbooks.md#test-a-runbook) or [Start a runbook](start-runbooks.md).
+To verify that the runbook executes successfully you can follow the steps under [Test a runbook](manage-runbooks.md#testing-a-runbook) or [Start a runbook](start-runbooks.md).
 If you do not initially see your test email, check your **Junk** and **Spam** folders.
 
 ## Clean Up

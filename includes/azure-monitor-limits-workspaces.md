@@ -31,21 +31,21 @@ ms.custom: "include file"
 
 **Azure portal**
 
-| Category | Limits | Comments |
+| Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum records returned by a log query | 10,000 | Reduce results using query scope, time range, and filters in the query. |
 
 
 **Data Collector API**
 
-| Category | Limits | Comments |
+| Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum size for a single post | 30 MB | Split larger volumes into multiple posts. |
 | Maximum size for field values  | 32 KB | Fields longer than 32 KB are truncated. |
 
 **Search API**
 
-| Category | Limits | Comments |
+| Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum records returned in a single query | 500,000 | |
 | Maximum size of data returned | 64,000,000 bytes (~61 MiB)| |
@@ -54,7 +54,7 @@ ms.custom: "include file"
 
 **General workspace limits**
 
-| Category | Limits | Comments |
+| Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum columns in a table         | 500 | |
 | Maximum characters for column name | 500 | |

@@ -1,12 +1,12 @@
 ---
 title: Secure and reliable global content delivery and acceleration with Azure Content Delivery Network
 description: Learn about the services to create secure and reliable global content delivery for mobile applications.
-author: elamalani
+author: codemillmatt
 ms.assetid: 34a8a070-0123-4678-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
+ms.date: 03/24/2020
+ms.author: masoucou
 ---
 
 # Content delivery network on Azure with Azure Content Delivery Network

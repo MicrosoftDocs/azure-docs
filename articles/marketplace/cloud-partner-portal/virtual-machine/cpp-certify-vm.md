@@ -1,16 +1,18 @@
 ---
 title: Certify your VM image for the Azure Marketplace 
 description: Explains how to test and submit a VM image for Azure Marketplace certification.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/26/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Certify your VM image
+
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Azure VM image certification](https://aks.ms/CertifyVMimage) to manage your migrated offers.
 
 After you create and deploy your virtual machine (VM), you must test and submit the VM image for Azure Marketplace certification. This article explains where to get the *Certification Test Tool for Azure Certified*, how to use this tool to certify your VM image, and how to upload the verification results to the Azure container where your VHDs reside. 
 

@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 04/03/2020
 ms.author: rohogue
 ---
 
@@ -108,7 +108,7 @@ More information is included in [Troubleshoot NAS configuration and NFS storage 
 
   Make sure that all of the ports returned by the ``rpcinfo`` query allow unrestricted traffic from the Azure HPC Cache's subnet.
 
-  * In addition to the ports returned by the `rpcinfo` command, make sure that these commonly used ports allow inbound and outbound traffic:
+  * If you can't use the `rpcinfo` command, make sure that these commonly used ports allow inbound and outbound traffic:
 
     | Protocol | Port  | Service  |
     |----------|-------|----------|
@@ -117,6 +117,8 @@ More information is included in [Troubleshoot NAS configuration and NFS storage 
     | TCP/UDP  | 4045  | nlockmgr |
     | TCP/UDP  | 4046  | mountd   |
     | TCP/UDP  | 4047  | status   |
+
+    Some systems use different port numbers for these services - consult your storage system's documentation to be sure.
 
   * Check firewall settings to be sure that they allow traffic on all of these required ports. Be sure to check firewalls used in Azure as well as on-premises firewalls in your data center.
 
@@ -127,7 +129,7 @@ More information is included in [Troubleshoot NAS configuration and NFS storage 
 
   Learn more about directory listing access in the NFS storage target [troubleshooting article](troubleshoot-nas.md#enable-export-listing).
 
-* **Root access:** The cache connects to the back-end system as user ID 0. Check these settings on your storage system:
+* **Root access** (read/write): The cache connects to the back-end system as user ID 0. Check these settings on your storage system:
   
   * Enable `no_root_squash`. This option ensures that the remote root user can access files owned by root.
 

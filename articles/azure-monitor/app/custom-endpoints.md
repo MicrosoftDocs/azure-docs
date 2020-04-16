@@ -183,6 +183,10 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 </script>
 ```
 
+### Python
+
+For guidance on modifying the ingestion endpoint for the opencensus-python SDK consult the [opencensus-python repo.](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)
+
 ## Regions that require endpoint modification
 
 Currently the only regions that require endpoint modifications are [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) and [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).

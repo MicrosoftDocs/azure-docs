@@ -3,12 +3,11 @@ title: Azure Marketplace and AppSource Consulting Services
 description: This article describes the eligibility criteria and publishing requirements for new consulting-service offerings in the Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
-manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/27/2020
-ms.author: evansma
+ms.author: dsindona
 ---
 
 # Consulting Services for Azure Marketplace and AppSource

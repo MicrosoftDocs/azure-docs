@@ -359,6 +359,12 @@ az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/
 
 ```
 
+ Use the [az aks get-credentials][az-aks-get-credentials] command to configure `kubectl` to connect to your newly created Kubernetes cluster. 
+
+ ```azure-cli
+ az aks get-credentials -g $RG -n $AKS_NAME
+ ```
+
 ### Setup the internal load balancer
 
 AKS has deployed a load balancer with the cluster which can be setup as an [internal load balancer](internal-lb.md).
@@ -534,3 +540,6 @@ You should see an image of the Azure voting app.
 See [Azure networking UDR overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
 See [how to create, change, or delete a route table](https://docs.microsoft.com/azure/virtual-network/manage-route-table).
+
+<!-- LINKS - internal -->
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials

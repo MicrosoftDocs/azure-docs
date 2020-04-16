@@ -1,14 +1,12 @@
 ---
-title: Support for Azure Marketplace and AppSource | Azure
+title: Support for the commercial marketplace | Azure
 description: Support information and links for Azure Marketplace and AppSource
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: MaggiePucciEvans
-manager: evansma
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/19/2020
-ms.author: evansma
+ms.author: dsindona
 
 ---
 
@@ -45,7 +43,7 @@ Open a ticket with Microsoft [marketplace publisher support](https://aka.ms/mark
 
 ## Next steps
 
-* Visit the [Azure Marketplace and AppSource Publisher Guide page](https://docs.microsoft.com/azure/marketplace/).
-* Learn more about [Support for the Commercial Marketplace program in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+* Visit the [commercial marketplace publisher guide page](https://docs.microsoft.com/azure/marketplace/).
+* Learn more about [support for the commercial marketplace program in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
 
 ---

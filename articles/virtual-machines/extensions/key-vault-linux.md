@@ -27,6 +27,7 @@ The Key Vault VM extension supports these Linux distributions:
 ### Supported certificate content types
 
 - PKCS #12
+- PEM
 
 ## Extension schema
 

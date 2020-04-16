@@ -1,12 +1,12 @@
 ---
 title: Maintenance schedules for Synapse SQL pool
 description: Maintenance scheduling enables customers to plan around the necessary scheduled maintenance events that Azure Synapse Analytics uses to roll out new features, upgrades, and patches.  
-services: sql-data-warehouse
+services: synapse-analytics
 author: antvgski
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: design
+ms.subservice: 
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
@@ -14,7 +14,7 @@ ms.reviewer: jrasnick
 
 # Use maintenance schedules to manage service updates and maintenance
 
-The maintenance schedule feature integrates the Service Health Planned Maintenance Notifications, Resource Health Check Monitor, and maintenance scheduling service for Synapse SQL pool (data warehouse) within Azure Synapse Analytics. 
+The maintenance schedule feature integrates the Service Health Planned Maintenance Notifications, Resource Health Check Monitor, and maintenance scheduling service for Synapse SQL pool (data warehouse) within Azure Synapse Analytics.
 
 You should use maintenance scheduling to choose a time window when it's convenient to receive new features, upgrades, and patches. You will need to choose a primary and a secondary maintenance window within a seven-day period, each window must be within separate day ranges.
 
@@ -43,53 +43,55 @@ All active maintenance events appear in the **Service Health - Planned Maintenan
 
 Even if maintenance scheduling isn't available in your selected region, you can view and edit your maintenance schedule at any time. When maintenance scheduling becomes available in your region, the identified schedule will immediately become active on your Synapse SQL pool.
 
-## View a maintenance schedule 
+## View a maintenance schedule
 
 By default, all newly created data warehouse instances have an eight-hour primary and secondary maintenance window applied during deployment. As indicated above, you can change the windows as soon deployment is complete. No maintenance will take place outside the specified maintenance windows without prior notification.
 
 To view the maintenance schedule that has been applied to your Synapse SQL pool, complete the following steps:
 
-1.    Sign in to the [Azure portal](https://portal.azure.com/).
-2.    Select the Synapse SQL pool that you want to view. 
-3.    The selected Synapse SQL pool opens on the overview blade. The maintenance schedule that's applied to the data warehouse appears below **Maintenance schedule**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Select the Synapse SQL pool that you want to view.
+3. The selected Synapse SQL pool opens on the overview blade. The maintenance schedule that's applied to the data warehouse appears below **Maintenance schedule**.
 
 ![Overview blade](./media/maintenance-scheduling/clear-overview-blade.PNG)
 
-## Change a maintenance schedule 
+## Change a maintenance schedule
 
-A maintenance schedule can be updated or changed at any time. If the selected instance is going through an active maintenance cycle, the settings will be saved. They'll become active during the next identified maintenance period. [Learn more](../../service-health/resource-health-overview.md) about monitoring your data warehouse during an active maintenance event. 
+A maintenance schedule can be updated or changed at any time. If the selected instance is going through an active maintenance cycle, the settings will be saved. They'll become active during the next identified maintenance period. [Learn more](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) about monitoring your data warehouse during an active maintenance event.
 
 ## Identifying the primary and secondary windows
 
 The primary and secondary windows must have separate day ranges. An example is a primary window of Tuesday–Thursday and a secondary of window of Saturday–Sunday.
 
 To change the maintenance schedule for your Synapse SQL pool, complete the following steps:
-1.    Sign in to the [Azure portal](https://portal.azure.com/).
-2.    Select the Synapse SQL pool that you want to update. The page opens on the overview blade. 
-3.    Open the page for maintenance schedule settings by selecting the **Maintenance Schedule summary** link on the overview blade. Or, select the **Maintenance Schedule** option on the left-side resource menu.  
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Select the Synapse SQL pool that you want to update. The page opens on the overview blade.
+Open the page for maintenance schedule settings by selecting the **Maintenance Schedule summary** link on the overview blade. Or, select the **Maintenance Schedule** option on the left-side resource menu.
 
     ![Overview blade options](./media/maintenance-scheduling/maintenance-change-option.png)
 
-4. Identify the preferred day range for your primary maintenance window by using the options at the top of the page. This selection determines if your primary window will occur on a weekday or over the weekend. Your selection will update the drop-down values. 
+3. Identify the preferred day range for your primary maintenance window by using the options at the top of the page. This selection determines if your primary window will occur on a weekday or over the weekend. Your selection will update the drop-down values.
 During preview, some regions might not yet support the full set of available **Day** options.
 
    ![Maintenance settings blade](./media/maintenance-scheduling/maintenance-settings-page.png)
 
-5. Choose your preferred primary and secondary maintenance windows by using the drop-down list boxes:
+4. Choose your preferred primary and secondary maintenance windows by using the drop-down list boxes:
    - **Day**: Preferred day to perform maintenance during the selected window.
    - **Start time**: Preferred start time for the maintenance window.
    - **Time window**: Preferred duration of your time window.
 
-   The **Schedule summary** area at the bottom of the blade is updated based on the values that you selected. 
+   The **Schedule summary** area at the bottom of the blade is updated based on the values that you selected.
   
-6. Select **Save**. A message appears, confirming that your new schedule is now active. 
+5. Select **Save**. A message appears, confirming that your new schedule is now active.
 
-   If you're saving a schedule in a region that doesn't support maintenance scheduling, the following message appears. Your settings are saved and become active when the feature becomes available in your selected region.    
+   If you're saving a schedule in a region that doesn't support maintenance scheduling, the following message appears. Your settings are saved and become active when the feature becomes available in your selected region.
 
    ![Message about region availability](./media/maintenance-scheduling/maintenance-not-active-toast.png)
 
 ## Next steps
-- [Learn more](../../azure-monitor/platform/alerts-metric.md) about creating, viewing, and managing alerts by using Azure Monitor.
-- [Learn more](../..//azure-monitor/platform/alerts-log-webhook.md) about webhook actions for log alert rules.
-- [Learn more](../..//azure-monitor/platform/action-groups.md) Creating and managing Action Groups.
-- [Learn more](../../service-health/service-health-overview.md) about Azure Service Health.
+
+- [Learn more](../../azure-monitor/platform/alerts-metric.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) about creating, viewing, and managing alerts by using Azure Monitor.
+- [Learn more](../..//azure-monitor/platform/alerts-log-webhook.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) about webhook actions for log alert rules.
+- [Learn more](../..//azure-monitor/platform/action-groups.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Creating and managing Action Groups.
+- [Learn more](../../service-health/service-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) about Azure Service Health.

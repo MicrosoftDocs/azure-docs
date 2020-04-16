@@ -22,27 +22,9 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ## March 2020 
 
-### Extraction Enhancements and bug fixes
+### Extraction enhancements
 
-This release includes extraction enhancements and accuracy improvements, specifically, the capability to label and extract multiple key/value pairs in the same line of text. In addition, we've fixed several bugs, including a fix that allows users to submit a file URL as the source to the [`analyzeForm`](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) and [`analyzeLayout`](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync) APIs. 
-
-
-**Enhancements**
-
-* Added additional logs and telemetry for storage manager, time-to-results, and document complexity 
-* Improved model performance
-* Integrated latest pdfminer release
-* Integrated new read layout OCR engine
-
-**Bug fixes**
-
-* Bug fix: Public version is no longer hard coded into the route
-* Bug fix: Slow blob listings no longer block training 
-* Bug fix: Kestrel unable to process malformed JSON for Analyze requests
-* Bug fix: Get/Delete APIs return errors for non-existent models
-* Bug fix: Isolate currency characters not detected
-* Bug fix: Prediction takes longer than 60 seconds
-* Bug fix: Unable to extract key/value pairs. List index out of range. 
+This release includes extraction enhancements and accuracy improvements, specifically, the capability to label and extract multiple key/value pairs in the same line of text. 
  
 ### Form Recognizer Sample Labeling Tool is now open-source
 
@@ -78,6 +60,10 @@ This is an example of how tables are recognized and extracted:
 
 > [!IMPORTANT]
 > Labeling tables isn't supported. If tables are not recognized and extrated automatically, you can only label them as key/value pairs. When labeling tables as key/value pairs, please label each cell as a value.
+
+### TLS 1.2 enforcement
+
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../cognitive-services-security.md).
 
 ## January 2020
 

@@ -1,16 +1,18 @@
 ---
 title: Windows Remote Management over HTTPS for Azure | Azure Marketplace
 description: Explains how to configure an Azure-hosted, Windows-based VM so that it can be managed remotely with PowerShell.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Windows Remote Management over HTTPS
+
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Virtual Machine offer](https://aka.ms/CreateAzureVMoffer) to manage your migrated offers.
 
 This section explains how to configure an Azure-hosted, Windows-based VM so that it can be managed and deployed remotely with PowerShell.  To enable PowerShell remoting, the target VM must expose a Windows Remote Management (WinRM) HTTPS endpoint.  For more information about PowerShell remoting, see [Running Remote Commands](https://docs.microsoft.com/powershell/scripting/learn/remoting/running-remote-commands).  For more information about WinRM, see [Windows Remote Management](https://docs.microsoft.com/windows/desktop/WinRM/portal).
 

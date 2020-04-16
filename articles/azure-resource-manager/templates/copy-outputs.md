@@ -4,9 +4,9 @@ description: Use copy operation in an Azure Resource Manager template to iterate
 ms.topic: conceptual
 ms.date: 02/25/2020
 ---
-# Output iteration in Azure Resource Manager templates
+# Output iteration in ARM templates
 
-This article shows you how to create more than one value for an output in your Azure Resource Manager template. By adding the **copy** element to the outputs section of your template, you can dynamically return a number of items during deployment.
+This article shows you how to create more than one value for an output in your Azure Resource Manager (ARM) template. By adding the **copy** element to the outputs section of your template, you can dynamically return a number of items during deployment.
 
 You can also use copy with [resources](copy-resources.md), [properties in a resource](copy-properties.md), and [variables](copy-variables.md).
 
@@ -147,11 +147,11 @@ The preceding example returns an array with the following values:
 
 ## Next steps
 
-* To go through a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](template-tutorial-create-multiple-instances.md).
+* To go through a tutorial, see [Tutorial: create multiple resource instances using ARM templates](template-tutorial-create-multiple-instances.md).
 * For other uses of the copy element, see:
-  * [Resource iteration in Azure Resource Manager templates](copy-resources.md)
-  * [Property iteration in Azure Resource Manager templates](copy-properties.md)
-  * [Variable iteration in Azure Resource Manager templates](copy-variables.md)
-* If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](template-syntax.md).
-* To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](deploy-powershell.md).
+  * [Resource iteration in ARM templates](copy-resources.md)
+  * [Property iteration in ARM templates](copy-properties.md)
+  * [Variable iteration in ARM templates](copy-variables.md)
+* If you want to learn about the sections of a template, see [Authoring ARM templates](template-syntax.md).
+* To learn how to deploy your template, see [Deploy an application with ARM template](deploy-powershell.md).
 

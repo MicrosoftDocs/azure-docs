@@ -1,14 +1,12 @@
 ---
 title: Private offers | Azure Marketplace
 description: Private offers in the Azure Marketplace for app and service publishers.
-services: Azure, Marketplace, Compute
 author: qianw211
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/1/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Private offers

@@ -1,12 +1,12 @@
 ---
 title: Host your mobile application source code in the cloud with GitHub and Azure DevOps
 description: Learn about the services to host your mobile application code in the cloud with Microsoft services.
-author: elamalani
+author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-2222-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
+ms.date: 03/24/2020
+ms.author: masoucou
 ---
 
 # Cloud-hosted source code management services

@@ -802,16 +802,6 @@ pd.read_sql(queryString, connection)
 
 ![Top rows of data from the table](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
-#### Read data from HDI by using Azure Machine Learning Studio (classic): reader module
-
-You can also use the reader module in Azure Machine Learning Studio (classic) to access the database in a Hadoop cluster. Plug in the credentials of your HDI clusters and Azure storage account to enable building machine learning models by using a database in HDI clusters.
-
-![Reader module properties](./media/vm-do-ten-things/AML_Reader_Hive.PNG)
-
-You can then view the scored dataset:
-
-![View scored dataset](./media/vm-do-ten-things/AML_Model_Results.PNG)
-
 ### Azure SQL Data Warehouse and databases
 Azure SQL Data Warehouse is an elastic data warehouse as a service with an enterprise-class SQL Server experience.
 
@@ -834,7 +824,7 @@ After you import the data, you can go to Jupyter and open the notebook titled *D
 ## Use Power BI reports and dashboards 
 You can visualize the Volcano JSON file from the preceding Azure Cosmos DB example in Power BI Desktop to gain visual insights into the data. Detailed steps are available in the [Power BI article](../../cosmos-db/powerbi-visualize.md). Here are the high-level steps:
 
-1. Open Power BI Desktop and select **Get Data**. Specify the URL as: https://cahandson.blob.core.windows.net/samples/volcano.json.
+1. Open Power BI Desktop and select **Get Data**. Specify the URL as: `https://cahandson.blob.core.windows.net/samples/volcano.json`.
 2. You should see the JSON records imported as a list. Convert the list to a table so Power BI can work with it.
 4. Expand the columns by selecting the expand (arrow) icon.
 5. Notice that the location is a **Record** field. Expand the record and select only the coordinates. **Coordinate** is a list column.

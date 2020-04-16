@@ -63,7 +63,7 @@ updated outside of Resource Manager.
 Now that you have a better understanding of what Azure Resource Graph is, let's dive into how to
 construct queries.
 
-It's important to understand that Azure Resource Graph's query language is based on the [Kusto query language](../../data-explorer/data-explorer-overview.md)
+It's important to understand that Azure Resource Graph's query language is based on the [Kusto query language](/azure/data-explorer/data-explorer-overview)
 used by Azure Data Explorer.
 
 First, for details on operations and functions that can be used with Azure Resource Graph, see [Resource Graph query language](./concepts/query-language.md).

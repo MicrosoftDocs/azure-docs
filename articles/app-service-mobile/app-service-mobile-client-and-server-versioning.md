@@ -23,11 +23,11 @@ The key `ZUMO-API-VERSION` may be specified in either the HTTP header or the que
 
 For example:
 
-GET https://service.azurewebsites.net/tables/TodoItem
+`GET https://service.azurewebsites.net/tables/TodoItem`
 
 HEADERS: ZUMO-API-VERSION: 2.0.0
 
-POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
+`POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0`
 
 ## Opting out of version checking
 You can opt out of version checking by setting a value of **true** for the app setting **MS_SkipVersionCheck**. Specify this either in your web.config or in the Application Settings section of the Azure portal.

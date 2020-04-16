@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 03/12/2020
+ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -182,6 +182,7 @@ The following table provides a brief description and the unique ID of each built
 > | [Site Recovery Operator](#site-recovery-operator) | Lets you failover and failback but not perform other Site Recovery management operations | 494ae006-db33-4328-bf46-533a6560a3ca |
 > | [Site Recovery Reader](#site-recovery-reader) | Lets you view Site Recovery status but not perform other management operations | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
 > | [Support Request Contributor](#support-request-contributor) | Lets you create and manage Support requests | cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e |
+> | [Tag Contributor](#tag-contributor) | Lets you manage tags on entities, without providing access to the entities themselves. | 4a9ae827-6dc8-4573-8ac7-8239d42aa03f |
 > | **Other** |  |  |
 > | [BizTalk Contributor](#biztalk-contributor) | Lets you manage BizTalk services, but not access to them. | 5e3c6656-6cfa-4708-81fe-0de47ac73342 |
 > | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Lets you manage Scheduler job collections, but not access to them. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
@@ -2066,6 +2067,7 @@ Read, write, and delete Azure Storage containers and blobs. To learn which actio
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Delete a blob. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Return a blob or a list of blobs. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action | Moves the blob from one path to another |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Write to a blob. |
 > | **NotDataActions** |  |
 > | *none* |  |
@@ -2090,6 +2092,7 @@ Read, write, and delete Azure Storage containers and blobs. To learn which actio
       "dataActions": [
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
       ],
       "notDataActions": []
@@ -4094,6 +4097,7 @@ Log Analytics Contributor can read all monitoring data and edit monitoring setti
 > | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
 > | Microsoft.Compute/virtualMachines/extensions/* |  |
+> | Microsoft.HybridCompute/machines/extensions/write | Installs or Updates an Azure Arc extensions |
 > | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
 > | Microsoft.Insights/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
 > | Microsoft.OperationalInsights/* |  |
@@ -4125,6 +4129,7 @@ Log Analytics Contributor can read all monitoring data and edit monitoring setti
         "Microsoft.ClassicCompute/virtualMachines/extensions/*",
         "Microsoft.ClassicStorage/storageAccounts/listKeys/action",
         "Microsoft.Compute/virtualMachines/extensions/*",
+        "Microsoft.HybridCompute/machines/extensions/write",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Insights/diagnosticSettings/*",
         "Microsoft.OperationalInsights/*",
@@ -4639,7 +4644,7 @@ Can manage service but not the APIs
 > | Microsoft.ApiManagement/service/managedeployments/action | Change SKU/units, add/remove regional deployments of API Management Service |
 > | Microsoft.ApiManagement/service/read | Read metadata for an API Management Service instance |
 > | Microsoft.ApiManagement/service/restore/action | Restore API Management Service from the specified container in a user provided storage account |
-> | Microsoft.ApiManagement/service/updatecertificate/action | Upload SSL certificate for an API Management Service |
+> | Microsoft.ApiManagement/service/updatecertificate/action | Upload TLS/SSL certificate for an API Management Service |
 > | Microsoft.ApiManagement/service/updatehostname/action | Setup, update or remove custom domain names for an API Management Service |
 > | Microsoft.ApiManagement/service/write | Create or Update API Management Service instance |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
@@ -5510,6 +5515,7 @@ Azure Sentinel Reader
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.SecurityInsights/*/read |  |
+> | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Check user authorization and license |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Search using new engine. |
 > | Microsoft.OperationalInsights/workspaces/*/read | View log analytics data |
 > | Microsoft.OperationalInsights/workspaces/LinkedServices/read | Get linked services under given workspace. |
@@ -5543,6 +5549,7 @@ Azure Sentinel Reader
     {
       "actions": [
         "Microsoft.SecurityInsights/*/read",
+        "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
         "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/LinkedServices/read",
@@ -5578,6 +5585,7 @@ Azure Sentinel Responder
 > | --- | --- |
 > | **Actions** |  |
 > | Microsoft.SecurityInsights/*/read |  |
+> | Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action | Check user authorization and license |
 > | Microsoft.SecurityInsights/cases/* |  |
 > | Microsoft.SecurityInsights/incidents/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Search using new engine. |
@@ -5613,6 +5621,7 @@ Azure Sentinel Responder
     {
       "actions": [
         "Microsoft.SecurityInsights/*/read",
+        "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.SecurityInsights/cases/*",
         "Microsoft.SecurityInsights/incidents/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
@@ -6700,6 +6709,7 @@ Can read, write, delete and re-onboard Azure Connected Machines.
 > | Microsoft.HybridCompute/machines/write | Writes an Azure Arc machines |
 > | Microsoft.HybridCompute/machines/delete | Deletes an Azure Arc machines |
 > | Microsoft.HybridCompute/machines/reconnect/action | Reconnects an Azure Arc machines |
+> | Microsoft.HybridCompute/machines/extensions/write | Installs or Updates an Azure Arc extensions |
 > | Microsoft.HybridCompute/*/read |  |
 > | **NotActions** |  |
 > | *none* |  |
@@ -6723,6 +6733,7 @@ Can read, write, delete and re-onboard Azure Connected Machines.
         "Microsoft.HybridCompute/machines/write",
         "Microsoft.HybridCompute/machines/delete",
         "Microsoft.HybridCompute/machines/reconnect/action",
+        "Microsoft.HybridCompute/machines/extensions/write",
         "Microsoft.HybridCompute/*/read"
       ],
       "notActions": [],
@@ -7801,6 +7812,60 @@ Lets you create and manage Support requests
     }
   ],
   "roleName": "Support Request Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Tag Contributor
+
+Lets you manage tags on entities, without providing access to the entities themselves.
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Actions** |  |
+> | Microsoft.Authorization/*/read | Read roles and role assignments |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.Resources/subscriptions/resourceGroups/resources/read | Gets the resources for the resource group. |
+> | Microsoft.Resources/subscriptions/resources/read | Gets resources of a subscription. |
+> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Support/* | Create and manage support tickets |
+> | Microsoft.Resources/tags/* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage tags on entities, without providing access to the entities themselves.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4a9ae827-6dc8-4573-8ac7-8239d42aa03f",
+  "name": "4a9ae827-6dc8-4573-8ac7-8239d42aa03f",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/resources/read",
+        "Microsoft.Resources/subscriptions/resources/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Support/*",
+        "Microsoft.Resources/tags/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Tag Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

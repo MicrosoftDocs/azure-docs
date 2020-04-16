@@ -3,14 +3,14 @@ title: "Quickstart: Create an object detection project with the SDK for C# - Cus
 titleSuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and detect objects using the .NET SDK with C#.
 services: cognitive-services
-author: areddish
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
-ms.author: areddish
+ms.date: 04/14/2020
+ms.author: pafarley
 ---
 
 # Quickstart: Create an object detection project with the Custom Vision .NET SDK

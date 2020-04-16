@@ -14,6 +14,7 @@ ms.date: 07/29/2019
 ---
 
 # Create a tumbling window trigger dependency
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article provides steps to create a dependency on a tumbling window trigger. For general information about Tumbling Window triggers, see [How to create tumbling window trigger](how-to-create-tumbling-window-trigger.md).
 

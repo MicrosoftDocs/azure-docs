@@ -34,6 +34,8 @@ There are three ways to check whether an application is in quarantine:
 
   ![Provisioning status bar showing quarantine status](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
+- In the Azure portal, navigate to **Azure Active Directory** > **Audit Logs** > filter on **Activity: Quarantine** and review the quarantine history. While the view in the progress bar as described above shows whether provisioning is currently in quarantine, the audit logs allow you to see the quarantine history for an application. 
+
 - Use the Microsoft Graph request [Get synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) to programmatically get the status of the provisioning job:
 
         `GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/`

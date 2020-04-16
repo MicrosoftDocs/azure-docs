@@ -36,8 +36,8 @@ landingContent:
         links:
           - text: Protect your containers
             url: container-security.md
-          - text: Add dynamic compliance packages
-            url: update-regulatory-compliance-packages.md
+          - text: Integrated vulnerability assessment for VMs
+            url: built-in-vulnerability-assessment.md
           - text: Review the schemas for security alerts 
             url: alerts-schemas.md
           - text: Automate responses to alerts and recommendations

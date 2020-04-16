@@ -48,9 +48,17 @@ Running the pre-registration script sets the required permissions to allow Azure
 
 Refer to [this section](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) of the troubleshooting guide.
 
+### Can Azure HANA Backup be set up against a virtual IP (load balancer) and not a virtual machine?
+
+Currently we do not have the capability to set up the solution against a virtual IP alone. We need a virtual machine to execute the solution.
+
+### I have a SAP HANA System Replication (HSR), how should I configure backup for this setup?
+
+The primary and secondary nodes of the HSR will be treated as two individual, un-related VMs. You need to configure backup on the primary node and when the fail-over happens, you need to configure backup on the secondary node (which now becomes the primary node). There is no automatic 'fail-over' of backup to the other node.
+
 ## Restore
 
-### Why can’t I see the HANA system I want my database to be restored to?
+### Why can't I see the HANA system I want my database to be restored to?
 
 Check if all the prerequisites for the restore to target SAP HANA instance are met. For more information, see [Prerequisites - Restore SAP HANA databases in Azure VM](https://docs.microsoft.com/azure/backup/sap-hana-db-restore#prerequisites).
 
@@ -58,7 +66,7 @@ Check if all the prerequisites for the restore to target SAP HANA instance are m
 
 Ensure that the **Force Overwrite** option is selected while restoring.
 
-### Why do I see the “Source and target systems for restore are incompatible” error?
+### Why do I see the "Source and target systems for restore are incompatible" error?
 
 Refer to the SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to see what restore types are currently supported.
 

@@ -49,7 +49,7 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
     
         ![Diagnostic settings](media/diagnostic-settings/menu-monitor.png)
 
-    - For the Activity log, click **Activity log** in the **Azure Monitor** menu and then **Diagnostic settings**. Make sure you disable any legacy configuration for the Activity log. See [Disable existing settings](diagnostic-settings-legacy.md#disable-existing-settings) for details.
+    - For the Activity log, click **Activity log** in the **Azure Monitor** menu and then **Diagnostic settings**. Make sure you disable any legacy configuration for the Activity log. See [Disable existing settings](/azure/azure-monitor/platform/activity-log-collect#collecting-activity-log) for details.
 
         ![Diagnostic settings](media/diagnostic-settings/menu-activity-log.png)
 
