@@ -84,6 +84,8 @@
       href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Manage groups
     items: 
+    - name: Manage access with Azure AD groups
+      href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context  
     - name: Create a group (Azure portal)    
       href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Manage groups PowerShell for Graph (v2)   
