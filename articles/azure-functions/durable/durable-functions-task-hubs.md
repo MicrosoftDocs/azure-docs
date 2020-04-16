@@ -30,9 +30,16 @@ All of these resources are created automatically in the default Azure Storage ac
 
 ## Task hub names
 
-Task hubs are identified by a name that is declared in the *host.json* file, as shown in the following example:
+Task hubs are identified by a name that conforms to these rules:
 
-### host.json (Functions 2.0)
+* Contains only alphanumeric characters
+* Starts with a letter
+* Has a minimum length of 3 characters, maximum length of 45 characters
+
+The task hub name is declared in the *host.json* file, as shown in the following example:
+
+### host.json (Func
+tions 2.0)
 
 ```json
 {
