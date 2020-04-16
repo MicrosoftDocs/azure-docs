@@ -34,6 +34,9 @@ SQL Server Azure VMs can use [Automated Patching](automated-patching.md) to sche
 
 SQL Server Azure VMs can take advantage of [Automated Backup](automated-backup.md), which regularly creates backups of your database to blob storage. You can also manually use this technique. For more information, see [Use Azure Storage for SQL Server Backup and Restore](use-storage-backup-restore.md).
 
+Azure also offers an enterprise-class backup solution for SQL Server running in Azure VMs. A fully-managed backup solution, it supports Always On availability groups, long-term retention, point-in-time recovery, and central management and monitoring. For more information, see [Azure Backup for SQL Server in Azure VM](https://docs.microsoft.com/azure/backup/backup-azure-sql-database).
+  
+
 ## High availability
 
 If you require high availability, consider configuring SQL Server Availability Groups. This involves multiple SQL Server Azure VMs in a virtual network. You can configure your high availability solution manually, or you can use templates in the Azure portal for automatic configuration. For an overview of all high availability options, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](high-availability-dr.md).
