@@ -44,14 +44,9 @@ If you are also using Private Link, it is required one additional configuration 
 * If Private Link enabled, configure the additional setting to allow connection to our Trusted Microsoft Service from your Virtual Network. 
 
 ## Enablement process 
-1. You have two options to configure BYOS for code-level diagnostics (Profiler/Debugger):
+To configure BYOS for code-level diagnostics (Profiler/Debugger), please follow the below steps:
 
-    a. Using the following CLI (Not implemented yet, to be defined).
-    ```powershell
-    az monitor log-analytics {workspace} serviceprofiler {storage-account-id} create | update
-    ```
-    b. Using the ARM (Azure Resource Manager) template.
-    * Create an ARM template file with the following content (byos.template.json).
+1. Create an ARM template file with the following content (byos.template.json).
     ```json
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -93,7 +88,8 @@ If you are also using Private Link, it is required one additional configuration 
       "outputs": {}
     }
     ```
-    * Run the following powershell command to deploy previous ARM template (create Linked Storage Account).
+
+2. Run the following powershell command to deploy previous ARM template (create Linked Storage Account).
     ```powershell
     # Command pattern
     New-AzResourceGroupDeployment -ResourceGroupName "{your_resource_name}" -TemplateFile "{local_path_to_arm_template}"
@@ -101,7 +97,8 @@ If you are also using Private Link, it is required one additional configuration 
     # Command example
     New-AzResourceGroupDeployment -ResourceGroupName "byos-test" -TemplateFile "D:\Docs\byos.template.json"
     ```
-    * Provide the following parameters when prompted in the Powershell console:
+
+3. Provide the following parameters when prompted in the Powershell console:
     
     |           Parameter           |                                Description                               |
     |-------------------------------|--------------------------------------------------------------------------|
@@ -134,7 +131,7 @@ If you are also using Private Link, it is required one additional configuration 
     DeploymentDebugLogLevel :
     ```
 
-2. Enable code-level diagnostics (Profiler/Debugger) on the workload of interest through the Azure Portal. (App Service > Application Insights) 
+4. Enable code-level diagnostics (Profiler/Debugger) on the workload of interest through the Azure Portal. (App Service > Application Insights) 
 _![Figure 2.0](media/profiler-bring-your-own-storage/figure20.png)_
 _Figure 2.0_
 
