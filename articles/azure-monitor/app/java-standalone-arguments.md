@@ -1,12 +1,12 @@
 ---
-title: Monitor Java applications running on premises - Azure Monitor Application Insights
-description: Application performance monitoring for Java applications running on premises without instrumenting the app. Distributed tracing and application map.
+title: Monitor Java applications running in any environment - Azure Monitor Application Insights
+description: Application performance monitoring for Java applications running on any environment with Java standalone agent without instrumenting the app. Distributed tracing and application map.
 ms.topic: conceptual
 ms.date: 04/16/2020
 
 ---
 
-# Configuring JVM args Java codeless agent for Azure Monitor Application Insights
+# Configuring JVM args Java standalone agent for Azure Monitor Application Insights
 
 
 
