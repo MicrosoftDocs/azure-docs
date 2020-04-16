@@ -47,9 +47,10 @@ Use the settings in the table below when setting up a classroom lab.  For more i
 |Virtual Machine Size| Medium (Nested Virtualization). This VM size is best suited for relational databases, in-memory caching, and analytics.  This size also supports nested virtualization.|  
 |Virtual Machine Image| Windows 10 Pro|
 
-> [!NOTE] We need to use Medium (Nested Virtualization) since deploying HDP Sandbox using Docker requires:
-> - Windows Hyper-V with nested virtualization
-> - At least 10 GB of RAM
+> [!NOTE] 
+> We need to use Medium (Nested Virtualization) since deploying HDP Sandbox using Docker requires:
+>   - Windows Hyper-V with nested virtualization
+>   - At least 10 GB of RAM
 
 ## Template machine configuration
 
@@ -66,14 +67,16 @@ To use Docker containers, you must first install Docker Desktop on the template 
 
 1. Follow the steps in the [Prerequisites section](https://www.cloudera.com/tutorials/sandbox-deployment-and-install-guide/3.html#prerequisites) to install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/). 
 
-    > [!IMPORTANT] Ensure that the **Use Windows containers instead of Linux containers** configuration option is left unchecked.
-    > 
+    > [!IMPORTANT] 
+    > Ensure that the **Use Windows containers instead of Linux containers** configuration option is left unchecked.
+
 1. Ensure that **Windows Containers and Hyper-V features** are turned on.
    ![Turn Windows features on or off](../media/class-type-big-data-analytics/windows-hyperv-features.png)
 
 1. Follow the steps in the [Memory for Windows](https://www.cloudera.com/tutorials/sandbox-deployment-and-install-guide/3.html#memory-for-windows) section to configure Docker's memory configuration.
 
-    > [!WARNING]If you inadvertently check the **Use Windows containers instead of Linux containers** option when installing Docker, you won't see the memory configuration settings.  To fix this, you can switch to using Linux containers by [clicking on the Docker icon in Windows System tray](https://docs.docker.com/docker-for-windows/#docker-settings-dialog); when the Docker Desktop menu opens, select **Switch to Linux containers**.
+    > [!WARNING]
+    > If you inadvertently check the **Use Windows containers instead of Linux containers** option when installing Docker, you won't see the memory configuration settings.  To fix this, you can switch to using Linux containers by [clicking on the Docker icon in Windows System tray](https://docs.docker.com/docker-for-windows/#docker-settings-dialog); when the Docker Desktop menu opens, select **Switch to Linux containers**.
  
 ### Deploy HDP Sandbox
 
@@ -86,13 +89,16 @@ In this section, you will deploy HDP Sandbox and then also access HDP Sandbox us
    -    Deploy HDP Sandbox
    -    Verify HDP Sandbox
 
-    > [!WARNING] When you download the latest .zip file for HDP, ensure that you do *not* save the .zip file in a directory path that includes whitespace.
+    > [!WARNING] 
+    > When you download the latest .zip file for HDP, ensure that you do *not* save the .zip file in a directory path that includes whitespace.
 
-    > [!NOTE] If you receive an exception during deployment stating **Drive has not been shared**, you need to share your C drive with Docker so that HDP's Linux containers can access local Windows files.  To fix this, [click on the Docker icon in Windows System tray](https://docs.docker.com/docker-for-windows/#docker-settings-dialog) to open the Docker Desktop menu and select **Settings**.  When **Docker's Settings** dialog opens, select **Resources > File Sharing** and check the **C** drive.  You can then repeat the steps to deploy HDP Sandbox.
+    > [!NOTE] 
+    > If you receive an exception during deployment stating **Drive has not been shared**, you need to share your C drive with Docker so that HDP's Linux containers can access local Windows files.  To fix this, [click on the Docker icon in Windows System tray](https://docs.docker.com/docker-for-windows/#docker-settings-dialog) to open the Docker Desktop menu and select **Settings**.  When **Docker's Settings** dialog opens, select **Resources > File Sharing** and check the **C** drive.  You can then repeat the steps to deploy HDP Sandbox.
 
 1. Once the Docker containers for HDP Sandbox are deployed and running, you can access the environment by launching your browser and following Cloudera's instructions for opening the [Sandbox Welcome Page](https://www.cloudera.com/tutorials/learning-the-ropes-of-the-hdp-sandbox.html#welcome-page) and launching the HDP Dashboard.
 
-    > [!NOTE] These instructions assume that you have first mapped the local IP address of the sandbox environment to the sandbox-hdp.hortonworks.com in the host file on your template VM.  If you do **not** do this mapping, you can access the Sandbox Welcome page by navigating to [http://localhost:8080](http://localhost:8080).
+    > [!NOTE] 
+    > These instructions assume that you have first mapped the local IP address of the sandbox environment to the sandbox-hdp.hortonworks.com in the host file on your template VM.  If you do **not** do this mapping, you can access the Sandbox Welcome page by navigating to [http://localhost:8080](http://localhost:8080).
 
 ### Automatically start Docker containers when students log in
 
