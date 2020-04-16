@@ -36,7 +36,7 @@ This document will cover the following topics:
 
 **Vault Availability** -  This metric should always be at 100% this is an important metric to monitor, since it can quickly show you if your key vault experienced an outage. 
 
-**Vault Saturation** – The number of requests per second that a key vault can serve is based on the type of operation being performed. Some vault operations have a lower requests-per-second threshold. This metric aggregates the total usage of your key vault across all operation types to come up with a percentage value that indicates your current key vault usage. For a full list of key vault service limits, see the following document. [Azure Key Vault Service Limits](key-vault-service-limits.md)
+**Vault Saturation** – The number of requests per second that a key vault can serve is based on the type of operation being performed. Some vault operations have a lower requests-per-second threshold. This metric aggregates the total usage of your key vault across all operation types to come up with a percentage value that indicates your current key vault usage. For a full list of key vault service limits, see the following document. [Azure Key Vault Service Limits](service-limits.md)
 
 **Service API Latency** - This metric shows the average latency of a call to key vault. Although your key vault may be within service limits, a high utilization of key vault could introduce latency that causes applications downstream to fail. 
 
