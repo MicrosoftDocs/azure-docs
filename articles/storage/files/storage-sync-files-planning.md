@@ -10,13 +10,23 @@ ms.subservice: files
 ---
 
 # Planning for an Azure File Sync deployment
-[Azure Files](storage-files-introduction.md) can be deployed in two main ways: by directly mounting the serverless Azure file shares or by caching Azure file shares on-premises using Azure File Sync. Which deployment option you choose changes the things you need to consider as you plan for your deployment. 
+
+:::row:::
+    :::column:::
+        [![Interview and demo introducing Azure File Sync - click to play!](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/embed/nfWLO7F52-s)
+    :::column-end:::
+    :::column:::
+        Azure File Sync is a service that allows you to cache a number of Azure file shares on an on-premises Windows Server or cloud VM. 
+        
+        This article introduces you to Azure File Sync concepts and features. Once you are familiar with Azure File Sync, consider following the [Azure File Sync deployment guide](storage-sync-files-deployment-guide.md) to try out this service.
+
+        The files will be stored in the cloud in [Azure file shares](storage-files-introduction.md). Azure file shares can be used in two ways: by directly mounting these serverless Azure file shares (SMB) or by caching Azure file shares on-premises using Azure File Sync. Which deployment option you choose changes the aspects you need to consider as you plan for your deployment. 
+    :::column-end:::
+:::row-end:::
 
 - **Direct mount of an Azure file share**: Since Azure Files provides SMB access, you can mount Azure file shares on-premises or in the cloud using the standard SMB client available in Windows, macOS, and Linux. Because Azure file shares are serverless, deploying for production scenarios does not require managing a file server or NAS device. This means you don't have to apply software patches or swap out physical disks. 
 
 - **Cache Azure file share on-premises with Azure File Sync**: Azure File Sync enables you to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms an on-premises (or cloud) Windows Server into a quick cache of your Azure file share. 
-
-This article primarily addresses deployment considerations for deploying Azure File Sync. To plan for a deployment of Azure file shares to be directly mounted by an on-premises or cloud client, see [Planning for an Azure Files deployment](storage-files-planning.md).
 
 ## Management concepts
 An Azure File Sync deployment has three fundamental management objects:
