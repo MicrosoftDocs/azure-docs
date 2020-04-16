@@ -108,7 +108,7 @@ namespace Monitor
 }
 ```
 
-You will use the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) library to get the system-assigned managed identity token. To learn other ways to get the token and more information about the `Microsoft.Azure.Service.AppAuthentication` library, see the [Service To Service Authentication](../key-vault/service-to-service-authentication.md) article.
+You will use the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) library to get the system-assigned managed identity token. To learn other ways to get the token and more information about the `Microsoft.Azure.Service.AppAuthentication` library, see the [Service To Service Authentication](../key-vault/general/service-to-service-authentication.md) article.
 
 ```csharp
 using System;

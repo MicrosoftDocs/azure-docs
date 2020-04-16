@@ -14,9 +14,12 @@ A workflow is a sequence of programmed, connected steps that perform long-runnin
 
 For complete details on the topics in this article, see [Getting Started with Windows PowerShell Workflow](https://technet.microsoft.com/library/jj134242.aspx).
 
+>[!NOTE]
+>This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
+
 ## Basic structure of a workflow
 
-The first step to converting a PowerShell script to a PowerShell workflow is enclosing it with the **Workflow** keyword.  A workflow starts with the **Workflow** keyword followed by the body of the script enclosed in braces. The name of the workflow follows the **Workflow** keyword as shown in the following syntax:
+The first step to converting a PowerShell script to a PowerShell workflow is enclosing it with the `Workflow` keyword.  A workflow starts with the `Workflow` keyword followed by the body of the script enclosed in braces. The name of the workflow follows the `Workflow` keyword as shown in the following syntax:
 
 ```powershell
 Workflow Test-Workflow
@@ -27,7 +30,7 @@ Workflow Test-Workflow
 
 The name of the workflow must match the name of the Automation runbook. If the runbook is being imported, then the filename must match the workflow name and must end in *.ps1*.
 
-To add parameters to the workflow, use the **Param** keyword just as you would to a script.
+To add parameters to the workflow, use the `Param` keyword just as you would in a script.
 
 ## Code changes
 
@@ -93,7 +96,7 @@ Workflow Stop-MyService
 
 ## InlineScript
 
-The **InlineScript** activity is useful when you need to run one or more commands as traditional PowerShell script instead of PowerShell workflow.  While commands in a workflow are sent to Windows Workflow Foundation for processing, commands in an InlineScript block are processed by Windows PowerShell.
+The`InlineScript` activity is useful when you need to run one or more commands as traditional PowerShell script instead of PowerShell workflow.  While commands in a workflow are sent to Windows Workflow Foundation for processing, commands in an InlineScript block are processed by Windows PowerShell.
 
 InlineScript uses the following syntax shown below.
 
@@ -148,7 +151,7 @@ For more information on using InlineScript, see [Running Windows PowerShell Comm
 
 One advantage of Windows PowerShell Workflows is the ability to perform a set of commands in parallel instead of sequentially as with a typical script.
 
-You can use the **Parallel** keyword to create a script block with multiple commands that run concurrently. This uses the following syntax shown below. In this case, Activity1 and Activity2 starts at the same time. Activity3 starts only after both Activity1 and Activity2 have completed.
+You can use the `Parallel` keyword to create a script block with multiple commands that run concurrently. This uses the following syntax shown below. In this case, Activity1 and Activity2 starts at the same time. Activity3 starts only after both Activity1 and Activity2 have completed.
 
 ```powershell
 Parallel
@@ -183,7 +186,7 @@ Workflow Copy-Files
 }
 ```
 
-You can use the **ForEach -Parallel** construct to process commands for each item in a collection concurrently. The items in the collection are processed in parallel while the commands in the script block run sequentially. This uses the following syntax shown below. In this case, Activity1 starts at the same time for all items in the collection. For each item, Activity2 starts after Activity1 is complete. Activity3 starts only after both Activity1 and Activity2 have completed for all items. We use the `ThrottleLimit` parameter to limit the parallelism. Too high of a `ThrottleLimit` can cause problems. The ideal value for the `ThrottleLimit` parameter depends on many factors in your environment. You should try start with a low value and try different increasing values until you find one that works for your specific circumstance.
+You can use the `ForEach -Parallel` construct to process commands for each item in a collection concurrently. The items in the collection are processed in parallel while the commands in the script block run sequentially. This uses the following syntax shown below. In this case, Activity1 starts at the same time for all items in the collection. For each item, Activity2 starts after Activity1 is complete. Activity3 starts only after both Activity1 and Activity2 have completed for all items. We use the `ThrottleLimit` parameter to limit the parallelism. Too high of a `ThrottleLimit` can cause problems. The ideal value for the `ThrottleLimit` parameter depends on many factors in your environment. You should try start with a low value and try different increasing values until you find one that works for your specific circumstance.
 
 ```powershell
 ForEach -Parallel -ThrottleLimit 10 ($<item> in $<collection>)
@@ -216,7 +219,7 @@ Workflow Copy-Files
 
 ## Checkpoints
 
-A *checkpoint* is a snapshot of the current state of the workflow that includes the current value for variables and any output generated to that point. If a workflow ends in error or is suspended, then the next time it is run it will start from its last checkpoint instead of the start of the workflow.  You can set a checkpoint in a workflow with the **Checkpoint-Workflow** activity. Azure Automation has a feature called [fair share](automation-runbook-execution.md#fair-share), where any runbook that runs for 3 hours is unloaded to allow other runbooks to run. Eventually, the unloaded runbook will be reloaded, and when it is, it will resume execution from the last checkpoint taken in the runbook. In order to guarantee that the runbook will eventually complete, you must add checkpoints at intervals that run for less than 3 hours. If during each run a new checkpoint is added, and if the runbook gets evicted after 3 hours due to an error, then the runbook will be resumed indefinitely.
+A *checkpoint* is a snapshot of the current state of the workflow that includes the current value for variables and any output generated to that point. If a workflow ends in error or is suspended, then the next time it is run it will start from its last checkpoint instead of the start of the workflow.  You can set a checkpoint in a workflow with the `Checkpoint-Workflow` activity. Azure Automation has a feature called [fair share](automation-runbook-execution.md#fair-share), where any runbook that runs for 3 hours is unloaded to allow other runbooks to run. Eventually, the unloaded runbook will be reloaded, and when it is, it will resume execution from the last checkpoint taken in the runbook. In order to guarantee that the runbook will eventually complete, you must add checkpoints at intervals that run for less than 3 hours. If during each run a new checkpoint is added, and if the runbook gets evicted after 3 hours due to an error, then the runbook will be resumed indefinitely.
 
 In the following sample code, an exception occurs after Activity2 causing the workflow to end. When the workflow is run again, it starts by running Activity2 since this was just after the last checkpoint set.
 
@@ -248,36 +251,37 @@ Workflow Copy-Files
 }
 ```
 
-Because username credentials are not persisted after you call the [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) activity or after the last checkpoint, you need to set the credentials to null and then retrieve them again from the asset store after **Suspend-Workflow** or checkpoint is called.  Otherwise, you may receive the following error message: *The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.*
+Because username credentials are not persisted after you call the [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) activity or after the last checkpoint, you need to set the credentials to null and then retrieve them again from the asset store after `Suspend-Workflow` or checkpoint is called.  Otherwise, you may receive the following error message: `The workflow job cannot be resumed, either because persistence data could not be saved completely, or saved persistence data has been corrupted. You must restart the workflow.`
 
 The following same code demonstrates how to handle this in your PowerShell Workflow runbooks.
 
 ```powershell
 workflow CreateTestVms
 {
-    $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-    $null = Connect-AzureRmAccount -Credential $Cred
+    $Cred = Get-AzAutomationCredential -Name "MyCredential"
+    $null = Connect-AzAccount -Credential $Cred
 
-    $VmsToCreate = Get-AzureAutomationVariable -Name "VmsToCreate"
+    $VmsToCreate = Get-AzAutomationVariable -Name "VmsToCreate"
 
     foreach ($VmName in $VmsToCreate)
         {
         # Do work first to create the VM (code not shown)
 
         # Now add the VM
-        New-AzureRmVm -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
+        New-AzVM -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
 
         # Checkpoint so that VM creation is not repeated if workflow suspends
         $Cred = $null
         Checkpoint-Workflow
-        $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-        $null = Connect-AzureRmAccount -Credential $Cred
+        $Cred = Get-AzAutomationCredential -Name "MyCredential"
+        $null = Connect-AzAccount -Credential $Cred
         }
 }
 ```
 
-> [!IMPORTANT]
-> **Add-AzureRmAccount** is now an alias for **Connect-AzureRMAccount**. When searching your library items, if you do not see **Connect-AzureRMAccount**, you can use **Add-AzureRmAccount**, or you can update your modules in your Automation Account.
+> [!NOTE]
+> For non-graphical PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). You can use these cmdlets or you can [update your modules](automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account.
+
 
 This is not required if you are authenticating using a Run As account configured with a service principal.
 
