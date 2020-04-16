@@ -18,7 +18,7 @@ You'll learn how to create a function app that can access Azure Cosmos DB data w
 
 To simplify the scenario, a [Time To Live](./time-to-live.md) setting is already configured to clean-up older temperature documents. 
 
-## Assign a managed identity to a function app
+## Assign a system-assigned managed identity to a function app
 
 In this step, you'll assign a system-assigned managed identity to your function app.
 
