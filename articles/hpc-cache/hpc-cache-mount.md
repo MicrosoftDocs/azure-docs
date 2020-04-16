@@ -4,7 +4,7 @@ description: How to connect clients to an Azure HPC Cache service
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/15/2020
 ms.author: v-erkel
 ---
 
@@ -92,13 +92,13 @@ Follow this procedure to create the mount command.
 
 The mount command has the following form:
 
-> sudo mount *cache_mount_address*:/*namespace_path* *local_path* {*options*}
+> sudo mount {*options*} *cache_mount_address*:/*namespace_path* *local_path*
 
 Example:
 
 ```bash
 root@test-client:/tmp# mkdir hpccache
-root@test-client:/tmp# sudo mount 10.0.0.28:/blob-demo-0722 ./hpccache/ -o hard,proto=tcp,mountproto=tcp,retry=30
+root@test-client:/tmp# sudo mount -o hard,proto=tcp,mountproto=tcp,retry=30 10.0.0.28:/blob-demo-0722 hpccache
 root@test-client:/tmp#
 ```
 
