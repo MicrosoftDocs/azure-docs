@@ -1,18 +1,14 @@
 ---
-title: "Quickstart: Detect data anomalies using the Anomaly Detector client library for Python"
+title: Anomlay Detector Search Python client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: This quickstart shows how to use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: anomaly-detector
-ms.topic: quickstart
-ms.date: 03/24/2020
+ms.topic: include
+ms.date: 04/16/2020
 ms.author: aahi
 ---
-
-# Quickstart: Anomaly Detector client library for Python
 
 Get started with the Anomaly Detector client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Anomaly Detector service enables you to find abnormalities in your time series data by automatically using the best-fitting models on it, regardless of industry, scenario, or data volume.
 
@@ -34,7 +30,7 @@ Use the Anomaly Detector client library for Python to:
 
 ### Create an Anomaly Detector resource
 
-[!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
+[!INCLUDE [anomaly-detector-resource-creation](../../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
 ### Create a new python application
 
@@ -110,4 +106,4 @@ Call the Anomaly Detector API to determine if your latest data point is an anoma
 
 Run the application with the `python` command and your file name.
  
-[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]
+[!INCLUDE [anomaly-detector-next-steps](../quickstart-cleanup-next-steps.md)]

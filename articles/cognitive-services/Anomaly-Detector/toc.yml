@@ -10,12 +10,15 @@
   items:
     - name: Client library
       items:
-        - name: Using C#
-          href: quickstarts/detect-data-anomalies-csharp-sdk.md
+        - text: Using C#
+          itemType: quickstart
+          url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-csharp
         - name: Using Python
-          href: quickstarts/detect-data-anomalies-python-sdk.md
+          itemType: quickstart
+          url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-python
         - name: Using Node.js
-          href: quickstarts/detect-data-anomalies-nodejs-sdk.md
+          itemType: quickstart
+          url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-nodejs
     - name: REST API
       items:
         - name: Using C#
@@ -54,6 +57,8 @@
       href: https://aka.ms/anomaly-detector-rest-api-ref
     - name: SDKs
       items:
+        - name: Anolmaly Detector client libraries
+          href: ./quickstarts/client-libraries.md
         - name: .NET
           href: https://aka.ms/anomaly-detector-dotnet-ref
         - name: Go

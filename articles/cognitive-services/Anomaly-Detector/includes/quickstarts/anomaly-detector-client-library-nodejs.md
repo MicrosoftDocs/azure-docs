@@ -1,18 +1,14 @@
 ---
-title: "Quickstart: Detect data anomalies using the Anomaly Detector client library for Python"
+title: Anomlay Detector Search Node.js client library quickstart 
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: anomaly-detector
-ms.topic: quickstart
-ms.date: 03/24/2020
+ms.topic: include
+ms.date: 04/16/2020
 ms.author: aahi
 ---
-
-# Quickstart: Anomaly Detector client library for Node.js
 
 Get started with the Anomaly Detector client library for Node.js. Follow these steps to install the package and try out the example code for basic tasks. The Anomaly Detector service enables you to find abnormalities in your time series data by automatically using the best-fitting models on it, regardless of industry, scenario, or data volume.
 
@@ -33,7 +29,7 @@ Use the Anomaly Detector client library for Node.js to:
 
 ### Create an Anomaly Detector Azure resource
 
-[!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
+[!INCLUDE [anomaly-detector-resource-creation](../../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
 ### Create a new Node.js application
 
@@ -123,4 +119,4 @@ Run the application with the `node` command on your quickstart file.
 node index.js
 ```
 
-[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]
+[!INCLUDE [anomaly-detector-next-steps](../quickstart-cleanup-next-steps.md)]
