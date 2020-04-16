@@ -112,18 +112,6 @@ Navigate back to the ARM template and notice that an error has been raised indic
 
 Update the value to something appropriate, save the file, and navigate back to the template. Notice that the error on the parameter has been resolved.
 
-## Format, navigation, and sorting
-
-When a template contains many parameters, variables, and resources, navigation can be difficult. The ARM Tempalte ouline provides ARM Template navigation and sorting capibilities.
-
-![](./media/quickstart-create-templates-use-visual-studio-code/19.png)
-
-![](./media/quickstart-create-templates-use-visual-studio-code/20.png)
-
-![](./media/quickstart-create-templates-use-visual-studio-code/21.png)
-
-![](./media/quickstart-create-templates-use-visual-studio-code/22.png)
-
 ## Template deployment
 
 Open the integrated VS Code terminal using the `ctrl` + ```` ` ```` key combination and use either the Azure CLI or Azure PowerShell module to deploy the template.
