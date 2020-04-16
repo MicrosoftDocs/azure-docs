@@ -41,11 +41,13 @@ To create a rule directly in the Azure portal:
 
 1. From Security Center's security alerts page:
 
-    - Locate the specific alert you don't want to see any more, and from the ellipsis menu (...) for the alert, select **Auto-dismiss in the future**.
-    [![**Auto-dismiss in the future** option](media/alerts-suppression-rules/auto-dismiss-in-future-option.png)](media/alerts-suppression-rules/auto-dismiss-in-future-option.png#lightbox)
+    - Locate the specific alert you don't want to see any more, and from the ellipsis menu (...) for the alert, select **Auto-dismiss in the future**:
+
+        [![**Auto-dismiss in the future** option](media/alerts-suppression-rules/auto-dismiss-in-future-option.png)](media/alerts-suppression-rules/auto-dismiss-in-future-option.png#lightbox)
 
     - Or, select the **suppression rules** link at the top of the page, and from the suppression rules page select **Create new suppression rule**:
-    [![**Create new suppression rule** button](media/alerts-suppression-rules/create-new-suppression-rule.png)](media/alerts-suppression-rules/create-new-suppression-rule.png#lightbox)
+
+        [![**Create new suppression rule** button](media/alerts-suppression-rules/create-new-suppression-rule.png)](media/alerts-suppression-rules/create-new-suppression-rule.png#lightbox)
 
 1. In the new suppression rule pane, enter the details of your new rule.
 
@@ -55,8 +57,8 @@ To create a rule directly in the Azure portal:
     [![Suppression rule creation pane](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
 
 
-    - You can filter by multiple alert types.
-    - Entities can be IP addresses, process names, user accounts, Azure resources, or locations
+    - Your rule can dismiss **all instances** of an alert types.
+    - Your rule can dismiss **some instances** of an alert types based on one or more defined entity options. You can dismiss an alert if it relates to a specific IP address, process name, user account, Azure resource, or location.
 
 1. Optionally, test the rule using the **Simulate** button to see how many alerts that have already been triggered would have been dismissed if this rule had been active.
 
@@ -65,6 +67,8 @@ To create a rule directly in the Azure portal:
 ## Editing suppression rules 
 
 ## Deleting suppression rules
+
+## Viewing alerts that have been suppressed
 
 ## Using the REST API to create and manage suppression rules
 
