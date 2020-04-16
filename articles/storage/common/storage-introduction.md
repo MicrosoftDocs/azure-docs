@@ -127,7 +127,7 @@ The Azure Storage client libraries provide methods for encrypting data from the 
 
 ## Redundancy
 
-To ensure that your data is durable, Azure Storage stores multiple copies of your data. When you set up your storage account, you select a redundancy option. For more information, see [Azure Storage redundancy](/storage-redundancy?toc=/azure/storage/blobs/toc.json).
+To ensure that your data is durable, Azure Storage stores multiple copies of your data. When you set up your storage account, you select a redundancy option. For more information, see [Azure Storage redundancy](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
 
 ## Transfer data to and from Azure Storage
 
