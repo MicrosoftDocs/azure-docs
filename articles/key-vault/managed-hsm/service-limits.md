@@ -13,7 +13,7 @@ ms.date: 01/07/2019
 ms.author: mbaldwin
 
 ---
-# Azure Key Vault service limits
+# Managed HSM service limits
 
 Here are the service limits for Managed HSM.
 
