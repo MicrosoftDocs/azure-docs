@@ -45,7 +45,7 @@ Hybrid Azure AD joined devices must run Windows 10 Insider Build 18945 or newer.
 
 ### Enable the combined registration experience
 
-Registration features for passwordless authentication methods rely on the combined registration preview. Follow the steps in the article [Enable combined security information registration (preview)](howto-registration-mfa-sspr-combined.md), to enable the combined registration preview.
+Registration features for passwordless authentication methods rely on the combined registration feature. Follow the steps in the article [Enable combined security information registration (preview)](howto-registration-mfa-sspr-combined.md), to enable combined registration.
 
 ### Enable FIDO2 security key method
 
