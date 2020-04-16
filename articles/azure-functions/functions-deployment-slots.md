@@ -3,7 +3,7 @@ title: Azure Functions deployment slots
 description: Learn to create and use deployment slots with Azure Functions
 author: craigshoemaker
 ms.topic: reference
-ms.date: 04/09/2020
+ms.date: 04/15/2020
 ms.author: cshoe
 ---
 # Azure Functions deployment slots
@@ -94,7 +94,7 @@ You can add a slot via the [CLI](https://docs.microsoft.com/cli/azure/functionap
 
 1. Navigate to your function app.
 
-1. Select **Deployment slots**, and then select **+ Add**.
+1. Select **Deployment slots**, and then select **+ Add Slot**.
 
     :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Add Azure Functions deployment slot." border="true":::
 
@@ -107,11 +107,11 @@ You can add a slot via the [CLI](https://docs.microsoft.com/cli/azure/functionap
 You can swap slots via the [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) or through the portal. The following steps demonstrate how to swap slots in the portal:
 
 1. Navigate to the function app.
-1. Select **Deployment slots**, and then click **Swap**.
+1. Select **Deployment slots**, and then select **Swap**.
 
     :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Swap the deployment slot." border="true":::
 
-1. Verify the configuration settings for your swap and click **Swap**
+1. Verify the configuration settings for your swap and select **Swap**
     
     :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Swap the deployment slot." border="true":::
 
@@ -129,7 +129,7 @@ You can remove a slot via the [CLI](https://docs.microsoft.com/cli/azure/functio
 
     :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Find slots in the Azure portal." border="true":::
 
-1. Select **Delete*.
+1. Select **Delete**.
 
     :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Delete the deployment slot in the Azure portal." border="true":::
 
@@ -137,7 +137,7 @@ You can remove a slot via the [CLI](https://docs.microsoft.com/cli/azure/functio
 
     :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Delete the deployment slot in the Azure portal." border="true":::
 
-1. Select **Delete**.
+1. Close the delete confirmation pane.
 
     :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Deployment slot delete confirmation." border="true":::
 
@@ -160,17 +160,17 @@ With a function app that is running under an App Service plan, you have the opti
 
 Use the following steps to change a slot's App Service plan:
 
-1. Navigate to a slot
+1. Navigate to **Deployment slots** in the function app, and then select the slot name.
 
-1. Under *Platform Features*, click **All Settings**
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Find slots in the Azure portal." border="true":::
 
-    ![Change app service plan](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-settings.png)
+1. Under **App Service plan**, select **App Service plan**.
 
-1. Click on **App Service plan**
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-settings.png" alt-text="Find slots in the Azure portal." border="true":::
 
-1. Select a new App Service plan, or create a new plan
+1. Select a new App Service plan, or create a new plan.
 
-1. Click **OK**
+1. Select **OK**.
 
     ![Change app service plan](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
 
