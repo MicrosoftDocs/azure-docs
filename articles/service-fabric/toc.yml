@@ -134,6 +134,8 @@
       href: service-fabric-cluster-security.md
     - name: Built-in security controls
       href: service-fabric-security-controls.md
+    - name: Certificate-based authentication in Service Fabric 
+      href: cluster-security-certificates.md
   - name: Terminology
     href: service-fabric-technical-overview.md
   - name: Building applications
@@ -146,6 +148,8 @@
         href: service-fabric-containers-overview.md
       - name: Docker compose (preview)
         href: service-fabric-docker-compose.md
+      - name: Probes
+        href: probes-codepackage.md
     - name: Reliable Services      
       items:
       - name: Reliable Services overview
@@ -265,6 +269,10 @@
         href: service-fabric-backup-restore-service-trigger-restore.md
       - name: On-demand backup of partition
         href: service-fabric-backup-restore-service-ondemand-backup.md
+    - name: Initializer CodePackages
+      href: initializer-codepackages.md
+    - name: RunToCompletion
+      href: run-to-completion.md
   - name: Clusters
     items:
     - name: Clusters overview
@@ -317,6 +325,8 @@
         href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
       - name: Balance a cluster
         href: service-fabric-cluster-resource-manager-balancing.md
+      - name: Subclustering
+        href: cluster-resource-manager-subclustering.md
       - name: Throttling
         href: service-fabric-cluster-resource-manager-advanced-throttling.md
       - name: Service movement

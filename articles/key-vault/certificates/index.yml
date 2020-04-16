@@ -1,0 +1,72 @@
+### YamlMime:Landing
+
+title: Certificates
+summary: Azure Key Vault enables Microsoft Azure applications and users to store and use certificates, which are built on top of keys and secrets and add an automated renewal feature.
+
+metadata:
+  title: Azure Key Vault documentation - Certificates 
+  description: Azure Key Vault enables Microsoft Azure applications and users to store and use certificates, which are built on top of keys and secrets and add an automated renewal feature.
+  services: key-vault
+  ms.service: key-vault
+  ms.subservice: certificates
+  ms.topic: landing-page # Required
+  author: msmbaldwin
+  ms.author: mbaldwin
+  ms.date: 04/07/2020 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Certificates
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Key Vault certificates?
+            url: about-certificates.md
+          - text: Get started with Key Vault certificates
+            url: certificate-scenarios.md
+          - text: Certificate creation methods
+            url: create-certificate.md
+          - text: Monitor and manage certificate creation
+            url: create-certificate-scenarios.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Azure CLI
+            url: quick-create-cli.md
+          - text: Azure PowerShell
+            url: quick-create-powershell.md
+          - text: Portal
+            url: quick-create-portal.md
+          - text: Python
+            url: quick-create-python.md
+          - text: Import a certificate in Key Vault 
+            url: tutorial-import-certificate.md
+
+  # Card
+  - title: More about Key Vault
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Key Vault overview
+            url: ../general/overview.md
+          - text: Basic concepts
+            url: ../general/basic-concepts.md
+          - text: Soft-delete overview
+            url: ../general/overview-soft-delete.md
+          - text: Security overview
+            url: ../general/overview-security.md
+
+  # Card
+  - title: Microsoft Learn
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Manage secrets in your server apps with Azure Key Vault
+            url: /learn/modules/manage-secrets-with-azure-key-vault/
