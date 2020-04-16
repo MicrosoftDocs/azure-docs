@@ -25,7 +25,7 @@ SQL Server has support for R and Python through the [extensibility framework](ht
 
 - R is the only supported language in SQL Database. There is no support for Python at this time.
 - The R version is 3.4.4.
-- There is no need to configure `external scripts enabled` via `sp_configure`. Once you are [signed up](sql-database-machine-learning-services-overview.md#signup), machine learning is enabled for your SQL database.
+- There is no need to configure `external scripts enabled` via `sp_configure`.
 
 ## Package management
 
