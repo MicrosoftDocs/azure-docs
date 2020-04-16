@@ -17,6 +17,9 @@ In this tutorial, you learn how to automatically onboard Update, Change Tracking
 > * Import the onboarding runbook
 > * Start the runbook
 
+>[!NOTE]
+>This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
+
 ## Prerequisites
 
 To complete this tutorial, the following are required:
@@ -82,8 +85,9 @@ It's required to update to the latest Azure modules and import the [Az.Operation
 3. Click **Yes** to update all existing Azure modules to the latest version.
 
 ![Update modules](media/automation-onboard-solutions/update-modules.png)
+A
 
-### Install AzureRM.OperationalInsights module
+### Install Az.OperationalInsights module
 
 1. In the Automation account, select **Modules** under **Shared Resources**. 
 2. Select **Browse gallery** to open up the module gallery. 

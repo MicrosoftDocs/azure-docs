@@ -64,7 +64,7 @@ FROM OPENROWSET(
            trip_distance FLOAT,
         rate_code INT,
         store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
-           pickup_location_id INT,'
+        pickup_location_id INT,
         dropoff_location_id INT,
            payment_type INT,
         fare_amount FLOAT,

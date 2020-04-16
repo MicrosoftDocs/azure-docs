@@ -13,6 +13,7 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
+ROBOTS: NOINDEX
 ---
 
 # Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)
