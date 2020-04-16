@@ -17439,7 +17439,7 @@
     {
       "source_path": "articles/storage/common/storage-account-container-recovery.md",
       "redirect_url": "/azure/storage/common/storage-redundancy",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/storage/common/storage-quickstart-create-storage-account-cli.md",
