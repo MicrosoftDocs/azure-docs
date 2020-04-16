@@ -23,7 +23,7 @@ By default, for each table created without an index option, an internal componen
 
 When creating an ordered CCI, the Synapse SQL engine sorts the existing data in memory by the order key(s) before the index builder compresses them into index segments.  With sorted data, segment overlapping is reduced allowing queries to have a more efficient segment elimination and thus faster performance because the number of segments to read from disk is smaller.  If all data can be sorted in memory at once, then segment overlapping can be avoided.  Due to large tables in data warehouses, this scenario doesn't happen often.  
 
-To check the segment ranges for a column, run this command with your table name and column name:
+To check the segment ranges for a column, run the following command with your table name and column name:
 
 ```sql
 SELECT o.name, pnp.index_id, 

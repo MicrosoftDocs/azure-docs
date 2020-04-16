@@ -14,6 +14,8 @@ ms.date: 07/31/2018
 
 # Transform data in Azure Data Factory
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 > [!div class="op_single_selector"]
 > * [Mapping data flow](data-flow-create.md)
 > * [Hive](transform-data-using-hadoop-hive.md)  
@@ -28,7 +30,7 @@ ms.date: 07/31/2018
 > * [Databricks Jar](transform-data-databricks-jar.md)
 > * [Databricks Python](transform-data-databricks-python.md)
 > * [.NET custom](transform-data-using-dotnet-custom-activity.md)
-
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 ## Overview
 This article explains data transformation activities in Azure Data Factory that you can use to transform and process your raw data into predictions and insights at scale. A transformation activity executes in a computing environment such as Azure Databricks or Azure HDInsight. It provides links to articles with detailed information on each transformation activity.
 
