@@ -33,6 +33,8 @@
 - name: Tutorials
   expanded: true
   items:
+  - name: Getting Started
+    href: tutorials/getting-started.md
   - name: Add SMS To Your Web App
     href: tutorials/add-sms-to-your-web-app.md
   - name: Add Calling To Your App

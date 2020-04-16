@@ -12,24 +12,16 @@ ms.service: azure-project-spool
 
 ---
 
-#### Temporary:
+# Configure Call Routing and Number Assignment
+
+TODO
+
+
+#### meta:
 
 -  Customer intent statements: 
    - How do configure my phone numbers such that calls can only be made to certain geographies?
 
-- Resources: 
-  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
-
-- Gold Standard Docs:
-  - TODO
-
 - Discussion:
   - TODO
 
-- TODOs:
-  - Draft initial content
-
-
-# Configure Call Routing and Number Assignment
-
-TODO

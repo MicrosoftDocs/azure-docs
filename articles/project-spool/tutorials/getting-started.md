@@ -1,5 +1,5 @@
 ---
-title: Provision and Release Phone Numbers
+title: Getting Started
 description: TODO
 author: mikben    
 manager: jken
@@ -12,8 +12,7 @@ ms.service: azure-project-spool
 
 ---
 
-
-# Provision and Release Phone Numbers
+# Getting Started
 
 TODO
 
@@ -21,7 +20,8 @@ TODO
 #### meta:
 
 -  Customer intent statements: 
-   - How do I search for, acquire, and release phone numbers through the portal and programatically?
+   - How do I get started with spool? What resources do I need to provision? What SDKs do I download? Will my sdk / portal experience be tailored to my intent / needs?
 
 - Discussion:
   - TODO
+

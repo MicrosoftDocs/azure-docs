@@ -24,7 +24,7 @@ There are three primary capabilities that Spool offers: Programmable Voice, Prog
 
 ~
 
-// brain dump
+// drafting
 
 Spool is a communications platform as a service. There are a lot of different ways to begin thinking about how this might help you help your customers.
 
