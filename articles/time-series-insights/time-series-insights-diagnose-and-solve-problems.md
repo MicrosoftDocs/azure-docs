@@ -19,7 +19,7 @@ This article describes issues that you might encounter in your Azure Time Series
 
 ## Video
 
-### Learn about common Time Series Insights customer challenges and mitigations</br>
+### Learn about common Time Series Insights challenges and mitigations</br>
 
 > [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
@@ -83,7 +83,7 @@ To get a high-level understanding of how flattening logic works, see [Supported 
 
 To fix the lag, increase the SKU capacity of your environment. For more information, read [Scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
 
-### Cause B: initial ingestion of historical data slows ingress
+### Cause B: Initial ingestion of historical data slows ingress
 
 If you connect an existing event source, it's likely that your IoT hub or event hub already contains data. The environment starts pulling data from the beginning of the event source's message retention period. This default processing can't be overridden. You can engage throttling. Throttling might take a while to catch up as it ingests historical data.
 
@@ -124,8 +124,8 @@ The first column header should be your timestamp property name. Next to the word
 The following values won't be displayed:
 
 - *(abc)*: Indicates that Time Series Insights is reading the data values as strings.
-- *Calendar icon*: Indicates that Time Series Insights is reading the data value as *datetime*.
-- *#*: Indicates that Time Series Insights is reading the data values as an integer.
+- *Calendar icon*: Indicates that Time Series Insights is reading the data values as datetime values.
+- *#*: Indicates that Time Series Insights is reading the data values as integers.
 
 ## Next steps
 
