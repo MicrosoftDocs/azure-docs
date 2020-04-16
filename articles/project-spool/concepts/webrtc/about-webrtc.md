@@ -19,19 +19,19 @@ WebRTC is a free, open-source project that gives browsers and mobile application
 Many of Project Spool's components are built on top of WebRTC. Programmable Video and Programmable Voice utilize WebRTC protocols to connect your users' devices to one another over the internet.
 
 
-## WebRTC and Programmable Video
+## WebRTC and Video
 
-Programmable Video is built on WebRTC?
-
-TODO
-
-## WebRTC and Programmable Voice
-
-Programmable Voice is built on WebRTC and other technologies that support advanced telephony scenarios?
+Video is...
 
 TODO
 
-## WebRTC and Programmable Messaging
+## WebRTC and Voice
+
+Voice is built on WebRTC and other technologies that support advanced telephony scenarios?
+
+TODO
+
+## WebRTC and Messaging
 
 TODO
 
