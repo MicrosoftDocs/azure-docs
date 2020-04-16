@@ -34,7 +34,7 @@
     href: ./spark/intellij-tool-synapse.md
   - name: Spark job definitions
     href: ./spark/apache-spark-job-definitions.md 
-  - name: Power BI Professional
+  - name: Power BI Desktop
     href: ./sql/tutorial-connect-power-bi-desktop.md
   - name: Data Scientist
     items:
