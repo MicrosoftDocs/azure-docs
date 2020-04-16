@@ -256,6 +256,8 @@
         - name: Deploy Resource Manager template with runbook
           href: automation-deploy-template-runbook.md
         - name: Integrate with Event Grid and Microsoft Teams
+          href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md
+        - name: Automate start/stop of Azure-SSIS IR
           href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir      
 - name: Reference
   items:
