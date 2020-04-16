@@ -113,7 +113,7 @@ The wildcard application is represented with just one tile in the [MyApps panel]
 
 ### Kerberos constrained delegation
 
-For applications using [kerberos constrained delegation (KCD) as the SSO method](application-proxy-configure-single-sign-on-with-kcd.md), the SPN listed for the SSO method may also need a wildcard. For example, the SPN could be: `HTTP/*.adventure-works.com`. You still need to have the individual SPNs configured on your backend servers (for example, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
+For applications using [kerberos constrained delegation (KCD) as the SSO method](application-proxy-configure-single-sign-on-with-kcd.md), the SPN listed for the SSO method may also need a wildcard. For example, the SPN could be: `HTTP/*.adventure-works.com`. You still need to have the individual SPNs configured on your backend servers (for example, `HTTP/expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
 
 ## Scenario 1: General wildcard application
 

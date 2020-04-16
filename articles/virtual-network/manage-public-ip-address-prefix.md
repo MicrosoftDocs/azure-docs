@@ -36,7 +36,7 @@ Public IP address prefixes have a charge. For details, see [pricing](https://azu
 ## Create a public IP address prefix
 
 1. At the top, left corner of the portal, select **+ Create a resource**.
-2. Enter *public ip address prefix* in the *Search the Marketplace* box. When **Public IP address prefix** appears in the search results, select it.
+2. Enter *public ip prefix* in the *Search the Marketplace* box. When **Public IP address prefix** appears in the search results, select it.
 3. Under **Public IP address prefix**, select **Create**.
 4. Enter, or select values for the following settings, under **Create public IP address prefix**, then select **Create**:
 
