@@ -36,7 +36,7 @@ For this tutorial you need:
 
 To get access to the Azure Remote Rendering service, you first need to [create an account](../../../how-tos/create-an-account.md#create-an-account).
 
-You're required to complete the "Create an account" section for this tutorial, optionally you can complete the "Link storage accounts" section which is required for a future tutorial [Commercial ready: Model library](../commercial-ready/commercial-ready.md#model-library).
+You're required to complete the "Create an account" section for this tutorial, optionally you can complete the "Link storage accounts" section which is required for a future tutorial \[Commercial ready: Model library](../commercial-ready/commercial-ready.md#model-library).
 
 ## Create a new Unity project
 
@@ -443,7 +443,7 @@ This code handles the first stage.
 
 ## Create or join a remote session
 
-Now we need to connect to a remote session where our models will be rendered. The `JoinRemoteSession()` method will attempt to join an existing session (if we're the one that created it, tracked with the `LastUsedSessionID` property). If no sessions are available, it will create a new session. Creating a new session is, unfortunately, a time consuming operation. Therefore one should try to create sessions rarely, and reuse them whenever possible (see [Commercial Ready: Session pooling, scheduling, and best practices](..\commercial-ready\commercial-ready.md#session-pooling-scheduling-and-best-practices) for more). `StopRemoteSession()` will end the currently active session. To prevent charges, you should always stop sessions when they are not needed anymore.
+Now we need to connect to a remote session where our models will be rendered. The `JoinRemoteSession()` method will attempt to join an existing session (if we're the one that created it, tracked with the `LastUsedSessionID` property). If no sessions are available, it will create a new session. Creating a new session is, unfortunately, a time consuming operation. Therefore one should try to create sessions rarely, and reuse them whenever possible (see \[Commercial Ready: Session pooling, scheduling, and best practices](../commercial-ready/commercial-ready.md#session-pooling-scheduling-and-best-practices) for more). `StopRemoteSession()` will end the currently active session. To prevent charges, you should always stop sessions when they are not needed anymore.
 
 Replace the `JoinRemoteSession()` and `StopRemoteSession()` with the completed examples below.
 

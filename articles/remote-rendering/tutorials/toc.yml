@@ -7,7 +7,7 @@
 - name: Refining materials, lighting, and effects
   href: unity/materials-lighting-effects/materials-lighting-effects.md
 - name: Securing Azure Remote Rendering and model storage
-  href: unity/5-security/security.md
+  href: unity/security/security.md
 - name: Managing your model library
   href: unity/model-library/model-library.md
 - name: Creating a commercial ready Azure Remote Rendering application

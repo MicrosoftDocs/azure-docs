@@ -75,7 +75,7 @@ landingContent:
           - text: Refining materials, lighting, and effects
             url: tutorials/unity/materials-lighting-effects/materials-lighting-effects.md
           - text: Securing Azure Remote Rendering and model storage
-            url: tutorials/unity/5-security/security.md
+            url: tutorials/unity/security/security.md
           - text: Managing your model library
             url: tutorials/unity/model-library/model-library.md
           - text: Creating a commercial ready Azure Remote Rendering application
