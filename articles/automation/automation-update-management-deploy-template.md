@@ -213,7 +213,7 @@ The following parameters in the template are set with a default value for the Lo
                 "sku": {
                     "name": "Basic"
                 }
-            },
+            }
         },
         {
             "apiVersion": "2015-11-01-preview",
