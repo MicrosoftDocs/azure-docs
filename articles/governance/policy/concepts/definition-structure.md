@@ -108,7 +108,7 @@ The following Resource Provider modes are currently supported during preview:
   Policies using this Resource Provider mode **must** use the
   [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
-  [Azure Key Vault](../../../key-vault/key-vault-overview.md).
+  [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
 > Resource Provider modes only support built-in policy definitions and don't support initiatives
