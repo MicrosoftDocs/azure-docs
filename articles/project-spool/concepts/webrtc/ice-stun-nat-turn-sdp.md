@@ -1,5 +1,5 @@
 ---
-title: WebRTC Protocols
+title: ICE, STUN, NAT, TURN, and SDP
 description: TODO
 author: mikben    
 manager: jken
@@ -12,7 +12,7 @@ ms.service: azure-project-spool
 
 ---
 
-# WebRTC Protocols
+# ICE, STUN, NAT, TURN, and SDP
 
 As you develop on Spool, you'll encounter terms like ICE, STUN, NAT, TURN, and SDP. These are each protocols that help your client devices connect with one another.
 
