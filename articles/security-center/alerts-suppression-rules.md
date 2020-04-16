@@ -52,7 +52,7 @@ To create a rule directly in the Azure portal:
     > [!TIP]
     > If you opened the new rule page from a specific alert, the alert type and subscription will be automatically configured in your new rule. If you used the **Create new suppression rule** link, the selected subscriptions will match the current filter in the portal.
 
-    [![Suppression rule creation pane](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane#lightbox)
+    [![Suppression rule creation pane](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
 
 
     - You can filter by multiple alert types.
