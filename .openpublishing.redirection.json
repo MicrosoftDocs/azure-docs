@@ -50413,7 +50413,7 @@
     },
     {
       "source_path": "articles/hdinsight/spark/azure-synapse-analytics-job-definition.md",
-      "redirect_url": "../../synapse-analytics/spark/apache-spark-job-definitions.md",
+      "redirect_url": "/azure/synapse-analytics/spark/apache-spark-job-definitions",
       "redirect_document_id": true
     },
     {
