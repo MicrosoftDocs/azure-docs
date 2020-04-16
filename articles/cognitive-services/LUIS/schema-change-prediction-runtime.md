@@ -60,7 +60,7 @@ The next user utterance into the chat bot uses a more vague term:
 
 `Send him a calendar reminder for the party.`
 
-In the previous utterance, the utterance uses `him` as a reference to `Hazem`. The conversational chat bot, in the POST body, can map `him` to the entity value extracted from the first utterance, `Hazem`.
+In this turn of the conversation, the utterance uses `him` as a reference to `Hazem`. The conversational chat bot, in the POST body, can map `him` to the entity value extracted from the first utterance, `Hazem`.
 
 ```json
     "externalEntities": [
