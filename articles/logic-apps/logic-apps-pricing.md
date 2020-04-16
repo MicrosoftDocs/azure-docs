@@ -22,13 +22,13 @@ For new logic apps that run in the public, "global", multi-tenant Azure Logic Ap
 
 For example, actions include:
 
-* Triggers, which are special actions. All logic apps require a trigger as the first step.
+* [Triggers](#triggers), which are special actions. All logic apps require a trigger as the first step.
 
 * ["Built-in" or native actions](../connectors/apis-list.md#built-in) such as HTTP, calls to Azure Functions and API Management, and so on
 
 * Calls to [managed connectors](../connectors/apis-list.md#managed-connectors) such as Outlook 365, Dropbox, and so on
 
-* Control flow steps, such as loops, conditional statements, and so on
+* [Control workflow actions](../connectors/apis-list.md#control-workflow) such as loops, conditional statements, and so on
 
 [Standard connectors](../connectors/apis-list.md#managed-connectors) are charged at the [Standard connector price](https://azure.microsoft.com/pricing/details/logic-apps). Generally available [Enterprise connectors](../connectors/apis-list.md#managed-connectors) are charged at the [Enterprise connector price](https://azure.microsoft.com/pricing/details/logic-apps), while public preview Enterprise connectors are charged at the [Standard connector price](https://azure.microsoft.com/pricing/details/logic-apps).
 
@@ -40,11 +40,11 @@ Learn more about how billing works at the [triggers](#triggers) and [actions](#a
 
 An [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) provides an isolated way for you to create and run logic apps that can access resources in an Azure virtual network. You can choose from these [ISE levels or "SKUs"](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus), which have different [pricing rates](https://azure.microsoft.com/pricing/details/logic-apps):
 
-* [Premium ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus): The Premium ISE's base unit has fixed capacity. If you need more throughput, you can [add more scale units](../logic-apps/ise-manage-integration-service-environment.md#add-capacity), either during creation or afterwards. For information about Premium ISE limits, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
+* [Premium ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus): This SKU's base unit has fixed capacity. If you need more throughput, you can [add more scale units](../logic-apps/ise-manage-integration-service-environment.md#add-capacity), either during creation or afterwards. For information about Premium ISE limits, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
 
-* [Developer ISE]: The Developer ISE doesn't have the capability to add more scale units. Logic apps that run in an ISE don't incur data retention costs. The Developer ISE has no published limits as this SKU doesn't have any service-level agreement (SLA) or capabilities for scaling up. Use this SKU only for experimenting, development, and testing, not production or performance testing.
+* [Developer ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus): This SKU doesn't have the capability to add more scale units. Logic apps that run in an ISE don't incur data retention costs. The Developer ISE has no published limits as this SKU doesn't have any service-level agreement (SLA) or capabilities for scaling up. Use this SKU only for experimenting, development, and testing, not production or performance testing.
 
-For new logic apps that run inside an ISE, you pay a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps) for these capabilities:
+For new logic apps that run in an ISE, you pay a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps) for these capabilities:
 
 * [Built-in](../connectors/apis-list.md#built-in) triggers and actions
 
