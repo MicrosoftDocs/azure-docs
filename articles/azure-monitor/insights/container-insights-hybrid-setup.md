@@ -25,7 +25,7 @@ The following is officially supported with Azure Monitor for containers.
 
 * Container Runtime: Docker, Moby, and CRI-O
 
-* Linux OS release for master and worked nodes: Ubuntu (18.04 LTS and 16.04 LTS), and Red Hat OpenShift (see list from Ganga)
+* Linux OS release for master and worked nodes: Ubuntu (18.04 LTS and 16.04 LTS), and Red Hat Enterprise Linux CoreOS 43.81.
 
 * Access control supported: Kubernetes RBAC and non-RBAC
 
