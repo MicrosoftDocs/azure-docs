@@ -235,9 +235,9 @@
               href: troubleshoot/onboarding.md
             - name: Using Update Management
               href: troubleshoot/update-management.md
-            - name: Troubleshooting Windows worker health issues
+            - name: Troubleshooting Windows Update agent issues
               href: troubleshoot/update-agent-issues.md
-            - name: Troubleshooting Linux worker health issues
+            - name: Troubleshooting Linux Update agent issues
               href: troubleshoot/update-agent-issues-linux.md
     - name: Cross-component scenarios
       items:
