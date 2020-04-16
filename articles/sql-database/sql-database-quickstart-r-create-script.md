@@ -25,11 +25,8 @@ In this quickstart, you create and run a set of R scripts using Machine Learning
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - An [Azure SQL database](sql-database-single-database-get-started.md) with a [server-level firewall rule](sql-database-server-level-firewall-rule.md)
-- [Machine Learning Services](sql-database-machine-learning-services-overview.md) with R enabled. [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
+- [Machine Learning Services](sql-database-machine-learning-services-overview.md) with R enabled.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
-
-> [!NOTE]
-> During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database.
 
 This example uses the stored procedure [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) to wrap a well-formed R script.
 

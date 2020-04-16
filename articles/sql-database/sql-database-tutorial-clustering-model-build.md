@@ -32,8 +32,6 @@ In [part one](sql-database-tutorial-clustering-model-prepare-data.md), you learn
 
 In [part three](sql-database-tutorial-clustering-model-deploy.md), you'll learn how to create a stored procedure in an Azure SQL database that can perform clustering in R based on new data.
 
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
-
 ## Prerequisites
 
 * Part two of this tutorial assumes you have completed [**part one**](sql-database-tutorial-clustering-model-prepare-data.md) and its prerequisites.
