@@ -18,7 +18,7 @@ The CycleCloud CLI requires an existing installation of Python 2.7. While most L
 
 The CLI installer is distributed as part of the CycleCloud installation package. Click on the **?** in the upper-right corner of the UI to access the **about** page. Use the **Download CLI Tools** button to perform an in-browser download.
 
-![Download CLI installer](./images/cli-download.png)
+![Download CLI installer](~/images/cli-download.png)
 
 Alternatively, it can be downloaded directly from the command line using this command. One may need to add the `--no-check-certificate` flag to the following wget command if the CycleCloud instance does not have a certificate matching its hostname.
 

@@ -21,7 +21,7 @@ Jetpack manages communication between the node and the Azure CycleCloud applicat
 
 * HeathCheck
 
-Jetpack runs [HealthCheck](healthcheck.md) on VMs, and terminates them if they are unhealthy.
+Jetpack runs [HealthCheck](~/how-to/healthcheck.md) on VMs, and terminates them if they are unhealthy.
 
 ## Jetpack Installation
 
@@ -38,7 +38,7 @@ In addition to creating this directory, the Jetpack installer:
   * Creates system init startup scripts which configure a VM as a cluster
     node
   * Creates udev rules on Linux
-  * Installs the [HealthCheck](healthcheck.md) service
+  * Installs the [HealthCheck](~/how-to/healthcheck.md) service
   * Sets the environment variable `CYCLECLOUD_HOME`
 
 ### Jetpack Subdirectories

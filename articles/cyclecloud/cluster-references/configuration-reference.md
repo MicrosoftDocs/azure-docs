@@ -8,7 +8,7 @@ ms.author: adjohnso
 
 # Cluster Configuration
 
-Configuration objects are rank 3, and subordinate to `node`. The configuration object define the configurable properties for the configuration code that runs on the [nodes](nodes-in-cluster-templates.md) and [CycleCloud Project](~/projects.md) configurations.
+Configuration objects are rank 3, and subordinate to `node`. The configuration object define the configurable properties for the configuration code that runs on the [nodes](node-nodearray-reference.md) and [CycleCloud Project](~/how-to/projects.md) configurations.
 
 ## Object Attributes
 
@@ -49,11 +49,11 @@ The `cyclecloud` namespace allows the configuration of many system services.
 | maintenance_converge.enabled  | Boolean | CycleCloud nodes are reconfigured every 20 minutes to ensure they are in the correct state. There are times when you may not want this to be the default behavior such as when you are manually testing and updating the configuration on a node. Setting this value to false will make the node configure itself only once. Default: `true` |
 | timezone | String | The timezone for a node can be changed by setting this attribute to any valid timezone string, for example `PST`, `EST`. Default: `UTC` |
 | ntp.servers | List (String) | A list of NTP servers to use. Default: `pool.ntp.org` |
-| keepalive.timeout | Integer | The amount of time in seconds to keep a node “alive” if it has not finished installing/configuring software. Default: 14400 (4 hours) |
-| discoverable | Boolean | Whether or not this node can be “discovered” (searched for) by other nodes started by CycleCloud. Default: `false` |
+| keepalive.timeout | Integer | The amount of time in seconds to keep a node "alive" if it has not finished installing/configuring software. Default: 14400 (4 hours) |
+| discoverable | Boolean | Whether or not this node can be "discovered" (searched for) by other nodes started by CycleCloud. Default: `false` |
 | autoscale.forced_shutdown_timeout  | Integer   | The amount of time (in minutes) before a forced shutdown occurs if autoscale cannot scale the node down successfully. Default: `15`  |                                                                                             |
 | security.limits  | Integer | Linux only. The limits to apply to the node. Domain, type, and item can be specified for any [valid value](https://linux.die.net/man/5/limits.conf) defined. Defaults: `security.limits.\*.hard.nofile = 524288` and `security.limits.\*.soft.nofile = 1048576` |
-| mounts | Nested  | For [NFS exporting and mounting](~/storage-nfs-mounts.md) and volume mounting.  |
+| mounts | Nested  | For [NFS exporting and mounting](~/how-to/mount-fileserver.md) and volume mounting.  |
 | selinux.policy  | String  | Linux only. Add `selinux.policy = permissive` to your configuration to bypass an enforced `selinux` policy for custom images. Already disabled on core CycleCloud images. |
 | install_epel | Boolean | Add the extended packages repo for yum on RedHat variant image.  Default: `true` |
 
@@ -124,10 +124,10 @@ An example of a mount section named `primary`.
 | disabled | Boolean | If set to `true`, the node will not mount the filesystem. |
 | raid_level | Integer | The type of RAID configuration to use when multiple devices/volumes are being used. Defaults to a value of `0`, meaning RAID0, but other raid levels can be used such as `1` or `10`.|
 | raid_device_symlink | String | When a raid device is created, specifying this attribute will create a symbolic link to the raid device. By default, this attribute is not set and therefore no symlink is created. This should be set in cases where you need access to the underlying raid device. |
-| devices  | List (String) | This is a list of devices that should compose the `mountpoint`. In general, this parameter shouldn’t be specified (as CycleCloud will set this for you based on [[[volume]]] sections), but you can manually specify the devices if so desired. |
+| devices  | List (String) | This is a list of devices that should compose the `mountpoint`. In general, this parameter shouldn't be specified (as CycleCloud will set this for you based on [[[volume]]] sections), but you can manually specify the devices if so desired. |
 | vg_name | String | Devices are configured on Linux using the Logical Volume Manager (LVM). The volume group name will be automatically assigned, but in cases where a specific name is used, this attribute can be set. The default is set to `cyclecloud-vgX`, where X is an automatically assigned number. |
 | lv_name | String | Devices are configured on Linux using the Logical Volume Manager (LVM). This value is automatically assigned and does not need specification, but if you want to use a custom logical volume name, it can be specified using this attribute. Defaults to `lv0`. |
-| order | Integer | By specifying an order, you can control the order in which mountpoints are mounted. The default order value for all mountpoints is 1000, except for ‘ephemeral’ which is 0 (ephemeral is always mounted first by default). You can override this behavior on a case-by-case basis as needed. |
+| order | Integer | By specifying an order, you can control the order in which mountpoints are mounted. The default order value for all mountpoints is 1000, except for 'ephemeral' which is 0 (ephemeral is always mounted first by default). You can override this behavior on a case-by-case basis as needed. |
 | encryption.bits | Integer | The number of bits to use when encrypting the filesystem. Standard values are `128` or `256` bit AES encryption. This value is required if encryption is desired. |
 | encryption.key | String | The encryption key to use when encrypting the filesystem. If omitted, a random 2048 bit key will be generated. The automatically generated key is useful for when you are encrypting disks that do not persist between reboots (e.g. encrypting ephemeral devices). |
 | encryption.name | String | The name of the encrypted filesystem, used when saving encryption keys. Defaults to `cyclecloud_cryptX`, where X is an automatically generated number. |

@@ -83,4 +83,4 @@ and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/capture-imag
 Using these instructions a VM image will be available in the subscription
 and location where the image was capture. To use the image
 in a CycleCloud cluster, refer to our documentation on [using custom
-VM images](~/cluster-references/nodes-in-cluster-templates.md).
+VM images](~/cluster-references/node-nodearray-reference.md).
