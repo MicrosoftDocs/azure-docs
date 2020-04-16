@@ -12,9 +12,9 @@ ms.author: nepeters
 
 # Quickstart: Create Azure Resource Manager templates by using Visual Studio Code
 
-The Azure Resource Manager (ARM) Tools for Visual Studio Code provide language support, resource snippets, and resource autocompletion to help you create and validate Azure Resource Manager templates. In this quickstart, you use the ARM tools to create an Azure Resource Manager template from scratch. While doing so you experience ARM tools capabilities such as ARM template snippets, validation, completions, and parameter file support.
+The Azure Resource Manager (ARM) Tools for Visual Studio Code provide language support, resource snippets, and resource autocompletion. These tools help create and validate Azure Resource Manager templates. In this quickstart, you use the ARM tools to create an Azure Resource Manager template from scratch. While doing so you experience ARM tools capabilities such as ARM template snippets, validation, completions, and parameter file support.
 
-To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Azure Resource Manager (ARM) tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) installed. You also need either the [Azure CLI]() or the Azure PowerShell module installed and authenticated.
+To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Azure Resource Manager (ARM) tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) installed. You also need either the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) or the [Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/new-azureps-module-az?view=azps-3.7.0) installed and authenticated.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -98,7 +98,7 @@ Select `New` > `All Parameters` > Select a name and location for the parameter f
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/15.png)
 
-This action creates a new parameters file and map it with the template from which it was created. You can see and modify the current template/parameter file mapping in the VS Code status bar while the template is selected.
+This action creates a new parameters file and maps it with the template from which it was created. You can see and modify the current template/parameter file mapping in the VS Code status bar while the template is selected.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
 
