@@ -298,6 +298,12 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 > * **LogicAppsManagement**: Represents the inbound IP address prefixes for the Logic Apps service.
 > * **LogicApps**: Represents the outbound IP address prefixes for the Logic Apps service.
 
+* Fixed or reserved IP addresses are unavailable for these connectors:
+
+  * Custom connectors, whether in multi-tenant Azure, [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), [Azure Government](../azure-government/documentation-government-overview.md), or [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
+
+  * Managed connectors in [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), for example, Azure Storage, SQL Server, Office 365, and so on
+
 * To support the calls that your logic apps directly make with [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), and other HTTP requests, set up your firewall with all the [inbound](#inbound) *and* [outbound](#outbound) IP addresses that are used by the Logic Apps service, based on the regions where your logic apps exist. These addresses appear under the **Inbound** and **Outbound** headings in this section, and are sorted by region.
 
 * To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, set up your firewall with *all* the [outbound](#outbound) IP addresses used by these connectors, based on the regions where your logic apps exist. These addresses appear under the **Outbound** heading in this section, and are sorted by region.
@@ -307,12 +313,6 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 * If your logic apps have problems accessing Azure storage accounts that use [firewalls and firewall rules](../storage/common/storage-network-security.md), you have [various options to enable access](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
   For example, logic apps can't directly access storage accounts that use firewall rules and exist in the same region. However, if you permit the [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound), your logic apps can access storage accounts that are in a different region except when you use the Azure Table Storage or Azure Queue Storage connectors. To access your Table Storage or Queue Storage, you can use the HTTP trigger and actions instead. For other options, see [Access storage accounts behind firewalls](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
-
-* These connectors don't have fixed or reserved IP addresses:
-
-  * Custom connectors, whether they're in multi-tenant Azure, [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), [Azure Government](../azure-government/documentation-government-overview.md), and [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
-
-  * Managed connectors in [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), for example, Azure Storage, SQL Server, Office 365, and so on
 
 <a name="inbound"></a>
 
