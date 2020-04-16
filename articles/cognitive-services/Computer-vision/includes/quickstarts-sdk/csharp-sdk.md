@@ -129,6 +129,12 @@ Define your new method for image analysis. Add the code below, which specifies v
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_visualfeatures)]
 
+Insert any of the following code blocks into your **AnalyzeImageUrl** method to implement their features. Remember to add a closing bracket at the end.
+
+```csharp
+}
+```
+
 ### Analyze
 
 The **AnalyzeImageAsync** method returns an **ImageAnalysis** object that contains all of extracted information.
