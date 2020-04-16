@@ -41,4 +41,4 @@ See how to migrate an Azure Digital Twins instance created in the previous relea
 Or, go ahead and dive into working with Azure Digital Twins in the quickstart:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create and configure Azure Digital Twins](quickstart.md)
+> [Quickstart: Get started with Azure Digital Twins](quickstart.md)

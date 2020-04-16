@@ -90,4 +90,4 @@ If you have worked with the previous preview release of Azure Digital Twins, lea
 Or, go ahead and dive into working with Azure Digital Twins in the quickstart:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create and configure Azure Digital Twins](quickstart.md)
+> [Quickstart: Get started with Azure Digital Twins](quickstart.md)

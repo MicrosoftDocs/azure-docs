@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Create and configure Azure Digital Twins
+title: Get started with Azure Digital Twins
 titleSuffix: Azure Digital Twins
-description: Walk through an introductory Azure Digital Twins setup.
+description: Set up and explore a starter Azure Digital Twins project.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 4/15/2020
@@ -15,130 +15,151 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Getting started with the Azure Digital Twins sample app
+# Get started with Azure Digital Twins
 
-In this section, you will create an instance of Azure Digital Twins, configure a client application to interact with the instance, and perform some actions on a sample solution.
+In this quickstart, you'll set up an Azure Digital Twins instance and use a pre-written sample solution to explore the fundamental components of an Azure Digital Twins solution. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Here are the steps included:
+1. Set up an Azure Digital Twins instance
+2. Configure a sample client application to interact with the instance
+3. Build out a sample solution, including models, digital twins, and relationships
+4. Query the sample solution to see how Azure Digital Twins can help you answer questions about your environment
+
+[!INCLUDE [instructions on using the Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
 > [!NOTE]
 > The PowerShell version of Azure Cloud Shell is recommended for its parsing of quotations. The other bash version will work for most commands, but may fail on commands with *single-quote* and/or *double-quote* characters.
 
-## Prerequisites
+[!INCLUDE [Azure Digital Twins setup steps](../../includes/digital-twins-setup.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Build out a sample solution
 
-Also before you start, complete the following setup:
-* Download this entire repository to your machine. We recommend downloading as a ZIP file.
-* Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) version 16.5.1XXX or later on your development machine. If you have an older version installed already, open the *Visual Studio Installer* app on your machine and follow the prompts to update your installation.
-* Run the following command in your Cloud Shell instance to add the Microsoft Azure IoT Extension for Azure CLI.
-    ```azurecli-interactive
-    az extension add --name azure-iot
+In the remainder of this quickstart, you will use the sample project and some pre-written example code to build out a basic Azure Digital Twins solution. The major solution components are models, digital twins, and relationships, resulting in a queryable twin graph of an environment.
+
+### Model a physical environment with DTDL
+
+The first step in building out an Azure Digital Twins solution is concepting and defining twin [**models**](concepts-models.md) for your environment. 
+
+Models are similar to classes in object-oriented programming languages; they provide user-defined templates for digital twins to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *commands*, *relationships*, and *components*.
+
+In the sample project you downloaded earlier, navigaet to the *DigitalTwinsMetadata/DigitalTwinsSample/Models* folder. This folder contains sample models.
+
+Open *Room.json*, and change it in the following ways:
+
+* **Update the version number**, to indicate that you are providing a more-updated version of this model. Do this by changing the *1* at the end of the `@id` value to a *2*. Any number greater than the current version number will also work.
+* **Edit a property**. Change the name of the `Humidity` property to *HumidityLevel* (or something different if you'd like. If you use something different than *HumidityLevel*, remember what you used and continue using that instead of *HumidityLevel* throughout this tutorial).
+* **Add a property**. After the `HumidityLevel` property that ends on line 15, paste the following code to add a `DisplayName` property to the room:
+
+    ```json
+    ,
+    {
+      "@type": "Property",
+      "name": "DisplayName",
+      "schema": "string"
+    }
+    ```
+* **Add a relationship**. After the `DisplayName` property that ends on line 20, paste the following code to add the ability for this type of twin to form *contains* relationships with other twins:
+
+    ```json
+    ,
+    {
+      "@type": "Relationship",
+      "@id": "urn:contosocom:DigitalTwins:contains:1",
+      "name": "contains",
+      "target": "*"
+    }
     ```
 
-> [!NOTE]
-> This article uses the newest version of the Azure IoT extension, called `azure-iot`. The legacy version is called `azure-iot-cli-ext`.You should only have one version installed at a time. You can use the command `az extension list` to validate the currently installed extensions.
-> Use `az extension remove --name azure-cli-iot-ext` to remove the legacy version of the extension.
-> Use `az extension add --name azure-iot` to add the new version of the extension. 
-> To see what extensions you have installed, use `az extension list`.
+When you are finished, the updated model should look like this:
+
+![Edited Room.json with updated version number, HumidityLevel and DisplayName properties, and "contains" relationship](media/quickstart/room-model.png)
+
+Make sure to save the file before moving on.
 
 > [!TIP]
-> You can run `az dt -h` to see the top-level Azure Digital Twins commands.
+> If you want to try creating your own model, you can paste the Room model into a new file that you save with a *.json* extension in the *DigitalTwinsMetadata/DigitalTwinsSample/Models* folder. Then play around with adding properties and relationships to represent whatever you would like. You can also look at the other sample models in this folder for ideas.
 
-## Create an Azure Digital Twins instance
+#### Upload models to Azure Digital Twins
 
-Begin by logging in, setting the shell context to your subscription, and registering with the Azure Digital Twins namespace.
-
-```Azure CLI
-az login
-az account set --subscription <your-subscription-ID>
-az provider register --namespace 'Microsoft.DigitalTwins'
-```
-
-Next, run the following commands to create a new Azure resource group for use in this tutorial, and then create a new instance of Azure Digital Twins in this resource group.
-
-```Azure CLI
-
-az group create --location "westcentralus" --name <name-for-your-resource-group>
-az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group>
-```
-
-The result of these commands looks something like this, outputting information about the resources you've created:
-![Command window with successful creation of resource group and Azure Digital Twins instance](media/quickstart/create-instance.png)
-
-Save the Azure Digital Twins instance's *hostName*, *name*, and *resourceGroup*  from the output. You will use them later.
-
-> [!TIP]
-> You can see the properties of your instance at any time by running `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
-
-## Assign Azure Active Directory permissions
-
-Azure Digital Twins uses [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) for role-based access control (RBAC). This means that before you can make data plane calls to your Azure Digital Twins instance, you must first assign yourself a role with these permissions.
-
-You also need to make sure your client app can authenticate against Azure Digital Twins, which you'll do by setting up an Azure Active Directory (AAD) app registration.
-
-### Assign yourself a role
-
-Create a role assignment for yourself using your email associated with the AAD tenant on your Azure subscription. The following command assigns your user to an owner role:
-
-```Azure CLI
-az dt rbac assign-role --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role owner
-```
-
-The result of this command is outputted information about the role assignment you've created.
-
-> [!TIP]
-> If you get a *400: BadRequest* error instead, navigate to your user in the [AAD Users page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) for your tenant. Repeat the command using your user's *Object ID* instead of your email.
-> ![Azure portal: object ID for AAD user](media/quickstart/aad-user.png)
-
-### Register your application
-
-To configure an app registration, complete the "Create an app registration" section of [How to authenticate](how-to-authenticate.md). After doing this, your command window should look something like this:
-
-![New AAD app registration](media/quickstart/new-app-registration.png)        
-
-After creating the app registration, follow [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to navigate to the AAD app registration overview page in the Azure portal.
-
-From this overview, select the app registration you just created from the list. This will open up its details in a page like this one:
-
-![Azure portal: authentication IDs](media/quickstart/get-authentication-ids.png)
-
-Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. You will use these values later.
-
-## Configure the sample project
-
-To get started with the sample project, navigate on your local machine to the project folder you downloaded from this repository.
-
-Open _DigitalTwinsMetadata/DigitalTwinsSample/**Program.cs**_, and change `AdtInstanceUrl` to your Azure Digital Twins instance hostName, `ClientId` to your *Application ID*, and `TenantId` to your *Directory ID*.
-
-```csharp
-private const string ClientId = "<your-application-ID>";
-private const string TenantId = "<your-directory-ID>";
-//...
-const string AdtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"
-```
-
-Save the file.
-
-## Use the sample project to answer environment questions
+Once you have designed your model(s), you need to upload them to your Azure Digital Twins instance before you can create twins that use them.
 
 Open _DigitalTwinsMetadata/**DigitalTwinsSample.sln**_ in Visual Studio. Run the project with this button in the toolbar:
 
 ![The Visual Studio start button](media/quickstart/start-button-sample.png)
+ 
+A console window will open, carry out authentication, and wait for a command. In this console, run the following command to upload both your edited model for *Room* and another model, *Floor*.
 
-A console window will open, carry out authentication, and wait for a command. In this console, run the following command to build out a sample Azure Digital Twins graph in the Azure Digital Twins instance you created earlier:
-
-```cmd/sh
-buildingScenario
+```cmd
+addModels Room Floor
 ```
 
-The output of this command is a series of confirmation messages as three twins are created and connected in your Azure Digital Twins instance: a floor named *floor1*, a room named *room21*, and a temperature sensor named *thermostat67*. They are connected into the following graph:
+> [!TIP]
+> If you designed your own model earlier, you can also upload it here, by adding the part of its file name before the *.json* extension to the `Room Floor` list in the command above.
 
-![A graph showing that floor1 contains room21, and room21 contains thermostat67](media/quickstart/building-scenario-graph.png)
+Verify the models were created by running the `listModels` command. This will query the Azure Digital Twins instance for all models that have been uploaded. Look for the edited *Room* model in the results:
 
-Keep the project running for the next step.
+![Results of listModels, showing the updated Room model](media/quickstart/output-listModels.png)
 
-### Query the twin graph
+Keep the project console window running for the following steps.
+
+### Create digital twins
+
+Now that some models have been uploaded to your Azure Digital Twins instance, you can create [**digital twins**](concepts-twins-graph.md) based on the model definitions. Digital twins represent the entities within your business environment—things like sensors on a farm, rooms in a building, or lights in a car. 
+
+To create a digital twin, you use the `addTwin` command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You do not have to pass any relationship information at this stage.
+
+Run this code in the running project console to create several twins based on the *Floor* and *Room* models. Recall that *Room* has three properties, so you can provide arguments with the initial values for these.
+
+```cmd
+addTwin urn:example:Floor:1 floor0
+addTwin urn:example:Floor:1 floor1
+addTwin urn:example:Room:2 room0 DisplayName string Room0 Temperature double 70 HumidityLevel double 30
+addTwin urn:example:Room:2 room1 DisplayName string Room1 Temperature double 80 HumidityLevel double 60
+```
+
+> [!TIP]
+> If you uploaded your own model earlier, try making your own `addTwin` command based on the commands above to add a twin of your own model type.
+
+The output from these commands should indicate the twins were created successfully. Here is an excerpt showing the *Floor* twin and one of the *Room* twins:
+
+![Excerpt from the results of addTwin commands, showing floor2 and room22](media/quickstart/output-addTwin.png)
+
+You can also verify that the twins were created by running the `queryTwins` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the *floor2*, *room22*, and *room23* twins in the results.
+
+### Create a graph by adding relationships
+
+Next, you can create some **relationships** between these twins, to connect them into a **twin graph**. Twin graphs are used to represent an entire environment. 
+
+To add a relationship, you use the `addEdge` command. Specify the twin that the relationship is coming from, the type of relationship to add, and the twin that the relationship is connecting to. Lastly, provide a name (ID) for the relationship.
+
+Run the following code to add a "contains" relationship from *floor2* to each of the *Room* twins you created earlier. Note that there must be a *contains* relationship defined on the *Floor* model for this to be possible.
+
+```cmd
+addEdge floor0 contains room0 edge0
+addEdge floor1 contains room1 edge1
+```
+
+The output from these commands shows information about the relationships being created:
+
+![Excerpt from the results of addEdge commands, showing edge0 and edge1](media/quickstart/output-addEdge.png)
+
+To verify the relationships were created successfully, use either of the following commands to query the relationships in your Azure Digital Twins instance.
+* To see all relationships coming off of each floor,
+    ```cmd
+    listEdges floor0
+    listEdges floor1
+    ```
+* To query for these relationships by ID, 
+    ```csharp
+    getEdgeById floor0 contains edge0
+    getEdgeById floor1 contains edge1
+    ```
+
+The twins and relationships you have set up in this tutorial form the following conceptual graph:
+
+![A graph showing floor0 connected via edge0 to room0, and floor1 connected via edge1 to room1](media/quickstart/sample-graph.png)
+
+## Query the twin graph to answer environment questions
 
 A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. Run the following commands in the running project console to get an idea of what this is like.
 
@@ -148,45 +169,45 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
     This allows you to take stock of your environment at a glance, and make sure everything is represented as you'd like it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details.
 
-    ![Results of twin query, showing floor1, room21, and thermostat67](media/quickstart/output-query-all.png)
+    ![Results of twin query, showing floor0, floor1, room0, and room1](media/quickstart/output-query-all.png)
 
     >[!NOTE]
     >Observe how `queryTwins` without any additional arguments is the equivalent of `queryTwins SELECT * FROM DIGITALTWINS`.
 
-* **What are all the thermostats in my environment?** (query by model)
+* **What are all the rooms in my environment?** (query by model)
 
-    `queryTwins SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'urn:contosocom:DigitalTwins:Thermostat:1')`
+    `queryTwins SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'urn:example:Room:2')`
 
-    You can restrict your query to twins of a certain type, to get more specific information about what's represented. The result of this shows *thermostat67*, but does **not** show *floor1* and *room21* (since they are spaces, not thermostats).
-    ![Results of model query, showing only thermostat67](media/quickstart/output-query-model.png)
+    You can restrict your query to twins of a certain type, to get more specific information about what's represented. The result of this shows *room0* and *room1*, but does **not** show *floor0* or *floor1* (since they are floors, not rooms).
+    ![Results of model query, showing only room0 and room1](media/quickstart/output-query-model.png)
 
-* **What are all the rooms on *floor1*?** (query by relationship)
+* **What are all the rooms on *floor0*?** (query by relationship)
 
-    `queryTwins SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor1'`
+    `queryTwins SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0'`
 
-    You can query based on relationships in your graph, to get information about how twins are connected or to restrict your query to a certain area.
+    You can query based on relationships in your graph, to get information about how twins are connected or to restrict your query to a certain area. Only *room0* is on *floor0*, so it's the only room in the result.
 
-    ![Results of relationship query, showing room21](media/quickstart/output-query-relationship.png)
+    ![Results of relationship query, showing room0](media/quickstart/output-query-relationship.png)
 
-* **What are all the twins in my environment with a temperature of 0?** (query by property)
+* **What are all the twins in my environment with a temperature above 75?** (query by property)
 
-    `queryTwins SELECT * FROM DigitalTwins T WHERE T.Temperature = 0.0`
+    `queryTwins SELECT * FROM DigitalTwins T WHERE T.Temperature > 75`
 
-    This sample initializes temperatures at 0, so this query could help you see which digital twins haven't been updated yet with data from a real device. You could also change the 0 to any other number and use comparison operators (such as *<*,*>*, *=*, or *!=*) to answer more temperature questions.
+    You can query the graph based on properties to answer a variety of questions, including finding outliers in your environment that might need attention. Other comparison operators (*<*,*>*, *=*, or *!=*) are also supported.
 
-    ![Results of property query, showing floor1, room21, and thermostat67](media/quickstart/output-query-property.png)
+    ![Results of property query, showing only room1](media/quickstart/output-query-property.png)
 
-* **What are all the spaces in my environment with a temperature of 0?** (compound query)
+* **What are all the rooms on *floor0* with a temperature above 75?** (compound query)
 
-    `queryTwins SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'urn:contosocom:DigitalTwins:Space:1') AND T.Temperature = 0.0`
+    `queryTwins SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0' AND IS_OF_MODEL(room, 'urn:example:Room:2') AND room.Temperature > 75`
 
-    You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result only includes spaces (not thermostats).
+    You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result now only includes rooms with temperatures above 75 that are on *floor0*—which in this case, is none of them.
 
-    ![Results of compound query, showing floor1 and room21](media/quickstart/output-query-compound.png)
+    ![Results of compound query, showing no results](media/quickstart/output-query-compound.png)
 
 ## Clean up resources
 
-If you no longer need the resources created in this quickstart, follow these steps to delete them. If you plan to continue to the Azure Digital Twins tutorials, keep the resources you set up here to continue building on them. 
+If you no longer need the resources created in this quickstart, follow these steps to delete them. If you plan to continue to the Azure Digital Twins tutorials, you can keep the resources you set up here to continue using this instance and client app configuration. 
 
 Using the Azure Cloud Shell, you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group and the Azure Digital Twins instance.
 
@@ -207,14 +228,9 @@ Finally, delete the project sample folder you downloaded from your local machine
 
 ## Next steps
 
-In this quickstart, you got started with Azure Digital Twins by setting up an instance and a client application to interact with the instance. You then ran some queries on a sample solution to get an idea of what kinds of questions Azure Digital Twins can help you answer about an environment.
+In this quickstart, you got started with Azure Digital Twins by setting up an instance and a client application to interact with the instance. You built a basic Azure Digital Twins solution using models, digital twins, and relationships, and ran some queries on the solution to get an idea of what kinds of questions Azure Digital Twins can answer about an environment.
 
-To see how the sample solution was built and build your own Azure Digital Twins graph, continue on to this tutorial: 
-
-> [!div class="nextstepaction"]
-> [Tutorial: Build a basic Azure Digital Twins solution](tutorial-build.md)
-
-Or, see how to connect the sample solution to other Azure services to complete a data-driven, end-to-end scenario in this tutorial: 
+Continue on to the tutorial to see how to connect a sample solution to other Azure services to complete a data-driven, end-to-end scenario: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Connect your solution to other Azure services](tutorial-connect.md)
+> [Tutorial: Build an end-to-end solution](tutorial-connect.md)

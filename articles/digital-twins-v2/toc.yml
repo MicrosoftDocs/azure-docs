@@ -8,13 +8,13 @@
     href: overview-differences.md
 - name: Quickstart
   items:
-  - name: Create and configure Azure Digital Twins
+  - name: Get started with Azure Digital Twins
     href: quickstart.md
 - name: Tutorials
   items:
   - name: Build a basic Azure Digital Twins solution
     href: tutorial-build.md
-  - name: Connect your solution to other Azure services
+  - name: Build an end-to-end solution
     href: tutorial-connect.md
 - name: Concepts
   items:

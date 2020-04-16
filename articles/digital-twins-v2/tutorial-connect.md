@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Connect your solution to other Azure services
+title: Build an end-to-end solution
 titleSuffix: Azure Digital Twins
-description: Tutorial to build out a sample Azure Digital Twins solution to update based on device data.
+description: Tutorial to build out an end-to-end Azure Digital Twins solution that's driven by device data.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 4/15/2020
@@ -20,17 +20,14 @@ ms.service: digital-twins
 To set up a full end-to-end solution driven by live data from your environment, you can connect your Azure Digital Twins instance to other Azure services for management of devices and data.
 
 In this tutorial, you will...
+* Set up an Azure Digital Twins instance
 * Learn about the sample building scenario and instantiate the pre-written components
 * Use an [Azure Functions](../azure-functions/functions-overview.md) app to route simulated telemetry from an [IoT Hub](../iot-hub/about-iot-hub.md) device into digital twin properties
 * Propagate changes through the twin graph, by processing digital twin notifications with Azure Functions, endpoints, and routes
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Prerequisites
-
-This tutorial uses the Azure Digital Twins instance and configured sample project from the Azure Digital Twins [quickstart](quickstart.md). 
-
-You should complete the quickstart through the "Configure the sample project" step, in order to set up an Azure Digital Twins workspace before continuing with this tutorial. (The final step in the quickstart, "Use the sample project to answer environment questions", is not required for this).
+[!INCLUDE [Azure Digital Twins setup steps](../../includes/digital-twins-setup.md)]
 
 ## Get started with the building scenario
 
