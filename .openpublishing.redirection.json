@@ -1773,8 +1773,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-nodejs-sdk.md",
-      "redirect_url": "/azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries?pivots=programming-language-nodejs",
+      "source_path": "articles/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-javascript-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries?pivots=programming-language-javascript",
       "redirect_document_id": false
     },
     {

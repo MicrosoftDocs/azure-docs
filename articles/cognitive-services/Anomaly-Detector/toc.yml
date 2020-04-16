@@ -16,9 +16,9 @@
         - name: Using Python
           itemType: quickstart
           url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-python
-        - name: Using Node.js
+        - name: Using JavaScript
           itemType: quickstart
-          url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-nodejs
+          url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-javascript
     - name: REST API
       items:
         - name: Using C#

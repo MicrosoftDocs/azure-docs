@@ -1,5 +1,5 @@
 ---
-title: Anomlay Detector Node.js client library quickstart 
+title: Anomlay Detector JavaScript client library quickstart 
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -10,9 +10,9 @@ ms.date: 04/16/2020
 ms.author: aahi
 ---
 
-Get started with the Anomaly Detector client library for Node.js. Follow these steps to install the package and try out the example code for basic tasks. The Anomaly Detector service enables you to find abnormalities in your time series data by automatically using the best-fitting models on it, regardless of industry, scenario, or data volume.
+Get started with the Anomaly Detector client library for JavaScript. Follow these steps to install the package and try out the example code for basic tasks. The Anomaly Detector service enables you to find abnormalities in your time series data by automatically using the best-fitting models on it, regardless of industry, scenario, or data volume.
 
-Use the Anomaly Detector client library for Node.js to:
+Use the Anomaly Detector client library for JavaScript to:
 
 * Detect anomalies throughout your time series dataset, as a batch request
 * Detect the anomaly status of the latest data point in your time series

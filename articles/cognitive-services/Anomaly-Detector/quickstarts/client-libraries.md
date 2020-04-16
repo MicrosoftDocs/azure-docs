@@ -5,7 +5,7 @@ description: The Anomaly Detector API offers client libraries to detect abnormal
 services: cognitive-services
 author: aahill
 manager: nitinme
-zone_pivot_groups: programming-languages-set-ten
+zone_pivot_groups: programming-languages-set-seventeen
 
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
@@ -21,9 +21,9 @@ ms.author: aahi
 
 ::: zone-end
 
-::: zone pivot="programming-language-nodejs"
+::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [Node.js quickstart](../includes/quickstarts/anomaly-detector-client-library-nodejs.md)]
+[!INCLUDE [Node.js quickstart](../includes/quickstarts/anomaly-detector-client-library-javascript.md)]
 
 ::: zone-end
 
