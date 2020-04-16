@@ -18,7 +18,7 @@ This article will provide help troubleshooting problems or issues with message r
 List of metrics you can use. --> this list is in [iot-hub-metrics](iot-hub-metrics.md).
 Add the new per-endpoint metrics to that list.
 
-To set up and use metrics, see the article [Set up and use metrics sand diagnostic logs with an IoT Hub](tutorial-use-metrics-and-diags).  (create include file, use twice)? Or just point them to the metrics article?
+To set up and use metrics, see the article [Set up and use metrics sand diagnostic logs with an IoT Hub](tutorial-use-metrics-and-diags).  -->create include file, use twice? Or just point them to the metrics article?
 
 ## Which metrics to use when
 
