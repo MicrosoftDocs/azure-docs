@@ -35,9 +35,6 @@ There are a few ways you can create rules to suppress unwanted security alerts:
 
 - To suppress alerts at the subscription level, you can use the Azure portal or the REST API as explained below
 
-
-### [Using the Azure portal](#tab/create-a-rule-portal)
-
 Suppression rules can only dismiss alerts that have already been triggered on the selected subscriptions.
 
 To create a rule directly in the Azure portal:
@@ -65,8 +62,11 @@ To create a rule directly in the Azure portal:
 
 1. Save your alert. 
 
+## Editing suppression rules 
 
-### [Using the REST API](#tab/create-a-rule-API)
+## Deleting suppression rules
+
+## Using the REST API to create and manage suppression rules
 
 You can create, view, or delete alert suppression rules via Security Center's REST API. 
 
@@ -86,8 +86,3 @@ The relevant HTTP methods for suppression rules in the REST API are:
 
 For full details and usage examples, see the [API documentation](https://docs.microsoft.com/api/securitycenter/). 
 
---- 
-
-## Editing
-
-## Deleting
