@@ -75,6 +75,8 @@
         href: allbound-sso-tutorial.md  
       - name: Allocadia
         href: allocadia-tutorial.md
+      - name: Ally
+        href: ally-tutorial.md
       - name: Amazon Business
         href: amazon-business-tutorial.md
       - name: Amazon Web Services (AWS)
