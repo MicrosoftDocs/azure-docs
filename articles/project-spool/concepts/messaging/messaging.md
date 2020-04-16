@@ -1,5 +1,5 @@
 ---
-title: Programmable Messaging
+title: Messaging
 description: TODO
 author: mikben    
 manager: jken
@@ -12,7 +12,7 @@ ms.service: azure-project-spool
 
 ---
 
-# Programmable Messaging
+# Messaging
 
 Spool's SDKs and APIs help you build rich messaging experiences.
 
@@ -23,11 +23,11 @@ The flow supporting messaging looks like this:
 1. Provision a Spool API key
 2. TODO
 
-Our Programmable Messaging Quickstarts will help you get started:
+Our Messaging Quickstarts will help you get started:
 
-- Get Started With Programmable Messaging
+- Get Started With Messaging
 
-Our Programmable Messaging Tutorials will help you with more advanced scenarios:
+Our Messaging Tutorials will help you with more advanced scenarios:
 
 - How to build a real-time chat application
 - How to send SMS and MMS messages
@@ -36,11 +36,11 @@ Our Programmable Messaging Tutorials will help you with more advanced scenarios:
 
 You may want to add voice and video to your applications as well. These resources will help you get started:
 
-- About Programmable Video
-- About Programmable Voice
+- About Video
+- About Voice
 - How Voice, Video, and Messaging Relate
-- Get Started With Programmable Video
-- Get Started With Programmable Voice
+- Get Started With Video
+- Get Started With Voice
 
 
 ### Meta

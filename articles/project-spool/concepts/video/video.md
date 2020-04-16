@@ -1,5 +1,5 @@
 ---
-title: Programmable Video
+title: Video
 description: TODO
 author: mikben    
 manager: jken
@@ -12,7 +12,7 @@ ms.service: azure-project-spool
 
 ---
 
-# Programmable Video
+# Video
 
 Spool's SDKs and APIs allow you to add video and voice chat to your applications.
 
@@ -26,11 +26,11 @@ The flow supporting video calls looks like this:
 5. Your clients then connect to the Space
 6. Your clients then share their video, audio, and data.
 
-Our Programmable Video Quickstarts will help you get started:
+Our Video Quickstarts will help you get started:
 
-- Get Started With Programmable Video
+- Get Started With Video
 
-Our Programmable Video Tutorials will help you with more advanced scenarios:
+Our Video Tutorials will help you with more advanced scenarios:
 
 - How to create a video chatroom with Spool
 - How to build a screen-sharing app with Spool
@@ -38,11 +38,11 @@ Our Programmable Video Tutorials will help you with more advanced scenarios:
 
 You may want to allow your users to make phone calls and send messages from within your app. These conceptual overviews will help you get started:
 
-- About Programmable Voice
-- About Programmable Messaging
+- About Voice
+- About Messaging
 - How Voice, Video, and Messaging Relate
-- Get Started With Programmable Video
-- Get Started With Programmable Messaging
+- Get Started With Video
+- Get Started With Messaging
 
 
 ### Meta

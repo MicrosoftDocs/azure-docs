@@ -22,14 +22,14 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Get Started With Project Spool
+  - name: Get Started
     href: quickstarts/get-started.md
-  - name: Get Started With Programmable Voice
-    href: quickstarts/get-started-with-programmable-voice.md
-  - name: Get Started With Programmable Video
-    href: quickstarts/get-started-with-programmable-video.md
-  - name: Get Started With Programmable Messaging
-    href: quickstarts/get-started-with-programmable-messaging.md
+  - name: Get Started With Voice
+    href: quickstarts/get-started-with-voice.md
+  - name: Get Started With Video
+    href: quickstarts/get-started-with-video.md
+  - name: Get Started With Messaging
+    href: quickstarts/get-started-with-messaging.md
 - name: Tutorials
   expanded: true
   items:
@@ -58,34 +58,34 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Programmable Voice
+  - name: Voice
     items:
-      - name: About Programmable Voice
-        href: concepts/programmable-voice/programmable-voice.md
+      - name: About Voice
+        href: concepts/voice/voice.md
       - name: Phone Numbers
-        href: concepts/programmable-voice/phone-numbers.md
+        href: concepts/voice/phone-numbers.md
       - name: SIP, VOIP, and PSTN
-        href: concepts/programmable-voice/sip-voip-pstn.md
+        href: concepts/voice/sip-voip-pstn.md
       - name: Phone Trees
-        href: concepts/programmable-voice/phone-trees.md
+        href: concepts/voice/phone-trees.md
       - name: Call Detail Records
-        href: concepts/programmable-voice/call-detail-records.md
+        href: concepts/voice/call-detail-records.md
       - name: Call Analytics
-        href: concepts/programmable-voice/call-analytics.md
+        href: concepts/voice/call-analytics.md
       - name: Spam and Robocall Protection
-        href: concepts/programmable-voice/spam-robocall.md
-  - name: Programmable Video
+        href: concepts/voice/spam-robocall.md
+  - name: Video
     items: 
-      - name: About Programmable Video
-        href: concepts/programmable-video/programmable-video.md
-  - name: Programmable Messaging
+      - name: About Video
+        href: concepts/video/video.md
+  - name: Messaging
     items: 
-      - name: About Programmable Messaging
-        href: concepts/programmable-messaging/programmable-messaging.md
+      - name: About Messaging
+        href: concepts/messaging/messaging.md
       - name: Real-Time Chat
-        href: concepts/programmable-messaging/real-time-chat.md
+        href: concepts/messaging/real-time-chat.md
       - name: SMS and MMS
-        href: concepts/programmable-messaging/sms-mms.md
+        href: concepts/messaging/sms-mms.md
   - name: WebRTC
     items: 
       - name: About WebRTC

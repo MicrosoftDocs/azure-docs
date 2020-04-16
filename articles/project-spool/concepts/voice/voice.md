@@ -1,5 +1,5 @@
 ---
-title: Programmable Voice
+title: Voice
 description: TODO
 author: mikben    
 manager: jken
@@ -12,7 +12,7 @@ ms.service: azure-project-spool
 
 ---
 
-# Programmable Voice
+#  Voice
 
 Spool's SDKs and APIs help you make and receive phone calls from within your applications.
 
@@ -23,11 +23,11 @@ The flow supporting voice calls looks like this:
 1. Provision a Spool API key
 2. TODO
 
-Our Programmable Voice Quickstarts will help you get started:
+Our Voice Quickstarts will help you get started:
 
-- Get Started With Programmable Voice
+- Get Started With Voice
 
-Our Programmable Voice Tutorials will help you with more advanced scenarios:
+Our Voice Tutorials will help you with more advanced scenarios:
 
 - How to make and receive phone calls
 - How to record phone calls
@@ -37,11 +37,11 @@ Our Programmable Voice Tutorials will help you with more advanced scenarios:
 
 You may want to add video and messaging to your applications as well. These resources will help you get started:
 
-- About Programmable Video
-- About Programmable Messaging
+- About Video
+- About Messaging
 - How Voice, Video, and Messaging Relate
-- Get Started With Programmable Video
-- Get Started With Programmable Messaging
+- Get Started With Video
+- Get Started With Messaging
 
 
 
