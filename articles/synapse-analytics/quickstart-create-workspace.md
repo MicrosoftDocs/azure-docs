@@ -49,9 +49,11 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     - Entered manually using the account name
 
     > [!IMPORTANT]
-    > The Azure Synapse workspace needs to be able to read and write to the selected ADLS Gen2 account. If you create a new storage account, make sure that the primary storage account you link to the workspace has **Hierarchical namespace** enabled. Existing storage accounts also need to have **hierarchical namespace** enabled to be used for synapse file system.
+    > The Azure Synapse workspace needs to be able to read and write to the selected ADLS Gen2 account. In addition, any storage account that you link to the workspace must have **hierarchical namespace** enabled.
     >
     > Below the ADLS Gen2 selection fields, there is a note saying that the managed identity of the workspace will be assigned the **Storaqe Blob Data Contributor** role on the selected Data Lake Storage Gen2 file system granting it full access.
+
+     > If you create a new storage account, make sure that the primary storage account that you link to the workspace has **hierarchical namespace** enabled. Existing storage accounts also need to have **hierarchical namespace** enabled for Azure Synapse to use as a file system.
 
 4. (Optional) Modify any of the **Security + networking defaults** tab:
 5. (Optional) Add any tags in the **Tags** tab.
