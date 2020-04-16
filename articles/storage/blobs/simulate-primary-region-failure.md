@@ -17,7 +17,7 @@ ms.reviewer: artek
 
 This tutorial is part two of a series. In it, you learn about the benefits of [read-access geo-zone-redundant storage](../common/storage-redundancy.md) (RA-GZRS) by simulating a failure.
 
-In order to simulate a failure, you can use either [Static Routing](#simulate-a-failure-with-an-invalid-static-route) or [Fiddler](#simulate-a-failure-with-fiddler). Both methods will allow you to simulate failure for requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy.md) (RA-GZRS) storage account, causing the application read from the secondary endpoint instead.
+In order to simulate a failure, you can use either [static routing](#simulate-a-failure-with-an-invalid-static-route) or [Fiddler](#simulate-a-failure-with-fiddler). Both methods will allow you to simulate failure for requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy.md) (RA-GZRS) storage account, leading the application to read from the secondary endpoint instead.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 

@@ -21,7 +21,7 @@ This tutorial is part one of a series. In it, you learn how to make your applica
 
 When you've completed this tutorial, you will have a console application that uploads and retrieves a blob from a [read-access geo-zone-redundant](../common/storage-redundancy.md) (RA-GZRS) storage account.
 
-RA-GZRS works by replicating transactions from a primary region to a secondary region. This replication process guarantees that the data in the secondary region is eventually consistent. The application uses the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern to determine which endpoint to connect to, automatically switching between endpoints as failures and recoveries are simulated.
+Geo-redundancy in Azure Storage replicates transactions asynchronously from a primary region to a secondary region that is hundreds of miles away. This replication process guarantees that the data in the secondary region is eventually consistent. The console application uses the [circuit breaker](/azure/architecture/patterns/circuit-breaker) pattern to determine which endpoint to connect to, automatically switching between endpoints as failures and recoveries are simulated.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -61,25 +61,24 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 A storage account provides a unique namespace to store and access your Azure Storage data objects.
 
-Follow these steps to create a read-access geo-redundant storage account:
+Follow these steps to create a read-access geo-zone-redundant (RA-GZRS) storage account:
 
-1. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal.
-2. Select **Storage** from the **New** page.
-3. Select **Storage account - blob, file, table, queue** under **Featured**.
+1. Select the **Create a resource** button in the Azure portal.
+2. Select **Storage account - blob, file, tabel, queue** from the **New** page.
 4. Fill out the storage account form with the following information, as shown in the following image and select **Create**:
 
-   | Setting       | Sample value value | Description |
+   | Setting       | Sample value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Name** | mystorageaccount | A unique name for your storage account. |
-   | **Deployment model** | Resource Manager  | Using the Azure Resource Manager deployment model is recommended.|
-   | **Account kind** | StorageV2 | Using a general-purpose v2 storage account is recommended. For more information on types of Azure storage accounts, see [Storage account overview](../common/storage-account-overview.md). |
-   | **Performance** | Standard | Standard performance is a good option for the example scenario. |
-   | **Replication**| Read-access geo-zone-redundant storage (RA-GZRS) | The primary region is zone-redundant and is replicated to a secondary region, with read access to the secondary region enabled. |
-   |**Subscription** | Your subscription | For details about your subscriptions, see [Subscriptions](https://account.azure.com/Subscriptions). |
-   |**ResourceGroup** | myResourceGroup | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
-   |**Location** | East US | Choose a location. |
+   | **Subscription** | *My subscription* | For details about your subscriptions, see [Subscriptions](https://account.azure.com/Subscriptions). |
+   | **ResourceGroup** | *myResourceGroup* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
+   | **Name** | *mystorageaccount* | A unique name for your storage account. |
+   | **Location** | *East US* | Choose a location. |
+   | **Performance** | *Standard* | Standard performance is a good option for the example scenario. |
+   | **Account kind** | *StorageV2* | Using a general-purpose v2 storage account is recommended. For more information on types of Azure storage accounts, see [Storage account overview](../common/storage-account-overview.md). |
+   | **Replication**| *Read-access geo-zone-redundant storage (RA-GZRS)* | The primary region is zone-redundant and is replicated to a secondary region, with read access to the secondary region enabled. |
+   | **Access tier**| *Hot* | Use the hot tier for frequently-accessed data. |
 
-![create storage account](media/storage-create-geo-redundant-storage/createragrsstracct.png)
+    ![create storage account](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## Download the sample
 

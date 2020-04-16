@@ -1,7 +1,7 @@
 ---
 title: Use geo-redundancy to design highly available applications
 titleSuffix: Azure Storage
-description: Learn how to use geo-redundant storage to architect a highly available application that is flexible enough to handle outages.
+description: Learn how to use geo-redundant storage to design a highly available application that is flexible enough to handle outages.
 services: storage
 author: tamram
 
@@ -21,7 +21,7 @@ Azure Storage offers two options for geo-redundant replication. The only differe
 
 * [Geo-zone-redundant storage (GZRS)](storage-redundancy.md): Data is replicated synchronously across three Azure availability zones in the primary region using *zone-redundant storage (ZRS)*, then replicated asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-zone-redundant storage (RA-GZRS).
 
-    Microsoft recommends using GZRS/RA-GZRS for scenarios that require both high availability and maximum durability.
+    Microsoft recommends using GZRS/RA-GZRS for scenarios that require maximum availability and durability.
 
 * [Geo-redundant storage (GRS)](storage-redundancy.md): Data is replicated synchronously three times in the primary region using *locally redundant storage (LRS)*, then replicated asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-redundant storage (RA-GRS).
 
