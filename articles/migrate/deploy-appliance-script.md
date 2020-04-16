@@ -10,10 +10,20 @@ ms.date: 03/23/2020
 
 This article describes how to set up the [Azure Migrate appliance](deploy-appliance.md) using a PowerShell installer script.
 
-The script provides:
-- An alternative to setting up the appliance using an OVA template, for assessment and agentless migration of VMware VMs.
-- An alternative to setting up the appliance using a VHD template, for assessment and migration of Hyper-V VMs.
-- For assessment of physical servers (or VMs that you want to migrate as physical servers), the script is the only method for setting up the appliance.
+
+You can deploy the appliance using a couple of methods:
+
+
+- Using a template for VMware VMs (OVA) or Hyper-V VMs (VHD).
+- Using a script. This is the method described in this article. The script provides:
+    - An alternative to setting up the appliance using an OVA template, for assessment and agentless migration of VMware VMs.
+    - An alternative to setting up the appliance using a VHD template, for assessment and migration of Hyper-V VMs.
+    - For assessment of physical servers (or VMs that you want to migrate as physical servers), the script is the only method for setting up the appliance.
+    - A way to deploy the appliance in Azure Government.
+
+
+After creating the appliance, you verify that it can connect to Azure Migrate. You then configure the appliance for the first time, and register it with the Azure Migrate project.
+
 
 ## Prerequisites
 

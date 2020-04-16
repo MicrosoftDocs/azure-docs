@@ -1,11 +1,9 @@
 ---
 title: Set up an Azure Migrate appliance for physical servers
 description: Learn how to set up an Azure Migrate appliance for physical server assessment.
-author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/19/2019
-ms.author: raynew
+ms.date: 04/15/2020
 ---
 
 
@@ -74,14 +72,14 @@ Run the script as follows:
     ```
 The script will launch the appliance web application when it finishes successfully.
 
-In case of any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
+If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
 > [!NOTE]
 > Please do not execute the Azure Migrate installer script on an existing Azure Migrate appliance.
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to the required [Azure URLs](migrate-appliance.md#url-access).
+Make sure that the appliance VM can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 
 ## Configure the appliance
 
@@ -116,7 +114,7 @@ Set up the appliance for the first time.
 Connect from the appliance to physical servers, and start the discovery.
 
 1. Click **Add Credentials** to specify the account credentials that the appliance will use to discover servers.  
-2. Specify the **Operating System**,  friendly name for the credentials, **Username** and **Password** and click **Add**.
+2. Specify the **Operating System**,  a friendly name for the credentials, and the username and password. Then click **Add**.
 You can add one set of credentials each for Windows and Linux servers.
 4. Click **Add server**, and specify server details- FQDN/IP address and friendly name of credentials (one entry per row) to connect to the server.
 3. Click **Validate**. After validation, the list of servers that can be discovered is shown.

@@ -2,12 +2,12 @@
 title: Assess physical servers for migration to Azure with Azure Migrate Server Assessment
 description: Describes how to assess on-premises physical servers for migration to Azure using Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 11/18/2019
+ms.date: 04/15/2020
 ---
 
-# Assess physical servers with Azure Migrate: Server Assessment
+# Assess physical servers with Azure Migrate:Server Assessment
 
-This article shows you how to assess on-premises physical servers, using the Azure Migrate: Server Assessment tool.
+This article shows you how to assess on-premises physical servers, using the Azure Migrate:Server Assessment tool.
 
 [Azure Migrate](migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings.
 
@@ -33,6 +33,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     - [Prepare physical servers](tutorial-prepare-physical.md#prepare-for-physical-server-assessment) for assessment. Appliance requirements should be verified. You should also have an account set up for physical server discovery. Required ports should be available, and you should be aware of the URLs needed for access to Azure.
 
 
+
+
 ## Set up an Azure Migrate project
 
 Set up a new Azure Migrate project as follows.
@@ -44,8 +46,8 @@ Set up a new Azure Migrate project as follows.
     ![Discover and assess servers](./media/tutorial-assess-physical/assess-migrate.png)
 
 4. In **Getting started**, click **Add tools**.
-5. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.     
-6. In **Project Details**, specify the project name, and the geography in which you want to create the project. Asia, Europe, UK and the United States are supported.
+5. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.  
+6. In **Project Details**, specify the project name, and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-(public-cloud)) and [government clouds](migrate-support-matrix.md#supported-geographies-(azure-government)).
 
     - The project geography is used only to store the metadata gathered from on-premises servers.
     - You can select any target region when you run a migration.
@@ -125,14 +127,14 @@ Run the script as follows:
     ```
 The script will launch the appliance web application when it finishes successfully.
 
-In case of any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
+If you find any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
 > [!NOTE]
 > Please do not execute the Azure Migrate installer script on an existing Azure Migrate appliance.
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance can connect to [Azure URLs](migrate-appliance.md#url-access).
+Make sure that the appliance can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 
 
 ### Configure the appliance
@@ -156,7 +158,7 @@ Set up the appliance for the first time.
 1. Click **Log In**. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
 2. On the new tab, sign in using your Azure credentials.
     - Sign in with your username and password.
-    - Sign-in with a PIN isn't supported.
+    - Sign in with a PIN isn't supported.
 3. After successfully signing in, go back to the web app.
 4. Select the subscription in which the Azure Migrate project was created. Then select the project.
 5. Specify a name for the appliance. The name should be alphanumeric with 14 characters or less.
@@ -168,7 +170,7 @@ Set up the appliance for the first time.
 Now, connect from the appliance to the physical servers to be discovered, and start the discovery.
 
 1. Click **Add Credentials** to specify the account credentials that the appliance will use to discover servers.  
-2. Specify the **Operating System**,  friendly name for the credentials, **Username** and **Password** and click **Add**.
+2. Specify the **Operating System**,  a friendly name for the credentials, and the username and password. Then click **Add**.
 You can add one set of credentials each for Windows and Linux servers.
 4. Click **Add server**, and specify server details- FQDN/IP address and friendly name of credentials (one entry per row) to connect to the server.
 3. Click **Validate**. After validation, the list of servers that can be discovered is shown.
