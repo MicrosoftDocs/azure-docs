@@ -63,7 +63,7 @@ Now you can send events to the topic.
 
 In your Durable Functions project, find the `host.json` file.
 
-### Durable Functions V1
+### Durable Functions 1.x
 
 Add `eventGridTopicEndpoint` and `eventGridKeySettingName` in a `durableTask` property.
 
@@ -76,7 +76,7 @@ Add `eventGridTopicEndpoint` and `eventGridKeySettingName` in a `durableTask` pr
 }
 ```
 
-### Durable Functions V2
+### Durable Functions 2.x
 
 Add a `notifications` section to the `durableTask` property of the file, replacing `<topic_name>` with the name you chose. If the `durableTask` or `extensions` properties do not exist, create them like this example:
 
