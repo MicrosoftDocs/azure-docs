@@ -1,25 +1,28 @@
 ---
-title: Design highly available applications using geo-redundant storage
+title: Use geo-redundancy to design highly available applications
 titleSuffix: Azure Storage
-description: Learn how to use read-access geo-redundant storage to architect a highly available application that is flexible enough to handle outages.
+description: Learn how to use geo-redundant storage to architect a highly available application that is flexible enough to handle outages.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ---
 
-# Designing highly available applications using read-access geo-redundant storage
+# Use geo-redundancy to design highly available applications
 
 A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available platform for hosting applications. Developers of cloud-based applications must consider carefully how to leverage this platform to deliver highly available applications to their users. This article focuses on how developers can use one of Azure's geo-redundant replication options to ensure that their Azure Storage applications are highly available.
 
 Storage accounts configured for geo-redundant replication are synchronously replicated in the primary region, and then asynchronously replicated to a secondary region that is hundreds of miles away. Azure Storage offers two types of geo-redundant replication:
 
 * [Geo-zone-redundant storage (GZRS)](storage-redundancy.md) provides replication for scenarios requiring both high availability and maximum durability. Data is replicated synchronously across three Azure availability zones in the primary region using zone-redundant storage (ZRS), then replicated asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-zone-redundant storage (RA-GZRS).
+
+    Microsoft recommends using GZRS/RA-GZRS for applications that require superior availability and durability.
+
 * [Geo-redundant storage (GRS)](storage-redundancy.md) provides cross-regional replication to protect against regional outages. Data is replicated synchronously three times in the primary region using locally redundant storage (LRS), then replicated asynchronously to the secondary region. For read access to data in the secondary region, enable read-access geo-redundant storage (RA-GRS).
 
 This article shows how to design your application to handle an outage in the primary region. If the primary region becomes unavailable, your application can adapt to perform read operations against the secondary region instead. Make sure that your storage account is configured for RA-GRS or RA-GZRS before you get started.
@@ -158,7 +161,7 @@ You have three main options for monitoring the frequency of retries in the prima
 
 * In the [**Evaluate**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) method in a custom retry policy, you can run custom code whenever a retry takes place. In addition to recording when a retry happens, this also gives you the opportunity to modify your retry behavior.
 
-    ```csharp 
+    ```csharp
     public RetryInfo Evaluate(RetryContext retryContext,
     OperationContext operationContext)
     {
@@ -234,6 +237,4 @@ If you have made the thresholds for switching your application to read-only mode
 
 ## Next Steps
 
-* For more information about how to read from the secondary region, including another example of how the Last Sync Time property is set, see [Azure Storage Redundancy Options and Read Access Geo-Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
-
-* For a complete sample showing how to make the switch back and forth between the primary and secondary endpoints, see [Azure Samples – Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).
+For a complete sample showing how to make the switch back and forth between the primary and secondary endpoints, see [Azure Samples – Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).

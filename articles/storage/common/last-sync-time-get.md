@@ -1,13 +1,13 @@
 ---
 title: Check the Last Sync Time property for a storage account 
 titleSuffix: Azure Storage
-description: Learn how to check the **Last Sync Time** property for a geo-replicated storage account. The **Last Sync Time** property indicates the last time at which all writes from the primary region were successfully written to the secondary region.   
+description: Learn how to check the Last Sync Time property for a geo-replicated storage account. The Last Sync Time property indicates the last time at which all writes from the primary region were successfully written to the secondary region.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/16/2019
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
@@ -33,10 +33,10 @@ You can use PowerShell or Azure CLI to retrieve the value of the **Last Sync Tim
 
 # [PowerShell](#tab/azure-powershell)
 
-To get the last sync time for the storage account with PowerShell, install an Azure Storage preview module that supports getting geo-replication stats. For example:
+To get the last sync time for the storage account with PowerShell, install a version of the Az.Storage module that supports getting geo-replication stats. For example:
 
 ```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
+Install-Module Az.Storage –Repository PSGallery -RequiredVersion ??? –AllowPrerelease –AllowClobber –Force
 ```
 
 Then check the storage account's **GeoReplicationStats.LastSyncTime** property. Remember to replace the placeholder values with your own values:
