@@ -1,9 +1,9 @@
 ---
-title: Set up a lab to teach big data analytics | Microsoft Docs
+title: Set up a lab to teach big data analytics using Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab to teach the big data analytics using Docker deployment of Hortonworks Data Platform (HDP). 
 services: lab-services
 documentationcenter: na
-author: emaher
+author: nicolela
 manager: 
 editor: ''
 
@@ -18,7 +18,7 @@ ms.author: nicolela
 ---
 # Set up a lab to big data analytics using Docker deployment of HortonWorks Data Platform
 
-This article shows you how to set up a lab to teach a big data analytics class.  With this type of class, students learn how to handle large volumes of data and apply machine\statistical learning algorithms to derive data insights.  A key objective for students is to learn to use data analytics tools, such as [Apache Hadoop's open-source software package](https://hadoop.apache.org/) which provides tools for storing, managing, and processing big data.
+This article shows you how to set up a lab to teach a big data analytics class.  With this type of class, students learn how to handle large volumes of data and apply machine and statistical learning algorithms to derive data insights.  A key objective for students is to learn to use data analytics tools, such as [Apache Hadoop's open-source software package](https://hadoop.apache.org/) which provides tools for storing, managing, and processing big data.
 
 In this lab, students will use a popular commercial version of Hadoop provided by [Cloudera](https://www.cloudera.com/), called [Hortonworks Data Platform (HDP)](https://www.cloudera.com/products/hdp.html).  Specifically, students will use [HDP Sandbox 3.0.1](https://www.cloudera.com/tutorials/getting-started-with-hdp-sandbox/1.html) which is a simplified, easy-to-use version of the platform that is free of cost and intended for learning and experimentation.  Although this class may use either Windows or Linux virtual machines (VM) with HDP Sandbox deployed, this article will show how to use Windows.
 
@@ -44,7 +44,7 @@ Use the settings in the table below when setting up a classroom lab.  For more i
 
 | Lab settings | Value/instructions |
 | ------------ | ------------------ |
-|Virtual Machine Size| Medium (Nested Virtualization). This VM size is best suited for relational databases, in-memory caching, and analytics.  This size also supports nested virtualization.  
+|Virtual Machine Size| Medium (Nested Virtualization). This VM size is best suited for relational databases, in-memory caching, and analytics.  This size also supports nested virtualization.|  
 |Virtual Machine Image| Windows 10 Pro|
 
 > [!NOTE] We need to use Medium (Nested Virtualization) since deploying HDP Sandbox using Docker requires:
@@ -100,7 +100,7 @@ To provide an easy to use experience for students, we'll use a PowerShell script
   - Starts the HDP Sandbox Docker containers when a student starts and connects to their lab VM.
   - Launches the browser and navigates to the Sandbox Welcome Page.
 We'll also use Windows Task Scheduler to automatically run this script when a student logs into their VM.
-To set this up, follow these steps: [Big Data Analytics scripting](TODO link to)
+To set this up, follow these steps: [Big Data Analytics scripting](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/BigDataAnalytics/).
 
 ## Cost estimate
 
