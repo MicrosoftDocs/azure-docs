@@ -291,7 +291,7 @@ Select **Save draft** before proceeding to the next section, Plan overview.
 
 ## Plan overview
 
-You can provide different plan options within the same offer in Partner Center. These plans were previously referred to as SKUs. An offer requires at least one plan, which can differ in terms of monetization audience, Azure clouds, features, or VM images.
+You can provide different plan options within the same offer in Partner Center. These plans were previously referred to as SKUs. An offer requires at least one plan, which can differ in terms of monetization audience, Azure regions, features, or VM images.
 
 After you create your plans, the **Plan overview** tab shows:
 
@@ -321,7 +321,7 @@ Select **Create**.
 
 ### Plan setup
 
-Set the high-level configuration for the type of plan, whether it reuses technical configuration from another plan, and in what clouds the plan should be available. Your selections here determine which fields are displayed on other tabs for the same plan.
+Set the high-level configuration for the type of plan, whether it reuses technical configuration from another plan, and in which Azure regions the plan should be available. Your selections here determine which fields are displayed on other tabs for the same plan.
 
 #### Reuse technical configuration
 
@@ -330,24 +330,24 @@ If you have more than one plan of the same type, and the packages are identical 
 > [!NOTE]
 > When you reuse the technical configuration from another plan, the entire **Technical configuration** tab disappears from this plan. The Technical configuration details from the other plan, including any updates you make in the future, will be used for this plan as well. This setting can't be changed after this plan is published.
 
-#### Cloud availability
+#### Azure regions
 
-Your plan must be made available in at least one cloud.
+Your plan must be made available in at least one Azure region.
 
-Select the **Azure Global** option to make your plan available to customers in all public Azure regions that have commercial marketplace integration. For details, see [Geographic availability and currency support](https://aka.ms/AzureGovCurrencies).
+Select the **Azure Global** option to make your plan available to customers in all public Azure regions that have commercial marketplace integration. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Select the **Azure Government Cloud** option to make your plan available in the [Azure Government Cloud](https://aka.ms/WhatIsAzureGovernment). this is a government-community cloud with controlled access for customers from U.S. federal, state, local or tribal agencies as well as partners eligible to serve these entities. As the publisher, you're responsible for any compliance controls, security measures, and best practices to serve this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
+Select the **Azure Government** option to make your plan available in the [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) region. This region provides controlled access for customers from  U.S. federal, state, local, or tribal entities, as well as partners eligible to serve them. You, as the publisher, are responsible for any compliance controls, security measures, and best practices. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
 
-Before publishing to [Azure Government](https://aka.ms/azuregovpublish), test and validate your plan in the environment as certain endpoints may differ. To set up and test your plan, request a trial account from [Microsoft Azure Government trial](https://aka.ms/AzureGovernmentTrial).
+Before publishing to [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), test and validate your plan in the environment as certain endpoints may differ. To set up and test your plan, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
-> After your plan is published and available in a specific cloud, you can't remove that cloud.
+> After your plan is published and available in a specific Azure region, you can't remove that region.
 
-#### Azure Government Cloud certifications
+#### Azure Government certifications
 
-This option is only visible if **Azure Government Cloud** is selected under **Cloud availability**.
+This option is only visible if you select **Azure Government** under **Azure regions**.
 
-Azure Government services handle data that is subject to certain government regulations and requirements. For example, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS. To bring awareness to your certifications for these programs, you can provide up to 100 links that describe them. These can be either links to your listing on the program directly or links to descriptions of your compliance with them on your own websites. These links visible to Azure Government Cloud customers only.
+Azure Government services handle data that is subject to certain government regulations and requirements. For example, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS. To bring awareness to your certifications for these programs, you can provide up to 100 links that describe them. These can be either links to your listing on the program directly or links to descriptions of your compliance with them on your own websites. These links visible to Azure Government customers only.
 
 Select **Save draft** before continuing.
 
@@ -379,7 +379,7 @@ On this tab, you'll configure the following:
 
 #### Markets
 
-Every plan must be available in at least one market. Select the check box for every market location where this plan should be available for purchase (users in these markets can still deploy the offer to all Azure regions for the clouds selected). The **Tax Remitted** button shows countries in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either **Free** or **Bring your own license** (BYOL).
+Every plan must be available in at least one market. Select the check box for every market location where this plan should be available for purchase (users in these markets can still deploy the offer to all Azure regions selected in **[Plan setup](#plan-setup)**). The **Tax Remitted** button shows countries in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either **Free** or **Bring your own license** (BYOL).
 
 If you've already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to current exchange rates. Always review the price for each market before publishing. Review prices using the **Export prices (xlsx)** link after saving your changes.
 
