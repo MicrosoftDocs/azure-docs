@@ -265,4 +265,4 @@ Advance to the next article to learn how to create...
 
 > [!div class="nextstepaction"]
 
-> [Next steps button](contribute-get-started-mvc.md)
+> [Next steps button]()

@@ -60,7 +60,7 @@ ms.date: 04/07/2020
 
     ![](./media/manage-dhcp/image50.png)
 
-# Create Network Segments
+## Create Network Segments
 
 In this exercise will add network segments to our DHCP server.
 
