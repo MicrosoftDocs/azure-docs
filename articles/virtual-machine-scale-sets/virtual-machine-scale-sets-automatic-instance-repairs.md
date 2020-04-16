@@ -51,7 +51,7 @@ This feature is currently not supported for service fabric scale sets.
 
 ## How do automatic instance repairs work?
 
-Automatic instance repair feature relies on health monitoring of individual instances in a scale set. VM instances in a scale set can be configured to emit application health status using either the [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md). If an instance is found to be unhealthy, then the scale set performs repair action by deleting the unhealthy instance and creating a new one to replace it. The latest virtual scale set model is used to create the new instance. This feature can be enabled in the virtual machine scale set model by using the *automaticRepairsPolicy* object.
+Automatic instance repair feature relies on health monitoring of individual instances in a scale set. VM instances in a scale set can be configured to emit application health status using either the [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md). If an instance is found to be unhealthy, then the scale set performs repair action by deleting the unhealthy instance and creating a new one to replace it. The latest virtual machine scale set model is used to create the new instance. This feature can be enabled in the virtual machine scale set model by using the *automaticRepairsPolicy* object.
 
 ### Batching
 
