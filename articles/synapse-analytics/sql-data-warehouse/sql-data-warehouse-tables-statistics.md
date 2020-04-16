@@ -141,11 +141,11 @@ For more information, see general guidance for [Statistics](/sql/relational-data
 
 ## Implementing statistics management
 
-It is often a good idea to extend your data-loading process to ensure that statistics are updated at the end of the load.
+It is often a good idea to extend your data-loading process to ensure that statistics are updated at the end of the load to avoid/minimize blocking or resource contention between concurrent queries.  
 
 The data load is when tables most frequently change their size and/or their distribution of values. Data-loading is a logical place to implement some management processes.
 
-The following guiding principles are provided for updating your statistics during the load process:
+The following guiding principles are provided for updating your statistics:
 
 - Ensure that each loaded table has at least one statistics object updated. This updates the table size (row count and page count) information as part of the statistics update.
 - Focus on columns participating in JOIN, GROUP BY, ORDER BY, and DISTINCT clauses.

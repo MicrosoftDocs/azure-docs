@@ -3,12 +3,12 @@ title: Container security
 titleSuffix: Azure Cognitive Services
 description: Learn how to secure your container
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/30/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 ## Azure Cognitive Services container security

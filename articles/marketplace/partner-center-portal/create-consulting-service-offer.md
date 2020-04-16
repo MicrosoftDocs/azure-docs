@@ -1,20 +1,22 @@
 ---
-title: Create a consulting service offer in Partner Center - Azure Marketplace
-description: Learn how to publish a consulting service offer to either Azure Marketplace or AppSource using Partner Center.
+title: Create a Consulting service offer in Partner Center - Azure Marketplace
+description: Learn how to publish a Consulting service offer to either Azure Marketplace or AppSource using Partner Center.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/06/2020
 ---
 
-# Consulting service creation overview
+# Create a Consulting service offer
 
 > [!IMPORTANT]
 > We're moving the management of your Consulting service offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Azure and Dynamics 365 consulting service offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) for Cloud Partner Portal to manage your offers.
 
-This article describes how to publish a consulting service offer to either [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.microsoft.com/). List consulting service offers based on Microsoft [Dynamics 365](https://dynamics.microsoft.com/) and Power Platform on AppSource. List consulting service offers based on Microsoft Azure on Azure Marketplace.
+This article describes how to publish a Consulting service offer to either [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.microsoft.com/). List Consulting service offers based on Microsoft [Dynamics 365](https://dynamics.microsoft.com/) and Power Platform on AppSource. List Consulting service offers based on Microsoft Azure on Azure Marketplace.
+
+To create a Consulting service offer in either Azure Marketplace or AppSource Consulting services, you must first [have a publisher account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), and your account must be enrolled in the commercial marketplace program. Before you create your offer, review the prerequisites in [Consulting service prerequisites](https://docs.microsoft.com/azure/marketplace/partner-center-portal/consulting-service-prerequisites).
 
 ## Publishing benefits
 
@@ -25,60 +27,9 @@ Benefits of publishing to the commercial marketplace:
 - Receive high-quality leads from these marketplaces.
 - Have your services promoted by the Microsoft field and telesales teams
 
-## Requirements
+## Create a new offer
 
-### Business requirements
-
-For offers where Azure is selected as the primary product, your offer must list at least one of the following fully earned competencies:
-
-- Application Development
-- Application Integration
-- Application Lifecycle Management
-- Cloud Platform
-- Data Analytics
-- Data Center
-- Data Platform
-- DevOps
-
-For offers with one of the following options selected as the primary product, you must meet the respective eligibility requirements listed or have a co-sell offer for the primary product that the service offering is related to.
-
-**Customer Engagement Applications**
-
-- **Applies to**: Dynamics 365 Sales, Dynamics 365 Marketing, Dynamics 365 Customer Service, Dynamics 365 Field Service, Dynamics 365 Human Resources
-
-- **Criteria**: Must be Gold or Silver certified in the [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Customer Engagement option.
-
-**Finance and Operations Applications**
-
-- **Applies to**: Dynamics 365 Finance, Dynamics 365 Operations, Dynamics 365 Commerce, Dynamics 365 Human Resources, Dynamics 365 Project Service Automation
-
-- **Criteria**: Must be Gold or Silver certified in the [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Unified Operations option.
-
-**Dynamics 365 Customer Insights**
-
-- **Criteria**: Must have at least one successful in-production implementation of [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) with at least five measures and five segments.
-
-**Dynamics 365 Business Central**
-
-- **Criteria**: Must be Gold or Silver certified in the [Enterprise Resource Planning competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) and serve at least three customers or have published a Business Central application in Microsoft AppSource.
-
-**Power BI**
-
-- **Criteria**: Must be listed on the [Power BI partner showcase](https://powerbi.microsoft.com/partner-showcase/).
-
-**Power Apps**
-
-- **Criteria**: Must be eligible for Advanced Benefits in the [Power Apps Partnership](https://aka.ms/PowerAppsPartner) program.
-
-For details on meeting these prerequisites, see the [Consulting service prerequisites](consulting-service-prerequisites.md).
-
-### Logistical requirements
-
-To create a consulting service offer in either Azure Marketplace or AppSource consulting services, you must first [have a publisher account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), and your account must be enrolled in the commercial marketplace program.
-
-## Create a new consulting service offer in Partner Center
-
-After meeting the requirements described above, follow these steps to create a consulting service offer.
+After meeting the requirements described above, follow these steps to create a Consulting service offer.
 
 1. Log in to [Partner Center](https://partner.microsoft.com), and then select **Dashboard** from the top menu.
 2. In the left-nav bar, select **Commercial Marketplace**, then select **Overview**.
@@ -134,13 +85,13 @@ Select **Save draft** before continuing to the next section, Properties.
 
 ### Properties
 
-This page lets you set the primary product that your consulting service offer best covers, set a consulting service type, and choose applicable products.
+This page lets you set the primary product that your Consulting service offer best covers, set a Consulting service type, and choose applicable products.
 
 1. Select a **Primary product** from the drop-down list.
 2. Select a **Consulting service type** from the drop-down list:
 
     - **Assessment** : An evaluation of a customer&#39;s environment to determine the applicability of a solution and provide an estimate of cost and timing.
-    - **Briefing** : An introduction to a solution or a consulting service to draw customer interest by using frameworks, demos, and customer examples.
+    - **Briefing** : An introduction to a solution or a Consulting service to draw customer interest by using frameworks, demos, and customer examples.
     - **Implementation** : A complete installation that results in a fully working solution. Limit to solutions that can be implemented in two weeks or less.
     - **Proof of concept** : A limited-scope implementation to determine whether a solution meets customer requirements.
     - **Workshop** : An interactive engagement conducted on a customer&#39;s premises. It can involve training, briefings, assessments, or demos built on the customer&#39;s data or environment.
@@ -148,7 +99,7 @@ This page lets you set the primary product that your consulting service offer be
 1. If you selected a primary product of **Azure**, select up to three **Solution Areas**. These make it easier for customers in Azure Marketplace to find your offer. If you didn&#39;t choose Azure, skip this step.
 2. If you selected a primary product _other_ than Azure, select up to three **Applicable products**. These make it easier for customers in AppSource to find your offer. For details, see [Microsoft AppSource Consulting Service Listing Guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
 3. Select up to six **Industries** that your offer applies to. This will make it easier for customers to find your offer.
-4. Add up to three **Competencies** that your company has earned to display on your consulting service offer listing. At least one competency is required except for Azure Expert MSP&#39;s and Azure Networking MSP&#39;s.
+4. Add up to three **Competencies** that your company has earned to display on your Consulting service offer listing. At least one competency is required except for Azure Expert MSP&#39;s and Azure Networking MSP&#39;s.
 
 Select **Save draft** before continuing to the next section, Offer listing.
 
@@ -200,7 +151,7 @@ To make your description more engaging, use the rich text editor to format your 
 
 ### Keywords
 
-Enter up to three search keywords that are relevant to your primary product and consulting service. These will make it easier to find your offer.
+Enter up to three search keywords that are relevant to your primary product and Consulting service. These will make it easier to find your offer.
 
 ### Duration
 
@@ -247,7 +198,7 @@ Here you'll define elements such as pricing, market, and a private key.
 3. **Pricing**: Specify whether your offer is a **Free** or **Paid** offer.
 
     > [!NOTE]
-    > Consulting Service offers are for the listing only. Any transactions will happen directly, outside of the commercial marketplace.
+    > Consulting service offers are for the listing only. Any transactions will happen directly, outside of the commercial marketplace.
 
 4. For a paid offer, specify the **Price and currency** and whether the price is **Fixed** or **Estimated**. If Estimated, you must specify in the description what factors will affect the price.
 5. Select **Save draft**.
@@ -256,7 +207,7 @@ Here you'll define elements such as pricing, market, and a private key.
 
 After you've completed all the required sections of the offer, you can submit your offer to review and publish.
 
-1. When you're ready to publish your consulting service offer, click **Review and publish**.
+1. When you're ready to publish your Consulting service offer, click **Review and publish**.
 2. Review the details on the final submission page.
 3. If necessary, write a note to the certification team if you believe any of the details of your offer require explanation.
 4. When you're ready, select **Submit**.
@@ -264,6 +215,6 @@ After you've completed all the required sections of the offer, you can submit yo
 
 For more information about how long you can expect your offer to be in each publishing stage, see [Check the publishing status of your Commercial Marketplace offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status).
 
-## Update your existing consulting service offers
+## Update your existing Consulting service offers
 
 - [Update an existing offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)

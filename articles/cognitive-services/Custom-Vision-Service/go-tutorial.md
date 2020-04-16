@@ -9,7 +9,7 @@ manager: daauld
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: areddish
 ---
 
@@ -159,7 +159,7 @@ To send an image to the prediction endpoint and retrieve the prediction, add the
     testImageData, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "Test", "test_image.jpg"))
     results, _ := predictor.ClassifyImage(ctx, *project.ID, iteration_publish_name, ioutil.NopCloser(bytes.NewReader(testImageData)), "")
 
-    for _, prediction := range *results.Predictions	{
+    for _, prediction := range *results.Predictions    {
         fmt.Printf("\t%s: %.2f%%", *prediction.TagName, *prediction.Probability * 100)
         fmt.Println("")
     }
@@ -195,7 +195,7 @@ You can then verify that the test image (found in **<base_image_url>/Images/Test
 
 ## Next steps
 
-Now you have seen how every step of the image classification process can be done in code. This sample executes a single training iteration, but often you will need to train and test your model multiple times in order to make it more accurate.
+Now you've seen how every step of the object detection process can be done in code. This sample executes a single training iteration, but often you'll need to train and test your model multiple times in order to make it more accurate.
 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](test-your-model.md)

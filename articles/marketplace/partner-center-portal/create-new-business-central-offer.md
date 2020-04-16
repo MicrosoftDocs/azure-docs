@@ -1,17 +1,17 @@
 ---
-title: Create a new Dynamics 365 Business Central offer in the Commercial Marketplace 
-description: How to create a new Dynamics 365 Business Central offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
+title: Create a new Dynamics 365 Business Central offer in the Microsoft commercial marketplace 
+description: How to create a new Dynamics 365 Business Central offer for listing or selling in the Azure Marketplace, Microsoft AppSource, or through the Cloud Solution Provider (CSP) program using the commercial marketplace portal on Microsoft Partner Center. 
 author: dsindona 
 ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 04/09/2020
 ---
 
 # Create a new Dynamics 365 Business Central offer
 
-This topic explains how to create a new Dynamics 365 Business Central offer. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) is an enterprise resource planning (ERP) system that handles a wide range of business processes, including finance, operations, supply chain, CRM, and project management and electronic commerce. Premium packages also support classic deployment model and manufacturing. All offers for Dynamics 365 Business Central must go through our certification process.
+This article explains how to create a new Dynamics 365 Business Central offer. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) is an enterprise resource planning (ERP) system that handles a wide range of business processes, including finance, operations, supply chain, CRM, and project management and electronic commerce. Premium packages also support classic deployment model and manufacturing. All offers for Dynamics 365 Business Central must go through our certification process.
 
 To begin creating Dynamics 365 Business Central offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** page selected.
 
@@ -108,16 +108,14 @@ Provide your own legal terms and conditions in the **Terms and conditions** fiel
 
 ## Offer listing
 
-The Offer listing page displays the languages in which your offer will be listed. Currently, **English (United States)** is the only available option.
-
-You will need to define marketplace details (offer name, description, images, etc.) for each language/market. Select the language/market name to provide this info.
+The Offer listing page is where you define details for your offer (such as name, description, images, etc.).
 
 > [!NOTE]
-> Offer listing content (such as the description, documents, screenshots, terms of use, etc.) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
+> You can provide offer listing details in one language only. It is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Help link URL* to offer content in a language other than the one used in the Offer listing content.
 
 ### Name
 
-The name you enter here will be shown to customers as the title of your offer listing. This field is prepopulated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
+The name you enter here will be shown to customers as the title of your offer listing. This field is pre-populated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
 
 ### Short description
 
@@ -164,23 +162,23 @@ You can optionally enter up to three search keywords to help customers find your
 
 If you want to let customers know that your app works with specific products, enter up to three product names here.
 
-### Support URLs
+### Help/Privacy URLs
 
 This section lets you provide links to help customers understand more about your offer.
 
 #### Help link
 
-Enter the URL where customers can learn more about your offer.
+Enter the URL where customers can learn more about your offer. Your **Help link** cannot be the same as your **Support URL** (explained below).
 
-#### Privacy policy URL
+#### Privacy policy link
 
 Enter the URL to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy.
 
-### Contacts
+### Contact Information
 
 In this section, you must provide the name, email, and phone number for a **Support contact** and an **Engineering contact**. This info is not shown to customers, but will be available to Microsoft, and may be provided to CSP partners.
 
-In the **Support contact** section, you must also provide the **Support URL** where CSP partners can find support for your offer.
+In the **Support contact** section, you must also provide the **Support URL** where CSP partners can find support for your offer. Your Support URL cannot be the same as your **Help link**.
 
 ### Supporting documents
 
@@ -188,15 +186,7 @@ Provide at least one (and up to three) related marketing documents here, such as
 
 ### Marketplace images
 
-In this section, you can provide logos and images that will be used when showing your offer to customer. All images must be in .png format.
-
-#### Store logos
-
-Provide your offer's logo in two sizes: **Small (48 x 48)** and **Large (216 x 216)**.
-
-#### Hero
-
-The hero image is optional. If you provide one, it must measure 815 x 290 pixels.
+In this section, you can provide logos and images that will be used when showing your offer to customer. All images must be in .png format. Upload your offer logo in two sizes: **Small (48 x 48)** and **Large (216 x 216)**.
 
 #### Screenshots
 
@@ -345,7 +335,11 @@ Remember to **Save** before moving on to the next section!
 
 ### Test drive marketplace listings
 
-The **Marketplace listing** option found under the **Test drive** tab displays the languages in which your test drive is available. Currently **English (United States)** is the only location available. Select the language name to enter info that describes the test drive experience.
+The **Marketplace listing** option found under the **Test drive** tab is where you define details for the test drive experience.
+
+> [!NOTE]
+> You can provide test drive listing details in one language only. It is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Help link URL* to offer content in a language other than the one used in the test drive listing content.
+
 
 - **Description** (required): Describe your test drive, what will be demonstrated, objectives for the user to experiment with, features to explore, and any relevant information to help the user determine whether to acquire your offer. Up to 3,000 characters of text can be entered in this field. 
 

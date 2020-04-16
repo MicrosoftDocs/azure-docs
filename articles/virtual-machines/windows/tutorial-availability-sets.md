@@ -111,7 +111,7 @@ If you look at the availability set in the portal by going to **Resource Groups*
 
 ## Check for available VM sizes 
 
-You can add more VMs to the availability set later, but you need to know what VM sizes are available on the hardware. Use [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) to list all the available sizes on the hardware cluster for the availability set.
+When you create a VM inside a availability set, you need to know what VM sizes are available on the hardware. Use [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) command to get all available sizes for virtual machines that you can deploy in the availability set.
 
 ```azurepowershell-interactive
 Get-AzVMSize `

@@ -340,7 +340,7 @@ Premium Storage caching:  Not Supported
 <sup>1</sup> Instance is isolated to hardware dedicated to a single customer.
 <br>
 
-# NV-series
+## NV-series
 **Newer size recommendation**: [NVv3-series](nvv3-series.md) and [NVv4-series](nvv4-series.md)
 
 The NV-series virtual machines are powered by [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs and NVIDIA GRID technology for desktop accelerated applications and virtual desktops where customers are able to visualize their data or simulations. Users are able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. NV-series VMs are also powered by Intel Xeon E5-2690 v3 (Haswell) CPUs.

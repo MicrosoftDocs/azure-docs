@@ -15,6 +15,8 @@ ms.date: 08/01/2019
 
 # Install paid or licensed custom components for the Azure-SSIS integration runtime
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article describes how an ISV can develop and install paid or licensed custom components for SQL Server Integration Services (SSIS) packages that run in Azure in the Azure-SSIS integration runtime.
 
 ## The problem

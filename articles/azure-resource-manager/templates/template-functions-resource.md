@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 04/06/2020
 ---
 # Resource functions for ARM templates
 
@@ -490,7 +490,9 @@ Use `'Full'` when you need resource values that aren't part of the properties sc
 
 ### Valid uses
 
-The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](copy-properties.md), you can use the reference function for `input` because the expression is assigned to the resource property. You can't use it with `count` because the count must be determined before the reference function is resolved.
+The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](copy-properties.md), you can use the reference function for `input` because the expression is assigned to the resource property.
+
+You can't use the reference function to set the value of the `count` property in a copy loop. You can use to set other properties in the loop. Reference is blocked for the count property because that property must be determined before the reference function is resolved.
 
 You can't use the reference function in the outputs of a [nested template](linked-templates.md#nested-template) to return a resource you've deployed in the nested template. Instead, use a [linked template](linked-templates.md#linked-template).
 

@@ -90,7 +90,11 @@ Another option is using a [custom scoring profile](index-add-scoring-profiles.md
 
 Hit highlighting refers to text formatting (such as bold or yellow highlights) applied to matching term in a result, making it easy to spot the match. Hit highlighting instructions are provided on the [query request](https://docs.microsoft.com/rest/api/searchservice/search-documents). The search engine encloses the matching term in tags, `highlightPreTag` and `highlightPostTag`, and your code handles the response (for example, applying a bold font).
 
-Formatting is applied to whole term queries. In the following example, the terms "sandy", "sand", "beaches", "beach" found within the Description field are tagged for highlighting. Queries on partial terms, such as fuzzy search or wildcard search that result in query expansion in the engine, cannot use hit highlighting.
+Formatting is applied to whole term queries. In the following example, the terms "sandy", "sand", "beaches", "beach" found within the Description field are tagged for highlighting. Queries that trigger query expansion in the engine, such as fuzzy and wildcard search, have limited support for hit highlighting.
+
+```http
+GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 
+```
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 

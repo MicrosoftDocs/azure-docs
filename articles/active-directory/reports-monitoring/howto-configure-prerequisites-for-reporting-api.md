@@ -29,9 +29,10 @@ The reporting API uses [OAuth](https://docs.microsoft.com/azure/api-management/a
 To prepare your access to the reporting API, you need to:
 
 1. [Assign roles](#assign-roles)
-2. [Register an application](#register-an-application)
-3. [Grant permissions](#grant-permissions)
-4. [Gather configuration settings](#gather-configuration-settings)
+2. [License Requirements](#license-requirements)
+3. [Register an application](#register-an-application)
+4. [Grant permissions](#grant-permissions)
+5. [Gather configuration settings](#gather-configuration-settings)
 
 ## Assign roles
 
@@ -42,6 +43,10 @@ To get access to the reporting data through the API, you need to have one of the
 - Security Administrator
 
 - Global Administrator
+
+## License Requirements
+
+In order to access the sign-in reports for a tenant, an Azure AD tenant must have associated Azure AD Premium license. Azure AD Premium P1 (or above) license is required  to access sign-in reports for any Azure AD tenant. Alternatively if the directory type is Azure AD B2C , the sign-in reports are accessible through the API without any additional license requirement. 
 
 
 ## Register an application
