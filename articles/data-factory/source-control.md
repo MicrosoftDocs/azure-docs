@@ -73,7 +73,7 @@ The configuration pane shows the following Azure Repos code repository settings:
 | **Azure Repos Organization** | Your Azure Repos organization name. You can locate your Azure Repos organization name at `https://{organization name}.visualstudio.com`. You can [sign in to your Azure Repos organization](https://www.visualstudio.com/team-services/git/) to access your Visual Studio profile and see your repositories and projects. | `<your organization name>` |
 | **ProjectName** | Your Azure Repos project name. You can locate your Azure Repos project name at `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
 | **RepositoryName** | Your Azure Repos code repository name. Azure Repos projects contain Git repositories to manage your source code as your project grows. You can create a new repository or use an existing repository that's already in your project. | `<your Azure Repos code repository name>` |
-| **Collaboration branch** | Your Azure Repos collaboration branch that is used for publishing. By default, it’s `master`. Change this setting in case you want to publish resources from another branch. | `<your collaboration branch name>` |
+| **Collaboration branch** | Your Azure Repos collaboration branch that is used for publishing. By default, it's `master`. Change this setting in case you want to publish resources from another branch. | `<your collaboration branch name>` |
 | **Root folder** | Your root folder in your Azure Repos collaboration branch. | `<your root folder name>` |
 | **Import existing Data Factory resources to repository** | Specifies whether to import existing data factory resources from the UX **Authoring canvas** into an Azure Repos Git repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
 | **Branch to import resource into** | Specifies into which branch the data factory resources (pipelines, datasets, linked services etc.) are imported. You can import resources into one of the following branches: a. Collaboration b. Create new c. Use Existing |  |
@@ -157,7 +157,7 @@ The configuration pane shows the following GitHub repository settings:
 
 ## Switch to a different Git repo
 
-To switch to a different Git repo, click the **Git Repo Settings** icon in the upper right corner of the Data Factory overview page. If you can’t see the icon, clear your local browser cache. Select the icon to remove the association with the current repo.
+To switch to a different Git repo, click the **Git Repo Settings** icon in the upper right corner of the Data Factory overview page. If you can't see the icon, clear your local browser cache. Select the icon to remove the association with the current repo.
 
 ![Git icon](media/author-visually/remove-repo.png)
 
@@ -214,9 +214,9 @@ A side pane will open where you confirm that the publish branch and pending chan
 -   **Source Control**. As your data factory workloads become crucial, you would want to integrate your factory with Git to leverage several source control benefits like the following:
     -   Ability to track/audit changes.
     -   Ability to revert changes that introduced bugs.
--   **Partial Saves**. As you make a lot of changes in your factory, you will realize that in the regular LIVE mode, you can't save your changes as draft, because you are not ready, or you don’t want to lose your changes in case your computer crashes. With Git integration, you can continue saving your changes incrementally, and publish to the factory only when you are ready. Git acts as a staging place for your work, until you have tested your changes to your satisfaction.
+-   **Partial Saves**. As you make a lot of changes in your factory, you will realize that in the regular LIVE mode, you can't save your changes as draft, because you are not ready, or you don't want to lose your changes in case your computer crashes. With Git integration, you can continue saving your changes incrementally, and publish to the factory only when you are ready. Git acts as a staging place for your work, until you have tested your changes to your satisfaction.
 -   **Collaboration and Control**. If you have multiple team members participating to the same factory, you may want to let your teammates collaborate with each other via a code review process. You can also set up your factory such that not every contributor to the factory has permission to deploy to the factory. Team members may just be allowed to make changes via Git, but only certain people in the team are allowed to "Publish" the changes to the factory.
--   **Showing diffs**. In Git mode, you get to see a nice diff of the payload that’s about to get published to the factory. This diff shows you all resources/entities that got modified/added/deleted since the last time you published to your factory. Based on this diff, you can either continue further with publishing, or go back and check your changes, and then come back later.
+-   **Showing diffs**. In Git mode, you get to see a nice diff of the payload that's about to get published to the factory. This diff shows you all resources/entities that got modified/added/deleted since the last time you published to your factory. Based on this diff, you can either continue further with publishing, or go back and check your changes, and then come back later.
 -   **Better CI/CD**. If you are using Git mode, you can configure your release pipeline to trigger automatically as soon as there are any changes made in the dev factory. You also get to customize the properties in your factory that are available as parameters in the Resource Manager template. It can be useful to keep only the required set of properties as parameters, and have everything else hard coded.
 -   **Better Performance**. An average factory loads ten times faster in Git mode than in regular LIVE mode, because the resources are downloaded via Git.
 
@@ -224,16 +224,16 @@ A side pane will open where you confirm that the publish branch and pending chan
 
 ### Permissions
 
-Typically you don’t want every team member to have permissions to update the factory. The following permissions settings are recommended:
+Typically you don't want every team member to have permissions to update the factory. The following permissions settings are recommended:
 
 *   All team members should have read permissions to the data factory.
-*   Only a select set of people should be allowed to publish to the factory. To do so, they must have the **Data Factory contributor** role on the factory. For more information on permissions, see [Roles and permissions for Azure Data Factory](concepts-roles-permissions.md).
+*   Only a select set of people should be allowed to publish to the factory. To do so, they must have the **Data Factory contributor** role on the resource group the factory is in. For more information on permissions, see [Roles and permissions for Azure Data Factory](concepts-roles-permissions.md).
    
 It's recommended to not allow direct check-ins to the collaboration branch. This restriction can help prevent bugs as every check-in will go through a pull request review process described in [Creating feature branches](source-control.md#creating-feature-branches).
 
 ### Using passwords from Azure Key Vault
 
-It's recommended to use Azure Key Vault to store any connection strings or passwords for Data Factory Linked Services. For security reasons, we don’t store any such secret information in Git, so any changes to Linked Services are published immediately to the Azure Data Factory service.
+It's recommended to use Azure Key Vault to store any connection strings or passwords for Data Factory Linked Services. For security reasons, we don't store any such secret information in Git, so any changes to Linked Services are published immediately to the Azure Data Factory service.
 
 Using Key Vault also makes continuous integration and deployment easier as you will not have to provide these secrets during Resource Manager template deployment.
 

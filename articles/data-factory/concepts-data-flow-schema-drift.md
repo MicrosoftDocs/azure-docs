@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/12/2019
+ms.date: 04/15/2020
 ---
 
 # Schema drift in mapping data flow
@@ -25,6 +25,10 @@ To protect against schema drift, it's important to have the facilities in a data
 Azure Data Factory natively supports flexible schemas that change from execution to execution so that you can build generic data transformation logic without the need to recompile your data flows.
 
 You need to make an architectural decision in your data flow to accept schema drift throughout your flow. When you do this, you can protect against schema changes from the sources. However, you'll lose early-binding of your columns and types throughout your data flow. Azure Data Factory treats schema drift flows as late-binding flows, so when you build your transformations, the drifted column names won't be available to you in the schema views throughout the flow.
+
+This video provides an introduction to some of the complex solutions that you can build easily in ADF with data flow's schema drift feature. In this example, we build reusable patterns based on flexible database schemas:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tyx7]
 
 ## Schema drift in source
 

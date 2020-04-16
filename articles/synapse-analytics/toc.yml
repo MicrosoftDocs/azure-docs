@@ -32,7 +32,9 @@
   items:
   - name: Run Apache Spark applications for Spark pools
     href: ./spark/intellij-tool-synapse.md
-  - name: Power BI Professional
+  - name: Spark job definitions
+    href: ./spark/apache-spark-job-definitions.md 
+  - name: Power BI Desktop
     href: ./sql/tutorial-connect-power-bi-desktop.md
   - name: Data Scientist
     items:
@@ -186,8 +188,6 @@
         href: ./spark/apache-spark-performance.md
     - name: Development
       items:
-      - name: Spark job definitions
-        href: ./spark/apache-spark-job-definitions.md  
       - name: Azure Synapse studio notebooks
         href: ./spark/apache-spark-development-using-notebooks.md
       - name: .NET for Apache Spark

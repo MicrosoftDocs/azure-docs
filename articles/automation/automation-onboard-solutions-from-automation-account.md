@@ -12,7 +12,7 @@ Azure Automation provides solutions to manage operating system security updates,
 
 ## Sign in to Azure
 
-Sign in to Azure at https://portal.azure.com
+Sign in to Azure at https://portal.azure.com.
 
 ## Enable solutions
 
@@ -76,7 +76,7 @@ Click **+ Add Azure VMs**, select one or more VMs from the list. Virtual machine
 
 Machines not in Azure need to be added manually. From your Automation account select **Inventory** or **Change tracking** under **Configuration Management**, or **Update management** under **Update management**.
 
-Click **Add non-Azure machine**. This action opens up a new browser window with the [instructions on how to install and configure the Microsoft Monitoring Agent on the machine](../azure-monitor/platform/log-analytics-agent.md) so the machine can begin reporting to the solution. If you're onboarding a machine that currently managed by System Center Operations Manager, a new agent isn't required, the workspace information is entered into the existing agent.
+Click **Add non-Azure machine**. This action opens up a new browser window with [instructions to install and configure the Log Analytics agent for Windows](../azure-monitor/platform/log-analytics-agent.md) so that the machine can begin reporting to the solution. If you're onboarding a machine that's currently managed by System Center Operations Manager, a new agent isn't required and the workspace information is entered into the existing agent.
 
 ## Onboard machines in the workspace
 
@@ -144,7 +144,7 @@ Alternatively you can also unlink your workspace from your Automation Account fr
 To remove a VM from Update Management:
 
 * In your Log Analytics workspace, remove the VM from the saved search for the Scope Configuration `MicrosoftDefaultScopeConfig-Updates`. Saved searches can be found under **General** in your workspace.
-* Remove the [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) or the [Log Analytics agent for Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* Remove the [Log Analytics agent for Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) or the [Log Analytics agent for Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## Next steps
 
