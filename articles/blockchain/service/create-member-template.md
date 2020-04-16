@@ -46,14 +46,14 @@ Azure resources defined in the template:
 
   The Azure portal is used here to deploy the template. You can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
 
-## Review deployed resources
-
-<!-- You can also use the title "Validate the deployment"-->
-
 ## Clean up resources
 
-When no longer needed, [delete the resource group](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group
-), which deletes the resources in the resource group.
+You can use the blockchain member you created for the next quickstart or tutorial. When no longer needed, you can delete the resources by deleting the resource group you created for the quickstart.
+
+To delete the resource group:
+
+1. In the Azure portal, navigate to **Resource group** in the left navigation pane and select the resource group you want to delete.
+2. Select **Delete resource group**. Verify deletion by entering the resource group name and select **Delete**.
 
 ## Next steps
 
