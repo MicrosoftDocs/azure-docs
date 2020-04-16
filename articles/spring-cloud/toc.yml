@@ -18,8 +18,6 @@
       href: spring-cloud-quickstart-launch-app-maven.md
 - name: Tutorials
   items:
-    - name: Prepare a Java Spring app for deployment
-      href: spring-cloud-tutorial-prepare-app-deployment.md
     - name: Set up your Config Server
       href: spring-cloud-tutorial-config-server.md
     - name: Manually scale your application
@@ -43,7 +41,9 @@
     - name: Plan for disaster recovery
       href: disaster-recovery.md
 - name: How-to guides
-  items: 
+  items:
+    - name: Prepare a Java Spring app for deployment
+      href: spring-cloud-tutorial-prepare-app-deployment.md 
     - name: How to start, stop, and delete an Azure Spring Cloud application
       href: spring-cloud-howto-start-stop-delete.md
     - name: How to set up a staging environment
