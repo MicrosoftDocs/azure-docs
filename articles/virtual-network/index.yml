@@ -188,9 +188,14 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.network
           - text: REST
-            url: /rest/api/virtual-network      
-          
-    
+            url: /rest/api/virtual-network  
+  # Card          
+  - title: Explore Azure Virtual Network
+    linkLists:
+      - linkListType: video
+        links:
+          - text: Azure Virtual Network Service Endpoint
+            url: https://www.youtube.com/watch?v=gxsitRRgylI    
 
 
 
