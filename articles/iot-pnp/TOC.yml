@@ -4,6 +4,8 @@
   items:
   - name: What is IoT Plug and Play?
     href: overview-iot-plug-and-play.md
+  - name: Preview updates May 2020
+    href: overview-iot-plug-and-play-preview-updates.md
 - name: Quickstarts
   expanded: true
   items:
