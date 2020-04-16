@@ -1,11 +1,11 @@
 ---
-title: Go-To-Market Services - your commercial marketplace benefits | Azure
+title: Go-To-Market Services - your commercial marketplace benefits | Azure Marketplace
 description: Go-To-Market Services - Microsoft resources that publishers can use are described in this section.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/08/2020
+ms.date: 04/16/2020
 ms.author: dsindona
 
 ---
@@ -40,7 +40,7 @@ Your steps to get started are easy:
 2. The team reaches out to the "owner" or "primary contact" per marketplace offer. It is a best practice to enter either an individual or an alias you check regularly: messages sent to aliases such as info@company.com often get lost.
 
 >[!Note]
->If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, either by looking in Cloud Partner Portal or in Partner Center. They should have the communication and next steps. <br> <br> If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at https://aka.ms/marketplacepublishersupport.
+>If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, by looking in Partner Center. They should have the communication and next steps. <br> <br> If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at https://aka.ms/marketplacepublishersupport.
 
 The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.
 
@@ -101,8 +101,6 @@ This offer is conducted in English for all partners with a live offer in Azure M
 Transactions that are proven to be fraudulent will not count towards a publisher's [billed sales program tier](https://aka.ms/marketplacepublisherrewards), as noted in the [list, trial, consulting](#list-trial-and-consulting-benefits) section, the [transact partner benefits](#marketplace-rewards-for-transact-partners) section, and the [detailed program deck](https://aka.ms/marketplacepublisherrewards). Microsoft will allocate partners to eligibility tiers based on their actual billed sales, after the fraud has been removed. 
 
 ## Next steps
-
-If you created your offer in [Cloud Partner Portal](https://cloudpartner.azure.com), sign in to create or configure your offer.
 
 If you created your offer in [Partner Center](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview), sign in to create or configure your offer.
 

@@ -5,7 +5,7 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/4/2019
+ms.date: 04/16/2020
 ms.author: dsindona
 ---
 
@@ -330,7 +330,7 @@ Leads are customers who are deploying your products from the Marketplace. Whethe
 
 **Where can I get help in setting up my lead destination?**
 
-Learn more in [Partner Center-Get Customer Leads](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) documentation, or submit a support ticket through [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) by selecting your offer type and lead management.
+Learn more in [Partner Center-Get Customer Leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) documentation, or submit a support ticket through [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) by selecting your offer type and lead management.
 
 **Am I required to configure a lead destination to publish an offer on Marketplace?**
 
@@ -338,7 +338,7 @@ Yes, if publishing a **Contact Me**, **SaaS app**, or **consulting services** of
 
 **How can I confirm that the lead configuration is correct?**
 
-After completing the offer and setting up a lead destination, the listing can properly be published in  [Partner Center](https://cloudpartner.azure.com/). Before the listing goes live, you can validate if the lead configuration set-up is working correctly.  Send a test-lead to the lead destination configured in the offer.
+After completing the offer and setting up a lead destination, the listing can properly be published in  [Partner Center](https://partner.microsoft.com/). Before the listing goes live, you can validate if the lead configuration set-up is working correctly.  Send a test-lead to the lead destination configured in the offer.
 
 **What countries/regions are Azure Marketplace available for publishers to sell from?**
 

@@ -5,7 +5,7 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 04/16/2020
 ms.author: dsindona
 ---
 
