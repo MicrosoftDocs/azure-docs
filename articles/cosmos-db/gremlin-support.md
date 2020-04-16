@@ -43,9 +43,7 @@ The following table lists the TinkerPop features that are implemented by Azure C
 
 ## Gremlin wire format
 
-Azure Cosmos DB uses the JSON format when returning results from Gremlin operations. Azure Cosmos DB currently supports the JSON format which is similar to "GraphSONv2", although the returned results don't exactly match the GraphSON format. GraphSON is the Gremlin standard format for representing vertices, edges, and properties (single and multi-valued properties) using JSON.
-
-For example, the following snippet shows a JSON representation of a vertex *returned to the client* from Azure Cosmos DB. 
+Azure Cosmos DB uses the JSON format when returning results from Gremlin operations. Azure Cosmos DB currently supports the JSON format. For example, the following snippet shows a JSON representation of a vertex *returned to the client* from Azure Cosmos DB:
 
 ```json
   {
