@@ -80,7 +80,7 @@ When a user clicks **Get Started** link in an [invitation email](invitation-emai
 11. After authenticating to the right identity provider, the user is redirected to Azure AD to complete the [consent experience](redemption-experience.md#consent-experience-for-the-guest).  
 
 >[!NOTE]
->For JIT redemptions, where redemption is by tenanted application link, steps 8 through 10 is not available. If a user reaches step 6 and an email OTP is not enabled, user receives an error message and is unable to redeem the invitation. To prevent this, admins should either [enable email OTP](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode) or ensure the user clicks an invitation link.
+>For just-in-time (JIT) redemptions, where redemption is through a tenanted application link, steps 8 through 10 are not available. If a user reaches step 6 and the Email one-time passcode feature is not enabled, the user receives an error message and is unable to redeem the invitation. To prevent this, admins should either [enable Email one-time passcode](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode) or ensure the user clicks an invitation link.
 
 ## Consent experience for the guest
 
