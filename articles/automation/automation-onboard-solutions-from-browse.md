@@ -107,7 +107,7 @@ When onboarding multiple machines, there may be machines that show as `Cannot en
 
 **Cause**: This error shows that the VM that you are trying to onboard reports to another workspace.
 
-**Solution**: Click **Use as configuration** to change the targeted Automation Account and Log Analytics workspace.
+**Solution**: Click **Use as configuration** to change the targeted Automation account and Log Analytics workspace.
 
 ### VM reports to a workspace that is not available in this subscription
 
