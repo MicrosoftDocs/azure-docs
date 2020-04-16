@@ -94,6 +94,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Reply URL and Sign-On URL by copying the ACS (Assertion Consumer Service) URL from the SSO setup page in Contentful.
 
+1. Back on the **Set up single sign-on with SAML** page, click the edit/pen icon for **User Attributes & Claims** to edit the settings, and edit the user attributes to be as following:
+	
+   ![Edit User Attributes & Claims](common/https://images.ctfassets.net/s7657jqyw30g/3yMc0gB5Ujh8bU5QpYoTdx/b4ca7af0ed44a9df60fbe3094c285469/Screenshot_2020-04-16_at_13.56.38.png)
+
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
