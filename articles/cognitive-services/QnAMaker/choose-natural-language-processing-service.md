@@ -11,4 +11,4 @@ ms.date: 04/16/2020
 
 ## Next steps
 
-* Learn [enterprise design strategies](luis-concept-enterprise.md)
+* Learn [how manage Azure resources](How-To/set-up-qnamaker-service-azure.md)
