@@ -35,8 +35,6 @@ In [part one](sql-database-tutorial-predictive-model-prepare-data.md), you learn
 
 In [part two](sql-database-tutorial-predictive-model-build-compare.md), you learned how to create and train multiple machine learning models in R, and then choose the most accurate one.
 
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
-
 ## Prerequisites
 
 * Part three of this tutorial series assumes you have completed [**part one**](sql-database-tutorial-predictive-model-prepare-data.md) and [**part two**](sql-database-tutorial-predictive-model-build-compare.md).

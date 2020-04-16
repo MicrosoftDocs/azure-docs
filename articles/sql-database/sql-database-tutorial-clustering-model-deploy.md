@@ -34,8 +34,6 @@ In [part one](sql-database-tutorial-clustering-model-prepare-data.md), you learn
 
 In [part two](sql-database-tutorial-clustering-model-build.md), you learned how to create and train a K-Means clustering model in R.
 
-[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
-
 ## Prerequisites
 
 * Part three of this tutorial series assumes you have completed [**part one**](sql-database-tutorial-clustering-model-prepare-data.md) and [**part two**](sql-database-tutorial-clustering-model-build.md).
