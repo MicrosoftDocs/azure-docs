@@ -237,6 +237,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/encrypt-disks.md",
+      "redirect_url": "/azure//virtual-machines/windows/disk-encryption-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/cli-manage-nodejs.md",
       "redirect_url": "/azure/virtual-machines/linux/create-cli-complete",
       "redirect_document_id": false
