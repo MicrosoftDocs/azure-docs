@@ -189,10 +189,6 @@ Let's start to get a sense of what the dataset contains.
     plt.axis('equal')
     ```
 
-    The output is:
-
-    ![Spark machine learning application output - pie chart with five distinct inspection results](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Spark machine learning result output")
-
     To predict a food inspection outcome, you need to develop a model based on the violations. Because logistic regression is a binary classification method, it makes sense to group the result data into two categories: **Fail** and **Pass**:
 
    - Pass
