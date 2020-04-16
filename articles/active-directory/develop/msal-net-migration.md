@@ -125,7 +125,7 @@ Device code flow | [Device profile for devices without web browsers](https://git
 
 #### Confidential client applications
 
-Here are the grants supported in ADAL.NET and MSAL.NET for Web Applications, web APIs, and daemon applications:
+Here are the grants supported in ADAL.NET and MSAL.NET for web applications, web APIs, and daemon applications:
 
 Type of App | Grant | ADAL.NET | MSAL.NET
 ----- | ----- | ----- | -----

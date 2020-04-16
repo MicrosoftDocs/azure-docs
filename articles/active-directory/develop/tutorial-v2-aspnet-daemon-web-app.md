@@ -172,7 +172,7 @@ The relevant code for this sample is in the following files:
 ## Re-create the sample app
 
 1. In Visual Studio, create a new **Visual C#** **ASP.NET Web Application (.NET Framework)** project.
-1. On the next screen, choose the **MVC** project template. Also add folder and core references for **web API**, because you'll add a web API controller later. Leave the project's chosen authentication mode as the default: **No Authentication**.
+1. On the next screen, choose the **MVC** project template. Also add folder and core references for **Web API**, because you'll add a web API controller later. Leave the project's chosen authentication mode as the default: **No Authentication**.
 1. Select the project in the **Solution Explorer** window and select the **F4** key.
 1. In the project properties, set **SSL Enabled** to **True**. Note the information in **SSL URL**. You'll need it when configuring this application's registration in the Azure portal.
 1. Add the following ASP.NET OWIN middleware NuGet packages:

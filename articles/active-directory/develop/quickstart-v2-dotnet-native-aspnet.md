@@ -1,5 +1,5 @@
 ---
-title: Call a ASP.NET web API protected by Microsoft identity platform
+title: Call an ASP.NET web API protected by Microsoft identity platform
 description: In this quickstart, learn how to call an ASP.NET web API protected by Microsoft identity platform from a Windows Desktop (WPF) application. The WPF client authenticates a user, requests an access token, and calls the web API.
 services: active-directory
 author: jmprieur
@@ -17,7 +17,7 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:A
 
 # Quickstart: Call an ASP.NET web API protected by Microsoft identity platform
 
-In this quickstart, you expose a web API and protect it so that only authenticated user can access it. This sample shows how to expose a ASP.NET web API so it can accept tokens issued by personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has integrated with Microsoft identity platform.
+In this quickstart, you expose a web API and protect it so that only authenticated user can access it. This sample shows how to expose an ASP.NET web API so it can accept tokens issued by personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has integrated with Microsoft identity platform.
 
 The sample also includes a Windows Desktop application (WPF) client that demonstrates how you can request an access token to access a web API.
 
