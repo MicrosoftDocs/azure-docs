@@ -18,7 +18,7 @@
     href: groups-quickstart-naming-policy.md
 - name: Tutorials
   items:
-  - name: Create a dynamically populated group    
+  - name: Create a dynamic group    
     href: groups-dynamic-tutorial.md
 - name: Concepts
   expanded: true
