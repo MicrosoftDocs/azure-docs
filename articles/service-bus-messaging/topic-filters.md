@@ -49,10 +49,10 @@ Partitioning uses filters to distribute messages across several existing topic s
 Routing uses filters to distribute messages across topic subscriptions in a predictable fashion, but not necessarily exclusive. In conjunction with the [auto forwarding](service-bus-auto-forwarding.md) feature, topic filters can be used to create complex routing graphs within a Service Bus namespace for message distribution within an Azure region. With Azure Functions or Azure Logic Apps acting as a bridge between Azure Service Bus namespaces, you can create complex global topologies with direct integration into line-of-business applications.
 
 
-## Samples
 > [!NOTE]
 > Currently the Azure portal doesn't let you specify filter rules for subscriptions. You can use any of the supported SDKs or Azure Resource Manager templates to define subscription rules. 
 
+## Next steps
 See the following samples: 
 
 - [.NET - Basic send and receive tutorial with filters](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
@@ -62,11 +62,3 @@ See the following samples:
 - [Azure Resource Manager template](https://docs.microsoft.com/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
 
 
-
-## Next steps
-
-To learn more about Service Bus messaging, see the following topics:
-
-* [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-* [SQLFilter syntax](service-bus-messaging-sql-filter.md)
-* [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
