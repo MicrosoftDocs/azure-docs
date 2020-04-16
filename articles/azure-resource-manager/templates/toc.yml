@@ -40,7 +40,7 @@
       href: ../../key-vault/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Load Balancer
       href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-    - name: Managed Application
+    - name: Managed application
       href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Policy
       href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
