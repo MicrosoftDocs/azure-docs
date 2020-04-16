@@ -13,6 +13,7 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
+ROBOTS: NOINDEX
 ---
 
 # Quickstart: Create and train a predictive model in R with Azure SQL Database Machine Learning Services (preview)
