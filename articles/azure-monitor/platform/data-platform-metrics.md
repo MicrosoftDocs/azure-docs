@@ -4,7 +4,7 @@ description: Describes metrics in Azure Monitor which are lightweight monitoring
 documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: tysonn
+
 
 ms.topic: conceptual
 ms.tgt_pltfrm: na
