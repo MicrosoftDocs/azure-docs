@@ -30,10 +30,28 @@ In this quickstart, you learn to manage blobs by using JavaScript in a browser. 
 * A Visual Studio Code extension for browser debugging, such as 
     * [Debugger for Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge)
     * [Debugger for Chrome](vscode:extension/msjsdiag.debugger-for-chrome)
-    * [Debugger for Firefox](vscode:extension/firefox-devtools.vscode-firefox-debug).
+    * [Debugger for Firefox](vscode:extension/firefox-devtools.vscode-firefox-debug)
 
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
+## Object model
+
+Azure Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that doesn't adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
+
+* The storage account
+* A container in the storage account
+* A blob in the container
+
+The following diagram shows the relationship between these resources.
+
+![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
+
+Use the following JavaScript classes to interact with these resources:
+
+* [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage resources and blob containers.
+* [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): The `ContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
+* [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient): The `BlockBlobClient` class allows you to manipulate Azure Storage blobs.
 
 ## Setting up
 
@@ -77,12 +95,12 @@ Follow these steps to get the Blob service SAS URL:
 
 ### Implement the HTML page
 
-1. Create a new folder called *azure-blobs-javascript* and open it in Visual Studio Code.
+1. Create a new folder called *azure-blobs-js-browser* and open it in Visual Studio Code.
 2. Create a new file in Visual Studio Code and add the following HTML.
 
 :::code language="html" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/init-index.html" id="snippet_InitWebPage":::
 
-3. Save the file as *index.html* in the *azure-blobs-javascript* folder.
+3. Save the file as *index.html* in the *azure-blobs-js-browser* folder.
 
 ### Add the Azure Blob storage client library
 
@@ -120,29 +138,11 @@ To use Azure SDK libraries inside JavaScript, import the `@azure/storage-blob` p
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_ImportLibrary":::
 
-Save this *index.js* file in the *azure-blobs-javascript* directory.
+Save this *index.js* file in the *azure-blobs-js-browser* directory.
 
 Next, replace the comment in the *index.html* file to include the new JavaScript file. The full *index.html* file should now look like this:
 
 :::code language="html" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.html" id="snippet_WebPage" highlight="18":::
-
-## Object model
-
-Azure Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that doesn't adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
-
-* The storage account
-* A container in the storage account
-* A blob in the container
-
-The following diagram shows the relationship between these resources.
-
-![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
-
-Use the following JavaScript classes to interact with these resources:
-
-* [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage resources and blob containers.
-* [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): The `ContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
-* [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient): The `BlockBlobClient` class allows you to manipulate Azure Storage blobs.
 
 ## Code examples
 
@@ -229,9 +229,10 @@ To run the code inside the Visual Studio Code debugger, configure the *launch.js
 ### Configure the debugger
 
 To set up the debugger extension in Visual Studio Code:
+
     1. Select **Run > Add Configuration**
     2. Select **Edge**, **Chrome**, or **Firefox**, depending on which extension you installed in the [Prerequisites](#prerequisites) section earlier.
-    
+
 Adding a new configuration creates a *launch.json* file and opens it in the editor. Modify the *launch.json* file so that the `url` value is `http://localhost:1234/index.html`, as shown here:
 
 :::code language="json" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/.vscode/launch.json" highlight="11":::
