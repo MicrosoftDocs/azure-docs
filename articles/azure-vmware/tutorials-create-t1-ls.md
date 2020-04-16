@@ -1,21 +1,21 @@
 ---
-title: Azure VMware Solution by Virtustream tutorial - create an NSX-T network
-description: In this Azure VMware Solution by Virtustream (AVS by Virtustream) tutorial, you create an NSX-T T1 router with a logical switch. You then create a DHCP server and associate it with the logical switch.
+title: Azure VMware Solution (AVS) tutorial - create an NSX-T network
+description: In this Azure VMware Solution (AVS) tutorial, you create an NSX-T T1 router with a logical switch. You then create a DHCP server and associate it with the logical switch.
 services: 
-author: v-jetome
+author: dikamath
 
 ms.service: vmware-virtustream
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.author: v-jetome
+ms.author: dikamath
 ms.custom: 
 
-#Customer intent: As a VMware administrator or user of an AVS by Virtustream private cloud, I want to learn how to create an NSX-T T1 router, a logical swith on the router, and configure DHCP in preparation for deploying a VM on the network that has been created.
+#Customer intent: As a VMware administrator or user of an AVS private cloud, I want to learn how to create an NSX-T T1 router, a logical swith on the router, and configure DHCP in preparation for deploying a VM on the network that has been created.
 ---
 
-# Tutorial: Create an NSX-T network on an Azure VMware Solution by Virtustream private cloud
+# Tutorial: Create an NSX-T network on an Azure VMware Solution (AVS) private cloud
 
-AVS by Virtustream private clouds provide Azure-based environments to run VMware workload virtual machines (VMs). You can quickly create networks in a private cloud and then deploy or migrate VMs on those networks. In this tutorial you create an NSX-T T1 router and a logical switch with DHCP services. Using NSX-T Manager, you learn how to create:
+AVS private clouds provide Azure-based environments to run VMware workload virtual machines (VMs). You can quickly create networks in a private cloud and then deploy or migrate VMs on those networks. In this tutorial you create an NSX-T T1 router and a logical switch with DHCP services. Using NSX-T Manager, you learn how to create:
 
 > [!div class="checklist"]
 > * T1 router

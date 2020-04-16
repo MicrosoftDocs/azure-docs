@@ -1,22 +1,22 @@
 ---
-title: Concepts - private clouds and clusters in Azure VMware Solution (AVS) by Virtustream
+title: Concepts - private clouds and clusters in Azure VMware Solution (AVS)
 description: Learn about the key capabilities of Azure VMware software-defined data centers and vSphere clusters in VMware Solution on Azure by VMware. 
 services: 
-author: v-jetome
+author: dikamath
 
 ms.service: vmware-virtustream
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: v-jetome
+ms.author: dikamath
 ms.custom: 
 
 ---
 
-# Azure VMware Solution by Virtustream private cloud and cluster concepts
+# Azure VMware Solution (AVS) private cloud and cluster concepts
 
-The Azure VMware Solution (AVS) by Virtustream delivers VMware-based private clouds in Azure. The private clouds are built from clusters of dedicated bare-metal hosts and are deployed and managed through the Azure portal. Clusters in private clouds are provisioned with VMware vSphere, vCenter, vSAN, and NSX software. AVS by Virtustream private cloud hardware and software deployments are fully integrated and automated in Azure.
+The Azure VMware Solution (AVS) delivers VMware-based private clouds in Azure. The private clouds are built from clusters of dedicated bare-metal hosts and are deployed and managed through the Azure portal. Clusters in private clouds are provisioned with VMware vSphere, vCenter, vSAN, and NSX software. AVS private cloud hardware and software deployments are fully integrated and automated in Azure.
 
-There's a logical relationship between Azure subscriptions, AVS by Virtustream private clouds, vSAN clusters, and hosts. In the diagram, two private clouds in a single Azure subscription are shown. The private clouds represent a development and a production environment, each with their own private cloud. In each of those private clouds there are two clusters. To show the lower potential needs of a development environment, smaller clusters with lower capacity hosts are used in that environment. All of these concepts are described in the sections below.
+There's a logical relationship between Azure subscriptions, AVS private clouds, vSAN clusters, and hosts. In the diagram, two private clouds in a single Azure subscription are shown. The private clouds represent a development and a production environment, each with their own private cloud. In each of those private clouds there are two clusters. To show the lower potential needs of a development environment, smaller clusters with lower capacity hosts are used in that environment. All of these concepts are described in the sections below.
 
 ![Image of two private clouds in a customer subscription](./media/hosts-clusters-private-clouds-final.png)
 
@@ -36,7 +36,7 @@ You create, delete, and scale clusters through the portal or API. You still use 
 
 ## Hosts
 
-Hyper-converged, bare-metal infrastructure nodes are used AVS by Virtustream private cloud clusters. There are two types of hosts, and clusters are built using only one type of host. The RAM, CPU, and disk capacities of both types the host types is provided in the table below. 
+Hyper-converged, bare-metal infrastructure nodes are used in AVS private cloud clusters. There are two types of hosts, and clusters are built using only one type of host. The RAM, CPU, and disk capacities of both types the host types is provided in the table below. 
 
 | Host Type              |             CPU             |   RAM (GB)   |  vSAN NVMe cache Tier (TB, raw)  |  vSAN SSD capacity tier (TB, raw)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
@@ -49,7 +49,7 @@ Hosts that are used to build or scale clusters are allocated from an isolated po
 
 ## VMware software versions
 
-The current software versions of the VMware software used in AVS by Virtustream private cloud clusters are:
+The current software versions of the VMware software used in AVS private cloud clusters are:
 
 | Software              |    Version   |
 | :---                  |     :---:    |
@@ -60,7 +60,7 @@ The current software versions of the VMware software used in AVS by Virtustream 
 
 For any new cluster in a private cloud, the version of software will match what is currently running in the private cloud. For any new private cloud in a customer subscription, the latest version of the software stack is installed.
 
-The general upgrade policies and processes for the AVS by Virtustream platform software is described in the Upgrades Concepts document.
+The general upgrade policies and processes for the AVS platform software is described in the Upgrades Concepts document.
 
 ## Host maintenance and lifecycle management
 

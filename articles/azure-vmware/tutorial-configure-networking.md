@@ -10,9 +10,7 @@ ms.date: 04/07/2020
 
 # Create a Virtual Network
 
-In this exercise you create a new virtual network (VNET) in the Resource
-Group you created previously. Skip this exercise if you already have a
-VNET defined in this Resource Group.
+In this exercise you create a new virtual network (VNET) in the Resource Group you created previously. Skip this exercise if you already have a VNET defined in this Resource Group.
 
 In this tutorial, you learn how to:
 
@@ -188,4 +186,4 @@ In this tutorial you learned how to:
 Continue to the next tutorial to learn how to create a jump box that is used to connect to your environment.
 
 > [!div class="nextstepaction"]
-> [Create a jump box](create-jump-box.md)
+> [Create a jump box](tutorial-create-jump-box.md)

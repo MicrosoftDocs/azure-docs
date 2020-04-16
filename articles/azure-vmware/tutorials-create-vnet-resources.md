@@ -1,19 +1,19 @@
 ---
-title: Azure VMware Solution by Virtustream tutorial - create VNet resources
-description: In this Azure VMware Solution (AVS) by Virtustream tutorial, you create a VNet and resources to connect to peer with a private cloud ExpressRoute circuit.
+title: Azure VMware Solution (AVS) tutorial - create VNet resources
+description: In this Azure VMware Solution (AVS) tutorial, you create a VNet and resources to connect to peer with a private cloud ExpressRoute circuit.
 services: 
-author: v-jetome
+author: dikamath
 
 ms.service: vmware-virtustream
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.author: v-jetome
+ms.author: dikamath
 ms.custom: 
 
 #Customer intent: As a VMware administrator, I want to learn how to create resources in a VNet that are used to peer with an ExpressRoute circuit of a private cloud.
 ---
 
-# Tutorial: Create VNet resources to peer with an AVS by Virtustream private cloud
+# Tutorial: Create VNet resources to peer with an AVS private cloud
 
 In this tutorial, you create a service VNet and other required resources in your Azure subscription. The resources include a Windows virtual machine, a gateway subnet, and an ExpressRoute gateway. The gateway is peered with the ExpressRoute circuit of your new private cloud.
 
@@ -24,7 +24,7 @@ Using this tutorial, you learn how to:
 > * Request an ExpressRoute authorization key and Resource ID
 > * Use the authorization key and ID to peer an ExpressRoute gateway and an ExpressRoute circuit
 
-The previous tutorial provided the instructions for creating an Azure VMware Solution (AVS) by Virtustream private cloud. It's recommended to use the tutorials in order, but most of this tutorial can be done first.
+The previous tutorial provided the instructions for creating an Azure VMware Solution (AVS) private cloud. It's recommended to use the tutorials in order, but most of this tutorial can be done first.
 
 ## Prerequisites
 

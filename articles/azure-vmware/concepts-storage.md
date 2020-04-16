@@ -1,20 +1,20 @@
 ---
-title: Concepts - storage in Azure VMware Solution by Virtustream private clouds
-description: Learn about the key storage capabilities in Azure VMware Solution by Virtustream private clouds.
+title: Concepts - storage in Azure VMware Solution (AVS) private clouds
+description: Learn about the key storage capabilities in Azure VMware Solution (AVS) private clouds.
 services: 
-author: v-jetome
+author: dikamath
 
 ms.service: vmware-virtustream
 ms.topic: conceptual
 ms.date: 7/29/2019
-ms.author: v-jetome 
+ms.author: dikamath
 ms.custom: 
 
 ---
 
-# Azure VMware Solution by Virtustream storage concepts
+# Azure VMware Solution (AVS) storage concepts
 
-AVS by Virtustream private clouds provide native, cluster-wide storage with VMware vSAN. All local storage from each host in a cluster is used in a vSAN datastore, and data-at-rest encryption is available and enabled by default. You can use Azure Storage resources to extend storage capabilities of your private clouds.
+AVS private clouds provide native, cluster-wide storage with VMware vSAN. All local storage from each host in a cluster is used in a vSAN datastore, and data-at-rest encryption is available and enabled by default. You can use Azure Storage resources to extend storage capabilities of your private clouds.
 
 ## vSAN clusters
 

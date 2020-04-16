@@ -1,21 +1,21 @@
 ---
-title: Azure VMware Solution by Virtustream tutorial - deploy a VM
-description: In this Azure VMware Solution (AVS) by Virtustream tutorial, you use a basic connection method to the private cloud and use vCenter to create a VM.
+title: Azure VMware Solution (AVS) tutorial - deploy a VM
+description: In this Azure VMware Solution (AVS) tutorial, you use a basic connection method to the private cloud and use vCenter to create a VM.
 services:
-author: v-jetome
+author: dikamath
 
 ms.service: vmware-virtustream
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.author: v-jetome
+ms.author: dikamath
 ms.custom: 
 
 
-#Customer intent: As a VMware administrator or user of an AVSV private cloud, I want to create a VM in a private cloud.
+#Customer intent: As a VMware administrator or user of an AVS private cloud, I want to create a VM in a private cloud.
 
 ---
 
-# Tutorial: Deploy a VM in an Azure VMware Solution by Virtustream (AVSV) private cloud
+# Tutorial: Deploy a VM in an Azure VMware Solution (AVS) private cloud
 
 In this tutorial, you create a virtual machine (VM) and attach it to an NSX-T logical switch network segment.
 

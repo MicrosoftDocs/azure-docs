@@ -1,19 +1,19 @@
 ---
-title: Azure VMware Solution by Virtustream tutorial - access a private cloud
+title: Azure VMware Solution (AVS) tutorial - access a private cloud
 description: In this tutorial, you learn how to enable and then access vCenter and NSX Manager in a private cloud.
 services: 
-author: v-jetome
+author: dikamath
 
 ms.service: vmware-virtustream
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.author: v-jetome
+ms.author: dikamath
 ms.custom: 
 
-#Customer intent: As a VMware administrator, I want to learn how to access the vCenter and NSX Manager of a private cloud.
+# Customer intent: As a VMware administrator, I want to learn how to access the vCenter and NSX Manager of a private cloud.
 ---
 
-# Tutorial: Access an Azure VMware Solution by Virtustream private cloud
+# Tutorial: Access an Azure VMware Solution (AVS) private cloud
 
 In this tutorial, you request and use an authorization key and resource IDs to create ExpressRoute connections and peer circuits with Global Reach. You then use the new connections to access vCenter in a private cloud from a VNet created in the [create VNet resources tutorial](tutorials-create-vnet-resources.md). Using this tutorial, you learn how to:
 

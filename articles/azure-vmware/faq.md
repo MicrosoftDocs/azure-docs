@@ -1,33 +1,33 @@
 ---
-title: Frequently asked questions for Azure VMware Solution by Virtustream
-description: Provides answers to some of the common questions about Azure VMware Solution by Virtustream.
+title: Frequently asked questions for Azure VMware Solution (AVS)
+description: Provides answers to some of the common questions about Azure VMware Solution (AVS).
 services:
-author: v-jetome
+author: dikamath
 
 ms.service: vmware-virtustream
 ms.topic: conceptual
 ms.date:  07/29/2019
-ms.author: v-jetome
+ms.author: dikamath
 
 ---
 
-# Frequently asked questions about Azure VMware Solution by Virtustream
+# Frequently asked questions about Azure VMware Solution (AVS)
 
-Answers for frequently asked questions about Azure VMware Solution (AVS) by Virturstream.
+Answers for frequently asked questions about Azure VMware Solution (AVS).
 
 ## General
 
-**What is Azure VMware Solution by Virtustream?**
+**What is Azure VMware Solution (AVS)?**
 
-As enterprises pursue IT modernization strategies to improve business agility, reduce costs, and accelerate innovation, hybrid cloud platforms have emerged as key enablers of customers’ digital transformation. AVS by Virtustream combines VMware’s Software Defined Data Center (SDDC) software with Microsoft Azure global cloud service ecosystem. The solution is managed by Virtustream to meet performance, availability, security, and compliance requirements.
+As enterprises pursue IT modernization strategies to improve business agility, reduce costs, and accelerate innovation, hybrid cloud platforms have emerged as key enablers of customers’ digital transformation. AVS combines VMware’s Software Defined Data Center (SDDC) software with Microsoft Azure global cloud service ecosystem. The AVS solution is managed to meet performance, availability, security, and compliance requirements.
 
-## AVS by Virtustream Service
+## AVS Service
 
-**Where is AVS by Virtustream available today?**
+**Where is AVS available today?**
 
 At launch, it will be available in US West and US East in North America. Amsterdam will launch in Europe shortly afterwards.
 
-**Can workloads running in an Azure VMware Solution by Virtustream instance consume or integrate with Azure services?**
+**Can workloads running in an Azure VMware Solution (AVS) instance consume or integrate with Azure services?**
 
 All Azure services will be available to AVS solution customers. Performance and availability limitations for specific services will need to be addressed on a case-by-case basis.
 
@@ -37,13 +37,13 @@ Yes. The Azure portal is used for deployment and a number of management operatio
 
 **Can I manage a private cloud with my on-premises vCenter?**
 
-At launch, AVS by Virtustream won't support a single pane-of-glass management across on-premises and private cloud environments. Private cloud clusters will be managed with vCenter and NSX Manager local to a private cloud.
+At launch, AVS won't support a single pane-of-glass management across on-premises and private cloud environments. Private cloud clusters will be managed with vCenter and NSX Manager local to a private cloud.
 
 **Can I use vRealize Suite running on-premises?** 
 
 Full support for the vRealize Suite isn't guaranteed at launch.  Specific integrations and use cases may be evaluated on a case-by-case basis. 
 
-**Can I migrate vSphere VMs from on-premises environments to AVS by Virtustream private clouds?**
+**Can I migrate vSphere VMs from on-premises environments to AVS private clouds?**
 
 Yes. VM migration and vMotion can be used to move VMs to a private cloud if standard cross vCenter [vMotion requirements][kb2106952] are met.
 
@@ -105,13 +105,13 @@ Yes, clusters scale between the minimum and maximum number of ESXi hosts. Trial 
 
 **What are trial clusters?**
 
-Trial clusters are three host clusters used for one month evaluations of AVS by Virtustream private clouds.
+Trial clusters are three host clusters used for one month evaluations of AVS private clouds.
 
 **Can I use High-end hosts for trial clusters?**
 
 No. High-end ESXi hosts are reserved for use in production clusters.
 
-## AVS by Virtustream and VMware software
+## AVS and VMware software
 
 **What versions of VMware software is used in private clouds?**
 
@@ -119,7 +119,7 @@ Private clouds use vSphere 6.7u1, vSAN 6.7, and version 2.3 of NSX-T.
 
 **Do private clouds use VMware NSX?**
 
-Yes, NSX-T 2.3 is used for the software defined networking in AVS by Virtustream private clouds.
+Yes, NSX-T 2.3 is used for the software defined networking in AVS private clouds.
 
 **Can I use VMware NSX-V in a private cloud?**
 
@@ -141,9 +141,9 @@ The private cloud software is upgraded on a schedule that tracks with the releas
 
 **What network IP address planning is required to incorporate private clouds with on-premises environments?**
 
-A private network /22 address space is required to deploy an AVS by Virtustream private cloud. This private address space shouldn't overlap with other VNets in a subscription, or with on-premises networks.
+A private network /22 address space is required to deploy an AVS private cloud. This private address space shouldn't overlap with other VNets in a subscription, or with on-premises networks.
  
-**How do I connect from on-premises environments to an AVS by Virtustream private cloud?**
+**How do I connect from on-premises environments to an AVS private cloud?**
 
 You can connect to the service in one of two methods: 
 - With a VM or application gateway deployed on an Azure VNet that is peered through ExpressRoute to the private cloud.
@@ -163,7 +163,7 @@ Yes. You'll need to use NSX-T manager to create a firewall that restricts VM acc
 
 ## Accounts and privileges
 
-**What accounts and privileges will I get with my new AVS by Virtustream private cloud?**
+**What accounts and privileges will I get with my new AVS private cloud?**
 
 You are provided credentials for a cloudadmin user in vCenter and admin access on NSX-T Manager. There is also a CloudAdmin group that can be used to incorporate Azure Active Directory. For more information, see [Access and Identity Concepts](concepts-identity.md).
 
@@ -184,25 +184,25 @@ You will have full administrator privileges on NSX-T and can manage role-based a
 
 **Is Azure Active Directory (AD) integrated with my private cloud.**
 
-Yes, Azure AD is natively integrated with your AVS by Virtustream private and is available at the time of deployment.
+Yes, Azure AD is natively integrated with your AVS private and is available at the time of deployment.
 
 ## Billing and Support
 
-**How do I request support for my AVS by Virtustream private cloud?**
+**How do I request support for my AVS private cloud?**
 
-Since this a Microsoft solution, Microsoft or the CSP selling the solution will offer the first line support. For Microsoft, a Service Request is the first step with Virtustream/VMware engaged for any internal assistance and/or escalations that are needed.
+Since this a Microsoft solution, Microsoft or the CSP selling the solution will offer the first line support. For Microsoft, a Service Request is the first step with AVS/VMware engaged for any internal assistance and/or escalations that are needed.
 
-**What costs are associated with data ingress and egress for an AVS by Virtustream private cloud?**
+**What costs are associated with data ingress and egress for an AVS private cloud?**
 
 Public cloud providers typically charge for data transiting various portions of their network infrastructure, be it inter-region, or in the case of Azure, between peered virtual networks.  It is also typical for public cloud providers not to charge for data ingress, but to charge for any data leaving their datacenters.
 
-When considering the data ingress/egress costs for AVS by Virtustream, customers will want to consider how they plan to connect to the service and the associated data rates (for example, ExpressRoute).
+When considering the data ingress/egress costs for AVS, customers will want to consider how they plan to connect to the service and the associated data rates (for example, ExpressRoute).
 
-**Who supports AVS by Virtustream?**
+**Who supports AVS?**
 
-Microsoft provides primary support for the platform, with VMware and Virtustream providing tiers two and three support.
+Microsoft provides primary support for the platform, with VMware and AVS providing tiers two and three support.
 
-**What accounts do I need to create an AVS by Virtustream private cloud?**
+**What accounts do I need to create an AVS private cloud?**
 
 You will need an Azure account in an Azure subscription.
 

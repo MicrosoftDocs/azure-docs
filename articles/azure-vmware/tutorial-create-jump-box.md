@@ -10,8 +10,7 @@ ms.date: 04/07/2020
 
 # Create a Jump Box
 
-Create a Virtual Network Gateway In this exercise you add a new Virtual
-Network Gateway
+Create a Virtual Network Gateway In this exercise you add a new Virtual Network Gateway
 
 In this exercise you create a jump box in the Resource Group you created
 previously. This is a VM on the VNET you created that will provide you

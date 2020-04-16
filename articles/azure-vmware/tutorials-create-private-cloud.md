@@ -1,21 +1,21 @@
 ---
-title: Azure VMware Solution by Virtustream tutorial - create a private cloud
-description: In this Azure VMware Solution by Virtustream (AVS by Virtustream) tutorial, you use the Azure portal to create a private cloud.
+title: Azure VMware Solution (AVS) tutorial - create a private cloud
+description: In this Azure VMware Solution (AVS) tutorial, you use the Azure portal to create a private cloud.
 services: 
-author: v-jetome
+author: dikamath
 
 ms.service: vmware-virtustream
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.author: v-jetome
+ms.author: dikamath
 ms.custom: 
 
-#Customer intent: As a VMware administrator, I want to learn how to create an Azure VMware Solution by Virtustream private cloud in the Azure portal.
+#Customer intent: As a VMware administrator, I want to learn how to create an Azure VMware Solution (AVS) private cloud in the Azure portal.
 ---
 
-# Tutorial: Create an Azure VMware Solution by Virtustream private cloud
+# Tutorial: Create an Azure VMware Solution (AVS) private cloud
 
-AVS by Virtustream private clouds provide Azure-based environments to run VMware virtual machines (VMs). In this tutorial, you plan and then create a private cloud. Using the Azure portal, you learn how to:
+AVS private clouds provide Azure-based environments to run VMware virtual machines (VMs). In this tutorial, you plan and then create a private cloud. Using the Azure portal, you learn how to:
 
 > [!div class="checklist"]
 > * Prepare for a deployment
@@ -31,9 +31,9 @@ It's recommended you first plan the private network address space for your priva
 
 You also plan for the type and number of hosts that you'll use in your private cloud clusters. Resource and resource group names are also required when you create a private cloud.
 
-This tutorial also requires that you have an Azure subscription and access to the Azure portal. You also need to have the Microsoft.VMwareVirtustream resource provider is registered in your subscription. Following the instructions in [Azure resource providers and types documentation][resource provider], search for "Virtustream". This screenshot shows what will appear if the resource provider is registered in your subscription.
+This tutorial also requires that you have an Azure subscription and access to the Azure portal. You also need to have the Microsoft.AVS resource provider is registered in your subscription. Following the instructions in [Azure resource providers and types documentation][resource provider], search for "AVS". This screenshot shows what will appear if the resource provider is registered in your subscription.
 
-![Image of a registered Virtustream.PrivateCloud resource provider](./media/resource-provider-azure.png)
+![Image of a registered AVS.PrivateCloud resource provider](./media/resource-provider-azure.png)
 
 If it's not registered, continue with instructions in that documentation.
 

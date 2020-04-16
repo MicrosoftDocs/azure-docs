@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Deploy vSphere Cluster in Azure
-description: Learn to deploy a vSphere Cluster in Azure suing Azure VMWare Solution
+description: Learn to deploy a vSphere Cluster in Azure using Azure VMWare Solution (AVS)
 author: dikamath
 ms.author: dikamath
 ms.service: azure-vmware
@@ -93,4 +93,4 @@ In this tutorial you learned how to:
 Continue to the next tutorial to learn how to create a virtual network for use with your Private Cloud.
 
 > [!div class="nextstepaction"]
-> [Create a Virtual Network](configure-networking.md)
+> [Create a Virtual Network](tutorial-configure-networking.md)
