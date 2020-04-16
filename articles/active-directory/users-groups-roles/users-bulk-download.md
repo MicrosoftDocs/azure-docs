@@ -22,7 +22,7 @@ Azure Active Directory (Azure AD) supports bulk user import (create) operations.
 
 ## Required permissions
 
-To download the list of users from the Azure AD admin center, you must be signed in with a user assigned to one or more organization-level administrator roles in Azure AD. Guest inviter and application developer are not considered administrator roles.
+To download the list of users from the Azure AD admin center, you must be signed in with a user assigned to one or more organization-level administrator roles in Azure AD (User Administrator is the minimum role required). Guest inviter and application developer are not considered administrator roles.
 
 ## To download a list of users
 
