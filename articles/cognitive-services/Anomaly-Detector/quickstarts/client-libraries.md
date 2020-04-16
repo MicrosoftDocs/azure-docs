@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use the Anolmaly Detector client library'
 titleSuffix: Azure Cognitive Services
-description: The Anomaly Detector API offers client libraries that makes it easy to integrate search capabilities into your applications. Use this quickstart to start sending search requests, and get back results.
+description: The Anomaly Detector API offers client libraries to detect abnormalities in your data series either as a batch or on streaming data.
 services: cognitive-services
 author: aahill
 manager: nitinme

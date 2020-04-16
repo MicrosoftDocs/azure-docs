@@ -1,5 +1,5 @@
 ---
-title: Anomlay Detector Search Node.js client library quickstart 
+title: Anomlay Detector Node.js client library quickstart 
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
