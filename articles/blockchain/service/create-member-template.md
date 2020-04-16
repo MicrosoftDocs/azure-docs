@@ -40,7 +40,7 @@ Azure resources defined in the template:
 
     Available locations for the deployment are *westeurope, eastus, southeastasia, westeurope, northeurope, westus2*, and *japaneast*.
 
-    By default, the example template uses the *Basic* pricing tier, a consortium name based on the member name, and the same value for the member password and the for the consortium management account password.
+    By default, the example template uses the *Basic* pricing tier, a consortium name based on the member name, and the same value for the member and consortium management account password.
 
 1. Select **Purchase** to deploy the template.
 
