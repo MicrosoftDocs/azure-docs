@@ -83,11 +83,11 @@
           href: troubleshoot/shared-resources.md
     - name: Process automation
       items:
-        - name: Runbook gallery
+        - name: Find runbooks and modules in PowerShell Gallery
           href: automation-runbook-gallery.md
         - name: Learn PowerShell Workflow
           href: automation-powershell-workflow.md
-        - name: Create and import runbooks
+        - name: Manage runbooks
           href: manage-runbooks.md
         - name: Author and run runbooks
           items:
@@ -95,7 +95,7 @@
               href: automation-edit-textual-runbook.md
             - name: Edit Graphical runbooks
               href: automation-graphical-authoring-intro.md
-            - name: Child runbooks
+            - name: Create modular runbooks
               href: automation-child-runbooks.md
             - name: Configure runbook input parameters
               href: runbook-input-parameters.md
@@ -111,7 +111,7 @@
           items:
             - name: Runbook output
               href: automation-runbook-output-and-messages.md
-            - name: Error handling in Graphical runbooks
+            - name: Handle errors in Graphical runbooks
               href: automation-runbook-graphical-error-handling.md
             - name: Forward job data to Azure Monitor Logs
               href: automation-manage-send-joblogs-log-analytics.md
@@ -254,7 +254,7 @@
         - name: Deploy Resource Manager template with runbook
           href: automation-deploy-template-runbook.md
         - name: Integrate with Event Grid and Microsoft Teams
-          href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
+          href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir      
 - name: Reference
   items:
   - name: Azure PowerShell
