@@ -88,7 +88,7 @@
     items: 
       - name: About WebRTC
         href: concepts/webrtc/about-webrtc.md
-      - name: WebRTC Protocols
+      - name: ICE, STUN, NAT, TURN, and SDP
         href: concepts/webrtc/ice-stun-nat-turn-sdp.md
       - name: Data Channels
         href: concepts/webrtc/data-channels.md
