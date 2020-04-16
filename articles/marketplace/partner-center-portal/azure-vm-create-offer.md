@@ -345,7 +345,7 @@ Before publishing to [Azure Government](https://docs.microsoft.com/azure/azure-g
 
 #### Azure Government certifications
 
-This option is only visible if **Azure Government** is selected under **Azure regions**.
+This option is only visible if you select **Azure Government** under **Azure regions**.
 
 Azure Government services handle data that is subject to certain government regulations and requirements. For example, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS. To bring awareness to your certifications for these programs, you can provide up to 100 links that describe them. These can be either links to your listing on the program directly or links to descriptions of your compliance with them on your own websites. These links visible to Azure Government customers only.
 
@@ -379,7 +379,7 @@ On this tab, you'll configure the following:
 
 #### Markets
 
-Every plan must be available in at least one market. Select the check box for every market location where this plan should be available for purchase (users in these markets can still deploy the offer to all Azure regions selected in [Plan setup](#plan-setup)). The **Tax Remitted** button shows countries in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either **Free** or **Bring your own license** (BYOL).
+Every plan must be available in at least one market. Select the check box for every market location where this plan should be available for purchase (users in these markets can still deploy the offer to all Azure regions selected in **[Plan setup](#plan-setup)**). The **Tax Remitted** button shows countries in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either **Free** or **Bring your own license** (BYOL).
 
 If you've already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to current exchange rates. Always review the price for each market before publishing. Review prices using the **Export prices (xlsx)** link after saving your changes.
 
