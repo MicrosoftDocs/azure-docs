@@ -29,8 +29,6 @@ Since the databases are synchronized to SQL on-demand and the SQL pools asynchro
 
 ## Manage a Spark created database
 
-[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
-
 Use Spark to manage Spark created databases. For example, delete it through a Spark pool job, and create tables in it from Spark.
 
 If you create objects in a Spark created database using SQL on-demand, or try to drop the database, the operation will succeed. But, the original Spark database won't be changed.
@@ -38,8 +36,6 @@ If you create objects in a Spark created database using SQL on-demand, or try to
 If you try to drop the synchronized schema in a SQL pool, or try to create a table in it, Azure returns an error.
 
 ## Handling of name conflicts
-
-[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 If the name of a Spark database conflicts with the name of an existing SQL on-demand database, a suffix is appended in SQL on-demand to the Spark database. The suffix in SQL on-demand is `_<workspace name>-ondemand-DefaultSparkConnector`.
 
@@ -49,8 +45,6 @@ For example, if a Spark database called `mydb` gets created in the Azure Synapse
 > Caution: You should not take a dependency on this behavior.
 
 ## Security model
-
-[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 The Spark databases and tables, along with their synchronized representations in the SQL engines will be secured at the underlying storage level.
 
@@ -65,8 +59,6 @@ If a security principal requires the ability to create objects or drop objects i
 ## Examples
 
 ### Create & connect to Spark database - SQL on-demand
-
-[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 First create a new Spark database named `mytestdb` using a Spark cluster you have already created in your workspace. You can achieve that, for example,  using a Spark C# Notebook with the following .NET for Spark statement:
 
@@ -83,8 +75,6 @@ SELECT * FROM sys.databases;
 Verify that `mytestdb` is included in the results.
 
 ### Exposing a Spark database in a SQL pool
-
-[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 With the database created in the previous example, now create a SQL pool in your workspace named `mysqlpool` that enables metadata synchronization.
 

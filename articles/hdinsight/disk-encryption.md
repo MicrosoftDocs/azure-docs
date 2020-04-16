@@ -25,7 +25,7 @@ Both resource disk and managed disks on each node of the cluster are encrypted w
 
 If the key vault firewall is enabled on the key vault where the disk encryption key is stored, the HDInsight regional Resource Provider IP addresses for the region where the cluster will be deployed must be added to the key vault firewall configuration. This is necessary because HDInsight is not a trusted Azure key vault service.
 
-You can use the Azure portal or Azure CLI to safely rotate the keys in the key vault. When a key rotates, the HDInsight cluster starts using the new key within minutes. Enable the [Soft Delete](../key-vault/key-vault-ovw-soft-delete.md) key protection features to protect against ransomware scenarios and accidental deletion. Key vaults without this protection feature aren't supported.
+You can use the Azure portal or Azure CLI to safely rotate the keys in the key vault. When a key rotates, the HDInsight cluster starts using the new key within minutes. Enable the [Soft Delete](../key-vault/general/overview-soft-delete.md) key protection features to protect against ransomware scenarios and accidental deletion. Key vaults without this protection feature aren't supported.
 
 |Cluster type |OS Disk (Managed disk) |Data disk (Managed disk) |Temp data disk (Local SSD) |
 |---|---|---|---|
@@ -51,7 +51,7 @@ See [Create a user-assigned managed identity](../active-directory/managed-identi
 
 ## Create Azure Key Vault
 
-Create a key vault. See [Create Azure Key Vault](../key-vault/quick-create-portal.md) for specific steps.
+Create a key vault. See [Create Azure Key Vault](../key-vault/secrets/quick-create-portal.md) for specific steps.
 
 HDInsight only supports Azure Key Vault. If you have your own key vault, you can import your keys into Azure Key Vault. Remember that the key vault must have **Soft delete** enabled. For more information about importing existing keys, visit [About keys, secrets, and certificates](../key-vault/about-keys-secrets-and-certificates.md).
 
@@ -216,5 +216,5 @@ HDInsight customer-managed keys are available in all public clouds and national 
 
 ## Next steps
 
-* For more information about Azure Key Vault, see [What is Azure Key Vault](../key-vault/key-vault-overview.md).
+* For more information about Azure Key Vault, see [What is Azure Key Vault](../key-vault/general/overview.md).
 * [Overview of enterprise security in Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
