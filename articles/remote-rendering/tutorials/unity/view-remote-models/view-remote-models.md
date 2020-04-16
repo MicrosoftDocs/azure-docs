@@ -150,9 +150,16 @@ Perform the following steps to validate that the project settings are correct.
 
 ## Create a script to coordinate Azure Remote Rendering connection and state
 
-Create a [new script](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) and give it the name **RemoteRenderingCoordinator**. Open the script file and replace its entire content with the code below:
+Create a new folder called *RemoteRenderingCore*. Then inside *RemoteRenderingCore*, create another folder named *Scripts*. Finally create a [new script](https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html) and give it the name **RemoteRenderingCoordinator**. You should have the following project structure.
+
+![Project hierarchy](./media/project-structure.png)
+
+Open **RemoteRenderingCoordinator** in your code editor and replace its entire content with the code below:
 
 ```csharp
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using Microsoft.Azure.RemoteRendering;
 using Microsoft.Azure.RemoteRendering.Unity;
 using System;
@@ -477,7 +484,7 @@ public void StopRemoteSession()
 }
 ```
 
-We've now implemented the second stage.
+We've now implemented the second stage. The application can now query, start, stop and connect to remote sessions.
 
 ![ARR stack 2](./media/remote-render-stack-2.png)
 
@@ -535,7 +542,7 @@ private void LateUpdate()
 }
 ```
 
-Connecting to the runtime is the third stage.
+Connecting to the runtime is the third stage. The application can now bind to a remote session, allowing it to receive rendered frames from the cloud.
 
 ![ARR stack 3](./media/remote-render-stack-3.png)
 
@@ -587,6 +594,9 @@ The model path, progress handler and Transform will be defined in another script
 Create a new script called `RemoteRenderedModel` and add the following code:
 
 ```csharp
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using Microsoft.Azure.RemoteRendering;
 using Microsoft.Azure.RemoteRendering.Unity;
 using System;
@@ -612,7 +622,8 @@ public class RemoteRenderedModel : MonoBehaviour
 
     private Entity modelEntity;
     private bool modelEntityActive = false;
-
+    private bool modelReadyToLoad = false;
+    
     //Attach to and initialize current state (in case we're attaching late)
     private void OnEnable()
     {
@@ -631,8 +642,8 @@ public class RemoteRenderedModel : MonoBehaviour
     [ContextMenu("Load Model")]
     public async void LoadModel()
     {
-        if (modelEntityActive)
-            return; //We're already loaded or loading
+        if (modelEntityActive || !modelReadyToLoad)
+            return; //We're already loaded or loading or not ready to load
 
         modelEntityActive = true;
         OnStartLoad?.Invoke();
@@ -657,9 +668,11 @@ public class RemoteRenderedModel : MonoBehaviour
             case RemoteRenderingCoordinator.RemoteRenderingState.ConnectingToNewRemoteSession:
             case RemoteRenderingCoordinator.RemoteRenderingState.RemoteSessionReady:
             case RemoteRenderingCoordinator.RemoteRenderingState.ConnectingToRuntime:
+                modelReadyToLoad = false;
                 UnloadModel();
                 break;
             case RemoteRenderingCoordinator.RemoteRenderingState.RuntimeConnected:
+                modelReadyToLoad = true;
                 if (AutomaticallyLoad)
                     LoadModel();
                 break;
@@ -674,11 +687,11 @@ public class RemoteRenderedModel : MonoBehaviour
         modelEntityActive = false;
         if (modelEntity == null)
             return;
-
+        
         modelEntity.DestroyGameObject(EntityExtensions.DestroyGameObjectFlags.DestroyEmptyParents);
         modelEntity.Destroy();
         modelEntity = null;
-
+        
         ModelUnloaded?.Invoke();
     }
 
@@ -694,7 +707,7 @@ public class RemoteRenderedModel : MonoBehaviour
 }
 ```
 
-Finally, we have all the code in place for the four stages.
+Finally, we have all the code in place for the four stages. The application can now complete all the stages required!
 
 ![ARR stack 4](./media/remote-render-stack-4.png)
 

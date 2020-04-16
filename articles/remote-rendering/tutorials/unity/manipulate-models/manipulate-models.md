@@ -44,7 +44,7 @@ This tutorial provides a few scripts, assets and Unity prefabs to get you starte
 
 /## Introduce need to sync server & client
 
-/## Ray cast / spatial queries
+/## Ray cast and spatial queries of remote models
 
 /## Synchronizing and filtering the remote object graph into the Unity hierarchy
 
