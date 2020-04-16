@@ -9,10 +9,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 # As a developer, I want to use a custom vision model with Windows ML.
 ---
+
 # Tutorial: Use an ONNX model from Custom Vision with Windows ML (preview)
 
 Learn how to use an ONNX model exported from the Custom Vision service with Windows ML (preview).
