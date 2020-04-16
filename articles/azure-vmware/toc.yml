@@ -7,6 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Create private cloud - Azure CLI
 - name: Tutorials
   items:
   - name: 1 - Create an AVS private cloud
