@@ -53,7 +53,7 @@ You also need to install the [Gremlin Console](https://tinkerpop.apache.org/down
     port|443|Set to 443.
     username|*Your username*|The resource of the form `/dbs/<db>/colls/<coll>` where `<db>` is your database name and `<coll>` is your collection name.
     password|*Your primary key*| See second screenshot below. This is your primary key, which you can retrieve from the Keys page of the Azure portal, in the Primary Key box. Use the copy button on the left side of the box to copy the value.
-    connectionPool|{enableSsl: true}|Your connection pool setting for SSL.
+    connectionPool|{enableSsl: true}|Your connection pool setting for TLS.
     serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Set to this value and delete any `\n` line breaks when pasting in the value.
 
     For the hosts value, copy the **Gremlin URI** value from the **Overview** page:

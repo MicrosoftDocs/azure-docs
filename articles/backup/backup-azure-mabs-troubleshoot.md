@@ -21,7 +21,7 @@ We recommend you perform the below validation, before you start troubleshooting 
 - If registration is failing, then ensure the server on which you are trying to install Azure Backup Server is not already registered with another vault
 - If Push install fails, check if DPM agent is already present. If yes, then uninstall the agent and retry the installation
 - [Ensure no other process or antivirus software is interfering with Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)<br>
-- Ensure that the SQL Agent service is running and set to automatic in MAB server<br>
+- Ensure that the SQL Agent service is running and set to automatic in the MABS server<br>
 
 ## Invalid vault credentials provided
 

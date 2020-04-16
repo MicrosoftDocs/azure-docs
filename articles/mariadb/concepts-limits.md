@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 4/1/2020
 ---
 # Limitations in Azure Database for MariaDB
 The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service.
@@ -141,6 +141,10 @@ Review the [MariaDB documentation](https://mariadb.com/kb/en/server-system-varia
 |Memory Optimized|8|16777216|1024|536870912|
 |Memory Optimized|16|16777216|1024|1073741824|
 |Memory Optimized|32|16777216|1024|1073741824|
+
+### time_zone
+
+The time zone tables can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench. Refer to the [Azure portal](howto-server-parameters.md#working-with-the-time-zone-parameter) or [Azure CLI](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) articles for how to call the stored procedure and set the global or session-level time zones.
 
 ## Storage engine support
 

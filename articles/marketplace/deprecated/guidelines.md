@@ -2,7 +2,7 @@
 title: Guidelines for Azure Marketplace and AppSource publisher | Azure
 description: Guidelines for Azure Marketplace and AppSource for app and service publishers
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: jm-aditi-ms
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

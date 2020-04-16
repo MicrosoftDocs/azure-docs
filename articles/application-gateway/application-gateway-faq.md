@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 04/01/2020
 ms.author: victorh
 ---
 
@@ -23,11 +23,11 @@ Azure Application Gateway provides an application delivery controller (ADC) as a
 
 ### What features does Application Gateway support?
 
-Application Gateway supports autoscaling, SSL offloading, and end-to-end SSL, a web application firewall (WAF), cookie-based session affinity, URL path-based routing, multisite hosting, and other features. For a full list of supported features, see [Introduction to Application Gateway](application-gateway-introduction.md).
+Application Gateway supports autoscaling, TLS offloading, and end-to-end TLS, a web application firewall (WAF), cookie-based session affinity, URL path-based routing, multisite hosting, and other features. For a full list of supported features, see [Introduction to Application Gateway](application-gateway-introduction.md).
 
 ### How do Application Gateway and Azure Load Balancer differ?
 
-Application Gateway is a layer 7 load balancer, which means it works only with web traffic (HTTP, HTTPS, WebSocket, and HTTP/2). It supports capabilities such as SSL termination, cookie-based session affinity, and round robin for load-balancing traffic. Load Balancer load-balances traffic at layer 4 (TCP or UDP).
+Application Gateway is a layer 7 load balancer, which means it works only with web traffic (HTTP, HTTPS, WebSocket, and HTTP/2). It supports capabilities such as TLS termination, cookie-based session affinity, and round robin for load-balancing traffic. Load Balancer load-balances traffic at layer 4 (TCP or UDP).
 
 ### What protocols does Application Gateway support?
 
@@ -107,7 +107,15 @@ Most deployments that use the v2 SKU take around 6 minutes to provision. However
 
 ### Can I use Exchange Server as a backend with Application Gateway?
 
-No. Application Gateway doesn't support email protocols such as SMTP, IMAP, and POP3. 
+No. Application Gateway doesn't support email protocols such as SMTP, IMAP, and POP3.
+
+### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
+
+Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
+
+### Will the Application Gateway v1 SKU continue to be supported?
+
+Yes. The Application Gateway v1 SKU will continue to be supported. However, it is strongly recommended that you move to v2 to take advantage of the feature updates in that SKU. For more information, see [Autoscaling and Zone-redundant Application Gateway v2](application-gateway-autoscaling-zone-redundant.md).
 
 ## Performance
 
@@ -199,15 +207,11 @@ Yes. See [restrict access to specific source IPs](https://docs.microsoft.com/azu
 
 No.
 
-### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
-
-Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
-
 ### Does Application Gateway support IPv6?
 
 Application Gateway v2 does not currently support IPv6. It can operate in a dual stack VNet using only IPv4, but the gateway subnet must be IPv4-only. Application Gateway v1 does not support dual stack VNets. 
 
-## Configuration - SSL
+## Configuration - TLS
 
 ### What certificates does Application Gateway support?
 
@@ -246,13 +250,13 @@ Application Gateway supports the following cipher suites.
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
-For information on how to customize SSL options, see [Configure SSL policy versions and cipher suites on Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
+For information on how to customize TLS options, see [Configure TLS policy versions and cipher suites on Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
 
 ### Does Application Gateway support reencryption of traffic to the backend?
 
-Yes. Application Gateway supports SSL offload and end-to-end SSL, which reencrypt traffic to the backend.
+Yes. Application Gateway supports TLS offload and end-to-end TLS, which reencrypt traffic to the backend.
 
-### Can I configure SSL policy to control SSL protocol versions?
+### Can I configure TLS policy to control TLS protocol versions?
 
 Yes. You can configure Application Gateway to deny TLS1.0, TLS1.1, and TLS1.2. By default, SSL 2.0 and 3.0 are already disabled and aren't configurable.
 
@@ -269,9 +273,9 @@ Yes. In Application Gateway, you can [configure cipher suites](application-gatew
 
 Application Gateway uses SHA256 to for backend management.
 
-### How many SSL certificates does Application Gateway support?
+### How many TLS/SSL certificates does Application Gateway support?
 
-Application Gateway supports up to 100 SSL certificates.
+Application Gateway supports up to 100 TLS/SSL certificates.
 
 ### How many authentication certificates for backend reencryption does Application Gateway support?
 
@@ -279,7 +283,7 @@ Application Gateway supports up to 100 authentication certificates.
 
 ### Does Application Gateway natively integrate with Azure Key Vault?
 
-Yes, the Application Gateway v2 SKU supports Key Vault. For more information, see [SSL termination with Key Vault certificates](key-vault-certs.md).
+Yes, the Application Gateway v2 SKU supports Key Vault. For more information, see [TLS termination with Key Vault certificates](key-vault-certs.md).
 
 ### How do I configure HTTPS listeners for .com and .net sites? 
 
@@ -325,15 +329,11 @@ For more information, see [OWASP top-10 vulnerabilities](https://www.owasp.org/i
 
 Yes. You can enable DDoS protection on the virtual network where the application gateway is deployed. This setting ensures that the Azure DDoS Protection service also protects the application gateway virtual IP (VIP).
 
-### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
-
-Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
-
 ## Configuration - ingress controller for AKS
 
 ### What is an Ingress Controller?
 
-Kubernetes allows creation of `deployment` and `service` resource to expose a group of pods internally in the cluster. To expose the same service externally, an [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource is defined which provides load balancing, SSL termination and name-based virtual hosting.
+Kubernetes allows creation of `deployment` and `service` resource to expose a group of pods internally in the cluster. To expose the same service externally, an [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource is defined which provides load balancing, TLS termination and name-based virtual hosting.
 To satisfy this `Ingress` resource, an Ingress Controller is required which listens for any changes to `Ingress` resources and configures the load balancer policies.
 
 The Application Gateway Ingress Controller allows [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) to be used as the ingress for an [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) also known as an AKS cluster.
@@ -348,11 +348,11 @@ Currently, one instance of Ingress Controller can only be associated to one Appl
 
 Application Gateway provides three logs: 
 
-* **ApplicationGatewayAccessLog**: The access log contains each request submitted to the application gateway frontend. The data includes the caller's IP, URL requested, response latency, return code, and bytes in and out. The access log is collected every 300 seconds. It contains one record per application gateway.
+* **ApplicationGatewayAccessLog**: The access log contains each request submitted to the application gateway frontend. The data includes the caller's IP, URL requested, response latency, return code, and bytes in and out. It contains one record per application gateway.
 * **ApplicationGatewayPerformanceLog**: The performance log captures performance information for each application gateway. Information includes the throughput in bytes, total requests served, failed request count, and healthy and unhealthy backend instance count.
 * **ApplicationGatewayFirewallLog**: For application gateways that you configure with WAF, the firewall log contains requests that are logged through either detection mode or prevention mode.
 
-For more information, see [Backend health, diagnostics logs, and metrics for Application Gateway](application-gateway-diagnostics.md).
+All logs are collected every 60 seconds. For more information, see [Backend health, diagnostics logs, and metrics for Application Gateway](application-gateway-diagnostics.md).
 
 ### How do I know if my backend pool members are healthy?
 

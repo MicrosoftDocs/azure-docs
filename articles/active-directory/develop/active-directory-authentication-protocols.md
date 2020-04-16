@@ -1,11 +1,10 @@
 ---
-title: Microsoft identity platform authentication protocols | Microsoft Docs
+title: Microsoft identity platform authentication protocols
 description: An overview of the authentication protocols supported by Microsoft identity platform
 author: rwike77
 services: active-directory
 manager: CelesteDG
 
-ms.assetid: 7a838ae2-c24c-4304-b6c0-e77fb888e6c0
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual

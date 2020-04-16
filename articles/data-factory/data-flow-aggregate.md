@@ -10,7 +10,9 @@ ms.custom: seo-lt-2019
 ms.date: 03/24/2020
 ---
 
-# Aggregate transformation in mapping data flow 
+# Aggregate transformation in mapping data flow
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 The Aggregate transformation defines aggregations of columns in your data streams. Using the Expression Builder, you can define different types of aggregations such as SUM, MIN, MAX, and COUNT grouped by existing or computed columns.
 
@@ -89,6 +91,17 @@ MoviesYear aggregate(
                 groupBy(year),
                 avgrating = avg(toInteger(Rating))
             ) ~> AvgComedyRatingByYear
+```
+
+![Aggregate data flow script](media/data-flow/aggdfs1.png "Aggregate data flow script")
+
+```MoviesYear```: Derived Column defining year and title columns
+```AvgComedyRatingByYear```: Aggregate transformation for average rating of comedies grouped by year
+```avgrating```: Name of new column being created to hold the aggregated value
+
+```
+MoviesYear aggregate(groupBy(year),
+	avgrating = avg(toInteger(Rating))) ~> AvgComedyRatingByYear
 ```
 
 ## Next steps

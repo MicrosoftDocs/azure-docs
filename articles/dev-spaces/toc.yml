@@ -3,7 +3,7 @@
   items:
   - name: Overview
     items: 
-    - name: About Azure Dev Spaces
+    - name: What is Azure Dev Spaces?
       href: about.md
   - name: Quickstarts
     items:

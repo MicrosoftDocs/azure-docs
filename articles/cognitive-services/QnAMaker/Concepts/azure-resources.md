@@ -45,11 +45,21 @@ The following table gives you some high-level guidelines.
 | Dev/Test Environment   | Standard SKU         | Shared      | Basic        | Publish Up to 14 KBs, 2 GB size    |
 | Production Environment | Standard SKU         | Basic       | Standard     | Publish Up to 49 KBs, 25 GB size |
 
+## Recommended Settings
+
+|Target QPS | App Service | Azure Cognitive Search |
+| -------------------- | ----------- | ------------ |
+| 3             | S1, 1 Instance   | S1, 1 Instance    |
+| 50         | S3, 10 Instances       | S1, 12 Instances         |
+| 80         | S3, 10 Instances      |  S3, 12 Instances  |
+| 100         | P3V2, 10 Instances  | S3, 12 Instances, 3 Partitions   |
+| 200 to 250         | P3V2, 20 Instances | S3, 12 Instances, 3 Partitions    |
+
 ## When to change a pricing tier
 
 |Upgrade|Reason|
 |--|--|
-|[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) QnA Maker management SKU|You want to have more QnA sets or document sources in your knowledge base.|
+|[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) QnA Maker management SKU|You want to have more QnA pairs or document sources in your knowledge base.|
 |[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) App Service SKU and check Cognitive Search tier and [create Cognitive Search replicas](../../../search/search-capacity-planning.md)|Your knowledge base needs to serve more requests from your client app, such as a chat bot.|
 |[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) Azure Cognitive Search service|You plan to have many knowledge bases.|
 
@@ -90,8 +100,8 @@ Each Azure resource created with QnA Maker has a specific purpose:
 
 The [Cognitive Search](../../../search/index.yml) resource is used to:
 
-* Store the QnA sets
-* Provide the initial ranking (ranker #1) of the QnA sets at runtime
+* Store the QnA pairs
+* Provide the initial ranking (ranker #1) of the QnA pairs at runtime
 
 #### Index usage
 
@@ -105,7 +115,7 @@ The first knowledge base created in the QnA Maker resource is used to determine 
 
 ### QnA Maker resource
 
-The QnA Maker resource provides access to the authoring and publishing APIs as well as the natural language processing (NLP) based second ranking layer (ranker #2) of the QnA sets at runtime.
+The QnA Maker resource provides access to the authoring and publishing APIs as well as the natural language processing (NLP) based second ranking layer (ranker #2) of the QnA pairs at runtime.
 
 The second ranking applies intelligent filters that can include metadata and follow-up prompts.
 

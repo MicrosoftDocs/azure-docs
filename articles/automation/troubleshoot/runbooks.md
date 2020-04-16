@@ -28,7 +28,7 @@ When you have errors executing runbooks in Azure Automation, you can use the fol
 
 3. **Ensure that your nodes and Automation workspace have the required modules.** 
 
-    If your runbook imports any modules, verify that they are available to your Automation account using the steps listed in [Import modules](../shared-resources/modules.md#import-modules). Update your modules to the latest version by following the instructions at [Update Azure modules in Azure Automation](..//automation-update-azure-modules.md). For more troubleshooting information, see [Troubleshoot modules](shared-resources.md#modules).
+    If your runbook imports any modules, verify that they are available to your Automation account using the steps listed in [Import modules](../shared-resources/modules.md#importing-modules). Update your modules to the latest version by following the instructions at [Update Azure modules in Azure Automation](..//automation-update-azure-modules.md). For more troubleshooting information, see [Troubleshoot modules](shared-resources.md#modules).
 
 4. **Do if your runbook is suspended or unexpectedly fails.**
 

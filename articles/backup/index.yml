@@ -56,8 +56,8 @@ landingContent:
             url: tutorial-sql-backup.md
           - text: Backup files and folders on Windows Server
             url: tutorial-backup-windows-server-to-azure.md
-          - text: Back up Azure Files shares
-            url: tutorial-backup-azure-files.md
+          - text: Back up SAP HANA databases in an Azure VM
+            url: tutorial-backup-sap-hana-db.md
   # Card
   - title: Learn about the latest features in Azure Backup
     linkLists:

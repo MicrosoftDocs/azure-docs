@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 04/03/2020
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -239,7 +239,11 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ## Media Services limits
 
-[!INCLUDE [azure-mediaservices-limits](../../../includes/azure-mediaservices-limits.md)]
+[!INCLUDE [azure-mediaservices-limits](../../../includes/media-servieces-limits-quotas-constraints.md)]
+
+### Media Services v2 (legacy)
+
+For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](https://docs.microsoft.com/azure/media-services/previous/media-services-quotas-and-limitations)
 
 ## Mobile Services limits
 

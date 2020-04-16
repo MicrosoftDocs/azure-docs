@@ -176,6 +176,8 @@ landingContent:
             url: sql-api-dotnet-application.md
           - text: Java app with Async SDK
             url: sql-api-async-java-get-started.md
+          - text: Java app sample with Change Feed
+            url: create-sql-api-java-changefeed.md
           - text: Query data with SQL queries
             url: tutorial-query-sql-api.md
       - linkListType: how-to-guide

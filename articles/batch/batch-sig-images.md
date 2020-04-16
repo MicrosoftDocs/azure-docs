@@ -35,6 +35,9 @@ Using a Shared Image configured for your scenario can provide several advantages
 
 ## Prerequisites
 
+> [!NOTE]
+> You need to authenticate using Azure AD. If you use shared-key-auth, you will get an authentication error.  
+
 * **An Azure Batch account.** To create a Batch account, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
 * **A Shared Image Gallery image**. To create a Shared Image, you need to have or create a managed image resource. The image should be created from snapshots of the VM's OS disk and optionally its attached data disks. For more information, see [Prepare a managed image](#prepare-a-managed-image).
@@ -82,6 +85,9 @@ Once you have successfully created your managed image, you need to create a Shar
 ## Create a pool from a Shared Image using the Azure CLI
 
 To create a pool from your Shared Image using the Azure CLI, use the `az batch pool create` command. Specify the Shared Image ID in the `--image` field. Make sure the OS type and SKU matches the versions specified by `--node-agent-sku-id`
+
+> [!NOTE]
+> You need to authenticate using Azure AD. If you use shared-key-auth, you will get an authentication error.  
 
 ```azurecli
 az batch pool create \

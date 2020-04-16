@@ -7,7 +7,7 @@ ms.date: 03/27/2020
 
 # Naming rules and restrictions for Azure resources
 
-This article summarizes naming rules and restrictions for Azure resources. For recommendations about how to name resources, see [Ready: Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+This article summarizes naming rules and restrictions for Azure resources. For recommendations about how to name resources, see [Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 Resource names are case-insensitive unless specifically noted in the valid characters column.
 

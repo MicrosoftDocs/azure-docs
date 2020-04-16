@@ -77,7 +77,7 @@ When you use an app assigned address, your traffic still goes through the same f
 * Support IP-based SSL needs for your app
 * Set a dedicated address for your app that is not shared with anything else
 
-You can learn how to set an address on your app with the tutorial on [Configuring IP based SSL][appassignedaddress]. 
+You can learn how to set an address on your app with the tutorial on [Add a TLS/SSL certificate in Azure App Service][appassignedaddress]. 
 
 ### Access Restrictions 
 

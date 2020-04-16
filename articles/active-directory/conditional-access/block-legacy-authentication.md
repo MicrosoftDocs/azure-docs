@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 03/31/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -89,7 +89,7 @@ These logs will indicate which users are still depending on legacy authenticatio
 
 ### Block legacy authentication 
 
-In a Conditional Access policy, you can set a condition that is tied to the client apps that are used to access your resources. The client apps condition enables you to narrow down the scope to apps using legacy authentication by selecting **Other clients** for **Mobile apps and desktop clients**.
+In a Conditional Access policy, you can set a condition that is tied to the client apps that are used to access your resources. The client apps condition enables you to narrow down the scope to apps using legacy authentication by selecting **Exchange ActiveSync clients** and **Other clients** under **Mobile apps and desktop clients**.
 
 ![Other clients](./media/block-legacy-authentication/01.png)
 

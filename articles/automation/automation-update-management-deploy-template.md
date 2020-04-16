@@ -6,7 +6,7 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/27/2020
+ms.date: 03/30/2020
 
 ---
 
@@ -52,6 +52,7 @@ The following parameters in the template are set with a default value for the Lo
 
 * sku - defaults to the new Per-GB pricing tier released in the April 2018 pricing model
 * data retention - defaults to thirty days
+* capacity reservation - defaults to 100 GB
 
 >[!WARNING]
 >If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**.
@@ -67,89 +68,89 @@ The following parameters in the template are set with a default value for the Lo
     ```json
     {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"workspaceName": {
-			"type": "string",
-			"metadata": {
-				"description": "Workspace name"
-			}
-		},
-		"pricingTier": {
-			"type": "string",
-			"allowedValues": [
-				"pergb2018",
-				"Free",
-				"Standalone",
-				"PerNode",
-				"Standard",
-				"Premium"
-			],
-			"defaultValue": "pergb2018",
-			"metadata": {
-				"description": "Pricing tier: perGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
-			}
-		},
-		"dataRetention": {
-			"type": "int",
-			"defaultValue": 30,
-			"minValue": 7,
-			"maxValue": 730,
-			"metadata": {
-				"description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
-			}
-		},
-		"immediatePurgeDataOn30Days": {
-			"type": "bool",
-			"defaultValue": "[bool('false')]",
-			"metadata": {
-				"description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
-			}
-		},
-		"location": {
-			"type": "string",
-			"allowedValues": [
-				"australiacentral",
-				"australiaeast",
-				"australiasoutheast",
-				"brazilsouth",
-				"canadacentral",
-				"centralindia",
-				"centralus",
-				"eastasia",
-				"eastus",
-				"eastus2",
-				"francecentral",
-				"japaneast",
-				"koreacentral",
-				"northcentralus",
-				"northeurope",
-				"southafricanorth",
-				"southcentralus",
-				"southeastasia",
-				"uksouth",
-				"ukwest",
-				"westcentralus",
-				"westeurope",
-				"westus",
-				"westus2"
-			],
-			"metadata": {
-				"description": "Specifies the location in which to create the workspace."
-			}
-		},
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "string",
+            "metadata": {
+                "description": "Workspace name"
+            }
+        },
+        "sku": {
+            "type": "string",
+            "allowedValues": [
+                "pergb2018",
+                "Free",
+                "Standalone",
+                "PerNode",
+                "Standard",
+                "Premium"
+            ],
+            "defaultValue": "pergb2018",
+            "metadata": {
+                "description": "Pricing tier: perGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+            }
+        },
+        "dataRetention": {
+            "type": "int",
+            "defaultValue": 30,
+            "minValue": 7,
+            "maxValue": 730,
+            "metadata": {
+                "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
+            }
+        },
+        "immediatePurgeDataOn30Days": {
+            "type": "bool",
+            "defaultValue": "[bool('false')]",
+            "metadata": {
+                "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
+            }
+        },
+        "location": {
+            "type": "string",
+            "allowedValues": [
+                "australiacentral",
+                "australiaeast",
+                "australiasoutheast",
+                "brazilsouth",
+                "canadacentral",
+                "centralindia",
+                "centralus",
+                "eastasia",
+                "eastus",
+                "eastus2",
+                "francecentral",
+                "japaneast",
+                "koreacentral",
+                "northcentralus",
+                "northeurope",
+                "southafricanorth",
+                "southcentralus",
+                "southeastasia",
+                "uksouth",
+                "ukwest",
+                "westcentralus",
+                "westeurope",
+                "westus",
+                "westus2"
+            ],
+            "metadata": {
+                "description": "Specifies the location in which to create the workspace."
+            }
+        },
         "automationAccountName": {
             "type": "string",
             "metadata": {
                 "description": "Automation account name"
             }
         },
-		"automationAccountLocation": {
-		    "type": "string",
-			"metadata": {
-			    "description": "Specify the location in which to create the Automation account."
-			}
-		}
+        "automationAccountLocation": {
+            "type": "string",
+            "metadata": {
+                "description": "Specify the location in which to create the Automation account."
+            }
+        }
     },
     "variables": {
         "Updates": {
@@ -164,7 +165,8 @@ The following parameters in the template are set with a default value for the Lo
             "apiVersion": "2017-03-15-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": { 
+                "sku": {
+                    "Name": "[parameters('sku')]",
                     "name": "CapacityReservation",
                     "capacityReservationLevel": 100
                 },
@@ -209,7 +211,7 @@ The following parameters in the template are set with a default value for the Lo
                     "name": "Basic"
                 }
             },
-		},
+        },
         {
             "apiVersion": "2015-11-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/linkedServices",
@@ -227,7 +229,7 @@ The following parameters in the template are set with a default value for the Lo
     }
     ```
 
-2. Edit the template to meet your requirements.
+2. Edit the template to meet your requirements. Consider creating a [Resource Manager parameters file](../azure-resource-manager/templates/parameter-files.md) instead of passing parameters as inline values.
 
 3. Save this file as deployUMSolutiontemplate.json to a local folder.
 

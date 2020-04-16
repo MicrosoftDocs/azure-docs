@@ -42,8 +42,6 @@ landingContent:
             url: provision-vm.md
           - text: Create an Ubuntu Data Science Virtual Machine
             url: dsvm-ubuntu-intro.md
-          - text: Create a CentOS Data Science Virtual Machine
-            url: linux-dsvm-intro.md
           - text: Create a Geo AI Data Science Virtual Machine
             url: provision-geo-ai-dsvm.md                        
 

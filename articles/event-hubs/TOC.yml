@@ -126,6 +126,8 @@
     maintainContext: true
 - name: How-to guides
   items:
+  - name: Use Blob Storage as checkpoint store on Azure Stack Hub
+    href: use-blob-storage-checkpoint-store-azure-stack-hub.md
   - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
     href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fevent-hubs%2ftoc.json
   - name: Develop
@@ -160,6 +162,8 @@
       maintainContext: true
   - name: Integrate with Apache Kafka
     items:
+      - name: Kafka developer guide for Event Hubs
+        href: apache-kafka-developer-guide.md    
       - name: Mirror a Kafka broker in an event hub
         href: event-hubs-kafka-mirror-maker-tutorial.md
       - name: Connect Apache Spark to an event hub

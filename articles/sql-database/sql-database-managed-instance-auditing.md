@@ -134,12 +134,12 @@ The following section describes the configuration of auditing on your managed in
 
      1. Click **OK** in the "Create Audit" dialog.
 
-4. <a id="createspec"></a>After configuring the Blob container as target for the audit logs, create a Server Audit Specification or Database Audit Specification as you would for SQL Server:
+4. <a id="createspec"></a>After configuring the Blob container as target for the audit logs, create and enable a Server Audit Specification or Database Audit Specification as you would for SQL Server:
 
    - [Create Server audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Create Database audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-5. Enable the server audit that you created in step 4:
+5. Enable the server audit that you created in step 3:
 
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>]
@@ -180,7 +180,7 @@ Audit logs from a managed instance can be  sent to Even Hubs or Azure Monitor lo
     GO
     ```
 
-9. Create a server audit specification or database audit specification as you would for SQL Server:
+9. Create and enable a server audit specification or database audit specification as you would for SQL Server:
 
    - [Create Server audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Create Database audit specification T-SQL guide](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
@@ -188,7 +188,8 @@ Audit logs from a managed instance can be  sent to Even Hubs or Azure Monitor lo
 10. Enable the server audit created in step 8:
  
     ```SQL
-    ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);
+    ALTER SERVER AUDIT [<your_audit_name>]
+    WITH (STATE=ON);
     GO
     ```
 

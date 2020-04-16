@@ -85,8 +85,6 @@
   items:
     - name: TLS support
       href: iot-hub-tls-support.md
-    - name: TLS 1.0 and 1.1 deprecation
-      href: iot-hub-tls-deprecating-1-0-and-1-1.md
     - name: Virtual networks support
       href: virtual-network-support.md
     - name: Message enrichments overview
@@ -428,12 +426,10 @@
       href: https://docs.microsoft.com/javascript/api/azure-iothub/
     - name: C device SDK
       href: https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/
-    - name: Azure IoT Edge
-      href: http://azure.github.io/iot-edge/
     - name: REST (Device)
       href: https://docs.microsoft.com/rest/api/iothub/device
     - name: REST (Service)
-      href: https://docs.microsoft.com/rest/api/iothub/service
+      href: https://docs.microsoft.com/rest/api/iothub/service/configuration
     - name: REST (IoT Hub Resource)
       href: https://docs.microsoft.com/rest/api/iothub/iothubresource
     - name: REST (Certificates)
@@ -446,6 +442,8 @@
           href: iot-hub-operations-monitoring.md
         - name: Migrate to diagnostics settings
           href: iot-hub-migrate-to-diagnostics-settings.md
+        - name: TLS 1.0 and 1.1 deprecation
+          href: iot-hub-tls-deprecating-1-0-and-1-1.md
 - name: Resources
   items:
     - name: Support and help options

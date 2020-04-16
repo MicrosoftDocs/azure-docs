@@ -85,11 +85,14 @@ For an overview of DSC concepts and terminology, see
 
 ### How Guest Configuration modules differ from Windows PowerShell DSC modules
 
-When Guest Configuration audits a machine, it first runs `Test-TargetResource` to determine if it is
-in the correct state. The boolean value returned by the function determines if the Azure Resource
-Manager status for the Guest Assignment should be Compliant/Not-Compliant. Next the provider runs
-`Get-TargetResource` to return the current state of each setting so details are available both about
-why a machine isn't compliant, or to confirm that the current state is compliant.
+When Guest Configuration audits a machine:
+
+1. The agent first runs `Test-TargetResource` to determine if the configuration is
+in the correct state.
+1. The boolean value returned by the function determines if the Azure Resource
+Manager status for the Guest Assignment should be Compliant/Not-Compliant.
+1. The provider runs `Get-TargetResource` to return the current state of each setting so details are available both about
+why a machine isn't compliant and to confirm that the current state is compliant.
 
 ### Get-TargetResource requirements
 
@@ -128,6 +131,25 @@ return @{
     reasons = $reasons
 }
 ```
+
+The Reasons property must also be added to the schema MOF for the resource as an embedded class.
+
+```mof
+[ClassVersion("1.0.0.0")] 
+class Reason
+{
+    [Read] String Phrase;
+    [Read] String Code;
+};
+
+[ClassVersion("1.0.0.0"), FriendlyName("ResourceName")]
+class ResourceName : OMI_BaseResource
+{
+    [Key, Description("Example description")] String Example;
+    [Read, EmbeddedInstance("Reason")] String Reasons[];
+};
+```
+
 ### Configuration requirements
 
 The name of the custom configuration must be consistent everywhere. The name of
@@ -176,7 +198,7 @@ and not communicating with the service.
 
 ## Step by step, creating a custom Guest Configuration audit policy for Windows
 
-Create a DSC configuration. The following PowerShell script example creates a configuration named
+Create a DSC configuration to audit settings. The following PowerShell script example creates a configuration named
 **AuditBitLocker**, imports the **PsDscResources** resource module, and uses the `Service` resource
 to audit for a running service. The configuration script can be executed from a Windows or macOS
 machine.
@@ -208,7 +230,7 @@ configuration makes it easy to organize many files when operating at scale.
 Once the MOF is compiled, the supporting files must be packaged together. The completed package is
 used by Guest Configuration to create the Azure Policy definitions.
 
-The `New-GuestConfigurationPackage` cmdlet creates the package. Parameters of the
+The `New-GuestConfigurationPackage` cmdlet creates the package. Modules that are needed by the configuration must be in available in `$Env:PSModulePath`. Parameters of the
 `New-GuestConfigurationPackage` cmdlet when creating Windows content:
 
 - **Name**: Guest Configuration package name.
@@ -230,7 +252,8 @@ development environment as is used inside Azure machines. Using this solution, y
 integration testing locally before releasing to billed cloud environments.
 
 Since the agent is actually evaluating the local environment, in most cases you need to run the
-Test- cmdlet on the same OS platform as you plan to audit.
+Test- cmdlet on the same OS platform as you plan to audit. The test will only use modules that are included
+in the content package.
 
 Parameters of the `Test-GuestConfigurationPackage` cmdlet:
 

@@ -16,7 +16,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Sign in to Azure
 
-Sign in to Azure at https://portal.azure.com
+[Sign in to Azure](https://portal.azure.com)
 
 ## Create Automation account
 

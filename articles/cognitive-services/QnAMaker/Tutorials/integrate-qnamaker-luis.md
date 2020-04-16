@@ -1,7 +1,7 @@
 ---
-title: LUIS and QnAMaker - Bot Integration 
+title: LUIS and QnAMaker - bot integration
 titleSuffix: Azure Cognitive Services
-description: As your QnA Maker knowledge base grows large, it becomes difficult to maintain it as a single monolithic set and there is a need to split the knowledge base into smaller logical chunks.
+description: As your QnA Maker knowledge base grows larger, it becomes difficult to maintain it as a single monolithic set. Split the knowledge base into smaller, logical chunks.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -13,50 +13,50 @@ ms.author: diberry
 ms.custom: seodec18
 ---
 
-# Use bot with QnA Maker and LUIS to distribute your knowledge base
-As your QnA Maker knowledge base grows large, it becomes difficult to maintain it as a single monolithic set and there is a need to split the knowledge base into smaller logical chunks.
+# Use a bot with QnA Maker and LUIS to distribute your knowledge base
+As your QnA Maker knowledge base grows larger, it becomes difficult to maintain it as a single monolithic set. Split the knowledge base into smaller, logical chunks.
 
-While it is straightforward to create multiple knowledge bases in QnA Maker, you will need some logic to route the incoming question to the appropriate knowledge base. You can do this by using LUIS.
+Although it's straightforward to create multiple knowledge bases in QnA Maker, you will need some logic to route the incoming question to the appropriate knowledge base. You can do this by using LUIS.
 
-This article uses Bot Framework v3 SDK. Please see this [Bot Framework article](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csharp), if you are interested in Bot Framework v4 SDK version of this information.
+This article uses the Bot Framework v3 SDK. If you're interested in the Bot Framework v4 SDK version of this information, see [Use multiple LUIS and QnA models](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csharp).
 
 ## Architecture
 
-![QnA Maker with Language Understanding architecture](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![Graphic showing architecture of QnA Maker with Language Understanding](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
-In the above scenario, QnA Maker first gets the intent of the incoming question from a LUIS model, and then use that to route it to the correct QnA Maker knowledge base.
+The preceding graphic shows that QnA Maker first gets the intent of the incoming question from a LUIS model. Then, QnA Maker uses that intent to route the question to the correct QnA Maker knowledge base.
 
 ## Create a LUIS app
 
 1. Sign in to the [LUIS](https://www.luis.ai/) portal.
 1. [Create an app](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
 1. [Add an intent](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) for each QnA Maker knowledge base. The example utterances should correspond to questions in the QnA Maker knowledge bases.
-1. [Train the LUIS app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) and [publish the LUIS app](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp) your LUIS App.
-1. In the **Manage** section, make note of your LUIS app ID, LUIS endpoint key, and [custom domain name](../../cognitive-services-custom-subdomains.md). You will need these values later. 
+1. [Train the LUIS app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) and [publish the LUIS app](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp).
+1. In the **Manage** section, make note of your LUIS app ID, LUIS endpoint key, and [custom domain name](../../cognitive-services-custom-subdomains.md). You will need these values later.
 
 ## Create QnA Maker knowledge bases
 
 1. Sign in to [QnA Maker](https://qnamaker.ai).
-1. [Create](https://www.qnamaker.ai/Create) a knowledge bases for each intent in the LUIS app.
-1. Test and publish the knowledge bases. When you publish each KB, make note of the KB ID, resource name (custom subdomain before _.azurewebsites.net/qnamaker_), and the authorization endpoint key. You will need these values later. 
+1. [Create](https://www.qnamaker.ai/Create) a knowledge base for each intent in the LUIS app.
+1. Test and publish the knowledge bases. When you publish each one, make note of the ID, resource name (the custom subdomain before _.azurewebsites.net/qnamaker_), and the authorization endpoint key. You will need these values later.
 
-    This article assumes the KBs are all created in the same Azure QnA Maker subscription.
+    This article assumes the knowledge bases are all created in the same Azure QnA Maker subscription.
 
-    ![QnA Maker HTTP request](../media/qnamaker-tutorials-qna-luis/qnamaker-http-request.png)
+    ![Screenshot of QnA Maker HTTP request](../media/qnamaker-tutorials-qna-luis/qnamaker-http-request.png)
 
-## Web app Bot
+## Web app bot
 
-1. [Create a "Basic" Web App bot](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) which automatically includes a LUIS app. Select C# programming language.
+1. [Create a "Basic" bot with Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0), which automatically includes a LUIS app. Select the C# programming language.
 
-1. Once the web app bot is created, in the Azure portal, select the web app bot.
-1. Select **Application Settings** in the Web app bot service navigation, then scroll down to **Application settings** section of available settings.
-1. Change the **LuisAppId** to the value of the LUIS app created in the preceding  section then select **Save**.
+1. After you create the web app bot, in the Azure portal, select the web app bot.
+1. In the web app bot service navigation, select **Application Settings**. Then scroll down to the **Application settings** section of available settings.
+1. Change the **LuisAppId** to the value of the LUIS app created in the preceding section. Then select **Save**.
 
 
-## Change code in BasicLuisDialog.cs
+## Change the code in the BasicLuisDialog.cs file
 1. From the **Bot Management** section of the web app bot navigation in the Azure portal, select **Build**.
-2. Select **Open online code editor**. A new browser tab opens with the online editing environment. 
-3. In the **WWWROOT** section, select the **Dialogs** directory, then open **BasicLuisDialog.cs**.
+2. Select **Open online code editor**. A new browser tab opens with the online editing environment.
+3. In the **WWWROOT** section, select the **Dialogs** directory, and then open **BasicLuisDialog.cs**.
 4. Add dependencies to the top of the **BasicLuisDialog.cs** file:
 
     ```csharp
@@ -71,7 +71,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
     using System.Text;
     ```
 
-5. Add the below classes to deserialize the QnA Maker response:
+5. Add the following classes to deserialize the QnA Maker response:
 
     ```csharp
     public class Metadata
@@ -98,7 +98,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
     ```
 
 
-6. Add the following class to make an HTTP request to the QnA Maker service. Notice that the **Authorization** header's value includes the word, `EndpointKey` with a space following the word. The JSON result is deserialized into the preceding classes and the first answer is returned.
+6. Add the following class to make an HTTP request to the QnA Maker service. Notice that the **Authorization** header's value includes the word, `EndpointKey`, with a space following the word. The JSON result is deserialized into the preceding classes, and the first answer is returned.
 
     ```csharp
     [Serializable]
@@ -150,7 +150,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
     ```
 
 
-7. Modify the BasicLuisDialog class. Each LUIS intent should have a method decorated with **LuisIntent**. The parameter to the decoration is the actual LUIS intent name. The method name that is decorated _should_ be the LUIS intent name for readability and maintainability but doesn't have to be the same at design or run time.  
+7. Modify the `BasicLuisDialog` class. Each LUIS intent should have a method decorated with **LuisIntent**. The parameter to the decoration is the actual LUIS intent name. The method name that is decorated _should_ be the LUIS intent name for readability and maintainability, but doesn't have to be the same at design or runtime.
 
     ```csharp
     [Serializable]
@@ -162,10 +162,10 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
         static string LUIS_hostRegion = "westus.api.cognitive.microsoft.com";
 
         // QnA Maker global settings
-        // assumes all KBs are created with same Azure service
+        // assumes all knowledge bases are created with same Azure service
         static string qnamaker_endpointKey = "<QnA Maker endpoint KEY>";
         static string qnamaker_resourceName = "my-qnamaker-s0-s";
-        
+
         // QnA Maker Human Resources Knowledge base
         static string HR_kbID = "<QnA Maker KNOWLEDGE BASE ID>";
 
@@ -219,20 +219,20 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
 
 
 ## Build the bot
-1. In the code editor, right-click on `build.cmd` and select **Run from Console**.
+1. In the code editor, right-click **build.cmd**, and select **Run from Console**.
 
-    ![run from console](../media/qnamaker-tutorials-qna-luis/run-from-console.png)
+    ![Screenshot of Run from Console option in the code editor](../media/qnamaker-tutorials-qna-luis/run-from-console.png)
 
-2. The code view is replaced with a terminal window showing the progress and results of the build.
+2. The code view is replaced with a terminal window that shows the progress and results of the build.
 
-    ![console build](../media/qnamaker-tutorials-qna-luis/console-build.png)
+    ![Screenshot of the console build](../media/qnamaker-tutorials-qna-luis/console-build.png)
 
 ## Test the bot
 In the Azure portal, select **Test in Web Chat** to test the bot. Type messages from different intents to get the response from the corresponding knowledge base.
 
-![web chat test](../media/qnamaker-tutorials-qna-luis/qnamaker-web-chat.png)
+![Screenshot of web chat test](../media/qnamaker-tutorials-qna-luis/qnamaker-web-chat.png)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a business continuity plan for QnA Maker](../How-To/business-continuity-plan.md)
+> [Integrate your knowledge base with an agent in Power Virtual Agents](integrate-with-power-virtual-assistant-fallback-topic.md)
