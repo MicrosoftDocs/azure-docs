@@ -52,7 +52,7 @@ The following is a command-by-command description of the actions of the deployme
 
 **Downloading and installing the Log Analytics agent:**
 
-
+    
 |Action        |Command            |
 |--------------|-------------------|
 |Downloads the installation script for the Log Analytics (OMS) Linux agent|`wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh`|
