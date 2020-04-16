@@ -1,10 +1,23 @@
-Microsoft Azure Service Fabric 7.1 Release Notes
+##Microsoft Azure Service Fabric 7.1 Release Notes
 
+
+This release includes the bug fixes and features described in this document. This release includes runtime, SDKs and Windows Server Standalone deployments to run on-premises. 
+
+The following packages and versions are part of this release:
+
+| Service | Platform | Version |
+|---------|----------|---------|
+|Service Fabric Runtime| Ubuntu <br> Windows | 7.1.410.1 <br> 7.1.409.9590  |
+|Service Fabric for Windows Server|Service Fabric Standalone Installer Package | 7.1.409.9590 |
+|.NET SDK |Windows .NET SDK <br> Microsoft.ServiceFabric <br> Reliable Services and Reliable Actors <br> ASP.NET Core Service Fabric integration| 4.1.409  <br> 7.1.409 <br> 4.0.457 <br> 4.1.409 |
+|Java SDK  |Java for Linux SDK  | 1.0.6 |
+|Service Fabric PowerShell and CLI | AzureRM PowerShell Module  <br> SFCTL |  0.3.15  <br> 8.0.0 |
+
+## Contents 
 - [Key Annoucements](#key-annoucements)
 - [Upcoming Breaking Changes](#upcoming-breaking-changes)
 - [Service Fabric Runtime](#service-fabric-runtime)
 - [Service Fabric Common Bug Fixes](#service-fabric-common-bug-fixes)
-- [Service Fabric Explorer](#service-fabric-explorer)
 - [Reliable Collections](#reliable-collections)
 - [Repositories and Download Links](#repositories-and-download-links)
 
@@ -40,15 +53,18 @@ Microsoft Azure Service Fabric 7.1 Release Notes
 | **Windows 7.1.*** | **Bug** |Fix trace upload on FIPS enabled machines|**Brief desc**:  DCA does not upload to azure storage on FIPS enabled machines. The fix changes the default MD5 algorithm used by the storage api so that it is compliant.  <br> **Impact**: Causes trace upload to fail.
 
 
-## Service Fabric Explorer
-| Versions | IssueType | Description | Resolution | 
-|-|-|-|-|
+## Java SDK 1.0.6
+| IssueType | Description | Resolution | 
+|-|-|-|
+|  **Bug** |Java - Class loading issues in JNI when using Custom Class Loader| **Symptom**: JNI code intermittently asserts with NoClassDefFoundError in spring boot applications. <br> **Rootcause**: Spring boot uses LaunchedURLClassLoader which loads classes defined in jars in BOOT-INF/lib folder inside spring boot fat jar. In the case of reliable collections, if the operation completes synchronously then Runtime posts the result on the same thread which made the native call. If the operation completes asynchronously then Runtime calls into java on a new thread which doesnt know about the Custom Class loader. AppClassLoader can only load defined in the java class path. As the jars are present only in BOOT-INF/lib folder, AppClassLoader fails to load them.Added support for frameworks like SpringBoot which uses Custom Class loaders. <br> **Fix**: Save Custom Class loader and use it if the default class loader fails to find a class. <br> **Workaround**:Define Class Path in manifest and place one copy of SF jars outside fat jar. <br> **Impact**: SpringBoot applications using ReliableCollections intermittently crashes causing the service to restart.
+ | **Bug** |Java - weak reference JNI crash| **Symptom**: JNI code intermittently asserts with ReliableCollections native calls. <br> **RootCause**: If a reliable collections call fails to complete synchronously, then a callback is registered by saving the context of the operation. When the TStore call completes asynchronously, this callback is invoked using the saved context.As this context is saved using weakreferences, Garbage collector could collect these objects during GC cycle. When a callback is invoked using such freed context, JNI code would assert because of invalid access to memory location. <br> **Workaround**: N/A <br> **Fix**: Use strong references to save context. <br> **Impact**:Applications using ReliableCollections intermittently crashes because of the garbage collected weak references.
+ | **Bug** |Java - Handle RSP->GetEndpoint failures| **Symptom**: When the replica primary replica reconfiguration, Java code throws NullPointerException. <br> **Rootcause**: When primary replica closes, Native returns 0x80071be8L. In such a case, JNI code returns NULL to Java which is causing NullPointerException.<br> Resolving endpoint of the stateful service whose primary is in reconfiguring state causes NullPointerException.Fixed code to return right exception to the caller in such state. <br> **Workaround**: Handle exception and re-resolve the endpoint. <br> **Fix**: Throw exception from GetEndpoint() for Failed(HResult) during reconfiguration.
  
 
 ## Reliable Collections
-| Versions | IssueType | Description | Resolution | 
-|-|-|-|-|
-- [Service Fabric Backup Explorer](https://github.com/microsoft/service-fabric-backup-explorer):  To ease management of Reliable Collections backup for Service Fabric Stateful applications, we are announcing public preview of Service Fabric Backup Explorer. It is a utility that  enables users to i)Audit and review the contents of the Reliable Collections, ii) update current state to a consistent view, iii) create Backup of the current snapshot of the Reliable Collections and iv) Fix data corruption.
+| **Feature** | [In memory only store support for stateful services using Reliable Collections](): | **Desc**: Data can be persisted to disk for durability against large-scale outages. Some Reliable Collections also support a volatile mode (with exceptions) where all data is kept in-memory, such as a replicated in-memory cache. Useful for workloads that don’t need persistence and can handle rare occurrences of data loss. An example would be a service that acts as a replicated cache.Because there is no persistence, Quorum Loss will mean full data loss. We recommend this setting for services that can handle the rare occasions of Quorum Loss.There is no upgrade path for existing services. You will need to delete the existing service and recreate it with the flag changed. This is also true if you would like to make a volatile service persisted by changing the flag back to “true”.
+
+| **Feature** | [Service Fabric Backup Explorer](https://github.com/microsoft/service-fabric-backup-explorer):| **Desc**: To ease management of Reliable Collections backup for Service Fabric Stateful applications, we are announcing public preview of Service Fabric Backup Explorer. It is a utility that  enables users to i)Audit and review the contents of the Reliable Collections, ii) update current state to a consistent view, iii) create Backup of the current snapshot of the Reliable Collections and iv) Fix data corruption.
  
 ## Repositories and Download Links
 The table below is an overview of the direct links to the packages associated with this release. 
