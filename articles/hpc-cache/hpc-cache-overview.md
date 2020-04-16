@@ -4,8 +4,8 @@ description: Describes Azure HPC Cache, a file access accelerator solution for h
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 03/09/2020
-ms.author: rohogue
+ms.date: 04/15/2020
+ms.author: v-erkel
 ---
 
 # What is Azure HPC Cache?

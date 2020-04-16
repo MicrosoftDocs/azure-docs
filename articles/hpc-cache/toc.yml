@@ -52,5 +52,7 @@
     href: troubleshoot-nas.md
   - name: Recover from a regional outage
     href: hpc-region-recovery.md
+  - name: Use customer-managed encryption keys
+    href: customer-keys.md
   - name: Use Azure NetApp Files with Azure HPC Cache
     href: hpc-cache-netapp.md

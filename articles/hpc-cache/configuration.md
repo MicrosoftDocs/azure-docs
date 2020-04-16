@@ -4,8 +4,8 @@ description: Explains how to configure additional settings for the cache like MT
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 03/20/2020
-ms.author: rohogue
+ms.date: 04/15/2020
+ms.author: v-erkel
 ---
 
 # Configure additional Azure HPC Cache settings
@@ -16,7 +16,7 @@ This article also describes how to use the snapshot feature for Azure Blob stora
 
 To see the settings, open the cache's **Configuration** page in the Azure portal.
 
-![screenshot of configuration page in Azure portal](media/draft-configuration.png)
+![screenshot of configuration page in Azure portal](media/configuration.png)
 
 ## Adjust MTU value
 <!-- linked from troubleshoot-nas article -->

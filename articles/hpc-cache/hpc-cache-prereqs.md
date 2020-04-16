@@ -76,7 +76,6 @@ To create a compatible storage account, use these settings:
 * Access tier (default): **Hot**
 
 It's a good practice to use a storage account in the same location as your cache.
-<!-- clarify location - same region or same resource group or same virtual network? -->
 
 You also must give the cache application access to your Azure storage account as mentioned in [Permissions](#permissions), above. Follow the procedure in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to give the cache the required access roles. If you are not the storage account owner, have the owner do this step.
 
