@@ -154,5 +154,5 @@ Azure Storage regularly verifies the integrity of data stored using cyclic redun
 
 - [Check the Last Sync Time property for a storage account](last-sync-time-get.md)
 - [Change the redundancy option for a storage account](redundancy-migration.md)
-- [Use geo-redundancy to design highly available applications Storage](../geo-redundant-design.md)
+- [Use geo-redundancy to design highly available applications](geo-redundant-design.md)
 - [Disaster recovery and account failover (preview)](storage-disaster-recovery-guidance.md)
