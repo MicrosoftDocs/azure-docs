@@ -40,7 +40,7 @@ Microsoft Security Code Analysis team in partnership with Developer Support is p
    - Azure Active Directory Client Access Token
    - Azure Function Master/API Key
    - Power BI Access Key
-   - Azure Resource Manager (ARM) template password pattern
+   - Azure Resource Manager template password pattern
 
 - **Outputs**
 
