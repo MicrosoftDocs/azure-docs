@@ -8,7 +8,7 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 12/04/2019
+ms.date: 04/16/2020
 ms.author: tamram
 ---
 
@@ -43,19 +43,19 @@ To upload a block blob to your new container in the Azure portal, follow these s
 2. Select the container to show a list of blobs it contains. Since this container is new, it won't yet contain any blobs.
 3. Select the **Upload** button to open the upload blade
 4. Browse your local file system to find a file to upload as a block blob
-     
+
     ![Screenshot showing how to upload a blob from your local drive](media/storage-quickstart-blobs-portal/upload-blob.png)
 
-5. Optionally, expand the advanced section to define other setting such as authentication type, access tier, or virtual folder path.
-6. Select the **Upload** button to commit the upload
+5. Optionally, expand the advanced section to configure other settings for the upload operation.
+6. Select the **Upload** button to upload the blob.
 7. Upload as many blobs as you like in this way. You'll see that the new blobs are now listed within the container.
 
 ## Download a block blob
 
 You can download a block blob to display in the browser or save to your local file system. To download a block blob, follow these steps:
 
-1. Navigate to the list of blobs that you uploaded in the previous section. 
-2. Right-click the blob you want to download, and select **Download**. 
+1. Navigate to the list of blobs that you uploaded in the previous section.
+2. Right-click the blob you want to download, and select **Download**.
 
 ## Clean up resources
 
@@ -74,4 +74,3 @@ In this quickstart, you learned how to transfer files between a local disk and A
 
 > [!div class="nextstepaction"]
 > [Blob Storage Operations How-To](storage-dotnet-how-to-use-blobs.md)
-
