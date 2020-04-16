@@ -13,6 +13,8 @@ ms.date: 03/16/2020
 
 # Data Flow activity in Azure Data Factory
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Use the Data Flow activity to transform and move data via mapping data flows. If you're new to data flows, see [Mapping Data Flow overview](concepts-data-flow-overview.md)
 
 ## Syntax

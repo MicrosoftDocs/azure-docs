@@ -13,6 +13,8 @@ manager: anandsub
 ---
 # Provision Enterprise Edition for the Azure-SSIS Integration Runtime
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 The Enterprise Edition of the Azure-SSIS Integration Runtime lets you use the following advanced and premium features:
 -   Change Data Capture (CDC) components
 -   Oracle, Teradata, and SAP BW connectors
