@@ -69,7 +69,7 @@ When a user clicks **Get Started** link in an [invitation email](invitation-emai
 
 6. If steps 1 to 4 fail to find a home directory for the invited user, Azure AD determines whether the inviting tenant has enabled [email One-Time Passcode (OTP)](one-time-passcode.md) for guests.
 
-7. If email [OTP for guests is enabled](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode), an OTP is sent to the user through the invited email. The user will retrieve and enter this code to Azure AD sign-in page.
+7. If [Email one-time passcode for guests is enabled](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode), a passcode is sent to the user through the invited email. The user will retrieve and enter this passcode in the Azure AD sign-in page.
 
 8. If email OTP for guests is disabled, Azure AD checks the domain suffix against a consumer domain list maintained by Microsoft. If the domain matches any domain on the consumer domain list, the user is prompted to create a personal Microsoft account. If not, the user is prompted to create an [Azure AD self-service account](../users-groups-roles/directory-self-service-signup.md) (viral account).
 
