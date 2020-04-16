@@ -3,9 +3,9 @@ title: Limits and configuration
 description: Service limits, such as duration, throughput, and capacity, plus configuration values, such as IP addresses to allow, for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/12/2020
+ms.date: 04/17/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -107,7 +107,7 @@ Here are the limits for a single logic app definition:
 
 ### Integration service environment (ISE)
 
-Here are the throughput limits for the Premium SKU:
+Here are the throughput limits for the [Premium ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 
 | Name | Limit | Notes |
 |------|-------|-------|
@@ -119,9 +119,9 @@ Here are the throughput limits for the Premium SKU:
 To go above these limits in normal processing, or run load testing that might go above these limits, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
 
 > [!NOTE]
-> The [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) has no published limits as this SKU
-> doesn't have any service-level agreement (SLA) or capabilities for scaling up.
-> Use this SKU only for experimenting, development, and testing, not production or performance testing.
+> The [Developer ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) 
+> has no published limits, no capabilities for scaling up, and no service-level agreement (SLA). Use this SKU 
+> only for experimenting, development, and testing, not production or performance testing.
 
 <a name="gateway-limits"></a>
 
@@ -279,14 +279,9 @@ Here are the message size limits that apply to B2B protocols:
 
 ## Disabling or deleting logic apps
 
-When you disable a logic app, no new runs are instantiated.
-All in-progress and pending runs continue until they finish,
-which might take time to complete.
+When you disable a logic app, no new runs are instantiated. All in-progress and pending runs continue until they finish, which might take time to complete.
 
-When you delete a logic app, no new runs are instantiated.
-All in-progress and pending runs are canceled.
-If you have thousands of runs, cancellation might
-take significant time to complete.
+When you delete a logic app, no new runs are instantiated. All in-progress and pending runs are canceled. If you have thousands of runs, cancellation might take significant time to complete.
 
 <a name="configuration"></a>
 
@@ -313,7 +308,11 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 
   For example, logic apps can't directly access storage accounts that use firewall rules and exist in the same region. However, if you permit the [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound), your logic apps can access storage accounts that are in a different region except when you use the Azure Table Storage or Azure Queue Storage connectors. To access your Table Storage or Queue Storage, you can use the HTTP trigger and actions instead. For other options, see [Access storage accounts behind firewalls](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
-* For custom connectors, [Azure Government](../azure-government/documentation-government-overview.md), and [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), fixed or reserved IP addresses aren't available.
+* These connectors don't have fixed or reserved IP addresses:
+
+  * Custom connectors, whether they're used in multi-tenant Azure, [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), [Azure Government](../azure-government/documentation-government-overview.md), and [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
+
+  * Managed connectors in [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), for example, Azure Storage, SQL Server, Office 365, and so on
 
 <a name="inbound"></a>
 
