@@ -1,6 +1,6 @@
 ---
-title: Azure Key Vault Service Limits - Azure Key Vault | Microsoft Docs
-description: Learn about the service limits for Azure Key Vault.
+title: Managed HSM Service Limits - Azure Key Vault | Microsoft Docs
+description: Learn about the service limits for Managed HSM.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -15,7 +15,7 @@ ms.author: mbaldwin
 ---
 # Azure Key Vault service limits
 
-Here are the service limits for Azure Key Vault.
+Here are the service limits for Managed HSM.
 
-[!INCLUDE [key-vault-limits](../../includes/key-vault-limits.md)]
+[!INCLUDE [limits](../../includeslimits.md)]
 
