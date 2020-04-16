@@ -161,7 +161,7 @@ The **Events** tab, the table displays the connected Activity Log events and the
 
 You can see in the results, that there were multiple changes to the system, including changes to services and software. You can use the filters at the top of the page to filter the results by **Change type** or by a time range.
 
-Select a **WindowsServices** change. This selection opens the Change Details page showingg details about the change and the values before and after the change. In this instance, the Software Protection service was stopped.
+Select a **WindowsServices** change. This selection opens the Change Details page showing details about the change and the values before and after the change. In this instance, the Software Protection service was stopped.
 
 ![Viewing change details in the portal](./media/automation-tutorial-troubleshoot-changes/change-details.png)
 

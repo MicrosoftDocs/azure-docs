@@ -1,5 +1,5 @@
 ---
-title: Configure Start/Stop VMs during off hours solution
+title: Azure Automation Configure Start/Stop VMs during off hours solution
 description: This article describes how to configure the Start/Stop VMs during off-hours solution to support different use cases or scenarios.
 services: automation
 ms.subservice: process-automation
@@ -71,7 +71,7 @@ In an environment that includes two or more components on multiple VMs supportin
 
 ### Target the start and stop action by VM list
 
-1. Add a `sequencestart` and a `sequencestop*` tag with a positive integer value to VMs you plan to add to the `VMList` parameter.
+1. Add a `sequencestart` and a `sequencestop` tag with a positive integer value to VMs you plan to add to the `VMList` parameter.
 
 2. Run the **SequencedStartStop_Parent** runbook with **ACTION** set to **start**, add a comma-separated list of VMs in the **VMList** parameter field, and then set **WHATIF** to True. Preview your changes.
 

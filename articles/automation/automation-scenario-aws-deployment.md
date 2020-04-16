@@ -54,7 +54,7 @@ Once the AWS PowerShell Module has been deployed, you can now author a runbook t
     > * When working with the AWS CLI commands in PowerShell, especially with this example runbook, you must specify the AWS region. Otherwise, the cmdlets fail. View AWS topic [Specify AWS Region](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) in the AWS Tools for PowerShell document for further details.  
     >
 
-7. To retrieve a list of image names from your AWS subscription, launch PowerShell ISE and import the AWS PowerShell Module. Authenticate against AWS by replacing `Get-AutomationPSCredential` in your ISE environment with `AWScred = Get-Credential`. This statement prompts for your credentials and you can provide your access ey ID for the user name and your secret access key for the password. 
+7. To retrieve a list of image names from your AWS subscription, launch PowerShell ISE and import the AWS PowerShell Module. Authenticate against AWS by replacing `Get-AutomationPSCredential` in your ISE environment with `AWScred = Get-Credential`. This statement prompts for your credentials and you can provide your access key ID for the user name and your secret access key for the password. 
 
         ```powershell
         #Sample to get the AWS VM available images
