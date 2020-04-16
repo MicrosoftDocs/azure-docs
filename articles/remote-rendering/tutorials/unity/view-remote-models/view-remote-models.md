@@ -110,13 +110,17 @@ Select the **Main Camera** node.
 
     ![change project quality settings](./media/settings-quality.png)
 
-1. Select **Graphics** on the left.
+1. Select **Graphics** from the left list menu
 1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*. Skip this step if the Universal render pipeline is not used.
 
     ![changing project graphics settings](./media/settings-graphics-render-pipeline.png)
     Sometimes the UI does not populate the list of available pipeline types from the packages, in which case the *HybridRenderingPipeline* asset must be dragged onto the field manually:
     ![changing project graphics settings](./media/hybrid-rendering-pipeline.png)
-1. Select **Player** on the left.
+
+    * > [!NOTE]
+    If you're unable to drag and drop the *HybridRenderingPipeline* asset into the Render Pipeline Asset field, ensure your package configuration contains the `com.unity.render-pipelines.universal` package.
+
+1. Select **Player** from the left list menu.
 1. Select the **Universal Windows Platform settings** tab
 1. Change the **XR Settings** to support Windows Mixed Reality:
     ![player settings](./media/xr-player-settings.png)
@@ -198,7 +202,6 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     /// When Automatic Mode is true, the coordinator will attempt to automatically proceed through the process of connecting and loading a model
     /// </summary>
     public bool automaticMode = false;
-
 
     public enum RemoteRenderingState
     {
