@@ -84,7 +84,7 @@ There are two ways to stop protecting Files and Folders backup:
 
 - **Stop protection and retain backup data**.
   - This option will stop all future backup jobs from protection.
-  - Azure Backup service will retain the recovery points that have been backed up based on the retention policy.
+  - Azure Backup service will retain all existing recovery points indefinitely. Recovery points will not be checked for expiration until protection is resumed.
   - You'll be able to restore the backed-up data for unexpired recovery points.
   - If you decide to resume protection, then you can use the *Re-enable backup schedule* option. After that, data would be retained based on the new retention policy.
 - **Stop protection and delete backup data**.
