@@ -4,7 +4,7 @@ description: High-level monitoring including edgeHub and edgeAgent reported prop
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/15/2020
+ms.date: 04/17/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
@@ -24,7 +24,7 @@ Successful deployments require monitoring the following information:
 
 * Versions of deployed modules.
 
-Both devices and modules have similar data, such as connectivity, so values are obtained according the device ID or the module ID. For an overview of the IoT Edge runtime modules and their properties, see [Properties of the IoT Edge agent and IoT Edge hub module twins](module-edgeagent-edgehub.md).
+Both devices and modules have similar data, such as connectivity, so values are obtained according the device ID or the module ID.
 
 The IoT Hub service collects the data reported by device and module twins and provides aggregated counts of the various states that devices may have. The IoT Hub service organizes this data into four groups of metrics:
 
@@ -70,7 +70,7 @@ To view the details of a deployment and monitor the devices running it, use the 
 
 ### Define properties
 
-If you developed custom code modules, such as described in [Use Visual Studio 2019 to develop and debug modules for Azure IoT Edge](how-to-visual-studio-develop-module.md), you can monitor their values by defining custom metrics. You can also add, delete, and edit properties in the module twin after the module has been deployed to an IoT Edge device.
+If you developed custom code modules, such as described in [Use Visual Studio 2019 to develop and debug modules for Azure IoT Edge](how-to-visual-studio-develop-module.md), you can monitor their values by defining desired and reported properties. You can also add, delete, and edit properties in the module twin after the module has been deployed to an IoT Edge device. For an overview of the properties, see [Properties of the IoT Edge agent and IoT Edge hub module twins](module-edgeagent-edgehub.md).
 
 To define and edit properties for a deployed module:
 
