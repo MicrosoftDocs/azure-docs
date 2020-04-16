@@ -25,7 +25,7 @@ This quickstart guides you in creating an Automation account and running a runbo
     > [!NOTE]
     > You can't change the account name once it has been entered in the user interface. 
 
-2. Click the **Create a resource** button found on the upper left corner of Azure portal.
+2. Click the **Create a resource** button found in the upper left corner of Azure portal.
 
 3. Select **IT & Management Tools**, and then select **Automation**.
 
@@ -46,7 +46,7 @@ This quickstart guides you in creating an Automation account and running a runbo
 
 Run one of the tutorial runbooks.
 
-1. Click **Runbooks** under **PROCESS AUTOMATION**. The list of runbooks is displayed. By default several tutorial runbooks are enabled in the account.
+1. Click **Runbooks** under **Process Automation**. The list of runbooks is displayed. By default, several tutorial runbooks are enabled in the account.
 
     ![Automation account runbooks list](./media/automation-quickstart-create-account/automation-runbooks-overview.png)
 
@@ -54,11 +54,11 @@ Run one of the tutorial runbooks.
 
     ![Runbook overview](./media/automation-quickstart-create-account/automation-tutorial-script-runbook-overview.png)
 
-1. Click **Start**, and on the **Start Runbook** page, click **OK** to start the runbook.
+1. Click **Start**, and on the Start Runbook page, click **OK** to start the runbook.
 
     ![Runbook job page](./media/automation-quickstart-create-account/automation-tutorial-script-job.png)
 
-1. After the **Job status** becomes **Running**, click **Output** or **All Logs** to view the runbook job output. For this tutorial runbook, the output is a list of your Azure resources.
+1. After the job status becomes `Running`, click **Output** or **All Logs** to view the runbook job output. For this tutorial runbook, the output is a list of your Azure resources.
 
 ## Next steps
 
