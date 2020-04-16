@@ -13,6 +13,7 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Prepare data to train a predictive model in R with Azure SQL Database Machine Learning Services (preview)
