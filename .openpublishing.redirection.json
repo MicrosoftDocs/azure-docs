@@ -17437,6 +17437,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/common/storage-account-container-recovery.md",
+      "redirect_url": "/azure/storage/common/storage-redundancy",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/common/storage-quickstart-create-storage-account-cli.md",
       "redirect_url": "/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli",
       "redirect_document_id": false
@@ -50413,7 +50418,7 @@
     },
     {
       "source_path": "articles/hdinsight/spark/azure-synapse-analytics-job-definition.md",
-      "redirect_url": "../../synapse-analytics/spark/apache-spark-job-definitions.md",
+      "redirect_url": "/azure/synapse-analytics/spark/apache-spark-job-definitions",
       "redirect_document_id": true
     },
     {
@@ -51113,6 +51118,11 @@
 	{
       "source_path": "articles/azure-monitor/insights/key-vault-insights-overview.md",
       "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/azure-monitor/app/metrics-explorer.md",
+      "redirect_url": "/azure/azure-monitor/platform/metrics-charts",
       "redirect_document_id": false
     },
     {
