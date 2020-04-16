@@ -19,7 +19,7 @@ To help secure your systems and environment, Azure Security Center generates sec
 
 With this feature, you can add your own *custom* initiatives. You'll then receive recommendations if your environment doesn't follow the policies you create. Any custom initiatives you create will appear alongside the built-in initiatives in the regulatory compliance dashboard described in the tutorial [Improve your regulatory compliance](security-center-compliance-dashboard.md).
 
-As discussed [here](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) in the Azure Policy documentation, when you specify a location for your custom initiative, it must be a management group or a subscription. 
+As discussed in [the Azure Policy documentation](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location), when you specify a location for your custom initiative, it must be a management group or a subscription. 
 
 ## To add a custom initiative to your subscription 
 
@@ -66,6 +66,22 @@ As discussed [here](https://docs.microsoft.com/azure/governance/policy/concepts/
 1. To see the resulting recommendations for your policy, click **Recommendations** from the sidebar to open the recommendations page. The recommendations will appear with a "Custom" label and be available within approximately one hour.
 
     [![Custom recommendations](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
+
+## Enhancing your custom recommendations with detailed information
+
+The built-in recommendations supplied with Azure Security Center include details such as severity levels and remediation instructions. If you want to add this type of information to your custom recommendations so that it appears in the Azure Portal or wherever you access your recommendations, you'll need to use the REST API. 
+
+The meta data support should be added to the policy definition under ‘securityCenter’ property.
+
+These are the types of information you can add:
+
+- **RemediationDescription** – String
+- **Severity** – Enum [Unknown, Low, Medium, High]
+- **UserImpact** - Enum [Unknown, Low, Moderate, High]
+- **ImplementationEffort** - Enum [Unknown, Low, Moderate, High]
+- **Threats** – Array of Enum [Unknown, AccountBreach, DataExfiltration, DataSpillage, MaliciousInsider, ElevationOfPrivilege, ThreatResistance, MissingCoverage, DenialOfService]
+
+For an example of how to do this, see [this section of the REST API documentation](https://docs.microsoft.com/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples).
 
 
 ## Next steps
