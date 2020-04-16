@@ -31,13 +31,13 @@ A single diagnostic setting can define no more than one of each of the destinati
 
 ## Destinations 
 
-Platform logs can be sent to the destinations in the following table. The configuration for each destination is performed using the same process for creating diagnostic settings described in this article. Follow each link in the following table for details on sending data to that destination.
+Platform logs and metrics can be sent to the destinations in the following table. Follow each link in the following table for details on sending data to that destination.
 
 | Destination | Description |
 |:---|:---|
-| [Log Analytics workspace](resource-logs-collect-workspace.md) | Collecting logs into a Log Analytics workspace allows you to analyze them with other monitoring data collected by Azure Monitor using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. |
-| [Event hubs](resource-logs-stream-event-hubs.md) | Sending logs to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other log analytics solutions. |
-| [Azure storage account](resource-logs-collect-storage.md) | Archiving logs to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely. |
+| [Log Analytics workspace](resource-logs-collect-workspace.md) | Collecting logs and metrics into a Log Analytics workspace allows you to analyze them with other monitoring data collected by Azure Monitor using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. |
+| [Event hubs](resource-logs-stream-event-hubs.md) | Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other log analytics solutions. |
+| [Azure storage account](resource-logs-collect-storage.md) | Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely. |
 
 ## Create diagnostic settings in Azure portal
 
@@ -71,14 +71,14 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
 4. **Category details (what to route)** - Check the box for each category of data you want to send to destinations specified later. The list of categories varies for each Azure service.
 
-     - **AllMetrics** routes the automatically collected platform metrics for that resource type.  [Azure Monitor supported metrics](supported-metrics.md) listed what metrics are collected for what resource types. Choosing this setting copies the time-series metrics found in the Azure Monitor metrics store into the Azure Logs store, but in log form. This allows you to search them using queries.  
+     - **AllMetrics** routes the automatically collected platform metrics for that resource type.  [Azure Monitor supported metrics](metrics-supported.md) listed what metrics are collected for what resource types. Choosing this setting copies the time-series metrics found in the Azure Monitor metrics store into the Azure Logs store, but in log form. This allows you to search them using queries.  
 
        > [!NOTE]
        > Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
        >
        > *For example*: The 'IOReadBytes' metric on an Blockchain can be explored and charted on a per node level. However, when exported via diagnostic settings, the metric exported represents as all read bytes for all nodes.
 
-     - **Logs** - Different categories are available depending on the resource for which you are configuring the diagnostic setting. Check any categories that you would like to route to a destination.
+     - **Logs** lists the different categories available depending on the resource type. Check any categories that you would like to route to a destination.
 
 5. **Destination details** - Check the box for each destination. When you check each box, options appear to allow you to add additional information.
 
@@ -89,15 +89,15 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
     1. **Event hubs** - Specify the following criteria:
        - The subscription which the event hub is part of
        - The Event hub namespace - If you do not yet have one, you'll need [to create one](../../event-hubs/event-hubs-create.md)
-       - An Event hub name - Optionally specify an event hub name to send all data to. If you don't specify a name, an event hub is created for each log category. If you are sending multiple categories, you may want to specify a name to limit the number of event hubs created. See [Azure Event Hubs quotas and limits](../../event-hubs/event-hubs-quotas.md) for details.
-       - An Event Hub policy - Defines the permissions that the streaming mechanism has. If one is applicable, specify it here. For more information, see [Event-hubs-features](../../event-hubs/event-hubs-features.md#publisher-policy).
+       - An Event hub name (optional) to send all data to. If you don't specify a name, an event hub is created for each log category. If you are sending multiple categories, you may want to specify a name to limit the number of event hubs created. See [Azure Event Hubs quotas and limits](../../event-hubs/event-hubs-quotas.md) for details.
+       - An Event Hub policy (optional) A policy defines the permissions that the streaming mechanism has. For more information, see [Event-hubs-features](../../event-hubs/event-hubs-features.md#publisher-policy).
  
     1. **Storage** - Choose the subscription, storage account, and retention policy. 
     
         ![Send to Storage](media/diagnostic-settings/storage-settings-new.png)
 
         > [!WARNING] 
-        > We recommend you set the retention policy to 0 and manually delete your data from storage due to possible future confusion. If you choose a retention policy that is greater than 0, the expiration date is attached to the logs at the time of storage. You can't change the date for those logs once stored, though you can always delete them manually.  For example, if you set the retention policy for *AllMetrics* to 180 days and then 24 hours later set it to 365 days, the metrics stored during those first 24 hours will be automatically deleted after 180 days, while all subsequent metrics will be automatically deleted after 365 days.
+        > Considering setting the retention policy to 0 and manually deleting your data from storage to avoid possible confusion in the future. If you choose a retention policy that is greater than 0, the expiration date is attached to the logs at the time of storage. You can't change the date for those logs once stored, though you can always delete them manually.  For example, if you set the retention policy for *AllMetrics* to 180 days and then 24 hours later set it to 365 days, the metrics stored during those first 24 hours will be automatically deleted after 180 days, while all subsequent metrics will be automatically deleted after 365 days. 
 
 6. Click **Save**.
 
