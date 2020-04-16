@@ -17,7 +17,7 @@ This article describes how to run a SQL Server Integration Services (SSIS) packa
 With this feature, you can run SSIS packages that are stored in SSISDB in Azure SQL Managed Instance or a file system like Azure Files.
 
 ## Prerequisites
-To use this feature, [download](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) and install the latest version of SQL Server Management Studio (SSMS), which is version 18.5 or later.
+To use this feature, [download](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) and install the latest version of SQL Server Management Studio (SSMS), which is version 18.5.
 
 You also need to [provision an Azure-SSIS integration runtime](tutorial-create-azure-ssis-runtime-portal.md) in Azure Data Factory. It uses Azure SQL Managed Instance as an endpoint server. 
 
@@ -79,9 +79,9 @@ In this procedure, you use Azure SQL Managed Instance Agent to run an SSIS packa
 
       - If your package is uploaded to a network share, select **Network share**.
       
-      The package path is the **UNC path** of your package file with its .dtsx extension.
+        The package path is the UNC path of your package file with its .dtsx extension.
       
-      Enter the corresponding domain, username, and password to access the network share package file.
+        Enter the corresponding domain, username, and password to access the network share package file.
    1. If your package file is encrypted with a password, select **Encryption password** and enter the password.
 1. On the **Configurations** tab, enter the configuration file path if you need a configuration file to run the SSIS package.
 1. On the **Execution options** tab, you can choose whether to use **Windows authentication** or **32-bit runtime** to run the SSIS package.
@@ -94,7 +94,7 @@ In this procedure, you use Azure SQL Managed Instance Agent to run an SSIS packa
 
 
 ## Cancel SSIS package execution
-To cancel package execution from an Azure SQL Managed Agent job, take the following steps instead of directly stopping the agent job.
+To cancel package execution from an Azure SQL Managed Instance Agent job, take the following steps instead of directly stopping the agent job:
 
 1. Find your SQL agent **jobId** from **msdb.dbo.sysjobs**.
 1. Find the corresponding SSIS **executionId** based on the job ID, by using this query:
