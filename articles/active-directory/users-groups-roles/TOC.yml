@@ -155,8 +155,10 @@
       href: directory-assign-admin-roles.md
     - name: View and assign roles   
       href: directory-manage-roles-portal.md
-    - name: Custom role      items:
-      - name: Custom role        href: roles-custom-overview.md
+    - name: Custom role      
+      items:
+      - name: Custom role        
+        href: roles-custom-overview.md
       - name: Create custom role
         href: roles-create-custom.md
       - name: View custom role assignments
@@ -179,7 +181,8 @@
         href: directory-admin-roles-secure.md  
       - name: Create emergency accounts    
         href: directory-emergency-access.md
-    - name: Administrative unit      items:
+    - name: Administrative unit      
+      items:
       - name: Administrative units overview  
         href: directory-administrative-units.md
       - name: Add & manage AUs
