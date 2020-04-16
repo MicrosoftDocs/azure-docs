@@ -133,28 +133,56 @@
               href: troubleshoot/hybrid-runbook-worker.md
         - name: Source control integration
           href: source-control-integration.md
-    - name: State Configuration (DSC)
+    - name: Configuration Management
       items:
-        - name: Overview
-          href: automation-dsc-overview.md
-        - name: Get started using DSC
-          href: automation-dsc-getting-started.md
-        - name: Onboard machines for management
-          href: automation-dsc-onboarding.md
-        - name: Configure machines to a desired state
-          href: tutorial-configure-servers-desired-state.md
-        - name: Compile DSC configurations
-          href: automation-dsc-compile.md
-        - name: Remediate configuration drift
-          href: automation-dsc-remediate.md
-        - name: Compose DSC configurations
-          href: compose-configurationwithcompositeresources.md
-        - name: Setup continuous deployment with Chocolatey
-          href: automation-dsc-cd-chocolatey.md
-        - name: Integrate with Azure Monitor Logs
-          href: automation-dsc-diagnostics.md
-        - name: Troubleshoot issues with DSC
-          href: troubleshoot/desired-state-configuration.md
+        - name: State Configuration (DSC)
+          items:
+            - name: Overview
+              href: automation-dsc-overview.md
+            - name: Get started using DSC
+              href: automation-dsc-getting-started.md
+            - name: Onboard machines for management
+              href: automation-dsc-onboarding.md
+            - name: Configure machines to a desired state
+              href: tutorial-configure-servers-desired-state.md
+            - name: Compile DSC configurations
+              href: automation-dsc-compile.md
+            - name: Remediate configuration drift
+              href: automation-dsc-remediate.md
+            - name: Compose DSC configurations
+              href: compose-configurationwithcompositeresources.md
+            - name: Setup continuous deployment with Chocolatey
+              href: automation-dsc-cd-chocolatey.md
+            - name: Integrate with Azure Monitor Logs
+              href: automation-dsc-diagnostics.md
+            - name: Troubleshoot issues with DSC
+              href: troubleshoot/desired-state-configuration.md
+        - name: Change Tracking and Inventory
+          items:
+            - name: Overview
+              href: change-tracking.md
+            - name: Supported regions for linked Log Analytics workspace
+              href: how-to/region-mappings.md
+            - name: Enable
+              items:
+                - name: Use Azure portal
+                  href: automation-onboard-solutions-from-browse.md
+                - name: From an Azure VM
+                  href: automation-onboard-solutions-from-vm.md
+                - name: From an Automation account
+                  href: automation-onboard-solutions-from-automation-account.md
+                - name: From an Automation runbook
+                  href: automation-onboard-solutions.md
+            - name: View contents of tracked files
+              href: change-tracking-file-contents.md
+            - name: Manage inventory collection from VMs
+              href: automation-vm-inventory.md
+            - name: Troubleshoot
+              items:
+                - name: Onboarding
+                  href: troubleshoot/onboarding.md
+                - name: Using Change Tracking and Inventory 
+                  href: troubleshoot/change-tracking.md
     - name: Start/Stop VMs during off hours
       items:
         - name: Overview
@@ -211,32 +239,6 @@
               href: troubleshoot/update-agent-issues.md
             - name: Troubleshooting Linux worker health issues
               href: troubleshoot/update-agent-issues-linux.md
-    - name: Change Tracking and Inventory
-      items:
-        - name: Overview
-          href: change-tracking.md
-        - name: Supported regions for linked Log Analytics workspace
-          href: how-to/region-mappings.md
-        - name: Enable
-          items:
-            - name: Use Azure portal
-              href: automation-onboard-solutions-from-browse.md
-            - name: From an Azure VM
-              href: automation-onboard-solutions-from-vm.md
-            - name: From an Automation account
-              href: automation-onboard-solutions-from-automation-account.md
-            - name: From an Automation runbook
-              href: automation-onboard-solutions.md
-        - name: View contents of tracked files
-          href: change-tracking-file-contents.md
-        - name: Manage inventory collection from VMs
-          href: automation-vm-inventory.md
-        - name: Troubleshoot
-          items:
-            - name: Onboarding
-              href: troubleshoot/onboarding.md
-            - name: Using Change Tracking and Inventory 
-              href: troubleshoot/change-tracking.md
     - name: Cross-component scenarios
       items:
         - name: Send an email from a runbook
