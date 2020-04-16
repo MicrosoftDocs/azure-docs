@@ -15,7 +15,7 @@ The [Azure Migrate appliance](migrate-appliance.md)  is a lightweight appliance 
 You can deploy the appliance using a couple of methods:
 
 - Set up on a Hyper-V VM using a downloaded VHD. This is the method described in this article.
-- Set up on a Hyper-V VM or physical machine with a PowerShell installer script. [This method](migrate-appliance-script.md) should be used if you can't set up a VM using a VHD, or if you're in Azure Government.
+- Set up on a Hyper-V VM or physical machine with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a VM using a VHD, or if you're in Azure Government.
 
 After creating the appliance, you check that it can connect to Azure Migrate:Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
 

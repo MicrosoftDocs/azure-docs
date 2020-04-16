@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - [Complete](tutorial-prepare-physical.md) the first tutorial in this series. If you don't, the instructions in this tutorial won't work.
 - Here's what you should have done in the first tutorial:
-    - [Set up Azure permissions](tutorial-prepare-physical.md#prepare-azure) for Azure Migrate.
+    - [Set up Azure permissions](tutorial-prepare-physical.md) for Azure Migrate.
     - [Prepare physical servers](tutorial-prepare-physical.md#prepare-for-physical-server-assessment) for assessment. Appliance requirements should be verified. You should also have an account set up for physical server discovery. Required ports should be available, and you should be aware of the URLs needed for access to Azure.
 
 
@@ -47,7 +47,7 @@ Set up a new Azure Migrate project as follows.
 
 4. In **Getting started**, click **Add tools**.
 5. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.  
-6. In **Project Details**, specify the project name, and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-(public-cloud)) and [government clouds](migrate-support-matrix.md#supported-geographies-(azure-government)).
+6. In **Project Details**, specify the project name, and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
 
     - The project geography is used only to store the metadata gathered from on-premises servers.
     - You can select any target region when you run a migration.

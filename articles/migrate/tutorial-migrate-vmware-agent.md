@@ -190,7 +190,7 @@ If you didn't follow the tutorial to assess VMware VMs, set up an Azure Migrate 
 
 1. In **Discover, assess and migrate servers**, click **Add tools**.
 2. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.
-3. In **Project Details**, specify the project name, and geography in which you want to create the project, and click **Next**. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-(public-cloud)) and [government clouds](migrate-support-matrix.md#supported-geographies-(azure-government)).
+3. In **Project Details**, specify the project name, and geography in which you want to create the project, and click **Next**. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
 
     ![Create an Azure Migrate project](./media/tutorial-migrate-vmware-agent/migrate-project.png)
 

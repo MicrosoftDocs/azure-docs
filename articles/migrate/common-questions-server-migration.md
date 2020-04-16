@@ -16,7 +16,7 @@ This article answers common questions about the Azure Migrate: Server Migration 
 
 ## What geographies are supported for migration with Azure Migrate?
 
-Review the supported geographies for [public](migrate-support-matrix.md#supported-geographies-(public-cloud)) and [government clouds](migrate-support-matrix.md#supported-geographies-(azure-government)).
+Review the supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
 
 ## How does agentless VMware replication work?
 

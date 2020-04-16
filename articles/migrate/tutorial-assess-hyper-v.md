@@ -44,7 +44,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 4. In **Getting started**, click **Add tools**.
 5. In the **Migrate project** tab, select your Azure subscription, and create a resource group if you don't have one.
-6. In **Project Details**, specify the project name, and the region in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-(public-cloud)) and [government clouds](migrate-support-matrix.md#supported-geographies-(azure-government)).
+6. In **Project Details**, specify the project name, and the region in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
 
     - The project region is used only to store the metadata gathered from on-premises VMs.
     - You can select a different Azure target region when you migrate the VMs. All Azure regions are supported for migration target.
@@ -66,7 +66,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Azure Migrate:Server Assessment uses a lightweight Azure Migrate appliance. The appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate. The appliance can be set up in a number of ways.
 
 - Set up on a Hyper-V VM using a downloaded Hyper-V VHD. This is the method used in this tutorial.
-- Set up on a Hyper-V VM or physical machine with a PowerShell installer script. [This method](migrate-appliance-script.md) should be used if you can't set up a VM using the VHD, or if you're in Azure Government.
+- Set up on a Hyper-V VM or physical machine with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a VM using the VHD, or if you're in Azure Government.
 
 After creating the appliance, you check that it can connect to Azure Migrate:Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
 

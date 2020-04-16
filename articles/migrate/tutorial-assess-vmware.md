@@ -44,7 +44,7 @@ Set up a new Azure Migrate project as follows:
 
 1. In **Getting started**, select **Add tools**.
 1. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.     
-1. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-(public-cloud)) and [government clouds](migrate-support-matrix.md#supported-geographies-(azure-government)).
+1. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
 
    ![Boxes for project name and region](./media/tutorial-assess-vmware/migrate-project.png)
 

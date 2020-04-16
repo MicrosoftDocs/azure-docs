@@ -15,7 +15,7 @@ The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance u
 You can deploy the appliance using a couple of methods:
 
 - Set up on a VMware VM using a downloaded OVA template. This is the method described in this article.
-- Set up on a VMware VM or physical machine with a PowerShell installer script. [This method](migrate-appliance-script.md) should be used if you can't set up a VM using an OVA template, or if you're in Azure government.
+- Set up on a VMware VM or physical machine with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a VM using an OVA template, or if you're in Azure government.
 
 After creating the appliance, you check that it can connect to Azure Migrate:Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
 
