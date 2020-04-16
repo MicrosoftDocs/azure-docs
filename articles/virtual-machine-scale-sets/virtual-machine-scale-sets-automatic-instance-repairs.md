@@ -43,7 +43,7 @@ Automatic repairs policy is supported for compute API version 2018-10-01 or high
 
 **Restrictions on resource or subscription moves**
 
-Resource or subscription moves are currently not supported for scale sets when automatic repairs policy is enabled.
+Resource or subscription moves are currently not supported for scale sets when automatic repairs feature is enabled.
 
 **Restriction for service fabric scale sets**
 
@@ -51,7 +51,7 @@ This feature is currently not supported for service fabric scale sets.
 
 ## How do automatic instance repairs work?
 
-Automatic instance repair feature relies on health monitoring of individual instances in a scale set. VM instances in a scale set can be configured to emit application health status using either the [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md). If an instance is found to be unhealthy, then the scale set performs repair action by deleting the unhealthy instance and creating a new one to replace it. This feature can be enabled in the virtual machine scale set model by using the *automaticRepairsPolicy* object.
+Automatic instance repair feature relies on health monitoring of individual instances in a scale set. VM instances in a scale set can be configured to emit application health status using either the [Application Health extension](./virtual-machine-scale-sets-health-extension.md) or [Load balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md). If an instance is found to be unhealthy, then the scale set performs repair action by deleting the unhealthy instance and creating a new one to replace it. The latest virtual scale set model is used to create the new instance. This feature can be enabled in the virtual machine scale set model by using the *automaticRepairsPolicy* object.
 
 ### Batching
 
@@ -63,7 +63,7 @@ When an instance goes through a state change operation because of a PUT, PATCH o
 
 ### Suspension of Repairs 
 
-Virtual machine scale sets provide the capability to temporarily suspend automatic instance repairs if needed. The *serviceState* for automatic repairs under the property *orchestrationServices* in instance view of virtual machine scale set can be used to suspend or resume the automatic repairs. When a scale set is opted into automatic repairs, the value of parameter *serviceState* is set to *Running*. When the automatic repairs are suspended for a scale set, the parameter *serviceState* is set to *Suspended*. If a scale set is not opted into the automatic repairs feature, then the parameter *serviceState* is set to *Not Running*.  
+Virtual machine scale sets provide the capability to temporarily suspend automatic instance repairs if needed. The *serviceState* for automatic repairs under the property *orchestrationServices* in instance view of virtual machine scale set shows the current state of the automatic repairs. When a scale set is opted into automatic repairs, the value of parameter *serviceState* is set to *Running*. When the automatic repairs are suspended for a scale set, the parameter *serviceState* is set to *Suspended*. If *automaticRepairsPolicy* is defined on a scale set but the automatic repairs feature is not enabled, then the parameter *serviceState* is set to *Not Running*.
 
 If newly created instances for replacing the unhealthy ones in a scale set continue to remain unhealthy even after repeatedly performing repair operations, then as a safety measure the platform updates the *serviceState* for automatic repairs to *Suspended*. You can resume the automatic repairs again by setting the value of *serviceState* for automatic repairs to *Running*. Detailed instructions are provided in the section on [viewing and updating the service state of automatic repairs policy](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) for your scale set. 
 
@@ -81,7 +81,7 @@ If an instance in a scale set is protected by applying one of the [protection po
 
 ## Terminate notification and automatic repairs
 
-If the [terminate notification](./virtual-machine-scale-sets-terminate-notification.md) feature is enabled on a scale set, then during automatic repair operation, the deletion of an unhealthy instance follows the properties configured under this feature. A terminate notification is sent through Azure metadata service – scheduled events – and instance deletion is delayed for the duration of the configured delay timeout. However, the creation of a new instance to replace the unhealthy one does not wait for the delay timeout to complete.
+If the [terminate notification](./virtual-machine-scale-sets-terminate-notification.md) feature is enabled on a scale set, then during automatic repair operation, the deletion of an unhealthy instance follows the terminate notification configuration. A terminate notification is sent through Azure metadata service – scheduled events – and instance deletion is delayed for the duration of the configured delay timeout. However, the creation of a new instance to replace the unhealthy one does not wait for the delay timeout to complete.
 
 ## Enabling automatic repairs policy when creating a new scale set
 
@@ -235,7 +235,7 @@ GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provider
 }
 ```
 
-Use Set Orchestration Service State with API version 2019-12-01 or higher for virtual machine scale set to set the *serviceState* for automatic repairs under the property *orchestrationServices* in the scale set instance view. Once the scale set is opted into the automatic repairs feature, you can use this API to suspend or resume automatic repairs for your scale set. 
+Use *setOrchestrationServiceState* API with API version 2019-12-01 or higher on a virtual machine scale set to set the state of automatic repairs. Once the scale set is opted into the automatic repairs feature, you can use this API to suspend or resume automatic repairs for your scale set. 
 
  ```http
  POST '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/setOrchestrationServiceState?api-version=2019-12-01'
@@ -270,6 +270,26 @@ az vmss set-orchestration-service-state \
     --action Resume \
     --name MyScaleSet \
     --resource-group MyResourceGroup
+```
+### Azure PowerShell
+
+Use [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss?view=azps-3.7.0) cmdlet with parameter *InstanceView* to view the *ServiceState* for automatic instance repairs.
+
+```azurepowershell-interactive
+Get-AzVmss `
+    -ResourceGroupName "myResourceGroup" `
+    -VMScaleSetName "myScaleSet" `
+    -InstanceView
+```
+
+Use Set-AzVmssOrchestrationServiceState cmdlet to update the *serviceState* for automatic instance repairs. Once the scale set is opted into the automatic repair feature, you can use this cmdlet to suspend or resume automatic repairs for you scale set.
+
+```azurepowershell-interactive
+Set-AzVmssOrchestrationServiceState `
+    -ResourceGroupName "myResourceGroup" `
+    -VMScaleSetName "myScaleSet" `
+    -ServiceName "AutomaticRepairs" `
+    -Action "Suspend"
 ```
 
 ## Troubleshoot
