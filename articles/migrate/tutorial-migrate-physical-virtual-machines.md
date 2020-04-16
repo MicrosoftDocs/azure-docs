@@ -99,7 +99,7 @@ Azure Migrate:Server Migration uses a replication appliance to replicate machine
 
 Prepare for appliance deployment as follows:
 
-- You prepare a machine to host the replication appliance. [Review](migrate-replication-appliance#appliance-requirements.md) the machine requirements. The appliance shouldn't be installed on a source machine that you want to replicate.
+- You prepare a machine to host the replication appliance. [Review](migrate-replication-appliance.md#appliance-requirements.md) the machine requirements. The appliance shouldn't be installed on a source machine that you want to replicate.
 - The replication appliance uses MySQL. Review the [options](migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
 - Review the Azure URLs required for the replication appliance to access [public](migrate-replication-appliance.md#url-access) and [government](migrate-replication-appliance.md#azure-government-url-access) clouds.
 - Review [port] (migrate-replication-appliance.md#port-access) access requirements for the replication appliance.
@@ -117,7 +117,7 @@ Set up an Azure Migrate project, and then add the Server Migration tool to it.
 
 5. In **Discover, assess and migrate servers**, click **Add tools**.
 6. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.
-7. In **Project Details**, specify the project name, and geography in which you want to create the project, and click **Next**. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-(public-cloud)) and [government clouds](migrate-support-matrix.md#supported-geographies-(azure-government)).
+7. In **Project Details**, specify the project name, and geography in which you want to create the project, and click **Next**. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
 
     ![Create an Azure Migrate project](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
 
