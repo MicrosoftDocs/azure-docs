@@ -46,7 +46,7 @@ Extensions** built-in policy initiative.
 - Container Registry should use a virtual network service endpoint
 - Virtual networks should use specified virtual network gateway
 - Authorized IP ranges should be defined on Kubernetes Services
-- [Preview]: IP Forwarding on your virtual machine should be disabled
+- \[Preview\]: IP Forwarding on your virtual machine should be disabled
 - Internet-facing virtual machines should be protected with Network Security Groups
 - Just-In-Time network access control should be applied on virtual machines
 - Management ports should be closed on your virtual machines
@@ -225,7 +225,7 @@ Extensions** built-in policy initiative.
 
 - Vulnerability assessment should be enabled on your SQL servers
 - Vulnerability assessment should be enabled on your SQL managed instances
-- [Preview] Vulnerability Assessment should be enabled on Virtual Machines
+- \[Preview\] Vulnerability Assessment should be enabled on Virtual Machines
 - Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports
 
 ## 5.2 Deploy automated operating system patch management solution
@@ -274,7 +274,7 @@ Extensions** built-in policy initiative.
 
 ## 7.3 Maintain secure Azure resource configurations
 
-- [Preview]: Pod Security Policies should be defined on Kubernetes Services
+- \[Preview\]: Pod Security Policies should be defined on Kubernetes Services
 
 ## 7.4 Maintain secure operating system configurations
 
@@ -284,7 +284,7 @@ Extensions** built-in policy initiative.
 
 ## 7.9 Implement automated configuration monitoring for Azure services
 
-- [Preview]: Pod Security Policies should be defined on Kubernetes Services
+- \[Preview\]: Pod Security Policies should be defined on Kubernetes Services
 
 ## 7.10 Implement automated configuration monitoring for operating systems
 
