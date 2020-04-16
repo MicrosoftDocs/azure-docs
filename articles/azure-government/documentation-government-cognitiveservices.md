@@ -624,7 +624,7 @@ For more information, please see [public documentation](../cognitive-services/Fa
 ### Variations
 * The URI for accessing the Text Translation API in Azure Government is: 
   - `https://api.cognitive.microsofttranslator.us`
-* [Virtual Network support](../cognitive-services/cognitive-services-virtual-networks?tabs=portal) for Translator service is limited to only `US Gov Virginia` region. 
+* [Virtual Network support](../cognitive-services/cognitive-services-virtual-networks.md) for Translator service is limited to only `US Gov Virginia` region. 
   The URI for accessing the API is:
   - `https://<your-custom-domain>.cognitiveservices.azure.us`
   - You can find your custom domain endpoint in the overview blade on the Azure portal once the resource is created. 
