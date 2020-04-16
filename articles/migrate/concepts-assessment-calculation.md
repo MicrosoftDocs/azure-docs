@@ -14,7 +14,7 @@ This article provides an overview of assessments in the [Azure Migrate:Server As
 An assessment with the Server Assessment tool measures the readiness, and estimates the impact, of migrating on-premises servers to Azure.
 
 > [!NOTE]
-> In Azure Government, review the [supported target](migrate-support-matrix.md#supported-geographies-azure-government) assessment locations. Note that VM size recommendations in assessments will use the VM series specifically for Government Cloud regions.
+> In Azure Government, review the [supported target](migrate-support-matrix.md#supported-geographies-azure-government) assessment locations. Note that VM size recommendations in assessments will use the VM series specifically for Government Cloud regions. [Learn more](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) about VM types.
 
 ## Types of assessments
 
