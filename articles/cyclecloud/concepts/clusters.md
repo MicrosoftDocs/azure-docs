@@ -40,7 +40,7 @@ CycleCloud utilizes Chef in a stand-alone mode that does not rely on a centraliz
 
 After these Cookbooks are downloaded, the Chef processes the list of Recipes defined in the node's *cluster-init specs*, triggering a preparation and configuration phase that converts the VM into a working HPC node.
 
-Specs are authored as logical collections called *Projects*. For example, a project for a batch scheduler such as Slurm comprises of a minimum of two specs: one for the scheduler head nodes, and the other for the compute nodes. [Read more about the CycleCloud Projects](../projects.md) 
+Specs are authored as logical collections called *Projects*. For example, a project for a batch scheduler such as Slurm comprises of a minimum of two specs: one for the scheduler head nodes, and the other for the compute nodes. [Read more about the CycleCloud Projects](~/how-to/projects.md) 
 
 ## Node Orchestration
 

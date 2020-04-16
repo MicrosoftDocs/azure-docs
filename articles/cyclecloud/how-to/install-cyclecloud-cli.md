@@ -2,7 +2,7 @@
 title: Install the Command Line Interface
 description: Install the CycleCloud CLI
 author: adriankjohnson
-ms.date: 08/01/2018
+ms.date: 02/04/2020
 ms.author: adjohnso
 ---
 
@@ -18,7 +18,7 @@ The CycleCloud CLI requires an existing installation of Python 2.7. While most L
 
 The CLI installer is distributed as part of the CycleCloud installation package. Click on the **?** in the upper-right corner of the UI to access the **about** page. Use the **Download CLI Tools** button to perform an in-browser download.
 
-![Download CLI installer](~/images/cli-download.png)
+![Download CLI installer](../images/cli-download.png)
 
 Alternatively, it can be downloaded directly from the command line using this command. One may need to add the `--no-check-certificate` flag to the following wget command if the CycleCloud instance does not have a certificate matching its hostname.
 
@@ -42,7 +42,7 @@ cd /tmp/cyclecloud-cli-installer
 ./install.sh
 ```
 
-The CycleCloud CLI will be installed to _${HOME}/bin_. After installing the CLI, add the _${HOME}/bin_ directory to the PATH environment variable in your login profile, if not already done.
+The CycleCloud CLI will be installed to _${HOME}/bin_. Optionally, after installing the CLI, add the _${HOME}/bin_ directory to the PATH environment variable in your profile.
 
 ```bash
 if [[ -d ${HOME}/bin ]]; then
@@ -66,3 +66,7 @@ Once the CLI has been installed, you'll need to connect it to your Azure CycleCl
 2. The installed Azure CycleCloud server uses either a Let's Encrypt SSL certificate, or a self-signed certificate. Type `yes` when asked to allow the certificate.
 3. Log in with the same username and password used for the CycleCloud web interface.
 4. Test that the CycleCloud CLI is working with `cyclecloud show_cluster`.
+
+## Further Reading
+
+* [CycleCloud CLI Reference](../cli.md)
