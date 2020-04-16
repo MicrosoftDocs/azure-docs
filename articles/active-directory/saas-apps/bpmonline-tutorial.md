@@ -42,7 +42,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Creatio supports **SP and IDP** initiated SSO
 
-* Once you configure the New Relic you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure the Creatio you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Creatio from the gallery
 
@@ -65,8 +65,8 @@ To configure and test Azure AD SSO with Creatio, complete the following building
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Creatio SSO](#configure-new-relic-by-account-sso)** - to configure the single sign-on settings on application side.
-    * **[Create Creatio test user](#create-new-relic-by-account-test-user)** - to have a counterpart of B.Simon in Creatio that is linked to the Azure AD representation of user.
+1. **[Configure Creatio SSO](#configure-Creatio-sso)** - to configure the single sign-on settings on application side.
+    * **[Create Creatio test user](#create-Creatio-test-user)** - to have a counterpart of B.Simon in Creatio that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
