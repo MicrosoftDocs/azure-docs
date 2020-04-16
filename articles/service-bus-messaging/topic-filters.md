@@ -3,16 +3,15 @@ title: Azure Service Bus topic filters | Microsoft Docs
 description: This article explains how subscribers can define which messages they want to receive from a topic by specifying filters. 
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
-manager: timlt
+author: spelluru
 editor: ''
 
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/27/2020
+ms.topic: conceptual
+ms.date: 04/16/2020
 ms.author: spelluru
 
 ---
@@ -48,6 +47,21 @@ Filters and actions enable two further groups of patterns: partitioning and rout
 Partitioning uses filters to distribute messages across several existing topic subscriptions in a predictable and mutually exclusive manner. The partitioning pattern is used when a system is scaled out to handle many different contexts in functionally identical compartments that each hold a subset of the overall data; for example, customer profile information. With partitioning, a publisher submits the message into a topic without requiring any knowledge of the partitioning model. The message then is moved to the correct subscription from which it can then be retrieved by the partition's message handler.
 
 Routing uses filters to distribute messages across topic subscriptions in a predictable fashion, but not necessarily exclusive. In conjunction with the [auto forwarding](service-bus-auto-forwarding.md) feature, topic filters can be used to create complex routing graphs within a Service Bus namespace for message distribution within an Azure region. With Azure Functions or Azure Logic Apps acting as a bridge between Azure Service Bus namespaces, you can create complex global topologies with direct integration into line-of-business applications.
+
+
+## Samples
+> [!NOTE]
+> Currently the Azure portal doesn't let you specify filter rules for subscriptions. You can use any of the supported SDKs or Azure Resource Manager templates to define subscription rules. 
+
+See the following samples: 
+
+- [.NET - Basic send and receive tutorial with filters](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
+- [.NET - Topic filters](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
+- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/javascript/advanced/topicFilters.js)
+- [Type script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/typescript/src/advanced/topicFilters.ts)
+- [Azure Resource Manager template](https://docs.microsoft.com/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
+
+
 
 ## Next steps
 
