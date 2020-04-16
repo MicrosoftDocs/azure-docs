@@ -14,7 +14,14 @@ ms.author: cynthn
 
 Create a VM from a generalized image version stored in a [Shared Image Gallery](shared-image-galleries.md). If want to create a scale set using a specialized image version, see [Create scale set instances from a specialized image version](instance-specialized-image-version-powershell.md).
 
-Once you have a generalized image version, you can create a virtual machine scale set using the [New-AzVmss](/powershell/module/az.compute/new-azvmss) cmdlet. The following examples create a scale set named *myScaleSet*, in the *myVMSSRG* resource group, in the *SouthCentralUS* location. The scale set will be created from the *myImageDefinition* image, in the *myGallery* image gallery in the *myGalleryRG* resource group. When prompted, set your own administrative credentials for the VM instances in the scale set.
+Once you have a generalized image version, you can create a virtual machine scale set using the [New-AzVmss](/powershell/module/az.compute/new-azvmss) cmdlet. 
+
+In this example, we are using the image definition ID to ensure your new VM will use the most recent version of an image. You can also use a specific version by using the image version ID for `-ImageReferenceId`. For example, to use image version *1.0.0* type: `-ImageReferenceId "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`. 
+
+Be aware that using a specific image version means automation could fail if that specific image version isn't available because it was deleted or removed from the region. We recommend using the image definition ID for creating your new VM, unless a specific image version is required.
+
+
+The following examples create a scale set named *myScaleSet*, in the *myVMSSRG* resource group, in the *SouthCentralUS* location. The scale set will be created from the *myImageDefinition* image, in the *myGallery* image gallery in the *myGalleryRG* resource group. When prompted, set your own administrative credentials for the VM instances in the scale set.
 
 
 ## Simplified parameter set

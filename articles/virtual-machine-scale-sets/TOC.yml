@@ -182,6 +182,54 @@
       href: virtual-machine-scale-sets-design-overview.md
     - name: Understand instance IDs
       href: virtual-machine-scale-sets-instance-ids.md
+
+  - name: Use Images
+    displayName: SIG, AMI, image
+    items:
+    - name: Shared Image Galleries
+      items:
+      - name: PowerShell
+        items:
+        - name: Create a gallery
+          href: ../virtual-machines/shared-images-powershell.md
+        - name: Create an image 
+          items:
+          - name: From a VM
+            href: ../virtual-machines/image-version-vm-powershell.md
+          - name: Migrate from a managed image
+            href: ../virtual-machines/image-version-managed-image-powershell.md
+          - name: Copy from another gallery
+            href: ../virtual-machines/image-version-another-gallery-powershell.md             
+        - name: Create a scale-set
+          items:
+          - name: Specialized
+            href: ../vm-generalized-image-version-powershell.md
+          - name: Generalized
+            href: ../vm-specialized-image-version-powershell.md
+        - name: Update image resources
+          href: ../virtual-machines/update-image-resources-powershell.md
+      - name: CLI
+        items:
+        - name: Create a gallery
+          href: ../shared-images-cli.md
+        - name: Create an image
+          items:
+          - name: From a VM
+            href: ../image-version-vm-cli.md
+          - name: Migrate from a managed image
+            href: ../image-version-managed-image-cli.md 
+          - name: Copy from another gallery
+            href: ../image-version-another-gallery-cli.md
+        - name: Create a scale-set
+          items:
+          - name: Generalized
+            href: instance-generalized-image-version-cli.md
+        - name: Update image resources
+          href: ../virtual-machines/update-image-resources-cli.md
+      - name: Portal
+        items:
+        - name: Create and use a Shared Image Gallery
+          href: shared-images-portal.md
   - name: Create a template
     items:
     - name: Learn about scale set templates

@@ -65,6 +65,8 @@
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Images
+    href: shared-image-galleries.md
   - name: Azure Resource Manager
     href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Regions
@@ -448,16 +450,15 @@
     - name: Create log alerts
       href: ../../azure-monitor/platform/alerts-log.md
   - name: Use Images
+    displayName: SIG, AMI, image
     items:
-    - name: Create and share images
+    - name: Shared Image Galleries
       items:
-      - name: Overview
-        href: shared-image-galleries.md
       - name: CLI
         items:
-        - name: Create a gallery and image definition
-          href: shared-images.md
-        - name: Create an image version
+        - name: Create a gallery
+          href: ../shared-images-cli.md
+        - name: Create an image
           items:
           - name: From a VM
             href: ../image-version-vm-cli.md
@@ -475,8 +476,8 @@
           href: share-images-across-tenants.md
       - name: PowerShell
         items:
-        - name: Create a gallery and image definition
-          href: shared-images.md
+        - name: Create a gallery
+          href: ../shared-images-powershell.md
         - name: Create an image version
           items:
           - name: From a VM
@@ -495,7 +496,7 @@
           href: ../update-image-resources-powershell.md
       - name: Portal
         items:
-        - name: Create a gallery
+        - name: Create a gallery, image and VM
           href: shared-images-portal.md
       - name: Resource Manager Templates
         items:
