@@ -77,7 +77,7 @@ Azure Migrate Server Migration runs a lightweight VMware VM appliance. The appli
 - If you followed the [tutorial to assess VMware VMs](tutorial-assess-vmware.md), you already set up the appliance during that tutorial.
 - If you didn't follow that tutorial, you can set up the appliance now, using one of these methods:
     - [Set up](how-to-set-up-appliance-vmware.md) on a VMware VM using a downloaded OVA template.
-    - Set up on a VMware VM or physical machine with a PowerShell installer script. [This method](migrate-appliance-script.md) should be used if you can't set up a VM using an OVA template, or if you're in Azure government.
+    - Set up on a VMware VM or physical machine with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a VM using an OVA template, or if you're in Azure government.
 
 After creating the appliance, you check that it can connect to Azure Migrate:Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
 
