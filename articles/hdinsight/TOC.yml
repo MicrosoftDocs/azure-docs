@@ -282,7 +282,7 @@
       - name: Run queries on an Apache Spark cluster
         href: ./spark/apache-spark-load-data-run-query.md
       - name: Failure spark job debugging in IntelliJ (preview)
-        href: ./spark/apache-spark-intellij-tool-failure-debug.md
+        href: ./spark/apache-spark-intellij-tool-failure-debug.md     
       - name: Analyze data using BI tools
         href: ./spark/apache-spark-use-bi-tools.md
       - name: Create a machine learning app
