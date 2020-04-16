@@ -1,5 +1,5 @@
 ---
-title: Get Started With Programmable Messaging
+title: Get Started With Video
 description: TODO
 author: mikben    
 manager: jken
@@ -13,15 +13,15 @@ ms.service: azure-project-spool
 ---
 
 
-# Get Started With Programmable Messaging
+# Get Started With Video
 
-This quickstart will teach you how to use Spool to send messages back and forth between two web application clients.
+This quickstart will teach you how to stream your laptops webcam and microphone to a web app that anyone can view.
 
 
 #### Meta:
 
 -  Customer intent statements: 
-   - I want to know how to get started with messaging on Spool.
+   - I want to know how to get started with video.
 
 - Discussion:
   - TODO

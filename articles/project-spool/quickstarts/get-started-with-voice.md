@@ -1,5 +1,5 @@
 ---
-title: Get Started With Programmable Video
+title: Get Started With Voice
 description: TODO
 author: mikben    
 manager: jken
@@ -13,15 +13,15 @@ ms.service: azure-project-spool
 ---
 
 
-# Get Started With Programmable Video
+# Get Started With Voice
 
-This quickstart will teach you how to stream your laptops webcam and microphone to a web app that anyone can view.
+This Quickstart will teach you how to use Project Spool to call your personal cell phone number and say "hello world".
 
 
 #### Meta:
 
 -  Customer intent statements: 
-   - I want to know how to get started with programmable video.
+   - I want to know how to get started with a simple voice scenario.
 
 - Discussion:
   - TODO

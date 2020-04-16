@@ -1,5 +1,5 @@
 ---
-title: Get Started With Programmable Voice
+title: Get Started With Messaging
 description: TODO
 author: mikben    
 manager: jken
@@ -13,15 +13,15 @@ ms.service: azure-project-spool
 ---
 
 
-# Get Started With Programmable Voice
+# Get Started With Messaging
 
-This Quickstart will teach you how to use Project Spool to call your personal cell phone number and say "hello world".
+This quickstart will teach you how to use Spool to send messages back and forth between two web application clients.
 
 
 #### Meta:
 
 -  Customer intent statements: 
-   - I want to know how to get started with a simple voice scenario.
+   - I want to know how to get started with messaging on Spool.
 
 - Discussion:
   - TODO
