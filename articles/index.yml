@@ -228,7 +228,7 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/luis/index.yml
     # Card
-    - title: Machine Learning Studio
+    - title: ML Studio (Classic)
       summary: Easily build, deploy, and manage predictive analytics solutions
       imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning-studio-service.svg
       azureCategories:
@@ -319,7 +319,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/data-explorer.svg
       azureCategories:
         - analytics
-      url: data-explorer/index.yml
+      url: /azure/data-explorer
     # Card
     - title: Azure Data Lake Storage
       summary: Massively scalable, secure data lake functionality built on Azure Blob Storage
