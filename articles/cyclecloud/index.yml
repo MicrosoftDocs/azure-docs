@@ -56,7 +56,7 @@ sections:
         - title: Auto Scale
           html: <p><a href="autoscale">Auto Scale</a></p><p><a href="autoscale-api">Auto Scale Plugins</a></p>
         - title: Tools
-          html: <p><a href="pogo-overview">pogo</a></p><p><a href="jetpack">Jetpack</a></p><p><a href="scheduler-integration">Scheduler Integration</a></p><p><a href="healthcheck">HealthCheck</a></p>
+          html: <p><a href="pogo-overview">pogo</a></p><p><a href="jetpack">Jetpack</a></p><p><a href="healthcheck">HealthCheck</a></p>
 
   - title: Get Help
     items:
