@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: axayjo
 manager: gwallace
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.assetid: 
