@@ -4,8 +4,8 @@ description: Describes Azure HPC Cache, a file access accelerator solution for h
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 03/09/2020
-ms.author: rohogue
+ms.date: 04/15/2020
+ms.author: v-erkel
 ---
 
 # What is Azure HPC Cache?
@@ -46,11 +46,8 @@ Azure HPC Cache is available in these Azure regions:
 
 | North America      | Europe         | Asia            | Australia      |
 |--------------------|----------------|-----------------|----------------|
-| Canada Central   | North Europe | Korea Central | Australia East |
-| Central US       | UK South     | Southeast Asia |               |
-| East US          | West Europe  | | |
-| East US 2        | | | |
-| North Central US | | | |
+| East US            | North Europe   | Korea Central   | Australia East |
+| East US 2          | West Europe    | Southeast Asia  |               |
 | South Central US | | | |
 | West US 2        | | | |
 
@@ -61,12 +58,6 @@ The [customer-managed keys feature](customer-keys.md) is supported only in these
 * West US 2
 
 Check the [Azure HPC Cache product page](https://azure.microsoft.com/services/hpc-cache) for the latest availability information.
-
-## Service availability
-
-You must request access for each subscription you will use with Azure HPC Cache. This restriction helps ensure service quality in the initial months of general availability.
-
-Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). After your subscription is added to the access list, you can create caches.
 
 ## Next steps
 
