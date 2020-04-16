@@ -25,7 +25,7 @@ There are two options for deploying dependency analysis
 - **Agentless**: With agentless analysis, you don't need to install agents on machines you want to cross-check. This option is currently in preview, and is only available for VMware VMs.
 
 > [!NOTE]
-> Dependency analysis isn't available in Azure Government.
+> Agent-based dependency analysis isn't available in Azure Government. You can use agentless dependency analysis.
 
 ## Agentless analysis
 
