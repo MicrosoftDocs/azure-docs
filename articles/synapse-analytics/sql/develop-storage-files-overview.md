@@ -139,7 +139,7 @@ For additional information, read the Filepath section of the [Query specific fil
 
 ### Work with complex types and nested or repeated data structures
 
-To enable a smooth experience when working with data stored in nested or repeated data types, such as in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files, Starlight has added the extensions below.
+To enable a smooth experience when working with data stored in nested or repeated data types, such as in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files, SQL on-demand has added the extensions below.
 
 #### Project nested or repeated data
 

@@ -39,10 +39,6 @@ A successful response will contain a JSON payload representing the resulting acc
 
 Access tokens will be cached by Service Fabric at various levels (node, cluster, resource provider service), so a successful response does not necessarily imply that the token was issued directly in response to the user application's request. Tokens will be cached for less than their lifetime, and so an application is guaranteed to receive a valid token. It is recommended that the application code caches itself any access tokens it acquires; the caching key should include (a derivation of) the audience. 
 
-
-> [!NOTE]
-> The only accepted API version is presently `2019-07-01-preview`, and is subject to change.
-
 Sample request:
 ```http
 GET 'https://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://vault.azure.net/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
