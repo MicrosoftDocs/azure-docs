@@ -201,3 +201,29 @@ landingContent:
         links:
           - text: Weather Service
             url: https://docs.microsoft.com/rest/api/maps/weather
+
+  # Card
+  - title: Developing with Private Atlas
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Private Atlas concept
+            url: private-atlas-for-indoor-maps.md
+      - linkListType: tutorial
+        links:
+          - text: Use Private Atlas to create indoor maps data
+            url: weather-service-tutorial.md
+      - linkListType: how-to-guide
+        links:
+          - text: Indoor maps data management
+            url: how-to-manage-private-atlas.md
+          - text: Dynamic styling for indoor maps
+            url: indoor-map-dynamic-styling.md
+          - text: Azure Maps drawing error visualizer
+            url: azure-maps-drawing-errors-visualizer.md
+          - text: Azure Maps indoor map module
+            url: how-to-use-indoor-module.md
+      - linkListType: reference
+        links:
+          - text: Private Atlas Service
+            url: https://docs.microsoft.com/rest/api/maps/data

@@ -1,48 +1,50 @@
 ---
-title: Drawing package requirements in Private `Atlas  | Microsoft Docs
-description: Learn about the DWG package requirements to convert your facility design files to map data using the Azure Maps Conversion service
+title: Drawing package requirements in Private Atlas  | Microsoft Docs
+description: Learn about the Drawing package requirements to convert your facility design files to map data using the Azure Maps Conversion service
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/13/2020
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
 ---
 
-# DWG package requirements
+# Drawing package requirements
 
-The [Azure Maps Conversion API](https://docs.microsoft.com/rest/api/maps/data/conversion) allows you to convert a DWG package, for a single facility, into an indoor map [Datasets](private-atlas-for-indoor-maps.md#datasets). This article describes the DWG package requirements for the Conversion API. Optionally, you can download and use a [Sample DWG package](https://github.com/Azure-Samples/Azure-Maps-DWG-Package-Samples).
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) allows you to convert a Drawing package, for a single facility, into an indoor map [datasets](private-atlas-for-indoor-maps.md#datasets). This article describes the Drawing package requirements for the Conversion API. Optionally, you can download and use a [Sample Drawing package](https://github.com/Azure-Samples/Azure-Maps-DWG-Package-Samples).
 
 ## Prerequisites
 
-You may choose any CAD software to produce your DWG package.
+The drawing package includes drawings saved in DWG format, the native file format for Autodesk’s AutoCAD® software and is a trademark of Autodesk, Inc.
 
-The [Azure Maps Conversion API](https://docs.microsoft.com/rest/api/maps/data/conversion), which consumes the DWG package, has been developed and tested using AutoCAD 2019. With AC1032 as the internal format version for the DWG files. Regardless of the CAD software you choose, you're encouraged to select AC1032 for the internal DWG file version.  
+You may choose any CAD software to produce the drawings required in the drawing package.  
 
-Acquaint yourself with the following terms before we explain the DWG package requirements.
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion), which consumes the drawing package, has been developed and tested using AutoCAD DWG file format, with AC1032 as the internal format version for the DWG files. You are encouraged to select AC1032 for the internal DWG file format version.  
+
+Glossary of terms used within this document.
 
 | Term  | Definition |
 |:-------|:------------|
 | Layer | An AutoCAD DWG layer|
 | Level | An area of a building at a set elevation. For example, the floor of a building |
-| Xref  | A DWG file attached to the primary drawing as an external reference |
+| Xref  |A file in AutoCAD DWG file format (.dwg) attached to the primary drawing as an external reference  |
 | Feature | An object that combines a geometry with additional metadata information |
 | Feature Classes | A common blueprint for features. For example, a Unit is a feature class, and an office is a feature |
 
-## Package structure
+## Drawing Package structure
 
-A DWG package consists of DWG files and a manifest file for a single facility. The DWG files can be organized in any way inside the folder, but the manifest file must live at the root directory of the folder. The folder must be zipped in a single archive file, with a .zip extension. The next sections detail the requirements for the DWG files, manifest file, and the content of these files.  
+A  Drawing package consists of files in AutoCAD DWG file format and a manifest file for a single facility, zipped into a single .zip extension file. The DWG files can be organized in any way inside the folder, but the manifest file must live at the root directory of the folder. The folder must be zipped in a single archive file, with a .zip extension. The next sections detail the requirements for the DWG files, manifest file, and the content of these files.  
 
-## Drawing files requirements
+## DWG files requirements
 
-A single DWG file is required for each level of the facility. And the level's data must be contained in a single DWG file. Any external references (xrefs) must be bound to the parent drawing. Additionally, each DWG file:
+A single DWG file is required for each level of the facility. And the level's data must be contained in a single DWG file. Any external references (_xrefs_) must be bound to the parent drawing. Additionally, each DWG file:
 
 * Must define the _Exterior_ and _Unit_ layers. It may optionally define the following optional layers: _Wall_, _Door_, _UnitLabel_, _Zone_, and _ZoneLabel_.
 * Must not contain features from multiple levels
 * Must not contain features from multiple facilities
 
-The Azure Maps Conversion Service can extract the following feature classes from a DWG file:
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) can extract the following feature classes from a DWG file:
 
 * Levels
 * Units
@@ -57,10 +59,11 @@ Moreover:
 
 * The origins of drawings for all DWG files must align to the same latitude and longitude.
 * Each level must be in the same orientation as the other levels
-* Self-intersecting polygons will be automatically repaired, and the Conversion API will raise a warning. It is recommended to manually inspect the repaired results as they may not match the expected results. 
-* All CAD entities must be one of the following types: Line, PolyLine, Polygon, Circular Arc, Circle, Text (single line). Any other entity types will be ignored.
+* Self-intersecting polygons will be automatically repaired, and the  [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) will raise a warning. It is recommended to manually inspect the repaired results as they may not match the expected results.
 
-The table below outlines the supported entity types and supported features for each layer. If a layer contains unsupported entity types, then the Conversion API will ignore these entities.  
+All layer entities must be one of the following types: Line, PolyLine, Polygon, Circular Arc, Circle, Text (single line). Any other entity types will be ignored.
+
+The table below outlines the supported entity types and supported features for each layer. If a layer contains unsupported entity types, then the[Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) will ignore these entities.  
 
 | Layer | Entity types | Features |
 | :----- | :-------------------| :-------
@@ -152,11 +155,11 @@ The DWG file for each level may contain a zone label layer. This layer adds a na
 
 ## Manifest file requirements
 
-The zip folder must contain a manifest file at the root level of the directory, and the file must be named **manifest.json**. It describes the DWG files to allow the Conversion API to parse their content. Only the files identified by the manifest will be ingested. Files that are in the zip folder, but aren't properly listed in the manifest, will be ignored. 
+The zip folder must contain a manifest file at the root level of the directory, and the file must be named **manifest.json**. It describes the DWG files to allow the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) to parse their content. Only the files identified by the manifest will be ingested. Files that are in the zip folder, but aren't properly listed in the manifest, will be ignored.
 
 The file paths, in the **building_levels** object of the manifest file, must be relative to the root of the zip folder. The DWG file name must exactly match the name of the facility level. For example, a DWG file for the "Basement" level would be "Basement.dwg." A DWG file for level 2 would be named as "level_2.dwg." Use an underscore, if your level name has a space. 
 
-Although there are requirements when using the manifest objects, not all objects are required. The table below shows the required and the optional objects for version 1.1 of the Conversion API. 
+Although there are requirements when using the manifest objects, not all objects are required. The table below shows the required and the optional objects for version 1.1 of the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion).
 
 | Object | Required | Description |
 | :----- | :------- | :------- | 
@@ -251,27 +254,27 @@ The `zoneProperties` object contains a JSON array of zone properties.
 |zoneNameAlt|    string/int|    false    |Alternate Name  |
 |zoneNameSubtitle|    string/int |    false    |Subtitle |
 
-### Sample DWG package
-Below is a sample manifest file for the sample DWG package. To download the entire package, click [Private Atlas DWG Sample package]().
+### Sample Drawing package
+Below is a sample manifest file for the sample Drawing package. To download the entire package, click [Private Atlas Drawing Sample package](https://github.com/Azure-Samples/Azure-Maps-DWG-Package-Samples).
 
 #### Manifest File
 ```JSON
 {
     "version": "1.1", 
     "directoryInfo": { 
-        "name": "Microsoft Building", 
-        "streetAddresss": "Microsoft Way", 
+        "name": "Contoso Building", 
+        "streetAddresss": "Contoso Way", 
         "unit": "1", 
-        "locality": "Eastside", 
+        "locality": "Contoso eastside", 
         "postalCode": "98052", 
         "adminDivisions": [ 
-            "Redmond", 
-            "WA", 
-            "United States" 
+            "Contoso city", 
+            "Contoso state", 
+            "Contoso country" 
         ], 
         "hoursOfOperation": "Mo-Fr 08:00-17:00 open", 
         "phone": "1 (425) 555-1234", 
-        "website": "www.microsoft.com", 
+        "website": "www.contoso.com", 
         "nonPublic": false, 
         "anchorLatitude": 47.636152, 
         "anchorLongitude": -122.132600, 
@@ -385,7 +388,7 @@ Below is a sample manifest file for the sample DWG package. To download the enti
 
 ## Next steps
 
-Once your DWG package meets the requirements, you may use the Conversion API to convert the DWG file into a map data set. Then, you can use the data set to generate an indoor map using the Indoor Maps module. Learn more about using the Azure Maps Indoor Maps SDK by reading the following articles:
+Once your drawing package meets the requirements, you may use the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) to convert the package to a map data set. Then, you can use the data set to generate an indoor map using the Indoor Maps module. Learn more about using the Indoor Maps module by reading the following articles: 
 
 > [!div class="nextstepaction"]
 >[Private Atlas indoor maps management](private-atlas-for-indoor-maps.md)
