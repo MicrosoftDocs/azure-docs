@@ -21,8 +21,34 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | **Deployment**       | The Hyper-V host can be standalone or deployed in a cluster. <br/>Azure Migrate replication software (Hyper-V Replication provider) is installed on the Hyper-V hosts.|
 | **Permissions**           | You need administrator permissions on the Hyper-V host. |
 | **Host operating system** | Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2. |
-| **URL access** | The replication provider software on the Hyper-V hosts will need access to these URLS:<br/><br/> - login.microsoftonline.com: Access control and identity management using Active Directory.<br/><br/> - *.backup.windowsazure.com: Replication data transfer and coordination. Migrate service URLs.<br/><br/> - *.blob.core.windows.net: Upload data to storage accounts.<br/><br/> - dc.services.visualstudio.com: Upload app logs used for internal monitoring.<br/><br/> - time.windows.com: Verifies time synchronization between system and global time.
 | **Port access** |  Outbound connections on HTTPS port 443 to send VM replication data.
+
+### URL access (public cloud)
+
+The replication provider software on the Hyper-V hosts will need access to these URLs.
+
+**URL** | **Details**
+--- | ---
+login.microsoftonline.com | Access control and identity management using Active Directory.
+backup.windowsazure.com | Replication data transfer and coordination.
+*.hypervrecoverymanager.windowsazure.com | Used for migration.
+*.blob.core.windows.net | Upload data to storage accounts. 
+dc.services.visualstudio.com | Upload app logs used for internal monitoring.
+time.windows.com: Verifies time synchronization between system and global time.
+
+### URL access (Azure Government)
+
+The replication provider software on the Hyper-V hosts will need access to these URLs.
+
+**URL** | **Details**
+--- | ---
+login.microsoftonline.us | Access control and identity management using Active Directory.
+backup.windowsazure.us | Replication data transfer and coordination.
+*.hypervrecoverymanager.windowsazure.us | Used for migration.
+*.blob.core.usgovcloudapi.net | Upload data to storage accounts.
+dc.services.visualstudio.com | Upload app logs used for internal monitoring.
+time.nist.gov | Verifies time synchronization between system and global time.
+
 
 ## Hyper-V VMs
 
