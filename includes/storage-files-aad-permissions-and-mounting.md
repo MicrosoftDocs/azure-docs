@@ -96,7 +96,7 @@ For more information on how to use icacls to set NTFS permissions and on the dif
 Use the Windows **net use** command to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, see [Use an Azure file share with Windows](../articles/storage/files/storage-how-to-use-files-windows.md). 
 
 ```
-net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
+net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
 ```
 ### Configure NTFS permissions with Windows File Explorer
 Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory.
