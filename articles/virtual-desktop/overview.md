@@ -62,9 +62,9 @@ We plan to add support for the following OSes, so make sure you have the [approp
 
 |OS|Required license|
 |---|---|
-|Windows 10 Enterprise multi-session or Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Business<br>Windows E3, E5, A3, A5|
-|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Business<br>Windows E3, E5, A3, A5|
-|Windows Server 2012 R2, 2016, 2019|RDS Client Access License (CAL) with Software Assurance|
+|Windows 10 Enterprise multi-session or Windows 10 Enterprise|User licensed with Microsoft 365 E3, E5, A3, A5, F3, Business, Student Use Benefit<br>Windows E3, E5, A3, A5|Windows VDA E3,E5
+|Windows 7 Enterprise |User licensed with Microsoft 365 E3, E5, A3, A5, F3, Business, Student Use Benefit<br>Windows E3, E5, A3, A5|Windows VDA E3,E5
+|Windows Server 2012 R2, 2016, 2019|RDS User Client Access License (CAL) with Software Assurance, RDS User Subscription Licenses or using devices licensed with RDS Device Client Access License (CAL) with Software Assurance|
 
 Your infrastructure needs the following things to support Windows Virtual Desktop:
 
