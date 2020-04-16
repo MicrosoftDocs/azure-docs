@@ -310,7 +310,7 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 
 * These connectors don't have fixed or reserved IP addresses:
 
-  * Custom connectors, whether they're used in multi-tenant Azure, [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), [Azure Government](../azure-government/documentation-government-overview.md), and [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
+  * Custom connectors, whether they're in multi-tenant Azure, [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), [Azure Government](../azure-government/documentation-government-overview.md), and [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
 
   * Managed connectors in [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), for example, Azure Storage, SQL Server, Office 365, and so on
 
