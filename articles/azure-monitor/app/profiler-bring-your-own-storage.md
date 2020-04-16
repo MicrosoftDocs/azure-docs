@@ -20,19 +20,19 @@ With Bring Your Own Storage, the data collected, by agents running in the custom
 The data it's written into the customer's storage account by agents running in the customer's VMs (virtual machines) or App Service. The customer's application contacts our service (Profiler/Debugger) when they want to upload data and we hand back a SAS (Shared Access Signature) token to a blob in their storage account. Later, when they want to analyze the data, the profiler/debugger service will reach back into that storage account to read the blob and write back the results of the analysis.
 
 ## What do I need to do to enable BYOS? 
-Since our services need to securely connect to your storage account, the profiler/debugger service has a 1st party (multi-tenant) AAD (Azure Active Directory) application called “Diagnostic Services Trusted Storage Access” that it's used to access customer storage accounts. The customer needs to grant the “Storage Blob Data Contributor” role to that AAD application in their storage account via the Access control (IAM) UI, as shown in Figure 1.0. 
+Since our services need to securely connect to your storage account, the profiler/debugger service has a 1st party (multi-tenant) AAD (Azure Active Directory) application called "Diagnostic Services Trusted Storage Access" that it's used to access customer storage accounts. The customer needs to grant the "Storage Blob Data Contributor" role to that AAD application in their storage account via the Access control (IAM) UI, as shown in Figure 1.0. 
 
 Steps: 
-1. Click on the “Add” button in the “Add a role assignment” section 
-2. Select “Storage Blob Data Contributor” role 
-3. Select “Azure AD user, group, or service principal” in the “Assign access to” section 
-4. Search & select “Diagnostic Services Trusted Storage Access” app 
+1. Click on the "Add" button in the "Add a role assignment" section 
+2. Select "Storage Blob Data Contributor" role 
+3. Select "Azure AD user, group, or service principal" in the "Assign access to" section 
+4. Search & select "Diagnostic Services Trusted Storage Access" app 
 5. Save changes
 
 _![Figure 1.0](media/profiler-bring-your-own-storage/figure10.png)_
 _Figure 1.0_ 
 
-After you added the role, it will appear under the “Role assignments” section, like the below Figure 1.1. 
+After you added the role, it will appear under the "Role assignments" section, like the below Figure 1.1. 
 _![Figure 1.1](media/profiler-bring-your-own-storage/figure11.png)_
 _Figure 1.1_ 
 
@@ -40,7 +40,7 @@ If you are also using Private Link, it is required one additional configuration 
 
 ## Prerequisites
 * Make sure to create your Storage Account in the same location as your Application Insights Resource. Ex. If your Application Insights resource is in West US 2, your Storage Account must be also in West US 2. 
-* Grant the “Storage Blob Contributor” role to the AAD (Azure Active Directory) application “Diagnostic Services Trusted Storage Access” in your storage account via the IAM UI.
+* Grant the "Storage Blob Contributor" role to the AAD (Azure Active Directory) application "Diagnostic Services Trusted Storage Access" in your storage account via the IAM UI.
 * If Private Link enabled, configure the additional setting to allow connection to our Trusted Microsoft Service from your Virtual Network. 
 
 ## Enablement process 
@@ -144,7 +144,7 @@ _Figure 2.0_
 * Make sure that the `apiVersion` of the resource `microsoft.insights/components` it's `2015-05-01`.
 * Make sure that the `apiVersion` of the resource `linkedStorageAccount` its `2020-03-01-preview`.
     Error message:
-    ```
+    ```powershell
     New-AzResourceGroupDeployment : 6:18:03 PM - Resource microsoft.insights/components 'byos-test-westus2-ai' failed with message '{
       "error": {
         "code": "NoRegisteredProviderFound",
@@ -158,7 +158,7 @@ _Figure 2.0_
 ### Storage account location should match AI component location.
 * Make sure that the location of the Application Insights resource it's the same as the Storage Account trying to use. 
     Error message:
-    ```
+    ```powershell
     New-AzResourceGroupDeployment : 1:01:12 PM - Resource microsoft.insights/components/linkedStorageAccounts 'byos-test-centralus-ai/serviceprofiler' failed with message '{
       "error": {
         "code": "BadRequest",
