@@ -73,138 +73,139 @@ If a service offering is not available in a specific region, you can share your 
 
 Azure classifies services into three categories: foundational, mainstream, and specialized. The services in this section are public services that are regional only. This section excludes virtual machine SKUs listed as **older-gen** on [TBD]. For information about non-regional services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
-| Foundational | Mainstream | Specialized |
-| --- | --- | --- |
-| Application Gateway | Management | AI builder |
-| Azure Cosmos DB | App Service | Azure API for FHIR |
-| Azure Load Balancer | App Service: App Service Environments | Azure Container Service |
-| Azure Load Balance: Standard | Application Gateway : Application Gateway v2 | Azure Data Box: Data Box Heavy |
-| Azure Resource Manager | Automation | Azure Data Lake Storage Gen1 |
-| Azure SQL | Azure Active Directory | Azure Database for MariaDB |
-| Azure SQL: Managed Instance | Azure Active Directory : Premium P1 | Azure Dedicated HSM |
-| Azure Service Manager (RDFE) | Azure Active Directory : Premium P2 | Azure Dev Spaces |
-| Backup | Azure Active Directory B2C | Azure Lab Services |
-| Event Hubs | Azure Active Directory Domain Services | Azure NetApp Files |
-| ExpressRoute | Azure Advanced Threat Protection | Chat for Dynamics 365 |
-| ExpressRoute : ExpressRoute Gateways | Azure Advisor | Cognitive Services: Bing Autosuggest |
-| Key Vault | Azure Analysis Services | Cognitive Services: Bing Custom Search |
-| Key Vault: Premium | Azure Bastion | Cognitive Services: Bing Entity Search |
-| Service Bus | Azure Bot Service | Cognitive Services: Bing Image Search |
-| Service Bus: Premium | Azure DDoS Protection Standard | Cognitive Services: Bing News Search |
-| Service Fabric | Azure DNS | Cognitive Services: Bing Speech |
-| Storage | Azure DNS: Azure DNS private zones | Cognitive Services: Bing Spell Check |
-| Storage: Azure Data Lake Storage Gen2 | Azure Data Box: Data Box | Cognitive Services: Bing Video Search |
-| Storage: Disk Storage | Azure Data Box: Data Box Disk | Cognitive Services: Bing Visual Search |
-| Storage: Hot/Cool Blob Storage Tiers | Azure Data Box: Data Box Edge | Cognitive Services: Bing Web Search |
-| Storage: Managed Disks | Azure Data Box: Data Box Gateway | Cognitive Services: Custom Vision |
-| Storage: Queues | Azure Data Explorer | Cognitive Services: Translator Speech |
-| Storage: Tables | Azure Data Share | Data Catalog |
-| VPN Gateway	Virtual Machine Scale Sets | Azure Data Share: Snapshot Execution | Data Factory: Data Factory V1 |
-| Virtual Machines | Azure Database Migration Service | Data Lake Analytics |
-| Virtual Machines: Av2-Series | Azure Database for MySQL | HockeyApp |
-| Virtual Machines: B-Series | Azure Database for PostgreSQL | IoT Central |
-| Virtual Machines: D-Series | Azure Databricks | Machine Learning Studio |
-| Virtual Machines: DSv2-Series | Azure DevOps | Media Services: Video Indexer |
-| Virtual Machines: DSv3-Series | Azure DevTest Labs | Microsoft Defender Advanced Threat Protection |
-| Virtual Machines: Dv2-Series | Azure Firewall | Microsoft Defender Advanced Threat	Protection: Microsoft Defender non-E5 |
-| Virtual Machines: Dv3-Series | Azure Front Door | Microsoft Forms Pro |
-| Virtual Machines: ESv3-Series | Azure HPC Cache | Microsoft Genomics |
-| Virtual Machines: Ev3-Series | Azure Information Protection | Microsoft Healthcare Bot |
-| Virtual Machines: F-Series | Azure Information Protection: Free | Power Virtual Agents |
-| Virtual Machines: FS-Series | Azure Information Protection : Premium P1 | StorSimple |
-| Virtual Machines Instance Level IPs | Azure Information Protection : Premium P2 | Time Series Insights |
-| Virtual Machines: Reserved IP | Azure Kubernetes Service (AKS) | VMWare by CloudSimple |
-| Virtual Network | Azure Lighthouse | Virtual Machines: A8 - A11 (Compute Intensive) |
-| Virtual Network: Global Vnet Peering | Azure LockBox | Virtual Machines: DASv4-Series |
-| Virtual Network: Public IP Address Basic | Azure Managed Applications | Virtual Machines: DAv4-Series |
-| Virtual Network: Public IP Address Standard | Azure Maps | Virtual Machines: EASv4-Series |
-|  | Azure Migrate | Virtual Machines: EAv4-Series |
-|  | Azure Monitor | Virtual Machines: G-Series |
-|  | Azure Monitor : Application Insights | Virtual Machines: GS-Series |
-|  | Azure Monitor : Log Analytics | Virtual Machines: H-Series |
-|  | Azure Open Datasets | Virtual Machines: HBv1-Series |
-|  | Azure Policy | Virtual Machines: HBv2-Series |
-|  | Azure Private Link | Virtual Machines: HCv1-Series |
-|  | Azure Red Hat OpenShift (ARO) | Virtual Machines: LS-Series |
-|  | Azure Resource Graph | Virtual Machines: LSv2-Series |
-|  | Azure Search | Virtual Machines: Mv2 SKL-series |
-|  | Azure Search: Cognitive Search | Virtual Machines: NC-Series |
-|  | Azure Security for IoT | Virtual Machines: NCv2-Series |
-|  | Azure Sentinel | Virtual Machines: NCv3-Series |
-|  | Azure SignalR Service | Virtual Machines: ND-Series |
-|  | Azure Signup Portal | Virtual Machines: NV-Series |
-|  | Azure Stack | Virtual Machines: NVv3-Series |
-|  | Azure Synapse Analytics | Virtual Machines: SAP HANA on Azure Large Instances |
-|  | Azure Web Application Firewall | Visual Studio App Center |
-|  | Azure Web Application Firewall: Azure Web Application Firewall – Regional v2 | Windows 10 IoT Core Services |
-|  | Azure for Education |  |
-|  | Batch |  |
-|  | Cloud Shell |  |
-|  | Cognitive Services |  |
-|  | Cognitive Services: Computer Vision |  |
-|  | Cognitive Services: Content Moderator |  |
-|  | Cognitive Services: Face |  |
-|  | Cognitive Services: Language Understanding |  |
-|  | Cognitive Services: Personalizer |  |
-|  | Cognitive Services: QnA Maker |  |
-|  | Cognitive Services: Speech Services |  |
-|  | Cognitive Services: Text Analytics |  |
-|  | Cognitive Services: Translator Text |  |
-|  | Container Instances |  |
-|  | Container Registry |  |
-|  | Content Delivery Network |  |
-|  | Cost Management |  |
-|  | Data Factory |  |
-|  | Data Factory: Azure Integration Runtime |  |
-|  | Data Factory: SSIS Integration Runtime |  |
-|  | Event Grid |  |
-|  | Functions |  |
-|  | Functions: Consumption Plan Linux |  |
-|  | Functions: Premium Plan |  |
-|  | Functions: Premium Plan Linux |  |
-|  | Guest Configuration |  |
-|  | HDInsight |  |
-|  | HDInsight: Enterprise Security Package |  |
-|  | Intune |  |
-|  | IoT Hub |  |
-|  | IoT Hub: IoT Hub Device Provisioning Service |  |
-|  | Logic Apps |  |
-|  | Machine Learning Service |  |
-|  | Media Services |  |
-|  | Microsoft Azure portal |  |
-|  | Microsoft Cloud App Security |  |
-|  | Microsoft Graph |  |
-|  | Microsoft Managed Desktop |  |
-|  | Microsoft Stream |  |
-|  | Multi-Factor Authentication |  |
-|  | Network Watcher |  |
-|  | Network Watcher: Traffic Analytics |  |
-|  | Notification Hubs |  |
-|  | Power Apps |  |
-|  | Power Automate |  |
-|  | Power BI |  |
-|  | Redis Cache |  |
-|  | Security Center |  |
-|  | Site Recovery |  |
-|  | Storage: Archive Storage |  |
-|  | Storage: Azure File Sync |  |
-|  | Storage: Azure Premium Files |  |
-|  | Storage: Azure Storage Reservations |  |
-|  | Storage: Import/Export |  |
-|  | Storage: Premium Block Blobs |  |
-|  | Storage: Ultra Disk Storage |  |
-|  | Stream Analytics |  |
-|  | Traffic Manager |  |
-|  | Virtual Machines: Azure Dedicated Host |  |
-|  | Virtual Machines: Fsv2-Series |  |
-|  | Virtual Machines: M-Series |  |
-|  | Virtual Machines: Serial Console |  |
-|  | Virtual Machines: Software Plan |  |
-|  | Virtual WAN |  |
-|  | Virtual WAN: ExpressRoute |  |
-|  | Virtual WAN: Point-to-site VPN Gateway |  |
-|  | Virtual WAN: Site-to-Site VPN Gateway |  |
-|  | Windows Virtual Desktop |  |
+> [!div class="mx-tableFixed"]
+> | Foundational | Mainstream | Specialized |
+> | --- | --- | --- |
+> | Application Gateway | Management | AI builder |
+> | Azure Cosmos DB | App Service | Azure API for FHIR |
+> | Azure Load Balancer | App Service: App Service Environments | Azure Container Service |
+> | Azure Load Balance: Standard | Application Gateway : Application Gateway v2 | Azure Data Box: Data Box Heavy |
+> | Azure Resource Manager | Automation | Azure Data Lake Storage Gen1 |
+> | Azure SQL | Azure Active Directory | Azure Database for MariaDB |
+> | Azure SQL: Managed Instance | Azure Active Directory : Premium P1 | Azure Dedicated HSM |
+> | Azure Service Manager (RDFE) | Azure Active Directory : Premium P2 | Azure Dev Spaces |
+> | Backup | Azure Active Directory B2C | Azure Lab Services |
+> | Event Hubs | Azure Active Directory Domain Services | Azure NetApp Files |
+> | ExpressRoute | Azure Advanced Threat Protection | Chat for Dynamics 365 |
+> | ExpressRoute : ExpressRoute Gateways | Azure Advisor | Cognitive Services: Bing Autosuggest |
+> | Key Vault | Azure Analysis Services | Cognitive Services: Bing Custom Search |
+> | Key Vault: Premium | Azure Bastion | Cognitive Services: Bing Entity Search |
+> | Service Bus | Azure Bot Service | Cognitive Services: Bing Image Search |
+> | Service Bus: Premium | Azure DDoS Protection Standard | Cognitive Services: Bing News Search |
+> | Service Fabric | Azure DNS | Cognitive Services: Bing Speech |
+> | Storage | Azure DNS: Azure DNS private zones | Cognitive Services: Bing Spell Check |
+> | Storage: Azure Data Lake Storage Gen2 | Azure Data Box: Data Box | Cognitive Services: Bing Video Search |
+> | Storage: Disk Storage | Azure Data Box: Data Box Disk | Cognitive Services: Bing Visual Search |
+> | Storage: Hot/Cool Blob Storage Tiers | Azure Data Box: Data Box Edge | Cognitive Services: Bing Web Search |
+> | Storage: Managed Disks | Azure Data Box: Data Box Gateway | Cognitive Services: Custom Vision |
+> | Storage: Queues | Azure Data Explorer | Cognitive Services: Translator Speech |
+> | Storage: Tables | Azure Data Share | Data Catalog |
+> | VPN Gateway	Virtual Machine Scale Sets | Azure Data Share: Snapshot Execution | Data Factory: Data Factory V1 |
+> | Virtual Machines | Azure Database Migration Service | Data Lake Analytics |
+> | Virtual Machines: Av2-Series | Azure Database for MySQL | HockeyApp |
+> | Virtual Machines: B-Series | Azure Database for PostgreSQL | IoT Central |
+> | Virtual Machines: D-Series | Azure Databricks | Machine Learning Studio |
+> | Virtual Machines: DSv2-Series | Azure DevOps | Media Services: Video Indexer |
+> | Virtual Machines: DSv3-Series | Azure DevTest Labs | Microsoft Defender Advanced Threat Protection |
+> | Virtual Machines: Dv2-Series | Azure Firewall | Microsoft Defender Advanced Threat	Protection: Microsoft Defender non-E5 |
+> | Virtual Machines: Dv3-Series | Azure Front Door | Microsoft Forms Pro |
+> | Virtual Machines: ESv3-Series | Azure HPC Cache | Microsoft Genomics |
+> | Virtual Machines: Ev3-Series | Azure Information Protection | Microsoft Healthcare Bot |
+> | Virtual Machines: F-Series | Azure Information Protection: Free | Power Virtual Agents |
+> | Virtual Machines: FS-Series | Azure Information Protection : Premium P1 | StorSimple |
+> | Virtual Machines Instance Level IPs | Azure Information Protection : Premium P2 | Time Series Insights |
+> | Virtual Machines: Reserved IP | Azure Kubernetes Service (AKS) | VMWare by CloudSimple |
+> | Virtual Network | Azure Lighthouse | Virtual Machines: A8 - A11 (Compute Intensive) |
+> | Virtual Network: Global Vnet Peering | Azure LockBox | Virtual Machines: DASv4-Series |
+> | Virtual Network: Public IP Address Basic | Azure Managed Applications | Virtual Machines: DAv4-Series |
+> | Virtual Network: Public IP Address Standard | Azure Maps | Virtual Machines: EASv4-Series |
+> |  | Azure Migrate | Virtual Machines: EAv4-Series |
+> |  | Azure Monitor | Virtual Machines: G-Series |
+> |  | Azure Monitor : Application Insights | Virtual Machines: GS-Series |
+> |  | Azure Monitor : Log Analytics | Virtual Machines: H-Series |
+> |  | Azure Open Datasets | Virtual Machines: HBv1-Series |
+> |  | Azure Policy | Virtual Machines: HBv2-Series |
+> |  | Azure Private Link | Virtual Machines: HCv1-Series |
+> |  | Azure Red Hat OpenShift (ARO) | Virtual Machines: LS-Series |
+> |  | Azure Resource Graph | Virtual Machines: LSv2-Series |
+> |  | Azure Search | Virtual Machines: Mv2 SKL-series |
+> |  | Azure Search: Cognitive Search | Virtual Machines: NC-Series |
+> |  | Azure Security for IoT | Virtual Machines: NCv2-Series |
+> |  | Azure Sentinel | Virtual Machines: NCv3-Series |
+> |  | Azure SignalR Service | Virtual Machines: ND-Series |
+> |  | Azure Signup Portal | Virtual Machines: NV-Series |
+> |  | Azure Stack | Virtual Machines: NVv3-Series |
+> |  | Azure Synapse Analytics | Virtual Machines: SAP HANA on Azure Large Instances |
+> |  | Azure Web Application Firewall | Visual Studio App Center |
+> |  | Azure Web Application Firewall: Azure Web Application Firewall – Regional v2 | Windows 10 IoT Core Services |
+> |  | Azure for Education |  |
+> |  | Batch |  |
+> |  | Cloud Shell |  |
+> |  | Cognitive Services |  |
+> |  | Cognitive Services: Computer Vision |  |
+> |  | Cognitive Services: Content Moderator |  |
+> |  | Cognitive Services: Face |  |
+> |  | Cognitive Services: Language Understanding |  |
+> |  | Cognitive Services: Personalizer |  |
+> |  | Cognitive Services: QnA Maker |  |
+> |  | Cognitive Services: Speech Services |  |
+> |  | Cognitive Services: Text Analytics |  |
+> |  | Cognitive Services: Translator Text |  |
+> |  | Container Instances |  |
+> |  | Container Registry |  |
+> |  | Content Delivery Network |  |
+> |  | Cost Management |  |
+> |  | Data Factory |  |
+> |  | Data Factory: Azure Integration Runtime |  |
+> |  | Data Factory: SSIS Integration Runtime |  |
+> |  | Event Grid |  |
+> |  | Functions |  |
+> |  | Functions: Consumption Plan Linux |  |
+> |  | Functions: Premium Plan |  |
+> |  | Functions: Premium Plan Linux |  |
+> |  | Guest Configuration |  |
+> |  | HDInsight |  |
+> |  | HDInsight: Enterprise Security Package |  |
+> |  | Intune |  |
+> |  | IoT Hub |  |
+> |  | IoT Hub: IoT Hub Device Provisioning Service |  |
+> |  | Logic Apps |  |
+> |  | Machine Learning Service |  |
+> |  | Media Services |  |
+> |  | Microsoft Azure portal |  |
+> |  | Microsoft Cloud App Security |  |
+> |  | Microsoft Graph |  |
+> |  | Microsoft Managed Desktop |  |
+> |  | Microsoft Stream |  |
+> |  | Multi-Factor Authentication |  |
+> |  | Network Watcher |  |
+> |  | Network Watcher: Traffic Analytics |  |
+> |  | Notification Hubs |  |
+> |  | Power Apps |  |
+> |  | Power Automate |  |
+> |  | Power BI |  |
+> |  | Redis Cache |  |
+> |  | Security Center |  |
+> |  | Site Recovery |  |
+> |  | Storage: Archive Storage |  |
+> |  | Storage: Azure File Sync |  |
+> |  | Storage: Azure Premium Files |  |
+> |  | Storage: Azure Storage Reservations |  |
+> |  | Storage: Import/Export |  |
+> |  | Storage: Premium Block Blobs |  |
+> |  | Storage: Ultra Disk Storage |  |
+> |  | Stream Analytics |  |
+> |  | Traffic Manager |  |
+> |  | Virtual Machines: Azure Dedicated Host |  |
+> |  | Virtual Machines: Fsv2-Series |  |
+> |  | Virtual Machines: M-Series |  |
+> |  | Virtual Machines: Serial Console |  |
+> |  | Virtual Machines: Software Plan |  |
+> |  | Virtual WAN |  |
+> |  | Virtual WAN: ExpressRoute |  |
+> |  | Virtual WAN: Point-to-site VPN Gateway |  |
+> |  | Virtual WAN: Site-to-Site VPN Gateway |  |
+> |  | Windows Virtual Desktop |  |
 
 ## Availability Zones
 
