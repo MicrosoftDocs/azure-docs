@@ -12,7 +12,5 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Maintenance
-    href: maintenance.md
-  - name: Solutions
+  - name: Solutions on Virtual Machines
     href: virtual-machine-solutions.md
