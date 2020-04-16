@@ -18,7 +18,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 Sign in to Azure at https://portal.azure.com.
 
-## Create runbook
+## Create the runbook
 
 First, create a runbook. The sample runbook created in this quickstart outputs `Hello World` by default.
 
@@ -80,7 +80,7 @@ Once the runbook is published, the overview page is shown.
 
    ![Runbook test job](./media/automation-quickstart-create-runbook/automation-job-page.png)
 
-1. When the **Job status** is set to **Running** or **Completed**, click **Output** to open the Output pane and view the runbook output.
+1. When the job status is `Running` or `Completed`, click **Output** to open the Output pane and view the runbook output.
 
    ![Runbook test job](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
 
