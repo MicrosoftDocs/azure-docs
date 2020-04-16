@@ -55,7 +55,7 @@ There are some cases where the invitation email is recommended over a direct lin
 
 When a user clicks the **Accept invitation** link in an [invitation email](invitation-email-elements.md), Azure AD automatically redeems the invitation based on the redemption flow as shown below:
 
-![Screenshot showing the redemption flow diagram](media/redemption-experience/invitation_redemption_flow.png)
+![Screenshot showing the redemption flow diagram](media/redemption-experience/invitation-redemption-flow.png)
 
 1. The redemption process checks if the user has an existing personal [Microsoft account (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create).
 
@@ -79,8 +79,8 @@ When a user clicks the **Accept invitation** link in an [invitation email](invit
 
 11. After authenticating to the right identity provider, the user is redirected to Azure AD to complete the [consent experience](redemption-experience.md#consent-experience-for-the-guest).  
 
-> NOTE:
->For just-in-time (JIT) redemptions, where redemption is through a tenanted application link, steps 8 through 10 are not available. If a user reaches step 6 and the Email one-time passcode feature is not enabled, the user receives an error message and is unable to redeem the invitation. To prevent this, admins should either [enable Email one-time passcode](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode) or ensure the user clicks an invitation link.
+> [!NOTE]
+> For just-in-time (JIT) redemptions, where redemption is through a tenanted application link, steps 8 through 10 are not available. If a user reaches step 6 and the Email one-time passcode feature is not enabled, the user receives an error message and is unable to redeem the invitation. To prevent this, admins should either [enable Email one-time passcode](one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode) or ensure the user clicks an invitation link.
 
 ## Consent experience for the guest
 
