@@ -15,6 +15,8 @@ ms.date: 9/3/2019
 ---
 # Migrate on-premises SSIS workloads to SSIS in ADF
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 ## Overview
 
 When you migrate your database workloads from SQL Server on premises to Azure database services, namely Azure SQL Database or Azure SQL Database managed instance, your ETL workloads on SQL Server Integration Services (SSIS) as one of the primary value-added services will need to be migrated as well.

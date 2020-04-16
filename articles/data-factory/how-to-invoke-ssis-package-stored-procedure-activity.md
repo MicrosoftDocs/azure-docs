@@ -15,6 +15,9 @@ ms.date: 04/17/2018
 ms.author: sawinark
 ---
 # Run an SSIS package with the Stored Procedure activity in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article describes how to run an SSIS package in an Azure Data Factory pipeline by using a Stored Procedure activity. 
 
 ## Prerequisites

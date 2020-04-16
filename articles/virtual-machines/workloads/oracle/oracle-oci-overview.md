@@ -3,7 +3,7 @@ title: Integrate Microsoft Azure with Oracle Cloud Infrastructure | Microsoft Do
 description: Learn about solutions that integrate Oracle apps running on Microsoft Azure with databases in Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
-author: romitgirdhar
+author: mimckitt
 manager: gwallace
 tags: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/16/2020
-ms.author: rogirdh
+ms.author: mimckitt
 ms.custom: 
 ---
 # Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure
@@ -51,6 +51,7 @@ Cross-cloud connectivity is limited to the following regions:
 * Azure UK South (uksouth) & OCI London (UK South)
 * Azure Canada Central (canadacentral) & OCI Toronto (Canada Southeast)
 * Azure West Europe (westeurope) & OCI Amsterdam (Netherlands Northwest)
+* Azure Japan East (japaneast) & OCI Tokyo (Japan East)
 
 ## Networking
 

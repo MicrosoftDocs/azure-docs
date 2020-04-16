@@ -132,6 +132,7 @@ By specifying the dependencies, Resource Manager efficiently deploys the solutio
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
         -TemplateFile "$HOME/azuredeploy.json"
+
     Write-Host "Press [ENTER] to continue ..."
     ```
 
@@ -143,6 +144,7 @@ By specifying the dependencies, Resource Manager efficiently deploys the solutio
     $vmName = "SimpleWinVM"
 
     Get-AzVM -Name $vmName -ResourceGroupName $resourceGroupName
+    
     Write-Host "Press [ENTER] to continue ..."
     ```
 

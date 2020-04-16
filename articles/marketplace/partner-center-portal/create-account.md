@@ -6,7 +6,7 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
-ms.date: 03/10/2020
+ms.date: 04/14/2020
 ---
 
 # Create a commercial marketplace account in Partner Center
@@ -95,7 +95,7 @@ Make sure to have your account information handy.
 
 If you're already enrolled in the Microsoft Partner Network, use this section to create your account directly from Partner Center.
 
-Sign into [Partner Center](https://partner.microsoft.com/) with your Microsoft Partner Network account so you link your company's work email account domain to your new Partner Center account. By associating these accounts, your company employees can sign into Partner Center with their work account usernames and passwords.
+Sign into [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) with your Microsoft Partner Network account so you link your company's work email account domain to your new Partner Center account. By associating these accounts, your company employees can sign into Partner Center with their work account usernames and passwords.
 
 >[!NOTE]
 >To check whether your company already has a Partner Center work account, how to create a new work account, or how to set up multiple work accounts to use with Partner Center, visit [Your company work account and Partner Center](./company-work-accounts.md).
@@ -125,7 +125,7 @@ If you're already enrolled in a Partner Center developer program, use this secti
 >
 >Individual accounts are for single developers working on their own. Company accounts are for organizations and businesses. Company accounts give you access to submit apps with additional functionality. We require greater verification for company accounts after you register to confirm that you're authorized to set up the account for your company. This verification can take from a few days to a couple of weeks, and often includes a phone call to your company. Both types of accounts allow you to submit apps, add-ins, and services. For more info, see [Account types, locations, and fees](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
 
-Sign into [Partner Center](https://partner.microsoft.com/) with your Microsoft Partner Center account to enroll into the Commercial Marketplace program under the same account. By signing up for Commercial Marketplace using the same account, you can see both your existing program enrollments and Commercial Marketplace in the left navigation menu of Partner Center.
+Sign into [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) with your Microsoft Partner Center account to enroll into the Commercial Marketplace program under the same account. By signing up for Commercial Marketplace using the same account, you can see both your existing program enrollments and Commercial Marketplace in the left navigation menu of Partner Center.
 
 After you sign in, use the following steps to finish setting up your account:
 
