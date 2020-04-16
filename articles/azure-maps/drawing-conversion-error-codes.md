@@ -70,7 +70,7 @@ The Conversion service came across an entity of an unsupported type. For example
 * A 3D Face in the unit layer
 * An old-style Polyline2D entity that hasn't been converted to a regular Polyline
 
-Only use the supported entity types listed under the [Drawing files requirements section in the Drawing package requirements article](drawing-requirements.md#drawing-files-requirements).
+Only use the supported entity types listed under the [Drawing files requirements section in the Drawing package requirements article](drawing-requirements.md#drawing-package-requirements).
 
 ### automaticRepairPerformed
 

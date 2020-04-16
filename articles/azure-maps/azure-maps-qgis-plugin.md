@@ -62,7 +62,7 @@ The **Floor Picker** tab lets you select the floor number. The map of the select
 
    ![Floor picker](./media/azure-maps-qgis-plugin/floor-picker.png)
  
-To load your data set, provide the **datasetId** and the **primary subscription key**. And press the **get features** button in the **Private Atlas** tab. Once this request completes successfully, you'll see layers with the features of your data set in the **Layers** panel. The layers reflect the content of your Drawing package. The features in your data may not encompass all the [feature collections](#full-list-of-feature-collections) that the **Layers** panel supports. And, you may not have used all the [supported layers](drawing-requirements.md#drawing-files-requirements). However, you'll definitely see the _Unit_ and the _Exterior_ layers because they're [required](drawing-requirements.md) to convert a Drawing package into map data.
+To load your data set, provide the **datasetId** and the **primary subscription key**. And press the **get features** button in the **Private Atlas** tab. Once this request completes successfully, you'll see layers with the features of your data set in the **Layers** panel. The layers reflect the content of your Drawing package. The features in your data may not encompass all the [feature collections](#full-list-of-feature-collections) that the **Layers** panel supports. And, you may not have used all the [supported layers](drawing-requirements.md#drawing-package-requirements). However, you'll definitely see the _Unit_ and the _Exterior_ layers because they're [required](drawing-requirements.md) to convert a Drawing package into map data.
 
    ![Layers panel](./media/azure-maps-qgis-plugin/layers-panel.png)
 
@@ -167,7 +167,7 @@ The first step in adding a feature to the map is to decide the category and the 
 
    
 
-You can use the same thinking processes and steps to add additional features to your map. See the [supported categories](https://aka.ms/pa-indoor-spacecategories) and [supported map layer](drawing-requirements.md#drawing-files-requirements) to decide where to add your features.
+You can use the same thinking processes and steps to add additional features to your map. See the [supported categories](https://aka.ms/pa-indoor-spacecategories) and [supported map layer](drawing-requirements.md#drawing-package-requirements) to decide where to add your features.
 
 ## Full list of feature collections
 

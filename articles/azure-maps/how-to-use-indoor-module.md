@@ -1,9 +1,9 @@
 ---
 title: Use the Azure Maps Indoor Maps module | Microsoft Azure Maps
 description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embedding the module's JavaScript libraries.
-author: farah-alyasari
-ms.author: v-faalya
-ms.date: 03/12/2020
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -202,7 +202,7 @@ This exercise demonstrates how to integrate the Indoor Maps module with the Azur
         <script>
           const subscriptionKey = "<your Azure Maps Primary Subscription Key>";
           const tilesetId = "<your tile set id>";
-          const stateSetId = "<your state set id>";
+          const statesetId = "<your state set id>";
 
           const map = new atlas.Map("map-id", {
             //use your facility's location
@@ -242,12 +242,9 @@ This exercise demonstrates how to integrate the Indoor Maps module with the Azur
     ```
 
 5. Remember to provide your primary subscription key, tile set ID, and optionally the state set ID. Then, open your HTML file to see the indoor map rendered in the web browser. The image below shows the indoor map for a  single facility, rendered on a white background. 
+     ![indoor map image](media/how-to-use-indoor-module/indoor-map-image.png)
 
-    <center>
-
-    ![indoor map image](media/how-to-use-indoor-module/indoor-map-image.png)
-
-    </center>
+ 
 
 ## Next steps
 
@@ -262,7 +259,7 @@ Read about the APIs that are related to the Indoor Maps module:
 Learn more about how to add more data to your map:
 
 > [!div class="nextstepaction"]
-> [Indoor Maps dynamic styling]()
+> [Indoor Maps dynamic styling](indoor-map-dynamic-styling.md)
 
 > [!div class="nextstepaction"]
 > [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
