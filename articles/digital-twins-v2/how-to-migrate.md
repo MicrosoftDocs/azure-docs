@@ -6,7 +6,7 @@ description: Understand migration process and best practices from the previous v
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 4/16/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
