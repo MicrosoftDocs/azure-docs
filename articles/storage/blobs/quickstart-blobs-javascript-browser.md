@@ -100,7 +100,7 @@ Follow these steps to get the Blob service SAS URL:
 </html>
 ```
 
-:::code language="html" source="azure-storage-snippets/blobs/azure-blobs-js-browser/init-index.html" id="snippet_InitWebPage":::
+:::code language="html" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/init-index.html" id="snippet_InitWebPage":::
 
 3. Save the file as *index.html* in the *azure-blobs-javascript* folder.
 
@@ -165,7 +165,7 @@ The full *package.json* file should now look like this:
 }
 ```
 
-:::code language="json" source="azure-storage-snippets/blobs/azure-blobs-js-browser/package.json" highlight="12-16":::
+:::code language="json" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/package.json" highlight="12-16":::
 
 Save the *package.json* file.
 
@@ -177,7 +177,7 @@ const { BlobServiceClient } = require("@azure/storage-blob");
 // Now do something interesting with BlobServiceClient
 ```
 
-:::code language="javascript" source="azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_ImportLibrary":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_ImportLibrary":::
 
 Save this *index.js* file in the *azure-blobs-javascript* directory.
 
@@ -206,7 +206,7 @@ Next, replace the comment the in the *index.html* file to include the new JavaSc
 </html>
 ```
 
-:::code language="html" source="azure-storage-snippets/blobs/azure-blobs-js-browser/index.html" id="snippet_WebPage" highlight="19":::
+:::code language="html" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.html" id="snippet_WebPage" highlight="19":::
 
 
 ## Object model
@@ -259,7 +259,7 @@ const reportStatus = message => {
 }
 ```
 
-:::code language="javascript" source="azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_DeclareVariables":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_DeclareVariables":::
 
 Save the *index.js* file.
 
@@ -276,7 +276,7 @@ Next, add code to access your storage account. Replace the placeholder with your
 const blobSasUrl = "<placeholder>";
 ```
 
-:::code language="javascript" source="azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_StorageAcctInfo":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_StorageAcctInfo":::
 
 Save the *index.js* file.
 
@@ -296,7 +296,7 @@ const containerName = "container" + new Date().getTime();
 const containerClient = blobServiceClient.getContainerClient(containerName);
 ```
 
-:::code language="javascript" source="azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_CreateClientObjects":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_CreateClientObjects":::
 
 Save the *index.js* file.
 
@@ -329,7 +329,7 @@ createContainerButton.addEventListener("click", createContainer);
 deleteContainerButton.addEventListener("click", deleteContainer);
 ```
 
-:::code language="javascript" source="azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_CreateDeleteContainer":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_CreateDeleteContainer":::
 
 Save the *index.js* file.
 
@@ -363,7 +363,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-:::code language="javascript" source="azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_ListBlobs":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_ListBlobs":::
 
 Save the *index.js* file.
 
@@ -395,7 +395,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-:::code language="javascript" source="azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_UploadBlobs":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_UploadBlobs":::
 
 Save the *index.js* file.
 
@@ -426,7 +426,7 @@ const deleteFiles = async () => {
 deleteButton.addEventListener("click", deleteFiles);
 ```
 
-:::code language="javascript" source="azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_DeleteBlobs":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_DeleteBlobs":::
 
 Save the *index.js* file.
 
@@ -460,7 +460,7 @@ Modify the *launch.json* file so that the `url` value is `http://localhost:1234/
 }
 ```
 
-:::code language="json" source="azure-storage-snippets/blobs/azure-blobs-js-browser/.vscode/launch.json" highlight="11":::
+:::code language="json" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/.vscode/launch.json" highlight="11":::
 
 After updating, save the *launch.json* file. This configuration tells Visual Studio Code which browser to open and which URL to load.
 
