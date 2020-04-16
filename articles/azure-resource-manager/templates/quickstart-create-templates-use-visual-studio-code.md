@@ -14,7 +14,7 @@ ms.author: nepeters
 
 The Azure Resource Manager (ARM) Tools for Visual Studio Code provides language support, resource snippets, and resource auto-completion to help you create and validate Azure Resource Manager templates. In this quickstart, you use the ARM tools to create an Azure Resource Manager template from scratch. While doing so you experience ARM tools capabilities such as ARM template snippets, validation, completions, and parameter file support.
 
-In order to complete this quickstart, you need Visual Studio Code, with the Azure Resource Manager (ARM) tools extension installed. You also need either the Azure CLI or the Azure PowerShell module installed and authenticated.
+In order to complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Azure Resource Manager (ARM) tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) installed. You also need either the [Azure CLI]() or the Azure PowerShell module installed and authenticated.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -111,6 +111,18 @@ Navigate back to the ARM template and notice that an error has been raised indic
 ![](./media/quickstart-create-templates-use-visual-studio-code/18.png)
 
 Update the value to something appropriate, save the file, and navigate back to the template. Notice that the error on the parameter has been resolved.
+
+## Format, navigation, and sorting
+
+When a template contains many parameters, variables, and resources, navigation can be difficult. The ARM Tempalte ouline provides ARM Template navigation and sorting capibilities.
+
+![](./media/quickstart-create-templates-use-visual-studio-code/19.png)
+
+![](./media/quickstart-create-templates-use-visual-studio-code/20.png)
+
+![](./media/quickstart-create-templates-use-visual-studio-code/21.png)
+
+![](./media/quickstart-create-templates-use-visual-studio-code/22.png)
 
 ## Template deployment
 
