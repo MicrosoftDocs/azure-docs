@@ -105,6 +105,10 @@ A P2S configuration defines the parameters for connecting remote clients.
 3. Click **Edit virtual hub**.
 4. Check the **Include point-to-site gateway** check box and pick the **Gateway scale unit** that you want.
 
+   ![new site](media/virtual-wan-point-to-site-portal/p2s2.jpg)
+
+The table below shows the details about the available **Scale Units**
+
 | **Scale Unit** | **Throughput** | **P2S Connections** |
 | --- | --- | --- |
 | 1| 500 Mbps | 500 |
@@ -128,8 +132,6 @@ A P2S configuration defines the parameters for connecting remote clients.
 | 19| 9.5 Gbps | 10000 |
 | 20| 10 Gbps | 10000 |
 
-
-   ![new site](media/virtual-wan-point-to-site-portal/p2s2.jpg)
 5. Enter the **Address pool** from which the VPN clients will be assigned IP addresses.
 6. Click **Confirm**
 7. The operation will can take up to 30 minutes to complete.
