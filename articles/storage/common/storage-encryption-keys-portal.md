@@ -17,7 +17,7 @@ ms.subservice: common
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-This article shows how to configure an Azure Key Vault with customer-managed keys using the [Azure portal](https://portal.azure.com/). To learn how to create a key vault using the Azure portal, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../../key-vault/quick-create-portal.md).
+This article shows how to configure an Azure Key Vault with customer-managed keys using the [Azure portal](https://portal.azure.com/). To learn how to create a key vault using the Azure portal, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../../key-vault/secrets/quick-create-portal.md).
 
 ## Configure Azure Key Vault
 
@@ -25,8 +25,8 @@ Using customer-managed keys with Azure Storage encryption requires that two prop
 
 To learn how to enable these properties on an existing key vault, see the sections titled **Enabling soft-delete** and **Enabling Purge Protection** in one of the following articles:
 
-- [How to use soft-delete with PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
-- [How to use soft-delete with CLI](../../key-vault/key-vault-soft-delete-cli.md).
+- [How to use soft-delete with PowerShell](../../key-vault/general/soft-delete-powershell.md).
+- [How to use soft-delete with CLI](../../key-vault/general/soft-delete-cli.md).
 
 Only 2048-bit RSA and RSA-HSM keys are supported with Azure Storage encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
