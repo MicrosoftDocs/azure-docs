@@ -24,7 +24,7 @@ highlightedContent:
     - title: Basic concepts
       itemType: overview
       url: ./general/basic-concepts.md
-    - title: Soft delete
+    - title: Soft-delete
       itemType: overview
       url: ./general/overview-soft-delete.md
     - title: Logging
