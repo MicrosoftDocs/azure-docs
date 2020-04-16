@@ -225,6 +225,9 @@ az group delete -n <resource-group-name>
 > [Tutorial: Python (Django) web app with PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
+> [Add user sign-in to a Python web app](../../active-directory/develop/quickstart-v2-python-webapp.md)
+
+> [!div class="nextstepaction"]
 > [Configure Python app](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
