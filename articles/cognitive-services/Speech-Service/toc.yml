@@ -424,6 +424,32 @@
           items:
             - name: Voice assistants FAQ
               href: faq-voice-assistants.md
+    - name: Windows voice assistants
+      items:
+        - name: What is a Windows voice assistant?
+          href: windows-voice-assistants-overview.md
+        - name: How-to guides
+          items:
+            - name: 'Register your assistant with Windows'
+              href: windows-voice-assistants-get-started.md
+            - name: 'Enable an assistant on the lock screen'
+              href: windows-voice-assistants-implement-above-lock.md
+            - name: 'Add custom lighting patterns to your assistant'
+              href: windows-voice-assistants-custom-lighting.md
+        - name: Tutorials
+          items:
+            - name: 'Explore the Windows assistant sample'
+              href: windows-voice-assistants-sample-info.md
+        - name: Resources
+          items:
+            - name: 'Privacy requirements and guidelines'
+              href: windows-voice-assistants-automatic-enablement-guidelines.md
+            - name: 'Best practices for assistant experiences'
+              href: windows-voice-assistants-best-practices
+            - name: 'Recommendations for lock screen experiences'
+              href: windows-voice-assistants-above-lock-design-guidance.md
+            - name: 'Frequently asked questions'
+              href: windows-voice-assistants-faq.md
     - name: Custom Keyword
       items:
         - name: Custom keyword naming guidelines
