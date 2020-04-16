@@ -209,7 +209,7 @@ When you set up the appliance, you finish setting up CredSSP by [enabling it on 
 Before setting up the Azure Migrate appliance and beginning assessment in the next tutorial, prepare for appliance deployment.
 
 1. [Verify](migrate-appliance.md#appliance---hyper-v) appliance requirements.
-2. Review the Azure URLs that the appliance will need to access in the [public](migrate-appliance.md#ublic-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds. If you're using a URL-based firewall or proxy, ensure it allows access to the required URLs.
+2. Review the Azure URLs that the appliance will need to access in the [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds. If you're using a URL-based firewall or proxy, ensure it allows access to the required URLs.
 3. Review the data that the appliance will collect during discovery and assessment.
 4. [Review](migrate-appliance.md#collected-data---hyper-v) port access requirements for the appliance.
 
