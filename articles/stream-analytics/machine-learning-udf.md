@@ -25,7 +25,7 @@ Complete the following steps before you add a machine learning model as a functi
 
 3. Make sure your web service accepts and returns JSON serialized data.
 
-4. Deploy your model on [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) for high-scale production deployments. If the web service is not able to handle the number of requests coming from your job, the performance of your Stream Analytics job will be degraded, which impacts latency.
+4. Deploy your model on [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) for high-scale production deployments. If the web service is not able to handle the number of requests coming from your job, the performance of your Stream Analytics job will be degraded, which impacts latency. Models deployed on Azure Container Instances are not supported today but will become available in the coming months.
 
 ## Add a machine learning model to your job
 
