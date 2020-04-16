@@ -1,6 +1,6 @@
 ---
-title: Data discovery and classification 
-description: Data discovery and classification for Azure SQL Database and Azure Synapse Analytics
+title: Data Discovery & Classification 
+description: Data Discovery & Classification for Azure SQL Database and Azure Synapse Analytics
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -14,9 +14,9 @@ ms.reviewer: vanto
 ms.date: 02/05/2020
 tags: azure-synapse
 ---
-# Data discovery and classification for Azure SQL Database and Azure Synapse Analytics
+# Data Discovery & Classification for Azure SQL Database and Azure Synapse Analytics
 
-Data discovery and classification is built into Azure SQL Database. It provides advanced capabilities for discovering, classifying, labeling, and reporting the sensitive data in your databases.
+Data Discovery & Classification is built into Azure SQL Database. It provides advanced capabilities for discovering, classifying, labeling, and reporting the sensitive data in your databases.
 
 Your most sensitive data might include business, financial, healthcare, or personal information. Discovering and classifying this data can play a pivotal role in your organization's information-protection approach. It can serve as infrastructure for:
 
@@ -24,14 +24,14 @@ Your most sensitive data might include business, financial, healthcare, or perso
 - Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
 - Controlling access to and hardening the security of databases that contain highly sensitive data.
 
-Data discovery and classification is part of the [Advanced Data Security](sql-database-advanced-data-security.md) offering, which is a unified package for advanced SQL security capabilities. You can access and manage data discovery and classification via the central **SQL Advanced Data Security** section of the Azure portal.
+Data Discovery & Classification is part of the [Advanced Data Security](sql-database-advanced-data-security.md) offering, which is a unified package for advanced SQL security capabilities. You can access and manage Data Discovery & Classification via the central **SQL Advanced Data Security** section of the Azure portal.
 
 > [!NOTE]
 > This article relates to Azure SQL Database and Azure Synapse Analytics. For simplicity, we use *SQL Database* here to refer to both SQL Database and Azure Synapse. For information about SQL Server (on-premises), see [SQL Data Discovery and Classification](https://go.microsoft.com/fwlink/?linkid=866999).
 
-## <a id="what-is-dc"></a>What is data discovery and classification?
+## <a id="what-is-dc"></a>What is Data Discovery & Classification?
 
-Data discovery and classification introduces a set of advanced services and new SQL Database capabilities. It forms a new information-protection paradigm for SQL Database, aimed at protecting the data and not just the database. The paradigm includes:
+Data Discovery & Classification introduces a set of advanced services and new SQL Database capabilities. It forms a new information-protection paradigm for SQL Database, aimed at protecting the data and not just the database. The paradigm includes:
 
 - **Discovery and recommendations:** The classification engine scans your database and identifies columns that contain potentially sensitive data. It then provides you with an easy way to review and apply recommended classification via the Azure portal.
 
@@ -55,7 +55,7 @@ The classification includes two metadata attributes:
 
 ### Define and customize your classification taxonomy
 
-Data discovery and classification comes with a built-in set of sensitivity labels and a built-in set of information types and discovery logic. You can now customize this taxonomy and define a set and ranking of classification constructs specifically for your environment.
+Data Discovery & Classification comes with a built-in set of sensitivity labels and a built-in set of information types and discovery logic. You can now customize this taxonomy and define a set and ranking of classification constructs specifically for your environment.
 
 You define and customize of your classification taxonomy in one central place for your entire Azure organization. That location is in [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), as part of your security policy. Only someone with administrative rights on the organization's root management group can do this task.
 
@@ -73,13 +73,13 @@ After the organization-wide policy has been defined, you can continue classifyin
 
    ![Advanced Data Security pane in Azure portal](./media/sql-data-discovery-and-classification/data_classification.png)
 
-3. On the **Data discovery and classification** page, the **Overview** tab includes a summary of the current classification state of the database. The summary includes a detailed list of all classified columns, which you can also filter to show only specific schema parts, information types, and labels. If you haven’t classified any columns yet, [skip to step 5](#step-5).
+3. On the **Data discovery & classification** page, the **Overview** tab includes a summary of the current classification state of the database. The summary includes a detailed list of all classified columns, which you can also filter to show only specific schema parts, information types, and labels. If you haven’t classified any columns yet, [skip to step 5](#step-5).
 
    ![Summary of current classification state](./media/sql-data-discovery-and-classification/2_data_classification_overview_dashboard.png)
 
 4. To download a report in Excel format, select **Export** in the top menu of the pane.
 
-5. <a id="step-5"></a>To begin classifying your data, select the **Classification** tab on the **Data discovery and classification** page.
+5. <a id="step-5"></a>To begin classifying your data, select the **Classification** tab on the **Data discovery & classification** page.
 
     The classification engine scans your database for columns containing potentially sensitive data and provides a list of recommended column classifications.
 
@@ -98,7 +98,7 @@ After the organization-wide policy has been defined, you can continue classifyin
    1. Select **Add classification** in the top menu of the pane.
 
    1. In the context window that opens, select the schema, table, and column that you want to classify, and the information type and sensitivity label.
-   
+
    1. Select **Add classification** at the bottom of the context window.
 
       ![Select a column to classify](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png)
