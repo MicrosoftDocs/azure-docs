@@ -65,8 +65,8 @@ To configure and test Azure AD SSO with Creatio, complete the following building
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Creatio SSO](#configure-Creatio-sso)** - to configure the single sign-on settings on application side.
-    * **[Create Creatio test user](#create-Creatio-test-user)** - to have a counterpart of B.Simon in Creatio that is linked to the Azure AD representation of user.
+1. **[Configure Creatio SSO](#configure-creatio-sso)** - to configure the single sign-on settings on application side.
+    * **[Create Creatio test user](#create-creatio-test-user)** - to have a counterpart of B.Simon in Creatio that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
