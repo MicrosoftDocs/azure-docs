@@ -145,7 +145,7 @@
       - name: Python (azure-eventhub version 5)
         href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md
       - name: JavaScript (azure/event-hubs version 5)
-        href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md
+        href: https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/README.md
       - name: .NET (Microsoft.Azure.EventHubs)
         href: event-hubs-programming-guide.md
   - name: Process data
