@@ -7,8 +7,8 @@ ms.date: 04/16/2020
 
 # Use Cognitive Services with natural language processing (NLP) to enrich bot conversations
 
-[!INCLUDE [QnA and LUIS - concepts](../includes/luis-qnamaker-shared-concept.md)]
+[!INCLUDE [Use Cognitive Services with natural language processing (NLP) to enrich bot conversations](../includes/luis-qnamaker-shared-concept.md)]
 
 ## Next steps
 
-* Learn [enterprise design strategies](luis-concept-enterprise.md)
+* Learn [how manage Azure resources](How-To/set-up-qnamaker-service-azure.md)
