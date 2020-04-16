@@ -37,7 +37,7 @@ To set up and use metrics, see the article [Set up and use metrics sand diagnost
 #### Enabling diagnostic logs
 #### Using diagnostic logs to debug
 
-See the article [Set up and use metrics and diagnostic logs with an IoT Hub](tutorial-use-metrics-and-diags.md).    (I think this is the classic alerts, and it needs to be updated to the azure monitor alerts.)
+See the article [Set up and use metrics and diagnostic logs with an IoT Hub](tutorial-use-metrics-and-diags.md).    --> I think this is the classic alerts, and it needs to be updated to the azure monitor alerts.
 
 ### Route to blob is failing
 
