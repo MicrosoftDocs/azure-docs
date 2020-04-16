@@ -1,11 +1,11 @@
 ---
-title: Bulk delete users (preview) in the Azure Active Directory portal | Microsoft Docs
+title: Bulk delete users in the Azure Active Directory portal | Microsoft Docs
 description: Delete users in bulk in the Azure admin center in Azure Active Directory 
 services: active-directory 
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 08/15/2019
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -15,7 +15,7 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Bulk delete users (preview) in Azure Active Directory
+# Bulk delete users in Azure Active Directory
 
 Using Azure Active Directory (Azure AD) portal, you can remove a large number of members to a group by using a comma-separated values (CSV) file to bulk delete users.
 
@@ -31,7 +31,7 @@ Using Azure Active Directory (Azure AD) portal, you can remove a large number of
 
    ![The CSV file contains names and IDs of the users to delete](./media/users-bulk-delete/delete-csv-file.png)
 
-1. On the **Bulk delete user (Preview)** page, under **Upload your csv file**, browse to the file. When you select the file and click submit, validation of the CSV file starts.
+1. On the **Bulk delete user** page, under **Upload your csv file**, browse to the file. When you select the file and click submit, validation of the CSV file starts.
 1. When the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
 1. When your file passes validation, select **Submit** to start the Azure bulk operation that deletes the users.
 1. When the deletion operation completes, you'll see a notification that the bulk operation succeeded.
@@ -40,7 +40,7 @@ If there are errors, you can download and view the results file on the **Bulk op
 
 ## Check status
 
-You can see the status of all of your pending bulk requests in the **Bulk operation results (preview)** page.
+You can see the status of all of your pending bulk requests in the **Bulk operation results** page.
 
    ![Check upload status in the Bulk Operations Results page](./media/users-bulk-delete/bulk-center.png)
 

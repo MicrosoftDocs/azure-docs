@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 09/11/2019
+ms.date: 04/16/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -15,7 +15,7 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Bulk import group members (preview) in Azure Active Directory
+# Bulk import group members in Azure Active Directory
 
 Using Azure Active Directory (Azure AD) portal, you can add a large number of members to a group by using a comma-separated values (CSV) file to bulk import group members.
 
@@ -25,7 +25,7 @@ Using Azure Active Directory (Azure AD) portal, you can add a large number of me
 1. In Azure AD, select **Groups** > **All groups**.
 1. Open the group to which you're adding members and then select **Members**.
 1. On the **Members** page, select **Import members**.
-1. On the **Bulk import group members (Preview)** page, select **Download** to get the CSV file template with required group member properties.
+1. On the **Bulk import group members** page, select **Download** to get the CSV file template with required group member properties.
 
     ![The Import Members command is on the profile page for the group](./media/groups-bulk-import-members/import-panel.png)
 
@@ -33,14 +33,14 @@ Using Azure Active Directory (Azure AD) portal, you can add a large number of me
 
    ![The CSV file contains names and IDs for the members to import](./media/groups-bulk-import-members/csv-file.png)
 
-1. On the **Bulk import group members (Preview)** page, under **Upload your csv file**, browse to the file. When you select the file, validation of the CSV file starts.
+1. On the **Bulk import group members** page, under **Upload your csv file**, browse to the file. When you select the file, validation of the CSV file starts.
 1. When the file contents are validated, the bulk import page displays **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
 1. When your file passes validation, select **Submit** to start the Azure bulk operation that imports the group members to the group.
 1. When the import operation completes, you'll see a notification that the bulk operation succeeded.
 
 ## Check import status
 
-You can see the status of all of your pending bulk requests in the **Bulk operation results (preview)** page.
+You can see the status of all of your pending bulk requests in the **Bulk operation results** page.
 
    ![The Bulk operations results page shows you bulk request status](./media/groups-bulk-import-members/bulk-center.png)
 
