@@ -109,7 +109,7 @@ Azure Backup and Azure Site Recovery events are sent from the same Recovery Serv
 
 To summarize:
 
-* If you already have Log Analytics diagnostics set up with Azure diagnostics and have written custom queries on top of it, keep that setting *intact* until you migrate your queries to use data from the new events.
+* If you already have Log Analytics diagnostics set up with Azure Diagnostics and have written custom queries on top of it, keep that setting *intact* until you migrate your queries to use data from the new events.
 * If you also want to onboard onto new tables, as we recommend, create a **new** diagnostics setting, select **Resource specific**, and select the six new events.
 * If you're currently sending Azure Site Recovery events to Log Analytics, *do not* choose the resource-specific mode for these events. Otherwise, data for these events won't flow into your Log Analytics workspace. Instead, create an additional diagnostic setting, select **Azure diagnostics**, and select the relevant Azure Site Recovery events.
 
