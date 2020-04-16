@@ -38,7 +38,33 @@ There are a few ways you can create rules to suppress unwanted security alerts:
 
 ### [Using the Azure portal](#tab/create-a-rule-portal)
 
-To create a rule directly in the Azure portal.
+Suppression rules can only dismiss alerts that have already been triggered on the selected subscriptions.
+
+To create a rule directly in the Azure portal:
+
+1. From Security Center's security alerts page:
+
+    - Locate the specific alert you don't want to see any more, and from the ellipsis menu (...) for the alert, select **Auto-dismiss in the future**.
+    [![**Auto-dismiss in the future** option](media/alerts-suppression-rules/auto-dismiss-in-future-option.png)](media/alerts-suppression-rules/auto-dismiss-in-future-option.png#lightbox)
+
+    - Or, select the **suppression rules** link at the top of the page, and from the suppression rules page select **Create new suppression rule**:
+    [![**Create new suppression rule** button](media/alerts-suppression-rules/create-new-suppression-rule.png)](media/alerts-suppression-rules/create-new-suppression-rule.png#lightbox)
+
+1. In the new suppression rule pane, enter the details of your new rule.
+
+    > [!TIP]
+    > If you opened the new rule page from a specific alert, the alert type and subscription will be automatically configured in your new rule. If you used the **Create new suppression rule** link, the selected subscriptions will match the current filter in the portal.
+
+    [![Suppression rule creation pane](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane#lightbox)
+
+
+    - You can filter by multiple alert types.
+    - Entities can be IP addresses, process names, user accounts, Azure resources, or locations
+
+1. Optionally, test the rule using the **Simulate** button to see how many alerts that have already been triggered would have been dismissed if this rule had been active.
+
+1. Save your alert. 
+
 
 ### [Using the REST API](#tab/create-a-rule-API)
 
@@ -65,6 +91,6 @@ The relevant HTTP methods for suppression rules in the REST API are:
 
 
 
-## Reviewing dismissed alerts 
+## Deleting
 
-To list all rules configured for a specified subscription. This method returns an array of the applicable rules.
+## Editing
