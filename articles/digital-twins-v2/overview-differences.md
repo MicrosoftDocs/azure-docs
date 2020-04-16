@@ -1,6 +1,7 @@
 ---
 # Mandatory fields.
 title: Differences from Public Preview 1
+titleSuffix: Azure Digital Twins
 description: Understand what has changed since the previous release of Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
@@ -14,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Differences from previous preview release (2018)
+# Differences to Azure Digital Twins from previous release (2018)
 
 Azure Digital Twins Public Preview 1 was released in October of 2018. The new version of Azure Digital Twins (now currently in preview) marks a significant departure from the previous architecture. While the core concepts are still the same, the developer interfaces and APIs are different, and the service provides improved capabilities and flexibility. The changes were motivated by customer feedback. 
 

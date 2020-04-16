@@ -36,14 +36,17 @@ The remainder of this article walks through the Azure function setup steps, one 
 
 In Visual Studio 2019, select *File > New Project*. Search for the *Azure Functions* template, select it, and press "Next".
 
+[!div class="mx-imgBorder"]
 ![Visual Studio: new project dialog](media/how-to-create-azure-function/visual-studio-new-project.png)
 
 Specify a name for the function app and press "Create".
 
+[!div class="mx-imgBorder"]
 ![Visual Studio: configure project dialog](media/how-to-create-azure-function/visual-studio-project-config.png)
 
 Select the *Event Grid trigger* and press "Create".
 
+[!div class="mx-imgBorder"]
 ![Visual Studio: Azure Function project trigger dialog](media/how-to-create-azure-function/visual-studio-project-trigger.png)
 
 
@@ -224,6 +227,7 @@ To publish the function app to Azure, right-select the function project (not the
 
 The following tab will appear:
 
+[!div class="mx-imgBorder"]
 ![Visual Studio: publish function dialog, page 1](media/how-to-create-azure-function/visual-studio-publish-1.png)
 
 Select or create an App Service plan to use with Azure Functions. If unsure, start out using the default consumption plan.
@@ -231,6 +235,7 @@ Select or create an App Service plan to use with Azure Functions. If unsure, sta
 > [!IMPORTANT] 
 > Publishing an Azure function will incur additional charges on your subscription, independent of Azure Digital Twins.
 
+[!div class="mx-imgBorder"]
 ![Visual Studio: publish function dialog, page 2](media/how-to-create-azure-function/visual-studio-publish-2.png)
 
 On the following page, enter the desired name for the new function app, a resource group, and other details.
@@ -243,10 +248,12 @@ To set this up, go to the [Azure portal](https://portal.azure.com/) and navigate
 
 In the *Platform features* tab, select *Identity*:
 
+[!div class="mx-imgBorder"]
 ![Azure portal: Selecting Identity for an Azure Function](media/how-to-create-azure-function/visual-studio-msi-1.png)
 
 On the identity page, set the *Status* toggle to *On*. 
 
+[!div class="mx-imgBorder"]
 ![Azure portal: Turning on identity status](media/how-to-create-azure-function/visual-studio-msi-2.png)
 
 Also note the **object ID** shown on this page, as it will be used in the next section.

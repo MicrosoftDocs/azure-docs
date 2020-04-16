@@ -1,6 +1,7 @@
 ---
 # Mandatory fields.
 title: What is Azure Digital Twins?
+titleSuffix: Azure Digital Twins
 description: Overview of what can be done with Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
