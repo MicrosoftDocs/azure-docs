@@ -179,25 +179,19 @@ For general Snapshot Debugger troubleshooting, please refer to the [Snapshot Deb
 
 ## FAQs
 * If I have currently working Profiler and/or Snapshot and then I enabled BYOS, will my data be migrated into my Storage Account?
-
-_No, it will not, as of now, we do not support migration data._
+    _No, it will not, as of now, we do not support migration data._
 
 * Will BYOS work when Customer Managed Key was enabled? 
-
-_Yes, to be precise, BYOS is a requisite to have profiler/debugger enabled with CMK (Customer Manager Keys)._
+    _Yes, to be precise, BYOS is a requisite to have profiler/debugger enabled with CMK (Customer Manager Keys)._
 
 * Will BYOS work when Private Link was enabled? 
-
-_Yes, to be precise, BYOS is a requisite to have profiler/debugger enabled with PL (Private Link)._
+    _Yes, to be precise, BYOS is a requisite to have profiler/debugger enabled with PL (Private Link)._
 
 * Will BYOS work when, both, CMK and PL were enabled? 
-
-_Yes, it can be possible._
+    _Yes, it can be possible._
 
 * If I have enabled BYOS, can I go back using Diagnostic Services storage accounts to store my data collected? 
-
-_Yes, you can, but keep in mind that, as of now, we do not support data migration from your BYOS._
+    _Yes, you can, but keep in mind that, as of now, we do not support data migration from your BYOS._
 
 * After enabling BYOS, will I take over of all the related costs of it? 
-
-_Yes_
+    _Yes_
