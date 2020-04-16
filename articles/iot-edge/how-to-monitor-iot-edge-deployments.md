@@ -24,11 +24,7 @@ Successful deployments require monitoring the following information:
 
 * Versions of deployed modules.
 
-Both devices and modules have similar data, such as connectivity, so values are obtained according the device ID or the module ID.
-
-Automatic deployments are deployments made to devices that satisfy a target condition. Target conditions are configured using tags specified in the device twin.
-
-Layered deployments have addition criterion such as to overwrite a module if a particular criterion is satisfied. This criteria is configured by adding desired properties in the module twin.
+Both devices and modules have similar data, such as connectivity, so values are obtained according the device ID or the module ID. For an overview of the IoT Edge runtime modules and their properties, see [Properties of the IoT Edge agent and IoT Edge hub module twins](module-edgeagent-edgehub.md).
 
 The IoT Hub service collects the data reported by device and module twins and provides aggregated counts of the various states that devices may have. The IoT Hub service organizes this data into four groups of metrics:
 
@@ -72,15 +68,46 @@ To view the details of a deployment and monitor the devices running it, use the 
 
    ![View IoT Edge deployment metric criteria](./media/how-to-monitor-iot-edge-deployments/metric-list.png)
 
-### Define a custom metric
+### Define properties
 
-You can define custom metrics in the Azure portal when you create a deployment.
+If you developed custom code modules, such as described in [Use Visual Studio 2019 to develop and debug modules for Azure IoT Edge](how-to-visual-studio-develop-module.md), you can monitor their values by defining custom metrics. You can also add, delete, and edit properties in the module twin after the module has been deployed to an IoT Edge device.
+
+To define and edit properties for a deployed module:
 
 1. In your IoT hub, select **IoT Edge** from the left pane menu.
-1. Select **Create Deployment** from the upper menu bar.
-1. Complete the wizard, and on the **Metrics** tab you can define a custom metric using the example syntax as a guide.
+1. Select the device with the module you want to edit.
+1. On the **Modules** tab, select the module.
+1. On the module details page, on the upper menu bar select **Module Identity Twin**.
 
-   ![Create a custom metric in the deployment wizard](./media/how-to-monitor-iot-edge-deployments/create-custom-metric.png)
+![Edit properties on the module identity twin](./media/how-to-monitor-iot-edge-deployments/module-twin.png)
+
+### Define targets
+
+You can target the devices to receive the deployment by specifying target conditions when you create or modify a deployment. To define a custom metric:
+
+1. In your IoT hub, select **IoT Edge** from the left pane menu.
+
+    * If you are creating a new deployment, select **Create Deployment** from the upper menu bar. As part of completing the wizard, select the **Target Devices** tab.
+
+    * If you are modifying a deployment, select the **IoT Edge deployments** tab and select the deployment you want to configure. Select the **Target Condition** tab.
+
+1. Define a target condition, using the example syntax as a guide.
+
+![Specify target conditions for a deployment](./media/how-to-monitor-iot-edge-deployments/target-devices.png)
+
+### Define a custom metric
+
+You can define custom metrics in the Azure portal when you create or modify a deployment. To define a custom metric:
+
+1. In your IoT hub, select **IoT Edge** from the left pane menu.
+
+   * If you are creating a new deployment, select **Create Deployment** from the upper menu bar. As part of completing the wizard, select the **Metrics** tab.
+
+   * If you are modifying a deployment, select the **IoT Edge deployments** tab and then select the deployment you want to configure. Select the **Metrics** tab.
+
+1. Define a custom metric, using the example syntax as a guide. 
+
+![Create a custom metric in the deployment wizard](./media/how-to-monitor-iot-edge-deployments/create-custom-metric.png)
 
 ## Monitor a deployment with Azure CLI
 
