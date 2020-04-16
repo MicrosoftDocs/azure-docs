@@ -12,13 +12,15 @@ ms.author: nepeters
 
 # Quickstart: Create Azure Resource Manager templates by using Visual Studio Code
 
-Learn how to use Visual Studio Code and the Azure Resource Manager Tools extension to create and edit Azure Resource Manager templates. You can create Resource Manager templates in Visual Studio Code without the extension, but the extension provides autocomplete options that simplify template development. To understand the concepts associated with deploying and managing your Azure solutions, see [template deployment overview](overview.md).
+The Azure Resource Manager (ARM) Tools for Visual Studio Code provides language support, resource snippets, and resource auto-completion to help you create and validate Azure Resource Manager templates. In this quickstart, you use the ARM tools to create an Azure Resource Manager template from scratch. While doing so you experience ARM tools capabilities such as ARM template snippets, validation, completions, and parameter file support.
+
+In order to complete this quickstart, you need Visual Studio Code, with the Azure Resource Manager (ARM) tools extension installed. You also need either the Azure CLI or the Azure PowerShell module installed and authenticated.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create an ARM template
 
-Create and open with Visual Studio Code a new file named *azuredeploy.json*. Enter `arm!` into the code editor which initiates ARM Tools snippets for scaffolding out an ARM template.
+Create and open with Visual Studio Code a new file named *azuredeploy.json*. Enter `arm` into the code editor which initiates ARM Tools snippets for scaffolding out an ARM template.
 
 Select `arm!` to create a template scoped for an Azure resource group deployment.
 
@@ -28,13 +30,13 @@ This snippet creates the basic building blocks for an ARM template.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/2.png)
 
-Notice that the VS Code language mode has changed from *JSON* to *Azure Resource Manager Template*. The ARM Tools extension includes a language server specific to ARM templates which provides ARM template specific completion, validation, and other language services.
+Notice that the VS Code language mode has changed from *JSON* to *Azure Resource Manager Template*. The ARM Tools extension includes a language server specific to ARM templates which provides ARM template specific validation, completion, and other language services.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/3.png)
 
 ## Add an Azure resource
 
-The ARM Tools extension includes snippets for many Azure resources. These snippets can be used to easily add Azure resources to your template deployment.
+The ARM Tools extension includes snippets for many Azure resources. These snippets can be used to easily add resources to your template deployment.
 
 Place the cursor in the template **resources** block, type in `storage`, and select the *arm-storage* snippet.
 
@@ -50,13 +52,13 @@ The **tab** key can be used to tab through configurable properties on the storag
 
 ## Completion and validation
 
-One of the most powerful capabilities of the ARM Tools extension for VS Code is its integration with Azure schemas. Azure schemas provide the extension with completion and validation capabilities. Let's modify the storage account to see validation and completion in action. 
+One of the most powerful capabilities of the ARM Tools extension for VS Code is its integration with Azure schemas. Azure schemas provide the extension with validation and resource-aware completion capabilities. Let's modify the storage account to see validation and completion in action. 
 
 First, update the storage account kind to an invalid value such as `megaStorage`. Notice that this produces a warning indicating that `megaStorage` is not a valid value.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/7.png)
 
-To use the completion capabilities, remove `megaStorage`, place the cursor inside of the double quotes, and press `ctrl` + `space`. This action presents a list of valid values.
+To use the completion capabilities, remove `megaStorage`, place the cursor inside of the double quotes, and press `ctrl` + `space`. This action presents a completion list of valid values.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/8.png)
 
@@ -86,7 +88,7 @@ Entering a single quote `'` inside of the round brackets produces a list of all 
 
 ## Create a parameter file
 
-An ARM template parameter file allows you to store environment-specific values and pass these in as a group at deployment time. For example, you may have a parameter file with values specific to a test environment and another for a production environment.
+An ARM template parameter file allows you to store environment-specific parameter values and pass these in as a group at deployment time. For example, you may have a parameter file with values specific to a test environment and another for a production environment.
 
 The ARM Tools extension for VS Code makes it easy to create a parameter file from your existing templates. To do so, right-click on the template in the code editor and select `Select/Create Parameter File`.
 
@@ -96,7 +98,7 @@ Select `New` > `All Parameters` > Select a name and location for the parameter f
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/15.png)
 
-This will create a new parameters file and map it with the template from which it was created. You can see the current mapping and update this mapping in the VS Code status bar.
+This will create a new parameters file and map it with the template from which it was created. You can see and modify the current template/parameter file mapping in the VS Code status bar while the template is selected.
 
 ![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
 
@@ -133,12 +135,20 @@ New-AzResourceGroupDeployment -ResourceGroupName arm-vscode -TemplateFile ./azur
 
 ## Clean up resources
 
-When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
+When the Azure resources are no longer needed, use the Azure CLI or Azure PowerShell module to delete the quickstart resource group.
 
-1. From the Azure portal, select **Resource group** from the left menu.
-2. Enter the resource group name in the **Filter by name** field.
-3. Select the resource group name.  You shall see a total of six resources in the resource group.
-4. Select **Delete resource group** from the top menu.
+# [CLI](#tab/CLI)
+
+```azurecli
+az group delete --name arm-vscode
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name arm-vscode
+```
+---
 
 ## Next steps
 
