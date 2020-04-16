@@ -11,8 +11,6 @@ ms.date: 04/16/2020
 ms.author: diberry
 ---
 
-# Use Cognitive Services with natural language processing (NLP) to enrich bot conversations
-
 Cognitive Services provides two natural language processing services, [Language Understanding](../luis/what-is-luis.md) and [QnA Maker](../qnamaker/overview/overview.md), each with a different purpose. Understand when to use each service and how they compliment each other.
 
 Natural language processing (NLP) allows your client application, such as a chat bot, to work with your users, using natural language. A user enters a sentence or phrase. The user's text can have poor grammar, spelling, and punctuation. The Cognitive Service can work through the user sentence anyway, returning information the chat bot needs to help the user.
