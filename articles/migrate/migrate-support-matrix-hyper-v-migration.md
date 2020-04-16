@@ -34,7 +34,7 @@ backup.windowsazure.com | Replication data transfer and coordination.
 *.hypervrecoverymanager.windowsazure.com | Used for migration.
 *.blob.core.windows.net | Upload data to storage accounts. 
 dc.services.visualstudio.com | Upload app logs used for internal monitoring.
-time.windows.com: Verifies time synchronization between system and global time.
+time.windows.com | Verifies time synchronization between system and global time.
 
 ### URL access (Azure Government)
 
