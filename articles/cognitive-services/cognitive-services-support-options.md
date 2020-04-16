@@ -13,7 +13,7 @@ ms.author: dapine
 
 # Azure Cognitive Services support and feedback options
 
-Are you just starting to explore the functionality of Azure Cognitive Services? Perhaps you are implementing a new feature in your application. Or after using the service, do you have suggestions on how to improve it? Here are options for where you can get support, stay up-to-date, and give feedback for Cognitive Services.
+Are you just starting to explore the functionality of Azure Cognitive Services? Perhaps you are implementing a new feature in your application. Or after using the service, do you have suggestions on how to improve it? Here are options for where you can get support, stay up-to-date, give feedback, and report bugs for Cognitive Services.
 
 ## Get support
 
@@ -54,10 +54,7 @@ Where `{search keywords}` is the context of your search. Consider using these sc
 
 If you can't find an answer to your problem with the search box on Stack Overflow, submit a new question. Stack Overflow is the preferred channel for development-related questions. It's where members of the Stack Overflow community and Microsoft team members are directly involved in helping you solve your problems.
 
- Use one of the following tags when you formulate the question:
-
- - [Microsoft Cognitive](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
- - [Azure Cognitive Services](https://stackoverflow.com/questions/tagged/azure-cognitive-services)
+Post a question [here](https://go.microsoft.com/fwlink/?linkid=2126464). Use the appropriate tag for your question, so we are sure to see the question.
 
 > [!TIP]
 > The following posts from Stack Overflow contain tips on how to form questions and add source code. Following these guidelines might help increase the chances that community members assess and respond to your question quickly:
@@ -78,10 +75,11 @@ The Cognitive Services release notes are updated as new releases are made availa
 
  - [Custom Vision](custom-vision-service/release-notes.md)
  - [Face](face/releasenotes.md)
- - [Language Understanding (LUIS)](luis/whats-new.md)
+ - [Language Understanding (LUIS)](LUIS/whats-new.md)
  - [Speech Services](speech-service/releasenotes.md)
  - [Speech Services SDK](speech-service/devices-sdk-release-notes.md)
  - [Text Analytics](text-analytics/whats-new.md)
+ - [Video Indexer](../media-services/video-indexer/release-notes.md)
 
 ### Azure blog
 

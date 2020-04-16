@@ -63,7 +63,7 @@ Synapse SQL has the following wait types:
 * **LocalQueriesConcurrencyResourceType**: Queries that sit outside of the concurrency slot framework. DMV queries and system functions such as `SELECT @@VERSION` are examples of local queries.
 * **UserConcurrencyResourceType**: Queries that sit inside the concurrency slot framework. Queries against end-user tables represent examples that would use this resource type.
 * **DmsConcurrencyResourceType**: Waits resulting from data movement operations.
-* **BackupConcurrencyResourceType**: This wait indicates that a database is being backed up. The maximum value for this resource type is 1. If multiple backups have been requested at the same time, the others queue. In general, we recommend a minimum time between consecutive snapshots of 10 minutes. 
+* **BackupConcurrencyResourceType**: This wait indicates that a database is being backed up. The maximum value for this resource type is 1. If multiple backups have been requested at the same time, the others queue. In general, we recommend a minimum time between consecutive snapshots of 10 minutes.
 
 The `sys.dm_pdw_waits` DMV can be used to see which resources a request is waiting for.
 

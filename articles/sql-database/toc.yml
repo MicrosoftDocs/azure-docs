@@ -740,6 +740,8 @@
         href: sql-database-managed-instance-configure-vm.md
       - name: Point-to-site connection
         href: sql-database-managed-instance-configure-p2s.md
+      - name: Long-term backup retention
+        href: sql-database-managed-instance-long-term-backup-retention-configure.md
     - name: Load data
       items:
       - name: Restore database backup
@@ -815,7 +817,9 @@
       href: sql-database-managed-instance-threat-detection.md
     - name: Connect applications
       href: sql-database-managed-instance-connect-app.md
-
+    - name: Create alerts
+      href: sql-database-managed-instance-alerts.md
+      
   - name: Samples
     items:
     - name: Azure CLI

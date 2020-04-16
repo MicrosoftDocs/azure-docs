@@ -6,14 +6,14 @@ author: ganesr
 
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 04/02/2020
 ms.author: ganesr
 
 ---
 
 # About Azure Edge Zones - Preview
 
-Azure Edge Zones is a family of offerings from Microsoft Azure that enables data processing close to the user. You can deploy VMs, containers, and other select Azure services into Edge Zones to address the low latency and high throughput requirements of applications.
+Azure Edge Zones is a family of offerings from Microsoft Azure that enables data processing close to the user. You can deploy VMs, containers, and other selected Azure services into Edge Zones to address the low latency and high throughput requirements of applications.
 
 Typical use case scenarios for Edge Zones include:
 
@@ -35,7 +35,7 @@ Azure Edge Zones come in three discrete offerings:
 
 ![Edge Zones](./media/edge-zones-overview/edge-zones.png "Edge zones")
 
-Azure Edge Zones are small footprint extensions of Azure placed in population centers that are far away from Azure regions. Azure Edge Zones support VMs, containers, and a select set of Azure services that let you run latency sensitive and throughput intensive applications close to end users. Azure Edge Zones are part of the Microsoft global network and offer secure, reliable, and high-bandwidth connectivity between applications running at the Edge Zone close to the user, and the full set of Azure services running within Azure regions. Azure Edge Zones are owned and operated by Microsoft and let you use the same set of Azure tools and portal to manage and deploy services into the Edge Zones.
+Azure Edge Zones are small footprint extensions of Azure placed in population centers that are far away from Azure regions. Azure Edge Zones support VMs, containers, and a selected set of Azure services that let you run latency sensitive and throughput intensive applications close to end users. Azure Edge Zones are part of the Microsoft global network and offer secure, reliable, and high-bandwidth connectivity between applications running at the Edge Zone close to the user, and the full set of Azure services running within Azure regions. Azure Edge Zones are owned and operated by Microsoft and let you use the same set of Azure tools and portal to manage and deploy services into the Edge Zones.
 
 Typical use cases include:
 
@@ -129,11 +129,13 @@ We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to
 | Global SIs and Operators | Mobile Operators |
 | --- | --- |
 | Amdocs                       | Etisalat             |
-| American Tower               | Rogers               |
-| Expeto                       | Singtel              |
-| Federated Wireless           | Vodafone             |
-| Infosys                      |      *                |
-| Tech Mahindra                |      *                |
+| American Tower               | NTT Communications   |
+| Century Link                 | Proximus             |
+| Expeto                       | Rogers               |
+| Federated Wireless           | SK Telecom           |
+| Infosys                      | Telefonica           |
+| Tech Mahindra                | Telstra              |
+|        *                     | Vodafone             |
 
 [Reach out to the Private Edge Zones team](https://aka.ms/EdgeZonesPartner) for more information on how to become a partner.
 

@@ -1006,7 +1006,41 @@
     items:
     - name: Security overview
       href: /azure/databricks/security/index
-      maintainContext: true 
+      maintainContext: true
+    - name: Access control
+      items:
+      - name: Access control overview
+        href: /azure/databricks/security/access-control/index
+        maintainContext: true
+      - name: Workspace access control
+        href: /azure/databricks/security/access-control/workspace-acl
+        maintainContext: true
+      - name: Cluster access control
+        href: /azure/databricks/security/access-control/cluster-acl
+        maintainContext: true
+      - name: Pool access control
+        href: /azure/databricks/security/access-control/pool-acl
+        maintainContext: true  
+      - name: Jobs access control
+        href: /azure/databricks/security/access-control/job-acl
+        maintainContext: true
+      - name: Table access control
+        items:
+        - name: Table access control overview
+          href: /azure/databricks/security/access-control/table-acls/index
+          maintainContext: true
+        - name: Enable table access control for a cluster
+          href: /azure/databricks/security/access-control/table-acls/table-acl
+          maintainContext: true
+        - name: Data object privileges
+          href: /azure/databricks/security/access-control/table-acls/object-privileges
+          maintainContext: true
+      - name: Secret access control
+        href: /azure/databricks/security/access-control/secret-acl
+        maintainContext: true
+    - name: Authenticate to Azure Data Lake Storage using Azure Active Directory credentials
+      href: /azure/databricks/security/credential-passthrough/adls-passthrough
+      maintainContext: true
     - name: Secrets
       items:
       - name: Keep data secure with secrets
@@ -1018,9 +1052,6 @@
       - name: Secrets
         href: /azure/databricks/security/secrets/secrets
         maintainContext: true
-      - name: Secret access control
-        href: /azure/databricks/security/secrets/secret-acl
-        maintainContext: true  
       - name: Secret redaction
         href: /azure/databricks/security/secrets/redaction
         maintainContext: true
@@ -1028,11 +1059,11 @@
         href: /azure/databricks/security/secrets/example-secret-workflow
         maintainContext: true
     - name: Encrypt traffic between cluster worker nodes
-      href: /azure/databricks/security/encrypt-otw
+      href: /azure/databricks/security/encryption/encrypt-otw
     - name: Enable customer-managed keys for notebooks
-      href: /azure/databricks/security/customer-managed-key-notebook
+      href: /azure/databricks/security/keys/customer-managed-key-notebook
     - name: Enable customer-managed keys for DBFS
-      href: /azure/databricks/security/customer-managed-keys-dbfs
+      href: /azure/databricks/security/keys/customer-managed-keys-dbfs
   - name: Administration
     items:
     - name: Administration overview
@@ -1054,7 +1085,7 @@
         maintainContext: true
       - name: Monitor usage using tags
         href: /azure/databricks/administration-guide/account-settings/usage-detail-tags-azure
-        maintainContext: true        
+        maintainContext: true
     - name: Manage users and groups
       items:
       - name: Users and groups overview
@@ -1080,30 +1111,22 @@
       - name: Access control overview
         href: /azure/databricks/administration-guide/access-control/index
         maintainContext: true
-      - name: Cluster access control
-        href: /azure/databricks/administration-guide/access-control/cluster-acl
-        maintainContext: true
-      - name: Pool access control
-        href: /azure/databricks/administration-guide/access-control/pool-acl
-        maintainContext: true
-      - name: Jobs access control
-        href: /azure/databricks/administration-guide/access-control/jobs-acl
-        maintainContext: true
-      - name: Table access control
-        items:
-        - name: Table access control overview
-          href: /azure/databricks/administration-guide/access-control/table-acls/index
-          maintainContext: true
-        - name: Enable Table access control
-          href: /azure/databricks/administration-guide/access-control/table-acls/table-acl
-          maintainContext: true
-        - name: Set Privileges  on a Data Object
-          href: /azure/databricks/administration-guide/access-control/table-acls/object-privileges 
-          maintainContext: true
-      - name: Workspace access control
+      - name: Enable workspace access control
         href: /azure/databricks/administration-guide/access-control/workspace-acl
         maintainContext: true
-      - name: Enable Token-based authentication
+      - name: Enable cluster access control
+        href: /azure/databricks/administration-guide/access-control/cluster-acl
+        maintainContext: true
+      - name: Enable pool access control
+        href: /azure/databricks/administration-guide/access-control/pool-acl
+        maintainContext: true
+      - name: Enable jobs access control
+        href: /azure/databricks/administration-guide/access-control/jobs-acl
+        maintainContext: true
+      - name: Enable table access control
+        href: /azure/databricks/administration-guide/access-control/table-acl
+        maintainContext: true
+      - name: Enable token-based authentication
         href: /azure/databricks/administration-guide/access-control/tokens
         maintainContext: true
       - name: Conditional access
@@ -1688,6 +1711,9 @@
       items:
       - name: Platform release notes 
         href: /azure/databricks/release-notes/product/index
+        maintainContext: true
+      - name: April 2020
+        href: /azure/databricks/release-notes/product/2020/april
         maintainContext: true
       - name: March 2020
         href: /azure/databricks/release-notes/product/2020/march

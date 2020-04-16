@@ -42,8 +42,7 @@ When deploying a template, you must provide the following information:
 * Workspace edition (Basic or Enterprise)
 * If high confidentiality settings for the workspace should be enabled
 * If encryption for the workspace with a customer-managed key should be enabled, and associated values for the key
-* Virtual Network name and subnet
-* Subnet name
+* Virtual Network and Subnet name, template will create new virtual network and subnet
 
 Once a template has been submitted and provisioning completes, the resource group that contains your workspace will contain three new artifact types related to Private Link:
 
@@ -201,25 +200,9 @@ For information on securing Azure Container Registry inside the virtual network,
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."
@@ -520,25 +503,9 @@ For information on securing Azure Container Registry inside the virtual network,
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."
@@ -762,25 +729,9 @@ For information on securing Azure Container Registry inside the virtual network,
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."
@@ -1039,25 +990,9 @@ For information on securing Azure Container Registry inside the virtual network,
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiaeast",
-        "brazilsouth",
-        "canadacentral",
-        "centralus",
-        "eastasia",
         "eastus",
-        "eastus2",
-        "francecentral",
-        "japaneast",
-        "koreacentral",
-        "northcentralus",
-        "northeurope",
-        "southeastasia",
         "southcentralus",
-        "uksouth",
-        "westcentralus",
-        "westus",
-        "westus2",
-        "westeurope"
+        "westus2"
       ],
       "metadata": {
         "description": "Specifies the location for all resources."

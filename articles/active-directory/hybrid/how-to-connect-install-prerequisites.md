@@ -82,7 +82,7 @@ To learn more, see:
 ### Accounts
 * An Azure AD Global Administrator account for the Azure AD tenant you wish to integrate with. This account must be a **school or organization account** and cannot be a **Microsoft account**.
 * If you use [express settings](reference-connect-accounts-permissions.md#express-settings-installation) or upgrade from DirSync, then you must have an Enterprise Administrator account for your on-premises Active Directory.
-* If you use the custom settings installation path then you have more options see [Accounts in Active Directory](reference-connect-accounts-permissions.md#custom-installation-settings)
+* If you use the custom settings installation path then you have more options. For more information, see [Custom installation settings](reference-connect-accounts-permissions.md#custom-installation-settings).
 
 ### Connectivity
 * The Azure AD Connect server needs DNS resolution for both intranet and internet. The DNS server must be able to resolve names both to your on-premises Active Directory and the Azure AD endpoints.
@@ -169,7 +169,7 @@ When using Azure AD Connect to deploy Active Directory Federation Services or th
       * To validate remote PowerShell connectivity, in the Server Manager All Servers tab: right click WAP server and choose Windows PowerShell. A remote PowerShell session should open to ensure remote PowerShell sessions can be established.
 
 ### TLS/SSL Certificate Requirements
-* It’s strongly recommended to use the same TLS/SSL certificate across all nodes of your AD FS farm and all Web Application proxy servers.
+* It's strongly recommended to use the same TLS/SSL certificate across all nodes of your AD FS farm and all Web Application proxy servers.
 * The certificate must be an X509 certificate.
 * You can use a self-signed certificate on federation servers in a test lab environment. However, for a production environment, we recommend that you obtain the certificate from a public CA.
   * If using a certificate that is not publicly trusted, ensure that the certificate installed on each Web Application Proxy server is trusted on both the local server and on all federation servers

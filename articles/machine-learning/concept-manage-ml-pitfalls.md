@@ -1,5 +1,5 @@
 ---
-title: Manage common ML model pitfalls with automated machine learning.
+title: Avoid overfitting & imbalanced data with AutoML
 titleSuffix: Azure Machine Learning
 description: Identify and manage common pitfalls of ML models with Azure Machine Learning's automated machine learning solutions. 
 services: machine-learning
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 03/27/2020
+ms.date: 04/09/2020
 ---
 
-# Manage ML pitfalls with automated machine learning
+# Prevent overfitting and imbalanced data with automated machine learning
 
 Over-fitting and imbalanced data are common pitfalls when you build machine learning models. By default, Azure Machine Learning's automated machine learning provides charts and metrics to help you identify these risks, and implements best practices to help mitigate them. 
 

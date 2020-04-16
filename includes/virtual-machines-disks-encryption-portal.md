@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/11/2020
+ ms.date: 03/23/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -15,7 +15,7 @@ Setting up customer-managed keys for your disks will require you to create resou
 
 #### Setting up your Azure Key Vault
 
-1. Sign into the [Azure portal](https://portal.azure.com/) and search for Key Vault
+1. Sign into the [Azure portal](https://portal.azure.com/).
 1. Search for and select **Key Vaults**.
 
     [ ![sse-key-vault-portal-search.png](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search-expanded.png#lightbox)
@@ -24,7 +24,7 @@ Setting up customer-managed keys for your disks will require you to create resou
     > Your Azure key vault, disk encryption set, VM, disks, and snapshots must all be in the same region and subscription for deployment to succeed.
 
 1. Select **+Add** to create a new Key Vault.
-1. Create a new resource group
+1. Create a new resource group.
 1. Enter a key vault name, select a region, and select a pricing tier.
 1. Select **Review + Create**, verify your choices, then select **Create**.
 
@@ -32,7 +32,7 @@ Setting up customer-managed keys for your disks will require you to create resou
 
 1. Once your key vault finishes deploying, select it.
 1. Select **Keys** under **Settings**.
-1. Select **Generate/Import**
+1. Select **Generate/Import**.
 
     ![Screenshot of the Key Vault resource settings pane. Shows the generate/import button inside settings.](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
 
@@ -43,15 +43,8 @@ Setting up customer-managed keys for your disks will require you to create resou
 
 #### Setting up your disk encryption set
 
-To create and configure disk encryption sets, you must use the following link: https://aka.ms/diskencryptionsets. If you are in the Microsoft Azure Government regions, you must use this link instead: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff). Disk encryption set creation is not yet available in the global Azure portal.
-
-1. Open the disk encryption sets link appropriate for your region:
-
-    Public regions: [https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
-
-    Azure Government regions: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
-    
-1. Select **+Add**.
+1. Search for **Disk Encryption Sets** and select it.
+1. On the **Disk Encryption Sets** blade select **+Add**.
 
     ![Screenshot of the disk encryption portal main screen. Highlighting the Add button](media/virtual-machines-disk-encryption-portal/sse-create-disk-encryption-set.png)
 
@@ -76,12 +69,6 @@ Two notifications should pop up and succeed. Doing this will allow you to use th
 Now that you've created and set up your key vault and the disk encryption set, you can deploy a VM using the encryption.
 The VM deployment process is similar to the standard deployment process, the only differences are that you need to deploy the VM in the same region as your other resources and you opt to use a customer managed key.
 
-1. Open the disk encryption sets link appropriate for your region:
-
-    Public regions: [https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
-
-    Azure Government regions: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
-
 1. Search for **Virtual Machines** and select **+ Add** to create a VM.
 1. On the **Basic** tab, select the same region as your disk encryption set and Azure Key Vault.
 1. Fill in the other values on the **Basic** tab as you like.
@@ -96,16 +83,8 @@ The VM deployment process is similar to the standard deployment process, the onl
 
 #### Enable on an existing disk
 
-To manage and configure disk encryption on your existing disks, you must use the following link: https://aka.ms/diskencryptionsets. Enabling customer-managed keys on existing disks is not yet available in the global Azure portal.
-
 > [!CAUTION]
 > Enabling disk encryption on any disks attached to a VM will require that you stop the VM.
-
-1. Open the disk encryption sets link appropriate for your region:
-
-    Public regions: [https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
-
-    Azure Government regions: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
     
 1. Navigate to a VM that is in the same region as one of your disk encryption sets.
 1. Open the VM and select **Stop**.

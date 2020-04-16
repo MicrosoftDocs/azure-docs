@@ -17,6 +17,8 @@ ms.author: chlound
 
 # Use Azure Key Vault secrets in pipeline activities
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 You can store credentials or secret values in an Azure Key Vault and use them during pipeline execution to pass to your activities.
 
 ## Prerequisites

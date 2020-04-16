@@ -11,6 +11,9 @@ ms.author: v-umha
 
 This article provides solutions to common Azure FarmBeats issues. For additional help, contact our [Support Forum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) or email us at farmbeatssupport@microsoft.com.
 
+> [!NOTE]
+  > If you have installed FarmBeats during April and your jobs are failing with an empty error message, your installation may not have been allocated any batch quota to prioritize support for critical health and safety organizations. See [here](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) for more information. You will need to request VMs to be allocated to the Batch account to run jobs successfully.
+
 ## Install issues
 
   > [!NOTE]
@@ -37,7 +40,9 @@ Contact us with the following details:
 - Follow the below steps to attach the log file for the Deployment failure:
 
     1. Navigate to the **Resource Group** in the Azure portal.
+
     2. Select **Deployments** under **Settings** section on the left hand side.
+
     3. For every deployment that shows **Failed**, select through to the details and download the deployment details. Attach this file to the mail.
 
 ## Sensor telemetry

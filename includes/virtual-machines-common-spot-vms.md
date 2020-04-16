@@ -83,6 +83,7 @@ With variable pricing, you have option to set a max price, in US dollars (USD), 
 | Enterprise Agreement         | Yes                               |
 | Pay As You Go                | Yes                               |
 | Cloud Service Provider (CSP) | [Contact your partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Microsoft Customer Agreement | Yes                               |
 | Benefits                     | Not available                     |
 | Sponsored                    | Not available                     |
 | Free Trial                   | Not available                     |

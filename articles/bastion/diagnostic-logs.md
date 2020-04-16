@@ -2,12 +2,12 @@
 title: 'Enable and work with Azure Bastion diagnostic logs'
 description: In this article, learn how to enable and work with Azure Bastion diagnostic logs.
 services: bastion
-author: cherylmc
+author: charwen
 
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: cherylmc
+ms.author: charwen
 
 ---
 
@@ -40,7 +40,7 @@ To access your diagnostics logs, you can directly use the storage account that y
 2. As you navigate to inside the container, you see various folders in your blog. These folders indicate the resource hierarchy for your Azure Bastion resource.
 
    ![add diagnostic setting](./media/diagnostic-logs/2-resource-h.png)
-3. Navigate to the full hierarchy of your Azure Bastion resource whose diagnostics logs you wish to access/view. The ‘y=’, ‘m=’, ‘d=’, ‘h=’ and ‘m=’ indicate the year, month, day, hour, and minute respectively for the diagnostic logs.
+3. Navigate to the full hierarchy of your Azure Bastion resource whose diagnostics logs you wish to access/view. The 'y=', 'm=', 'd=', 'h=' and 'm=' indicate the year, month, day, hour, and minute respectively for the diagnostic logs.
 
    ![select storage location](./media/diagnostic-logs/3-resource-location.png)
 4. Locate the json file created by Azure Bastion that contains the diagnostics log data for the time-period navigated to.
