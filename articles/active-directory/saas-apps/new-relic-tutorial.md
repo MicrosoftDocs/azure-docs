@@ -41,7 +41,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * New Relic by Account supports **SP** initiated SSO
 
-* Once you configure the New Relic you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure the New Relic by Account you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding New Relic by Account from the gallery
 
@@ -53,7 +53,6 @@ To configure the integration of New Relic by Account into Azure AD, you need to 
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **New Relic by Account** in the search box.
 1. Select **New Relic by Account** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD single sign-on for New Relic by Account
 
@@ -81,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
 
-    `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` - Be sure to substitute your own New Relic Account ID.
+    `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` - Be sure to substitute `acc_id` with your own Account ID of New Relic by Account.
 
     b. In the **Identifier (Entity ID)** text box, type a URL:
     `rpm.newrelic.com`
@@ -90,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-1. On the **Set up New Relic** section, copy the appropriate URL(s) as per your requirement.
+1. On the **Set up New Relic by Account** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
