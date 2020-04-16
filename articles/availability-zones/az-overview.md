@@ -21,21 +21,20 @@ To better understand regions and Availability Zones in Azure, it helps to unders
 | --- | --- |
 | region | A set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. |
 | Availability Zone | Unique physical locations within a region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. |
-| recommended region | A region that provides the broadest range of capabilities with high-growth capacity needs and meets in-country data residency requirements. |
-| auxiliary/alternate region | An alternate region that provides proactive support around disaster recovery, meets in-country data residency, and provides an additional location to improve latency . |
+| recommended region | A region that provides the broadest range of capabilities and meets in-country data residency requirements. |
+| alternate region | An alternate region that provides proactive support around disaster recovery, meets in-country data residency, and provides an additional location to improve latency . |
 | foundational service | A core Azure service that is available in all regions when the region is generally available. |
-| mainstream service | An Azure service that is available in all recommended regions within one year of the region/service general availability or demand-driven availability in auxiliary/alternate regions. |
+| mainstream service | An Azure service that is available in all recommended regions within one year of the region/service general availability or demand-driven availability in alternate regions. |
 | specialized service | An Azure service that is demand-driven availability across regions backed by customized/specialized hardware. |
 
 ## Regions
 
-A region is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. Azure gives you the flexibility to deploy applications where you need to. Azure’s approach on availability of Azure services across regions is best described in two ways – recommended regions and auxiliary/alternate regions.
+A region is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. Azure gives you the flexibility to deploy applications where you need to. Azure’s approach on availability of Azure services across regions is best described in two ways – recommended regions and alternate regions.
 
 ### Recommended regions
 
 A recommended region is a region that provides the broadest range of capabilities, which include the following:
 
-- High-growth capacity needs
 - Meet in-country data residency requirements
 - Designed to support Availability Zones now or in the future
 
@@ -45,32 +44,30 @@ The Azure services available in recommended regions enable you to perform cloud 
 - Mainstream – available in all Recommended regions within one year of the region/service general availability. When unavailable, Microsoft is working on region-specific improvements to deploy across all recommended regions. 
 - Specialized – demand-driven availability across regions backed by customized/specialized hardware, with many already deployed into a large subset of Recommended regions. 
 
-Availability Zones are currently/planned to be available in most recommended regions. The hardware Availability Zone deployments are the following:
-- Foundational VM and Disk types: generally are available in all zones
-- Mainstream VM and Disk types: generally are available in two or more zones in regions with zones; additional demand and capacity drives third Zone deployment
-- Specialized VM and Disk types: generally are available in one Zone in regions with zones; additional demand and capacity drives second and third Zone deployments
+Availability Zones are currently/planned to be available in most recommended regions. If a service offering is not available in a specific region, you can share your interest by contacting your Microsoft sales representative.
 
-### Auxiliary/alternate regions
+### Alternate regions
 
-An auxiliary/alternate region is a region that provides essential capabilities, which include the following:
+An alternate region is a region that extends Azure's footprint. Alternate regions are listed as **other** in the [Azure portal](https://portal.azure.com) and include the following capabilities:
 
-- Proactive support around disaster recovery
 - Meet in-country data residency
-- Additional location to improve latency 
+- Additional location to improve latency and provide a second region for disaster recovery needs
 - Not designed to support Availability Zones
 
-The Azure services available in auxiliary/alternate regions support your business needs around disaster recovery, data residency, and improving latency. There are three categories of Azure services.
+The Azure services available in alternate regions support your business needs around disaster recovery, data residency, and improving latency. There are three categories of Azure services.
 
 - Foundational – available in all regions when the region is generally available. When unavailable, Microsoft is working on region-specific improvements to deploy across all regions. 
-- Mainstream – demand-driven availability in Auxiliary/alternate regions; not targeted at parity. 
+- Mainstream – demand-driven availability in alternate regions; not targeted at parity. 
 - Specialized – demand-driven availability across regions backed by customized/specialized hardware; not targeted at parity. 
+
+If a service offering is not available in a specific region, you can share your interest by contacting your Microsoft sales representative.
 
 ### Comparing region types
 
 | Region type | Non-regional services | Foundational services | Mainstream services | Specialized services | Availability Zones | Data residency |
 | --- | --- | --- | --- | --- | --- | --- |
 | Recommenced | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | :heavy_check_mark: | :heavy_check_mark: |
-| Auxiliary/alternate | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | Demand-driven | N/A | :heavy_check_mark: |
+| Alternate | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | Demand-driven | N/A | :heavy_check_mark: |
 
 For more information, see the [Services](#services) section later in this article.
 
@@ -115,7 +112,7 @@ There is no additional cost for virtual machines deployed in an Availability Zon
 
 ## Services
 
-You can choose one or more regions to use based on availability of Azure services and capabilities. If a service is not available in a in a specific region or you are interested in additional regions, you can provide feedback by contacting your Microsoft sales representative.
+You can choose one or more regions to use based on availability of Azure services and capabilities.
 
 ### Services support by region
 
@@ -160,7 +157,7 @@ All Azure management services are architected to be resilient from region-level 
 
 ### Service categories
 
-Azure classifies services into three categories: foundational, mainstream, and specialized. 
+Azure classifies services into three categories: foundational, mainstream, and specialized. The services in this section are public services that are regional only. This section excludes virtual machine SKUs listed as **older-gen** on [TBD]. For information about non-regional services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
 #### Foundational services
 
@@ -190,11 +187,9 @@ Azure classifies services into three categories: foundational, mainstream, and s
 - Storage: Tables
 - VPN Gateway	Virtual Machine Scale Sets
 - Virtual Machines
-- Virtual Machines: A0 - A7
 - Virtual Machines: Av2-Series
 - Virtual Machines: B-Series
 - Virtual Machines: D-Series
-- Virtual Machines: DS-Series
 - Virtual Machines: DSv2-Series
 - Virtual Machines: DSv3-Series
 - Virtual Machines: Dv2-Series
@@ -294,10 +289,6 @@ Azure classifies services into three categories: foundational, mainstream, and s
 - Data Factory
 - Data Factory: Azure Integration Runtime
 - Data Factory: SSIS Integration Runtime
-- Dynamics 365 Customer Engagement
-- Dynamics 365 Customer Service
-- Dynamics 365 Field Service
-- Dynamics 365 Sales
 - Event Grid
 - Functions
 - Functions: Consumption Plan Linux
@@ -375,20 +366,6 @@ Azure classifies services into three categories: foundational, mainstream, and s
 - Data Catalog
 - Data Factory: Data Factory V1
 - Data Lake Analytics
-- Dynamics 365 AI Customer Insights
-- Dynamics 365 Business Central
-- Dynamics 365 Customer Service Insights
-- Dynamics 365 Finance
-- Dynamics 365 Fraud Protection
-- Dynamics 365 Guides
-- Dynamics 365 Human Resources
-- Dynamics 365 Marketing
-- Dynamics 365 Portals
-- Dynamics 365 Project Service Automation
-- Dynamics 365 Retail
-- Dynamics 365 Sales Insights
-- Dynamics 365 Supply Chain Management
-- Dynamics 365 Talent Attract & Onboard
 - HockeyApp
 - IoT Central
 - Machine Learning Studio
