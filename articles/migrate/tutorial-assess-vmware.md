@@ -62,7 +62,7 @@ Set up a new Azure Migrate project as follows:
 Azure Migrate:Server Assessment uses a lightweight Azure Migrate appliance. The appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate. The appliance can be set up in a number of ways.
 
 - Set up on a VMware VM using a downloaded OVA template. This is the method used in this tutorial.
-- Set up on a VMware VM or physical machine with a PowerShell installer script. [This method](migrate-appliance-script.md) should be used if you can't set up a VM using an OVA template, or if you're in Azure Government.
+- Set up on a VMware VM or physical machine with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a VM using an OVA template, or if you're in Azure Government.
 
 After creating the appliance, you check that it can connect to Azure Migrate:Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
 
