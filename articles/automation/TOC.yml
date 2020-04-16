@@ -59,7 +59,7 @@
           href: how-to/move-account.md
         - name: Migrate from System Center Orchestrator
           href: automation-orchestrator-migration.md
-    - name: Shared resources
+    - name: Manage shared resources
       items:
         - name: Certificates
           href: shared-resources/certificates.md
