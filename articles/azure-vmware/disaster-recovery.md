@@ -76,7 +76,7 @@ By default, the virtual machines will inherit the Global Settings Policy configu
 
 ![NIC options](media/disaster-recovery/nic-options.jpg)
 
-You can monitor the process for each of the selected virtual machines in the same Disaster Recovery area as seen in the following screenshot.
+As seen in the following image, you can monitor the process for each of the selected virtual machines in the same disaster recovery area.
 
 ![monitor progress of protection](media/disaster-recovery/protect-monitor-progress.jpg)
 
@@ -87,8 +87,7 @@ After the VM has been protected, the different snapshots can be seen in the **Sn
 The yellow triangle means the snapshots and the virtual haven't been tested in a Test Recovery operation.
 
 There are key differences between a VM that is powered off and one that is powered on.
-The above screenshot shows the syncing process for a powered on virtual machine, it started the syncing process until it finishes the first snapshot, which is a full copy of the VM, and then complete
-the next ones in the configured interval.
+The preceding screenshot shows the syncing process for a powered on virtual machine. It started the syncing process until it finishes the first snapshot, which is a full copy of the VM, and then completes the next ones in the configured interval.
 
 For a powered off VM, it will sync up a copy and then the VM will appear as inactive and protection operation will show as completed.
 
@@ -96,7 +95,7 @@ When the virtual machine is powered on, it will start the syncing up process to 
 
 ## Complete a test recover of virtual machines
 
-Log into **vSphere Client** on the remote site, which is the AVS private cloud, and access **HCX plugin**. In the Disaster Recovery area, select the vertical ellipses on any VM to display the operations menu and select **Test Recover VM**.
+Log into **vSphere Client** on the remote site, which is the AVS private cloud. Within the **HCX plugin**, in the Disaster Recovery area, select the vertical ellipses on any VM to display the operations menu. Select **Test Recover VM**.
 
 ![Select Test Recover VM](media/disaster-recovery/test-recover-virtual-machine.jpg)
 
@@ -109,7 +108,7 @@ After clicking on **Test**, the recovery operation will begin.
 
 When the Test Recovery operation is finished, the new VM can be checked in the AVS private cloud vCenter.
 
-![review recovery operation](media/disaster-recovery/verify-test-recovery.jpg)
+![check recovery operation](media/disaster-recovery/verify-test-recovery.jpg)
 
 Finally after testing has been done on the VM or any application running on it do a cleanup to delete the test instance.
 
@@ -134,7 +133,7 @@ After the recovery operation is completed, the new VMs will appear in the remote
 ## Complete a reverse replication on virtual machines
 
 Log into **vSphere Client** on your AVS private cloud, and access **HCX plugin**.
-Before you start the reverse replication, it's required that the original virtual machines on the source site are powered off or the operation will fail.
+It's required that the original virtual machines on the source site are powered off before you start the reverse replication. The operation fails if the virtual machines aren't powered off.
 
 Select the virtual machines to be replicated back to the source site
 from the list, open the **ACTIONS** menu, and select **Reverse**. In the
@@ -149,7 +148,7 @@ machine.
 
 ## Disaster recovery plan automation
 
-VMware HCX currently doesn't have a built-in mechanism to create and automate a Disaster Recovery Plan, and this concept doesn't exist in HCX. However it provides a set of REST APIs, including APIs for the Disaster Recovery operation.
+VMWare HCX currently doesn't have a built-in mechanism to create and automate a disaster recovery plan. This capability doesn't exist in HCX. However it provides a set of REST APIs, including APIs for the Disaster Recovery operation.
 
 The API specification can be accesses within HCX Manager in the URL.
 

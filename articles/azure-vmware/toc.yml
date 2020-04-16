@@ -39,6 +39,8 @@
     href: 
   - name: Network Architecture - TODO
     href: 
+  - name: Network requirements
+    href: network-requirements.md
 - name: How-to guides
   items:
   - name: Create DHCP Server - TODO
