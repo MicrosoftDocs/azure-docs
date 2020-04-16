@@ -30,19 +30,19 @@ These Cognitive Services are language agnostic and don't have limitations based 
 * [Ink Recognizer (Preview)](./ink-recognizer/language-support.md)
 * [Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/language-identification-model#guidelines-and-limitations)
 
-## Speech
-
-* [Speech Service: Speech-to-Text](./speech-service/supported-languages.md#speech-to-text)
-* [Speech Service:Text-to-Speech](./speech-service/supported-languages.md#text-to-speech)
-* [Speech Service: Speech Translation](./speech-service/supported-languages.md#speech-translation)
-
 ## Language
 
 * [Immersive Reader (Preview)](./immersive-reader/language-support.md)
 * [Language Understanding (LUIS)](./luis/luis-supported-languages.md)
 * [QnA Maker](./qnamaker/overview/languages-supported.md)
-* [Translator Text](./translator/languages.md)
 * [Text Analytics](./text-analytics/text-analytics-supported-languages.md)
+* [Translator Text](./translator/languages.md)
+
+## Speech
+
+* [Speech Service: Speech-to-Text](./speech-service/supported-languages.md#speech-to-text)
+* [Speech Service:Text-to-Speech](./speech-service/supported-languages.md#text-to-speech)
+* [Speech Service: Speech Translation](./speech-service/supported-languages.md#speech-translation)
 
 ## Search
 
@@ -60,5 +60,5 @@ These Cognitive Services are language agnostic and don't have limitations based 
 
 ## See also
 
-* [What is Cognitive Services?](welcome.md)
+* [What are the Cognitive Services?](welcome.md)
 * [Create an account](cognitive-services-apis-create-account.md)
