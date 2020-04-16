@@ -37,7 +37,7 @@ Set up Azure to work with Azure Migrate.
 **Create Azure AD app (assessment only)** | When registering the appliance, Azure Migrate creates an Azure Active Directory (Azure AD) app that's used for communication between the agents running on the appliance with their respective services running on Azure. [Learn more](migrate-appliance-architecture.md#appliance-registration).<br/><br/> You need permissions to create Azure AD apps (available in the Application Developer) role.
 
 
-### Assign permissions to create project (assessment)
+### Assign permissions to create project 
 
 Check you have permissions to create an Azure Migrate project.
 
@@ -48,7 +48,7 @@ Check you have permissions to create an Azure Migrate project.
     - If you're not the subscription owner, work with the owner to assign the role.
 
 
-### Assign permissions to register the appliance (assessment)
+### Assign permissions to register the appliance 
 
 You can assign permissions for Azure Migrate to create the Azure AD app during appliance registration, using one of the following methods:
 
@@ -150,7 +150,7 @@ Review the requirements for migration of physical servers.
 - [Review](migrate-support-matrix-physical-migration.md#physical-server-requirements) physical server requirements for migration.
 - Azure Migrate:Server Migration uses a replication server for physical server migration:
     - [Review](migrate-replication-appliance.md#appliance-requirements) the deployment requirements for the replication appliance, and the [options](migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
-    - Review the Azure URLs required for the replication appliance to access [public](migrate-replication-appliance.md#url-access) and [government](migrate-appliance.md#azure-government-url-access) clouds.
+    - Review the [Azure URLs](migrate-appliance.md#azure-government-url-access) required for the replication appliance to access public and government clouds.
     - Review [port] (migrate-replication-appliance.md#port-access) access requirements for the replication appliance.
 
 
