@@ -93,12 +93,12 @@ The above command creates a three node AKS cluster, but the user, who created th
 Once you've created a group and added yourself (and others) as a member, you can update the cluster with the Azure AD group using the following command
 
 ```azurecli-interactive
-az aks update -g MyResourceGroup -n MyManagedCluster [--aad-admin-group-object-ids <id1,id2>] [--aad-tenant-id <id>]
+az aks update -g MyResourceGroup -n MyManagedCluster [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 Alternatively, if you first create a group and add members, you can enable the Azure AD group at create time using the following command,
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id1,id2>] [--aad-tenant-id <id>]
+az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
 ```
 
 A successful creation of an Azure AD v2 cluster has the following section in the response body

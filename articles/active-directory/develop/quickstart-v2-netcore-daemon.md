@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40 
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
 #Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by an Microsoft identity platform endpoint using client credentials flow.
 ---
 
@@ -193,7 +193,6 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithClientSecret(config.ClientSecret)
                                           .WithAuthority(new Uri(config.Authority))
                                           .Build();
-);
 ```
 
 > | Where: ||

@@ -166,6 +166,8 @@ New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile "$HOME/azuredeploy.json" `
     -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 When you deploy the template, use the same resource group that you used in the key vault. This approach makes it easier for you to clean up the resources, because you need to delete only one resource group instead of two.
@@ -189,6 +191,8 @@ $projectName = Read-Host -Prompt "Enter the same project name that is used for c
 $resourceGroupName = "${projectName}rg"
 
 Remove-AzResourceGroup -Name $resourceGroupName
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 ## Next steps

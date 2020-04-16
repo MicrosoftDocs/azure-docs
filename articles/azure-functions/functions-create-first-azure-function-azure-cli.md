@@ -92,7 +92,7 @@ Navigate into the project folder:
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ```
-cd LocalFunctionsProject
+cd LocalFunctionProj
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java"  

@@ -105,7 +105,7 @@ landingContent:
         url: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
       - text: Tax details
         url: ./partner-center-portal/tax-details-paid-transactions.md
-      - text: Commercial markteplace billing
+      - text: Commercial marketplace billing
         url: ./partner-center-portal/billing-details.md
 
   - title: API reference

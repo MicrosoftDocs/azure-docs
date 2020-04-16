@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 In this tutorial, you'll learn how to integrate MongoDB Cloud with Azure Active Directory (Azure AD). When you integrate MongoDB Cloud with Azure AD, you can:
 
-* Control in Azure AD who has access to MongoDB Cloud.
+* Control in Azure AD who has access to MongoDB Cloud, MongoDB Atlas, the MongoDB Community, University, and Support.
 * Enable your users to be automatically signed-in to MongoDB Cloud with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
@@ -146,11 +146,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure MongoDB Cloud SSO
 
-To configure single sign-on on **MongoDB Cloud** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [MongoDB Cloud support team](https://support.mongodb.com/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **MongoDB Cloud** side, you will need the appropriate URLs copied from the Azure portal, and you need to configure the Federation Application for your MongoDB Cloud Organization. Follow the instructions in the [MongoDB Cloud Docs](https://docs.atlas.mongodb.com/security/federated-authentication/index.html). If you encounter any issues, you can contact the [MongoDB Cloud support team](https://support.mongodb.com/) for assistance.
 
 ### Create MongoDB Cloud test user
 
-In this section, a user called Britta Simon is created in MongoDB Cloud. MongoDB Cloud supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in MongoDB Cloud, a new one is created after authentication.
+In this section, a user called B.Simon is created in MongoDB Cloud. MongoDB Cloud supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in MongoDB Cloud, a new one is created after authentication.
 
 ## Test SSO 
 
@@ -165,6 +165,8 @@ When you click the MongoDB Cloud tile in the Access Panel, you should be automat
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Signup for MongoDB Atlas on Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/mongodb.mongodb_atlas_azure_08082019?tab=Overview)
 
 - [Try MongoDB Cloud with Azure AD](https://aad.portal.azure.com/)
 

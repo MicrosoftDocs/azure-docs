@@ -12,7 +12,7 @@ ms.topic: conceptual
 Perform the following steps to add the Start/Stop VMs during off-hours solution to a new or existing Automation account and linked Log Analytics workspace. After completing the onboarding process, configure the variables to customize the solution.
 
 >[!NOTE]
->To use this solution with Classic VMs, you need a Classic RunAs account, which is not created by default. For instructions on creating a Classic RunAs account, see [Classic Run-As Accounts](automation-create-standalone-account.md#classic-run-as-accounts).
+>To use this solution with Classic VMs, you need a Classic Run As account, which is not created by default. For instructions on creating a Classic Run As account, see [Create a Classic Run As account](automation-create-standalone-account.md#create-a-classic-run-as-account).
 >
 
 ## Enable solution
