@@ -42,7 +42,10 @@ Application Gateway integration with Key Vault requires a three-step configurati
 
 1. **Configure your key vault**
 
-   You then either import an existing certificate or create a new one in your key vault. The certificate will be used by applications that run through the application gateway. In this step, you can also use a key vault secret that's stored as a password-less, base 64-encoded PFX file. We recommend using a certificate type because of the autorenewal capability that's available with certificate type objects in the key vault. After you've created a certificate or a secret, you define access policies in the key vault to allow the identity to be granted *get* access to the secret.
+   You then either import an existing certificate or create a new one in your key vault. The certificate will be used by applications that run through the application gateway. In this step, you can also use a key vault secret that's stored as a password-less, base-64 encoded PFX file. We recommend using a certificate type because of the autorenewal capability that's available with certificate type objects in the key vault. After you've created a certificate or a secret, you define access policies in the key vault to allow the identity to be granted *get* access to the secret.
+   
+> [!NOTE]
+> If you are deploying the Application Gateway via an ARM template, either using the Azure CLI or PowerShell, or via an Azure Application deployed from the Azure Portal, the SSL certificate stored in the Key Vault as a base-64 encoded PFX file **must be passwordless**.  Also, you must follow the steps in the article [Use Azure Key Vault to pass secure parameter value during deployment](../azure-resource-manager/templates/key-vault-parameter.md).  It is particularly important to set `enabledForTemplateDeployment` to `true`.
 
 1. **Configure the application gateway**
 
