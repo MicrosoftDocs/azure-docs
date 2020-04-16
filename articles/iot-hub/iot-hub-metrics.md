@@ -106,6 +106,17 @@ IoT Hub provides several metrics to give you an overview of the health of your h
 |connectedDeviceCount|Connected devices (preview)|Count|Average|Number of devices connected to your IoT hub|None|
 |configurations|Configuration Metrics|Count|Total|Metrics for Configuration Operations|None|
 
+## PER-ENDPOINT METRICS
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|Routing Deliveries | Routing Delivery Attempts | Count | Total | this is the routing delivery metric | ResourceID, Result, Routing Source |
+|Routing Delivery Latency| RoutingDeliveryLatency | Milliseconds | Average | this is the routing delivery latency metric | ResourceID, Routing Source, Endpoint Type, Endpoint Name|
+|Routing Data Size In Bytes Delivered| Routing Data Size In Bytes Delivered | Count | Total | this is the routing data size in byte metric | ResourceID|
+|Event Grid Deliveries|Event Grid Deliveries| Milliseconds|Average|this is the event grid deliveries|ResourceID, Result, EventType|
+|Event Grid Latency|Event Grid Latency| Milliseconds|Average|this is the event grid latency|ResourceID, EventType|
+
+
 ## Next steps
 
 Now that you’ve seen an overview of IoT Hub metrics, follow this link to learn more about managing Azure IoT Hub:
