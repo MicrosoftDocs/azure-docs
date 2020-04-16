@@ -71,15 +71,13 @@ As discussed in [the Azure Policy documentation](https://docs.microsoft.com/azur
 
 The built-in recommendations supplied with Azure Security Center include details such as severity levels and remediation instructions. If you want to add this type of information to your custom recommendations so that it appears in the Azure Portal or wherever you access your recommendations, you'll need to use the REST API. 
 
-The meta data support should be added to the policy definition under ‘securityCenter’ property.
-
 These are the types of information you can add:
 
 - **RemediationDescription** – String
 - **Severity** – Enum [Unknown, Low, Medium, High]
-- **UserImpact** - Enum [Unknown, Low, Moderate, High]
-- **ImplementationEffort** - Enum [Unknown, Low, Moderate, High]
-- **Threats** – Array of Enum [Unknown, AccountBreach, DataExfiltration, DataSpillage, MaliciousInsider, ElevationOfPrivilege, ThreatResistance, MissingCoverage, DenialOfService]
+The metadata should be added to the policy definition under the ‘SecurityCenter’ property, as shown:
+
+![Example of the SecurityCenter property with custom metadata](media/custom-security-policies/custom-policy-metadata.png)
 
 For an example of how to do this, see [this section of the REST API documentation](https://docs.microsoft.com/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples).
 
