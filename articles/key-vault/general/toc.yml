@@ -4,9 +4,7 @@
   items:
   - name: What is Azure Key Vault?
     href: overview.md
-- name: Quickstarts
-  expanded: true
-  items:
+
 - name: Tutorials 
   items:
   - name: Azure Virtual Machine
@@ -17,6 +15,7 @@
       href: tutorial-python-windows-virtual-machine.md
   - name: Use Azure Key Vault with an Azure web app in .NET
     href: tutorial-net-create-vault-azure-web-app.md
+
 - name: Concepts 
   items:
   - name: Basic concepts
@@ -51,6 +50,7 @@
     href: overview-throttling.md
   - name: Virtual network service endpoints for Azure Key Vault - Azure Key Vault
     href: overview-vnet-service-endpoints.md
+
 - name: How-to guides
   items:
   - name: Authenticate
@@ -95,6 +95,7 @@
     items:
     - name: Change the key vault tenant ID after a subscription move
       href: subscription-move-fix.md
+
 - name: Reference
   items:
   - name: REST API error codes - Azure Key Vault
@@ -118,6 +119,7 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
     displayName: ARM
+
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: genlin
 manager: dcscontentpm
-editor: tysonn
+
 tags: azure-service-management
 
 ms.assetid: b8ef8367-58b2-42df-9f26-3269980950b8
