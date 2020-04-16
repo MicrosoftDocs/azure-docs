@@ -145,8 +145,6 @@ Configuration settings for the [Azure Cosmos DB trigger and bindings](functions-
 
 Configuration settings for [Event Hub triggers and bindings](functions-bindings-event-hubs-trigger.md#functions-1x).
 
-[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
-
 ## functions
 
 A list of functions that the job host runs. An empty array means run all functions. Intended for use only when [running locally](functions-run-local.md). In function apps in Azure, you should instead follow the steps in [How to disable functions in Azure Functions](disable-function.md) to disable specific functions rather than using this setting.
