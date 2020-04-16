@@ -9,7 +9,7 @@
     href: whats-new.md
 - name: Quickstarts
   items:
-  - Build a classifier
+  - name: Build a classifier
     items:
     - name: Using the web portal
       href: getting-started-build-a-classifier.md
@@ -23,7 +23,7 @@
       href: node-tutorial.md
     - name: Using the Go SDK
       href: go-tutorial.md
-  - Build an object detector
+  - name: Build an object detector
     items:
     - name: Using the web portal
       href: get-started-build-detector.md
