@@ -85,3 +85,4 @@ The following two guides offer the primary usage scenarios for using soft-delete
 - [How to use Managed HSM soft-delete with PowerShell](soft-delete-powershell.md) 
 - [How to use Managed HSM soft-delete with CLI](soft-delete-cli.md)
 
+
