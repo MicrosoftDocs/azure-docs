@@ -298,11 +298,7 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 > * **LogicAppsManagement**: Represents the inbound IP address prefixes for the Logic Apps service.
 > * **LogicApps**: Represents the outbound IP address prefixes for the Logic Apps service.
 
-* Fixed or reserved IP addresses are unavailable for these connectors:
-
-  * Custom connectors, whether in multi-tenant Azure, [integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), [Azure Government](../azure-government/documentation-government-overview.md), or [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
-
-  * Managed connectors in [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), for example, Azure Storage, SQL Server, Office 365, and so on
+* For [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), fixed or reserved IP addresses are unavailable for [custom connectors](../logic-apps/custom-connector-overview.md) and [managed connectors](../connectors/apis-list.md#managed-api-connectors), for example, Azure Storage, SQL Server, Office 365 Outlook, and so on.
 
 * To support the calls that your logic apps directly make with [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), and other HTTP requests, set up your firewall with all the [inbound](#inbound) *and* [outbound](#outbound) IP addresses that are used by the Logic Apps service, based on the regions where your logic apps exist. These addresses appear under the **Inbound** and **Outbound** headings in this section, and are sorted by region.
 
