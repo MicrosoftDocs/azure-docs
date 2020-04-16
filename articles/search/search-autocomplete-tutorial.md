@@ -11,51 +11,73 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ---
 
-# Add autocomplete or suggested results to client apps
+# Add autocomplete and suggestions to client apps
 
-Search-as-you-type functionality requires: a *suggester*, a *query* that includes the Autocomplete or Suggestions API on the request, and a *control* that handles auto-completed text inputs and outputs in your client app. You can use the [jQuery Autocomplete widget](https://jqueryui.com/autocomplete/) or an equivalent control for this purpose.
+Search-as-you-type is a common technique for improving the productivity of user-initiated queries. One form is *Autocomplete*, which finishes a term or phrase based on partial input (completing "micro" with "microsoft", auto-filling a search term). Another form is *Suggestions*, or a short list of matching documents (returning a list of book titles, where each one links to a search document detail page for that book). Both autocomplete and suggestions are predicated on a match in the index. The service won't offer queries that return zero results.
 
-In Azure Cognitive Search, autocompleted queries and suggested results are retrieved from the search index, and in particular, from selected fields that you have listed with the suggester. A suggester is defined within the index schema, and specifies which fields will provide content that either completes a term or suggests a result. When the index is created and loaded, a suggester data structure is created on your service to store prefixes used for matching on partial queries. Choosing suitable fields that are unique, or at least not repetitive, is essential to the experience. For more information, see [Create a suggester](index-add-suggesters.md).
+To implement these experiences in Azure Cognitive Search, you will need a *suggester* on the back end, a query that includes the Autocomplete or Suggestions API on the request, and a *UI control* that handles auto-completed text inputs and outputs in your client app. You could use the [jQuery Autocomplete widget](https://jqueryui.com/autocomplete/) or an equivalent control for this purpose.
+
+In Azure Cognitive Search, autocompleted queries and suggested results are retrieved from the search index, from selected fields that you have registered with a suggester. A suggester is part of the index, and it specifies which fields will provide content that either completes a query, suggests a result, or does both. When the index is created and loaded, a suggester data structure is created internally to store prefixes used for matching on partial queries. For suggestions, choosing suitable fields that are unique, or at least not repetitive, is essential to the experience. For more information, see [Create a suggester](index-add-suggesters.md).
 
 The remainder of this article is focused on queries and client code.
 
 ## Set up a request
 
-Structuring a request for search-as-you-type has the following components: a suggesterName, an API ([Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) or [Suggestion](https://docs.microsoft.com/rest/api/searchservice/suggestions)), and a partial query. For example, `GET /indexes/myxboxgames/docs/`**`autocomplete`**`?`**`search=minecraf`**`&`**`suggesterName=sg`** - or - `GET /indexes/myxboxgames/docs/`**`suggestions`**`?`**`search=minecraf`**`&`**`suggesterName=sg`**.
+Elements of a request include the API ([Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) or [Suggestion](https://docs.microsoft.com/rest/api/searchservice/suggestions)), a partial query, and a suggester.
 
-The **suggesterName** gives you the suggester-aware fields used to complete terms or suggestions. For suggestions in particular, choose fields that disambiguate among matching results. On a site that sells computer games, the match suggestion might be the game title.
-
-The **search** parameter provides the partial query, getting dynamic strings from the jQuery Autocomplete control. In the above example, "minecraf" is a static illustration of what the control might have passed in.
-
-The APIs do not impose requirements on the partial query. It can be as little as one character, but you would typically set a higher minimum in jQuery Autocomplete, such as two or three, for a more efficient and effective query.
-
-Matches are on the beginning of a term anywhere in the input string. Given "the quick brown fox", both autocomplete and suggestions will match on partial versions of "the", "quick", "brown", or "fox" but not on partial infix terms like "rown" or "ox". Furthermore, each match sets the scope for downstream expansions. A partial query of "quick br" will match on "quick brown" or "quick bread", but neither "brown" or "bread" by themselves would be match if "quick" precedes them.
-
-Responses for autocomplete and suggestions are what you might expect for the pattern, returning just a list of terms, or terms plus a document ID. Because results are already shaped, you do not need **$select**, **$searchFields**, **$count**, or other parameters that you might otherwise use to scope the query or structure results. Suggestions, consisting of actual matches, return the contents of a suggester-aware field (such as a game title) plus a document ID so that you can retrieve the entire document.
-
-## Add a control (jQuery Autocomplete for suggestions)
-
-The client app must provide a control that gives users a list of suggestion while typing the beginning word in the search box. 
-
-## Query inputs
-
-For both C# and JavaScript versions, the search box implementation is exactly the same. 
-
-Open the **Index.cshtml** file under the folder \Views\Home to view the code:
-
-```html
-<input class="searchBox" type="text" id="example1a" placeholder="search">
+```http
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+{
+  "search": "minecraf",
+  "suggesterName": "sg"
+}
 ```
 
-This example is a simple input text box with a class for styling, an ID to be referenced by JavaScript, and placeholder text.  The magic is in the embedded JavaScript.
+The **suggesterName** gives you the suggester-aware fields used to complete terms or suggestions. For suggestions in particular, the field list should be composed of those that offer clear choices among matching results. On a site that sells computer games, the field might be the game title.
 
-The C# language sample uses JavaScript in Index.cshtml to leverage the [jQuery UI Autocomplete library](https://jqueryui.com/autocomplete/). This library adds the autocomplete experience to the search box by making asynchronous calls to the MVC controller to retrieve suggestions. The JavaScript language version is in IndexJavaScript.cshtml. It includes the script below for the search bar, as well as REST API calls to Azure Cognitive Search.
+The **search** parameter provides the partial query, where characters are fed to the query request through the jQuery Autocomplete control. In the above example, "minecraf" is a static illustration of what the control might have passed in.
 
-Let's look at the JavaScript code for the first example, which calls jQuery UI Autocomplete function, passing in a request for suggestions:
+The APIs do not impose minimum length requirements on the partial query; it can be as little as one character. However, jQuery Autocomplete provides a minimum length. A minimum of two or three characters is typical.
+
+Matches are on the beginning of a term anywhere in the input string. Given "the quick brown fox", both autocomplete and suggestions will match on partial versions of "the", "quick", "brown", or "fox" but not on partial infix terms like "rown" or "ox". Furthermore, each match sets the scope for downstream expansions. A partial query of "quick br" will match on "quick brown" or "quick bread", but neither "brown" or "bread" by themselves would be match unless"quick" precedes them.
+
+## Responses
+
+Responses for autocomplete and suggestions are what you might expect for the pattern: Autocomplete returns a list of terms,Suggestions returns terms plus a document ID so that you can fetch the document (use the [Lookup Document](https://docs.microsoft.com/rest/api/searchservice/lookup-document) API to fetch the specific document for a detail page). 
+
+Responses are shaped by the parameters on the request. For Autocomplete, set [**autocompleteMode**](https://docs.microsoft.com/rest/api/searchservice/autocomplete#autocomplete-modes) to determine whether text completion occurs on one or two terms. For Suggestions, the field you choose determines the contents of the response.
+
+To further refine the response, include more parameters on the request. The following parameters apply to both Autocomplete and Suggestions.
+
+| Parameter | Usage |
+|-----------|-------|
+| **$select** | If you have multiple **sourceFields**, use **$select** to choose which field contributes values (`select=GameTitle`). |
+| **$filter** | Apply match criteria on the result set. (`filter=ActionAdventure`). |
+| **$top** | Limit the results to a specific number (`top=5`).|
+
+## Add a UI control (jQuery Autocomplete for suggestions)
+
+Auto-filling a query term or dropping down a list of matching links requires user interaction code, typically JavaScript, that can consume requests from external sources, such as autocomplete or suggestion queries against an Azure Search Cognitive index.
+
+The [jQuery UI](https://jqueryui.com) library is helpful for this task. You can create a searchbox, and then reference it in a JavaScript that function that uses the Autocomplete widget. Properties on the widget set the source (an autocomplete or suggestions request), minimum length of input characters before action is taken, and positioning.
+
+### Create a search box
+
+The C# language sample uses JavaScript in Index.cshtml to leverage the [jQuery UI Autocomplete library](https://jqueryui.com/autocomplete/). This library adds the autocomplete experience to the search box by making asynchronous calls to the MVC controller to retrieve suggestions. 
+
+In an MVC app, open the **Index.cshtml** file under the folder \Views\Home to view the code:
+
+```html
+<input class="searchBox" type="text" id="searchbox1" placeholder="search">
+```
+
+This example is a simple input text box with a class for styling, an ID to be referenced by JavaScript, and placeholder text.  
+
+The autocomplete logic comes next, in embedded JavaScript that references the search box. 
 
 ```javascript
 $(function () {
-    $("#example1a").autocomplete({
+    $("#searchbox1").autocomplete({
         source: "/home/suggest?highlights=false&fuzzy=false&",
         minLength: 3,
         position: {
@@ -74,7 +96,7 @@ source: "/home/suggest?highlights=false&fuzzy=false&",
 
 The above line tells the jQuery UI Autocomplete function where to get the list of items to show under the search box. Since this project is an MVC project, it calls the Suggest function in HomeController.cs that contains the logic for returning query suggestions (more about Suggest in the next section). This function also passes a few parameters to control highlights, fuzzy matching, and term. The autocomplete JavaScript API adds the term parameter.
 
-## OLD Add suggestions or autocomplete to your Azure Cognitive Search application
+<!-- ## OLD Add suggestions or autocomplete to your Azure Cognitive Search application
 
 This example demonstrates a search box that supports search-as-you-type behaviors. There are two features, which you can use together or separately:
 
@@ -88,9 +110,13 @@ C# developers can step through an ASP.NET MVC-based application that uses the [A
 
 JavaScript developers will find equivalent query logic in IndexJavaScript.cshtml, which includes direct calls to the [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/). 
 
-For both language versions, the front-end user experience is based on the [jQuery UI](https://jqueryui.com/autocomplete/) and [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) libraries. We use these libraries to build the search box supporting both suggestions and autocomplete. Inputs collected in the search box are paired with suggestions and autocomplete actions, such as those as defined in HomeController.cs or IndexJavaScript.cshtml.
+For both language versions, the front-end user experience is based on the [jQuery UI](https://jqueryui.com/autocomplete/) and [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) libraries. We use these libraries to build the search box supporting both suggestions and autocomplete. Inputs collected in the search box are paired with suggestions and autocomplete actions, such as those as defined in HomeController.cs or IndexJavaScript.cshtml. -->
 
 ## About the sample
+
+C# developers can step through an ASP.NET MVC-based application that uses the [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk). The logic for making autocomplete and suggested query calls can be found in the HomeController.cs file. 
+
+The front-end user experience is based on the [jQuery UI](https://jqueryui.com/autocomplete/) and [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) libraries. We use these libraries to build the search box supporting both suggestions and autocomplete. Inputs collected in the search box are paired with suggestions and autocomplete actions, such as those as defined in HomeController.cs or IndexJavaScript.cshtml.
 
 1. Open **AutocompleteTutorial.sln** in Visual Studio. The solution contains an ASP.NET MVC project with a connection to an existing search service and index.
 
