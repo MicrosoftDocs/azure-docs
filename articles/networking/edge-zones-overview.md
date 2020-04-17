@@ -13,7 +13,7 @@ ms.author: ganesr
 
 # About Azure Edge Zones - Preview
 
-Azure Edge Zones is a family of offerings from Microsoft Azure that enables data processing close to the user. You can deploy VMs, containers, and other Azure services into edge zones to address the low latency and high throughput requirements of applications.
+Azure Edge Zones is a family of offerings from Microsoft Azure that enables data processing close to the user. You can deploy VMs, containers, and other selected Azure services into edge zones to address the low latency and high throughput requirements of applications.
 
 Typical use case scenarios for Edge Zones include:
 
@@ -35,9 +35,7 @@ There are three types of Azure edge zones:
 
 ![Azure Edge Zones](./media/edge-zones-overview/edge-zones.png "Azure Edge Zones")
 
-Azure edge zones are small-footprint extensions of Azure placed in population centers that are far away from Azure regions. Azure edge zones support VMs, containers, and a set of Azure services that let you run latency-sensitive and throughput-intensive applications close to end users.
-
-Azure Edge Zones is part of the Microsoft global network. It provides secure, reliable, high-bandwidth connectivity between applications that run at the edge zone close to the user. And it offers the full set of Azure services running within Azure regions. Azure edge zones are owned and operated by Microsoft. You can use the same set of Azure tools and the same portal to manage and deploy services into edge zones.
+Azure edge zones are small-footprint extensions of Azure placed in population centers that are far away from Azure regions. Azure edge zones support VMs, containers, and a selected set of Azure services that let you run latency-sensitive and throughput-intensive applications close to end users. Azure Edge Zones is part of the Microsoft global network. It provides secure, reliable, high-bandwidth connectivity between applications that run at the edge zone close to the user. And it offers the full set of Azure services running within Azure regions. Azure edge zones are owned and operated by Microsoft. You can use the same set of Azure tools and the same portal to manage and deploy services into edge zones.
 
 Typical use cases include:
 

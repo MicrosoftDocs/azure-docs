@@ -107,7 +107,7 @@ supports:
     - os-family: unix
 ```
 
-Save this file to a folder named `linux-path` in your project directory.
+Save this file with name `inspec.yml` to a folder named `linux-path` in your project directory.
 
 Next, create the Ruby file with the InSpec language abstraction used to audit the machine.
 
@@ -117,7 +117,7 @@ describe file('/tmp') do
 end
 ```
 
-Save this file in a new folder named `controls` inside the `linux-path` directory.
+Save this file with name `linux-path.rb` in a new folder named `controls` inside the `linux-path` directory.
 
 Finally, create a configuration, import the **GuestConfiguration** resource module, and use the
 `ChefInSpecResource` resource to set the name of the InSpec profile.

@@ -2,7 +2,7 @@
 title: About Azure Migrate 
 description: Learn about the Azure Migrate service.
 ms.topic: overview
-ms.date: 03/22/2020
+ms.date: 04/15/2020
 ms.custom: mvc
 ---
 
@@ -36,6 +36,9 @@ The Azure Migrate hub includes these tools.
 **Movere** | Assess servers. | [Learn more](#movere) about Movere.
 **Web App Migration Assistant** | Assess and migrate on-premises web apps to Azure. |  Use the Azure App Service Migration Assistant to assess on-premises websites for migration to the Azure App Service.<br/><br/> Use the Assistant to migrate .NET and PHP web apps to Azure. [Learn more](https://appmigration.microsoft.com/) about the Azure App Service Migration Assistant.
 **Azure Data Box** | Offline data migration. | Use Azure Data Box products to move large amounts of data offline to Azure. [Learn more](https://docs.microsoft.com/azure/databox/).
+
+> [!NOTE]
+> If you're in Azure Government, external integrated tools and ISV offerings can't send data to Azure Migrate projects. You can use tools independently.
 
 ## ISV integration
 

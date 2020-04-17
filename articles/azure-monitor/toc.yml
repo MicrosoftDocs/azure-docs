@@ -318,8 +318,6 @@
         href: app/pre-aggregated-metrics-log-metrics.md
       - name: Log-based metrics definitions
         href: platform/app-insights-metrics.md
-      - name: Classic metrics explorer   
-        href: app/metrics-explorer.md
     - name: Search
       href: app/diagnostic-search.md
     - name: Profiler
@@ -740,6 +738,8 @@
       href: insights/containers.md
   - name: Monitor other resources
     items:
+    - name: Key Vault
+      href: insights/key-vault-insights-overview.md
     - name: Storage
       items:
       - name: Azure Monitor for Storage
@@ -1075,6 +1075,8 @@
         href: platform/itsmc-connections.md
       - name: Create Service Manager web app
         href: platform/itsmc-service-manager-script.md
+      - name: Fix ServiceNow ITSM sync problems
+        href: platform/itsmc-resync-servicenow.md
   - name: Automate 
     items:
     - name: Autoscale

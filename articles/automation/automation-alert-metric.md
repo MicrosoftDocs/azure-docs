@@ -17,7 +17,7 @@ Sign in to Azure at https://portal.azure.com
 
 Alerts allow you to define a condition to monitor for and an action to take when that condition is met.
 
-In the Azure portal, navigate to your Automation Account. Under **Monitoring**, select **Alerts** and click **+ New Alert Rule**. The scope for the target is already defined to your Automation Account.
+In the Azure portal, navigate to your Automation account. Under **Monitoring**, select **Alerts** and click **+ New Alert Rule**. The scope for the target is already defined to your Automation account.
 
 ### Configure alert criteria
 
@@ -71,7 +71,7 @@ Once the metric is no longer outside of the threshold defined, the alert is deac
 
 ## Next steps
 
-Continue to the following article to learn about other ways that you can integrate alertings into your Automation Account.
+Continue to the following article to learn about other ways that you can integrate alertings into your Automation account.
 
 > [!div class="nextstepaction"]
 > [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md)
