@@ -33,7 +33,7 @@ There are two reasons why the server might refuse to connect with a **codec not 
 
 First make sure to install the **HEVC Video Extensions** as mentioned in the [Software](../overview/system-requirements.md#software) section of the system requirements.
 
-If you still encounter problems, please make sure that your graphics card supports H265 and you have the latest graphics driver installed. See the [Development PC](../overview/system-requirements.md#development-pc) section of the system requirements for vendor specific information.
+If you still encounter problems, make sure that your graphics card supports H265 and you have the latest graphics driver installed. See the [Development PC](../overview/system-requirements.md#development-pc) section of the system requirements for vendor-specific information.
 
 **The codec is installed, but can't be used:**
 
@@ -71,6 +71,14 @@ The video quality can be compromised either by network quality or the missing H2
 
 * See the steps to [identify network problems](#unstable-holograms).
 * See the [system requirements](../overview/system-requirements.md#development-pc) for installing the latest graphics driver.
+
+## Video recorded with MRC does not reflect the quality of the live experience
+
+A video can be recorded on Hololens through [Mixed Reality Capture (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). However the resulting video has worse quality than the live experience for two reasons:
+* The video framerate is capped at 30 Hz as opposed to 60 Hz.
+* The video images do not go through the [late stage reprojection](../overview/features/late-stage-reprojection.md) processing step, so the video appears to be choppier.
+
+Both are inherent limitations of the recording technique.
 
 ## Black screen after successful model loading
 
