@@ -66,7 +66,7 @@ A console window will open, carry out authentication, and wait for a command. In
 
 The output of this command is a series of confirmation messages as three twins are created and connected in your Azure Digital Twins instance: a floor named *floor1*, a room named *room21*, and a temperature sensor named *thermostat67*. They are connected into the following graph:
 
-![A graph showing that floor1 contains room21, and room21 contains thermostat67](media/quickstart/building-scenario-graph.png)
+![A graph showing that floor1 contains room21, and room21 contains thermostat67](media/tutorial-connect/building-scenario-graph.png)
 
 You can verify the twins that were created by running the following command, which queries the connected Azure Digital Twins instance for all the digital twins it contains:
 
