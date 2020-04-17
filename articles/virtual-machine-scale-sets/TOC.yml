@@ -205,23 +205,23 @@
         - name: Create a scale-set
           items:
           - name: Specialized
-            href: ../vm-generalized-image-version-powershell.md
+            href: instance-generalized-image-version-powershell.md
           - name: Generalized
-            href: ../vm-specialized-image-version-powershell.md
+            href: instance-specialized-image-version-powershell.md
         - name: Update image resources
           href: ../virtual-machines/update-image-resources-powershell.md
       - name: CLI
         items:
         - name: Create a gallery
-          href: ../shared-images-cli.md
+          href: ../virtual-machines/shared-images-cli.md
         - name: Create an image
           items:
           - name: From a VM
-            href: ../image-version-vm-cli.md
+            href: ../virtual-machines/image-version-vm-cli.md
           - name: Migrate from a managed image
-            href: ../image-version-managed-image-cli.md 
+            href: ../virtual-machines/image-version-managed-image-cli.md 
           - name: Copy from another gallery
-            href: ../image-version-another-gallery-cli.md
+            href: ../virtual-machines/image-version-another-gallery-cli.md
         - name: Create a scale-set
           items:
           - name: Generalized

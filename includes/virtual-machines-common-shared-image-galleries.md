@@ -4,7 +4,7 @@
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/01/2020
+ ms.date: 04/16/2020
  ms.author: akjosh
  ms.custom: include file
 ---
@@ -14,14 +14,15 @@ Shared Image Gallery is a service that helps you build structure and organizatio
 - Managed global replication of images.
 - Versioning and grouping of images for easier management.
 - Highly available images with Zone Redundant Storage (ZRS) accounts in regions that support Availability Zones. ZRS offers better resilience against zonal failures.
+- Premium storage support (Premium_LRS).
 - Sharing across subscriptions, and even between Active Directory (AD) tenants, using RBAC.
 - Scaling your deployments with image replicas in each region.
 
 Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within your organization. Shared images can be replicated to multiple regions, for quicker scaling of your deployments.
 
-A managed image is a copy of either a full VM (including any attached data disks) or just the OS disk, depending on how you create the image. When you create a VM  from the image, a copy of the VHDs in the image are used to create the disks for the new VM. The managed image remains in storage and can be used over and over again to create new VMs.
+An image is a copy of either a full VM (including any attached data disks) or just the OS disk, depending on how it is created. When you create a VM  from the image, a copy of the VHDs in the image are used to create the disks for the new VM. The image remains in storage and can be used over and over again to create new VMs.
 
-If you have a large number of managed images that you need to maintain and would like to make them available throughout your company, you can use a Shared Image Gallery as a repository that makes it easy to share your images. 
+If you have a large number of images that you need to maintain, and would like to make them available throughout your company, you can use a Shared Image Gallery as a repository. 
 
 The Shared Image Gallery feature has multiple resource types:
 
@@ -38,7 +39,7 @@ The Shared Image Gallery feature has multiple resource types:
 
 ## Image definitions
 
-Image definitions are a logical grouping for versions of an image. The image definition holds information about why the image was created, what OS it is for, and information about using the image. An image definition is like a plan for all of the details around creating a specific image. You don't deploy a VM from an image definition, but from the image version created from the definition.
+Image definitions are a logical grouping for versions of an image. The image definition holds information about why the image was created, what OS it is for, and other information about using the image. An image definition is like a plan for all of the details around creating a specific image. You don't deploy a VM from an image definition, but from the image versions created from the definition.
 
 There are three parameters for each image definition that are used in combination - **Publisher**, **Offer** and **SKU**. These are used to find a specific image definition. You can have image versions that share one or two, but not all three values.  For example, here are three image definitions and their values:
 
@@ -61,13 +62,15 @@ The following are other parameters that can be set on your image definition so t
 * Tag - you can add tags when you create your image definition. For more information about tags, see [Using tags to organize your resources](../articles/azure-resource-manager/management/tag-resources.md)
 * Minimum and maximum vCPU and memory recommendations - if your image has vCPU and memory recommendations, you can attach that information to your image definition.
 * Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
+* Hyper-V generation - you can specify whether the image was created from a gen 1 or gen 2 Hyper-V VHD.
 
 ## Generalized and specialized images
 
 There are two operating system states supported by Shared Image Gallery. Typically images require that the VM used to create the image has been generalized before taking the image. Generalizing is a process that removes machine and user specific information from the VM. For Windows, the Sysprep too is used. For Linux, you can use [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` or `-deprovision+user` parameters.
 
-Specialized VMs have not been through a process to remove machine specific information and accounts. Also, VMs created from specialized images do not have an `osProfile` associated with them. This means that specialized images will have some limitations.
+Specialized VMs have not been through a process to remove machine specific information and accounts. Also, VMs created from specialized images do not have an `osProfile` associated with them. This means that specialized images will have some limitations in addition to some benefits.
 
+- VMs and scale sets created from specialized images can be up and running quicker. Because they are created from a source that has already been through first boot, VMs created from these images boot faster.
 - Accounts that could be used to log into the VM can also be used on any VM created using the specialized image that is created from that VM.
 - VMs will have the **Computer name** of the VM the image was taken from. You should change the computer name to avoid collisions.
 - The `osProfile` is how some sensitive information is passed to the VM, using `secrets`. This may cause issues using KeyVault, WinRM and other functionality that uses `secrets` in the `osProfile`. In some cases, you can use managed service identities (MSI) to work around these limitations.
@@ -204,31 +207,32 @@ You can create Shared Image Gallery resource using templates. There are several 
 * [What are the charges for using the Shared Image Gallery?](#what-are-the-charges-for-using-the-shared-image-gallery)
 * [What API version should I use to create Shared Image Gallery and Image Definition and Image Version?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
 * [What API version should I use to create Shared VM or Virtual Machine Scale Set out of the Image Version?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
+* [Can I update my Virtual Machine Scale Set created using managed image to use Shared Image Gallery images?]
 
 ### How can I list all the Shared Image Gallery resources across subscriptions?
 
 To list all the Shared Image Gallery resources across subscriptions that you have access to on the Azure portal, follow the steps below:
 
 1. Open the [Azure portal](https://portal.azure.com).
-1. Go to **All Resources**.
+1. Scroll down the page and select **All resources**.
 1. Select all the subscriptions under which you’d like to list all the resources.
-1. Look for resources of type **Private gallery**.
- 
-   To see the image definitions and image versions, you should also select **Show hidden types**.
- 
-   To list all the Shared Image Gallery resources across subscriptions that you have permissions to, use the following command in the Azure CLI:
+1. Look for resources of type **Shared image gallery**, .
+  
+To list all the Shared Image Gallery resources across subscriptions that you have permissions to, use the following command in the Azure CLI:
 
-   ```azurecli
+```azurecli
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
-   ```
+```
+
+For more information, see **Manage gallery resources** using the [Azure CLI](gallery-list-cli.md) or [PowerShell](gallery-list-ps.md).
 
 ### Can I move my existing image to the shared image gallery?
  
 Yes. There are 3 scenarios based on the types of images you may have.
 
- Scenario 1: If you have a managed image in the same subscription as your SIG, then you can create an image definition and image version from it.
+ Scenario 1: If you have a managed image, then you can create an image definition and image version from it. For more information, see **Migrate from a managed image to an image version** using the [Azure CLI](../articles/virtual-machines/image-version-managed-image-cli.md) or [PowerShell](../articles/virtual-machines/image-version-managed-image-powershell.md).
 
- Scenario 2: If you have an unmanaged image in the same subscription as your SIG, you can create a managed image from it, and then create an image definition and image version from it. 
+ Scenario 2: If you have an unmanaged image, you can create a managed image from it, and then create an image definition and image version from it. 
 
  Scenario 3: If you have a VHD in your local file system, then you need to upload the VHD to a managed image, then you can create an image definition and image version from it.
 
@@ -237,11 +241,17 @@ Yes. There are 3 scenarios based on the types of images you may have.
 
 ### Can I create an image version from a specialized disk?
 
-Yes, support for specialized disks as images is in preview. You can only create a VM from a specialized image using the portal ([Windows](../articles/virtual-machines/linux/shared-images-portal.md) or [Linux](../articles/virtual-machines/linux/shared-images-portal.md)) and API. There is no PowerShell support for the preview.
+Yes, support for specialized disks as images is in preview. You can only create a VM from a specialized image using the portal, PowerShell, or API. 
+
+
+Use [PowerShell to create an image of a specialized VM](../articles/virtual-machines/image-version-vm-powershell.md).
+
+Use the portal to create a [Windows](../articles/virtual-machines/linux/shared-images-portal.md) or [Linux] (../articles/virtual-machines/linux/shared-images-portal.md) image. 
+
 
 ### Can I move the Shared Image Gallery resource to a different subscription after it has been created?
 
-No, you cannot move the shared image gallery resource to a different subscription. However, you will be able to replicate the image versions in the gallery to other regions as required.
+No, you can't move the shared image gallery resource to a different subscription. You can replicate the image versions in the gallery to other regions or copy an image from another gallery using the [Azure CLI](../articles/virtual-machines/image-version-another-gallery-cli.md) or [PowerShell](../articles/virtual-machines/image-version-another-gallery-powershell.md).
 
 ### Can I replicate my image versions across clouds such as Azure China 21Vianet or Azure Germany or Azure Government Cloud?
 
@@ -295,3 +305,7 @@ To work with shared image galleries, image definitions, and image versions, we r
 ### What API version should I use to create Shared VM or Virtual Machine Scale Set out of the Image Version?
 
 For VM and Virtual Machine Scale Set deployments using an image version, we recommend you use API version 2018-04-01 or higher.
+
+### Can I update my Virtual Machine Scale Set created using managed image to use Shared Image Gallery images?
+
+Yes, you can update the scale set image reference from a managed image to a shared image gallery image, as long as the the OS type, Hyper-V generation, and the data disk layout matches between the images. 

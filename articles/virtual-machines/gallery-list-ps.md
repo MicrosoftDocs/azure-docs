@@ -1,16 +1,17 @@
 ---
- title: include file
- description: include file
+ title: Managed shared image gallery resources using PowerShell
+ description: Examples of how to list, update and delete shared image gallery resources using Azure PowerShell.
  services: virtual-machines
  author: cynthn
  ms.service: virtual-machines
+ ms.subservice: imaging
  ms.topic: include
  ms.date: 11/07/2018
  ms.author: cynthn
  ms.custom: include file
 ---
 
-# Shared image management 
+# Manage shared image gallery resources
 
 This article shows you how to use PowerShell cmdlets to manage resources in your Shared Image Gallery.
 

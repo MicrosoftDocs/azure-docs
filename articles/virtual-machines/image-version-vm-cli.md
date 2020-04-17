@@ -56,7 +56,7 @@ For more information about the values you can specify for an image definition, s
 
 Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-In this example, the image definition is named *myImageDefinition*, and is for a [specialized](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
+In this example, the image definition is named *myImageDefinition*, and is for a [specialized](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
 
 ```azurecli-interactive 
 az sig image-definition create \
