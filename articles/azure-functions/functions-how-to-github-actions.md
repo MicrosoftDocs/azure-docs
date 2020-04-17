@@ -41,11 +41,13 @@ In this example, replace the placeholders in the resource with your subscription
 
 ## Download the publishing profile
 
-To download the publishing profile of your function app, select the **Overview** page of your app, and then select **Get publish profile**.
+To download the publishing profile of your function app:
+
+1. Select the function app's **Overview** page, and then select **Get publish profile**.
 
    :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Download publish profile":::
 
-Copy the content of the file.
+1. Save and copy the contents of the publish settings file.
 
 ## Configure the GitHub secret
 
