@@ -7,6 +7,7 @@ ms.service: azure-functions
 ms.topic:  overview
 ms.date: 05/08/2020
 ms.author: cshoe
+# Customer intent: As a developer, I want to publish a website from a GitHub repository so that the app is publicly available on the web.
 ---
 
 # What is App Service Static Apps (Preview)?
@@ -15,23 +16,23 @@ App Service Static Apps is a service that automatically builds and deploys web a
 
 :::image type="content" source="media/overview/static-apps-overview.png" alt-text="Static Apps overview":::
 
-Applying commits and pull requests to a designated branch triggers a GitHub Action workflow. The workflow builds the web application for production and globally deploys the web app and API.
+Applying commits and pull requests to a designated branch triggers a GitHub Action workflow. The workflow builds the application for production and globally deploys the app to the web.
 
-Back-end API functionality is powered by Azure Functions. Hosted on the Linux consumption plan, the app's API automatically scales up and down based on demand to the API.
+Back-end API functionality is powered by Azure Functions. This serverless API automatically scales up and down based on demand to the API.
 
 ## Key features
 
-- **Free web hosting** for static content like HTML, CSS, JavaScript, and images
-- **Free API** support provided by Azure Functions
-- **Streamlined GitHub integration** where repository changes trigger builds and deployments
-- **Globally distributed** static content, putting content closer to your users
-- **Free SSL certificates**, which are automatically renewed
-- **Custom domains**\* to provide branded customizations to your app
-- **Seamless security model** with a reverse-proxy when calling APIs, which requires no CORS configuration
-- **Authentication provider integrations** with Azure Active Directory, Facebook, Google, GitHub, and Twitter
-- **Customizable authorization role definition** and assignments
-- **Back-end routing rules** enabling full control over the content and routes you serve
-- **Generated staging versions** powered by pull requests enabling preview versions of your site before publishing
+- **Free web hosting** for static content like HTML, CSS, JavaScript, and images.
+- **Free API** support provided by Azure Functions.
+- **First-party GitHub integration** where repository changes trigger builds and deployments.
+- **Globally distributed** static content, putting content closer to your users.
+- **Free SSL certificates**, which are automatically renewed.
+- **Custom domains**\* to provide branded customizations to your app.
+- **Seamless security model** with a reverse-proxy when calling APIs, which requires no CORS configuration.
+- **Authentication provider integrations** with Azure Active Directory, Facebook, Google, GitHub, and Twitter.
+- **Customizable authorization role definition** and assignments.
+- **Back-end routing rules** enabling full control over the content and routes you serve.
+- **Generated staging versions** powered by pull requests enabling preview versions of your site before publishing.
 
 ## What you can do with Static Apps
 
