@@ -107,7 +107,7 @@ Recursion allows you to specify wildcards to simplify tracking across directorie
 * Wildcards are required for tracking multiple files.
 * Wildcards an only be used in the last segment of a path, for example, c:\folder\\file* or /etc/*.conf.
 * If an environment variable has an invalid path, validation succeeds, but that path fails when Inventory runs.
-* Avoid general paths when setting the path, as this type of setting can causse too many folders to be traversed.
+* Avoid general paths when setting the path, as this type of setting can cause too many folders to be traversed.
 
 ## Change Tracking data collection details
 
