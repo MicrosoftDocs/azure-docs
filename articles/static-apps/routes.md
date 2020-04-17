@@ -33,16 +33,16 @@ Each rule is composed of a route to match the incoming request, along with one o
 
 | Rule property  | Required | Default value | Comment                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Yes      | none          | The route requested by the caller. [Wildcards](#route-wildcards) are supported at the end of routes. For instance, the route _admin/\*_ matches any route under the _admin_ path. |
+| `route`        | Yes      | none          | The route requested by the caller. [Wildcards](#route-wildcards) are supported at the end of route paths. For instance, the route _admin/\*_ matches any route under the _admin_ path. |
 | `serve`        | No       | none          | Defines the file returned from the request. The file path and name can be different from the requested path. If no path or file is defined, then the requested path is used. |
 | `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_` <li>The built-in role `anonymous` applies to all unauthenticated users <li>The built-in role `authenticated` applies any logged-in user<li>Users must belong to at least one role<li>Roles are matched on an _OR_ basis. If a user is in at any of the listed roles, then access is granted.</ul> |
 | `statusCode`   | No       | 200           | The [HTTP status](https://wikipedia.org/wiki/List_of_HTTP_status_codes) server response for the request. |
 
 ## Securing routes
 
-**TODO**: restate built-in roles
+By default, every user belongs to the built-in `anonymous` role and all signed in users are members of the `authenticated` role.
 
-Routes are secured by defining one or more _roles_ in a routing rule. For instance, to require only logged-in users have access to a route, add the built-in `authenticated` role to the `allowedRoles` array. The `authenticated` role matches against any logged in user.
+Routes are secured by listing one or more _roles_ in a routing rule. For instance, to require that only logged-in users have access to a route, add the built-in `authenticated` role to the `allowedRoles` array.
 
 ```json
 {
@@ -60,11 +60,13 @@ To customize your security rules, you can create new roles as needed in the role
 }
 ```
 
+You have full control over role names. There is no master list that to which your roles must adhere.
+
 ## Route wildcards
 
 Wildcards rules match all requests under a given route. If you define a `serve` value in your rule, the designated file is served in response to requests for any matching routes.
 
-For instance, to implement a site that handles a series of routes for a calendar application, you can map all URLs that fall under the _calendar_ route to server a single HTML file.
+For instance, to implement a site that handles a series of routes for a calendar application, you can map all URLs that fall under the _calendar_ route to serve a single HTML file.
 
 ```json
 {
@@ -73,7 +75,13 @@ For instance, to implement a site that handles a series of routes for a calendar
 }
 ```
 
-The _calendar.html_ file can then use a front-end framework with client-side routing to serve a different view for URL variations like `/calendar/january/1`, `/calendar/august/18`, and `/calendar/december/25`.
+The _calendar.html_ file can then use a front-end JavaScript framework with client-side routing to serve a different view for URL variations like `/calendar/january/1`, `/calendar/august/18`, and `/calendar/december/25`.
+
+Wildcard route rules are powerful and run against any URL that matches scope of the route. For instance, 
+
+Often applications that use a front-end JavaScript frameworks configure requests for all pages to resolve to a single page.
+
+**TODO:** with wild route, request under the route for files only auth checks
 
 You can also use wildcards to secure an entire path tree. The the following example any requested file under the _admin_ path requires an authenticated user to be a member of the _admin_ role.
 
@@ -84,9 +92,8 @@ You can also use wildcards to secure an entire path tree. The the following exam
 }
 ```
 
-**TODO**: harmonized explanation with SPA routing (for SPA apps, common to have a fallback route) - section on working with client-side routing
 
-**TODO:** with wild route, request under the route for files only auth checks
+**TODO**: harmonized explanation with SPA routing (for SPA apps, common to have a fallback route) - section on working with client-side routing
 
 ## Redirects
 
