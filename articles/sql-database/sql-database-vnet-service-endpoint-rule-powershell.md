@@ -9,34 +9,35 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, vanto
-ms.date: 03/12/2019
+ms.date: 04/17/2019
+ms.custom: sqldbrb=1
 tags: azure-synapse
 ---
-# PowerShell:  Create a Virtual Service endpoint and VNet rule for SQL
+# PowerShell: Create a Virtual Service endpoint and VNet rule for Azure SQL Database
 
-*Virtual network rules* are one firewall security feature that controls whether the database server for your single databases and elastic pool in Azure [SQL Database](sql-database-technical-overview.md) or for your databases in [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks.
+*Virtual network rules* are one firewall security feature that controls whether the database server for your [Azure SQL Database]((sql-database-technical-overview.md)) databases, elastic pools, or databases in [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accept communications that are sent from particular subnets in virtual networks.
 
 > [!IMPORTANT]
-> This article applies to Azure SQL server, and to both SQL Database and data warehouse in Azure Synapse that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and Azure Synapse. This article does *not* apply to a **managed instance** deployment in Azure SQL Database because it does not have a service endpoint associated with it.
+> This article applies to Azure SQL Database, including Azure Synapse (formerly SQL DW). For simplicity, the term Azure SQL Database in this article applies to databases belonging to either Azure SQL Database or Azure Synapse. This article does *not* apply to Azure SQL Managed Instance because it does not have a service endpoint associated with it.
 
-This article provides and explains a PowerShell script that takes the following actions:
+This article demonstrates a PowerShell script that takes the following actions:
 
 1. Creates a Microsoft Azure *Virtual Service endpoint* on your subnet.
 2. Adds the endpoint to the firewall of your Azure SQL Database server, to create a *virtual network rule*.
 
-Your motivations for creating a rule are explained in: [Virtual Service endpoints for Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
+For more background, see [Virtual Service endpoints for Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
 
 > [!TIP]
-> If all you need is to assess or add the Virtual Service endpoint *type name* for SQL Database to your subnet, you can skip ahead to our more [direct PowerShell script](#a-verify-subnet-is-endpoint-ps-100).
+> If all you need is to assess or add the Virtual Service endpoint *type name* for Azure SQL Database to your subnet, you can skip ahead to our more [direct PowerShell script](#a-verify-subnet-is-endpoint-ps-100).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the [`Az.Sql` Cmdlets](/powershell/module/az.sql). For the older module, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 ## Major cmdlets
 
-This article emphasizes the **New-AzSqlServerVirtualNetworkRule** cmdlet that adds the subnet endpoint to the access control list (ACL) of your Azure SQL Database server, thereby creating a rule.
+This article emphasizes the [**New-AzSqlServerVirtualNetworkRule** cmdlet](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule) that adds the subnet endpoint to the access control list (ACL) of your Azure SQL Database server, thereby creating a rule.
 
 The following list shows the sequence of other *major* cmdlets that you must run to prepare for your call to **New-AzSqlServerVirtualNetworkRule**. In this article, these calls occur in [script 3 "Virtual network rule"](#a-script-30):
 
@@ -201,7 +202,7 @@ Write-Host 'Completed script 2, the "Prerequisites".';
 
 ## Script 3: Create an endpoint and a rule
 
-This script creates a virtual network with a subnet. Then the script assigns the **Microsoft.Sql** endpoint type to your subnet. Finally the script adds your subnet to the access control list (ACL) of your SQL Database server, thereby creating a rule.
+This script creates a virtual network with a subnet. Then the script assigns the **Microsoft.Sql** endpoint type to your subnet. Finally the script adds your subnet to the access control list (ACL) of your database server, thereby creating a rule.
 
 ### PowerShell script 3 source code
 
