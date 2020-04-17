@@ -1,6 +1,6 @@
 ---
 title: Manage indexing in Azure Cosmos DB's API for MongoDB
-description: This article presents an overview of Azure Cosmos DB indexing capabilities by using the MongoDB API.
+description: This article presents an overview of Azure Cosmos DB indexing capabilities using the MongoDB API.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
