@@ -553,8 +553,6 @@
       href: data-factory-service-identity.md
   - name: Monitor and manage
     items:
-    - name: Monitor visually
-      href: monitor-visually.md
     - name: Monitor with Azure Monitor
       href: monitor-using-azure-monitor.md
     - name: Monitor with SDKs
@@ -581,6 +579,8 @@
     items:
     - name: Run SSIS packages in Azure from SSDT
       href: how-to-invoke-ssis-package-ssdt.md
+    - name: Run SSIS packages with Azure SQL Managed Instance Agent
+      href: how-to-invoke-ssis-package-managed-instance-agent.md
     - name: Run SSIS packages with Azure-enabled dtexec
       href: how-to-invoke-ssis-package-azure-enabled-dtexec.md
     - name: Run SSIS packages with Execute SSIS Package activity

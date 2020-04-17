@@ -53,7 +53,7 @@ Review the following Azure application documentation, which provides Quickstarts
 
     * [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
     * [GitHub Azure Quickstart templates](https://github.com/azure/azure-quickstart-templates)
-    * [Publish application definition](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
+    * [Publish application definition](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Deploy service catalog app](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
 * Tutorials:
