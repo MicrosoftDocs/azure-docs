@@ -51,7 +51,13 @@ This sample shows how to install Zoo:
 # The script MUST contain a function named azureml_main
 # which is the entry point for this module.
 
-# The entry point function MUST have two input arguments:
+# Please note that functions dependant on X11 library
+# such as "View" are not supported because X11 library
+# is not pre-installed.
+
+# The entry point function MUST have two input arguments.
+# If the input port is not connected, the corresponding
+# dataframe argument will be null.
 #   Param<dataframe1>: a R DataFrame
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
@@ -76,7 +82,13 @@ The following example shows how to upload an image file in the **Execute R Scrip
 # The script MUST contain a function named azureml_main
 # which is the entry point for this module.
 
-# The entry point function MUST have two input arguments:
+# Please note that functions dependant on X11 library
+# such as "View" are not supported because X11 library
+# is not pre-installed.
+
+# The entry point function MUST have two input arguments.
+# If the input port is not connected, the corresponding
+# dataframe argument will be null.
 #   Param<dataframe1>: a R DataFrame
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
@@ -133,7 +145,13 @@ Datasets stored in the designer are automatically converted to an R data frame w
     # The script MUST contain a function named azureml_main
     # which is the entry point for this module.
 
-    # The entry point function MUST have two input arguments:
+    # Please note that functions dependant on X11 library
+    # such as "View" are not supported because X11 library
+    # is not pre-installed.
+    
+    # The entry point function MUST have two input arguments.
+    # If the input port is not connected, the corresponding
+    # dataframe argument will be null.
     #   Param<dataframe1>: a R DataFrame
     #   Param<dataframe2>: a R DataFrame
     azureml_main <- function(dataframe1, dataframe2){
@@ -197,7 +215,14 @@ The following sample shows how to scale and normalize input data:
 # R version: 3.5.1
 # The script MUST contain a function named azureml_main
 # which is the entry point for this module.
-# The entry point function must have two input arguments:
+
+# Please note that functions dependant on X11 library
+# such as "View" are not supported because X11 library
+# is not pre-installed.
+
+# The entry point function MUST have two input arguments.
+# If the input port is not connected, the corresponding
+# dataframe argument will be null.
 #   Param<dataframe1>: a R DataFrame
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
