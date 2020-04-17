@@ -37,7 +37,7 @@ Here is an overview of data flow through the entire scenario:
 
 ![A scenario graph that depicts data flowing from a device into IoT Hub, through an Azure function to an Azure Digital Twins instance, then out through Event Grid to another Azure function for processing](media/tutorial-connect/building-scenario.png)
 
-To work through the scenario, you will interact with components of a pre-written sample app. You downloaded and configured the app in the Azure Digital Twins [quickstart](quickstart.md); this tutorial goes more in-depth with the full code of the sample.
+To work through the scenario, you will interact with components of the pre-written sample app you downloaded earlier.
 
 Here are the components implemented by the sample app:
 * Device authentication 
@@ -60,9 +60,12 @@ From the downloaded solution folder, open _DigitalTwinsMetadata/**DigitalTwinsSa
 
 ![The Visual Studio start button](media/quickstart/start-button-sample.png)
 
-A console window will open, carry out authentication, and wait for a command. In this console, run the following command to instantiate the sample Azure Digital Twins solution:
+A console window will open, carry out authentication, and wait for a command. In this console, run the next command to instantiate the sample Azure Digital Twins solution.
 
-`buildingScenario`
+> [!IMPORTANT]
+> If you already have digital twins and relationships in your Azure Digital Twins instance, running this command will delete them and replace them with the twins and relationships for the sample scenario.
+
+The command is: `buildingScenario`.
 
 The output of this command is a series of confirmation messages as three twins are created and connected in your Azure Digital Twins instance: a floor named *floor1*, a room named *room21*, and a temperature sensor named *thermostat67*. They are connected into the following graph:
 
@@ -97,7 +100,7 @@ Here are the actions you will complete to set up this device connection:
 
 The first part of this step is setting up and publishing an [Azure function](../azure-functions/functions-overview.md) that will be used to process IoT Hub data and update Azure Digital Twins accordingly. This tutorial uses the pre-written *HubtToDT* solution from the sample project, which calls an Azure Digital Twins API to update the *Temperature* property on the *thermostat67* twin.
 
-To configure the function, you will need the *resourceGroup* and *hostName* of your Azure Digital Twins instance. You may have saved these values during the quickstart, or you can run this command in Azure Cloud Shell to see them outputted along with other properties of the instance: `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
+To configure the function, you will need the *resourceGroup* and *hostName* of your Azure Digital Twins instance that you noted earlier. You can also run this command in Azure Cloud Shell to see them outputted again, along with other properties of the instance: `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
 Go to your Visual Studio window where the _**DigitalTwinsSample**_ project is open.
 Open _HubToDT/**ProcessHubToDTEvents.cs**_ in the editing window, and change the value of `AdtInstanceUrl` to your Azure Digital Twins instance's *hostName*. 
@@ -150,7 +153,7 @@ az functionapp identity assign -g <your-resource-group> -n <your-HubToDT-functio
 
 Use the *principalId* value in the following command to assign the function app's identity to an AAD *owner* role:
 
-```Azure CLI
+```azurecli
 az dt rbac assign-role --assignee <principal-ID> --dt-name <your-Azure-Digital-Twins-instance> --role owner
 ```
 
@@ -212,13 +215,13 @@ Next, configure the device simulator to send data to your IoT Hub instance.
 
 Begin by getting the *IoT hub connection string* with this command:
 
-```Azure CLI
+```azurecli
 az iot hub show-connection-string -n <your-IoT-hub-name>
 ```
 
 Then, get the *device connection string* with this command:
 
-```Azure CLI
+```azurecli
 az iot hub device-identity show-connection-string --device-id thermostat67 --hub-name <your-IoT-hub-name>
 ```
 
@@ -295,7 +298,7 @@ The output from this command is information about the event grid topic you've cr
 
 Next, create an Azure Digital Twins endpoint pointing to your event grid topic. Use the command below, filling in the placeholder fields as necessary:
 
-```Azure CLI
+```azurecli
 az dt endpoints add eventgrid --dt-name <your-Azure-Digital-Twins-instance> --eventgrid-resource-group <your-resource-group> --eventgrid-topic <your-event-grid-topic> --endpoint-name <name-for-your-Azure-Digital-Twins-endpoint>
 ```
 
@@ -303,7 +306,7 @@ The output from this command is information about the endpoint you've created.
 
 You can also verify that the endpoint creation succeeded by running the following command to query your Azure Digital Twins instance for this endpoint:
 
-```Azure CLI
+```azurecli
 az dt endpoints show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
 ```
 
@@ -317,7 +320,7 @@ Save the names that you gave to your event grid topic and your Azure Digital Twi
 
 Next, create an Azure Digital Twins route that sends events to the Azure Digital Twins endpoint you just created.
 
-```Azure CLI
+```azurecli
 az dt routes add --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
 ```
 
@@ -413,7 +416,7 @@ Here is a review of the Azure Digital Twins scenario that you built out in this 
 
 ## Clean up resources
 
-If you no longer need the resources created in this quickstart, follow these steps to delete them. 
+If you no longer need the resources created in this tutorial, follow these steps to delete them. 
 
 Using the Azure Cloud Shell, you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group; the Azure Digital Twins instance; the IoT hub and the hub device registration; the event grid topic and associated subscriptions; and both Azure Functions apps, including associated resources like storage.
 
@@ -426,7 +429,7 @@ Using the Azure Cloud Shell, you can delete all Azure resources in a resource gr
 
 Next, delete the AAD app registration you created for your client app with this command:
 
-    ```Azure CLI
+    ```azurecli
     az ad app delete --id <your-application-ID>
     ```
 

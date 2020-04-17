@@ -13,7 +13,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Also before you start, complete the following setup:
 * Download this entire repository to your machine. We recommend downloading as a ZIP file.
-* Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) version 16.5.1XXX or later on your development machine. If you have an older version installed already, open the *Visual Studio Installer* app on your machine and follow the prompts to update your installation.
+* Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) version 16.5.1XXX or later on your development machine. If you have an older version installed already, you can open the *Visual Studio Installer* app on your machine and follow the prompts to update your installation.
 * Run the following command in your Cloud Shell instance to add the Microsoft Azure IoT Extension for Azure CLI.
     ```azurecli-interactive
     az extension add --name azure-iot
@@ -32,18 +32,17 @@ Also before you start, complete the following setup:
 
 Begin by logging in, setting the shell context to your subscription, and registering with the Azure Digital Twins namespace.
 
-```Azure CLI
-az login
+```azurecli
 az account set --subscription <your-subscription-ID>
 az provider register --namespace 'Microsoft.DigitalTwins'
 ```
 
 Next, run the following commands to create a new Azure resource group for use in this tutorial, and then create a new instance of Azure Digital Twins in this resource group.
 
-```Azure CLI
+```azurecli
 
 az group create --location "westcentralus" --name <name-for-your-resource-group>
-az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group>
+az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l "westcentralus"
 ```
 
 The result of these commands looks something like this, outputting information about the resources you've created:
@@ -64,7 +63,7 @@ You also need to make sure your client app can authenticate against Azure Digita
 
 Create a role assignment for yourself using your email associated with the AAD tenant on your Azure subscription. The following command assigns your user to an owner role:
 
-```Azure CLI
+```azurecli
 az dt rbac assign-role --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role owner
 ```
 

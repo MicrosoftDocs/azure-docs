@@ -120,11 +120,11 @@ addTwin urn:example:Room:2 room1 DisplayName string Room1 Temperature double 80 
 > [!TIP]
 > If you uploaded your own model earlier, try making your own `addTwin` command based on the commands above to add a twin of your own model type.
 
-The output from these commands should indicate the twins were created successfully. Here is an excerpt showing the *Floor* twin and one of the *Room* twins:
+The output from these commands should indicate the twins were created successfully. 
 
-![Excerpt from the results of addTwin commands, showing floor2 and room22](media/quickstart/output-addTwin.png)
+![Excerpt from the results of addTwin commands, showing floor0, floor1, room0, and room1](media/quickstart/output-addTwin.png)
 
-You can also verify that the twins were created by running the `queryTwins` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the *floor2*, *room22*, and *room23* twins in the results.
+You can also verify that the twins were created by running the `queryTwins` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the *floor0*, *floor1*, *room0*, and *room1* twins in the results.
 
 ### Create a graph by adding relationships
 
@@ -135,13 +135,13 @@ To add a relationship, you use the `addEdge` command. Specify the twin that the 
 Run the following code to add a "contains" relationship from *floor2* to each of the *Room* twins you created earlier. Note that there must be a *contains* relationship defined on the *Floor* model for this to be possible.
 
 ```cmd
-addEdge floor0 contains room0 edge0
-addEdge floor1 contains room1 edge1
+addEdge floor0 contains room0 relationship0
+addEdge floor1 contains room1 relationship1
 ```
 
 The output from these commands shows information about the relationships being created:
 
-![Excerpt from the results of addEdge commands, showing edge0 and edge1](media/quickstart/output-addEdge.png)
+![Excerpt from the results of addEdge commands, showing relationship0 and relationship1](media/quickstart/output-addEdge.png)
 
 To verify the relationships were created successfully, use either of the following commands to query the relationships in your Azure Digital Twins instance.
 * To see all relationships coming off of each floor,
@@ -151,13 +151,13 @@ To verify the relationships were created successfully, use either of the followi
     ```
 * To query for these relationships by ID, 
     ```csharp
-    getEdgeById floor0 contains edge0
-    getEdgeById floor1 contains edge1
+    getEdgeById floor0 contains relationship0
+    getEdgeById floor1 contains relationship1
     ```
 
 The twins and relationships you have set up in this tutorial form the following conceptual graph:
 
-![A graph showing floor0 connected via edge0 to room0, and floor1 connected via edge1 to room1](media/quickstart/sample-graph.png)
+![A graph showing floor0 connected via relationship0 to room0, and floor1 connected via relationship1 to room1](media/quickstart/sample-graph.png)
 
 ## Query the twin graph to answer environment questions
 
@@ -220,7 +220,7 @@ Using the Azure Cloud Shell, you can delete all Azure resources in a resource gr
 
 Next, delete the AAD app registration you created for your client app with this command:
 
-    ```Azure CLI
+    ```azurecli
     az ad app delete --id <your-application-ID>
     ```
 

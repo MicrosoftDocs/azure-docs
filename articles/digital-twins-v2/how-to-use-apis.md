@@ -35,7 +35,7 @@ The Azure Digital Twins API surface can be broadly divided into the following ca
 During this preview release, Azure Digital Twins does not ship with an SDK. You can either use the REST APIs directly, or you can generate an SDK using AutoRest.
 
 To generate an SDK, you will need:
-* [AutoRest](https://github.com/Azure/autorest), version 2.0.4413
+* [AutoRest](https://github.com/Azure/autorest), version 2.0.4413 (version 3 isn't currently supported)
 * [Node.js](https://nodejs.org) as a pre-requisite to AutoRest
 * The [Azure Digital Twins API definitions](https://dev.azure.com/ADT-PM-STAGING/PrivatePreviewStage/_git/PrivatePreviewStage?path=%2FOpenApiSpec%2Fdigitaltwins.json) OpenAPI (Swagger) file
 
