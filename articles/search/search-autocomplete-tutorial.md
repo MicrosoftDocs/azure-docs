@@ -18,7 +18,7 @@ Search-as-you-type is a common technique for improving the productivity of user-
 To implement these experiences in Azure Cognitive Search, you will need:
 
 + A *suggester* on the back end.
-+ A *query* specifying Autocomplete or Suggestions API on the request.
++ A *query* specifying [Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) or [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) API on the request.
 + A *UI control* to handle search-as-you-type interactions in your client app. We recommend using an existing JavaScript library for this purpose.
 
 In Azure Cognitive Search, autocompleted queries and suggested results are retrieved from the search index, from selected fields that you have registered with a suggester. A suggester is part of the index, and it specifies which fields will provide content that either completes a query, suggests a result, or does both. When the index is created and loaded, a suggester data structure is created internally to store prefixes used for matching on partial queries. For suggestions, choosing suitable fields that are unique, or at least not repetitive, is essential to the experience. For more information, see [Create a suggester](index-add-suggesters.md).
@@ -27,7 +27,7 @@ The remainder of this article is focused on queries and client code. It uses Jav
 
 ## Set up a request
 
-Elements of a request include the API ([Autocomplete REST](https://docs.microsoft.com/rest/api/searchservice/autocomplete) or [Suggestion REST](https://docs.microsoft.com/rest/api/searchservice/suggestions)), a partial query, and a suggester.
+Elements of a request include one of the search-as-you-type APIs, a partial query, and a suggester. The following script illustrates components of a request, using the Autocomplete REST API as an example.
 
 ```http
 POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
@@ -45,7 +45,7 @@ The APIs do not impose minimum length requirements on the partial query; it can 
 
 Matches are on the beginning of a term anywhere in the input string. Given "the quick brown fox", both autocomplete and suggestions will match on partial versions of "the", "quick", "brown", or "fox" but not on partial infix terms like "rown" or "ox". Furthermore, each match sets the scope for downstream expansions. A partial query of "quick br" will match on "quick brown" or "quick bread", but neither "brown" or "bread" by themselves would be match unless"quick" precedes them.
 
-### APIs
+### APIs for search-as-you-type
 
 Follow these links for the REST and .NET SDK reference pages:
 
