@@ -31,6 +31,7 @@ Back-end API functionality is provided via an Azure Functions app. Hosted on the
 - **Authentication provider integrations** with Azure Active Directory, Facebook, Google, GitHub, and Twitter
 - **Customizable authorization role definition** and assignments
 - **Back-end routing rules** enabling full control over which routes serve what content
+- **Generated staged environments** allow you to preview 
 
 \* Apex domain registrations are not supported during preview.
 
