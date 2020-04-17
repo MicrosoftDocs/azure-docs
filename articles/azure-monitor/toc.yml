@@ -226,8 +226,6 @@
         href: app/remove-application-insights.md
     - name: Codeless monitoring
       items: 
-      - name: Any environment - Java (preview)
-        href: app/java-in-process-agent.md
       - name: Azure VM and scale set
         href: app/azure-vm-vmss-apps.md
       - name: Azure App Service
@@ -242,6 +240,14 @@
       - name: Kubernetes applications
         displayname: aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks
         href: app/kubernetes.md
+       - name: Standalone - any environment
+        items: 
+          - name: Java (preview)
+            href: app/java-in-process-agent.md
+          - name: Java JMX configuration 
+            href: app/java-standalone-arguments.md
+          - name: Java configuration options
+            href: app/java-standalone-config.md 
       - name: Status Monitor (legacy)
         displayname: IIS monitoring, on premises monitoring, on prem, 
         href: app/monitor-performance-live-website-now.md
