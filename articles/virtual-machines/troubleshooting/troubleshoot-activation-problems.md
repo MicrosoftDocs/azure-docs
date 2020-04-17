@@ -73,7 +73,7 @@ For the VM that is created from a custom image, you must configure the appropria
 
 ### Step 2 Verify the connectivity between the VM and Azure KMS service
 
-1. Download and extract the [PSping](https://docs.microsoft.com/en-us/sysinternals/downloads/psping) tool to a local folder in the VM that does not activate. 
+1. Download and extract the [PSping](https://docs.microsoft.com/sysinternals/downloads/psping) tool to a local folder in the VM that does not activate. 
 
 2. Go to Start, search on Windows PowerShell, right-click Windows PowerShell, and then select Run as administrator.
 
