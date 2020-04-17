@@ -2,7 +2,7 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/8/2020
+ms.date: 04/13/2020
 ms.author: aahi
 ---
 
@@ -35,7 +35,7 @@ After installing Python, you can install the client library with:
 #### [Version 3.0-preview](#tab/version-3)
 
 ```console
-pip install azure-ai-textanalytics==1.0.0b3
+pip install azure-ai-textanalytics
 ```
 
 > [!TIP]

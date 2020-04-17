@@ -82,4 +82,5 @@ Learn [best practices](luis-concept-best-practices.md).
 
 ## Next steps
 
-See [Add Features](luis-how-to-add-features.md) to learn more about how to add features to your LUIS app.
+* [Extend](schema-change-prediction-runtime.md) your app models at prediction runtime
+* See [Add Features](luis-how-to-add-features.md) to learn more about how to add features to your LUIS app.

@@ -3,13 +3,13 @@ title: Phrase Lists - Speech service
 titleSuffix: Azure Cognitive Services
 description: "Learn how to supply the Speech service with a Phrase List using the `PhraseListGrammar` object to improve speech-to-text recognition results."
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ---
 
