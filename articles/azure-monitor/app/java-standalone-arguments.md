@@ -85,7 +85,7 @@ Add `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` to the exis
 
 Add `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` to the existing `jvm-options` in `JBOSS_HOME/domain/configuration/host.xml`:
 
-```html
+```xml
 ...
 <jvms>
     <jvm name="default">
@@ -104,7 +104,7 @@ Add `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` to the exis
 
 If you are running multiple managed servers on a single host, you will need to add `applicationinsights.agent.id` to the `system-properties` for each `server`:
 
-```html
+```xml
 ...
 <servers>
     <server name="server-one" group="main-server-group">
@@ -118,7 +118,7 @@ If you are running multiple managed servers on a single host, you will need to a
         <!--Edit system properties for server-two-->
         <system-properties>
             <property name="applicationinsights.agent.id" value="..."/> 
-        </system-properties&gt>
+        </system-properties>
     </server>
 </servers>
 ...
@@ -141,7 +141,7 @@ Add these lines to `start.ini`
 
 Add `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` to the existing `jvm-options` in `glassfish/domains/domain1/config/domain.xml`:
 
-```html
+```xml
 ...
 <java-config ...>
     <!--Edit the JVM options here-->

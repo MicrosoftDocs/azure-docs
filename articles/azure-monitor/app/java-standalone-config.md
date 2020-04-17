@@ -55,8 +55,7 @@ If you want to set the cloud role name:
 ```json
 {
   "instrumentationSettings": {
-    "preview": {
-    //Set the cloud role name here:    
+    "preview": {   
       "roleName": "my cloud role name"
     }
   }
@@ -77,7 +76,6 @@ If you want to set the cloud role instance to something different rather than th
 {
   "instrumentationSettings": {
     "preview": {
-    //Set the cloud instance here:
       "roleInstance": "my cloud role instance"
     }
   }
@@ -99,7 +97,6 @@ If you want to change this threshold:
   "instrumentationSettings": {
     "preview": {
       "instrumentation": {
-        //Set logging threshold here
         "logging": {
           "threshold": "ERROR"
         }
@@ -132,7 +129,6 @@ If you have some JMX metrics that you are interested in capturing:
 {
   "instrumentationSettings": {
     "preview": {
-        //Configure the JMX metrics here:
         "jmxMetrics": [
         {
           "objectName": "java.lang:type=ClassLoading",
@@ -161,7 +157,6 @@ If you want to disable this feature:
   "instrumentationSettings": {
     "preview": {
       "instrumentation": {
-        //To disable Micrometer:  
         "micrometer": {
           "enabled": false
         }
@@ -179,7 +174,6 @@ By default, Application Insights Java 3.0 Preview sends a heartbeat metric once 
 {
   "instrumentationSettings": {
     "preview": {
-        //Adjust the heartbeat frequency here:
         "heartbeat": {
             "intervalSeconds": 60
         }
@@ -198,14 +192,12 @@ Sampling is performed as a function on the operation ID (also known as trace ID)
 
 For example, if you set sampling to 10%, you will only see 10% of your transactions, but each one of those 10% will have full end-to-end transaction details.
 
-To enable sampling:
+Here is an example how to set the sampling to **10% of all transactions** - please make sure you set the sampling rate that is correct for your use case:
 
 ```json
 {
   "instrumentationSettings": {
     "preview": {
-    //Set the sampling rate here. 
-    //below is an example how to set the sampling to 10% of all trnsactions
         "sampling": {
             "fixedRate": {
                 "percentage": 10
@@ -224,7 +216,6 @@ If your application is behind a firewall and cannot connect directly to Applicat
 {
   "instrumentationSettings": {
     "preview": {
-    //Set the HTTP proxy:
       "httpProxy": {
         "host": "myproxy",
         "port": 8080
@@ -246,7 +237,6 @@ By default, it logs to console with level `warn`, corresponding to this configur
 {
   "instrumentationSettings": {
     "preview": {
-        //SelfDiagnostic configuration
         "selfDiagnostics": {
             "destination": "console",
             "level": "WARN"
@@ -264,7 +254,6 @@ If you want to log to a file instead of logging to console:
 {
   "instrumentationSettings": {
     "preview": {
-        //To log the output from self diagnostics to a file
         "selfDiagnostics": {
             "destination": "file",
             "directory": "/var/log/applicationinsights",
