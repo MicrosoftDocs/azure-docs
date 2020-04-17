@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/20/2020
+ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
@@ -33,7 +33,7 @@ When developing a new application, it's important to know the differences betwee
 
 The Microsoft identity platform endpoint allows you to write apps that accept sign-ins from personal Microsoft accounts, and work and school accounts. This gives you the ability to write your app completely account-agnostic. For example, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to work accounts, such as their SharePoint sites or directory data. But for many actions, such as [Reading a user's mail](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0), the same code can access the email for both personal and work and school accounts.
 
-For the Microsoft identity platform endpoint ("v2.0"), you can use the Microsoft Authentication Library (MSAL) to gain access to the consumer, educational, and enterprise worlds. The Azure AD v1.0 endpoint accepts sign-ins from work and school accounts only.
+For Microsoft identity platform endpoint, you can use the Microsoft Authentication Library (MSAL) to gain access to the consumer, educational, and enterprise worlds. The Azure AD v1.0 endpoint accepts sign-ins from work and school accounts only.
 
 ## Incremental and dynamic consent
 
@@ -114,16 +114,16 @@ The Microsoft identity platform endpoint issues a smaller set of claims in its t
 
 ## Limitations
 
-There are a few restrictions and improved security practices to be aware of when using Microsoft identity platform.
+There are a few restrictions to be aware of when using Microsoft identity platform.
 
-When you build applications that integrate with the Microsoft identity platform, you need to decide whether the Microsoft identity platform endpoint and authentication protocols meet your needs. The v1.0 endpoint and platform is still fully supported and, in some respects, is more permissive and interoperable than Microsoft identity platform. However, Microsoft identity platform [introduces significant benefits](azure-ad-endpoint-comparison.md) for developers.
+When you build applications that integrate with the Microsoft identity platform, you need to decide whether the Microsoft identity platform endpoint and authentication protocols meet your needs. The v1.0 endpoint and platform is still fully supported and, in some respects, is more feature rich than Microsoft identity platform. However, Microsoft identity platform [introduces significant benefits](azure-ad-endpoint-comparison.md) for developers.
 
 Here's a simplified recommendation for developers now:
 
 * If you want or need to support personal Microsoft accounts in your application, or you're writing a new application, use Microsoft identity platform. But before you do, make sure you understand the limitations discussed in this article.
 * If you're migrating or updating an application that relies on SAML, you can't use Microsoft identity platform. Instead, refer to the [Azure AD v1.0 guide](v1-overview.md).
 
-The Microsoft identity platform endpoint will evolve to eliminate the limitations listed here, so that you'll only ever need to use the Microsoft identity platform endpoint.  Your app may need to update to conform to best security practices however - those will not be relaxed on the Microsoft identity platform.  In the meantime, use this article to determine whether the Microsoft identity platform endpoint is right for you. We'll continue to update this article to reflect the current state of the Microsoft identity platform endpoint. Check back to reevaluate your requirements against Microsoft identity platform capabilities.
+The Microsoft identity platform endpoint will evolve to eliminate the restrictions listed here, so that you'll only ever need to use the Microsoft identity platform endpoint. In the meantime, use this article to determine whether the Microsoft identity platform endpoint is right for you. We'll continue to update this article to reflect the current state of the Microsoft identity platform endpoint. Check back to reevaluate your requirements against Microsoft identity platform capabilities.
 
 ### Restrictions on app registrations
 
@@ -170,7 +170,7 @@ To learn how to register an app for use with Microsoft identity platform, see [R
 
 ### Restrictions on libraries and SDKs
 
-Currently, Microsoft-provided library support for the Microsoft identity platform endpoint is limited compared to the Azure AD v1.0 endpoint. If you want to use the Microsoft identity platform endpoint in a production application, you have these options:
+Currently, library support for the Microsoft identity platform endpoint is limited. If you want to use the Microsoft identity platform endpoint in a production application, you have these options:
 
 * If you're building a web application, you can safely use the generally available server-side middleware to do sign-in and token validation. These include the OWIN OpenID Connect middleware for ASP.NET and the Node.js Passport plug-in. For code samples that use Microsoft middleware, see the [Microsoft identity platform getting started](../develop/v2-overview.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json#getting-started) section.
 * If you're building a desktop or mobile application, you can use one of the Microsoft Authentication Libraries (MSAL). These libraries are generally available or in a production-supported preview, so it is safe to use them in production applications. You can read more about the terms of the preview and the available libraries in [authentication libraries reference](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
@@ -191,7 +191,3 @@ To better understand the scope of protocol functionality supported in the Micros
 #### SAML restrictions
 
 If you've used Active Directory Authentication Library (ADAL) in Windows applications, you might have taken advantage of Windows Integrated authentication, which uses the Security Assertion Markup Language (SAML) assertion grant. With this grant, users of federated Azure AD tenants can silently authenticate with their on-premises Active Directory instance without entering credentials. The SAML assertion grant isn't supported on the Microsoft identity platform endpoint.
-
-### Symmetric key security requirements
-
-While the Azure AD v1.0 endpoint supports the use of symmetric keys as custom signing keys and encryption keys, this is not a best practice and is discouraged.  The Microsoft identity platform enforces this best practice, and only allows the use of asymmetric keys. If your application is migrating to Microsoft identity platform from Azure AD v1.0, you should update your code to use asymmetric keys, upload proper keys for your application, and delete the symmetric keys on your application registration.  Only then should your application migrate to using Microsoft identity platform.
