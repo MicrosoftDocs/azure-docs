@@ -1,6 +1,6 @@
 ---
 title: Administrative units troubleshooting and FAQ - Azure Active Directory | Microsoft Docs
-description: Investigate administrative units to delegation of permissions with restricted scope in Azure Active Directory.
+description: Investigate administrative units to grant permissions with restricted scope in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -63,7 +63,9 @@ To prevent an elevation of privilege, an administrative unit-scoped administrato
 
 **Q: Are administrative units supported in PowerShell and the Graph API?**
 
-**A:** Yes. You'll find support for administrative units in [PowerShell cmdlet documentation](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0-preview) and [sample scripts](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview). Support is in Microsoft Graph for the [administrativeUnit resource type](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/administrativeunit).
+**A:** Yes. You'll find support for administrative units in [PowerShell cmdlet documentation](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0-preview) and [sample scripts](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview). 
+
+Find support for the [administrativeUnit resource type](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/administrativeunit) in Microsoft Graph.
 
 ## Next steps
 
