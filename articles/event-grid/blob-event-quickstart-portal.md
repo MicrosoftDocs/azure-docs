@@ -52,11 +52,11 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
 
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 2. On the **Custom deployment** page, do the following steps: 
-    - For **Resource group**, select the resource group that you created when creating the storage account. It will be easier for you to clean up after you are done with the tutorial by deleting the resource group.  
-    - For **Site Name**, enter a name for the web app.
-    - For **Hosting plan name**, enter a name for the App Service plan to use for hosting the web app.
-    - Select the check box for **I agree to the terms and conditions stated above**. 
-    - Select **Purchase**. 
+    1. For **Resource group**, select the resource group that you created when creating the storage account. It will be easier for you to clean up after you are done with the tutorial by deleting the resource group.  
+    2. For **Site Name**, enter a name for the web app.
+    3. For **Hosting plan name**, enter a name for the App Service plan to use for hosting the web app.
+    4. Select the check box for **I agree to the terms and conditions stated above**. 
+    5. Select **Purchase**. 
 
        ![Deployment parameters](./media/blob-event-quickstart-portal/template-deploy-parameters.png)
 1. The deployment may take a few minutes to complete. Select Alerts (bell icon) in the portal, and then select **Go to resource group**. 
@@ -79,7 +79,7 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
 
 You subscribe to a topic to tell Event Grid which events you want to track, and where to send the events.
 
-1. In the portal, navigate to your Azure Storage account that you created earlier. On the left menu, select **All resources** and select your storage acount. 
+1. In the portal, navigate to your Azure Storage account that you created earlier. On the left menu, select **All resources** and select your storage account. 
 2. On the **Storage account** page, select **Events** on the left menu.
 1. Select **More Options**, and **Web Hook**. You are sending events to your viewer app using a web hook for the endpoint. 
 
