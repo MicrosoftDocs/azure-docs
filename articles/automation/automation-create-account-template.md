@@ -1,6 +1,6 @@
 ---
-title: Use Azure Resource Manager templates to onboard Update Management | Microsoft Docs
-description: You can use an Azure Resource Manager template to onboard the Azure Automation Update Management solution.
+title: Use Azure Resource Manager templates to create Automation account | Microsoft Docs
+description: You can use an Azure Resource Manager template to create an Azure Automation account.
 ms.service:  automation
 ms.subservice: update-management
 ms.topic: conceptual
@@ -10,21 +10,18 @@ ms.date: 04/15/2020
 
 ---
 
-# Onboard Update Management solution using Azure Resource Manager template
+# Create Automation account using Azure Resource Manager template
 
-You can use [Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md) to enable the Azure Automation Update Management solution in your resource group. This article provides a sample template that automates the following:
+You can use [Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md) to create an Azure Automation account in your resource group. This article provides a sample template that automates the following:
 
 * Creation of a Azure Monitor Log Analytics workspace.
 * Creation of an Azure Automation account.
-* Links the Automation account to the Log Analytics workspace if not already linked.
-* Onboard the Azure Automation Update Management solution
+* Links the Automation account to the Log Analytics workspace.
 
-The template does not automate the onboarding of one or more Azure or non-Azure VMs.
+The template does not automate the onboarding of one or more Azure or non-Azure VMs, or solutions. 
 
 >[!NOTE]
 >Creation of the Automation Run As account is not supported when using an Azure Resource Manager template. To create a Run As account manually from the portal or with PowerShell, see [Manage Run As account](manage-runas-account.md).
-
-If you already have a Log Analytics workspace and Automation account deployed in a supported region in your subscription, they are not linked, and the workspace doesn't already have the Update Management solution deployed, using this template successfully creates the link and deploys the Update Management solution. 
 
 ## API versions
 
@@ -34,7 +31,6 @@ The following table lists the API version for the resources used in this example
 |:---|:---|:---|
 | Workspace | workspaces | 2017-03-15-preview |
 | Automation account | automation | 2015-10-31 | 
-| Solution | solutions | 2015-11-01-preview |
 
 ## Before using the template
 
@@ -153,13 +149,43 @@ The following parameters in the template are set with a default value for the Lo
             "metadata": {
                 "description": "Specify the location in which to create the Automation account."
             }
-        }
-    },
-    "variables": {
-        "Updates": {
-            "name": "[concat('Updates', '(', parameters('workspaceName'), ')')]",
-            "galleryName": "Updates"
-        }
+        },
+    	"sampleGraphicalRunbookName": {
+                "type": "String",
+    			"defaultValue": "AzureAutomationTutorial"
+            },
+            "sampleGraphicalRunbookDescription": {
+                "type": "String",
+    			"defaultValue": " An example runbook which gets all the ARM resources using the Run As Account (Service Principal)."
+            },
+            "sampleGraphicalRunbookContentUri": {
+                "type": "String",
+    			"defaultValue": "https://eus2oaasibizamarketprod1.blob.core.windows.net/marketplace-runbooks/AzureAutomationTutorial.graphrunbook"
+            },
+            "samplePowerShellRunbookName": {
+                "type": "String",
+    			"defaultValue": "AzureAutomationTutorialScript"
+            },
+            "samplePowerShellRunbookDescription": {
+                "type": "String",
+    			"defaultValue": " An example runbook which gets all the ARM resources using the Run As Account (Service Principal)."
+            },
+            "samplePowerShellRunbookContentUri": {
+                "type": "String",
+    			"defaultValue": "https://eus2oaasibizamarketprod1.blob.core.windows.net/marketplace-runbooks/AzureAutomationTutorial.ps1"
+            },
+            "samplePython2RunbookName": {
+                "type": "String",
+    			"defaultValue": "AzureAutomationTutorialPython2"
+            },
+            "samplePython2RunbookDescription": {
+                "type": "String",
+    			"defaultValue": " An example runbook which gets all the ARM resources using the Run As Account (Service Principal)."
+            },
+            "samplePython2RunbookContentUri": {
+                "type": "String",
+    			"defaultValue": "https://eus2oaasibizamarketprod1.blob.core.windows.net/marketplace-runbooks/AzureAutomationTutorialPython2.py"
+    		}
     },
     "resources": [
         {
@@ -180,40 +206,83 @@ The following parameters in the template are set with a default value for the Lo
                     "enableLogAccessUsingOnlyResourcePermissions": true
                 }
             },
-            "resources": [
-                {
-                    "apiVersion": "2015-11-01-preview",
-                    "location": "[resourceGroup().location]",
-                    "name": "[variables('Updates').name]",
-                    "type": "Microsoft.OperationsManagement/solutions",
-                    "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').name)]",
-                    "dependsOn": [
-                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-                    ],
-                    "properties": {
-                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-                    },
-                    "plan": {
-                        "name": "[variables('Updates').name]",
-                        "publisher": "Microsoft",
-                        "promotionCode": "",
-                        "product": "[concat('OMSGallery/', variables('Updates').galleryName)]"
-                    }
-                }
-            ]
-        },
+    	"resources": [
         {
             "type": "Microsoft.Automation/automationAccounts",
             "apiVersion": "2015-01-01-preview",
             "name": "[parameters('automationAccountName')]",
             "location": "[parameters('automationAccountLocation')]",
-            "dependsOn": [],
+            "dependsOn": [
+    		     "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
+    		],
             "tags": {},
             "properties": {
                 "sku": {
                     "name": "Basic"
                 }
-            }
+            },
+    		"resources": [
+                    {
+                        "type": "runbooks",
+                        "apiVersion": "2015-01-01-preview",
+                        "name": "[parameters('sampleGraphicalRunbookName')]",
+                        "location": "[parameters('automationAccountLocation')]",
+                        "dependsOn": [
+                            "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
+                        ],
+                        "tags": {},
+                        "properties": {
+                            "runbookType": "GraphPowerShell",
+                            "logProgress": "false",
+                            "logVerbose": "false",
+                            "description": "[parameters('sampleGraphicalRunbookDescription')]",
+                            "publishContentLink": {
+                                "uri": "[parameters('sampleGraphicalRunbookContentUri')]",
+                                "version": "1.0.0.0"
+                            }
+                        }
+                    },
+                    {
+                        "type": "runbooks",
+                        "apiVersion": "2015-01-01-preview",
+                        "name": "[parameters('samplePowerShellRunbookName')]",
+                        "location": "[parameters('automationAccountLocation')]",
+                        "dependsOn": [
+                            "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
+                        ],
+                        "tags": {},
+                        "properties": {
+                            "runbookType": "PowerShell",
+                            "logProgress": "false",
+                            "logVerbose": "false",
+                            "description": "[parameters('samplePowerShellRunbookDescription')]",
+                            "publishContentLink": {
+                                "uri": "[parameters('samplePowerShellRunbookContentUri')]",
+                                "version": "1.0.0.0"
+                            }
+                        }
+                    },
+                    {
+                        "type": "runbooks",
+                        "apiVersion": "2015-01-01-preview",
+                        "name": "[parameters('samplePython2RunbookName')]",
+                        "location": "[parameters('automationAccountLocation')]",
+                        "dependsOn": [
+                            "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
+                        ],
+                        "tags": {},
+                        "properties": {
+                            "runbookType": "Python2",
+                            "logProgress": "false",
+                            "logVerbose": "false",
+                            "description": "[parameters('samplePython2RunbookDescription')]",
+                            "publishContentLink": {
+                                "uri": "[parameters('samplePython2RunbookContentUri')]",
+                                "version": "1.0.0.0"
+                            }
+                        }
+                    }
+                ]
         },
         {
             "apiVersion": "2015-11-01-preview",
@@ -228,38 +297,34 @@ The following parameters in the template are set with a default value for the Lo
                 "resourceId": "[resourceId('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
             }
         }
-      ]
+       ]
+      }
+     ]
     }
     ```
 
 2. Edit the template to meet your requirements. Consider creating a [Resource Manager parameters file](../azure-resource-manager/templates/parameter-files.md) instead of passing parameters as inline values.
 
-3. Save this file as deployUMSolutiontemplate.json to a local folder.
+3. Save this file as deployAzAutomationAccttemplate.json to a local folder.
 
 4. You are ready to deploy this template. You can use either PowerShell or the Azure CLI. When you're prompted for a workspace and Automation account name, provide a name that is globally unique across all Azure subscriptions.
 
     **PowerShell**
 
     ```powershell
-    New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deployUMSolutiontemplate.json
+    New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deployAzAutomationAccttemplate.json
     ```
 
     **Azure CLI**
 
     ```cli
-    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
+    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployAzAutomationAccttemplate.json
     ```
 
     The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
 
-    ![Example result when deployment is complete](media/automation-update-management-deploy-template/template-output.png)
+    ![Example result when deployment is complete](media/automation-create-account-template/template-output.png)
 
 ## Next steps
 
-Now that you have the Update Management solution deployed, you can enable VMs for management, review update assessments, and deploy updates to bring them into compliance.
-
-- From your [Azure Automation account](automation-onboard-solutions-from-automation-account.md) for one or more Azure machines and manually for non-Azure machines.
-
-- For a single Azure VM from the virtual machine page in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs.
-
-- For [multiple Azure VMs](manage-update-multi.md) by selecting them from the **Virtual machines** page in the Azure portal. 
+Now that you have an Automation account, you can create runbooks and automate manual processes.
