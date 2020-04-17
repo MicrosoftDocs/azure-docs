@@ -45,8 +45,12 @@ RHEL          | 6.7      | RAW    | Linux Agent |
 |             | 7.6      | RAW    | Linux Agent | Attached to EUS repositories by default as of May 2019.
 |             | 76-gen2  | RAW    | Linux Agent | Attached to EUS repositories by default.
 |             | 7.7      | LVM    | Linux Agent | Attached to EUS repositories by default.
-|             | 8        | LVM    | Linux Agent | RHEL 8.x family of images
-|             | 8-gen2   | LVM    | Linux Agent | Hyper-V Generation 2 - RHEL 8.x family of images.
+|             | 8-LVM    | LVM    | Linux Agent | RHEL 8.x family of images. Attached to regular repositories.
+|             | 8-lvm-gen2| LVM    | Linux Agent | Hyper-V Generation 2 - RHEL 8.x family of images. Attached to regular repositories.
+|             | 8        | LVM    | Linux Agent | RHEL 8.0 images
+|             | 8-gen2   | LVM    | Linux Agent | Hyper-V Generation 2 - RHEL 8.0 images.
+|             | 8.1      | LVM    | Linux Agent | RHEL 8.1 images. Currently attached to regular repositories.
+|             | 81gen2   | LVM    | Linux Agent | Hyper-V Generation 2 - RHEL 8.1 images. Currently attached to regular repositories.
 RHEL-SAP      | 7.4      | LVM    | Linux Agent | RHEL 7.4 for SAP HANA and Business Apps. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
 |             | 74sap-gen2| LVM    | Linux Agent | RHEL 7.4 for SAP HANA and Business Apps. Generation 2 image. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
 |             | 7.5       | LVM    | Linux Agent | RHEL 7.5 for SAP HANA and Business Apps. Attached to E4S repositories, will charge a premium for SAP and RHEL as well as the base compute fee.
