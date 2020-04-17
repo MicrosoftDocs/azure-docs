@@ -58,7 +58,7 @@ This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filte
 >	- direct flow objectGUID to sourceAnchorBinary
 	- expression flow the below to sourceAnchor
      	`ConvertToBase64([objectGUID])`
-> 3. Start the sync cycle by running Start-ADSyncSyncCycle from powershell
+> 3. Enable the scheduler using `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
 
 ## 1.5.18.0
