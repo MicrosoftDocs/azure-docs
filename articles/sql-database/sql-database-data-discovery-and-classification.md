@@ -159,7 +159,7 @@ You can use the REST API to programmatically manage classifications and recommen
 - [List Recommended By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): Gets the recommended sensitivity labels of the specified database.
 
 ### Use PowerShell cmdlets
-You can use PowerShell to manage classifications and recommendations for Azure SQL Database and Azure SQL Managed Instance.
+You can use PowerShell to manage classifications and recommendations for Azure SQL Database and managed instances.
 
 #### PowerShell cmdlets for SQL Database
 
@@ -170,7 +170,7 @@ You can use PowerShell to manage classifications and recommendations for Azure S
 - [Enable-AzSqlDatabaSesensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
 - [Disable-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
 
-#### PowerShell cmdlets for SQL Managed Instance
+#### PowerShell cmdlets for managed instances
 
 - [Get-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
 - [Set-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
