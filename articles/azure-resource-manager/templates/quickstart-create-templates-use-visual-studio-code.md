@@ -24,7 +24,7 @@ Create and open with Visual Studio Code a new file named *azuredeploy.json*. Ent
 
 Select `arm!` to create a template scoped for an Azure resource group deployment.
 
-![Image showing Azure Resource Manager scafolding](./media/quickstart-create-templates-use-visual-studio-code/1.png)
+![Image showing Azure Resource Manager scaffolding](./media/quickstart-create-templates-use-visual-studio-code/1.png)
 
 This snippet creates the basic building blocks for an ARM template.
 
@@ -92,7 +92,7 @@ An ARM template parameter file allows you to store environment-specific paramete
 
 The extension makes it easy to create a parameter file from your existing templates. To do so, right-click on the template in the code editor and select `Select/Create Parameter File`.
 
-![Image showing the right-click process for creating a parameter file from an ARM tempalte](./media/quickstart-create-templates-use-visual-studio-code/14.png)
+![Image showing the right-click process for creating a parameter file from an ARM template](./media/quickstart-create-templates-use-visual-studio-code/14.png)
 
 Select `New` > `All Parameters` > Select a name and location for the parameter file.
 
@@ -108,7 +108,7 @@ Now that the parameter file has been mapped to the template, the extension valid
 
 Navigate back to the ARM template and notice that an error has been raised indicating that the value does not meet the parameter criteria.
 
-![Image showing a valid ARM tempalte](./media/quickstart-create-templates-use-visual-studio-code/18.png)
+![Image showing a valid ARM template](./media/quickstart-create-templates-use-visual-studio-code/18.png)
 
 Update the value to something appropriate, save the file, and navigate back to the template. Notice that the error on the parameter has been resolved.
 
