@@ -1,63 +1,180 @@
-### YamlMime:Landing
+### YamlMime:Hub
 
 title: Azure compliance documentation
 summary: If your organization needs to comply with legal or regulatory standards, start here to learn about compliance in Azure.
+brand: azure
 
 metadata:
   title: Azure compliance documentation
-  description: Learn about compliance in Azure.
+  description: If your organization needs to comply with legal or regulatory standards, start here to learn about compliance in Azure.
   services: security
   ms.service: security
-  ms.subservice: fundamentals
-  ms.topic: landing-page
+  ms.subservice: na
+  ms.topic: hub-page
+  ms.collection: na
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
   ms.date: 04/16/2020
 
-# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+additionalContent:
+#  Maximum of 3 sections
+  sections:
 
-landingContent:
-# Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
-  # Card
-  - title: Compliance offerings
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: ISO 20000-1-2011
-            url: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-20000-1-2011
-          - text: FedRAMP
-            url: https://docs.microsoft.com/microsoft-365/compliance/offering-fedramp
-          - text: HIPPA
-            url: https://docs.microsoft.com/microsoft-365/compliance/offering-hipaa-hitech
-          - text: GDPR
-            url: https://docs.microsoft.com/microsoft-365/compliance/gdpr
+#  Section 1
+    - title: Compliance offerings
+#      summary:
+      items:
+        # Card
+        - title: Global
+          links:
+            - text: ISO 20000-1-2011
+              url: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-20000-1-2011
+            - text: ISO 22301
+              url: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-22301
+            - text: ISO 27001
+              url: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27001
+            - text: ISO 27017
+              url: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27017
+            - text: ISO 27018
+              url: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27018
+            - text: ISO 27701
+              url: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27701
+            - text: ISO 9001
+              url: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-9001
+            - text: SOC
+              url: https://docs.microsoft.com/microsoft-365/compliance/offering-soc
+            - text: WCAG
+              url: https://docs.microsoft.com/en-us/microsoft-365/compliance/offering-wcag-2-1
+        # Card
+        - title: US Government
+          links:
+            - text: FedRAMP
+              url: https://docs.microsoft.com/microsoft-365/compliance/offering-fedramp
+            - text: DoD DISA L2, L4, L5 
+              url: https://docs.microsoft.com/microsoft-365/compliance/offering-dod-disa-l2-l4-l5
+        # Card
+        - title: Industry
+          links:
+            - text: HIPPA
+              url: https://docs.microsoft.com/microsoft-365/compliance/offering-hipaa-hitech
+            - text: SOX
+              url: https://docs.microsoft.com/microsoft-365/compliance/offering-sox
+        # Card
+        - title: Regional
+          links:
+            - text: GDPR
+              url: https://docs.microsoft.com/microsoft-365/compliance/gdpr
+            - text: G-Cloud (UK)
+              url: https://docs.microsoft.com/microsoft-365/compliance/offering-g-cloud-uk
 
-  # Card
-  - title: Privacy and the GDPR
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Accountability readiness checklist
-            url: https://docs.microsoft.com/microsoft-365/compliance/gdpr-arc-azure
-          - text: Data subject Requests for the GDPR and CCPA
-            url: https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure
-          - text: Breach notification under the GDPR
-            url: https://docs.microsoft.com/microsoft-365/compliance/gdpr-breach-azure-dynamics
-          - text: Guidance for Data Controllers using Azure
-            url: https://docs.microsoft.com/microsoft-365/compliance/gdpr-dpia-azure
+#  Section 2
+#    - title:
+#      summary:
+      items:
+        - title: Privacy and GDPR
+          links:
+            - text: Checklists
+              url: https://docs.microsoft.com/microsoft-365/compliance/gdpr-arc-azure
+            - text: Data subject requests
+              url: https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure
+            - text: Breach notification
+              url: https://docs.microsoft.com/microsoft-365/compliance/gdpr-breach-azure-dynamics
+            - text: Data protection impact assessments
+              url: https://docs.microsoft.com/microsoft-365/compliance/gdpr-dpia-azure
 
-  # Card
-  - title: Compliance blueprints
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: CIS benchmarks
-            url: ../governance/blueprints/samples/cis-azure-1.1.0/index.md
-          - text: ISO 27001
-            url: ../governance/blueprints/samples/iso27001/index.md
-          - text: NIST SP 800-53
-            url: ../governance/blueprints/samples/nist-sp-800-53-rev4/index.md
-          - text: UK NHS and UK OFFICIAL (G-Cloud)
-            url: ../governance/blueprints/samples/ukofficial/index.md
+        - title: Compliance blueprints
+          links:
+            - text: CIS benchmarks
+              url: ../governance/blueprints/samples/cis-azure-1.1.0/index.md
+            - text: FedRAMP moderate
+              url: ../governance/blueprints/samples/fedramp-m/index.md
+            - text: HIPPA HITRUST
+              url: ../governance/blueprints/samples/hipaa-hitrust/index.md
+            - text: IRS 1075
+              url: ../governance/blueprints/samples/irs-1075/index.md
+            - text: ISO 27001
+              url: ../governance/blueprints/samples/iso27001/index.md
+            - text: NIST SP 800-53
+              url: ../governance/blueprints/samples/nist-sp-800-53-rev4/index.md
+            - text: PCI-DSS v3.2.1
+              url: ../governance/blueprints/samples/pci-dss-3.2.1/index.md
+            - text: UK NHS and UK OFFICIAL (G-Cloud)
+              url: ../governance/blueprints/samples/ukofficial/index.md
+
+#  Section 3
+    - title: Additional compliance resources
+      summary: To access these resources you must be signed into your cloud service 
+      items:
+        # Card
+        - title: Audit reports
+          links:
+            - text: CCSL/IRAP
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=ffcb3aeb-475e-4f23-8a8f-2fc7dac18d68&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_GRC_Assessment_Reports
+            - text: CDSA
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=5a989727-8eaa-410c-888f-91af0bb03811&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_GRC_Assessment_Reports
+            - text: ENS
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=69a6a010-85da-43ff-94cf-19cf921f25fb&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_ENS_Audit_Reports_and_Certificates
+            - text: ISO 27001
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_ISO_Reports
+            - text: FedRAMP
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FedRAMP_Reports
+            - text: PCI DSS
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_PCI_DSS
+            - text: SOC
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_SOC_/_SSAE_16_Reports
+        # Card
+        - title: Implementation and mappings
+          links:
+            - text: BIR-2012 Baseline Coverage User Guide for Azure
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=f49ee594-6c56-4b6f-93c1-646850798354&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
+            - text: CDSA-Compliant Content Protection for Azure
+              url: https://gallery.technet.microsoft.com/Azure-Implementing-CDSA-8087c7a2
+            - text: CIS Azure Foundations 
+              url: https://azure.microsoft.com/mediahandler/files/resourcefiles/cis-microsoft-azure-foundations-security-benchmark/CIS_Microsoft_Azure_Foundations_Benchmark_v1.0.0.pdf
+            - text: CJIS Cloud Computing Requirements Mapping for Azure 
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=f33bf55e-1f0e-41e4-a442-7182365833a0&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_GRC_Assessment_Reports
+            - text: CSA Consensus Assessments Initiative Questionnaire (CAIQ) for Azure
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=a966a424-ecfd-4de2-9739-b08aee2d3ca0&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
+            - text: FERPA Compliance Framework Mapping for Azure
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=9f0a04ce-5d15-47a0-9467-2cb7e093ef49&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
+            - text: FERPA implementation guide for Microsoft Azure
+              url: https://aka.ms/azureferpa
+            - text: GDPR control mapping for Azure 
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocumentsV3?command=Download&downloadType=Document&downloadId=62d400be-b281-48a2-b40a-eb1a89e087cf&tab=7f51cb60-3d6c-11e9-b2af-7bb9f5d2d913&docTab=7f51cb60-3d6c-11e9-b2af-7bb9f5d2d913_AuditedControls
+            - text: GXP Guidelines for Azure
+              url: https://aka.ms/Azure-GxP-Guidelines
+            - text: HIPAA/HITECH Act Implementation Guidance for Azure
+              url: https://gallery.technet.microsoft.com/Azure-HIPAAHITECH-Act-1d27efb0
+            - text: HITRUST Customer Responsibility Matrix for Azure
+              url: https://servicetrust.microsoft.com/ViewPage/Blueprint?command=Download&downloadType=Document&downloadId=3ccde498-4761-4be0-be8b-cd8d379a3a4f&docTab=fc060920-cdb8-11e7-bacf-0bf52b09d912_Healthcare_Blueprint
+            - text: IT Grundschutz Workbook for Azure
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=2b6fa69b-4cab-4f15-8e7b-560e0291e7f7&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_GRC_Assessment_Reports
+            - text: MPAA application and cloud security guidelines for Azure 
+              url: https://aka.ms/AzureMPAAApplicationandCloudSecurityGuidelines
+            - text: NEN7510-2011 Standard Coverage User Guide for Azure
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=3285c45c-921c-49ad-b881-be43e0b70490&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
+            - text: NERC CIP Standards for Azure
+              url: https://aka.ms/NERC-Guide
+            - text: PCI DSS 3.2.1 Responsibility Matrix for Azure
+              url: https://gallery.technet.microsoft.com/Azure-PCI-DSS-Responsibilit-02d4b4b2
+            - text: SOX guidance for Azure
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=447ddef4-e55d-41f8-b233-328934efb461&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance%20Guides
+            - text: UK OFFICIAL cloud security controls for Azure
+              url: https://aka.ms/complianceuk
+ 
+        # Card
+        - title: White papers and analyst reports
+          links:
+            - text: IDC: Azure Manages Regulatory Challenges 
+              url: https://azure.microsoft.com/resources/azure-is-helping-organizations-manage-regulatory-challenges/
+            - text: Security, Privacy, and Compliance in Azure
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocumentsV3?command=Download&downloadType=Document&downloadId=62d400be-b281-48a2-b40a-eb1a89e087cf&tab=7f51cb60-3d6c-11e9-b2af-7bb9f5d2d913&docTab=7f51cb60-3d6c-11e9-b2af-7bb9f5d2d913_AuditedControls
+            - text: Moving Windows Server to Azure to Enable Compliance
+              url: https://azure.microsoft.com/resources/moving-windows-server-to-microsoft-azure-to-enable-compliance/
+            - text: 13 Effective Security Controls for ISO 27001 Compliance
+              url: https://gallery.technet.microsoft.com/13-Effective-Security-72447e11
+            - text: Shared Responsibilities for Cloud Computing 
+              url: https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91
+            - text: IDC: the rise of the cloud compliance professional
+              url: http://download.microsoft.com/download/0/D/6/0D68AE95-6414-4074-B4B8-34039831E2BF/IDC-Cloud-Compliance-Professional-WP.pdf
