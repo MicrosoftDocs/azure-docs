@@ -1,6 +1,6 @@
 ---
 title: Windows Virtual Desktop PowerShell - Azure
-description: How to troubleshoot issues with PowerShell when you set up a Windows Virtual Desktop tenant environment.
+description: How to troubleshoot issues with PowerShell when you set up a Windows Virtual Desktop environment.
 services: virtual-desktop
 author: Heidilohr
 
@@ -18,7 +18,7 @@ manager: lizross
 > The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Use this article to resolve errors and issues when using PowerShell with Windows Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Windows Virtual Desktop Powershell](/powershell/module/windowsvirtualdesktop/).
+Use this article to resolve errors and issues when using PowerShell with Windows Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Windows Virtual Desktop PowerShell](/powershell/module/windowsvirtualdesktop/).
 
 ## Provide feedback
 
@@ -34,13 +34,13 @@ This section lists PowerShell commands that are typically used while setting up 
 AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
 ```
 
-**Cause:** The user specified by the *-UserPrincipalName* parameter can't be found in the Azure Active Directory tied to the Windows Virtual Desktop tenant. 
+**Cause:** The user specified by the *-SignInName* parameter can't be found in the Azure Active Directory tied to the Windows Virtual Desktop environment. 
 
 **Fix:** Make sure of the following things.
 
 - The user should be synced to Azure Active Directory.
 - The user shouldn't be tied to business-to-consumer (B2C) or business-to-business (B2B) commerce.
-- The Windows Virtual Desktop tenant should be tied to correct Azure Active Directory.
+- The Windows Virtual Desktop environment should be tied to correct Azure Active Directory.
 
 ### Error: New-AzRoleAssignment: "The client with object id does not have authorization to perform action over scope (code: AuthorizationFailed)"
 
@@ -48,11 +48,21 @@ AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop V
 
 **Fix 1:** A user with Owner permissions needs to execute the role assignment. Alternatively, the user needs to be assigned to the User Access Administrator role to assign a user to an application group.
 
-**Cause 2:** The account being used has Owner permissions but isn't part of the tenant's Azure Active Directory or doesn't have permissions to query the Azure Active Directory where the user is located.
+**Cause 2:** The account being used has Owner permissions but isn't part of the environment's Azure Active Directory or doesn't have permissions to query the Azure Active Directory where the user is located.
 
 **Fix 2:** A user with Active Directory permissions needs to execute the role assignment.
 
-### Error: New-AzWvdHostPool -- the location is not available for resource type 
+### Error: New-AzWvdHostPool -- the location is not available for resource type
+
+```powershell
+New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'. 
+```
+
+Cause: Windows Virtual Desktop supports selecting the location of host pools, application groups, and workspaces to store service metadata in certain locations. Your options are restricted to where this feature is available. This error means that the feature isn't available in the location you chose.
+
+Fix: In the error message, a list of supported regions will be published. Use one of the supported regions instead.
+
+### Error: New-AzWvdApplicationGroup must be in same location as host pool
 
 ```powershell
 New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'.
@@ -65,11 +75,10 @@ New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not a
 ## Next steps
 
 - For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
-- To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues.md).
+- To troubleshoot issues while setting up your Windows Virtual Desktop environment and host pools, see [Environment and host pool creation](troubleshoot-set-up-issues.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues with Windows Virtual Desktop client connections, see [Windows Virtual Desktop service connections](troubleshoot-service-connection.md).
 - To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md)
 - To learn more about the service, see [Windows Virtual Desktop environment](environment-setup.md).
-- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - To learn about auditing actions, see [Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](../azure-resource-manager/templates/deployment-history.md).

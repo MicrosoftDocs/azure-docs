@@ -42,7 +42,7 @@ By default, a desktop app group (named "Desktop Application Group") is automatic
 
 To publish resources to users, you must assign them to app groups. When assigning users to app groups, consider the following things:
 
-- A user can't be assigned to both a desktop app group and a RemoteApp app group in the same host pool.
+- A user can be assigned to both a desktop app group and a RemoteApp app group in the same host pool. However, users can only launch one type of app group per session. Users can't launch both types of app groups at the same time in a single session.
 - A user can be assigned to multiple app groups within the same host pool, and their feed will be an accumulation of both app groups.
 
 ## Workspaces
@@ -57,9 +57,14 @@ After you've assigned users to their app groups, they can connect to a Windows V
 
 Learn more about delegated access and how to assign roles to users at [Delegated Access in Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
-To learn how to set up your Windows Virtual Desktop tenant, see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+To learn how to set up your Windows Virtual Desktop tenant, see [Create a host pool with the Azure portal]().
+
+<!--->Get a link for this article once I've created it.<--->
 
 To learn how to connect to Windows Virtual Desktop, see one of the following articles:
 
-- [Connect from Windows 10 or Windows 7](connect-windows-7-and-10.md)
-- [Connect from a web browser](connect-web.md)
+- [Connect with Windows 10 or Windows 7](connect-windows-7-and-10.md)
+- [Connect with a web browser](connect-web.md)
+- [Connect with the Android client](connect-android.md)
+- [Connect with the MacOS client](connect-macos.md)
+- [Connect with the iOS client](connect-ios.md)

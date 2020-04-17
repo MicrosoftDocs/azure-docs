@@ -26,6 +26,6 @@ Windows Virtual Desktop is currently available for all geographical locations. A
 >[!IMPORTANT]
 >Windows Virtual Desktop stores global metadata information like tenant names, host pool names, app group names, and user principal names in a datacenter. Whenever a customer creates a service object, they must enter a location for the service object. The location they enter determines where the metadata for the object will be stored. The customer will choose an Azure region and the metadata will be stored in the related geography. For a list of all Azure regions and related geographies, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
-At the moment, we only support storing metadata in the United States (US) Azure geography. The stored metadata is encrypted at rest, and geo-redundant mirrors are maintained within the geography. All customer data, such as app settings and user data, resides in the location the customer chooses and isn't managed by the service. 
+At the moment, we only support storing metadata in the United States (US) Azure geography. The stored metadata is encrypted at rest, and geo-redundant mirrors are maintained within the geography. All customer data, such as app settings and user data, resides in the location the customer chooses and isn't managed by the service. More geographies will become available as the service grows.
 
-Service metadata is replicated in the United States for disaster recovery purposes.
+Service metadata is replicated within the Azure geography for disaster recovery purposes.
