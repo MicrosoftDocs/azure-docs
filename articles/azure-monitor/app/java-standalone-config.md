@@ -101,7 +101,7 @@ If you want to change this threshold:
       "instrumentation": {
         //Set logging threshold here
         "logging": {
-          "threshold": "error"
+          "threshold": "ERROR"
         }
       }
     }

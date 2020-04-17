@@ -240,7 +240,7 @@
       - name: Kubernetes applications
         displayname: aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks
         href: app/kubernetes.md
-       - name: Standalone - any environment
+      - name: Standalone - any environment
         items: 
           - name: Java (preview)
             href: app/java-in-process-agent.md
