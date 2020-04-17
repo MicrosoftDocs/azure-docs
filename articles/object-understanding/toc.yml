@@ -1,4 +1,4 @@
-- name: Object Understanding Documentation
+- name: Object Understanding documentation
   href: index.yml
 - name: Overview
   items:
@@ -6,7 +6,7 @@
     href: overview.md
 - name: Resources
   items:
-  - name: Release Notes
+  - name: Release notes
     href: https://github.com/Azure/azure-object-understanding/releases
   - name: Azure Mixed Reality Resource Management REST API
     href: https://docs.microsoft.com/rest/api/mixedreality/
