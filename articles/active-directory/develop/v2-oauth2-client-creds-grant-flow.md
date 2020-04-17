@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.author: ryanwi
+ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ---
@@ -66,7 +66,7 @@ To use application permissions in your app, follow the steps discussed in the ne
 
 
 > [!NOTE]
-> When authenticating as an application, as opposed to with a user, you cannot use "delegated permissions" (scopes that are granted by a user).  You must use "application permissions", also known as "roles", that are granted by an admin for the application (or via pre-authorization by the web API).    
+> When authenticating as an application, as opposed to with a user, you cannot use "delegated permissions" (scopes that are granted by a user).  You must use "application permissions", also known as "roles", that are granted by an admin for the application (or via pre-authorization by the web API).
 
 
 #### Request the permissions in the app registration portal
@@ -167,7 +167,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 ```
 
 ```
-// Replace {tenant} with your tenant! 
+// Replace {tenant} with your tenant!
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
@@ -218,7 +218,7 @@ A successful response looks like this:
 
 | Parameter | Description |
 | --- | --- |
-| `access_token` | The requested access token. The app can use this token to authenticate to the secured resource, such as to a Web API. |
+| `access_token` | The requested access token. The app can use this token to authenticate to the secured resource, such as to a web API. |
 | `token_type` | Indicates the token type value. The only type that Microsoft identity platform supports is `bearer`. |
 | `expires_in` | The amount of time that an access token is valid (in seconds). |
 

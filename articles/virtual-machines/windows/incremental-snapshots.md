@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: na
 author: roygara
 manager: twooley
-editor: tysonn
+
 
 ms.assetid: 3524b987-bd65-4e35-83e7-fbc2136643e5
 ms.service: virtual-machines-windows

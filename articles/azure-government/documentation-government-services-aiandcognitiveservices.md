@@ -51,7 +51,7 @@ Variations in Azure Government:
 
 - Custom Vision Portal: https://www.customvision.azure.us
 - Endpoint URL: https://virginia.api.cognitive.microsoft.us/customvision/v3.0/
-- Available SKUs: F0,S0
+- Available SKUs: S0
 
 For more information, see the [global Azure documentation](https://go.microsoft.com/fwlink/?linkid=848046), [Custom Vision Training API reference](https://go.microsoft.com/fwlink/?linkid=865445), and [Custom Vision Prediction API reference](https://go.microsoft.com/fwlink/?linkid=865446)
  
@@ -128,7 +128,7 @@ Variations in Azure Government:
 - Endpoint: https://virginia.api.cognitive.microsoft.us/luis/v2.0
 - LUIS portal: https://luis.azure.us
 - Available SKUs: S0
-- Speech Requests, Speech Priming, Spell Check, and Prebuilt Domains are not currently available
+- Speech Requests and Prebuilt Domains are not currently available
 
 For more information, see [global Azure documentation](../cognitive-services/luis/what-is-luis.md) for Language Understanding.
 

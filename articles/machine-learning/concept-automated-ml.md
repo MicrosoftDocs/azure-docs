@@ -18,9 +18,6 @@ Automated machine learning, also referred to as automated ML, is the process of 
 
 Traditional machine learning model development is resource-intensive, requiring significant domain knowledge and time to produce and compare dozens of models. With automated machine learning, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
 
- 
-
-
 ## When to use automated ML
 
 Apply automated ML when you want Azure Machine Learning to train and tune a model for you using the target metric you specify. Automated ML democratizes the machine learning model development process, and empowers its users, no matter their data science expertise, to identify an end-to-end machine learning pipeline for any problem.
@@ -138,9 +135,13 @@ The [Caruana ensemble selection algorithm](http://www.niculescu-mizil.org/papers
 
 See the [how-to](how-to-configure-auto-train.md#ensemble) for changing default ensemble settings in automated machine learning.
 
-## Use with ONNX in C# apps
+## Use with ONNX
 
-With Azure Machine Learning, you can use automated ML to build a Python model and have it converted to the ONNX format. The ONNX runtime supports  C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Try an example of this flow [in this Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
+With Azure Machine Learning, you can use automated ML to build a Python model and have it converted to the ONNX format. Once the models are in the ONNX format, they can be run on a variety of platforms and devices. Learn more about [accelerating ML models with ONNX](concept-onnx.md).
+
+See how to convert to ONNX format [in this Jupyter notebook example](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb). Learn which [algorithms are supported in ONNX](how-to-configure-auto-train.md#select-your-experiment-type).
+
+The ONNX runtime also supports C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Learn more about [inferencing ONNX models with the ONNX runtime C# API](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
 
 ## Automated ML in Azure Machine Learning
 
@@ -150,7 +151,7 @@ Azure Machine Learning offers two experiences for working with automated ML
 
 * For limited/no code experience customers, Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/)  
 
-The following summarizes the high level automated ML capabilities supported in each experience.
+The following summarizes the high-level automated ML capabilities supported in each experience.
 
 <a name="parity"></a>
 
@@ -161,7 +162,7 @@ The following settings allow you to configure your automated ML experiment.
 | | Python SDK| studio
 ----|:----:|:----:
 Split data into train/validation sets| ✓|✓
-Supports ML tasks: classification, regression and forecasting| ✓| ✓
+Supports ML tasks: classification, regression, and forecasting| ✓| ✓
 Optimizes based on primary metric| ✓| ✓
 Supports AML compute as compute target | ✓|✓
 Configure forecast horizon, target lags & rolling window|✓|✓
