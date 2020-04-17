@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Migrate groups from one forest to another | Microsoft Docs'
+title: 'Azure AD Connect: Migrate groups from one forest to another'
 description: This article describes the steps needed to successfully migrate groups from one forest to another for Azure AD Connect.
 services: active-directory
 author: billmath
@@ -16,18 +16,20 @@ ms.collection: M365-identity-device-management
 
 # Migrate groups from one forest to another for Azure AD Connect
 
-This article describes the steps needed to successfully migrate groups from one forest to another so that the migrated group objects match to the existing objects in the cloud.
+This article describes how to migrate groups from one forest to another so that the migrated group objects match the existing objects in the cloud.
 
 ## Prerequisites
 
-- Azure AD Connect version 1.5.18.0 or higher
-- Source Anchor attribute is `mS-DS-ConsistencyGuid`
+- Azure AD Connect version 1.5.18.0 or later
+- Source anchor attribute set to `mS-DS-ConsistencyGuid`
 
-Starting from version 1.5.18.0, Azure AD Connect has started supporting the use of `mS-DS-ConsistencyGuid` for groups. If `mS-DS-ConsistencyGuid` is chosen as the source anchor attribute and the value is populated in AD, Azure AD Connect uses the value of `mS-DS-ConsistencyGuid` as the immutableId. Otherwise, it falls back to using `objectGUID`. However, please note that Azure AD Connect **DOES NOT** write back the value to the `mS-DS-ConsistencyGuid` attribute in AD.
+## Migrate groups
 
-During a cross-forest move scenario where a group object is moving from one forest (say F1) to another forest (say F2), we will need to copy over either the `mS-DS-ConsistencyGuid` value (If PRESENT) or `objectGUID` value from the object in forest F1 to the `mS-DS-ConsistencyGuid` attribute of the object in F2. 
+Starting in version 1.5.18.0, Azure AD Connect supports the use of the `mS-DS-ConsistencyGuid` attribute for groups. If you choose `mS-DS-ConsistencyGuid` as the source anchor attribute and the value is populated in Active Directory, Azure AD Connect uses the value of `mS-DS-ConsistencyGuid` as the `immutableId`. Otherwise, it falls back to using `objectGUID`. But note that Azure AD Connect doesn't write the value back to the `mS-DS-ConsistencyGuid` attribute in Active Directory.
 
-Please use the following scripts as guideline to see how you can migrate a single group from forest F1 to forest F2. Please feel free to use this as a guideline to do the migration for multiple groups.
+During a cross-forest move, when a group object is moving from one forest (say F1) to another forest (say F2), you need to copy either the `mS-DS-ConsistencyGuid` value (if it's present) or the `objectGUID` value from the object in forest F1 to the `mS-DS-ConsistencyGuid` attribute of the object in F2.
+
+Use the following scripts as a guide to learn how to migrate a single group from one forest to another. You can also use these scripts as a guide for migration of multiple groups. The scripts use the forest name F1 for the source forest and F2 for the destination forest.
 
 First, we get the `objectGUID` and `mS-DS-ConsistencyGuid` of group object in forest F1. These attributes are exported to a CSV file.
 ```
