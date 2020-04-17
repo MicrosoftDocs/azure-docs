@@ -11,7 +11,7 @@ ms.subservice: logs
 
 # Create diagnostic setting to collect resource logs and metrics in Azure
 
-[Platform logs](platform-logs-overview.md) in Azure, including the Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. [Platform metrics](data-platform-metrics.md) are collected by default and typically stored in the Azure Monitor metrics database. 
+[Platform logs](platform-logs-overview.md) in Azure, including the Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. [Platform metrics](data-platform-metrics.md) are collected by default and typically stored in the Azure Monitor metrics database.
 
 This article provides details on creating and configuring diagnostic settings to send platform metrics and platform logs to different destinations.
 
@@ -22,14 +22,13 @@ Each Azure resource requires its own diagnostic setting, which defines the follo
 
 - Categories of logs and metric data sent to the destinations defined in the setting. The available categories will vary for different resource types.
 - One or more destinations to send the logs. Current destinations include Log Analytics workspace, Event Hubs, and Azure Storage.
- 
-A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to 5 diagnostic settings.
 
+A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to 5 diagnostic settings.
 
 > [!NOTE]
 > [Platform metrics](metrics-supported.md) are collected automatically to [Azure Monitor Metrics](data-platform-metrics.md). Diagnostic settings can be used to collect metrics for certain Azure services into Azure Monitor Logs for analysis with other monitoring data using [log queries](../log-query/log-query-overview.md).
 
-## Destinations 
+## Destinations
 
 Platform logs and metrics can be sent to the destinations in the following table. Follow each link in the following table for details on sending data to that destination.
 
@@ -84,25 +83,24 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
       ![Send to Log Analytics or Event Hubs](media/diagnostic-settings/send-to-log-analytics-event-hubs.png)
 
-    1. **Log Analytics** - Enter the subscription and workspace.  If you don't have a workspace, you need to [create one before proceeding](../learn/quick-create-workspace.md). 
+    1. **Log Analytics** - Enter the subscription and workspace.  If you don't have a workspace, you need to [create one before proceeding](../learn/quick-create-workspace.md).
 
     1. **Event hubs** - Specify the following criteria:
        - The subscription which the event hub is part of
        - The Event hub namespace - If you do not yet have one, you'll need [to create one](../../event-hubs/event-hubs-create.md)
        - An Event hub name (optional) to send all data to. If you don't specify a name, an event hub is created for each log category. If you are sending multiple categories, you may want to specify a name to limit the number of event hubs created. See [Azure Event Hubs quotas and limits](../../event-hubs/event-hubs-quotas.md) for details.
        - An Event Hub policy (optional) A policy defines the permissions that the streaming mechanism has. For more information, see [Event-hubs-features](../../event-hubs/event-hubs-features.md#publisher-policy).
- 
-    1. **Storage** - Choose the subscription, storage account, and retention policy. 
-    
+
+    1. **Storage** - Choose the subscription, storage account, and retention policy.
+
         ![Send to Storage](media/diagnostic-settings/storage-settings-new.png)
 
-        > [!WARNING] 
-        > Considering setting the retention policy to 0 and manually deleting your data from storage to avoid possible confusion in the future. If you choose a retention policy that is greater than 0, the expiration date is attached to the logs at the time of storage. You can't change the date for those logs once stored, though you can always delete them manually.  For example, if you set the retention policy for *AllMetrics* to 180 days and then 24 hours later set it to 365 days, the metrics stored during those first 24 hours will be automatically deleted after 180 days, while all subsequent metrics will be automatically deleted after 365 days. 
+        > [!WARNING]
+        > Considering setting the retention policy to 0 and manually deleting your data from storage to avoid possible confusion in the future. If you choose a retention policy that is greater than 0, the expiration date is attached to the logs at the time of storage. You can't change the date for those logs once stored, though you can always delete them manually.  For example, if you set the retention policy for *AllMetrics* to 180 days and then 24 hours later set it to 365 days, the metrics stored during those first 24 hours will be automatically deleted after 180 days, while all subsequent metrics will be automatically deleted after 365 days.
 
 6. Click **Save**.
 
 After a few moments, the new setting appears in your list of settings for this resource, and logs are streamed to the specified destinations as new event data is generated. It may take up to 15 minutes between when an event is emitted and when it [appears in a Log Analytics workspace](data-ingestion-time.md).
-
 
 ## Create diagnostic settings using PowerShell
 
@@ -117,7 +115,6 @@ Following is an example PowerShell cmdlet to create a diagnostic setting using a
 Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault -Category AuditEvent -MetricCategory AllMetrics -Enabled $true -StorageAccountId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount -WorkspaceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/myworkspace  -EventHubAuthorizationRuleId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
 
-
 ## Create diagnostic settings using Azure CLI
 
 Use the [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) command to create a diagnostic setting with [Azure CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). See the documentation for this command for descriptions of its parameters.
@@ -126,8 +123,6 @@ Use the [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/a
 > You cannot use this method for the Azure Activity log. Instead, use [Create diagnostic setting in Azure Monitor using a Resource Manager template](diagnostic-settings-template.md) to create a Resource Manager template and deploy it with CLI.
 
 Following is an example CLI command to create a diagnostic setting using all three destinations.
-
-
 
 ```azurecli
 az monitor diagnostic-settings create  \
@@ -141,12 +136,13 @@ az monitor diagnostic-settings create  \
 ```
 
 ### Configure diagnostic settings using REST API
+
 See [Diagnostic Settings](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) to create or update diagnostic settings using the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/).
 
-
 ### Configure diagnostic settings using Resource Manager template
+
 See [Create diagnostic setting in Azure Monitor using a Resource Manager template](diagnostic-settings-template.md) to create or update diagnostic settings with a Resource Manager template.
 
 ## Next steps
 
-* [Read more about Azure platform Logs](platform-logs-overview.md)
+- [Read more about Azure platform Logs](platform-logs-overview.md)
