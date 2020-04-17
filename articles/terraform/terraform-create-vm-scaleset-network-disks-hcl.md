@@ -75,7 +75,7 @@ Within the Azure Cloud Shell, do the following steps:
 
    variable "tags" {
     description = "A map of the tags to use for the resources that are deployed"
-    type        = "map"
+    type        = map(string)
 
     default = {
       environment = "codelab"
@@ -139,10 +139,9 @@ Within the Azure Cloud Shell, do the following steps:
    }
 
    provider azurerm {
-      version = "~> 2.5"
       features {}
    }
-   
+
    resource "azurerm_resource_group" "vmss" {
     name     = var.resource_group_name
     location = var.location
