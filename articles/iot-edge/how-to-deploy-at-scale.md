@@ -148,7 +148,7 @@ Use the tags property from your devices to target the specific devices that shou
 
 Since multiple deployments may target the same device, you should give each deployment a priority number. If there's ever a conflict, the deployment with the highest priority (larger values indicate higher priority) wins. If two deployments have the same priority number, the one that was created most recently wins.
 
-If multiple deployments target the same device then only the one with the higher priority is applied. If multiple layered deployments target the same device then they are all applied. However, if any properties are duplicated, like if there are two routes with the same name, then the one from the higher priority layered deployment overwrites the rest.
+If multiple deployments target the same device, then only the one with the higher priority is applied. If multiple layered deployments target the same device then they are all applied. However, if any properties are duplicated, like if there are two routes with the same name, then the one from the higher priority layered deployment overwrites the rest.
 
 Any layered deployment targeting a device must have a higher priority than the base deployment in order to be applied.
 
@@ -165,49 +165,42 @@ To monitor your deployment, see [Monitor IoT Edge deployments](how-to-monitor-io
 
 ## Modify a deployment
 
-When you modify a deployment, the changes immediately replicate to all targeted devices.
+When you modify a deployment, the changes immediately replicate to all targeted devices. You can modify the following settings and features for an existing deployment:
 
-If you update the target condition, the following updates occur:
+* Target conditions
+* Custom metrics
+* Labels
+* Tags
+* Desired properties
 
-* If a device didn't meet the old target condition, but meets the new target condition and this deployment is the highest priority for that device, then this deployment is applied to the device.
-* If a device currently running this deployment no longer meets the target condition, it uninstalls this deployment and takes on the next highest priority deployment.
-* If a device currently running this deployment no longer meets the target condition and doesn't meet the target condition of any other deployments, then no change occurs on the device. The device continues running its current modules in their current state, but is not managed as part of this deployment anymore. Once it meets the target condition of any other deployment, it uninstalls this deployment and takes on the new one.
-
-You can also make changes to reported properties and custom metrics in your deployment. Afterwards, follow the guidance in [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md) to watch the changes roll out.
-
-### Modify targeted devices
-
-To modify targeted devices for a deployment:
+### Modify target conditions, custom metrics, and labels
 
 1. In your IoT hub, select **IoT Edge** from the left pane menu.
-1. Select the **IoT Edge deployments** tab and select the deployment you want to configure. Select the **Target Condition** tab.
-1. If needed, adjust the **Priority** for when deployments target the same device, the deployment with higher priority gets applied. If multiple deployments have the same priority, the deployment with the later creation date gets applied.
-1. Define a target condition, using the example syntax as a guide.
+1. Select the **IoT Edge deployments** tab and then select the deployment you want to configure.
+1. Select the **Target Condition** tab. Change the **Target Condition** to target the intended devices. You can also adjust the **Priority**.  Select **Save**.
 
-    ![Specify target conditions for a deployment](./media/how-to-deploy-monitor/target-devices.png)
+    If you update the target condition, the following updates occur:
 
-### Modify desired properties
+    * If a device didn't meet the old target condition, but meets the new target condition and this deployment is the highest priority for that device, then this deployment is applied to the device.
+    * If a device currently running this deployment no longer meets the target condition, it uninstalls this deployment and takes on the next highest priority deployment.
+    * If a device currently running this deployment no longer meets the target condition and doesn't meet the target condition of any other deployments, then no change occurs on the device. The device continues running its current modules in their current state, but is not managed as part of this deployment anymore. Once it meets the target condition of any other deployment, it uninstalls this deployment and takes on the new one.
 
-If you developed custom code modules, such as described in [Use Visual Studio 2019 to develop and debug modules for Azure IoT Edge](how-to-visual-studio-develop-module.md), you can monitor their values by defining properties. You can also add, delete, and edit properties in the module twin after the module has been deployed to an IoT Edge device. For an overview of the properties, see [Properties of the IoT Edge agent and IoT Edge hub module twins](module-edgeagent-edgehub.md).
+1. Select the **Metrics** tab and click the **Edit Metrics** button. Add or modify custom metrics, using the example syntax as a guide. Select **Save**.
 
-To define and edit properties for a deployed module:
+    ![Edit custom metrics in a deployment](./media/how-to-deploy-monitor/metric-list.png)
+
+1. Select the **Labels** tab and make any desired changes and select **Save**.
+
+### Modify tags and desired properties
+
+If you developed custom code modules to your devices, you can add or modify tags and desired properties in the module twin. For an overview of IoT Edge properties, see [Properties of the IoT Edge agent and IoT Edge hub module twins](module-edgeagent-edgehub.md).
 
 1. In your IoT hub, select **IoT Edge** from the left pane menu.
 1. Select the device with the module you want to edit.
 1. On the **Modules** tab, select the module.
-1. On the module details page, on the upper menu bar select **Module Identity Twin**.
+1. On the module details page, on the upper menu bar select **Module Identity Twin**. Edit the JSON as needed and select **Save**.
 
     ![Edit properties on the module identity twin](./media/how-to-deploy-monitor/module-twin.png)
-
-### Modify a custom metric
-
-To change or add custom metrics:
-
-1. In your IoT hub, select **IoT Edge** from the left pane menu.
-1. Select the **IoT Edge deployments** tab and then select the deployment you want to configure. Select the **Metrics** tab.
-1. Define a custom metric, using the example syntax as a guide.
-
-    ![Create a custom metric in the deployment wizard](./media/how-to-deploy-monitor/create-custom-metric.png)
 
 ## Delete a deployment
 
@@ -221,7 +214,7 @@ When you delete a deployment, any deployed devices take on their next highest pr
 
 1. Use the checkbox to select the deployment that you want to delete.
 1. Select **Delete**.
-1. A prompt will inform you that this action will delete this deployment and revert to the previous state for all devices.  This means that a deployment with a lower priority will apply. If no other deployment is targeted, no modules will be removed. If you want to remove all modules from your device, create a deployment with zero modules and deploy it to the same devices. Select **Yes** to continue.
+1. A prompt will inform you that this action will delete this deployment and revert to the previous state for all devices. A deployment with a lower priority will apply. If no other deployment is targeted, no modules will be removed. If you want to remove all modules from your device, create a deployment with zero modules and deploy it to the same devices. Select **Yes** to continue.
 
 ## Next steps
 
