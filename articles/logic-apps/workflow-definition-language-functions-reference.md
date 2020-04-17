@@ -143,11 +143,11 @@ To work with conditions, compare values and expression results, or evaluate vari
 To change a value's type or format, you can use these conversion functions. For example, you can change a value from a Boolean to an integer. For more information about how Logic Apps handles content types during conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md). For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 > [!IMPORTANT]
-> The Logic Apps service automatically or implicitly converts values between specific data types, 
-> which means that you don't have to manually or explicitly convert those values by using the 
-> corresponding functions. If you use these functions in the designer or code view, Logic Apps 
-> removes those functions after you save your logic app because the conversion happens automatically. 
-> For more information, see [Implicit data type conversions](#implicit-data-conversions).
+> The Logic Apps service automatically converts values between specific data types, which means 
+> that you don't have to manually convert between those types by using the relevant expressions. 
+> If you use these expressions in the designer or code view, Logic Apps removes those expressions 
+> after you save your logic app because these conversions happen automatically. For more information, 
+> see [Implicit data type conversions](#implicit-data-conversions).
 
 | Conversion function | Task |
 | ------------------- | ---- |
@@ -179,19 +179,19 @@ To change a value's type or format, you can use these conversion functions. For 
 
 ## Implicit data type conversions
 
-The Logic Apps service automatically or implicitly converts values between specific data types, which means that you don't have to manually or explicitly convert those values by using the corresponding functions. If you use these functions in the designer or code view, Logic Apps removes those functions after you save your logic app because the conversion happens automatically.
+The Logic Apps service automatically or implicitly converts values between specific data types, which means that you don't need to manually or explicitly convert between those types by using the relevant expressions. Actually, if you use these expressions in the designer or code view, Logic Apps removes the expressions after you save your logic app because the conversions happen automatically.
 
-This table describes the conversions that Logic Apps implicitly makes:
+This table describes the data type conversions that Logic Apps automatically makes and the expressions that you'd typically use when manually performing these conversions but should omit:
 
-| Data conversion <br>(To > From) | Byte | Binary or File | DataUri | Other |
-|---------------------------------|------|----------------|---------|-------|
-| **Byte** | Not applicable | `base64(<value>)` | `base64(decodeDataUri(<value>))` | `base64(<value>)` |
-| **Binary or File** | `base64ToBinary(<value>)` | Not applicable | `decodeDataUri(<value>)` | Not applicable |
-| **DataUri** | `concat('data:;base64,', <value>)` | `concat('data:;base64,', base64(<value>))` | Not applicable | `concat('data:,', encodeUriComponent(<value>))` |
-| **Other** | `base64ToString(<value>)` | Not applicable | `decodeDataUri(<value>)` | `Not applicable` |
-||||||
+| From | To |
+|------|----|
+| **Binary** | - **Binary** or **File**: `base64ToBinary(<value>)` <br>- **DataUri**: `concat('data:;base64,',<value>)` <br>- **Other**: `base64ToString(<value>)` |
+| **Byte** | - **Binary** or **File**: `base64ToBinary(<value>)` <br>- **DataUri**: `concat('data:;base64,',<value>)` <br>- **Other**: `base64ToString(<value>)` |
+| **DataUri** | - **Binary** or **File**: `decodeDataUri(<value>)` <br>- **Byte**: `base64(decodeDataUri(<value>))` <br>- **Other**: `decodeDataUri(<value>)` |
+| **Other** | - **Byte**: `base64(<value>)` <br>- **DataUri**: `concat('data:,', encodeUriComponent(<value>))` |
+|||
 
-Logic Apps also implicitly converts non-string values into strings when these values are used where strings are expected. For example:
+If you use non-string values where strings are expected as inputs, Logic Apps implicitly converts the non-string values into strings, for example:
 
 * A trigger returns a numerical value as output through this expression:
 
