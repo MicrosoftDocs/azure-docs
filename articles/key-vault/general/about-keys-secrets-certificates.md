@@ -16,10 +16,10 @@ ms.author: mbaldwin
 
 Azure Key Vault enables Microsoft Azure applications and users to store and use several types of secret/key data:
 
-- Cryptographic keys: Supports multiple key types and algorithms, and enables the use of Hardware Security Modules (HSM) for high value keys. For more information, see [About keys](../keys/about-keys.md)
-- Secrets: Provides secure storage of secrets, such as passwords and database connection strings. For more information, see [About secrets](../secrets/about-secrets.md)
-- Certificates: Supports certificates, which are built on top of keys and secrets and add an automated renewal feature. For more information, see [About certificates](../secrets/about-secrets.md)
-- Azure Storage: Can manage keys of an Azure Storage account for you. Internally, Key Vault can list (sync) keys with an Azure Storage Account, and regenerate (rotate) the keys periodically. For more information, see [Manage storage account keys with Key Vault](../secrets/overview-storage-keys.md)
+- Cryptographic keys: Supports multiple key types and algorithms, and enables the use of Hardware Security Modules (HSM) for high value keys. For more information, see [About keys](../keys/about-keys.md).
+- Secrets: Provides secure storage of secrets, such as passwords and database connection strings. For more information, see [About secrets](../secrets/about-secrets.md).
+- Certificates: Supports certificates, which are built on top of keys and secrets and add an automated renewal feature. For more information, see [About certificates](../secrets/about-certificates.md).
+- Azure Storage: Can manage keys of an Azure Storage account for you. Internally, Key Vault can list (sync) keys with an Azure Storage Account, and regenerate (rotate) the keys periodically. For more information, see [Manage storage account keys with Key Vault](../secrets/overview-storage-keys.md).
 
 For more general information about Key Vault, see [About Azure Key Vault](overview.md)
 

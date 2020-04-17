@@ -4,7 +4,7 @@
   items:
   - name: About Azure Key Vault
     href: overview.md
-  - name: About keys, secrest, and certificates
+  - name: About keys, secrets, and certificates
     href: about-keys-secrets-certificates.md
 
 - name: Tutorials 
