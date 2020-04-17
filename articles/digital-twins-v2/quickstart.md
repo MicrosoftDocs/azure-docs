@@ -85,6 +85,7 @@ Once you have designed your model(s), you need to upload them to your Azure Digi
 
 Open _DigitalTwinsMetadata/**DigitalTwinsSample.sln**_ in Visual Studio. Run the project with this button in the toolbar:
 
+[!div class="mx-imgBorder"]
 ![The Visual Studio start button](media/quickstart/start-button-sample.png)
  
 A console window will open, carry out authentication, and wait for a command. In this console, run the following command to upload both your edited model for *Room* and another model, *Floor*.
@@ -214,15 +215,15 @@ Using the Azure Cloud Shell, you can delete all Azure resources in a resource gr
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
 
-    ```azurecli-interactive
-    az group delete --name <your-resource-group>
-    ```
+```azurecli-interactive
+az group delete --name <your-resource-group>
+```
 
 Next, delete the AAD app registration you created for your client app with this command:
 
-    ```azurecli
-    az ad app delete --id <your-application-ID>
-    ```
+```azurecli
+az ad app delete --id <your-application-ID>
+```
 
 Finally, delete the project sample folder you downloaded from your local machine.
 

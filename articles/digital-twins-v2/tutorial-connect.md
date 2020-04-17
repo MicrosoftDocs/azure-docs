@@ -60,6 +60,7 @@ First, you'll use the *BuildingScenario* solution from the sample project to bui
 
 From the downloaded solution folder, open _DigitalTwinsMetadata/**DigitalTwinsSample.sln**_ in Visual Studio. Run the project with this button in the toolbar:
 
+[!div class="mx-imgBorder"]
 ![The Visual Studio start button](media/quickstart/start-button-sample.png)
 
 A console window will open, carry out authentication, and wait for a command. In this console, run the next command to instantiate the sample Azure Digital Twins solution.
@@ -115,10 +116,12 @@ Save the file. Remember the *hostName* value, as you will use it again later in 
 
 In the Solution Explorer menu, right-select the **HubToDT project file** and hit **Publish**.
 
+[!div class="mx-imgBorder"]
 ![Visual Studio: publish project](media/tutorial-connect/publish-azure-function-1.png)
 
 In the *Pick a publish target* page that follows, leave the default selections and hit **Create Profile**.
 
+[!div class="mx-imgBorder"]
 ![Azure function in Visual Studio: create profile](media/tutorial-connect/publish-azure-function-2.png)
 
 On the *App Service - Create New* page, fill in the fields as follows:
@@ -128,6 +131,7 @@ On the *App Service - Create New* page, fill in the fields as follows:
 * Select the **Location** that matches the location of your resource group
 * Create a new **Azure Storage** resource using the *New...* link. Use the default values and hit "Ok".
 
+[!div class="mx-imgBorder"]
 ![Azure function in Visual Studio: Create new App Service menu with fields completed as described above](media/tutorial-connect/publish-azure-function-3.png)
 
 Before you move on from this screen, take note of your *Azure Storage* account name and your *App Service* (also function app) name. You will use these later.
@@ -136,6 +140,7 @@ Then, select **Create**.
 
 On the *Publish* page that follows, check that all the information looks correct and select **Publish**.
 
+[!div class="mx-imgBorder"]
 ![Azure function in Visual Studio: publish](media/tutorial-connect/publish-azure-function-4.png)
 
 > [!NOTE]
@@ -183,9 +188,12 @@ To do this, you'll create an **Event Subscription** on your IoT Hub, with the Az
 
 In the [Azure portal](https://ms.portal.azure.com/), navigate to your newly-created IoT hub by searching for its name in the top search bar. Select *Events* from the hub menu, and select *+ Event Subscription*.
 
+[!div class="mx-imgBorder"]
 ![Azure portal: IoT Hub event subscription](media/tutorial-connect/event-subscription-1.png)
 
 This will bring up the *Create Event Subscription* page.
+
+[!div class="mx-imgBorder"]
 ![Azure portal: create event subscription](media/tutorial-connect/event-subscription-2.png)
 
 Fill in the fields as follows:
@@ -193,6 +201,8 @@ Fill in the fields as follows:
 * *EVENT TYPES* > **Filter to Event Types**: Select *Device Telemetry* from the menu options.
 * *ENDPOINT DETAILS* > **Endpoint Type**: Select *Azure Function* from the menu options.
 * *ENDPOINT DETAILS* > **Endpoint**: Hit the *Select an endpoint* link. This will open a *Select Azure Function* window:
+
+    [!div class="mx-imgBorder"]
     ![Azure portal event subscription: select Azure function](media/tutorial-connect/event-subscription-3.png)
     - Fill in your **Subscription**, **Resource group**, **Function app** and **Function** (*ProcessHubToDTEvents*). Some of these may auto-populate after selecting the subscription.
     - Hit **Confirm Selection**.
@@ -244,6 +254,7 @@ Save the file.
 
 Now, to see the results of the data simulation that you've set up, run the **DeviceSimulator** project with this button in the toolbar:
 
+[!div class="mx-imgBorder"]
 ![The Visual Studio start button](media/tutorial-connect/start-button-simulator.png)
 
 A console window will open and display simulated temperature telemetry messages. These are being sent to IoT Hub, where they are then picked up and processed by the Azure function.
@@ -424,15 +435,15 @@ Using the Azure Cloud Shell, you can delete all Azure resources in a resource gr
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
 
-    ```azurecli-interactive
-    az group delete --name <your-resource-group>
-    ```
+```azurecli-interactive
+az group delete --name <your-resource-group>
+```
 
 Next, delete the AAD app registration you created for your client app with this command:
 
-    ```azurecli
-    az ad app delete --id <your-application-ID>
-    ```
+```azurecli
+az ad app delete --id <your-application-ID>
+```
 
 Finally, delete the project sample folder you downloaded from your local machine.
 
