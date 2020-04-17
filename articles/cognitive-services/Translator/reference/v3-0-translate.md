@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/07/2020
+ms.date: 04/17/2020
 ms.author: swmachan
 ---
 
@@ -487,7 +487,7 @@ Obtaining alignment information is an experimental feature that we have enabled 
 
 * Alignment is not available for text in HTML format i.e., textType=html
 * Alignment is only returned for a subset of the language pairs:
-  - English to/from any other language except Chinese Traditional.
+  - English to/from any other language except Chinese Traditional, Cantonese (Traditional) or Serbian (Cyrillic).
   - from Japanese to Korean or from Korean to Japanese.
   - from Japanese to Chinese Simplified and Chinese Simplified to Japanese. 
   - from Chinese Simplified to Chinese Traditional and Chinese Traditional to Chinese Simplified. 
