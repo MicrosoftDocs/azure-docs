@@ -52,11 +52,11 @@ Before enabling customer-managed keys for an Automation account, you must ensure
  - Only RSA keys are supported with Azure Automation encryption. For more information about keys, see [About Azure Key Vault keys, secrets, and certificates](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 - The Automation account and the key vault can be in different subscriptions, but need to be in the same Azure Active Directory tenant.
 
-### Assign an identity to the automation account
+### Assign an identity to the Automation account
 
-To use customer-managed keys with an Automation account, your Automation account needs to authenticate against the key vault storing customer-managed keys. Azure Automation uses system assigned managed identities to authenticate the account with Azure Key Vault. For more information about managed identities, see [What is managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+To use customer-managed keys with an Automation account, your Automation account needs to authenticate against the key vault storing customer-managed keys. Azure Automation uses system assigned managed identities to authenticate the account with Azure Key Vault. For more information about managed identities, see [What are managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-Configure a system assigned managed identity to the automation account using the following REST API call:
+Configure a system assigned managed identity to the Automation account using the following REST API call:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -129,7 +129,7 @@ Request body:
 
 ### Change the configuration of Automation account to use customer-managed key
 
-Finally, you can switch your Automation account from Microsft-managed keys to customer-managed keys, using the following REST API call:
+Finally, you can switch your Automation account from Microsoft-managed keys to customer-managed keys, using the following REST API call:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -189,9 +189,6 @@ To revoke access to customer-managed keys, use PowerShell or the Azure CLI. For 
 ## Next steps
 
 - [What is Azure Key Vault?](../key-vault/general/overview.md)
-
 - [Certificate assets in Azure Automation](shared-resources/certificates.md)
-
 - [Credential assets in Azure Automation](shared-resources/credentials.md)
-
 - [Variable assets in Azure Automation](shared-resources/variables.md)
