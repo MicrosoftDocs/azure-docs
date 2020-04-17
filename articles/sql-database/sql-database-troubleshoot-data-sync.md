@@ -7,8 +7,8 @@ ms.subservice: data-movement
 ms.custom: data sync
 ms.devlang: 
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ---
@@ -104,7 +104,7 @@ This error message indicates that one of the two following issues has occurred:
 -  There's a WHERE clause in your CREATE INDEX statement. Data Sync doesn't handle this condition. To fix this issue, remove the WHERE clause or manually make the changes to all databases. 
  
 ### <a name="sync-circ"></a> How does Data Sync handle circular references? That is, when the same data is synced in multiple sync groups, and keeps changing as a result?
-Data Sync doesn’t handle circular references. Be sure to avoid them. 
+Data Sync doesn't handle circular references. Be sure to avoid them. 
 
 ## Client agent issues
 
