@@ -13,12 +13,6 @@ ms.date: 04/16/2020
 
 This quickstart will help you create an Azure Media Services live stream by using the Azure portal and Open Broadcasting Studio (OBS). It assumes that you have an Azure subscription and have created a Media Services account.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-
-## Sign in to the Azure portal
-
-Open your web browser, and go to the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
-
 In this quickstart, we'll cover:
 
 - Setting up an on-premises encoder with a free trial of OBS.
@@ -26,6 +20,14 @@ In this quickstart, we'll cover:
 - Setting up live stream outputs.
 - Running a default streaming endpoint.
 - Using Azure Media Player to view the live stream and on-demand output.
+
+## Prerequisites
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
+## Sign in to the Azure portal
+
+Open your web browser, and go to the [Microsoft Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ## Set up an on-premises encoder by using OBS
 
