@@ -61,7 +61,7 @@ There are examples below for common automation frameworks.
 
 ### Use Azure DevOps
 
-App Service has [built-in continuous delivery]() for containers through the Deployment Center. Navigate to your app in the [Azure portal]() and select **Deployment Center** under **Deployment**. Follow the instructions to select your repository and branch. This will configure a DevOps build and release pipeline to automatically build, tag, and deploy your container when new commits are pushed to your selected branch.
+App Service has [built-in continuous delivery](deploy-continuous-deployment.md) for containers through the Deployment Center. Navigate to your app in the [Azure portal](https://portal.azure.com/) and select **Deployment Center** under **Deployment**. Follow the instructions to select your repository and branch. This will configure a DevOps build and release pipeline to automatically build, tag, and deploy your container when new commits are pushed to your selected branch.
 
 ### Use GitHub Actions
 
@@ -83,11 +83,11 @@ jobs:
     - uses: actions/checkout@master
 
     -name: Authenticate using a Service Principal
-      uses: azure/actions/login@master
+      uses: azure/actions/login@v1
       with:
         creds: ${{ secrets.AZURE_SP }}
 
-    - uses: azure/container-actions/docker-login@master
+    - uses: azure/container-actions/docker-login@v1
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
@@ -98,7 +98,7 @@ jobs:
         docker push contoso/demo:${{ github.sha }}
 
     - name: Update image tag on the Azure Web App
-      uses: azure/appservice-actions/webapp-container@master
+      uses: azure/webapps-container-deploy@v1
       with:
         app-name: '<your-webapp-name>'
         slot-name: '<your-slot-name>'
