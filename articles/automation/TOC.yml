@@ -24,8 +24,6 @@
       href: automation-first-runbook-textual.md
     - name: Create a Python runbook
       href: automation-first-runbook-textual-python2.md
-    - name: Create a runbook with Graphical runbook SDK
-      href: graphical-runbook-sdk.md
 - name: Concepts
   items:
     - name: Runbook execution overview
@@ -36,7 +34,6 @@
       href: automation-runbook-types.md
     - name: PowerShell DSC
       href: /powershell/scripting/dsc/overview/overview
-    
     - name: Data security
       items:
         - name: Encrypt secure assets 
@@ -107,6 +104,8 @@
               href: automation-webhooks.md
             - name: Track updated files with watcher task
               href: automation-watchers-tutorial.md
+            - name: Working with the Graphical runbook SDK
+              href: graphical-runbook-sdk.md
         - name: Monitor runbooks
           items:
             - name: Runbook output
