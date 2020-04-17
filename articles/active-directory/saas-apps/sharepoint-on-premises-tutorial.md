@@ -61,7 +61,6 @@ To add SharePoint on-premises from the gallery, perform the following steps:
 
 1. In the new Enterprise Application click on Properties and check the value for **User assignment required**
 
-   [!div class="mx-imgBorder"]
    ![SharePoint on-premises in the results list](./media/sharepoint-on-premises-tutorial/user-assignment-required.png)  
 
 in our scenario this value is set to **No**.
