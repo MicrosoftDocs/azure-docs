@@ -53,7 +53,9 @@ Here is the step-by-step walkthrough.
 9. Click on  **Edit** release pipeline in Azure DevOps to see the pipeline configuration. The pipeline consists of 3 phases - first phase is a DG phase and deploys to VMs that are tagged as _canary_. The second phase, pauses the pipeline and waits for manual intervention to resume the run. Once a user is satisfied that canary deployment is stable, he can resume the pipeline run which will then run the third phase that deploys to VMs tagged as _prod_.
 ![AzDevOps_canary_task](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-task.png)
 
-10. The Execute Deploy Script task will by default execute the the deployment script _deploy.ps1_ or _deploy.sh_ in _deployscripts_ folder at the root directory of published package. Make sure that the selected build pipeline publishes this in the root folder of package. 
+10. Before resuming the pipeline run, make sure that at least one VM is tagged as _prod_. In the third phase of the pipeline, the application will be deployed to only those VMs that have _prod_ tag.
+
+11. The Execute Deploy Script task will by default execute the the deployment script _deploy.ps1_ or _deploy.sh_ in _deployscripts_ folder at the root directory of published package. Make sure that the selected build pipeline publishes this in the root folder of package. 
 
 ![AzDevOps_publish_package](media/tutorial-devops-azure-pipelines-classic/azure-devops-published-package.png)
 

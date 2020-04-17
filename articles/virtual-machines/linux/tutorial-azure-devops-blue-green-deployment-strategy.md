@@ -55,9 +55,8 @@ Here is the step-by-step walkthrough.
 9. Click on  **Edit** release pipeline in Azure DevOps to see the pipeline configuration. The pipeline consists of 3 phases - first phase is a DG phase and deploys to VMs that are tagged as _green_ (standby VMs) . The second phase pauses the pipeline and waits for manual intervention to resume the run. Once a user is satisfied that deployment is stable, he can now redirect the traffic to _green_ VMs and resume the pipeline run which will then swap _blue_ and _green_ tags in the VMs. This makes sure that the VMs that have older application version are tagged as _green_ and are deployed to in the next pipeline run.
 ![AzDevOps_bluegreen_task](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
 
-10. Note that this deployment strategy requires that there must be at least one VM  tagged as blue and green each. Make sure that before resuming the pipeline run at Manual Intervention step, you have at least one VM tagged as _blue_.
 
-11. The Execute Deploy Script task will by default execute the the deployment script _deploy.ps1_ or _deploy.sh_ in _deployscripts_ folder at the root directory of published package. Make sure that the selected build pipeline publishes this in the root folder of package. 
+10. The Execute Deploy Script task will by default execute the the deployment script _deploy.ps1_ or _deploy.sh_ in _deployscripts_ folder at the root directory of published package. Make sure that the selected build pipeline publishes this in the root folder of package. 
 
 ![AzDevOps_publish_package](media/tutorial-devops-azure-pipelines-classic/azure-devops-published-package.png)
 
