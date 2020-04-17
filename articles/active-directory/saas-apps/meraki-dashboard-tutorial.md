@@ -41,7 +41,6 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Meraki Dashboard supports **IDP** initiated SSO
-* Meraki Dashboard supports **Just In Time** user provisioning
 * Once you configure Meraki Dashboard you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Meraki Dashboard from the gallery
@@ -172,7 +171,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Enter the Role **meraki_full_admin**, mark **Organization access** as **Full** and click **Create role**. Repeat the process for **meraki_readonly_admin**, this time mark **Organization access** as **Read-only** box.
  
-    ![Meraki Dashboard Configuration](./media/meraki-dashboard-tutorial/user2.png)
+    ![Meraki Dashboard Configuration](./media/meraki-dashboard-tutorial/user3.png)
 
 ## Test SSO 
 
