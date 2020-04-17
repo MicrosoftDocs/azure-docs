@@ -94,7 +94,7 @@ Manager), on-premises VMs, Linux machines, AWS VMs, and on-premises physical mac
 topic, we cover how to register only Azure Resource Manager VMs. For information about registering
 other types of machines, see [Onboarding machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
 
-Call the [Register-AzAutomationDscNode](https://docs.microsoft.com/en-us/powershell/module/Az.Automation/Register-AzAutomationDscNode?view=azps-3.7.0) cmdlet to register your VM with Azure Automation State
+Call the [Register-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationDscNode?view=azps-3.7.0) cmdlet to register your VM with Azure Automation State
 Configuration as a managed node. 
 
 ```powershell
