@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob storage cli
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 04/17/2020
+ms.date: 04/18/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -14,7 +14,7 @@ ms.topic: quickstart
 
 # Quickstart: Manage blobs with JavaScript v12 SDK in a browser
 
-In this quickstart, you learn to manage blobs by using JavaScript in a browser. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. You'll upload and list blobs, and you'll create and delete containers.
+Azure Blob storage is optimized for storing large amounts of unstructured data. Blobs are objects that can hold text or binary data, including images, documents, streaming media, and archive data. In this quickstart, you learn to manage blobs by using JavaScript in a browser. You'll upload and list blobs, and you'll create and delete containers.
 
 [API reference documentation](/javascript/api/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (bundling)](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md) | [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
@@ -37,7 +37,7 @@ In this quickstart, you learn to manage blobs by using JavaScript in a browser. 
 
 ## Object model
 
-Azure Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that doesn't adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
+Blob storage offers three types of resources:
 
 * The storage account
 * A container in the storage account
@@ -47,7 +47,7 @@ The following diagram shows the relationship between these resources.
 
 ![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
 
-Use the following JavaScript classes to interact with these resources:
+In this quickstart, you'll use the following JavaScript classes to interact with these resources::
 
 * [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage resources and blob containers.
 * [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): The `ContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
@@ -95,7 +95,7 @@ Follow these steps to get the Blob service SAS URL:
 
 ### Implement the HTML page
 
-1. Create a new folder called *azure-blobs-js-browser* and open it in Visual Studio Code.
+1. On your local computer, create a new folder called *azure-blobs-js-browser* and open it in Visual Studio Code.
 2. Create a new file in Visual Studio Code and add the following HTML.
 
 :::code language="html" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/init-index.html" id="snippet_InitWebPage":::
@@ -104,15 +104,13 @@ Follow these steps to get the Blob service SAS URL:
 
 ### Add the Azure Blob storage client library
 
-Run the following npm command in a console window to create a [package.json](https://docs.npmjs.com/files/package.json) file.
+Select **View > Terminal** to open a console window inside Visual Studio Code. Run the following `npm` command in the terminal window to create a [package.json](https://docs.npmjs.com/files/package.json) file.
 
 ```console
 npm init -y
 ```
 
-Follow the prompts and `npm` will generate a starter *package.json* file.
-
-The Azure SDK is composed of many separate packages. You can choose which you need based on the services you intend to use. Run following `npm` command to install the `@azure/storage-blob` package.
+The Azure SDK is composed of many separate packages. You can choose which packages you need based on the services you intend to use. Run following `npm` command in the terminal window to install the `@azure/storage-blob` package.
 
 ```console
 npm install --save @azure/storage-blob
@@ -144,6 +142,8 @@ Next, replace the comment in the *index.html* file to include the new JavaScript
 
 :::code language="html" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.html" id="snippet_WebPage" highlight="18":::
 
+Save the *index.js* file.
+
 ## Code examples
 
 These example code snippets show you how to accomplish the following tasks with the Azure Blob storage client library for JavaScript:
@@ -155,6 +155,8 @@ These example code snippets show you how to accomplish the following tasks with 
 * [List blobs](#list-blobs)
 * [Upload blobs](#upload-blobs)
 * [Delete blobs](#delete-blobs)
+
+You'll run the code after you add all the snippets to the *index.js* file.
 
 ### Add the initial JavaScript code
 
@@ -249,6 +251,8 @@ parcel index.html
 
 Parcel bundles your code and starts a local development server for your page at `http://localhost:1234/index.html`. Changes you make to *index.js* will automatically be built and reflected on the development server whenever you save the file.
 
+If you receive a message that says **configured port 1234 could not be used**, you can change the port by running the command `parcel -p <port#> index.html`. In the *launch.json* file, update the port in the URL path to match.
+
 ### Start debugging
 
 Run the page in the debugger and get a feel for how blob storage works. If any errors occur, the **Status** pane on the web page will display the error message received.
@@ -259,14 +263,31 @@ To open *index.html* in the browser with the Visual Studio Code debugger attache
 
 In the [Azure portal](https://portal.azure.com), you can verify the results of the API calls as you follow the steps below.
 
+1. In the Azure portal, select **Storage accounts**.
+1. Select to the storage account you created for this project.
+1. Select **Containers** in the account pane.
+1. Switch focus back to the web app.
 1. Click the **Create container** button at the top of the page to create a new container.
-2. Click the **Select and upload files** button.
-3. In the **Open** dialog, select one or more files.
-4. Click the **Open** button to close the dialog and upload the selected files.
-5. Select one or more files in the **Files** list.
-6. Click the **Delete selected files** button to delete them.
-7. Click the **Delete container** button to delete the container and all files in the container.
-8. Close the web app.
+1. Switch focus back to the Azure portal.
+1. Click the **Refresh** button near the top of the pane.
+1. Click on the newly created container to see its contents. You should see **No blobs found** since this is a new container.
+1. Switch focus back to the web app.
+1. Click the **Select and upload files** button.
+1. In the **Open** dialog, select one or more files.
+1. Click the **Open** button to close the dialog and upload the selected files.
+1. Switch focus back to the Azure portal.
+1. Click the **Refresh** button near the top of the pane to see the files you uploaded.
+1. Switch focus back to the web app.
+1. Select one or more files in the **Files** list.
+1. Click the **Delete selected files** button to delete them.
+1. Switch focus back to the Azure portal.
+1. Click the **Refresh** button near the top of the pane to see that the files were deleted from the container.
+1. Select the **<account-name> | Containers** link at the top of the portal pane.
+1. Switch focus back to the web app.
+1. Click the **Delete container** button to delete the container and all files in the container.
+1. Switch focus back to the Azure portal.
+1. Click the **Refresh** button near the top of the pane to see that the container was deleted.
+1. Close the web app.
 
 ### Clean up resources
 
