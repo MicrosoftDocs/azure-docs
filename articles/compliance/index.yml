@@ -166,7 +166,7 @@ additionalContent:
         # Card
         - title: White papers and analyst reports
           links:
-            - text: IDC- Azure Manages Regulatory Challenges 
+            - text: IDC - Azure Manages Regulatory Challenges 
               url: https://azure.microsoft.com/resources/azure-is-helping-organizations-manage-regulatory-challenges/
             - text: Security, Privacy, and Compliance in Azure
               url: https://servicetrust.microsoft.com/ViewPage/TrustDocumentsV3?command=Download&downloadType=Document&downloadId=62d400be-b281-48a2-b40a-eb1a89e087cf&tab=7f51cb60-3d6c-11e9-b2af-7bb9f5d2d913&docTab=7f51cb60-3d6c-11e9-b2af-7bb9f5d2d913_AuditedControls
@@ -176,5 +176,5 @@ additionalContent:
               url: https://gallery.technet.microsoft.com/13-Effective-Security-72447e11
             - text: Shared Responsibilities for Cloud Computing 
               url: https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91
-            - text: IDC: the rise of the cloud compliance professional
+            - text: IDC - The rise of the cloud compliance professional
               url: http://download.microsoft.com/download/0/D/6/0D68AE95-6414-4074-B4B8-34039831E2BF/IDC-Cloud-Compliance-Professional-WP.pdf
