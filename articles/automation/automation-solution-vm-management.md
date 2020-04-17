@@ -219,11 +219,11 @@ The Automation account and Log Analytics workspace are not deleted as part of th
 
 1. Search for and select **Log Analytics workspaces**.
 
-2. On the **Log Analytics workspaces** page, select the workspace.
+2. On the Log Analytics workspace page, select the workspace.
 
 3. Select **Delete** from the menu on the workspace settings page.
 
-4. If you don't want to keep the Azure Automation account components, you can manually delete each. See [Solution components](#solution-components).
+4. If you don't want to keep the Azure Automation account [solution components](#solution-components), you can manually delete each.
 
 ## Next steps
 
