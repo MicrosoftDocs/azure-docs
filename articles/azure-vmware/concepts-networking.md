@@ -2,12 +2,12 @@
 title: Concepts - network interconnectivity for Azure VMware Solution by Virtustream
 description: Learn about key aspects and use cases of networking and interconnectivity in Azure VMware Solution by Virtustream.
 services:
-author: v-jetome
+author: dikamath
 
 ms.service: vmware-virtustream
 ms.topic: conceptual
 ms.date: 7/29/2019
-ms.author: v-jetome 
+ms.author: dikamath 
 ms.custom: 
 
 ---

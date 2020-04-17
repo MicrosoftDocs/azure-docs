@@ -2,12 +2,12 @@
 title: Azure VMware Solution by Virtustream tutorial - access a private cloud
 description: In this tutorial, you learn how to enable and then access vCenter and NSX Manager in a private cloud.
 services: 
-author: v-jetome
+author: dikamath
 
 ms.service: vmware-virtustream
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.author: v-jetome
+ms.author: dikamath
 ms.custom: 
 
 #Customer intent: As a VMware administrator, I want to learn how to access the vCenter and NSX Manager of a private cloud.

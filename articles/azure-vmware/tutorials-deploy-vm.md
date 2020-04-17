@@ -2,12 +2,12 @@
 title: Azure VMware Solution by Virtustream tutorial - deploy a VM
 description: In this Azure VMware Solution (AVS) by Virtustream tutorial, you use a basic connection method to the private cloud and use vCenter to create a VM.
 services:
-author: v-jetome
+author: dikamath
 
 ms.service: vmware-virtustream
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.author: v-jetome
+ms.author: dikamath
 ms.custom: 
 
 

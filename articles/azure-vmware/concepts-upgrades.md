@@ -2,12 +2,12 @@
 title: Concepts - upgrades of Azure VMware Solution by Virtustream private clouds
 description: Learn about the key upgrade processes and features in Azure VMware Solution by Virtustream.
 services: 
-author: v-jetome
+author: dikamath
 
 ms.service: vmware-virtustream
 ms.topic: conceptual
 ms.date: 7/29/2019
-ms.author: v-jetome 
+ms.author: dikamath 
 ms.custom: 
 
 ---

@@ -2,12 +2,12 @@
 title: Concepts - identity and access for Azure VMware Solution by Virtustream
 description: Learn about the identity and access concepts of Azure VMware Solution by Virtustream. 
 services: 
-author: v-jetome
+author: dikamath
 
 ms.service: vmware-virtustream
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: v-jetome
+ms.author: dikamath
 ms.custom: 
 
 ---

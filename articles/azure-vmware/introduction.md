@@ -2,12 +2,12 @@
 title: Introduction to Azure VMware Solution by Virtustream
 description: Learn the features and benefits of Azure VMware Solution by Virtustream to deploy and manage VMware-based workloads in Azure.
 services: 
-author: v-jetome
+author: dikamath
 
 ms.service: vmware-virtustream
 ms.topic: overview
 ms.date: 07/29/2019
-ms.author: v-jetome
+ms.author: dikamath
 ms.custom: 
 
 ---
