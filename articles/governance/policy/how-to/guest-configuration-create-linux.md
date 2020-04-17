@@ -140,6 +140,7 @@ Configuration AuditFilePathExists
 import-module PSDesiredStateConfiguration
 AuditFilePathExists -out ./Config
 ```
+
 Save this file with name `config.ps1` in the project folder. Run it in PowerShell by executing `./config.ps1`
 in the terminal. A new mof file will be created.
 
