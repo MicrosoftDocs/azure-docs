@@ -13,7 +13,7 @@ ms.author: dsindona
 # Create a new IoT Edge module offer with the Cloud Partner Portal
 
 >[!Important]
->Starting March 30th, 2020, we'll begin moving management of your IoT Edge module offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an IoT Edge module offer](https://aka.ms/AzureCreateIoT) to manage your migrated offers.
+>Starting April 13, 2020, we'll begin moving management of your IoT Edge module offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an IoT Edge module offer](https://aka.ms/AzureCreateIoT) to manage your migrated offers.
 
 This article describes how to create and publish an IoT Edge module offer entry for the Azure Marketplace. Every offer appears as its own entity in Azure Marketplace and is associated with one or more SKUs.  An IoT Edge module offer is composed of the following groupings of assets and supporting services:
 

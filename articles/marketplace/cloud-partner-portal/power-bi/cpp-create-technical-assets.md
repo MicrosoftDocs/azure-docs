@@ -12,7 +12,7 @@ ms.author: dsindona
 # Create Power BI App offer technical assets
 
 >[!Important]
->Starting March 30th, 2020, we'll begin moving management of your Power BI app offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Power BI app creation overview](https://aka.ms/AzureCreatePBIServiceApp) to manage your migrated offers.
+>Starting April 13, 2020, we'll begin moving management of your Power BI app offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Power BI app creation overview](https://aka.ms/AzureCreatePBIServiceApp) to manage your migrated offers.
 
 The primary technical asset that you need for this offer type is a Power BI app. A Power BI app is a collection of primary datasets, reports or dashboards, and optional connected services and embedded datasets. It has evolved from an asset type previously known as a [content pack](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction). For more information about developing this type of app, see [What are Power BI template apps?](https://go.microsoft.com/fwlink/?linkid=2028636).
 

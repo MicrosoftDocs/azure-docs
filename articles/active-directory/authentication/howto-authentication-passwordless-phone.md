@@ -38,7 +38,7 @@ Instead of seeing a prompt for a password after entering a username, a person wh
 
 ### Enable the combined registration experience
 
-Registration features for passwordless authentication methods rely on the combined registration preview. Follow the steps in the article [Enable combined security information registration (preview)](howto-registration-mfa-sspr-combined.md), to enable the combined registration preview.
+Registration features for passwordless authentication methods rely on the combined registration feature. Follow the steps in the article [Enable combined security information registration](howto-registration-mfa-sspr-combined.md), to enable combined registration.
 
 ### Enable passwordless phone sign-in authentication methods
 
