@@ -10856,5 +10856,5 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 ## Next steps
 
 - [Match resource provider to service](../azure-resource-manager/management/azure-services-resource-providers.md)
-- [Azure custom roles](custom-roles.md)
 - [Azure built-in roles](built-in-roles.md)
+- [Cloud Adoption Framework: Resource access management in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

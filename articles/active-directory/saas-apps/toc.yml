@@ -67,6 +67,8 @@
         href: airwatch-tutorial.md
       - name: Alcumus Info Exchange
         href: alcumus-info-tutorial.md
+      - name: AlertMedia
+        href: alertmedia-tutorial.md
       - name: AlertOps
         href: alertops-tutorial.md
       - name: Alibaba Cloud Service (Role-based SSO)
@@ -75,11 +77,13 @@
         href: allbound-sso-tutorial.md  
       - name: Allocadia
         href: allocadia-tutorial.md
+      - name: Ally
+        href: ally-tutorial.md
       - name: Amazon Business
         href: amazon-business-tutorial.md
       - name: Amazon Web Services (AWS)
         href: amazon-web-service-tutorial.md
-      - name: Amazon Web Services (AWS) (Legacy Tutorial)
+      - name: Amazon Web Services (AWS) to connect multiple accounts
         href: aws-multi-accounts-tutorial.md
       - name: AMMS
         href: amms-tutorial.md
@@ -664,6 +668,8 @@
         href: hirevue-tutorial.md
       - name: Hive
         href: hive-tutorial.md
+      - name: Honestly
+        href: honestly-tutorial.md
       - name: Hootsuite
         href: hootsuite-tutorial.md
       - name: Hornbill
