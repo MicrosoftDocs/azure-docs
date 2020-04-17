@@ -95,4 +95,4 @@ If you want to make calls to [Private Endpoints][privateendpoints], then you nee
 
 <!--Links-->
 [VNETnsg]: https://docs.microsoft.com/azure/virtual-network/security-overview/
-[privateendpoints]: networking/private-endpoint.md
+[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
