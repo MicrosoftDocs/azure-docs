@@ -9,10 +9,11 @@ ms.date: 04/17/2020
 
 An entity extracts data from a user utterance at prediction runtime. An _optional_, secondary purpose is to boost the prediction of the intent or other entities as a feature to those models.
 
-There are two types of entities:
+There are several types of entities:
 
-* machine-learned entity
-* non-machine-learned - for exact text matches, pattern matches, or detection by prebuilt entities
+* Machine-learned entity
+* Non-machine-learned - for exact text matches, pattern matches, or detection by prebuilt entities
+* [Pattern.any](#pattern-any-entity) - to extract free-form text such as book titles
 
 Machine-learned entities provide the widest range of data extraction choices. Non-machine-learned entities work by text matching and are used as a feature with a [constraint](#design-entities-for-decomposition) for a machine-learned entity or intent.
 
@@ -100,6 +101,10 @@ To extract location, create a `location` entity is a machine-learned entity and 
 You can use a [**machine-learned entity**](tutorial-machine-learned-entity.md) to extract the data that describes the action of booking a flight and then to decompose the top-level entity into the separate parts.
 
 In this example, `Book a flight from Seattle to Cairo`, the top-level entity could be `travelAction` and labeled to extract `flight from Seattle to Cairo`. Then two component entities are created, called `origin` and `destination`, both with a constraint applied of the prebuilt `geographyV2` entity. In the training utterances, you need to label the `origin` and `destination` appropriately.
+
+## Pattern.any entity
+
+[!INCLUDE [Pattern.any entity - concepts](../includes/pattern-any-entity.md)]
 
 ## If you need more than the maximum number of entities
 
