@@ -464,7 +464,7 @@ The pattern syntax provides beginning and ending utterance anchor syntax of a ca
 
 ## Using Pattern.any entity
 
-[!INCLUDE [Pattern.any entity - concepts](../includes/pattern-any-entity.md)]
+[!INCLUDE [Pattern.any entity - concepts](./includes/pattern-any-entity.md)]
 
 ### Add example utterances with Pattern.any
 

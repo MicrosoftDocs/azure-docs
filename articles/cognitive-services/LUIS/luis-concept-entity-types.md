@@ -104,7 +104,7 @@ In this example, `Book a flight from Seattle to Cairo`, the top-level entity cou
 
 ## Pattern.any entity
 
-[!INCLUDE [Pattern.any entity - concepts](../includes/pattern-any-entity.md)]
+[!INCLUDE [Pattern.any entity - concepts](./includes/pattern-any-entity.md)]
 
 ## If you need more than the maximum number of entities
 
