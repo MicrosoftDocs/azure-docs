@@ -18,7 +18,7 @@ App Service Static Apps is a service that automatically builds and deploys web a
 
 Applying commits and pull requests to a designated branch triggers a GitHub Action workflow. The workflow builds the application for production and globally deploys the app to the web.
 
-Back-end API functionality is powered by Azure Functions. This serverless API automatically scales up and down based on demand to the API.
+Back-end API functionality is powered by Azure Functions which provides automatic up and down scaling based on demand to the API.
 
 ## Key features
 
