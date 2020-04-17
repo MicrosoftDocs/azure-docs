@@ -21,6 +21,8 @@ To complete this tutorial:
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
+Your new function app is now ready for use.
+
 :::image type="content" source="./media/functions-create-scheduled-function/function-app-create-success.png" alt-text="Function app successfully created." border="true":::
 
 Next, you create a function in the new function app.
