@@ -7857,6 +7857,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/automation/oms-solution-updatemgmt-sccmintegration.md",
+      "redirect_url": "/azure/automation/updatemgmt-mecmintegration",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/automation/automation-change-tracking.md",
       "redirect_url": "/azure/automation/change-tracking",
       "redirect_document_id": false

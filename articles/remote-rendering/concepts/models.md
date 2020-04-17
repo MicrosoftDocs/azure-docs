@@ -66,6 +66,8 @@ async void LoadModel(AzureSession session, Entity modelParent, string storageAcc
         modelParent
     );
 
+    var loadOp = session.Actions.LoadModelAsync(modelParams);
+
     // ... (identical to the SAS URI snippet above)
 }
 ```
