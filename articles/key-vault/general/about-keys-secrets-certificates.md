@@ -23,15 +23,6 @@ Azure Key Vault enables Microsoft Azure applications and users to store and use 
 
 For more general information about Key Vault, see [About Azure Key Vault](overview.md)
 
-## Supporting standards
-
-The JavaScript Object Notation (JSON) and JavaScript Object Signing and Encryption (JOSE) specifications are important background information.  
-
--   [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
--   [JSON Web Encryption (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
--   [JSON Web Algorithms (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
-
 ## Data types
 
 Refer to the JOSE specifications for relevant data types for keys, encryption, and signing.  
