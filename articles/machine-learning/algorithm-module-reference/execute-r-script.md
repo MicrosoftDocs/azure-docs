@@ -137,6 +137,9 @@ Datasets stored in the designer are automatically converted to an R data frame w
 
     > [!NOTE]
     > Please be very careful when writing your script and makes sure there is no syntax error, such as using a un-declared variable or a un-imported module or function. Also pay extra attentions to the pre-installed package list in the end of this document. To use packages that are not listed, please install them in your script such as `install.packages("zoo",repos = "http://cran.us.r-project.org")`
+	
+    > [!NOTE]
+    > Functions dependant on X11 library such as "View" are not supported because X11 library is not pre-installed.
     
     To help you get started, the **R Script** text box is pre-populated with sample code, which you can edit or replace.
     
