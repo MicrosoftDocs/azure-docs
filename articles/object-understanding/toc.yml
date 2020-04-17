@@ -4,6 +4,15 @@
   items:
   - name: About Object Understanding
     href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a model
+    href: quickstarts/get-started-model-ingestion.md
+- name: Samples
+  items:
+  - name: Azure Object Understanding samples (GitHub)
+    href: https://github.com/Azure/azure-object-understanding
 - name: Resources
   items:
   - name: Release notes

@@ -26,3 +26,10 @@ Some example use cases enabled by Object Understanding include:
 
 Azure Object Understanding is composed of a managed service and a client SDK for HoloLens. The following
 sections provide information about getting started with building apps using Azure Object Understanding.
+
+## Next steps
+
+Get started with Object Understanding.
+
+> [!div class="nextstepaction"]
+> [Model Ingestion](quickstarts/get-started-model-ingestion.md)
