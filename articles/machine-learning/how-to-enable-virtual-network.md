@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 03/13/2020
+ms.date: 04/17/2020
 ---
 
 # Secure Azure ML experimentation and inference jobs within an Azure Virtual Network
@@ -430,6 +430,8 @@ try:
 except:
     print("Creating new aks cluster")
 
+    # Subnet to use for AKS
+    subnet_name = "default"
     # Create AKS configuration
     prov_config = AksCompute.provisioning_configuration(location = "eastus2")
     # Set info for existing virtual network to create the cluster in
@@ -437,7 +439,7 @@ except:
     prov_config.vnet_name = "myvnetname"
     prov_config.service_cidr = "10.0.0.0/16"
     prov_config.dns_service_ip = "10.0.0.10"
-    prov_config.subnet_name = "default"
+    prov_config.subnet_name = subnet_name
     prov_config.docker_bridge_cidr = "172.17.0.1/16"
 
     # Create compute target
@@ -446,7 +448,7 @@ except:
     aks_target.wait_for_completion(show_output = True)
     
     # Update AKS configuration to use an internal load balancer
-    update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", "default")
+    update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
     aks_target.update(update_config)
     # Wait for the operation to complete
     aks_target.wait_for_completion(show_output = True)
