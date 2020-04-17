@@ -1,6 +1,6 @@
 ---
 title: Replication
-description: Learn about using SQL Server replication with Azure SQL Database single databases and databases in elastic pools
+description: Learn about using SQL Server replication with Azure SQL Database. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -12,9 +12,11 @@ ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 01/25/2019
 ---
-# Replication to SQL Database single and pooled databases
+# Replication to Azure SQL Database 
 
-SQL Server replication can be configured to single and pooled databases on a [SQL Database server](sql-database-servers.md) in Azure SQL Database.  
+You can configure an Azure SQL Database as
+
+SQL Server replication can be configured to single and pooled databases on a [SQL server](sql-database-servers.md) in Azure SQL Database.  
 
 ## **Supported Configurations:**
   
@@ -22,7 +24,7 @@ SQL Server replication can be configured to single and pooled databases on a [SQ
 - The Azure SQL database must be a push subscriber of a SQL Server publisher.  
 - The distribution database and the replication agents cannot be placed on an Azure SQL database.  
 - Snapshot and one-way transactional replication are supported. Peer-to-peer transactional replication and merge replication are not supported.
-- Replication is available for public preview on Azure SQL Database Managed Instance. Managed Instance can host publisher, distributor, and subscriber databases. For more information, see [Replication with SQL Database Managed Instance](replication-with-sql-database-managed-instance.md).
+- Replication is available for public preview on Azure SQL Managed Instance. A Managed Instance can host publisher, distributor, and subscriber databases. For more information, see [Replication with SQL Managed Instance](replication-with-sql-database-managed-instance.md).
 
 ## Versions  
 

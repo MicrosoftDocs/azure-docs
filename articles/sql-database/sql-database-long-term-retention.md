@@ -1,10 +1,11 @@
 ---
 title: "Long-term backup retention" 
-description: Learn how Azure SQL Database supports storing full database backups for up to 10 years via the long-term retention policy.
+titleSuffix: Azure SQL Database & SQL Managed Instance
+description: Learn how Azure SQL Database and SQL Managed Instance support storing full database backups for up to 10 years via the long-term retention policy.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
-ms.custom: 
+ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960
@@ -12,17 +13,17 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
 ---
-# Azure SQL Database long-term retention
+# Long-term retention - Azure SQL Database & SQL Managed Instance
 
-Many applications have regulatory, compliance, or other business purposes that require you to retain database backups beyond the 7-35 days provided by Azure SQL Database [automatic backups](sql-database-automated-backups.md). By using the long-term retention (LTR) feature, you can store specified SQL database full backups in Azure Blob storage with read-access geo-redundant storage for up to 10 years. You can then restore any backup as a new database. For more information about Azure Storage redundancy, see [Azure Storage redundancy](../storage/common/storage-redundancy.md). 
+Many applications have regulatory, compliance, or other business purposes that require you to retain database backups beyond the 7-35 days provided by Azure SQL Database and Azure SQL Managed Instance [automatic backups](sql-database-automated-backups.md). By using the long-term retention (LTR) feature, you can store specified SQL Database and SQL Managed Instance full backups in Azure Blob storage with read-access geo-redundant storage for up to 10 years. You can then restore any backup as a new database. For more information about Azure Storage redundancy, see [Azure Storage redundancy](../storage/common/storage-redundancy.md). 
 
-Long time retention can be enabled for single and pooled databases, and is in limited public preview for Azure SQL Database managed instances. 
+Long time retention can be enabled for single and pooled databases, and is in limited public preview for Azure SQL Database managed instances. This article provides a conceptual overview of long-term retention. To configure long-term retention, see [Configure Azure SQL Database LTR](sql-database-long-term-backup-retention-configure.md) and [Configure Azure SQL Managed Instance LTR](sql-database-managed-instance-long-term-backup-retention-configure.md). 
 
 > [!NOTE]
 > You can use SQL Agent jobs to schedule [copy-only database backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) as an alternative to LTR beyond 35 days.
 
 
-## How SQL Database long-term retention works
+## How long-term retention works
 
 Long-term backup retention (LTR) leverages the full database backups that are [automatically created](sql-database-automated-backups.md) to enable point-time restore (PITR). If an LTR policy is configured, these backups are copied to different blobs for long-term storage. The copy is a background job that has no performance impact on the database workload. The LTR policy for each SQL database can also specify how frequently the LTR backups are created.
 
@@ -57,37 +58,38 @@ W=12 weeks (84 days), M=12 months (365 days), Y=10 years (3650 days), WeekOfYear
    ![ltr example](./media/sql-database-long-term-retention/ltr-example.png)
 
 
-
 If you modify the above policy and set W=0 (no weekly backups), the cadence of backup copies will change as shown in the above table by the highlighted dates. The storage amount needed to keep these backups would reduce accordingly. 
 
 > [!IMPORTANT]
-> The timing of the individual LTR backups is controlled by Azure SQL Database. You cannot manually create a LTR backup or control the timing of the backup creation. After configuring an LTR policy, it  may take up to 7 days before the first LTR backup will show up on the list of available backups.  
-> 
+> The timing of the individual LTR backups is controlled by the Azure SQL service. You cannot manually create an LTR backup or control the timing of the backup creation. After configuring an LTR policy, it  may take up to 7 days before the first LTR backup will show up on the list of available backups.  
+
 
 ## Geo-replication and long-term backup retention
 
-If you are using active geo-replication or failover groups as your business continuity solution, you should prepare for eventual failovers and configure the same LTR policy on the geo-secondary database. Your LTR storage cost will not increase as backups are not generated from the secondaries. Only when the secondary becomes primary the backups will be created. It ensures non-interrupted generation of the LTR backups when the failover is triggered and the primary moves to the secondary region. 
+If you are using active geo-replication or failover groups as your business continuity solution, you should prepare for eventual failovers and configure the same LTR policy on the secondary database or instance. Your LTR storage cost will not increase as backups are not generated from the secondaries. The backups are only created when the secondary becomes primary the backups will be created. It ensures non-interrupted generation of the LTR backups when the failover is triggered and the primary moves to the secondary region. 
 
 > [!NOTE]
 > When the original primary database recovers from an outage that caused the failover, it will become a new secondary. Therefore, the backup creation will not resume and the existing LTR policy will not take effect until it becomes the primary again. 
 
 ## Managed Instance support
 
-Using long-term backup retention with an Azure SQL Database managed instances has the following limitations:
+Using long-term backup retention with an Azure SQL Managed Instance has the following limitations:
 
 - **Limited public preview** - This preview is only available to EA and CSP subscriptions and is subject to limited availability.  
 - [**PowerShell only**](sql-database-managed-instance-long-term-backup-retention-configure.md) - There is currently no Azure portal support. LTR must be enabled using PowerShell. 
 
 To request enrollment, create an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/) under the support topic **Backup, Restore, and Business continuity / Long-term backup retention**.
 
+## Configure LTR & restore backup
 
 ## Configure long-term backup retention
 
-To learn how to configure long-term retention using the Azure portal or PowerShell, see [Manage Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md).
+You can configure long-term backup retention using the Azure Portal and PowerShell for an Azure SQL Database, and PowerShell for an Azure SQL Managed Instance. To restore a database from the LTR storage, you can select a specific backup based on its timestamp. The database can be restored to any existing server or managed instance under the same subscription as the original database.
 
-## Restore database from LTR backup
+To learn how to configure long-term retention or restore a database from backup for an Azure SQL Database using the Azure Portal or PowerShell, see [Manage Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md)
 
-To restore a database from the LTR storage, you can select a specific backup based on its timestamp. The database can be restored to any existing server under the same subscription as the original database. To learn how to restore your database from an LTR backup, using the Azure portal, or PowerShell, see [Manage Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md).
+To learn how to configure long-term retention or restore a database from  backup for an Azure SQL Managed Instance using PowerShell, see [Manage Azure SQL Managed Instance long-term backup retention](sql-database-managed-instance-long-term-backup-configure.md). 
+
 
 ## Next steps
 
