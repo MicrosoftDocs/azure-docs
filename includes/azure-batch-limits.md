@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: batch
- author: laurenhughes
+ author: LauraBrenner
  ms.service: batch
  ms.topic: include
  ms.date: 05/28/2019
- ms.author: lahugh
+ ms.author: labrenne
  ms.custom: include file
 ---
 
@@ -18,10 +18,10 @@
 | **[Active](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate)** jobs and job schedules per Batch account (**completed** jobs have no limit) | 100-300 | 1,000<sup>1</sup> |
 | Pools per Batch account | 20-100 | 500<sup>1</sup> |
 
+<sup>1</sup>To request an increase beyond this limit, contact Azure Support.
+
 > [!NOTE]
 > Default limits vary depending on the type of subscription you use to create a Batch account. Cores quotas shown are for Batch accounts in Batch service mode. [View the quotas in your Batch account](../articles/batch/batch-quota-limit.md#view-batch-quotas).
 
 > [!IMPORTANT]
-> To help us better manage capacity during the global health pandemic, the default core quotas for new Batch accounts in some regions and for some types of subscription has been reduced from the above range of values, in some cases to zero cores. When you create a new Batch account, [check your core quota](https://docs.microsoft.com/azure/batch/batch-quota-limit#view-batch-quotas) and [request a core quota increase](https://docs.microsoft.com/azure/batch/batch-quota-limit#increase-a-quota), if required. 
-
-<sup>1</sup>To request an increase beyond this limit, contact Azure Support.
+> To help us better manage capacity during the global health pandemic, the default core quotas for new Batch accounts in some regions and for some types of subscription has been reduced from the above range of values, in some cases to zero cores. When you create a new Batch account, [check your core quota](../articles/batch/batch-quota-limit#view-batch-quotas) and [request a core quota increase](../articles/batch/batch-quota-limit#increase-a-quota), if required. 
