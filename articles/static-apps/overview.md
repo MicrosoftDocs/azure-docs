@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # What is App Service Static Apps (Preview)?
 
-App Service Static Apps is a service that automatically builds and deploys web apps from a GitHub repository.
+App Service Static Apps is a service that automatically builds and deploys web apps to Azure from a GitHub repository.
 
 :::image type="content" source="media/overview/static-apps-overview.png" alt-text="Static Apps overview":::
 
@@ -44,4 +44,4 @@ Back-end API functionality is powered by Azure Functions. Hosted on the Linux co
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Building your first static app](getting-started.md)
+> [Build your first static app](getting-started.md)
