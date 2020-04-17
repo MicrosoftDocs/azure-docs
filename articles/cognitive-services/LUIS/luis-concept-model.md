@@ -24,7 +24,7 @@ Model decomposition has the following parts:
 * [intents](#intents-classify-utterances)
     * [features](#features)
 * [machine-learned entities](#machine-learned-entities)
-    * [components](#entity-components-help-extract-data) (also machine-learned entities)
+    * [components](#machine-learned-entity-components-help-extract-data) (also machine-learned entities)
         * [features](#features)
         * [constraints](#constraints-are-text-rules) provided by non-machine-learned entities such as regular expressions, lists, and prebuilt entities (such as number and date)
 
@@ -44,7 +44,7 @@ The result of well-designed intents, with their example utterances, is a high in
 
 An entity represents a unit of data you want extracted from the utterance.
 
-## Machine-learned entity
+## Machine-learned entities
 
 A machine-learned entity is a top-level entity containing components, which are also machine-learned entities.
 
