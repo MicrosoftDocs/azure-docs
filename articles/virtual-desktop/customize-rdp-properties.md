@@ -22,11 +22,11 @@ Customizing a host pool's Remote Desktop Protocol (RDP) properties, such as mult
 
 See [supported RDP file settings](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) for a full list of supported properties and their default values.
 
-First, [download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
+## Prerequisites
 
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
+Before you begin, follow the instructions in [Set up the Windows Virtual Desktop PowerShell module]() to set up your PowerShell module and sign in to Azure.
+
+<!-->Create link to this page when article is ready<--->
 
 ## Default RDP properties
 
@@ -45,10 +45,21 @@ Any custom properties you define for the host pool will override these defaults.
 To add or edit a single custom RDP property, run the following PowerShell cmdlet:
 
 ```powershell
-Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty "<property>"
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -CustomRdpProperty <property>
 ```
 
-![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](media/singlecustomrdpproperty.png)
+To check if the cmdlet you just ran updated the property, run this cmdlet:
+
+```powershell
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, CustomRdpProperty
+```
+
+The output should look like this:
+
+```powershell
+Name              : 0301HP
+CustomRdpProperty : audiocapturemode:i:1;
+```
 
 ## Add or edit multiple custom RDP properties
 

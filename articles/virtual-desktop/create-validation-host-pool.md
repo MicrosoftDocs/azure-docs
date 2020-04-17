@@ -27,11 +27,11 @@ You can debug issues in the validation host pool with either [the diagnostics fe
 >[!NOTE]
 > We recommend that you leave the validation host pool in place to test all future updates.
 
-Before you begin, [download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/), if you haven't already. After that, run the following cmdlet to sign in to your account:
+## Prerequisites
 
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
+Before you begin, follow the instructions in [Set up the Windows Virtual Desktop PowerShell module]() to set up your PowerShell module and sign in to Azure.
+
+<!-->Create link to this page when article is ready<--->
 
 ## Create your host pool
 
@@ -45,35 +45,33 @@ You can create a host pool by following the instructions in any of these article
 Run the following PowerShell cmdlets to define the new host pool as a validation host pool. Replace the values in quotes by the values relevant to your session:
 
 ```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-Set-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv $true
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -ValidationEnvironment:$true
 ```
 
 Run the following PowerShell cmdlet to confirm that the validation property has been set. Replace the values in quotes by the values relevant to your session.
 
 ```powershell
-Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool"
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | Format-List
 ```
 
 The results from the cmdlet should look similar to this output:
 
-```
-    TenantName          : contoso 
-    TenantGroupName     : Default Tenant Group
-    HostPoolName        : contosoHostPool
+```powershell
+    HostPoolName        : hostpoolname
     FriendlyName        :
     Description         :
     Persistent          : False 
-    CustomRdpProperty    : use multimon:i:0;
+    CustomRdpProperty   : use multimon:i:0;
     MaxSessionLimit     : 10
     LoadBalancerType    : BreadthFirst
-    ValidationEnv       : True
-    Ring                :
+    ValidationEnvironment : True
 ```
 
 ## Update schedule
 
 Service updates happen monthly. If there are major issues, critical updates will be provided at a more frequent pace.
+
+If there are any service updates, make sure you have at least a small group of users signing in each day to validate the environment. We recommend you regularly visit our [TechCommunity site](https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=wvdupdate&location=forum-board:WindowsVirtualDesktop&sort_by=-topicPostDate&collapse_discussion=true) and follow any posts with WVDUPdate to stay informed about service updates.
 
 ## Next steps
 
