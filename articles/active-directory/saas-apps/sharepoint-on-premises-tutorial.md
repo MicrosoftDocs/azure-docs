@@ -230,6 +230,7 @@ In order to assign Azure Active Directory Security Groups to SharePoint on-premi
 To grant access to the Azure Active Directory Security Group in the on-premise SharePoint you need to share the site collection or add the Azure Active Directory Security Group to one of the site collection's group.
 
 1. Browse to the SharePoint Site Collection, under Site Settings for the Site Collection, click on "People and groups". Select the SharePoint group then click on New, "Add Users to this Group" and start to type the name of your group the People Picker will display the Azure Active Directory Security Group.
+
     ![Add AAD group to Sharepoint Group](./media/sharepoint-on-premises-tutorial/permission-aad-group.png)
 
 ### Grant access to a Guest account to SharePoint on-premises in the Azure portal
