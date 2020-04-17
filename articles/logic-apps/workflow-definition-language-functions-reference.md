@@ -185,7 +185,7 @@ This table describes the implicit data type conversions and the expressions you'
 
 | From | To |
 |------|----|
-| **Binary** | - **Binary** or **File**: `base64ToBinary(<value>)` <br>- **DataUri**: `concat('data:;base64,',<value>)` <br>- **Other**: `base64ToString(<value>)` |
+| **Binary** or **File** | - **Byte**: `base64(<value>)` <br>- **DataUri**: `concat('data:;base64,',<value>)` |
 | **Byte** | - **Binary** or **File**: `base64ToBinary(<value>)` <br>- **DataUri**: `concat('data:;base64,',<value>)` <br>- **Other**: `base64ToString(<value>)` |
 | **DataUri** | - **Binary** or **File**: `decodeDataUri(<value>)` <br>- **Byte**: `base64(decodeDataUri(<value>))` <br>- **Other**: `decodeDataUri(<value>)` |
 | **Other** | - **Byte**: `base64(<value>)` <br>- **DataUri**: `concat('data:,',encodeUriComponent(<value>))` |
