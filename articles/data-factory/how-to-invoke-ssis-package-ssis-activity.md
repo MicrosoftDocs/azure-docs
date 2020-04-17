@@ -17,6 +17,9 @@ ms.date: 11/14/2019
 ---
 
 # Run an SSIS package with the Execute SSIS Package activity in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory  pipeline by using the Execute SSIS Package activity. 
 
 ## Prerequisites

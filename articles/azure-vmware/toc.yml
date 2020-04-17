@@ -1,31 +1,25 @@
-- name: Azure VMware Solution (AVS)
-  href: index.yml
+- name: Azure VMware Solution by Virtustream (AVS by Virtustream)
+  href:
 - name: Overview
   items:
-  - name: About AVS
+  - name: About AVS by Virtustream
     href: introduction.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Network planning
-    href: network-checklist.md
-  - name: Create private cloud - Azure CLI
-    href: quickstart-private-cloud-cli.md
 - name: Tutorials
   items:
-  - name: 1 - Create an AVS private cloud
-    href: tutorial-create-private-cloud.md
-  - name: 2 - Configure networking
-    href: tutorial-configure-networking.md
-  - name: 3 - Create a Jumpbox
-    href: tutorial-create-jump-box.md
-  - name: x - Access a private cloud 
+  - name: 1 - Create an AVS by Virtustream private cloud
+    href: tutorials-create-private-cloud.md
+  - name: 2 - Create a service VNet and resources
+    href: tutorials-create-vnet-resources.md
+  - name: 3 - Access a private cloud 
     href: tutorials-access-private-cloud.md   
-  - name: x - Create an NSX-T network
+  - name: 4 - Create an NSX-T network
     href: tutorials-create-t1-ls.md
-  - name: x - Deploy a VM
+  - name: 5 - Deploy a VM
     href: tutorials-deploy-vm.md
-  - name: x - Scale a private cloud
+  - name: 6 - Scale a private cloud
     href: tutorials-scale-private-cloud.md
 - name: Concepts
   items:
@@ -39,26 +33,6 @@
     href: concepts-identity.md
   - name: Private cloud upgrades
     href: concepts-upgrades.md
-  - name: Whitelisting and Quota management - TODO
-    href: 
-  - name: Network Architecture - TODO
-    href: 
-- name: How-to guides
-  items:
-  - name: Manage DHCP
-    href: manage-dhcp.md
-  - name: Internet Enable - TODO
-    href: 
-  - name: Set up NSX-T Best practices - TODO
-    href: 
-  - name: Azure Backup - TODO
-    href: 
-  - name: Migration using HCX - TODO
-    href: 
-  - name: Migration using vMotion - TODO
-    href: 
-  - name: Disaster Recovery
-    href: disaster-recovery.md
 - name: Reference
   items:
 - name: Resources
