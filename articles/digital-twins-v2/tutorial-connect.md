@@ -33,9 +33,11 @@ In this tutorial, you will...
 
 The sample project used in this tutorial represents a real-world **building scenario**, containing a floor, a room, and a thermostat device. These components will be digitally represented in an Azure Digital Twins instance, which will then be connected to [IoT Hub](../iot-hub/about-iot-hub.md), [Event Grid](../event-grid/overview.md), and two [Azure functions](../azure-functions/functions-overview.md) to facilitate movement of and responses to data.
 
-Here is an overview of data flow through the entire scenario:
+Below is a diagram representing the full scenario. 
 
-![A scenario graph that depicts data flowing from a device into IoT Hub, through an Azure function to an Azure Digital Twins instance, then out through Event Grid to another Azure function for processing](media/tutorial-connect/building-scenario.png)
+You will first create the Azure Digital Twins instance (**section A** in the diagram), then set up the telemetry data flow into the digital twins (**arrow B**), then set up the data propagation through the twin graph (**arrow C**).
+
+![Graphic of the full building scenario. Depicts data flowing from a device into IoT Hub, through an Azure function (arrow B) to an Azure Digital Twins instance (section A), then out through Event Grid to another Azure function for processing (arrow C)](media/tutorial-connect/building-scenario.png)
 
 To work through the scenario, you will interact with components of the pre-written sample app you downloaded earlier.
 
@@ -52,9 +54,9 @@ The sample project also contains an interactive authorization component. Every t
 
 ### Instantiate the pre-created twin graph
 
-First, you'll use the *BuildingScenario* solution from the sample project to build the Azure Digital Twins piece of the end-to-end scenario:
+First, you'll use the *BuildingScenario* solution from the sample project to build the Azure Digital Twins piece of the end-to-end scenario (**section A**):
 
-![An excerpt from the full building scenario graphic, highlighting the Azure Digital Twins instance](media/tutorial-connect/building-scenario-1.png)
+![An excerpt from the full building scenario graphic highlighting section A, the Azure Digital Twins instance](media/tutorial-connect/building-scenario-a.png)
 
 From the downloaded solution folder, open _DigitalTwinsMetadata/**DigitalTwinsSample.sln**_ in Visual Studio. Run the project with this button in the toolbar:
 
@@ -83,9 +85,9 @@ An Azure Digital Twins graph is meant to be driven by telemetry from real device
 
 In this step, you will connect a simulated thermostat device registered in [IoT Hub](../iot-hub/about-iot-hub.md) to the digital twin that represents it in Azure Digital Twins. As the simulated device emits telemetry, the data will be directed through an [Azure Functions](../azure-functions/functions-overview.md) app that triggers a corresponding update in the digital twin. In this way, the digital twin stays up to date with the real device's data.
 
-This activity happens within this piece of the end-to-end scenario:
+This happens in this part of the end-to-end scenario (**arrow B**):
 
-![An excerpt from the full building scenario graphic, highlighting the elements before Azure Digital Twins: the device, IoT Hub, and first Azure function](media/tutorial-connect/building-scenario-2.png)
+![An excerpt from the full building scenario graphic highlighting arrow B, the elements before Azure Digital Twins: the device, IoT Hub, and first Azure function](media/tutorial-connect/building-scenario-b.png)
 
 Here are the actions you will complete to set up this device connection:
 1. Deploy the pre-written Azure function that will update Azure Digital Twins with incoming data
@@ -272,9 +274,9 @@ Once you've verified this is working successfully, you can stop running both pro
 
 So far in this tutorial, you've seen how Azure Digital Twins can be updated from external device data. Next, you'll see how changes to one digital twin can propagate through the Azure Digital Twins graph—in other words, how to update twins from service-internal data.
 
-To do this, you'll deploy an [Azure Functions](../azure-functions/functions-overview.md) app that updates a *Room* twin when the connected *Thermostat* twin is updated. This happens within this piece of the end-to-end scenario:
+To do this, you'll deploy an [Azure Functions](../azure-functions/functions-overview.md) app that updates a *Room* twin when the connected *Thermostat* twin is updated. This happens in this part of the end-to-end scenario (**arrow C**):
 
-![An excerpt from the full building scenario graphic, highlighting the elements after Azure Digital Twins: the Event Grid and second Azure function](media/tutorial-connect/building-scenario-3.png)
+![An excerpt from the full building scenario graphic highlighting arrow C, the elements after Azure Digital Twins: the Event Grid and second Azure function](media/tutorial-connect/building-scenario-c.png)
 
 Here are the actions you will complete to set up this data flow:
 1. Create an Azure Digital Twins endpoint that connects the instance to Event Grid
@@ -405,14 +407,13 @@ Once you've verified this is working successfully, you can stop running both pro
 
 ## Review
 
-Here is a review of the Azure Digital Twins scenario that you built out in this tutorial.
+Here is a review of the scenario that you built out in this tutorial.
 
-1. Simulated device telemetry is sent to IoT Hub, where the *HubToDT* Azure function is listening for telemetry events (represented with **arrow A** on the diagram below)
-2. The *HubToDT* Azure function uses the information in these events to set the *Temperature* property on *thermostat67*  (represented in red with **arrow B** on the diagram)
-3. Property change events in Azure Digital Twins are routed to an event grid topic, where the *ProcessDTRoutedData* Azure Function is listening for all events (represented with **arrow C** on the diagram)
-4. The *ProcessDTRoutedData* Azure function uses the information in these events to set the *Temperature* property on *room21* (represented with **arrow D** on the diagram)
+1. An Azure Digital Twins instance digitally represents a floor, a room, and a thermostat (represented by **section A** in the diagram below)
+2. Simulated device telemetry is sent to IoT Hub, where the *HubToDT* Azure function is listening for telemetry events. The *HubToDT* Azure function uses the information in these events to set the *Temperature* property on *thermostat67* (**arrow B** in the diagram).
+3. Property change events in Azure Digital Twins are routed to an event grid topic, where the *ProcessDTRoutedData* Azure Function is listening for events. The *ProcessDTRoutedData* Azure function uses the information in these events to set the *Temperature* property on *room21* (**arrow C** in the diagram).
 
-![A marked-up version of the full building scenario graphic, highlighting the flow of data described above](media/tutorial-connect/building-scenario-4.png)
+![Graphic of the full building scenario. Depicts data flowing from a device into IoT Hub, through an Azure function (arrow B) to an Azure Digital Twins instance (section A), then out through Event Grid to another Azure function for processing (arrow C)](media/tutorial-connect/building-scenario.png)
 
 ## Clean up resources
 
