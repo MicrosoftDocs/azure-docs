@@ -31,7 +31,7 @@ Next, you create a function in the new function app.
 
 1. Navigate to your function app.
 
-1. Select **Functions** and select **+ Add** 
+1. Select **Functions**, and then select **+ Add** 
 
    :::image type="content" source="./media/functions-create-scheduled-function/function-add-function.png" alt-text="Add a function in the Azure portal." border="true":::
 
@@ -62,7 +62,7 @@ Now, you change the function's schedule so that it runs once every hour instead 
 
 ## Update the timer schedule
 
-1. In your function and select **Integration**. This is where you define input and output bindings for your function and also set the schedule. 
+1. In your function, select **Integration**. Here, you define input and output bindings for your function and also set the schedule. 
 
 1. Select **Timer (myTimer)**.
 
@@ -80,6 +80,6 @@ You now have a function that runs once every hour, on the hour.
 
 ## Next steps
 
-You have created a function that runs based on a schedule. For more information about timer triggers, see [Schedule code execution with Azure Functions](functions-bindings-timer.md).
+You've created a function that runs based on a schedule. For more information about timer triggers, see [Schedule code execution with Azure Functions](functions-bindings-timer.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
