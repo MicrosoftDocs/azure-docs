@@ -520,7 +520,8 @@
         "articles/service-fabric-mesh/*.md": "service-fabric-mesh",
         "articles/service-health/**/*.md": "service-health",
         "articles/aks/**/*.md": "container-service",
-	"articles/remote-rendering/**/*.md": "azure-remote-rendering"
+        "acticles/object-understanding/**/*.md": "azure-object-understanding",
+        "articles/remote-rendering/**/*.md": "azure-remote-rendering"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture",
@@ -646,6 +647,8 @@
         "articles/migrate/**/*.md": "Azure Migrate",
         "articles/spatial-anchors/**/*.md": "Azure Spatial Anchors",
         "articles/spatial-anchors/**/*.yml": "Azure Spatial Anchors",
+        "articles/object-understanding/**/*.md": "Azure Object Understanding",
+        "articles/object-understanding/**/*.yml": "Azure Object Understanding",
         "articles/dev-spaces/**/*.md": "Azure Dev Spaces",
         "articles/app-service/*.md": "Azure App Service",
         "articles/app-service/*.yml": "Azure App Service",

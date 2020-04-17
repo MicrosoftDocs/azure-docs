@@ -1,0 +1,27 @@
+### YamlMime:Landing
+
+title: Azure Object Understanding documentation
+summary: Object Understanding can be used to detect an object in the physical world and estimate its 6-DoF pose given a 3D model of that object.
+
+metadata:
+  title: Azure Object Understanding documentation
+  description: Use Azure Object Understanding to detect an object in the physical world and estimate its 6-DoF pose given a 3D model of that object.
+  services: azure-object-understanding
+  ms.service: azure-object-understanding
+  ms.topic: landing-page
+  author: craigktreasure
+  ms.author: crtreasu
+  ms.date: 04/01/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Azure Object Understanding
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Object Understanding?
+            url: overview.md
+          - text: View release notes on GitHub
+            url: https://github.com/Azure/azure-object-understanding/releases
