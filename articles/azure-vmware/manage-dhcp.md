@@ -1,6 +1,6 @@
 ---
 title: How to manage DHCP in Azure VMWare Solution (AVS)
-description: This article defines how to manage DHCP in Azure VMWare Solution (AVS)
+description: This article explains how to manage DHCP in Azure VMWare Solution (AVS)
 author: dikamath
 ms.author: dikamath
 ms.service: azure-vmware
@@ -8,61 +8,48 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ---
 # How to manage DHCP in AVS
+
+NXS-T provides the ability to configure DHCP for your private cloud. If you plan to use NXS-T to host your DHCP server, see [Create DHCP server](#create-dhcp-server). If you want to If you have a 3rd party external DHCP server in your network and you want to relay requests to that DHCP server, see [Configure DHCP relay service](#configure-dhcp-relay).
+
 ## Create DHCP server
 
-**Steps**
+Use the following steps to configure a DHCP server on NSX-T.
 
-1. From NSX manager navigate to the Networking tab.
+1. From NSX manager navigate to the **Networking** tab and select **DHCP** under **IP Management**.
 
-   ![](./media/manage-dhcp/image40.jpg)
+   ![select DHCP under Networking](./media/manage-dhcp/select-dhcp.jpg)
 
-2. Under IP Management click on the DHCP button
+1. Click on the **ADD SERVER** button. Then provide the server name and server IP address. Once done, click **Save**.
 
-   ![](./media/manage-dhcp/image41.jpg)
+   ![](./media/manage-dhcp/dhcp-server-settings.jpg)
 
-3. Click on the ADD SERVER button.H
+1. Connect DHCP server to the tier1 gateway.
 
-   ![](./media/manage-dhcp/image42.jpg)
+1. Click on **Tier 1 Gateways**, select the gateway and click **Edit**
 
-4. Provide the server name.
+   ![](./media/manage-dhcp/edit-tier-1-gateway.jpg)
 
-5. Provide the server IP address and click save
+1. Add a subnet by clicking on **No IP Allocation Set**
 
-   ![](./media/manage-dhcp/image43.jpg)
+   ![](./media/manage-dhcp/add-subnet.jpg)
 
-6. Connect DHCP ser to the tier1 gateway.
+1. On the next screen, select **DHCP Local Server** from the **Type** dropdown. For **DHCP Server**, select **Default DHCP** and click **Save**.
 
-7. Click on Tier 1 Gateways and select the gateway.
+    ![](./media/manage-dhcp/set-ip-address-management.jpg)
 
-   ![](./media/manage-dhcp/image44.jpg)
-
-8. Click on edit
-
-   ![](./media/manage-dhcp/image45.jpg)
-
-9. Add a subnet by clicking on No IP Allocation Set
-
-   ![](./media/manage-dhcp/image46.jpg)
-
-10. Set IP management to DHCP Local Server
-
-    ![](./media/manage-dhcp/image47.jpg)
-
-11. Select Default Server and click save.
-
-    ![](./media/manage-dhcp/image48.jpg)
-
-12. Then click save on the Tier-1 Gateway
+1. Then click save on the Tier-1 Gateway
 
     ![](./media/manage-dhcp/image49.jpg)
 
-13. You should see "Changes Saved" then close editing.
+1. You should see "Changes Saved" then close editing.
 
     ![](./media/manage-dhcp/image50.jpg)
 
+## Configure DHCP relay service
+
 ## Create Network Segments
 
-In this exercise will add network segments to our DHCP server.
+Once you have created your DHCP In this exercise will add network segments to our DHCP server.
 
 Steps
 

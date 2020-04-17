@@ -8,10 +8,7 @@ ms.topic: tutorial
 ms.date: 04/07/2020
 ---
 
-# Tutorial: Deploy an SDDC in Azure
-
-
-**Deploy vSphere Cluster in Azure (3 host minimum)**
+# Tutorial: Deploy an AVS private cloud in Azure
 
 Ability to deploy a vSphere cluster in Azure from the Azure portal.
 Minimum initial deployment is three hosts. Additional hosts can be added
@@ -22,6 +19,10 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Private Cloud
+
+## Prerequisites
+
+* Ensure you have the appropriate networking configured as described in [Quickstart: Network checklist](network-checklist.md)
 
 ## Sign in to the Azure portal
 

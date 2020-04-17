@@ -7,7 +7,10 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Network planning
+    href: network-checklist.md
   - name: Create private cloud - Azure CLI
+    href: quickstart-private-cloud-cli.md
 - name: Tutorials
   items:
   - name: 1 - Create an AVS private cloud
@@ -40,8 +43,6 @@
     href: 
   - name: Network Architecture - TODO
     href: 
-  - name: Network requirements
-    href: network-requirements.md
 - name: How-to guides
   items:
   - name: Create DHCP Server - TODO
