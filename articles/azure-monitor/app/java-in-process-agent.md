@@ -33,7 +33,14 @@ For additional help with configuring your application's JVM args, please see [3.
 **3. Point the agent to your Application Insights resource**
 
 If you do not already have an Application Insights resource, you can create a new one by following the steps in the [resource creation guide](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
-Create a configuration file named `ApplicationInsights.json`, and place it in the same directory as `applicationinsights-agent-3.0.0-PREVIEW.2.jar`, with the following content:
+
+Point the agent to your Application Insights resource, either by setting an environment variable:
+
+```
+APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
+```
+
+Or by creating a configuration file named `ApplicationInsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.0-PREVIEW.2.jar`, with the following content:
 
 ```json
 {
