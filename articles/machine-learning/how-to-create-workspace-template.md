@@ -252,7 +252,7 @@ The following example template demonstrates how to create a workspace with three
                     "keyIdentifier": "[parameters('resource_cmk_uri')]"
                   }
             },
-        "hbi_workspace": "[parameters('hbi_workspace')]"
+        "hbiWorkspace": "[parameters('hbi_workspace')]"
       }
     }
   ]
