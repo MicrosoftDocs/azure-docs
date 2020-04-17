@@ -110,7 +110,7 @@ az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset
 When new node pools are added to the cluster created above, the customer-managed key provided during the create is used to encrypt the OS disk.
 
 ## Encrypt your AKS cluster data disk(optional)
-OS disk encryption key will be used to encrypt data disk if key is not provided for data disk, and you can also encrypt AKS data disks with your other keys.
+OS disk encryption key will be used to encrypt data disk if key is not provided for data disk from v1.17.2, and you can also encrypt AKS data disks with your other keys.
 
 > [!IMPORTANT]
 > Ensure you have the proper AKS credentials. The Service principal will need to have contributor access to the resource group where the diskencryptionset is deployed. Otherwise, you will get an error suggesting that the service principal does not have permissions.
