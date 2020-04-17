@@ -59,6 +59,10 @@ The default role on an application from the gallery is called the "default acces
 **Behavior for provisioning configurations created after 04/16/2020:**
 Users assigned to the default access role will be evaluated the same as all other roles. A user that is assigned the default access will not be skipped as "not effectively entitled." 
 
+**Behavior for provisioning configurations created before 04/16/2020:**
+For the next 3 months, the behavior will continue as it is today. Users with the default access role will be skipped as not effectively entitled. After July 2020, the behavior will be uniform for all applications. We will not skip provisioning users with the default access role due to being "not effectively entitled." This change will be made by Microsoft, with no customer action required. If you would like to ensure that these users continue to be skipped, even after this change, please apply the appropriate scoping filters or unassign the user from the application to ensure they are out of scope.  
+
+For questions about these changes, please reach out to provisioningfeedback@microsoft.com
 ## Next steps
 
 [Azure AD Connect sync: Understanding Declarative Provisioning](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)
