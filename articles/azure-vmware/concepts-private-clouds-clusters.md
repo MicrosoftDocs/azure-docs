@@ -2,12 +2,12 @@
 title: Concepts - private clouds and clusters in Azure VMware Solution (AVS) by Virtustream
 description: Learn about the key capabilities of Azure VMware software-defined data centers and vSphere clusters in VMware Solution on Azure by VMware. 
 services: 
-author: v-jetome
+author: dikamath
 
 ms.service: vmware-virtustream
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: v-jetome
+ms.author: dikamath
 ms.custom: 
 
 ---

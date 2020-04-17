@@ -2,12 +2,12 @@
 title: Azure VMware Solution by Virtustream tutorial - scale a private cloud
 description: In this Azure VMware Solution by Virtustream tutorial, you use the Azure portal to scale a private cloud.
 services: 
-author: v-jetome
+author: dikamath
 
 ms.service: vmware-virtustream
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.author: v-jetome
+ms.author: dikamath
 ms.custom: 
 
 #Customer intent: As a VMware administrator, I want to learn how to scale an Azure VMware Solution (AVS) by Virtustream private cloud in the Azure portal.

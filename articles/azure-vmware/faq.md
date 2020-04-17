@@ -2,12 +2,12 @@
 title: Frequently asked questions for Azure VMware Solution by Virtustream
 description: Provides answers to some of the common questions about Azure VMware Solution by Virtustream.
 services:
-author: v-jetome
+author: dikamath
 
 ms.service: vmware-virtustream
 ms.topic: conceptual
 ms.date:  07/29/2019
-ms.author: v-jetome
+ms.author: dikamath
 
 ---
 

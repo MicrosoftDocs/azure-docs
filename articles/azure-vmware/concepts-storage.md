@@ -2,12 +2,12 @@
 title: Concepts - storage in Azure VMware Solution by Virtustream private clouds
 description: Learn about the key storage capabilities in Azure VMware Solution by Virtustream private clouds.
 services: 
-author: v-jetome
+author: dikamath
 
 ms.service: vmware-virtustream
 ms.topic: conceptual
 ms.date: 7/29/2019
-ms.author: v-jetome 
+ms.author: dikamath 
 ms.custom: 
 
 ---
