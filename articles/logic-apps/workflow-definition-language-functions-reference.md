@@ -179,9 +179,9 @@ To change a value's type or format, you can use these conversion functions. For 
 
 ## Implicit data type conversions
 
-The Logic Apps service automatically or implicitly converts values between specific data types, which means that you don't need to manually or explicitly convert between those types by using the relevant expressions. Actually, if you use these expressions in the designer or code view, Logic Apps removes the expressions after you save your logic app because the conversions happen automatically.
+The Logic Apps service automatically or implicitly converts values between specific data types, which means that you don't need to manually or explicitly convert between those types by using the relevant expressions. In fact, if these expressions appear in the designer or code view, Logic Apps removes the expressions after you save your logic app because the conversions happen automatically.
 
-This table describes the data type conversions that Logic Apps automatically makes and the expressions that you'd typically use when manually performing these conversions but should omit.
+This table describes the implicit data type conversions and the expressions you'd typically use for those conversions but should omit because Logic Apps will remove the expressions.
 
 | From | To |
 |------|----|
