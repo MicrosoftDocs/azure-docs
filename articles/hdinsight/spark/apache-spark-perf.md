@@ -156,7 +156,7 @@ To manage parallelism for Cartesian joins, you can add nested structures, window
 
 ## Customize cluster configuration
 
-Depending on your Spark cluster workload, you may determine  a non-default Spark configuration would result in more optimized Spark job execution.  DO benchmark testing with sample workloads to validate any non-default cluster configurations.
+Depending on your Spark cluster workload, you may determine  a non-default Spark configuration would result in more optimized Spark job execution.  Do benchmark testing with sample workloads to validate any non-default cluster configurations.
 
 Here are some common parameters you can adjust:
 
