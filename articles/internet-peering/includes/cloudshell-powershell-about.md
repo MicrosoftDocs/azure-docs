@@ -11,7 +11,7 @@ ms.author: prmitiki
 ---
 
 
-To run the cmdlets, you can use Azure Cloud Shell, a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. Select **Copy** to copy the code, and paste it into the cloud shell. Then select **Enter** to run it. There are a few ways to launch the cloud shell:
+To run the cmdlets, you can use Azure Cloud Shell, a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. Select **Copy** to copy the code, and paste it into Cloud Shell. Then select **Enter** to run it. There are a few ways to launch Cloud Shell:
 
 
 |  |   |
