@@ -111,7 +111,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Screenshot of SAML Signing Certificate section, with Download link highlighted](common/metadataxml.png)
 
-1. On the **Set up MongoDB Cloud** section, copy the appropriate URLs, based on your requirement.
+1. In the **Set up MongoDB Cloud** section, copy the appropriate URLs, based on your requirement.
 
 	![Screenshot of Set up Mongo DB Cloud section, with URLs highlighted](common/copy-configuration-urls.png)
 ### Create an Azure AD test user
