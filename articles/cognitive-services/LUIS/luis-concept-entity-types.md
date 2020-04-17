@@ -1,16 +1,8 @@
 ---
 title: Entity types - LUIS
-titleSuffix: Azure Cognitive Services
 description: "Entities extract data from the utterance. Entity types give you predictable extraction of data. There are two types of entities: machine-learned and non-machine-learned. It is important to know which type of entity you are working with in utterances."
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.author: diberry
+ms.date: 04/17/2020
 ---
 # Entities and their purpose in LUIS
 
@@ -135,4 +127,4 @@ Learn concepts about good [utterances](luis-concept-utterance.md).
 See [Add entities](luis-how-to-add-entities.md) to learn more about how to add entities to your LUIS app.
 
 See [Tutorial: Extract structured data from user utterance with machine-learned entities in Language Understanding (LUIS)](tutorial-machine-learned-entity.md) to learn how to extract structured data from an utterance using the machine-learned entity.
- 
+
