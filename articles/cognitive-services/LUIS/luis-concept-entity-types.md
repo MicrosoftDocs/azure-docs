@@ -1,19 +1,19 @@
 ---
 title: Entity types - LUIS
-description: "Entities extract data from the utterance. Entity types give you predictable extraction of data. There are two types of entities: machine-learned and non-machine-learned. It is important to know which type of entity you are working with in utterances."
+description: Entities extract data from the utterance. Entity types give you predictable extraction of data. There are two types of entities: machine-learned and non-machine-learned. It is important to know which type of entity you are working with in utterances.
 ms.topic: conceptual
 ms.date: 04/17/2020
 ---
-# Entities and their purpose in LUIS
+# Extract data with entities
 
-The primary purpose of entities is to give the client application predictable extraction of data. An _optional_, secondary purpose is to boost the prediction of the intent or other entities with descriptors.
+An entity extracts data from a user utterance at prediction runtime. An _optional_, secondary purpose is to boost the prediction of the intent or other entities as a feature to those models.
 
 There are two types of entities:
 
-* machine-learned - from context
+* machine-learned entity
 * non-machine-learned - for exact text matches, pattern matches, or detection by prebuilt entities
 
-Machine-learned entities provide the widest range of data extraction choices. Non-machine-learned entities work by text matching and may be used independently or as a [constraint](#design-entities-for-decomposition) on a machine-learned entity.
+Machine-learned entities provide the widest range of data extraction choices. Non-machine-learned entities work by text matching and are used as a feature with a [constraint](#design-entities-for-decomposition) for a machine-learned entity or intent.
 
 ## Entities represent data
 
