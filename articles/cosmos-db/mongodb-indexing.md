@@ -1,5 +1,5 @@
 ---
-title: Manage indexing in the Azure Cosmos DB API for MongoDB
+title: Manage indexing in Azure Cosmos DB's API for MongoDB
 description: This article presents an overview of Azure Cosmos DB indexing capabilities by using the MongoDB API.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
@@ -12,13 +12,13 @@ ms.author: tisande
 ---
 # Manage indexing in the Azure Cosmos DB API for MongoDB
 
-The Azure Cosmos DB API for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes by using the Azure Cosmos DB API for MongoDB. You can also read an [overview of indexing in Azure Cosmos DB](index-overview.md) that's relevant across all APIs.
+Azure Cosmos DB's API for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using Azure Cosmos DB's API for MongoDB. You can also read an [overview of indexing in Azure Cosmos DB](index-overview.md) that's relevant across all APIs.
 
 ## Indexing for MongoDB server version 3.6
 
-The Azure Cosmos DB API for MongoDB version 3.6 automatically indexes the `_id` field, which can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key.
+Azure Cosmos DB's API for MongoDB server version 3.6 automatically indexes the `_id` field, which can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key.
 
-To index additional fields, you apply the MongoDB index-management commands. As in MongoDB, the Azure Cosmos DB API for MongoDB automatically indexes the `_id` field only. This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
+To index additional fields, you apply the MongoDB index-management commands. As in MongoDB, Azure Cosmos DB's API for MongoDB automatically indexes the `_id` field only. This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
 
 To apply a sort to a query, you must create an index on the fields used in the sort operation.
 
@@ -26,15 +26,15 @@ To apply a sort to a query, you must create an index on the fields used in the s
 
 ### Single field
 
-You can create indexes on any single field. The sort order of the single-field index does not matter. The following command creates an index on the field `name`:
+You can create indexes on any single field. The sort order of the single field index does not matter. The following command creates an index on the field `name`:
 
 `db.coll.createIndex({name:1})`
 
-One query uses multiple single-field indexes where available. You can create up to 500 single-field indexes per container.
+One query uses multiple single field indexes where available. You can create up to 500 single field indexes per container.
 
 ### Compound indexes (MongoDB server version 3.6)
 
-The Azure Cosmos DB API for MongoDB supports compound indexes for accounts that use the version 3.6 wire protocol. You can include up to eight fields in a compound index. Unlike in MongoDB, you should create a compound index only if your query needs to sort efficiently on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single-field indexes instead of a single compound index.
+Azure Cosmos DB's API for MongoDB supports compound indexes for accounts that use the version 3.6 wire protocol. You can include up to eight fields in a compound index. Unlike in MongoDB, you should create a compound index only if your query needs to sort efficiently on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a single compound index.
 
 The following command creates a compound index on the fields `name` and `age`:
 
@@ -66,7 +66,7 @@ Here's an example of creating a geospatial index on the `location` field:
 
 ### Text indexes
 
-The Azure Cosmos DB API for MongoDB does not currently support text indexes. For text search queries on strings, you should use [Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) integration with Azure Cosmos DB.
+Azure Cosmos DB's API for MongoDB does not currently support text indexes. For text search queries on strings, you should use [Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) integration with Azure Cosmos DB.
 
 ## Index properties
 
@@ -134,7 +134,7 @@ The preceding command deletes any documents in the ```db.coll``` collection that
 
 ## Track index progress
 
-Version 3.6 of the Azure Cosmos DB API for MongoDB supports the `currentOp()` command to track index progress on a database instance. This command returns a document that contains information about in-progress operations on a database instance. You use the `currentOp` command to track all in-progress operations in native MongoDB. In the Azure Cosmos DB API for MongoDB, this command only supports tracking the index operation.
+Version 3.6 of Azure Cosmos DB's API for MongoDB supports the `currentOp()` command to track index progress on a database instance. This command returns a document that contains information about in-progress operations on a database instance. You use the `currentOp` command to track all in-progress operations in native MongoDB. In Azure Cosmos DB's API for MongoDB, this command only supports tracking the index operation.
 
 Here are some examples that show how to use the `currentOp` command to track index progress:
 
@@ -235,7 +235,7 @@ If you're using version 3.2, this section outlines key differences with version 
 
 ### Dropping default indexes (version 3.2)
 
-Unlike the 3.6 version of the Azure Cosmos DB API for MongoDB, version 3.2 indexes every property by default. You can use the following command to drop these default indexes for a collection (```coll```):
+Unlike the 3.6 version of Azure Cosmos DB's API for MongoDB, version 3.2 indexes every property by default. You can use the following command to drop these default indexes for a collection (```coll```):
 
 ```JavaScript
 > db.coll.dropIndexes()
