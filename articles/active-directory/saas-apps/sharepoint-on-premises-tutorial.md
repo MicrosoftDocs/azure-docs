@@ -235,7 +235,7 @@ To grant access to the Azure Active Directory Security Group in the on-premise S
 
 ### Grant access to a Guest account to SharePoint on-premises in the Azure portal
 
-it's now possible to grant access to your SharePoint Site  to a Guest Account in a consistent way. It happens that the the UPN gets modified. User with jdoe@outlook.com will be represented like jdoe_outlook.com#ext#@TENANT.onmicrosoft.com. It's possible to get a seamless experience while sharing your site with external users, it would be necessary to add some modifications in your **User Attributes & Claims** section in the Azure portal.
+it's now possible to grant access to your SharePoint Site  to a Guest Account in a consistent way. It happens that the the UPN gets modified. User with jdoe@outlook.com will be represented like `jdoe_outlook.com#ext#@TENANT.onmicrosoft.com`. It's possible to get a seamless experience while sharing your site with external users, it would be necessary to add some modifications in your **User Attributes & Claims** section in the Azure portal.
 
 1. In the Azure portal, open the Azure AD directory. Click on **Enterprise applications**, click on the **previously created Enterprise Application name** and click on **Single sign-on**.
 
