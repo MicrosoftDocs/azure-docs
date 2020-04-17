@@ -75,7 +75,7 @@ In Azure AD, you can remove an administrative unit that you no longer need as a 
 
 1. In the Azure portal, go to **Azure AD** > **Administrative units**. 
 1. Select the administrative unit to be deleted, and then select **Delete**. 
-1 To confirm that you want to delete the administrative unit, select **Yes**. The administrative unit is deleted.
+1. To confirm that you want to delete the administrative unit, select **Yes**. The administrative unit is deleted.
 
 ![Screenshot of the administrative unit Delete button and confirmation window](./media/roles-admin-units-manage/select-admin-unit-to-delete.png)
 
