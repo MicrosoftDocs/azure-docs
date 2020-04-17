@@ -35,7 +35,7 @@ Next, you create a function in the new function app.
 
    :::image type="content" source="./media/functions-create-scheduled-function/function-add-function.png" alt-text="Add a function in the Azure portal." border="true":::
 
-1. Select **Timer trigger**. 
+1. Select the **Timer trigger** template. 
 
     :::image type="content" source="./media/functions-create-scheduled-function/function-select-timer-trigger.png" alt-text="Select the timer trigger in the Azure portal." border="true":::
 
@@ -54,7 +54,7 @@ Next, you create a function in the new function app.
 
     :::image type="content" source="./media/functions-create-scheduled-function/function-test-timer-trigger.png" alt-text="Test the timer trigger in the Azure portal." border="true":::
 
-1. Verify execution by viewing trace information written to the logs.
+1. Verify execution by viewing the information written to the logs.
 
     :::image type="content" source="./media/functions-create-scheduled-function/function-view-timer-logs.png" alt-text="View the timer trigger in the Azure portal." border="true":::
 
@@ -68,7 +68,7 @@ Now, you change the function's schedule so that it runs once every hour instead 
 
     :::image type="content" source="./media/functions-create-scheduled-function/function-update-timer-schedule.png" alt-text="Update the timer schedule in the Azure portal." border="true":::
 
-1. Enter a new hourly **Schedule** value of `0 0 */1 * * *` and then select **Save**.  
+1. Update the **Schedule** value to `0 0 */1 * * *`, and then select **Save**.  
 
     :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Functions update timer schedule in the Azure portal." border="true":::
 
