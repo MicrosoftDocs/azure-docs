@@ -58,13 +58,9 @@ To view the details of a deployment and monitor the devices running it, use the 
     | Creation Time | The timestamp from when the deployment was created. This timestamp is used to break ties when two deployments have the same priority. |
 
 1. Select the deployment that you want to monitor.  
-1. On the **Deployment Details** page, scroll down to the bottom section and select the **Metrics** tab. Use the **Select Metric** drop-down to choose a specific metric. When a metric is selected, the **View** button appears that lists the IoT Edge devices that match the condition for the selected metric.
+1. On the **Deployment Details** page, scroll down to the bottom section and select the **Metrics** tab. When you choose a metric from the **Select Metric** drop-down, a **View** button appears for you to display the results. You can also select **Edit Metics** to adjust the criteria for any custom metrics that you have defined.
 
-   ![View metrics for a selected deployment](./media/how-to-monitor-iot-edge-deployments/deployment-metrics-tab.png)
-
-1. Select the **Edit Metrics** button to view and edit the criteria for each metric. Also the four default metrics, custom defined metrics will appear in this list.
-
-   ![View IoT Edge deployment metric criteria](./media/how-to-monitor-iot-edge-deployments/metric-list.png)
+   ![View metrics for a deployment](./media/how-to-monitor-iot-edge-deployments/deployment-metrics-tab.png)
 
 To make changes to your deployment, see [Modify a deployment](how-to-deploy-at-scale.md#modify-a-deployment).
 
