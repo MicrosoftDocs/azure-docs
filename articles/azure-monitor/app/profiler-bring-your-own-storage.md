@@ -2,7 +2,7 @@
 title: Configure BYOS (Bring Your Own Storage) for Profiler & Snapshot Debugger
 description: Configure BYOS (Bring Your Own Storage) for Profiler & Snapshot Debugger
 ms.topic: conceptual
-author: regutier
+author: renatosalas
 ms.author: regutier
 ms.date: 04/14/2020
 
@@ -41,7 +41,7 @@ After you added the role, it will appear under the "Role assignments" section, l
 _![Figure 1.1](media/profiler-bring-your-own-storage/figure11.png)_
 _Figure 1.1_ 
 
-If you're also using Private Link, it's required one additional configuration to allow connection to our Trusted Microsoft Service from your Virtual Network. Refer to the [Storage Network Security documentation](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security#trusted-microsoft-services).
+If you're also using Private Link, it's required one additional configuration to allow connection to our Trusted Microsoft Service from your Virtual Network. Refer to the [Storage Network Security documentation](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services).
 
 ## Prerequisites
 * Make sure to create your Storage Account in the same location as your Application Insights Resource. Ex. If your Application Insights resource is in West US 2, your Storage Account must be also in West US 2. 
