@@ -70,14 +70,14 @@ The FQDN of the services resolves a public ip address, you have to change your D
 
 DNS is a critical component to make the application work correctly by resolving in a right manner the private endpoint IP address.
 
-Based on your preferences the following scenarios will guide you on how to get the DNS resolution integrated
+Based on your preferences, the following scenarios are available for DNS resolution integrated:
 
 - [Virtual Network workloads without custom DNS server](#virtual-network-workloads-without-custom-dns-server)
-- [On Premise forwarding DNS to Azure](#on-premise-forwarding-dns-to-azure)
+
 
 ## Virtual Network workloads without custom DNS server
 
-This configuration is appropriate for virtual network workloads without custom DNS server, in this scenario the client queries for the private endpoint IP address to Azure provided DNS [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). Azure DNS will be responsible for DNS resolution of the private DNS zones.
+This configuration is appropriate for virtual network workloads without custom DNS server. In this scenario the client queries for the private endpoint IP address to Azure provided DNS [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). Azure DNS will be responsible for DNS resolution of the private DNS zones.
 
 
  > [!NOTE]
@@ -85,49 +85,25 @@ This configuration is appropriate for virtual network workloads without custom D
 
 To configure properly you would need the following resources :
 
-- client virtual network
+- Client virtual network
 
-- private dns zones [(privatelink.database.windows.net)](../dns/private-dns-privatednszone.md)  with [A Record](../dns/dns-zones-records.md#record-types)
+- Private DNS zone [(privatelink.database.windows.net)](../dns/private-dns-privatednszone.md)  with [A Record](../dns/dns-zones-records.md#record-types)
 
-- private endpoint information (FQDN record name and Private IP Address)
+- Private endpoint information (FQDN record name and Private IP Address)
 
 The following diagram illustrates the DNS resolution sequence from virtual network workloads using private dns zone
 
 
-![single vnet and azure provided dns](media/private-endpoint-dns/single-vnet-azure-dns.png)
+![single virtual network and azure provided dns](media/private-endpoint-dns/single-vnet-azure-dns.png)
 
 
-This model can be extended to multiple VNet peered that are associated to the same private endpoint. this can be done by adding new links to the private DNS zone for all peered VNets
+This model can be extended to multiple peered virtual networks that are associated to the same private endpoint. This can be done by [adding new virtual network links](../dns/private-dns-virtual-network-links) to the private DNS zone for all peered virtual networks.
 
  > [!IMPORTANT]
->  A single private DNS zone is required for this configuration, creating multiple zones with the same name for different VNets would need manual operations to merge the DNS records
+>  A single private DNS zone is required for this configuration, creating multiple zones with the same name for different virtual networks would need manual operations to merge the DNS records
 
-In this scenario there's a [hub & spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) networking topology with the spoke networks sharing a common private endpoint and all the spoke VNet are linked to the same private dns zone. 
+In this scenario there's a [hub & spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) networking topology with the spoke networks sharing a common private endpoint and all the spoke virtual network are linked to the same private dns zone. 
 
 ![hub & spoke with azure provided dns](media/private-endpoint-dns/hubandspoke-azure-dns.png)
-
-
-## On Premise forwarding DNS to Azure
-
-This configuration is appropriate for an on premise network that has already an internal dns solution. 
-This internal DNS solution needs to be configured to forward DNS traffic to Azure via a conditional forwarder.
-
- > [!NOTE]
-> This scenario is using Azure SQL database recommended Private DNS zone. For other services you can adjust the model using the following reference [Azure services DNS zone configuration](#azure-services-dns-zone-configuration).
-
-To configure properly you would need the following resources :
-
-- on premise network with a DNS solution in place 
-- client virtual network
-- private dns zones [(privatelink.database.windows.net)](../dns/private-dns-privatednszone.md)  with [A Record](../dns/dns-zones-records.md#record-types)
-- private endpoint information (FQDN record name and Private IP Address)
-
-The following diagram illustrates the DNS resolution sequence from virtual network workloads using private dns zone
-
-> [!IMPORTANT]
-> The conditional forwarding must be made to the base DNS zone Ex: database.windows.net , NOT **privatelink**.database.windows.net
-
-![On-prem forward to azure](media/private-endpoint-dns/onpremdns-forward-to-azure.png)
-
 
 
