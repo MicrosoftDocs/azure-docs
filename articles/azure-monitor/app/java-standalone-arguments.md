@@ -10,7 +10,7 @@ ms.date: 04/16/2020
 
 
 
-## Azure Environments
+## Azure environments
 
 Configure [App Services](https://docs.microsoft.com/azure/app-service/configure-language-java#set-java-runtime-options)
 

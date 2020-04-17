@@ -189,13 +189,12 @@ By default, Application Insights Java 3.0 Preview sends a heartbeat metric once 
 ```
 
 > [!NOTE]
-> Note: You cannot decrease the frequency of this heartbeat, as the heartbeat data is also used to track Application Insights usage.
+> You cannot decrease the frequency of this heartbeat, as the heartbeat data is also used to track Application Insights usage.
 
 ## Sampling
 
 Sampling is helpful if you need to reduce cost.
-
-Sampling is performed as a function on the operation id (also known as trace id), so that the same operation id will always result in the same sampling decision. This ensures that you won't get parts of a distributed transaction sampled in while other parts of it are sampled out.
+Sampling is performed as a function on the operation ID (also known as trace ID), so that the same operation ID will always result in the same sampling decision. This ensures that you won't get parts of a distributed transaction sampled in while other parts of it are sampled out.
 
 For example, if you set sampling to 10%, you will only see 10% of your transactions, but each one of those 10% will have full end-to-end transaction details.
 
@@ -219,7 +218,7 @@ To enable sampling:
 
 ## HTTP Proxy
 
-If your application is behind a firewall and cannot connect directly to Application Insights (see [IP addresses used by Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)), you can configure Application Insights Java 3.0 Preview to use an HTTP Proxy:
+If your application is behind a firewall and cannot connect directly to Application Insights (see [IP addresses used by Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)), you can configure Application Insights Java 3.0 Preview to use an HTTP proxy:
 
 ```json
 {
