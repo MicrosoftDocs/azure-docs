@@ -1,4 +1,4 @@
----
+﻿---
 title: Continuous integration and delivery in Azure Data Factory 
 description: Learn how to use continuous integration and delivery to move Data Factory pipelines from one environment (development, test, production) to another.
 services: data-factory
@@ -231,11 +231,13 @@ function getPipelineDependencies {
         return @($activity.Pipeline.ReferenceName)
     } elseif ($activity.Activities) {
         $result = @()
-        return $activity.Activities | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
+        $activity.Activities | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
+        return $result
     } elseif ($activity.ifFalseActivities -or $activity.ifTrueActivities) {
         $result = @()
         $activity.ifFalseActivities | Where-Object {$_ -ne $null} | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
         $activity.ifTrueActivities | Where-Object {$_ -ne $null} | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
+        return $result
     } elseif ($activity.defaultActivities) {
         $result = @()
         $activity.defaultActivities | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
@@ -243,6 +245,8 @@ function getPipelineDependencies {
             $activity.cases | ForEach-Object{ $_.activities } | ForEach-Object{$result += getPipelineDependencies -activity $_ }
         }
         return $result
+    } else {
+        return @()
     }
 }
 
