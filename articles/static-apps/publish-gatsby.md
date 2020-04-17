@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Publish a Gatsby site to App Service Static Apps"
-description: Learn how to deploy a Gatsby application to App Service Static Apps.
+description: This tutorial shows you how to deploy a Gatsby application to App Service Static Apps.
 services: azure-functions
 author: aaronpowell
 ms.service: azure-functions
@@ -11,7 +11,7 @@ ms.author: aapowell
 
 # Tutorial: Publish a Gatsby site to App Service Static Apps
 
-This article demonstrates how to create and deploy a [Gatsby](https://gatsbyjs.org) web application to [Azure App Service Static Apps](overview.md). The final result is a new App Service Static App with the associated GitHub Actions that give you control over how the app is built and published.
+This article demonstrates how to create and deploy a [Gatsby](https://gatsbyjs.org) web application to [Azure App Service Static Apps](overview.md). The final result is a new Static App with the associated GitHub Actions that give you control over how the app is built and published.
 
 In this tutorial, you learn how to:
 
@@ -25,8 +25,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-- A GitHub account. [Create an account for free](https://github.com/join).
+- An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
+- A GitHub account. If you don't have one, you can [create an account for free](https://github.com/join).
 - [Node.js](https://nodejs.org) installed.
 
 ## Create a Gatsby App
@@ -59,7 +59,7 @@ You'll need to have a repository on GitHub to connect App Service Static Apps to
 
 1. Create a blank GitHub repo (don't create a README) from [https://github.com/new](https://github.com/new) named **gatsby-static-app**.
 
-1. Add the GitHub repo as a remote to your local repo.
+1. Add the GitHub repository as a remote to your local repo. Make sure to add your GitHub username in place of the `<YOUR_USER_NAME>` placeholder in the following command.
 
    ```bash
    git remote add origin https://github.com/<YOUR_USER_NAME>/gatsby-static-app
@@ -77,7 +77,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 ### Create the application
 
-1. Navigate to the [Azure portal]().
+1. Navigate to the [Azure portal](https://portal.azure.com).
 
 1. Select **Create a Resource** and search for **Static App**.
 
@@ -85,13 +85,13 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. For **Subscription**, accept the subscription that is listed or select a new one from the drop-down list.
 
-1. In _Resource group_, select **New**. In _New resource group name_, enter **\*myStaticApp** and select **OK**.
+1. In _Resource group_, select **New**. In _New resource group name_, enter **myStaticApp** and select **OK**.
 
-1. Next, provide a globally unique name for your app in the **Name** box. Valid characters include `a-z`, `A-Z`, `0-9` and `-`. This value is used as the URL prefix for your static app in the format of `https://<APP_NAME>....`.
+1. Next, provide a globally unique name for your app in the **Name** box. Valid characters include `a-z`, `A-Z`, `0-9` and `-`. This value is used as the URL prefix for your static app in the format of `https://<YOUR_APP_NAME>.azurestaticapps.net`.
 
 1. For _Region_, select an available region close to you.
 
-1. For _SKU_, select **Basic**.
+1. For _SKU_, select **Free**.
 
    ![Details filled out](./media/static-apps-publish-gatsby/basic-app-details.png)
 
@@ -125,13 +125,10 @@ Next, you add configuration settings that the build process uses to build your a
 
    ![Deployed application](./media/static-apps-publish-gatsby/deployed-app.png)
 
-## Summary
-
-In this how to you created a Gatsby application and deployed it to App Service Static Sites using GitHub Actions.
 
 ## Next steps
 
-Advance to the next article to learn how to add a custom domain to your application:
 
 > [!div class="nextstepaction"]
-[setup a custom domain in app service static apps](custom-domain.md)
+> [!div class="nextstepaction"]
+> [Add a custom domain](custom-domain.md)
