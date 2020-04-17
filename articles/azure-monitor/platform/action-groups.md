@@ -3,7 +3,7 @@ title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 2/18/2020
+ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
 ---
@@ -190,7 +190,7 @@ Write-Host $myApp.AppRoles
 ```
 
 ### SMS
-See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) and [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md) for additional important information.
+See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) and [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md) for additional important information. If the Azure portal action group user interface does not let you select your country code, then SMS is not supported for your country. Pricing for supported countries is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). 
 
 You may have a limited number of SMS actions in an Action Group.  
 
@@ -198,6 +198,8 @@ You may have a limited number of SMS actions in an Action Group.
 See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
 
 You may have a limited number of Voice actions in an Action Group.
+
+If the Azure portal action group user interface does not let you select your country code, then voice calls are not supported for your country. Pricing for supported countries is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). 
 
 ### Webhook
 Webhooks are retried using the following rules. The webhook call is retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second retry happens after 100 seconds. After two failures, no action group will call the endpoint for 30 minutes. 
