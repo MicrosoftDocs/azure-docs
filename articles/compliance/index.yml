@@ -69,7 +69,7 @@ additionalContent:
               url: https://docs.microsoft.com/microsoft-365/compliance/offering-g-cloud-uk
 
 #  Section 2
-#    - title:
+    - title: Compliance resources
 #      summary:
       items:
         - title: Privacy and GDPR
@@ -150,6 +150,10 @@ additionalContent:
               url: https://servicetrust.microsoft.com/ViewPage/Blueprint?command=Download&downloadType=Document&downloadId=3ccde498-4761-4be0-be8b-cd8d379a3a4f&docTab=fc060920-cdb8-11e7-bacf-0bf52b09d912_Healthcare_Blueprint
             - text: IT Grundschutz Workbook for Azure
               url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=2b6fa69b-4cab-4f15-8e7b-560e0291e7f7&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_GRC_Assessment_Reports
+
+        # Card
+        - title: Additional implementation and mappings
+          links:
             - text: MPAA application and cloud security guidelines for Azure 
               url: https://aka.ms/AzureMPAAApplicationandCloudSecurityGuidelines
             - text: NEN7510-2011 Standard Coverage User Guide for Azure
