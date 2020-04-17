@@ -35,6 +35,7 @@ Developers can use this reference to understand the various tools that Microsoft
 > * Automatically create, update, and delete users and groups in Azure AD and Active Directory
 >* Flows..
 
+![SCIM Graph decision tree](./media/user-provisioning/scim-graph.png)
 
 ## Scenario 1: Automatically create user accounts in my application
 Today, IT manually create user accounts in my application each time someone needs access. My app is so widely used in the organization that IT has to create 100s of accounts a week and it's really slowing down adoption. I just need basic information such as name, email, and userPrincipalName to create a user account. How can I automatically create user accounts in my application?
