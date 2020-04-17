@@ -30,7 +30,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Create an AVS private cloud
-            url: tutorial-create-private-cloud
+            url: tutorial-create-private-cloud.md
           - text: Configure networking
             url: tutorial-configure-networking.md
           - text: Create a jump box
