@@ -42,4 +42,4 @@ The varying length includes words that may confuse LUIS about where the entity e
 |Who authored {FormName}[?]|
 |{FormName} is published in French[?]|
 
-Review Pattern.any [reference](reference-entity-pattern-any.md) information
+Review Pattern.any [reference](../reference-entity-pattern-any.md) information
