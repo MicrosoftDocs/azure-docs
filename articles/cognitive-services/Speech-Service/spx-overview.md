@@ -28,17 +28,17 @@ Use the SDK when:
 
 ## Core features
 
-* Speech recognition - Convert speech-to-text either from audio files or directly from a microphone, or perform conversation transcription.
+* Speech recognition - Convert speech-to-text either from audio files or directly from a microphone, or transcribe a recorded conversation.
 
 * Speech synthesis - Convert text-to-speech using either input from text files, or input directly from the command line. Customize speech output characteristics using SSML configurations, and either [standard or neural voices](speech-synthesis-markup.md).
 
-* Speech translation - Translate speech from a source language, to text in a target language.
+* Speech translation - Translate speech from a source language to text in a target language.
 
 * Run on Azure compute resources - Send SPX commands to run on an Azure remote compute resource using `spx webjob`.
 
 ## Get started
 
-To get started with SPX, see the [basics article](spx-basics.md). This article shows you how to run some basic commands in SPX, and also shows slightly more advanced commands for running batch operations for speech-to-text and text-to-speech. After reading this article, you should have enough of an understanding of the SPX syntax to start writing some custom commands, or automating simple Speech operations.
+To get started with SPX, see the [basics article](spx-basics.md). This article shows you how to run some basic commands in SPX, and also shows slightly more advanced commands for running batch operations for speech-to-text and text-to-speech. After reading the basics article, you should have enough of an understanding of the SPX syntax to start writing some custom commands, or automating simple Speech operations.
 
 ## Next steps
 
