@@ -8,7 +8,7 @@ ms.devlang: PowerShell
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: genemi, vanto
+ms.reviewer: vanto
 ms.date: 04/17/2019
 ms.custom: sqldbrb=1
 tags: azure-synapse
