@@ -7,80 +7,100 @@ ms.service: azure-vmware
 ms.topic: conceptual
 ms.date: 04/07/2020
 ---
-# How to manage DHCP in AVS
+# How to manage DHCP in Azure VMWare Solution (AVS)
 
-NXS-T provides the ability to configure DHCP for your private cloud. If you plan to use NXS-T to host your DHCP server, see [Create DHCP server](#create-dhcp-server). If you want to If you have a 3rd party external DHCP server in your network and you want to relay requests to that DHCP server, see [Configure DHCP relay service](#configure-dhcp-relay).
+NSX-T provides the ability to configure a DHCP for your private cloud. If you plan to use NSX-T to host your DHCP server, see [Create DHCP server](#create-dhcp-server). Otherwise, if you have a 3rd party external DHCP server in your network and you want to relay requests to that DHCP server, see [Configure DHCP relay service](#configure-dhcp-relay).
 
 ## Create DHCP server
 
 Use the following steps to configure a DHCP server on NSX-T.
 
-1. From NSX manager navigate to the **Networking** tab and select **DHCP** under **IP Management**.
+1. From NSX manager, navigate to the **Networking** tab and select **DHCP** under **IP Management**.
 
    ![select DHCP under Networking](./media/manage-dhcp/select-dhcp.jpg)
 
 1. Click on the **ADD SERVER** button. Then provide the server name and server IP address. Once done, click **Save**.
 
-   ![](./media/manage-dhcp/dhcp-server-settings.jpg)
+   ![add dhcp server](./media/manage-dhcp/dhcp-server-settings.jpg)
 
 1. Connect DHCP server to the tier1 gateway.
 
 1. Click on **Tier 1 Gateways**, select the gateway and click **Edit**
 
-   ![](./media/manage-dhcp/edit-tier-1-gateway.jpg)
+   ![select the gateway to use](./media/manage-dhcp/edit-tier-1-gateway.jpg)
 
 1. Add a subnet by clicking on **No IP Allocation Set**
 
-   ![](./media/manage-dhcp/add-subnet.jpg)
+   ![add a subnet](./media/manage-dhcp/add-subnet.jpg)
 
 1. On the next screen, select **DHCP Local Server** from the **Type** dropdown. For **DHCP Server**, select **Default DHCP** and click **Save**.
 
-    ![](./media/manage-dhcp/set-ip-address-management.jpg)
+    ![select options for dhcp server](./media/manage-dhcp/set-ip-address-management.jpg)
 
-1. Then click save on the Tier-1 Gateway
+1. On the **Tier -1 Gateway** window, click **Save**. On the next screen you'll see **Changes Saved**, click **Close Editing** to finish.
 
-    ![](./media/manage-dhcp/image49.jpg)
+    ![save your tier 1 gateway](./media/manage-dhcp/save-tier-1-gateway.jpg)
 
-1. You should see "Changes Saved" then close editing.
+Once you've created your DHCP Server, you'll need to add network segments to it.
 
-    ![](./media/manage-dhcp/image50.jpg)
+1. In NSX-T, select the **Networking** tab and select **Segments** under **Connectivity**. Click **ADD SEGMENT**. Name the segment and connection to the Tier-1 Gateway.
 
-## Configure DHCP relay service
+   ![add a new network segment](./media/manage-dhcp/add-segment.jpg)
 
-## Create Network Segments
+1. Next, click **Set Subnets** to configure a new subnet.
 
-Once you have created your DHCP In this exercise will add network segments to our DHCP server.
+   ![select set subnets](./media/manage-dhcp/set-subnets.jpg)
 
-Steps
+1. On the **Set Subnets** window, click **ADD SUBNET**. Enter the Gateway IP address and the DHCP range and click **Add**.
 
-1. Click on the Segments tab.
+   ![add network segment](./media/manage-dhcp/add-subnet-segment.jpg)
 
-   ![](./media/manage-dhcp/image51.jpg)
+1. On the next window, click **APPLY**.
 
-2. Click on ADD Segment
+1. When complete, click **Save** to complete adding a network segment.
 
-   ![](./media/manage-dhcp/image52.jpg)
+   ![segments complete](./media/manage-dhcp/segments-complete.jpg)
 
-3. Name the Segment and connection to the Tier-1 Gateway
+## Create DHCP Relay service
 
-   ![](./media/manage-dhcp/image53.jpg)
+1. In the NXT-T window, select the **Networking** tab, and under **IP Management**, select **DHCP**. Click **ADD SERVER**. Choose DHCP Relay for the **Server Type** and enter the server name and IP address for the relay server. Click **Save** to save your changes.
 
-4. Then click Set Subnets
+   ![create dhcp relay server](./media/manage-dhcp/create-dhcp-relay.jpg)
 
-   ![](./media/manage-dhcp/image54.jpg)
+1. Select **Tier-1 Gateways** under **Connectivity**. Click the vertical ellipsis on the Tier-1 gateway and choose **Edit**.
 
-5. Click on ADD SUBNET
+   ![edit tier 1 gateway](./media/manage-dhcp/edit-tier-1-gateway-relay.jpg)
 
-   ![](./media/manage-dhcp/image55.jpg)
+1. Click **No IP Allocation Set** to define the IP address allocation.
 
-6. Enter the Gateway IP address and the DHCP range
+   ![edit ip address allocation](./media/manage-dhcp/edit-ip-address-allocation.jpg)
 
-   ![](./media/manage-dhcp/image56.jpg)
+1. Into the dialog box, for **Type**, select **DHCP Relay Server**. In the **DHCP Relay** dropdown, select your DHCP relay server. When finished, click **Save**
 
-7. Then click APPLY
+   ![](./media/manage-dhcp/set-ip-address-management-relay.jpg)
 
-   ![](./media/manage-dhcp/image57.jpg)
+1. Specify a DHCP Range IP on Segment:
 
-8. Then click SAVE
+   > [!NOTE]
+   > This configuration is required to realize DHCP relay functionality on the DHCP Client Segment. 
+release.
 
-   ![](./media/manage-dhcp/image58.jpg)
+1. Under **Connectivity**, select **Segments**. Click the vertical ellipses and select **Edit**. Instead, if you wanted to add a new segment, you can click **Add Segment** to create a new segment.
+
+   ![edit a network subnet](./media/manage-dhcp/edit-segments.jpg)
+
+1. You'll see details about the segment. Click the value under **Subnets** to add or modify the subnet.
+
+   ![network segments](./media/manage-dhcp/network-segments.jpg)
+
+1. Click the vertical ellipses and choose **Edit**. If you need to create a new subnet, click **Add Subnet** to create a Gateway and configure a DHCP range.
+
+   ![edit subnets](./media/manage-dhcp/edit-subnet.jpg)
+
+1. Provide the Range of the IP pool and click **Apply**
+
+   ![save the subnet you create](./media/manage-dhcp/save-subnet.jpg)
+
+1. A DHCP server pool is assigned to the segment.
+
+   ![DHCP server pool assigned to segment](./media/manage-dhcp/assigned-to-segment.jpg)
