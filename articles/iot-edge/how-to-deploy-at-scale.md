@@ -5,7 +5,7 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/14/2020
+ms.date: 4/17/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -173,25 +173,41 @@ If you update the target condition, the following updates occur:
 * If a device currently running this deployment no longer meets the target condition, it uninstalls this deployment and takes on the next highest priority deployment.
 * If a device currently running this deployment no longer meets the target condition and doesn't meet the target condition of any other deployments, then no change occurs on the device. The device continues running its current modules in their current state, but is not managed as part of this deployment anymore. Once it meets the target condition of any other deployment, it uninstalls this deployment and takes on the new one.
 
-To modify a deployment, use the following steps:
+You can also make changes to reported properties and custom metrics in your deployment. Afterwards, follow the guidance in [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md) to watch the changes roll out.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub.
-1. Select **IoT Edge**.
-1. Select the **IoT Edge Deployments** tab.
+### Modify targeted devices
 
-   ![View IoT Edge deployments](./media/how-to-deploy-monitor/iot-edge-deployments.png)
+You can target the devices to receive the deployment by specifying target conditions when you create or modify a deployment. To define a custom metric:
 
-1. Select the deployment that you want to modify.
-1. Make updates on the following tabs:
-   * **Target Condition**
-   * **Metrics** - you can modify or delete metrics you've defined, or add new ones.
-   * **Labels**
-   * **Modules**
-   * **Routes**
-   * **Deployment**
+1. In your IoT hub, select **IoT Edge** from the left pane menu.
+1. Select the **IoT Edge deployments** tab and select the deployment you want to configure. Select the **Target Condition** tab.
 
-1. Select **Save**.
-1. Follow the guidance in [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md) to watch the changes roll out.
+1. Define a target condition, using the example syntax as a guide.
+
+    ![Specify target conditions for a deployment](./media/how-to-deploy-monitor/target-devices.png)
+
+### Modify desired properties
+
+If you developed custom code modules, such as described in [Use Visual Studio 2019 to develop and debug modules for Azure IoT Edge](how-to-visual-studio-develop-module.md), you can monitor their values by defining properties. You can also add, delete, and edit properties in the module twin after the module has been deployed to an IoT Edge device. For an overview of the properties, see [Properties of the IoT Edge agent and IoT Edge hub module twins](module-edgeagent-edgehub.md).
+
+To define and edit properties for a deployed module:
+
+1. In your IoT hub, select **IoT Edge** from the left pane menu.
+1. Select the device with the module you want to edit.
+1. On the **Modules** tab, select the module.
+1. On the module details page, on the upper menu bar select **Module Identity Twin**.
+
+    ![Edit properties on the module identity twin](./media/how-to-deploy-monitor/module-twin.png)
+
+### Define a custom metric
+
+You can define custom metrics in the Azure portal when you create or modify a deployment. To define a custom metric:
+
+1. In your IoT hub, select **IoT Edge** from the left pane menu.
+1. Select the **IoT Edge deployments** tab and then select the deployment you want to configure. Select the **Metrics** tab.
+1. Define a custom metric, using the example syntax as a guide.
+
+    ![Create a custom metric in the deployment wizard](./media/how-to-deploy-monitor/create-custom-metric.png)
 
 ## Delete a deployment
 
