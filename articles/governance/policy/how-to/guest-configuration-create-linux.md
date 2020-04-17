@@ -181,7 +181,7 @@ Run the following command to create a package using the configuration given in t
 New-GuestConfigurationPackage `
   -Name 'AuditFilePathExists' `
   -Configuration './Config/AuditFilePathExists.mof' `
-  -ChefProfilePath './'
+  -ChefInSpecProfilePath './'
 ```
 
 After creating the Configuration package but before publishing it to Azure, you can test the package from your workstation or CI/CD environment. The GuestConfiguration cmdlet `Test-GuestConfigurationPackage` includes the same agent in your
