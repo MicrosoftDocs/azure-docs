@@ -52,19 +52,30 @@ The following is a command-by-command description of the actions of the deployme
 
 **Downloading and installing the Log Analytics agent:**
 
-    
-|Action        |Command            |
-|--------------|-------------------|
-|Downloads the installation script for the Log Analytics (OMS) Linux agent|`wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh`|
-|Installs the Log Analytics agent|`sh onboard_agent.sh -w [workspaceID] -s [Primary Key] -d opinsights.azure.com`|
+1. Downloads the installation script for the Log Analytics (OMS) Linux agent<br>`wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh`
+
+1. Installs the Log Analytics agent<br>`sh onboard_agent.sh -w [workspaceID] -s [Primary Key] -d opinsights.azure.com`
 
 **Configuring the Syslog daemon:**
+
+# [rsyslog daemon](#tab/rsyslog)
+
+Content for rsyslog...
+
+
+# [syslog-ng daemon](#tab/syslogng)
+
+Content for syslog-ng...
+
+---
+
 |Action        |rsyslog daemon    |syslog-ng daemon  |
-|--------------|-------------------|-------------------|
+|--------------|------------------|-------------------|
 |Open port 514 for TCP communication<br>using syslog configuration file|`/etc/rsyslog.conf`|`/etc/syslog-ng/syslog-ng.conf`|
 |Configure the daemon to forward CEF messages<br>to the Log Analytics agent on localhost, on TCP port 25226, by inserting a special omsagent configuration file into the syslog daemon directory|`/etc/rsyslog.d/security-config-omsagent.conf`|`/etc/syslog-ng/conf.d/security-config-omsagent.conf`|
-|File contents:|`:rawmsg, regex, "CEF\|ASA" ~`<br>`*.* @@127.0.0.1:25226`|`filter f_oms_filter {match(\"CEF\|ASA\" ) ;};`<br>
-        - syslog-ng: 
+|File contents:|`:rawmsg, regex, "CEF\|ASA" ~`<br>`*.* @@127.0.0.1:25226`|`filter f_oms_filter {match(\"CEF\|ASA\" ) ;};`<br>`destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};`<br>`log {source(s_src);filter(f_oms_filter);destination(oms_destination);};`|
+
+
 
 ## Next steps
 In this document, you learned how to deploy the Log Analytics agent to connect CEF appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
