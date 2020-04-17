@@ -61,7 +61,7 @@ To edit an existing rule, select the data you want to change, make the change, t
 > Rejecting IP addresses can prevent other Azure Services (such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in the portal) from interacting with the IoT hub.
 
 > [!WARNING]
-> If you use Azure Stream Analytics (ASA) to read messages from an IoT hub with IP filtering enabled, use the Event Hub-compatible name and endpoint of your IoT Hub in the ASA connection string.
+> If you use Azure Stream Analytics (ASA) to read messages from an IoT hub with IP filtering enabled, use the Event Hub-compatible name and endpoint of your IoT Hub to add an [Event Hub stream input](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-define-inputs#stream-data-from-event-hubs) in the ASA manually.
 
 ## Delete an IP filter rule
 
