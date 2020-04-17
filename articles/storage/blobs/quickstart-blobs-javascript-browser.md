@@ -145,7 +145,7 @@ Save the file as *index.html* in the *azure-blobs-js-browser* folder.
 
 The example code shows you how to accomplish the following tasks with the Azure Blob storage client library for JavaScript:
 
-* [Add the initial JavaScript code](#add-the-initial-javascript-code)
+* [Declare fields for UI elements](#declare-fields-for-ui-elements)
 * [Add your storage account info](#add-your-storage-account-info)
 * [Create client objects](#create-client-objects)
 * [Create and delete a storage container](#create-and-delete-a-storage-container)
@@ -155,7 +155,7 @@ The example code shows you how to accomplish the following tasks with the Azure 
 
 You'll run the code after you add all the snippets to the *index.js* file.
 
-### Add the initial JavaScript code
+### Declare fields for UI elements
 
 Add the following code to the end of the *index.js* file.
 
@@ -163,7 +163,7 @@ Add the following code to the end of the *index.js* file.
 
 Save the *index.js* file.
 
-This code creates fields for each HTML element and implements a `reportStatus` function to display output.
+This code declares fields for each HTML element and implements a `reportStatus` function to display output.
 
 In the following sections, add each new block of JavaScript code after the previous block.
 
