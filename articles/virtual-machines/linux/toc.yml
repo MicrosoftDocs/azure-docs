@@ -46,7 +46,7 @@
   - name: 14b - Integrate Jenkins with Azure DevOps
     href: ../../jenkins/tutorial-build-deploy-jenkins.md
   - name: 15a - Configure Rolling deployment strategy for VMs
-    href: tutorial-azure-devops-rolling-deployment-strategy.md
+    href: tutorial-devops-azure-pipelines-classic.md
   - name: 15b - Configure Canary deployment strategy for VMs
     href: tutorial-azure-devops-canary-deployment-strategy.md
   - name: 15c - Configure Blue-Green deployment strategy for VMs

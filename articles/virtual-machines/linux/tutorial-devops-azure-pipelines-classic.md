@@ -16,10 +16,10 @@ ms.custom: devops
 
 #Customer intent: As a developer, I want to learn about CI/CD features in Azure so that I can use devops services like Azure Pipelines to build and deploy my applications automatically.
 ---
-# Tutorial - Configure Canary deployment strategy for Azure Linux Virtual Machines
+# Tutorial - Configure Rolling deployment strategy for Azure Linux Virtual Machines
 
 ## IaaS - Configure CI/CD 
-Azure Pipelines provides a complete, fully featured set of CI/CD automation tools for deployments to virtual machines. You can configure a continuous delivery pipeline for an Azure VM directly from Azure portal. This document contains the steps associated with setting up a CI/CD pipeline for rolling multi-machine deployments from Azure portal. 
+Azure Pipelines provides a complete, fully featured set of CI/CD automation tools for deployments to virtual machines. You can configure a continuous delivery pipeline for an Azure VM directly from Azure portal. This document contains the steps associated with setting up a CI/CD pipeline for rolling multi-machine deployments from Azure portal. You can also take a look at other strategies like [canary](https://aka.ms/AA7jdrz) and [blue-green](https://aka.ms/AA83fwu), which are supported out-of-box from Azure portal. 
 
 
 **Configure CI/CD on Virtual Machines**
