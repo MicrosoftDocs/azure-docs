@@ -73,7 +73,7 @@ DNS is a critical component to make the application work correctly by resolving 
 Based on your preferences the following scenarios will guide you on how to get the DNS resolution integrated
 
 - [Virtual Network workloads without custom DNS server](#virtual-network-workloads-without-custom-dns-server)
-- [On Premise forwarding DNS to Azure](#on-premise-forwarding-dns-to-Azure)
+- [On Premise forwarding DNS to Azure](#on-premise-forwarding-dns-to-azure)
 
 ## Virtual Network workloads without custom DNS server
 
