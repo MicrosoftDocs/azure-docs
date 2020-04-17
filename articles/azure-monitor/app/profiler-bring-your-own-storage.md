@@ -57,13 +57,13 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), follow the bel
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
-        "applicationinsights_name": {
+        "application_insights_name": {
           "type": "String"
         },
-        "applicationinsights_location": {
+        "application_insights_location": {
           "type": "String"
         },
-        "storageaccount_name": {
+        "storage_account_name": {
           "type": "String"
         }
       },
@@ -72,8 +72,8 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), follow the bel
         {
           "type": "microsoft.insights/components",
           "apiVersion": "2015-05-01",
-          "location": "[parameters('applicationinsights_location')]",
-          "name": "[parameters('applicationinsights_name')]",
+          "location": "[parameters('application_insights_location')]",
+          "name": "[parameters('application_insights_name')]",
           "properties": {},
           "resources": [
             {
@@ -81,10 +81,10 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), follow the bel
               "name": "serviceprofiler",
               "apiVersion": "2020-03-01-preview",
               "properties": {
-                "linkedStorageAccount": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageaccount_name'))]"
+                "linkedStorageAccount": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storage_account_name'))]"
               },
               "dependsOn": [
-                "[concat('Microsoft.Insights/components/', parameters('applicationinsights_name'))]"
+                "[concat('Microsoft.Insights/components/', parameters('application_insights_name'))]"
               ]
             }
           ]
