@@ -40,4 +40,4 @@ Make sure you take regular back ups of your [vault](https://blogs.technet.micros
 ## Turn on recovery options
 
 1. Turn on [Soft Delete](overview-soft-delete.md)).
-2. Turn on purge protection if you want to guard against force deletion of the secret / vault even after soft delete is turned on.
+2. Turn on purge protection if you want to guard against force deletion of the secret / vault even after soft-delete is turned on.
