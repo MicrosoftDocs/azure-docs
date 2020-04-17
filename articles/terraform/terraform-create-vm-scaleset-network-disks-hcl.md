@@ -130,6 +130,19 @@ Within the Azure Cloud Shell, do the following steps:
 1. Paste the following code to the end of the file to expose the fully qualified domain name (FQDN) for the virtual machines.
 
    ```hcl
+   
+   terraform {
+      required_providers {
+         azurerm = "~> 2.5"
+         random = "~> 2.2"
+      }
+   }
+
+   provider azurerm {
+      version = "~> 2.5"
+      features {}
+   }
+   
    resource "azurerm_resource_group" "vmss" {
     name     = var.resource_group_name
     location = var.location
