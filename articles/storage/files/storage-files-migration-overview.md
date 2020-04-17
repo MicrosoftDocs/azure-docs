@@ -19,7 +19,7 @@ This article contains migration basics and a table of migration guides. These gu
 
 Azure has multiple available types of cloud storage. A fundamental aspect of file migrations to Azure is determining which Azure storage option is right for your data.
 
-[Azure file shares](storage-files-introduction.md) are suitable for general purpose file data. This data includes anything you use an on-premises SMB or NFS share for. With [Azure File Sync](storage-sync-files-planning.md), you can cache the contents of several Azure file shares on Windows Servers on-premises.
+[Azure file shares](storage-files-introduction.md) are suitable for general-purpose file data. This data includes anything you use an on-premises SMB or NFS share for. With [Azure File Sync](storage-sync-files-planning.md), you can cache the contents of several Azure file shares on servers running Windows Server on-premises.
 
 For an app that currently runs on an on-premises server, storing files in an Azure file share might be a good choice. You can move the app to Azure and use Azure file shares as shared storage. You can also consider [Azure Disks](../../virtual-machines/windows/managed-disks-overview.md) for this scenario.
 
@@ -44,7 +44,7 @@ File fidelity in a migration can be defined as the ability to:
 
 To ensure your migration proceeds smoothly, identify [the best copy tool for your needs](#migration-toolbox) and match a storage target to your source.
 
-Taking the previous information into account, you can see that the target storage for general purpose files in Azure is [Azure file shares](storage-files-introduction.md).
+Taking the previous information into account, you can see that the target storage for general-purpose files in Azure is [Azure file shares](storage-files-introduction.md).
 
 Unlike object storage in Azure blobs, an Azure file share can natively store file metadata. Azure file shares also preserve the file and folder hierarchy, attributes, and permissions. NTFS permissions can be stored on files and folders because they're on-premises.
 
