@@ -4,7 +4,7 @@ description: To create highly available and resilient applications in Azure, Ava
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 04/16/2020
+ms.date: 04/17/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
 ---
@@ -21,15 +21,15 @@ To better understand regions and Availability Zones in Azure, it helps to unders
 | --- | --- |
 | region | A set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. |
 | Availability Zone | Unique physical locations within a region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. |
-| recommended region | A region that provides the broadest range of capabilities and meets in-country data residency requirements. |
-| alternate region | An alternate region that provides proactive support around disaster recovery, meets in-country data residency, and provides an additional location to improve latency . |
+| recommended region | A region that provides data residency provides the broadest range of service capabilities, is designed to support Availability Zones now or in the future, and is recommended for new customer deployments. |
+| alternate region | A region that provides data residency and provides an additional location that customers can deploy for latency or disaster recovery needs. |
 | foundational service | A core Azure service that is available in all regions when the region is generally available. |
 | mainstream service | An Azure service that is available in all recommended regions within one year of the region/service general availability or demand-driven availability in alternate regions. |
 | specialized service | An Azure service that is demand-driven availability across regions backed by customized/specialized hardware. |
 
 ## Regions
 
-A region is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. Azure gives you the flexibility to deploy applications where you need to. Azure’s approach on availability of Azure services across regions is best described in two ways – recommended regions and alternate regions.
+A region is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. Azure gives you the flexibility to deploy applications where you need to. Azure's approach on availability of Azure services across regions is best described in two ways – recommended regions and alternate regions.
 
 ### Recommended regions
 
@@ -86,58 +86,58 @@ Azure classifies services into three categories: foundational, mainstream, and s
 > | Azure Service Manager (RDFE) | Azure Active Directory : Premium P2 | Azure Dev Spaces |
 > | Backup | Azure Active Directory B2C | Azure Lab Services |
 > | Event Hubs | Azure Active Directory Domain Services | Azure NetApp Files |
-> | ExpressRoute | Azure Advanced Threat Protection | Chat for Dynamics 365 |
-> | ExpressRoute : ExpressRoute Gateways | Azure Advisor | Cognitive Services: Bing Autosuggest |
-> | Key Vault | Azure Analysis Services | Cognitive Services: Bing Custom Search |
-> | Key Vault: Premium | Azure Bastion | Cognitive Services: Bing Entity Search |
-> | Service Bus | Azure Bot Service | Cognitive Services: Bing Image Search |
-> | Service Bus: Premium | Azure DDoS Protection Standard | Cognitive Services: Bing News Search |
-> | Service Fabric | Azure DNS | Cognitive Services: Bing Speech |
-> | Storage | Azure DNS: Azure DNS private zones | Cognitive Services: Bing Spell Check |
-> | Storage: Azure Data Lake Storage Gen2 | Azure Data Box: Data Box | Cognitive Services: Bing Video Search |
-> | Storage: Disk Storage | Azure Data Box: Data Box Disk | Cognitive Services: Bing Visual Search |
-> | Storage: Hot/Cool Blob Storage Tiers | Azure Data Box: Data Box Edge | Cognitive Services: Bing Web Search |
-> | Storage: Managed Disks | Azure Data Box: Data Box Gateway | Cognitive Services: Custom Vision |
-> | Storage: Queues | Azure Data Explorer | Cognitive Services: Translator Speech |
-> | Storage: Tables | Azure Data Share | Data Catalog |
-> | VPN Gateway	Virtual Machine Scale Sets | Azure Data Share: Snapshot Execution | Data Factory: Data Factory V1 |
-> | Virtual Machines | Azure Database Migration Service | Data Lake Analytics |
-> | Virtual Machines: Av2-Series | Azure Database for MySQL | HockeyApp |
-> | Virtual Machines: B-Series | Azure Database for PostgreSQL | IoT Central |
-> | Virtual Machines: D-Series | Azure Databricks | Machine Learning Studio |
-> | Virtual Machines: DSv2-Series | Azure DevOps | Media Services: Video Indexer |
-> | Virtual Machines: DSv3-Series | Azure DevTest Labs | Microsoft Defender Advanced Threat Protection |
-> | Virtual Machines: Dv2-Series | Azure Firewall | Microsoft Defender Advanced Threat	Protection: Microsoft Defender non-E5 |
-> | Virtual Machines: Dv3-Series | Azure Front Door | Microsoft Forms Pro |
-> | Virtual Machines: ESv3-Series | Azure HPC Cache | Microsoft Genomics |
-> | Virtual Machines: Ev3-Series | Azure Information Protection | Microsoft Healthcare Bot |
-> | Virtual Machines: F-Series | Azure Information Protection: Free | Power Virtual Agents |
-> | Virtual Machines: FS-Series | Azure Information Protection : Premium P1 | StorSimple |
-> | Virtual Machines Instance Level IPs | Azure Information Protection : Premium P2 | Time Series Insights |
-> | Virtual Machines: Reserved IP | Azure Kubernetes Service (AKS) | VMWare by CloudSimple |
-> | Virtual Network | Azure Lighthouse | Virtual Machines: A8 - A11 (Compute Intensive) |
-> | Virtual Network: Global Vnet Peering | Azure LockBox | Virtual Machines: DASv4-Series |
-> | Virtual Network: Public IP Address Basic | Azure Managed Applications | Virtual Machines: DAv4-Series |
-> | Virtual Network: Public IP Address Standard | Azure Maps | Virtual Machines: EASv4-Series |
-> |  | Azure Migrate | Virtual Machines: EAv4-Series |
-> |  | Azure Monitor | Virtual Machines: G-Series |
-> |  | Azure Monitor : Application Insights | Virtual Machines: GS-Series |
-> |  | Azure Monitor : Log Analytics | Virtual Machines: H-Series |
-> |  | Azure Open Datasets | Virtual Machines: HBv1-Series |
-> |  | Azure Policy | Virtual Machines: HBv2-Series |
-> |  | Azure Private Link | Virtual Machines: HCv1-Series |
-> |  | Azure Red Hat OpenShift (ARO) | Virtual Machines: LS-Series |
-> |  | Azure Resource Graph | Virtual Machines: LSv2-Series |
-> |  | Azure Search | Virtual Machines: Mv2 SKL-series |
-> |  | Azure Search: Cognitive Search | Virtual Machines: NC-Series |
-> |  | Azure Security for IoT | Virtual Machines: NCv2-Series |
-> |  | Azure Sentinel | Virtual Machines: NCv3-Series |
-> |  | Azure SignalR Service | Virtual Machines: ND-Series |
-> |  | Azure Signup Portal | Virtual Machines: NV-Series |
-> |  | Azure Stack | Virtual Machines: NVv3-Series |
-> |  | Azure Synapse Analytics | Virtual Machines: SAP HANA on Azure Large Instances |
-> |  | Azure Web Application Firewall | Visual Studio App Center |
-> |  | Azure Web Application Firewall: Azure Web Application Firewall – Regional v2 | Windows 10 IoT Core Services |
+> | ExpressRoute | Azure Advanced Threat Protection | Cognitive Services: Bing Autosuggest |
+> | ExpressRoute : ExpressRoute Gateways | Azure Advisor | Cognitive Services: Bing Custom Search |
+> | Key Vault | Azure Analysis Services | Cognitive Services: Bing Entity Search |
+> | Key Vault: Premium | Azure Bastion | Cognitive Services: Bing Image Search |
+> | Service Bus | Azure Bot Service | Cognitive Services: Bing News Search |
+> | Service Bus: Premium | Azure DDoS Protection Standard | Cognitive Services: Bing Speech |
+> | Service Fabric | Azure DNS | Cognitive Services: Bing Spell Check |
+> | Storage | Azure DNS: Azure DNS private zones | Cognitive Services: Bing Video Search |
+> | Storage: Azure Data Lake Storage Gen2 | Azure Data Box: Data Box | Cognitive Services: Bing Visual Search |
+> | Storage: Disk Storage | Azure Data Box: Data Box Disk | Cognitive Services: Bing Web Search |
+> | Storage: Hot/Cool Blob Storage Tiers | Azure Data Box: Data Box Edge | Cognitive Services: Custom Vision |
+> | Storage: Managed Disks | Azure Data Box: Data Box Gateway | Cognitive Services: Translator Speech |
+> | Storage: Queues | Azure Data Explorer | Data Catalog |
+> | Storage: Tables | Azure Data Share | Data Factory: Data Factory V1 |
+> | VPN Gateway	Virtual Machine Scale Sets | Azure Data Share: Snapshot Execution | Data Lake Analytics |
+> | Virtual Machines | Azure Database Migration Service | HockeyApp |
+> | Virtual Machines: Av2-Series | Azure Database for MySQL | IoT Central |
+> | Virtual Machines: B-Series | Azure Database for PostgreSQL | Machine Learning Studio |
+> | Virtual Machines: DSv2-Series | Azure Databricks | Media Services: Video Indexer |
+> | Virtual Machines: DSv3-Series | Azure DevOps | Microsoft Defender Advanced Threat Protection |
+> | Virtual Machines: Dv2-Series | Azure DevTest Labs | Microsoft Defender Advanced Threat	Protection: Microsoft Defender non-E5 |
+> | Virtual Machines: Dv3-Series | Azure Firewall | Microsoft Forms Pro |
+> | Virtual Machines: ESv3-Series | Azure Front Door | Microsoft Genomics |
+> | Virtual Machines: Ev3-Series | Azure HPC Cache | Microsoft Healthcare Bot |
+> | Virtual Machines: F-Series | Azure Information Protection | Power Virtual Agents |
+> | Virtual Machines: FS-Series | Azure Information Protection: Free | StorSimple |
+> | Virtual Machines Instance Level IPs | Azure Information Protection : Premium P1 | Time Series Insights |
+> | Virtual Machines: Reserved IP | Azure Information Protection : Premium P2 | VMWare by CloudSimple |
+> | Virtual Network | Azure Kubernetes Service (AKS) | Virtual Machines: A8 - A11 (Compute Intensive) |
+> | Virtual Network: Global Vnet Peering | Azure Lighthouse | Virtual Machines: DASv4-Series |
+> | Virtual Network: Public IP Address Basic | Azure LockBox | Virtual Machines: DAv4-Series |
+> | Virtual Network: Public IP Address Standard | Azure Managed Applications | Virtual Machines: EASv4-Series |
+> |  | Azure Maps | Virtual Machines: EAv4-Series |
+> |  | Azure Migrate | Virtual Machines: G-Series |
+> |  | Azure Monitor | Virtual Machines: GS-Series |
+> |  | Azure Monitor : Application Insights | Virtual Machines: H-Series |
+> |  | Azure Monitor : Log Analytics | Virtual Machines: HBv1-Series |
+> |  | Azure Open Datasets | Virtual Machines: HBv2-Series |
+> |  | Azure Policy | Virtual Machines: HCv1-Series |
+> |  | Azure Private Link | Virtual Machines: LS-Series |
+> |  | Azure Red Hat OpenShift (ARO) | Virtual Machines: LSv2-Series |
+> |  | Azure Resource Graph | Virtual Machines: Mv2 SKL-series |
+> |  | Azure Search | Virtual Machines: NC-Series |
+> |  | Azure Search: Cognitive Search | Virtual Machines: NCv2-Series |
+> |  | Azure Security for IoT | Virtual Machines: NCv3-Series |
+> |  | Azure Sentinel | Virtual Machines: ND-Series |
+> |  | Azure SignalR Service | Virtual Machines: NV-Series |
+> |  | Azure Signup Portal | Virtual Machines: NVv3-Series |
+> |  | Azure Stack | Virtual Machines: SAP HANA on Azure Large Instances |
+> |  | Azure Synapse Analytics | Visual Studio App Center |
+> |  | Azure Web Application Firewall | Windows 10 IoT Core Services |
+> |  | Azure Web Application Firewall: Azure Web Application Firewall – Regional v2 |  |
 > |  | Azure for Education |  |
 > |  | Batch |  |
 > |  | Cloud Shell |  |
