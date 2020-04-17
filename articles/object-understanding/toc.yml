@@ -10,5 +10,7 @@
     href: https://github.com/Azure/azure-object-understanding/releases
   - name: Azure Mixed Reality Resource Management REST API
     href: https://docs.microsoft.com/rest/api/mixedreality/
+  - name: FAQ
+    href: faq.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-object-understanding
