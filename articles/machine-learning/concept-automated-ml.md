@@ -153,28 +153,28 @@ With the Azure automated ML, you choose either a local computer or a remote comp
 
 The following table shows a summary of features available on local and remote compute targets.  Some of these features are available only in an Enterprise workspace.
 
-|Feature  |Local  |Remote  |Requires Enterprise <br/>workspace |
-|---------|---------|---------|---------|
-|Create and run experiments in notebooks     |✓|✓|         |
-|Register and visualize experiment's info and metrics in UI     |  ✓       |   ✓      |         |
-|Data streaming (Large data support, up to 100 GB)     |     |    ✓     |   ✓      |
-|Subsampling     |    ✓     |    ✓     |         |
-|Data guardrails     |     ✓    |    ✓  |         |
-|DNN-based text featurization      |     |    ✓     |    ✓     |
-|Feature Sweeping (or advanced transformers)     |    ?     |     ?    |         |
-|Custom featurizers support     |       ?     |     ?      |         |
-|Feature engineering customization SDK     |   ?     |     ?     |    ✓     |
-|Feature engineering customization UI     |     |    ✓     |         |
-|Forecasting     |    ✓     |    ✓     |     ✓    |
-|Prophet or ARIMA models for forecasting      |     |    ✓     |    ✓     |
-|ONNX models     |✓|     ✓    |         |
-|Many models training SDK     |     ?     |     ?      |         |
-|Multiple runs/iterations in parallel     |     |    ✓     |    ✓     |
-|Cancel an iteration      |     |    ✓     |         |
-|Continue a run      |     |    ✓     |         |
-|Ensemble iterations     |     ✓    |     ✓  |         |
-|Model interpretability (in notebooks)     |    ✓     |     ✓    |     ✓    |
-|Create and run experiments in studio web experience  |   | ✓ | ✓ |
+| Feature                                                    | Remote | Local | Requires <br>Enterprise workspace |
+|------------------------------------------------------------|--------|-------|-------------------------------|
+| Data streaming (Large data support, up to 100 GB)          | ✓      |       | ✓                             |
+| DNN-based text featurization                               | ✓      |       | ✓                             |
+| Feature engineering customization UI                       | ✓      |       |                               |
+| Prophet or ARIMA models for forecasting                    | ✓      |       | ✓                             |
+| Multiple runs/iterations in parallel                       | ✓      |       | ✓                             |
+| Cancel an iteration                                        | ✓      |       |                               |
+| Continue a run                                             | ✓      |       |                               |
+| Create and run experiments in studio web experience        | ✓      |       | ✓                             |
+| Feature Sweeping (or advanced transformers)                | ?      | ?     |                               |
+| Custom featurizers support                                 | ?      | ?     |                               |
+| Feature engineering customization SDK                      | ?      | ?     | ✓                             |
+| Many models training SDK                                   | ?      | ?     |                               |
+| Create and run experiments in notebooks                    | ✓      | ✓     |                               |
+| Register and visualize experiment's info and metrics in UI | ✓      | ✓     |                               |
+| Subsampling                                                | ✓      | ✓     |                               |
+| Data guardrails                                            | ✓      | ✓     |                               |
+| Forecasting                                                | ✓      | ✓     | ✓                             |
+| ONNX models                                                | ✓      | ✓     |                               |
+| Ensemble iterations                                        | ✓      | ✓     |                               |
+| Model interpretability (in notebooks)                      | ✓      | ✓     | ✓                             |
 
 
 ## Automated ML in Azure Machine Learning
