@@ -119,8 +119,7 @@ end
 
 Save this file in a new folder named `controls` inside the `linux-path` directory.
 
-Finally, create a configuration, import the **GuestConfiguration** resource module, and use the
-`ChefInSpecResource` resource to set the name of the InSpec profile.
+Finally, create a configuration, import the **PSDesiredStateConfiguration** resource module, and compile the configuration.
 
 ```powershell
 # Define the configuration and import GuestConfiguration
@@ -138,12 +137,17 @@ Configuration AuditFilePathExists
 }
 
 # Compile the configuration to create the MOF files
-AuditFilePathExists -out ./Config
+import-module PSDesiredStateConfiguration
+AuditFilePathExists -out ./
 ```
+Save this file with name `config.ps1` in the project folder. Run it in PowerShell by executing `./config.ps1`
+in the terminal. A new mof file will be created.
 
 The `Node AuditFilePathExists` command isn't technically required but it produces a file named
 `AuditFilePathExists.mof` rather than the default, `localhost.mof`. Having the .mof file name follow
 the configuration makes it easy to organize many files when operating at scale.
+
+
 
 You should now have a project structure as below:
 
