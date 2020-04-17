@@ -11,6 +11,9 @@ ms.author: dsindona
 
 # Publish a virtual machine offer
 
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Virtual Machine offer](https://aka.ms/CreateAzureVMoffer) to manage your migrated offers.
+
  The last step, after you have defined the offer in the portal and created the associated technical assets, is to submit the offer for publishing. The following diagram depicts the main steps in the publishing process to "go live":
 
 ![Publishing steps for virtual machine offer](./media/publishvm_013.png)

@@ -9,17 +9,19 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 12/03/2019
+ms.date: 04/16/2020
 ---
 # Exceptions and error codes for the designer (preview)
 
 This article describes the error messages and exception codes in Azure Machine Learning designer (preview) to help you troubleshoot your machine learning pipelines.
 
-There are two ways to get the full text of an error message in the designer:  
+You can find the error message in the designer following these steps:  
 
-- Click the link, **View Output Log**, in the right pane and scroll to the bottom. The detailed error message is displayed in the last two lines of the window.  
-  
-- Select the module that has the error, and click the red X. Only the pertinent error text is displayed.
+- Select the failed module, go to the **Outputs+logs** tab, you can find the detailed log in the **70_driver_log.txt** file under the **azureml-logs** category.
+
+- For detailed module error, you can check it in the error_info.json under **module_statistics** category.
+
+Following are error codes of modules in the designer.
 
 ## Error 0001  
  Exception occurs if one or more specified columns of data set couldn't be found.  

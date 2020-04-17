@@ -12,7 +12,7 @@ ms.author: dsindona
 # Consulting service prerequisites
 
 >[!Important]
->Starting March 30th, 2020, we'll begin moving management of your Consulting service offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Consulting service creation overview](https://aka.ms/AzureCreateConsultingService) to manage your migrated offers.
+>Starting April 13, 2020, we'll begin moving management of your Consulting service offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Consulting service creation overview](https://aka.ms/AzureCreateConsultingService) to manage your migrated offers.
 
 Review the description of and requirements for this offer type in [Consulting Services for Azure Marketplace and AppSource](../../consulting-services.md).  The following specific consulting service types have additional requirements:
 

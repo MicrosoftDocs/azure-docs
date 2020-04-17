@@ -221,7 +221,7 @@ WebJobs uses the same CRON expressions for scheduling as the timer trigger in Az
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-### setting.job reference
+### settings.job reference
 
 The following settings are supported by WebJobs:
 

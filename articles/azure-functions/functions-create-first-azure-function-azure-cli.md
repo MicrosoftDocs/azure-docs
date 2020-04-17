@@ -92,7 +92,7 @@ Navigate into the project folder:
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ```
-cd LocalFunctionsProject
+cd LocalFunctionProj
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
@@ -217,9 +217,9 @@ Use the following Azure CLI commands to create these items. Each command provide
 
 If you haven't done so already, sign in to Azure with the [az login](/cli/azure/reference-index#az-login) command:
 
-    ```azurecli
-    az login
-    ```
+```azurecli
+az login
+```
     
 Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named `AzureFunctionsQuickstart-rg` in the `westeurope` region. (You generally create your resource group and resources in a region near you, using an available region from the `az account list-locations` command.)
 

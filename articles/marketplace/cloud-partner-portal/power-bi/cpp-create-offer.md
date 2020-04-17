@@ -12,7 +12,7 @@ ms.author: dsindona
 # Create a Power BI App offer
 
 >[!Important]
->Starting March 30th, 2020, we'll begin moving management of your Power BI app offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Power BI app creation overview](https://aka.ms/AzureCreatePBIServiceApp) to manage your migrated offers.
+>Starting April 13, 2020, we'll begin moving management of your Power BI app offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Power BI app creation overview](https://aka.ms/AzureCreatePBIServiceApp) to manage your migrated offers.
 
 This article lists the steps to follow to create a new Power BI App offer for [AppSource](https://appsource.microsoft.com). Every offer appears as its own entity in AppSource. When you create a new offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/), you're required to supply four groups of assets for your offer.
 
