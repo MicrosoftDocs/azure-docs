@@ -25,7 +25,6 @@ Your new function app is ready to use. Next, you'll create a function in the new
 
 :::image type="content" source="./media/functions-create-scheduled-function/function-app-create-success.png" alt-text="Function app successfully created." border="true":::
 
-
 <a name="create-function"></a>
 
 ## Create a timer triggered function
