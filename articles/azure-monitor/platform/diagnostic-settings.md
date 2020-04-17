@@ -70,7 +70,7 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
 4. **Category details (what to route)** - Check the box for each category of data you want to send to destinations specified later. The list of categories varies for each Azure service.
 
-     - **AllMetrics** routes the automatically collected platform metrics for that resource type.  [Azure Monitor supported metrics](metrics-supported.md) listed what metrics are collected for what resource types. Choosing this setting copies the time-series metrics found in the Azure Monitor metrics store into the Azure Logs store, but in log form. This allows you to search them using queries.  
+     - **AllMetrics** routes a resource's platform metrics into the Azure Logs store, but in log form. These metrics are usually sent only to the Azure Monitor metrics time-series database. Sending them to the Azure Monitor Logs store (which is searchable via Log Analytics) you to integrate them into queries which search across other logs. This option may not be available for all resource types. When it is supported, [Azure Monitor supported metrics](metrics-supported.md) lists what metrics are collected for what resource types.
 
        > [!NOTE]
        > Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
@@ -95,8 +95,12 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
         ![Send to Storage](media/diagnostic-settings/storage-settings-new.png)
 
-        > [!WARNING]
-        > Considering setting the retention policy to 0 and manually deleting your data from storage to avoid possible confusion in the future. If you choose a retention policy that is greater than 0, the expiration date is attached to the logs at the time of storage. You can't change the date for those logs once stored, though you can always delete them manually.  For example, if you set the retention policy for *AllMetrics* to 180 days and then 24 hours later set it to 365 days, the metrics stored during those first 24 hours will be automatically deleted after 180 days, while all subsequent metrics will be automatically deleted after 365 days.
+        > [!TIP]
+        > Consider setting the retention policy to 0 and manually deleting your data from storage using a scheduled job to avoid possible confusion in the future.
+        >
+        > First, if you are using storage for archiving, you generally want your data around for more than 365 days. Second, if you choose a retention policy that is greater than 0, the expiration date is attached to the logs at the time of storage. You can't change the date for those logs once stored.
+        >
+        > For example, if you set the retention policy for *WorkflowRuntime* to 180 days and then 24 hours later set it to 365 days, the logs stored during those first 24 hours will be automatically deleted after 180 days, while all subsequent logs of that type will be automatically deleted after 365 days. Changing the retention policy later doesn't make the first 24 hours of logs stay around for 365 days.
 
 6. Click **Save**.
 
