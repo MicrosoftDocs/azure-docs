@@ -22,7 +22,7 @@ Before combined registration, users registered authentication methods for Azure 
 This article outlines what combined security registration is. To get started with combined security registration, see the following article:
 
 > [!div class="nextstepaction"]
-> [Enable combined security regiration](howto-registration-mfa-sspr-combined.md)
+> [Enable combined security registration](howto-registration-mfa-sspr-combined.md)
 
 ![My Profile showing registered Security info for a user](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 

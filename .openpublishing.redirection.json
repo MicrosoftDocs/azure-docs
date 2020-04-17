@@ -237,6 +237,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/encrypt-disks.md",
+      "redirect_url": "/azure//virtual-machines/windows/disk-encryption-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/cli-manage-nodejs.md",
       "redirect_url": "/azure/virtual-machines/linux/create-cli-complete",
       "redirect_document_id": false
@@ -17429,6 +17434,11 @@
     {
       "source_path": "articles/storage/storage-troubleshoot-file-connection-problems.md",
       "redirect_url": "/azure/storage/files/storage-troubleshoot-windows-file-connection-problems",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-account-container-recovery.md",
+      "redirect_url": "/azure/storage/common/storage-redundancy",
       "redirect_document_id": false
     },
     {
@@ -50408,7 +50418,7 @@
     },
     {
       "source_path": "articles/hdinsight/spark/azure-synapse-analytics-job-definition.md",
-      "redirect_url": "../../synapse-analytics/spark/apache-spark-job-definitions.md",
+      "redirect_url": "/azure/synapse-analytics/spark/apache-spark-job-definitions",
       "redirect_document_id": true
     },
     {
@@ -51108,6 +51118,11 @@
 	{
       "source_path": "articles/azure-monitor/insights/key-vault-insights-overview.md",
       "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/azure-monitor/app/metrics-explorer.md",
+      "redirect_url": "/azure/azure-monitor/platform/metrics-charts",
       "redirect_document_id": false
     },
     {
