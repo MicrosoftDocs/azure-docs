@@ -109,7 +109,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 ## Next steps
 
   View your telemetry:
- - [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage.
+ - [Explore metrics](../../azure-monitor/platform/metrics-charts.md) to monitor performance and usage.
 - [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems.
 - [Use Analytics](../../azure-monitor/app/analytics.md) for more advanced queries.
 - [Create dashboards](../../azure-monitor/app/overview-dashboard.md).
