@@ -151,7 +151,7 @@ This code sample reads the HTTP Request query strings and assigns them to fields
 
 1. Expand the **TaskCollection** nodes, select the new document, and confirm that the document contains your query string values, along with some additional metadata.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer.png" alt-text="Verify the string values in your document." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer-check-document.png" alt-text="Verify the string values in your document." border="true":::
 
 You've successfully added a binding to your HTTP trigger to store unstructured data in an Azure Cosmos DB.
 
