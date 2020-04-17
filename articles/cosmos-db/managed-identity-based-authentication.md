@@ -59,9 +59,9 @@ In this scenario, the function app will read the temperature of the aquarium, th
 
    ![Screenshot showing the Add role assignment pane.](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png)
 
-   * **Role** - Select **DocumentDB Account Contributor**
-   * **Assign access to** - Under the Select **System-assigned managed identity** subsection, select  **Function App**.
-   * **Select** - The pane will be populated with all the function apps, in your subscription, that have a **Managed System Identity**. In our case I select the **FishTankTemperatureService** function app: 
+   * **Role**: Select **DocumentDB Account Contributor**
+   * **Assign access to**: Under the **Select system-assigned managed identity** subsection, select  **Function App**.
+   * **Select**: The pane will be populated with all the function apps, in your subscription, that have a **Managed System Identity**. In this case, I select the **FishTankTemperatureService** function app: 
 
       ![Screenshot showing the Add role assignment pane populated with examples.](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png)
 
