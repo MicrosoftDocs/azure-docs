@@ -11,11 +11,11 @@ ms.author: JenCook
 ---
 
 
-# Quickstart: Deploy an Azure Confidential Computing VM in the Azure portal
+# Quickstart: Deploy an Azure confidential computing VM in the Azure portal
 
-Get started with Azure Confidential Computing by using the Azure portal to create a virtual machine that runs on Linux. You'll then install the Open Enclave Software Development Kit (SDK) to set up your development environment. 
+Get started with Azure confidential computing by using the Azure portal to create a virtual machine that runs on Linux. You'll then install the Open Enclave Software Development Kit (SDK) to set up your development environment. 
 
-This tutorial is recommended for you if you're interested in deploying a confidential compute virtual machine with custom configuration. Otherwise, we recommend following the [Azure Marketplace Confidential Compute virtual machine deployment steps.](./deploy-marketplace.md)
+This tutorial is recommended for you if you're interested in deploying a confidential compute virtual machine with custom configuration. Otherwise, we recommend following the [Azure Marketplace Confidential Compute virtual machine deployment steps.](/deploy-marketplace.md)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -31,13 +31,14 @@ In this section, you'll sign into the Azure portal and navigate to a virtual mac
 
 1. In the top row, select **Create a resource**.
 
+   
     ![Create a resource](media/quick-create-portal/create-resource.png)
 
 1. In the **Azure Marketplace** pane, select **Compute**.
 
 1. Select **Virtual machine** next to the **Featured** heading.
 
-   ![Deploy a VM](media/quick-create-portal/compute-virtualmachine.png)
+    ![Deploy a VM](media/quick-create-portal/compute-virtualmachine.png)
 
 
 ## Configure a confidential computing virtual machine
@@ -51,23 +52,22 @@ In this section, you'll use the Azure portal to deploy a virtual machine that al
 1. Then, type or select the following values:
    * **Region**: Select the Azure region that's right for you.
 
-    > [!NOTE]
-    > Confidential compute virtual machines only run on specialized hardware available in specific regions. Please check [here](https://aka.ms/accregions) for the latest available regions for DCsv2-Series VMs.
+        > [!NOTE]
+        > Confidential compute virtual machines only run on specialized hardware available in specific regions. Please check [here](https://aka.ms/accregions) for the latest available regions for DCsv2-Series VMs.
 
 1. Configure the operating system image that you would like to use for your virtual machine.
     * **Choose Image**: Select Ubuntu 18.04 LTS.
 
-    > [!NOTE]
-    > Windows Server 2016 and Ubuntu 16.04 LTS also support confidential computing on Azure Confidential Computing VMs. As with Ubuntu 18.04, these images need to be Generation 2. 
-
+        > [!NOTE]
+        > Windows Server 2016 and Ubuntu 16.04 LTS also support confidential computing on Azure confidential computing VMs. As with Ubuntu 18.04, these images need to be Generation 2. 
     
     * **Toggle the image for Gen 2**: Confidential compute virtual machines only run on Generation 2 images. Ensure the image you select is a Gen 2 image. Click the **Advanced** tab above where you're configuring the virtual machine. Scroll down until you find the section labeled "VM Generation". Select Gen 2 and then go back to the **Basics** tab.
     
+
         ![Advanced Tab](media/quick-create-portal/advancedtab-virtualmachine.png)
 
-        ![VM Generation](media/quick-create-portal/gen2-virtualmachine.png)
 
-      
+        ![VM Generation](media/quick-create-portal/gen2-virtualmachine.png)
 
     * **Return to basic configuration**: Go back to the **Basics** tab using the navigation at the top.
 
@@ -77,7 +77,8 @@ In this section, you'll use the Azure portal to deploy a virtual machine that al
 1. Choose the confidential compute VM size that's right for you.
     * Choose a virtual machine with confidential compute capabilities in the size selector by choosing **change size**. In the virtual machine size selector, click **Clear all filters**. Choose **Add filter**, select **Family** for the filter type, and then select only **Confidential compute**
 
-         ![DCsv2-Series VMs](media/quick-create-portal/dcsv2-virtualmachines.png)
+   
+        ![DCsv2-Series VMs](media/quick-create-portal/dcsv2-virtualmachines.png)
 
        > [!TIP]
        > You should see sizes **DC1s_v2**, **DC2s_v2**, **DC4s_V2**, and **DC8_v2**. These are the only virtual machine sizes that currently support confidential computing. [Learn more](http://aka/ms/dcv2)
@@ -119,6 +120,7 @@ ssh azureadmin@40.55.55.555
 
 You can find the IP address of your VM in the Azure portal.
 
+[!div class="mx-imgBorder"]
 ![IP address in Azure portal](media/quick-create-portal/publicip-virtualmachine.png)
 
 If you're running on Windows and don't have a BASH shell, install an SSH client, such as PuTTY.
