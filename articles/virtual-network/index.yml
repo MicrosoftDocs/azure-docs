@@ -70,8 +70,11 @@ landingContent:
         links:
           - text: Secure and isolate access to Azure resources
             url: https://docs.microsoft.com/learn/modules/secure-and-isolate-with-nsg-and-service-endpoints    
-
-         
+      - linkListType: video
+        links:
+          - text: Azure Virtual Network Service Endpoint
+            url: https://www.youtube.com/watch?v=gxsitRRgylI          
+       
   # Card
   - title: Connect virtual networks
     linkLists:
@@ -189,9 +192,6 @@ landingContent:
             url: /powershell/module/az.network
           - text: REST
             url: /rest/api/virtual-network      
-          
-    
-
 
 
 
