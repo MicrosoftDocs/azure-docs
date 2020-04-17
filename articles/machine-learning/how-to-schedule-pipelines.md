@@ -96,6 +96,10 @@ reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="
 
 In addition to the arguments discussed previously, you may set the `status` argument to `"Disabled"` to create an inactive schedule. Finally, the `continue_on_step_failure` allows you to pass a Boolean that will override the pipeline's default failure behavior.
 
+### Use Azure Logic Apps for more complex workflows
+
+Azure Logic Apps supports more complex workflows and is far more broadly integrated than Azure Machine Learning pipelines. See [Trigger a run of a Machine Learning pipeline from a Logic App](how-to-trigger-published-pipeline.md) for more information.
+
 ## View your scheduled pipelines
 
 In your Web browser, navigate to Azure Machine Learning. From the **Endpoints** section of the navigation panel, choose **Pipeline endpoints**. This takes you to a list of the pipelines published in the Workspace.

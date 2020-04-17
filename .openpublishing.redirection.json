@@ -3639,7 +3639,7 @@
     },
    {
       "source_path": "articles/key-vault/about-keys-secrets-and-certificates.md",
-      "redirect_url": "/azure/key-vault/index.yml",
+      "redirect_url": "/azure/key-vault",
       "redirect_document_id": false
     },
    {
@@ -7854,6 +7854,11 @@
     {
       "source_path": "articles/automation/automation-source-control-integration.md",
       "redirect_url": "/azure/automation/source-control-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/oms-solution-updatemgmt-sccmintegration.md",
+      "redirect_url": "/azure/automation/updatemgmt-mecmintegration",
       "redirect_document_id": false
     },
     {
@@ -51138,6 +51143,11 @@
     {
       "source_path": "articles/healthcare-apis/configure-local-rbac.md",
       "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir-additional-settings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-configure-tricaster-live-encoder.md",
+      "redirect_url": "/azure/media-services",
       "redirect_document_id": false
     }
   ]
