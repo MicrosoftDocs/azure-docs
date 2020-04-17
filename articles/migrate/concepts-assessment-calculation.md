@@ -185,11 +185,7 @@ After the machine is marked as ready for Azure, Server Assessment makes sizing r
 If you use performance-based sizing, Server Assessment makes sizing recommendations as follows:
 
 - Server Assessment considers the performance history of the machine to identify the VM size and disk type in Azure.
-<<<<<<< HEAD
 - If you import servers by using a CSV file, the values you specify are used. This method is especially helpful if you've overallocated the on-premises machine, utilization is low, and you want to rightsize the Azure VM to save costs.
-=======
-- If servers have been imported using a CSV file, the values you specify are used. This method is especially helpful if you've over-allocated the on-premises machine, utilization is low, and you want to right-size the VM in Azure to save costs. 
->>>>>>> 8176d1165f2ec7cd08cac67c8b6848fdbd9ec26c
 - If you don't want to use the performance data, reset the sizing criteria to as-is on-premises, as described in the previous section.
 
 #### Calculate storage sizing
