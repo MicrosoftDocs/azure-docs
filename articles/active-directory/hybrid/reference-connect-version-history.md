@@ -52,12 +52,12 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filtering feature enabled and use mS-DS-ConsistencyGuid as the source anchor.
 
 > [!IMPORTANT]
-> If you use mS-DS-ConsistencyGuid as the source anchor, and have cloned the **In from AD - Group Join** sync rule and plan to upgrade, please do the following steps as part of the upgrade:
+> If you use mS-DS-ConsistencyGuid as the source anchor, and you have cloned the **In from AD - Group Join** sync rule and plan to upgrade, complete the following steps as part of the upgrade:
 > 1. During Upgrade, uncheck the option **Start the synchronization process when configuration completes**.
-> 2. Edit cloned join sync rule and add the following two transformations:
->   - direct flow `objectGUID` to `sourceAnchorBinary`
->	- expression flow `ConvertToBase64([objectGUID])` to `sourceAnchor`      
-> 3. Enable the scheduler using `Set-ADSyncScheduler -SyncCycleEnabled $true`
+> 2. Edit the cloned join sync rule and add the following two transformations:
+>     - Set direct flow `objectGUID` to `sourceAnchorBinary`.
+>     - Set expression flow `ConvertToBase64([objectGUID])` to `sourceAnchor`.     
+> 3. Enable the scheduler using `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
 
 ## 1.5.18.0
