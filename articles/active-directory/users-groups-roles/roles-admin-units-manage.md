@@ -55,7 +55,7 @@ Install Azure AD PowerShell (preview) before you try to run the following comman
     Connect-AzureAD
     New-AzureADAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
 
-You can modify the values that are enclosed in quotation marks, as necessary.
+You can modify the values that are enclosed in quotation marks, as required.
 
 ### Use Microsoft Graph
 
@@ -73,8 +73,9 @@ In Azure AD, you can remove an administrative unit that you no longer need as a 
 
 ### Use the Azure portal
 
-1. In the Azure portal, go to **Azure AD** > **Administrative units**. 2. Select the administrative unit to be deleted, and then select **Delete**. 
-3. To confirm that you want to delete the administrative unit, select **Yes**. The administrative unit is deleted.
+1. In the Azure portal, go to **Azure AD** > **Administrative units**. 
+1. Select the administrative unit to be deleted, and then select **Delete**. 
+1 To confirm that you want to delete the administrative unit, select **Yes**. The administrative unit is deleted.
 
 ![Screenshot of the administrative unit Delete button and confirmation window](./media/roles-admin-units-manage/select-admin-unit-to-delete.png)
 
@@ -83,7 +84,7 @@ In Azure AD, you can remove an administrative unit that you no longer need as a 
     $delau = Get-AzureADAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
     Remove-AzureADAdministrativeUnit -ObjectId $delau.ObjectId
 
-You can modify the values that are enclosed in quotation marks, as necessary for the specific environment.
+You can modify the values that are enclosed in quotation marks, as required for the specific environment.
 
 ### Use the Graph API
 
