@@ -181,6 +181,7 @@ To modify targeted devices for a deployment:
 
 1. In your IoT hub, select **IoT Edge** from the left pane menu.
 1. Select the **IoT Edge deployments** tab and select the deployment you want to configure. Select the **Target Condition** tab.
+1. If needed, adjust the **Priority** for when deployments target the same device, the deployment with higher priority gets applied. If multiple deployments have the same priority, the deployment with the later creation date gets applied.
 1. Define a target condition, using the example syntax as a guide.
 
     ![Specify target conditions for a deployment](./media/how-to-deploy-monitor/target-devices.png)
