@@ -2,7 +2,7 @@
 title: Questions about discovery, assessment, and dependency analysis in Azure Migrate
 description: Get answers to common questions about discovery, assessment, and dependency analysis in Azure Migrate.
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 04/15/2020
 
 ---
 
@@ -15,9 +15,16 @@ This article answers common questions about discovery, assessment, and dependenc
 - Questions about [server migration](common-questions-server-migration.md)
 - Get questions answered in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum)
 
+
+## What geographies are supported for discovery and assessment with Azure Migrate?
+
+Review the supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
+
+
 ## How many VMs can I discover with an appliance?
 
 You can discover up to 10,000 VMware VMs, up to 5,000 Hyper-V VMs, and up to 250 physical servers by using a single appliance. If you have more machines, read about [scaling a Hyper-V assessment](scale-hyper-v-assessment.md), [scaling a VMware assessment](scale-vmware-assessment.md), or [scaling a physical server assessment](scale-physical-assessment.md).
+
 
 ## The size of my VM changed. Can I run an assessment again?
 
