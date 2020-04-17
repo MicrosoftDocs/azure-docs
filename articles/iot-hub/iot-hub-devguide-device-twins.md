@@ -53,7 +53,7 @@ A device twin is a JSON document that includes:
 
 * **Reported properties**. Used along with desired properties to synchronize device configuration or conditions. The device app can set reported properties, and the solution back end can read and query them.
 
-* **Device identity properties**. The root of the device twin JSON document contains the read-only properties from the corresponding device identity stored in the [identity registry](iot-hub-devguide-identity-registry.md).
+* **Device identity properties**. The root of the device twin JSON document contains the read-only properties from the corresponding device identity stored in the [identity registry](iot-hub-devguide-identity-registry.md). Properties `connectionStateUpdatedTime` and `generationId` will not be included.
 
 ![Screenshot of device twin properties](./media/iot-hub-devguide-device-twins/twin.png)
 

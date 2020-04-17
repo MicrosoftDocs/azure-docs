@@ -24,8 +24,11 @@ The replication appliance is deployed when you set up agent-based migration of V
 
 **Used for** | **Details**
 --- |  ---
-VMware VM agent-based migration | You download OVA template from the Azure Migrate hub, and import to vCenter Server to create the appliance VM.
-Physical machine agent-based migration | If you don't have a VMware infrastructure, or if you can't create a VMware VM using an OVA template, you download a software installer from the Azure Migrate hub, and run it to set up the appliance machine.
+**VMware VM agent-based migration** | You download OVA template from the Azure Migrate hub, and import to vCenter Server to create the appliance VM.
+**Physical machine agent-based migration** | If you don't have a VMware infrastructure, or if you can't create a VMware VM using an OVA template, you download a software installer from the Azure Migrate hub, and run it to set up the appliance machine.
+
+> [!NOTE]
+> If you're deploying in Azure Government, use the installation file to deploy the replication appliance.
 
 ## Appliance requirements
 
@@ -70,7 +73,7 @@ Download and install in Azure Migrate | When you install the appliance and are p
 
 ## URL access
 
-The replication appliance needs access to these URLs.
+The replication appliance needs access to these URLs in the Azure public cloud.
 
 **URL** | **Details**
 --- | ---
@@ -80,10 +83,26 @@ The replication appliance needs access to these URLs.
 \*.hypervrecoverymanager.windowsazure.com | Used for replication management operations and coordination
 https:\//management.azure.com | Used for replication management operations and coordination
 *.services.visualstudio.com | Used for telemetry purposes (It is optional)
-time.nist.gov | Used to check time synchronization between system and global time.
 time.windows.com | Used to check time synchronization between system and global time.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | OVF setup needs access to these URLs. They are used for access control and identity management by Azure Active Directory
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | Appliance setup needs access to these URLs. They are used for access control and identity management by Azure Active Directory
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.
+
+
+## Azure Government URL access
+
+The replication appliance needs access to these URLs in Azure Government.
+
+**URL** | **Details**
+--- | ---
+\*.backup.windowsazure.us | Used for replicated data transfer and coordination
+\*.store.core.windows.net | Used for replicated data transfer and coordination
+\*.blob.core.windows.net | Used to access storage account that stores replicated data
+\*.hypervrecoverymanager.windowsazure.us | Used for replication management operations and coordination
+https:\//management.usgovcloudapi.net | Used for replication management operations and coordination
+*.services.visualstudio.com | Used for telemetry purposes (It is optional)
+time.nist.gov | Used to check time synchronization between system and global time.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | Appliance setup with OVA needs access to these URLs. They are used for access control and identity management by Azure Active Directory.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.
 
 ## Port access
 
@@ -103,7 +122,7 @@ Process server | The process server receives replication data, optimizes, and en
     - VMs communicate with the replication appliance on port HTTPS 443 inbound, for replication management.
     - The replication appliance orchestrates replication with Azure over port HTTPS 443 outbound.
     - VMs send replication data to the process server (running on the replication appliance) on port HTTPS 9443 inbound. This port can be modified.
-    - The process server receives replication data, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
+    - The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.
 5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure managed disk.
 
 ![Architecture](./media/migrate-replication-appliance/architecture.png)
