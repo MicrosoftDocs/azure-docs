@@ -16,15 +16,15 @@ This article describes common issues with Azure Stream Analytics output connecti
 
 ## The job doesn't produce output
 
-If the job doesn't produce outputs, verify connectivity:
+If the job doesn't produce output, verify connectivity:
 
 1. Verify connectivity to outputs using the **Test Connection** button for each output.
 1. Look at [Monitoring metrics](stream-analytics-monitoring.md) on the **Monitor** tab. Because the values are aggregated, the metrics are delayed by a few minutes.
 
-   * If Input Events are greater than zero, the job can read the input data. If Input Events are not greater than zero, there is an issue with the job's input. See [Troubleshoot input connections](stream-analytics-troubleshoot-input.md) for more information.
-   * If Data Conversion Errors are greater than zero and climbing, see [Azure Stream Analytics data errors](data-errors.md) for detailed information about data conversion errors.
-   * If Runtime Errors are greater than zero, your job can receive data but it's generating errors while processing the query. To find the errors, go to the [audit logs](../azure-resource-manager/management/view-activity-logs.md), and then filter on the *Failed* status.
-   * If InputEvents is greater than zero and OutputEvents equals zero, one of the following is true:
+   * If the **Input Events** value is greater than zero, the job can read the input data. If the **Input Events** value isn't greater than zero, there's an issue with the job's input. See [Troubleshoot input connections](stream-analytics-troubleshoot-input.md) for more information.
+   * If the **Data Conversion Errors** value is greater than zero and climbing, see [Azure Stream Analytics data errors](data-errors.md) for detailed information about data conversion errors.
+   * If the **Runtime Errors** value is greater than zero, your job receives data but generates errors while processing the query. To find the errors, go to the [audit logs](../azure-resource-manager/management/view-activity-logs.md), and then filter on the **Failed** status.
+   * If the **Input Events** value is greater than zero and the **Output Events** value equals zero, one of the following statements is true:
       * The query processing resulted in zero output events.
       * Events or fields might be malformed, resulting in a zero output after the query processing.
       * The job was unable to push data to the output sink for connectivity or authentication reasons.
@@ -45,13 +45,13 @@ These factors impact the timeliness of the first output:
 
 * The use of windowed aggregates, such as a GROUP BY clause of tumbling, hopping, and sliding windows:
 
-  * For tumbling or hopping window aggregates, the results are generated at the end of the window timeframe.
-  * For a sliding window, the results are generated when an event enters or exits the sliding window.
-  * If you are planning to use a large window size, such as more than one hour, it’s best to choose a hopping or sliding window. These window types let you see the output more frequently.
+  * For tumbling or hopping window aggregates, the results generate at the end of the window timeframe.
+  * For a sliding window, the results generate when an event enters or exits the sliding window.
+  * If you're planning to use a large window size, such as more than one hour, it’s best to choose a hopping or sliding window. These window types let you see the output more frequently.
 
 * The use of temporal joins, such as JOIN with DATEDIFF:
   * Matches generate as soon as both sides of the matched events arrive.
-  * Data that lacks a match, like LEFT OUTER JOIN, generates at the end of the DATEDIFF window, with respect to each event on the left side.
+  * Data that lacks a match, like LEFT OUTER JOIN, generates at the end of the DATEDIFF window, for each event on the left side.
 
 * The use of temporal analytic functions, such as ISFIRST, LAST, and LAG with LIMIT DURATION:
   * For analytic functions, the output generates for every event. There is no delay.
@@ -64,25 +64,25 @@ During the normal operation of a job, the output might have longer and longer pe
 * Whether the upstream source is throttled.
 * Whether the processing logic in the query is compute-intensive.
 
-To see the output details, select the streaming job in the Azure portal, and then select the **Job diagram**. For each input, there is a per partition backlog event metric. If the metric keeps increasing, it’s an indicator that the system resources are constrained. The increase is potentially due to output sink throttling, or high CPU usage. For more information, see [Data-driven debugging by using the job diagram](stream-analytics-job-diagram-with-metrics.md).
+To see the output details, select the streaming job in the Azure portal, and then select **Job diagram**. For each input, there's a per partition backlog event metric. If the metric keeps increasing, it’s an indicator that the system resources are constrained. The increase is potentially due to output sink throttling, or high CPU usage. For more information, see [Data-driven debugging by using the job diagram](stream-analytics-job-diagram-with-metrics.md).
 
-## Key violation warning in Azure SQL Database output
+## Key violation warning with Azure SQL Database output
 
 When you configure an Azure SQL Database as output to a Stream Analytics job, it bulk inserts records into the destination table. In general, Stream Analytics guarantees [at least once delivery](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) to the output sink. You can still [achieve exactly-once delivery]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) to a SQL output when a SQL table has a unique constraint defined.
 
-When unique key constraints are set up on the SQL table and duplicate records are inserted into the SQL table, Stream Analytics removes the duplicate records. It splits the data into batches and recursively inserts the batches until a single duplicate record is found. The split and insert process ignores the duplicates one at a time. For a streaming job that has a considerable number of duplicate rows, the process is inefficient and time-consuming. If you see multiple key violation warning messages in your Activity log for the previous hour, it’s likely that your SQL output is slowing down the entire job.
+When you set up unique key constraints on the SQL table, Stream Analytics removes duplicate records. It splits the data into batches and recursively inserts the batches until a single duplicate record is found. The split and insert process ignores the duplicates one at a time. For a streaming job that has a considerable number of duplicate rows, the process is inefficient and time-consuming. If you see multiple key violation warning messages in your Activity log for the previous hour, it’s likely your SQL output is slowing down the entire job.
 
 To resolve this issue, [configure the index]( https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql) causing the key violation by enabling the IGNORE_DUP_KEY option. This option allows SQL to ignore duplicate values during bulk inserts. Azure SQL Database simply produces a warning message instead of an error. Stream Analytics doesn't produce primary key violation errors anymore.
 
-Note the following observations when configuring the IGNORE_DUP_KEY for several types of indexes:
+Note the following observations when configuring the IGNORE_DUP_KEY option for several types of indexes:
 
-* You can't set the IGNORE_DUP_KEY on a primary key or a unique constraint that uses ALTER INDEX. You need to drop and recreate the index.  
-* You can't set the IGNORE_DUP_KEY option using ALTER INDEX for a unique index. This is different from a PRIMARY KEY/UNIQUE constraint and is created using a CREATE INDEX or INDEX definition.  
-* The IGNORE_DUP_KEY doesn’t apply to column store indexes because you can’t enforce uniqueness on them.  
+* You can't set the IGNORE_DUP_KEY option on a primary key or a unique constraint that uses ALTER INDEX. You need to drop the index and recreate it.  
+* You can't set the IGNORE_DUP_KEY option using ALTER INDEX for a unique index. This instance is different from a PRIMARY KEY/UNIQUE constraint and is created using a CREATE INDEX or INDEX definition.  
+* The IGNORE_DUP_KEY option doesn’t apply to column store indexes because you can’t enforce uniqueness on them.  
 
-## Column names are lower-case in Stream Analytics (1.0)
+## Column names are lowercase in Stream Analytics (1.0)
 
-When using the original compatibility level (1.0), Stream Analytics changes column names to lower-case. This behavior was fixed in later compatibility levels. To preserve the case, move to compatibility level 1.1 or later. See [Compatibility level for Stream Analytics jobs](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) for more information.
+When using the original compatibility level (1.0), Stream Analytics changes column names to lowercase. This behavior was fixed in later compatibility levels. To preserve the case, move to compatibility level 1.1 or later. For more information, see [Compatibility level for Stream Analytics jobs](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
 
 ## Get help
 
