@@ -58,7 +58,7 @@ Azure Cosmos DB creates multikey indexes to index content stored in arrays. If y
 
 ### Geospatial indexes
 
-Many geospatial operators will benefit from geospatial indexes. Currently, the Azure Cosmos DB API for MongoDB supports `2dsphere` indexes. The API does not yet support `2d` indexes.
+Many geospatial operators will benefit from geospatial indexes. Currently, Azure Cosmos DB's API for MongoDB supports `2dsphere` indexes. The API does not yet support `2d` indexes.
 
 Here's an example of creating a geospatial index on the `location` field:
 
