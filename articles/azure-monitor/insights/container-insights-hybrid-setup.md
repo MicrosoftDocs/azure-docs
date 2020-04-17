@@ -2,7 +2,7 @@
 title: Configure Hybrid Kubernetes clusters with Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can configure Azure Monitor for containers to monitor Kubernetes clusters hosted on Azure Stack or other environment.
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 04/17/2020
 ---
 
 # Configure hybrid Kubernetes clusters with Azure Monitor for containers
@@ -19,7 +19,7 @@ The following is officially supported with Azure Monitor for containers.
     
     * AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
     
-    * [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4 on-premises or other cloud environment. 
+    * [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4 and higher, on-premises or other cloud environments.
 
 * Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
 
