@@ -15,7 +15,7 @@ App Service Static Apps is a service that automatically builds and deploys web a
 
 :::image type="content" source="media/overview/static-apps-overview.png" alt-text="Static Apps overview":::
 
-When you make commits and pull requests to a designated branch, these trigger a GitHub Action workflow. The workflow builds the web application for production and globally deploys the web app.
+Applying commits and pull requests to a designated branch triggers a GitHub Action workflow. The workflow builds the web application for production and globally deploys the web app and API.
 
 Back-end API functionality is powered by Azure Functions. Hosted on the Linux consumption plan, the app's API automatically scales up and down based on demand to the API.
 
@@ -31,7 +31,7 @@ Back-end API functionality is powered by Azure Functions. Hosted on the Linux co
 - **Authentication provider integrations** with Azure Active Directory, Facebook, Google, GitHub, and Twitter
 - **Customizable authorization role definition** and assignments
 - **Back-end routing rules** enabling full control over the content and routes you serve
-- **Generated staging versions** powered by pull requests
+- **Generated staging versions** powered by pull requests enabling preview versions of your site before publishing
 
 ## What you can do with Static Apps
 
