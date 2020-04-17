@@ -109,7 +109,11 @@ The following steps show you how to create a new static site app and deploy it t
 
 Next, you add configuration settings that the build process uses to build your app.
 
-1. To configure the settings of the GitHub Action, set the _App location_ to **/** and _App artifact location_ to **public**. A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
+1. To configure the settings of the step in GitHub Actions, set the _App location_ to **/**.
+
+1. Set _App artifact location_ to **public**.
+
+   A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
 
    ![Build Settings](./media/static-apps-publish-gatsby/build-details.png)
 
@@ -125,10 +129,12 @@ Next, you add configuration settings that the build process uses to build your a
 
    ![Deployed application](./media/static-apps-publish-gatsby/deployed-app.png)
 
+## Clean up resources
+
+[!INCLUDE [static-app-cleanup-resource](../../includes/static-app-cleanup-resource.md)]
 
 ## Next steps
 
+> [!div class="nextstepaction"]
 
-> [!div class="nextstepaction"]
-> [!div class="nextstepaction"]
 > [Add a custom domain](custom-domain.md)
