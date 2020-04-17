@@ -1,6 +1,6 @@
 ---
-title: Using SCIM and Microsoft Graph together to provision users and enrich your application with the data it needs | Microsoft Docs
-description: Need to set up provisioning for multiple instances of an application? Learn how to save time by using the Microsoft Graph APIs to automate the configuration of automatic provisioning.
+title: Using SCIM and the Microsoft Graph together to provision users and enrich your application with the data it needs | Microsoft Docs
+description: Using SCIM and the Microsoft Graph together to provision users and enrich your application with the data it needs .
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -23,24 +23,23 @@ ms.collection: M365-identity-device-management
 
 # Using SCIM and Microsoft Graph together to provision users and enrich your application with the data it needs
 
-Developers can use this reference to understand the various tools that Microsoft provides to automate provisioning. 
+Developers can use this reference to understand the various tools that Microsoft provides to automate creating, updating, and deleting users in your application. 
 
 **Common scenarios**
 
 > [!div class="checklist"]
-> * Automatically create user accounts in my application
-> * Automatically remove users from my applications when they shouldn't have access anymore
+> * Automatically create users in my application
+> * Automatically remove users from my application when they shouldn't have access anymore
 > * Integrate my application with multiple identity providers for provisioning
 > * Enrich my application with data from Microsoft services such as Sharepoint, Outlook, and Office.
 > * Automatically create, update, and delete users and groups in Azure AD and Active Directory
->* Flows..
 
 ![SCIM Graph decision tree](./media/user-provisioning/scim-graph.png)
 
-## Scenario 1: Automatically create user accounts in my application
-Today, IT manually create user accounts in my application each time someone needs access. My app is so widely used in the organization that IT has to create 100s of accounts a week and it's really slowing down adoption. I just need basic information such as name, email, and userPrincipalName to create a user account. How can I automatically create user accounts in my application?
+## Scenario 1: Automatically create users in my application
+Today, IT manually create user accounts in my application each time someone needs access or pereodically upload CSV files. The process is time consuming for customers and slows down adoption of my application. All I need is basic [user](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) information such as name, email, and userPrincipalName to create a user. Furthermore, my customers use various IdPs and I don't have the resources to maintain custom integrations with each IdP. 
 
-**Recommendation**: Support a SCIM compliant /Users endpoint. Your customers will be able to easily use this endpoint to integrate with the Azure AD provisioning service and automatically create user accounts when they need access. Check out the example request below for how a user would be created.
+**Recommendation**: Support a SCIM compliant [/Users](https://aka.ms/scimreferencecode) endpoint. Your customers will be able to easily use this endpoint to integrate with the Azure AD provisioning service and automatically create user accounts when they need access. Check out the example request below for how a user would be created.
 
 ```json
 POST /Users
@@ -63,10 +62,10 @@ POST /Users
 }
 ```
     
-## Scenario 2: Automatically remove users from my applications when they shouldn't have access anymore
+## Scenario 2: Automatically remove users from my application when they shouldn't have access anymore
 The customers using my application are security focused and have governance requirements to remove accounts when people don't need them anymore. How can I automate deprovisioning from my application?
 
-**Recommendation:** Support a SCIM compliant /Users endpoint, allowing for deletidisabling and deleting users. We know accidents happen and customers may unintentionally remove a user from a group causing our service to remove the user from your application. Supporting the disable functionality helps customers recover from these mistakes. 
+**Recommendation:** Support a SCIM compliant /Users endpoint. The Azure AD provisioning service will send requests to disable and delete when the user should not have access anymore. We recommend supporting both disabling and deleting users. 
 
 Disable user
 ```json
@@ -89,12 +88,10 @@ Delete user
 DELETE /Users/5171a35d82074e068ce2 HTTP/1.1
 ```
 
-## Scenario 3: Integrate my application with multiple identity providers for provisioning
-My customers use various IdPs, not just Azure AD. Is there a way to automate provisioning to all? 
+## Scenario 3: Automate provisioning groups and managing group memberships in my application. 
+My application relies on groups for access to various resources, and customers want to reuse the groups that they have in Azure AD. How can I import groups from Azure AD and keep them updated as the memberships change?  
 
-**Recommendation:** Ensure that your SCIM endpoint adheres to the protocol specifications. A SCIM compliant endpoint should work out of the box with an SCIM compliant client. The majority of IdPs have SCIM clients that you can integrate with. Azure AD provides a [test suite](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) that you can use to check if your endpoint is SCIM compliant. 
-
-<Image>
+**Recommendation:** Support a SCIM compliant /Groups endpoint. The Azure AD provisioning service will take care of creating groups and managing memmbership updates in your application. 
 
 ## Scenario 4: Enrich my application with data from Microsoft services such as Sharepoint, Outlook, and Office.
 My application relies on Sharepoint to provide access to users to resources as well as information from Outlook. How can I enrich my application with data from those resources?
@@ -102,9 +99,9 @@ My application relies on Sharepoint to provide access to users to resources as w
 **Recommendation:** The Microsoft Graph is your entry point to access Microsoft resources. Each workload exposes APIs so that you can access the Microsoft data that you need. The Microsoft graph can be used along with SCIM provisioning for the scenarios above. You can use SCIM to provision basic user attributes into your application while calling into graph to get any other data that you need. 
 
 ## Scenario 5: Automatically create, update, and delete users and groups in Azure AD and Active Directory
-My application creates information about a user that customers need in Azure AD. This could be an HR application than manages hiring, a communications app that creates phone numbers for users, or some other app that generates data that would be baluable in Azure AD. How do I populate the user record in Azure AD with that data? 
+My application creates information about a user that customers need in Azure AD. This could be an HR application than manages hiring, a communications app that creates phone numbers for users, or some other app that generates data that would be valuable in Azure AD. How do I populate the user record in Azure AD with that data? 
 
-**Recommendation** The Microsoft graph exposes / Users and /Groups endpoints that you can integrate with today to provision users into Azure AD. Please note that those users will not be synchronized down to on prem Active Directory.  
+**Recommendation** The Microsoft graph exposes / Users and /Groups endpoints that you can integrate with today to provision users into Azure AD. Please note that those users will not be synchronized down to on-prem Active Directory.  
 
 > [!NOTE]
 > Microsoft has a provisioning service that pulls in data from HR applications such as Workday and SuccessFactors. These integrations are built and managed by Microsoft. For onboarding a new HR application to our service, you can request it [here](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests) on UserVoice. 
