@@ -10,7 +10,7 @@ ms.author: tisande
 ---
 # ORDER BY clause in Azure Cosmos DB
 
-The optional ORDER BY clause specifies the sorting order for results returned by the query.
+The optional `ORDER BY` clause specifies the sorting order for results returned by the query.
 
 ## Syntax
   
@@ -26,9 +26,9 @@ ORDER BY <sort_specification>
   
    Specifies a property or expression on which to sort the query result set. A sort column can be specified as a name or property alias.  
   
-   Multiple properties can be specified. Property names must be unique. The sequence of the sort properties in the ORDER BY clause defines the organization of the sorted result set. That is, the result set is sorted by the first property and then that ordered list is sorted by the second property, and so on.  
+   Multiple properties can be specified. Property names must be unique. The sequence of the sort properties in the `ORDER BY` clause defines the organization of the sorted result set. That is, the result set is sorted by the first property and then that ordered list is sorted by the second property, and so on.  
   
-   The property names referenced in the ORDER BY clause must correspond to either a property in the select list or to a property defined in the collection specified in the FROM clause without any ambiguities.  
+   The property names referenced in the `ORDER BY` clause must correspond to either a property in the select list or to a property defined in the collection specified in the `FROM` clause without any ambiguities.  
   
 - `<sort_expression>`  
   
@@ -40,7 +40,7 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   Specifies that the values in the specified column should be sorted in ascending or descending order. ASC sorts from the lowest value to highest value. DESC sorts from highest value to lowest value. ASC is the default sort order. Null values are treated as the lowest possible values.  
+   Specifies that the values in the specified column should be sorted in ascending or descending order. `ASC` sorts from the lowest value to highest value. `DESC` sorts from highest value to lowest value. `ASC` is the default sort order. Null values are treated as the lowest possible values.  
   
 ## Remarks  
   
