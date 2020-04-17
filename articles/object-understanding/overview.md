@@ -33,3 +33,6 @@ Get started with Object Understanding.
 
 > [!div class="nextstepaction"]
 > [Model Ingestion](quickstarts/get-started-model-ingestion.md)
+
+> [!div class="nextstepaction"]
+> [HoloLens DirectX](quickstarts/get-started-hololens-directx.md)

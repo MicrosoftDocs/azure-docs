@@ -13,6 +13,8 @@
   items:
   - name: Create a model
     href: quickstarts/get-started-model-ingestion.md
+  - name: Create HoloLens DirectX app
+    href: quickstarts/get-started-hololens-directx.md
 - name: Samples
   items:
   - name: Azure Object Understanding samples (GitHub)

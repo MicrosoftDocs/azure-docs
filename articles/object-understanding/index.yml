@@ -41,3 +41,5 @@ landingContent:
         links:
           - text: Model ingestion
             url: ./quickstarts/get-started-model-ingestion.md
+          - text: HoloLens DirectX
+            url: ./quickstarts/get-started-hololens-directx.md
