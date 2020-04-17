@@ -16,13 +16,13 @@ ms.custom:
 
 The Azure VMware Solution (AVS) delivers VMware-based private clouds in Azure. The private clouds are built from clusters of dedicated bare-metal hosts and are deployed and managed through the Azure portal. Clusters in private clouds are provisioned with VMware vSphere, vCenter, vSAN, and NSX software. AVS private cloud hardware and software deployments are fully integrated and automated in Azure.
 
-There's a logical relationship between Azure subscriptions, AVS private clouds, vSAN clusters, and hosts. In the diagram, two private clouds in a single Azure subscription are shown. The private clouds represent a development and a production environment, each with their own private cloud. In each of those private clouds there are two clusters. To show the lower potential needs of a development environment, smaller clusters with lower capacity hosts are used in that environment. All of these concepts are described in the sections below.
+There's a logical relationship between Azure subscriptions, AVS private clouds, vSAN clusters, and hosts. In the diagram, two private clouds in a single Azure subscription are shown. Private clouds represent a development and a production environment, each with their own private cloud. In each of those private clouds there are two clusters. To show the lower potential needs of a development environment, smaller clusters with lower capacity hosts are used. All of these concepts are described in the sections below.
 
 ![Image of two private clouds in a customer subscription](./media/hosts-clusters-private-clouds-final.png)
 
 ## Private clouds
 
-Private clouds contain vSAN clusters that are built with dedicated, bare-metal Azrure hosts. Each private cloud can have multiple clusters, all managed by the same vCenter server, and NSX-T manager. You can deploy and manage private clouds in the portal, from the CLI, or with PowerShell. As with other resources, private clouds are installed and managed from within an Azure subscription.
+Private clouds contain vSAN clusters that are built with dedicated, bare-metal Azure hosts. Each private cloud can have multiple clusters, all managed by the same vCenter server, and NSX-T manager. You can deploy and manage private clouds in the portal, from the CLI, or with PowerShell. As with other resources, private clouds are installed and managed from within an Azure subscription.
 
 The number of private clouds within a subscription is scalable. Initially, there's a limit of one private cloud per subscription.
 
@@ -45,7 +45,7 @@ Hyper-converged, bare-metal infrastructure nodes are used in AVS private cloud c
 
 Multiple types of hosts provide you with the flexibility to match hosts and cluster specifications to workload and business requirements.
 
-Hosts that are used to build or scale clusters are allocated from an isolated pool of hosts. Those hosts have passed hardware tests and have had all data securely deleted from the flash disks. When you remove a host from a cluster, the internal disks are securely wiped and the hosts are placed into the isolated pool of hosts. When you add a host to a cluster, a sanitized host from the isolated pool is used.
+Hosts that are used to build or scale clusters are acquired from an isolated pool of hosts. Those hosts have passed hardware tests and have had all data securely deleted from the flash disks. When you remove a host from a cluster, the internal disks are securely wiped and the hosts are placed into the isolated pool of hosts. When you add a host to a cluster, a sanitized host from the isolated pool is used.
 
 ## VMware software versions
 
@@ -72,7 +72,7 @@ Private cloud vCenter and NSX-T configurations are backed up hourly. Backups are
 
 ## Next steps
 
-The next step is to learn [networking and interconnectivity concepts](concepts-networking.md).
+The next step is to learn [networking and inter-connectivity concepts](concepts-networking.md).
 
 <!-- LINKS - internal -->
 

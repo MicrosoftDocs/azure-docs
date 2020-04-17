@@ -14,7 +14,7 @@ ms.custom:
 
 # Azure VMware Solution (AVS) networking and interconnectivity concepts
 
-Network interconnectivity between your Azure VMware Solution (AVS) private clouds and on-premises environments or VNets in Azure enable you to access and use your private cloud. A few key networking and interconnectivity concepts that establish the basis of interconnectivity are described in this article.
+Network interconnectivity between your Azure VMware Solution (AVS) private clouds and on-premises environments or VNets in Azure enables you to access and use your private cloud. A few key networking and interconnectivity concepts that establish the basis of interconnectivity are described in this article.
 
 A useful perspective on interconnectivity is to consider the two types of AVS private cloud implementations: those with basic Azure-only interconnectivity, those with full on-premises to private cloud interconnectivity.
 
@@ -55,7 +55,7 @@ You can also connect on-premises environments to your AVS private clouds. This t
 
 To establish full interconnectivity to a private cloud, you use the Azure portal to enable ExpressRoute Global Reach between a private cloud ER circuit and an on-premises ER circuit. This extends the basic connectivity to include access to private clouds from on-premises environments.
 
-An on-premises to Azure VNet ER circuit is required in order to connect from on-premises environments to your private cloud in Azure. That ER circuit is in your subscription and is not part of a private cloud deployment. The on-premises ER circuit is beyond the scope of this document but if you require on-premises connectivity to your private cloud, you can use one of your existing ER circuits or purchase one in the Azure portal.
+An on-premises to Azure VNet ER circuit is required to connect from on-premises environments to your private cloud in Azure. This ER circuit is in your subscription and is not part of a private cloud deployment. The on-premises ER circuit is beyond the scope of this document. If you require on-premises connectivity to your private cloud, you can use one of your existing ER circuits or purchase one in the Azure portal.
 
 Once linked with Global Reach, the two ER circuits will route network traffic between your on-premises environments and your private cloud. The on-premises to private cloud interconnectivity is shown in the following diagram. The interconnectivity represented in the diagram enables the following use cases:
 - Hot/Cold Cross-vCenter vMotion

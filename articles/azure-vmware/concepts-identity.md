@@ -16,7 +16,7 @@ ms.custom:
 
 A vCenter server and NSX-T manager are provisioned when a private cloud is deployed. You use vCenter to manage virtual machine workloads and NSX-T manager to extend the private cloud software-defined network.
 
-Access and identity management use CloudAdmin group privileges for vCenter and restricted administrator rights for NSX-T manager. This policy ensures that your private cloud platform can be upgraded automatically, delivering the newest features and patches on a regular cadence. See the [private cloud upgrades concepts article][concepts-upgrades] for more details on private cloud upgrades.
+Access and identity management use CloudAdmin group privileges for vCenter and restricted administrator rights for NSX-T manager. This policy ensures that your private cloud platform can be upgraded automatically. This delivers the newest features and patches on a regular basis. See the [private cloud upgrades concepts article][concepts-upgrades] for more details on private cloud upgrades.
 
 ## vCenter access and identity
 
