@@ -13,7 +13,7 @@ There are several types of entities:
 
 * Machine-learned entity
 * Non-machine-learned - for exact text matches, pattern matches, or detection by prebuilt entities
-* [Pattern.any](#pattern-any-entity) - to extract free-form text such as book titles
+* [Pattern.any](#patternany-entity) - to extract free-form text such as book titles
 
 Machine-learned entities provide the widest range of data extraction choices. Non-machine-learned entities work by text matching and are used as a feature with a [constraint](#design-entities-for-decomposition) for a machine-learned entity or intent.
 
@@ -82,7 +82,7 @@ Choose the entity based on how the data should be extracted and how it should be
 |--|--|
 |[**Machine-learned**](tutorial-machine-learned-entity.md)|Machine-learned entities learn from context in the utterance. Parent grouping of entities, regardless of entity type. This makes variation of placement in example utterances significant. |
 |[**List**](reference-entity-list.md)|List of items and their synonyms extracted with **exact text match**.|
-|[**Pattern.any**](reference-entity-pattern-any.md)|Entity where finding the end of entity is difficult to determine because the entity is free-form. |
+|[**Pattern.any**](#patternany-entity)|Entity where finding the end of entity is difficult to determine because the entity is free-form. |
 |[**Prebuilt**](luis-reference-prebuilt-entities.md)|Already trained to extract specific kind of data such as URL or email. Some of these prebuilt entities are defined in the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. If your specific culture or entity isn't currently supported, contribute to the project.|
 |[**Regular Expression**](reference-entity-regular-expression.md)|Uses regular expression for **exact text match**.|
 
