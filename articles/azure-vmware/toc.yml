@@ -1,5 +1,5 @@
 - name: Azure VMware Solution (AVS)
-  href:
+  href: index.yml
 - name: Overview
   items:
   - name: About AVS
@@ -45,10 +45,8 @@
     href: 
 - name: How-to guides
   items:
-  - name: Create DHCP Server - TODO
-    href: 
-  - name: Create Network Segments - TODO
-    href: 
+  - name: Manage DHCP
+    href: manage-dhcp.md
   - name: Internet Enable - TODO
     href: 
   - name: Set up NSX-T Best practices - TODO
