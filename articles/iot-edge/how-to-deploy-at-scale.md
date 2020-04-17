@@ -177,11 +177,10 @@ You can also make changes to reported properties and custom metrics in your depl
 
 ### Modify targeted devices
 
-You can target the devices to receive the deployment by specifying target conditions when you create or modify a deployment. To define a custom metric:
+To modify targeted devices for a deployment:
 
 1. In your IoT hub, select **IoT Edge** from the left pane menu.
 1. Select the **IoT Edge deployments** tab and select the deployment you want to configure. Select the **Target Condition** tab.
-
 1. Define a target condition, using the example syntax as a guide.
 
     ![Specify target conditions for a deployment](./media/how-to-deploy-monitor/target-devices.png)
@@ -199,9 +198,9 @@ To define and edit properties for a deployed module:
 
     ![Edit properties on the module identity twin](./media/how-to-deploy-monitor/module-twin.png)
 
-### Define a custom metric
+### Modify a custom metric
 
-You can define custom metrics in the Azure portal when you create or modify a deployment. To define a custom metric:
+To change or add custom metrics:
 
 1. In your IoT hub, select **IoT Edge** from the left pane menu.
 1. Select the **IoT Edge deployments** tab and then select the deployment you want to configure. Select the **Metrics** tab.
