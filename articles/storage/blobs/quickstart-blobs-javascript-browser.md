@@ -27,7 +27,7 @@ Azure Blob storage is optimized for storing large amounts of unstructured data. 
 * [An Azure Storage account](../common/storage-account-create.md)
 * [Node.js](https://nodejs.org)
 * [Microsoft Visual Studio Code](https://code.visualstudio.com)
-* A Visual Studio Code extension for browser debugging, such as 
+* A Visual Studio Code extension for browser debugging, such as:
     * [Debugger for Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge)
     * [Debugger for Chrome](vscode:extension/msjsdiag.debugger-for-chrome)
     * [Debugger for Firefox](vscode:extension/firefox-devtools.vscode-firefox-debug)
@@ -47,7 +47,7 @@ The following diagram shows the relationship between these resources.
 
 ![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
 
-In this quickstart, you'll use the following JavaScript classes to interact with these resources::
+In this quickstart, you'll use the following JavaScript classes to interact with these resources:
 
 * [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage resources and blob containers.
 * [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): The `ContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
@@ -104,7 +104,7 @@ Follow these steps to get the Blob service SAS URL:
 
 ### Add the Azure Blob storage client library
 
-Select **View > Terminal** to open a console window inside Visual Studio Code. Run the following `npm` command in the terminal window to create a [package.json](https://docs.npmjs.com/files/package.json) file.
+Select **View > Terminal** to open a console window inside Visual Studio Code. Run the following Node.js Package Manager (npm) command in the terminal window to create a [package.json](https://docs.npmjs.com/files/package.json) file.
 
 ```console
 npm init -y
@@ -120,13 +120,13 @@ npm install --save @azure/storage-blob
 
 To use Azure SDK libraries on a website, convert your code to work inside the browser. You do this using a tool called a bundler. Bundling takes JavaScript code written using [Node.js](https://nodejs.org) conventions and converts it into a format that's understood by browsers. This quickstart article uses the [Parcel](https://parceljs.org/) bundler.
 
-Install Parcel by using the Node.js Package Manager (npm) in a console window:
+Install Parcel by running the following `npm` command in the terminal window:
 
 ```console
 npm install -g parcel-bundler
 ```
 
-In Visual Studio Code, open the *package.json* file and add a `browserlist` between the `license` and `dependencies` entries to target the latest version of three popular browsers. The full *package.json* file should now look like this:
+In Visual Studio Code, open the *package.json* file and add a `browserlist` between the `license` and `dependencies` entries. This `browserlist` targets the latest version of three popular browsers. The full *package.json* file should now look like this:
 
 :::code language="json" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/package.json" highlight="12-16":::
 
@@ -146,7 +146,7 @@ Save the *index.js* file.
 
 ## Code examples
 
-These example code snippets show you how to accomplish the following tasks with the Azure Blob storage client library for JavaScript:
+The example code shows you how to accomplish the following tasks with the Azure Blob storage client library for JavaScript:
 
 * [Add the initial JavaScript code](#add-the-initial-javascript-code)
 * [Add your storage account info](#add-your-storage-account-info)
@@ -160,7 +160,7 @@ You'll run the code after you add all the snippets to the *index.js* file.
 
 ### Add the initial JavaScript code
 
-Next, add the following code to the end of the *index.js* file.
+Add the following code to the end of the *index.js* file.
 
 :::code language="JavaScript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_DeclareVariables":::
 
@@ -172,7 +172,7 @@ In the following sections, add each new block of JavaScript code after the previ
 
 ### Add your storage account info
 
-Next, add code to access your storage account. Replace the placeholder with your Blob service SAS URL that you generated earlier. Add the following code to the end of the *index.js* file.
+Add code to access your storage account. Replace the placeholder with your Blob service SAS URL that you generated earlier. Add the following code to the end of the *index.js* file.
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_StorageAcctInfo":::
 
@@ -264,29 +264,29 @@ To open *index.html* in the browser with the Visual Studio Code debugger attache
 In the [Azure portal](https://portal.azure.com), you can verify the results of the API calls as you follow the steps below.
 
 1. In the Azure portal, select **Storage accounts**.
-1. Select to the storage account you created for this project.
+1. Select the storage account you created for this project.
 1. Select **Containers** in the account pane.
 1. Switch focus back to the web app.
 1. Click the **Create container** button at the top of the page to create a new container.
 1. Switch focus back to the Azure portal.
-1. Click the **Refresh** button near the top of the pane.
-1. Click on the newly created container to see its contents. You should see **No blobs found** since this is a new container.
+1. Click **Refresh** near the top of the containers pane.
+1. Click on the newly created container to see its contents. You'll see **No blobs found** because the container is new.
 1. Switch focus back to the web app.
 1. Click the **Select and upload files** button.
 1. In the **Open** dialog, select one or more files.
-1. Click the **Open** button to close the dialog and upload the selected files.
+1. Click the **Open** button to upload the selected files.
 1. Switch focus back to the Azure portal.
-1. Click the **Refresh** button near the top of the pane to see the files you uploaded.
+1. Click **Refresh** to see the files you uploaded.
 1. Switch focus back to the web app.
 1. Select one or more files in the **Files** list.
 1. Click the **Delete selected files** button to delete them.
 1. Switch focus back to the Azure portal.
-1. Click the **Refresh** button near the top of the pane to see that the files were deleted from the container.
+1. Click **Refresh** to see that the files were deleted from the container.
 1. Select the **<account-name> | Containers** link at the top of the portal pane.
 1. Switch focus back to the web app.
 1. Click the **Delete container** button to delete the container and all files in the container.
 1. Switch focus back to the Azure portal.
-1. Click the **Refresh** button near the top of the pane to see that the container was deleted.
+1. Click **Refresh** to see that the container was deleted.
 1. Close the web app.
 
 ### Clean up resources
