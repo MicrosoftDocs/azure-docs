@@ -4,7 +4,7 @@ description: Learn about SQL ORDER BY clause for Azure Cosmos DB. Use SQL as an 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 04/17/2020
 ms.author: tisande
 
 ---
@@ -147,7 +147,7 @@ The results only include the document that has a defined `lastName`:
     ]
 ```
 
-If we update the container's indexing policy to explicitly include a path for `lastName`, we will include documents with an undefined sort property in the query results. You must explicitly define the path to lead to this scalar value (and not beyond it). You should use the `?` character in your path definition in the indexing policy to ensure that you explicitly index the property `lastName` and no additional nested paths beyond it.
+If we update the container's indexing policy to explicitly include a path for `lastName`, we will include documents with an undefined sort property in the query results. You must explicitly define the path to lead to this scalar value (and not beyond it). You should use the `?` character in your path definition in the indexing policy to ensure that you explicitly index the property `lastName` and no additional nested paths beyond it. If your `Order By` query uses a [composite index](index-policy.md#composite-indexes), the results will always include documents with an undefined sort property in the query results.
 
 Here is a sample indexing policy which allows you to have documents with an undefined `lastName` appear in the query results:
 
