@@ -201,7 +201,7 @@ Run the following command to test the package created by the previous step:
 
 ```azurepowershell-interactive
 Test-GuestConfigurationPackage `
-  -Path ./AuditFilePathExists.zip
+  -Path ./AuditFilePathExists/AuditFilePathExists.zip
 ```
 
 The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
