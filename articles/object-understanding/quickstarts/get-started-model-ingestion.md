@@ -31,7 +31,7 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Create an Object Understanding Account
+## Create an Object Understanding account
 
 First, you need to create an account with the Object Understanding service.
 
