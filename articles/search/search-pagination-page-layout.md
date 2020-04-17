@@ -104,19 +104,20 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06
     }
 ```
 
-### New behavior (starting July 15, 2020)
+### New behavior (starting July 15)
 
 Services created after July 15, 2020 will provide a different highlighting experience. Services created before that date will not change in their highlighting behavior. 
 
 With the new behavior:
-* Only phrases that match the full phrase query will be returned. The query "super bowl" will return hightlights like this:
+
+* Only phrases that match the full phrase query will be returned. The query "super bowl" will return highlights like this:
 
     ```html
     '<em>super bowl</em> is super awesome with a bowl of chips'
     ```
-  Note that the term *bowl of chips* does not have any highlighting since it does not match the full phrase.
+  Note that the term *bowl of chips* does not have any highlighting because it does not match the full phrase.
   
-* It will be possible to specify the fragment size returned for the highlight.
+* It will be possible to specify the fragment size returned for the highlight. Fragment size is specified as number of characters (maximum is 1000 characters).
 
 When you are writing client code that implements hit highlighting, be aware of this change. Note that this will not impact you unless you create a completely new search service.
 
