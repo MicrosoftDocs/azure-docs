@@ -121,7 +121,7 @@ VMs that were created from the on-demand Red Hat Enterprise Linux (RHEL) images 
 
 ## Permissions
 
-To create and manage update deployments, you need specific permissions. To learn about these permissions, see [Role-based access – Update Management](automation-role-based-access-control.md#update-management).
+To create and manage update deployments, you need specific permissions. To learn about these permissions, see [Role-based access – Update Management](automation-role-based-access-control.md#update-management-permissions).
 
 ## Solution components
 
