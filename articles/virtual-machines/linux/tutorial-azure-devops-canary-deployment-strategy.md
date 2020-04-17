@@ -20,14 +20,13 @@ ms.custom: devops
 # Tutorial - Configure Canary deployment strategy for Azure Linux Virtual Machines
 
 
-Azure DevOps is a built-in Azure service that enables you to configure continuous integration and continuous delivery for any Azure resource. This document contains the steps to use Azure Pipelines, a fully featured set of CI/CD automation tools, to deploy your application to Azure Linux Virtual Machines using Canary deployment strategy. You can also take a look at other strategies like [rolling](https://aka.ms/AA7jlh8) and [blue-green](https://aka.ms/AA83fwu), which are supported out-of-box from Azure portal. 
-![AzDevOps_portalView](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png) 
- 
+## IaaS - Configure CI/CD 
+Azure Pipelines provides a complete, fully featured set of CI/CD automation tools for deployments to virtual machines. You can configure a continuous delivery pipeline for an Azure VM directly from Azure portal. This document contains the steps associated with setting up a CI/CD pipeline for rolling multi-machine deployments from Azure portal. 
 
 
-**Configure CI/CD on Linux Virtual Machines**
+**Configure CI/CD on Virtual Machines**
 
-Linux Virtual machines can be added as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) and can be targeted for multi-machine updates. Once deployed, Deployment History views within Deployment Groups provides traceability from VM to the pipeline and then to the commit. 
+Virtual machines can be added as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) and can be targeted for multi-machine updates. Once deployed, Deployment History views within Deployment Groups provides traceability from VM to the pipeline and then to the commit. 
  
   
 **Canary Deployments**: A canary deployment reduces risk by slowly rolling out the change to a small subset of users. As you gain more confidence in the new version, you can start releasing it to more servers in your infrastructure and routing more users to it. 

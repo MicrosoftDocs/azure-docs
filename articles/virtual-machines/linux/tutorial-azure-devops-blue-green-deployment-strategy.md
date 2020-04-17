@@ -20,12 +20,13 @@ ms.custom: devops
 # Tutorial - Configure Blue-Green deployment strategy for Azure Linux Virtual Machines
 
 
-Azure DevOps is a built-in Azure service that enables you to configure continuous integration and continuous delivery for any Azure resource. This document contains the steps to use Azure Pipelines, a fully featured set of CI/CD automation tools, to deploy your application to Azure Linux Virtual Machines using Blue-Green deployment strategy. You can also take a look at other strategies like [rolling](https://aka.ms/AA7jlh8) and [canary](https://aka.ms/AA7jdrz), which are supported out-of-box from Azure portal. 
-![AzDevOps_portalView](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png) 
+## IaaS - Configure CI/CD 
+Azure Pipelines provides a complete, fully featured set of CI/CD automation tools for deployments to virtual machines. You can configure a continuous delivery pipeline for an Azure VM directly from Azure portal. This document contains the steps associated with setting up a CI/CD pipeline for rolling multi-machine deployments from Azure portal. 
+
  
  **Configure CI/CD on Virtual Machines**
 
-Linux Virtual machines can be added as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) and can be targeted for multi-machine updates. Once deployed, Deployment History views within Deployment Groups provides traceability from VM to the pipeline and then to the commit. 
+Virtual machines can be added as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) and can be targeted for multi-machine updates. Once deployed, Deployment History views within Deployment Groups provides traceability from VM to the pipeline and then to the commit. 
  
   
 **Blue-Green Deployments**: A Blue-Green deployment reduces downtime by having an identical standby environment. At any time one of the environments is live. As you prepare for a new release, you complete final stage of testing in the green environment. Once the software is working in the green environment, switch the traffic so that all incoming requests go to the green environment - the blue environment is now idle.
