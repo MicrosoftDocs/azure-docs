@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: tutorial
 ms.workload: infrastructure
-ms.date: 03/19/2020
+ms.date: 04/17/2020
 ms.author: cynthn
 ms.custom: mvc
 
@@ -174,7 +174,7 @@ Remove-AzResourceGroup -Name myResoureceGroup
 
 ## Azure Image Builder
 
-Azure also offers a service, built on Packer, [Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview). Simply describe your customizations in a template, and it will handle the image creation. [Try Azure Image Builder (preview)](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder).
+Azure also offers a service, built on Packer, [Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview). Simply describe your customizations in a template, and it will handle the image creation. 
 
 ## Next steps
 
