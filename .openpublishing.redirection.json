@@ -3639,7 +3639,7 @@
     },
    {
       "source_path": "articles/key-vault/about-keys-secrets-and-certificates.md",
-      "redirect_url": "/azure/key-vault",
+      "redirect_url": "/azure/key-vault/general/about-keys-secrets-certificates",
       "redirect_document_id": false
     },
    {

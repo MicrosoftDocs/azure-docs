@@ -21,7 +21,7 @@ Azure Key Vault enables Microsoft Azure applications and users to store and use 
 - Certificates: Supports certificates, which are built on top of keys and secrets and add an automated renewal feature. For more information, see [About certificates](../certificates/about-certificates.md).
 - Azure Storage: Can manage keys of an Azure Storage account for you. Internally, Key Vault can list (sync) keys with an Azure Storage Account, and regenerate (rotate) the keys periodically. For more information, see [Manage storage account keys with Key Vault](../secrets/overview-storage-keys.md).
 
-For more general information about Key Vault, see [About Azure Key Vault](overview.md)
+For more general information about Key Vault, see [About Azure Key Vault](overview.md).
 
 ## Data types
 
@@ -57,13 +57,11 @@ Where:
 |||  
 |-|-|  
 |`keyvault-name`|The name for a key vault in the Microsoft Azure Key Vault service.<br /><br /> Key Vault names are selected by the user and are globally unique.<br /><br /> Key Vault name must be a 3-24 character string, containing only 0-9, a-z, A-Z, and -.|  
-|`object-type`|The type of the object, either "keys" or "secrets".|  
+|`object-type`|The type of the object, "keys",  "secrets", or 'certificates'.|  
 |`object-name`|An `object-name` is a user provided name for and must be unique within a Key Vault. The name must be a 1-127 character string, containing only 0-9, a-z, A-Z, and -.|  
-|`object-version`|An `object-version` is a system-generated, 32 character string identifier that is optionally used *o address a unique version of an object.|  
+|`object-version`|An `object-version` is a system-generated, 32 character string identifier that is optionally used to address a unique version of an object.|  
 
 ## Next steps
-
-## See Also
 
 - [About keys](../keys/about-keys.md)
 - [About secrets](../secrets/about-secrets.md)
