@@ -28,7 +28,7 @@ Images can be used to bootstrap deployments and ensure consistency across multip
 
 The steps below detail how to take an existing VM and turn it into a re-usable custom image that you can use to create new VMs.
 
-To complete the example in this tutorial, you must have an existing virtual machine. If needed, this [script sample](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) can create one for you. When working through the tutorial, replace the resource names where needed.
+To complete the example in this tutorial, you must have an existing virtual machine. If needed, you can see the [PowerShell quickstart](quick-create-powershell.md) to create a VM to use for this tutorial. When working through the tutorial, replace the resource names where needed.
 
 ## Launch Azure Cloud Shell
 
@@ -38,7 +38,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 ## Get the VM
 
-You can see a list of VMs that are available in a resource group using [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Once you know the VM name and what resource group it is in, you can use `Get-AzVM` again to get the VM object and store it in a variable to use later. This example gets an VM named *sourceVM* from the "myResourceGroup" resource group and assigns it to the variable *$vm*. 
+You can see a list of VMs that are available in a resource group using [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Once you know the VM name and what resourcegroup, you can use `Get-AzVM` again to get the VM object and store it in a variable to use later. This example gets an VM named *sourceVM* from the "myResourceGroup" resource group and assigns it to the variable *$vm*. 
 
 ```azurepowershell-interactive
 $sourceVM = Get-AzVM `
@@ -99,7 +99,7 @@ Create an image version from a VM using [New-AzGalleryImageVersion](https://docs
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
-In this example, the image version is *1.0.0* and it's replicated to both *East US* and *South Central US* datacenters. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
+In this example, the image version is *1.0.0* and it's replicated to both *East US* and *South Central US* datacenters. When choosing target regions for replication, you need to include the *source* region as a target for replication.
 
 To create an image version from the VM, use `$vm.Id.ToString()` for the `-Source`.
 
@@ -108,7 +108,7 @@ To create an image version from the VM, use `$vm.Id.ToString()` for the `-Source
    $region2 = @{Name='East US';ReplicaCount=2}
    $targetRegions = @($region1,$region2)
 
-$imageVersion = New-AzGalleryImageVersion `
+New-AzGalleryImageVersion `
    -GalleryImageDefinitionName $galleryImage.Name`
    -GalleryImageVersionName '1.0.0' `
    -GalleryName $gallery.Name `
@@ -121,21 +121,16 @@ $imageVersion = New-AzGalleryImageVersion `
 
 It can take a while to replicate the image to all of the target regions.
 
-> [!NOTE]
-> You can also store your image version in [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
->
-
 
 ## Create a VM 
 
-Once you have a specialized image version, you can create one or more new VMs. Using the [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. 
+Once you have a specialized image, you can create one or more new VMs. Using the [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. To use the image, use ``Set-AzVMSourceImage` and set the `-Id` to the image definition ID ($galleryImage.Id in this case) to always use the latest image version. 
 
 Replace resource names as needed in this example. 
 
-
 ```azurepowershell-interactive
 # Create some variables for the new VM.
-$resourceGroup = "mySIGSpecializedRG"
+$resourceGroup = "myResourceGroup"
 $location = "South Central US"
 $vmName = "mySpecializedVM"
 
@@ -158,16 +153,24 @@ $nic = New-AzNetworkInterface -Name $vmName -ResourceGroupName $resourceGroup -L
 
 # Create a virtual machine configuration using $imageVersion.Id to specify the image version.
 $vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1_v2 | `
-Set-AzVMSourceImage -Id $imageVersion.Id | `
+Set-AzVMSourceImage -Id $galleryImage.Id | `
 Add-AzVMNetworkInterface -Id $nic.Id
 
 # Create a virtual machine
 New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
-	```
+```
 
-[!INCLUDE [virtual-machines-common-gallery-list-ps](../../../includes/virtual-machines-common-gallery-list-ps.md)]
+## Clean up resources
 
-[!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
+When no longer needed, you can use the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) cmdlet to remove the resource group, and all related resources:
+
+```azurepowershell-interactive
+# Delete the gallery 
+Remove-AzResourceGroup -Name myGalleryRG
+
+# Delete the VM
+Remove-AzResourceGroup -Name myResoureceGroup
+```
 
 ## Azure Image Builder
 
@@ -175,14 +178,13 @@ Azure also offers a service, built on Packer, [Azure VM Image Builder](https://d
 
 ## Next steps
 
-In this tutorial, you created a custom VM image. You learned how to:
+In this tutorial, you created a specialized VM image. You learned how to:
 
 > [!div class="checklist"]
 > * Create a Shared Image Gallery
 > * Create an image definition
 > * Create an image version
-> * Create a VM from an image version
-> * List all the images in your subscription
+> * Create a VM from a specialized image
 
 Advance to the next tutorial to learn about how to create highly available virtual machines.
 
