@@ -266,7 +266,7 @@ Because Azure Digital Twins uses role-based access control to manage access (see
 
 Use the resource ID along with the Azure function's object ID from earlier in the command below:
 
-```Azure CLI
+```azurecli
 az role assignment create --role "Azure Digital Twins Owner (Preview)" --assignee <object-ID> --scope <resource-ID>
 ```
 
