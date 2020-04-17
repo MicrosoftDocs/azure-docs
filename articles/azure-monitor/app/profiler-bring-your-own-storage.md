@@ -12,15 +12,20 @@ ms.reviewer: mbullwin
 # Configure BYOS (Bring Your Own Storage) for Profiler & Snapshot Debugger
 
 ## What is Bring Your Own Storage (BYOS) and why I need it? 
-In normal process when a customer's application doesn't have configured the capability of Bring Your Own Storage (BYOS), the data its written into the regional storage accounts of Diagnostic Services that compliant with multiple laws according to the location, one of them is General Data Protection Regulation (GDPR).
+In normal process, when a customer's application doesn't have the capability of Bring Your Own Storage (BYOS), the data it's written into the regional storage accounts of Diagnostic Services.
 
-With Bring Your Own Storage, the data collected, by agents running in the customer's VMs or App Service, its written into their own storage accounts, giving them the capability to control the data collected at their own peace. One thing to have in mind is that the customer will take over of all the related costs of the storage account. 
+With Bring Your Own Storage, the data collected, it's written into their own storage accounts, giving them the capability to control it at their own peace.
 
-## How does it will be accessed my Storage Account? 
-The data its written into the customer's storage account by agents running in the customer's VMs (virtual machines) or App Service. The customer's application contacts our service (Profiler/Debugger) when they want to upload data and we hand back a SAS (Shared Access Signature) token to a blob in their storage account. Later, when they want to analyze the data, the profiler/debugger service will reach back into that storage account to read the blob and write back the results of the analysis.
+One thing to have in mind is that the customer will take over of all the related costs of the storage account. 
+
+## How does my Storage Account will be accessed? 
+1. The data it's written by agents running in the customer's Virtual Machines or App Service.
+2. The customer's application contacts our service (Profiler/Debugger) when they want to upload data and we hand back a SAS (Shared Access Signature) token to a blob in their storage account.
+3. Later, when they want to analyze the data, the profiler/debugger service will reach back into that storage account to read the blob and write back the results of the analysis.
 
 ## What do I need to do to enable BYOS? 
-Since our services need to securely connect to your storage account, the profiler/debugger service has a 1st party (multi-tenant) AAD (Azure Active Directory) application called "Diagnostic Services Trusted Storage Access" that it's used to access customer storage accounts. The customer needs to grant the "Storage Blob Data Contributor" role to that AAD application in their storage account via the Access control (IAM) UI, as shown in Figure 1.0. 
+The customer needs to add the role `Storage Blob Data Contributor` to the AAD application named `Diagnostic Services Trusted Storage Access` in their storage account.
+It can be done via the Access control UI, as shown in Figure 1.0. 
 
 Steps: 
 1. Click on the "Add" button in the "Add a role assignment" section 
@@ -36,17 +41,17 @@ After you added the role, it will appear under the "Role assignments" section, l
 _![Figure 1.1](media/profiler-bring-your-own-storage/figure11.png)_
 _Figure 1.1_ 
 
-If you are also using Private Link, it is required one additional configuration to allow connection to our Trusted Microsoft Service from your Virtual Network. Please refer to the [Storage Network Security documentation](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security#trusted-microsoft-services).
+If you're also using Private Link, it's required one additional configuration to allow connection to our Trusted Microsoft Service from your Virtual Network. Refer to the [Storage Network Security documentation](https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security#trusted-microsoft-services).
 
 ## Prerequisites
 * Make sure to create your Storage Account in the same location as your Application Insights Resource. Ex. If your Application Insights resource is in West US 2, your Storage Account must be also in West US 2. 
-* Grant the "Storage Blob Contributor" role to the AAD (Azure Active Directory) application "Diagnostic Services Trusted Storage Access" in your storage account via the IAM UI.
+* Grant the "Storage Blob Contributor" role to the AAD application "Diagnostic Services Trusted Storage Access" in your storage account via the IAM UI.
 * If Private Link enabled, configure the additional setting to allow connection to our Trusted Microsoft Service from your Virtual Network. 
 
 ## Enablement process 
-To configure BYOS for code-level diagnostics (Profiler/Debugger), please follow the below steps:
+To configure BYOS for code-level diagnostics (Profiler/Debugger), follow the below steps:
 
-1. Create an ARM template file with the following content (byos.template.json).
+1. Create an Azure Resource Manager template file with the following content (byos.template.json).
     ```json
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -89,7 +94,7 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), please follow 
     }
     ```
 
-2. Run the following powershell command to deploy previous ARM template (create Linked Storage Account).
+2. Run the following PowerShell command to deploy previous template (create Linked Storage Account).
     ```powershell
     # Command pattern
     New-AzResourceGroupDeployment -ResourceGroupName "{your_resource_name}" -TemplateFile "{local_path_to_arm_template}"
@@ -98,13 +103,13 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), please follow 
     New-AzResourceGroupDeployment -ResourceGroupName "byos-test" -TemplateFile "D:\Docs\byos.template.json"
     ```
 
-3. Provide the following parameters when prompted in the Powershell console:
+3. Provide the following parameters when prompted in the PowerShell console:
     
     |           Parameter           |                                Description                               |
     |-------------------------------|--------------------------------------------------------------------------|
     | application_insights_name     | The name of the Application Insights resource to enable BYOS.            |
     | application_insights_location | The location of your Application Insights resource (ex. westus2).        |
-    | storage_account_name          | The name of the Storage Account resource that you will use as your BYOS. |
+    | storage_account_name          | The name of the Storage Account resource that you'll use as your BYOS. |
     
     Expected output:
     ```powershell
@@ -131,13 +136,13 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), please follow 
     DeploymentDebugLogLevel :
     ```
 
-4. Enable code-level diagnostics (Profiler/Debugger) on the workload of interest through the Azure Portal. (App Service > Application Insights) 
+4. Enable code-level diagnostics (Profiler/Debugger) on the workload of interest through the Azure portal. (App Service > Application Insights) 
 _![Figure 2.0](media/profiler-bring-your-own-storage/figure20.png)_
 _Figure 2.0_
 
 ## Troubleshooting
 ### No registered resource provider found for location '{location}'.
-* Make sure that the `$schema` property of the ARM template it's valid. It must follow the following pattern:
+* Make sure that the `$schema` property of the template it's valid. It must follow the following pattern:
 `https://schema.management.azure.com/schemas/{schema_version}/deploymentTemplate.json#`
 * Make sure that the `apiVersion` of the resource `microsoft.insights/components` it's `2015-05-01`.
 * Make sure that the `apiVersion` of the resource `linkedStorageAccount` its `2020-03-01-preview`.
@@ -170,15 +175,15 @@ _Figure 2.0_
     }'
     ```
 
-For general Profiler troubleshooting, please refer to the [Profiler Troubleshoot documentation](profiler-troubleshooting.md).
+For general Profiler troubleshooting, refer to the [Profiler Troubleshoot documentation](profiler-troubleshooting.md).
 
-For general Snapshot Debugger troubleshooting, please refer to the [Snapshot Debugger Troubleshoot documentation](snapshot-debugger-troubleshoot.md). 
+For general Snapshot Debugger troubleshooting, refer to the [Snapshot Debugger Troubleshoot documentation](snapshot-debugger-troubleshoot.md). 
 
 ## FAQs
-* If I have currently working Profiler and/or Snapshot and then I enabled BYOS, will my data be migrated into my Storage Account?
-    _No, it will not, as of now, we do not support migration data._
+* If I have Profiler or Snapshot enabled, and then I enabled BYOS, will my data be migrated into my Storage Account?
+    _No, it won't, we don't support migration data._
 
-* Will BYOS work when Customer Managed Key was enabled? 
+* Will BYOS work when Customer-Managed Key was enabled? 
     _Yes, to be precise, BYOS is a requisite to have profiler/debugger enabled with CMK (Customer Manager Keys)._
 
 * Will BYOS work when Private Link was enabled? 
@@ -188,7 +193,7 @@ For general Snapshot Debugger troubleshooting, please refer to the [Snapshot Deb
     _Yes, it can be possible._
 
 * If I have enabled BYOS, can I go back using Diagnostic Services storage accounts to store my data collected? 
-    _Yes, you can, but keep in mind that, as of now, we do not support data migration from your BYOS._
+    _Yes, you can, but, right now we don't support data migration from your BYOS._
 
 * After enabling BYOS, will I take over of all the related costs of it? 
     _Yes_
