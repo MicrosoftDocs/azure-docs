@@ -59,7 +59,7 @@ To use this feature, you need:
 
 ## Licensing requirements
 
-Using this feature requires an Azure AD Premium P1 or P2 license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+Using this feature requires an Azure AD Premium P1 or P2 license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Send logs to Azure Monitor
 
