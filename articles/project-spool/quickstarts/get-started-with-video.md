@@ -17,6 +17,14 @@ ms.service: azure-project-spool
 
 This quickstart will teach you how to stream your laptops webcam and microphone to a web app that anyone can view.
 
+### NAT Scenario
+
+1. Management SDK 
+2. Obtain Keys 
+3. Download client SDK 
+4. Update ICE candidates 
+5. Initiate connection 
+
 
 #### Meta:
 

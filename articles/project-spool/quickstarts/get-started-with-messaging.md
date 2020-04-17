@@ -18,6 +18,8 @@ ms.service: azure-project-spool
 This quickstart will teach you how to use Spool to send messages back and forth between two web application clients.
 
 
+
+
 #### Meta:
 
 -  Customer intent statements: 
