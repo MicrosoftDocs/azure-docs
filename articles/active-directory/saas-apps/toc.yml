@@ -1791,6 +1791,8 @@
         href: iprova-provisioning-tutorial.md
       - name: Jive
         href: jive-provisioning-tutorial.md
+      - name: Juno Journey
+        href: juno-journey-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
       - name: LinkedIn Elevate
