@@ -12,7 +12,7 @@ ms.date: 04/16/2020
 
 ## Azure environments
 
-Configure [App Services](https://docs.microsoft.com/azure/app-service/configure-language-java#set-java-runtime-options)
+Configure [App Services](https://docs.microsoft.com/azure/app-service/configure-language-java#set-java-runtime-options).
 
 ## Spring Boot
 
@@ -23,7 +23,7 @@ java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -jar <myapp.
 ```
 
 > [!NOTE]
-> Note: Args placed after `-jar <myapp.jar>` are passed to the app as program args
+> Args placed after `-jar <myapp.jar>` are passed to the app as program args.
 
 
 ## Tomcat 8 (Linux)
@@ -156,7 +156,7 @@ Add `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` to the exis
 ## WebSphere 8
 
 Open Management Console
-go to **servers > WebSphere application servers > Application servers**, choose the appropriate application servers and click on : 
+go to **servers > WebSphere application servers > Application servers**, choose the appropriate application servers and click on: 
 
 ```
 Java and Process Management > Process definition >  Java Virtual Machine
