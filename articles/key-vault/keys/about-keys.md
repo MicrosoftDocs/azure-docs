@@ -35,7 +35,7 @@ Key Vault supports RSA keys of sizes 2048, 3072 and 4096. Key Vault supports Ell
 
 ## Cryptographic protection
 
-The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS (Federal Information Processing Standards) validated. You don't need to do anything special to run in FIPS mode. Keys **created** or **imported** as HSM-protected are  processed inside an HSM, validated to FIPS 140-2 Level 2. Keys **created** or **imported** as software-protected, are processed inside cryptographic modules validated to FIPS 140-2 Level 1. For more information, see [Keys and key types](#keys-and-key-types).
+The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS (Federal Information Processing Standards) validated. You don't need to do anything special to run in FIPS mode. Keys **created** or **imported** as HSM-protected are  processed inside an HSM, validated to FIPS 140-2 Level 2. Keys **created** or **imported** as software-protected, are processed inside cryptographic modules validated to FIPS 140-2 Level 1.
 
 ##  EC algorithms
  The following algorithm identifiers are supported with EC and EC-HSM keys in Key Vault. 
@@ -117,13 +117,13 @@ There are additional read-only attributes that are included in any response that
 - *created*: IntDate, optional. The *created* attribute indicates when this version of the key was created. The value is null for keys created prior to the addition of this attribute. Its value MUST be a number containing an IntDate value.  
 - *updated*: IntDate, optional. The *updated* attribute indicates when this version of the key was updated. The value is null for keys that were last updated prior to the addition of this attribute. Its value MUST be a number containing an IntDate value.  
 
-For more information on IntDate and other data types, see [Data types](#data-types)  
+For more information on IntDate and other data types, see [About keys, secrets, and certificates: [Data types](../general/about-keys-secrets-certificates.md#data-types).
 
 ### Date-time controlled operations
 
 Not-yet-valid and expired keys, outside the *nbf* / *exp* window, will work for **decrypt**, **unwrap**, and **verify** operations (won't return 403, Forbidden). The rationale for using the not-yet-valid state is to allow a key to be tested before production use. The rationale for using the expired state is to allow recovery operations on data that was created when the key was valid. Also, you can disable access to a key using Key Vault policies, or by updating the *enabled* key attribute to **false**.
 
-For more information on data types, see [Data types](#data-types).
+For more information on data types, see [Data types](../general/about-keys-secrets-certificates.md#data-types).
 
 For more information on other possible attributes, see the [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).
 
@@ -164,7 +164,7 @@ The following permissions can be granted, on a per user / service principal basi
 
 For more information on working with keys, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
-## See Also
+## Next steps
 
 - [About Key Vault](../general/overview.md)
 - [About keys, secrets, and certificates](../general/about-keys-secrets-certificates.md)

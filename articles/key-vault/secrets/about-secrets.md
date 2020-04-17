@@ -66,7 +66,7 @@ You can specify additional application-specific metadata in the form of tags. Ke
 >[!Note]
 >Tags are readable by a caller if they have the *list* or *get* permission.
 
-# Azure Storage account key management
+## Azure Storage account key management
 
 Key Vault can manage Azure storage account keys:
 
