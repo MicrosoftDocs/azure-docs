@@ -38,7 +38,7 @@ To configure Azure Active Directory integration with SharePoint on-premises, you
 
 In this tutorial, you configure and test Azure Active Directory single sign-on in a test environment. Users frlom Azure Active Directory would be able to access your Sharepoint On-Premises.
 
-## Create the Enterprise Applications in Azure Portal for SharePoint On-Premises
+## Create the Enterprise Applications in Azure portal
 
 To configure the integration of SharePoint on-premises into Azure AD, you need to add SharePoint on-premises from the gallery to your list of managed SaaS apps.
 
@@ -65,7 +65,7 @@ To add SharePoint on-premises from the gallery, perform the following steps:
 in our scenario this value is set to **No**.
 
 
-## Configure and test Azure AD with SharePoint on-premises
+## Configure and test Azure AD
 
 In this section, you configure Azure AD single sign-on with SharePoint on-premises.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in SharePoint on-premises needs to be established.
@@ -164,14 +164,14 @@ To configure Azure AD single sign-on with SharePoint on-premises, perform the fo
 
 ### Create an Azure AD test user in the Azure portal
 
-The objective of this section is to create a test user in the Azure Portal.
+The objective of this section is to create a test user in the Azure portal.
 
 1. In the Azure portal, in the left pane, select **Azure Active Directory**, in **Manage** pan select **Users**.
 
 2. Then select **All users** followed by **New user** at the top of the screen.
 
 3. Select the option **Create User** and in the User properties, perform the following steps.  
-   You might be able to create users in your AAD using your tenant suffixe or any verified domain. 
+   You might be able to create users in your AAD using your tenant suffix or any verified domain. 
 
     a. In the **Name** field enter the user name , we used **TestUser**.
   
@@ -204,9 +204,7 @@ To Grant access to the Azure Active Directory User in the on-premise SharePoint 
 
 There is no validation on the values you search for, which can lead to misspellings or users accidentally choosing the wrong claim type. This can prevent users from successfully accessing resources.
 
-**To fix the people picker** with this scenario, there is an open-source solution called [
-
-](https://yvand.github.io/AzureCP/) that provides a custom claims provider for SharePoint 2013, 2016 and 2019. It will use the Microsoft Graph API to resolve what users enter and perform validation. Learn more at [AzureCP](https://yvand.github.io/AzureCP/).
+**To fix the people picker** with this scenario, there is an open-source solution called [AzureCP](https://yvand.github.io/AzureCP/) that provides a custom claims provider for SharePoint 2013, 2016 and 2019. It will use the Microsoft Graph API to resolve what users enter and perform validation. Learn more at [AzureCP](https://yvand.github.io/AzureCP/).
 
   > [!NOTE]
   > without AzureCP you can add Groups by adding the Azure AD group's ID but this is not user's friendly and reliable. There is how it looks.
@@ -236,7 +234,8 @@ To grant access to the Azure Active Directory Security Group in the on-premise S
 
 ### Grant access to a Guest account to SharePoint on-premises in the Azure portal
 
-it's now possible to grant access to your SharePoint Site  to a Guest Account in a consistent way. It happens that the the UPN gets modified for something like **MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com**. To get a seamless experience while sharing your site with external users, it would be necessary to add some modifications in your **User Attributes & Claims** section in the Azure Portal.
+it's now possible to grant access to your SharePoint Site  to a Guest Account in a consistent way. It happens that the the UPN gets modified for something like **MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com**.
+To get a seamless experience while sharing your site with external users, it would be necessary to add some modifications in your **User Attributes & Claims** section in the Azure portal.
 
 1. In the Azure portal, open the Azure AD directory. Click on **Enterprise applications**, click on the **previously created Enterprise Application name** and click on **Single sign-on**.
 
