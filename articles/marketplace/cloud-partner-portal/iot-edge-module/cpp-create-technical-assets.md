@@ -12,7 +12,7 @@ ms.author: dsindona
 # Prepare your IoT Edge module technical assets
 
 >[!Important]
->Starting March 30th, 2020, we'll begin moving management of your IoT Edge module offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an IoT Edge module offer](https://aka.ms/AzureIoTTechAsset) to manage your migrated offers.
+>Starting April 13, 2020, we'll begin moving management of your IoT Edge module offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an IoT Edge module offer](https://aka.ms/AzureIoTTechAsset) to manage your migrated offers.
 
 This article describes the requirements that your IoT Edge module technical assets need to meet before being published on Azure Marketplace.
 

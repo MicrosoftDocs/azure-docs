@@ -11,7 +11,14 @@ zone_pivot_groups: programming-languages-set-functions
 
 In this article, you use Visual Studio Code to create a function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
 There's also a [CLI-based version](functions-create-first-azure-function-azure-cli.md) of this article.
+::: zone-end  
+
+::: zone pivot="programming-language-java"  
+> [!NOTE]
+> If VS Code is not your prefered development tool, check out our similar tutorials for Java devlopers using [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [Gradle](/azure/azure-functions/functions-create-first-java-gradle) and [IntelliJ IDEA](/azure/java/intellij/azure-toolkit-for-intellij-quickstart-functions).
+::: zone-end  
 
 ## Configure your environment
 

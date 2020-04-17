@@ -130,7 +130,7 @@ Understand service tag usage for Azure Database for PostgreSQL: https://docs.mic
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Azure Policy samples for networking: https://docs.microsoft.com/azure/governance/policy/samples/#network
+Azure Policy samples for networking: https://docs.microsoft.com/azure/governance/policy/samples/
 
 How to create an Azure Blueprint: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 

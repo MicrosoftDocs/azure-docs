@@ -89,4 +89,4 @@ Once the Azure Database for MySQL server is created, you can use the first serve
 Open the firewall for the IP addresses of the new users' machines to enable them to connect:
 [Create and manage Azure Database for MySQL firewall rules by using the Azure portal](howto-manage-firewall-using-portal.md) or [Azure CLI](howto-manage-firewall-using-cli.md).
 
-For more information regarding user account management, see MySQL product documentation for [User account management](https://dev.mysql.com/doc/refman/5.7/en/user-account-management.html), [GRANT Syntax](https://dev.mysql.com/doc/refman/5.7/en/grant.html), and [Privileges](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).
+For more information regarding user account management, see MySQL product documentation for [User account management](https://dev.mysql.com/doc/refman/5.7/en/access-control.html), [GRANT Syntax](https://dev.mysql.com/doc/refman/5.7/en/grant.html), and [Privileges](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).

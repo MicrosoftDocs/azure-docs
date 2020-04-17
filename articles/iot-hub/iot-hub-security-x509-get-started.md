@@ -34,6 +34,9 @@ You may choose any of the following ways to get your certificates:
 
 * Generate an [X.509 intermediate CA certificate](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust) signed by an existing root CA certificate and upload it to the hub. Once the intermediate certificate is uploaded and verified, as instructed below, it can be used in the place of a root CA certificate mentioned below. Tools like OpenSSL ([openssl req](https://www.openssl.org/docs/man1.1.0/man1/req.html) and [openssl ca](https://www.openssl.org/docs/man1.1.0/man1/ca.html)) can be used to generate and sign an intermediate CA certificate.
 
+> [!NOTE]
+> Do not upload the 3rd party root if it is not unique to you because that would enable other customers of the 3rd party to connect their devices to your IoT Hub.
+
 ## Register X.509 CA certificates to your IoT hub
 
 These steps show you how to add a new Certificate Authority to your IoT hub through the portal.

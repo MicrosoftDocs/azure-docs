@@ -1,21 +1,15 @@
 ---
 title: Application settings - LUIS
-titleSuffix: Azure Cognitive Services
 description: Applications settings for Azure Cognitive Services language understanding apps are stored in the app and portal.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/12/2019
-ms.author: diberry
+ms.date: 04/14/2020
 ---
 
 # Application settings
 
 These application settings are stored in the [exported](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) app and [updated](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) with the REST APIs. Changing your app version settings resets your app training status to untrained.
+
+Learn [concepts](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) of diacritics and punctuation.
 
 |Setting|Default value|Notes|
 |--|--|--|
@@ -178,3 +172,7 @@ The following punctuation is removed with `NormalizePunctuation` is set to true.
 |`}`|
 |`+`|
 |`¡`|
+
+## Next steps
+
+* Learn [concepts](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) of diacritics and punctuation.

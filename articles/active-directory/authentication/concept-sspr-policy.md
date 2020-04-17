@@ -156,16 +156,6 @@ To get started, [download and install the Azure AD PowerShell module](https://do
 
 ## Next steps
 
-The following articles provide additional information about password reset through Azure AD:
+To get started with SSPR, see [Tutorial: Enable users to unlock their account or reset passwords using Azure Active Directory self-service password reset](tutorial-enable-sspr.md).
 
-* [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
-* [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md).
-* [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md).
-* [Do you have a licensing question?](concept-sspr-licensing.md)
-* [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
-* [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
-* [What is password writeback and why do I care about it?](howto-sspr-writeback.md)
-* [How do I report on activity in SSPR?](howto-sspr-reporting.md)
-* [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
-* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
-* [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
+If you or users have problems with SSPR, see [Troubleshoot self-service password reset](active-directory-passwords-troubleshoot.md)
