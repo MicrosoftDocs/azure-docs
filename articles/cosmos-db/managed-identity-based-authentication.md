@@ -16,7 +16,7 @@ In this article, you'll set up a *robust, key rotation agnostic* solution to acc
 
 You'll learn how to create a function app that can access Azure Cosmos DB data without needing to copy any Azure Cosmos DB keys. The function app will wake up every minute and record the current temperature of an aquarium fish tank. To learn how to set up a timer-triggered function app, see the [Create a function in Azure that is triggered by a timer](../azure-functions/functions-create-scheduled-function.md) article.
 
-To simplify the scenario, a [Time To Live](./time-to-live.md) setting is already configured to clean-up older temperature documents. 
+To simplify the scenario, a [Time To Live](./time-to-live.md) setting is already configured to clean up older temperature documents. 
 
 ## Assign a system-assigned managed identity to a function app
 
@@ -49,19 +49,19 @@ In this step, you'll assign a role to the function app's system-assigned managed
 
 In this scenario, the function app will read the temperature of the aquarium, then write back that data to a container in Azure Cosmos DB. Because the function app must write the data, you'll need to assign the **DocumentDB Account Contributor** role. 
 
-1. Sign in to the Azure portal and go to your Azure Cosmos DB account. Open the **Access control (IAM)** pane, and then the **Role assignments** tab:
+1. Sign in to the Azure portal and go to your Azure Cosmos DB account. Open the **Access control (IAM)** pane and then the **Role assignments** tab:
 
    ![Screenshot showing the Access control pane and the Role assignments tab.](./media/managed-identity-based-authentication/cosmos-db-iam-tab.png)
 
-1. Select the **+ Add** button, then **Add role assignment**.
+1. Select **+ Add** > **Add role assignment**.
 
 1. The **Add role assignment** panel opens to the right:
 
    ![Screenshot showing the Add role assignment pane.](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png)
 
    * **Role**: Select **DocumentDB Account Contributor**
-   * **Assign access to**: Under the **Select system-assigned managed identity** subsection, select  **Function App**.
-   * **Select**: The pane will be populated with all the function apps in your subscription that have a **Managed System Identity**. In this case select the **SummaryService** function app: 
+   * **Assign access to**: Under the **Select system-assigned managed identity** subsection, select **Function App**.
+   * **Select**: The pane will be populated with all the function apps in your subscription that have a **Managed System Identity**. In this case, select the **SummaryService** function app: 
 
       ![Screenshot showing the Add role assignment pane populated with examples.](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png)
 
@@ -74,7 +74,7 @@ Now we have a function app that has a system-assigned managed identity with the 
 This sample uses the [List Keys API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) to access your Azure Cosmos DB account keys.
 
 > [!IMPORTANT] 
-> If you want to [assign the **Cosmos DB Account Reader**](#grant-access-to-your-azure-cosmos-account) role, you'll need to use the [List Read Only Keys API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). This will populate just the read only keys.
+> If you want to [assign the Cosmos DB Account Reader](#grant-access-to-your-azure-cosmos-account) role, you'll need to use the [List Read Only Keys API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). This will populate just the read-only keys.
 
 The List Keys API returns the `DatabaseAccountListKeysResult` object. This type isn't defined in the C# libraries. The following code shows the implementation of this class:  
 
