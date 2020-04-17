@@ -181,23 +181,23 @@ To change a value's type or format, you can use these conversion functions. For 
 
 The Logic Apps service automatically or implicitly converts values between specific data types, which means that you don't need to manually or explicitly convert between those types by using the relevant expressions. Actually, if you use these expressions in the designer or code view, Logic Apps removes the expressions after you save your logic app because the conversions happen automatically.
 
-This table describes the data type conversions that Logic Apps automatically makes and the expressions that you'd typically use when manually performing these conversions but should omit:
+This table describes the data type conversions that Logic Apps automatically makes and the expressions that you'd typically use when manually performing these conversions but should omit.
 
 | From | To |
 |------|----|
 | **Binary** | - **Binary** or **File**: `base64ToBinary(<value>)` <br>- **DataUri**: `concat('data:;base64,',<value>)` <br>- **Other**: `base64ToString(<value>)` |
 | **Byte** | - **Binary** or **File**: `base64ToBinary(<value>)` <br>- **DataUri**: `concat('data:;base64,',<value>)` <br>- **Other**: `base64ToString(<value>)` |
 | **DataUri** | - **Binary** or **File**: `decodeDataUri(<value>)` <br>- **Byte**: `base64(decodeDataUri(<value>))` <br>- **Other**: `decodeDataUri(<value>)` |
-| **Other** | - **Byte**: `base64(<value>)` <br>- **DataUri**: `concat('data:,', encodeUriComponent(<value>))` |
+| **Other** | - **Byte**: `base64(<value>)` <br>- **DataUri**: `concat('data:,',encodeUriComponent(<value>))` |
 |||
 
-If you use non-string values where strings are expected as inputs, Logic Apps implicitly converts the non-string values into strings, for example:
+If you use non-string values where strings are expected as inputs, Logic Apps automatically converts the non-string values into strings, for example:
 
 * A trigger returns a numerical value as output through this expression:
 
   `triggerBody()?['number']`
 
-  If the numerical value is used for a string input, such as an HTTP URL, you get this expression:
+  If the numerical value is used for a string input, such as an HTTP URL, you get this result:
 
   `@{triggerBody()?['number']}`
 
@@ -205,7 +205,7 @@ If you use non-string values where strings are expected as inputs, Logic Apps im
 
   `triggerBody()?['string']`
 
-  If the string value is used for a string input, you get this expression:
+  If the string value is used for a string input, you get this result:
 
   `@triggerBody()?['string']`
 
