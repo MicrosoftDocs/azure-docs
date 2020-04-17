@@ -16,7 +16,7 @@
       href: quickstarts/label-tool.md
   - name: Using the REST API
     items:
-    - name: Train and use custom model without labels  
+    - name: Train and use custom model without labels
       items:
       - name: cURL
         href: quickstarts/curl-train-extract.md
@@ -54,7 +54,7 @@
       displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
       href: form-recognizer-container-howto.md
     - name: Configure containers
-      href: form-recognizer-container-configuration.md    
+      href: form-recognizer-container-configuration.md
       displayName: docker, container, run, billing, apikey, logging
     - name: Use container instances
       href: deploy-form-recognizer-on-container-instances.md
@@ -69,7 +69,7 @@
     - name: .NET
       href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
 - name: Resources
-  items: 
+  items:
   - name: Pricing and limits
     href: https://go.microsoft.com/fwlink/?linkid=2087258
   - name: UserVoice
@@ -80,5 +80,7 @@
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability
     href: https://go.microsoft.com/fwlink/?linkid=2087185
+  - name: Language support
+    href: language-support.md
   - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

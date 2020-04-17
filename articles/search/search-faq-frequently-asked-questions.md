@@ -79,6 +79,14 @@ By default, search results are scored based on the [statistical properties of ma
 
 For example, suppose an input of "tour*" in a wildcard search produces matches on "tours", "tourettes", and "tourmaline". Given the nature of these results, there is no way to reasonably infer which terms are more valuable than others. For this reason, we ignore term frequencies when scoring results in queries of types wildcard, prefix, and regex. Search results based on a partial input are given a constant score to avoid bias towards potentially unexpected matches.
 
+## Skillset Operations
+
+### Are there any tips or tricks to reduce cognitive services charges on ingestion?
+
+It is understandable that you don't want to execute built-in skills or custom skills more than is absolutely necessary, especially if you are dealing with millions of documents to process. With that in mind, we have added "incremental enrichment" capabilities to skillset execution. In essence, you can provide a cache location (a blob storage connection string) that will be used to store the output of "intermediate" enrichment steps.  That allows the enrichment pipeline to be smart and apply only enrichments that are necessary when you modify your skillset. This will naturally also save indexing time as the pipeline will be more efficient.
+
+Learn more about [incremental enrichment](cognitive-search-incremental-indexing-conceptual.md)
+
 ## Design patterns
 
 ### What is the best approach for implementing localized search?
