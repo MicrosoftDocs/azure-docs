@@ -9,7 +9,7 @@ ms.date: 04/07/2020
 ---
 # How to manage DHCP in Azure VMWare Solution (AVS)
 
-NSX-T provides the ability to configure a DHCP for your private cloud. If you plan to use NSX-T to host your DHCP server, see [Create DHCP server](#create-dhcp-server). Otherwise, if you have a 3rd party external DHCP server in your network and you want to relay requests to that DHCP server, see [Configure DHCP relay service](#configure-dhcp-relay-service).
+NSX-T provides the ability to configure DHCP for your private cloud. If you plan to use NSX-T to host your DHCP server, see [Create DHCP server](#create-dhcp-server). Otherwise, if you have a 3rd party external DHCP server in your network and you want to relay requests to that DHCP server, see [Create DHCP relay service](#create-dhcp-relay-service).
 
 ## Create DHCP server
 
@@ -61,7 +61,7 @@ Once you've created your DHCP Server, you'll need to add network segments to it.
 
    ![segments complete](./media/manage-dhcp/segments-complete.jpg)
 
-## Create DHCP Relay service
+## Create DHCP relay service
 
 1. In the NXT-T window, select the **Networking** tab, and under **IP Management**, select **DHCP**. Click **ADD SERVER**. Choose DHCP Relay for the **Server Type** and enter the server name and IP address for the relay server. Click **Save** to save your changes.
 
