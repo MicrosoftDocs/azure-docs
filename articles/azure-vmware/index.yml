@@ -1,0 +1,37 @@
+### YamlMime:Landing
+
+title: Azure VMWare Soluation (AVS) documentation
+summary: Learn how to use Azure VMWare Solution (AVS) to deploy a VMWare private cloud to Azure
+
+metadata:
+  title: Azure VMWare Soluation (AVS) documentation 
+  description: Learn how to use Azure VMWare Solution (AVS) to deploy a VMWare private cloud to Azure
+  ms.service: azure-vmware 
+  ms.topic: landing-page 
+  author: dikamath 
+  ms.author: dikamath 
+  ms.date: 05/04/2020 
+
+landingContent:
+  - title: About Azure VMWare Solution (AVS)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure VMWare Soluation (AVS)?
+            url: introduction.md
+      - linkListType: get-started
+        links:
+          - text: Network checklist
+            url: network-checklist.md
+      - linkListType: quickstart
+        links:
+          - text: Create an AVS private cloud with Azure CLI
+            url: quickstart-private-cloud-cli.md
+      - linkListType: tutorial
+        links:
+          - text: Create an AVS private cloud
+            url: tutorial-create-private-cloud
+          - text: Configure networking
+            url: tutorial-configure-networking.md
+          - text: Create a jump box
+            url: tutorial-create-jump-box.md
