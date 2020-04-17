@@ -5,9 +5,9 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ---
 
-# Configure Azure Red Hat OpenShift v3.x with Azure Monitor for containers
+# Configure Azure Red Hat OpenShift v3 with Azure Monitor for containers
 
-Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS Engine clusters. This article describes how to enable monitoring of Kubernetes clusters hosted on [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 3.x to achieve a similar monitoring experience.
+Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS Engine clusters. This article describes how to enable monitoring of Kubernetes clusters hosted on [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 3 and latest supported version of version 3, to achieve a similar monitoring experience.
 
 >[!NOTE]
 >Support for Azure Red Hat OpenShift is a feature in public preview at this time.
