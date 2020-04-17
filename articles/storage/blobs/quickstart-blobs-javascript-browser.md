@@ -229,8 +229,8 @@ To run the code inside the Visual Studio Code debugger, configure the *launch.js
 
 To set up the debugger extension in Visual Studio Code:
 
-    1. Select **Run > Add Configuration**
-    2. Select **Edge**, **Chrome**, or **Firefox**, depending on which extension you installed in the [Prerequisites](#prerequisites) section earlier.
+1. Select **Run > Add Configuration**
+2. Select **Edge**, **Chrome**, or **Firefox**, depending on which extension you installed in the [Prerequisites](#prerequisites) section earlier.
 
 Adding a new configuration creates a *launch.json* file and opens it in the editor. Modify the *launch.json* file so that the `url` value is `http://localhost:1234/index.html`, as shown here:
 
@@ -279,7 +279,7 @@ In the [Azure portal](https://portal.azure.com), you can verify the results of t
 1. Click the **Delete selected files** button to delete them.
 1. Switch focus back to the Azure portal.
 1. Click **Refresh** to see that the files were deleted from the container.
-1. Select the **<account-name> | Containers** link at the top of the portal pane.
+1. Select the **\<account-name\> | Containers** link at the top of the portal pane.
 1. Switch focus back to the web app.
 1. Click the **Delete container** button to delete the container and all files in the container.
 1. Switch focus back to the Azure portal.
