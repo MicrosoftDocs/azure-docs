@@ -16,7 +16,7 @@ Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs]
 
 ## Supported scenarios
 
-* Backup reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA/ASE in Azure VMs, Microsoft Azure Recovery Services (MARS) agent, Microsoft Azure Backup Server (MABS), and System Center DPM.
+* Backup reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA/ASE in Azure VMs, Microsoft Azure Recovery Services (MARS) agent, Microsoft Azure Backup Server (MABS), and System Center Data Protection Manager (DPM).
 * For DPM workloads, Backup reports are supported for DPM Version 5.1.363.0 and above and Agent Version 2.0.9127.0 and above.
 * For MABS workloads, Backup reports are supported for MABS Version 13.0.415.0 and above and Agent Version 2.0.9170.0 and above.
 * Backup reports can be viewed across all backup items, vaults, subscriptions, and regions as long as their data is being sent to a Log Analytics workspace that the user has access to. To view reports for a set of vaults, you only need to have reader access to the Log Analytics workspace to which the vaults are sending their data. You don't need to have access to the individual vaults.
@@ -27,7 +27,7 @@ Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs]
 
 Follow these steps to start using the reports.
 
-#### 1. Create a Log Analytics workspace or use an existing one.
+#### 1. Create a Log Analytics workspace or use an existing one
 
 Set up one or more Log Analytics workspaces to store your Backup reporting data. The location and subscription where this Log Analytics workspace can be created is independent of the location and subscription where your vaults exist. 
 
@@ -35,7 +35,7 @@ To set up a Log Analytics workspace, see [Create a Log Analytics workspace in th
 
 By default, the data in a Log Analytics workspace is retained for 30 days. To see data for a longer time horizon, change the retention period of the Log Analytics workspace. To change the retention period, see [Manage usage and costs with Azure Monitor logs](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage).
 
-#### 2. Configure diagnostics settings for your vaults.
+#### 2. Configure diagnostics settings for your vaults
 
 Azure Resource Manager resources, such as Recovery Services vaults, record information about scheduled operations and user-triggered operations as diagnostics data. 
 
@@ -48,7 +48,7 @@ Azure Backup also provides a built-in Azure policy, which automates the configur
 > [!NOTE]
 > After you configure diagnostics, it might take up to 24 hours for the initial data push to complete. After data starts flowing into the Log Analytics workspace, you might not see data in the reports immediately because data for the current partial day isn't shown in the reports. For more information, see [Conventions used in Backup reports](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports). We recommend that you start viewing the reports two days after you configure your vaults to send data to Log Analytics.
 
-#### 3. View reports in the Azure portal.
+#### 3. View reports in the Azure portal
 
 After you've configured your vaults to send data to Log Analytics, view your Backup reports by going to any vault's pane and selecting **Backup Reports**.
 
