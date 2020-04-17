@@ -73,7 +73,7 @@ For the VM that is created from a custom image, you must configure the appropria
 
 ### Step 2 Verify the connectivity between the VM and Azure KMS service
 
-1. Download and extract the [PSping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) tool to a local folder in the VM that does not activate. 
+1. Download and extract the [PSping](https://docs.microsoft.com/en-us/sysinternals/downloads/psping) tool to a local folder in the VM that does not activate. 
 
 2. Go to Start, search on Windows PowerShell, right-click Windows PowerShell, and then select Run as administrator.
 
@@ -94,7 +94,7 @@ For the VM that is created from a custom image, you must configure the appropria
 
    If Lost is greater than 0 (zero), the VM does not have connectivity to the KMS server. In this situation, if the VM is in a virtual network and has a custom DNS server specified, you must make sure that DNS server is able to resolve kms.core.windows.net. Or, change the DNS server to one that does resolve kms.core.windows.net.
 
-   Notice that if you remove all DNS servers from a virtual network, VMs use Azure’s internal DNS service. This service can resolve kms.core.windows.net.
+   Notice that if you remove all DNS servers from a virtual network, VMs use Azure's internal DNS service. This service can resolve kms.core.windows.net.
   
     Also make sure that the outbound network traffic to KMS endpoint with 1688 port is not blocked by the firewall in the VM.
 
