@@ -18,8 +18,8 @@ Search-as-you-type is a common technique for improving the productivity of user-
 To implement these experiences in Azure Cognitive Search, you will need:
 
 + A *suggester* on the back end.
-+ A query that includes the Autocomplete or Suggestions API on the request.
-+ A *UI control* that handles auto-completed text inputs and outputs in your client app. We recommend using an existing JavaScript library for this purpose.
++ A *query* specifying Autocomplete or Suggestions API on the request.
++ A *UI control* to handle search-as-you-type interactions in your client app. We recommend using an existing JavaScript library for this purpose.
 
 In Azure Cognitive Search, autocompleted queries and suggested results are retrieved from the search index, from selected fields that you have registered with a suggester. A suggester is part of the index, and it specifies which fields will provide content that either completes a query, suggests a result, or does both. When the index is created and loaded, a suggester data structure is created internally to store prefixes used for matching on partial queries. For suggestions, choosing suitable fields that are unique, or at least not repetitive, is essential to the experience. For more information, see [Create a suggester](index-add-suggesters.md).
 
@@ -74,7 +74,7 @@ Auto-filling a query term or dropping down a list of matching links requires use
 
 Although you could write this code natively, it's much easier to use functions from existing JavaScript library. This article demonstrates two, one for suggestions and another for autocomplete. 
 
-+ [Autocomplete widget (jQuery UI)]((https://jqueryui.com/autocomplete/)) is used in the Suggestion example. You can create a search box, and then reference it in a JavaScript function that uses the Autocomplete widget. Properties on the widget set the source (an autocomplete or suggestions function), minimum length of input characters before action is taken, and positioning.
++ [Autocomplete widget (jQuery UI)](https://jqueryui.com/autocomplete/) is used in the Suggestion example. You can create a search box, and then reference it in a JavaScript function that uses the Autocomplete widget. Properties on the widget set the source (an autocomplete or suggestions function), minimum length of input characters before action is taken, and positioning.
 
 + [XDSoft Autocomplete plug-in](https://xdsoft.net/jqplugins/autocomplete/) is used the Autocomplete example.
 
@@ -239,7 +239,7 @@ The Autocomplete function takes the search term input. The method creates an [Au
 
 ## Next steps
 
-Follow these links for end-to-end instructions or code demonstrating both search-as-you-type experiences.
+Follow these links for end-to-end instructions or code demonstrating both search-as-you-type experiences. Both code examples include hybrid implementations of suggestions and autocomplete together.
 
 + [Tutorial: Create your first app in C# (lesson 3)](tutorial-csharp-type-ahead-and-suggestions.md)
 + [C# code sample: azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead)
