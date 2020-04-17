@@ -3,20 +3,14 @@ title: Reference guide for functions in expressions
 description: Reference guide to functions in expressions for Azure Logic Apps and Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 04/17/2020
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
 
-For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
-and [Power Automate](https://docs.microsoft.com/flow/getting-started), some 
-[expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) 
-get their values from runtime actions that might not yet exist when your 
-workflow starts running. To reference these values or process the values 
-in these expressions, you can use *functions* provided by the 
-[Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
+For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Power Automate](https://docs.microsoft.com/flow/getting-started), some [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) get their values from runtime actions that might not yet exist when your workflow starts running. To reference these values or process the values in these expressions, you can use *functions* provided by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > This reference page applies to both Azure Logic Apps and Power Automate, 
@@ -25,10 +19,7 @@ in these expressions, you can use *functions* provided by the
 > For more information about functions and expressions in Power Automate, see 
 > [Use expressions in conditions](https://docs.microsoft.com/flow/use-expressions-in-conditions).
 
-For example, you can calculate values by using math functions, such as the
-[add() function](../logic-apps/workflow-definition-language-functions-reference.md#add), 
-when you want the sum from integers or floats. Here are other 
-example tasks that you can perform with functions:
+For example, you can calculate values by using math functions, such as the [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) function, when you want the sum from integers or floats. Here are other example tasks that you can perform with functions:
 
 | Task | Function syntax | Result |
 | ---- | --------------- | ------ |
@@ -36,22 +27,15 @@ example tasks that you can perform with functions:
 | Return a globally unique identifier (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
 ||||
 
-To find functions [based on their general purpose](#ordered-by-purpose),
-review the following tables. Or, for detailed information about each function,
-see the [alphabetical list](#alphabetical-list).
+To find functions [based on their general purpose](#ordered-by-purpose), review the following tables. Or, for detailed information about each function, see the [alphabetical list](#alphabetical-list).
 
 > [!NOTE]
-> In the syntax for parameter definitions, a question mark (?)
-> that appears after a parameter means the parameter is optional.
-> For example, see [getFutureTime()](#getFutureTime).
+> In the syntax for parameter definitions, a question mark (?) that appears after a parameter 
+> means the parameter is optional. For example, see [getFutureTime()](#getFutureTime).
 
 ## Functions in expressions
 
-To show how to use a function in an expression,
-this example shows how you can get the value from
-the `customerName` parameter and assign that value
-to the `accountName` property by using the
-[parameters()](#parameters) function in an expression:
+To show how to use a function in an expression, this example shows how you can get the value from the `customerName` parameter and assign that value to the `accountName` property by using the [parameters()](#parameters) function in an expression:
 
 ```json
 "accountName": "@parameters('customerName')"
@@ -76,10 +60,8 @@ so that you get a combined string, "SophiaOwen":
 "customerName": "@concat('Sophia', 'Owen')"
 ```
 
-Or, you can get string values from parameters. This example
-uses the `parameters()` function in each `concat()` parameter
-and the `firstName` and `lastName` parameters. You then pass
-the resulting strings to the `concat()` function so that
+Or, you can get string values from parameters. This example uses the `parameters()` function in each `concat()` parameter
+and the `firstName` and `lastName` parameters. You then pass the resulting strings to the `concat()` function so that
 you get a combined string, for example, "SophiaOwen":
 
 ```json
@@ -88,17 +70,14 @@ you get a combined string, for example, "SophiaOwen":
 
 Either way, both examples assign the result to the `customerName` property.
 
-Here are the available functions ordered by their general purpose,
-or you can browse the functions based on [alphabetical order](#alphabetical-list).
+Here are the available functions ordered by their general purpose, or you can browse the functions based on [alphabetical order](#alphabetical-list).
 
 <a name="ordered-by-purpose"></a>
 <a name="string-functions"></a>
 
 ## String functions
 
-To work with strings, you can use these string functions
-and also some [collection functions](#collection-functions).
-String functions work only on strings.
+To work with strings, you can use these string functions and also some [collection functions](#collection-functions). String functions work only on strings.
 
 | String function | Task |
 | --------------- | ---- |
@@ -121,8 +100,7 @@ String functions work only on strings.
 
 ## Collection functions
 
-To work with collections, generally arrays, strings,
-and sometimes, dictionaries, you can use these collection functions.
+To work with collections, generally arrays, strings, and sometimes, dictionaries, you can use these collection functions.
 
 | Collection function | Task |
 | ------------------- | ---- |
@@ -143,10 +121,7 @@ and sometimes, dictionaries, you can use these collection functions.
 
 ## Logical comparison functions
 
-To work with conditions, compare values and expression results,
-or evaluate various kinds of logic, you can use these logical comparison functions.
-For the full reference about each function, see the
-[alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+To work with conditions, compare values and expression results, or evaluate various kinds of logic, you can use these logical comparison functions. For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 | Logical comparison function | Task |
 | --------------------------- | ---- |
@@ -165,12 +140,14 @@ For the full reference about each function, see the
 
 ## Conversion functions
 
-To change a value's type or format, you can use these conversion functions.
-For example, you can change a value from a Boolean to an integer.
-For more information about how Logic Apps handles content types during
-conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md).
-For the full reference about each function, see the
-[alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+To change a value's type or format, you can use these conversion functions. For example, you can change a value from a Boolean to an integer. For more information about how Logic Apps handles content types during conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md). For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+> [!IMPORTANT]
+> The Logic Apps service automatically or implicitly converts values between specific data types, 
+> which means that you don't have to manually or explicitly convert those values by using the 
+> corresponding functions. If you use these functions in the designer or code view, Logic Apps 
+> removes those functions after you save your logic app because the conversion happens automatically. 
+> For more information, see [Implicit data type conversions](#implicit-data-conversions).
 
 | Conversion function | Task |
 | ------------------- | ---- |
@@ -197,6 +174,40 @@ For the full reference about each function, see the
 | [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Return the string version for a URI-encoded string. |
 | [xml](../logic-apps/workflow-definition-language-functions-reference.md#xml) | Return the XML version for a string. |
 |||
+
+<a name="implicit-data-conversions"></a>
+
+## Implicit data type conversions
+
+The Logic Apps service automatically or implicitly converts values between specific data types, which means that you don't have to manually or explicitly convert those values by using the corresponding functions. If you use these functions in the designer or code view, Logic Apps removes those functions after you save your logic app because the conversion happens automatically.
+
+This table describes the conversions that Logic Apps implicitly makes:
+
+| Data conversion <br>(To > From) | Byte | Binary or File | DataUri | Other |
+|---------------------------------|------|----------------|---------|-------|
+| **Byte** | Not applicable | `base64(<value>)` | `base64(decodeDataUri(<value>))` | `base64(<value>)` |
+| **Binary or File** | `base64ToBinary(<value>)` | Not applicable | `decodeDataUri(<value>)` | Not applicable |
+| **DataUri** | `concat('data:;base64,', <value>)` | `concat('data:;base64,', base64(<value>))` | Not applicable | `concat('data:,', encodeUriComponent(<value>))` |
+| **Other** | `base64ToString(<value>)` | Not applicable | `decodeDataUri(<value>)` | `Not applicable` |
+||||||
+
+Logic Apps also implicitly converts non-string values into strings when these values are used where strings are expected. For example:
+
+* A trigger returns a numerical value as output through this expression:
+
+  `triggerBody()?['number']`
+
+  If the numerical value is used for a string input, such as an HTTP URL, you get this expression:
+
+  `@{triggerBody()?['number']}`
+
+* A trigger returns a string value as output through this expression:
+
+  `triggerBody()?['string']`
+
+  If the string value is used for a string input, you get this expression:
+
+  `@triggerBody()?['string']`
 
 <a name="math-functions"></a>
 
