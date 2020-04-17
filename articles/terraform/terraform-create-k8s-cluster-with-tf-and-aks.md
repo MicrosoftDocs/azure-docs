@@ -23,7 +23,7 @@ In this tutorial, you learn how to do the following tasks:
 
 - **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](terraform-install-configure.md)
 
-- **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the appId, displayName, password, and tenant.
+- **Azure service principal**: Follow the directions in the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the appId, displayName, password, and tenant.
 
 ## Create the directory structure
 
@@ -298,7 +298,7 @@ In this section, you see how to do the following tasks:
 
 ## Create the Kubernetes cluster
 
-In this section, you see how to use the `terraform init` command to create the resources defined the configuration files you created in the previous sections.
+In this section, you see how to use the `terraform init` command to create the resources defined in the configuration files you created in the previous sections.
 
 1. In Cloud Shell, initialize Terraform. Replace the placeholders with appropriate values for your environment.
 

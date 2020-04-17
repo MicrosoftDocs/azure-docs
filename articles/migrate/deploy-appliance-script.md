@@ -2,18 +2,28 @@
 title: Set up an Azure Migrate appliance with a script
 description: Learn how to set up an Azure Migrate appliance with a script
 ms.topic: article
-ms.date: 03/23/2020
+ms.date: 04/16/2020
 ---
 
 
 # Set up an appliance with a script
 
-This article describes how to set up the [Azure Migrate appliance](deploy-appliance.md) using a PowerShell installer script.
+This article describes how to set up the [Azure Migrate appliance](deploy-appliance.md) using a PowerShell installer script, for VMware VMs, and Hyper-V VMs. If you want to set up the appliance for physical servers, [review this article](how-to-set-up-appliance-physical.md).
 
-The script provides:
-- An alternative to setting up the appliance using an OVA template, for assessment and agentless migration of VMware VMs.
-- An alternative to setting up the appliance using a VHD template, for assessment and migration of Hyper-V VMs.
-- For assessment of physical servers (or VMs that you want to migrate as physical servers), the script is the only method for setting up the appliance.
+
+You can deploy the appliance using a couple of methods:
+
+
+- Using a template for VMware VMs (OVA) or Hyper-V VMs (VHD).
+- Using a script. This is the method described in this article. The script provides:
+    - An alternative to setting up the appliance using an OVA template, for assessment and agentless migration of VMware VMs.
+    - An alternative to setting up the appliance using a VHD template, for assessment and migration of Hyper-V VMs.
+    - For assessment of physical servers (or VMs that you want to migrate as physical servers), the script is the only method for setting up the appliance.
+    - A way to deploy the appliance in Azure Government.
+
+
+After creating the appliance, you verify that it can connect to Azure Migrate. You then configure the appliance for the first time, and register it with the Azure Migrate project.
+
 
 ## Prerequisites
 
@@ -23,32 +33,44 @@ The script sets up the Azure Migrate appliance on an existing physical machine o
 - Before you deploy the appliance, review detailed appliance requirements for [VMware VMs](migrate-appliance.md#appliance---vmware), [Hyper-V VMs](migrate-appliance.md#appliance---hyper-v), and [physical servers](migrate-appliance.md#appliance---physical).
 - Don't run the script on an existing Azure Migrate appliance.
 
+## Set up the appliance for VMware
 
-## Download the script
+To set up the appliance for VMware you download a zipped file from the Azure portal, and extract the contents. You run the PowerShell script to launch the appliance web app. You set up the appliance and configure it for the first time. Then, you register the appliance with the Azure Migrate project.
 
-1. Locate the machine/VM that will act as the Azure Migrate appliance.
-2. On the machine, do the following:
+### Download the script
 
-    - To use the appliance with VMware VMs or Hyper-V VMs, [download](https://go.microsoft.com/fwlink/?linkid=2105112) the zipped folder containing the installer script and the MSIs.
-    - To use the appliance with physical servers, download the script from the Azure Migrate portal, as described in this [tutorial](tutorial-assess-physical.md#set-up-the-appliance).
+1.	In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, click **Discover**.
+2.	In **Discover machines** > **Are your machines virtualized?**, select **Yes, with VMWare vSphere hypervisor**.
+3.	Click **Download**, to download the zipped file. 
 
-## Verify file security
+
+### Verify file security
 
 Check that the zipped file is secure, before you deploy it.
 
 1. On the machine to which you downloaded the file, open an administrator command window.
 2. Run the following command to generate the hash for the zipped file
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
+    - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
+    - Example usage for government cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip```
 
-3. Verify that the generated hash values match these settings (for the latest appliance version):
+3. Verify the generated hash values:
 
-    **Algorithm** | **Hash value**
-      --- | ---
-      MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-      SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+    - For the public cloud (for the latest appliance version):
 
-## Run the script
+        **Algorithm** | **Hash value**
+          --- | ---
+          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+
+    - For Azure government (for the latest appliance version):
+
+        **Algorithm** | **Hash value**
+          --- | ---
+          MD5 | 6316bcc8bc932204295bfe33f4be3949
+          
+
+### Run the script
 
 Here's what the script does:
 
@@ -62,28 +84,89 @@ Here's what the script does:
 
 To run the script:
 
-1. Extract the zipped file to a folder on the machine that will host the appliance.
+1. Extract the zipped file to a folder on the machine that will host the appliance. Make sure you don't run the script on a machine on an existing Azure Migrate appliance.
 2. Launch PowerShell on the machine, with administrator (elevated) privileges.
 3. Change the PowerShell directory to the folder containing the contents extracted from the downloaded zipped file.
-4. Run the script **AzureMigrateInstaller.ps1** as follows:
+4. Run the script **AzureMigrateInstaller.ps1**, as follows:
+    - For the public cloud: ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario VMware ```
+    - For Azure Government: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
+   
+5. After the script runs successfully, it launches the appliance web application so that you can set up the appliance. If you encounter any issues, review the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log.
 
-    - For VMware: 
-        ```
-        PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario VMware
-        ```
-    - For Hyper-V:
-        ```
-        PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario Hyperv
-        ```
-    - For physical servers:
-        ```
-        PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
-        ```      
-5. After the script runs successfully, it launches the appliance web application so that you can set up the appliance. If you encounter any issues, you can view the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log.
+### Verify access
+
+Make sure that the appliance can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls.
+
+
+## Set up the appliance for Hyper-V
+
+To set up the appliance for Hyper-V you download a zipped file from the Azure portal, and extract the contents. You run the PowerShell script to launch the appliance web app. You set up the appliance and configure it for the first time. Then, you register the appliance with the Azure Migrate project.
+
+### Download the script
+
+1.	In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, click **Discover**.
+2.	In **Discover machines** > **Are your machines virtualized?**, select **Yes, with Hyper-V**.
+3.	Click **Download**, to download the zipped file. 
+
+
+### Verify file security
+
+Check that the zipped file is secure, before you deploy it.
+
+1. On the machine to which you downloaded the file, open an administrator command window.
+2. Run the following command to generate the hash for the zipped file
+    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+    - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
+    - Example usage for government cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip MD5```
+
+3. Verify the generated hash values:
+
+    - For the public cloud (for the latest appliance version):
+
+        **Algorithm** | **Hash value**
+          --- | ---
+          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
+          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+
+    - For Azure government (for the latest appliance version):
+
+        **Algorithm** | **Hash value**
+          --- | ---
+          MD5 | 717f8b9185f565006b5aff0215ecadac
+          
+
+### Run the script
+
+Here's what the script does:
+
+- Installs agents and a web application.
+- Installs Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
+- Downloads and installs an IIS rewritable module. [Learn more](https://www.microsoft.com/download/details.aspx?id=7435).
+- Updates a registry key (HKLM), with persistent settings for Azure Migrate.
+- Creates log and configuration files as follows:
+    - **Config Files**: %ProgramData%\Microsoft Azure\Config
+    - **Log Files**: %ProgramData%\Microsoft Azure\Logs
+
+To run the script:
+
+1. Extract the zipped file to a folder on the machine that will host the appliance. Make sure you don't run the script on a machine on an existing Azure Migrate appliance.
+2. Launch PowerShell on the machine, with administrator (elevated) privileges.
+3. Change the PowerShell directory to the folder containing the contents extracted from the downloaded zipped file.
+4. Run the script **AzureMigrateInstaller.ps1**, as follows:
+    - For the public cloud: ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario Hyperv ```
+    - For Azure Government: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ```
+   
+5. After the script runs successfully, it launches the appliance web application so that you can set up the appliance. If you encounter any issues, review the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log.
+
+### Verify access
+
+Make sure that the appliance can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls.
+
+
 
 ## Next steps
 
-After you've set up the appliance using the script, follow these instructions:
+To learn more about setting up the appliance with a template, or for physical servers, review these articles:
 
 - Set up the appliance for [VMware](how-to-set-up-appliance-vmware.md#configure-the-appliance).
 - Set up the appliance for [Hyper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance).

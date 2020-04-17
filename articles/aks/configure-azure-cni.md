@@ -23,6 +23,7 @@ This article shows you how to use *Azure CNI* networking to create and use a vir
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 * Instead of a service principal, you can use the system assigned managed identity for permissions. For more information, see [Use managed identities](use-managed-identity.md).
+* The subnet assigned to the AKS node pool cannot be a [delegated subnet](../virtual-network/subnet-delegation-overview.md).
 
 ## Plan IP addressing for your cluster
 

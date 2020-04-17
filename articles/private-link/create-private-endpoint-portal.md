@@ -38,9 +38,9 @@ In this section you'll need to replace the following parameters in the steps wit
 | **\<resource-group-name>**  | myResourceGroup |
 | **\<virtual-network-name>** | myVirtualNetwork          |
 | **\<region-name>**          | West Central US    |
-| **\<IPv4-address-space>**   | 10.1.0.0\16          |
+| **\<IPv4-address-space>**   | 10.1.0.0/16          |
 | **\<subnet-name>**          | mySubnet        |
-| **\<subnet-address-range>** | 10.1.0.0\24          |
+| **\<subnet-address-range>** | 10.1.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 

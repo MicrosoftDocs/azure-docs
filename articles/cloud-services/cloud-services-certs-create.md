@@ -50,7 +50,7 @@ You can use any tool available to create a self-signed certificate as long as th
 * Created for key exchange (.pfx file).
 * Subject name must match the domain used to access the cloud service.
 
-    > You cannot acquire an SSL certificate for the cloudapp.net (or for any Azure-related) domain; the certificate's subject name must match the custom domain name used to access your application. For example, **contoso.net**, not **contoso.cloudapp.net**.
+    > You cannot acquire a TLS/SSL certificate for the cloudapp.net (or for any Azure-related) domain; the certificate's subject name must match the custom domain name used to access your application. For example, **contoso.net**, not **contoso.cloudapp.net**.
 
 * Minimum of 2048-bit encryption.
 * **Service Certificate Only**: Client-side certificate must reside in the *Personal* certificate store.

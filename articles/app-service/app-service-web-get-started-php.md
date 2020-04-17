@@ -67,12 +67,16 @@ In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan 
 
 In the following example, replace `<app_name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.0`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
 
+
 ```azurecli-interactive
 # Bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git
 # PowerShell
 az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git
 ```
+> [!NOTE]
+> The stop-parsing symbol `(--%)`, introduced in PowerShell 3.0, directs PowerShell to refrain from interpreting input as PowerShell commands or expressions. 
+>
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
 

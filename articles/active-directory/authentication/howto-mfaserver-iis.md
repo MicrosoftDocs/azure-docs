@@ -5,7 +5,7 @@ description: Deploying IIS Authentication and Azure Multi-Factor Authentication 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 
 ms.author: iainfou

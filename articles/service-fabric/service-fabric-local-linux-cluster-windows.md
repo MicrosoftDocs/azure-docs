@@ -40,7 +40,7 @@ To set up a local Docker container and have a service fabric cluster running on 
 2. In a new directory create a file called `Dockerfile` to build your Service Fabric Image:
 
     ```Dockerfile
-    FROM microsoft/service-fabric-onebox
+    FROM mcr.microsoft.com/service-fabric/onebox:latest
     WORKDIR /home/ClusterDeployer
     RUN ./setup.sh
     #Generate the local
@@ -81,7 +81,7 @@ To set up a local Docker container and have a service fabric cluster running on 
     >
     >If your application is listening on certain ports, the ports must be specified by using additional `-p` tags. For example, if your application is listening on port 8080, add the following `-p` tag:
     >
-    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
+    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
 5. The cluster will take a short amount of time to start, you can view logs using the following command or jump to the dashboard to view the clusters health [http://localhost:19080](http://localhost:19080):
