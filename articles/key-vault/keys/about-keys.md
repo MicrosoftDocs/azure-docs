@@ -15,64 +15,7 @@ ms.author: mbaldwin
 
 # About Azure Key Vault keys
 
-Azure Key Vault enables Microsoft Azure applications and users to store and use keys. It supports multiple key types and algorithms, and enables the use of Hardware Security Modules (HSM) for high value keys. 
-
-For more general information about Key Vault, see [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
-
-## Azure Key Vault
-
-The following sections offer general information applicable across the implementation of the Key Vault service.
-
-### Supporting standards
-
-The JavaScript Object Notation (JSON) and JavaScript Object Signing and Encryption (JOSE) specifications are important background information.  
-
--   [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41)  
--   [JSON Web Encryption (JWE)](https://tools.ietf.org/html/draft-ietf-jose-json-web-encryption-40)  
--   [JSON Web Algorithms (JWA)](https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40)  
--   [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature-41)  
-
-### Data types
-
-Refer to the JOSE specifications for relevant data types for keys, encryption, and signing.  
-
--   **algorithm** - a supported algorithm for a key operation, for example, RSA1_5  
--   **ciphertext-value** - cipher text octets, encoded using Base64URL  
--   **digest-value** - the output of a hash algorithm, encoded using Base64URL  
--   **key-type** - one of the supported key types, for example RSA (Rivest-Shamir-Adleman).  
--   **plaintext-value** - plaintext octets, encoded using Base64URL  
--   **signature-value** - output of a signature algorithm, encoded using Base64URL  
--   **base64URL** - a Base64URL [RFC4648] encoded binary value  
--   **boolean** - either true or false  
--   **Identity** - an identity from Azure Active Directory (Azure AD).  
--   **IntDate** - a JSON decimal value representing the number of seconds from 1970-01-01T0:0:0Z UTC until the specified UTC date/time. See RFC3339 for details regarding date/times, in general and UTC in particular.  
-
-### Objects, identifiers, and versioning
-
-Objects stored in Key Vault are versioned whenever a new instance of an object is created. Each version is assigned a unique identifier and URL. When an object is first created, it's given a unique version identifier and marked as the current version of the object. Creation of a new instance with the same object name gives the new object a unique version identifier, causing it to become the current version.  
-
-Objects in Key Vault can be addressed using the current identifier or a version-specific identifier. For example, given a Key with the name `MasterKey`, performing operations with the current identifier causes the system to use the latest available version. Performing operations with the version-specific identifier causes the system to use that specific version of the object.  
-
-Objects are uniquely identified within Key Vault using a URL. No two objects in the system have the same URL, regardless of geo-location. The complete URL to an object is called the Object Identifier. The URL consists of a prefix that identifies the Key Vault, object type, user provided Object Name, and an Object Version. The Object Name is case-insensitive and immutable. Identifiers that don't include the Object Version are referred to as Base Identifiers.  
-
-For more information, see [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
-
-An object identifier has the following general format:  
-
-`https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
-
-Where:  
-
-|||  
-|-|-|  
-|`keyvault-name`|The name for a key vault in the Microsoft Azure Key Vault service.<br /><br /> Key Vault names are selected by the user and are globally unique.<br /><br /> Key Vault name must be a 3-24 character string, containing only 0-9, a-z, A-Z, and -.|  
-|`object-type`|The type of the object, either "keys" or "secrets".|  
-|`object-name`|An `object-name` is a user provided name for and must be unique within a Key Vault. The name must be a 1-127 character string, containing only 0-9, a-z, A-Z, and -.|  
-|`object-version`|An `object-version` is a system-generated, 32 character string identifier that is optionally used to address a unique version of an object.|  
-
-## Key Vault keys
-
-### Keys and key types
+Azure Key Vault Supports multiple key types and algorithms, and enables the use of Hardware Security Modules (HSM) for high value keys.
 
 Cryptographic keys in Key Vault are represented as JSON Web Key [JWK] objects. The base JWK/JWA specifications are also extended to enable key types unique to the Key Vault implementation. For example, importing keys using  HSM vendor-specific packaging, enables secure transportation of keys that may only be used in Key Vault HSMs.  
 
@@ -90,21 +33,21 @@ Key Vault supports RSA and Elliptic Curve keys only.
 
 Key Vault supports RSA keys of sizes 2048, 3072 and 4096. Key Vault supports Elliptic Curve key types P-256, P-384, P-521, and P-256K (SECP256K1).
 
-### Cryptographic protection
+## Cryptographic protection
 
 The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS (Federal Information Processing Standards) validated. You don't need to do anything special to run in FIPS mode. Keys **created** or **imported** as HSM-protected are  processed inside an HSM, validated to FIPS 140-2 Level 2. Keys **created** or **imported** as software-protected, are processed inside cryptographic modules validated to FIPS 140-2 Level 1. For more information, see [Keys and key types](#keys-and-key-types).
 
-###  EC algorithms
+##  EC algorithms
  The following algorithm identifiers are supported with EC and EC-HSM keys in Key Vault. 
 
-#### Curve Types
+### Curve Types
 
 -   **P-256** - The NIST curve P-256, defined at [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 -   **P-256K** - The SEC curve SECP256K1, defined at [SEC 2: Recommended Elliptic Curve Domain Parameters](https://www.secg.org/sec2-v2.pdf).
 -   **P-384** - The NIST curve P-384, defined at [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 -   **P-521** - The NIST curve P-521, defined at [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 
-#### SIGN/VERIFY
+### SIGN/VERIFY
 
 -   **ES256** - ECDSA for SHA-256 digests and keys created with curve P-256. This algorithm is described at [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **ES256K** - ECDSA for SHA-256 digests and keys created with curve P-256K. This algorithm is pending standardization.
@@ -112,15 +55,15 @@ The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS
 -   **ES512** - ECDSA for SHA-512 digests and keys created with curve P-521. This algorithm is described at [RFC7518](https://tools.ietf.org/html/rfc7518).
 
 
-###  RSA algorithms  
+##  RSA algorithms  
  The following algorithm identifiers are supported with RSA and RSA-HSM keys in Key Vault.  
 
-#### WRAPKEY/UNWRAPKEY, ENCRYPT/DECRYPT
+### WRAPKEY/UNWRAPKEY, ENCRYPT/DECRYPT
 
 -   **RSA1_5** - RSAES-PKCS1-V1_5 [RFC3447] key encryption  
 -   **RSA-OAEP** - RSAES using Optimal Asymmetric Encryption Padding (OAEP) [RFC3447], with the default parameters specified by RFC 3447 in Section A.2.1. Those default parameters are using a hash function of SHA-1 and a mask generation function of MGF1 with SHA-1.  
 
-#### SIGN/VERIFY
+### SIGN/VERIFY
 
 -   **PS256** - RSASSA-PSS using SHA-256 and MGF1 with SHA-256, as described in [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **PS384** - RSASSA-PSS using SHA-384 and MGF1 with SHA-384, as described in [RFC7518](https://tools.ietf.org/html/rfc7518).
@@ -130,7 +73,7 @@ The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS
 -   **RS512** - RSASSA-PKCS-v1_5 using SHA-512. The application supplied digest value must be computed using SHA-512 and must be 64 bytes in length.  
 -   **RSNULL** - See [RFC2437], a specialized use-case to enable certain TLS scenarios.  
 
-###  Key operations
+##  Key operations
 
 Key Vault supports the following operations on key objects:  
 
@@ -161,7 +104,7 @@ Users may restrict any of the cryptographic operations that Key Vault supports o
 
 For more information on JWK objects, see [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).  
 
-###  Key attributes
+##  Key attributes
 
 In addition to the key material, the following attributes may be specified. In a JSON Request, the attributes keyword and braces, '{' '}', are required even if there are no attributes specified.  
 
@@ -176,7 +119,7 @@ There are additional read-only attributes that are included in any response that
 
 For more information on IntDate and other data types, see [Data types](#data-types)  
 
-#### Date-time controlled operations
+### Date-time controlled operations
 
 Not-yet-valid and expired keys, outside the *nbf* / *exp* window, will work for **decrypt**, **unwrap**, and **verify** operations (won't return 403, Forbidden). The rationale for using the not-yet-valid state is to allow a key to be tested before production use. The rationale for using the expired state is to allow recovery operations on data that was created when the key was valid. Also, you can disable access to a key using Key Vault policies, or by updating the *enabled* key attribute to **false**.
 
@@ -184,14 +127,14 @@ For more information on data types, see [Data types](#data-types).
 
 For more information on other possible attributes, see the [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).
 
-### Key tags
+## Key tags
 
 You can specify additional application-specific metadata in the form of tags. Key Vault supports up to 15 tags, each of which can have a 256 character name and a 256 character value.  
 
 >[!Note]
 >Tags are readable by a caller if they have the *list* or *get* permission to that object type (keys, secrets, or certificates).
 
-###  Key access control
+##  Key access control
 
 Access control for keys managed by Key Vault is provided at the level of a Key Vault that acts as the container of keys. The access control policy for keys is distinct from the access control policy for secrets in the same Key Vault. Users may create one or more vaults to hold keys, and are required to maintain scenario appropriate segmentation and management of keys. Access control for keys is independent of access control for secrets.  
 
@@ -223,5 +166,9 @@ For more information on working with keys, see [Key operations in the Key Vault 
 
 ## See Also
 
+- [About Key Vault](../general/overview.md)
+- [About keys, secrets, and certificates](../general/about-keys-secrets-certificates.md)
+- [About secrets](../secrets/about-secrets.md)
+- [About certificates](../certificates/about-certificates.md)
 - [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
 - [Key Vault Developer's Guide](../general/developers-guide.md)
