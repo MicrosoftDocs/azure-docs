@@ -2,12 +2,12 @@
 title: Create LUIS resource
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include
-ms.date: 04/06/2020
-ms.author: dapine
+ms.topic: include 
+ms.date: 04/07/2020
+ms.author: aahi
 ---
 
 <a name="create-luis-resources"></a>

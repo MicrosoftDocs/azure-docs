@@ -13,7 +13,13 @@ ms.subservice: metrics
 > [!NOTE]
 > This list is largely auto-generated from the Azure Monitor Metrics REST API. Any modification made to this list via Github may be written over without warning. Contact the author of this article for details on how to make permanent updates.
 
-Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. Below is a complete list of all metrics currently available with Azure Monitor's metric pipeline. Other metrics may be available in the portal or using legacy APIs. This list below only includes metrics available using the consolidated Azure Monitor metric pipeline. The metrics are organized by namespace. For a list of services and the namespaces that belong to them, see [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md). To query for and access these metrics programmatically, please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. 
+
+This article is a complete list of all platform (that is, automatically collected) metrics currently available with Azure Monitor's consolidated metric pipeline. The list was last updated March 27th, 2020. Metrics changed or added after this date may not appear below. To query for and access the list of metrics programmatically, please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+
+Other metrics may be available in the portal or using legacy APIs. Metrics for the guest operating system (guest os) which runs in Azure Virtual Machines, Service Fabric, and Cloud Services are **NOT** listed here. Those must be collected through one or more agents which run on or as part of the operating system. You can send the agent metrics into the platform metrics database using the [custom metrics](metrics-custom-overview.md) API, which are currently in public preview. Then you can chart, alert and otherwise use guest os metrics like platform metrics. For more information, see [Monitoring Agents Overview](agents-overview.md).    
+
+The metrics are organized by namespace. For a list of services and the namespaces that belong to them, see [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
 > [!NOTE]
 > Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.

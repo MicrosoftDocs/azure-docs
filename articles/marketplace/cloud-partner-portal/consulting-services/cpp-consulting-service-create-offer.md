@@ -12,7 +12,7 @@ ms.author: dsindona
 # Create a consulting offer
 
 >[!Important]
->Starting March 30th, 2020, we'll begin moving management of your Consulting service offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Consulting service creation overview](https://aka.ms/AzureCreateConsultingService) to manage your migrated offers.
+>Starting April 13, 2020, we'll begin moving management of your Consulting service offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Consulting service creation overview](https://aka.ms/AzureCreateConsultingService) to manage your migrated offers.
 
 This article describes how to create and publish a consulting service offer.
 

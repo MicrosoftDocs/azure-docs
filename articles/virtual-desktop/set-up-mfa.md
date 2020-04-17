@@ -28,7 +28,7 @@ Here's what you'll need to get started:
   - Azure Active Directory Premium P1 or P2
   - Enterprise Mobility + Security E3 or E5
 - An Azure Active Directory group with your users assigned as group members.
-- Enable Azure MFA for all your users. For more information about how to do that, see [How to require two-step verification for a user](/active-directory/authentication/howto-mfa-userstates).
+- Enable Azure MFA for all your users. For more information about how to do that, see [How to require two-step verification for a user](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
 
 >[!NOTE]
 >The following setting also applies to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient/index.html).

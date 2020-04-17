@@ -3,7 +3,7 @@ title: Optimize Azure CDN for the type of content delivery
 description: Optimize Azure CDN for the type of content delivery
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
-ms.author: magattus
+ms.author: allensu
 ---
 # Optimize Azure CDN for the type of content delivery
 

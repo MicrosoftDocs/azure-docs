@@ -29,7 +29,7 @@ Before you can perform a Liquid transformation in your logic app, you must first
 ## Create Liquid template or map for your integration account
 
 1. For this example, create the sample Liquid template described in this step. In your Liquid template, you can use 
-[Liquid filters](https://shopify.github.io/liquid/basics/introduction/#filters), which use [DotLiquid](https://dotliquidmarkup.org/) and C# naming conventions.
+[Liquid filters](https://shopify.github.io/liquid/basics/introduction/#filters), which use [DotLiquid](https://github.com/dotliquid/dotliquid) and C# naming conventions.
 
    > [!NOTE]
    > Make sure the filter names use *sentence casing* in your template. 
