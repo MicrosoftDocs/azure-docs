@@ -4,6 +4,7 @@ description: An entity extracts data from a user utterance at prediction runtime
 ms.topic: conceptual
 ms.date: 04/17/2020
 ---
+
 # Extract data with entities
 
 An entity extracts data from a user utterance at prediction runtime. An _optional_, secondary purpose is to boost the prediction of the intent or other entities as a feature to those models.
