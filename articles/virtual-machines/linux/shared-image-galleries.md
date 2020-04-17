@@ -5,7 +5,7 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: axayjo
 manager: gwallace
-editor: tysonn
+
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 
