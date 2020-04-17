@@ -180,7 +180,7 @@ Run the following command to create a package using the configuration given in t
 ```azurepowershell-interactive
 New-GuestConfigurationPackage `
   -Name 'AuditFilePathExists' `
-  -Configuration './Config/AuditFilePathExists.mof'
+  -Configuration './Config/AuditFilePathExists.mof' `
   -ChefProfilePath './'
 ```
 
