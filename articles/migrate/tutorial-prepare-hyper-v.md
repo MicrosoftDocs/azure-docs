@@ -8,7 +8,7 @@ ms.custom: mvc
 
 # Prepare for assessment and migration of Hyper-V VMs to Azure
 
-This article describes how to prepare for assessment of on-premises Hyper-V VMs with Azure Migrate:Server Assessment(migrate-services-overview.md#azure-migrate-server-assessment-tool), and migration of Hyper-V VMs with [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
+This article describes how to prepare for assessment of on-premises Hyper-V VMs with [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool), and migration of Hyper-V VMs with [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
 This tutorial is the first in a series that shows you how to assess and migrate Hyper-V VMs to Azure. In this tutorial, you learn how to:
