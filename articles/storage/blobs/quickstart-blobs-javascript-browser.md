@@ -93,16 +93,9 @@ Follow these steps to get the Blob service SAS URL:
 5. Click the **Copy to clipboard** button at the far-right end of the **Blob service SAS URL** field.
 6. Save the copied URL somewhere for use in an upcoming step.
 
-### Implement the HTML page
-
-1. On your local computer, create a new folder called *azure-blobs-js-browser* and open it in Visual Studio Code.
-2. Create a new file in Visual Studio Code and add the following HTML.
-
-:::code language="html" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/init-index.html" id="snippet_InitWebPage":::
-
-3. Save the file as *index.html* in the *azure-blobs-js-browser* folder.
-
 ### Add the Azure Blob storage client library
+
+On your local computer, create a new folder called *azure-blobs-js-browser* and open it in Visual Studio Code.
 
 Select **View > Terminal** to open a console window inside Visual Studio Code. Run the following Node.js Package Manager (npm) command in the terminal window to create a [package.json](https://docs.npmjs.com/files/package.json) file.
 
@@ -132,17 +125,21 @@ In Visual Studio Code, open the *package.json* file and add a `browserlist` betw
 
 Save the *package.json* file.
 
-To use Azure SDK libraries inside JavaScript, import the `@azure/storage-blob` package. Create a JavaScript file called *index.js* containing the following code.
+### Import the Azure Blob storage client library
+
+To use Azure SDK libraries inside JavaScript, import the `@azure/storage-blob` package. Create a new file in Visual Studio Code containing the following JavaScript code.
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_ImportLibrary":::
 
-Save this *index.js* file in the *azure-blobs-js-browser* directory.
+Save the file as *index.js* in the *azure-blobs-js-browser* directory.
 
-Next, replace the comment in the *index.html* file to include the new JavaScript file. The full *index.html* file should now look like this:
+### Implement the HTML page
 
-:::code language="html" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.html" id="snippet_WebPage" highlight="18":::
+Create a new file in Visual Studio Code and add the following HTML code.
 
-Save the *index.js* file.
+:::code language="html" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.html":::
+
+Save the file as *index.html* in the *azure-blobs-js-browser* folder.
 
 ## Code examples
 
