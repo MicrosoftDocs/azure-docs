@@ -61,16 +61,15 @@ For Azure Migrate to work with Azure you need these permissions before you start
 **Task** | **Permissions** | **Details**
 --- | --- | ---
 Create an Azure Migrate project | Your Azure account needs permissions to create a project. | Set up for [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-project), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project), or [physical servers](tutorial-prepare-physical.md#assign-permissions-to-create-project).
-Register the Azure Migrate appliance| Azure Migrate uses a lightweight [Azure Migrate appliance](migrate-appliance.md) to assess machines with Azure Migrate Server Assessment, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with Azure Migrate Server Migration. This appliance discovers machines, and sends metadata and performance data to Azure Migrate.<br/><br/> During registration, register providers (Microsoft.OffAzure, Microsoft.Migrate and Microsoft.KeyVault) are registered with the subscription chosen in the appliance, so that the subscription works with the resource provider. To register, you need Contributor or Owner access on the subscription.<br/><br/> **VMware**-During onboarding, Azure Migrate creates two Azure Active Directory (Azure AD) apps. The first app communicates between the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have RBAC access for resources. The second app accesses an Azure Key Vault created in the user subscription for agentless VMware migration only. In agentless migration, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. It has RBAC access on the Azure Key Vault (in the customer tenant) when discovery is initiated from the appliance.<br/><br/> **Hyper-V**-During onboarding. Azure Migrate creates one Azure AD app. The app communicates between the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have RBAC access for resources. | Set up for [VMware](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance), or [physical servers](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
+Register the Azure Migrate appliance| Azure Migrate uses a lightweight [Azure Migrate appliance](migrate-appliance.md) to assess machines with Azure Migrate Server Assessment, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with Azure Migrate Server Migration. This appliance discovers machines, and sends metadata and performance data to Azure Migrate.<br/><br/> During registration, register providers (Microsoft.OffAzure, Microsoft.Migrate, and Microsoft.KeyVault) are registered with the subscription chosen in the appliance, so that the subscription works with the resource provider. To register, you need Contributor or Owner access on the subscription.<br/><br/> **VMware**-During onboarding, Azure Migrate creates two Azure Active Directory (Azure AD) apps. The first app communicates between the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have RBAC access for resources. The second app accesses an Azure Key Vault created in the user subscription for agentless VMware migration only. In agentless migration, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. It has RBAC access on the Azure Key Vault (in the customer tenant) when discovery is initiated from the appliance.<br/><br/> **Hyper-V**-During onboarding. Azure Migrate creates one Azure AD app. The app communicates between the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have RBAC access for resources. | Set up for [VMware](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance), or [physical servers](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
 Create a key vault for VMware agentless migration | To migrate VMware VMs with agentless Azure Migrate Server Migration, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. To create the vault, you set permissions (Owner, or Contributor and User Access Administrator) on the resource group in which the Azure Migrate project resides. | [Set up](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) permissions.
 
-## Supported geographies
+## Supported geographies (public cloud)
 
-You can create an Azure Migrate project in a number of geographies. Although you can only create projects in these geographies, you can assess or migrate machines for other target locations. The project geography is only used to store the discovered metadata.
+You can create an Azure Migrate project in a number of geographies in the public cloud. Although you can only create projects in these geographies, you can assess or migrate machines for other target locations. The project geography is only used to store the discovered metadata.
 
 **Geography** | **Metadata storage location**
 --- | ---
-Azure Government | US Gov Virginia
 Asia Pacific | East Asia or Southeast Asia
 Australia | Australia East or Australia Southeast
 Brazil | Brazil South
@@ -84,9 +83,13 @@ United Kingdom | UK South or UK West
 United States | Central US or West US 2
 
 
- > [!NOTE]
- > Support for Azure Government is currently only available for the [older version](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate.
+## Supported geographies (Azure Government)
 
+**Task** | **Geography** | **Details**
+--- | --- | ---
+Create project | United States | Metadata is stored in US Gov Arizona, US Gov Virginia
+Target assessment | United States | Target regions: US Gov Arizona, US Gov Virginia/US Gov Texas
+Target replication | United States | Target regions: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia
 
 
 ## VMware assessment and migration
