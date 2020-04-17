@@ -315,7 +315,6 @@ pipeline:
 
 | YAML key | Description |
 | ----- | ----- |
-| `compute_target` | The compute target to use for this step. The compute target can be an Azure Machine Learning Compute, Virtual Machine (such as the Data Science VM), or HDInsight. |
 | `inputs` | Inputs can be [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py), or [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
 | `outputs` | Outputs can be either [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) or [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
 | `script_name` | The name of the Python script (relative to `source_directory`). |
@@ -357,6 +356,65 @@ pipeline:
                     destination: Output4
                     datastore: workspaceblobstore
                     bind_mode: mount
+```
+
+### Pipeline with multiple steps 
+
+| YAML key | Description |
+| ----- | ----- |
+| `steps` | Sequence of one or more PipelineStep definitions. Note that the `destination` of one step's `outputs` become the keys to the `inputs` of the .| 
+
+```yaml
+pipeline:
+    name: SamplePipelineFromYAML
+    description: Sample multistep YAML pipeline
+    data_references:
+        TitanicDS:
+            dataset_name: 'titanic_ds'
+            bind_mode: download
+    default_compute: cpu-cluster
+    steps:
+        Dataprep:
+            type: "PythonScriptStep"
+            name: "DataPrep Step"
+            compute: cpu-cluster
+            runconfig: ".\\default_runconfig.yml"
+            script_name: "prep.py"
+            arguments:
+            - '--train_path'
+            - output:train_path
+            - '--test_path'
+            - output:test_path
+            allow_reuse: True
+            inputs:
+                titanic_ds:
+                    source: TitanicDS
+                    bind_mode: download
+            outputs:
+                train_path:
+                    destination: train_csv
+                    datastore: workspaceblobstore
+                test_path:
+                    destination: test_csv
+        Training:
+            type: "PythonScriptStep"
+            name: "Training Step"
+            compute: cpu-cluster
+            runconfig: ".\\default_runconfig.yml"
+            script_name: "train.py"
+            arguments:
+            - "--train_path"
+            - input:train_path
+            - "--test_path"
+            - input:test_path
+            inputs:
+                train_path:
+                    source: train_csv
+                    bind_mode: download
+                test_path:
+                    source: test_csv
+                    bind_mode: download
+
 ```
 
 ## Schedules
