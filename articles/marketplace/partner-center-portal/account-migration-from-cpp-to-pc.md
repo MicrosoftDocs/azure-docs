@@ -38,6 +38,16 @@ Click on the banner to start your account migration process. You're expected to 
 
     If your CPP account doesn't have a Microsoft Partner Network ID or has one that's invalid, you'll need to sign up for the Microsoft Partner Network program as part of the activation process.
 
+## Publishers moving from CPP
+
+If your account has been migrated from the [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com), you do not need to create a new Partner Center account. You should have received a customized link to your new Partner Center account in email, and in a banner notification after logging in to your existing CPP account.
+
+Once you've enabled your new Partner Center account by visiting this customized link, you can return to your account by visiting the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center.
+
+The publishing agreement and company profile information will be migrated to your new Partner Center account, along with any previously set up account payout profile information, user accounts and permissions, and active offers associated with your CPP account.
+
+After your account information is moved from CPP to Partner Center, you'll no longer use CPP to make account updates, or manage users, permissions, and billing. For a limited time, any account updates you make in Partner Center will automatically be updated in your read-only CPP account until the CPP portal is eventually deprecated.
+
 ## Sign up for Microsoft Partner Network program
 
 Companies that want to partner with Microsoft must join the Microsoft Partner Network (MPN) and get an MPN ID. If you're already a member of the Microsoft Partner Network and have an MPN ID, keep the information handy as you'll need it during the account activation process.  
