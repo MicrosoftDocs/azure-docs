@@ -27,6 +27,14 @@ landingContent:
             url: https://github.com/Azure/azure-object-understanding/releases
 
   # Card
+  - title: Learn key concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: SDK overview
+            url: ./concepts/sdk-overview.md
+
+  # Card
   - title: Quickstarts
     linkLists:
       - linkListType: quickstart

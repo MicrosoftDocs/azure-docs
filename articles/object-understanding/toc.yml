@@ -4,6 +4,10 @@
   items:
   - name: About Object Understanding
     href: overview.md
+- name: Concepts
+  items:
+  - name: SDK Overview
+    href: concepts/sdk-overview.md
 - name: Quickstarts
   expanded: true
   items:
