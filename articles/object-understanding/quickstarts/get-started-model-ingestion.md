@@ -37,13 +37,17 @@ First, you need to create an account with the Object Understanding service.
 
 1. Go to the [Azure portal](https://portal.azure.com/)
 
-2. Search for the **Object Understanding** resource
+2. Search for the **Object Understanding** resource.
 
    :::image type="content" source="./media/search-ou-resource.png" alt-text="Search OU Resource":::
 
-   Select **Object Understanding** on the results page
+   Select **Object Understanding** on the results page.
 
    :::image type="content" source="./media/select-ou-resource.png" alt-text="Select OU Resource":::
+
+   Select **Create** to begin creating the resource.
+
+   :::image type="content" source="./media/create-ou-resource-1.png" alt-text="Select OU Resource":::
 
 3. In the **Object Understanding Account** dialog box:
     * Enter a unique, alphanumeric resource name.
@@ -51,7 +55,7 @@ First, you need to create an account with the Object Understanding service.
     * Create or use an existing resource group.
     * Select the region you'd like your resource to exist in.
 
-    :::image type="content" source="./media/create-ou-resource.png" alt-text="Create OU Resource":::
+    :::image type="content" source="./media/create-ou-resource-2.png" alt-text="Create OU Resource":::
 
 4. Once your resource has been created, navigate to the overview page and take note of the **Account ID**. You'll need it later.
 
