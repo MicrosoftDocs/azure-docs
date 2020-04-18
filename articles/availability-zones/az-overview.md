@@ -4,7 +4,7 @@ description: Learn about regions and Availability Zones in Azure to meet your te
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 04/17/2020
+ms.date: 04/18/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
 ---
@@ -20,11 +20,12 @@ To better understand regions and Availability Zones in Azure, it helps to unders
 | Term or concept | Description |
 | --- | --- |
 | region | A set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. |
+| geography | An area of the world containing at least one Azure region. Geographies define a discrete market that preserve data residency and compliance boundaries. Geographies allow customers with specific data-residency and compliance needs to keep their data and applications close. Geographies are fault-tolerant to withstand complete region failure through their connection to our dedicated high-capacity networking infrastructure. |
 | Availability Zone | Unique physical locations within a region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. |
 | recommended region | A region that provides data residency, provides the broadest range of service capabilities, is designed to support Availability Zones now or in the future, and is recommended for new customer deployments. |
 | alternate region | A region that provides data residency and an additional location that customers can deploy for latency or disaster recovery needs. |
 | foundational service | A core Azure service that is available in all regions when the region is generally available. |
-| mainstream service | An Azure service that is available in all recommended regions within one year of the region/service general availability or demand-driven availability in alternate regions. |
+| mainstream service | An Azure service that is available in all recommended regions within 12 months of the region/service general availability or demand-driven availability in alternate regions. |
 | specialized service | An Azure service that is demand-driven availability across regions backed by customized/specialized hardware. |
 
 ## Regions
@@ -57,7 +58,7 @@ Azure's approach on availability of Azure services across regions is best descri
 
 A recommended region is a region that provides the following capabilities:
 
-- Meets in-country data residency requirements
+- Preserves data residency and compliance boundaries
 - Provides the broadest range of service capabilities
 - Designed to support Availability Zones now or in the future
 
@@ -65,19 +66,21 @@ Availability Zones are currently/planned to be available in most recommended reg
 
 ### Alternate regions
 
-An alternate region is a region that extends Azure's footprint within a data residency boundary where a recommended region also exists. Alternate regions are listed as **other** in the [Azure portal](https://portal.azure.com) and include the following capabilities:
+An alternate region is a region that extends Azure's footprint within a data residency boundary where a recommended region also exists. Alternate regions are listed as **Other** in the [Azure portal](https://portal.azure.com) and include the following capabilities:
 
-- Meets in-country data residency
+- Preserves data residency and compliance boundaries
 - Additional location to meet specialized latency needs and provide a second region for disaster recovery needs
 - Not designed to support Availability Zones
 
 ### Comparing region types
 
-The Azure services available in each region are grouped in three categories: foundational, mainstream, and specialized services. Azure's general policy on deploying services into region types is enumerated below, though timing may vary due to region-specific factors:
+The Azure services available in each region are grouped in three categories: foundational, mainstream, and specialized services. Azure's general policy on deploying services into region types is dependent on customer demand, region type, and service categories:
 
 - Foundational – available in all recommended and alternate regions when the region is generally available, or within 12 months of a new foundational service becoming generally available.
-- Mainstream – available in all recommended regions within one year of the region/service general availability; demand-driven in alternate regions (many are already deployed into a large subset of alternate regions).
+- Mainstream – available in all recommended regions within 12 months of the region/service general availability; demand-driven in alternate regions (many are already deployed into a large subset of alternate regions).
 - Specialized – targeted service offerings, often industry-focused or backed by customized/specialized hardware. Demand-driven availability across regions (many are already deployed into a large subset of recommended regions).
+
+To see which services are deployed in a given region, as well as the future roadmap for preview or general availability of services in a region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all)
 
 If a service offering is not available in a specific region, you can share your interest by contacting your Microsoft sales representative.
 
@@ -95,32 +98,31 @@ Azure classifies services into three categories: foundational, mainstream, and s
 > | --- | --- | --- |
 > | Application Gateway | API Management | Azure API for FHIR |
 > | Azure Cosmos DB | App Service; App Service Linux(?) | Azure Blockchain Service |
-> | Load balancer | Application Gateway | Azure Blueprints |
-> | Azure SQL Database | Automation | Data Box Heavy |
-> | Azure Firewall; Azure Firewall Manager | Azure Active Directory Domain Services | Azure Data Lake Storage Gen2 |
-> | Azure Backup | Azure Analysis Services | Azure Database for MariaDB |
-> | Cloud Services | App Configuration | Azure Dedicated HSM |
-> | Cloud Services : A0 - A7 | Azure Arc | Azure Dev Spaces |
-> | Cloud Services : Av2-Series | Azure Bastion | Azure Digital Twins |
-> | Cloud Services : D-Series | Azure Data Explorer | Azure Lab Services |
-> | Cloud Services : Dv2-Series | Azure Data Share | Azure NetApp Files |
-> | Cloud Services : Dv3-Series | Snapshot Execution | Azure Quantum |
-> | Cloud Services : Ev3-Series | Azure Database for MySQL | Remote Rendering |
-> | Cloud Services : Instance Level IPs | Azure Database for PostgreSQL | Spatial Anchors |
-> | Cloud Services : Reserved IP | Azure Database Migration Service | Cloud Services : A8 - A11 (Compute Intensive) |
-> | Cloud Services: G- Series | Azure Databricks | Cloud Services : G-Series |
-> | Cloud Services: M-Series | Azure DDoS Protection  | Cloud Services : H-Series |
-> | Cloud Services: H- Series | Azure DevTest Labs | Cognitive Services : Anomaly Detector |
-> | Cloud Service: Lsv2- Series | Azure Firewall | Cognitive Services : Custom Vision |
-> | Event Hubs | Azure Firewall Manager | Cognitive Services : Speaker Recognition |
-> | Azure ExpressRoute | Azure HPC Cache | Data Catalog |
-> | Key Vault | Azure Internet Analyzer | Data Factory : Data Factory V1 |
-> | Service Bus | Azure Kubernetes Service (AKS) | Data Lake Analytics |
-> | Service Fabric | Azure Private Link | Machine Learning Studio |
-> | Account Storage | Azure Red Hat OpenShift  | Video Indexer |
-> | Azure Data Lake Storage Gen2 | Azure Cognitive Search | Microsoft Genomics |
-> | Disk Storage | Azure SignalR Service | StorSimple |
-> | Premium Blob Storage | Azure Spring Cloud Service | Azure Time Series Insights |
+> | Load balancer | Automation | Azure Blueprints |
+> | Azure SQL Database | Azure Active Directory Domain Services | Data Box Heavy |
+> | Manager | Azure Analysis Services | Azure Database for MariaDB |
+> | Azure Backup | App Configuration | Azure Dedicated HSM |
+> | Cloud Services | Azure Arc | Azure Dev Spaces |
+> | Cloud Services : A0 - A7 | Azure Bastion | Azure Digital Twins |
+> | Cloud Services : Av2-Series | Azure Data Explorer | Azure Lab Services |
+> | Cloud Services : D-Series | Azure Data Share | Azure NetApp Files |
+> | Cloud Services : Dv2-Series | Snapshot Execution | Azure Quantum |
+> | Cloud Services : Dv3-Series | Azure Database for MySQL | Remote Rendering |
+> | Cloud Services : Ev3-Series | Azure Database for PostgreSQL | Spatial Anchors |
+> | Cloud Services : Instance Level IPs | Azure Database Migration Service | Cloud Services : A8 - A11 (Compute Intensive) |
+> | Cloud Services : Reserved IP | Azure Databricks | Cloud Services : G-Series |
+> | Cloud Services: G- Series | Azure DDoS Protection  | Cloud Services : H-Series |
+> | Cloud Services: M-Series | Azure DevTest Labs | Cognitive Services : Anomaly Detector |
+> | Cloud Services: H- Series | Azure Firewall | Cognitive Services : Custom Vision |
+> | Cloud Service: Lsv2- Series | Azure Firewall Manager | Cognitive Services : Speaker Recognition |
+> | Event Hubs | Azure HPC Cache | Data Catalog |
+> | Azure ExpressRoute | Azure Internet Analyzer | Data Factory : Data Factory V1 |
+> | Key Vault | Azure Kubernetes Service (AKS) | Data Lake Alytics |
+> | Service Bus | Azure Private Link | Machine Learning Studio |
+> | Service Fabric | Azure Red Hat OpenShift  | Video Indexer |
+> | Account Storage | Azure Cognitive Search | Microsoft Genomics |
+> | Azure Data Lake Storage Gen2 | Azure SignalR Service | StorSimple |
+> | Disk Storage | Azure Spring Cloud Service | Azure Time Series Insights |
 > | Virtual Machine Scale Sets | Azure Stack Hub | Virtual Machines : A8 - A11 (Compute Intensive) |
 > | Virtual Machines | Azure Synapse Analytics | Virtual Machines : DASv4-Series |
 > | Virtual Machines : A0 - A7 | Batch | Virtual Machines : DAv4-Series |
@@ -135,20 +137,18 @@ Azure classifies services into three categories: foundational, mainstream, and s
 > | Virtual Machines: Dv3-Series | Cognitive Services: Personalizer | Virtual Machines : H-Series |
 > | Virtual Machines: ESv3-Series | Cognitive Services: QnA Maker | Virtual Machines : LS-Series |
 > | Virtual Machines: Ev3-Series | Cognitive Services: Speech Services | Virtual Machines : LSv2-Series |
-> | Virtual Machines: F-Series | Cognitive Services: Speech Services | Virtual Machines : Mv2 -series |
-> | Virtual Machines: FS-Series | Container Instances | Virtual Machines : NC-Series |
-> | Virtual Machines: Reserved IP | Container Registry | Virtual Machines : NCv2-Series |
-> | Virtual Network | Data Catalog | Virtual Machines : NCv3-Series |
-> | VPN Gateway | Data Factory | Virtual Machines : NDs-Series |
-> | Data Factory | Data Factory: Azure Integration Runtime | Virtual Machines : NDv2-Series |
-> | Data Factory: Azure Integration Runtime | Data Factory: SSIS Integration Runtime | Virtual Machines : NV-Series |
-> | Data Factory: SSIS Integration Runtime | Event Grid | Virtual Machines : NVv3-Series |
-> | Event Grid | Azure Functions | Virtual Machines : NVv4-Series |
-> | VPN Gateway | Functions : Consumption Plan | Virtual Machines : SAP HA on Azure Large Instances |
-> |  | Functions : Consumption Plan Linux | Visual Studio App Center |
-> |  | Functions : Premium Plan | Azure VMware Solution by CloudSimple |
-> |  | Functions : Premium Plan Linux |  |
-> |  | HDInsight |  |
+> | Virtual Machines: F-Series | Container Instances | Virtual Machines : Mv2 -series |
+> | Virtual Machines: FS-Series | Container Registry | Virtual Machines : NC-Series |
+> | Virtual Machines: Reserved IP | Data Factory | Virtual Machines : NCv2-Series |
+> | Virtual Network | Data Factory: Azure Integration Runtime | Virtual Machines : NCv3-Series |
+> | VPN Gateway | Data Factory: SSIS Integration Runtime | Virtual Machines : NDs-Series |
+> |  | Event Grid | Virtual Machines : NDv2-Series |
+> |  | Azure Functions | Virtual Machines : NV-Series |
+> |  | Functions : Consumption Plan | Virtual Machines : NVv3-Series |
+> |  | Functions : Consumption Plan Linux | Virtual Machines : NVv4-Series |
+> |  | Functions : Premium Plan | Virtual Machines : SAP HANA on Azure Large Instances |
+> |  | Functions : Premium Plan Linux | Visual Studio App Center |
+> |  | HDInsight | Azure VMware Solution by CloudSimple |
 > |  | Azure IoT Hub |  |
 > |  | IoT Hub: IoT Hub Device Provisioning Service |  |
 > |  | Logic Apps |  |
