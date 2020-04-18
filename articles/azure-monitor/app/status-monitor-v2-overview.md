@@ -32,14 +32,14 @@ Application Insights Agent is located here: https://www.powershellgallery.com/pa
 - See the [detailed instructions](status-monitor-v2-detailed-instructions.md) for a deep dive on how to get started.
 
 ## PowerShell API reference
-- [Disable-ApplicationInsightsMonitoring](status-monitor-v2-api-disable-monitoring.md)
-- [Disable-InstrumentationEngine](status-monitor-v2-api-disable-instrumentation-engine.md)
-- [Enable-ApplicationInsightsMonitoring](status-monitor-v2-api-enable-monitoring.md)
-- [Enable-InstrumentationEngine](status-monitor-v2-api-enable-instrumentation-engine.md)
-- [Get-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
-- [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)
-- [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
-- [Start-ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
+- [Disable-ApplicationInsightsMonitoring](app/status-monitor-v2-api-reference#disable-applicationinsightsmonitoring)
+- [Disable-InstrumentationEngine](app/status-monitor-v2-api-reference#disable-instrumentationengine)
+- [Enable-ApplicationInsightsMonitoring](app/status-monitor-v2-api-reference#enable-applicationinsightsmonitoring)
+- [Enable-InstrumentationEngine](app/status-monitor-v2-api-reference#application-insights-agent-api-enable-instrumentationengine)
+- [Get-ApplicationInsightsMonitoringConfig](app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringconfig)
+- [Get-ApplicationInsightsMonitoringStatus](app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringstatus)
+- [Set-ApplicationInsightsMonitoringConfig](app/status-monitor-v2-api-reference#set-applicationinsightsmonitoringconfig)
+- [Start-ApplicationInsightsMonitoringTrace](app/status-monitor-v2-api-reference#start-applicationinsightsmonitoringtrace)
 
 ## Troubleshooting
 - [Troubleshooting](status-monitor-v2-troubleshoot.md)
