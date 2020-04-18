@@ -259,9 +259,8 @@
           href: app/status-monitor-v2-detailed-instructions.md
         - name: Troubleshooting and known issues
           href: app/status-monitor-v2-troubleshoot.md
-        - name: API Disable-InstrumentationEngine
-          href: app/status-monitor-v2-api-reference.md
         - name: API Reference
+          href: app/status-monitor-v2-api-reference.md
         - name: Status Monitor (legacy)
           displayname: IIS monitoring, on premises monitoring, on prem, 
           href: app/monitor-performance-live-website-now.md
