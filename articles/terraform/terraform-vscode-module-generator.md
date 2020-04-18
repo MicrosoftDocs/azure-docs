@@ -121,7 +121,7 @@ This empty directory is required to be put under $GOPATH/src. For more informati
 
     ![Visual Studio Code](media/terraform-vscode-module-generator/ymg-open-in-vscode.png)
 
-The following files were created by the Yeoman module generator. For more information about these files and their usage, see [Terratest in Terraform Modules.](https://mseng.visualstudio.com/VSJava/_git/Terraform?path=%2FTerratest%20Introduction.md&version=GBmaster).
+The following files were created by the Yeoman module generator. For more information about these files and their usage, see [Terratest in Terraform Modules.](https://docs.microsoft.com/en-us/azure/terraform/terratest-in-terraform-modules).
 
 - `main.tf` - Defines a module called `random-shuffle`. The input is a `string_list`. The output is the count of the permutations.
 - `variables.tf` - Defines the input and output variables used by the module.
