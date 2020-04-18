@@ -61,7 +61,7 @@ In this scenario, the function app will read the temperature of the aquarium, th
 
    * **Role**: Select **DocumentDB Account Contributor**
    * **Assign access to**: Under the **Select system-assigned managed identity** subsection, select **Function App**.
-   * **Select**: The pane will be populated with all the function apps in your subscription that have a **Managed System Identity**. In this case, select the **SummaryService** function app: 
+   * **Select**: The pane will be populated with all the function apps in your subscription that have a **Managed System Identity**. In this case, select the **FishTankTemperatureService** function app: 
 
       ![Screenshot showing the Add role assignment pane populated with examples.](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png)
 
@@ -79,7 +79,7 @@ This sample uses the [List Keys API](https://docs.microsoft.com/rest/api/cosmos-
 The List Keys API returns the `DatabaseAccountListKeysResult` object. This type isn't defined in the C# libraries. The following code shows the implementation of this class:  
 
 ```csharp 
-namespace SummarizationService 
+namespace Monitor 
 {
   public class DatabaseAccountListKeysResult
   {
@@ -123,7 +123,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Monitor
 {
-    public static class TemperatureMonitor
+    public static class FishTankTemperatureService
     {
         private static string subscriptionId =
         "<azure subscription id>";
@@ -138,7 +138,7 @@ namespace Monitor
         private static string containerName =
         "<container to store the temperature in>";
 
-        [FunctionName("TemperatureMonitor")]
+        [FunctionName("FishTankTemperatureService")]
         public static async Task Run([TimerTrigger("0 * * * * *")]TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"Starting temperature monitoring: {DateTime.Now}");
