@@ -33,7 +33,7 @@ For information about how to add role assignments, see [Add or remove role assig
 
 ## Limit the number of subscription owners
 
-You should have a maximum of 3 subscription owners to reduce the potential for breach by a compromised owner. This recommendation can be monitored in Azure Security Center. For other identity and access recommendations, see [Security recommendations - a reference guide](../security-center/recommendations-reference.md).
+You should have a maximum of 3 subscription owners to reduce the potential for breach by a compromised owner. This recommendation can be monitored in Azure Security Center. For other identity and access recommendations in Security Center, see [Security recommendations - a reference guide](../security-center/recommendations-reference.md).
 
 ## Use Azure AD Privileged Identity Management
 
