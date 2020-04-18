@@ -27,7 +27,7 @@ az sig image-definition list --resource-group $resourceGroup --gallery-name $gal
 
 ## Create the VM
 
-Create a VM using [az vm create](/cli/azure/vm#az-vm-create). To use the latest verison of the image, set `--image` to the ID of the image definition. 
+Create a VM using [az vm create](/cli/azure/vm#az-vm-create). To use the latest version of the image, set `--image` to the ID of the image definition. 
 
 Replace resource names as needed in this example. 
 

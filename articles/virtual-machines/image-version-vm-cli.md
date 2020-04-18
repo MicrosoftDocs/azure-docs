@@ -50,7 +50,7 @@ Image definitions create a logical grouping for images. They are used to manage 
 
 Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. 
 
-Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprevision for Linux) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
+Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
 
 For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
 

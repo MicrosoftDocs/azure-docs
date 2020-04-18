@@ -230,8 +230,10 @@
           href: ../virtual-machines/update-image-resources-cli.md
       - name: Portal
         items:
-        - name: Create and use a Shared Image Gallery
-          href: shared-images-portal.md
+        - name: Windows
+          href: ../virtual-machines/windows/shared-images-portal.md
+        - name: Linux
+          href: ../virtual-machines/linux/shared-images-portal.md
   - name: Create a template
     items:
     - name: Learn about scale set templates

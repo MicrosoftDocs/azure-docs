@@ -70,7 +70,7 @@ Stop-AzVM `
 
 Image definitions create a logical grouping for images. They are used to manage information about the image. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. 
 
-When making your image definition, make sure is has all of the correct information. If you generalized the VM (using Sysprep for Windows, or waagent -deprevision for Linux) then you should create an image definition using `-OsState generalized`. If you didn't generalized the VM, create an image definition using `-OsState specialized`.
+When making your image definition, make sure is has all of the correct information. If you generalized the VM (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create an image definition using `-OsState generalized`. If you didn't generalized the VM, create an image definition using `-OsState specialized`.
 
 For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
