@@ -97,7 +97,7 @@ The following diagram illustrates the DNS resolution sequence from virtual netwo
 ![single virtual network and azure provided dns](media/private-endpoint-dns/single-vnet-azure-dns.png)
 
 
-This model can be extended to multiple peered virtual networks that are associated to the same private endpoint. This can be done by [adding new virtual network links](../dns/private-dns-virtual-network-links) to the private DNS zone for all peered virtual networks.
+This model can be extended to multiple peered virtual networks that are associated to the same private endpoint. This can be done by [adding new virtual network links](../dns/private-dns-virtual-network-links.md) to the private DNS zone for all peered virtual networks.
 
  > [!IMPORTANT]
 >  A single private DNS zone is required for this configuration, creating multiple zones with the same name for different virtual networks would need manual operations to merge the DNS records
