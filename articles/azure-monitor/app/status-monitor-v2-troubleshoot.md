@@ -112,7 +112,7 @@ Run the `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` command to d
    - Application Insights SDK version
    - File paths of the PowerShell module
     
-Review the [API reference](app/status-monitor-v2-api-reference.md) for a detailed description of how to use this cmdlet.
+Review the [API reference](status-monitor-v2-api-reference.md) for a detailed description of how to use this cmdlet.
 
 
 ### Troubleshooting running processes
@@ -122,7 +122,7 @@ If monitoring is working, at least 12 DLLs should be loaded.
 
 Use the `Get-ApplicationInsightsMonitoringStatus -InspectProcess` command to check the DLLs.
 
-Review the [API reference](app/status-monitor-v2-api-reference.md) for a detailed description of how to use this cmdlet.
+Review the [API reference](status-monitor-v2-api-reference.md) for a detailed description of how to use this cmdlet.
 
 
 ### Collect ETW logs by using PerfView
