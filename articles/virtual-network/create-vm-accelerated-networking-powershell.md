@@ -75,7 +75,7 @@ A supported VM size without accelerated networking enabled can only have the fea
 
 Virtual machines (classic) can't be deployed with accelerated networking.
 
-## Creation using the portal
+## VM creation using the portal
 
 Though this article provides steps to create a VM with accelerated networking using Azure PowerShell, you can also [use the Azure portal to create a virtual machine](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that enables accelerated networking. When you create a VM in the portal, in the **Create a virtual machine** page, choose the **Networking** tab. This tab has an option for **Accelerated networking**. If you have chosen a [supported operating system](#supported-operating-systems) and [VM size](#supported-vm-instances), this option is automatically set to **On**. Otherwise, the option is set to **Off**, and Azure displays the reason why it can't be enabled.
 
@@ -92,7 +92,7 @@ After you create the VM, you can confirm whether accelerated networking is enabl
 
 In the network interface information, next to the **Accelerated networking** label, the portal displays either **Disabled** or **Enabled** for the accelerated networking status.
 
-## Creation using PowerShell
+## VM creation using PowerShell
 
 Before you proceed, install [Azure PowerShell](/powershell/azure/install-az-ps) version 1.0.0 or later. To find your currently installed version, run `Get-Module -ListAvailable Az`. If you need to install or upgrade, install the latest version of the Az module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az). In a PowerShell session, sign in to an Azure account using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
@@ -186,7 +186,7 @@ In the following examples, replace example parameter names with your own values.
         -EnableAcceleratedNetworking
     ```
 
-### Create the virtual machine
+### Create a VM and attach the network interface
 
 1. Set your VM credentials to the `$cred` variable using [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential), which prompts you to sign in:
 
