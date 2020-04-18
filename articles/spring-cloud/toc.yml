@@ -8,13 +8,13 @@
 - name: Quickstarts
   expanded: true 
   items:
-    - name: Launch a Spring Cloud app using the portal
+    - name: Launch a Spring Cloud app - portal
       href: spring-cloud-quickstart-launch-app-portal.md
-    - name: Launch a Spring Cloud app using the Azure CLI
+    - name: Launch a Spring Cloud app - Azure CLI
       href: spring-cloud-quickstart-launch-app-cli.md 
-    - name: Launch a Spring Cloud app from source
+    - name: Launch a Spring Cloud app - source
       href: spring-cloud-launch-from-source.md
-    - name: Launch a Spring Cloud app using Maven
+    - name: Launch a Spring Cloud app - Maven
       href: spring-cloud-quickstart-launch-app-maven.md
 - name: Tutorials
   items:
@@ -54,13 +54,13 @@
       href: spring-cloud-howto-persistent-storage.md
     - name: Monitor
       items:
-        - name: Monitor an application using distributed tracing and App Insights
+        - name: Distributed tracing and App Insights
           href: spring-cloud-tutorial-distributed-tracing.md
-        - name: Monitor resources using alerts and action groups
+        - name: Alerts and action groups
           href: spring-cloud-tutorial-alerts-action-groups.md
-        - name: Analyze application logs and metrics
+        - name: Analyze logs and metrics
           href: diagnostic-services.md
-        - name: Stream application logs in real-time
+        - name: Stream logs in real-time
           href: spring-cloud-howto-log-streaming.md
     - name: DevOps Deployment
       items:
@@ -68,7 +68,7 @@
           href: spring-cloud-howto-cicd.md
         - name: CI/CD with GitHub Actions
           href: spring-cloud-howto-github-actions.md
-        - name: Authenticate with Key Vault in GitHub actions
+        - name: Auth with Key Vault in GitHub actions
           href: spring-cloud-github-actions-key-vault.md
     - name: Troubleshoot
       items:
