@@ -259,7 +259,7 @@
               href: app/status-monitor-v2-get-started.md
             - name: Detailed instructions
               href: app/status-monitor-v2-detailed-instructions.md
-            - name: Troubleshooting and known issues
+            - name: Troubleshooting
               href: app/status-monitor-v2-troubleshoot.md
             - name: API Reference
               href: app/status-monitor-v2-api-reference.md
