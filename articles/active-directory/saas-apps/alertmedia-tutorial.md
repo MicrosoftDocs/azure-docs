@@ -145,9 +145,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **Authentication Method**, select **Remote SAML Metadata**
 1. Toggle ON the **Sign Request**
 1. Toggle ON the **Allow Passive Requests**
-1. In the **MetaData URL**,  paste the **App Federation Metadata Url** from the SAML signing certificate in Azure
+1. In the **MetaData URL** textbox,  paste the **App Federation Metadata Url** value, which you have copied fro the Azure portal.
 1. Select **Requested Authentication Context Comparison** as **exact**
-1. In **IDP Login URL**,  paste the **Login URL** from the Setup the application section in Azure
+1. In **IDP Login URL** textbox,  paste the **Login URL** value, which you have copied from the Azure portal.
 1. Click **Save**
 
 ### Create AlertMedia test user
