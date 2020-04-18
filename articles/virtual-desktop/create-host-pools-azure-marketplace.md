@@ -1,16 +1,16 @@
 ---
-title: Windows Virtual Desktop host pool Azure Marketplace - Azure
-description: How to create a Windows Virtual Desktop host pool by using the Azure Marketplace.
+title: Windows Virtual Desktop host pool Azure portal - Azure
+description: How to create a Windows Virtual Desktop host pool by using the Azure portal.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/09/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Tutorial: Create a host pool by using the Azure Marketplace
+# Tutorial: Create a host pool with the Azure portal
 
 >[!IMPORTANT]
 >This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md).
@@ -18,142 +18,206 @@ manager: lizross
 > The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this tutorial, you'll learn how to create a host pool within a Windows Virtual Desktop tenant by using a Microsoft Azure Marketplace offering.
+Host pools are a collection of one or more identical virtual machines within
+Windows Virtual Desktop tenant environments. Each host pool can contain an app
+group that users can interact with as they would on a physical desktop.
 
-Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
-
-The tasks in this tutorial include:
-
-> [!div class="checklist"]
->
-> * Create a host pool in Windows Virtual Desktop.
-> * Create a resource group with VMs in an Azure subscription.
-> * Join the VMs to the Active Directory domain.
-> * Register the VMs with Windows Virtual Desktop.
+Follow this section's instructions to create a host pool for a Windows Virtual
+Desktop tenant through the Azure portal. This method provides a browser-based
+user interface to create a host pool in Windows Virtual Desktop, create a
+resource group with VMs in an Azure subscription, join those VMs to the AD
+domain, and register the VMs with Windows Virtual Desktop.
 
 ## Prerequisites
 
-* A tenant in Virtual Desktop. A previous [tutorial](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) creates a tenant.
-* [Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/).
+You'll need to enter the following parameters to successfully create a host pool:
 
-Once you have this module, run the following cmdlet to sign in to your account:
+- The virtual machine (VM) image name
+- VM configuration
+- Domain and network properties
+- Windows Virtual Desktop host pool properties
 
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
+You'll also need to know the following things:
 
-## Sign in to Azure
+- Where the source of the image you want to use is. Is it from Azure Gallery or is it a custom image?
+- Your domain join credentials
+- Your Windows Virtual Desktop credentials
 
-Sign in to the [Azure portal](https://portal.azure.com).
+When you create a Windows Virtual Desktop host pool with the Azure Resource Manager template, you can create a virtual machine from the Azure gallery, a managed image, or an unmanaged image. To learn more about how to create VM images, se [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows prepare-for-upload-vhd-image.md) and [Create a managed image of a generalized VM in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource).
 
-## Run the Azure Marketplace offering to provision a new host pool
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To run the Azure Marketplace offering to provision a new host pool:
+## Create a host pool
 
-1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
-1. Enter **Windows Virtual Desktop** in the Marketplace search window.
-1. Select **Windows Virtual Desktop - Provision a host pool**, and then select **Create**.
+1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
 
-After that, follow the instructions in the next section to enter the information for the appropriate tabs.
+2. Enter **Windows Virtual Desktop** into the search bar, then find select **Windows Virtual Desktop** under Services.
 
-### Basics
+3. In the **Windows Virtual Desktop** overview page, select **Create a host pool**.
 
-Here's what you do for the **Basics** tab:
+     ![](media/67042b3de8d0c8a12703ae52aa080eba.png)
 
-1. Select a **Subscription**.
-1. For **Resource group**, select **Create new** and provide a name for the new resource group.
-1. Select a **Region**.
-1. Enter a name for the host pool that's unique within the Windows Virtual Desktop tenant.
-1. Select **Desktop type**. If you select **Personal**, each user that connects to this host pool is permanently assigned to a virtual machine.
-1. Enter users who can sign in to the Windows Virtual Desktop clients and access a desktop. Use a comma-separated list. For example, if you want to assign `user1@contoso.com` and `user2@contoso.com` access, enter *`user1@contoso.com,user2@contoso.com`*
-1. For **Service metadata location**, select the same location as the virtual network that has connectivity to the Active Directory server.
+4. In the **Basics** tab, select the correct subscription under Project details.
 
-   >[!IMPORTANT]
-   >If you're using a pure Azure Active Directory Domain Services (Azure AD DS) and Azure Active Directory (Azure AD) solution, make sure to deploy your host pool in the same region as your Azure AD DS to avoid domain-join and credential errors.
+5. Either select **Create new** to make a new resource group or select an existing resource group from the drop-down menu.
 
-1. Select **Next: Configure virtual machines**.
+6. Enter a unique name for your host pool.
 
-### Configure virtual machines
+7. Select the region where you want to create the host pool. The Azure geography associated with the regions you selected is where the metadata for the host pool and related objects will be stored. So, ensure you are picking regions inside the geography you want the service metadata to be stored in.
 
-For the **Configure virtual machines** tab:
+     ![](media/9fed31874b179b301e9f911b56f80c9d.png)
 
-1. Either accept the defaults or customize the number and size of the virtual machines.
+8. Under Host pool type, select whether your host pool will be **Personal** or **Pooled**.
+
+    -  If you choose Personal, then select either **Automatic** or **Direct** in the Assignment Type field.
+
+      ![](media/9dcc1833c035dde6d21ab43d17b6e8c8.png)
+
+![](media/ba98daebb92a86daf6a999aa17739159.png)
+
+9.  If you choose **Pooled**, enter the following information:
+
+     - For **Max session limit**, enter the maximum number of users you want load-balanced to a single session host.
+     - For **Load balancing algorithm**, choose either breadth-first or depth-first, based on your usage pattern.
+
+       ![](media/9dcc1833c035dde6d21ab43d17b6e8c8.png)
+
+       ![](media/48e4ad7fb3b467d66708dae1a5e95673.png)
+
+10.  Select **Next: VM details**.
+
+11. If you've already created virtual machines and want to use them with the new host pool, select **No**. If you want to create new virtual machines and register them to the new host pool, select **Yes**.
+
+    ![](media/3bd219172ca1939e35f9a9c034d43210.png)
+
+## Virtual Machine details
+
+1. Under **Resource Group**, choose the resource group where you want to create the virtual machines. They can be a different resource group than the one you used for the host pool.
+
+     ![](media/0a120ff4c3259d984bd0a5d5acff9a15.png)
+
+2. Choose the **Virtual machine region** where you want to create the virtual machines. They can be the same or different from the region you selected for the host pool.
+
+3. Next choose the size of the virtual machine you want to create. A default size is already chosen for you, to change it click on **Change Size**. In the pop-up window, choose he size of the virtual machine suitable for your workload.
+
+4. Under **Number of VMs** provide the number of virtual machines you want created in this workflow.
 
     >[!NOTE]
-    >If the specific virtual machine size you're looking for doesn't appear in the size selector, that's because we haven't onboarded it to the Azure Marketplace tool yet. To request a size, create a request or upvote an existing request in the [Windows Virtual Desktop UserVoice forum](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >Keep in mind there are Azure subscription and API limits. Choose a moderate number of virtual machines. You can add more once the host pool is created. The wizard will allow upto 400 VMs to be created in 1 run. Keep in mind that the wizard does not check for your subscription quota. Please refer to the Azure subscription and Resource Group limits before creating VMs. Each VM creation creates 4 objects. So accordingly, add the number of VMs you are allowed to create in the resource group.
 
-1. Enter a prefix for the names of the virtual machines. For example, if you enter *prefix*, the virtual machines will be called **prefix-0**, **prefix-1**, and so on.
-1. Select **Next: Virtual machine settings**.
+5.  Next, provide the **Name prefix** the wizard will use to name the virtual machines that are being created. The suffix will be ‘-‘ with numbers starting from 0.
 
-### Virtual machine settings
+2.  Next, choose the image that needs to be used to create the virtual machine. You have 2 choices, **Gallery** and **Storage Blob**.
 
-For the **Virtual machine settings** tab:
+    ![A screenshot of a cell phone Description automatically generated](media/b3abdd5dd0e8ed72aeefd27c8e107204.png)
 
-1. For **Image source**, select the source and enter the appropriate information for how to find it and how to store it. Your options differ for Blob storage, Managed image, and Gallery.
+    If you choose **Gallery**, select from the drop-down of our recommended images:
 
-   If you choose not to use managed disks, select the storage account that contains the *.vhd* file.
-1. Enter the user principal name and password. This account must be the domain account that will join the virtual machines to the Active Directory domain. This same username and password will be created on the virtual machines as a local account. You can reset these local accounts later.
+      - Windows 10 Enterprise multi-session, Version 1909 + Office 365 ProPlus – Gen 1
+      - Windows 10 Enterprise multi-session, Version 1909 – Gen 1
+      - Windows Server 2019 Datacenter - Gen1
 
-   >[!NOTE]
-   > If you're joining your virtual machines to an Azure AD DS environment, ensure that your domain join user is a member of the [AAD DC Administrators group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
-   >
-   > The account must also be part of the Azure AD DS managed domain or Azure AD tenant. Accounts from external directories associated with your Azure AD tenant can't correctly authenticate during the domain-join process.
+    If you don't see the choice you want, select **Browse all images and disks**.
 
-1. Select the **Virtual network** that has connectivity to the Active Directory server, and then choose a subnet to host the virtual machines.
-1. Select **Next: Windows Virtual Desktop information**.
+      - You can select another gallery image to use up-to-date images provided by Microsoft and other publishers
 
-### Windows Virtual Desktop tenant information
+    ![](media/74ac56b14d0548d7c7242da20b1e40df.png)
 
-For the **Windows Virtual Desktop tenant information** tab:
+    You can also go to **My Disks** and choose a custom image you've already uploaded.
 
-1. For **Windows Virtual Desktop tenant group name**, enter the name for the tenant group that contains your tenant. Leave it as the default unless you were provided a specific tenant group name.
-1. For **Windows Virtual Desktop tenant name**, enter the name of the tenant where you'll be creating this host pool.
-1. Specify the type of credentials that you want to use to authenticate as the Windows Virtual Desktop tenant RDS Owner. Enter the UPN or Service principal and a password.
+    ![](media/752295d9e19a18b2d39d24394003975c.png)
 
-   If you completed the [Create service principals and role assignments with PowerShell tutorial](./virtual-desktop-fall-2019/create-service-principal-role-powershell.md), select **Service principal**.
+    If you choose **Storage Blob**, you can leverage your own image build through Hyper-V or on an Azure VM. For the same, enter the location of the image in the storage blob as a URI.
 
-1. For **Service principal**, for **Azure AD tenant ID**, enter the tenant admin account for the Azure AD instance that contains the service principal. Only service principals with a password credential are supported.
-1. Select **Next: Review + create**.
+    ![](media/c7d19857ddc861a96cbc1cd46a1deaa6.png)
 
-## Complete setup and create the virtual machine
+1.  Choose what kind of OS disks you want your VMs to use: Standard SSD, Premium SSD, or Standard HDD.
 
-In **Review and Create**, review the setup information. If you need to change something, go back and make changes. When you're ready, select **Create** to deploy your host pool.
+2.  Under **Network and security**, select the virtual network and subnet where you want the virtual machines to be created in. Ensure that the virtual network can connect to the domain controller, since the virtual machines inside the virtual network need to joined to the domain. Then select if you  want a public IP for the virtual machines or not. Recommendation is to default to No, to enhance security on your VM.
 
-Depending on how many virtual machines you're creating, this process can take 30 minutes or more to complete.
+    ![](media/851f2e3718c943b17edcb39beff47bff.png)
 
->[!IMPORTANT]
-> To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your virtual machines. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's virtual machines.
->
-> If you must open port 3389 for troubleshooting purposes, we recommend you use just-in-time access. For more information, see [Secure your management ports with just-in-time access](../security-center/security-center-just-in-time.md).
+1.  Select what kind of **network security group** you want added to the virtual machines – *None, Basic and Advanced*.
 
-## (Optional) Assign additional users to the desktop application group
+    If you select *Basic*, then you select whether you want any inbound port to be open. If you select yes, then you can choose from the list of standard ports to allow inbound connections to.
 
-After Azure Marketplace finishes creating the pool, you can assign more users to the desktop application group. If you don't want to add more, skip this section.
+    >[!NOTE]
+    >For greater security, we recommend that you don't open an public inbound ports.
 
-To assign users to the desktop application group:
+    ![](media/66b5b1f21b4af201174d7e889a13dd05.png)
 
-1. Open a PowerShell window.
+>   If you choose *Advanced*, select an existing network security group that you
+>   have already configured.
 
-1. Run the following command to sign in to the Windows Virtual Desktop environment:
+![](media/c84901c0ac44f863f629972c5ba35ee3.png)
 
-   ```powershell
-   Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-   ```
+1.  Next, select whether you want the virtual machines to be joined to a
+    specific domain and organizational unit. If you choose yes, then input the
+    domain to join. You can also add particular organizational unit you want the
+    virtual machines to be under.
 
-1. Add users to the desktop application group by using this command:
+![](media/a5973f94dfa3ada35da33148c9262d0f.png)
 
-   ```powershell
-   Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
-   ```
+1.  Under **Administrator account**, provide a username, and password for the
+    Active Directory domain admin, configured in the virtual network you
+    selected.
 
-   The user's UPN should match the user's identity in Azure AD, for example, *user1@contoso.com*. If you want to add multiple users, run the command for each user.
+![](media/64e194ffd16961aa7faf30615809bbdb.png)
 
-Users you add to the desktop application group can sign in to Windows Virtual Desktop with supported Remote Desktop clients and see a resource for a session desktop.
+>   This brings you to the end of the virtual machine configuration for the host
+>   pool.
 
-Here are the current supported clients:
+>   Select **Workspace**
 
-* [Remote Desktop client for Windows 7 and Windows 10](connect-windows-7-and-10.md)
-* [Windows Virtual Desktop web client](connect-web.md)
+**Workspace information**
+
+As part of the host pool creation wizard, a desktop application group will be
+created by default. For you to use it, you will need to publish the app group to
+users or user groups and you have to register the app group to a workspace. In
+this step, you can choose to register the desktop app group to a workspace as
+part of the create host pool workflow.
+
+1.  If you want to register the desktop app group to a workspace, choose Yes. If
+    you want to register the app group at a later time, choose No.
+
+    ![](media/c075467481cddb8cdee6c157d4e063a7.png)
+
+1.  If yes, you can then create a new workspace or select from existing
+    workspaces. Only workspaces created in the same location as the host pool
+    will be allowed to register the app group to.
+
+     ![](media/c94b23a57591ce77731311179f697db8.png)
+
+>   Then click on **Tags**. This can be skipped and you can choose to select
+>   **Review + create.**
+
+>   Here you can add tags, if you want to group the objects for better
+>   administration.
+
+>   Then select **Review + create** 
+
+>   The wizard will validate all your input. *This validation will not handle
+>   incorrect password and architecture mistakes.*
+
+>   Once validation is completed click **Create**. Optionally you can download
+>   the ARM template used by the wizard.
+
+>   When the deployment completes, these are the following objects that will be
+>   created:
+
+-   Host pool
+
+-   Desktop app group
+
+-   If you chose to create a workspace, workspace will be created
+
+-   If you chose to register the desktop app group, the registration will be
+    complete
+
+-   If you chose the create virtual machines, all the virtual machines will be
+    created, joined to the domain and registered with the newly created host
+    pool.
+
 
 ## Next steps
 
