@@ -12,14 +12,17 @@ ms.date: 04/23/2019
 
 This article describes a cmdlet that's a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
-> [!IMPORTANT] 
-> This cmdlet requires a PowerShell session with Admin permissions.
-
 > [!NOTE] 
+> - To get started, you need an instrumentation key. For more information, see [Create a resource](create-new-resource.md#copy-the-instrumentation-key).
+> - This cmdlet requires that you review and accept our license and privacy statement.
+
+> [!IMPORTANT] 
+> This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy).
 > - This cmdlet requires that you review and accept our license and privacy statement.
 > - The instrumentation engine adds additional overhead and is off by default.
 
-## Application Insights Agent API: Enable-InstrumentationEngine
+
+## Enable-InstrumentationEngine
 
 Enables the instrumentation engine by setting some registry keys.
 Restart IIS for the changes to take effect.
@@ -65,14 +68,6 @@ IIS will load the RedfieldModule on startup, which will inject the Application I
 Restart IIS for your changes to take effect.
 
 After you enable monitoring, we recommend that you use [Live Metrics](live-stream.md) to quickly check if your app is sending us telemetry.
-
-
-> [!NOTE] 
-> - To get started, you need an instrumentation key. For more information, see [Create a resource](create-new-resource.md#copy-the-instrumentation-key).
-> - This cmdlet requires that you review and accept our license and privacy statement.
-
-> [!IMPORTANT] 
-> This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy).
 
 ### Examples
 
