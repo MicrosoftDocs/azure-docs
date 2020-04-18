@@ -1,6 +1,6 @@
 ---
-title: Lead management for Dynamics 365 for Customer Engagement | Azure Marketplace
-description: Configure lead management for Dynamics 365 for Customer Engagement.
+title: Lead management for Dynamics 365 Customer Engagement (on-premises) | Azure Marketplace
+description: Configure lead management for Dynamics 365 Customer Engagement (on-premises).
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -10,18 +10,18 @@ ms.author: dsindona
 ---
 
 
-# Configure lead management for Dynamics 365 for Customer Engagement
+# Configure lead management for Dynamics 365 Customer Engagement (on-premises)
 
-This article describes how to set up Dynamics 365 for Customer Engagement (previously named Dynamics CRM Online). Read more about the change in [Configure server-based authentication with Customer Engagement (on-premises) and SharePoint Online](https://docs.microsoft.com/dynamics365/customerengagement/on-premises/admin/on-prem-server-based-sharepoint-online) to process sales leads from your marketplace offer.
+This article describes how to set up Dynamics 365 Customer Engagement (on-premises) (previously named Dynamics CRM Online). Read more about the change in [Configure server-based authentication with Customer Engagement (on-premises) and SharePoint Online](https://docs.microsoft.com/dynamics365/customerengagement/on-premises/admin/on-prem-server-based-sharepoint-online) to process sales leads from your marketplace offer.
 
 >[!NOTE]
->These instructions are specific for the Microsoft-hosted cloud environment for Dynamics 365 for Customer Engagement. Connecting directly to a Dynamics on-premises environment isn't currently supported. There are other options for you to receive leads, such as configuring an [HTTPS endpoint](./commercial-marketplace-lead-management-instructions-https.md) or an [Azure table](./commercial-marketplace-lead-management-instructions-azure-table.md).
+>These instructions are specific for the Microsoft-hosted cloud environment for Dynamics 365 Customer Engagement (on-premises). Connecting directly to a Dynamics on-premises environment isn't currently supported. There are other options for you to receive leads, such as configuring an [HTTPS endpoint](./commercial-marketplace-lead-management-instructions-https.md) or an [Azure table](./commercial-marketplace-lead-management-instructions-azure-table.md).
 
 ## Prerequisites
 
 The following user permissions are needed to complete the steps in this article. You need to:
 
-* Be an admin on your Dynamics 365 for Customer Engagement instance to be able to install a solution and follow these instructions.
+* Be an admin on your Dynamics 365 Customer Engagement (on-premises) instance to be able to install a solution and follow these instructions.
 * Be a tenant admin to create a new service account for the lead service used to send leads from marketplace offers.
 * Have access to the Office 365 admin portal.
 * Have access to the Azure portal.
@@ -30,7 +30,7 @@ The following user permissions are needed to complete the steps in this article.
 
 1. Download the [Microsoft Marketplace Lead Writer solution](https://mpsapiprodwus.blob.core.windows.net/documentation/MicrosoftMarketplacesLeadIntegrationSolution_1_0_0_0_target_CRM_6.1_managed.zip) and save it locally to your computer.
 
-1. Open Dynamics 365 for Customer Engagement by going to the URL for your Dynamics instance, such as `https://tenant.crm.dynamics.com`.
+1. Open Dynamics 365 Customer Engagement (on-premises) by going to the URL for your Dynamics instance, such as `https://tenant.crm.dynamics.com`.
 
 1. Select the gear icon, and select **Advanced Settings** on the top bar.
  
@@ -39,7 +39,7 @@ The following user permissions are needed to complete the steps in this article.
 1. On the Settings page, open the **Settings** menu on the top bar and select **Solutions**.
 
     >[!NOTE]
-    >If you don't see the options in the following screen, you don't have the permissions you need to proceed. Contact an admin on your Dynamics 365 for Customer Engagement instance.
+    >If you don't see the options in the following screen, you don't have the permissions you need to proceed. Contact an admin on your Dynamics 365 Customer Engagement (on-premises) instance.
 
     ![Dynamics 365 Solutions option](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-solutions.png)
 
@@ -51,7 +51,7 @@ The following user permissions are needed to complete the steps in this article.
 
 ## Configure user permissions
 
-To write leads into your Dynamics 365 for Customer Engagement instance, you must share a service account with Microsoft and configure permissions for the account.
+To write leads into your Dynamics 365 Customer Engagement (on-premises) instance, you must share a service account with Microsoft and configure permissions for the account.
 
 Use the following steps to create the service account and assign permissions. You can use Azure Active Directory or Office 365.
 
@@ -62,7 +62,7 @@ Use the following steps to create the service account and assign permissions. Yo
 
 We recommend this option because you never need to update your username or password to keep getting leads. To use the Azure Active Directory option, you provide the App ID, Application Key, and Directory ID from your Active Directory application.
 
-To configure Azure Active Directory for Dynamics 365 for Customer Engagement:
+To configure Azure Active Directory for Dynamics 365 Customer Engagement (on-premises) :
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**.
 
@@ -94,7 +94,7 @@ To configure Azure Active Directory for Dynamics 365 for Customer Engagement:
 
     ![Add permissions button](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
-1. After you complete steps 1 through 14 in the Azure portal, go to your Dynamics 365 for Customer Engagement instance by going to the URL, such as `https://tenant.crm.dynamics.com`.
+1. After you complete steps 1 through 14 in the Azure portal, go to your Dynamics 365 Customer Engagement (on-premises) instance by going to the URL, such as `https://tenant.crm.dynamics.com`.
 1. Select the gear icon, and select **Advanced Settings** on the top bar.
 1. On the Settings page, open the **Settings** menu on the top bar and select **Security**.
 1. On the Security page, select **Users**. On the Users page, select the **Enabled Users** drop-down and then select **Application Users**.
@@ -112,7 +112,7 @@ To configure Azure Active Directory for Dynamics 365 for Customer Engagement:
 
 If you don't want to use Azure Active Directory, you can register a new user on the Microsoft 365 admin center. You'll be required to update your username and password every 90 days to continue getting leads.
 
-To configure Office 365 for Dynamics 365 for Customer Engagement:
+To configure Office 365 for Dynamics 365 Customer Engagement (on-premises) :
 
 1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com).
 
@@ -135,7 +135,7 @@ Save these values because you'll need to provide the **Username** and **Password
 
 The final step is to enable the user you created to write the leads.
 
-1. Open Dynamics 365 for Customer Engagement by going to the URL for your Dynamics instance, such as `https://tenant.crm.dynamics.com`.
+1. Open Dynamics 365 Customer Engagement (on-premises) by going to the URL for your Dynamics instance, such as `https://tenant.crm.dynamics.com`.
 1. Select the gear icon, and select **Advanced Settings** on the top bar.
 1. On the Settings page, open the **Settings** menu on the top bar and select **Security**.
 1. On the Security page, select **Users** and select the user that you created in the "Configure user permissions" section of this document. Then select **Manage Roles**. 
@@ -163,7 +163,7 @@ The final step is to enable the user you created to write the leads.
 
 1. Select **Save and close**.
 
-## Configure your offer to send leads to Dynamics 365 for Customer Engagement
+## Configure your offer to send leads to Dynamics 365 Customer Engagement (on-premises) 
 
 To configure the lead management information for your offer in the publishing portal:
 
@@ -172,7 +172,7 @@ To configure the lead management information for your offer in the publishing po
 
     ![Lead management section Connect button](./media/commercial-marketplace-lead-management-instructions-dynamics/connect-lead-management.png)
 
-1. In the Connection details pop-up window, select **Dynamics 365 for Customer Engagement** for the lead destination.
+1. In the Connection details pop-up window, select **Dynamics 365 Customer Engagement (on-premises) ** for the lead destination.
 
     ![Lead destination box](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-lead-destination.png)
 

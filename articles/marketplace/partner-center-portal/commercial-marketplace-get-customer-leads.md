@@ -95,7 +95,7 @@ Follow the steps in the section [Connect to your CRM system](#connect-to-your-cr
 
 ### Am I required to configure a lead destination in order to publish an offer in the marketplace?
 
-The answer depends on the type of offer you're publishing. Software as a service (SaaS) and Dynamics 365 for Customer Engagement use **Contact Me** to list all Dynamics 365 for Operations offers, all Dynamics 365 Business Central offers, and all Consulting Service offers. As a result, they require a connection to a lead destination. If your offer type wasn't listed, a connection to a lead destination isn't required. We recommend that you configure a lead destination so you don't miss business opportunities.
+The answer depends on the type of offer you're publishing. Software as a service (SaaS) and Dynamics 365 Customer Engagement (on-premises) use **Contact Me** to list all Dynamics 365 for Finance and Operations offers, all Dynamics 365 Business Central offers, and all Consulting Service offers. As a result, they require a connection to a lead destination. If your offer type wasn't listed, a connection to a lead destination isn't required. We recommend that you configure a lead destination so you don't miss business opportunities.
 
 ### How can I find the test lead?
 
@@ -128,7 +128,7 @@ The Azure Blob lead destination is no longer supported, so you're missing any cu
 
 ### I received an email from the marketplace, but why can't I find the lead in my CRM?
 
-It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass personally  identifiable information from the .edu domain. Submit a support ticket through aka.ms/marketplacepublishersupport.
+It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass personally identifiable information from the .edu domain. Submit a support ticket through aka.ms/marketplacepublishersupport.
 
 ### I configured an Azure table as my lead destination. How can I view the leads?
 
