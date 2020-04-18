@@ -250,7 +250,7 @@
             href: app/java-standalone-config.md 
       - name: On-Premises servers
         items:
-        - name: .Net
+        - name: ASP.Net
           items:
             - name: Overview
               displayname: IIS monitoring, on premises monitoring, on prem 
