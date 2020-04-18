@@ -242,7 +242,7 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
 
 4. From the VM overview toolbar, select **Connect** > **RDP** > **Download RDP File**.
 
-5. Open the .rdp file, and then sign in to the VM with the credentials you entered in the [Create the virtual machine](#create-the-virtual-machine) section. If you've never connected to a Windows VM in Azure, see [Connect to virtual machine](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
+5. Open the .rdp file, and then sign in to the VM with the credentials you entered in the [Create a VM and attach the network interface](#create-a-vm-and-attach-the-network-interface) section. If you've never connected to a Windows VM in Azure, see [Connect to virtual machine](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 
 6. After the remote desktop session for your VM appears, right-click the Windows Start button and choose **Device Manager**.
 
