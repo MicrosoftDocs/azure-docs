@@ -17,6 +17,6 @@ An optimized marketplace listing and go-to-market campaigns can help you acceler
 
 To learn more about marketplace GTM services, go to [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
 
-Sign in to [Partner Center](https://partner.microsoft.com) to create and configure your offer.
+Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create and configure your offer.
 
 ---
