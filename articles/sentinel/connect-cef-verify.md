@@ -23,9 +23,10 @@ Once you have deployed your log forwarder (in Step 1) and configured your securi
 
 ## Prerequisites
 
-- You must have elevated permissions (sudo) on your machine.
+- You must have elevated permissions (sudo) on your log forwarder machine.
 
-- Make sure that you have Python on your machine using the following command: `python –version`
+- You must have Python installed on your log forwarder machine.<br>
+Use the `python –version` command to check.
 
 ## How to validate connectivity
 
@@ -34,7 +35,7 @@ Be aware that it may take about 20 minutes until your logs start to appear in **
 
 1. If you don't see any results from the query, verify that events are being generated from your security solution, or try generating some, and verify they are being forwarded to the Syslog forwarder machine you designated. 
 
-1. Run the following script to check connectivity between your security solution, the log forwarder, and Azure Sentinel. This script checks that the daemon is listening on the correct ports, that the forwarding is properly configured, and that nothing is blocking communication between the daemon and the Log Analytics agent. It also sends mock messages 'TestCommonEventFormat' to check end-to-end connectivity. <br>
+1. Run the following script on the log forwarder to check connectivity between your security solution, the log forwarder, and Azure Sentinel. This script checks that the daemon is listening on the correct ports, that the forwarding is properly configured, and that nothing is blocking communication between the daemon and the Log Analytics agent. It also sends mock messages 'TestCommonEventFormat' to check end-to-end connectivity. <br>
  `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
 
 ## Validation script explained
