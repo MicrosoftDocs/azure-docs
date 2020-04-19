@@ -1,5 +1,5 @@
 ---
-title: Validate connectivity to Azure Sentinel| Microsoft Docs
+title: Validate connectivity to Azure Sentinel | Microsoft Docs
 description: Validate connectivity of your security solution to make sure CEF messages are being forwarded to Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,24 +13,32 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2019
+ms.date: 04/19/2020
 ms.author: yelevin
 
 ---
 # STEP 3: Validate connectivity
 
+Once you have deployed your log forwarder (in Step 1) and configured your security solution to send it CEF messages (in Step 2), follow these instructions to verify connectivity between your security solution and Azure Sentinel. 
 
+## Prerequisites
 
-After you deployed the agent and configured your security solution to forward CEF messages, use this article to understand how to verify connectivity between Azure Sentinel and your security solution. 
+- You must have elevated permissions (sudo) on your machine.
+
+- Make sure that you have Python on your machine using the following command: `python –version`
 
 ## How to validate connectivity
 
-1. Open Log Analytics to make sure that logs are received using the CommonSecurityLog schema.<br> It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
+1. From the Azure Sentinel navigation menu, open **Logs**. Run a query using the **CommonSecurityLog** schema to see if you are receiving logs from your security solution.<br>
+Be aware that it may take about 20 minutes until your logs start to appear in **Log Analytics**. 
 
-1. Before you run the script, we recommend that you send messages from your security solution to make sure they are being forwarded to the Syslog proxy machine you configured. 
-1. You must have elevated permissions (sudo) on your machine. Make sure that you have Python on your machine using the following command: `python –version`
-1. Run the following script to check connectivity between the agent, Azure Sentinel, and your security solution. It checks that the daemon forwarding is properly configured, listens on the correct ports, and that nothing is blocking communication between the daemon and the Log Analytics agent. The script also sends mock messages 'TestCommonEventFormat' to check end-to-end connectivity. <br>
+1. If you don't see any results from the query, verify that events are being generated from your security solution, or try generating some, and verify they are being forwarded to the Syslog forwarder machine you designated. 
+
+1. Run the following script to check connectivity between your security solution, the log forwarder, and Azure Sentinel. This script checks that the daemon is listening on the correct ports, that the forwarding is properly configured, and that nothing is blocking communication between the daemon and the Log Analytics agent. It also sends mock messages 'TestCommonEventFormat' to check end-to-end connectivity. <br>
  `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
+
+## Validation script explained
+
 
 
 ## Next steps
