@@ -61,7 +61,7 @@ Before you can create an Azure virtual machine offer, you must have a commercial
 2. In the left-nav bar, select **Commercial Marketplace**, then **Overview**.
 3. On the **Overview** page, select **+ New offer**, then **Azure Virtual Machine**. The **New offer** dialog box appears.
 
-![Illustrates the Overview page in Partner Center with the New offer button and Azure Virtual Machine offer selected.](media/avm-create7.png)
+    ![Illustrates the Overview page in Partner Center with the New offer button and Azure Virtual Machine offer selected.](media/avm-create7.png)
 
 ## Offer ID and alias
 
