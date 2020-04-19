@@ -24,7 +24,7 @@ In this step, you will designate and configure the Linux machine that will forwa
 - Installs the Log Analytics agent for Linux (also known as the OMS agent) and configures it for the following purposes:
     - listening for CEF messages from the built-in Linux Syslog daemon on TCP port 25226
     - sending the messages securely over TLS to your Azure Sentinel workspace, where they are parsed and enriched
-    
+
 - Configures the built-in Linux Syslog daemon (rsyslog.d/syslog-ng) for the following purposes:
     - listening for Syslog messages from your security solutions on TCP port 514
     - forwarding only the messages it identifies as CEF to the Log Analytics agent on localhost using TCP port 25226
@@ -120,14 +120,7 @@ Choose a syslog daemon to see the appropriate description.
     1. Restarts the Log Analytics agent<br>
         `/opt/microsoft/omsagent/bin/service_control restart [workspaceID]`
 
-
-
-
-
-
-
-
-
+---
 
 ## Next steps
 In this document, you learned how to deploy the Log Analytics agent to connect CEF appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
