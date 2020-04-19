@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom:
@@ -21,9 +21,9 @@ ms.custom:
 
 If you are trying to understand how a role works or if you are creating your own [custom role for Azure resources](custom-roles.md), it's helpful to understand how roles are defined. This article describes the details of role definitions and provides some examples.
 
-## Role definition structure
+## Role definition
 
-A *role definition* is a collection of permissions. It's sometimes just called a *role*. A role definition lists the operations that can be performed, such as read, write, and delete. It can also list the operations that can't be performed or operations related to underlying data. A role definition has the following structure:
+A *role definition* is a collection of permissions. It's sometimes just called a *role*. A role definition lists the operations that can be performed, such as read, write, and delete. It can also list the operations that can't be performed or operations related to underlying data. A role definition has the following properties:
 
 ```
 Name
@@ -36,6 +36,20 @@ DataActions []
 NotDataActions []
 AssignableScopes []
 ```
+
+| Property | Description |
+| --- | --- |
+| `Name` | The display name of the role. |
+| `Id` | The unique ID of the role. |
+| `IsCustom` | Indicates whether this is a custom role. Set to `true` for custom roles. |
+| `Description` | The description of the role. |
+| `Actions` | An array of strings that specifies the management operations that the role allows to be performed. |
+| `NotActions` | An array of strings that specifies the management operations that are excluded from the allowed `Actions`. |
+| `DataActions` | An array of strings that specifies the data operations that the role allows to be performed to your data within that object. |
+| `NotDataActions` | An array of strings that specifies the data operations that are excluded from the allowed `DataActions`. |
+| `AssignableScopes` | An array of strings that specifies the scopes that the role is available for assignment. |
+
+### Operations format
 
 Operations are specified with strings that have the following format:
 
@@ -50,6 +64,8 @@ The `{action}` portion of an operation string specifies the type of operations y
 | `write` | Enables write operations (PUT or PATCH). |
 | `action` | Enables custom operations like restart virtual machines (POST). |
 | `delete` | Enables delete operations (DELETE). |
+
+### Role definition example
 
 Here's the [Contributor](built-in-roles.md#contributor) role definition in JSON format. The wildcard (`*`) operation under `Actions` indicates that the principal assigned to this role can perform all actions, or in other words, it can manage everything. This includes actions defined in the future, as Azure adds new resource types. The operations under `NotActions` are subtracted from `Actions`. In the case of the [Contributor](built-in-roles.md#contributor) role, `NotActions` removes this role's ability to manage access to resources and also assign access to resources.
 
@@ -87,7 +103,7 @@ Management access is not inherited to your data provided that the container auth
 
 Previously, role-based access control was not used for data operations. Authorization for data operations varied across resource providers. The same role-based access control authorization model used for management operations has been extended to data operations.
 
-To support data operations, new data properties have been added to the role definition structure. Data operations are specified in the `DataActions` and `NotDataActions` properties. By adding these data properties, the separation between management and data is maintained. This prevents current role assignments with wildcards (`*`) from suddenly having accessing to data. Here are some data operations that can be specified in `DataActions` and `NotDataActions`:
+To support data operations, new data properties have been added to the role definition. Data operations are specified in the `DataActions` and `NotDataActions` properties. By adding these data properties, the separation between management and data is maintained. This prevents current role assignments with wildcards (`*`) from suddenly having accessing to data. Here are some data operations that can be specified in `DataActions` and `NotDataActions`:
 
 - Read a list of blobs in a container
 - Write a storage blob in a container
