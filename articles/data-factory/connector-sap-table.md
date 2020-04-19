@@ -10,10 +10,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/02/2019
+ms.date: 04/09/2020
 ---
 
 # Copy data from an SAP table by using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the copy activity in Azure Data Factory to copy data from an SAP table. For more information, see [Copy activity overview](copy-activity-overview.md).
 
@@ -237,6 +238,7 @@ In `rfcTableOptions`, you can use the following common SAP query operators to fi
 | `LE` | Less than or equal to |
 | `GT` | Greater than |
 | `GE` | Greater than or equal to |
+| `IN` | As in `TABCLASS IN ('TRANSP', 'INTTAB')` |
 | `LIKE` | As in `LIKE 'Emma%'` |
 
 ### Example

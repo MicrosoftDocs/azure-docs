@@ -24,21 +24,21 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Retail solutions for Azure IoT Central
-            url: overview-iot-central-retail-pnp.md
+            url: overview-iot-central-retail.md
       - linkListType: tutorial
         links:
           - text: 1- Create a retail application
-            url: tutorial-in-store-analytics-create-app-pnp.md
+            url: tutorial-in-store-analytics-create-app.md
           - text: 2 - Customize the operator dashboard
-            url: tutorial-in-store-analytics-customize-dashboard-pnp.md
+            url: tutorial-in-store-analytics-customize-dashboard.md
           - text: 3 - Export data and visualize insights
-            url: tutorial-in-store-analytics-export-data-visualize-insights-pnp.md
+            url: tutorial-in-store-analytics-export-data-visualize-insights.md
           - text: Create a smart inventory management application
-            url: tutorial-iot-central-smart-inventory-management-pnp.md
+            url: tutorial-iot-central-smart-inventory-management.md
           - text: Create a connected logistics application
-            url: tutorial-iot-central-connected-logistics-pnp.md
+            url: tutorial-iot-central-connected-logistics.md
           - text: Create a digital distribution center application
-            url: tutorial-iot-central-digital-distribution-center-pnp.md 
+            url: tutorial-iot-central-digital-distribution-center.md 
       - linkListType: how-to-guide
         links:
           - text: Connect a Rigado Cascade 500

@@ -97,7 +97,7 @@ In the following command, provide your own unique function app name. The functio
     ```azurecli-interactive
     az functionapp create --name $functionapp --storage-account $functionstorage \
       --resource-group $resourceGroupName --consumption-plan-location southeastasia \
-      --functions_version 2
+      --functions-version 2
     ```
 
 Now configure the function app to connect to the Blob storage account you created in the [previous tutorial][previous-tutorial].
@@ -156,12 +156,12 @@ az functionapp deployment source config --name $functionapp --resource-group $re
 
 # [Node.js V10 SDK](#tab/nodejsv10)
 
-The sample Node.js resize function is available on [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) command.
+The sample Node.js resize function is available on [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) command.
 
 ```azurecli-interactive
 az functionapp deployment source config --name $functionapp \
   --resource-group $resourceGroupName --branch master --manual-integration \
-  --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node
+  --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
 ```
 ---
 

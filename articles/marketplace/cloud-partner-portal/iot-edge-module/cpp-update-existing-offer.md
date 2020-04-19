@@ -12,7 +12,7 @@ ms.author: dsindona
 # Update an existing IoT Edge module offer
 
 >[!Important]
->Starting March 30th, 2020, we'll begin moving management of your IoT Edge module offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an IoT Edge module offer](https://aka.ms/AzureCreateIoT) to manage your migrated offers.
+>Starting April 13, 2020, we'll begin moving management of your IoT Edge module offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an IoT Edge module offer](https://aka.ms/AzureCreateIoT) to manage your migrated offers.
 
 This article steps through the different aspects of updating your IoT Edge module offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/) and then republishing the offer.
 

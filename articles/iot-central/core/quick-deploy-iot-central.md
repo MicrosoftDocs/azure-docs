@@ -57,4 +57,4 @@ To create a new Azure IoT Central application from the **Custom application** te
 In this quickstart, you created an IoT Central application. Here's the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Add a simulated device to your IoT Central application](./quick-create-pnp-device.md)
+> [Add a simulated device to your IoT Central application](./quick-create-simulated-device.md)
