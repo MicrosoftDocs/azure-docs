@@ -12,6 +12,7 @@ Azure file share backup is a native, cloud based backup solution that protects y
 ## Key benefits of Azure file share backup
 
 * Zero infrastructure: No deployment is needed to configure protection for your file shares.
+* Customized Retention: You can configure backups with daily/weekly/monthly/yearly retention according to your requirements.
 * Built in management capabilities: You can schedule backups and specify the desired retention period without the additional overhead of data pruning.
 * Instant restore: Azure file share backup uses file share snapshots, so you can select just the files you want to restore instantly.
 * Alerting and reporting: You can configure alerts for backup and restore failures and use the reporting solution provided by Azure Backup to get insights on backups across your files shares.
@@ -46,7 +47,7 @@ Azure File share backup is a snapshot-based solution and storage charges incurre
 However, the protected instance fee for leveraging the backup solution is according to the pricing model described under the [Backup For Azure Files](https://azure.microsoft.com/pricing/details/backup/) section. Currently, the actual price has been updated only for West Central US. For other regions, exact prices will be updated soon with some regional variations, but using the same pricing model.
 
 >[!NOTE]
->During preview, there is no "Protected Instance fee" and you will be charged only for snapshots according to the pricing mentioned [here](https://azure.microsoft.com/pricing/details/storage/files/).
+>There is now no "Protected Instance fee" and you will be charged only for snapshots according to the pricing mentioned [here](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Next steps
 

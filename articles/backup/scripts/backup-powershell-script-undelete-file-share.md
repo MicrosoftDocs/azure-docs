@@ -12,14 +12,13 @@ This script helps you to undelete a file share, if you deleted it accidentally. 
 ## Sample script
 
 ```powershell
-#Import-Module Az.Storage -MinimumVersion 1.7.0 -Scope Local 
+#Import-Module Az.Storage -MinimumVersion 1.7.0 -Scope Local
 Param(
         [Parameter(Mandatory=$True)][System.String] $ResourceGroupName,
         [Parameter(Mandatory=$True)][System.String] $StorageAccountName,
         [Parameter(Mandatory=$True)][System.String] $FileShareName,
         [Parameter(Mandatory=$True)][System.String] $SubscriptionId,
         [Parameter(Mandatory=$False)][System.Boolean] $ListOption,
-        [Parameter(Mandatory=$False)][System.String] $RestoreAsFileShareName,
         [Parameter(Mandatory=$False)][System.String] $DeletedShareVersion
     )
 
@@ -28,7 +27,6 @@ Function Restore-DeletedFileShare
     Param(
         [Parameter(Mandatory=$True)][Microsoft.WindowsAzure.Commands.Common.Storage.LazyAzureStorageContext] $Context,
         [Parameter(Mandatory=$True)][System.String] $FileShareName,
-        [Parameter(Mandatory=$False)][System.String] $RestoreAsFileShareName,
         [Parameter(Mandatory=$False)][System.String] $DeletedShareVersion
         )
 
@@ -123,15 +121,7 @@ Function Restore-DeletedFileShare
 
     Write-Information -MessageData "Started: Restore File Share" -InformationAction Continue
 
-
-    if([string]::IsNullOrWhiteSpace($RestoreAsFileShareName))
-    {
-      $RestoreAsFileShareName = $FileShareName
-    }
-
-    Write-Information -MessageData "Restoring File Share as $RestoreAsFileShareName" -InformationAction Continue
-
-    $restoreShareUrl = [string]::Concat($Context.FileEndPoint, $RestoreAsFileShareName, "?restype=share&comp=undelete&api-version=2019-10-10&", $restoreToken.Substring(1))
+ $restoreShareUrl = [string]::Concat($Context.FileEndPoint, $FileShareName, "?restype=share&comp=undelete&api-version=2019-10-10&", $restoreToken.Substring(1))
 
     $restoreHeaders = @{"x-ms-deleted-share-name" = $FileShareName; "x-ms-deleted-share-version" = $DeletedShareVersion}
 
@@ -139,7 +129,7 @@ Function Restore-DeletedFileShare
 
     if ($restoreResponse.StatusCode -ne 201)
     {
-        Write-Error "Request to restore a file share failed." -ErrorAction Stop 
+        Write-Error "Request to restore a file share failed." -ErrorAction Stop
     }
 
     Write-Verbose $restoreResponse.RawContent -Verbose
@@ -151,7 +141,8 @@ Connect-AzAccount
 Select-AzSubscription -Subscription $SubscriptionId
 $sa = Get-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName
 
-Restore-DeletedFileShare $sa.Context $FileShareName $RestoreAsFileShareName $DeletedShareVersion
+
+Restore-DeletedFileShare $sa.Context $FileShareName $DeletedShareVersion
 ```
 
 ## How to use the script in different scenarios
