@@ -31,8 +31,6 @@ You must have an Azure Cosmos DB account that uses the SQL API before you create
 
 1. In the Azure portal, navigate to and select the function app you created previously.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-app-select.png" alt-text="Select your function app in the Azure portal." border="true":::
-
 1. Select **Functions**, and then select the HttpTrigger function.
 
     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-select-http-function.png" alt-text="Select your Http function in the Azure portal." border="true":::
