@@ -55,13 +55,13 @@ To add SharePoint on-premises from the gallery, perform the following steps:
 
 4. In the search box, type **SharePoint on-premises**, select **SharePoint on-premises** from result panel.
 
-    ![SharePoint on-premises in the results list](./media/sharepoint-on-premises-tutorial/search-new-app.png)
+    <kbd>![SharePoint on-premises in the results list](./media/sharepoint-on-premises-tutorial/search-new-app.png)</kbd>
 
 1. Specify a name for your SharePoint OnPrem and click the  **Add** button to add the application.
 
 1. In the new Enterprise Application click on Properties and check the value for **User assignment required**
 
-   ![SharePoint on-premises in the results list](./media/sharepoint-on-premises-tutorial/user-assignment-required.png)  
+   <kbd>![SharePoint on-premises in the results list](./media/sharepoint-on-premises-tutorial/user-assignment-required.png)</kbd>
 
 in our scenario this value is set to **No**.
 
@@ -207,7 +207,7 @@ There is no validation on the values you search for, which can lead to misspelli
 **To fix the people picker** with this scenario, there is an open-source solution called [AzureCP](https://yvand.github.io/AzureCP/) that provides a custom claims provider for SharePoint 2013, 2016 and 2019. It will use the Microsoft Graph API to resolve what users enter and perform validation. Learn more at [AzureCP](https://yvand.github.io/AzureCP/).
 
   > [!NOTE]
-  > without AzureCP you can add Groups by adding the Azure AD group's ID but this is not user's friendly and reliable. There is how it looks: 
+  > Without AzureCP you can add Groups by adding the Azure AD group's ID but this is not user's friendly and reliable. There is how it looks:
   >![Add AAD group to Sharepoint Group](./media/sharepoint-on-premises-tutorial/adding-group-by-id.png)
   
 ### Grant permissions to Azure AD group in SharePoint on-premises
