@@ -41,6 +41,8 @@ Be aware that it may take about 20 minutes until your logs start to appear in **
 
 The validation script performs the following checks:
 
+# [rsyslog daemon](#tab/rsyslog)
+
 1. Checks that the file<br>
     `/etc/opt/microsoft/omsagent/[WorkspaceID]/conf/omsagent.d/security_events.conf`<br>
     exists and is valid.
@@ -67,6 +69,36 @@ The validation script performs the following checks:
 
 1. Checks that the syslog daemon (rsyslog or syslog-ng) is properly configured to send messages that it identifies as CEF (using a regex) to the Log Analytics agent on TCP port 25226:
 
+# [syslog-ng daemon](#tab/syslogng)
+
+1. Checks that the file<br>
+    `/etc/opt/microsoft/omsagent/[WorkspaceID]/conf/omsagent.d/security_events.conf`<br>
+    exists and is valid.
+
+1. Checks that the file includes the following text:
+
+        <source>
+            type syslog
+            port 25226
+            bind 127.0.0.1
+            protocol_type tcp
+            tag oms.security
+            format /(?<time>(?:\w+ +){2,3}(?:\d+:){2}\d+|\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.[\w\-\:\+]{3,12}):?\s*(?:(?<host>[^: ]+) ?:?)?\s*(?<ident>.*CEF.+?(?=0\|)|%ASA[0-9\-]{8,10})\s*:?(?<message>0\|.*|.*)/
+            <parse>
+                message_format auto
+            </parse>
+        </source>
+
+        <filter oms.security.**>
+            type filter_syslog_security
+        </filter>
+
+1. Checks if there are any security enhancements on the machine that might be blocking network traffic (such as a host firewall).
+
+1. Checks that the syslog daemon (rsyslog or syslog-ng) is properly configured to send messages that it identifies as CEF (using a regex) to the Log Analytics agent on TCP port 25226:
+
+
+---
 
 ## Next steps
 In this document, you learned how to connect CEF appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
