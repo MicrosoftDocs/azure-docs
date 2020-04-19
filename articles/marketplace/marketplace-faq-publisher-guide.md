@@ -237,7 +237,7 @@ Licenses added to an existing subscription are pro-rated for the remainder of th
 
 **How are license removals handled when mid-term?**
 
-Licenses that are cancelled will be subject to the refund policy found in this FAQ.  All licenses that are cancelled are immediately removed from your account and will no longer be available for use.
+Licenses that are canceled will be subject to the refund policy found in this FAQ.  All licenses that are canceled are immediately removed from your account and will no longer be available for use.
 
 **Are refunds supported for consumption-based offers?**
 
