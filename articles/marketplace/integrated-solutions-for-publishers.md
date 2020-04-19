@@ -11,7 +11,7 @@ ms.author: dsindona
 ---
 # Publish an integrated solution
 
-In a single bundled offer, an integrated solution combines point-solution technologies from software vendors with the deployment and support of a services partner. The services partner lists the offer in Microsoft AppSource or Azure Marketplace as a [consulting service](https://docs.microsoft.com/azure/marketplace/consulting-services).
+In a single bundled offer, an integrated solution combines point-solution technologies from software vendors with the deployment and support of a services partner. The services partner lists the offer in Microsoft AppSource or Azure Marketplace as a [consulting service](./consulting-services.md).
 
 Integrated solutions aim to address a specific customer need or scenario. Providers begin by understanding the industry challenge or pain points. They then integrate two or more best-of-breed technologies to create a unified and repeatable deployment experience for customers. Providers get customers up and running rapidly. They offer a single point of contact to the customer, providing relevant customization, consulting, and solution support. The outcome is an integrated solution, including technology and services.
 
@@ -21,8 +21,8 @@ For an overview of the Integrated Solutions program, watch [this video](https://
 
 * Customers can find packaged solutions that solve end-to-end business challenges through the marketplace. They get accelerated time to value because the technology is integrated up front. Customers avoid having to engage separately with multiple apps deployed in a fragmented way.
 * IP is packaged along with other solutions and services that enhance the value of the technology that's delivered by expert services partners.
-* Services partners create predefined, preintegrated solutions with best-of-breed technology to scale, land, and expand in more customer accounts.
-* Microsoft can use these preintegrated, industry-aligned solutions to more easily co-sell to customers. Pricing and terms are sorted in advance.
+* Services partners create predefined, pre-integrated solutions with best-of-breed technology to scale, land, and expand in more customer accounts.
+* Microsoft can use these pre-integrated, industry-aligned solutions to more easily co-sell to customers. Pricing and terms are sorted in advance.
 
 ## Eligibility criteria
 

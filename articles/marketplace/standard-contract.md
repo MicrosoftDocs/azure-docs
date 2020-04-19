@@ -1,5 +1,5 @@
 ---
-title: Standard Contract | Azure
+title: Standard Contract | Azure Markteplace
 description: Standard Contract for Azure Marketplace and AppSource
 author: dsindona
 ms.service: marketplace

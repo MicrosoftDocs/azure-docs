@@ -302,7 +302,7 @@ There are no publishing fees when uploading a List, Trial, or BYOL (Bring Your O
 
 **Are there any transaction fees for purchases through Azure Marketplace?**
 
-When the solution license is purchased via Azure Marketplace, revenues for the software license are split between the publisher and Microsoft.  This is done in accordance to the terms and conditions in the [Marketplace Publisher Agreement](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf). Additionally, solutions with BYOL (Bring Your Own License) publishers do not incur transaction fees.
+When the solution license is purchased via Azure Marketplace, revenues for the software license are split between the publisher and Microsoft.  This is done in accordance to the terms and conditions in the [Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt). Additionally, solutions with BYOL (Bring Your Own License) publishers do not incur transaction fees.
 
 **What is a Standard Contract?**
 
@@ -348,13 +348,13 @@ Publishers based in the following countries/regions can currently sell in the Az
 
 *Virtual Machine & Azure Apps:*
 
-1. Sign in to [Partner Center](https://cloudpartner.azure.com/).
+1. Sign in to [Partner Center](https://partner.microsoft.com/).
 1. Select the offer from the **All Offers** tab.
 1. In the pane on the left side of the screen, select the **SKUs** tab.
 1. Select the SKU for deletion and click the **delete** button for that SKU.
 1. [Republish](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) the offer to Azure Marketplace.
 
-For more information, see [Deleting an offer](./cloud-partner-portal/manage-offers/cpp-delete-offer.md).
+For more information, see [updating an offer](./partner-center-portal/update-existing-offer.md).
 
 *Web Apps (SaaS apps, Add-ons) & Consulting Services:*
 
@@ -469,6 +469,3 @@ Yes, upon your request via support ticket, Microsoft will process credits to you
 ## Next steps
 
 Visit the [commercial marketplace publisher guide](/azure/marketplace/marketplace-publishers-guide) page.
-
-
-[Azure portal]: https://portal.azure.com

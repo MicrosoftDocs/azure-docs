@@ -84,14 +84,18 @@ Additional resources and support:
 | United Kingdom  |
 
 
-## How To Register For Consulting Services in Azure Marketplace and AppSource
-Start by [registering](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) your company information in the marketplace. Publishers can reference [Become a Publisher in the Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), for a complete check-list of registration requirements. 
+## How To Register For Consulting Services in commercial marketplace
 
+Start by [registering](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) your company information in the marketplace. Publishers can reference [Become a Publisher in the Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), for a complete check-list of registration requirements. 
+
+<!---
 **What To Expect After Registration**
 The Onboarding Team will reach out in 1-3 business days with a welcome email, which will include your Cloud Partner Portal (CPP) login information. [Cloud Partner Portal](https://cloudpartner.azure.com) is the offer listing portal where publishers submit listing information and submissions. 
 
 >[!Note]
 >Partners only need to register once to become a publisher. Once you receive your welcome email and Partner Center login, publishers do not need to re-register in order to publish different listing types. 
+
+--->
 
 ## Prepare Your Publishing Artifacts
 Prior to registration, you can start collecting and preparing the content that will help your listing articulate the value of your service and solution to your target customer. 
@@ -119,7 +123,7 @@ Prior to registration, you can start collecting and preparing the content that w
 Listing your consulting-service offer on the Azure Marketplace and AppSource
  involves the following stages:
 
-1. **Listing**: Start drafting a new offer listing by logging in to your [Partner Center](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/partnership) account. Select 'New Offer' and 'Consulting Services' from the drop-down menu. Enter your listing artifact and publish.
+1. **Listing**: Start drafting a new offer listing by logging in to your [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) account. Select 'New Offer' and 'Consulting Services' from the drop-down menu. Enter your listing artifact and publish.
 2. **Validation**: Your request is reviewed to ensure that you meet the eligibility criteria. We then send you instructions for listing your consulting services offering. 
 3. **Submit**: Provide the required information that's listed in the instructions. All content and supporting material must be submitted in English. 
 4. **Review**: Our marketing and editorial team reviews your submission and optimizes it for readability, grammar, and effectiveness. 
@@ -184,5 +188,5 @@ If you haven't already done so,
 
 To register and start working in Partner Center, 
 
-- [Log in to Partner Center](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
+- [Log in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
 - See [create a Consulting service offer](./partner-center-portal/create-consulting-service-offer.md) for more information.

@@ -19,10 +19,10 @@ AppSource has paid, list, and trial offers, with the calls-to-action "Get it Now
 
 | **Product**    | **Publishing guidance**  |
 | :------------------- | :-------------------|
-| Office 365 | Review the [publishing process and guidelines](/office/dev/store/submit-to-the-office-store) |
-| Dynamics 365 Business Central | To publish an offer in Partner Center, see [Create a new Dynamics 365 Business Central offer](./partner-center-portal/create-new-business-central-offer.md). The Cloud Partner Portal no longer supports the creation and management of Dynamics 365 Business Central offers. |
-| Dynamics 365 for Finance and Operations | When building for Enterprise Edition, review the [publishing process and guidelines](/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source).<br/>To publish an offer in Partner Center, see [Create a new Dynamics 365 for Operations offer](./partner-center-portal/create-new-operations-offer.md). The Cloud Partner Portal no longer supports the creation and management of Dynamics 365 for Finance and Operations offers. |
-| Dynamics 365 for Customer Engagement | Review the [publishing process and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource).<br/>To publish an offer in Partner Center, see [Create a new Dynamics 365 for Customer Engagement & PowerApps offer](./partner-center-portal/create-new-customer-engagement-offer.md). The Cloud Partner Portal no longer supports the creation and management of Dynamics 365 for Finance and Operations offers. |
+| Office 365 | Review the [publishing process and guidelines](/office/dev/store/submit-to-appsource-via-partner-center) |
+| Dynamics 365 Business Central | To publish an offer in Partner Center, see [Create a new Dynamics 365 Business Central offer](./partner-center-portal/create-new-business-central-offer.md). |
+| Dynamics 365 for Finance and Operations | When building for Enterprise Edition, review the [publishing process and guidelines]/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source).<br/>To publish an offer in Partner Center, see [Create a new Dynamics 365 for Operations offer](./partner-center-portal/create-new-operations-offer.md).  |
+| Dynamics 365 for Customer Engagement | Review the [publishing process and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource).<br/>To publish an offer in Partner Center, see [Create a new Dynamics 365 for Customer Engagement & PowerApps offer](./partner-center-portal/create-new-customer-engagement-offer.md).  |
 | Power Apps | Learn how to [let customers test drive your app on AppSource](https://powerapps.microsoft.com/blog/appsource-test-drive/). |
 | Power BI | Review the [publishing process and guidelines](/power-bi/developer/office-store). |
 

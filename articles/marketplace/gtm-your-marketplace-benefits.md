@@ -102,7 +102,7 @@ Transactions that are proven to be fraudulent will not count towards a publisher
 
 ## Next steps
 
-If you created your offer in [Partner Center](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview), sign in to create or configure your offer.
+If you created your offer in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview), sign in to create or configure your offer.
 
 Review the [self-serve resources available to you](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 

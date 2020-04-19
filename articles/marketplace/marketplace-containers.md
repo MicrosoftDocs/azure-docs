@@ -41,5 +41,5 @@ If you haven't already done so,
 
 To register in Partner Center, start creating a new offer or working on an existing one:
 
-- [Log in to Partner Center](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
+- [Log in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
 - See [create an Azure container offer](./partner-center-portal/create-azure-container-offer.md) for more information.
