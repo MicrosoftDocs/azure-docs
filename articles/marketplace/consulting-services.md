@@ -188,5 +188,5 @@ If you haven't already done so,
 
 To register and start working in Partner Center, 
 
-- [Log in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
+- [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
 - See [create a Consulting service offer](./partner-center-portal/create-consulting-service-offer.md) for more information.

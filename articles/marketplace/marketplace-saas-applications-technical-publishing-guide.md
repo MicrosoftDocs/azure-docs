@@ -139,9 +139,9 @@ Microsoft hosts the commerce transaction. Microsoft bills your customer on your 
 ## Next steps
 If you haven't already done so,
 
-- [Learn](https://azuremarketplace.microsoft.com/sell) about the marketplace.
+* [Learn](https://azuremarketplace.microsoft.com/sell) about the marketplace.
 
 To register in Partner Center, start creating a new offer or working on an existing one:
 
-- [Log in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
-- See [create a SaaS application offer](./partner-center-portal/create-new-saas-offer.md) for more information.
+* [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
+* See [create a SaaS application offer](./partner-center-portal/create-new-saas-offer.md) for more information.

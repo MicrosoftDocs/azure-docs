@@ -90,8 +90,8 @@ By adding the parameters to your AppSource URL, you can review the effectiveness
 
 ## Next steps
 
-Learn more about your [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
+Learn more about your [commercial marketplace benefits](./gtm-your-marketplace-benefits.md).
 
-Log in to [Partner Center](https://partner.microsoft.com) to create and configure your offer.
+Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create and configure your offer.
 
 ---
