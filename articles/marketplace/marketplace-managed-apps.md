@@ -15,7 +15,7 @@ ms.author: dsindona
 
 A managed application is one of the main ways to publish a solution in the Marketplace. Use this guide to understand the requirements for this offer. 
 
-These are transaction offers which are deployed and billed through the Marketplace. The call to action that a user sees is "Get It Now."
+These are transaction offers that are deployed and billed through the Marketplace. The call to action that a user sees is "Get It Now."
 
 Use the Azure app: managed app offer type when the following conditions are required:
 - You deploy either a subscription-based solution for your customer using either a VM or an entire IaaS-based solution.
