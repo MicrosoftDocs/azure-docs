@@ -34,6 +34,7 @@ Even so, there are some differences in the two.
 | Application tiering | Monolith | Two-tier <br> (Gateway + Backend) |
 | Protocol support | <ul> <li>AMQP</li> <li> STOMP </li> <li> OpenWire </li> </ul> | AMQP |
 | Provisioning mode | <ul> <li> IaaS (on-premises) </li> <li> Amazon MQ (managed PaaS) </li> | Managed PaaS |
+| Message size | Customer configurable | 1 MB (Premium tier) |
 | High Availability | Customer managed | Platform managed |
 | Disaster Recovery | Customer managed | Platform managed | 
 
@@ -78,6 +79,24 @@ A custom application may be needed to drain the ActiveMQ queues, topics and subs
 
 ## Pre-migration
 
+### Version check
+
+### Ensure that AMQP ports are open
+
+### Set up enterprise configurations (VNET, Firewall, private endpoint, etc.)
+
 ## Migration
 
+To migrate your existing JMS 2.0 application to interact with Azure Service Bus, the below steps need to be performed.
+
+### Export topology from ActiveMQ and create the entities in Azure Service Bus (optional)
+
+### Import the maven dependency for Service Bus JMS implementation
+
+### Update the application properties
+
+### Replace the ActiveMQConnectionFactory with ServiceBusJmsConnectionFactory
+
 ## Post-migration
+
+Now that you have modified the application to starting sending and receiving messages from Azure Service Bus, you should verify that it works as you expect. Once that is done, you can proceed to further refine and modernize your application stack.
