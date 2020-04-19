@@ -77,25 +77,23 @@ A connector in Power Apps is a data source connection. In this step, you'll crea
 
     :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Import from sample" border="false":::
 
-1. Click **Import** to auto-fill the Request.
+1. Click **Import** to auto-fill the Request. Complete setting the parameter metadata by clicking the **…** symbol next to each of the parameters. Click **Back** to return to the Request page after each parameter update.
 
     :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Import from sample dialogue" border="false":::
 
-1. Complete setting the parameter metadata by clicking the **…** symbol next to each of the parameters. Click **Back** to return to the Request page after each parameter update.
-
-    - For *search*: Set `*` as the **default value**, set **required** as *False* and set **visibility** to *none*. 
+1. For *search*: Set `*` as the **default value**, set **required** as *False* and set **visibility** to *none*. 
 
     :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Search parameter metadata" border="true":::
 
-    - For *api-version*: Set `2019-05-06` as the **default value**, set **required** to *True*, and set **visibility** as *internal*.  
+1. For *api-version*: Set `2019-05-06` as the **default value**, set **required** to *True*, and set **visibility** as *internal*.  
 
     :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Version parameter metadata" border="true":::
 
-    - For *api-key*: Set a valid query API key as the **default value**, set **required** to *True*, and set **visibility** as *internal*. You can get a query API key from the Azure portal. For more information, see [Find existing keys](search-security-api-keys.md#find-existing-keys).
+1. For *api-key*: Set a valid query API key as the **default value**, set **required** to *True*, and set **visibility** as *internal*. You can get a query API key from the Azure portal. For more information, see [Find existing keys](search-security-api-keys.md#find-existing-keys).
     
     :::image type="content" source="./media/search-howto-powerapps/1-10-3-parameter-metadata-version.png" alt-text="Version parameter metadata" border="true":::
 
-    After making these changes, toggle to the **Swagger Editor** view. In the parameters section you should see the following configuration:
+1. After making these changes, toggle to the **Swagger Editor** view. In the parameters section you should see the following configuration:
 
     ```
     parameters:
@@ -128,7 +126,7 @@ A connector in Power Apps is a data source connection. In this step, you'll crea
 
 1. Click **Create connector** on the top right.
 
-## Test the connection
+## 2 - Test the connection
 
 After the connector is created, test it using the following steps.
 
@@ -148,7 +146,7 @@ After the connector is created, test it using the following steps.
 
     :::image type="content" source="./media/search-howto-powerapps/1-11-2-test-connector.png" alt-text="JSON response" border="true":::
 
-## Visualize results
+## 3 - Visualize results
 
 In this step, create a Power App with a search box, a search button, and a display area for the results. The Power App will connect to the recently created custom connector to get the data from Azure Search.
 
@@ -169,6 +167,7 @@ In this step, create a Power App with a search box, a search button, and a displ
     :::image type="content" source="./media/search-howto-powerapps/2-4-add-controls.png" alt-text="Insert controls" border="true":::
 
 1.  Insert the following elements:
+
     -   A Text Label with the value "Query:"
     -   A Text Input element (call it *txtQuery*, default value: "*")
     -   A button with the text "Search" 
@@ -178,7 +177,7 @@ In this step, create a Power App with a search box, a search button, and a displ
 
     :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="Controls layout" border="true":::
 
-1. To make the **Search button** issue a query, select the button, and Paste the following action to take on **OnSelect**:
+1. To make the **Search button** issue a query, select the button, and paste the following action into **OnSelect**:
 
     ```
     If(!IsBlank(txtQuery.Text),
