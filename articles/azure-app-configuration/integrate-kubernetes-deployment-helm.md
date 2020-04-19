@@ -181,7 +181,7 @@ helm upgrade --install -f myConfig.yaml -f mySecrets.yaml "example" ./mychart
 If there is a concern for putting sensitive data in persistent storage, export content of key vault references to memory. Besides files Helm also allows passing literal key values with argument **--set**. Learn more about [Helm usage](https://helm.sh/docs/intro/using_helm/).
 
 ```powershell
-$secrets = az appconfig kv list -n myAppConfiguration1157 --key "secrets.*" --resolve-keyvault --query "[*].{name:key, value:value}" | ConvertFrom-Json
+$secrets = az appconfig kv list -n myAppConfiguration --key "secrets.*" --resolve-keyvault --query "[*].{name:key, value:value}" | ConvertFrom-Json
 
 foreach ($secret in $secrets) {
   $keyvaules += $secret.name + "=" + $secret.value + ","
