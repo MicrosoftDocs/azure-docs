@@ -67,7 +67,21 @@ The validation script performs the following checks:
 
 1. Checks if there are any security enhancements on the machine that might be blocking network traffic (such as a host firewall).
 
-1. Checks that the syslog daemon (rsyslog or syslog-ng) is properly configured to send messages that it identifies as CEF (using a regex) to the Log Analytics agent on TCP port 25226:
+1. Checks that the syslog daemon (rsyslog) is properly configured to send messages that it identifies as CEF (using a regex) to the Log Analytics agent on TCP port 25226:
+
+    - Configuration file: `/etc/rsyslog.d/security-config-omsagent.conf`
+
+            :rawmsg, regex, "CEF\|ASA" ~
+            *.* @@127.0.0.1:25226
+
+1. Checks that the syslog daemon is receiving data on port 514
+
+1. Checks that the necessary connections are established: tcp 514 for receiving data, tcp 25226 for internal communication between the syslog daemon and the Log Analytics agent
+
+1. Sends MOCK data to port 514 on localhost. This data should be observable in the Azure Sentinel workspace by running the following query:
+
+        CommonSecurityLog
+        | where DeviceProduct == "MOCK" |
 
 # [syslog-ng daemon](#tab/syslogng)
 
@@ -95,8 +109,22 @@ The validation script performs the following checks:
 
 1. Checks if there are any security enhancements on the machine that might be blocking network traffic (such as a host firewall).
 
-1. Checks that the syslog daemon (rsyslog or syslog-ng) is properly configured to send messages that it identifies as CEF (using a regex) to the Log Analytics agent on TCP port 25226:
+1. Checks that the syslog daemon (syslog-ng) is properly configured to send messages that it identifies as CEF (using a regex) to the Log Analytics agent on TCP port 25226:
 
+    - Configuration file: `/etc/syslog-ng/conf.d/security-config-omsagent.conf`
+
+            filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
+            destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
+            log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
+
+1. Checks that the syslog daemon is receiving data on port 514
+
+1. Checks that the necessary connections are established: tcp 514 for receiving data, tcp 25226 for internal communication between the syslog daemon and the Log Analytics agent
+
+1. Sends MOCK data to port 514 on localhost. This data should be observable in the Azure Sentinel workspace by running the following query:
+
+        CommonSecurityLog
+        | where DeviceProduct == "MOCK" |
 
 ---
 
