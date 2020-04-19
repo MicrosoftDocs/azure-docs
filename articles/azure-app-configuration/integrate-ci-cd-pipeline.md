@@ -93,4 +93,4 @@ To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](ht
 In this tutorial, you exported Azure App Configuration data to be used in a deployment pipeline. To learn more about how to use App Configuration, continue to the Azure CLI samples.
 
 > [!div class="nextstepaction"]
-> [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/appconfig?view=azure-cli-latest)
+> [Azure CLI](https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest)
