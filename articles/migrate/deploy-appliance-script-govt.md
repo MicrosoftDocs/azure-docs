@@ -8,14 +8,11 @@ ms.date: 04/16/2020
 
 # Set up an appliance in Azure Government 
 
-Follow this article to create an [Azure Migrate appliance](deploy-appliance.md) for VMware VMs, Hyper-V VMs, and physical servers, in an Azure Government cloud. 
+Follow this article to deploy an [Azure Migrate appliance](deploy-appliance.md) for VMware VMs, Hyper-V VMs, and physical servers, in an Azure Government cloud. You run a script to create the appliance, and verify that it can connect to Azure. If you want to set up  an appliance in the public cloud, follow [this article](deploy-appliance-script.md).
 
-
-In this article, you run a script to create an appliance, and verify that it can connect to Azure. 
 
 > [!NOTE]
 > The option to deploy an appliance using a template (for VMware VMs and Hyper-V VMs) isn't supported in Azure Government.
-> If you want to set up the appliance in the public cloud, follow [this article](deploy-appliance-script.md).
 
 
 ## Prerequisites
