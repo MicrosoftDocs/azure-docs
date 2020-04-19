@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 03/24/2020
+ms.date: 04/17/2020
 ---
 
 # Mapping data flow video tutorials
@@ -107,6 +107,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Logging and auditing](https://www.youtube.com/watch?v=UC__LOyuf8M)
 
 [Dynamically optimize data flow cluster size at runtime](https://www.youtube.com/watch?v=jWSkJdtiJNM)
+
+[Optimize data flow start-up times](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
 ## Mapping data flow scenarios
 
