@@ -92,7 +92,7 @@ Microsoft reserves the right to revoke and terminate Marketplace Rewards benefit
 * engage in illegal activity using their marketplace listing.
 * are de-listed from the commercial marketplace. 
 * use their offer to show marketing or other content that violates copyright or trademark laws.
-* violate the policies of the [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/), including, but not limited to, using the Azure sponsorship funding for their own internal operations or bitcoin mining. 
+* violate the policies of the [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/), including, but not limited to, using the Azure sponsorship funding for their own internal operations or Bitcoin mining. 
 
 ### Offer Availability
 
