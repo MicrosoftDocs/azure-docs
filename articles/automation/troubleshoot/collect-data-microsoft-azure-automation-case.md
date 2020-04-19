@@ -21,19 +21,13 @@ ms.author: v-miegge
 
 This article describes some of the basic information that you should gather before you open a case for Azure Automation with Microsoft Azure Support. This information is not required to open the case. However, it can help Microsoft resolve your problem more quickly. Also, you may be asked for this data by the support engineer after you open the case.
 
-## Collect more information
+## Collect basic data
 
-Before you open a case for Microsoft Azure Automation Support, we recommend that you collect the following information.
-
-### Basic data collection
-
-Collect the data described in the following Knowledge Base article:
-
-* [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics) How to capture Azure Automation-scripted diagnostics
+Collect the basic data described in the Knowledge Base article [4034605 - How to capture Azure Automation-scripted diagnostics](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
 ## Collect data depending on issue
  
-### For issues that affect Update Management on Linux
+### Collect data Update Management issues on Linux
 
 1. In addition to the items that are listed in KB [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics), run the following log collection tool:
 
@@ -45,7 +39,7 @@ Collect the data described in the following Knowledge Base article:
  
 3. Verify that the workspace ID the OMS Linux Agent is reporting to, is the same as the workspace being monitored for updates.
 
-### For issues that affect Update Management on Windows
+### Collect data for Update Management issues on Windows
 
 In addition to the items that are listed in [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics), do the following:
 
@@ -59,48 +53,43 @@ In addition to the items that are listed in [4034605](https://support.microsoft.
 
 2. Verify that the workspace ID the agent is reporting to, is the same as the workspace being monitored by Windows Updates.
 
-### For issues that affect a job
+### Collect data for job issues
 
 In addition to the items that are listed in [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics), collect the following information:
 
 1. Collect the **JobID** number (for the job that is experiencing an issue):
 
-   1. At the Azure portal, go to the **Automation Accounts** blade.
-   2. Select the **Automation Account** that you are troubleshooting.
+   1. In the Azure portal, go to **Automation Accounts**.
+   2. Select the Automation account that you are troubleshooting, and note the name.
    3. Select **Jobs**.
-   4. Select the job that you are troubleshooting.
-   5. Under **Job Summary**, look for a **Job ID** (GUID).
+   4. Choose the job that you are troubleshooting.
+   5. In the Job Summary pane, look for the GUID value in **Job ID**.
 
    ![Job ID within Job Summary Pane](media/collect-data-microsoft-azure-automation-case/job-summary-job-id.png)
 
-2. Collect the account name:
+2. Collect a sample of the script that you are running.
 
-   1. At the Azure portal, go to the **Automation Accounts** blade.
-   2. Get the name of the **Automation Account** that you're troubleshooting.
+3. Collect the log files:
 
-3. Collect sample of the script that you are running.
-
-4. Collect the log files:
-
-   1. At the Azure portal, go to the **Automation Accounts** blade.
-   2. Select the **Automation Account** that you are troubleshooting.
+   1. In the Azure portal, go to **Automation Accounts**.
+   2. Select the Automation account that you are troubleshooting.
    3. Select **Jobs**.
-   4. Select the job that you are troubleshooting.
+   4. Choose the job that you are troubleshooting.
    5. Select **All Logs**.
-   6. On the resulting blade, collect the data.
+   6. In the resulting pane, collect the data.
 
    ![Data listed under All Logs](media/collect-data-microsoft-azure-automation-case/all-logs-data.png)
 
-### For issues that affect modules
+### Collect data for module issues
 
-In addition to the items under "Basic data collection", gather the following information:
+In addition to the [basic data items](#collect-basic-data), gather the following information:
 
-* The steps you followed so that the problem can be reproduced.
-* A screenshot of any error messages.
-* A screenshot of the current modules and their version numbers.
+* The steps you have followed, so that the problem can be reproduced.
+* Screenshots of any error messages.
+* Screenshots of the current modules and their version numbers.
 
 ## Next steps
 
-If you need more help at any point in this article, contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/).
+If you need more help, contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/).
 
 Alternatively, file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
