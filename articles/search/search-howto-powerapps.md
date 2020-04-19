@@ -1,5 +1,5 @@
 ---
-title: How to query Azure Cognitive Search from Power Apps
+title: 'Tutorial: Query from Power Apps'
 titleSuffix: Azure Cognitive Search
 description: Step-by-step guidance on how to create custom connector to Cognitive Search and how to visualize it from a Power App
 author: luiscabrer
@@ -7,44 +7,57 @@ manager: eladz
 ms.author: luisca
 ms.service: cognitive-search
 ms.devlang: rest-api
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 03/25/2020
 ---
 
-# How to query a Cognitive Search index from Power Apps
+# Tutorial: Query a Cognitive Search index from Power Apps
 
-This document shows how to create a Power Apps custom connector so that you can retrieve search results from a search index. It also shows how to issue a search query and visualize the results from a Power App. 
+Leverage the rapid application development environment of Power Apps to create a custom app for your searchable content in Azure Cognitive Search.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Connect a Power App to Azure Cognitive Search
+> * Send a query
+> * Visualize results
+
+If you don't have an Azure subscription, open a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
-*    Power Apps account access with the ability to create custom connectors.
-*    We assume you have already created an Azure Search Index.
 
-## Create a custom connector to query Azure Search
++ [Power Apps account](http://make.powerapps.com)
 
-There are two main steps to having a PowerApp that shows Azure Cognitive Search results. First, let's create a connector that can query the search index. In the [next section](#visualize-results-from-the-custom-connector) we will update your Power Apps application to visualize the results returned by the connector.
++ [Hotels-sample index](search-get-started-portal.md)
 
-1. Go to [make.powerapps.com](http://make.powerapps.com) and **Sign In**.
++ [Query API key](search-security-api-keys.md#find-existing-keys)
 
-1. Search for **Data** > **Custom Connectors**
+## 1 - Create a custom connector
+
+A connector in Power Apps is a data source connection. In this step, you'll create a custom connector to connect to a search index in the cloud.
+
+1. [Sign in](http://make.powerapps.com) to Power Apps.
+
+1. On the left, expand **Data** > **Custom Connectors**.
  
     :::image type="content" source="./media/search-howto-powerapps/1-2-custom-connector.png" alt-text="Custom connector menu" border="true":::
 
-1. Click  **+ New custom connector**  and then select **Create from blank**.
+1. Select  **+ New custom connector**, and then select **Create from blank**.
 
     :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Create from blank menu" border="true":::
 
-1. Give your custom connector a name. (that is, *AzureSearchQuery*), and then click **Continue**. This will bring up a wizard to create your new connector.
+1. Give your custom connector a name (for example, *AzureSearchQuery*), and then click **Continue**.
 
-1. Enter information in the General Page.
+1. Enter information in the General Page:
 
     - Icon background color (for instance, #007ee5)
     - Description (for instance, "A connector to Azure Cognitive Search")
-    - In the Host, you will need to enter your search service URL (for instance, `<yourservicename>.search.windows.net`)
+    - In the Host, you will need to enter your search service URL (such as `<yourservicename>.search.windows.net`)
     - For Base URL, simply enter "/"
     
     :::image type="content" source="./media/search-howto-powerapps/1-5-general-info.png" alt-text="General information dialogue" border="true":::
 
-1. In the Security Page, set *API Key* as the **Authentication Type**, set the parameter label, and parameter name fields as *api-key*. For **Parameter location**, select *Header* as shown below.
+1. In the Security Page, set *API Key* as the **Authentication Type**, set both the parameter label and parameter name to *api-key*. For **Parameter location**, select *Header* as shown below.
  
     :::image type="content" source="./media/search-howto-powerapps/1-6-authentication-type.png" alt-text="Authentication type option" border="true":::
 
@@ -52,74 +65,100 @@ There are two main steps to having a PowerApp that shows Azure Cognitive Search 
  
     :::image type="content" source="./media/search-howto-powerapps/1-7-new-action.png" alt-text="New action options" border="true":::
 
-
-1. Press the **+ Import from sample** button to define the parameters and headers. Next, you will define the query request.  
+1. Scroll down. In Requests, select **+ Import from sample** button to configure a query request to your search service:
 
     * Select the verb `GET`
-    * For the URL enter a sample query for your search index, for instance:
-       
-    >https://yoursearchservicename.search.windows.net/indexes/yourindexname/docs?search=*&api-version=2019-05-06-Preview
-    
+
+    * For the URL enter a sample query for your search index (`search=*` returns all documents). The API version is required. Fully specified, a URL might look like this: `https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&api-version=2019-05-06`
+
+    * For Headers, type `Content-Type application/JSON` and `api-key`. 
 
     **Power Apps** will use the syntax to extract parameters from the query. Notice we explicitly defined the search field. 
 
     :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Import from sample" border="false":::
 
-1.  Click **Import** to automatically pre-fill the Request dialog.
+1. Click **Import** to auto-fill the Request.
 
     :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Import from sample dialogue" border="false":::
 
+1. Complete setting the parameter metadata by clicking the **…** symbol next to each of the parameters. Click **Back** to return to the Request page after each parameter update.
 
-1. Complete setting the parameter metadata by clicking the **…** symbol next to each of the parameters.
-
-    - For *search*: Set `*` as the **default value**, set **required** as *false* and set the **visibility** to *none*. 
+    - For *search*: Set `*` as the **default value**, set **required** as *False* and set **visibility** to *none*. 
 
     :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Search parameter metadata" border="true":::
 
-    - For *api-version*: Set `2019-05-06-Preview` as the **default value**, set the **visibility** as internal and set **required** to *True*.  
+    - For *api-version*: Set `2019-05-06` as the **default value**, set **required** to *True*, and set **visibility** as *internal*.  
 
     :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Version parameter metadata" border="true":::
 
-    - Similarly, for *api-key*, set it as **required**, with *internal* **visibility**. Enter your search service API key as the **default value**.
+    - For *api-key*: Set a valid query API key as the **default value**, set **required** to *True*, and set **visibility** as *internal*. You can get a query API key from the Azure portal. For more information, see [Find existing keys](search-security-api-keys.md#find-existing-keys).
     
-    After you make these changes, toggle to the **Swagger Editor** view. In the parameters section you should see the following configuration:    
+    :::image type="content" source="./media/search-howto-powerapps/1-10-3-parameter-metadata-version.png" alt-text="Version parameter metadata" border="true":::
+
+    After making these changes, toggle to the **Swagger Editor** view. In the parameters section you should see the following configuration:
 
     ```
-          parameters:
-          - {name: search, in: query, required: false, type: string, default: '*'}
-          - {name: api-version, in: query, required: true, type: string, default: 2019-05-06-Preview,
-            x-ms-visibility: internal}
-          - {name: api-key, in: header, required: true, type: string, default: YOURKEYGOESHERE,
-            x-ms-visibility: internal}
+    parameters:
+    - {name: search, in: query, required: false, type: string, default: '*'}
+    - {name: api-version, in: query, required: true, type: string, default: 2019-05-06,
+    x-ms-visibility: internal}
+    - {name: api-key, in: header, required: true, type: string, default: YOURKEYGOESHERE,
+    x-ms-visibility: internal}
     ```
 
-1. On the Response section, click **"Add default response"**. This is critical because it will help **Power Apps** understand the schema of the response. Paste a sample response.
+1. Return to the **3. Request** step and scroll down to the Response section. Click **"Add default response"**. This is critical because it will help **Power Apps** understand the schema of the response. 
+
+1. Paste a sample response. The hotels-sample-index has numerous fields. For brevity, use just the search.score, HotelID, HotelName, Description, Category, and Address/City. Below is a sample response that contains these fields.
+
+   ```JSON
+    {
+        "@search.score": 1,
+        "HotelId": "13",
+        "HotelName": "Historic Lion Resort",
+        "Description": "Unmatched Luxury. Visit our downtown hotel to indulge in luxury accommodations. Moments from the stadium, we feature the best in comfort.",
+        "Category": "Luxury",
+        "Address": {
+            "City": "St. Louis"
+            }
+        }
+   ```
 
     > [!TIP] 
-    > There is a character limit to the JSON response you can enter, so you may want to simplify the JSON so that it before pasting it. The important aspect schema/format of the response. The actual values in the sample response are less important and can be simplified to reduce the character count.
-    
+    > There is a character limit to the JSON response you can enter, so you may want to simplify the JSON before pasting it. The schema and format of the response is more important than the values. For example, the Description field could be simplified to just the first sentence.
 
-1.    Click the **Create connector** button on the top right of the screen before you can Test it.
+1. Click **Create connector** on the top right.
 
-1.  In the Test Page, click the **+ New Connection**, and enter your search service query key as the value for *api-key*.
+## Test the connection
 
-    This step may take you to the out of the wizard and into the Connections page. You may want to go back to the Custom Connections editor to actually test the connection. Go to **Custom Connector** > Select the newly created Connector > *…* > **View Properties** > **Edit** > **4. Test** to get back to the test page.
+After the connector is created, test it using the following steps.
 
-1.    Now click **Test operation** to make sure that you are getting results from your index. If you were successful you should see a 200 status, and in the body of the response you should see JSON that describes your search results.
+1. On the far left, click **Custom Connectors**.
 
+1. Search for the connector by name (in this tutorial, is "AzureSearchQuery").
 
+1. Select the connector, expand the actions list, and select **View Properties**.
 
+    :::image type="content" source="./media/search-howto-powerapps/1-11-1-test-connector.png" alt-text="View Properties" border="true":::
 
-## Visualize results from the custom connector
-The goal of this tutorial is not to show you how to create fancy user experiences with power apps, so the UI layout will be minimalistic. Let's create a PowerApp with a search box, a search button and display the results in a gallery control.  The PowerApp will connect to our recently created custom connector to get the data from Azure Search.
+1. Select **Edit** on the top right.
 
-1. Create new Power App. Go to the **Apps** section, click on **+ New app**, and select **Canvas**.
+1. Select **4. Test** to open the test page.
+
+1. Click **Test operation**. If you are successful you should see a 200 status, and in the body of the response you should see JSON that describes the search results.
+
+    :::image type="content" source="./media/search-howto-powerapps/1-11-2-test-connector.png" alt-text="JSON response" border="true":::
+
+## Visualize results
+
+In this step, create a Power App with a search box, a search button, and a display area for the results. The Power App will connect to the recently created custom connector to get the data from Azure Search.
+
+1. On the left, expand **Apps** > **+ New app** > **Canvas**.
 
     :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Create canvas app" border="true":::
 
-1. Select the type of application you would like. For this tutorial create a **Blank App** with the **Phone Layout**. The **Power Apps Studio** will appear.
+1. Select the type of application. For this tutorial, create a **Blank App** with the **Phone Layout**. The **Power Apps Studio** will appear.
 
-1. Once in the studio, select the **Data Sources**  tab, and click on the new Connector you have just created. In our case, it is called *AzureSearchQuery*. Click **Add a connection**.
+1. Once in the studio, select the **Data Sources** tab, and click on the new Connector you have just created. In our case, it is called *AzureSearchQuery*. Click **Add a connection**.
 
     :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="connect connector" border="true":::
 
@@ -162,14 +201,26 @@ The goal of this tutorial is not to show you how to create fancy user experience
     
     :::image type="content" source="./media/search-howto-powerapps/2-7-gallery-select-fields.png" alt-text="Gallery fields" border="true":::   
  
-1.  Press **F5** to preview the app.  
+1. Press **F5** to preview the app.  
 
-    Remember that the fields can be set to calculated values.      
+    Remember that the fields can be set to calculated values.
+
     For the example, setting using the *"Image, Title and Subtitle"* layout and specifying the *Image* function as the concatenation of the root path for the data and the file name (for instance, `"https://mystore.blob.core.windows.net/multilang/" & ThisItem.metadata_storage_name`) will produce the result below.
 
     :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Final app" border="true":::        
 
+## Clean up resources
+
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+
+If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
+
 ## Next steps
 
-For more information and online training, see [Power Apps Learning Catalog](https://docs.microsoft.com/powerapps/learning-catalog/get-started).
+Power Apps supports rapid application development of custom apps. Now that you know how to connect a Power App to a search index, see what else you can do with visualizations and business logic in a custom app based on your searchable content.
+
+> [!div class="nextstepaction"]
+> [Power Apps Learning Catalog](https://docs.microsoft.com/powerapps/learning-catalog/get-started)
 
