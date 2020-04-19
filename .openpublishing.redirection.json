@@ -33548,8 +33548,13 @@
     },
     {
       "source_path": "articles/active-directory/pim-azure-resource.md",
-      "redirect_url": "/azure/role-based-access-control/pim-azure-resource",
-      "redirect_document_id": true
+      "redirect_url": "/azure/role-based-access-control/best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/role-based-access-control/pim-azure-resource.md",
+      "redirect_url": "/azure/role-based-access-control/best-practices",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/role-based-access-control-resource-provider-operations.md",
