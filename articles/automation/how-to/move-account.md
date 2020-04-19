@@ -1,6 +1,6 @@
 ---
 title: Move your Azure Automation account to another subscription
-description: This article describes how to move your Automation account to another subscription
+description: This article describes how to move your Automation account to another subscription.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -12,37 +12,39 @@ manager: carmonm
 ---
 # Move your Azure Automation account to another subscription
 
-Azure provides you the ability to move some resources to a new resource group or subscription. You can move resources through the Azure portal, PowerShell, the Azure CLI, or the REST API. To learn more about the process, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
+Azure Automation allows you to move some resources to a new resource group or subscription. You can move resources through the Azure portal, PowerShell, the Azure CLI, or the REST API. To learn more about the process, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-Azure Automation accounts are one of the resources that can be moved. In this article, you'll learn the steps to move Automation accounts to another resource or subscription.
-
-The high-level steps to moving your Automation account are:
+Azure Automation accounts are one of the resources that can be moved. In this article, you'll learn the steps to move Automation accounts to another resource or subscription. The high-level steps to moving your Automation account are:
 
 1. Remove your solutions.
 2. Unlink your workspace.
 3. Move the Automation account.
-4. Delete and re-create the Run As accounts.
+4. Delete and recreate the Run As accounts.
 5. Re-enable your solutions.
+
+>[!NOTE]
+>This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
 
 ## Remove solutions
 
 To unlink your workspace from your Automation account, these solutions must be removed from your workspace:
-- **Change Tracking and Inventory**
-- **Update Management**
-- **Start/Stop VMs during off hours**
 
-In your resource group, find each solution and select **Delete**. On the **Delete Resources** page, confirm the resources to be removed, and select **Delete**.
+- Change Tracking and Inventory
+- Update Management
+- Start/Stop VMs during off hours
+
+In your resource group, find each solution and select **Delete**. On the Delete Resources page, confirm the resources to be removed, and select **Delete**.
 
 ![Delete solutions from the Azure portal](../media/move-account/delete-solutions.png)
 
-You can accomplish the same task with the [Remove-AzureRmResource](/powershell/module/azurerm.resources/remove-azurermresource) cmdlet as shown in the following example:
+You can accomplish the same task with the [Remove-AzResource](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0) cmdlet as shown in the following example:
 
 ```azurepowershell-interactive
 $workspaceName = <myWorkspaceName>
 $resourceGroupName = <myResourceGroup>
-Remove-AzureRmResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "ChangeTracking($workspaceName)" -ResourceGroupName $resourceGroupName
-Remove-AzureRmResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Updates($workspaceName)" -ResourceGroupName $resourceGroupName
-Remove-AzureRmResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM($workspaceName)" -ResourceGroupName $resourceGroupName
+Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "ChangeTracking($workspaceName)" -ResourceGroupName $resourceGroupName
+Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Updates($workspaceName)" -ResourceGroupName $resourceGroupName
+Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM($workspaceName)" -ResourceGroupName $resourceGroupName
 ```
 
 ### Additional steps for Start/Stop VMs
@@ -53,7 +55,7 @@ In the Azure portal, go to your resource group and select **Monitoring** > **Ale
 
 ![Alerts page showing selection of Manage Alert rules](../media/move-account/alert-rules.png)
 
-On the **Rules** page, you should see a list of the alerts configured in that resource group. The **Start/Stop VMs** solution creates three alert rules:
+On the Rules page, you should see a list of the alerts configured in that resource group. The **Start/Stop VMs** solution creates three alert rules:
 
 * AutoStop_VM_Child
 * ScheduledStartStop_Parent
@@ -64,20 +66,20 @@ Select these three alert rules, and then select **Delete**. This action will rem
 ![Rules page requesting confirmation of deletion for selected rules](../media/move-account/delete-rules.png)
 
 > [!NOTE]
-> If you don't see any alert rules on the **Rules** page, change the **Status** to show **Disabled** alerts, because you might have disabled them.
+> If you don't see any alert rules on the Rules page, change the **Status** to Disabled to show disabled alerts, because you might have disabled them.
 
 When the alert rules are removed, remove the action group that was created for the **Start/Stop VMs** solution notifications.
 
 In the Azure portal, select **Monitor** > **Alerts** > **Manage action groups**.
 
 Select **StartStop_VM_Notification** from the list. On the action group page, select **Delete**.
-
+A
 ![Action group page, select delete](../media/move-account/delete-action-group.png)
 
-Similarly, you can delete your action group by using PowerShell with the [Remove-AzureRmActionGroup](/powershell/module/azurerm.insights/remove-azurermactiongroup) cmdlet, as seen in the following example:
+Similarly, you can delete your action group by using PowerShell with the [Remove-AzActionGroup](https://docs.microsoft.com/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0) cmdlet, as seen in the following example:
 
 ```azurepowershell-interactive
-Remove-AzureRmActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification
+Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification
 ```
 
 ## Unlink your workspace
@@ -104,7 +106,7 @@ Go to your Automation account in the new subscription and select **Run as accoun
 
 ![Run As accounts are incomplete](../media/move-account/run-as-accounts.png)
 
-Select each Run As account. On the **Properties** page, select **Delete** to delete the Run As account.
+Select each Run As account. On the Properties page, select **Delete** to delete the Run As account.
 
 > [!NOTE]
 > If you do not have permissions to create or view the Run As accounts, you'll see the following message: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` To learn about the permissions required to configure a Run As account, see [Permissions required to configure Run As accounts](../manage-runas-account.md#permissions).
@@ -121,7 +123,7 @@ Machines that are onboarded with your solutions will be visible when you've conn
 
 To turn on the **Start/Stop VMs** during off-hours solution, you'll need to redeploy the solution. Under **Related Resources**, select **Start/Stop VMs** > **Learn more about and enable the solution** > **Create** to start the deployment.
 
-On the **Add Solution** page, choose your Log Analytics Workspace and Automation account.
+On the Add Solution page, choose your Log Analytics workspace and Automation account.
 
 ![Add Solution menu](../media/move-account/add-solution-vm.png)
 

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2019
+ms.date: 04/19/2020
 ms.author: allensu
 
 ---
@@ -24,7 +24,7 @@ ms.author: allensu
 > 
 
 
-This article lists current Metros containing point-of-presence (POP) locations, sorted by region, for Azure Content Delivery Network (CDN) products. Each Metro may contain more than one POP. For example, Azure CDN from Microsoft has 130 POPs across 80 Metros. 
+This article lists current Metros containing point-of-presence (POP) locations, sorted by region, for Azure Content Delivery Network (CDN) products. Each Metro may contain more than one POP. For example, Azure CDN from Microsoft has 130 POPs across 81 Metros. 
 
 > [!IMPORTANT]
 > POP city locations for **Azure CDN from Akamai** are not individually disclosed.  
@@ -38,7 +38,7 @@ This article lists current Metros containing point-of-presence (POP) locations, 
 | South America | Campinas, Brazil<br />Rio de Janeiro, Brazil<br />Sao Paulo, Brazil<br />Santiago, Chile | Buenos Aires, Argentina<br />Rio de Janeiro, Brazil<br />São Paulo, Brazil<br />Valparaíso, Chile<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Argentina<br />Brazil<br />Chile<br />Columbia<br />Ecuador<br />Peru<br />Uruguay |
 | Europe | Vienna, Austria<br />Brussels, Belgium<br />Sofia, Bulgaria<br />Zagreb, Croatia<br />Prague, Czech Republic<br />Copenhagen, Denmark<br /> Helsinki, Finland<br /> Oslo, Norway<br />Marseille, France<br />Paris, France<br />Berlin, Germany<br />Frankfurt, Germany<br />Athens, Greece<br />Budapest, Hungary<br />Dublin, Ireland<br />Milan, Italy<br />Amsterdam, Netherlands<br />Warsaw, Poland<br />Lisbon, Portugal<br />Bucharest, Romania<br />Barcelona, Spain<br />Madrid, Spain<br />Stockholm, Sweden<br />Zurich, Switzerland<br />London, UK<br />Manchester, UK | Vienna, Austria<br />Copenhagen, Denmark<br />Helsinki, Finland<br />Marseille, France<br />Paris, France<br />Frankfurt, Germany<br />Milan, Italy<br />Riga, Latvia<br />Amsterdam, Netherlands<br />Warsaw, Poland<br />Madrid, Spain<br />Stockholm, Sweden<br />London, UK | Austria<br />Bulgaria<br />Denmark<br />Finland<br />France<br />Germany<br />Greece<br />Ireland<br />Italy<br />Netherlands<br />Poland<br />Russia<br />Spain<br />Sweden<br />Switzerland<br />United Kingdom |
 | Africa | Cape Town, South Africa<br />Johannesburg, South Africa<br />Lagos, Nigeria<br />Nairobi, Kenya | Johannesburg, South Africa | South Africa |
-| Middle East | Dubai, United Arab Emirates | Muscat, Oman<br />Fujirah, United Arab Emirates | Qatar<br />United Arab Emirates |
+| Middle East | Dubai, United Arab Emirates<br />Tel Aviv, Israel | Muscat, Oman<br />Fujirah, United Arab Emirates | Qatar<br />United Arab Emirates |
 | India | Chennai, India<br />Hyderabad, India<br />Mumbai, India<br />New Delhi, India | Bengaluru (Bangalore), India<br />Chennai, India<br />Mumbai, India<br />New Delhi, India<br /> | India |
 | Asia | Hong Kong<br />Osaka, Japan<br />Tokyo, Japan<br />Kuala Lumpur, Malaysia<br />Jakarta, Indonesia<br />Manila, Philippines<br />Singapore<br />Busan, South Korea<br />Seoul, South Korea<br />Taipei, Taiwan<br />Bangkok, Thailand<br />Saigon, Vietnam | Hong Kong<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, South Korea<br />Kaohsiung, Taiwan<br />Taipei, Taiwan | Hong Kong<br />Indonesia<br />Israel<br />Japan<br />Macau<br />Malaysia<br />Philippines<br />Singapore<br />South Korea<br />Taiwan<br />Thailand<br />Turkey<br />Vietnam |
 | Australia and New Zealand | Brisbane, Australia<br />Melbourne, Australia<br />Perth, Australia<br />Sydney, Australia<br />Auckland, New Zealand | Melbourne, Australia<br />Sydney, Australia<br />Auckland, New Zealand | Australia<br />New Zealand |
