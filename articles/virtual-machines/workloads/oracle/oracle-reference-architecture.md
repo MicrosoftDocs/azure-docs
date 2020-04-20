@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2019
-ms.author: BorisB2015
+ms.author: borisb
 ms.custom: 
 ---
 # Reference architectures for Oracle Database Enterprise Edition on Azure
