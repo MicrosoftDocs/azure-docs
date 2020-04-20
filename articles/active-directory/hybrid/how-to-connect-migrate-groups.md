@@ -29,9 +29,9 @@ Starting in version 1.5.18.0, Azure AD Connect supports the use of the `mS-DS-Co
 
 During a cross-forest move, when a group object is moving from one forest (say F1) to another forest (say F2), you need to copy either the `mS-DS-ConsistencyGuid` value (if it's present) or the `objectGUID` value from the object in forest F1 to the `mS-DS-ConsistencyGuid` attribute of the object in F2.
 
-Use the following scripts as a guide to learn how to migrate a single group from one forest to another. You can also use these scripts as a guide for migration of multiple groups. The scripts use the forest name F1 for the source forest and F2 for the destination forest.
+Use the following scripts as a guide to learn how to migrate a single group from one forest to another. You can also use these scripts as a guide for the migration of multiple groups. The scripts use the forest name F1 for the source forest and F2 for the destination forest.
 
-First, we get the `objectGUID` and `mS-DS-ConsistencyGuid` of the group object in forest F1. These attributes are exported to a CSV file:
+First, we get the `objectGUID` and `mS-DS-ConsistencyGuid` of the group object in forest F1. These attributes are exported to a CSV file.
 ```
 <#
 DESCRIPTION
@@ -39,7 +39,7 @@ DESCRIPTION
 This script will take DN of a group as input.
 It then copies the objectGUID and mS-DS-ConsistencyGuid values along with other attributes of the given group to a CSV file.
 
-This CSV file can then be used as input to Export-Group script.
+This CSV file can then be used as input to the Export-Group script.
 #>
 Param(
        [ValidateNotNullOrEmpty()]
