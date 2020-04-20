@@ -41,7 +41,7 @@ To create a new notebook:
 1. Select the  **Create new file** icon above the list **User files** in the **My files** section.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Create new file":::
-    
+
 1. Name the file. 
 1. For Jupyter Notebook Files, select **Python Notebook** as the file type.
 1. Select a file directory.
@@ -68,25 +68,18 @@ To access the terminal:
 1. On the left side, select **Notebooks**.
 1. Select any notebook located in the **User files** section on the left-hand side.  If you don't have any notebooks there, first [create a notebook](#create)
 1. Select a **Compute** target or create a new one and wait until it is running.
-1. Select the **...** to the right of the compute target.
-1. Select **Open terminal** .
+1. Select the **Open terminal** icon.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Open terminal":::
+        :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Open terminal":::
+
+1. If you don't see the icon, select the **...** to the right of the compute target and then select **Open terminal** .
+
+        :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Open terminal from ...":::
+
 
 
 Learn more about [cloning Git repositories into your workspace file system](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
 
-### Save notebooks and checkpoint
-
-Azure Machine Learning creates a checkpoint file when you create an *ipynb* file.  
-
-In the notebook toolbar, select the menu and then **File>Save** to manually save the notebook. The save also updates the checkpoint file associated with the notebook.
-
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Save a notebook":::
-
-Every notebook is autosaved every 30 seconds. Autosaves update only the initial *ipynb* file, not the checkpoint file.
-
-Use the **Terminal** to access the checkpoint file.  This file is located within a hidden folder named *.ipynb_checkpoints*, located within the same folder as the initial *ipynb* file.
 
 ### Share notebooks and other files
 
