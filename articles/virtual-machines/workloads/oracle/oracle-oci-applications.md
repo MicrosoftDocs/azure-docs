@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
-ms.author: BorisB2015
+ms.author: borisb
 ms.custom: 
 ---
 # Architectures to deploy Oracle applications on Azure
