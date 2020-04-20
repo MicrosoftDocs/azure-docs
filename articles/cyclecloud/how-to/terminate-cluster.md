@@ -8,7 +8,9 @@ ms.author: adjohnso
 
 # Terminate a Cluster
 
-You can terminate a cluster when it has completed all the submitted jobs and the cluster is no longer needed. Terminating the cluster will free up resources associated with the cluster.
+You can terminate a cluster when it has completed all the submitted jobs and the cluster is no longer needed. Terminating the cluster will stop and remove the virtual machines and delete any non­-persistent volumes in the cluster. Nodes that originate from a nodearray are removed, while other nodes remain in the cluster in the `Off` state.
+
+Terminating is an orchestration process. Cluster nodes will move into the `Terminating` state and then to `Off` if the termination was successful. If there is an error during the process, that node will be marked as `Failed`, and can be retried.
 
 ## Terminate via CycleCloud GUI
 
@@ -18,7 +20,7 @@ Click **Terminate** in the CycleCloud GUI to shut down all of the cluster's infr
 
 ## Terminate via CycleCloud CLI
 
-The CycleCloud CLI can also terminate clusters:
+The CycleCloud CLI can also [terminate clusters](~/cli.md#cyclecloud-terminate_cluster):
 
 ```bash
 cyclecloud terminate_cluster my_cluster_name

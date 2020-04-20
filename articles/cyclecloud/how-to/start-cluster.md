@@ -1,47 +1,42 @@
 ---
 title: Starting a Cluster
 description: Clusters and Cluster Status in Azure CycleCloud.
-author: KimliW
-ms.date: 08/01/2018
+author: adriankjohnson
+ms.date: 03/30/2020
 ms.author: adjohnso
 ---
 
 # Start a Cluster
 
-Azure CycleCloud has predefined cluster types built into the software. Users can select parameters via the GUI to start a predefined cluster, or create their own in a text file and import it into Azure CycleCloud using the CLI.
+Once a cluster has been created via the UI or is imported, it can be started either through the UI or the CycleCloud CLI. Starting a cluster will acquire instances from Azure, configure the instances as defined in the cluster template and notify CycleCloud once the node is ready for use.
 
-When the cluster is started, CycleCloud runs through the orchestration sequence for each node defined in the cluster: it requests an instance from the cloud provider, waits for the instance to be
-acquired, configures the instance as defined in the cluster template, and executes
-the initialization sequence specified in the cluster-init package. When the orchestration
-sequence is complete, the node is in the `Started` state. If an unhandled or unknown error happens during this process, the node will be in the `Error` state.
+## Starting via CycleCloud GUI
 
-There are several intermediate states a node can be in while being started, so the progress is
-summarized as one of the following Status groups:
+Select the cluster you want to start in the sidebar, click on **Start** and then confirm. The cluster nodes will move into the *Acquiring* state and will work their way through the orchestration phases. If a node encounters an error during orchestration and has failed, the error will be logged in
+the event log on the Clusters page. You can edit your node settings and retry the operation.
 
-- *Off* (gray): No instance is active or being acquired.
-- *Acquiring* (yellow): The instance is being requested from the cloud provider.
-- *Preparing* (blue): The instance is being configured.
-- *Ready* (green): The instance is up and running.
-- *Deallocated* (dark gray): The instance has been stopped and the VM has been deallocated.
-- *Failed* (red): An orchestration phase has failed during starting or terminating the node.
+:::image type="content" source="~/images/start-cluster.png" alt-text="start cluster dialog":::
 
-Azure will not start billing you for an instance while it is being acquired.
-If an instance that meets your requirements is not available, you may wait indefinitely for
-one to be provisioned. Billing for resources typically begins when the instance
-enters the “Preparing” phase, while CycleCloud is installing your software and configuring the
-instance to run your workloads.
+## Starting via CycleCloud CLI
 
-If a node encounters an error during orchestration and has failed, the error will be logged in
-the event log on the Clusters page. You can retry the operation, or edit your node settings.
+The CycleCloud CLI can also [start clusters](~/cli.md#cyclecloud-start_cluster):
 
-Clusters imported with the command line tool are immediately available as resources in CycleCloud.
-The CycleCloud command line tool also supports importing clusters as templates that may be used to
-create additional clusters through the web interface.
+```bash
+cyclecloud start_cluster my_cluster_name
+```
 
-You may log on to a node that is in the “Preparing” or “Ready” phase. CycleCloud provides two convenient methods to connect to instances: the “Connect” button on the Nodes tab in the web interface, and via the command line tool. From the web user interface, the “Connect” button displays instructions on initiating ssh or RDP connections. The command line command `cyclecloud connect <nodename>` initiates an ssh connection on Linux, or an RDP session on Windows.
+## Node Orchestration
 
-Finally, terminating the cluster will stop and remove the instances and delete any non­-persistent
-volumes in the cluster. Nodes that originate from a nodearray are removed, while other nodes
-remain in the cluster in the Off state. Terminating is also an orchestration process, with a
-status of Terminating, then Off. If there is an error during the process, that node will be marked
-as Failed, and can be retried.
+When the cluster is started, CycleCloud runs through the orchestration sequence for each node defined in the cluster: it requests a virtual machine from the cloud provider, waits for the VM to be acquired, configures the VM as defined in the cluster template, and executes the initialization sequence specified in the project. When the orchestration sequence is complete, the node is in the `Started` state. If an unhandled or unknown error happens during this process, the node will be in the `Error` state.
+
+There are several intermediate states a node moves through once started:
+
+- *Off*: No virtual machine is active or being acquired.
+- *Acquiring*: The virtual machine is being requested from the cloud provider.
+- *Preparing*: The virtual machine is being configured.
+- *Ready*: The virtual machine is up and running.
+- *Deallocated*: The virtual machine has been stopped and the VM has been deallocated.
+- *Terminated*: The virtual machine for this node has been deleted
+- *Failed*: An orchestration phase has failed during starting or terminating the node.
+
+Azure will not start billing you for a VM while it is being acquired. If a VM that meets your requirements is not available, you may wait indefinitely for one to be provisioned. Billing for resources typically begins when the instance enters the `Preparing` phase, while CycleCloud is installing your software and configuring the instance to run your workloads. You may [connect to a node](connect-to-node.md) that is in the `Preparing` or `Ready` phase.
