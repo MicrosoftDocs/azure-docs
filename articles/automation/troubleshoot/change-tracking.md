@@ -10,7 +10,7 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Troubleshoot Change Tracking and Inventory
+# Troubleshoot Change Tracking and Inventory issues
 
 This article describes how to troubleshoot Change Tracking and Inventory issues.
 

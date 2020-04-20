@@ -173,5 +173,4 @@ Set-AzAutomationSchedule –AutomationAccountName $automationAccountName `
 
 ## Next steps
 
-* To get started with runbooks in Azure Automation, see [Starting a Runbook in Azure Automation](../automation-starting-a-runbook.md)
-
+* To get started with runbooks in Azure Automation, see [Starting a Runbook in Azure Automation](../automation-starting-a-runbook.md).
