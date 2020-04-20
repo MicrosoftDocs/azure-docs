@@ -159,7 +159,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Meraki Dashboard Configuration](./media/meraki-dashboard-tutorial/configure3.png)
 
-1. Paste the **Thumbprint** Value, which you have copied from the Azure portal into **X.590 cert SHA1 fingerprint** textbox. Then click **Save**.
+1. Paste the **Thumbprint** Value, which you have copied from the Azure portal into **X.590 cert SHA1 fingerprint** textbox. Then click **Save**. After saving, the Consumer URL will show up. Copy Consumer URL value and paste this into **Reply URL** textbox in the **Basic SAML Configuration Section** in the Azure portal.
 
     ![Meraki Dashboard Configuration](./media/meraki-dashboard-tutorial/configure4.png)
 
