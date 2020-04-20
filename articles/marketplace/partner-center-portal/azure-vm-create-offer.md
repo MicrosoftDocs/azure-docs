@@ -57,11 +57,11 @@ Your engineering team should understand the following Microsoft technologies:
 
 Before you can create an Azure virtual machine offer, you must have a commercial marketplace account in Partner Center. If you haven't created one yet, see [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
 
-1. Log in to [Partner Center](https://partner.microsoft.com/dashboard/home), and then from the top menu, select **Dashboard**.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home), and then from the top menu, select **Dashboard**.
 2. In the left-nav bar, select **Commercial Marketplace**, then **Overview**.
 3. On the **Overview** page, select **+ New offer**, then **Azure Virtual Machine**. The **New offer** dialog box appears.
 
-![Illustrates the Overview page in Partner Center with the New offer button and Azure Virtual Machine offer selected.](media/avm-create7.png)
+    ![Illustrates the Overview page in Partner Center with the New offer button and Azure Virtual Machine offer selected.](media/avm-create7.png)
 
 ## Offer ID and alias
 

@@ -261,7 +261,7 @@ You can install the Eclipse plug-in for Service Fabric from within the Eclipse I
 
 2. To install the Service Fabric plug-in, select **Help** > **Install New Software**.
 
-3. In the **Work with** box, enter **https://dl.microsoft.com/eclipse**.
+3. In the **Work with** box, enter **https:\//dl.microsoft.com/eclipse**.
 
 4. Select **Add**.
 
