@@ -19,12 +19,12 @@ Use the Language Understanding (LUIS) prediction client library for Python to:
 * Get prediction by version
 
 [Reference documentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [Prediction runtime Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [ Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/LUIS)
-* A LUIS app ID - use the public IoT app ID of `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. The user query used in the quickstart code is specific to that app.
 
 ## Prerequisites
 
 * Language Understanding (LUIS) portal account - [Create one for free](https://www.luis.ai)
 * [Python 3.x](https://www.python.org/)
+* A LUIS app ID - use the public IoT app ID of `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. The user query used in the quickstart code is specific to that app.
 
 ## Setting up
 
