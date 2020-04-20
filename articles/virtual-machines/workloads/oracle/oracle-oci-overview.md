@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/16/2020
-ms.author: BorisB2015
+ms.author: borisb
 ms.custom: 
 ---
 # Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure
