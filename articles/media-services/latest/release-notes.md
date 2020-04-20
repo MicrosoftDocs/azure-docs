@@ -37,7 +37,7 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 ### Improvements in documentation
 
-Azure Media Player docs were migrated to the [Azure documentation](../media-services/azure-media-player/TOC.yml).
+Azure Media Player docs were migrated to the [Azure documentation](../media-services/azure-media-player/azure-media-player-overview.md).
 
 ## January 2020
 
