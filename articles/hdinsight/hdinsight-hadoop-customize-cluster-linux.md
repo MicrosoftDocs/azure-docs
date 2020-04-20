@@ -1,12 +1,12 @@
 ---
 title: Customize Azure HDInsight clusters by using script actions
-description: Add custom components to HDInsight clusters by using script actions. Script actions are Bash scripts that can be used to customize the cluster configuration or add additional services and utilities like Hue, Solr, or R.
+description: Add custom components to HDInsight clusters by using script actions. Script actions are Bash scripts that can be used to customize the cluster configuration. Or add additional services and utilities like Hue, Solr, or R.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/20/2020
 ---
 
 # Customize Azure HDInsight clusters by using script actions
@@ -28,7 +28,7 @@ For more information on working with permissions with domain-joined HDInsight, s
 
 If you aren't the administrator or owner of your Azure subscription, your account must have at least Contributor access to the resource group that contains the HDInsight cluster.
 
-If you create an HDInsight cluster, someone with at least Contributor access to the Azure subscription must have previously registered the provider for HDInsight. Provider registration happens when a user with Contributor access to the subscription creates a resource for the first time on the subscription. It can also be done without creating a resource if you [register a provider by using REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
+Someone with at least Contributor access to the Azure subscription must have previously registered the provider. Provider registration happens when a user with Contributor access to the subscription creates a resource. For without creating a resource, see [register a provider by using REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
 Get more information on working with access management:
 
@@ -57,11 +57,11 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. C
 
 * Can be restricted to run on only certain node types. Examples are head nodes or worker nodes.
 
-* Can be persisted or ad hoc.
+* Can be persisted or `ad hoc`.
 
     Persisted script actions must have a unique name. Persisted scripts are used to customize new worker nodes added to the cluster through scaling operations. A persisted script might also apply changes to another node type when scaling operations occur. An example is a head node.
 
-    Ad hoc scripts aren't persisted. Script actions used during cluster creation are automatically persisted. They aren't applied to worker nodes added to the cluster after the script has run. Then you can promote an ad hoc script to a persisted script or demote a persisted script to an ad hoc script. Scripts that fail aren't persisted, even if you specifically indicate that they should be.
+    `Ad hoc` scripts aren't persisted. Script actions used during cluster creation are automatically persisted. They aren't applied to worker nodes added to the cluster after the script has run. Then you can promote an `ad hoc` script to a persisted script or demote a persisted script to an `ad hoc` script. Scripts that fail aren't persisted, even if you specifically indicate that they should be.
 
 * Can accept parameters that are used by the script during execution.
 
@@ -88,7 +88,7 @@ The following diagram illustrates when script action runs during the creation pr
 
 The script runs while HDInsight is being configured. The script runs in parallel on all the specified nodes in the cluster. It runs with root privileges on the nodes.
 
-You can perform operations like stopping and starting services, including Apache Hadoop-related services. If you stop services, make sure that the Ambari service and other Hadoop-related services are running before the script finishes. These services are required to successfully determine the health and state of the cluster while it's being created.
+You can do operations like stopping and starting services, including Apache Hadoop-related services. If you stop services, ensure Ambari and other Hadoop-related services are running before the script finishes. These required services determine the health and state of the cluster while it's being created.
 
 During cluster creation, you can use many script actions at once. These scripts are invoked in the order in which they were specified.
 
@@ -99,7 +99,7 @@ During cluster creation, you can use many script actions at once. These scripts 
 
 ### Script action on a running cluster
 
-A failure in a script run on an already running cluster doesn't automatically cause the cluster to change to a failed state. After a script finishes, the cluster should return to a running state. Even if the cluster has a running state, the failed script might have broken things. For example, a script might delete files needed by the cluster.
+A script failure on an already running cluster doesn't automatically cause the cluster to change to a failed state. After a script finishes, the cluster should return to a running state. Even if the cluster has a running state, the failed script might have broken things. For example, a script might delete files needed by the cluster.
 
 Scripts actions run with root privileges. Ensure you understand what a script does before you apply it to your cluster.
 
@@ -291,7 +291,7 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [Apply a
 
     ![Script actions properties promote](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-1. You can also select the ellipsis, **...**, to the right of entries on the script actions section to perform actions.
+1. You can also select the ellipsis, **...**, to the right of entries on the script actions section to do actions.
 
     ![Persisted script actions delete](./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png)
 
@@ -299,10 +299,10 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [Apply a
 
 | cmdlet | Function |
 | --- | --- |
-| `Get-AzHDInsightPersistedScriptAction` |Retrieve information on persisted script actions. This cmdlet doesn't undo the actions performed by a script, it only removes the persisted flag.|
+| `Get-AzHDInsightPersistedScriptAction` |Retrieve information on persisted script actions. This cmdlet doesn't undo the actions done by a script, it only removes the persisted flag.|
 | `Get-AzHDInsightScriptActionHistory` |Retrieve a history of script actions applied to the cluster or details for a specific script. |
-| `Set-AzHDInsightPersistedScriptAction` |Promote an ad hoc script action to a persisted script action. |
-| `Remove-AzHDInsightPersistedScriptAction` |Demote a persisted script action to an ad hoc action. |
+| `Set-AzHDInsightPersistedScriptAction` |Promote an `ad hoc` script action to a persisted script action. |
+| `Remove-AzHDInsightPersistedScriptAction` |Demote a persisted script action to an `ad hoc` action. |
 
 The following example script demonstrates using the cmdlets to promote and then demote a script.
 
@@ -312,12 +312,12 @@ The following example script demonstrates using the cmdlets to promote and then 
 
 | Command | Description |
 | --- | --- |
-| [az hdinsight script-action delete](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-delete) |Deletes a specified persisted script action of the cluster. This command doesn't undo the actions performed by a script, it only removes the persisted flag.|
-|[az hdinsight script-action execute](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute)|Execute script actions on the specified HDInsight cluster.|
-| [az hdinsight script-action list](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list) |Lists all the persisted script actions for the specified cluster. |
-|[az hdinsight script-action list-execution-history](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list-execution-history)|Lists all scripts' execution history for the specified cluster.|
-|[az hdinsight script-action promote](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-promote)|Promotes the specified ad-hoc script execution to a persisted script.|
-|[az hdinsight script-action show-execution-details](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-show-execution-details)|Gets the script execution detail for the given script execution ID.|
+| [`az hdinsight script-action delete`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-delete) |Deletes a specified persisted script action of the cluster. This command doesn't undo the actions done by a script, it only removes the persisted flag.|
+|[`az hdinsight script-action execute`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute)|Execute script actions on the specified HDInsight cluster.|
+| [`az hdinsight script-action list`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list) |Lists all the persisted script actions for the specified cluster. |
+|[`az hdinsight script-action list-execution-history`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list-execution-history)|Lists all scripts' execution history for the specified cluster.|
+|[`az hdinsight script-action promote`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-promote)|Promotes the specified ad-hoc script execution to a persisted script.|
+|[`az hdinsight script-action show-execution-details`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-show-execution-details)|Gets the script execution detail for the given script execution ID.|
 
 ### HDInsight .NET SDK
 
@@ -329,13 +329,13 @@ Apply a Script Action against a running Linux-based HDInsight cluster](https://g
 
 ## Support for open-source software
 
-The Microsoft Azure HDInsight service uses an ecosystem of open-source technologies formed around Apache Hadoop. Microsoft Azure provides a general level of support for open-source technologies. For more information, see the **Support Scope** section of [Azure Support FAQs](https://azure.microsoft.com/support/faq/). The HDInsight service provides an additional level of support for built-in components.
+The Microsoft Azure HDInsight service uses an environment of open-source technologies formed around Apache Hadoop. Microsoft Azure provides a general level of support for open-source technologies. For more information, see the **Support Scope** section of [Azure Support FAQs](https://azure.microsoft.com/support/faq/). The HDInsight service provides an additional level of support for built-in components.
 
 Two types of open-source components are available in the HDInsight service:
 
 * **Built-in components**. These components are preinstalled on HDInsight clusters and provide core functionality of the cluster. The following components belong to this category:
 
-  * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
+  * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) Resource Manager.
   * The Hive query language [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
   * [Apache Mahout](https://mahout.apache.org/).
 
@@ -360,7 +360,7 @@ The HDInsight service provides several ways to use custom components. The same l
 
 ## Troubleshooting
 
-You can use the Ambari web UI to view information logged by script actions. If the script fails during cluster creation, the logs are also available in the default storage account associated with the cluster. This section provides information on how to retrieve the logs by using both these options.
+You can use the Ambari web UI to view information logged by script actions. If the script fails during cluster creation, logs are available in the default cluster storage account. This section provides information on how to retrieve the logs by using both these options.
 
 ### The Apache Ambari web UI
 
