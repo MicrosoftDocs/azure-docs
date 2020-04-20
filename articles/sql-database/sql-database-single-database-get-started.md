@@ -61,7 +61,7 @@ Keep the resource group, server, and single database to go on to the next steps,
 
 When you're finished using these resources, you can delete the resource group you created, which will also delete the server and single database within it.
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 To delete **myResourceGroup** and all its resources using the Azure portal:
 
@@ -69,7 +69,7 @@ To delete **myResourceGroup** and all its resources using the Azure portal:
 1. On the resource group page, select **Delete resource group**.
 1. Under **Type the resource group name**, enter *myResourceGroup*, and then select **Delete**.
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 To delete the resource group and all its resources, run the following Azure CLI command, using the name of your resource group:
 
@@ -77,7 +77,7 @@ To delete the resource group and all its resources, run the following Azure CLI 
 az group delete --name <your resource group>
 ```
 
-# [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 To delete the resource group and all its resources, run the following PowerShell cmdlet, using the name of your resource group:
 
