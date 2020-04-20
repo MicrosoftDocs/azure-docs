@@ -41,6 +41,24 @@ Flow logs is the source of truth for all network activity in your cloud environm
 
 **Network forensics & Security analysis**: Analyze network flows from compromised IPs. Export flow logs to any SIEM or IDS tool of your choice.
 
+## How Logging works
+
+**Key Properties**
+
+- Flow logs operate at [Layer 4](https://en.wikipedia.org/wiki/OSI_model#Layer_4:_Transport_Layer) and records all IP flows going in and out of an NSG
+- Logs are collected through the Azure platform and do not affect customer resources or network performance in any way.
+- Logs are written in JSON format and show outbound as well as inbound flows on a per NSG rule basis.
+- Each log record contains the network interface (NIC) the flow applies to, 5-tuple information, the traffic decision & (Version 2 only) throughput information. See _Log Format_ below for full details.
+- Flow Logs have a retention feature that allows auto-deleting the logs up to a year after their creation
+
+**Core concepts**
+
+- Software defined networks are organised as Virtual Networks (VNETs) and subnets. The security of these VNets and subnets can be managed using an NSG.
+- A Network security group (NSG) contains a list of _security rules_ that allow or deny network traffic to resources connected to an Azure Virtual Network. NSGs can be associated to subnets, individual VMs (classic), or individual network interfaces (NIC) attached to VMs (Resource Manager). For more information, see [Network security group overview](https://docs.microsoft.com/azure/virtual-network/security-overview?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json).
+- All traffic flow in your network are evaluated using the rules in the applicable NSG.
+- The result of these evaluations is NSG Flow Logs. Flow logs are collected through the Azure platform and don't require any agent/extension/change on the customers resources.
+- NSG Flow Logs are written to storage accounts from where they can be accessed.
+- You can export, process, analyse and visualise Flow Logs using tools like TA, Splunk, Grafana, Stealthwatch, etc.
 
 ## Log file
 
