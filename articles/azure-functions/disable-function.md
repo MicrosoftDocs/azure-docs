@@ -39,7 +39,7 @@ You can also use the **Function State** switch on the function's **Manage** tab.
 ![Function state switch](media/disable-function/function-state-switch.png)
 
 > [!NOTE]  
-> The portal-integrated testing functionality ignores the `Disable` setting. This means that a disabled function still runs when started from the **Test** window in the portal. 
+> The portal-integrated testing functionality ignores the `Disabled` setting. This means that a disabled function still runs when started from the **Test** window in the portal. 
 
 ## Other methods
 
