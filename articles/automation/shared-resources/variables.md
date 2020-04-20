@@ -134,7 +134,7 @@ $vmIpAddress = $vmValue.IpAddress
 
 ### Create and use a variable in a runbook or DSC configuration
 
-The only way to create a new variable from within a runbook or DSC configuration is to use the `New-AzAutomationVariable` cmdlet, or its AzureRM module equivalent. The script uses this cmdlet to set the initial value of the variable. The script can then retrieve the value using `Get-AzAutomationVariable`. If the value is a simple type, that same type is retrieved. If it's a complex type, then a `PSCustomObject` type is retrieved.
+The only way to create a new variable from within a runbook or DSC configuration is to use the `New-AzAutomationVariable` cmdlet or its AzureRM module equivalent. The script uses this cmdlet to set the initial value of the variable. The script can then retrieve the value using `Get-AzAutomationVariable`. If the value is a simple type, that same type is retrieved. If it's a complex type, then a `PSCustomObject` type is retrieved.
 
 >[!NOTE]
 >The only way to retrieve an encrypted value is by using the `Get-AutomationVariable` activity in the runbook or DSC configuration. 
