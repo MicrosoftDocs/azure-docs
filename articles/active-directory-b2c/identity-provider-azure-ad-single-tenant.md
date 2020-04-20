@@ -19,7 +19,7 @@ ms.custom: fasttrack-edit
 
 To use an Azure Active Directory (Azure AD) as an [identity provider](authorization-code-flow.md) in Azure AD B2C, you need to create an application that represents it. This article shows you how to enable sign-in for users from a specific Azure AD organization using a user flow in Azure AD B2C.
 
-[!INCLUDE [active-directory-b2c-idp-aad-appreg](../../includes/active-directory-b2c-idp-aad-appreg.md)]
+[!INCLUDE [active-directory-b2c-identity-provider-azure-ad](../../includes/active-directory-b2c-identity-provider-azure-ad.md)]
 
 ## Configure Azure AD as an identity provider
 

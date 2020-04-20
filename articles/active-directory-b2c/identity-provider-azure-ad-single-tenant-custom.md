@@ -25,7 +25,7 @@ This article shows you how to enable sign-in for users from an Azure Active Dire
 Complete the steps in [Get started with custom policies in Azure Active Directory B2C](custom-policy-get-started.md).
 
 
-[!INCLUDE [active-directory-b2c-idp-aad-appreg](../../includes/active-directory-b2c-idp-aad-appreg.md)]
+[!INCLUDE [active-directory-b2c-identity-provider-azure-ad](../../includes/active-directory-b2c-identity-provider-azure-ad.md)]
 
 ## Create a policy key
 
