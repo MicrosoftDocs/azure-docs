@@ -91,7 +91,7 @@ When you explore the template in this section, try to answer these questions:
 
     ![Visual Studio Code Azure Resource Manager templates virtual network dependsOn](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
-    The dependsOn element enables you to define one resource as a dependent on one or more resources. The dependsOn element enables you to define one resource as a dependent on one or more resources.  This resource depends on one other resource:
+    The dependsOn element enables you to define one resource as a dependent on one or more resources.  This resource depends on one other resource:
 
     * `Microsoft.Network/networkSecurityGroups`
 
