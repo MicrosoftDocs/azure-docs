@@ -5,7 +5,7 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/15/2020
 ms.author: dsindona
 ---
 
@@ -19,13 +19,43 @@ AppSource has paid, list, and trial offers, with the calls-to-action "Get it Now
 
 | **Product**    | **Publishing guidance**  |
 | :------------------- | :-------------------|
-| Office 365 | Review the [publishing process and guidelines](/office/dev/store/submit-to-the-office-store) |
-| Dynamics 365 Business Central | To publish an offer in Partner Center, see [Create a new Dynamics 365 Business Central offer](./partner-center-portal/create-new-business-central-offer.md). The Cloud Partner Portal no longer supports the creation and management of Dynamics 365 Business Central offers. |
-| Dynamics 365 for Finance and Operations | When building for Enterprise Edition, review the [publishing process and guidelines](/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source).<br/>To publish an offer in Partner Center, see [Create a new Dynamics 365 for Operations offer](./partner-center-portal/create-new-operations-offer.md). The Cloud Partner Portal no longer supports the creation and management of Dynamics 365 for Finance and Operations offers. |
-| Dynamics 365 for Customer Engagement | Review the [publishing process and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource).<br/>To publish an offer in Partner Center, see [Create a new Dynamics 365 for Customer Engagement & PowerApps offer](./partner-center-portal/create-new-customer-engagement-offer.md). The Cloud Partner Portal no longer supports the creation and management of Dynamics 365 for Finance and Operations offers. |
+| Office 365 | Review the [publishing process and guidelines](/office/dev/store/submit-to-appsource-via-partner-center) |
+| Dynamics 365 Business Central | To publish an offer in Partner Center, see [Create a new Dynamics 365 Business Central offer](./partner-center-portal/create-new-business-central-offer.md). |
+| Dynamics 365 for Finance and Operations | When building for Enterprise Edition, review the [publishing process and guidelines]/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source).<br/>To publish an offer in Partner Center, see [Create a new Dynamics 365 for Operations offer](./partner-center-portal/create-new-operations-offer.md).  |
+| Dynamics 365 for Customer Engagement | Review the [publishing process and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource).<br/>To publish an offer in Partner Center, see [Create a new Dynamics 365 for Customer Engagement & PowerApps offer](./partner-center-portal/create-new-customer-engagement-offer.md).  |
 | Power Apps | Learn how to [let customers test drive your app on AppSource](https://powerapps.microsoft.com/blog/appsource-test-drive/). |
 | Power BI | Review the [publishing process and guidelines](/power-bi/developer/office-store). |
 
+### Office 365
+
+Review the [publishing process and guidelines](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store)
+
+### Power Apps
+
+Learn about how customers can [test drive your app on AppSource.](https://powerapps.microsoft.com/blog/appsource-test-drive/)
+
+### Power BI
+
+Review the [publishing process and guidelines.](https://docs.microsoft.com/power-bi/developer/office-store)
+
+### Dynamics 365
+
+#### Dynamics 365 for Finance and Operations
+When building for Enterprise Edition, review the [publishing process and guidelines](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)
+
+See [Dynamics 365 for Finance and Operations offer](./partner-center-portal/create-new-operations-offer.md) for how to publish the offer in Partner Center.
+
+### Dynamics 365 for Customer Engagement
+Review the [publishing process and guidelines](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource).
+
+See [Dynamics 365 for Customer Engagement offer](./partner-center-portal/create-new-customer-engagement-offer.md) for how to publish the offer in Partner Center.
+
 ## Next steps
 
-If you haven't already done so, [Create a commercial marketplace account in Partner Center](./partner-center-portal/create-account.md).
+If you haven't already done so, 
+
+- [Learn](https://azuremarketplace.microsoft.com/sell) about the marketplace.
+
+To register in Partner Center, start creating a new offer or working on an existing one:
+
+- [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
