@@ -8,7 +8,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 04/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -43,6 +43,13 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 >
 >Please refer to [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) to learn more about how to upgrade Azure AD Connect to the latest version.
 
+## 1.5.22.0
+
+### Release status
+04/20/2020: Released for download
+
+### Fixed issues
+
 ## 1.5.20.0
 
 ### Release status
@@ -53,10 +60,10 @@ This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filte
 
 > [!IMPORTANT]
 > If you use mS-DS-ConsistencyGuid as the source anchor, and have cloned the **In from AD - Group Join** sync rule and plan to upgrade, please do the following steps as part of the upgrade:
-> 1. During Upgrade, uncheck the option **Start the synchronization process when configuration completes**.
+> 1. During Upgrade, on the configure page, uncheck the option **Start the synchronization process when configuration completes**.
 > 2. Edit cloned join sync rule and add the following two transformations:
->   - direct flow `objectGUID` to `sourceAnchorBinary`
->	- expression flow `ConvertToBase64([objectGUID])` to `sourceAnchor`      
+    - direct flow `objectGUID` to `sourceAnchorBinary`	
+    - expression flow `ConvertToBase64([objectGUID])` to `sourceAnchor`      
 > 3. Enable the scheduler using `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
 
