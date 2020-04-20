@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL:
-    `https://app.ally.io/`
+    `https://app.ally.io/saml/consume/<CUSTOM_GUID>`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Ally Client support team](mailto:contact@ally.io) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -145,7 +145,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Ally SSO
 
-To configure single sign-on on **Ally** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Ally support team](mailto:contact@ally.io). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Ally** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Ally support team](mailto:support@ally.io). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Ally test user
 
