@@ -1,19 +1,13 @@
 ---
-title: Azure VMware Solution (AVS) tutorial - scale a private cloud
-description: In this Azure VMware Solution (AVS) tutorial, you use the Azure portal to scale a private cloud.
-services: 
-author: dikamath
-
-ms.service: vmware-virtustream
+title: Azure VMware Solution (AVS) Preview tutorial - scale a private cloud
+description: In this Azure VMware Solution (AVS) Preview tutorial, you use the Azure portal to scale a private cloud.
 ms.topic: tutorial
-ms.date: 07/29/2019
-ms.author: dikamath
-ms.custom: 
+ms.date: 05/04/2020
 
 #Customer intent: As a VMware administrator, I want to learn how to scale an Azure VMware Solution (AVS) private cloud in the Azure portal.
 ---
 
-# Tutorial: scale an Azure VMware Solution (AVS) private cloud
+# Tutorial: scale an Azure VMware Solution (AVS) Preview private cloud
 
 You can scale the number of clusters and the number of hosts in a private cloud. The cluster and host limits in a private cloud are provided in [the private cloud concept article](concepts-private-clouds-clusters.md).
 
