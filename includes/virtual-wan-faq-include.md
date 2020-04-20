@@ -125,6 +125,8 @@ Yes. See the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/)
 
 * If you had ExpressRoute gateway due to ExpressRoute circuits connecting to a virtual hub, then you would pay for the scale unit price. Each scale unit in ER is 2 Gbps and each connection unit is charged at the same rate as the VPN Connection unit.
 
+* If you had Spoke VNETs connected to the hub, peering charges at the Spoke VNETs still apply. 
+
 ### How do new partners that are not listed in your launch partner list get onboarded?
 
 All virtual WAN APIs are open API. You can go over the documentation to assess technical feasibility. If you have any question, send an email to azurevirtualwan@microsoft.com. An ideal partner is one that has a device that can be provisioned for IKEv1 or IKEv2 IPsec connectivity.
@@ -202,6 +204,17 @@ Yes. An internet connection and physical device that supports IPsec, preferably 
 ### How do I enable default route (0.0.0.0/0) in a connection (VPN, ExpressRoute, or Virtual Network):
 
 A virtual hub can propagate a learned default route to a virtual network/site-to-site VPN/ExpressRoute connection if the flag is 'Enabled' on the connection. This flag is visible when the user edits a virtual network connection, a VPN connection, or an ExpressRoute connection. By default, this flag is disabled when a site or an ExpressRoute circuit is connected to a hub. It is enabled by default when a virtual network connection is added to connect a VNet to a virtual hub. The default route does not originate in the Virtual WAN hub; the default route is propagated if it is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled.
+
+### How does the virtual hub in a Virtual WAN select the best path for a route from multiple hubs
+
+If a Virtual Hub learns the same route from multiple remote hubs,  the order in which it decides is as follows
+1) Route Origin 
+	a) Network routes – VNET prefixes directly learnt by the Virtual Hub gateways
+	b) BGP
+	c) Hub RouteTable (statically configured routes)
+	d) InterHub routes
+2)	Route metric : Virtual WAN prefers ExpressRoute over VPN. ExpressRoute peer have a higher weightage compared to the VPN peer
+3)	AS path length
 
 ### What are the differences between the Virtual WAN types (Basic and Standard)?
 

@@ -3,9 +3,9 @@ title: Limits and configuration
 description: Service limits, such as duration, throughput, and capacity, plus configuration values, such as IP addresses to allow, for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/12/2020
+ms.date: 04/17/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -107,7 +107,7 @@ Here are the limits for a single logic app definition:
 
 ### Integration service environment (ISE)
 
-Here are the throughput limits for the Premium SKU:
+Here are the throughput limits for the [Premium ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 
 | Name | Limit | Notes |
 |------|-------|-------|
@@ -119,9 +119,9 @@ Here are the throughput limits for the Premium SKU:
 To go above these limits in normal processing, or run load testing that might go above these limits, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
 
 > [!NOTE]
-> The [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) has no published limits as this SKU
-> doesn't have any service-level agreement (SLA) or capabilities for scaling up.
-> Use this SKU only for experimenting, development, and testing, not production or performance testing.
+> The [Developer ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) 
+> has no published limits, no capabilities for scaling up, and no service-level agreement (SLA). Use this SKU 
+> only for experimenting, development, and testing, not production or performance testing.
 
 <a name="gateway-limits"></a>
 
@@ -279,14 +279,9 @@ Here are the message size limits that apply to B2B protocols:
 
 ## Disabling or deleting logic apps
 
-When you disable a logic app, no new runs are instantiated.
-All in-progress and pending runs continue until they finish,
-which might take time to complete.
+When you disable a logic app, no new runs are instantiated. All in-progress and pending runs continue until they finish, which might take time to complete.
 
-When you delete a logic app, no new runs are instantiated.
-All in-progress and pending runs are canceled.
-If you have thousands of runs, cancellation might
-take significant time to complete.
+When you delete a logic app, no new runs are instantiated. All in-progress and pending runs are canceled. If you have thousands of runs, cancellation might take significant time to complete.
 
 <a name="configuration"></a>
 
@@ -303,17 +298,17 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 > * **LogicAppsManagement**: Represents the inbound IP address prefixes for the Logic Apps service.
 > * **LogicApps**: Represents the outbound IP address prefixes for the Logic Apps service.
 
+* For [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), fixed or reserved IP addresses are unavailable for [custom connectors](../logic-apps/custom-connector-overview.md) and [managed connectors](../connectors/apis-list.md#managed-api-connectors), for example, Azure Storage, SQL Server, Office 365 Outlook, and so on.
+
 * To support the calls that your logic apps directly make with [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), and other HTTP requests, set up your firewall with all the [inbound](#inbound) *and* [outbound](#outbound) IP addresses that are used by the Logic Apps service, based on the regions where your logic apps exist. These addresses appear under the **Inbound** and **Outbound** headings in this section, and are sorted by region.
 
-* To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, set up your firewall with *all* the [outbound](#outbound) IP addresses used by these connectors, based on the regions where your logic apps exist. These addresses appear under the **Outbound** heading in this section, and are sorted by region.
+* To support the calls that [managed connectors](../connectors/apis-list.md#managed-api-connectors) make, set up your firewall with *all* the [outbound](#outbound) IP addresses used by these connectors, based on the regions where your logic apps exist. These addresses appear under the **Outbound** heading in this section, and are sorted by region.
 
 * To enable communication for logic apps that run in an integration service environment (ISE), make sure that you [open these ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
 
 * If your logic apps have problems accessing Azure storage accounts that use [firewalls and firewall rules](../storage/common/storage-network-security.md), you have [various options to enable access](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
   For example, logic apps can't directly access storage accounts that use firewall rules and exist in the same region. However, if you permit the [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound), your logic apps can access storage accounts that are in a different region except when you use the Azure Table Storage or Azure Queue Storage connectors. To access your Table Storage or Queue Storage, you can use the HTTP trigger and actions instead. For other options, see [Access storage accounts behind firewalls](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
-
-* For custom connectors, [Azure Government](../azure-government/documentation-government-overview.md), and [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), fixed or reserved IP addresses aren't available.
 
 <a name="inbound"></a>
 

@@ -108,7 +108,7 @@ The following Resource Provider modes are currently supported during preview:
   Policies using this Resource Provider mode **must** use the
   [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
-  [Azure Key Vault](../../../key-vault/key-vault-overview.md).
+  [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
 > Resource Provider modes only support built-in policy definitions and don't support initiatives
@@ -314,11 +314,15 @@ supported conditions are:
 - `"notIn": ["stringValue1","stringValue2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
-- `"less": "value"`
-- `"lessOrEquals": "value"`
-- `"greater": "value"`
-- `"greaterOrEquals": "value"`
+- `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
+- `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
+- `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
 - `"exists": "bool"`
+
+For **less**, **lessOrEquals**, **greater**, and **greaterOrEquals**, if the property type doesn't
+match the condition type, an error is thrown. String comparisons are made using
+`InvariantCultureIgnoreCase`.
 
 When using the **like** and **notLike** conditions, you provide a wildcard `*` in the value.
 The value shouldn't have more than one wildcard `*`.
