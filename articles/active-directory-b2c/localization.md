@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/06/2020
+ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -142,7 +142,7 @@ The **LocalizedString** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ElementType | Yes | Possible values: `ClaimsProvider`, `ClaimType`, `ErrorMessage`, `GetLocalizedStringsTransformationClaimType`, `Predicate`, `InputValidation`, or `UxElement`  .   | 
+| ElementType | Yes | Possible values: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predicate](#predicate), [InputValidation](#inputvalidation), or [UxElement](#uxelement).   | 
 | ElementId | Yes | If **ElementType** is set to `ClaimType`, `Predicate`, or `InputValidation`, this element contains a reference to a claim type already defined in the ClaimsSchema section. |
 | StringId | Yes | If **ElementType** is set to `ClaimType`, this element contains a reference to an attribute of a claim type. Possible values: `DisplayName`, `AdminHelpText`, or `PatternHelpText`. The `DisplayName` value is used to set the claim display name. The `AdminHelpText` value is used to set the help text name of the claim user. The `PatternHelpText` value is used to set the claim pattern help text. If **ElementType** is set to `UxElement`, this element contains a reference to an attribute of a user interface element. If **ElementType** is set to `ErrorMessage`, this element specifies the identifier of an error message. See [Localization string IDs](localization-string-ids.md) for a complete list of the `UxElement` identifiers.|
 
@@ -178,7 +178,7 @@ The ClaimsProvider value is used to localize claim provider name.
 
 ```
 
-The following example shows how to localize the claim provider name.
+The following example shows how to localize claim providers' dispaly name.
 
 ```xml
 <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
@@ -230,7 +230,7 @@ The following example shows how to localize the UserMessageIfClaimsPrincipalAlre
 
 ### GetLocalizedStringsTransformationClaimType
 
-The `GetLocalizedStringsTransformationClaimType` value is used to copy localized strings into claims. For more information, see [GetLocalizedStringsTransformation claims transformation](string-transformations.md#getlocalizedstringstransformation)
+The GetLocalizedStringsTransformationClaimType value is used to copy localized strings into claims. For more information, see [GetLocalizedStringsTransformation claims transformation](string-transformations.md#getlocalizedstringstransformation)
 
 
 ```xml
@@ -244,7 +244,7 @@ The `GetLocalizedStringsTransformationClaimType` value is used to copy localized
 </ClaimsTransformation>
 ```
 
-The following example shows how to localize the output claims of the  GetLocalizedStringsTransformation claims transformation.
+The following example shows how to localize output claims of the GetLocalizedStringsTransformation claims transformation.
 
 ```xml
 <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
@@ -278,7 +278,7 @@ The Predicate value is used to localize one of the [Predicate](predicates.md) er
 </Predicates>
 ```
 
-The following example shows how to localize the predicate help text.
+The following example shows how to localize predicates help text.
 
 ```xml
 <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">The password must be between 6 and 64 characters.</LocalizedString>
@@ -288,7 +288,7 @@ The following example shows how to localize the predicate help text.
 
 ### InputValidation
 
-The `InputValidation` value is used to localize one of the [PredicateValidation](predicates.md) group error messages. 
+The InputValidation value is used to localize one of the [PredicateValidation](predicates.md) group error messages. 
 
 ```xml
 <PredicateValidations>
@@ -313,7 +313,7 @@ The `InputValidation` value is used to localize one of the [PredicateValidation]
 </PredicateValidations>
 ```
 
-The following example shows how to localize the predicate validation group help text.
+The following example shows how to localize a predicate validation group help text.
 
 ```XML
 <LocalizedString ElementType="InputValidation" ElementId="CustomPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
