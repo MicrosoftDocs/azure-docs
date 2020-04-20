@@ -107,7 +107,9 @@
     - name: Control Windows shutdown behavior
       href: how-to-windows-shutdown.md
     - name: View support information (instructor)
-      href: lab-creator-support-information.md      
+      href: lab-creator-support-information.md
+    - name: Access student VMs from instructor view
+      href: instructor-access-virtual-machines.md      
   - name: Connect to VMs in classroom labs (student)
     items:        
     - name: Access classroom labs
