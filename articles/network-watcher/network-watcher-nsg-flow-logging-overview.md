@@ -90,7 +90,9 @@ Flow logs include the following properties:
                     * **Packets - Destination to source - Version 2 Only** The total number of TCP or UDP packets sent from destination to source since last update.
                     * **Bytes sent - Destination to source - Version 2 Only** The total number of TCP and UDP packet bytes sent from destination to source since last update. Packet bytes include packet header and payload.
 
-*NSG flow logs Version 2 (vs Version 1)* 
+
+**NSG flow logs Version 2 (vs Version 1)** 
+
 Version 2 of the logs introduces flow state. You can configure which version of flow logs you receive.
 
 Flow state _B_ is recorded when a flow is initiated. Flow state _C_ and flow state _E_ are states that mark the continuation of a flow and flow termination, respectively. Both _C_ and _E_ states contain traffic bandwidth information.
