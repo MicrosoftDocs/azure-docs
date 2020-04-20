@@ -51174,6 +51174,11 @@
       "source_path": "articles/media-services/previous/media-services-configure-tricaster-live-encoder.md",
       "redirect_url": "/azure/media-services",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/data-box-edge-deploy-add-shares.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-deploy-add-shares",
+      "redirect_document_id": false
     }
   ]
 }
