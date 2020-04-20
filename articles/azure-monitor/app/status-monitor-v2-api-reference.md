@@ -292,8 +292,6 @@ Run the command `Get-ApplicationInsightsMonitoringStatus` to display the monitor
 ```powershell
 
 PS C:\Windows\system32> Get-ApplicationInsightsMonitoringStatus
-Machine Identifier:
-811D43F7EC807E389FEA2E732381288ACCD70AFFF9F569559AC3A75F023FA639
 
 IIS Websites:
 
