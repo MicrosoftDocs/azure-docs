@@ -11,20 +11,20 @@ ms.reviewer: mbullwin
 
 # Configure BYOS (Bring Your Own Storage) for Profiler & Snapshot Debugger
 
-## What is Bring Your Own Storage (BYOS) and why I need it? 
-In normal process, when a customer's application doesn't have the capability of Bring Your Own Storage (BYOS), the data it's written into the regional storage accounts of Diagnostic Services.
+## What is Bring Your Own Storage (BYOS) and why I need it?
+Applications used to send profiler and snapshot debugger data to a regional storage account provided by the Diagnostic Services.
 
-With Bring Your Own Storage, the data collected, it's written into their own storage accounts, giving them the capability to control it at their own peace.
+With Bring Your Own Storage, the diagnostics data, it's written into your own storage accounts, giving you the capability to control it at your own pace.
 
-One thing to have in mind is that the customer will take over of all the related costs of the storage account. 
+One thing to have in mind is that you'll take over of all the related costs of the storage account, like Storage and Networking. 
 
-## How does my Storage Account will be accessed? 
-1. The data it's written by agents running in the customer's Virtual Machines or App Service.
-2. The customer's application contacts our service (Profiler/Debugger) when they want to upload data and we hand back a SAS (Shared Access Signature) token to a blob in their storage account.
-3. Later, when they want to analyze the data, the profiler/debugger service will reach back into that storage account to read the blob and write back the results of the analysis.
+## How does my Storage Account will be accessed?
+1. The data it's written by agents running in your Virtual Machines or App Service.
+2. Your application contacts our service (Profiler/Debugger) when they want to upload data and we hand back a SAS (Shared Access Signature) token to a blob in your storage account.
+3. Later, when you want to analyze the data, the profiler/debugger service will reach back into that storage account to read the blob and write back the results of the analysis.
 
 ## What do I need to do to enable BYOS? 
-The customer needs to add the role `Storage Blob Data Contributor` to the AAD application named `Diagnostic Services Trusted Storage Access` in their storage account.
+You'll need to add the role `Storage Blob Data Contributor` to the AAD application named `Diagnostic Services Trusted Storage Access` in your storage account.
 It can be done via the Access control UI, as shown in Figure 1.0. 
 
 Steps: 
@@ -142,7 +142,7 @@ _Figure 2.0_
 
 ## Troubleshooting
 ### No registered resource provider found for location '{location}'.
-* Make sure that the `$schema` property of the template it's valid. It must follow the following pattern:
+* Make sure that the `$schema` property of the template is valid. It must follow the following pattern:
 `https://schema.management.azure.com/schemas/{schema_version}/deploymentTemplate.json#`
 * Make sure that the `apiVersion` of the resource `microsoft.insights/components` it's `2015-05-01`.
 * Make sure that the `apiVersion` of the resource `linkedStorageAccount` its `2020-03-01-preview`.
@@ -184,16 +184,16 @@ For general Snapshot Debugger troubleshooting, refer to the [Snapshot Debugger T
     _No, it won't, we don't support migration data._
 
 * Will BYOS work when Customer-Managed Key was enabled? 
-    _Yes, to be precise, BYOS is a requisite to have profiler/debugger enabled with CMK (Customer Manager Keys)._
+    _Yes, to be precise, BYOS is a requisite to have profiler/debugger enabled with Customer-Manager Keys._
 
 * Will BYOS work when Private Link was enabled? 
-    _Yes, to be precise, BYOS is a requisite to have profiler/debugger enabled with PL (Private Link)._
+    _Yes, to be precise, BYOS is a requisite to have profiler/debugger enabled with Private Link._
 
-* Will BYOS work when, both, CMK and PL were enabled? 
+* Will BYOS work when, both, Customer-Managed Keys and Private Link were enabled? 
     _Yes, it can be possible._
 
 * If I have enabled BYOS, can I go back using Diagnostic Services storage accounts to store my data collected? 
     _Yes, you can, but, right now we don't support data migration from your BYOS._
 
-* After enabling BYOS, will I take over of all the related costs of it? 
+* After enabling BYOS, will I take over of all the related costs of it, which are Storage and Networking? 
     _Yes_
