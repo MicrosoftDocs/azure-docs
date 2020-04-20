@@ -1,6 +1,6 @@
 ---
 title: Quickstart - View the access a user has to Azure resources
-description: In this QuickStart, learn how to view the access a user or other security principal has to Azure resources using role-based access control (RBAC) and the Azure portal.
+description: In this QuickStart, learn how to view the access a user or other security principal has to Azure resources using Azure role-based access control (Azure RBAC) and the Azure portal.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -22,7 +22,7 @@ ms.reviewer: bagovind
 
 # Quickstart: View the access a user has to Azure resources
 
-You can use the **Access control (IAM)** blade in [role-based access control (RBAC)](overview.md) to view the access a user or another security principal has to Azure resources. However, sometimes you just need to quickly view the access for a single user or another security principal. The easiest way to do this is to use the **Check access** feature in the Azure portal.
+You can use the **Access control (IAM)** blade in [Azure role-based access control (Azure RBAC)](overview.md) to view the access a user or another security principal has to Azure resources. However, sometimes you just need to quickly view the access for a single user or another security principal. The easiest way to do this is to use the **Check access** feature in the Azure portal.
 
 ## View role assignments
 

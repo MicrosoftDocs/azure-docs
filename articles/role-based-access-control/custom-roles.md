@@ -1,6 +1,6 @@
 ---
 title: Azure custom roles | Microsoft Docs
-description: Learn how to create custom roles with role-based access control (RBAC) for fine-grained access management of Azure resources.
+description: Learn how to create custom roles with Azure role-based access control (Azure RBAC) for fine-grained access management of Azure resources.
 services: active-directory
 documentationcenter: ''
 author: rolyon
