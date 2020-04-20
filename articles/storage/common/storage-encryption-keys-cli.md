@@ -140,7 +140,7 @@ To change the key used for Azure Storage encryption, call [az storage account up
 
 ## Revoke customer-managed keys
 
-If you believe that a key may have been compromised, you can revoke customer-managed keys by removing the key vault access policy. To revoke a customer-managed key, call the [az keyvault delete-policy](/cli/azure/keyvault#az-keyvault-delete-policy) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+You can revoke customer-managed keys by removing the key vault access policy. To revoke a customer-managed key, call the [az keyvault delete-policy](/cli/azure/keyvault#az-keyvault-delete-policy) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
 ```azurecli-interactive
 az keyvault delete-policy \
