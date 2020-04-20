@@ -53,7 +53,7 @@ Possible values are:
 
 - **"INS"**: Stands for *installation*. This action is in Azure Marketplace or AppSource when a customer buys your product.
 - **"PLT"**: Stands for *partner-led trial*. This action is in AppSource when a customer selects the **Contact me** option.
-- **"DNC"**: Stands for *do not contact*. This action is in AppSource when a partner who was cross listed on your app page gets requested to be contacted. We share a notification that this customer was crosses listed on your app, but they don't need to be contacted.
+- **"DNC"**: Stands for *do not contact*. This action is in AppSource when a partner who was cross listed on your app page gets requested to be contacted. We share a notification that this customer was cross listed on your app, but they don't need to be contacted.
 - **"Create"**: This action is only inside the Azure portal and is generated when a customer purchases your offer to their account.
 - **"StartTestDrive"**: This action is only for the **Test Drive** option and is generated when a customer starts their test drive.
 
@@ -95,7 +95,7 @@ Follow the steps in the section [Connect to your CRM system](#connect-to-your-cr
 
 ### Am I required to configure a lead destination in order to publish an offer in the marketplace?
 
-The answer depends on the type of offer you're publishing. Software as a service (SaaS) and Dynamics 365 Customer Engagement (on-premises) use **Contact Me** to list all Dynamics 365 for Finance and Operations offers, all Dynamics 365 Business Central offers, and all Consulting Service offers. As a result, they require a connection to a lead destination. If your offer type wasn't listed, a connection to a lead destination isn't required. We recommend that you configure a lead destination so you don't miss business opportunities.
+The answer depends on the type of offer you're publishing. Software as a service (SaaS) and Dynamics 365 Customer Engagement use **Contact Me** to list all Dynamics 365 for Finance and Operations offers, all Dynamics 365 Business Central offers, and all Consulting Service offers. As a result, they require a connection to a lead destination. If your offer type wasn't listed, a connection to a lead destination isn't required. We recommend that you configure a lead destination so you don't miss business opportunities.
 
 ### How can I find the test lead?
 
@@ -118,7 +118,7 @@ title = MSFT_TEST_636573304831318844
 
 ### I have a live offer, but why am I not seeing any leads?
 
-Make sure your connection to the lead destination is valid. We'll send you a test lead after you select **Publish** on your offer in Partner Center. If you see the test lead, the connection is valid. You can also test your lead connection by trying to acquire the offer preview during the preview step. Select**Get It Now**, **Contact Me**, or **Free Trial** on the listing in the marketplace.
+Make sure your connection to the lead destination is valid. We'll send you a test lead after you select **Publish** on your offer in Partner Center. If you see the test lead, the connection is valid. You can also test your lead connection by trying to acquire the offer preview during the preview step. Select **Get It Now**, **Contact Me**, or **Free Trial** on the listing in the marketplace.
 
 Also, make sure you're looking for the right data. The content in the [Understand lead data](#understand-lead-data) section of this article describes the lead data we send to your lead destination.
 
