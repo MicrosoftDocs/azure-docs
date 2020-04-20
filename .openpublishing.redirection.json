@@ -7857,6 +7857,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/automation/automation-first-runbook-graphical.md",
+      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-graphical",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-first-runbook-textual.md",
+      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-textual",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-first-runbook-textual-powershell.md",
+      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-textual-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-first-runbook-textual-python2.md",
+      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-textual-python2",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/automation/oms-solution-updatemgmt-sccmintegration.md",
       "redirect_url": "/azure/automation/updatemgmt-mecmintegration",
       "redirect_document_id": false
@@ -33548,8 +33568,13 @@
     },
     {
       "source_path": "articles/active-directory/pim-azure-resource.md",
-      "redirect_url": "/azure/role-based-access-control/pim-azure-resource",
-      "redirect_document_id": true
+      "redirect_url": "/azure/role-based-access-control/best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/role-based-access-control/pim-azure-resource.md",
+      "redirect_url": "/azure/role-based-access-control/best-practices",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/role-based-access-control-resource-provider-operations.md",
@@ -51143,6 +51168,11 @@
     {
       "source_path": "articles/healthcare-apis/configure-local-rbac.md",
       "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir-additional-settings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-configure-tricaster-live-encoder.md",
+      "redirect_url": "/azure/media-services",
       "redirect_document_id": false
     }
   ]
