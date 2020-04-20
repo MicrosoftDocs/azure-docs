@@ -41,6 +41,8 @@ These three types of policy files are used:
 
 User flows in Azure AD B2C follow the three-file pattern depicted above, but the developer only sees the RP file, while the Azure portal makes changes in the background to the extensions file.
 
+Although there are three types of policy files, you are not restricted to have only three files. You may have multiple files of each file type. For example, if you do not want to make changes to your Extensions file, you can create Extension2 file to further extend the Extensions file.
+
 ## Custom policy core concepts
 
 The customer identity and access management (CIAM) service in Azure includes:
