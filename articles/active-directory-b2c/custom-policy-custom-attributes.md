@@ -70,7 +70,7 @@ To enable custom attributes in your policy, provide **Application ID** and Appli
             <Item Key="ApplicationObjectId"></Item>
           </Metadata>
         </TechnicalProfile>
-      <TechnicalProfiles> 
+      </TechnicalProfiles> 
     </ClaimsProvider>
     ```
 
