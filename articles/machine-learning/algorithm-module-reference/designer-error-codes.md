@@ -145,6 +145,7 @@ Following are error codes of modules in the designer.
 |Parameter "{arg_name}" value should be less than or equal to parameter "{upper_boundary_parameter_name}" value.|
 |Parameter "{arg_name}" has value "{actual_value}" which should be less than or equal to {upper_boundary}.|
 |Parameter "{arg_name}" value {actual_value} should be less than or equal to parameter "{upper_boundary_parameter_name}" value {upper_boundary}.|
+|Parameter "{arg_name}" value {actual_value} should be less than or equal to {upper_boundary_meaning} value {upper_boundary}.|
 
 
 ## Error 0008  
@@ -275,6 +276,7 @@ If the model was trained using any of the specialized training modules, connect 
 |Learner of invalid type is passed.|
 |Learner "{arg_name}" has invalid type.|
 |Learner "{arg_name}" has invalid type "{learner_type}".|
+|Learner of invalid type is passed. Exception message: {exception_message}|
 
 
 ## Error 0014  
@@ -401,6 +403,7 @@ For columns that you intend to use for grouping or categorization, take steps to
 |Values in column are not sorted.|
 |Values in column "{col_index}" are not sorted.|
 |Values in column "{col_index}" of dataset "{dataset}" are not sorted.|
+|Values in argument "{arg_name}" are not sorted in "{sorting_order}" order.|
 
 
 ## Error 0020  
@@ -653,6 +656,7 @@ It can also happen that a label column is present in the dataset, but not detect
 |------------------------|
 |Argument must be finite.|
 |"{arg_name}" is not finite.|
+|Column "{column_name}" contains infinite values.|
 
 
 ## Error 0034  
@@ -1551,6 +1555,18 @@ Resolution:
 |------------------------------------------------------------|
 |Given TransformationDirectory is invalid.|
 |TransformationDirectory "{arg_name}" is invalid. Reason: {reason}. Please rerun training experiment which generates the Transform file. If training experiment was deleted, please recreate and save the Transform file.|
+|TransformationDirectory "{arg_name}" is invalid. Reason: {reason}. {troubleshoot_hint}|
+
+
+## Error 0159
+ Exception occurs if passed to module model directory is invalid. 
+
+|Exception Messages|
+|------------------------------------------------------------|
+|Given ModelDirectory is invalid.|
+|ModelDirectory "{arg_name}" is invalid.|
+|ModelDirectory "{arg_name}" is invalid. Reason: {reason}.|
+|ModelDirectory "{arg_name}" is invalid. Reason: {reason}. {troubleshoot_hint}|
 
 
 ## Error 1000  
