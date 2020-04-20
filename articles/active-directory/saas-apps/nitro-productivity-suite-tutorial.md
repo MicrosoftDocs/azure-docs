@@ -42,7 +42,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Nitro Productivity Suite supports **SP** and **IDP** initiated SSO.
 * Nitro Productivity Suite supports **Just In Time** user provisioning.
-* After you configure Nitro Productivity Suite, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from cconditional access. For more information, see [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* After you configure Nitro Productivity Suite, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. For more information, see [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Add Nitro Productivity Suite from the gallery
 
