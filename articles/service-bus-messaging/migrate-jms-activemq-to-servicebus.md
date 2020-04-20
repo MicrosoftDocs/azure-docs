@@ -77,13 +77,39 @@ As part of migrating/modifying your client applications to interact with Azure S
 
 A custom application may be needed to drain the ActiveMQ queues, topics and subscriptions and replay the messages to Service Bus' queues, topics and subscriptions.
 
+#### Authentication and Authorization
+
+Role Based Access Control (RBAC) backed by Azure ActiveDirectory is the preferred authentication mechanism for Azure Service Bus.
+
+However, since RBAC is not currently supported due to lack of claim based authentication support by Apache QPID JMS. This is expected to be supported in the near future.
+
+For now, authentication is supported only with SAS keys.
+
 ## Pre-migration
 
 ### Version check
 
 ### Ensure that AMQP ports are open
 
+Azure Service Bus supports communication over the AMQP protocol. For this purpose, communication over ports 5671 (AMQP) and 443 (TCP) needs to be enabled. Depending on where the client applications are hosted, you may need a support ticket to allow communication over these ports.
+
 ### Set up enterprise configurations (VNET, Firewall, private endpoint, etc.)
+
+Azure Service Bus enables various enterprise security and high availability features. To learn more about them, follow the below documentation links.
+
+  * [Virtual Network Service Endpoints](service-bus-service-endpoints.md)
+  * [Firewall](service-bus-ip-filtering.md)
+  * [Service side encryption with customer managed key (BYOK)](configure-customer-managed-key.md)
+  * [Private endpoints](private-link-service.md)
+  * [Authentication and Authorization](service-bus-authentication-and-authorization.md)
+
+### Monitoring, alerts and tracing
+
+Metrics are published for each Service Bus namespace onto Azure Monitor and can be leveraged for alerting and dynamic scaling of resources allocated to the namespace.
+
+Read more about the different metrics and how to setup alerts on them at [Service Bus metrics in Azure Monitor](service-bus-metrics-azure-monitor.md).
+
+Also, read more about [client side tracing for data operations](service-bus-end-to-end-tracing.md) and [operational/diagnostic logging for management operations](service-bus-diagnostic-logs.md)
 
 ## Migration
 
