@@ -33,12 +33,12 @@ We are excited to announce the next release of Service Fabric. This release is l
 ## Key Annoucements
 - General Availability of [**Service Fabric Managed Identities for Service Fabric applications**](https://docs.microsoft.com/en-us/azure/service-fabric/concepts-managed-identity)
 - [**Support for Ubuntu 1804**](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-tutorial-create-vnet-and-linux-cluster) 
-- Support for declaration of [**Service Endpoint certificates of Service Fabric applications by subject common name**](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-secret-management ).
+- Support for declaration of [**Service Endpoint certificates of Service Fabric applications by subject common name**](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-secret-management).
  - [**Preview: VMSS Ephemeral OS disk support**](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-azure-deployment-preparation#use-ephemeral-os-disks-for-virtual-machine-scale-sets): Ephemeral OS disks are storage created on the local virtual machine, and not saved to remote Azure Storage. They are recommended for all Service Fabric node types (Primary and Secondary), because compared to traditional persistent OS disks, ephemeral OS disks:
       - Reduce read/write latency to OS disk
       - Enable faster reset/re-image node management operations
       - Reduce overall costs (the disks are free and incur no additional storage cost)
-- Endpoint certificates of [**Service Fabric applications can be declared by subject common name**](https:/docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management].  
+- Endpoint certificates of [**Service Fabric applications can be declared by subject common name**](https:/docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management).  
 - [**Support for Health Probes for containerized services**](https://docs.microsoft.com/azure/service-fabric/probes-codepackage): Support for Liveness Probe mechanism for containerized applications. Liveness Probe help announce the liveness of the containerized application and when they do not respond in a timely fashion, it will result in a restart. 
 - [**Support for Initializer Code Packages**](https://docs.microsoft.com/azure/service-fabric/initializer-codepackages) for [containers](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-containers-overview) and [guest executable](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-guest-executables-introduction) applications. This allows executing Code Packages (e.g. containers), in a specified order, to perform Service Package initialization.
 - [**FabricObserver (FO) 2.0**](https://github.com/microsoft/service-fabric-observer). Bug fixes and enhancements, structured telemetry implementations for ApplicationInsights, LogAnalytics, EventSource. Production-ready, including [sfpkgs with Microsoft-signed binares](https://github.com/microsoft/service-fabric-observer/releases).
@@ -66,7 +66,7 @@ We are excited to announce the next release of Service Fabric. This release is l
     
 ## Breaking Changes
 - For customers using service fabric managed identities, **please switch to new environment variables ‘IDENTITY_ENDPOINT’ and ‘IDENTITY_HEADER’**. The prior environment variables'MSI_ENDPOINT' and 'MSI_SECRET' are now removed.
-- [Service Fabric Managed Identity](https://docs.microsoft.com/en-us/azure/service-fabric/concepts-managed-identity) endpoint is now secure(HTTPs). There is additional guidance on how to validate the MITS server certificate in the docs.
+- [Service Fabric Managed Identity](https://docs.microsoft.com/en-us/azure/service-fabric/concepts-managed-identity) endpoint is now [secure(HTTPs)](https://docs.microsoft.com/en-us/azure/service-fabric/how-to-managed-identity-service-fabric-app-code#acquiring-an-access-token-using-rest-api). There is additional guidance on how to validate the MITS server certificate in the docs.
 - Currently Service Fabric ships the following nuget packages as a part of our    ASP.Net Integration and support:
     -  Microsoft.ServiceFabric.AspNetCore.Abstractions
     -  Microsoft.ServiceFabric.AspNetCore.Configuration
