@@ -1,4 +1,4 @@
-- name: RBAC for Azure resources documentation
+- name: Azure RBAC documentation
   href: index.yml
   items:
 - name: Overview

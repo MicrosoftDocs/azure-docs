@@ -129,4 +129,4 @@ For more information about custom roles and management groups, see [Organize you
 ## Next steps
 - [Create or update Azure custom roles using the Azure portal (Preview)](custom-roles-portal.md)
 - [Understand role definitions for Azure resources](role-definitions.md)
-- [Troubleshoot RBAC for Azure resources](troubleshooting.md)
+- [Troubleshoot Azure RBAC](troubleshooting.md)

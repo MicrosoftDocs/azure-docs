@@ -135,4 +135,4 @@ If you are getting close to the maximum number and you try to add more role assi
 ## Next steps
 
 - [Add or remove role assignments using Azure RBAC and the Azure portal](role-assignments-portal.md)
-- [Troubleshoot RBAC for Azure resources](troubleshooting.md)
+- [Troubleshoot Azure RBAC](troubleshooting.md)

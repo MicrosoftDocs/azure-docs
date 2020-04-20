@@ -1,5 +1,5 @@
 ---
-title: Understand role definitions in RBAC for Azure resources | Microsoft Docs
+title: Understand role definitions in Azure RBAC | Microsoft Docs
 description: Learn about role definitions in role-based access control (RBAC) for fine-grained access management of Azure resources.
 services: active-directory
 documentationcenter: ''
