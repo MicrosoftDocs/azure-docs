@@ -72,7 +72,7 @@ Here's how to redeploy the Azure Resource Manager template to expand a host pool
 
 ## Run the Azure Marketplace offering
 
-Follow the instructions in [Create a host pool by using the Azure Marketplace](./create-host-pools-azure-marketplace.md) until you reach [Run the Azure Marketplace offering to provision a new host pool](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). When you get to that point, you'll need to enter the following information for each tab:
+Follow the instructions in [Create a host pool by using the Azure Marketplace](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md) until you reach [Run the Azure Marketplace offering to provision a new host pool](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). When you get to that point, you'll need to enter the following information for each tab:
 
 ### Basics
 
