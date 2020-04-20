@@ -16,7 +16,7 @@ Get started with Azure confidential computing by using the Azure Marketplace to 
 
 This tutorial is recommended if you want to quickly start deploying a confidential computing virtual machine. The VMs are run on specialty hardware and require specific configuration inputs to run as intended. The marketplace offering described in this quickstart makes it easier to deploy, by restricting user input.
 
-If you're interested in deploying a confidential compute virtual machine with more custom configuration, follow the [Azure portal Confidential Compute virtual machine deployment steps.](deploy-portal.md) or the [Azure Resource Manager deployment steps](deploy-arm.md)
+If you're interested in deploying a confidential compute virtual machine with more custom configuration, follow the [Azure portal Confidential Compute virtual machine deployment steps.](quick-create-portal.md).
 
 ## Prerequisites
 If you don't have an Azure subscription, create an [account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you begin.
@@ -131,9 +131,8 @@ chmod +x sgx_linux_x64_driver.bin
 sudo ./sgx_linux_x64_driver.bin
 ```
 
-> [!WARNING]This may not be the latest Intel SGX DCAP driver.
-> Please check with [Intel's SGX site](https://01.org/intel-software-guard-extensions/downloads)
-> if a more recent SGX DCAP driver exists.
+> [!WARNING]
+> This may not be the latest Intel SGX DCAP driver. Please check with [Intel's SGX site](https://01.org/intel-software-guard-extensions/downloads) if a more recent SGX DCAP driver exists.
 
 #### 3. Install the Intel and Open Enclave packages and dependencies
 
@@ -141,13 +140,12 @@ sudo ./sgx_linux_x64_driver.bin
 sudo apt -y install clang-7 libssl-dev gdb libsgx-enclave-common libsgx-enclave-common-dev libprotobuf10 libsgx-dcap-ql libsgx-dcap-ql-dev az-dcap-client open-enclave
 ```
 
-> [!NOTE] This step also installs the [az-dcap-client](https://github.com/microsoft/azure-dcap-client)
-> package which is necessary for performing remote attestation in Azure. A general
-> implementation for using Intel DCAP outside the Azure environment is coming soon.
+> [!NOTE] 
+> This step also installs the [az-dcap-client](https://github.com/microsoft/azure-dcap-client) package which is necessary for performing remote attestation in Azure. A general implementation for using Intel DCAP outside the Azure environment is coming soon.
 
 #### 4. **Verify the Open Enclave SDK install**
 
-See [Using the Open Enclave SDK](Linux_using_oe_sdk.md) on GitHub for verifying and using the installed SDK.
+See [Using the Open Enclave SDK](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/Linux_using_oe_sdk.md) on GitHub for verifying and using the installed SDK.
 
 ## Clean up resources
 
