@@ -1,5 +1,5 @@
 ---
-title: Add or remove role assignments using Azure RBAC and Azure CLI
+title: Add or remove Azure role assignments using Azure CLI
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure role-based access control (Azure RBAC) and Azure CLI.
 services: active-directory
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
-# Add or remove role assignments using Azure RBAC and Azure CLI
+# Add or remove Azure role assignments using Azure CLI
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] This article describes how to assign roles using Azure CLI.
 
@@ -208,5 +208,5 @@ az role assignment delete --assignee alain@example.com --role "Billing Reader" -
 
 ## Next steps
 
-- [List role assignments using Azure RBAC and Azure CLI](role-assignments-list-cli.md)
+- [List Azure role assignments using Azure CLI](role-assignments-list-cli.md)
 - [Use the Azure CLI to manage Azure resources and resource groups](../azure-resource-manager/cli-azure-resource-manager.md)

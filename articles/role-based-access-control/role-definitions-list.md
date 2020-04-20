@@ -1,6 +1,6 @@
 ---
-title: List role definitions in Azure RBAC using Azure portal, Azure PowerShell, Azure CLI, or REST API | Microsoft Docs
-description: Learn how to list built-in and custom roles in Azure RBAC using Azure portal, Azure PowerShell, Azure CLI, or REST API.
+title: List Azure role definitions using Azure portal, Azure PowerShell, Azure CLI, or REST API
+description: Learn how to list built-in and custom roles using Azure portal, Azure PowerShell, Azure CLI, or REST API.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -17,7 +17,7 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
-# List role definitions in Azure RBAC
+# List Azure role definitions
 
 A role definition is a collection of permissions that can be performed, such as read, write, and delete. It's typically just called a role. [Azure role-based access control (Azure RBAC)](overview.md) has over 120 [built-in roles](built-in-roles.md) or you can create your own custom roles. This article describes how to list the built-in and custom roles that you can use to grant access to Azure resources.
 
@@ -372,5 +372,5 @@ To list the details of a specific role, use the [Role Definitions - Get](/rest/a
 
 - [Azure built-in roles](built-in-roles.md)
 - [Azure custom roles](custom-roles.md)
-- [List role assignments using Azure RBAC and the Azure portal](role-assignments-list-portal.md)
-- [Add or remove role assignments using Azure RBAC and the Azure portal](role-assignments-portal.md)
+- [List Azure role assignments using the Azure portal](role-assignments-list-portal.md)
+- [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md)

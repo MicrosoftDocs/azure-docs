@@ -1,6 +1,6 @@
 ---
-title: Understand role definitions in Azure RBAC | Microsoft Docs
-description: Learn about role definitions in Azure role-based access control (Azure RBAC) for fine-grained access management of Azure resources.
+title: Understand Azure role definitions
+description: Learn about Azure role definitions in Azure role-based access control (Azure RBAC) for fine-grained access management of Azure resources.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -17,9 +17,9 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom:
 ---
-# Understand role definitions for Azure resources
+# Understand Azure role definitions
 
-If you are trying to understand how a role works or if you are creating your own [Azure custom role](custom-roles.md), it's helpful to understand how roles are defined. This article describes the details of role definitions and provides some examples.
+If you are trying to understand how an Azure role works or if you are creating your own [Azure custom role](custom-roles.md), it's helpful to understand how roles are defined. This article describes the details of role definitions and provides some examples.
 
 ## Role definition
 
@@ -165,7 +165,7 @@ Bob's permissions are restricted to just the `Actions` and `DataActions` specifi
 
 For more information about management and data plane security for storage, see the [Azure Storage security guide](../storage/blobs/security-recommendations.md).
 
-### What tools support using Azure RBAC for data operations?
+### What tools support using Azure roles for data operations?
 
 To view and work with data operations, you must have the correct versions of the tools or SDKs:
 

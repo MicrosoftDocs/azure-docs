@@ -1,5 +1,5 @@
 ---
-title: List deny assignments for Azure resources with Azure PowerShell
+title: List Azure deny assignments using Azure PowerShell
 description: Learn how to list the users, groups, service principals, and managed identities that have been denied access to specific Azure resource actions at particular scopes using Azure PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
-# List deny assignments for Azure resources using Azure PowerShell
+# List Azure deny assignments using Azure PowerShell
 
-[Deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. This article describes how to list deny assignments using Azure PowerShell.
+[Azure deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. This article describes how to list deny assignments using Azure PowerShell.
 
 > [!NOTE]
-> You can't directly create your own deny assignments. For information about how deny assignments are created, see [Deny assignments](deny-assignments.md).
+> You can't directly create your own deny assignments. For information about how deny assignments are created, see [Azure deny assignments](deny-assignments.md).
 
 ## Prerequisites
 
@@ -121,6 +121,6 @@ PS C:\> Get-AzDenyAssignment -Scope /subscriptions/11111111-1111-1111-1111-11111
 
 ## Next steps
 
-- [Understand deny assignments for Azure resources](deny-assignments.md)
-- [List deny assignments for Azure resources using the Azure portal](deny-assignments-portal.md)
-- [List deny assignments for Azure resources using the REST API](deny-assignments-rest.md)
+- [Understand Azure deny assignments](deny-assignments.md)
+- [List Azure deny assignments using the Azure portal](deny-assignments-portal.md)
+- [List Azure deny assignments using the REST API](deny-assignments-rest.md)

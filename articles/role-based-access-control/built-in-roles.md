@@ -1,5 +1,5 @@
 ---
-title: Azure built-in roles for Azure RBAC
+title: Azure built-in roles
 description: This article describes the Azure built-in roles for Azure role-based access control (Azure RBAC). It lists Actions, NotActions, DataActions, and NotDataActions.
 services: active-directory
 documentationcenter: ''
@@ -26,7 +26,7 @@ This article lists the Azure built-in roles, which are always evolving. To get t
 
 ## All
 
-The following table provides a brief description and the unique ID of each built-in role. Select the role name to see the list of `Actions`, `NotActions`, `DataActions`, and `NotDataActions` for each role. For information about what these actions mean and how they apply to the management and data planes, see [Understand role definitions for Azure resources](role-definitions.md).
+The following table provides a brief description and the unique ID of each built-in role. Select the role name to see the list of `Actions`, `NotActions`, `DataActions`, and `NotDataActions` for each role. For information about what these actions mean and how they apply to the management and data planes, see [Understand Azure role definitions](role-definitions.md).
 
 
 > [!div class="mx-tableFixed"]

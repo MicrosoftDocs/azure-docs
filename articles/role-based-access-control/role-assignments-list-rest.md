@@ -1,5 +1,5 @@
 ---
-title: List role assignments using Azure RBAC and the REST API
+title: List Azure role assignments using the REST API
 description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure role-based access control (Azure RBAC) and the REST API.
 services: active-directory
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.author: rolyon
 ms.reviewer: bagovind
 
 ---
-# List role assignments using Azure RBAC and the REST API
+# List Azure role assignments using the REST API
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] This article describes how to list role assignments using the REST API.
 
@@ -59,5 +59,5 @@ In Azure RBAC, to list access, you list the role assignments. To list role assig
 
 ## Next steps
 
-- [Add or remove role assignments using Azure RBAC and the REST API](role-assignments-rest.md)
+- [Add or remove Azure role assignments using the REST API](role-assignments-rest.md)
 - [Azure REST API Reference](/rest/api/azure/)

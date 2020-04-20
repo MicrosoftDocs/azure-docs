@@ -1,5 +1,5 @@
 ---
-title: Add role assignments with Azure RBAC and Azure Resource Manager templates
+title: Add Azure role assignments using Azure Resource Manager templates
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure role-based access control (Azure RBAC) and Azure Resource Manager templates.
 services: active-directory
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
-# Add role assignments using Azure RBAC and Azure Resource Manager templates
+# Add Azure role assignments using Azure Resource Manager templates
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] In addition to using Azure PowerShell or the Azure CLI, you can assign roles using [Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md). Templates can be helpful if you need to deploy resources consistently and repeatedly. This article describes how to assign roles using templates.
 
