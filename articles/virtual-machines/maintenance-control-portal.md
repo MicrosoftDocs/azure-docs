@@ -28,37 +28,39 @@ With maintenance control, you can:
 - After 35 days, an update will automatically be applied.
 - User must have **Resource Contributor** access.
 
-
 ## Create a maintenance configuration
 
-Use `az maintenance configuration create` to create a maintenance configuration. This example creates a maintenance configuration named *myConfig* scoped to the host. 
+1. Sign in to the Azure portal.
 
-```azurecli-interactive
-az group create \
-   --location eastus \
-   --name myMaintenanceRG
-az maintenance configuration create \
-   -g myMaintenanceRG \
-   --name myConfig \
-   --maintenanceScope host\
-   --location  eastus
-```
+1. Search for **Maintenance Configurations**.
 
-Copy the configuration ID from the output to use later.
+   ![Screenshot showing how to open Maintenance Configurations](media/virtual-machines-maintenance-control-portal/maintenance-configurations-search.png)
 
-Using `--maintenanceScope host` ensures that the maintenance config is used for controlling updates to the host.
+1. Click **Add**.
 
-If you try to create a configuration with the same name, but in a different location, you will get an error. Configuration names must be unique to your subscription.
+   ![Screenshot showing how to add a maintenance configuration](media/virtual-machines-maintenance-control-portal/maintenance-configurations-add.png)
 
-You can query for available maintenance configurations using `az maintenance configuration list`.
+1. Complete basics. Click **Next**.
 
-```azurecli-interactive
-az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
-```
+   ![Screenshot showing Maintenance Configuration basics](media/virtual-machines-maintenance-control-portal/maintenance-configurations-basics.png)
+
+1. Add tags and values. Click **Next**.
+
+   ![Screenshot showing how to add tags to a maintenance configuration](media/virtual-machines-maintenance-control-portal/maintenance-configurations-tags.png)
+
+1. Review the summary. Click **Create**.
+
+   ![Screenshot showing how to create a maintenance configuration](media/virtual-machines-maintenance-control-portal/maintenance-configurations-create.png)
+
+1. After the deployment is complete, click **Go to resource**.
+
+   ![Screenshot showing Maintenance Configuration deployment complete](media/virtual-machines-maintenance-control-portal/maintenance-configurations-deployment-complete.png)
 
 ## Assign the configuration
 
-Use `az maintenance assignment create` to assign the configuration to your isolated VM or Azure Dedicated Host.
+Use the following steps to assign the configuration to your isolated VM or Azure Dedicated Host.
+
+
 
 ### Isolated VM
 
