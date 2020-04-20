@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/16/2020
-ms.author: BorisB2015
+ms.author: borisb
 ---
 
 # Overview of Oracle Applications and solutions on Azure
