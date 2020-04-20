@@ -26,6 +26,11 @@ non-Azure machine.
 
 > [!IMPORTANT]
 > Custom policies with Guest Configuration is a Preview feature.
+>
+> The Guest Configuration extension is required to perform audits in Azure virtual machines.
+> To deploy the extension at scale, assign the following policy definitions:
+>   - Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.
+>   - Deploy prerequisites to enable Guest Configuration Policy on Linux VMs.
 
 ## Install the PowerShell module
 
