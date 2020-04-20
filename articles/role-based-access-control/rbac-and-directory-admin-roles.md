@@ -1,5 +1,5 @@
 ---
-title: "Classic subscription administrator roles, Azure RBAC roles, and Azure AD roles"
+title: "Classic subscription administrator roles, Azure roles, and Azure AD roles"
 description: Describes the different roles in Azure - Classic subscription administrator roles, Azure roles, and Azure Active Directory (Azure AD) administrator roles 
 services: active-directory
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.reviewer: bagovind
 ms.custom: it-pro;
 ---
 
-# Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles
+# Classic subscription administrator roles, Azure roles, and Azure AD administrator roles
 
 If you are new to Azure, you may find it a little challenging to understand all the different roles in Azure. This article helps explain the following roles and when you would use each:
 - Classic subscription administrator roles
@@ -29,7 +29,7 @@ If you are new to Azure, you may find it a little challenging to understand all 
 
 To better understand roles in Azure, it helps to know some of the history. When Azure was initially released, access to resources was managed with just three administrator roles: Account Administrator, Service Administrator, and Co-Administrator. Later, Azure role-based access control (Azure RBAC) was added. Azure RBAC is a newer authorization system that provides fine-grained access management to Azure resources. RBAC includes many built-in roles, can be assigned at different scopes, and allows you to create your own custom roles. To manage resources in Azure AD, such as users, groups, and domains, there are several Azure AD administrator roles.
 
-The following diagram is a high-level view of how the classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles are related.
+The following diagram is a high-level view of how the classic subscription administrator roles, Azure roles, and Azure AD administrator roles are related.
 
 ![The different roles in Azure](./media/rbac-and-directory-admin-roles/rbac-admin-roles.png)
 
@@ -64,7 +64,7 @@ Each subscription is associated with an Azure AD directory. To find the director
 
 Accounts and subscriptions are managed in the [Azure Account Center](https://account.azure.com/Subscriptions).
 
-## Azure RBAC roles
+## Azure roles
 
 Azure RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) that provides fine-grained access management to Azure resources, such as compute and storage. Azure RBAC includes over 70 built-in roles. There are four fundamental RBAC roles. The first three apply to all resource types:
 
@@ -103,20 +103,20 @@ In the Azure portal, you can see the list of Azure AD administrator roles on the
 
 ![Azure AD administrator roles in the Azure portal](./media/rbac-and-directory-admin-roles/directory-admin-roles.png)
 
-## Differences between Azure RBAC roles and Azure AD administrator roles
+## Differences between Azure roles and Azure AD administrator roles
 
-At a high level, Azure RBAC roles control permissions to manage Azure resources, while Azure AD administrator roles control permissions to manage Azure Active Directory resources. The following table compares some of the differences.
+At a high level, Azure roles control permissions to manage Azure resources, while Azure AD administrator roles control permissions to manage Azure Active Directory resources. The following table compares some of the differences.
 
-| Azure RBAC roles | Azure AD administrator roles |
+| Azure roles | Azure AD administrator roles |
 | --- | --- |
 | Manage access to Azure resources | Manage access to Azure Active Directory resources |
 | Supports custom roles | Supports custom roles |
 | Scope can be specified at multiple levels (management group, subscription, resource group, resource) | Scope is at the tenant level |
 | Role information can be accessed in Azure portal, Azure CLI, Azure PowerShell, Azure Resource Manager templates, REST API | Role information can be accessed in Azure admin portal, Microsoft 365 admin center, Microsoft Graph, AzureAD PowerShell |
 
-### Do Azure RBAC roles and  Azure AD administrator roles overlap?
+### Do Azure roles and  Azure AD administrator roles overlap?
 
-By default, Azure RBAC roles and Azure AD administrator roles do not span Azure and Azure AD. However, if a Global Administrator elevates their access by choosing the **Global admin can manage Azure Subscriptions and Management Groups** switch in the Azure portal, the Global Administrator will be granted the [User Access Administrator](built-in-roles.md#user-access-administrator) role (an RBAC role) on all subscriptions for a particular tenant. The User Access Administrator role enables the user to grant other users access to Azure resources. This switch can be helpful to regain access to a subscription. For more information, see [Elevate access as an Azure AD administrator](elevate-access-global-admin.md).
+By default, Azure roles and Azure AD administrator roles do not span Azure and Azure AD. However, if a Global Administrator elevates their access by choosing the **Global admin can manage Azure Subscriptions and Management Groups** switch in the Azure portal, the Global Administrator will be granted the [User Access Administrator](built-in-roles.md#user-access-administrator) role (an RBAC role) on all subscriptions for a particular tenant. The User Access Administrator role enables the user to grant other users access to Azure resources. This switch can be helpful to regain access to a subscription. For more information, see [Elevate access as an Azure AD administrator](elevate-access-global-admin.md).
 
 Several Azure AD administrator roles span Azure AD and Microsoft Office 365, such as the Global Administrator and User Administrator roles. For example, if you are a member of the Global Administrator role, you have global administrator capabilities in Azure AD and Office 365, such as making changes to Microsoft Exchange and Microsoft SharePoint. However, by default, the Global Administrator doesn't have access to Azure resources.
 
