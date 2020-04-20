@@ -77,7 +77,9 @@ The following example template demonstrates how to create a workspace with three
 
 * Enable high confidentiality settings for the workspace
 * Enable encryption for the workspace
-* Uses an existing Azure Key Vault
+* Uses an existing Azure Key Vault to retrieve customer-managed keys
+
+For more information, see [Encryption at rest](concept-enterprise-security.md#encryption-at-rest).
 
 ```json
 {
@@ -117,7 +119,7 @@ The following example template demonstrates how to create a workspace with three
         "description": "Specifies the sku, also referred to as 'edition' of the Azure Machine Learning workspace."
       }
     },
-    "confidential_data":{
+    "high_confidentiality":{
       "type": "string",
       "defaultValue": "false",
       "allowedValues": [
@@ -252,7 +254,7 @@ The following example template demonstrates how to create a workspace with three
                     "keyIdentifier": "[parameters('resource_cmk_uri')]"
                   }
             },
-        "hbiWorkspace": "[parameters('confidential_data')]"
+        "hbiWorkspace": "[parameters('high_confidentiality')]"
       }
     }
   ]
