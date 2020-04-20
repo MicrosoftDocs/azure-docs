@@ -70,7 +70,7 @@ Most tasks and services can be performed on delegated resources across managed t
 [Azure Networking](../../networking/networking-overview.md):
 
 - Deploy and manage [Azure Virtual Network (VNet)](../../virtual-network/index.yml) and virtual network interface cards (vNICs) within customer tenants
-- Deploy and configure [Azure Firewall]((../../firewall/index.yml)) to protect customers’ Virtual Network resources
+- Deploy and configure [Azure Firewall](../../firewall/overview.md) to protect customers’ Virtual Network resources
 - Manage connectivity services such as [Azure Virtual WAN](../../virtual-wan/virtual-wan-about.md), [ExpressRoute](../../expressroute/expressroute-introduction.md), and [VPN Gateways](../../vpn-gateway/vpn-gateway-about-vpngateways.md) for customers
 - Use Azure Lighthouse to support key scenarios for the [Azure Networking MSP Program](../../networking/networking-partners-msp.md)
 
