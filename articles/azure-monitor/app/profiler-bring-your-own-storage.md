@@ -20,8 +20,8 @@ One thing to have in mind is that you'll take over of all the related costs of t
 
 ## How does my Storage Account will be accessed?
 1. The data it's written by agents running in your Virtual Machines or App Service.
-2. Your application contacts our service (Profiler/Debugger) when they want to upload data and we hand back a SAS (Shared Access Signature) token to a blob in your storage account.
-3. Later, when you want to analyze the data, the profiler/debugger service will reach back into that storage account to read the blob and write back the results of the analysis.
+1. Your application contacts our service (Profiler/Debugger) when they want to upload data and we hand back a SAS (Shared Access Signature) token to a blob in your storage account.
+1. Later, when you want to analyze the data, the profiler/debugger service will reach back into that storage account to read the blob and write back the results of the analysis.
 
 ## What do I need to do to enable BYOS? 
 You'll need to add the role `Storage Blob Data Contributor` to the AAD application named `Diagnostic Services Trusted Storage Access` in your storage account.
@@ -29,10 +29,10 @@ It can be done via the Access control UI, as shown in Figure 1.0.
 
 Steps: 
 1. Click on the "Add" button in the "Add a role assignment" section 
-2. Select "Storage Blob Data Contributor" role 
-3. Select "Azure AD user, group, or service principal" in the "Assign access to" section 
-4. Search & select "Diagnostic Services Trusted Storage Access" app 
-5. Save changes
+1. Select "Storage Blob Data Contributor" role 
+1. Select "Azure AD user, group, or service principal" in the "Assign access to" section 
+1. Search & select "Diagnostic Services Trusted Storage Access" app 
+1. Save changes
 
 _![Figure 1.0](media/profiler-bring-your-own-storage/figure10.png)_
 _Figure 1.0_ 
@@ -94,7 +94,7 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), follow the bel
     }
     ```
 
-2. Run the following PowerShell command to deploy previous template (create Linked Storage Account).
+1. Run the following PowerShell command to deploy previous template (create Linked Storage Account).
     Pattern:
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName "{your_resource_name}" -TemplateFile "{local_path_to_arm_template}"
@@ -105,7 +105,7 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), follow the bel
     New-AzResourceGroupDeployment -ResourceGroupName "byos-test" -TemplateFile "D:\Docs\byos.template.json"
     ```
 
-3. Provide the following parameters when prompted in the PowerShell console:
+1. Provide the following parameters when prompted in the PowerShell console:
     
     |           Parameter           |                                Description                               |
     |-------------------------------|--------------------------------------------------------------------------|
@@ -138,7 +138,7 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), follow the bel
     DeploymentDebugLogLevel :
     ```
 
-4. Enable code-level diagnostics (Profiler/Debugger) on the workload of interest through the Azure portal. (App Service > Application Insights) 
+1. Enable code-level diagnostics (Profiler/Debugger) on the workload of interest through the Azure portal. (App Service > Application Insights) 
 _![Figure 2.0](media/profiler-bring-your-own-storage/figure20.png)_
 _Figure 2.0_
 
