@@ -19,7 +19,7 @@ ms.author: rolyon
 
 ---
 
-# Tutorial: Grant a user access to Azure resources using RBAC and Resource Manager template
+# Tutorial: Grant a user access to Azure resources using Azure RBAC and Resource Manager template
 
 [Azure role-based access control (Azure RBAC)](overview.md) is the way that you manage access to Azure resources. In this tutorial, you create a resource group and grant a user access to create and manage virtual machines in the resource group. This tutorial focuses on the process of deploying a Resource Manager template to grant the access. For more information on developing Resource Manager templates, see [Resource Manager documentation](/azure/azure-resource-manager/) and the [template reference](/azure/templates/microsoft.authorization/allversions
 ).
@@ -82,4 +82,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Grant a user access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Tutorial: Grant a user access to Azure resources using Azure RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)

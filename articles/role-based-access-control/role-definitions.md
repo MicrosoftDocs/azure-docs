@@ -165,7 +165,7 @@ Bob's permissions are restricted to just the `Actions` and `DataActions` specifi
 
 For more information about management and data plane security for storage, see the [Azure Storage security guide](../storage/blobs/security-recommendations.md).
 
-### What tools support using RBAC for data operations?
+### What tools support using Azure RBAC for data operations?
 
 To view and work with data operations, you must have the correct versions of the tools or SDKs:
 

@@ -36,7 +36,7 @@ Here are some examples of what you can do with RBAC:
 
 ## How RBAC works
 
-The way you control access to resources using RBAC is to create role assignments. This is a key concept to understand – it's how permissions are enforced. A role assignment consists of three elements: security principal, role definition, and scope.
+The way you control access to resources using Azure RBAC is to create role assignments. This is a key concept to understand – it's how permissions are enforced. A role assignment consists of three elements: security principal, role definition, and scope.
 
 ### Security principal
 
@@ -127,6 +127,6 @@ The following are the high-level steps that RBAC uses to determine if you have a
 ## Next steps
 
 - [Quickstart: View the access a user has to Azure resources using the Azure portal](check-access.md)
-- [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md)
+- [Manage access to Azure resources using Azure RBAC and the Azure portal](role-assignments-portal.md)
 - [Understand the different roles in Azure](rbac-and-directory-admin-roles.md)
 - [Cloud Adoption Framework: Resource access management in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

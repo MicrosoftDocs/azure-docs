@@ -19,7 +19,7 @@ ms.author: rolyon
 
 ---
 
-# Tutorial: Grant a user access to Azure resources using RBAC and Azure PowerShell
+# Tutorial: Grant a user access to Azure resources using Azure RBAC and Azure PowerShell
 
 [Azure role-based access control (Azure RBAC)](overview.md) is the way that you manage access to Azure resources. In this tutorial, you grant a user access to view everything in a subscription and manage everything in a resource group using Azure PowerShell.
 
@@ -278,4 +278,4 @@ To clean up the resources created by this tutorial, delete the resource group an
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage access to Azure resources using RBAC and Azure PowerShell](role-assignments-powershell.md)
+> [Manage access to Azure resources using Azure RBAC and Azure PowerShell](role-assignments-powershell.md)
