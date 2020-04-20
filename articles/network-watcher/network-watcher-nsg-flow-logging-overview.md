@@ -18,19 +18,29 @@ ms.author: damendo
 
 # Introduction to flow logging for network security groups
 
-Network security group (NSG) flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through an NSG. Flow logs are written in JSON format, and show outbound and inbound flows on a per rule basis, the network interface (NIC) the flow applies to, 5-tuple information about the flow (Source/destination IP, source/destination port, and protocol), if the traffic was allowed or denied, and in Version 2, throughput information (Bytes and Packets).
+## Introduction
+
+[Network security group](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) (NSG) flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an NSG. Flow data is sent to Azure Storage accounts from where you can access it as well as export it to any visualization tool, SIEM or IDS of your choice.
 
 
 ![flow logs overview](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
 
-While flow logs target NSGs, they are not displayed the same as the other logs. Flow logs are stored only within a storage account and follow the logging path shown in the following example:
+## Why use Flow Logs?
 
-```
-https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
-```
-You can analyze flow logs and gain insights into your network traffic using [traffic analytics](traffic-analytics.md).
+It is vital to monitor, manage, and know your own network for uncompromised security, compliance, and performance. Knowing your own environment is of paramount importance to protect and optimize it. You often need to know the current state of the network, who is connecting, where they're connecting from, which ports are open to the internet, expected network behavior, irregular network behavior, and sudden rises in traffic.
 
-The same retention policies seen for other logs apply to flow logs. You can set log retention policy from 1 day to 365 days. If a retention policy is not set, the logs are maintained forever.
+Flow logs is the source of truth for all network activity in your cloud environment. Whether you're a upcoming startup trying to optimize resources or large enterprise trying to detect intrusion, Flow logs is your best bet. You can use it for optimizing network flows, monitoring throughput, verifying compliance, detecting intrusions and more.
+
+## Common Use Cases
+
+**Network Monitoring**: Identify unknown/undesired traffic. Monitor traffic levels and bandwidth consumption. Filter flow logs by IP and port to understand application behaviour. Export Flow Logs to analytics/visualization tools of your choice to setup monitoring dashboards.
+
+**Usage monitoring and optimization:**: Identify top talkers in your network. Combine with GeoIP data to identify cross-region traffic. Understand traffic growth for capacity forecasting_._ Remove overtly restrictive traffic rules.
+
+**Compliance**: Useflow data to verify network isolation and compliance with enterprise access rules
+
+**Network forensics & Security analysis**: Analyze network flows from compromised IPs. Export flow logs to any SIEM or IDS tool of your choice.
+
 
 ## Log file
 
@@ -295,6 +305,12 @@ To update parameters via command-line tools, use the same command used to enable
 - [Download &amp; view Flow Logs from the portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#download-flow-log)
 - [Read Flow logs using PowerShell functions](https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs)
 - [Export NSG Flow Logs to Splunk](https://www.splunk.com/en_us/blog/tips-and-tricks/splunking-microsoft-azure-network-watcher-data.html)
+
+While flow logs target NSGs, they are not displayed the same as the other logs. Flow logs are stored only within a storage account and follow the logging path shown in the following example:
+
+```
+https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+```
 
 *Visualise flow Logs*
 
