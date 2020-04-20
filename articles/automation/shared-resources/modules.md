@@ -315,4 +315,4 @@ The file specifying connection type properties is named **&lt;ModuleName&gt;-Aut
 
 ## Next steps
 
-* To learn more about creating PowerShell modules, see [Writing a Windows PowerShell Module](/powershell/scripting/developer/windows-powershell).
+* To learn more about creating PowerShell modules, see [Writing a Windows PowerShell Module](https://docs.microsoft.com/powershell/scripting/developer/module/writing-a-windows-powershell-module?view=powershell-7).
