@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use the Anolmaly Detector client library'
+title: 'Quickstart: Use the Anomaly Detector client library'
 titleSuffix: Azure Cognitive Services
 description: The Anomaly Detector API offers client libraries to detect abnormalities in your data series either as a batch or on streaming data.
 services: cognitive-services

@@ -1,5 +1,5 @@
 ---
-title: Anomlay Detector JavaScript client library quickstart 
+title: Anomaly Detector JavaScript client library quickstart 
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill

@@ -1,5 +1,5 @@
 ---
-title: Anomlay Detector Python client library quickstart 
+title: Anomaly Detector Python client library quickstart 
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill

@@ -1,5 +1,5 @@
 ---
-title: Anomlay Detector .NET client library quickstart 
+title: Anomaly Detector .NET client library quickstart 
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill

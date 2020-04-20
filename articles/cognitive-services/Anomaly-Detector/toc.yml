@@ -10,7 +10,7 @@
   items:
     - name: Client library
       items:
-        - name: Anolmaly Detector client libraries
+        - name: Anomaly Detector client libraries
           href: ./quickstarts/client-libraries.md
     - name: REST API
       items:
