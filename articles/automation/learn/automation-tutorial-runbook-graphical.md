@@ -5,7 +5,7 @@ keywords: runbook, runbook template, runbook automation, azure runbook
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
-ms.topic: conceptual
+ms.topic: tutorial
 ---
 # Tutorial: My first graphical runbook
 
