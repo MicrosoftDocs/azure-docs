@@ -90,13 +90,9 @@ For more information on getting OAuth tokens in python, see [Python Authenticati
 
 ```python
 #Required python packages
-#pip3 install adal
-#pip install msrestazure
+#pip3 install msal
 
-import adal
-from msrestazure.azure_active_directory import AdalAuthentication
-from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
-import requests
+import msal
 
 #--------------------------Configure these properties-------------------------------#
 # Tenant ID for your Azure Subscription
@@ -109,19 +105,24 @@ client_secret = 'password'
 kafkarest_endpoint = "https://<clustername>-kafkarest.azurehdinsight.net"
 #--------------------------Configure these properties-------------------------------#
 
-#getting token
-login_endpoint = AZURE_PUBLIC_CLOUD.endpoints.active_directory
-resource = "https://hib.azurehdinsight.net"
-context = adal.AuthenticationContext(login_endpoint + '/' + tenant_id)
+# Scope
+scope = 'https://hib.azurehdinsight.net/.default'
+#Authority
+authority = 'https://login.microsoftonline.com/' + tenant_id
 
-token = context.acquire_token_with_client_credentials(
-    resource,
-    client_id,
-    client_secret)
+# Create a preferably long-lived app instance which maintains a token cache.
+app = msal.ConfidentialClientApplication(
+    client_id , client_secret, authority,
+    #cache - For details on how look at this example: https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/app.py
+    )
 
-accessToken = 'Bearer ' + token['accessToken']
+# The pattern to acquire a token looks like this.
+result = None
 
-print(accessToken)
+result = app.acquire_token_for_client(scopes=[scope])
+
+print(result)
+accessToken = result['access_token']
 
 # relative url
 getstatus = "/v1/metadata/topics"
@@ -132,10 +133,10 @@ response = requests.get(request_url, headers={'Authorization': accessToken})
 print(response.content)
 ```
 
-Find below another sample on how to get a token from Azure for REST proxy using a curl command. Notice that we need the `resource=https://hib.azurehdinsight.net` specified while getting a token.
+Find below another sample on how to get a token from Azure for REST proxy using a curl command. **Notice that we need the `scope=https://hib.azurehdinsight.net/.default` specified while getting a token.**
 
 ```cmd
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<clientid>&client_secret=<clientsecret>&grant_type=client_credentials&resource=https://hib.azurehdinsight.net' 'https://login.microsoftonline.com/<tenantid>/oauth2/token'
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<clientid>&client_secret=<clientsecret>&grant_type=client_credentials&scope=https://hib.azurehdinsight.net/.default' 'https://login.microsoftonline.com/<tenantid>/oauth2/v2.0/token'
 ```
 
 ## Next steps
