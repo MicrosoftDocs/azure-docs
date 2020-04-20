@@ -85,6 +85,8 @@ To delete the resource group and all its resources, run the following PowerShell
 Remove-AzResourceGroup -Name <your resource group>
 ```
 
+---
+
 ## Next steps
 
 [Connect and query](sql-database-connect-query.md) your database using different tools and languages:
