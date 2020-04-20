@@ -136,12 +136,12 @@ Add a filter for **Service name**, and then select **sql database** in the drop-
 
 All Azure SQL databases (either single, pooled, or managed instance databases) have a default backup retention period of 7 days. You can [change the backup retention period](#change-the-pitr-backup-retention-period) to as long as 35 days.
 
-If you delete a database, the Azure SQL service will keep the backups in the same way it would for an online database. For example, if you delete a Basic database that has a retention period of seven days, a backup that's four days old is saved for three more days.
+If you delete a database, Azure keeps the backups in the same way it would for an online database. For example, if you delete a Basic database that has a retention period of seven days, a backup that's four days old is saved for three more days.
 
 If you need to keep the backups for longer than the maximum retention period, you can modify the backup properties to add one or more long-term retention periods to your database. For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
 > [!IMPORTANT]
-> If you delete the logical Azure SQL server that hosts SQL databases, all elastic database pools and databases that belong to the server are also deleted. They can't be recovered. You can't restore a deleted server. But if you configured long-term retention, the backups for the databases with LTR won't be deleted, and these databases can be restored.
+> If you delete the logical server that hosts Azure SQL databases, all elastic database pools and databases that belong to the server are also deleted. They can't be recovered. You can't restore a deleted server. But if you configured long-term retention, the backups for the databases with LTR won't be deleted, and these databases can be restored.
 
 ## Encrypted backups
 
@@ -151,7 +151,7 @@ If your database is encrypted with TDE, backups are automatically encrypted at r
 
 On an ongoing basis, the Azure SQL engineering team automatically tests the restore of automated database backups of databases placed in logical servers and elastic database pools. (This testing isn't available in managed instance.) Upon point-in-time restore, databases also receive DBCC CHECKDB integrity checks.
 
-Managed instance takes automatic initial backup with `CHECKSUM` of databases restored with the native `RESTORE` command or with Azure Data Migration Service after the migration is completed.
+SQL Managed Instance takes an automatic initial backup with `CHECKSUM` of databases restored with the native `RESTORE` command or with Azure Data Migration Service after the migration is completed.
 
 Any issues found during the integrity check will result in an alert to the engineering team. For more information, see [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
@@ -166,7 +166,7 @@ When you migrate your database from a DTU-based service tier to a vCore-based se
 You can change the default PITR backup retention period by using the Azure portal, PowerShell, or the REST API. The following examples illustrate how to change the PITR retention to 28 days.
 
 > [!WARNING]
-> If you reduce the current retention period, all existing backups that are older than the new retention period are no longer available. If you increase the current retention period, the Azure SQL service will keep the existing backups until the end of the longer retention period is reached.
+> If you reduce the current retention period, all existing backups that are older than the new retention period are no longer available. If you increase the current retention period, Azure keeps the existing backups until the end of the longer retention period is reached.
 
 > [!NOTE]
 > These APIs will affect only the PITR retention period. If you configured LTR for your database, it won't be affected. For information about how to change LTR retention periods, see [Long-term retention](sql-database-long-term-retention.md).
@@ -177,7 +177,7 @@ To change the PITR backup retention period by using the Azure portal, go to the 
 
 #### [SQL Database](#tab/single-database)
 
-Changes to PITR backup retention for single Azure SQL databases are done at the logical Azure SQL server level. Changes made at the server level apply to databases on the server. To change PITR retention for an Azure SQL Database server from the Azure portal, go to the server overview blade. Select **Manage Backups** in the left pane, and then select **Configure retention** at the top of the screen:
+Changes to PITR backup retention for SQL Databases are done at the logical SQL server level. Changes made at the server level apply to databases on the server. To change PITR retention for a SQL Database server from the Azure portal, go to the server overview blade. Select **Manage Backups** in the left pane, and then select **Configure retention** at the top of the screen:
 
 ![Change PITR retention, server level](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
