@@ -9,13 +9,13 @@ ms.topic: tutorial
 
 # Tutorial: Create a Python runbook
 
-> [!div class="op_single_selector"]
-> - [Graphical](automation-tutorial-runbook-graphical.md)
-> - [PowerShell](automation-tutorial-runbook-textual-powershell.md)
-> - [PowerShell Workflow](automation-tutorial-runbook-textual.md)
-> - [Python](automation-tutorial-runbook-textual-python2.md)
+This tutorial walks you through the creation of a [Python runbook](../automation-runbook-types.md#python-runbooks) in Azure Automation. Python runbooks compile under Python 2. You can directly edit the code of the runbook using the text editor in the Azure portal.
 
-This tutorial walks you through the creation of a [Python runbook](../automation-runbook-types.md#python-runbooks) in Azure Automation. You start with a simple runbook that you test and publish. Then you modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine. Lastly, you make the runbook more robust by adding runbook parameters.
+> [!div class="checklist"]
+> * Create a simple Python runbook
+> * Test and publish the runbook
+> * Run and track the status of the runbook job
+> * Update the runbook to start an Azure virtual machine with runbook parameters
 
 > [!NOTE]
 > Using a webhook to start a Python runbook is not supported.
