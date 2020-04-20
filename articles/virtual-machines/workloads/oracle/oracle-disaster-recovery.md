@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: BorisB2015
+ms.author: borisb
 ---
 
 # Disaster recovery for an Oracle Database 12c database in an Azure environment
