@@ -157,6 +157,10 @@ type ReadAloudOptions = {
 };
 ```
 
+```typescript
+enum Gender { Female = 'female', Male = 'male' }
+```
+
 ### RenderButtonsOptions
 
 Options for rendering the Immersive Reader buttons.
