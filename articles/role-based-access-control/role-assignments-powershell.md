@@ -1,5 +1,5 @@
 ---
-title: Add or remove role assignments with RBAC and Azure PowerShell
+title: Add or remove role assignments with Azure RBAC and Azure PowerShell
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure role-based access control (Azure RBAC) and Azure PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -62,7 +62,7 @@ Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
 
 ## Add a role assignment
 
-In RBAC, to grant access, you add a role assignment.
+In Azure RBAC, to grant access, you add a role assignment.
 
 ### User at a resource group scope
 
@@ -200,7 +200,7 @@ CanDelegate        : False
 
 ## Remove a role assignment
 
-In RBAC, to remove access, you remove a role assignment by using [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
+In Azure RBAC, to remove access, you remove a role assignment by using [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
 The following example removes the *Virtual Machine Contributor* role assignment from the *alain\@example.com* user on the *pharma-sales* resource group:
 

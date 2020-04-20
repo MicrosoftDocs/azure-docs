@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Grant user access to Azure resources with RBAC and Resource Manager template"
+title: "Tutorial: Grant user access to Azure resources with Azure RBAC and Resource Manager template"
 description: Learn how to grant a user access to Azure resources using Azure role-based access control (Azure RBAC) by using Azure Resource Manager template in this tutorial.
 services: role-based-access-control,azure-resource-manager
 documentationCenter: ''

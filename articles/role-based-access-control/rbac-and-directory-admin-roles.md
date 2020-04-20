@@ -27,7 +27,7 @@ If you are new to Azure, you may find it a little challenging to understand all 
 
 ## How the roles are related
 
-To better understand roles in Azure, it helps to know some of the history. When Azure was initially released, access to resources was managed with just three administrator roles: Account Administrator, Service Administrator, and Co-Administrator. Later, Azure role-based access control (Azure RBAC) was added. Azure RBAC is a newer authorization system that provides fine-grained access management to Azure resources. RBAC includes many built-in roles, can be assigned at different scopes, and allows you to create your own custom roles. To manage resources in Azure AD, such as users, groups, and domains, there are several Azure AD administrator roles.
+To better understand roles in Azure, it helps to know some of the history. When Azure was initially released, access to resources was managed with just three administrator roles: Account Administrator, Service Administrator, and Co-Administrator. Later, Azure role-based access control (Azure RBAC) was added. Azure RBAC is a newer authorization system that provides fine-grained access management to Azure resources. Azure RBAC includes many built-in roles, can be assigned at different scopes, and allows you to create your own custom roles. To manage resources in Azure AD, such as users, groups, and domains, there are several Azure AD administrator roles.
 
 The following diagram is a high-level view of how the classic subscription administrator roles, Azure roles, and Azure AD administrator roles are related.
 
@@ -77,7 +77,7 @@ Azure RBAC is an authorization system built on [Azure Resource Manager](../azure
 
 The rest of the built-in roles allow management of specific Azure resources. For example, the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role allows the user to create and manage virtual machines. For a list of all the built-in roles, see [Azure built-in roles](built-in-roles.md).
 
-Only the Azure portal and the Azure Resource Manager APIs support RBAC. Users, groups, and applications that are assigned Azure roles cannot use the [Azure classic deployment model APIs](../azure-resource-manager/management/deployment-models.md).
+Only the Azure portal and the Azure Resource Manager APIs support Azure RBAC. Users, groups, and applications that are assigned Azure roles cannot use the [Azure classic deployment model APIs](../azure-resource-manager/management/deployment-models.md).
 
 In the Azure portal, role assignments using Azure RBAC appear on the **Access control (IAM)** blade. This blade can be found throughout the portal, such as management groups, subscriptions, resource groups, and various resources.
 

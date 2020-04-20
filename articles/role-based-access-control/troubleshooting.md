@@ -212,4 +212,4 @@ A reader can click the **Platform features** tab and then click **All settings**
 
 - [Troubleshoot for guest users](role-assignments-external-users.md#troubleshoot)
 - [Manage access to Azure resources using Azure RBAC and the Azure portal](role-assignments-portal.md)
-- [View activity logs for RBAC changes to Azure resources](change-history-report.md)
+- [View activity logs for Azure RBAC changes to Azure resources](change-history-report.md)

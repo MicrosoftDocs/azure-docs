@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Grant user access to Azure resources with RBAC and the Azure portal "
+title: "Tutorial: Grant user access to Azure resources with Azure RBAC and the Azure portal "
 description: In this tutorial, learn how to grant a user access to Azure resources using Azure role-based access control (Azure RBAC) in the Azure portal.
 services: role-based-access-control
 documentationCenter: ''
@@ -57,7 +57,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Grant access
 
-In RBAC, to grant access, you create a role assignment.
+In Azure RBAC, to grant access, you create a role assignment.
 
 1. In the list of **Resource groups**, click the new **rbac-resource-group** resource group.
 
@@ -87,7 +87,7 @@ In RBAC, to grant access, you create a role assignment.
 
 ## Remove access
 
-In RBAC, to remove access, you remove a role assignment.
+In Azure RBAC, to remove access, you remove a role assignment.
 
 1. In the list of role assignments, add a checkmark next to the user with the Virtual Machine Contributor role.
 

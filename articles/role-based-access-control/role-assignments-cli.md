@@ -57,7 +57,7 @@ az ad sp list --display-name "{name}" --query [].objectId --output tsv
 
 ## Add a role assignment
 
-In RBAC, to grant access, you add a role assignment.
+In Azure RBAC, to grant access, you add a role assignment.
 
 ### User at a resource group scope
 
@@ -182,7 +182,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ## Remove a role assignment
 
-In RBAC, to remove access, you remove a role assignment by using [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete):
+In Azure RBAC, to remove access, you remove a role assignment by using [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete):
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role_name_or_id> --resource-group <resource_group>

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Grant user access to Azure resources with RBAC and Azure PowerShell"
+title: "Tutorial: Grant user access to Azure resources with Azure RBAC and Azure PowerShell"
 description: Learn how to grant a user access to Azure resources using Azure role-based access control (Azure RBAC) and Azure PowerShell in this tutorial.
 services: active-directory
 documentationCenter: ''
@@ -43,7 +43,7 @@ To complete this tutorial, you will need:
 
 ## Role assignments
 
-In RBAC, to grant access, you create a role assignment. A role assignment consists of three elements: security principal, role definition, and scope. Here are the two role assignments you will perform in this tutorial:
+In Azure RBAC, to grant access, you create a role assignment. A role assignment consists of three elements: security principal, role definition, and scope. Here are the two role assignments you will perform in this tutorial:
 
 | Security principal | Role definition | Scope |
 | --- | --- | --- |
