@@ -50,14 +50,16 @@ This document will cover the following topics:
 2. Navigate to your Key Vault
 3. Select **Metrics** under **Monitoring** 
 
-![Image](../media/alert-1.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert1.png)
 
 4. Update the title of the chart to what you want to see on your dashboard. 
 5. Select the scope. In this example we will select a single key vault. 
 6. Select the Metric **Overall Vault Availability** and Aggregation **Avg** 
 7. Update the time range to the Last 24 Hours and update the time granularity to 1 minute. 
 
-![Image](../media/alert-2.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert2.png)
 
 8. Repeat the steps above for the Vault Saturation and Service API Latency metrics. Select **Pin to Dashboard** to save your metrics into a dashboard. 
 
@@ -66,17 +68,20 @@ This document will cover the following topics:
 
 9. To monitor all of the types of operations on the key vault, use the **Total Service API Hits** Metric, and Select **Apply Splitting by Activity Type**
 
-![Image](../media/alert-3.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert3.png)
 
 10. To monitor for error codes on the key vault, use the **Total Service API Results** Metric, and Select **Apply Splitting by Activity Type**
 
-![Image](../media/alert-4.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert4.png)
 
 Now you will have a dashboard that looks like this. You can click the 3 dots on the top right of each tile and you can rearrange and resize the tiles as you need. 
 
 Once you save and publish the dashboard, it will create a new resource in your Azure subscription. You will be able to see it at anytime by searching for "shared dashboard". 
 
-![Image](../media/alert-5.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert5.png)
 
 ## How to configure alerts on your Key Vault 
 
@@ -93,17 +98,21 @@ An action group is a configurable list of notifications and properties.
 2. Search for **Alerts** in the search box
 3. Select **Manage Actions**
 
-![Image](../media/alert-6.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert6.png)
 
 4. Select **+ Add Action Group**
 
-![Image](../media/alert-7.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert7.png)
 
 5. Choose the **Action Type** for your Action Group. In this example, we will create an email alert.
 
-![Image](../media/alert-8.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert8.png)
 
-![Image](../media/alert-9.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert9.png)
 
 6. Click **OK** at the bottom of the page. You have successfully created an action group. 
 
@@ -113,18 +122,21 @@ Now that you have configured an action group, we will configure the the key vaul
 
 1. Select your key vault resource in the Azure portal and select **Alerts** under **Monitoring**
 
-![Image](../media/alert-10.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert10.png)
 
 2. Select **New Alert Rule**
 
-![Image](../media/alert-11.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert11.png)
 
 3. Select the scope of your alert rule. You can select a single vault or multiple. 
 
 > [!IMPORTANT]
 > Please note that when you are selecting multiple vaults for the scope of your alerts,  all selected vaults must be in the same region. You will have to configure separate alert rules for vaults in different regions. 
 
-![Image](../media/alert-12.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert12.png)
 
 4. Select the conditions for your alerts. You can choose any of the following signals and define your logic for alerting. The Key Vault team recommends configuring the following alerting thresholds. 
 
@@ -134,12 +146,14 @@ Now that you have configured an action group, we will configure the the key vaul
     + Overall Vault Saturation exceeds average (Dynamic Threshold)
     + Total Error Codes higher than average (Dynamic Threshold) 
 
-![Image](../media/alert-13.png) 
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert13.png)
 
 ### Example 1: Configuring a static alert threshold for latency
 
 Select **Overall Service API Latency** as the signal name
-![Image](../media/alert-14.png) 
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert14.png)
 
 Please see the following configuration parameters.
 
@@ -151,13 +165,15 @@ Please see the following configuration parameters.
 + Set the Evaluation Frequency to **1 minute**
 + Select **Done**  
 
-![Image](../media/alert-15.png) 
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert15.png)
 
 ### Example 2: Configuring a dynamic alert threshold for vault saturation 
 
 When you use a dynamic alert, you will be able to see historical data of the key vault you have selected. The blue area represents the average usage of your key vault. The red area shows spikes that would have triggered an alert provided other criteria in the alert configuration are met. The red dots show instances of violations where the criteria for the alert was met during the aggregated time window. You can set an alert to fire after a certain number of violations within a set time. If you don't want to include past data, there is an option to exclude old data below in advanced settings. 
 
-![Image](../media/alert-16.png) 
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert16.png)
 
 Please see the following configuration parameters.
 
@@ -170,15 +186,18 @@ Please see the following configuration parameters.
 + **Optional** Configure Advanced Settings 
 + Select **Done**
 
-![Image](../media/alert-17.png) 
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert17.png)
 
 5. Add the action group that you have configured
 
-![Image](../media/alert-18.png) 
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert18.png)
 
 6. Enable the alert and assign a severity
 
-![Image](../media/alert-19.png) 
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert19.png)
 
 7. Create the alert 
 
@@ -187,4 +206,5 @@ Once you have followed all of the steps above, you should receive email alerts w
 
 ### Example email alert 
 
-![Image](../media/alert-20.png) 
+> [!div class="mx-imgBorder"]
+> ![Screenshot of Azure portal](../media/alert20.png)
