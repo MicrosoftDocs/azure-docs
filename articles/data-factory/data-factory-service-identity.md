@@ -16,6 +16,8 @@ ms.author: jingwang
 
 # Managed identity for Data Factory
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article helps you understand what is managed identity for Data Factory (formerly known as Managed Service Identity/MSI) and how it works.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

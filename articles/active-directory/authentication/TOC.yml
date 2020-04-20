@@ -22,11 +22,7 @@
   items:
   - name: Authentication methods
     href: concept-authentication-methods.md
-  - name: Passwordless authentication
-    href: concept-authentication-passwordless.md
-  - name: Security information registration
-    href: concept-registration-mfa-sspr-combined.md
-  - name: Password reset
+  - name: Self-service password reset
     items:
     - name: How password reset works
       href: concept-sspr-howitworks.md
@@ -48,12 +44,16 @@
       href: https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
     - name: FAQ
       href: multi-factor-authentication-faq.md
-  - name: Azure AD password protection
+  - name: Passwordless authentication
+    href: concept-authentication-passwordless.md
+  - name: Password protection
     items:
     - name: Eliminate weak passwords in the cloud
       href: concept-password-ban-bad.md
     - name: Eliminate weak passwords on-premises
       href: concept-password-ban-bad-on-premises.md
+  - name: Security information registration
+    href: concept-registration-mfa-sspr-combined.md
   - name: Resilient access controls
     href: concept-resilient-controls.md
 - name: How-to guides
@@ -100,28 +100,6 @@
         href: howto-mfa-nps-extension-rdg.md
       - name: VPN
         href: howto-mfa-nps-extension-vpn.md
-  - name: Security info registration
-    items:
-    - name: Enable combined registration
-      href: howto-registration-mfa-sspr-combined.md
-    - name: Troubleshoot combined registration
-      href: howto-registration-mfa-sspr-combined-troubleshoot.md
-  - name: Azure AD password protection
-    items:
-    - name: Plan and deploy on-premises
-      href: howto-password-ban-bad-on-premises-deploy.md
-    - name: Enable and configure on-premises
-      href: howto-password-ban-bad-on-premises-operations.md
-    - name: Monitor on-premises deployments
-      href: howto-password-ban-bad-on-premises-monitor.md
-    - name: Troubleshoot on-premises deployments
-      href: howto-password-ban-bad-on-premises-troubleshoot.md
-    - name: On-premises FAQs
-      href: howto-password-ban-bad-on-premises-faq.md
-    - name: On-premises agent version history
-      href: howto-password-ban-bad-on-premises-agent-versions.md
-  - name: Azure AD smart lockout
-    href: howto-password-smart-lockout.md
   - name: Passwordless
     items: 
       - name: Deploying passwordless
@@ -138,16 +116,38 @@
         href: howto-authentication-passwordless-phone.md
       - name: Windows Hello for Business
         href: https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification
+  - name: Security info registration
+    items:
+    - name: Enable combined registration
+      href: howto-registration-mfa-sspr-combined.md
+    - name: Troubleshoot combined registration
+      href: howto-registration-mfa-sspr-combined-troubleshoot.md
+  - name: On-premises password protection
+    items:
+    - name: Plan and deploy
+      href: howto-password-ban-bad-on-premises-deploy.md
+    - name: Enable and configure
+      href: howto-password-ban-bad-on-premises-operations.md
+    - name: Monitor
+      href: howto-password-ban-bad-on-premises-monitor.md
+    - name: Troubleshoot
+      href: howto-password-ban-bad-on-premises-troubleshoot.md
+    - name: FAQs
+      href: howto-password-ban-bad-on-premises-faq.md
+    - name: Agent version history
+      href: howto-password-ban-bad-on-premises-agent-versions.md
   - name: Use SMS-based authentication (preview)
     href: howto-authentication-sms-signin.md
+  - name: Azure AD smart lockout
+    href: howto-password-smart-lockout.md
   - name: Certificate-based authentication
     items:
     - name: Get started with certificate auth
       href: active-directory-certificate-based-authentication-get-started.md
       items:
-      - name: CBA on Android Devices
+      - name: Use on Android Devices
         href: active-directory-certificate-based-authentication-android.md
-      - name: CBA on iOS Devices
+      - name: Use on iOS Devices
         href: active-directory-certificate-based-authentication-ios.md
   - name: Reporting
     items:
