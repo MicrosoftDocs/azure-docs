@@ -154,19 +154,20 @@ For more information, see:
 
 
 
-
 ## Threat protection for Azure Storage <a name="azure-storage"></a>
 
-> [!NOTE]
-> This service is available in US government clouds, but no other sovereign or Azure government cloud regions.
+Advanced Threat Protection for Storage detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without requiring you to be a security expert, and helps you manage your security monitoring systems.
 
-Advanced Threat Protection for Storage (currently available for Blob storage only) detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without requiring you to be a security expert, and helps you manage your security monitoring systems.
+Advanced threat protection for Azure Storage is currently available only for [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). 
+
+This service is available in all public clouds and US government clouds, but no other sovereign or Azure government cloud regions.
+
+For pricing details, including a free 30 day trial, see the [Azure Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 For more information, see:
 
 * [How to enable Advanced Threat Protection for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
 * [The list of threat protection alerts for Azure Storage](alerts-reference.md#alerts-azurestorage)
-
 
 > [!TIP]
 > You can simulate Azure Storage alerts by following the instructions in [this blog post](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).

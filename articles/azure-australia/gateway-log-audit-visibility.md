@@ -1,11 +1,11 @@
 ---
 title: Gateway logging, auditing, and visibility in Azure Australia
 description: How to configure Logging, Auditing, and Visibility within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
-author: galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: v-emread
 ---
 
 # Gateway logging, auditing, and visibility in Azure Australia
@@ -220,7 +220,7 @@ NSGs control traffic into and out of virtual networks in Azure. NSGs apply rules
 
 ### Azure Activity Log
 
-Azure Activity Log, which is part of Azure Monitor, is a subscription log that provides insight into subscription-level events that have occurred in Azure. The Activity Log can help determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken ***on*** the resources in a subscription. The Activity Log is crucial for tracking the configuration changes made within the Azure environment. Azure Activity Logs are automatically available for use in Log Analytics solutions and can be sent to Event Hubs or Azure Storage for processing or retention.
+Azure Activity Log, which is part of Azure Monitor, is a subscription log that provides insight into subscription-level events that have occurred in Azure. The Activity Log can help determine the 'what, who, and when' for any write operations (PUT, POST, DELETE) taken ***on*** the resources in a subscription. The Activity Log is crucial for tracking the configuration changes made within the Azure environment. Azure Activity Logs are automatically available for use in Log Analytics solutions and can be sent to Event Hubs or Azure Storage for processing or retention.
 
 |Resources|Link|
 |---|---|
@@ -372,7 +372,7 @@ A SIEM is a system that provides centralised storage, auditing and analysis of s
 
 ### Australian Cyber Security Centre
 
-The Australian Cyber Security Centre (ACSC) is the Australian Government’s lead on national cyber security. It brings together cyber security capabilities from across the Australian Government to improve the cyber resilience of the Australian community and support the economic and social prosperity of Australia in the digital age. The ACSC recommends that Commonwealth entities forward all mandated system-generated log files, events, and logs to the ACSC for whole of Australian Government monitoring.
+The Australian Cyber Security Centre (ACSC) is the Australian Government's lead on national cyber security. It brings together cyber security capabilities from across the Australian Government to improve the cyber resilience of the Australian community and support the economic and social prosperity of Australia in the digital age. The ACSC recommends that Commonwealth entities forward all mandated system-generated log files, events, and logs to the ACSC for whole of Australian Government monitoring.
 
 |Resources|Link|
 |---|---|

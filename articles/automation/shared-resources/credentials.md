@@ -19,6 +19,9 @@ Azure Automation securely stores the properties of a credential. Access to the p
 > [!NOTE]
 > Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each Automation account. This key is stored in Key Vault. Before storing a secure asset, the key is loaded from Key Vault and then used to encrypt the asset.
 
+>[!NOTE]
+>This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
+
 [!INCLUDE [gdpr-dsr-and-stp-note.md](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## Azure PowerShell Az cmdlets used for credential assets
@@ -42,7 +45,7 @@ The activities in the following table are used to access credentials in runbooks
 | [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |Gets a credential with a prompt for user name and password. |
 | [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | Creates a credential asset. |
 
-For local development using the Azure Automation Authoring Toolkit, the `Get-AutomationPSCredential`  cmdlet is part of assembly [AzureAutomationAuthoringToolkit](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.9). For Azure working with the Automation context, the cmdlet is in `Orchestrator.AssetManagement.Cmdlets`. See [Manage modules in Azure Automation](modules.md).
+For local development using the Azure Automation Authoring Toolkit, the `Get-AutomationPSCredential` cmdlet is part of assembly [AzureAutomationAuthoringToolkit](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.9). For Azure working with the Automation context, the cmdlet is in `Orchestrator.AssetManagement.Cmdlets`. See [Manage modules in Azure Automation](modules.md).
 
 To retrieve `PSCredential` objects in your code, you can install the [Microsoft Azure Automation ISE add-on for the PowerShell ISE](https://github.com/azureautomation/azure-automation-ise-addon).
 
