@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/31/2020
+ms.date: 04/20/2020
 ms.author: cynthn
 #pmcontact: shants
 ---
 
-# Preview: Control updates with Maintenance Control and Azure PowerShell
+# Control updates with Maintenance Control and Azure PowerShell
 
-Manage platform updates, that don't require a reboot, using maintenance control. Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can’t tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window. 
+Manage platform updates, that don't require a reboot, using maintenance control. Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window. 
 
 Maintenance control lets you decide when to apply updates to your isolated VMs.
 
@@ -22,37 +22,11 @@ With maintenance control, you can:
 - Automate platform updates for your maintenance window using Azure Functions.
 - Maintenance configurations work across subscriptions and resource groups. 
 
-> [!IMPORTANT]
-> Maintenance Control is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-
 ## Limitations
 
 - VMs must be on a [dedicated host](./linux/dedicated-hosts.md), or be created using an [isolated VM size](./linux/isolation.md).
 - After 35 days, an update will automatically be applied.
 - User must have **Resource Contributor** access.
-
-
-## Enable the PowerShell module
-
-Make sure `PowerShellGet` is up to date.
-
-```azurepowershell-interactive
-Install-Module -Name PowerShellGet -Repository PSGallery -Force
-```
-
-The Az.Maintenance PowerShell cmdlets are in preview, so you need to install the module with the `AllowPrerelease` parameter in Cloud Shell or your local PowerShell installation.   
-
-```azurepowershell-interactive
-Install-Module -Name Az.Maintenance -AllowPrerelease
-```
-
-If you are installing locally, make sure you open your PowerShell prompt as an administrator.
-
-You may also be asked to confirm that you want to install from an *untrusted repository*. Type `Y` or select **Yes to All** to install the module.
-
 
 
 ## Create a maintenance configuration

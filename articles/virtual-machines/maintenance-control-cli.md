@@ -1,18 +1,18 @@
 ---
-title: Maintenance control 
-description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control.
+title: Maintenance control for Azure virtual machines using CLI 
+description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control and CLI.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 11/21/2019
+ms.date: 04/20/2020
 ms.author: cynthn
 #pmcontact: shants
 ---
 
-# Preview: Control updates with Maintenance Control and the Azure CLI
+# Control updates with Maintenance Control and the Azure CLI
 
-Manage platform updates, that don't require a reboot, using maintenance control. Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can’t tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window. 
+Manage platform updates, that don't require a reboot, using maintenance control. Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window. 
 
 Maintenance control lets you decide when to apply updates to your isolated VMs and Azure Dedicated Hosts.
 
@@ -33,18 +33,6 @@ With maintenance control, you can:
 - VMs must be on a [dedicated host](./linux/dedicated-hosts.md), or be created using an [isolated VM size](./linux/isolation.md).
 - After 35 days, an update will automatically be applied.
 - User must have **Resource Contributor** access.
-
-
-## Install the maintenance extension
-
-If you choose to install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) locally, you need version 2.0.76 or later.
-
-Install the `maintenance` preview CLI extension locally or in Cloud Shell. 
-
-```azurecli-interactive
-az extension add -n maintenance
-```
-
 
 ## Create a maintenance configuration
 
