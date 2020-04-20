@@ -99,7 +99,7 @@ There are several things to take into consideration when using the Az modules in
 
 * Higher-level solutions in your Automation account can use runbooks and modules. Therefore, editing runbooks or upgrading modules can potentially cause issues with your solutions. You should test all runbooks and solutions carefully in a separate Automation account before importing the Az modules. 
 
-* Any modifications to modules can negatively affect the [Start/Stop VMs during off hours solution](automation-solution-vm-management.md) solution. 
+* Any modifications to modules can negatively affect the [Start/Stop VMs during off hours solution](../automation-solution-vm-management.md) solution. 
 
 * Importing an Az module in your Automation account doesn't automatically import the module in the PowerShell session that runbooks use. Modules are imported into the PowerShell session in the following situations:
 
@@ -131,11 +131,11 @@ This section tells how to import the Az modules in the Azure portal. Remember to
 3. In the search bar, enter the module name, for example, `Az.Accounts`. 
 4. On the PowerShell Module page, click **Import** to import the module into your Automation account.
 
-    ![Import modules to Automation account](media/modules/import-module.png)
+    ![Import modules to Automation account](../media/modules/import-module.png)
 
 This import process can also be done through the [PowerShell Gallery](https://www.powershellgallery.com) by searching for the module to import. Once you find the module, select it, choose the **Azure Automation** tab, and click **Deploy to Azure Automation**.
 
-![Import modules directly from gallery](media/modules/import-gallery.png)
+![Import modules directly from gallery](../media/modules/import-gallery.png)
 
 ### Test your runbooks
 

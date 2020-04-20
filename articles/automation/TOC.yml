@@ -68,8 +68,6 @@
           items:
             - name: Manage modules in Azure Automation
               href: shared-resources/modules.md
-            - name: Az module support in Azure Automation
-              href: modules.md
             - name: Update Azure PowerShell modules
               href: automation-update-azure-modules.md
         - name: Schedules
