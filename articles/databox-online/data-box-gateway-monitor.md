@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Monitor your Azure Data Box Gateway
 
-This article describes how to monitor your Azure Data Box Gateway. To monitor your device, you can use Azure portal or the local web UI. Use the Azure portal to view device events, configure and manage alerts, and view metrics.
+This article describes how to monitor your Azure Data Box Gateway. To monitor your device, you can use Azure portal or the local web UI. Use the Azure portal to view device events, configure and manage alerts, and view metrics. 
 
 In this article, you learn how to:
 
