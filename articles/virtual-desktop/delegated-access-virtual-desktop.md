@@ -32,8 +32,8 @@ Windows Virtual Desktop delegated access supports the following values for each 
 Delegated access in Windows Virtual Desktop has several built-in role definitions you can assign to users and service principals.
 
 * An RDS Owner can manage everything, including access to resources.
-* An RDS Contributor can manage everything but access to resources.
-* An RDS Reader can view everything but can't make any changes.
+* An RDS Contributor can manage everything, but can't access to resources.
+* An RDS Reader can view everything, but can't make any changes.
 * An RDS Operator can view diagnostic activities.
 
 ## PowerShell cmdlets for role assignments

@@ -39,7 +39,7 @@ The following example shows how to use the interpretability package on your pers
 1. Install `azureml-interpret` and `azureml-interpret-contrib` packages.
     ```bash
     pip install azureml-interpret
-    pip install azureml-interpret-contrib
+    pip install azureml-contrib-interpret
     ```
 
 2. Train a sample model in a local Jupyter notebook.
