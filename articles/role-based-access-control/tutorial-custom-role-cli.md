@@ -59,7 +59,7 @@ The easiest way to create a custom role is to start with a JSON template, add yo
 
 1. Open ReaderSupportRole.json in an editor and add the following JSON.
 
-    For information about the different properties, see [Custom roles for Azure resources](custom-roles.md).
+    For information about the different properties, see [Azure custom roles](custom-roles.md).
 
     ```json
     {
@@ -267,4 +267,4 @@ To update the custom role, update the JSON file and then update the custom role.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create custom roles for Azure resources using Azure CLI](custom-roles-cli.md)
+> [Create Azure custom roles using Azure CLI](custom-roles-cli.md)

@@ -1,5 +1,5 @@
 ---
-title: Create or update custom roles for Azure resources with the REST API
+title: Create or update Azure custom roles with the REST API
 description: Learn how to list, create, update, or delete custom roles with Azure role-based access control (Azure RBAC) using the REST API.
 services: active-directory
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.author: rolyon
 ms.reviewer: bagovind
 
 ---
-# Create or update custom roles for Azure resources using the REST API
+# Create or update Azure custom roles using the REST API
 
 > [!IMPORTANT]
 > Adding a management group to `AssignableScopes` is currently in preview.
@@ -336,6 +336,6 @@ To delete a custom role, use the [Role Definitions - Delete](/rest/api/authoriza
 
 ## Next steps
 
-- [Custom roles for Azure resources](custom-roles.md)
+- [Azure custom roles](custom-roles.md)
 - [Manage access to Azure resources using RBAC and the REST API](role-assignments-rest.md)
 - [Azure REST API Reference](/rest/api/azure/)

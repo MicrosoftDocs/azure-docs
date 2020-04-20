@@ -1,5 +1,5 @@
 ---
-title: Custom roles for Azure resources | Microsoft Docs
+title: Azure custom roles | Microsoft Docs
 description: Learn how to create custom roles with role-based access control (RBAC) for fine-grained access management of Azure resources.
 services: active-directory
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ---
 
-# Custom roles for Azure resources
+# Azure custom roles
 
 > [!IMPORTANT]
 > Adding a management group to `AssignableScopes` is currently in preview.

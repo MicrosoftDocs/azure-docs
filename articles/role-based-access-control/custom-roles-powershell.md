@@ -1,5 +1,5 @@
 ---
-title: Create or update custom roles for Azure resources with Azure PowerShell
+title: Create or update Azure custom roles with Azure PowerShell
 description: Learn how to list, create, update, or delete custom roles with Azure role-based access control (Azure RBAC) using Azure PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
-# Create or update custom roles for Azure resources using Azure PowerShell
+# Create or update Azure custom roles using Azure PowerShell
 
 > [!IMPORTANT]
 > Adding a management group to `AssignableScopes` is currently in preview.
@@ -397,5 +397,5 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 ## Next steps
 
 - [Tutorial: Create a Azure custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Custom roles for Azure resources](custom-roles.md)
+- [Azure custom roles](custom-roles.md)
 - [Azure Resource Manager resource provider operations](resource-provider-operations.md)

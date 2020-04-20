@@ -240,10 +240,10 @@ Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root s
 > | Management group and a subscription | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
 > | All scopes (applies only to built-in roles) | `"/"` |
 
-For information about `AssignableScopes` for custom roles, see [Custom roles for Azure resources](custom-roles.md).
+For information about `AssignableScopes` for custom roles, see [Azure custom roles](custom-roles.md).
 
 ## Next steps
 
 * [Built-in roles for Azure resources](built-in-roles.md)
-* [Custom roles for Azure resources](custom-roles.md)
+* [Azure custom roles](custom-roles.md)
 * [Azure Resource Manager resource provider operations](resource-provider-operations.md)
