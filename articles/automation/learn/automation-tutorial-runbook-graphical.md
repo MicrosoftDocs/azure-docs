@@ -9,13 +9,6 @@ ms.topic: tutorial
 ---
 # Tutorial: Create a graphical runbook
 
-> [!div class="op_single_selector"]
-> * [Graphical](automation-tutorial-runbook-graphical.md)
-> * [PowerShell](automation-tutorial-runbook-textual-powershell.md)
-> * [PowerShell Workflow](automation-tutorial-runbook-textual.md)
-> * [Python](automation-tutorial-runbook-textual-python2.md)
-> 
-
 This tutorial walks you through the creation of a [graphical runbook](../automation-runbook-types.md#graphical-runbooks) in Azure Automation. You can create and edit graphical and graphical PowerShell Workflow runbooks using the graphical editor in the Azure portal. 
 
 In this tutorial, you learn how to:

@@ -10,12 +10,6 @@ ms.topic: tutorial
 
 # Tutorial: Create a PowerShell Workflow runbook
 
-> [!div class="op_single_selector"]
-> * [Graphical](automation-tutorial-runbook-graphical.md)
-> * [PowerShell](automation-tutorial-runbook-textual-powershell.md)
-> * [PowerShell Workflow](automation-tutorial-runbook-textual.md)
-> * [Python](automation-tutorial-runbook-textual-python2.md)
-
 This tutorial walks you through the creation of a [PowerShell Workflow runbook](../automation-runbook-types.md#powershell-workflow-runbooks) in Azure Automation. PowerShell Workflow runbooks are text runbooks based on Windows PowerShell Workflow. You can create and edit the code of the runbook using the text editor in the Azure portal. 
 
 > [!div class="checklist"]
