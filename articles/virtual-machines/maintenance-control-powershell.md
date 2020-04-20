@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/20/2020
+ms.date: 01/31/2020
 ms.author: cynthn
 #pmcontact: shants
 ---
@@ -27,6 +27,19 @@ With maintenance control, you can:
 - VMs must be on a [dedicated host](./linux/dedicated-hosts.md), or be created using an [isolated VM size](./linux/isolation.md).
 - After 35 days, an update will automatically be applied.
 - User must have **Resource Contributor** access.
+
+
+## Enable the PowerShell module
+
+Make sure `PowerShellGet` is up to date.
+
+```azurepowershell-interactive
+Install-Module -Name PowerShellGet -Repository PSGallery -Force
+```
+
+If you are installing locally, make sure you open your PowerShell prompt as an administrator.
+
+You may also be asked to confirm that you want to install from an *untrusted repository*. Type `Y` or select **Yes to All** to install the module.
 
 
 ## Create a maintenance configuration

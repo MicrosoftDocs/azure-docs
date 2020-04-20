@@ -22,12 +22,6 @@ With maintenance control, you can:
 - Automate platform updates for your maintenance window using Azure Functions.
 - Maintenance configurations work across subscriptions and resource groups. 
 
-> [!IMPORTANT]
-> Maintenance Control is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-
 ## Limitations
 
 - VMs must be on a [dedicated host](./linux/dedicated-hosts.md), or be created using an [isolated VM size](./linux/isolation.md).
