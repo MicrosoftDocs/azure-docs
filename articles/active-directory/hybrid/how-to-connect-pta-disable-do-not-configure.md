@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/15/2020
+ms.date: 04/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -38,7 +38,7 @@ The following prerequisties are required:
 ## To disable PTA
 From within a PowerShell session, use the following to disable PTA:
 1. PS C:\Program Files\Microsoft Azure AD Connect Authentication Agent> `Import-Module .\Modules\PassthroughAuthPSModule`
-2. `Get-PassthroughAuthenticationEnablementStatus` or `Get-PassthroughAuthenticationEnablementStatus -EnvironmentName <identifier>`
+2. `Get-PassthroughAuthenticationEnablementStatus -Feature PassthroughAuth` or `Get-PassthroughAuthenticationEnablementStatus -Feature PassthroughAuth -EnvironmentName <identifier>`
 3. `Disable-PassthroughAuthentication  -Feature PassthroughAuth` or `Disable-PassthroughAuthentication -Feature PassthroughAuth -EnvironmentName <identifier>`
 
 ## If you don't have acces to an agent
