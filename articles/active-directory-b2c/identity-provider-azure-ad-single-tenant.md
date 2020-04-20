@@ -37,9 +37,9 @@ To use an Azure Active Directory (Azure AD) as an [identity provider](authorizat
 
 1. For **Client ID**, enter the application ID that you previously recorded.
 1. For **Client secret**, enter the client secret that you previously recorded.
-1. For the **Scope**, enter the *openid profile*.
+1. For the **Scope**, enter the `openid profile`.
 1. Leave the default values for **Response type**, and **Response mode**.
-1. (Optional) Enter a value for **Domain_hint**. For example, *ContosoAD*. This is the value to use when referring to this identity provider using *domain_hint* in the request.
+1. (Optional) For the **Domain hint**, enter `contoso.com`. For more information, see [Set up direct sign-in using Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
 1. Under **Identity provider claims mapping**, select the following claims:
 
     * **User ID**: *oid*
