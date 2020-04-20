@@ -11,7 +11,7 @@ ms.subservice: files
 
 In this step, you're evaluating how many Azure file shares you need. A single Windows Server instance (or cluster) can sync up to 30 Azure file shares.
 
-You may have more folders on your volumes that you currently share out locally as SMB shares to your users and apps. The easiest way to envision an on-premises share is to map 1:1 to an Azure file share. If you have a small-enough number, below 30 for a single Windows Server instance, then we recommend a 1:1 mapping.
+You may have more folders on your volumes that you currently share out locally as SMB shares to your users and apps. The easiest way is to envision an on-premises share that maps 1:1 to an Azure file share. If you have a small-enough number, below 30 for a single Windows Server instance, then we recommend a 1:1 mapping.
 
 If you have more shares than 30, it's often unnecessary to map an on-premises share 1:1 to an Azure file share. Consider the following options.
 
