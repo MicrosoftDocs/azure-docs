@@ -91,6 +91,6 @@ To get the logs:
 
     ![Streaming log output](media/spring-cloud-intellij-howto/streaming-log-output.png)
 
-## See also
-* [Create a Hello World web app for Azure App Service using IntelliJ](https://docs.microsoft.com/azure/java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)
-* [Prepare a Java Spring application for deployment in Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment) 
+## Next steps
+* [Prepare Spring application for Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
+* [Learn more about Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/java/intellij/)
