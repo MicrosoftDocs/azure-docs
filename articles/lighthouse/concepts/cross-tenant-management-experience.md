@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 04/06/2020
+ms.date: 04/20/2020
 ms.topic: conceptual
 ---
 
@@ -67,6 +67,14 @@ Most tasks and services can be performed on delegated resources across managed t
 - Log analytics: Query data from remote customer workspaces in multiple tenants
 - Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the service provider tenant through webhooks
 
+[Azure Networking](../../networking/networking-overview.md):
+
+- Deploy and manage [Azure Virtual Network (VNet)](../../virtual-network/index.yml) and virtual network interface cards (vNICs) within customer tenants
+- Deploy and configure [Azure Firewall]((../../firewall/overview.md)) to protect customers’ Virtual Network resources
+- Manage connectivity services such as [Azure Virtual WAN](../../virtual-wan/virtual-wan-about.md), [ExpressRoute](expressroute/expressroute-introduction.md), and [VPN Gateways](vpn-gateway/vpn-gateway-about-vpngateways.md) for customers
+- Use Azure Lighthouse to support key scenarios for the [Azure Networking MSP Program](../../networking/networking-partners-msp.md)
+
+
 [Azure Policy](../../governance/policy/index.yml):
 
 - Compliance snapshots show details for assigned policies within delegated subscriptions
@@ -116,10 +124,6 @@ Most tasks and services can be performed on delegated resources across managed t
 - Use boot diagnostics to troubleshoot Azure VMs in customer tenants
 - Access VMs with serial console in customer tenants
 - Note that you can't use Azure Active Directory for remote login to a VM, and you can't integrate a VM with a Key Vault for passwords, secrets or cryptographic keys for disk encryption
-
-[Azure Virtual Network](../../virtual-network/index.yml):
-
-- Deploy and manage virtual networks and virtual network interface cards (vNICs) within customer tenants
 
 Support requests:
 
