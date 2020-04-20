@@ -1,16 +1,8 @@
 ---
 title: Plan your app - LUIS
-titleSuffix: Azure Cognitive Services
 description: Outline relevant app intents and entities, and then create your application plans in Language Understanding Intelligent Services (LUIS).
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/20/2019
-ms.author: diberry
+ms.date: 04/14/2020
 ---
 
 # Plan your LUIS app schema with subject domain and data extraction
@@ -39,7 +31,7 @@ If you don't need to identify overall user intention, add all the example user u
 
 ## Create example utterances for each intent
 
-To begin with, avoid creating too many utterances for each intent. Once you have determined the intents, create 15 to 30 example utterances per intent. Each utterance should be different from the previously provided utterances. A good variety in utterances include overall word count, word choice, verb tense, and punctuation.
+To begin with, avoid creating too many utterances for each intent. Once you have determined the intents, create 15 to 30 example utterances per intent. Each utterance should be different from the previously provided utterances. A good variety in utterances include overall word count, word choice, verb tense, and [punctuation](luis-reference-application-settings.md#punctuation-normalization).
 
 For more information, see [understanding good utterances for LUIS apps](luis-concept-utterance.md).
 
