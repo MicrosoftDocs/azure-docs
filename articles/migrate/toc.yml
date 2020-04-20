@@ -105,7 +105,7 @@
     - name: Deploy appliance for physical servers
       href: how-to-set-up-appliance-physical.md
     - name: Deploy appliance in Azure Government
-      href: deploy-appliance-script-govt.md
+      href: deploy-appliance-script-government.md
   - name: Limit discovery scope for VMware VMs
     href: set-discovery-scope.md
   - name: Discover applications/roles/features
