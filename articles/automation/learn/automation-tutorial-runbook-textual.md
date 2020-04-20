@@ -26,7 +26,7 @@ This tutorial walks you through the creation of a [PowerShell Workflow runbook](
 To complete this tutorial, you need:
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation account](automation-offering-get-started.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
+* [Automation account](../automation-offering-get-started.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
 * An Azure virtual machine. Since you stop and start this machine, it shouldn't be a production VM.
 
 ## Step 1 - Create new runbook
@@ -124,7 +124,7 @@ The runbook that you've created is still in Draft mode. You must publish it befo
 
 11. Click **Jobs** under **Resources** to open the Jobs page for this runbook. This page lists all the jobs created by your runbook. You should only see one job listed, since you have run the job only once.
 
-   ![Jobs](..media/automation-tutorial-runbook-textual/runbook-control-job-tile.png)
+   ![Jobs](../media/automation-tutorial-runbook-textual/runbook-control-job-tile.png)
 
 12. Click the job name to open the same Job pane that you viewed when you started the runbook. Use this pane to view the details of any job created for the runbook.
 
