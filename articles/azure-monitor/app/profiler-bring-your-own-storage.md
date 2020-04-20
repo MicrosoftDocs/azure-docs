@@ -143,11 +143,11 @@ _![Figure 2.0](media/profiler-bring-your-own-storage/figure20.png)_
 _Figure 2.0_
 
 ## Troubleshooting
-## Template schema '{schema_uri}' is not supported.
+### Template schema '{schema_uri}' isn't supported.
 * Make sure that the `$schema` property of the template is valid. It must follow the following pattern:
 `https://schema.management.azure.com/schemas/{schema_version}/deploymentTemplate.json#`
 * Make sure that the `schema_version` of the template is within valid values: `2014-04-01-preview, 2015-01-01, 2018-05-01, 2019-04-01, 2019-08-01`.
-    Errror message:
+    Error message:
     ```powershell
     New-AzResourceGroupDeployment : 11:53:49 AM - Error: Code=InvalidTemplate; Message=Deployment template validation failed: 'Template schema
     'https://schema.management.azure.com/schemas/2020-01-01/deploymentTemplate.json#' is not supported. Supported versions are
