@@ -46,7 +46,7 @@ highlightedContent:
       itemType: concept
       url: media-services-specifications-live-timed-metadata.md
     - title: Azure Media Player
-      itemType: concept
+      itemType: overview
       url: azure-media-player/azure-media-player-overview.md
 
 conceptualContent: 
