@@ -86,7 +86,7 @@ The next time the app runs, it will capture diagnostics and write data to the ap
 
 :::image type="content" source="./media/portal-debug-diagnostics.png" alt-text="Portal Upload Diagnostics":::
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Quickstart: Ingesting a 3D Model](./get-started-model-ingestion.md)
