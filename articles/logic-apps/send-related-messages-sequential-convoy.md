@@ -1,11 +1,11 @@
 ---
-title: Send related messages in order by using a sequential convoy
-description: Deliver correlated messages in order by using the sequential convoy pattern in Azure Logic Apps with Azure Service Bus
+title: Send correlated messages in-order by using a sequential convoy
+description: Send related messages in order by using the sequential convoy pattern in Azure Logic Apps with Azure Service Bus
 services: logic-apps
 ms.suite: integration
 ms.reviewer: apseth, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 04/10/20
+ms.date: 04/17/20
 ---
 
 # Send related messages in order by using a sequential convoy in Azure Logic Apps with Azure Service Bus
@@ -19,6 +19,8 @@ This article shows how to create a logic app that implements this pattern by usi
 * Initialize a session based on a message that the trigger reads from the Service Bus queue.
 * Save the session that's initialized in the previous step.
 * Process all the messages that associated with the session by the current trigger instance.
+
+To review this template's JSON file, see [GitHub: service-bus-sessions.json](https://github.com/Azure/logicapps/blob/master/templates/service-bus-sessions.json).
 
 For more information about the sequential convoy pattern, see these articles:
 
