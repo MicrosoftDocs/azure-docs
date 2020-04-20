@@ -117,7 +117,7 @@ The following example template demonstrates how to create a workspace with three
         "description": "Specifies the sku, also referred to as 'edition' of the Azure Machine Learning workspace."
       }
     },
-    "hbi_workspace":{
+    "confidential_data":{
       "type": "string",
       "defaultValue": "false",
       "allowedValues": [
@@ -252,7 +252,7 @@ The following example template demonstrates how to create a workspace with three
                     "keyIdentifier": "[parameters('resource_cmk_uri')]"
                   }
             },
-        "hbiWorkspace": "[parameters('hbi_workspace')]"
+        "hbiWorkspace": "[parameters('confidential_data')]"
       }
     }
   ]

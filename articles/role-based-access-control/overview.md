@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -33,14 +33,6 @@ Here are some examples of what you can do with RBAC:
 - Allow a DBA group to manage SQL databases in a subscription
 - Allow a user to manage all resources in a resource group, such as virtual machines, websites, and subnets
 - Allow an application to access all resources in a resource group
-
-## Best practice for using RBAC
-
-Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions at a particular scope.
-
-When planning your access control strategy, it's a best practice to grant users the least privilege to get their work done. The following diagram shows a suggested pattern for using RBAC.
-
-![RBAC and least privilege](./media/overview/rbac-least-privilege.png)
 
 ## How RBAC works
 

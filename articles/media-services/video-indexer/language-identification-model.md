@@ -17,7 +17,7 @@ ms.author: ellbe
 
 Video Indexer supports automatic language identification (LID), which is the process of automatically identifying the spoken language content from audio and sending the media file to be transcribed in the dominant identified language. 
 
-Currently LID supports: English, Spanish, French, German, Italian, Mandarin Chines, Japanese, Russian, and Portuguese (Brazilian). 
+Currently LID supports: English, Spanish, French, German, Italian, Mandarin Chinese, Japanese, Russian, and Portuguese (Brazilian). 
 
 Make sure to review the [Guidelines and limitations](#guidelines-and-limitations) section below.
 
