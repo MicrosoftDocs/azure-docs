@@ -4,7 +4,7 @@ description: Azure PowerShell example script to restore an Azure SQL database to
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
 author: mashamsft

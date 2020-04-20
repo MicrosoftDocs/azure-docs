@@ -4,7 +4,7 @@ description: You can configure an Azure SQL Database as the push subscriber in a
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -19,14 +19,16 @@ You can configure an Azure SQL Database as the push subscriber in a SQL server o
 ## **Supported Configurations:**
   
 - The Azure SQL database can only be the push subscriber of a SQL Server publisher and distributor.  
-- The SQL Server can be an instance of [SQL Server running on-premises](https://www.microsoft.com/en-us/sql-server/sql-server-downloads), an [Azure SQL Managed Instance](sql-database-managed-instance-get-started), or an instance of [SQL Server running on an Azure virtual machine in the cloud](/virtual-machines/windows/). For more information, see [SQL Server on Azure Virtual Machines overview]().  
+- The SQL Server acting as publisher and/or distributor can be an instance of [SQL Server running on-premises](https://www.microsoft.com/en-us/sql-server/sql-server-downloads), an [Azure SQL Managed Instance](sql-database-managed-instance-get-started), or an instance of [SQL Server running on an Azure virtual machine in the cloud](/virtual-machines/windows/quickstart-sql-vm-create-portal.md). 
 - The distribution database and the replication agents cannot be placed on an Azure SQL database.  
 - [Snapshot](/relational-databases/replication/snapshot-replication) and [one-way transactional](/sql/relational-databases/replication/transactional/transactional-replication) replication are supported. Peer-to-peer transactional replication and merge replication are not supported.
 
 
 ## Versions  
 
-To successfully replicate to an Azure SQL Database, SQL Server publishers and distributors must be using (at least) one of the following versions:  
+To successfully replicate to an Azure SQL Database, SQL Server publishers and distributors must be using (at least) one of the following versions: 
+
+Publishing to any Azure SQL Database from an on-premises SQL Server is supported by the following versions of SQL Server:
 
 - SQL Server 2016 and greater
 - SQL Server 2014 [RTM CU10 (12.0.4427.24)](https://support.microsoft.com/help/3094220/cumulative-update-10-for-sql-server-2014) or [SP1 CU3 (12.0.2556.4)](https://support.microsoft.com/help/3094221/cumulative-update-3-for-sql-server-2014-service-pack-1)
