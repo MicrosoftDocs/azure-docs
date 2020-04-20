@@ -37,6 +37,7 @@ Once result set caching is turned ON for a database, results are cached for all 
 - Queries using user defined functions
 - Queries using tables with row level security or column level security enabled
 - Queries returning data with row size larger than 64KB
+- Queries returning large data in size  
 
 > [!IMPORTANT]
 > The operations to create result set cache and retrieve data from the cache happen on the control node of a Synapse SQL pool instance.
