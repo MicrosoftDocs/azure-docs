@@ -119,10 +119,6 @@ In summary, we have achieved offline mode on Azure Media Services:
 * PlayReady license delivery can be from Azure Media Services or elsewhere;
 * The prepared smooth streaming content can still be used for online streaming via DASH or smooth with PlayReady as the DRM.
 
-## Additional notes
-
-* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
-
 ## Next steps
 
 [Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)

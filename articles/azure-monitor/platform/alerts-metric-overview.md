@@ -137,6 +137,10 @@ You can specify the scope of monitoring by a single metric alert rule in one of 
 
 Creating metric alert rules that monitor multiple resources is like [creating any other metric alert](alerts-metric.md) that monitors a single resource. Only difference is that you would select all the resources you want to monitor. You can also create these rules through [Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each monitored resource.
 
+> [!NOTE]
+>
+> In a metric alert rule that monitors multiple resources, only one condition is allowed.
+
 ## Typical latency
 
 For metric alerts, typically you will get notified in under 5 minutes if you set the alert rule frequency to be 1 min. In cases of heavy load for notification systems, you might see a longer latency.

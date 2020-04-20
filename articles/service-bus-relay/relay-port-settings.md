@@ -24,7 +24,7 @@ The following table describes the required configuration for port values for Azu
 
 ## Hybrid Connections
 
-Hybrid Connections uses WebSockets on port 443 with SSL as the underlying transport mechanism, which uses **HTTPS** only. 
+Hybrid Connections uses WebSockets on port 443 with TLS as the underlying transport mechanism, which uses **HTTPS** only. 
 
 ## WCF Relays
   

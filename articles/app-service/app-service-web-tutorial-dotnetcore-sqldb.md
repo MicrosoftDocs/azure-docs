@@ -59,8 +59,8 @@ The sample project contains a basic CRUD (create-read-update-delete) app using [
 Run the following commands to install the required packages, run database migrations, and start the application.
 
 ```bash
-dotnet restore
-dotnet ef database update
+dotnet tool install -g dotnet-ef --version 3.1.1
+dotnet-ef database update
 dotnet run
 ```
 

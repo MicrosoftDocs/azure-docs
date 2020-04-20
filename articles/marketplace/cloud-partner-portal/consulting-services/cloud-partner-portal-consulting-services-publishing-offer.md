@@ -5,11 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 04/06/2020
 ms.author: dsindona
 ---
 
 # Azure and Dynamics 365 consulting service offer
+
+>[!Important]
+>Starting April 13, 2020, we'll begin moving management of your Consulting service offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Consulting service creation overview](https://aka.ms/AzureCreateConsultingService) to manage your migrated offers.
 
 This article explains how to publish a consulting service offer to either the Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> or <a href="https://appsource.microsoft.com">AppSource</a>. Solutions based on Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>, and <a href="https://powerapps.microsoft.com">Power Apps</a> can be listed on AppSource. Other offers based on other Microsoft <a href="https://azure.microsoft.com/services">Azure services</a> can be listed in the Azure Marketplace.
 

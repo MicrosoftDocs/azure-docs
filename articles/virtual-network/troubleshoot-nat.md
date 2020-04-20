@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2020
+ms.date: 03/30/2020
 ms.author: allensu
 ---
 
@@ -35,14 +35,15 @@ To resolve these problems, follow the steps in the following section.
 
 A single [NAT gateway resource](nat-gateway-resource.md) supports from 64,000 up to 1 million concurrent flows.  Each IP address provides 64,000 SNAT ports to the available inventory. You can use up to 16 IP addresses per NAT gateway resource.  The SNAT mechanism is described [here](nat-gateway-resource.md#source-network-address-translation) in more detail.
 
-Frequently the root cause of SNAT exhaustion is an anti-pattern for how outbound connectivity is established and managed.  Review this section carefully.
+Frequently the root cause of SNAT exhaustion is an anti-pattern for how outbound connectivity is established, managed, or configurable timers changed from their default values.  Review this section carefully.
 
 #### Steps
 
-1. Investigate how your application is creating outbound connectivity (for example, code review or packet capture). 
-2. Determine if this activity is expected behavior or whether the application is misbehaving.  Use [metrics](nat-metrics.md) in Azure Monitor to substantiate your findings. Use "Failed" category for SNAT Connections metric.
-3. Evaluate if appropriate patterns are followed.
-4. Evaluate if SNAT port exhaustion should be mitigated with additional IP addresses assigned to NAT gateway resource.
+1. Check if you have modified the default idle timeout to a value higher than 4 minutes.
+2. Investigate how your application is creating outbound connectivity (for example, code review or packet capture). 
+3. Determine if this activity is expected behavior or whether the application is misbehaving.  Use [metrics](nat-metrics.md) in Azure Monitor to substantiate your findings. Use "Failed" category for SNAT Connections metric.
+4. Evaluate if appropriate patterns are followed.
+5. Evaluate if SNAT port exhaustion should be mitigated with additional IP addresses assigned to NAT gateway resource.
 
 #### Design patterns
 
@@ -50,15 +51,17 @@ Always take advantage of connection reuse and connection pooling whenever possib
 
 _**Solution:**_ Use appropriate patterns and best practices
 
+- NAT gateway resources have a default TCP idle timeout of 4 minutes.  If this setting is changed to a higher value, NAT will hold on to flows longer and can cause [unnecessary pressure on SNAT port inventory](nat-gateway-resource.md#timers).
 - Atomic requests (one request per connection) are a poor design choice. Such anti-pattern limits scale, reduces performance, and decreases reliability. Instead, reuse HTTP/S connections to reduce the numbers of connections and associated SNAT ports. The application scale will increase and performance improve due to reduced handshakes, overhead, and cryptographic operation cost  when using TLS.
 - DNS can introduce many individual flows at volume when the client is not caching the DNS resolvers result. Use caching.
 - UDP flows (for example DNS lookups) allocate SNAT ports for the duration of the idle timeout. The longer the idle timeout, the higher the pressure on SNAT ports. Use short idle timeout (for example 4 minutes).
 - Use connection pools to shape your connection volume.
-- Never silently abandon a TCP flow and rely on TCP timers to clean up flow. This will leave state allocated at intermediate systems and endpoints, and make ports unavailable for other connections. This can trigger application failures and SNAT exhaustion. 
-- TCP close related timer values should not be changed without expert knowledge of impact. While TCP will recover, your application performance can be negatively impacted when the endpoints of a connection have mismatched expectations. The desire to change timers is usually a sign of an underlying design problem. Review following recommendations.
+- Never silently abandon a TCP flow and rely on TCP timers to clean up flow. If you don't let TCP explicitly close the connection, state remains allocated at intermediate systems and endpoints and makes SNAT ports unavailable for other connections. This can trigger application failures and SNAT exhaustion. 
+- Don't change OS-level TCP close related timer values without expert knowledge of impact. While the TCP stack will recover, your application performance can be negatively impacted when the endpoints of a connection have mismatched expectations. The desire to change timers is usually a sign of an underlying design problem. Review following recommendations.
 
 Often times SNAT exhaustion can also be amplified with other anti-patterns in the underlying application. Review these additional patterns and best practices to improve the scale and reliability of your service.
 
+- Explore impact of reducing [TCP idle timeout](nat-gateway-resource.md#timers) to lower values including default idle timeout of 4 minutes to free up SNAT port inventory earlier.
 - Consider [asynchronous polling patterns](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) for long-running operations to free up connection resources for other operations.
 - Long-lived flows (for example reused TCP connections) should use TCP keepalives or application layer keepalives to avoid intermediate systems timing out. Increasing the idle timeout is a last resort and may not resolve the root cause. A long timeout can cause low rate failures when timeout expires and introduce delay and unnecessary failures.
 - Graceful [retry patterns](https://docs.microsoft.com/azure/architecture/patterns/retry) should be used to avoid aggressive retries/bursts during transient failure or failure recovery.
@@ -170,7 +173,7 @@ You can indicate interest in additional capabilities through [Virtual Network NA
 ## Next steps
 
 * Learn about [Virtual Network NAT](nat-overview.md)
-* Learn ab Fry out [NAT gateway resource](nat-gateway-resource.md)
+* Learn about [NAT gateway resource](nat-gateway-resource.md)
 * Learn about [metrics and alerts for NAT gateway resources](nat-metrics.md).
 * [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).
 

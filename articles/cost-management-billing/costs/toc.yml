@@ -32,6 +32,8 @@
       href: migrate-cost-management-api.md
   - name: How-to guides
     items:
+    - name: Prevent and analyze unexpected charges
+      href: ../manage/getting-started.md
     - name: Assign access to data
       href: assign-access-acm-data.md
     - name: Use cost analysis for common tasks
@@ -60,6 +62,8 @@
       href: https://github.com/Azure-Samples/Cost-Management-Samples
   - name: Resources
     items:
+    - name: Cost Management videos
+      href: https://www.youtube.com/c/AzureCostManagement
     - name: Build your skills with Microsoft Learn
       href: /learn/browse/?products=azure-cost-management
     - name: Cost Management feedback forum

@@ -39,7 +39,7 @@ To complete this article, you need:
 
 ## Prepare a GitHub repository
 
-GitHub is used to store your project source code including Resource Manager templates. For other supported repositories, see [repositories supported by Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops#supported-repository-types).
+GitHub is used to store your project source code including Resource Manager templates. For other supported repositories, see [repositories supported by Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops).
 
 ### Create a GitHub repository
 
@@ -244,4 +244,4 @@ Congratulations, you've finished this Resource Manager template deployment tutor
 You're ready to jump into more advanced concepts about templates. The next tutorial goes into more detail about using template reference documentation to help with defining resources to deploy.
 
 > [!div class="nextstepaction"]
-> [Utilize template reference](./template-tutorial-create-encrypted-storage-accounts.md)
+> [Utilize template reference](./template-tutorial-use-template-reference.md)

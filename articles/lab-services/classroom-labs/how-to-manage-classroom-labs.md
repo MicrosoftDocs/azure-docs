@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/20/2020
+ms.date: 04/10/2020
 ms.author: spelluru
 
 ---
@@ -33,6 +33,8 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
     1. Specify a **name** for your lab. 
     2. Select the **size of the virtual machines** you need for the class. For the list of sizes available, see the [VM Sizes](#vm-sizes) section. 
     3. Select the **virtual machine image** that you want to use for the classroom lab. If you select a Linux image, you see an option to enable remote desktop connection for it. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
+
+        If you signed in using lab account owner credentials, you will see an option to enable more images for the lab. For more information, see [Enable images at the time of lab creation](specify-marketplace-images.md#enable-images-at-the-time-of-lab-creation).
     4. Review the **total price per hour** displayed on the page. 
     6. Select **Save**.
 
