@@ -29,7 +29,7 @@ For more granular administrative control in Azure Active Directory (Azure AD), y
 
 **Q: I added a group to the administrative unit. Why are the group members still not showing up there?**
 
-**A:** When you add a group to the administrative unit, that does not result in all the group's members being added to it. Users must be directly assigned to administrative unit.
+**A:** When you add a group to the administrative unit, that does not result in all the group's members being added to it. Users must be directly assigned to the administrative unit.
 
 **Q: I just added (or removed) a member of the administrative unit. Why is the member not showing up (or still showing up) in the user interface?**
 
