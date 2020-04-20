@@ -65,7 +65,7 @@ First, you need to create an account with the Object Understanding service.
 
    :::image type="content" source="./media/copy-ou-primary-key.png" alt-text="Copy Account Key":::
 
-## Setup Storage
+## Set up storage
 
 Next, you need to set up an Azure Blob store where the service is going read your 3D model from and also output the Object Understanding Model. If you don't already have a storage account you can use, then:
 
@@ -127,9 +127,9 @@ Now, you can go ahead and ingest your 3D asset.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
-## Next Steps
+## Next steps
 
-In this quickstart, you created an Object Understanding account, setup storage resources, and ingested a 3D model to create an Object Understanding model. To learn how to integrate that model with the Object Understanding SDK in your mixed reality app, continue with any of the following articles:
+In this quickstart, you created an Object Understanding account, set up storage resources, and ingested a 3D model to create an Object Understanding model. To learn how to integrate that model with the Object Understanding SDK in your mixed reality app, continue with any of the following articles:
 
 > [!div class="nextstepaction"]
 > [HoloLens DirectX](get-started-hololens-directx.md)
