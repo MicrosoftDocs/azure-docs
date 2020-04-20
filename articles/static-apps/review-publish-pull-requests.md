@@ -63,7 +63,8 @@ Now we will create a pull request from this change. If you made the change local
 
 This is the regular GitHub workflow for pull requests, you can assign reviewers and add comments to discuss your changes if needed.
 
-> [!Note] You can make multiple changes by pushing new commits to your branch. The pull request will be automatically updated to reflect those changes.
+> [!NOTE]
+> You can make multiple changes by pushing new commits to your branch. The pull request will be automatically updated to reflect those changes.
  
 ## Review changes
 
@@ -93,10 +94,12 @@ This will merge your changes to the `master` branch (the "production" branch). T
 
 Staged versions of your application are currently accessible publicly by their URL, even if your GitHub repository is private.
 
-> [!WARNING] Be careful when publishing sensitive content to staged versions, as it is currently not possible to restrict their access.
+> [!WARNING]
+> Be careful when publishing sensitive content to staged versions, as it is currently not possible to restrict their access.
 
 ## Next steps
 
 Advance to the next article to learn how to connect and disconnect an App Service Static App from a GitHub repository:
 
-> [!div class="nextstepaction"][Setup a custom domain in App Service Static Apps](custom-domain.md)
+> [!div class="nextstepaction"]
+> [Setup a custom domain in App Service Static Apps](custom-domain.md)
