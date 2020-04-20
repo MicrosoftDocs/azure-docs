@@ -277,6 +277,7 @@ In this step, you'll grant "domain security" policy permissions for the worker d
     ![Domain Security Policies](./media/workday-inbound-tutorial/wd_isu_06.png "Domain Security Policies")  
 2. In the **Domain** text box, search for the following domains and add them to the filter one by one.  
    * *External Account Provisioning*
+   * *Worker Data: Workers*
    * *Worker Data: Public Worker Reports*
    * *Person Data: Work Contact Information*
    * *Worker Data: All Positions*
@@ -308,6 +309,7 @@ In this step, you'll grant "domain security" policy permissions for the worker d
    | ---------- | ---------- |
    | Get and Put | Worker Data: Public Worker Reports |
    | Get and Put | Person Data: Work Contact Information |
+   | Get | Worker Data: Workers |
    | Get | Worker Data: All Positions |
    | Get | Worker Data: Current Staffing Information |
    | Get | Worker Data: Business Title on Worker Profile |
@@ -447,12 +449,16 @@ In this step, we establish connectivity with Workday and Active Directory in the
 
 1. Complete the **Admin Credentials** section as follows:
 
-   * **Admin Username** – Enter the username of the Workday  integration system account, with the tenant domain name appended. It should look something like: **username\@tenant_name**
+   * **Workday Username** – Enter the username of the Workday  integration system account, with the tenant domain name appended. It should look something like: **username\@tenant_name**
 
-   * **Admin password –** Enter the password of the Workday integration system account
+   * **Workday password –** Enter the password of the Workday integration system account
 
-   * **Tenant URL –** Enter the URL to the Workday web services  endpoint for your tenant. This value should look like:
+   * **Workday Web Services API URL –** Enter the URL to the Workday web services  endpoint for your tenant. This value should look like:
         https://wd3-impl-services1.workday.com/ccx/service/contoso4, where *contoso4* is replaced with your correct tenant name and *wd3-impl* is replaced with the correct environment string.
+
+     > [!NOTE]
+     > By default the app uses Workday Web Services v21.1 if no version information is specified in the URL. To use a specific Workday Web Services API version, please use the URL format: https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > Example: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
 
    * **Active Directory Forest -** The "Name" of your Active Directory domain, as registered with the agent. Use the dropdown to select the target domain for provisioning. This value is typically a string like: *contoso.com*
 
@@ -608,13 +614,18 @@ The following sections describe steps for configuring user provisioning from Wor
 
 8. Complete the **Admin Credentials** section as follows:
 
-   * **Admin Username** – Enter the username of the Workday integration system account, with the tenant domain name appended. Should look something like: username@contoso4
+   * **Workday Username** – Enter the username of the Workday integration system account, with the tenant domain name appended. Should look something like: username@contoso4
 
-   * **Admin password –** Enter the password of the Workday integration system account
+   * **Workday password –** Enter the password of the Workday integration system account
 
-   * **Tenant URL –** Enter the URL to the Workday web services  endpoint for your tenant. This value should look like:
-        https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources,
+   * **Workday Web Services API URL –** Enter the URL to the Workday web services  endpoint for your tenant. This value should look like:
+        https://wd3-impl-services1.workday.com/ccx/service/contoso4,
         where *contoso4* is replaced with your correct tenant name and  *wd3-impl* is replaced with the correct environment string. If this URL is not known, please work with your Workday integration partner or support representative to determine the correct URL to use.
+
+     > [!NOTE]
+     > By default, the app uses Workday Web Services v21.1 if no version information is specified in the URL. To use a specific Workday Web Services API version, please use the URL format: https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
+     > Example: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
+
 
    * **Notification Email –** Enter your email address, and check the  “send email if failure occurs” checkbox.
 
@@ -822,9 +833,16 @@ This functionality is not supported currently. Recommended workaround is to depl
 
 The solution currently uses the following Workday APIs:
 
-* Get_Workers (v21.1) for fetching worker information
-* Maintain_Contact_Information (v26.1) for the Work Email Writeback feature
-* Update_Workday_Account (v31.2) for Username Writeback feature
+* The **Workday Web Services API URL** format used in the **Admin Credentials** section, determines the API version used for Get_Workers
+  | Workday Web Service API URL                                             | API Version used |
+  |-------------------------------------------------------------------------|--------------|
+  | https://\#\#\#\#\.workday\.com/ccx/service/tenantName                   | v21\.1       |
+  | https://\#\#\#\#\.workday\.com/ccx/service/tenantName/Human\_Resources  | v21\.1       |
+  | https://\#\#\#\#\.workday\.com/ccx/service/tenantName/Human\_Resources/v\#\#\.\#  | v\#\#\.\#    |
+ 
+  
+* Workday Email Writeback feature uses Maintain_Contact_Information (v26.1) 
+* Workday Username Writeback feature uses Update_Workday_Account (v31.2) 
 
 #### Can I configure my Workday HCM tenant with two Azure AD tenants?
 
