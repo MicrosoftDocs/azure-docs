@@ -59,8 +59,9 @@
     - name: Use persistent storage in Azure Spring Cloud
       href: spring-cloud-howto-persistent-storage.md
     - name: DevOps Deployment to Azure Spring Cloud
-      href: spring-cloud-howto-integrate-azure-load-balancers.md
     - name: Integrate Azure Spring Cloud with Azure Load Balance Solutions
+      href: spring-cloud-howto-integrate-azure-load-balancers.md
+- name: DevOps Deployment to Azure Spring Cloud
   items:
     - name: CI/CD with Azure DevOps
       href: spring-cloud-howto-cicd.md

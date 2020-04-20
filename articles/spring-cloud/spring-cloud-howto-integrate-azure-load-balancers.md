@@ -10,7 +10,7 @@ ms.date: 04/20/2020
 
 # Integrate Azure Spring Cloud with Azure Load Balance Solutions
 
-Azure Spring Cloud supports microservices on Azure.  A growing business can require multiple data centers with management of multiple Azure Spring Cloud instances.
+Azure Spring Cloud supports microservices on Azure.  Increasing business can require multiple data centers with management of multiple instances of Azure Spring Cloud.
 
 Azure already provides different load-balance solutions. There are three options to integrate Azure Spring Cloud with Azure load-balance solutions:
 
@@ -48,8 +48,43 @@ To finish the configuration:
 
 ## Integrate Azure Spring Cloud with Azure App Gateway
 
+To integrate with azure spring cloud service, complete the following configurations:
+
+### Configure Backend Pool
+1. Specify **Target type** as *IP address* or *FQDN*.
+1. Enter your Azure spring cloud public endpoints.
+
+    ![App Gateway 1](media/spring-cloud-load-balancers/app-gateway-1.png)
+
+### Add Custom Probe
+1. Select **Health Probes** then **Add** to open custom **Probe** dialog. 
+1. The key point is to select *Yes* for **Pick host name from backend HTTP settings** option.
+
+    ![App Gateway 2](media/spring-cloud-load-balancers/app-gateway-2.png)
+
+### Configure Http Setting
+1.  Select **Http Settings** then **Add** to add an HTTP setting.
+1.	**Override with new host name:** select *Yes*.
+1.	**Host name override**: select **Pick host name from backend target**.
+1.	**Use custom probe**: select *Yes* and pick the custom probe created above.
+
+    ![App Gateway 3](media/spring-cloud-load-balancers/app-gateway-3.png)
 
 ## Integrate Azure Spring Cloud with Azure Front Door
 
+To integrate with Azure Spring Cloud service and configure backend pool, 
+1. **Add backend pool**.
+1. Specify the backend endpoint by adding host.
+
+    ![Front Door 1](media/spring-cloud-load-balancers/front-door-1.png)
+
+1.	Specify **backend host type** as *custom host*.
+1.	Input FQDN of your Azure Spring Cloud public endpoints in **backend host name**.
+1.	Accept the **backend host header** default, which is the same as **backend host name**.
+
+    ![Front Door 2](media/spring-cloud-load-balancers/front-door-2.png)
 
 ## Next steps
+* [How to create a traffic manager](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
+* [How to create an application gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
+* [How to create a front door](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
