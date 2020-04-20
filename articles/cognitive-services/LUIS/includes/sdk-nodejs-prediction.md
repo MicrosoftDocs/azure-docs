@@ -32,9 +32,9 @@ Get your [runtime key](../luis-how-to-azure-subscription.md) by creating a LUIS 
 
 [!INCLUDE [Set up environment variables for prediction quickstart](sdk-prediction-environment-variables.md)]
 
-### Create a new javascript (Node.js) file
+### Create a new JavaScript (Node.js) file
 
-Create a new javascript file in your preferred editor or IDE, named `luis_prediction.js`.
+Create a new JavaScript file in your preferred editor or IDE, named `luis_prediction.js`.
 
 ### Install the NPM library for the LUIS runtime
 
