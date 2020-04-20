@@ -95,11 +95,13 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), follow the bel
     ```
 
 2. Run the following PowerShell command to deploy previous template (create Linked Storage Account).
+    Pattern:
     ```powershell
-    # Command pattern
     New-AzResourceGroupDeployment -ResourceGroupName "{your_resource_name}" -TemplateFile "{local_path_to_arm_template}"
-    
-    # Command example
+    ```
+
+    Example:
+    ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName "byos-test" -TemplateFile "D:\Docs\byos.template.json"
     ```
 
