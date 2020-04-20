@@ -60,7 +60,7 @@ This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In f
 This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filtering feature enabled and use mS-DS-ConsistencyGuid as the source anchor.
 
 > [!IMPORTANT]
-> If you use mS-DS-ConsistencyGuid as the source anchor, and have cloned the **In from AD - Group Join** sync rule and plan to upgrade, please do the following steps as part of the upgrade:
+> If you have cloned the **In from AD - Group Join** sync rule and have not cloned the **In from AD - Group Common** sync rule and plan to upgrade, complete the following steps as part of the upgrade:
 > 1. During Upgrade, on the configure page, uncheck the option **Start the synchronization process when configuration completes**.
 > 2. Edit cloned join sync rule and add the following two transformations:
     - direct flow `objectGUID` to `sourceAnchorBinary`	
