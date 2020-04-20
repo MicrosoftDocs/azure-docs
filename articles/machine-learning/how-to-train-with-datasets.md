@@ -36,9 +36,9 @@ To create and train with datasets, you need:
 > [!Note]
 > Some Dataset classes have dependencies on the [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) package. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
 
-## Work with datasets
+## Access and explore input datasets
 
-You can access existing datasets across experiments within your workspace, and load them into a pandas dataframe for further exploration on your local environment.
+You can access an existing TabularDataset from the training script of an experiment on your workspace, and load that dataset into a pandas dataframe for further exploration on your local environment.
 
 The following code uses the [`get_context()`]() method in the [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) class to access the existing input TabularDataset, `titanic`, in the training script. Then uses the [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) method to load that dataset into a pandas dataframe for further data exploration and preparation prior to training.
 
@@ -55,7 +55,7 @@ dataset = run.input_datasets['titanic']
 df = dataset.to_pandas_dataframe()
 ```
 
-If you need to load the prepared data into a new dataset from an in memory pandas dataframe, write the data to a local file, like a parquet, and create a new dataset from that file.  
+If you need to load the prepared data into a new dataset from an in memory pandas dataframe, write the data to a local file, like a parquet, and create a new dataset from that file. You can also create datasets from local files or paths in datastores. Learn more about [how to create datasets](https://aka.ms/azureml/howto/createdatasets).
 
 ## Use datasets directly in training scripts
 
@@ -65,7 +65,7 @@ In this example, you create a [TabularDataset](https://docs.microsoft.com/python
 
 ### Create a TabularDataset
 
-The following code creates an unregistered TabularDataset from a web url. You can also create datasets from local files or paths in datastores. Learn more about [how to create datasets](https://aka.ms/azureml/howto/createdatasets).
+The following code creates an unregistered TabularDataset from a web url.  
 
 ```Python
 from azureml.core.dataset import Dataset
@@ -74,7 +74,7 @@ web_path ='https://dprepdata.blob.core.windows.net/demo/Titanic.csv'
 titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
 ```
 
-TabularDataset objects provide the ability to load the data into a pandas or spark DataFrame so that you can work with familiar data preparation and training libraries without having to leave your notebook. To leverage this capability, see [work with datasets](#work-with-datasets).
+TabularDataset objects provide the ability to load the data into a pandas or spark DataFrame so that you can work with familiar data preparation and training libraries without having to leave your notebook. To leverage this capability, see [access and explore input datasets](#access-and-explore-input-datasets).
 
 ### Configure the estimator
 
@@ -103,7 +103,7 @@ experiment_run.wait_for_completion(show_output=True)
 
 ## Mount files to remote compute targets
 
-If you have unstructured data, create a [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) and either mount or download your data files to make them available to your remote compute target for training. Learn about when to use [mount vs. download](#mount-vs.-download) for your remote training experiments. 
+If you have unstructured data, create a [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) and either mount or download your data files to make them available to your remote compute target for training. Learn about when to use [mount vs. download](#mount-vs-download) for your remote training experiments. 
 
 The following example creates a FileDataset and mounts the dataset to the compute target by passing it as an argument in the estimator for training. 
 
@@ -186,7 +186,7 @@ y_test = load_data(y_test, True).reshape(-1)
 ```
 
 
-## Mount vs. download
+## Mount vs download
 
 Mounting or downloading files of any format are supported for datasets created from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL. 
 
