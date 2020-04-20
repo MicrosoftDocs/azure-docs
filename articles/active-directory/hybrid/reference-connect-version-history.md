@@ -72,7 +72,7 @@ This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filte
 >     - Set direct flow `objectGUID` to `sourceAnchorBinary`.
 >     - Set expression flow `ConvertToBase64([objectGUID])` to `sourceAnchor`.     
 > 3. Enable the scheduler using `Set-ADSyncScheduler -SyncCycleEnabled $true`.
->>>>>>> c3a0900afdca88441432231dcef7873bf2a78adb
+
 
 
 ## 1.5.18.0
