@@ -19,6 +19,8 @@ ms.author: aschhab
 
 # Migrate existing Java Message Service (JMS) 2.0 applications from Active MQ to Azure Service Bus
 
+Azure Service Bus supports Java/J2EE and Spring workloads that leverage the Java Message Service (JMS) 2.0 API over the AMQP protocol.
+
 This guide describes what you should be aware of when you want to modify an existing Java Message Service (JMS) 2.0 application that interacts with a JMS Broker (specifically Apache ActiveMQ or Amazon MQ) to interact with Azure Service Bus.
 
 ## Before you start
@@ -89,7 +91,12 @@ For now, authentication is supported only with SAS keys.
 
 ### Version check
 
-TODO - Version check
+Below are the components utilized while writing the JMS applications and the specific versions that are supported. 
+
+| Components | Version |
+|---|---|
+| Java Message Service (JMS) API | 1.1 or greater |
+| AMQP protocol | 1.0 |
 
 ### Ensure that AMQP ports are open
 
@@ -149,11 +156,11 @@ To ensure seamless connectivity with Azure Service Bus, the ***servicebus-jms***
 </dependencies>
 ```
 
-### Update the application properties
+### Update the application properties (for Spring applications)
 
 If using a Spring boot application to connect to ActiveMQ.
 
-The next step is to remove the ActiveMQ specific properties from the `application.properties` file.
+The next step is to ***remove*** the ActiveMQ specific properties from the `application.properties` file.
 
 ```properties
 spring.activemq.broker-url=<ACTIVEMQ BROKER URL>
@@ -161,7 +168,7 @@ spring.activemq.user=<ACTIVEMQ USERNAME>
 spring.activemq.password=<ACTIVEMQ PASSWORD>
 ```
 
-Then add the Service Bus specific properties in the `application.properties` file.
+Then ***add*** the Service Bus specific properties to the `application.properties` file.
 
 ```properties
 azure.servicebus.connection-string=Endpoint=myEndpoint;SharedAccessKeyName=mySharedAccessKeyName;SharedAccessKey=mySharedAccessKey
@@ -170,6 +177,36 @@ azure.servicebus.connection-string=Endpoint=myEndpoint;SharedAccessKeyName=mySha
 ### Replace the ActiveMQConnectionFactory with ServiceBusJmsConnectionFactory
 
 The next step is to replace the instance of ActiveMQConnectionFactory with the ServiceBusJmsConnectionFactory.
+
+> [!NOTE] 
+> The actual code changes are specific to the application and how dependencies are managed, but the below sample provides the guidance on ***what*** should be changed.
+>
+
+Previously you may be instantiating an object of the the ActiveMQConnectionFactory as below.
+
+```java
+
+String BROKER_URL = "<URL of the hosted ActiveMQ broker>";
+ConnectionFactory factory = new ActiveMQConnectionFactory(BROKER_URL);
+
+Connection connection = factory.createConnection();
+connection.start();
+
+```
+
+This would be changed to the instantiate an object of the ServiceBusJmsConnectionFactory
+
+```java
+
+ServiceBusJmsConnectionFactorySettings settings = new ServiceBusJmsConnectionFactorySettings();
+String SERVICE_BUS_CONNECTION_STRING = "<Service Bus Connection string>";
+
+ConnectionFactory factory = new ServiceBusJmsConnectionFactory(SERVICE_BUS_CONNECTION_STRING, settings);
+
+Connection connection = factory.createConnection();
+connection.start();
+
+```
 
 ## Post-migration
 
