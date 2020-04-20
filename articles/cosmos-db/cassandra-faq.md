@@ -9,7 +9,7 @@ ms.author: thvankra
 ---
 # Frequently asked questions about the Azure Cosmos DB API for Cassandra
 
-### What are some key differences between Apache Cassandra and Cassandra API?
+## What are some key differences between Apache Cassandra and Cassandra API?
 
 - Apache Cassandra recommends a 100MB limit on the size of a partition key. Cassandra API allows up to 10GB per partition.
 - Apache Cassandra allows you to disable durable commits - i.e. skip writing to the commit log and go directly to the Memtable(s). This can lead to data loss if the node goes down prior to Memtables being flushed to SStables on disk. Cosmos DB always does durable commits so you will never have data loss.
@@ -171,3 +171,7 @@ Provide feedback via [user voice feedback](https://feedback.azure.com/forums/263
 
 [azure-portal]: https://portal.azure.com
 [query]: sql-api-sql-query.md
+
+## Next steps
+
+- Get started with [elastically scaling an Azure Cosmos DB Cassandra API Account](manage-scale-cassandra.md).
