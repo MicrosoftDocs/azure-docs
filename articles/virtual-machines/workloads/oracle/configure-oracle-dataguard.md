@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: BorisB2015
+ms.author: borisb
 ---
 
 # Implement Oracle Data Guard on an Azure Linux virtual machine 
