@@ -101,7 +101,7 @@ The runbook that you have created is still in Draft mode. It needs to be publish
 
 3. Scroll back to the right to view the page for **MyFirstRunbook-Graphical**.
 
-   The options across the top allow you to start the runbook now, schedule a future start time, or create a [webhook](automation-webhooks.md) so that the runbook can be started through an HTTP call.
+   The options across the top allow you to start the runbook now, schedule a future start time, or create a [webhook](../automation-webhooks.md) so that the runbook can be started through an HTTP call.
 
 4. Select **Start** and then **Yes** when prompted to start the runbook.
 
