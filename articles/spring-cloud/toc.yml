@@ -22,6 +22,8 @@
       href: spring-cloud-tutorial-scale-manual.md
     - name: Alerts and action groups
       href: spring-cloud-tutorial-alerts-action-groups.md
+    - name: Use IntelliJ to deploy applications
+      href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: CI/CD with Jenkins
       href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
 - name: Concepts
@@ -46,8 +48,6 @@
       href: spring-cloud-tutorial-bind-redis.md
     - name: Bind an application to Azure MySQL
       href: spring-cloud-tutorial-bind-mysql.md
-    - name: Use IntelliJ to deploy applications
-      href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: Start, stop, and delete an application
       href: spring-cloud-howto-start-stop-delete.md
     - name: Set up a staging environment
