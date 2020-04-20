@@ -164,7 +164,7 @@ The ElementType reference to a claim type, a claim transformation, or a user int
 
 ### ClaimsProvider
 
-The ClaimsProvider value is used to localize claim provider name. 
+The ClaimsProvider value is used to localize one of the claim providers display name. 
 
 ```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
