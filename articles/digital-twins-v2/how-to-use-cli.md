@@ -15,9 +15,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Azure Digital Twins CLI
+# The Azure Digital Twins CLI
 
-Azure Digital Twins has a CLI that you can use to perform most major actions with the service, including:
+As an alternative to managing your Azure Digital Twins instance in the [Azure portal](https://portal.azure.com), Azure Digital Twins has a **command-line interface (CLI)** that you can use to perform most major actions with the service, including:
 * Managing an Azure Digital Twins instance
 * Configuring endpoints
 * Configuring role-based access control (RBAC)
