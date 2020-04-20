@@ -101,7 +101,7 @@ ms.date: 04/20/2020
 - [Bug Fix] Player doesn't start muted when muted option enabled
 - [Bug Fix] Volume slider is displayed when controls are set to false
 - [Bug Fix] Playback occasionally repeating when user skips to the live edge
-- [Bug Fix][Firefox] Player occasionally throws javascript exception on load
+- [Bug Fix][Firefox] Player occasionally throws JavaScript exception on load
 - [Bug Fix][Accessibility]Play/ Pause/Volume button lose focus outline when selected using keyboard controls
 - [Bug Fix] Fixed memory leakage on player is disposed
 - [Bug Fix] Calling src() after player errors out doesn't reset the source
@@ -184,7 +184,7 @@ ms.date: 04/20/2020
 ### Bug Fixes 2.1.3 ###
 
 - [Bug Fix][Plugins|Title Overlay] Title Overlay plugin throws JS exceptions with AMP v2.X+
-- [Bug Fix]Source Set event is sent to javascript console even when logging is turned off
+- [Bug Fix]Source Set event is sent to JavaScript console even when logging is turned off
 - [Bug Fix][Skin] Player time tips are rendered outside context of the player when hovering over either end duration bar
 - [Bug Fix][Accessibility][Screen Reader] Narrator reads "Region Landmark" or "Video Player Region Landmark" when viewer has focus on player
 - [Bug Fix][AMP] Cannot disable player outline via CSS
@@ -192,7 +192,7 @@ ms.date: 04/20/2020
 - [Bug Fix][Skin][Live]Skin not responsive to localized LIVE text in Japanese
 - [Bug Fix][Skin]Duration and current time get cut off when stream > 60 min
  -[Bug Fix][iPhone|Live]player shows text for current time/duration in control bar
-- [Bug Fix][AMP] Calling player heuristics APIs yields javascript exceptions
+- [Bug Fix][AMP] Calling player heuristics APIs yields JavaScript exceptions
 - [Bug Fix][Native Html5|iOS] Videotag property "playsinline" not propagating to player
 - [Bug Fix][iOS|iframe]Player cannot enter fullscreen on iPhone if player is loaded in an iframe
 - [Bug Fix][AMP][Heuristics]AMP always operates with hybrid profile regardless of player options
@@ -208,7 +208,7 @@ ms.date: 04/20/2020
 ### Bug Fixes 2.1.2 ####
 
 - [Bug Fix][Accessibility][Windows Narrator]Narrator reads "Progress midnight" when user has context of progress bar and current time is 0:00
-- [Bug Fix][Skin]logo size is hard-coded in javascript code
+- [Bug Fix][Skin]logo size is hard-coded in JavaScript code
 - [Accessibility][HotKeys] Hotkeys not enabled when player is clicked.
 
 ### Changes 2.1.2 ####
@@ -292,7 +292,7 @@ ms.date: 04/20/2020
 
 - [Bug Fix][iOS] Captions/subtitles not showing up in native player
 - [Bug Fix][AMP] CDN-backed streaming URLs appended with authentication tokens not playing
-- [Bug Fix][FairPlay] FairPlay Error code missing Tech id (Bits [31-28] of the ErrorCode) see Error Codes for more details
+- [Bug Fix][FairPlay] FairPlay Error code missing Tech ID (Bits [31-28] of the ErrorCode) see Error Codes for more details
 - [Bug Fix][Safari][PlayReady] PlayReady content in Safari yielding infinite spinner
 
 ### Changes 1.8.1 ###
