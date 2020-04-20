@@ -1,6 +1,6 @@
 ---
 title: Data to collect when you open a case for Microsoft Azure Automation| Microsoft Docs
-description: This article describes some of the basic information that you should gather before you open a case for Azure Automation with Microsoft Azure Support.
+description: This article describes some of the information that you should gather before you open a case for Azure Automation with Microsoft Azure Support.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: v-miegge
@@ -19,13 +19,13 @@ ms.author: v-miegge
 
 # Data to collect when you open a case for Microsoft Azure Automation
 
-This article describes some of the basic information that you should gather before you open a case for Azure Automation with Microsoft Azure Support. This information is not required to open the case. However, it can help Microsoft resolve your problem more quickly. Also, you may be asked for this data by the support engineer after you open the case.
+This article describes some of the information that you should gather before you open a case for Azure Automation with Microsoft Azure Support. This information is not required to open the case. However, it can help Microsoft resolve your problem more quickly. Also, you may be asked for this data by the support engineer after you open the case.
 
-## Collect basic data
+## Basic data
 
 Collect the basic data described in the Knowledge Base article [4034605 - How to capture Azure Automation-scripted diagnostics](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
-## Collect data for Update Management issues on Linux
+## Data for Update Management issues on Linux
 
 1. In addition to the items that are listed in KB [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics), run the following log collection tool:
 
@@ -35,7 +35,7 @@ Collect the basic data described in the Knowledge Base article [4034605 - How to
  
 3. Verify that the ID for the workspace that the Log Analytics agent for Linux reports to is the same as the ID for the workspace being monitored for updates.
 
-## Collect data for Update Management issues on Windows
+## Data for Update Management issues on Windows
 
 1. Collect data for the items listed in [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
@@ -49,7 +49,7 @@ Collect the basic data described in the Knowledge Base article [4034605 - How to
 
 3. Verify that the ID of the workspace that the agent reports to is the same as the ID for the workspace being monitored by Windows Updates.
 
-## Collect data for job issues
+## Data for job issues
 
 1. Collect data for the items listed in [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
@@ -76,9 +76,9 @@ Collect the basic data described in the Knowledge Base article [4034605 - How to
 
    ![Data listed under All Logs](media/collect-data-microsoft-azure-automation-case/all-logs-data.png)
 
-## Collect data for module issues
+## Data for module issues
 
-In addition to the [basic data items](#collect-basic-data), gather the following information:
+In addition to the [basic data items](#basic-data), gather the following information:
 
 * The steps you have followed, so that the problem can be reproduced.
 * Screenshots of any error messages.
@@ -86,6 +86,8 @@ In addition to the [basic data items](#collect-basic-data), gather the following
 
 ## Next steps
 
-If you need more help, contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/).
+If you need more help:
 
-Alternatively, file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
+* Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
+* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
+* File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
