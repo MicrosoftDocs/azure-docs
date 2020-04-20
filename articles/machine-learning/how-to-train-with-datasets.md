@@ -19,7 +19,7 @@ ms.date: 04/20/2020
 # Train with datasets in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to consume [Azure Machine Learning datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) in your training experiments.  You can use datasets in your local or remote compute target without worrying about connection strings or data paths.
+In this article, you learn how to work with [Azure Machine Learning datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) in your training experiments.  You can use datasets in your local or remote compute target without worrying about connection strings or data paths.
 
 Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training products like [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py), [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py) and [Azure Machine Learning pipelines](how-to-create-your-first-pipeline.md).
 
@@ -36,6 +36,27 @@ To create and train with datasets, you need:
 > [!Note]
 > Some Dataset classes have dependencies on the [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) package. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
 
+## Work with datasets
+
+You can access existing datasets across experiments within your workspace, and load them into a pandas dataframe for further exploration on your local environment.
+
+The following code uses the [`get_context()`]() method in the [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) class to access the existing input TabularDataset, `titanic`, in the training script. Then uses the [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) method to load that dataset into a pandas dataframe for further data exploration and preparation prior to training.
+
+```Python
+%%writefile $script_folder/train_titanic.py
+
+from azureml.core import Dataset, Run
+
+run = Run.get_context()
+# get the input dataset by name
+dataset = run.input_datasets['titanic']
+
+# load the TabularDataset to pandas DataFrame
+df = dataset.to_pandas_dataframe()
+```
+
+If you need to load the prepared data into a new dataset from an in memory pandas dataframe, write the data to a local file, like a parquet, and create a new dataset from that file.  
+
 ## Use datasets directly in training scripts
 
 If you have structured data, create a TabularDataset and use it directly in your training script for your local or remote experiment.
@@ -43,8 +64,6 @@ If you have structured data, create a TabularDataset and use it directly in your
 In this example, you create a [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) and use it as a direct input to your `estimator` object for training. 
 
 ### Create a TabularDataset
-
-
 
 The following code creates an unregistered TabularDataset from a web url. You can also create datasets from local files or paths in datastores. Learn more about [how to create datasets](https://aka.ms/azureml/howto/createdatasets).
 
@@ -54,7 +73,8 @@ from azureml.core.dataset import Dataset
 web_path ='https://dprepdata.blob.core.windows.net/demo/Titanic.csv'
 titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
 ```
-TabularDataset objects provide the ability to load the data into a pandas or spark DataFrame so that you can work with familiar data preparation and training libraries without having to leave your notebook. To leverage this capability, see [how to access input datasets](#access-input-datasets).
+
+TabularDataset objects provide the ability to load the data into a pandas or spark DataFrame so that you can work with familiar data preparation and training libraries without having to leave your notebook. To leverage this capability, see [work with datasets](#work-with-datasets).
 
 ### Configure the estimator
 
@@ -81,24 +101,6 @@ experiment_run = experiment.submit(est)
 experiment_run.wait_for_completion(show_output=True)
 ```
 
-### Access input dataset
-
-You can access and explore existing datasets across experiments within your workspace. 
-
-The following code uses the [`get_context()`]() method in the [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) class to access the input TabularDataset, `titanic`, in the training script. Then uses the [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) method to load that dataset into a pandas dataframe for further data exploration and preparation.
-
-```Python
-%%writefile $script_folder/train_titanic.py
-
-from azureml.core import Dataset, Run
-
-run = Run.get_context()
-# get the input dataset by name
-dataset = run.input_datasets['titanic']
-
-# load the TabularDataset to pandas DataFrame
-df = dataset.to_pandas_dataframe()
-```
 ## Mount files to remote compute targets
 
 If you have unstructured data, create a [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) and either mount or download your data files to make them available to your remote compute target for training. Learn about when to use [mount vs. download](#mount-vs.-download) for your remote training experiments. 
