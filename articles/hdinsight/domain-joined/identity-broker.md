@@ -41,6 +41,46 @@ The ID Broker feature will add one extra VM to the cluster. This VM is the ID Br
 
 ![Option to enable ID Broker](./media/identity-broker/identity-broker-enable.png)
 
+### Using Azure Resource Manager templates
+If you add a new role called `idbrokernode` with the following attributes to the compute profile of your template, then the cluster will get created with the id broker node enabled:
+
+```json
+.
+.
+.
+"computeProfile": {
+    "roles": [
+        {
+            "autoscale": null,
+            "name": "headnode",
+           ....
+        },
+        {
+            "autoscale": null,
+            "name": "workernode",
+            ....
+        },
+        {
+            "autoscale": null,
+            "name": "idbrokernode",
+            "targetInstanceCount": 1,
+            "hardwareProfile": {
+                "vmSize": "Standard_A2_V2"
+            },
+            "virtualNetworkProfile": {
+                "id": "string",
+                "subnet": "string"
+            },
+            "scriptActions": [],
+            "dataDisksGroups": null
+        }
+    ]
+}
+.
+.
+.
+```
+
 ## Tool integration
 
 The HDInsight [IntelliJ plug-in](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) is updated to support OAuth. You can use this plug-in to connect to the cluster and submit jobs.
