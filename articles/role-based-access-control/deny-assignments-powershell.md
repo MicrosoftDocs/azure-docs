@@ -27,7 +27,7 @@ ms.reviewer: bagovind
 
 To get information about a deny assignment, you must have:
 
-- `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [built-in roles for Azure resources](built-in-roles.md)
+- `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [Azure built-in roles](built-in-roles.md)
 - [PowerShell in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## List deny assignments

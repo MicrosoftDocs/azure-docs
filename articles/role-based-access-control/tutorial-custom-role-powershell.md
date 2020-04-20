@@ -20,7 +20,7 @@ ms.author: rolyon
 ---
 # Tutorial: Create a Azure custom role using Azure PowerShell
 
-If the [built-in roles for Azure resources](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. For this tutorial, you create a custom role named Reader Support Tickets using Azure PowerShell. The custom role allows the user to view everything in the management plane of a subscription and also open support tickets.
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. For this tutorial, you create a custom role named Reader Support Tickets using Azure PowerShell. The custom role allows the user to view everything in the management plane of a subscription and also open support tickets.
 
 In this tutorial, you learn how to:
 

@@ -370,7 +370,7 @@ To list the details of a specific role, use the [Role Definitions - Get](/rest/a
 
 ## Next steps
 
-- [Built-in roles for Azure resources](built-in-roles.md)
+- [Azure built-in roles](built-in-roles.md)
 - [Azure custom roles](custom-roles.md)
 - [List role assignments using Azure RBAC and the Azure portal](role-assignments-list-portal.md)
 - [Add or remove role assignments using Azure RBAC and the Azure portal](role-assignments-portal.md)
