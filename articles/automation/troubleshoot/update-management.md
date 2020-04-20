@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot errors with Azure Update Management
-description: Learn how to troubleshoot and resolve issues with the Update Management solution in Azure.
+title: Troubleshooting Azure Automation Update Management
+description: Learn how to troubleshoot and resolve issues with the Update Management solution in Azure Automation.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ---
-# Troubleshooting issues with Update Management
 
-This article discusses solutions to issues that you might come across when using Update Management.
+# Troubleshoot issues with the Update Management solution
 
-There's an agent troubleshooter for the Hybrid Worker agent to determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md). For all other issues, use the following troubleshooting guidance.
+This article discusses issues that you might run into when using the Update Management solution. There's an agent troubleshooter for the Hybrid Runbook Worker agent to determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot Windows update agent issues](update-agent-issues.md) and [Troubleshoot Linux update agent issues](update-agent-issues-linux.md). For other onboarding issues, see [Troubleshoot solution onboarding](onboarding.md).
 
-If you find issues when onboarding the solution on a virtual machine (VM), check the **Operations Manager** log under **Application and Services Logs** on the local machine. Look for events with event ID 4502 and event details that contain `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+>[!NOTE]
+>If you find issues when onboarding the solution on a virtual machine (VM), check the **Operations Manager** log under **Application and Services Logs** on the local machine. Look for events with event ID 4502 and event details that contain `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
 
-The following section highlights specific error messages and possible resolutions for each. For other onboarding issues, see [Troubleshoot solution onboarding](onboarding.md).
+>[!NOTE]
+>This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
 
 ## Scenario: You receive the error "Failed to enable the Update solution"
 
@@ -293,7 +294,7 @@ This error can occur for the following reasons:
 
 * There is a duplicate computer name with different source computer IDs. This scenario occurs when a VM with a particular computer name is created in different resource groups and is reporting to the same Logistics Agent workspace in the subscription.
 
-* The VM image being onboarded might come from a cloned machine that wasn't prepared with System Preparation (sysprep) with the Microsoft Monitoring Agent (MMA) installed.
+* The VM image being onboarded might come from a cloned machine that wasn't prepared with System Preparation (sysprep) with the Log Analytics agent for Windows installed.
 
 ### Resolution
 
@@ -345,17 +346,16 @@ This error occurs when you create an update deployment that has Azure VMs in ano
 
 ### Resolution
 
-Use the following workaround to get these items scheduled. You can use the [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet with the `ForUpdate` parameter to create a schedule. Then, use the [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
-) cmdlet and pass the machines in the other tenant to the `NonAzureComputer` parameter. The following example shows how to do this:
+Use the following workaround to get these items scheduled. You can use the [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) cmdlet with the `ForUpdateConfiguration` parameter to create a schedule. Then, use the [New-AzAutomationSoftwareUpdateConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) cmdlet and pass the machines in the other tenant to the `NonAzureComputer` parameter. The following example shows how to do this:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
 
 $startTime = ([DateTime]::Now).AddMinutes(10)
 
-$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+$s = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdateConfiguration
 
-New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
 ## <a name="node-reboots"></a>Scenario: Unexplained reboots
@@ -608,7 +608,7 @@ KB2267602 is the [Windows Defender definition update](https://www.microsoft.com/
 
 ## Next steps
 
-If you didn't see your problem or can't resolve your issue, try one of the following channels for additional support.
+If you don't see your problem or can't resolve your issue, try one of the following channels for additional support.
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
 * Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience.

@@ -20,7 +20,7 @@ The following versions are supported for the Azure File Sync agent:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V10 Release - [KB4522359](https://support.microsoft.com/en-us/help/4522409/azure-file-sync-agent-v10-release-march-2020)| 10.0.0.0 | April 9, 2020 | Supported |
+| V10 Release - [KB4522359](https://support.microsoft.com/en-us/help/4522409/azure-file-sync-agent-v10-release-march-2020)| 10.0.0.0 | April 9, 2020 | In flight |
 | December 2019 update rollup - [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | December 12, 2019 | Supported |
 | V9 Release - [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | December 2, 2019 | Supported |
 | V8 Release - [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | October 8, 2019 | Supported |
@@ -58,12 +58,8 @@ The following release notes are for version 10.0.0.0 of the Azure File Sync agen
 - Support for moving the Storage Sync Service and/or storage account to a different Azure Active Directory (AAD) tenant
 	- Azure File Sync now supports moving the Storage Sync Service and/or storage account to a different resource group, subscription or Azure AD tenant.
 	
-- Evaluation tool now identifies files or directories that end with a period
-	- The [Evaluation tool](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) has been updated to identify files or directories that end with a period. Files or directories that end with a period are not currently supported by Azure File Sync. To use the updated version of the [Evaluation tool](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet), install the latest version of the [Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
- 
 - Miscellaneous performance and reliability improvements
 	- Change detection on the Azure file share may fail if virtual network (VNET) and firewall rules are configured on the storage account.
-	- No longer 2KB security descriptor limit for syncing  discretionary access control lists (DACLs).  
 	- Reduced memory consumption associated with recall. 
 	- Improved performance when using the [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) cmdlet.
 	- Other miscellaneous reliability improvements. 

@@ -51,6 +51,8 @@
           href: sql-api-java-application.md
         - name: Node.js
           href: sql-api-nodejs-application.md
+      - name: Build a mobile app
+        items:
         - name: Xamarin
           href: mobile-apps-with-xamarin.md
     - name: 2 - Migrate data
@@ -759,14 +761,6 @@
         items:
         - name: 1 - Query data
           href: tutorial-query-graph.md
-      - name: Reference
-        items:
-        - name: Response Headers
-          href: gremlin-headers.md
-        - name: Limits
-          href: gremlin-limits.md
-        - name: Compatibility
-          href: gremlin-compatibility.md
       - name: How-to guides
         items:
         - name: Graph data modeling
@@ -794,6 +788,14 @@
           href: powershell-samples-gremlin.md
         - name: Manage using Azure CLI
           href: cli-samples-gremlin.md
+      - name: Reference
+        items:
+        - name: Response Headers
+          href: gremlin-headers.md
+        - name: Limits
+          href: gremlin-limits.md
+        - name: Compatibility
+          href: gremlin-compatibility.md
     - name: Table API
       items:
       - name: Overview
@@ -1039,6 +1041,8 @@
         href: monitor-cosmos-db.md
       - name: Monitor server-side latency
         href: monitor-server-side-latency.md
+      - name: Monitor request unit usage
+        href: monitor-request-unit-usage.md
       - name: Monitor with diagnostic logs
         href: cosmosdb-monitor-resource-logs.md
       - name: Audit control plane logs

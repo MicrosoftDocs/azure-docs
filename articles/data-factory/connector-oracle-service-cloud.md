@@ -14,6 +14,7 @@ ms.date: 08/01/2019
 ---
 
 # Copy data from Oracle Service Cloud using Azure Data Factory (Preview)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Oracle Service Cloud. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 

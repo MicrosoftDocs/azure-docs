@@ -35,7 +35,7 @@ As a builder, you can create and edit device templates in your IoT Central appli
 
 To add a new device template to your application, select the **Device Templates** tab in the left pane.
 
-![Device Templates page](./media/quick-create-simulated-device/devicedefinitions.png)
+![Device Templates page](./media/quick-create-simulated-device/device-definitions.png)
 
 A device template includes a device capability model that defines the telemetry the device sends, device properties, and the commands the device responds to.
 
@@ -72,7 +72,7 @@ A device template can include cloud properties. Cloud properties only exist in t
 
 1. Select **Save** to save your changes:
 
-    ![Cloud properties](media/quick-create-simulated-device/cloudproperties.png)
+    ![Cloud properties](media/quick-create-simulated-device/cloud-properties.png)
 
 ## Views
 
@@ -113,7 +113,7 @@ To publish a device template:
 
 1. Select **Publish**:
 
-    ![Published model](media/quick-create-simulated-device/publishedmodel.png)
+    ![Published model](media/quick-create-simulated-device/published-model.png)
 
 1. On the **Publish this device template to the application** dialog, select **Publish**. 
 
