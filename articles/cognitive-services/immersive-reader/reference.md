@@ -13,7 +13,7 @@ ms.date: 06/20/2019
 ms.author: metan
 ---
 
-# Immersive Reader SDK Reference Guide
+# Immersive Reader JavaScript SDK Reference (v1.1)
 
 The Immersive Reader SDK contains a JavaScript library that allows you to integrate the Immersive Reader into your application.
 
@@ -105,6 +105,15 @@ A single chunk of data, which will be passed into the Content of the Immersive R
 }
 ```
 
+#### Supported MIME types
+
+| MIME Type | Description |
+| --------- | ----------- |
+| text/plain | Plain text. |
+| text/html | HTML content. [Learn more](#html-support)|
+| application/mathml+xml | Mathematical Markup Language (MathML). [Learn more](./how-to/display-math.md).
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Microsoft Word .docx format document.
+
 ### LaunchResponse
 
 Contains the response from the call to `ImmersiveReader.launchAsync`.
@@ -115,34 +124,6 @@ Contains the response from the call to `ImmersiveReader.launchAsync`.
     sessionId: string;            // Globally unique identifier for this session, used for debugging
 }
 ```
-
-### CookiePolicy enum
-
-An enum used to set the policy for the Immersive Reader's cookie usage. See [options](#options).
-
-```typescript
-enum CookiePolicy { Disable, Enable }
-```
-
-#### Supported MIME types
-
-| MIME Type | Description |
-| --------- | ----------- |
-| text/plain | Plain text. |
-| text/html | HTML content. [Learn more](#html-support)|
-| application/mathml+xml | Mathematical Markup Language (MathML). [Learn more](./how-to/display-math.md).
-| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Microsoft Word .docx format document.
-
-### HTML Support
-
-| HTML | Supported Content |
-| --------- | ----------- |
-| Font Styles | Bold, Italic, Underline, Code, Strikethrough, Superscript, Subscript |
-| Unordered Lists | Disc, Circle, Square |
-| Ordered Lists | Decimal, Upper-Alpha, Lower-Alpha, Upper-Roman, Lower-Roman |
-| Hyperlinks | Coming Soon |
-
-Unsupported tags will be rendered comparably. Images and tables are currently not supported.
 
 ### Options
 
@@ -159,7 +140,21 @@ Contains properties that configure certain behaviors of the Immersive Reader.
     allowFullscreen?: boolean; // The ability to toggle fullscreen (default is true).
     hideExitButton?: boolean;  // Whether or not to hide the Immersive Reader's exit button arrow (default is false). This should only be true if there is an alternative mechanism provided to exit the Immersive Reader (e.g a mobile toolbar's back arrow).
     cookiePolicy?: CookiePolicy; // Setting for the Immersive Reader's cookie usage (default is CookiePolicy.Disable). It's the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy.
+    disableFirstRun?: boolean; // Disable the first run experience
+    readAloudOptions?: ReadAloudOptions; // Options to configure Read Aloud
 }
+```
+
+```typescript
+enum CookiePolicy { Disable, Enable }
+```
+
+```typescript
+export type ReadAloudOptions = {
+    voice?: Gender;      // Voice, either 'male' or 'female'. Note that not all languages support both genders.
+    speed?: number;      // Playback speed, must be between 0.5 and 2.5, inclusive.
+    autoplay?: boolean;  // Automatically start Read Aloud when the Immersive Reader loads.
+};
 ```
 
 ### RenderButtonsOptions
@@ -209,6 +204,17 @@ Use the following attributes to configure the look and feel of the button.
 | `data-button-style` | Sets the style of the button. Can be `icon`, `text`, or `iconAndText`. Defaults to `icon`. |
 | `data-locale` | Sets the locale. For example, `en-US` or `fr-FR`. Defaults to English `en`. |
 | `data-icon-px-size` | Sets the size of the icon in pixels. Defaults to 20px. |
+
+## HTML support
+
+| HTML | Supported Content |
+| --------- | ----------- |
+| Font Styles | Bold, Italic, Underline, Code, Strikethrough, Superscript, Subscript |
+| Unordered Lists | Disc, Circle, Square |
+| Ordered Lists | Decimal, Upper-Alpha, Lower-Alpha, Upper-Roman, Lower-Roman |
+| Hyperlinks | Coming Soon |
+
+Unsupported tags will be rendered comparably. Images and tables are currently not supported.
 
 ## Browser support
 

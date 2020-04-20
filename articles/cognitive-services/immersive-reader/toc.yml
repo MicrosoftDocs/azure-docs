@@ -35,7 +35,7 @@
     href: how-to-cache-token.md
 - name: Reference
   items:
-  - name: SDK Reference
+  - name: JavaScript SDK
     href: reference.md
 - name: Resources
   items:
