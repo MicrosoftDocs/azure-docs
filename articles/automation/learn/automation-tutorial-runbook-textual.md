@@ -16,7 +16,13 @@ ms.topic: tutorial
 > * [PowerShell Workflow](automation-tutorial-runbook-textual.md)
 > * [Python](automation-tutorial-runbook-textual-python2.md)
 
-This tutorial walks you through the creation of a [PowerShell Workflow runbook](../automation-runbook-types.md#powershell-workflow-runbooks) in Azure Automation. Start with a simple runbook that you test and publish while learning how to track the status of the runbook job. Then modify the runbook to actually manage Azure resources, illustrated by starting an Azure virtual machine. Last, make the runbook more robust by adding runbook parameters.
+This tutorial walks you through the creation of a [PowerShell Workflow runbook](../automation-runbook-types.md#powershell-workflow-runbooks) in Azure Automation. PowerShell Workflow runbooks are text runbooks based on Windows PowerShell Workflow. You can create and edit the code of the runbook using the text editor in the Azure portal. 
+
+> [!div class="checklist"]
+> * Create a simple PowerShell Workflow runbook
+> * Test and publish the runbook
+> * Run and track the status of the runbook job
+> * Update the runbook to start an Azure virtual machine, with runbook parameters and conditional links
 
 >[!NOTE]
 >This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
