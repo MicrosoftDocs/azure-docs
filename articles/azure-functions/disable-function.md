@@ -38,6 +38,9 @@ You can also use the **Enable** and **Disable** buttons on the function's **Over
 
 ![Function state switch](media/disable-function/function-state-switch.png)
 
+> [!NOTE]  
+> The portal-integrated testing functionality ignores the `Disabled` setting. This means that a disabled function still runs when started from the **Test** window in the portal. 
+
 ## Other methods
 
 While the application setting method is recommended for all languages and all runtime versions, there are several other ways to disable functions. These methods, which vary by language and runtime version, are maintained for backward compatibility. 
