@@ -429,7 +429,7 @@ Adds a new job.
 #### Syntax  
   
 
-```sql
+```syntaxsql
 [jobs].sp_add_job [ @job_name = ] 'job_name'  
 	[ , [ @description = ] 'description' ]   
 	[ , [ @enabled = ] enabled ]
@@ -494,7 +494,7 @@ Updates an existing job.
 
 #### Syntax
 
-```sql
+```syntaxsql
 [jobs].sp_update_job [ @job_name = ] 'job_name'  
 	[ , [ @new_name = ] 'new_name' ]
 	[ , [ @description = ] 'description' ]   
@@ -557,7 +557,7 @@ Deletes an existing job.
 
 #### Syntax
 
-```sql
+```syntaxsql
 [jobs].sp_delete_job [ @job_name = ] 'job_name'
 	[ , [ @force = ] force ]
 ```
@@ -590,7 +590,7 @@ Adds a step to a job.
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_add_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]   
      [ , [ @step_name = ] step_name ]   
@@ -715,7 +715,7 @@ Updates a job step.
 
 #### Syntax
 
-```sql
+```syntaxsql
 [jobs].sp_update_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]   
      [ , [ @step_name = ] 'step_name' ]   
@@ -841,7 +841,7 @@ Removes a job step from a job.
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_jobstep [ @job_name = ] 'job_name'   
      [ , [ @step_id = ] step_id ]
      [ , [ @step_name = ] 'step_name' ]   
@@ -887,7 +887,7 @@ Starts executing a job.
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_start_job [ @job_name = ] 'job_name'   
      [ , [ @job_execution_id = ] job_execution_id OUTPUT ]   
 ```
@@ -918,7 +918,7 @@ Stops a job execution.
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_stop_job [ @job_execution_id = ] ' job_execution_id '
 ```
 
@@ -947,7 +947,7 @@ Adds a target group.
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_add_target_group [ @target_group_name = ] 'target_group_name'   
      [ , [ @target_group_id = ] target_group_id OUTPUT ]
 ```
@@ -979,7 +979,7 @@ Deletes a target group.
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_target_group [ @target_group_name = ] 'target_group_name'
 ```
 
@@ -1006,7 +1006,7 @@ Adds a database or group of databases to a target group.
 
 #### Syntax
 
-```sql
+```syntaxsql
 [jobs].sp_add_target_group_member [ @target_group_name = ] 'target_group_name'
          [ @membership_type = ] 'membership_type' ]   
         [ , [ @target_type = ] 'target_type' ]   
@@ -1097,7 +1097,7 @@ Removes a target group member from a target group.
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_delete_target_group_member [ @target_group_name = ] 'target_group_name'
      	[ , [ @target_id = ] 'target_id']
 ```
@@ -1149,7 +1149,7 @@ Removes the history records for a job.
 #### Syntax
 
 
-```sql
+```syntaxsql
 [jobs].sp_purge_jobhistory [ @job_name = ] 'job_name'   
       [ , [ @job_id = ] job_id ]
       [ , [ @oldest_date = ] oldest_date []
