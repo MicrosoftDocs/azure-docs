@@ -201,8 +201,6 @@ Fill in the fields as follows:
 * *EVENT TYPES* > **Filter to Event Types**: Select *Device Telemetry* from the menu options.
 * *ENDPOINT DETAILS* > **Endpoint Type**: Select *Azure Function* from the menu options.
 * *ENDPOINT DETAILS* > **Endpoint**: Hit the *Select an endpoint* link. This will open a *Select Azure Function* window:
-
-    [!div class="mx-imgBorder"]
     ![Azure portal event subscription: select Azure function](media/tutorial-connect/event-subscription-3.png)
     - Fill in your **Subscription**, **Resource group**, **Function app** and **Function** (*ProcessHubToDTEvents*). Some of these may auto-populate after selecting the subscription.
     - Hit **Confirm Selection**.
