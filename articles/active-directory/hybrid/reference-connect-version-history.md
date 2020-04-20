@@ -49,6 +49,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 04/20/2020: Released for download
 
 ### Fixed issues
+This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In from AD - Group Join** rule and have not cloned the **In from AD - Group Common** rule.
 
 ## 1.5.20.0
 
