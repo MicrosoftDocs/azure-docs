@@ -19,6 +19,78 @@ This article provides more information on the latest releases and updates to the
 
 ## What's new in Service Fabric
 
+### Service Fabric 7.1
+Due to the current COVID-19 crisis, and taking into consideration the challenges faced by our customers, we are making 7.1 available, but will not automatically upgrade clusters set to receive automatic upgrades. We are pausing automatic upgrades until further notice to ensure that customers can apply upgrades when most appropriate for them, to avoid unexpected disruptions.
+
+You will be able to update to 7.1 via through the [Azure Portal](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-upgrade-version-azure#upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal) or via an [Azure Resource Manager deployment](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-upgrade-version-azure#set-the-upgrade-mode-using-a-resource-manager-template).
+
+Service Fabric clusters with automatic upgrades enabled will begin to receive the 7.1 update automatically once we resume the standard rollout procedure. We will provide another announcement before the standard rollout begins on the [Service Fabric Tech Community Site](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
+We also have published updates to end of support date for major releases starting from 6.5 till 7.1 [here](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-versions#supported-versions). 
+
+## What is new in-Service Fabric 7.1?
+We are excited to announce the next release of Service Fabric. This release is loaded with key features and improvements. Some of the key features are highlighted below:
+
+## Key Annoucements
+- General Availability of [**Service Fabric Managed Identities for Service Fabric applications**](https://docs.microsoft.com/en-us/azure/service-fabric/concepts-managed-identity)
+- [**Support for Ubuntu 1804**](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-tutorial-create-vnet-and-linux-cluster) 
+- Support for declaration of [**Service Endpoint certificates of Service Fabric applications by subject common name**](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-secret-management ).
+ - [**Preview: VMSS Ephemeral OS disk support**](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-azure-deployment-preparation#use-ephemeral-os-disks-for-virtual-machine-scale-sets): Ephemeral OS disks are storage created on the local virtual machine, and not saved to remote Azure Storage. They are recommended for all Service Fabric node types (Primary and Secondary), because compared to traditional persistent OS disks, ephemeral OS disks:
+      - Reduce read/write latency to OS disk
+      - Enable faster reset/re-image node management operations
+      - Reduce overall costs (the disks are free and incur no additional storage cost)
+- Endpoint certificates of [**Service Fabric applications can be declared by subject common name**](https:/docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management].  
+- [**Support for Health Probes for containerized services**](https://docs.microsoft.com/azure/service-fabric/probes-codepackage): Support for Liveness Probe mechanism for containerized applications. Liveness Probe help announce the liveness of the containerized application and when they do not respond in a timely fashion, it will result in a restart. 
+- [**Support for Initializer Code Packages**](https://docs.microsoft.com/azure/service-fabric/initializer-codepackages) for [containers](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-containers-overview) and [guest executable](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-guest-executables-introduction) applications. This allows executing Code Packages (e.g. containers), in a specified order, to perform Service Package initialization.
+- [**FabricObserver (FO) 2.0**](https://github.com/microsoft/service-fabric-observer). Bug fixes and enhancements, structured telemetry implementations for ApplicationInsights, LogAnalytics, EventSource. Production-ready, including [sfpkgs with Microsoft-signed binares](https://github.com/microsoft/service-fabric-observer/releases).
+- [**ClusterObserver (CO) 1.1**](https://github.com/microsoft/service-fabric-observer/tree/master/ClusterObserver). Bug fixes, enhancements, new features including node status monitoring capability for when a node is Down or Disabled/Disabling for longer than a user-configured amount of time. Structured telemetry implementations for ApplicationInsights, LogAnalytics, EventSource. Production-ready, including [sfpkgs with Microsoft-signed binares](https://github.com/microsoft/service-fabric-observer/releases).
+   
+### Improve Application life cycle experience
+
+- [**Preview:Request drain**](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade-advanced#avoid-connection-drops-during-planned-downtime-of-stateless-services): During planned service maintenance, such as service upgrades or node deactivation, you would like to allow the  services to gracefully drain connections. This feature adds an instance close delay duration in the service configuration. During planned operations, SF will remove the Service’s address from discovery and then wait this duration before shutting down the service.
+- [**Automatic Subcluster Detection and Balancing**](https://docs.microsoft.com/en-us/azure/service-fabric/cluster-resource-manager-subclustering ): Subclustering happens when services with different placement constraints have a common [load metric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-resource-manager-metrics). If the load on the different sets of nodes differs significantly, the Service Fabric Cluster Resource Manager believes that the cluster is imbalanced, even when it has the best possible balance because of the placement constraints. As a result, it attempts to rebalance the cluster, potentially causing unnecessary service movements (since the “imbalance” cannot be substantially improved). Starting with this release, the Cluster Resource Manager will now attempt to automatically detect these sorts of configurations and understand when the imbalance can be fixed through movement, and when instead it should leave things alone since no substantial improvement can be made.  
+- [**Different Move cost for secondary replicas**](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-fabric-settings#placementandloadbalancing): Support for new PlacementAndLoadBalancing custom configuration option "UseSeparateSecondaryMoveCost" to define if a separate move cost should be used for secondary replicas.
+- [**Run till completion/once for services**](https://docs.microsoft.com/en-us/azure/service-fabric/run-to-completion)
+- Enabled [**Liveness Probe**](https://docs.microsoft.com/en-us/azure/service-fabric/probes-codepackage )** mechanism for containerized    applications. Liveness Probe help announce the liveness of the containerized application and when they do not respond in a timely fashion, it will result in a restart.
+
+### Image Store improvements
+ - Service Fabric 7.1 uses **custom transport to secure file transfer between nodes by default**. The dependency on SMB file share is removed from the version 7.1. The secured SMB file shares are still existing on nodes that contains Image Store Service replica for customer's choice to opt out from default and for upgrade and downgrade to old version.
+       
+ ### Reliable Collections Improvements
+
+- **[In memory only store support for stateful services using Reliable Collections](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-work-with-reliable-collections#volatile-reliable-collections)**: Volatile Reliable Collections allows data to be persisted to disk for durability against large-scale outages, can be used for workloads like replicated cache for example where occasional data loss can be tolerated.Based on the [limitations and restrictions of Volatile Reliable Collections](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-reliable-collections-guidelines#volatile-reliable-collections), we recommend this for workloads that don't need persistence, for services that handle the rare occasions of Quorum Loss.
+- **[Preview: Service Fabric Backup Explorer](https://github.com/microsoft/service-fabric-backup-explorer)**: To ease management of Reliable Collections backups for Service Fabric Stateful applications, Service Fabric Backup Explorer enables users to
+    - Audit and review the contents of the Reliable Collections,
+    - Update current state to a consistent view
+    - Create Backup of the current snapshot of the Reliable Collections
+    - Fix data corruption
+    
+## Breaking Changes
+- For customers using service fabric managed identities, **please switch to new environment variables ‘IDENTITY_ENDPOINT’ and ‘IDENTITY_HEADER’**. The prior environment variables'MSI_ENDPOINT' and 'MSI_SECRET' are now removed.
+- [Service Fabric Managed Identity](https://docs.microsoft.com/en-us/azure/service-fabric/concepts-managed-identity) endpoint is now secure(HTTPs). There is additional guidance on how to validate the MITS server certificate in the docs.
+- Currently Service Fabric ships the following nuget packages as a part of our    ASP.Net Integration and support:
+    -  Microsoft.ServiceFabric.AspNetCore.Abstractions
+    -  Microsoft.ServiceFabric.AspNetCore.Configuration
+    -  Microsoft.ServiceFabric.AspNetCore.Kestrel
+    -  Microsoft.ServiceFabric.AspNetCore.HttpSys
+    -  Microsoft.ServiceFabric.AspNetCore.WebListener
+
+   These packages are built against AspNetCore 1.0.0 binaries which have gone out of support (https://dotnet.microsoft.com/platform/support/policy/dotnet-core). Starting in Service Fabric 8.x we will start building Service Fabric AspNetCore integration against AspNetCore 2.1  and for netstandard 2.0. As a result, there will be following changes:
+    1. The following binaries and their nuget packages will be released for     
+      netstandard 2.0 only.These packages can be used in applications targeting .net framework <4.6.1 and .net core >=2.0
+            -  Microsoft.ServiceFabric.AspNetCore.Abstractions
+            -  Microsoft.ServiceFabric.AspNetCore.Configuration
+            -  Microsoft.ServiceFabric.AspNetCore.Kestrel
+            -  Microsoft.ServiceFabric.AspNetCore.HttpSys
+            
+    2. The following package will no longer be shipped:
+            - Microsoft.ServiceFabric.AspNetCore.WebListener:
+                 - Use Microsoft.ServiceFabric.AspNetCore.HttpSys instead.
+                 
+### Service Fabric 7.1 releases
+| Release date | Release | More info |
+|---|---|---|
+| April 20, 2019 | [Azure Service Fabric 7.1](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Service-Fabric-7-1-Release/ba-p/1015482)  | [Release notes](https://github.com/microsoft/service-fabric/tree/master/release_notes/Service-Fabric-71-releasenotes.md)|
+
 ### Service Fabric 7.0
 
 Azure Service Fabric 7.0 is now available! You will be able to update to 7.0 through the Azure portal or via an Azure Resource Manager deployment. Due to customer feedback on releases around the holiday period we will not begin automatically updating clusters set to receive automatic upgrades until January.
