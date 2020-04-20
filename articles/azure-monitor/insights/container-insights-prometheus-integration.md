@@ -2,7 +2,7 @@
 title: Configure Azure Monitor for containers Prometheus Integration | Microsoft Docs
 description: This article describes how you can configure the Azure Monitor for containers agent to scrape metrics from Prometheus with your Kubernetes cluster.
 ms.topic: conceptual
-ms.date: 04/17/2020
+ms.date: 04/20/2020
 ---
 
 # Configure scraping of Prometheus metrics with Azure Monitor for containers
@@ -87,14 +87,14 @@ ConfigMaps is a global list and there can be only one ConfigMap applied to the a
 
 ## Configure and deploy ConfigMaps
 
-Perform the following steps to configure your ConfigMap configuration file for Kubernetes clusters.
+Perform the following steps to configure your ConfigMap configuration file for Kubernetes clusters, including Azure Red Hat OpenShift v4.
 
 1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) the template ConfigMap yaml file and save it as container-azm-ms-agentconfig.yaml.
 
    >[!NOTE]
    >This step is not required when working with Azure Red Hat OpenShift since the ConfigMap template already exists on the cluster.
 
-2. Edit the ConfigMap yaml file with your customizations to scrape Prometheus metrics. 
+2. Edit the ConfigMap yaml file with your customizations to scrape Prometheus metrics.
 
     >[!NOTE]
     >If you are editing the ConfigMap yaml file for Azure Red Hat OpenShift, first run the command `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` to open the file in a text editor.
@@ -173,12 +173,89 @@ Perform the following steps to configure your ConfigMap configuration file for K
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
 
+The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+
+## Configure and deploy ConfigMaps - Red Hat OpenShift v3
+
+Perform the following steps to configure your ConfigMap configuration file for Kubernetes clusters.
+
+1. Edit the ConfigMap yaml file with your customizations to scrape Prometheus metrics. The ConfigMap template already exists on the Red Hat OpenShift v3 cluster. Run the command `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` to open the file in a text editor.
+
     >[!NOTE]
-    >For Azure Red Hat OpenShift, you only need to save your changes in the editor.
+    >The following annotation `openshift.io/reconcile-protect: "true"` must be added under the metadata of *container-azm-ms-agentconfig* ConfigMap to prevent reconciliation. 
+    >```
+    >metadata:
+    >   annotations:
+    >       openshift.io/reconcile-protect: "true"
+    >```
+
+    - To collect of Kubernetes services cluster-wide, configure the ConfigMap file using the following example.
+
+        ```
+        prometheus-data-collection-settings: |- ​
+        # Custom Prometheus metrics data collection settings
+        [prometheus_data_collection_settings.cluster] ​
+        interval = "1m"  ## Valid time units are s, m, h.
+        fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through ​
+        fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
+        kubernetes_services = ["http://my-service-dns.my-namespace:9102/metrics"]
+        ```
+
+    - To configure scraping of Prometheus metrics from a specific URL across the cluster, configure the ConfigMap file using the following example.
+
+        ```
+        prometheus-data-collection-settings: |- ​
+        # Custom Prometheus metrics data collection settings
+        [prometheus_data_collection_settings.cluster] ​
+        interval = "1m"  ## Valid time units are s, m, h.
+        fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through ​
+        fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
+        urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
+        ```
+
+    - To configure scraping of Prometheus metrics from an agent's DaemonSet for every individual node in the cluster, configure the following in the ConfigMap:
+    
+        ```
+        prometheus-data-collection-settings: |- ​
+        # Custom Prometheus metrics data collection settings ​
+        [prometheus_data_collection_settings.node] ​
+        interval = "1m"  ## Valid time units are s, m, h. 
+        urls = ["http://$NODE_IP:9103/metrics"] ​
+        fieldpass = ["metric_to_pass1", "metric_to_pass2"] ​
+        fielddrop = ["metric_to_drop"] ​
+        ```
+
+        >[!NOTE]
+        >$NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. It must be all uppercase. 
+
+    - To configure scraping of Prometheus metrics by specifying a pod annotation, perform the following steps:
+
+       1. In the ConfigMap, specify the following:
+
+            ```
+            prometheus-data-collection-settings: |- ​
+            # Custom Prometheus metrics data collection settings
+            [prometheus_data_collection_settings.cluster] ​
+            interval = "1m"  ## Valid time units are s, m, h
+            monitor_kubernetes_pods = true 
+            ```
+
+       2. Specify the following configuration for pod annotations:
+
+           ```
+           - prometheus.io/scrape:"true" #Enable scraping for this pod ​
+           - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
+           - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. ​
+           - prometheus.io/port:"8000" #If port is not 9102 use this annotation​
+           ```
+	
+          If you want to restrict monitoring to specific namespaces for pods that have annotations, for example only include pods dedicated for production workloads, set the `monitor_kubernetes_pod` to `true` in ConfigMap, and add the namespace filter `monitor_kubernetes_pods_namespaces` specifying the namespaces to scrape from. For example, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+
+2. Save your changes in the editor.
 
 The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
 
-You can view the updated ConfigMap for Azure Red Hat OpenShift by running the command, `oc describe configmaps container-azm-ms-agentconfig -n openshift-azure-logging`. 
+You can view the updated ConfigMap by running the command, `oc describe configmaps container-azm-ms-agentconfig -n openshift-azure-logging`. 
 
 ## Applying updated ConfigMap
 
