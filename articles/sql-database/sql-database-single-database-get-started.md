@@ -10,7 +10,7 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
-ms.date: 03/10/2020
+ms.date: 04/19/2020
 ---
 # Quickstart: Create an Azure SQL Database single database
 
@@ -81,11 +81,10 @@ az group delete --name <your resource group>
 
 To delete the resource group and all its resources, run the following PowerShell cmdlet, using the name of your resource group:
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name <your resource group>
 ```
 
----
 ## Next steps
 
 [Connect and query](sql-database-connect-query.md) your database using different tools and languages:
