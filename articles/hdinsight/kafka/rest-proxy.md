@@ -69,7 +69,7 @@ For REST proxy endpoint requests, client applications should get an OAuth token.
 You can use the python code below to interact with the REST proxy on your Kafka cluster. To use the code sample, follow these steps:
 
 1. Save the sample code on a machine with Python installed.
-1. Install required python dependencies by executing `pip3 install adal` and `pip install msrestazure`.
+1. Install required python dependencies by executing `pip3 install msal`.
 1. Modify the code section **Configure these properties** and update the following properties for your environment:
 
     |Property |Description |
@@ -79,7 +79,7 @@ You can use the python code below to interact with the REST proxy on your Kafka 
     |Client Secret|The secret for the application that you registered in the security group.|
     |Kafkarest_endpoint|Get this value from the **Properties** tab in the cluster overview as described in the [deployment section](#create-a-kafka-cluster-with-rest-proxy-enabled). It should be in the following format – `https://<clustername>-kafkarest.azurehdinsight.net`|
 
-1. From the command line, execute the python file by executing `python <filename.py>`
+1. From the command line, execute the python file by executing `sudo python3 <filename.py>`
 
 This code does the following action:
 
