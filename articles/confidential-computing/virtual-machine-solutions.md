@@ -12,15 +12,16 @@ ms.author: JenCook
 
 # Solutions on Azure virtual machines
 
-This article covers information about deploying Azure confidential computing virtual machines (VMs) running Intel processors backed by [Intel Software Extension Guard](https://software.intel.com/en-us/sgx) (SGX). 
+This article covers information about deploying Azure confidential computing virtual machines (VMs) running Intel processors backed by [Intel Software Extension Guard](https://software.intel.com/sgx) (Intel SGX). 
 
 
 ## Azure confidential computing VM Sizes
-Azure DCsv2-Series virtual machines are designed to protect the confidentially and integrity of your data and code while it's processed in the cloud 
 
-[DCsv2-Series](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) VMs are the latest and most recent confidential computing size family. These VMs support a larger range of deployment capabilities, have 2x the Enclave Page Cache (EPC) and a larger selection of sizes to choose from than DC-Series. These features enhance security, performance, and protection, and use of them is recommended. 
+Azure confidential computing virtual machines are designed to protect the confidentially and integrity of your data and code while it's processed in the cloud 
 
-[DC-Series](https://docs.microsoft.com/en-us/azure/virtual-machines/dcv2-series) VMs are backed by 6-core Intel XEON processor with SGX technology. They have smaller EPC and fewer size configurations to choose from. These virtual machines will remain in Preview until deprecation and you can't deploy them through the Azure portal.
+[DCsv2-Series](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) VMs are the latest and most recent confidential computing size family. These VMs support a larger range of deployment capabilities, have 2x the Enclave Page Cache (EPC) and a larger selection of sizes to compared to our DC-Series VMs. The [DC-Series](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) VMs are currently in preview and will be deprecated before becoming generally available.
+
+Start deploying a DCsv2-Series VM by following the [quickstart tutorial](quick-create-marketplace.md).
 
 ### Current available sizes and regions
 To get a list of all generally available confidential compute VM sizes in available regions, run the following command in the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
@@ -87,9 +88,12 @@ When using virtual machines in Azure, you're responsible for implementing a high
 Azure confidential computing doesn't support zone-redundancy via Availability Zones at this time. For the highest availability and redundancy for confidential computing, use [Availability Sets](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Because of hardware restrictions, Availability Sets for confidential computing instances can only have a maximum of 10 update domains. 
 
 ## Deploying via an Azure Resource Manager Template 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-To deploy a DCsv2-Series VM in an ARM template you will utilize the [Virtual Machine resource](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/template-description). You need to ensure you specify the correct properties for **vmSize** and for your **imageReference**.
+Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
+
+To learn about Azure Resource Manager templates, see [Template deployment overview](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
+
+To deploy a DCsv2-Series VM in an ARM template you will utilize the [Virtual Machine resource](https://docs.microsoft.com/azure/virtual-machines/windows/template-description). You need to ensure you specify the correct properties for **vmSize** and for your **imageReference**.
 
 ### VM Size
 Specify one of the following sizes in your ARM template in the Virtual Machine resource. This string is put as **vmSize** in **properties**.
@@ -102,7 +106,7 @@ Specify one of the following sizes in your ARM template in the Virtual Machine r
       ],
 ```
 
-### Gen 2 OS Image
+### Gen2 OS Image
 Under **properies** you will also have to reference and image under **storageProfile**. Use **one** of the following images for your **imageReference**.
 
 ```json

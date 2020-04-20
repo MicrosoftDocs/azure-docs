@@ -21,7 +21,8 @@ Many industries use confidential computing to protect their data. These workload
 - Performing algorithms on encrypted data sets from multiple sources
 
 
-## Overview
+
+## <a id="overview"></a> Overview
 <p><p>
 <!-- markdownlint-disable MD034 -->
 
@@ -30,14 +31,16 @@ Many industries use confidential computing to protect their data. These workload
 <!-- markdownlint-enable MD034 -->
 
 We know that securing your cloud data is important. We hear your concerns. Here's just a few questions that our customers may have when moving sensitive workloads to the cloud: 
-- How do I prevent malicious attacks from privileged admins or outsiders?
-- What can I do to stop hackers from exploiting bugs in the infrastructure?
-- What are ways that I can prevent third-parties from accessing my data without customer consent?
+- How do I make sure Microsoft can't access data that isn't encrypted?
+
+- How do I prevent security threats from privileged admins inside my company?
+
+- What are more ways that I can prevent third-parties from accessing sensitive customer data?
 
 Microsoft Azure helps you minimize your attack surface to gain stronger data protection. Azure already offers many tools to safeguard [**data at rest**](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) through models such as client-side encryption and server-side encryption. Additionally, Azure offers mechanisms to encrypt [**data in transit**](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) through secure protocols like TLS and HTTPS. This page introduces  a third leg of data encryption - the encryption of **data in use**.
 
 
-## Introduction to confidential computing
+## <a id="intro to acc"></a> Introduction to confidential computing
 Confidential computing is an industry term defined by the [Confidential Computing Consortium](https://confidentialcomputing.io/) (CCC), a foundation dedicated to defining and accelerating the adoption of confidential computing. 
 Confidential computing is the protection of data in use when performing computations. The computations occur in a hardware-based Trusted Execution Environment (TEE).
 
@@ -46,9 +49,9 @@ A TEE is an environment that enforces execution of only authorized code. Any dat
 ### Enclaves and Trusted Execution Environments
 In the context of confidential computing, TEEs are commonly referred to as _enclaves_ or _secure enclaves_. Enclaves are secured portions of a hardware’s processor and memory. There's no way to view data or code inside the enclave, even with a debugger. If untrusted code attempts modify the content in enclave memory, the environment gets disabled and the operations are denied.
 
-When developing applications, you can use software tools to shield portions of your code and data inside the enclave. These tools will ensure your code and data can't be viewed or modified by anyone outside the trusted environment. 
+When developing applications, you can use [software tools](#oe-sdk) to shield portions of your code and data inside the enclave. These tools will ensure your code and data can't be viewed or modified by anyone outside the trusted environment. 
 
-Fundamentally, think an enclave as a black box. You put encrypted code and data in the box. From the outside of the box, you can't see anything. You give the enclave a key to decrypt the data, the data is then processed, encrypted again, and then sent back to the host environment. 
+Fundamentally, think an enclave as a black box. You put encrypted code and data in the box. From the outside of the box, you can't see anything. You give the enclave a key to decrypt the data, the data is then processed, encrypted again before being sent out of the enclave.
 
 ### Attestation
 
@@ -58,48 +61,49 @@ Attestation allows a relying party to have increased confidence that their softw
 
 Attestation must be implemented using a secure attestation service that is compatible with the system software and silicon. 
 
-## Using Azure for cloud-based confidential computing
+## <a id="cc-on-azure"></a> Using Azure for cloud-based confidential computing
 Azure confidential computing allows you to leverage confidential computing capabilities in a virtualized environment. You can now use tools, software, and cloud infrastructure to build on top of secure hardware. 
 
 ### Virtual Machines
 Azure is the first cloud provider to offer confidential computing in a virtualized environment. We've developed virtual machines that act as an abstraction layer between the hardware and your application. You can run workloads at scale and with redundancy and availability options.  
 
+#### Intel SGX-enabled Virtual Machines
+In Azure confidential computing virtual machines, a part of the CPU's hardware is reserved for a portion of code and data in your application. This restricted portion is the enclave. 
+
 ![VM model](media/overview/hardware-backed-enclave.png)
 
-From the diagram above, notice that a part of the CPU's hardware is reserved for a portion of code and data in your application. This restricted portion is the enclave. 
+Azure confidential computing infrastructure is currently comprised of a specialty SKU of virtual machines (VMs). These VMs run on Intel processors with Software Extension Guard (Intel SGX). [Intel SGX](https://intel.com/sgx) is the component that allows the increased protection that we light up with confidential computing. 
 
 
-#### Intel SGX-enabled Virtual Machines
-
-Azure confidential computing infrastructure is currently comprised of a specialty SKU of virtual machines (VMs). These VMs run on specialized Intel processors with Software Extension Guard (SGX). [Intel SGX](https://software.intel.com//sgx/attestation-services) is the component that allows the increased protection that we light up with confidential computing. The Intel processors that run in Azure data centers are specialty hardware and currently only used to run Azure confidential computing virtual machines. 
-
-
-Today, Azure offers the [DCsv2-Series](aka.ms/dcv2) built on SGX technology for hardware-based enclave creation. 
+Today, Azure offers the [DCsv2-Series](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) built on Intel SGX technology for hardware-based enclave creation. 
 You can build secure enclave-based applications to run in the DCsv2-series of VMs to protect your application data and code in use. 
-
-The DCsv2-Series VMs are currently the only confidential computing infrastructure available on Azure. 
 
 You can [read more](virtual-machine-solutions.md) about deploying Azure confidential computing virtual machines with hardware-based trusted enclaves.
 
-## Application development 
+## <a id="application-development"></a> Application development 
 
-Use special tools and software to leverage the power of enclaves and isolated environments. These tools will let you actually run applications using confidential computing.
+To leverage the power of enclaves and isolated environments, you'll need to use tools that support confidential computing. There are various tools that support enclave application development. For example, you can use these open-source frameworks: 
+
+- [The Open Enclave Software Development Kit (SDK)](https://github.com/openenclave/openenclave)
+- [The Confidential Consortium Framework (CCF)](https://github.com/Microsoft/CCF)
+
+### Overview
 
 An application built with enclaves is partitioned in two ways:
-1. An untrusted component (the host)
-1. A trusted component (the enclave)
+1. An "untrusted" component (the host)
+1. A "trusted" component (the enclave)
 
 **The host** is your enclave application running on an untrusted environment. The code in the host can't access the code loaded into the enclave. 
 
 **The enclave** is where code and data run inside the TEE implementation. Secure computations should occur in the enclave to assure secrets and sensitive data stay protected. 
 
-When you start developing an enclave application, you need to determine which assets need protection.
+When you start developing an enclave application, you need to determine what code and data need protection.
 The code that you choose to put into the trusted component is isolated from the rest of your application. Once the enclave is initialized and the code is loaded to memory, that code can't be read or changed from outside protected environment.
 
-### Open Enclave Software Development Kit (SDK)
+### <a id="oe-sdk"></a> Open Enclave Software Development Kit (OE SDK)
 
 
-Use a library or framework supported by your provider if you want to write code that runs in an enclave. The Open Enclave SDK (OE SDK) is an open-source SDK that allows abstraction over different confidential computing-enabled hardware. 
+Use a library or framework supported by your provider if you want to write code that runs in an enclave. [The Open Enclave SDK ](https://github.com/openenclave/openenclave) (OE SDK) is an open-source SDK that allows abstraction over different confidential computing-enabled hardware. 
 The OE SDK is built to be a single abstraction layer over any hardware on any CSP).
 
 The OE SDK can be used on top of Azure confidential computing virtual machines to create and run applications on top of enclaves.
@@ -108,4 +112,4 @@ The OE SDK can be used on top of Azure confidential computing virtual machines t
 Deploy a DCsv2-Series virtual machine and install the OE SDK on it.
 
 > [!div class="nextstepaction"]
-> [Deploy a Confidential Computing VM in Azure Marketplace](quickstart-marketplace.md)
+> [Deploy a Confidential Computing VM in Azure Marketplace](quick-create-marketplace.md)
