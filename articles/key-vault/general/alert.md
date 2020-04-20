@@ -207,7 +207,7 @@ Please see the following configuration parameters.
 Congratulations, you have now successfully created a monitoring dashboard and configured alerts for your key vault! 
 Once you have followed all of the steps above, you should receive email alerts when your key vault meets the alert criteria you configured. An example is shown below. Use the tools you have set up in this article to actively monitor the health of your key vault. 
 
-## Example email alert 
+### Example email alert 
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of Azure portal](../media/alert-20.png)
