@@ -52,7 +52,7 @@ For each Azure Maps account, you can have up to one Creator.  After you create C
 
 8. Click **Go to resource**. Your Creator page should look like the page in the image below. It should show the status of your Creator and the chosen demographic region.
 
-   ![PrivateCreator page](./media/how-to-manage-creator/creator-page.png)
+   ![Creator page](./media/how-to-manage-creator/creator-page.png)
 
    >[!NOTE]
    >From the Creator resource page, you can navigate back to the Azure Maps account it belongs to by clicking Azure Maps Account.
