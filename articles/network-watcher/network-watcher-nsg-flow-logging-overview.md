@@ -60,7 +60,7 @@ Flow logs is the source of truth for all network activity in your cloud environm
 - NSG Flow Logs are written to storage accounts from where they can be accessed.
 - You can export, process, analyse and visualise Flow Logs using tools like TA, Splunk, Grafana, Stealthwatch, etc.
 
-## Log file
+## Log format
 
 Flow logs include the following properties:
 
@@ -90,32 +90,19 @@ Flow logs include the following properties:
                     * **Packets - Destination to source - Version 2 Only** The total number of TCP or UDP packets sent from destination to source since last update.
                     * **Bytes sent - Destination to source - Version 2 Only** The total number of TCP and UDP packet bytes sent from destination to source since last update. Packet bytes include packet header and payload.
 
-## NSG flow logs version 2
+*NSG flow logs Version 2 (vs Version 1)* 
+Version 2 of the logs introduces flow state. You can configure which version of flow logs you receive.
 
-Version 2 of the logs introduces flow state. You can configure which version of flow logs you receive. To learn how to enable flow logs, see [Enabling NSG flow logging](network-watcher-nsg-flow-logging-portal.md).
+Flow state _B_ is recorded when a flow is initiated. Flow state _C_ and flow state _E_ are states that mark the continuation of a flow and flow termination, respectively. Both _C_ and _E_ states contain traffic bandwidth information.
 
-Flow state *B* is recorded when a flow is initiated. Flow state *C* and flow state *E* are states that mark the continuation of a flow and flow termination, respectively. Both *C* and *E* states contain traffic bandwidth information.
-
-**Example**: Flow tuples from a TCP conversation between 185.170.185.105:35370 and 10.2.0.4:23:
-
-"1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,B,,,,"
-"1493695838,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1021,588096,8005,4610880"
-"1493696138,185.170.185.105,10.2.0.4,35370,23,T,I,A,E,52,29952,47,27072"
-
-For continuation *C* and end *E* flow states, byte and packet counts are aggregate counts from the time of the previous flow tuple record. Referencing the previous example conversation, the total number of packets transferred is 1021+52+8005+47 = 9125. The total number of bytes transferred is 588096+29952+4610880+27072 = 5256000.
+### Sample log records
 
 The text that follows is an example of a flow log. As you can see, there are multiple records that follow the property list described in the preceding section.
-
-
-## Sample log records
-
-The text that follows is an example of a flow log. As you can see, there are multiple records that follow the property list described in the preceding section.
-
 
 > [!NOTE]
 > Values in the **flowTuples* property are a comma-separated list.
  
-### Version 1 NSG flow log format sample
+**Version 1 NSG flow log format sample**
 ```json
 {
     "records": [
@@ -224,7 +211,7 @@ The text that follows is an example of a flow log. As you can see, there are mul
 		,
 		...
 ```
-### Version 2 NSG flow log format sample
+**Version 2 NSG flow log format sample**
 ```json
  {
     "records": [
@@ -295,6 +282,20 @@ The text that follows is an example of a flow log. As you can see, there are mul
         },
         ...
 ```
+**Log Tuple Explained**
+
+*INSERT IMAGE HERE*
+
+**Sample bandwidth calculation**
+
+Flow tuples from a TCP conversation between 185.170.185.105:35370 and 10.2.0.4:23:
+
+"1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,B,,,,"
+"1493695838,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1021,588096,8005,4610880"
+"1493696138,185.170.185.105,10.2.0.4,35370,23,T,I,A,E,52,29952,47,27072"
+
+For continuation _C_ and end _E_ flow states, byte and packet counts are aggregate counts from the time of the previous flow tuple record. Referencing the previous example conversation, the total number of packets transferred is 1021+52+8005+47 = 9125. The total number of bytes transferred is 588096+29952+4610880+27072 = 5256000.
+
 
 ## Enabling Flow logs
 
