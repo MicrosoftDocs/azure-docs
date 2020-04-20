@@ -28,11 +28,15 @@ For information about assigning access to Azure Cost Management data, see [Assig
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs before you create the resources in an Azure Machine Learning account. On the left, select **AI + Machine Learning**, then select **Azure Machine Learning** to begin.  
 
+
+
 The following screenshot shows the cost estimation by using the calculator:
 
 :::image type="content" source="media/concept-plan-manage-cost/capacity-calculator-cost-estimate.png" alt-text="Cost estimate in Azure calculator":::
 
 As you add new resources to your workspace, return to this calculator and add the same resource here to update your cost estimates.
+
+While the Enterprise edition is in preview,  there is no ML surcharge. When the Enterprise edition becomes generally available, it will have a machine learning surcharge (for training and inferencing).  For more details, [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 ## Use budgets and cost alerts
 
@@ -50,7 +54,7 @@ You won't see a separate service area for Machine Learning.  Instead you'll see 
 
 With constantly changing data, you need fast and streamlined model training and retraining to maintain accurate models. However, continuous training comes at a cost, especially for deep learning models on GPUs. 
 
-Azure Machine Learning users can use the managed Azure Machine Learning compute cluster, also called AmlCompute. AmlCompute supports a variety of GPU and CPU options. The AmlCompute cluster is internally hosted on behalf of your subscription by Azure Machine Learning, but provides the same enterprise grade security, compliance and governance at Azure IaaS cloud scale.
+Azure Machine Learning users can use the managed Azure Machine Learning compute cluster, also called AmlCompute. AmlCompute supports a variety of GPU and CPU options. The AmlCompute is internally hosted on behalf of your subscription by Azure Machine Learning, but provides the same enterprise grade security, compliance and governance at Azure IaaS cloud scale.
 
 Because these compute pools are inside of Azure's IaaS infrastructure, you can deploy, scale, and manage your training with the same security and compliance requirements as the rest of your infrastructure.  These deployments occur in your subscription and obey your governance rules. Learn more about [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute).
 
@@ -62,7 +66,7 @@ Use the following cost-saving tips for your multi-node training clusters and sin
 * Use low-priority virtual machines (VM)
 * Get an Azure Reserved VM Instance
 
-###Configure training clusters for autoscaling
+### Configure training clusters for autoscaling
 
 Autoscaling clusters based on the requirements of your workload helps reduce your costs so you only use what you need. 
 AmlCompute clusters are designed to autoscale dynamically based on the requirements of your workload. The cluster can be scaled up to the maximum number of nodes provisioned and within the quota designated for the subscription. As each run completes, the cluster will release nodes and autoscale to your designated minimum node count.
@@ -82,13 +86,13 @@ az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 
 
 Much like other Azure compute resources, AmlCompute comes with an inherent [quota (or limit) configuration](how-to-manage-quotas.md#azure-machine-learning-compute). This quota is by VM family (for example, Dv2 series, NCv3 series) and varies by region for each subscription. Subscriptions start with small defaults to get you going, but use this setting to control the amount of Amlcompute resources available to be spun up in your subscription. 
 
-Also configure workspace level quota by VM family, for each workspace within a subscription. This allows you to have more granular control on the costs that each workspace might potentially incur and restrict certain VM families. 
+Also configure [workspace level quota by VM family](/how-to-manage-quotas.md#workspace-level-quota), for each workspace within a subscription. This allows you to have more granular control on the costs that each workspace might potentially incur and restrict certain VM families. 
 
 To set quotas at the workspace level, start in the [Azure portal](https://portal.azure.com).  Select any workspace in your subscription, and select **Usages + quotas** in the left pane. Then select the **Configure quotas** tab to view the quotas. You need privileges at the subscription scope to set this quota, since it's a setting that affects multiple workspaces.
 
-### Set termination policies 
+### Set run auto-termination policies 
 
-configure your training runs to limit their duration or to terminate them early in case of certain conditions especially when you are using Azure Machine Learning's built-in Hyperparameter Tuning or Automated Machine Learning capabilities. 
+Configure your training runs to limit their duration or to terminate them early in case of certain conditions especially when you are using Azure Machine Learning's built-in Hyperparameter Tuning or Automated Machine Learning capabilities. 
 
 Here are a few options that you have:
 * Define a parameter called ma`x_run_duration_seconds in your RunConfiguration to control the maximum duration a run can extend to on the compute you choose (either local or remote cloud compute).
@@ -118,6 +122,8 @@ Set the priority of your VM in any of these ways:
     ```azurecli-interactive
     az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority
     ```
+
+ Low-Priority VMs don't work for compute instances, since they need to support interactive notebook experiences. 
 
 ### Use reserved instances
 
