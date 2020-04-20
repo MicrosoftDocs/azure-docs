@@ -34,6 +34,8 @@ landingContent:
       links:
       - text: Translate speech in real time
         url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
+      - text: Use SPX to translate speech with no code
+        url: spx-overview.md
     - linkListType: tutorial
       links:
         - text: Translate and synthesize text with REST APIs
