@@ -37,7 +37,7 @@ Before you configure and set up your Data Box Gateway, make sure that:
 
 1. Open a browser window and access the local web UI of the device at:
    
-   [https://ip-address-of-network-interface](https://ip-address-of-network-interface)
+   https:\//ip-address-of-network-interface
    
    Use the connection URL noted in the previous tutorial. You see an error or a warning indicating that there is a problem with the website's security certificate.
 
