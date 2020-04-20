@@ -72,7 +72,7 @@
   - name: Monitor and Govern
     items:
     - name: Configure monitoring and alerting for Azure Key Vault
-      href: alerting.md
+      href: alert.md
     - name: Integrate Azure Key Vault with Azure Policy
       href: azure-policy.md
     - name: Azure Key Vault logging
