@@ -834,9 +834,9 @@ This functionality is not supported currently. Recommended workaround is to depl
 The solution currently uses the following Workday APIs:
 
 * The **Workday Web Services API URL** format used in the **Admin Credentials** section, determines the API version used for Get_Workers
-  If the URL format is: https://\#\#\#\#\.workday\.com/ccx/service/tenantName , then API v21.1 is used. 
-  If the URL format is: https://\#\#\#\#\.workday\.com/ccx/service/tenantName/Human\_Resources , then API v21.1 is used 
-  If the URL format is: https://\#\#\#\#\.workday\.com/ccx/service/tenantName/Human\_Resources/v\#\#\.\# , then the specified API version is used. (Example: if v34.0 is specified, then it is used.)  
+  * If the URL format is: https://\#\#\#\#\.workday\.com/ccx/service/tenantName , then API v21.1 is used. 
+  * If the URL format is: https://\#\#\#\#\.workday\.com/ccx/service/tenantName/Human\_Resources , then API v21.1 is used 
+  * If the URL format is: https://\#\#\#\#\.workday\.com/ccx/service/tenantName/Human\_Resources/v\#\#\.\# , then the specified API version is used. (Example: if v34.0 is specified, then it is used.)  
    
 * Workday Email Writeback feature uses Maintain_Contact_Information (v26.1) 
 * Workday Username Writeback feature uses Update_Workday_Account (v31.2) 
