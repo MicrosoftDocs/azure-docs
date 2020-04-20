@@ -14,7 +14,7 @@ You can deploy the appliance for VMware and Hyper-V VMs using a script, or using
 
 - To use a template, follow the tutorials for [VMware](tutorial-prepare-vmware.md) or [Hyper-V](tutorial-prepare-hyper-v.md).
 - To set up an appliance for physical servers, you can only use a script. Follow [this article](how-to-set-up-appliance-physical.md).
-- To set up an appliance in an Azure Government cloud, follow [this article](deploy-appliance-script-govt.md).
+- To set up an appliance in an Azure Government cloud, follow [this article](deploy-appliance-script-government.md).
 
 ## Prerequisites
 
