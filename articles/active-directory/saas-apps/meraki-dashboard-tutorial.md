@@ -95,8 +95,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	
 	| Name | Source Attribute|
 	| ---------------| --------- |
-	| https://dashboard.meraki.com/saml/attributes/username | user.userprincipalname |
-	| https://dashboard.meraki.com/saml/attributes/role | user.assignedroles |
+	| `https://dashboard.meraki.com/saml/attributes/username` | user.userprincipalname |
+	| `https://dashboard.meraki.com/saml/attributes/role` | user.assignedroles |
 
     > [!NOTE]
     > To understand how to configure roles in Azure AD, see [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
