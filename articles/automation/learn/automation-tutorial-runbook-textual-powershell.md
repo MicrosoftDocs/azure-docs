@@ -9,13 +9,13 @@ ms.topic: tutorial
 ---
 # Tutorial: Create a PowerShell runbook
 
-> [!div class="op_single_selector"]
-> * [Graphical](automation-tutorial-runbook-graphical.md)
-> * [PowerShell](automation-tutorial-runbook-textual-powershell.md)
-> * [PowerShell Workflow](automation-tutorial-runbook-textual.md)
-> * [Python](automation-tutorial-runbook-textual-python2.md)
+This tutorial walks you through the creation of a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation. PowerShell runbooks are based on Windows PowerShell. You directly edit the code of the runbook using the text editor in the Azure portal.
 
-This tutorial walks you through the creation of a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation. Start with a simple runbook that you can test and publish, while learning how to track the status of the runbook job. Then modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine. Complete the tutorial to make the runbook more robust by adding runbook parameters.
+> [!div class="checklist"]
+> * Create a simple PowerShell runbook
+> * Test and publish the runbook
+> * Run and track the status of the runbook job
+> * Update the runbook to start an Azure virtual machine, with runbook parameters and conditional links
 
 >[!NOTE]
 >This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
