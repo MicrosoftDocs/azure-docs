@@ -64,7 +64,7 @@
           href: automation-connections.md
         - name: Credentials
           href: shared-resources/credentials.md
-          - name: PowerShell modules
+        - name: PowerShell modules
           items:
             - name: Manage modules in Azure Automation
               href: shared-resources/modules.md
