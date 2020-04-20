@@ -19,7 +19,7 @@ ms.custom:
 ---
 # Understand role definitions for Azure resources
 
-If you are trying to understand how a role works or if you are creating your own [custom role for Azure resources](custom-roles.md), it's helpful to understand how roles are defined. This article describes the details of role definitions and provides some examples.
+If you are trying to understand how a role works or if you are creating your own [Azure custom role](custom-roles.md), it's helpful to understand how roles are defined. This article describes the details of role definitions and provides some examples.
 
 ## Role definition
 

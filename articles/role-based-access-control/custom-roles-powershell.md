@@ -25,7 +25,7 @@ ms.reviewer: bagovind
 
 If the [built-in roles for Azure resources](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to list, create, update, or delete custom roles using Azure PowerShell.
 
-For a step-by-step tutorial on how to create a custom role, see [Tutorial: Create a custom role for Azure resources using Azure PowerShell](tutorial-custom-role-powershell.md).
+For a step-by-step tutorial on how to create a custom role, see [Tutorial: Create a Azure custom role using Azure PowerShell](tutorial-custom-role-powershell.md).
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -396,6 +396,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## Next steps
 
-- [Tutorial: Create a custom role for Azure resources using Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Tutorial: Create a Azure custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Custom roles for Azure resources](custom-roles.md)
 - [Azure Resource Manager resource provider operations](resource-provider-operations.md)

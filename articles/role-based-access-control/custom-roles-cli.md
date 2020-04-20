@@ -25,7 +25,7 @@ ms.reviewer: bagovind
 
 If the [built-in roles for Azure resources](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to list, create, update, or delete custom roles using Azure CLI.
 
-For a step-by-step tutorial on how to create a custom role, see [Tutorial: Create a custom role for Azure resources using Azure CLI](tutorial-custom-role-cli.md).
+For a step-by-step tutorial on how to create a custom role, see [Tutorial: Create a Azure custom role using Azure CLI](tutorial-custom-role-cli.md).
 
 ## Prerequisites
 
@@ -239,6 +239,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## Next steps
 
-- [Tutorial: Create a custom role for Azure resources using Azure CLI](tutorial-custom-role-cli.md)
+- [Tutorial: Create a Azure custom role using Azure CLI](tutorial-custom-role-cli.md)
 - [Custom roles for Azure resources](custom-roles.md)
 - [Azure Resource Manager resource provider operations](resource-provider-operations.md)
