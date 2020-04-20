@@ -53,7 +53,7 @@ After you remove these solutions, you can perform the following steps to unlink 
 
 1. From the Azure portal, open your Automation account. On the Automation account page, select **Linked workspace** under **Related Resources**.
 
-2. On the Unlink workspace page, click **Unlink workspace**. You'll receive a prompt verifying if you wish to continue.
+2. On the Unlink workspace page, click **Unlink workspace**. You receive a prompt verifying if you wish to continue.
 
 3. While Azure Automation attempts to unlink the account your Log Analytics workspace, you can track the progress under **Notifications** from the menu.
 
@@ -68,7 +68,10 @@ After you remove these solutions, you can perform the following steps to unlink 
     * Start and stop VM runbooks
     * Variables
 
-Alternatively, you can unlink your workspace from your Automation account from your Log Analytics workspace. In the workspace, select **Automation Account** under **Related Resources**. On the Automation Account page, select **Unlink account**.
+Alternatively, you can unlink your workspace from your Automation account within the workspace. 
+
+1. In the workspace, select **Automation Account** under **Related Resources**. 
+2. On the Automation Account page, select **Unlink account**.
 
 ## Next steps
 

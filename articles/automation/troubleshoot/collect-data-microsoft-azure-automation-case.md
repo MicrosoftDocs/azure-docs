@@ -25,25 +25,21 @@ This article describes some of the basic information that you should gather befo
 
 Collect the basic data described in the Knowledge Base article [4034605 - How to capture Azure Automation-scripted diagnostics](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
-## Collect data depending on issue
- 
-### Collect data Update Management issues on Linux
+## Collect data for Update Management issues on Linux
 
 1. In addition to the items that are listed in KB [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics), run the following log collection tool:
 
    [OMS Linux Agent Log Collector](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md)
  
-2. Compress the contents of the following folder, then send the compressed file to Azure Support:
-
-   ``/var/opt/microsoft/omsagent/run/automationworker/``
+2. Compress the contents of the **/var/opt/microsoft/omsagent/run/automationworker/** folder, then send the compressed file to Azure Support.
  
-3. Verify that the workspace ID the OMS Linux Agent is reporting to, is the same as the workspace being monitored for updates.
+3. Verify that the ID for the workspace that the Log Analytics agent for Linux reports to is the same as the ID for the workspace being monitored for updates.
 
-### Collect data for Update Management issues on Windows
+## Collect data for Update Management issues on Windows
 
-In addition to the items that are listed in [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics), do the following:
+1. Collect data for the items listed in [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
-1. Export the following event logs into the EVTX format:
+2. Export the following event logs into the EVTX format:
 
    * System
    * Application
@@ -51,13 +47,13 @@ In addition to the items that are listed in [4034605](https://support.microsoft.
    * Operations Manager
    * Microsoft-SMA/Operational
 
-2. Verify that the workspace ID the agent is reporting to, is the same as the workspace being monitored by Windows Updates.
+3. Verify that the ID of the workspace that the agent reports to is the same as the ID for the workspace being monitored by Windows Updates.
 
-### Collect data for job issues
+## Collect data for job issues
 
-In addition to the items that are listed in [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics), collect the following information:
+1. Collect data for the items listed in [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
-1. Collect the **JobID** number (for the job that is experiencing an issue):
+2. Collect the job ID for the job that has an issue:
 
    1. In the Azure portal, go to **Automation Accounts**.
    2. Select the Automation account that you are troubleshooting, and note the name.
@@ -67,9 +63,9 @@ In addition to the items that are listed in [4034605](https://support.microsoft.
 
    ![Job ID within Job Summary Pane](media/collect-data-microsoft-azure-automation-case/job-summary-job-id.png)
 
-2. Collect a sample of the script that you are running.
+3. Collect a sample of the script that you are running.
 
-3. Collect the log files:
+4. Collect the log files:
 
    1. In the Azure portal, go to **Automation Accounts**.
    2. Select the Automation account that you are troubleshooting.
@@ -80,7 +76,7 @@ In addition to the items that are listed in [4034605](https://support.microsoft.
 
    ![Data listed under All Logs](media/collect-data-microsoft-azure-automation-case/all-logs-data.png)
 
-### Collect data for module issues
+## Collect data for module issues
 
 In addition to the [basic data items](#collect-basic-data), gather the following information:
 

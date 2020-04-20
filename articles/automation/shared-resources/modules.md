@@ -12,7 +12,7 @@ manager: carmonm
 
 # Manage modules in Azure Automation
 
-You can import PowerShell modules into Azure Automation to make their cmdlets available in runbooks and their DSC resources available in DSC configurations. Behind the scenes, Azure Automation stores these modules. At runbook job and DSC compilation job execution time, Automation loads them into the Azure Automation sandboxes where runbooks execute and DSC configurations compile. Any DSC resources in modules are also automatically placed on the Automation DSC pull server. Machines can pull them when they apply DSC configurations.
+You can import PowerShell modules into Azure Automation to make their cmdlets available in runbooks and their DSC resources available in DSC configurations. At runbook job and DSC compilation job execution time, Automation loads them into the Azure Automation sandboxes where runbooks execute and DSC configurations compile. Any DSC resources in modules are also automatically placed on the Automation DSC pull server. Machines can pull them when they apply DSC configurations.
 
 Modules used in Azure Automation can be custom modules that you've created, modules from the PowerShell Gallery, or the AzureRM and Az modules for Azure. When you create an Automation account, some modules are imported by default.
 
@@ -231,10 +231,10 @@ To import a module in the Azure portal:
 
 ### Import modules using PowerShell
 
-You can use the [New-AzureRmAutomationModule](/powershell/module/azurerm.automation/new-azurermautomationmodule) cmdlet to import a module into your Automation account. The cmdlet takes a URL for a module .zip package.
+You can use the [New-AzAutomationModule](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationmodule?view=azps-3.7.0) cmdlet to import a module into your Automation account. The cmdlet takes a URL for a module .zip package.
 
 ```azurepowershell-interactive
-New-AzureRmAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
+New-AzAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
 ```
 
 You can also use the same cmdlet to import a module from PowerShell Gallery directly. Make sure to grab `ModuleName` and `ModuleVersion` from [PowerShell Gallery](https://www.powershellgallery.com).
@@ -242,7 +242,7 @@ You can also use the same cmdlet to import a module from PowerShell Gallery dire
 ```azurepowershell-interactive
 $moduleName = <ModuleName>
 $moduleVersion = <ModuleVersion>
-New-AzureRmAutomationModule -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
+New-AzAutomationModule -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
 ```
 ### Import modules from PowerShell Gallery
 
@@ -251,7 +251,7 @@ You can import [PowerShell Gallery](https://www.powershellgallery.com) modules e
 To import a module directly from the PowerShell Gallery:
 
 1. Go to https://www.powershellgallery.com and search for the module to import.
-2. Click **Deploy to Azure Automation** on the **Azure Automation** tab under **Installation Options**. This action opens up the Azure portal. 
+2. Click **Deploy to Azure Automation** on the **Azure Automation** tab under **Installation Options**. This action opens the Azure portal. 
 3. On the Import page, select your Automation account and click **OK**.
 
 ![PowerShell Gallery import module](../media/modules/powershell-gallery.png)
@@ -282,7 +282,7 @@ To remove a module in the Azure portal:
 To remove a module through PowerShell, run the following command:
 
 ```azurepowershell-interactive
-Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName>
+Remove-AzAutomationModule -Name <moduleName> -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName>
 ```
 ## Adding a connection type to your module
 
