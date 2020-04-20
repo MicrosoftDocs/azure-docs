@@ -121,7 +121,7 @@ npm install -g parcel-bundler
 
 In Visual Studio Code, open the *package.json* file and add a `browserlist` between the `license` and `dependencies` entries. This `browserlist` targets the latest version of three popular browsers. The full *package.json* file should now look like this:
 
-:::code language="json" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/package.json" highlight="12-16":::
+:::code language="json" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/package.json" highlight="12-16":::
 
 Save the *package.json* file.
 
@@ -129,7 +129,7 @@ Save the *package.json* file.
 
 To use Azure SDK libraries inside JavaScript, import the `@azure/storage-blob` package. Create a new file in Visual Studio Code containing the following JavaScript code.
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_ImportLibrary":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_ImportLibrary":::
 
 Save the file as *index.js* in the *azure-blobs-js-browser* directory.
 
@@ -137,7 +137,7 @@ Save the file as *index.js* in the *azure-blobs-js-browser* directory.
 
 Create a new file in Visual Studio Code and add the following HTML code.
 
-:::code language="html" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.html":::
+:::code language="html" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.html":::
 
 Save the file as *index.html* in the *azure-blobs-js-browser* folder.
 
@@ -159,7 +159,7 @@ You'll run the code after you add all the snippets to the *index.js* file.
 
 Add the following code to the end of the *index.js* file.
 
-:::code language="JavaScript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_DeclareVariables":::
+:::code language="JavaScript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_DeclareVariables":::
 
 Save the *index.js* file.
 
@@ -171,7 +171,7 @@ In the following sections, add each new block of JavaScript code after the previ
 
 Add code to access your storage account. Replace the placeholder with your Blob service SAS URL that you generated earlier. Add the following code to the end of the *index.js* file.
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_StorageAcctInfo":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_StorageAcctInfo":::
 
 Save the *index.js* file.
 
@@ -179,7 +179,7 @@ Save the *index.js* file.
 
 Create [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) and [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) objects for interacting with the Azure Blob storage service. Add the following code to the end of the *index.js* file.
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_CreateClientObjects":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_CreateClientObjects":::
 
 Save the *index.js* file.
 
@@ -187,7 +187,7 @@ Save the *index.js* file.
 
 Create and delete the storage container when you click the corresponding button on the web page. Add the following code to the end of the *index.js* file.
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_CreateDeleteContainer":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_CreateDeleteContainer":::
 
 Save the *index.js* file.
 
@@ -195,7 +195,7 @@ Save the *index.js* file.
 
 List the contents of the storage container when you click the **List files** button. Add the following code to the end of the *index.js* file.
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_ListBlobs":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_ListBlobs":::
 
 Save the *index.js* file.
 
@@ -205,7 +205,7 @@ This code calls the [ContainerClient.listBlobsFlat](/javascript/api/@azure/stora
 
 Upload files to the storage container when you click the **Select and upload files** button. Add the following code to the end of the *index.js* file.
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_UploadBlobs":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_UploadBlobs":::
 
 Save the *index.js* file.
 
@@ -215,7 +215,7 @@ This code connects the **Select and upload files** button to the hidden `file-in
 
 Delete files from the storage container when you click the **Delete selected files** button. Add the following code to the end of the *index.js* file.
 
-:::code language="javascript" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/index.js" id="snippet_DeleteBlobs":::
+:::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_DeleteBlobs":::
 
 Save the *index.js* file.
 
@@ -234,7 +234,7 @@ To set up the debugger extension in Visual Studio Code:
 
 Adding a new configuration creates a *launch.json* file and opens it in the editor. Modify the *launch.json* file so that the `url` value is `http://localhost:1234/index.html`, as shown here:
 
-:::code language="json" source="~/azure-storage-snippets/blobs/azure-blobs-js-browser/.vscode/launch.json" highlight="11":::
+:::code language="json" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/.vscode/launch.json" highlight="11":::
 
 After updating, save the *launch.json* file. This configuration tells Visual Studio Code which browser to open and which URL to load.
 
