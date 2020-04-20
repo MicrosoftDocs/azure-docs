@@ -17,7 +17,7 @@ ms.author: aschhab
 
 ---
 
-# Migrate existing Java Message Service(JMS) 2.0 applications from Active MQ to Azure Service Bus
+# Migrate existing Java Message Service (JMS) 2.0 applications from Active MQ to Azure Service Bus
 
 This guide describes what you should be aware of when you want to modify an existing Java Message Service (JMS) 2.0 application that interacts with a JMS Broker (specifically Apache ActiveMQ or Amazon MQ) to interact with Azure Service Bus.
 
@@ -89,6 +89,8 @@ For now, authentication is supported only with SAS keys.
 
 ### Version check
 
+TODO - Version check
+
 ### Ensure that AMQP ports are open
 
 Azure Service Bus supports communication over the AMQP protocol. For this purpose, communication over ports 5671 (AMQP) and 443 (TCP) needs to be enabled. Depending on where the client applications are hosted, you may need a support ticket to allow communication over these ports.
@@ -117,11 +119,57 @@ To migrate your existing JMS 2.0 application to interact with Azure Service Bus,
 
 ### Export topology from ActiveMQ and create the entities in Azure Service Bus (optional)
 
+To ensure that the client applications can seamlessly connect with Azure Service Bus, the topology - which includes Queues, Topics and Subscriptions - need to be migrated from **Apache ActiveMQ** to **Azure Service Bus**.
+
+> [!NOTE]
+> For Java Message Service (JMS) applications, creation of Queues, Topics and Subscriptions is a runtime operation. Most Java Message Service (JMS) providers (message brokers) offer the functionality to create *Queues*, *Topics* and *Subscriptions* at runtime.
+>
+> Hence, this step is optional.
+>
+> To ensure that your application has the permissions to create the topology at runtime, please ensure that the connection string with ***SAS 'Manage'*** permissions is used.
+
+To do this 
+  * Leverage the [ActiveMQ Command Line tools](https://activemq.apache.org/activemq-command-line-tools-reference) to export the topology
+  * Recreate the same topology using an [Azure Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
+  * Execute the Azure Resource Manager template.
+
+
 ### Import the maven dependency for Service Bus JMS implementation
+
+To ensure seamless connectivity with Azure Service Bus, the ***servicebus-jms*** package needs to be added as a dependency to the Maven `pom.xml` file as below.
+
+```xml
+<dependencies>
+...
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>servicebus-jms</artifactId>
+    </dependency>
+...
+</dependencies>
+```
 
 ### Update the application properties
 
+If using a Spring boot application to connect to ActiveMQ.
+
+The next step is to remove the ActiveMQ specific properties from the `application.properties` file.
+
+```properties
+spring.activemq.broker-url=<ACTIVEMQ BROKER URL>
+spring.activemq.user=<ACTIVEMQ USERNAME>
+spring.activemq.password=<ACTIVEMQ PASSWORD>
+```
+
+Then add the Service Bus specific properties in the `application.properties` file.
+
+```properties
+azure.servicebus.connection-string=Endpoint=myEndpoint;SharedAccessKeyName=mySharedAccessKeyName;SharedAccessKey=mySharedAccessKey
+```
+
 ### Replace the ActiveMQConnectionFactory with ServiceBusJmsConnectionFactory
+
+The next step is to replace the instance of ActiveMQConnectionFactory with the ServiceBusJmsConnectionFactory.
 
 ## Post-migration
 
