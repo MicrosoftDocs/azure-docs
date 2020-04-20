@@ -35,9 +35,9 @@ Features extracted from the training data play a critical role. And, automated M
 
 
 Automated ML provides users with both native time-series and deep learning models as part of the recommendation system. These learners include:
-+ Prophet
-+ Auto-ARIMA
-+ ForecastTCN
++ Prophet (Preview)
++ Auto-ARIMA (Preview)
++ ForecastTCN (Preview)
 
 Automated ML's deep learning allows for forecasting univariate and multivariate time series data.
 
@@ -46,7 +46,7 @@ Deep learning models have three intrinsic capabilities:
 1. They support multiple inputs and outputs
 1. They can automatically extract patterns in input data that spans over long sequences
 
-Given larger data, deep learning models, such as Microsoft's ForecastTCN, can improve the scores of the resulting model. 
+Given larger data, deep learning models, such as Microsoft's ForecastTCN, can improve the scores of the resulting model. To leverage ForecastTCN set the `enable_dnn= True` in your AutoMLConfig or select the **Enable deep learning** setting in the Automated ML SDK and UI respectively.
 
 Native time series learners are also provided as part of automated ML. Prophet works best with time series that have strong seasonal effects and several seasons of historical data. Prophet is accurate & fast, robust to outliers, missing data, and dramatic changes in your time series. 
 
