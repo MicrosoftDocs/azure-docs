@@ -70,8 +70,12 @@ az dt rbac assign-role --dt-name <your-Azure-Digital-Twins-instance> --assignee 
 The result of this command is outputted information about the role assignment you've created.
 
 > [!TIP]
-> If you get a *400: BadRequest* error instead, navigate to your user in the [AAD Users page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) for your tenant. Repeat the command using your user's *Object ID* instead of your email.
-> ![Azure portal: object ID for AAD user](../articles/digital-twins-v2/media/include-setup/aad-user.png)
+> If you get a *400: BadRequest* error instead, run the following commands to get the *ObjectID* for your user:
+> ```azurecli
+> Connect-AzureAD
+> Get-AzureADUser -ObjectId "<your-AAD-email>"
+> ```
+> Then, repeat the role assignment command using your user's *Object ID* in place of your email.
 
 #### Register your application
 
@@ -79,13 +83,16 @@ To configure an app registration, complete the "Create an app registration" sect
 
 ![New AAD app registration](../articles/digital-twins-v2/media/include-setup/new-app-registration.png)        
 
-After creating the app registration, follow [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to navigate to the AAD app registration overview page in the Azure portal.
+Take note of the `appId` value from the output. This is your *Application (client) ID*, and you will use it later.
 
-From this overview, select the app registration you just created from the list. This will open up its details in a page like this one:
+Next, run this command to take note of your *Directory (tenant) ID*. It appears as `ObjectId` in the command output.
 
-![Azure portal: authentication IDs](../articles/digital-twins-v2/media/include-setup/get-authentication-ids.png)
+```azurecli
+Connect-AzureAD
+Get-AzureADTenantDetail
+```
 
-Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. You will use these values later.
+You will use both of these values in the next step.
 
 ## Configure the sample project
 
