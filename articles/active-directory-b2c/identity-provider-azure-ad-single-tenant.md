@@ -40,7 +40,7 @@ To use an Azure Active Directory (Azure AD) as an [identity provider](authorizat
 1. For the **Scope**, enter the *openid profile*.
 1. Leave the default values for **Response type**, and **Response mode**.
 1. (Optional) Enter a value for **Domain_hint**. For example, *ContosoAD*. This is the value to use when referring to this identity provider using *domain_hint* in the request.
-1. Under **Identity provider claims mapping**, enter the following claims mapping values:
+1. Under **Identity provider claims mapping**, select the following claims:
 
     * **User ID**: *oid*
     * **Display name**: *name*
