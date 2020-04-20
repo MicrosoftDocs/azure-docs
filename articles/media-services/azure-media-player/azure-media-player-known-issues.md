@@ -5,7 +5,7 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
-ms.date: 03/16/2020
+ms.date: 04/20/2020
 ---
 
 # Known Issues #
@@ -75,7 +75,7 @@ The current release has the following known issues:
 
 ## Google ##
 
-- Multiple encoding profiles in the same manifest has some playback issues in Chrome and is not recommended.
+- Multiple encoding profiles in the same manifest have some playback issues in Chrome and is not recommended.
 - Chrome cannot play back HE-AAC with AzureHtml5JS. Follow details on the [bug tracker](https://bugs.chromium.org/p/chromium/issues/detail?id=534301).
 - As of Chrome v58, widevine content must be loaded/played back via the https:// protocol otherwise playback will fail.
 
@@ -86,7 +86,7 @@ The current release has the following known issues:
 ## Apple ##
 
 - Safari on Mac often enables Power Saver mode by default with the setting "Stop plug-ins to save power", which blocks plugins like Flash and Silverlight when they believe it is not in favor to the user. This block does not block the plugin's existent, only capabilities. Given the default techOrder, this may cause issues when attempting to play back
-  - Mitigation 1: If the video player is 'front and center' (within a 3000 x 3000 pixel boundary starting at the top left corner of the document) it should still play.
+  - Mitigation 1: If the video player is 'front and center' (within a 3000 x 3000 pixel boundary starting at the top left corner of the document), it should still play.
   - Mitigation 2: Change the techOrder for Safari to be ["azureHtml5JS", "html5"]. This mitigation has implication of not getting all the features that are available in the FlashSS tech.
 - PlayReady content via Silverlight may have issues playing back in Safari.
 - AES and restricted token content does not play back using iOS and older Android devices.

@@ -36,10 +36,12 @@
   items:
   - name: Samples
     href: https://github.com/Azure-Samples/azure-media-player-samples
-  - name: Options
-    href: azure-media-player-options.md
+  - name: API
+    href: https://docs.microsoft.com/en-us/javascript/api/azuremediaplayer/?view=azure-node-latest
   - name: API methods
     href: azure-media-player-api-methods.md
+  - name: Options
+    href: azure-media-player-options.md
   - name: Error codes
     href: azure-media-player-error-codes.md
   - name: Known issues

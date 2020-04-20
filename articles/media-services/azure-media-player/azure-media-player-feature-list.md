@@ -5,7 +5,7 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
-ms.date: 03/13/2020
+ms.date: 04/20/2020
 ---
 
 # Feature list #
@@ -50,7 +50,7 @@ Here is the list of tested features and unsupported features:
 | Multi-Audio Stream                      |        | X                |          |             | Programmatic audio switch is supported on AzureHtml5JS and FlashSS techs, and is available through UI selection on AzureHtml5JS, FlashSS, and native Html5 (in Safari).  Most platforms require the same codec private data to switch audio streams (same codec, channel, sampling rate, etc.). |
 | UI Localization                         |        | X                |          |             |                                                                                                                      |
 | Multi-instance Playback                 |        |                  |          | X           | This scenario may work for some techs but is currently unsupported and untested. You may also get this to work using iframes |
-| Ads Support                             |        | x                |          |             | AMP supports the insertion of pre- mid- and post-roll linear ads from VAST compliant ad servers for VOD in the AzureHtml5JS tech |
+| Ads Support                             |        | x                |          |             | AMP supports the insertion of pre- mid- and post-roll linear ads from VAST-compliant ad servers for VOD in the AzureHtml5JS tech |
 | Analytics                               |        | X                |          |             | AMP provides the ability to listen to analytics and diagnostic events in order to send to an Analytics backend of your choice.  All events and properties are not available across techs due to platform limitations.                                                                            |
 | Custom Skins                            |        |                  | X        |             | Turn setting controls to false in AMP and using your own HTML and CSS.           |
 | Seek Bar Scrubbing                      |        |                  |          | X           |                                                                                                                      |

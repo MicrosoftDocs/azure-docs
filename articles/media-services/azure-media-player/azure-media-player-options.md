@@ -5,7 +5,7 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
-ms.date: 03/16/2020
+ms.date: 04/20/2020
 ---
 # Options #
 
@@ -19,7 +19,7 @@ Alternatively, you can use the data-setup attribute to provide options in the [J
 
 `<video data-setup='{ "controls": true, "autoplay": false }'...>`
 
-Finally, if you're not using the data-setup attribute to trigger the player setup, you can pass in an object with the player options as the second argument in the javascript setup function.
+Finally, if you're not using the data-setup attribute to trigger the player setup, you can pass in an object with the player options as the second argument in the JavaScript setup function.
 
 `amp("vid1", { "controls": true, "autoplay": false });`
 
@@ -78,7 +78,7 @@ For more information on plugin development and usage, see [writing plugins](azur
 
 ### other options ###
 
-Other options can be set on the `<video>` tag by using the `data-setup` parameter which takes a JSON.
+Other options can be set on the `<video>` tag by using the `data-setup` parameter that takes a JSON.
 `<video ... data-setup='{"nativeControlsForTouch": false}'>`
 
 #### nativeControlsForTouch ####
@@ -99,8 +99,10 @@ By setting this option to true video element will take full width of the parent 
 
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 
-<!-- API needs onboarding. Commented sentence until remedied. -->
-<!--Other properties of the `playbackSpeed` setting are given by [PlaybackSpeedOptions](#amp.player.playbackspeedoptions) object.--> Example of setting playback speed options in JavaScript:
+
+Other properties of the `playbackSpeed` setting are given by [PlaybackSpeedOptions](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.playbackspeedoptions) object.
+
+Example of setting playback speed options in JavaScript:
 
 ```javascript
     var myPlayer = amp('vid1', {

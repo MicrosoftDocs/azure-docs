@@ -5,7 +5,7 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 03/06/2020
+ms.date: 04/20/2020
 ---
 
 # URL rewriter #

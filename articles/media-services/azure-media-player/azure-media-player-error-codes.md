@@ -5,7 +5,7 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: error-reference
-ms.date: 03/13/2020
+ms.date: 04/20/2020
 ---
 
 # Error codes #
@@ -108,7 +108,7 @@ There is no tech player that can play the requested sources, but if Flash plugin
 
 "A network error caused the video download to fail part-way." is displayed to the end user.
 
-AzureHtml5JS failed to playback from a http 404 response.
+AzureHtml5JS failed to playback from an http 404 response.
 
 ### Categorizing errors ###
 
@@ -138,7 +138,7 @@ AzureHtml5JS failed to playback from a http 404 response.
 
 ### Catching a specific error ###
 
-The following code catches just just 404 errors:
+The following code catches just 404 errors:
 
 ```javascript
     if(myPlayer.error().code & amp.errorCode.networkErrHttpUrlNotFound) {

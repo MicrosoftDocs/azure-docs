@@ -5,7 +5,7 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: quickstart
-ms.date: 03/13/2020
+ms.date: 04/20/2020
 ---
 
 # Azure Media Player quickstart

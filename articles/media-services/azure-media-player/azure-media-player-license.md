@@ -5,7 +5,7 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 03/17/2020
+ms.date: 04/20/2020
 ---
 
 # MICROSOFT SOFTWARE LICENSE TERMS #
@@ -145,7 +145,7 @@ See the Apache Version 2.0 License for specific language governing permissions a
 
 ### es6-promise v.1.0.0 NOTICES AND INFORMATION BEGIN HERE ###  
 
-Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors
+Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner, and contributors
 MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the Software), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:

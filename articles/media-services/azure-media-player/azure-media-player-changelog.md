@@ -5,7 +5,7 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 03/16/2020
+ms.date: 04/20/2020
 ---
 # Changelog #
 
@@ -38,7 +38,7 @@ ms.date: 03/16/2020
 ### Changes 2.2.3 ###
 
 - [Change][AMP] Added more information in the log to enable better diagnostics
-- [Change][AMP] When more than 1 bitrate is available at the same screen resolution, all the bitrates are available for selection
+- [Change][AMP] When more than one bitrate is available at the same screen resolution, all the bitrates are available for selection
 
 ## 2.2.2 (Official Update) ##
 
@@ -66,9 +66,7 @@ ms.date: 03/16/2020
 
 ### Changes ###
 
-<!---API needs onboarding. Removed link until this happens to get doc to pass Acrolinx--->
--[Change][Live captioning] Changed API name for CEA captions from 608 to 708.
-<!--> for more details, see [here](index.html#amp.player.cea708captionssettings)-->
+- [Change][Live captioning] Changed API name for CEA captions from 608 to 708. For more information, see [CEA708 Captions Settings](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
 
 ## 2.2.0 (Official Release) ##
 
@@ -164,13 +162,13 @@ ms.date: 03/16/2020
 
 - [Bug Fix][Accessibility][Focus]Users cannot tab to focus on custom buttons added to the right of the full screen button in the control bar
 - [Bug Fix][IE11][Volume bar]Tabbing to volume pop-up makes the entire video screen flash in IE11 while in full-screen mode
-- [Bug Fix][Skin|Flush] Space displayed between control bar and volume bar pop up
+- [Bug Fix][Skin|Flush] Space displayed between control bar and volume bar pop-up
 - [Bug Fix][AMP][Captions]Old embedded tracks are not cleared when source  is changed on an existing player
 - [Bug Fix][Accessibility][Narrator]Screen Reader reads volume control incorrectly
 - [Bug Fix][FlashSS]Play Event occasionally doesn't fire from Flash tech
 - [Bug Fix][AMP][Focus] Play/pause requires two clicks when player has focus and is in full screen mode
 - [Bug Fix][AMP][Skin]Incorrect duration being displayed on progress bar for a specific asset
-- [Bug Fix][Ads][Ad Butler] VAST parser doesn't handle VAST file which does not have progress event
+- [Bug Fix][Ads][Ad Butler] VAST parser doesn't handle VAST file that does not have progress event
 - [Bug Fix][SDN][AMP 2.1.1] Fixed issue for Hive SDN plugin support
 - [Bug Fix][Accessibility]Narrator reads "Midnight Mute Button" when user has focus of volume button
 
@@ -228,8 +226,8 @@ ms.date: 03/16/2020
 - [Bug Fix][iOS]Setting Autoplay to false yields infinite spinner in Safari for iOS
 - [Bug Fix] Seeking to a time greater than content duration yields infinite spinner
 - [Bug Fix] Hotkeys require multiple keyboard tabs to get context of the player to work
-- [Bug Fix] Video freezes for a few seconds after re-sizing the player in certain assets
-- [Bug Fix] Infinite spinner( after seek completes) when user does multiple seeks quickly
+- [Bug Fix] Video freezes for a few seconds after resizing the player in certain assets
+- [Bug Fix] Infinite spinner(after seek completes) when user does multiple seeks quickly
 - [Bug Fix] Control bar is not hidden during inactivity
 - [Bug Fix] Opening a webapp that hosts AMP can cause the webpage to be loaded twice
 - [Bug Fix] Infinite while playing content certain assets via Flash Tech
@@ -269,7 +267,7 @@ ms.date: 03/16/2020
 - [Change][Samples]Added sample for playback speed
 - [Change][Samples]Added sample for Flush Skin
 
-## 2.0.0 ( Beta Release) ##
+## 2.0.0 (Beta Release) ##
 
 - [Change]updated to VJS5
 - [feature] Added new fluid API for player responsiveness fluid
@@ -354,7 +352,7 @@ ms.date: 03/16/2020
 - [Bug Fix] Exception being thrown on manifestPlayableWindowLength()
 - [Bug Fix] Viewer cannot always click play on the video after the video has ended to rewatch
 - [Bug Fix] Responsive sizing not conforming to rapid window size changes
-- [Bug Fix][Edge|IE] Responsive sizing not taking into affect on page load for width=x, height=auto
+- [Bug Fix][Edge|IE] Responsive sizing not taking into effect on page load for width=x, height=auto
 - [Bug Fix][Android|Chrome] Chrome asking permissions to playback DRM content when content is not encrypted
 - [Bug Fix][Accessibility][Edge] Keyboard controls do not correctly select context menu items
 - [Bug Fix][Accessibility] Missing displayed border in high contrast mode
@@ -397,14 +395,14 @@ ms.date: 03/16/2020
 - [Bug Fix][Accessibility] Missing outline on focus on  progress bar seek head
 - [Bug Fix][Accessibility] Context menus have a shadow in high contrast mode
 - [Bug Fix][iOS] native player WebVTT captions playback not working
-- [Bug Fix][AzureHtml5JS] Error 0x0100002 should be shown when playing HTTP stream on HTTPS site which instead yields infinite spinner as a result of mixed content
+- [Bug Fix][AzureHtml5JS] Error 0x0100002 should be shown when playing HTTP stream on HTTPS site that instead yields infinite spinner as a result of mixed content
 - [Bug Fix][AzureHtml5JS] Missing end segment causing looping health check error displaying a perceived infinite buffering state
-- [Bug Fix][AzureHtml5JS] Incorrect audio track name in menu when useManifestForLabel=false and 3 letter language codes are used
+- [Bug Fix][AzureHtml5JS] Incorrect audio track name in menu when useManifestForLabel=false and three letter language codes are used
 - [Bug Fix][AzureHtml5JS|Chrome] Perceived infinite buffer state at the end of content caused by floating point imprecision in duration with JavaScript in Chrome
 - [Bug Fix][FlashSS] Non-fatal intermittent error momentarily displayed when flash player created
 - [Bug Fix][FlashSS] Playback failing when video and audio streams use different timescales due to rounding imprecision failing with "Fragment url (...) is failed to generate FLVTags"
 - [Bug Fix][FlashSS] Issues parsing manifest urls with encoded spaces
-- [Bug Fix][FlashSS] Missing check to determine if Flash player version >= 11.4 which causes an error in playback instead of falling back to the next tech in the techOrder
+- [Bug Fix][FlashSS] Missing check to determine if Flash player version >= 11.4 that causes an error in playback instead of falling back to the next tech in the techOrder
 - [Bug Fix][FlashSS][AES] Issues accepting AES tokens with underscores in it
 - [Bug Fix][SilverlightSS|OSX] "//" prefixing a manifest instead of the protocol (HTTP or HTTPS) is recognized as a local file yielding infinite spinner
 
@@ -476,7 +474,7 @@ ms.date: 03/16/2020
 
 ### Features 1.5.0 ###
 
-- [Feature] Enhancements for general web security (prevention of injection, XSS, etc)
+- [Feature] Enhancements for general web security (prevention of injection, XSS, etc.)
 - [Feature] SDN plugin integration hooks for sourceset event and options.sdn
 - [Feature] Robustness handling of 5XX and 4XX errors during playback
 
@@ -508,7 +506,7 @@ ms.date: 03/16/2020
 
 ### Features 1.3.0 ###
 
-- [Feature] [AzureHtml5JS] [FlashSS] Audio switching of same codec Multi-Audio content
+- [Feature] [AzureHtml5JS] [FlashSS] Audio switching of the same codec Multi-Audio content
 
 ### Bug Fixes 1.3.0 ###
 
@@ -571,7 +569,7 @@ ms.date: 03/16/2020
 
 ### Bug Fixes 1.0.0 ###
 <!---What is that actually supposed to say?--->
-- [Bug Fix] [AzureHtml5JS] Live playback freezing on MPD updates when there are small imprecision in the timestamp
+- [Bug Fix] [AzureHtml5JS] Live playback freezing on MPD updates when there are small imprecisions in the timestamp
 - [Bug Fix] [AzureHtml5JS] Mitigated several Live playback issues
 - [Bug Fix] [AzureHtml5JS] Flush buffers when window size heuristics is on and go to a higher resolution screen
 - [Bug Fix] [AzureHtml5JS] Chrome now properly shows ended event. Linked to previous known issue of *Chrome will not properly send â&euro;œendedâ&euro; event when using AzureHtml5JS. There is an issue in the underlying browser.*
@@ -592,7 +590,7 @@ ms.date: 03/16/2020
 
 ### Bug Fixes 0.2.0 ###
 
-- [Bug Fix] big play button now viewable on WP8.1
+- [Bug Fix] large play button now viewable on WP8.1
 - [Bug Fix] fixed multiple live playback issues
 - [Bug Fix] unmute button now works on the UI
 - [Bug Fix] updated UI loading experience for autoplay mode
