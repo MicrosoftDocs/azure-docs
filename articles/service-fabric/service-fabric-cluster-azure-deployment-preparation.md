@@ -36,7 +36,7 @@ See the minimum recommendations for [primary node types](service-fabric-cluster-
 
 Any more than the minimum number of nodes should be based on the number of replicas of the application/services that you want to run in this node type.  [Capacity planning for Service Fabric applications](service-fabric-capacity-planning.md) helps you estimate the resources you need to run your applications. You can always scale the cluster up or down later to adjust for changing application workload. 
 
-#### Use ephemeral OS disks for virtual machine scale sets
+#### Use ephemeral OS disks for virtual machine scale sets (preview)
 
 *Ephemeral OS disks* are storage created on the local virtual machine (VM), and not saved to remote Azure Storage. They are recommended for all Service Fabric node types (Primary and Secondary), because compared to traditional persistent OS disks, ephemeral OS disks:
 
