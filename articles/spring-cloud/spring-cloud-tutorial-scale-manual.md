@@ -1,16 +1,16 @@
 ---
-title: "Scale an application in Azure Spring Cloud | Microsoft Docs"
+title: "Tutorial: Scale an application in Azure Spring Cloud | Microsoft Docs"
 description: Learn how to scale an application with Azure Spring Cloud in the Azure portal
 ms.service: spring-cloud
-ms.topic: how-to
+ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ---
 
-# Scale an application in Azure Spring Cloud
+# Tutorial: Scale an application in Azure Spring Cloud
 
-This article demonstrates how to scale any microservice application using the Azure Spring Cloud dashboard in the Azure portal.
+This tutorial demonstrates how to scale any microservice application using the Azure Spring Cloud dashboard in the Azure portal.
 
 Scale your application up and down by modifying its number of virtual CPUs (vCPUs) and amount of memory. Scale your application in and out by modifying the number of application instances.
 
@@ -56,4 +56,7 @@ After a few seconds, the changes you made are displayed on the **Overview** page
 
 ## Next steps
 
-In this article, you learned how to manually scale an Azure Spring Cloud applications. To learn how to monitor an application, see [Monitor an application](spring-cloud-tutorial-distributed-tracing.md).
+In this tutorial, you learned how to manually scale an Azure Spring Cloud application. To learn how to monitor an application by setting up alerts, continue to the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Learn how to set up alerts](spring-cloud-tutorial-alerts-action-groups.md)
