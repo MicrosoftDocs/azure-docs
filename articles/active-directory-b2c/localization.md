@@ -178,7 +178,7 @@ The ClaimsProvider value is used to localize claim provider name.
 
 ```
 
-The following example shows how to localize claim providers' dispaly name.
+The following example shows how to localize claim providers' display name.
 
 ```xml
 <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
