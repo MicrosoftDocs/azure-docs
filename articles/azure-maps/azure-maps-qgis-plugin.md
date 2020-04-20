@@ -53,7 +53,7 @@ After the installation is complete, the Azure Maps plug-in will be accessible vi
 
 Click on the Azure Maps QGIS plug-in icon to open the **Azure Maps** window. In the **Creator** tab, provide your **datasetId**. Provide your Azure Maps **primary subscription key** in the **Authentication** tab. Providing your **datasetId** and **primary subscription key** allows you to access and save the Creator data set. And the modifications you make in the plug-in, will also be with the Azure Maps resources.
 
-   ![Creator tab](./media/azure-maps-qgis-plugin/private-atlas-tab.png)
+   ![Creator tab](./media/azure-maps-qgis-plugin/creator-tab.png)
    ![Authentication tab](./media/azure-maps-qgis-plugin/authentication-tab.png)
 
 You can optionally set the spatial extents for the rendered indoor map in the **Creator** tab. The spatial extent is a bounding box defined by four latitude and longitude coordinates. The coordinates represent the smallest rectangle that encloses all the referenced map data. To obtain your bounding box information, use the [Tileset List API]() from the Azure Maps Tileset service.
