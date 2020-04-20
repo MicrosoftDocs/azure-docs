@@ -13,8 +13,7 @@ The IntelliJ plug-in for Azure Spring Cloud supports application deployment from
 ## Prerequisites
 * [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable)
 * [Maven 3.5.0+](https://maven.apache.org/download.cgi)
-* [IntelliJ IDEA Community Edition, version [2020.1]](https://www.jetbrains.com/idea/download/#section=windows)
-* Or: IntelliJ IDEA Ultimate Edition, version [2020.1]
+* [IntelliJ IDEA, Community/Ultimate Edition, version 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## Install the plug-in
 You can Azure Toolkit for IntelliJ IDEA 3.35.0 from the IntelliJ **Plugins** UI.

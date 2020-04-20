@@ -13,7 +13,7 @@ manager: carmonm
 
 # Troubleshoot Linux update agent issues
 
-There can be many reasons your machine isn't showing Ready in Update Management. In Update Management, you can check the health of a Hybrid Runbook Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and non-Azure machines in the [offline scenario](#troubleshoot-offline). 
+There can be many reasons your machine isn't showing up as ready (healthy) in Update Management. In Update Management, you can check the health of a Hybrid Runbook Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and non-Azure machines in the [offline scenario](#troubleshoot-offline). 
 
 The following list are the three readiness states a machine can be in:
 
@@ -22,7 +22,7 @@ The following list are the three readiness states a machine can be in:
 * Not configured -  The Hybrid Runbook Worker isn't found or hasn't finished onboarding.
 
 > [!NOTE]
-> There can be a slight delay between what the Azure portal shows and the current state of the machine.
+> There can be a slight delay between what the Azure portal shows and the current state of a machine.
 
 ## Start the troubleshooter
 
