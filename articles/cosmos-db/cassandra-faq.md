@@ -20,6 +20,8 @@ ms.author: thvankra
 - There is no need to set num_tokens on each node in the cluster as in Apache Cassandra. Nodes and token ranges are fully managed by Cosmos DB.
 - Azure Cosmos DB Cassandra API is fully managed so you don't require the nodetool commands such as repair, decommission etc. that are used in Apache Cassandra.
 
+## Other frequently asked questions
+
 ### What is the protocol version supported by Azure Cosmos DB Cassandra API? Is there a plan to support other protocols?
 
 Azure Cosmos DB Cassandra API supports CQL version 3.x. It's CQL compatibility is based on the public [Apache Cassandra GitHub repository](https://github.com/apache/cassandra/blob/trunk/doc/cql3/CQL.textile). If you have feedback about supporting other protocols, let us know via [user voice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db) or send an email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
