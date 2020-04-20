@@ -33,7 +33,7 @@ Also before you start, complete the following setup:
 Begin by logging in, setting the shell context to your subscription, and registering with the Azure Digital Twins namespace.
 
 ```azurecli
-az account set --subscription <your-subscription-ID>
+az account set --subscription <your-Azure-subscription-ID>
 az provider register --namespace 'Microsoft.DigitalTwins'
 ```
 
