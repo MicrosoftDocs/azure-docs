@@ -37,6 +37,8 @@
      href: configure-rules-alerts-in-azure-farmbeats.md
    - name: Get drone imagery
      href: get-drone-imagery-in-azure-farmbeats.md
+   - name: Disaster recovery
+     href: disaster-recovery-for-farmbeats.md
 - name: Troubleshoot
   items:
    - name: Troubleshoot Azure FarmBeats

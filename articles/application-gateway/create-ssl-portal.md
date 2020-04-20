@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Configure SSL termination in portal - Azure Application Gateway'
-description: In this tutorial, you learn how to configure an application gateway and add a certificate for SSL termination using the Azure portal.
+title: 'Tutorial: Configure TLS termination in portal - Azure Application Gateway'
+description: In this tutorial, you learn how to configure an application gateway and add a certificate for TLS termination using the Azure portal.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 11/13/2019
 ms.author: victorh
-#Customer intent: As an IT administrator, I want to use the Azure portal to configure Application Gateway with SSL termination so I can secure my application traffic.
+#Customer intent: As an IT administrator, I want to use the Azure portal to configure Application Gateway with TLS termination so I can secure my application traffic.
 ---
-# Tutorial: Configure an application gateway with SSL termination using the Azure portal
+# Tutorial: Configure an application gateway with TLS termination using the Azure portal
 
-You can use the Azure portal to configure an [application gateway](overview.md) with a certificate for SSL termination that uses virtual machines for backend servers.
+You can use the Azure portal to configure an [application gateway](overview.md) with a certificate for TLS termination that uses virtual machines for backend servers.
 
 In this tutorial, you learn how to:
 
@@ -260,4 +260,4 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Application Gateway SSL support](ssl-overview.md)
+> [Learn more about Application Gateway TLS support](ssl-overview.md)

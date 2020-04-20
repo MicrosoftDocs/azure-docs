@@ -12,6 +12,9 @@ ms.author: dsindona
 
 # Containers
 
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Container offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Container offer](https://aka.ms/CreateContainerOffer) to manage your migrated offers.
+
 <table> <tr> <td>This section explains how to publish a container image to the <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>.  
 The container offer type supports Docker container images provisioned as <a href="https://docs.microsoft.com/azure/aks/index">Azure Kubernetes Service</a> instances or <a href="https://docs.microsoft.com/azure/container-instances/container-instances-overview">Azure Container Instances</a> and hosted in an <a href="https://docs.microsoft.com/azure/container-registry">Azure Container Registry</a> repository. </td> <td><img src="./media/container-icon.png"  alt="Azure container icon" /></td> </tr> </table>
 
