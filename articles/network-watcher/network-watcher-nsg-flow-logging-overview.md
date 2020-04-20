@@ -363,9 +363,60 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Storage provisioning**: Storage should be provisioned in tune with expected Flow Log volume.
 
-## Next steps
+## Troubleshooting / Common Issues
 
-- To learn how to enable flow logs, see [Enabling NSG flow logging](network-watcher-nsg-flow-logging-portal.md).
-- To learn how to read the flow logs, see [Read NSG flow logs](network-watcher-read-nsg-flow-logs.md).
-- To learn more about NSG logging, see [Azure Monitor logs for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- To determine whether traffic is allowed or denied to or from a VM, see [Diagnose a VM network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md)
+### **I could not enable NSG Flow Logs**
+
+- **Microsoft.Insights** resource provider is not registered
+
+If you received an _AuthorizationFailed_ or a _GatewayAuthenticationFailed_ error, you might have not enabled the Microsoft Insights resource provider on your subscription. Please [follow the instructions](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#register-insights-provider) to enable the Microsoft Insights provider.
+
+### **I have enabled NSG Flow Logs but do not see data in my storage account**
+
+- **Setup time**
+
+NSG Flow Logs may take up to 5 minutes to appear in your storage account (if configured correctly). A PT1H.json will appear which can be accessed [as described here](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal#download-flow-log).
+
+- **No Traffic on your NSGs**
+
+Sometimes you will not see logs because your VMs are not active or there are upstream filters at an App Gateway or other devices that are blocking traffic to your NSGs.
+
+### **I want to automate NSG Flow Logs**
+
+Support for automation via ARM templates is currently not available for NSG Flow Logs. Read the [feature announcement](https://azure.microsoft.com/updates/arm-template-support-for-nsg-flow-logs/) for more information.
+
+## FAQ
+
+### **What does NSG Flow Logs do?**
+
+Azure network resources can be combined and managed through [Network Security Groups (NSGs)](https://docs.microsoft.com/azure/virtual-network/security-overview). NSG Flow Logs enable you to log 5-tuple flow information about all traffic through your NSGs. The raw flow logs are written to an Azure Storage account from where they can be further processed, analyzed, queried, or exported as needed.
+
+### **Does using Flow Logs impact my network latency or performance?**
+
+Flow logs data is collected outside of the path of your network traffic, and therefore does not affect network throughput or latency. You can create or delete flow logs without any risk of impact to network performance.
+
+### **How do I use NSG Flow Logs with a Storage account behind a firewall?**
+
+To use a Storage account behind a firewall, you have to provide an exception for Trusted Microsoft Services to access your storage account:
+
+- Navigate to the storage account by typing the storage account's name in the global search on the portal or from the [Storage Accounts page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
+- Under the  **SETTINGS**  section, select  **Firewalls and virtual networks**
+- In **Allow access from**, select  **Selected networks**. Then under  **Exceptions** , tick the box next to  ****Allow trusted Microsoft services to access this storage account****
+- If it is already selected, no change is needed.
+- Locate your target NSG on the [NSG Flow Logs overview page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) and enable NSG Flow Logs with the above storage account selected.
+
+You can check the storage logs after a few minutes, you should see an updated TimeStamp or a new JSON file created.
+
+### **How do I use NSG Flow Logs with a Storage account behind a Service Endpoint?**
+
+NSG Flow Logs are compatible with Service Endpoints without requiring any extra configuration. Please see the [tutorial on enabling Service Endpoints](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) in your virtual network.
+
+### **What is the difference between flow logs versions 1 & 2?**
+
+Flow Logs version 2 introduces the concept of _Flow State_ & stores information about bytes and packets transmitted. [Read more](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)
+
+## Pricing
+
+NSG Flow Logs are charged per GB of logs collected and comes with free tier of 5 GB/month per subscription. For the current pricing in your region, please see the [Network Watcher pricing page](https://azure.microsoft.com/pricing/details/network-watcher/).
+
+Storage of logs is charged separately, please see [Azure Storage Block blob pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/) for relevant prices.
