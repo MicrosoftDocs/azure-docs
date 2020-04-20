@@ -150,7 +150,7 @@ enum CookiePolicy { Disable, Enable }
 ```
 
 ```typescript
-export type ReadAloudOptions = {
+type ReadAloudOptions = {
     voice?: Gender;      // Voice, either 'male' or 'female'. Note that not all languages support both genders.
     speed?: number;      // Playback speed, must be between 0.5 and 2.5, inclusive.
     autoplay?: boolean;  // Automatically start Read Aloud when the Immersive Reader loads.
