@@ -1,6 +1,6 @@
 ---
 title: List role assignments using Azure RBAC and the REST API
-description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure role-based access control (RBAC) and the REST API.
+description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure role-based access control (Azure RBAC) and the REST API.
 services: active-directory
 documentationcenter: na
 author: rolyon
