@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Azure Maps plugin for QGIS
 
-The Quantum Geographic Information System [(QGIS)](https://qgis.org/) is a Free and Open Source Software (FOSS) application. Azure Maps provides a plug-in for "Private Atlas - Private Preview", a QGIS tool that lets users develop and own their map data.
+The Quantum Geographic Information System [(QGIS)](https://qgis.org/) is a Free and Open Source Software (FOSS) application. Azure Maps provides a plug-in for "Creator - Private Preview", a QGIS tool that lets users develop and own their map data.
 
 Although the Azure Maps QGIS plug-in is currently under experimentation, it provides complete indoor mapping functionalities. The plug-in lets users visualize their data and perform quality assurance tasks on their data sets. Edits and changes to the data sets can be viewed on a rendered indoor map and in near real-time. All data modifications in the plug-in can be synced up and saved to the Azure Maps resources. This article guides you through the installation process of the Azure Maps QGIS plug-ins. It also shows you how to use the plug-in to perform common tasks with your data set.
 
@@ -51,18 +51,18 @@ After the installation is complete, the Azure Maps plug-in will be accessible vi
    ![Plugin icon](./media/azure-maps-qgis-plugin/plugin-icon.png)
 
 
-Click on the Azure Maps QGIS plug-in icon to open the **Azure Maps** window. In the **Private Atlas** tab, provide your **datasetId**. Provide your Azure Maps **primary subscription key** in the **Authentication** tab. Providing your **datasetId** and **primary subscription key** allows you to access and save the Private Atlas data set. And the modifications you make in the plug-in, will also be with the Azure Maps resources.
+Click on the Azure Maps QGIS plug-in icon to open the **Azure Maps** window. In the **Creator** tab, provide your **datasetId**. Provide your Azure Maps **primary subscription key** in the **Authentication** tab. Providing your **datasetId** and **primary subscription key** allows you to access and save the Creator data set. And the modifications you make in the plug-in, will also be with the Azure Maps resources.
 
-   ![Private Atlas tab](./media/azure-maps-qgis-plugin/private-atlas-tab.png)
+   ![Creator tab](./media/azure-maps-qgis-plugin/private-atlas-tab.png)
    ![Authentication tab](./media/azure-maps-qgis-plugin/authentication-tab.png)
 
-You can optionally set the spatial extents for the rendered indoor map in the **Private Atlas** tab. The spatial extent is a bounding box defined by four latitude and longitude coordinates. The coordinates represent the smallest rectangle that encloses all the referenced map data. To obtain your bounding box information, use the [Tileset List API]() from the Azure Maps Tileset service.
+You can optionally set the spatial extents for the rendered indoor map in the **Creator** tab. The spatial extent is a bounding box defined by four latitude and longitude coordinates. The coordinates represent the smallest rectangle that encloses all the referenced map data. To obtain your bounding box information, use the [Tileset List API]() from the Azure Maps Tileset service.
 
 The **Floor Picker** tab lets you select the floor number. The map of the selected floor will render in the QGIS application window, so you can make edits to this floor map data. Initially, this option is greyed out because you need to load your data set before you can select a floor number.
 
    ![Floor picker](./media/azure-maps-qgis-plugin/floor-picker.png)
  
-To load your data set, provide the **datasetId** and the **primary subscription key**. And press the **get features** button in the **Private Atlas** tab. Once this request completes successfully, you'll see layers with the features of your data set in the **Layers** panel. The layers reflect the content of your Drawing package. The features in your data may not encompass all the [feature collections](#full-list-of-feature-collections) that the **Layers** panel supports. And, you may not have used all the [supported layers](drawing-requirements.md#drawing-package-requirements). However, you'll definitely see the _Unit_ and the _Exterior_ layers because they're [required](drawing-requirements.md) to convert a Drawing package into map data.
+To load your data set, provide the **datasetId** and the **primary subscription key**. And press the **get features** button in the **Creator** tab. Once this request completes successfully, you'll see layers with the features of your data set in the **Layers** panel. The layers reflect the content of your Drawing package. The features in your data may not encompass all the [feature collections](#full-list-of-feature-collections) that the **Layers** panel supports. And, you may not have used all the [supported layers](drawing-requirements.md#drawing-package-requirements). However, you'll definitely see the _Unit_ and the _Exterior_ layers because they're [required](drawing-requirements.md) to convert a Drawing package into map data.
 
    ![Layers panel](./media/azure-maps-qgis-plugin/layers-panel.png)
 
@@ -116,7 +116,7 @@ The first step in adding a feature to the map is to decide the category and the 
 
    
 
-4. To see the assigned category ID, reload the data set by clicking the **Get Features** button in the **Private Atlas** tab. If you closed the **Azure Maps** plug-in window, you can reopen the window and click **Get Features**.
+4. To see the assigned category ID, reload the data set by clicking the **Get Features** button in the **Creator** tab. If you closed the **Azure Maps** plug-in window, you can reopen the window and click **Get Features**.
 
 5. Right click on the **category** layer in **Layers** panel. Click on **Open Attributes Table**, and you should see the new category in the list along with its unique category ID. Copy the **ID** for the category, you may right-click and select **Copy Cell Content**.
 
@@ -200,7 +200,7 @@ The following are limitations to keep in mind when using the Azure Maps QGIS plu
 Learn more about Indoor Maps from Azure Maps by reading the following articles:
 
 > [!div class="nextstepaction"]
-> [Private Atlas tutorial](tutorial-private-atlas-indoor-maps.md)
+> [Creator tutorial](tutorial-creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Indoor Maps dynamic styling](indoor-map-dynamic-styling.md)

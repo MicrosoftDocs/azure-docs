@@ -1,18 +1,18 @@
 ---
-title: Implement dynamic styling for Private Atlas Indoor Maps | Microsoft Azure Maps
-description: Learn how to Implement dynamic styling for Private Atlas indoor maps
+title: Implement dynamic styling for Creator Indoor Maps | Microsoft Azure Maps
+description: Learn how to Implement dynamic styling for Creator indoor mpas 
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/13/2020
+ms.date: 04/20/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ---
 
-# Implement dynamic styling for Private Atlas indoor maps
+# Implement dynamic styling for Creator indoor maps
 
-Private Atlas lets you dynamically render certain parts of your indoor map data. For example, you may have indoor map data for a building with sensors collecting temperature information. You can render meeting rooms with styles based on the room temperature level. The [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) supports such scenarios in which the tileset features render according to their states. In this article, we'll discuss how to dynamically render indoor map features based on associated feature states using the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) and the [Indoor Web Module](how-to-use-indoor-module.md).
+Creator lets you dynamically render certain parts of your indoor map data. For example, you may have indoor map data for a building with sensors collecting temperature information. You can render meeting rooms with styles based on the room temperature level. The [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) supports such scenarios in which the tileset features render according to their states. In this article, we'll discuss how to dynamically render indoor map features based on associated feature states using the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) and the [Indoor Web Module](how-to-use-indoor-module.md).
 
 When a web application uses the [Indoor Web Module](how-to-use-indoor-module.md) to render indoor maps, you can further leverage the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) for dynamic styling. In particular, the [Get Map State Tile API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) allows for control over the tileset style at the level of individual feature. The map rendering engine will not reparse the underlying geometry and data, thus offering a significant boost in performance, especially in scenarios involving live data visualization.
 
@@ -20,7 +20,7 @@ When a web application uses the [Indoor Web Module](how-to-use-indoor-module.md)
 
 1. [Create an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). This key may also be referred to as the primary key or the subscription key. You will need this key to call the Azure Map API.
 
-2. Create Private Atlas, and use it to create an indoor map. The necessary steps are described in [How to make a Private Atlas account](how-to-manage-private-atlas.md) and [How to create an indoor map using Private Atlas](tutorial-private-atlas-indoor-maps.md). When you complete these steps, note your tile set identifier and feature state set identifier. In this article, we will assume the sample data provided in the [How to create an indoor map using Private Atlas](tutorial-private-atlas-indoor-maps.md) tutorial.
+2. Create Creator, and use it to create an indoor map. The necessary steps are described in [How to make a Creator account](how-to-manage-creator.md) and [How to create an indoor map using Creator](tutorial-creator-indoor-maps.md). When you complete these steps, note your tile set identifier and feature state set identifier. In this article, we will assume the sample data provided in the [How to create an indoor map using Creator](tutorial-creator-indoor-maps.md) tutorial.
 
 3. Build a web application by using the sample code as defined in the [How to use the indoor module](how-to-use-indoor-module.md#use-the-indoor-maps-module) article.
 
@@ -107,25 +107,25 @@ The web application you previously opened in a browser should now automatically 
 Learn more by reading:
 
 > [!div class="nextstepaction"]
-> [Use the Azure Maps QGIS Plug-in](private-atlas-for-indoor-maps.md)
+> [Creator for indoor mapping](creator-for-indoor-maps.md)
 
 See to the references for the APIs mentioned in this article:
 
 > [!div class="nextstepaction"]
-> [Data Upload](private-atlas-for-indoor-maps.md#uploading-a-drawing-package)
+> [Data Upload](creator-for-indoor-maps.md#uploading-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Data Conversion](private-atlas-for-indoor-maps.md#converting-a-drawing-package)
+> [Data Conversion](creator-for-indoor-maps.md#converting-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Dataset](private-atlas-for-indoor-maps.md#datasets)
+> [Dataset](creator-for-indoor-maps.md#datasets)
 
 > [!div class="nextstepaction"]
-> [Tileset](private-atlas-for-indoor-maps.md#tilesets)
+> [Tileset](creator-for-indoor-maps.md#tilesets)
 
 > [!div class="nextstepaction"]
-> [Feature State set](private-atlas-for-indoor-maps.md#feature-statesets)
+> [Feature State set](creator-for-indoor-maps.md#feature-statesets)
 
 > [!div class="nextstepaction"]
-> [WFS service](private-atlas-for-indoor-maps.md#web-feature-service-api)
+> [WFS service](creator-for-indoor-maps.md#web-feature-service-api)
 

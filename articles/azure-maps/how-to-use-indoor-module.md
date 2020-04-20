@@ -3,7 +3,7 @@ title: Use the Azure Maps Indoor Maps module | Microsoft Azure Maps
 description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embedding the module's JavaScript libraries.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/16/2020
+ms.date: 04/20/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,13 +12,13 @@ manager: philmea
 
 # Use the Azure Maps Indoor Maps module
 
-The Azure Maps Web SDK provides the *Indoor Maps* module. This module offers extended functionalities to the Azure Maps *Map Control* library. It conveniently renders indoor maps created in Private Atlas, and it integrates the indoor map data into a web application.
+The Azure Maps Web SDK provides the *Indoor Maps* module. This module offers extended functionalities to the Azure Maps *Map Control* library. It conveniently renders indoor maps created in Creator, and it integrates the indoor map data into a web application.
 
 ## Prerequisites
 
 To calls Azure Maps APIs, [make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). This key may also be referred to as the primary key or the subscription key.
 
-Obtain an Azure Maps account with Private Atlas enabled and an indoor map created using Private Atlas. The necessary steps are described in [make a Private Atlas account](how-to-manage-private-atlas.md) and [create an indoor map using Private Atlas](tutorial-private-atlas-indoor-maps.md). When you complete these steps, note your tile set identifier and feature state set identifier. You'll need to use these identifiers to render indoor maps with the Azure Maps Indoor Maps module.
+Obtain an Azure Maps account with Creator enabled and an indoor map created using Creator. The necessary steps are described in [make a Creator account](how-to-manage-creator.md) and [create an indoor map using Creator](tutorial-creator-indoor-maps.md). When you complete these steps, note your tile set identifier and feature state set identifier. You'll need to use these identifiers to render indoor maps with the Azure Maps Indoor Maps module.
 
 ## Embed the Indoor Maps module
 
@@ -251,10 +251,10 @@ This exercise demonstrates how to integrate the Indoor Maps module with the Azur
 Read about the APIs that are related to the Indoor Maps module:
 
 > [!div class="nextstepaction"]
-> [DWG package requirements](map-create.md)
+> [Drawing package requirements](drawing-requirements.md)
 
-> [!div class="nextstepaction"]
-> [Indoor Maps data management](map-create.md)
+>[!div class="nextstepaction"]
+> [Creator for indoor mapping](creator-for-indoor-maps.md)
 
 Learn more about how to add more data to your map:
 

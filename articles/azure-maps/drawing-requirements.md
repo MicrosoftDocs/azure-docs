@@ -1,9 +1,9 @@
 ---
-title: Drawing package requirements in Private Atlas  | Microsoft Docs
+title: Drawing package requirements in Creator  | Microsoft Docs
 description: Learn about the Drawing package requirements to convert your facility design files to map data using the Azure Maps Conversion service
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/16/2020
+ms.date: 04/20/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,7 +12,7 @@ manager: philMea
 
 # Drawing package requirements
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) allows you to convert a Drawing package, for a single facility, into an indoor map [datasets](private-atlas-for-indoor-maps.md#datasets). This article describes the Drawing package requirements for the Conversion API. Optionally, you can download and use a [Sample Drawing package](https://github.com/Azure-Samples/Azure-Maps-DWG-Package-Samples).
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) allows you to convert a Drawing package, for a single facility, into an indoor map [datasets](creator-for-indoor-maps.md#datasets). This article describes the Drawing package requirements for the Conversion API. Optionally, you can download and use a [Sample Drawing package](https://github.com/Azure-Samples/Azure-Maps-DWG-Package-Samples).
 
 ## Prerequisites
 
@@ -81,7 +81,7 @@ The next sections detail the requirements for each layer.
 
 The DWG file for each level must contain a layer to define that level's perimeter. This layer is referred  to as the exterior layer. For example, if a facility contains two levels, then it needs to have two DWG files, with an exterior layer for each file.
 
-Regardless of how many entity drawings are in the exterior layer, the [resulting facility dataset](tutorial-private-atlas-indoor-maps.md#create-a-feature-stateset) will contain only **one** level feature for each DWG file. Additionally:
+Regardless of how many entity drawings are in the exterior layer, the [resulting facility dataset](tutorial-creator-indoor-maps.md#create-a-feature-stateset) will contain only **one** level feature for each DWG file. Additionally:
 
 * Exteriors must be drawn as Polygon, PolyLine (closed), Circle
 
@@ -255,7 +255,7 @@ The `zoneProperties` object contains a JSON array of zone properties.
 |zoneNameSubtitle|    string/int |    false    |Subtitle |
 
 ### Sample Drawing package
-Below is a sample manifest file for the sample Drawing package. To download the entire package, click [Private Atlas Drawing Sample package](https://github.com/Azure-Samples/Azure-Maps-DWG-Package-Samples).
+Below is a sample manifest file for the sample Drawing package. To download the entire package, click [Creator Drawing Sample package](https://github.com/Azure-Samples/Azure-Maps-DWG-Package-Samples).
 
 #### Manifest File
 ```JSON
@@ -376,25 +376,25 @@ Below is a sample manifest file for the sample Drawing package. To download the 
             "zoneSetId": "1234" 
         }, 
         { 
-            "zoneName": "Wifi101", 
-            "categoryName": "Zone", 
-            "zoneNameAlt": "MyZone", 
-            "zoneNameSubtitle": "Wifi", 
-            "zoneSetId": "1234" 
-        } 
-    ] 
-} 
+            "zoneName": "Wifi101",
+            "categoryName": "Zone",
+            "zoneNameAlt": "MyZone",
+            "zoneNameSubtitle": "Wifi",
+            "zoneSetId": "1234"
+        }
+    ]
+}
 ```
 
 ## Next steps
 
-Once your drawing package meets the requirements, you may use the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) to convert the package to a map data set. Then, you can use the data set to generate an indoor map using the Indoor Maps module. Learn more about using the Indoor Maps module by reading the following articles: 
+Once your drawing package meets the requirements, you may use the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) to convert the package to a map data set. Then, you can use the data set to generate an indoor map using the Indoor Maps module. Learn more about using the Indoor Maps module by reading the following articles:
 
 > [!div class="nextstepaction"]
->[Private Atlas indoor maps management](private-atlas-for-indoor-maps.md)
+>[Creator for indoor maps](creator-for-indoor-maps.md)
 
 > [!div class="nextstepaction"]
-> [Private Atlas tutorial](tutorial-private-atlas-indoor-maps.md)
+> [Tutorial: Creating a Creator indoor map](tutorial-creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Indoor Maps dynamic styling](indoor-map-dynamic-styling.md)

@@ -1,9 +1,9 @@
 ---
-title: Private Atlas for indoor maps| Microsoft Azure Maps 
-description: This article introduces concepts that apply to Private Atlas services.
+title: Creator for indoor maps| Microsoft Azure Maps 
+description: This article introduces concepts that apply to Azure Maps Creator services.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/15/2020
+ms.date: 04/20/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -11,21 +11,21 @@ manager: philmea
 ---
 
 
-# Private Atlas for indoor maps
+# Creator for indoor maps
 
-Private Atlas makes it possible to develop applications based on indoor map data using Azure Maps API and SDK. This article introduces concepts that apply to Private Atlas such as Drawing package uploading and conversion, as well as understanding and creating resources such as datasets, tilesets, and feature statesets. In addition, this article provides an overview of how modules or applications can use indoor map data for the purposes of querying, rendering, updating, or deleting indoor map data, as well as providing suggestions for possible integration with Azure Map data and IoT services.
+Creator makes it possible to develop applications based on indoor map data using Azure Maps API and SDK. This article introduces concepts that apply to Creator such as Drawing package uploading and conversion, as well as understanding and creating resources such as datasets, tilesets, and feature statesets. In addition, this article provides an overview of how modules or applications can use indoor map data for the purposes of querying, rendering, updating, or deleting indoor map data, as well as providing suggestions for possible integration with Azure Map data and IoT services.
 
-## Create Private Atlas
+## Create Creator
 
-In order to use Private Atlas services, Private Atlas must be created in an Azure Maps account. For information on how to create Private Atlas in Azure Maps, see [Manage Private Atlas](tutorial-private-atlas-indoor-maps.md).
+In order to use Creator services, Creator must be created in an Azure Maps account. For information on how to create Creator in Azure Maps, see [Manage Creator](tutorial-creator-indoor-maps.md).
 
-After you create Private Atlas, you are now ready to upload data, convert data, and then create and use your map data. Finally, data maintenance allows you then to list, update, and delete your map data. The workflow is illustrated in the following diagram.
+After you create Creator, you are now ready to upload data, convert data, and then create and use your map data. Finally, data maintenance allows you then to list, update, and delete your map data. The workflow is illustrated in the following diagram.
 
-![Private Atlas map data workflow](./media/private-atlas-for-indoor-maps/workflow.png)
+![Creator map data workflow](./media/creator-for-indoor-maps/workflow.png)
 
 ## Drawing package requirements
 
-Private Atlas collects indoor map data by converting a Drawing package that represents a facility. The Drawing package must contain the Drawing files that were typically produced by means of CAD tools during the facility construction or remodeling phase.
+Creator collects indoor map data by converting a Drawing package that represents a facility. The Drawing package must contain the Drawing files that were typically produced by means of CAD tools during the facility construction or remodeling phase.
 
 In addition, the Drawing package must contain a _manifest.json_ file that defines additional metadata to be included in the indoor map data. This metadata file is meant to provide you with an option for adding metadata not included in the CAD drawings.
 
@@ -33,19 +33,19 @@ The minimum set of data required in the Drawing package is defined by the mandat
 
 ## Uploading a Drawing package
 
-Drawing packages must be uploaded using the [Azure Maps Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) into the Azure Maps account for which Private Atlas has been created. Any tool or developer framework capable of performing REST API calls can be used to call this, and any other, API.
+Drawing packages must be uploaded using the [Azure Maps Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) into the Azure Maps account for which Creator has been created. Any tool or developer framework capable of performing REST API calls can be used to call this, and any other, API.
 
 Once the Drawing package is successfully uploaded, the `udid` (user data identifier) returned by [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) will be needed in order to call the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion). for converting the uploaded package into indoor map data.
 
 ## Converting a Drawing package
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) converts and validates an uploaded Drawing package into indoor map data.  Validation issues are mainly classified into two types: errors and warnings. If any errors are detected, the conversion process fails. If either warnings are detected or neither warnings nor errors, the indoor map data is created and stored in Private Atlas.  To get more information on Drawing package errors and warnings, see [Drawing package warnings and errors](drawing-conversion-error-codes.md).
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) converts and validates an uploaded Drawing package into indoor map data.  Validation issues are mainly classified into two types: errors and warnings. If any errors are detected, the conversion process fails. If either warnings are detected or neither warnings nor errors, the indoor map data is created and stored in Creator.  To get more information on Drawing package errors and warnings, see [Drawing package warnings and errors](drawing-conversion-error-codes.md).
 
 If the Drawing package fails to convert due to validation errors, you will have to fix the error or errors and reupload the Drawing package. To help inspect errors and warnings detected during conversion, the Conversion service provides a means to download the [Azure Maps Drawing Error Visualizer](azure-maps-drawing-errors-visualizer.md), a standalone web application for visualizing and inspecting Drawing package conversion errors and warnings.
 
 ## Creating indoor maps
 
-Private Atlas provides the [Dataset service](https://docs.microsoft.com/rest/api/maps/dataset/createpreview), which is used to create a dataset from converted Drawing package data. A single dataset can contain any number of facilities and can be updated or removed at any time. In order for applications to render datasets in a visual way, Private Atlas provides the [Tileset service](https://docs.microsoft.com/rest/api/maps/tileset/createpreview), which provides a vector-based representation of a dataset and so allows applications to present visual tile-based views of the indoor map data. Through the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate), datasets can further be augmented to support dynamic map styling, which allows map applications using tilesets to reflect real-time events on spaces provided by IoT systems.
+Creator provides the [Dataset service](https://docs.microsoft.com/rest/api/maps/dataset/createpreview), which is used to create a dataset from converted Drawing package data. A single dataset can contain any number of facilities and can be updated or removed at any time. In order for applications to render datasets in a visual way, Creator provides the [Tileset service](https://docs.microsoft.com/rest/api/maps/tileset/createpreview), which provides a vector-based representation of a dataset and so allows applications to present visual tile-based views of the indoor map data. Through the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate), datasets can further be augmented to support dynamic map styling, which allows map applications using tilesets to reflect real-time events on spaces provided by IoT systems.
 
 ### Datasets
 
@@ -83,7 +83,7 @@ For more information on how feature statesets are used to dynamically broadcast 
 
 ### Render V2 service
 
-The [Render V2 service](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) has been extended to not only support Azure Maps provided maps, but also Private Atlas tilesets. Developers can use the same API and skill set to develop applications that use one or more tilesets.
+The [Render V2 service](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) has been extended to not only support Azure Maps provided maps, but also Creator tilesets. Developers can use the same API and skill set to develop applications that use one or more tilesets.
 
 For scenarios in which you make use of feature stateset for tracking IoT and third-party systems sharing live data related to indoor spaces, the Render V2 service provides a means to broadcast and dynamically update maps. The [Get Map State Tile API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) is responsible for delivering updates to all running applications configured to support dynamic map styling.  For a step-by-step walk-through on how to implement feature stateset dynamic styling in an application, see [Indoor Map Dynamic Styling](indoor-map-dynamic-styling.md).
 
@@ -93,7 +93,7 @@ Datasets can be queried using the [Web Feature Service (WFS) API](https://docs.m
 
 ### Indoor Web SDK Module
 
-The [Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/) includes the Indoor Maps Module. This module offers extended functionalities to the Azure Maps *Map Control* library. It conveniently renders indoor maps created in Private Atlas, and it integrates indoor specific widgets such as floor picker, which helps users to visualize the different floors.
+The [Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/) includes the Indoor Maps Module. This module offers extended functionalities to the Azure Maps *Map Control* library. It conveniently renders indoor maps created in Creator, and it integrates indoor specific widgets such as floor picker, which helps users to visualize the different floors.
 
 In addition, the Indoor Maps Module allows developers to create web applications using indoor map data together with other [Azure Maps services](https://docs.microsoft.com/azure/azure-maps/). The most common application setups could include enabling indoor map visualization and adding knowledge from other maps such as road, imagery, weather, and transit to help put indoor in context and provide a more informed map to users.
 
@@ -105,7 +105,7 @@ As you begin to develop solutions for indoor maps, more can be done by leveragin
 
 ### Data Maintenance
 
- Private Atlas allows you to list and delete your datasets, tilesets, and feature statesets by means of the List and Delete API. For example, you may want to know how many tilesets exist in your subscription in order to review their relevance and update/delete them as appropriate.
+ Creator allows you to list and delete your datasets, tilesets, and feature statesets by means of the List and Delete API. For example, you may want to know how many tilesets exist in your subscription in order to review their relevance and update/delete them as appropriate.
 
 >[!NOTE]
 >Whenever you review a list of items and decide to delete them, you must consider the impact of that deletion on all dependent API or applications. For example, if you should delete a tileset that is currently being used by an application by means of the [Render V2 - Get Map Tile API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview), deleting that tileset would result in an application failure to render that tileset.
@@ -125,4 +125,4 @@ If you wish to add a new facility to a dataset and tileset that is currently in 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Creating a Private Atlas indoor map](tutorial-private-atlas-indoor-maps.md)
+> [Tutorial: Creating a Creator indoor map](tutorial-creator-indoor-maps.md)

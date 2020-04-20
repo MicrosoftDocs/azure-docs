@@ -203,20 +203,20 @@ landingContent:
             url: https://docs.microsoft.com/rest/api/maps/weather
 
   # Card
-  - title: Developing with Private Atlas
+  - title: Developing with Creator
     linkLists:
       - linkListType: concept
         links:
-          - text: Private Atlas concept
-            url: private-atlas-for-indoor-maps.md
+          - text: Creator concept
+            url: creator-for-indoor-maps.md
       - linkListType: tutorial
         links:
-          - text: Use Private Atlas to create indoor maps data
-            url: weather-service-tutorial.md
+          - text: Use Creator to create indoor maps data
+            url: tutorial-creator-indoor-maps.md
       - linkListType: how-to-guide
         links:
-          - text: Indoor maps data management
-            url: how-to-manage-private-atlas.md
+          - text: Mange Creator indoor maps
+            url: how-to-manage-creator.md
           - text: Dynamic styling for indoor maps
             url: indoor-map-dynamic-styling.md
           - text: Azure Maps drawing error visualizer
@@ -225,5 +225,5 @@ landingContent:
             url: how-to-use-indoor-module.md
       - linkListType: reference
         links:
-          - text: Private Atlas Service
+          - text: Creator Service
             url: https://docs.microsoft.com/rest/api/maps/data

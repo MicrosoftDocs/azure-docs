@@ -3,7 +3,7 @@ title: Drawing Conversion Error and Warning in Azure Maps | Microsoft Docs
 description: Learn about the Conversion errors and warnings you may meet while you're using the Azure Maps Conversion service. Read the recommendations on how to resolve the errors and the warnings, with some examples.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/13/2020
+ms.date: 04/20/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -110,7 +110,7 @@ Unable to read user data object from storage. For example:
 To resolve this error:
 
 1. Make sure you provide a correct `udid` for the uploaded package.
-2. Make sure Private Atlas has been created for the Azure Maps account you used for uploading your Drawing package, and that the call to Conversion service matches Azure Maps account (for example, uses the same Azure Maps subscription key).
+2. Make sure Creator has been created for the Azure Maps account you used for uploading your Drawing package, and that the call to Conversion service matches Azure Maps account (for example, uses the same Azure Maps subscription key).
 
 ### dwgError
 
@@ -255,6 +255,5 @@ Once you successfully convert your uploaded Drawing package into map data, you c
 
 > [!div class="nextstepaction"]
 > [How to use Azure Maps Drawing error visualizer](azure-maps-drawing-errors-visualizer.md)
-
 > [!div class="nextstepaction"]
-> [Indoor Maps data management](private-atlas-for-indoor-maps.md)
+> [Creator for indoor mapping](creator-for-indoor-maps.md)

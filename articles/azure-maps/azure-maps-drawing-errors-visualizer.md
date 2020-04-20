@@ -1,9 +1,9 @@
 ---
 title: Use Azure Maps Drawing Error Visualizer | Microsoft Azure Maps
-description: In this article, you'll learn about how to visualize warnings and errors returned by the Private Atlas Conversion API.
+description: In this article, you'll learn about how to visualize warnings and errors returned by the Creator Conversion API.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/13/2020
+ms.date: 04/20/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,7 +12,7 @@ manager: philmea
 
 # Using the Azure Maps Drawing Error Visualizer
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) lets you download a stand-alone web application to visualize [Drawing package warnings and errors](drawing-conversion-error-codes.md). The web application has a static page that you can use without connecting to an internet network. It is a convenient visual tool to inspect warnings and errors in your Drawing package that are detected by the Conversion service.  The goal is to fix them to meet the [Drawing package requirements](drawing-requirements.md) in order to successfully convert your package into map data. For more information on the Drawing conversion process see the [Private Atlas for indoor maps concept article](private-atlas-for-indoor-maps.md).
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) lets you download a stand-alone web application to visualize [Drawing package warnings and errors](drawing-conversion-error-codes.md). The web application has a static page that you can use without connecting to an internet network. It is a convenient visual tool to inspect warnings and errors in your Drawing package that are detected by the Conversion service.  The goal is to fix them to meet the [Drawing package requirements](drawing-requirements.md) in order to successfully convert your package into map data. For more information on the Drawing conversion process see the [Creator for indoor maps concept article](creator-for-indoor-maps.md).
 
 ## Prerequisites
 
@@ -20,9 +20,9 @@ Before you can download the Drawing Error Visualizer, you will need to:
 
 1. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account) by [making an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps)
 
-2. [Enable the Private Atlas resource](tutorial-private-atlas-indoor-maps.md) in your Azure Maps account
+2. [Enable the Creator resource](tutorial-creator-indoor-maps.md) in your Azure Maps account
 
-3. Upload your Drawing package to the Azure Maps service, and obtain a `udid` for the uploaded package. For more details on uploading a Drawing package, see [Uploading a Drawing package](private-atlas-for-indoor-maps.md#uploading-a-drawing-package).
+3. Upload your Drawing package to the Azure Maps service, and obtain a `udid` for the uploaded package. For more details on uploading a Drawing package, see [Uploading a Drawing package](creator-for-indoor-maps.md#uploading-a-drawing-package).
 
 ## Download
 
@@ -69,7 +69,7 @@ Once your [Drawing package meets the requirements](drawing-requirements.md), you
 > [Drawing Conversion error codes](drawing-conversion-error-codes.md)
 
 > [!div class="nextstepaction"]
-> [Indoor Maps data management](private-atlas-for-indoor-maps.md)
+> [Creator for indoor maps](creator-for-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Use the Indoor Maps module](how-to-use-indoor-module.md)
