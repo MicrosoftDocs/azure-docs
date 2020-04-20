@@ -15,7 +15,7 @@ This quickstart will help you create an Azure Media Services live stream by usin
 
 In this quickstart, we'll cover:
 
-- Setting up an on-premises encoder with a free trial of OBS.
+- Setting up an on-premises encoder with OBS.
 - Setting up a live stream.
 - Setting up live stream outputs.
 - Running a default streaming endpoint.
@@ -33,6 +33,16 @@ Open your web browser, and go to the [Microsoft Azure portal](https://portal.azu
 
 1. Download and install OBS for your operating system on the [Open Broadcaster Software website](https://obsproject.com/).
 1. Start the application and keep it open.
+
+## Run the default streaming endpoint
+
+1. Select **Streaming endpoints** in the Media Services listing.
+
+   ![Streaming endpoints menu item](media/live-events-obs-quickstart/streaming-endpoints.png)
+1. If the default streaming endpoint status is stopped, select it. This step takes you to the page for that endpoint.
+1. Select **Start**.
+
+   ![Start button for the streaming endpoint](media/live-events-obs-quickstart/start.png)
 
 ## Set up an Azure Media Services live stream
 
@@ -57,16 +67,6 @@ Open your web browser, and go to the [Microsoft Azure portal](https://portal.azu
 1. Select the **Create** button to create the live event. You're then returned to the live event listing.
 1. Select the link to the live event that you just created. Notice that your event is stopped.
 1. Keep this page open in your browser. We'll come back to it later.
-
-## Run the default streaming endpoint
-
-1. Select **Streaming endpoints** in the Media Services listing.
-
-   ![Streaming endpoints menu item](media/live-events-obs-quickstart/streaming-endpoints.png)
-1. If the default streaming endpoint status is stopped, select it. This step takes you to the page for that endpoint.
-1. Select **Start**.
-
-   ![Start button for the streaming endpoint](media/live-events-obs-quickstart/start.png)
 
 ## Set up a live stream by using OBS Studio
 
@@ -136,13 +136,13 @@ In the next procedure, you'll go back to Azure Media Services in your browser to
 
 1. Select **Output** from the **Settings** menu.
 
-1. Enter *2* into the **Keyframe interval** field.
+1. Enter *2* into the **Keyframe interval** field. This sets the fragment length to 2 seconds. For lower latency live delivery, use the value of 1 second.
 
-1. OPTIONAL: Set the **CPU Usage Preset** to *veryfast* if you are using a computer that is low on processing power.
+1. OPTIONAL: Set the **CPU Usage Preset** to *veryfast* if you are using a computer that is low on processing power. Optionally, you can set the kbps to something lower if there are undesirable network conditions.
 
    ![OBS output settings](media/live-events-obs-quickstart/live-event-obs-advanced-output-settings.png)
 
-1. Leave the rest of the settings alone and click **OK**.
+1. Leave the rest of the settings unchanced and click **OK**.
 
 ### Start streaming
 
@@ -183,9 +183,9 @@ This part will set up your outputs and enable you to save a recording of your li
 
 When you think you've streamed enough content, stop the broadcast.
 
+1. In the portal, select **Stop**.
+
 1. In OBS, select the **Stop Streaming** button in the **Controls** panel. This step stops the broadcast from OBS.
-1. In the portal, select **Stop**. You then get a warning message that the live stream will stop but the output will now become an on-demand asset.
-1. Select **Stop** in the warning message. Azure Media Player now shows an error, because the live stream is no longer available.
 
 ## Play the on-demand output by using Azure Media Player
 
