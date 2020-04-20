@@ -9,16 +9,16 @@ ms.author: raynew
 # Contoso migration series
 
 
-We have a series of articles that demonstrates how the fictitious organization Contoso migrates on-premises infrastructure to the [Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) cloud. 
+We have a series of articles that demonstrate how the fictitious organization Contoso migrates its on-premises infrastructure to the [Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) cloud. 
 
-The series includes information and scenarios that illustrate how to set up infrastructure migration, and run different types of migrations. Scenarios grow in complexity as they progress. The articles show how the Contoso company handles migration, but pointers for general reading, and instructions, are provided throughout.
+The series includes scenarios that illustrate how to set up an infrastructure migration, and how to run different types of migrations. Scenarios grow in complexity as they progress. The articles show how the Contoso company handles migration, but general instructions and pointers are provided throughout.
 
 ## Migration articles
 
 The articles in the series are summarized in the table below.  
 
-- Each migration scenario is driven by slightly different business goals that determine the migration strategy.
-- For each deployment scenario, we provide information about business drivers and goals, a proposed architecture, steps to perform the migration, and recommendation for cleanup and next steps after migration is complete.
+- Each migration scenario is driven by slightly different business requirements, that determine the migration strategy.
+- For each deployment scenario, we provide information about business drivers and goals, a proposed architecture, steps to perform the migration, and recommendations for cleanup and next steps after migration is complete.
 
 
 **Article** | **Details** 
