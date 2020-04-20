@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
-ms.date: 04/13/2020
+ms.date: 04/14/2020
 ms.author: victorh
 ---
 
@@ -13,9 +13,11 @@ ms.author: victorh
 
 In this quickstart, you use a Resource Manager template to deploy an Azure Firewall with multiple public IP addresses.
 
-NAT rule collection rules allow RDP connections to two Windows Server 2019 virtual machines.
+The deployed firewall has NAT rule collection rules that allow RDP connections to two Windows Server 2019 virtual machines.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+For more information about Azure Firewall with multiple public IP addresses, see [Deploy an Azure Firewall with multiple public IP addresses using Azure PowerShell](deploy-multi-public-ip-powershell.md).
 
 ## Prerequisites
 
@@ -49,7 +51,7 @@ Deploy Resource Manager template to Azure:
 
 1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates an Azure Firewall, the network infrastructure, and two virtual machines.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffw-docs-qs%2Fazuredeploy.json"><img src="./media/quick-create-multiple-ip-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffw-docs-qs%2Fazuredeploy.json)
 
 2. In the portal, on the **Create an Azure Firewall with multiple IP public addresses** page, type or select the following values:
    - Subscription: Select from existing subscriptions 

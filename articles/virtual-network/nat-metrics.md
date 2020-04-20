@@ -18,7 +18,7 @@ ms.author: allensu
 
 # Azure Virtual Network NAT metrics
 
-Azure Virtual Network NAT gateway resources provide multi-dimensional metrics. You can use these metrics to observe the operation and for [troubleshooting](nat-metrics.md).  Alerts can be configured for critical issues such as SNAT exhaustion.
+Azure Virtual Network NAT gateway resources provide multi-dimensional metrics. You can use these metrics to observe the operation and for [troubleshooting](troubleshoot-nat.md).  Alerts can be configured for critical issues such as SNAT exhaustion.
 
 <p align="center">
   <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT for outbound to Internet">

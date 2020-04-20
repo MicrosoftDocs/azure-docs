@@ -15,6 +15,8 @@ ms.date: 02/12/2020
 
 # Continuous integration and delivery in Azure Data Factory
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 ## Overview
 
 Continuous integration is the practice of testing each change made to your codebase automatically and as early as possible. Continuous delivery follows the testing that happens during continuous integration and pushes changes to a staging or production system.
@@ -229,11 +231,13 @@ function getPipelineDependencies {
         return @($activity.Pipeline.ReferenceName)
     } elseif ($activity.Activities) {
         $result = @()
-        return $activity.Activities | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
+        $activity.Activities | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
+        return $result
     } elseif ($activity.ifFalseActivities -or $activity.ifTrueActivities) {
         $result = @()
         $activity.ifFalseActivities | Where-Object {$_ -ne $null} | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
         $activity.ifTrueActivities | Where-Object {$_ -ne $null} | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
+        return $result
     } elseif ($activity.defaultActivities) {
         $result = @()
         $activity.defaultActivities | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
@@ -241,6 +245,8 @@ function getPipelineDependencies {
             $activity.cases | ForEach-Object{ $_.activities } | ForEach-Object{$result += getPipelineDependencies -activity $_ }
         }
         return $result
+    } else {
+        return @()
     }
 }
 
