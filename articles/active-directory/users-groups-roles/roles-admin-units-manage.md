@@ -32,7 +32,7 @@ For more granular administrative control in Azure Active Directory (Azure AD), y
 
     ![Screenshot showing the beta version selected](./media/roles-admin-units-manage/select-beta-version.png)
 
-1. Use the preview version of Azure AD PowerShell. Detailed instructions are here.
+1. Use the preview version of Azure AD PowerShell.
 
 ## Add an administrative unit
 
