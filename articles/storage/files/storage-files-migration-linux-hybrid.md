@@ -83,7 +83,7 @@ Both locations, the server folders and the Azure file shares, are otherwise empt
 
 ## Phase 7: Robocopy
 
-The basic migration approach is to use Robocopy to copy files and use Azure File Sync do the syncing.
+The basic migration approach is to use Robocopy to copy files and use Azure File Sync to do the syncing.
 
 Run the first local copy to your Windows Server target folder:
 
