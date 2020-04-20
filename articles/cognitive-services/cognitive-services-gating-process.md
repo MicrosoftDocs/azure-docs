@@ -31,14 +31,13 @@ If the application is approved, the Microsoft team will send an email with all d
 
 Currently, the services below are offered through the gating process:
 
-## Web APIs
+## Gated web APIs
 
 |Service  |
 |---------|
-|Tbd     | 
+|Anomaly Detector v2     | 
 
-
-## Online Containers
+## Gated Online Containers
 
 | Service                             | Container(s)                                                                  |
 |-------------------------------------|-------------------------------------------------------------------------------|
@@ -46,24 +45,15 @@ Currently, the services below are offered through the gating process:
 | [Face][fa-containers]               | Face                                                                          |
 | [Form Recognizer][fr-containers]    | Form Recognizer                                                               |
 | [Speech Service API][sp-containers] | Speech-to-text (Custom and Standard) and Text-to-speech (Custom and Standard) |
+| [Text Analytics][ta-containers]     | Sentiment analysis, key phrase extraction, language detection                 |
 | [Translator Text][tt-containers]    | Translator Text                                                               |
-
-## Offline containers
-
-| Service                                        | Container(s)       |
-|------------------------------------------------|--------------------|
-| [Anomaly Detector][ad-containers]              | Anomaly Detector   |
-| [Language Understanding (LUIS)][lu-containers] | LUIS               |
-| [Text Analytics][ta-containers]                | Sentiment Analysis |
-| [Translator Text][tt-containers]               | Translator Text    |
 
 > [!IMPORTANT]
 > If a service or containerized offering is not listed, it's either not available or generally available.
 
-
 ## Next steps
 
-If you have questions, email the Microsoft team at <a href="mailto:email@microsoft.com">email@microsoft.com</a>.
+If you have questions, email the Microsoft team at <a href="mailto:cognitivegate@microsoft.com">cognitivegate@microsoft.com</a>.
 
 > [!div class="nextstepaction"]
 > [Sign up for gated services](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u)
