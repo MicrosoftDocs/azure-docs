@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 03/23/2020
+ms.date: 04/20/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
@@ -63,8 +63,6 @@ To learn how to use customer-managed keys with Azure Key Vault for Azure Storage
 To enable customer-managed keys on a storage account, you must use an Azure key vault to store your keys. You must enable both the **Soft Delete** and **Do Not Purge** properties on the key vault.
 
 Only 2048-bit RSA and RSA-HSM keys are supported with Azure Storage encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
-
-Permissions to access the key vault are granted via to the storage account via an access policy. The access policy is configured to 
 
 ## Rotate key versions
 
