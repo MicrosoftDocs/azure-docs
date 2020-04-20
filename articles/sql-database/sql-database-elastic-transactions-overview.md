@@ -4,7 +4,7 @@ description: Overview of Elastic Database Transactions with Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein

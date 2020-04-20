@@ -4,7 +4,7 @@ description: How to set the right level of credentials, admin to read-only, for 
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein

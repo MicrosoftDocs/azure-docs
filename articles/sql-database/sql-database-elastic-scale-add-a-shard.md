@@ -4,7 +4,7 @@ description: How to use Elastic Scale APIs to add new shards to a shard set.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
