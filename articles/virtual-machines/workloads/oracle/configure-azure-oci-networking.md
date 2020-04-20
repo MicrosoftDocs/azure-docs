@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/16/2020
-ms.author: BorisB2015
+ms.author: borisb
 ---
 
 # Set up a direct interconnection between Azure and Oracle Cloud Infrastructure  
