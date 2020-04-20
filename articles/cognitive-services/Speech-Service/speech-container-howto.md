@@ -247,6 +247,13 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
+This command:
+
+* Runs a *Speech-to-text* container from the container image.
+* Allocates 4 CPU cores and 4 gigabytes (GB) of memory.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
+* Automatically removes the container after it exits. The container image is still available on the host computer.
+
 
 #### Analyze sentiment on the speech-to-text output 
 
@@ -270,10 +277,9 @@ CloudAI:SentimentAnalysisSettings:SentimentAnalysisApiKey={SENTIMENT_APIKEY}
 
 This command:
 
-* Runs a *Speech-to-text* container from the container image.
-* Allocates 4 CPU cores and 4 gigabytes (GB) of memory.
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
-* Automatically removes the container after it exits. The container image is still available on the host computer.
+* Performs the same steps as the command above.
+* Stores a Text Analytics API endpoint and key, for sending sentiment analysis requests. 
+
 
 # [Custom Speech-to-text](#tab/cstt)
 
