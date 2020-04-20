@@ -120,11 +120,11 @@ Furthermore the conversion process generates an [output json file](../how-tos/co
 }
 ```
 
-The bounding box is described as `min` and `max` position in 3d space, using meter units. So a coordinate of 1000.0 means it is 1 km away from the origin.
+The bounding box is described as `min` and `max` position in 3D space, using meter units. So a coordinate of 1000.0 means it is 1 km away from the origin.
 
-There can be two problems with this bounding box:
-* **The box can be far off-center**, so the object is clipped altogether due to far plane clipping. The `boundingBox` values in this case would look like this: `min = [-2000, -5,-5], max = [-1990, 5,5]`, using the offset on the x-axis as an example here. To resolve this type of issue, enable the `recenterToOrigin` option in the [model conversion configuration](../how-tos/conversion/configure-model-conversion.md).
-* **The box can be centered but be orders of magnitude too large**. That means that albeit the camera starts in the center of the model, its geometry is clipped in all directions. Typical `boundingBox` values in this case would look like this: `min = [-1000,-1000,-1000], max = [1000,1000,1000]`. The reason for this type of issue is usually a unit scale mismatch. To compensate, specify a [scaling value during conversion](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) or markup the source model with correct units. Scaling can also be applied to the root node during runtime.
+There can be two problems with this bounding box that lead to invisible geometry:
+* **The box can be far off-center**, so the object is clipped altogether due to far plane clipping. The `boundingBox` values in this case would look like this: `min = [-2000, -5,-5], max = [-1990, 5,5]`, using a large offset on the x-axis as an example here. To resolve this type of issue, enable the `recenterToOrigin` option in the [model conversion configuration](../how-tos/conversion/configure-model-conversion.md).
+* **The box can be centered but be orders of magnitude too large**. That means that albeit the camera starts in the center of the model, its geometry is clipped in all directions. Typical `boundingBox` values in this case would look like this: `min = [-1000,-1000,-1000], max = [1000,1000,1000]`. The reason for this type of issue is usually a unit scale mismatch. To compensate, specify a [scaling value during conversion](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) or markup the source model with correct units. Scaling can also be applied to the root node when loading the model at runtime.
 
 **The Unity render pipeline doesn't include the render hooks:**
 
