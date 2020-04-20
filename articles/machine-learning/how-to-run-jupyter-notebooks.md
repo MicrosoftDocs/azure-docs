@@ -70,11 +70,11 @@ To access the terminal:
 1. Select a **Compute** target or create a new one and wait until it is running.
 1. Select the **Open terminal** icon.
 
-        :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Open terminal":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Open terminal":::
 
 1. If you don't see the icon, select the **...** to the right of the compute target and then select **Open terminal** .
 
-        :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Open terminal from ...":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Open terminal from ...":::
 
 
 
