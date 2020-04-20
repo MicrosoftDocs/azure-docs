@@ -31,7 +31,7 @@ For more information about the sequential convoy pattern, see these articles:
 
 * An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* A Service Bus namespace and a Service Bus queue, which is a messaging entity. These items and your logic app need to use the same Azure subscription. If you don't have these items, learn [how to create your Service Bus namespace and a queue](../service-bus-messaging/service-bus-create-namespace-portal.md).
+* A Service Bus namespace and a Service Bus queue, which is a messaging entity. These items and your logic app need to use the same Azure subscription. Make sure that you select **Enable sessions** when you create your queue. If you don't have these items, learn [how to create your Service Bus namespace and a queue](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
   [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
