@@ -162,7 +162,7 @@ az deployment group create \
 
 ## Handle extended JSON format
 
-To deploy a template with multi-line strings or comments, you must use the `--handle-extended-json-format` switch.  For example:
+To deploy a template with multi-line strings or comments using Azure CLI with version 2.3.0 or older, you must use the `--handle-extended-json-format` switch.  For example:
 
 ```json
 {
