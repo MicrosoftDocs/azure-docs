@@ -1,5 +1,5 @@
 ---
-title: My first Python runbook in Azure Automation
+title: Create a Python runbook in Azure Automation
 description: Tutorial showing how to create, test, and publish a simple Python runbook.
 services: automation
 ms.subservice: process-automation
@@ -7,7 +7,7 @@ ms.date: 04/19/2020
 ms.topic: tutorial
 ---
 
-# Tutorial: My first Python runbook
+# Tutorial: Create a Python runbook
 
 > [!div class="op_single_selector"]
 > - [Graphical](automation-tutorial-runbook-graphical.md)
@@ -34,7 +34,7 @@ You start by creating a simple runbook that outputs the text *Hello World*.
 
 1. In the Azure portal, open your Automation account.
 
-    The Automation account page gives you a quick view of the resources in this account. You should already have some assets. Most of those assets are the modules that are automatically included in a new Automation account. You should also have the Credential asset that's mentioned in the [prerequisites](#prerequisites).<br>
+    The Automation account page gives you a quick view of the resources in this account. You should already have some assets. Most of those assets are the modules that are automatically included in a new Automation account. You should also have the Credential asset that's mentioned in the [prerequisites](#prerequisites).
 
 2. Select **Runbooks** under **Process Automation** to open the list of runbooks.
 
@@ -242,9 +242,9 @@ except Exception as detail:
 
 ## Next steps
 
-- To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-tutorial-runbook-textual-powershell.md).
-- To get started with Graphical runbooks, see [My first graphical runbook](automation-tutorial-runbook-graphical.md).
-- To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-tutorial-runbook-textual.md).
+- To get started with PowerShell runbooks, see [Create a PowerShell runbook](automation-tutorial-runbook-textual-powershell.md).
+- To get started with Graphical runbooks, see [Create a graphical runbook](automation-tutorial-runbook-graphical.md).
+- To get started with PowerShell workflow runbooks, see [Create a PowerShell workflow runbook](automation-tutorial-runbook-textual.md).
 - To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](../automation-runbook-types.md).
 - To learn about developing for Azure with Python, see [Azure for Python developers](/azure/python/).
 - To view sample Python 2 runbooks, see the [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python).

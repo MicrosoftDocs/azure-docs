@@ -1,5 +1,5 @@
 ---
-title: My first graphical runbook in Azure Automation
+title: Create a graphical runbook in Azure Automation
 description: Tutorial showing how to create, test, and publish a simple graphical runbook in Azure Automation.
 keywords: runbook, runbook template, runbook automation, azure runbook
 services: automation
@@ -7,7 +7,7 @@ ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ---
-# Tutorial: My first graphical runbook
+# Tutorial: Create a graphical runbook
 
 > [!div class="op_single_selector"]
 > * [Graphical](automation-tutorial-runbook-graphical.md)
@@ -348,7 +348,7 @@ You can now modify the runbook so that it only attempts to start the VM if it is
 ## Next steps
 
 * To learn more about graphical authoring, see [Graphical authoring in Azure Automation](../automation-graphical-authoring-intro.md).
-* To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-tutorial-runbook-textual-powershell.md).
-* To get started with PowerShell Workflow runbooks, see [My first PowerShell workflow runbook](automation-tutorial-runbook-textual.md).
+* To get started with PowerShell runbooks, see [Create a PowerShell runbook](automation-tutorial-runbook-textual-powershell.md).
+* To get started with PowerShell Workflow runbooks, see [Create a PowerShell workflow runbook](automation-tutorial-runbook-textual.md).
 * For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).
