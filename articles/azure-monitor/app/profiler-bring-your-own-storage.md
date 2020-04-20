@@ -48,7 +48,7 @@ If you're also using Private Link, it's required one additional configuration to
 * Grant the "Storage Blob Contributor" role to the AAD application "Diagnostic Services Trusted Storage Access" in your storage account via the IAM UI.
 * If Private Link enabled, configure the additional setting to allow connection to our Trusted Microsoft Service from your Virtual Network. 
 
-## Enablement process 
+## How to enable
 To configure BYOS for code-level diagnostics (Profiler/Debugger), follow the below steps:
 
 1. Create an Azure Resource Manager template file with the following content (byos.template.json).
