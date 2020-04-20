@@ -1,5 +1,5 @@
 ---
-title: Deploy the agent to connect CEF data to Azure Sentinel Preview| Microsoft Docs
+title: Deploy the log forwarder to connect CEF data to Azure Sentinel | Microsoft Docs
 description: Learn how to deploy the agent to connect CEF data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
