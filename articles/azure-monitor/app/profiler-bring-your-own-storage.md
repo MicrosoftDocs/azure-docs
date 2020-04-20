@@ -143,11 +143,20 @@ _![Figure 2.0](media/profiler-bring-your-own-storage/figure20.png)_
 _Figure 2.0_
 
 ## Troubleshooting
-### No registered resource provider found for location '{location}'.
+## Template schema '{schema_uri}' is not supported.
 * Make sure that the `$schema` property of the template is valid. It must follow the following pattern:
 `https://schema.management.azure.com/schemas/{schema_version}/deploymentTemplate.json#`
-* Make sure that the `apiVersion` of the resource `microsoft.insights/components` it's `2015-05-01`.
-* Make sure that the `apiVersion` of the resource `linkedStorageAccount` its `2020-03-01-preview`.
+* Make sure that the `schema_version` of the template is within valid values: `2014-04-01-preview, 2015-01-01, 2018-05-01, 2019-04-01, 2019-08-01`.
+    Errror message:
+    ```powershell
+    New-AzResourceGroupDeployment : 11:53:49 AM - Error: Code=InvalidTemplate; Message=Deployment template validation failed: 'Template schema
+    'https://schema.management.azure.com/schemas/2020-01-01/deploymentTemplate.json#' is not supported. Supported versions are
+    '2014-04-01-preview,2015-01-01,2018-05-01,2019-04-01,2019-08-01'. Please see https://aka.ms/arm-template for usage details.'.
+    ```
+
+### No registered resource provider found for location '{location}'.
+* Make sure that the `apiVersion` of the resource `microsoft.insights/components` is `2015-05-01`.
+* Make sure that the `apiVersion` of the resource `linkedStorageAccount` is `2020-03-01-preview`.
     Error message:
     ```powershell
     New-AzResourceGroupDeployment : 6:18:03 PM - Resource microsoft.insights/components 'byos-test-westus2-ai' failed with message '{
@@ -161,7 +170,7 @@ _Figure 2.0_
     }'
     ```
 ### Storage account location should match AI component location.
-* Make sure that the location of the Application Insights resource it's the same as the Storage Account trying to use. 
+* Make sure that the location of the Application Insights resource is the same as the Storage Account trying to use. 
     Error message:
     ```powershell
     New-AzResourceGroupDeployment : 1:01:12 PM - Resource microsoft.insights/components/linkedStorageAccounts 'byos-test-centralus-ai/serviceprofiler' failed with message '{
