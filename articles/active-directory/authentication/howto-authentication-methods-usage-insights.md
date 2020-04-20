@@ -91,6 +91,8 @@ The data shown in these reports will be delayed by up to 60 minutes. A "Last ref
 
 Usage and insights data is not a replacement for the Azure Multi-Factor Authentication activity reports or information contained in the Azure AD sign-ins report.
 
+Report can't currently be filtered to exclude external users.
+
 ## Next steps
 
 - [Working with the authentication methods usage report API](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)

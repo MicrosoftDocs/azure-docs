@@ -1,4 +1,4 @@
-﻿---
+---
 title: Template with dependent resources
 description: Learn how to create an Azure Resource Manager template with multiple resources, and how to deploy it using the Azure portal
 author: mumian
@@ -91,11 +91,11 @@ When you explore the template in this section, try to answer these questions:
 
     ![Visual Studio Code Azure Resource Manager templates virtual network dependsOn](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
-    The dependsOn element enables you to define one resource as a dependent on one or more resources. The dependsOn element enables you to define one resource as a dependent on one or more resources.  This resource depends on one other resource:
+    The dependsOn element enables you to define one resource as a dependent on one or more resources. This resource depends on one other resource:
 
     * `Microsoft.Network/networkSecurityGroups`
 
-1. Expand the fifty resource. The resource type is `Microsoft.Network/networkInterfaces`. The resource depends on two other resources:
+1. Expand the fifth resource. The resource type is `Microsoft.Network/networkInterfaces`. The resource depends on two other resources:
 
     * `Microsoft.Network/publicIPAddresses`
     * `Microsoft.Network/virtualNetworks`
@@ -158,7 +158,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 1. From the Azure portal, select **Resource group** from the left menu.
 2. Enter the resource group name in the **Filter by name** field.
-3. Select the resource group name.  You shall see a total of six resources in the resource group.
+3. Select the resource group name. You'll see a total of six resources in the resource group.
 4. Select **Delete resource group** from the top menu.
 
 ## Next steps
