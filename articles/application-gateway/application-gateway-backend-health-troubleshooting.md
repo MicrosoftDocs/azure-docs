@@ -426,7 +426,7 @@ This behavior can occur for one or more of the following reasons:
 
     b.	Check whether there's any UDR configured. If there is, search for the resource on the search bar or under **All resources**.
 
-    c.	Check whether there are any default routes (0.0.0.0/0) with the next hop not set as **Internet**. If the setting is either **Virtual Appliance** or **Virtual Network Gateway**, you must make sure that your virtual appliance or the on-premises device can properly route the packet back to the internet destination without modifying the packet.
+    c.	Check whether there are any default routes (0.0.0.0/0) with the next hop not set as **Internet**. If the setting is either **Virtual Appliance** or **Virtual Network Gateway**, you must make sure that your virtual appliance or the on-premises device can properly route the packet back to the internet destination without modifying the packet. In this scenario, it is possible to see the backend responding with a 200 response and traffic still routing to the Application Gateway without issue.
 
     d.	Otherwise, change the next hop to **Internet**, select **Save**, and verify the backend health.
 
@@ -441,6 +441,8 @@ This behavior can occur for one or more of the following reasons:
 1.	If there's a custom DNS server configured on the virtual network, verify that the server (or servers) can resolve public domains. Public domain name resolution might be required in scenarios where Application Gateway must reach out to external domains like OCSP servers or to check the certificate’s revocation status.
 
 1.	To verify that Application Gateway is healthy and running, go to the **Resource Health** option in the portal and verify that the state is **Healthy**. If you see an **Unhealthy** or **Degraded** state, [contact support](https://azure.microsoft.com/support/options/).
+
+    a. For more information on resource health status, see [Azure Application Gateway Resource Health overview](https://docs.microsoft.com/en-us/azure/application-gateway/resource-health-overview)
 
 Next steps
 ----------
