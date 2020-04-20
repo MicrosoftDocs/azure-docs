@@ -95,7 +95,7 @@ The following Robocopy command will copy files from your Linux Samba server's st
 
 If you provisioned less storage on your Windows Server instance than your files take up on the Linux Samba server, then you have configured cloud tiering. As the local Windows Server volume gets full, [cloud tiering](storage-sync-cloud-tiering.md) will start and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the Linux Samba server. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the policy of 99 percent free space for a volume.
 
-It's possible that Robocopy moves files faster than you can sync to the cloud and tier locally, causing you to run out of local disk space. Robocopy will then fail. We recommend that you work through the shares in a sequence that prevents the problem. For example, consider not starting Robocopy jobs for all shares at the same time. Or consider moving shares that fit on the current amount of free space on the Windows Server instance.
+It's possible that Robocopy moves files faster than you can sync to the cloud and tier locally, causing you to run out of local disk space. Robocopy will then fail. We recommend that you work through the shares in a sequence that prevents the problem. For example, consider not starting Robocopy jobs for all shares at the same time. Or consider moving shares that fit on the current amount of free space on the Windows Server instance. If your Robocopy job does fail, you can always re-run the command as long as you use the following mirror/purge option:
 
 ```console
 Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
