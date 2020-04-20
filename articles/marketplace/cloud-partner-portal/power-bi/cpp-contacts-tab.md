@@ -12,7 +12,7 @@ ms.author: dsindona
 # Power BI App Contacts tab
 
 >[!Important]
->Starting March 30th, 2020, we'll begin moving management of your Power BI app offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Power BI app creation overview](https://aka.ms/AzureCreatePBIServiceApp) to manage your migrated offers.
+>Starting April 13, 2020, we'll begin moving management of your Power BI app offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Power BI app creation overview](https://aka.ms/AzureCreatePBIServiceApp) to manage your migrated offers.
 
 Use the **Contacts** tab of the **New Offer** page to provide technical and user support resources for your offer. It is divided into two sections: 
 **Engineering** and **Customer Support**.

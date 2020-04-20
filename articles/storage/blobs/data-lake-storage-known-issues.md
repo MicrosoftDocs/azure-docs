@@ -107,8 +107,8 @@ Applications that call Blob APIs will likely work.
 
 If [anonymous read access](storage-manage-access-to-resources.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.
 
-## Windows Azure Storage Blob (WASB) driver (unsupported with ADLS Gen2)
+## Windows Azure Storage Blob (WASB) driver (unsupported with Data Lake Storage Gen2)
 
-Currently, the WASB driver - which was designed to work with the Blob API only - encounters problems in a few common scenarios, that is, when it is a client to a namespace-enabled storage account. Note that Multi-Protocol Access (MPA) will NOT mitigate these issues, either. 
+Currently, the WASB driver, which was designed to work with the Blob API only, encounters problems in a few common scenarios. Specifically, when it is a client to a hierarchical namespace-enabled storage account. Multi-protocol access on Data Lake Storage won't mitigate these issues. 
 
-For the time being (and most likely the foreseeable future), we will not support customers using the WASB driver as a client to a namespace-enabled storage account. We instead recommend that you opt to use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your Hadoop environment. If you are trying to migrate off of an on-premise Hadoop environment with a version earlier than Hadoop branch-3, then please open an Azure Support ticket so that we may get in touch with you on the right path forward for you and your organization.
+For the time being (and most likely the foreseeable future), we won't support customers using the WASB driver as a client to a hierarchical namespace-enabled storage account. Instead, we recommend that you opt to use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your Hadoop environment. If you are trying to migrate off of an on-premise Hadoop environment with a version earlier than Hadoop branch-3, then please open an Azure Support ticket so that we can get in touch with you on the right path forward for you and your organization.

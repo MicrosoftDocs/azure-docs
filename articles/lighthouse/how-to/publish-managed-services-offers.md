@@ -1,16 +1,16 @@
 ---
-title: Publish a managed service offer to Azure Marketplace
-description: Learn how to publish a managed service offer that onboards customers to Azure delegated resource management.
+title: Publish a Managed Service offer to Azure Marketplace
+description: Learn how to publish a Managed Service offer that onboards customers to Azure delegated resource management.
 ms.date: 04/08/2020
 ms.topic: conceptual
 ---
 
-# Publish a managed service offer to Azure Marketplace
+# Publish a Managed Service offer to Azure Marketplace
 
 > [!IMPORTANT]
-> Starting March 30th, 2020, we'll begin moving management of your Managed Service offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create new managed service offers](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) to manage your migrated offers.
+> Starting April 13th, 2020, we'll begin moving management of your Managed Service offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create a new Managed Service offer](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) to manage your migrated offers.
 
-In this article, you'll learn how to publish a public or private managed service offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using [Cloud Partner Portal](https://cloudpartner.azure.com/). Customers who purchase the offer are then able to to onboard subscriptions and resource groups for [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
+In this article, you'll learn how to publish a public or private Managed Service offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using [Cloud Partner Portal](https://cloudpartner.azure.com/). Customers who purchase the offer are then able to to onboard subscriptions and resource groups for [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
 
 ## Publishing requirements
 
@@ -23,7 +23,7 @@ Your Microsoft Partner Network (MPN) ID will be [automatically associated](../..
 > [!NOTE]
 > If you don't want to publish an offer to Azure Marketplace, you can onboard customers manually by using Azure Resource Manager templates. For more info, see [Onboard a customer to Azure delegated resource management](onboard-customer.md).
 
-Publishing a Managed Services offer is similar to publishing any other type of offer to Azure Marketplace. To learn about the general publishing process, see [Azure Marketplace and AppSource Publishing Guide](../../marketplace/marketplace-publishers-guide.md). You should also review the [commercial marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies), particularly the [Managed Services](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services) section.
+Publishing a Managed Service offer is similar to publishing any other type of offer to Azure Marketplace. To learn about the general publishing process, see [Azure Marketplace and AppSource Publishing Guide](../../marketplace/marketplace-publishers-guide.md). You should also review the [commercial marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies), particularly the [Managed Services](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services) section.
 
 Once a customer adds your offer, they will be able to delegate one or more subscriptions or resource groups, which will then be [onboarded for Azure delegated resource management](#the-customer-onboarding-process).
 

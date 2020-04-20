@@ -61,6 +61,7 @@ Make sure you have a device signal and Internet connection | Make sure your phon
 Turn off Do not disturb | Make sure you haven't turned on the **Do not disturb** feature for your mobile device. When this feature is turned on, notifications aren't allowed to alert you on your mobile device. Refer to your mobile device's manual for instructions about how to turn off this feature.
 Unblock phone numbers | In the United States, voice calls from Microsoft come from the following numbers: +1 (866) 539 4191, +1 (855) 330 8653, and +1 (877) 668 6536.
 Check your battery-related settings | This one seems a bit odd on the surface, but if you've set up your battery optimization to stop lesser-used apps from remaining active in the background, your notification system has most-likely been affected. To try to fix this problem, turn off battery optimization for your authentication app and your messaging app, and then try signing in to your account again.
+Disable third-party security apps | If you have an app that protects text messages or phone calls to minimize unknown callers, they may prevent the verification code being received. Try disabling any third-party security apps on your phone, then request another verification code be sent.
 
 ## I'm not getting prompted for my second verification information
 
