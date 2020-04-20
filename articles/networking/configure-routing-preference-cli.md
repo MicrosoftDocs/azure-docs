@@ -16,16 +16,17 @@ ms.author: mnayak
 ms.reviewer: 
 ---
 
-# Tutorial: Configure Routing Preference for Azure resources using the Azure portal
+# Configure routing preference for Azure resources using Azure CLI
 
-Azure allows customers in selecting network routing preference at resource level such as Virtual Machine, Load Balancer, VM Scaleset, Storage resources such as Blobs, Files etc. This is done by allowing customers to select routing Preference though public IP (internet facing) creation process. When you create a public IP, default routing preference option is set to "Microsoft Network". In this tutorial, you will learn how to:
+Azure enables you to select network routing preferences at a resource level such as virtual machine, load balancer, virtual machine scale set, and storage resources (for example, blobs and files). You can accomplish this by selecting the routing preference through the public IP (internet facing) creation process. When you create a public IP, default routing preference option is set to **Microsoft Network**.
 
+In this article, you will learn how to:
 > [!div class="checklist"]
-> * Create a public IP with a Routing Preference of "Internet" type
-> * Associate the Public IP to an Azure Resource (e.g. NIC of VM, load balancer)
-> * Verify the traffic to/from the Azure Resource is utilizing the Internet Routing Preference
+> * Create a public IP with an **Internet** routing preference
+> * Associate the Public IP to an Azure resource
+> * Verify the traffic to/from the Azure resource is utilizing the Internet routing preference
 
-If you prefer, you can complete this tutorial using the [Azure CLI](tutorial-routing-preference-cli.md) or [PowerShell](tutorial-routing-preference-powershell.md).
+If you prefer, you can complete this tutorial using the [Azure portal](configure-routing-preference-portal.md) or [PowerShell](configure-routing-preference-powershell.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
