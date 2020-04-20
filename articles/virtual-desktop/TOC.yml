@@ -6,7 +6,7 @@
     href: overview.md
 - name: Tutorials
   items:
-  - name: 1. Create a host pool with the Azure Marketplace
+  - name: 1. Create a host pool with the Azure portal
     href: create-host-pools-azure-marketplace.md
   - name: 2. Manage app groups
     href: manage-app-groups.md
