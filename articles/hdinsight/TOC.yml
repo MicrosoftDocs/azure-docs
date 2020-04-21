@@ -209,7 +209,11 @@
       - name: Monitor cluster performance
         href: ./hdinsight-key-scenarios-to-monitor.md
       - name: Monitor cluster availability with Ambari and Azure Monitor logs
-        href: ./hdinsight-cluster-availability.md    
+        href: ./hdinsight-cluster-availability.md
+    - name: Troubleshoot
+      items:
+      - name: Troubleshoot script actions
+        href: ./troubleshoot-script-action.md
   - name: Reference
     items:
     - name: Azure PowerShell
