@@ -179,16 +179,19 @@ To change a value's type or format, you can use these conversion functions. For 
 
 ## Implicit data type conversions
 
-The Logic Apps service automatically or implicitly converts values between specific data types, which means that you don't need to manually or explicitly convert between those types by using the relevant expressions. In fact, if these expressions appear in the designer or code view, Logic Apps removes the expressions after you save your logic app because the conversions happen automatically.
+The Logic Apps service automatically or implicitly performs some data type conversions, which means that you can omit the corresponding expressions to manually or explicitly make those conversions. However, if you use these expressions in your logic app, save your logic app, reload your logic app, and edit the expression's parameter values, Logic Apps removes those expressions from designer view. To avoid this Logic Apps behavior, don't edit the expression's parameter values. If Logic Apps removes the expressions anyway, those expressions reappear after you save your logic app.
 
-This table describes the implicit data type conversions and the expressions you'd typically use for those conversions but should omit because Logic Apps will remove the expressions.
+This table describes the functions or expressions that are affected by this Logic Apps behavior and should omit:
 
-| From | To |
-|------|----|
-| **Binary** or **File** | - **Byte**: `base64(<value>)` <br>- **DataUri**: `concat('data:;base64,',<value>)` |
-| **Byte** | - **Binary** or **File**: `base64ToBinary(<value>)` <br>- **DataUri**: `concat('data:;base64,',<value>)` <br>- **Other**: `base64ToString(<value>)` |
-| **DataUri** | - **Binary** or **File**: `decodeDataUri(<value>)` <br>- **Byte**: `base64(decodeDataUri(<value>))` <br>- **Other**: `decodeDataUri(<value>)` |
-| **Other** | - **Byte**: `base64(<value>)` <br>- **DataUri**: `concat('data:,',encodeUriComponent(<value>))` |
+| Function or expression | Example use cases |
+|------------------------|-------------------|
+| `base64(<value>)` | - Converting from **Binary** or **File** to **Byte** <br>- Converting from **Other** to **Byte** |
+| `base64ToBinary(<value>)` | Converting from **Byte** to **Binary** or **File** |
+| `base64ToString(<value>)` | Converting from **Byte** to **Other** |
+| `base64(decodeDataUri(<value>))` | Converting from **DataUri** to **Byte** |
+| `concat('data:;base64,',<value>)` | - Converting from **Binary** or **File** to **DataUri** <br>- Converting from **Byte** to **DataUri** |
+| `concat('data:,',encodeUriComponent(<value>))` | Converting from **Other** to **DataUri** |
+| `decodeDataUri(<value>)` | Converting from **DataUri** to **Binary**, **File**, or **Other** type |
 |||
 
 If you use non-string values where strings are expected as inputs, Logic Apps automatically converts the non-string values into strings, for example:
