@@ -10,7 +10,7 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 04/17/2020
+ms.date: 04/21/2020
 ---
 
 # Automating self-hosted integration runtime installation using local PowerShell scripts
@@ -67,12 +67,12 @@ This script is used to update/install + register latest self-hosted integration 
     * upgrade it
 
 You can follow below command-line example to use this script:
-1. Download and install latest gateway:
+* Download and install latest gateway:
 
    ```powershell
    PS C:\windows\system32> C:\Users\username\Desktop\script-update-gateway.ps1
    ```    
-2. Download and install gateway of specified version:
+* Download and install gateway of specified version:
    ```powershell
    PS C:\windows\system32> C:\Users\username\Desktop\script-update-gateway.ps1 -version 3.13.6942.1
    ``` 
