@@ -95,7 +95,7 @@
   items:
   - name: Full-text search
     href: search-lucene-query-architecture.md
-  - name: Indexers
+  - name: IndexersIndex
     href: search-indexer-overview.md
   - name: AI enrichment
     href: cognitive-search-concept-intro.md
@@ -110,6 +110,7 @@
       href: knowledge-store-projection-overview.md
     - name: Incremental enrichment
       href: cognitive-search-incremental-indexing-conceptual.md
+<<<<<<< HEAD
   - name: Security
     items:
     - name: Security overview
@@ -117,6 +118,10 @@
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
+=======
+    - name: Securing indexer resources
+      href: search-indexer-securing-resources.md
+>>>>>>> Take 1 of documentation
 - name: How-to guides
   items:
   - name: Create indexes and constructs
@@ -203,6 +208,14 @@
         href: search-howto-managed-identities-cosmos-db.md
       - name: SQL Database
         href: search-howto-managed-identities-sql.md
+    - name: Accessing network secured indexer resource  
+      items:
+      - name: Grant access from an IP range
+        href: search-indexer-howto-access-ip-restricted.md
+      - name: Grant access via trusted Microsoft service exception
+        href: search-indexer-howto-access-trusted-service-exception.md
+      - name: Grant access via private endpoints
+        href: search-indexer-howto-access-private.md
   - name: Ingest using AI
     items:
     - name: Attach a Cognitive Services resource
