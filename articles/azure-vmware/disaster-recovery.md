@@ -1,5 +1,5 @@
 ---
-title: Disaster Recovery
+title: Complete a disaster recovery of virtual machines using Azure VMWare Solution (AVS) Preview
 description: This article shows how to complete a disaster recovery of virtual machines by using AVS
 author: dikamath
 ms.author: dikamath

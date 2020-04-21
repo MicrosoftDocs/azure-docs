@@ -1,22 +1,15 @@
 ---
-title: Concepts - network interconnectivity for Azure VMware Solution (AVS)
+title: Concepts - Network interconnectivity for Azure VMware Solution (AVS) Preview
 description: Learn about key aspects and use cases of networking and interconnectivity in Azure VMware Solution (AVS)
-services:
-author: dikamath
-
-ms.service: vmware-virtustream
 ms.topic: conceptual
-ms.date: 7/29/2019
-ms.author: dikamath
-ms.custom: 
-
+ms.date: 05/04/2020
 ---
 
-# Azure VMware Solution (AVS) networking and interconnectivity concepts
+# Azure VMware Solution (AVS) Preview networking and interconnectivity concepts
 
 Network interconnectivity between your Azure VMware Solution (AVS) private clouds and on-premises environments or VNets in Azure enables you to access and use your private cloud. A few key networking and interconnectivity concepts that establish the basis of interconnectivity are described in this article.
 
-A useful perspective on interconnectivity is to consider the two types of AVS private cloud implementations: those with basic Azure-only interconnectivity, those with full on-premises to private cloud interconnectivity.
+A useful perspective on interconnectivity is to consider the two types of AVS private cloud implementations: those implementations with basic Azure-only interconnectivity, those implementations with full on-premises to private cloud interconnectivity.
 
 The use cases for AVS private clouds include:
 - new VMware VM workloads in the cloud
@@ -31,7 +24,7 @@ The two types of AVS private cloud interconnectivity are described in the sectio
 
 ## Azure VNet interconnectivity
 
-The basic network interconnectivity that is established at the time of a private cloud deployment is shown in the diagram below. It depicts the logical, ExpressRoute-based networking between a VNet in Azure and a private cloud. The interconnectivity fulfills three of the primary use cases:
+The basic network interconnectivity that is established at the time of a private cloud deployment is shown in the diagram below. It shows the logical, ExpressRoute-based networking between a VNet in Azure and a private cloud. The interconnectivity fulfills three of the primary use cases:
 - Inbound access to management networks where vCenter server and NSX-T manager are located.
     - Accessible from VMs within your Azure subscription, not from your on-premises systems.
 - Outbound access from VMs to Azure services.
@@ -43,9 +36,9 @@ The ExpressRoute (ER) circuit in this VNet -to- private cloud scenario is establ
 
 When you deploy an AVS private cloud, a single /22 private network address space is required. This address space shouldn't overlap with address spaces used in other VNets in your subscription. Within this address space, management, provisioning, and vMotion networks are provisioned automatically. The routing is BGP-based and it's automatically provisioned and enabled by default for each private cloud deployment.
 
-When a private cloud is deployed, you are provided with the IP addresses and credentials for vCenter and NSX-T Manager. To access those management interfaces, you will create additional resources in a VNet in your subscription. The procedures for creating those resources and establishing ER private peering are provided in the tutorials.
+When a private cloud is deployed, you're provided with the IP addresses and credentials for vCenter and NSX-T Manager. To access those management interfaces, you'll create additional resources in a VNet in your subscription. The procedures for creating those resources and establishing ER private peering are provided in the tutorials.
 
-You design the private cloud logical networking and implement it with NSX-T. You use NSX-T Manager in your private cloud to create NSX-T T1 routers, logical switches, and all software-defined network services.  At least one NSX-T T1 router and a logical switch is required. These logical NSX-T devices provide interconnectivity of VM workloads to VNets in your subscription, the internet, and Azure services.
+You design the private cloud logical networking and implement it with NSX-T. You use NSX-T Manager in your private cloud to create NSX-T T1 routers, logical switches, and all software-defined network services.  At least one NSX-T T1 router and a logical switch are required. These logical NSX-T devices provide interconnectivity of VM workloads to VNets in your subscription, the internet, and Azure services.
 
 ## On-premises interconnectivity
 
@@ -53,9 +46,9 @@ You can also connect on-premises environments to your AVS private clouds. This t
 
 ![VNet and on-premises full private cloud connectivity](./media/concepts/adjacency-overview-drawing-double.png)
 
-To establish full interconnectivity to a private cloud, you use the Azure portal to enable ExpressRoute Global Reach between a private cloud ER circuit and an on-premises ER circuit. This extends the basic connectivity to include access to private clouds from on-premises environments.
+To establish full interconnectivity to a private cloud, you use the Azure portal to enable ExpressRoute Global Reach between a private cloud ER circuit and an on-premises ER circuit. This configuration extends the basic connectivity to include access to private clouds from on-premises environments.
 
-An on-premises to Azure VNet ER circuit is required to connect from on-premises environments to your private cloud in Azure. This ER circuit is in your subscription and is not part of a private cloud deployment. The on-premises ER circuit is beyond the scope of this document. If you require on-premises connectivity to your private cloud, you can use one of your existing ER circuits or purchase one in the Azure portal.
+An on-premises to Azure VNet ER circuit is required to connect from on-premises environments to your private cloud in Azure. This ER circuit is in your subscription and isn't part of a private cloud deployment. The on-premises ER circuit is beyond the scope of this document. If you require on-premises connectivity to your private cloud, you can use one of your existing ER circuits or purchase one in the Azure portal.
 
 Once linked with Global Reach, the two ER circuits will route network traffic between your on-premises environments and your private cloud. The on-premises to private cloud interconnectivity is shown in the following diagram. The interconnectivity represented in the diagram enables the following use cases:
 - Hot/Cold Cross-vCenter vMotion

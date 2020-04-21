@@ -1,18 +1,11 @@
 ---
-title: Concepts - private clouds and clusters in Azure VMware Solution (AVS)
+title: Concepts - private clouds and clusters in Azure VMware Solution (AVS) Preview
 description: Learn about the key capabilities of Azure VMware software-defined data centers and vSphere clusters in VMware Solution on Azure by VMware. 
-services: 
-author: dikamath
-
-ms.service: vmware-virtustream
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.author: dikamath
-ms.custom: 
-
+ms.date: 05/04/2020
 ---
 
-# Azure VMware Solution (AVS) private cloud and cluster concepts
+# Azure VMware Solution (AVS) Preview private cloud and cluster concepts
 
 The Azure VMware Solution (AVS) delivers VMware-based private clouds in Azure. The private clouds are built from clusters of dedicated bare-metal hosts and are deployed and managed through the Azure portal. Clusters in private clouds are provisioned with VMware vSphere, vCenter, vSAN, and NSX software. AVS private cloud hardware and software deployments are fully integrated and automated in Azure.
 

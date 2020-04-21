@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 04/07/2020
 ---
 
-# Create a Virtual Network
+# Tutorial: Configure networking for your VMWare private cloud in Azure
 
 In this exercise you create a new virtual network (VNET) in the Resource Group you created previously. Skip this exercise if you already have a VNET defined in this Resource Group.
 

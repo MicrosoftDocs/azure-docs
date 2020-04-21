@@ -1,18 +1,11 @@
 ---
-title: Concepts - storage in Azure VMware Solution (AVS) private clouds
-description: Learn about the key storage capabilities in Azure VMware Solution (AVS) private clouds.
-services: 
-author: dikamath
-
-ms.service: vmware-virtustream
+title: Concepts - Storage in Azure VMware Solution (AVS) Preview private clouds
+description: Learn about the key storage capabilities in Azure VMware Solution (AVS) Preview private clouds.
 ms.topic: conceptual
 ms.date: 7/29/2019
-ms.author: dikamath
-ms.custom: 
-
 ---
 
-# Azure VMware Solution (AVS) storage concepts
+# Azure VMware Solution (AVS) Preview storage concepts
 
 AVS private clouds provide native, cluster-wide storage with VMware vSAN. All local storage from each host in a cluster is used in a vSAN datastore, and data-at-rest encryption is available and enabled by default. You can use Azure Storage resources to extend storage capabilities of your private clouds.
 
@@ -39,7 +32,7 @@ vSAN datastores use data-at-rest encryption by default. The encryption solution 
 
 ## Scaling
 
-Native cluster storage capacity is scaled by adding hosts to a cluster. For clusters that use HE hosts, the raw cluster-wide capacity is increased by 15.4 TB with each additional host. Clusters that are built with GP hosts have their raw capacity increased by 7.7 TB with each additional host. In both types of clusters, hosts take about 10 minutes to be added to a cluster. See the [scale private cloud tutorial][tutorials-scale-private-cloud] for instructions on scaling clusters.
+Native cluster storage capacity is scaled by adding hosts to a cluster. For clusters that use HE hosts, the raw cluster-wide capacity is increased by 15.4 TB with each additional host. Clusters that are built with GP hosts have their raw capacity increased by 7.7 TB with each additional host. In both types of clusters, hosts take about 10 minutes to be added to a cluster. See the [scale private cloud tutorial][tutorial-scale-private-cloud] for instructions on scaling clusters.
 
 ## Azure storage integration
 
