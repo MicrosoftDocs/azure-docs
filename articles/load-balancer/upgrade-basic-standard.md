@@ -25,7 +25,7 @@ An Azure PowerShell script is available that does the following:
 
 * Creates a Standard SKU Load Balancer in the resource group and location the you specify.
 * Seamlessly copies the configurations of the Basic SKU Load Balancer to the newly create Standard Load Balancer.
-* Creates a default oubound rule which enables outbound connectivity.
+* Creates a default outbound rule which enables outbound connectivity.
 
 ### Caveats\Limitations
 
