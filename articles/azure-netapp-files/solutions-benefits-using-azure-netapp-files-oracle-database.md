@@ -20,9 +20,9 @@ ms.author: b-juche
 
 Oracle Direct NFS (dNFS) makes it possible to drive higher performance than the operating system's own NFS driver. This article explains the technology and provides a performance comparison between dNFS and the traditional NFS client (Kernel NFS). It also shows the advantages and the ease of using dNFS with Azure NetApp Files.  
 
-## How Oracle Direct NFS Works
+## How Oracle Direct NFS works
 
-Oracle Direct NFS (dNFS) bypasses the operating system’s buffer cache. Data is cached once in the user space, eliminating the overhead of memory copies.  
+Oracle Direct NFS (dNFS) bypasses the operating system’s buffer cache. Data is cached only once in the user space, eliminating the overhead of memory copies.  
 
 The traditional NFS client uses a single network flow, as the following example shows: 
 
