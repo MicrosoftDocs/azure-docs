@@ -31,7 +31,7 @@ You can [configure](#config) how far into the future the forecast should extend 
 
 Features extracted from the training data play a critical role. And, automated ML performs standard pre-processing steps and generates additional time-series features to capture seasonal effects and maximize predictive accuracy.
 
-## Time-series and Deep Learning models
+## Time-series and deep learning models
 
 
 Automated ML provides users with both native time-series and deep learning models as part of the recommendation system. These learners include:
