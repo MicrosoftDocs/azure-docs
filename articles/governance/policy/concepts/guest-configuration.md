@@ -59,17 +59,19 @@ configuration within the machine.
 
 ## Supported client types
 
-The following table shows a list of supported operating system on Azure images:
+Guest Configuration policies are inclusive of new versions. Older versions of operating systems available
+in the Azure marketplace are excluded if the Guest Configuration agent is not compatible. The following table
+shows a list of supported operating systems on Azure images:
 
 |Publisher|Name|Versions|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04, 16.04, 18.04|
-|Credativ|Debian|8, 9|
-|Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
+|Canonical|Ubuntu Server|14.04 and later|
+|Credativ|Debian|8 and later|
+|Microsoft|Windows Server|2012 and later|
 |Microsoft|Windows Client|Windows 10|
-|OpenLogic|CentOS|7.3, 7.4, 7.5, 7.6, 7.7|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7, 7.8|
-|Suse|SLES|12 SP3|
+|OpenLogic|CentOS|7.3 and later|
+|Red Hat|Red Hat Enterprise Linux|7.4 and later|
+|Suse|SLES|12 SP3 and later|
 
 ### Unsupported client types
 
