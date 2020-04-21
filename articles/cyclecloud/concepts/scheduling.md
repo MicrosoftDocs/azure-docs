@@ -8,9 +8,9 @@ ms.author: adjohnso, jechia
 
 # CycleCloud Scheduling and Autoscaling Concepts
 
-CycleCloud is not a scheduler, but rather a platform that enables users to deploy their own scheduler on Azure, to manage and distribute jobs into a cluster of nodes. Additionally, CycleCloud provides a REST API and a Python library for developing autoscaling adapters for schedulers, enabling these managed clusters to size up or down according to the length of job queues and governance policies. 
+CycleCloud is not a scheduler, but rather a platform that enables users to deploy their own scheduler on Azure, to manage and distribute jobs into a cluster of nodes. Additionally, CycleCloud provides a REST API and a Python library for developing autoscaling adapters for schedulers, enabling these managed clusters to size up or down according to the length of job queues and governance policies.
 
-:::image type="content" source="~/images/concept_scheduling_autoscale_diagram.png" alt-text="Scheduling Diagram":::
+:::image type="content" source="~/images/concept_orchestration_diagram.png" alt-text="Orchestration Diagram":::
 
 ## Schedulers
 

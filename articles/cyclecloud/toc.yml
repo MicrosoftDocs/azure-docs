@@ -19,11 +19,9 @@
 - name: Concepts
   items:
   - name: Architecture
-    href: ./concepts/architecture.md
+    href: ./concepts/core.md
   - name: Clusters & Nodes
     href: ./concepts/clusters.md
-  - name: Orchestration
-    href: ./concepts/orchestration.md
   - name: Scheduling
     href: ./concepts/scheduling.md
   - name: Clusters Operations

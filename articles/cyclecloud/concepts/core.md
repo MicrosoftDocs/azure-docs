@@ -1,6 +1,6 @@
 ---
 title: CycleCloud Architecture Concepts
-description: Azure CycleCloud Architecture Core Concepts
+description: Azure CycleCloud Core Concepts
 author: jermth
 ms.date: 02/20/2020
 ms.author: jechia
@@ -16,13 +16,27 @@ Building individual HPC systems on Azure from basic infrastructure units such as
 
 Azure CycleCloud is a tool that helps construct HPC systems on Azure. It orchestrates these systems so that they size elastically according to the HPC tasks at hand, without the hassle of managing basic Azure building blocks. CycleCloud is designed by a team of experienced HPC professionals for HPC administrators and users, particularly users who are looking build HPC systems in Azure that resemble internal HPC infrastructure that they are familiar with.
 
-:::image type="content" source="~/images/architecture.png" alt-text="CycleCloud Architecture":::
+:::image type="content" source="~/images/concept_architecture_diagram.png" alt-text="Orchestration Diagram":::
 
-Operationally, CycleCloud is an application server that is installed in a Linux VM on Azure, or in an internal server that has access to Azure APIs and resources. This application server provides three main functions:
+Operationally, CycleCloud is an application server that is installed in a Linux VM on Azure, or on an on-premise server that has access to Azure APIs and resources. CycleCloud acquires and provisions Azure VMs to construct CycleCloud clusters that can integrate schedulers and user applications. CycleCloud also provides autoscaling integrations for a number of HPC schedulers and a CycleCloud agent that runs on Azure VMs.
 
-1. A graphical user interface for creating and managing HPC systems on Azure.
-2. Autoscaling integrations for HPC schedulers that translate HPC scheduler task requirements into Azure resources.
-3. A node preparation and configuration system for converting a provisioned VM into an HPC node.
+### Application Server
+
+This application server provides:
+
+1. A REST API for creating and managing HPC systems on Azure.
+1. A graphical user interface that allows a user to manage and monitor HPC systems.
+1. A CLI that facilitates integration of CycleCloud into existing workflows.
+1. An internal NoSQL datastore that caches cluster and node state.
+1. An allocation and orchestration system that acquires and manages Azure VMs
+1. A node monitoring system for existing VMs that alerts of status changes.
+
+### Integrations
+
+CycleCloud also provides a number of integrations into common schedulers and the Azure VMs. Thee provide:
+
+1. A node preparation and configuration system for converting a provisioned VM into an HPC node.
+1. Autoscaling for HPC schedulers that translate HPC scheduler task requirements into Azure resources.
 
 ### What can CycleCloud do
 
@@ -57,18 +71,6 @@ Additionally, CycleCloud provides the following features:
 - **Loosely coupled or tightly coupled workloads**
 
     HPC clusters created by CycleCloud are designed not only to support loosely coupled or embarrassingly parallel jobs where scale (the size of the cluster) is the primary concern. CycleCloud clusters are also designed with Azure's Infiniband backbone in mind, supporting tightly coupled or MPI-based workloads where node proximity and network latency is critical. These scale-out and tightly coupled concepts are ingrained in the scheduler integrations that CycleCloud supports.
-
-### What CycleCloud is not
-
-There is no job scheduling functionality in CycleCloud. In other words, CycleCloud is not a scheduler, but rather a platform that enables users to deploy their own scheduler into Azure. CycleCloud comes with built-in support for a number of commonly used schedulers (PBSPro, Slurm, IBM LSF, Grid Engine, and HT Condor), but CycleCloud users frequently implement their own scheduler on top of the provided autoscaling API.
-
-CycleCloud does not dictate cluster topology; the installation comes with templates that are designed to get HPC systems up and running in Azure quickly, but HPC operators can customize these templates to tailor the infrastructure to meet their requirements. The Azure HPC community provides opinionated templates that are optimized for different types of workloads and industries.
-
-### What a CycleCloud deployed environment looks like
-
-:::image type="content" source="~/images/architecture-deployment.png" alt-text="CycleCloud Deployment":::
-
-An entire CycleCloud HPC system can be deployed on Azure infrastructure. CycleCloud itself is installed as an application server on a VM in Azure that requires outbound access to Azure Resource Provider APIs. CycleCloud then starts and manages VMs that form the HPC systems — these typically consist of the HPC scheduler head node(s) and compute nodes, but may also include VM based Network Attached Storage such as an NFS server or BeeGFS cluster, login nodes, bastion hosts, and other components needed to support an HPC infrastructure. The makeup of the HPC system is defined entirely through CycleCloud templates. Additionally, CycleCloud HPC environments can utilize other PaaS services such as Azure NetApp Files, Azure HPC Cache, and Azure Active Directory Domain Service.
 
 > [!div class="nextstepaction"]
 > [Continue to Cluster & Node Concepts](./clusters.md)
