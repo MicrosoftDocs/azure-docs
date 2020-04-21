@@ -36,7 +36,7 @@ One thing to have in mind is that you'll take over of all the related costs of t
 
 ### Create Storage Account
 Create a brand-new Storage Account (if you don't have it) on the same location as your Application Insights resource.
-If you Application Insights resource it's on `West US 2`, then, your Storage Account must be in `West US 2`.
+If your Application Insights resource it's on `West US 2`, then, your Storage Account must be in `West US 2`.
 
 ### Grant Access to Diagnostic Services to your Storage Account
 You'll need to add the role `Storage Blob Data Contributor` to the AAD application named `Diagnostic Services Trusted Storage Access` in your storage account.
