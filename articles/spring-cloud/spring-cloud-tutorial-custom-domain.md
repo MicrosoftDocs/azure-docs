@@ -54,7 +54,7 @@ You can use a CNAME record to map a custom DNS name to Azure Spring Cloud.
 > The A record is not supported. 
 
 ### Create the CNAME record
-Go to your DNS provider and add a CNAME record to map your domain to the <service_name>.azuremicroservices.io, where <service_name> is the name of your Azure Spring Cloud instance. We support wildcard domain and sub domain. 
+Go to your DNS provider and add a CNAME record to map your domain to the <service_name>.azuremicroservices.io. Here <service_name> is the name of your Azure Spring Cloud instance. We support wildcard domain and sub domain. 
 After you add the CNAME, the DNS records page will resemble the following example: 
 
 ![DNS records page](./media/custom-dns-tutorial/dns-records.png)
