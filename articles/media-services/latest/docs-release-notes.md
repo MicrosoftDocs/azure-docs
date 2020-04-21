@@ -24,11 +24,11 @@ This article talks about the most recent Media Services v3 documentation updates
 ## April 2020
 
 * Azure Media Player docs were migrated to the [Azure documentation](../azure-media-player/azure-media-player-overview.md).
-* The [OBS quickstart](live-events-obs-quickstart.md) was added. It shows how to create a Media Services live stream by using the Azure portal and Open Broadcasting Studio (OBS)  
+* The [Live streaming with Open Broadcasting Studio (OBS)](live-events-obs-quickstart.md) quickstart was added. It shows how to create a Media Services live stream by using the Azure portal and OBS.
 
 ## March 2020
 
-The [Create an Azure Media Services live stream](live-events-wirecast-quickstart.md) was added. It shows you how to create an Azure Media Services live stream by using the Azure portal and Telestream Wirecast.
+The [Live streaming with Telestream Wirecast](live-events-wirecast-quickstart.md) quickstart was added. It shows you how to create an Azure Media Services live stream by using the Azure portal and Telestream Wirecast.
 
 ## Next steps
 
