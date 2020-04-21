@@ -13,10 +13,9 @@ Azure Monitor for containers provides rich monitoring experience for the Azure K
 >Support for Azure Red Hat OpenShift is a feature in public preview at this time.
 >
 
-Azure Monitor for containers can be enabled for new, or one or more existing deployments of Azure Red Hat OpenShift using the following supported methods:
+Azure Monitor for containers can be enabled for one or more existing deployments of Azure Red Hat OpenShift using the following supported methods:
 
-- For an existing cluster from the Azure portal or using Azure Resource Manager template.
-- For a new cluster using Azure Resource Manager template, or while creating a new cluster using the [Azure CLI](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
+- For an existing cluster using the [Azure CLI](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create) or from the Azure portal in the Multi-cluster view.
 
 ## Supported and unsupported features
 
@@ -37,10 +36,11 @@ Azure Monitor for containers supports monitoring Azure Red Hat OpenShift as desc
 
 ## Enable for an existing cluster
 
-Perform the following steps to enable monitoring of an Azure Red Hat OpenShift version 4 and higher cluster deployed in Azure. You can accomplish this from the Azure portal or using the provided templates.
+Perform the following steps to enable monitoring of an Azure Red Hat OpenShift version 4 and higher cluster deployed in Azure. You can accomplish this from the Azure portal or using the provided script.
 
 ### Using script
 
+1. Download the onboarding script 
 
 ### From the Azure portal
 
