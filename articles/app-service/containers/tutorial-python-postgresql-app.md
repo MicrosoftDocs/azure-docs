@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Linux Python app with Postgres'
-description: Learn how to get a Linux Python app working in Azure App Service, with connection to a PostgreSQL database in Azure. The tutorial demonstrates by using a Django sample app.
+title: 'Tutorial: Deploy Python (Django) with Postgres'
+description: Learn how to create a Python app with a PostgreSQL database and deploy it to Azure App Service on Linux. The tutorial uses a Django sample app for demonstration.
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 04/14/2020

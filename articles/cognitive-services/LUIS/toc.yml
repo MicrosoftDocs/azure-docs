@@ -194,6 +194,8 @@
       displayName: import, export
   - name: Publish
     href: luis-how-to-publish-app.md
+  - name: Query prediction runtime
+    href: luis-get-started-get-intent-from-browser.md
   - name: Manage app
     items:
     - name: Azure resources
