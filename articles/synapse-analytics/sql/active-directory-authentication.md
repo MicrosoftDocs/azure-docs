@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 Azure Active Directory authentication is a mechanism of connecting to [Azure Synapse Analytics](../overview-faq.md) by using identities in Azure Active Directory (Azure AD).
 
-With Azure AD authentication, you can centrally manage the identities of users having access to Azure Synapse to simplify permission management. Benefits include the following:
+With Azure AD authentication, you can centrally manage user identities that have access to Azure Synapse to simplify permission management. Benefits include the following:
 
 - It provides an alternative to regular username and password authentication.
 - Helps stop the proliferation of user identities across database servers.
