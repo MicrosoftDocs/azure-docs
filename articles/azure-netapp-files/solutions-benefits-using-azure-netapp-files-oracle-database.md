@@ -36,7 +36,7 @@ The [Oracle FAQ for Direct NFS](http://www.orafaq.com/wiki/Direct_NFS) shows tha
 
 dNFS is the default option in Oracle 18c also the default for RAC.
 
-dNFS is available starting with Oracle 11g. The diagram below compares dNFS with native NFS. When you use dNFS, an Oracle database that runs on an Azure virtual machine can drive more I/O than the native NFS client, which uses a single network flow.
+dNFS is available starting with Oracle Database 11*g*. The diagram below compares dNFS with native NFS. When you use dNFS, an Oracle database that runs on an Azure virtual machine can drive more I/O than the native NFS client, which uses a single network flow.
 
 ![Oracle and Azure NetApp Files comparison of dNFS with native NFS](../media/azure-netapp-files/solutions-oracle-azure-netapp-files-comparing-dnfs-native-nfs.png)
 
