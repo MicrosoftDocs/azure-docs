@@ -131,7 +131,7 @@ By default, Kudu executes the build steps for your Node application (`npm instal
 
 ### .NET 
 
-By default, Kudu executes the build steps for your .Net application (`dotnet build`). If you are using a build service such as Azure DevOps, then the Kudu build is unnecessary. To disable the Kudu build, create an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, with a value of `false`.
+By default, Kudu executes the build steps for your .NET application (`dotnet build`). If you are using a build service such as Azure DevOps, then the Kudu build is unnecessary. To disable the Kudu build, create an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, with a value of `false`.
 
 ## Other Deployment Considerations
 
