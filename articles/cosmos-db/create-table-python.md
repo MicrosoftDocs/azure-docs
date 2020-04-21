@@ -46,7 +46,7 @@ In this quickstart, you create and manage an Azure Cosmos DB Table API account f
 
 ## Clone the sample application
 
-Now let's clone a Table app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a Table app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically.
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -67,6 +67,9 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
     ```
 
 3. Then open the solution file in Visual Studio. 
+
+> ![TIP]
+> For a more detailed walkthrough of similar code, see the [Cosmos DB Table API sample](table-storage-how-to-use-python.md) article.
 
 ## Update your connection string
 

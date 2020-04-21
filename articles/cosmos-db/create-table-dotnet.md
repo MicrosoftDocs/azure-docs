@@ -41,7 +41,7 @@ If you don’t already have Visual Studio 2019 installed, you can download and u
 
 ## Clone the sample application
 
-Now let's clone a Table app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a Table app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. For an additional walkthrough of similar code, see the [Cosmos DB Table API sample](table-storage-how-to-use-dotnet.md) article.
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -60,6 +60,9 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
    ```bash
    git clone https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started.git
    ```
+
+> ![TIP]
+> For a more detailed walkthrough of similar code, see the [Cosmos DB Table API sample](table-storage-how-to-use-dotnet.md) article.
 
 ## Open the sample application in Visual Studio
 
