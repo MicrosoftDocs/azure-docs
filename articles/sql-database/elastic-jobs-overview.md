@@ -32,7 +32,7 @@ If you have not used Elastic jobs, [learn more about the job automation concepts
 3. Create a job agent credential in each database the job will run [(add the user (or role) to each database in the group)](sql-database-manage-logins.md). For an example, see the [PowerShell tutorial](elastic-jobs-powershell.md).
 4. Create a job using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 5. Add job steps using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
-6. Run a job using [PowerShell](elastic-jobs-powershell.md#run-the-job) or [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
+6. Run a job using [PowerShell](elastic-jobs-powershell.md#run-the-job) or [T-SQL](elastic-jobs-tsql.md#begin-unplanned-execution-of-a-job).
 7. Monitor job execution status using the portal, [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) or [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
 
    ![Portal](media/elastic-jobs-overview/elastic-job-executions-overview.png)
