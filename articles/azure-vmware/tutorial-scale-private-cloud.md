@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Scale a private cloud
+title: "Tutorial: Scale a private cloud"
 description: In this tutorial, you use the Azure portal to scale an Azure VMware Solution (AVS) Preview private cloud.
 ms.topic: tutorial
 ms.date: 05/04/2020
