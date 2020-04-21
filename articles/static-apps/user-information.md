@@ -63,7 +63,7 @@ fetch("/api/user/")
   .then(data => console.log(data));
 ```
 
-Using libraries like [axios](https://github.com/axios/axios) make the process of accessing returned user information even easier.
+Libraries like [axios](https://github.com/axios/axios) make accessing user information even easier.
 
 ```javascript
 axios.get(`/api/user`).then(response => console.log(response.data));
