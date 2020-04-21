@@ -25,7 +25,7 @@ It is recommended that the application server be deployed in the same VNET (virt
 
 - You may need to add a public IP address.
 
-- If the error message indicates a return proxy, check the [return proxy settings](../return-proxy.md).
+- If the error message indicates a return proxy, check the [return proxy settings](../how-to/return-proxy.md).
 
 - After updating network or proxy settings, you can test connectivity by SSHing into the node as the cyclecloud user and using `curl -k {https://error-message-url}`.
 
@@ -34,4 +34,4 @@ It is recommended that the application server be deployed in the same VNET (virt
 ## More Information
 
 [Read more about network-connectivity here](../network-connectivity.md)
-[Read more about return proxy here](../return-proxy.md)
+[Read more about return proxy here](../how-to/return-proxy.md)

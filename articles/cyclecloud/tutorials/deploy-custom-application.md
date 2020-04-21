@@ -2,7 +2,7 @@
 title: Tutorial - Deploy a New Application to an HPC Cluster
 description: In this tutorial, you will use a project to install a custom application to your cluster.
 author: KimliW
-ms.date: 08/01/2018
+ms.date: 04/01/2018
 ms.author: adjohnso
 ---
 
@@ -10,7 +10,7 @@ ms.author: adjohnso
 
 This tutorial shows how to use a CycleCloud project to install a custom application on every node of a cluster. By the end of this exercise, you will:
 
-* Use [CycleCloud projects](~/projects.md) to install a custom application
+* Use [CycleCloud projects](~/how-to/projects.md) to install a custom application
 * Stage application installation files in the project's *blobs* directory
 * Write a script that is executed on every cluster node as it boots
 * Start a new cluster that uses the new project
@@ -23,7 +23,7 @@ For this tutorial, you will need:
 
 1. An Azure account with an active subscription.
 2. Azure CycleCloud set up on your Azure account.
-3. [CycleCloud CLI](../install-cyclecloud-cli.md) installed and configured.
+3. [CycleCloud CLI](../how-to/install-cyclecloud-cli.md) installed and configured.
 3. A Shell session in a terminal.
   * If you are using a Windows machine, use the [browser-based Bash shell](https://shell.azure.com).
   * For non-Windows machines, install and use Azure CLI v2.0.20 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
@@ -38,7 +38,7 @@ This tutorial illustrates how you could use CycleCloud Projects to install [Salm
 
 ## CycleCloud Projects
 
-[CycleCloud Project](~/projects.md) consists of three main components: templates, specs, and blobs.
+[CycleCloud Project](~/how-to/projects.md) consists of three main components: templates, specs, and blobs.
 
 * **Templates** define the architecture of the CycleCloud cluster. They dictate how the nodes of a cluster are laid out, and how each node is configured.
 * **Specs** define the configuration of each node. These configuration steps are captured in scripts. You can have no specs or multiple specs assigned to each node in a cluster template.
@@ -239,7 +239,7 @@ Repeat this step for the Execute Cluster-Init. When finished, your Advanced Sett
 
 ![salmon specs selected](~/images/salmon-specs-selected.png)
 
-Save your cluster and start it up. When the master node turns green, [log into it](../connect-to-node.md) and verify that `salmon` has been installed:
+Save your cluster and start it up. When the master node turns green, [log into it](../how-to/connect-to-node.md) and verify that `salmon` has been installed:
 
 ``` output
 ellen@Azure:~$ ssh ellen@40.117.78.137
@@ -271,7 +271,7 @@ Commands:
 
 In this tutorial, you learned how to:
 
-* Use [CycleCloud projects](~/projects.md) to install a custom application
+* Use [CycleCloud projects](~/how-to/projects.md) to install a custom application
 * Stage application installation files in the project's *blobs* directory
 * Write a script that is executed on every cluster node as it boots
 * Start a new cluster that uses the new project
@@ -281,4 +281,4 @@ Return to the Azure CycleCloud documentation home for additional tutorials and d
 To continue exploring the features of Azure CycleCloud, try the Deploy a Custom Application tutorial.
 
 > [!div class="nextstepaction"]
-> [Next Tutorial](~/tutorials/modify-cluster-template.md)
+> [Next Tutorial](modify-cluster-template.md)

@@ -6,174 +6,168 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Install and Setup
-    href: quickstart-install-cyclecloud.md
-  - name: Create a Simple Cluster
-    href: quickstart-create-and-run-cluster.md
-  - name: Submit and Auto Scale
-    href: quickstart-submit-jobs.md
-  - name: Clean Up Resources
-    href: quickstart-clean-up-resources.md
+  - name: Install - via Marketplace
+    href: qs-install-marketplace.md
 - name: Tutorials
   items:
-  - name: Modify a Cluster Template
-    href: ~/tutorials/modify-cluster-template.md
-  - name: Deploy a Custom Application
-    href: ~/tutorials/deploy-custom-application.md
+  - name: 1. Create a Cluster
+    href: ./tutorials/create-cluster.md
+  - name: 2. Submit Jobs & Scale Cluster
+    href: ./tutorials/submit-jobs.md
+  - name: 3. Autostop & Clean-up
+    href: ./tutorials/clean-up.md
 - name: Concepts
   items:
-  - name: Clusters and Nodes
-    href: clusters.md
-  - name: Auto Scale
-    href: autoscale.md
-  - name: Cluster Templates
-    href: cluster-templates.md
-  - name: Environments
-    href: environments.md
-  - name: Projects
-    href: projects.md
-  - name: Storage
+  - name: Core
+    href: ./concepts/core.md
+  - name: Clusters & Nodes
+    href: ./concepts/clusters.md
+  - name: Scheduling
+    href: ./concepts/scheduling.md
+  - name: Clusters Operations
     items:
-    - name: Attach Storage
-      href: attach-storage.md
-    - name: Mount Volumes
-      href: storage-mount-volumes.md
-    - name: Configure NFS Mounts and Exports
-      href: storage-nfs-mounts.md
-    - name: Blobs
-      href: storage-blobs.md
-  - name: Network Configuration
-    items:
-    - name: Network Connectivity
-      href: network-connectivity.md
-    - name: Network Security
-      href: network-security.md
-    - name: Proxy Traffic
-      href: proxy-traffic.md
-    - name: SSL Configuration
-      href: ssl-configuration.md
-  - name: Monitoring and Reporting
-    items:
+    - name: User Management
+      href: ./concepts/user-management.md
+    - name: Usage Tracking
+      href: ./concepts/usage-tracking.md
     - name: Monitoring
-      href: monitoring.md
-    - name: Alerts
-      href: alerts.md
-    - name: Usage
-      href: usage.md
-    - name: Reports
-      href: reports.md
-    - name: Event Logs
-      href: event-logs.md
-    - name: HealthCheck
-      href: healthcheck.md
-  - name: Access Control
-    items:
-    - name: User Managemement
-      href: user-management.md
-    - name: Cluster User Access
-      href: user-cluster-access.md
-    - name: User Authentication
-      href: user-authentication.md
+      href: ./concepts/monitoring.md
 - name: How-To
   items:
-  - name: Install CycleCloud Manually
-    href: installation.md
-  - name: Prepare Your Azure Subscription for CycleCloud
-    href: configuration.md
-  - name: Use Managed Identities with CycleCloud
-    href: managed-identities.md
-  - name: Install Azure CycleCloud CLI
-    href: install-cyclecloud-cli.md
-  - name: Run CycleCloud in an Azure Container Instance
-    href: container-distribution.md
-  - name: Start a Cluster
-    href: start-cluster.md
-  - name: Connect to a Cluster Node
-    href: connect-to-node.md
-  - name: Terminate a Cluster
-    href: end-cluster.md
-  - name: Work with Custom Images
-    href: custom-images.md
-  - name: Use HB and HC VMs with CycleCloud
-    href: hb-hc-best-practices.md
-  - name: Install Jetpack
-    href: jetpack-install.md
-  - name: Enable Return Proxy
-    href: return-proxy.md
-  - name: Use Tags
-    href: tag-nodes.md
-  - name: Use Images
-    href: images.md
+  - name: CycleCloud
+    items:
+    - name: Manually Install Application
+      href: ./how-to/install-manual.md
+    - name: Install CycleCloud CLI
+      href: ./how-to/install-cyclecloud-cli.md
+    - name: Run in a Container Instance
+      href: ./how-to/run-in-container.md
+    - name: Run CycleCloud using ARM Template
+      href: ./how-to/install-arm.md
+    - name: Prepare Your Azure Subscription
+      href: ./how-to/configuration.md
+    - name: Use Service Principals with CycleCloud
+      href: ./how-to/service-principals.md
+    - name: Use Managed Identities with CycleCloud
+      href: ./how-to/managed-identities.md
+    - name: Configure User Authentication
+      href: ./how-to/user-authentication.md
+    - name: Upgrade and Migrate
+      href: ./how-to/upgrade-and-migrate.md
+    - name: Backup and Restore
+      href: ./how-to/backup-and-restore.md
+    - name: Configure Proxies
+      href: ./how-to/running-behind-proxy.md
+    - name: Run in Locked Down Network
+      href: ./how-to/running-in-locked-down-network.md
+    - name: Customize UI Theme
+      href: ./how-to/theming.md
+    - name: Configure SSL
+      href: ./how-to/ssl-configuration.md
+    - name: Run Multiple CycleCloud Installs
+      href: ./how-to/multiple-installs.md
+  - name: Cluster Operations
+    items:
+    - name: Create a Cluster
+      href: ./how-to/create-cluster.md
+    - name: Start a Cluster
+      href: ./how-to/start-cluster.md
+    - name: Connect to a Node
+      href: ./how-to/connect-to-node.md
+    - name: Terminate a Cluster
+      href: ./how-to/terminate-cluster.md
+    - name: Prevent Node Termination
+      href: ./how-to/keep-alive.md
+    - name: Grant User Access
+      href: ./how-to/user-access.md
+    - name: Monitor Clusters
+      href: ./how-to/monitor-clusters.md
+    - name: Tag Nodes
+      href: ./how-to/tag-nodes.md
+  - name: Customize Clusters
+    items:
+    - name: Use Cluster Templates
+      href: ./how-to/cluster-templates.md
+    - name: Add a Node Array
+      href: ./how-to/add-node-array.md
+    - name: Add a Disk
+      href: ./how-to/add-disk.md
+    - name: Mount a Disk
+      href: ./how-to/mount-disk.md
+    - name: Create Network Fileserver
+      href: ./how-to/create-fileserver.md
+    - name: Mount a Network Fileserver
+      href: ./how-to/mount-fileserver.md
+    - name: Enable Return Proxy
+      href: ./how-to/return-proxy.md
+    - name: Configure Network Security
+      href: ./how-to/network-security.md
+    - name: Use Availability Sets
+      href: ./how-to/availability-sets.md
+    - name: Use Environments
+      href: ./how-to/environments.md
+    - name: Use Projects
+      href: ./how-to/projects.md
+    - name: Use Storage Blobs
+      href: ./how-to/storage-blobs.md
+  - name: Node Preparation
+    items:
+    - name: Install Jetpack
+      href: ./how-to/install-jetpack.md
+    - name: Create a Custom Image
+      href: ./how-to/create-custom-image.md
+    - name: Use HB and HC VMs
+      href: ./how-to/hb-hc-best-practices.md
+    - name: Use HealthCheck
+      href: ./how-to/healthcheck.md
+  - name: Scheduling
+    items:
+    - name: Configure Autoscaling
+      href: ./how-to/configure-autoscaling.md
+    - name: Use the REST API
+      href: ./how-to/use-rest-api.md
+  - name: Troubleshoot
+    href: ./how-to/troubleshoot.md
+
 - name: Reference
   items:
-  - name: Cluster Reference
+  - name: Cluster Template Reference
     items:
-      - name: Cluster Parameters
-        href: ~/cluster-references/cluster-template-reference.md
-      - name: Cluster Template File
-        href: ~/cluster-references/cluster-template-files.md
-      - name: Cluster
-        href: ~/cluster-references/build-cluster-template.md
-      - name: Node and Nodearray
-        href: ~/cluster-references/nodes-in-cluster-templates.md
-      - name: Volume
-        href: ~/cluster-references/volume-reference.md
-      - name: Network Interface
-        href: ~/cluster-references/network-interface.md
-      - name: Cluster-Init
-        href: ~/cluster-references/cluster-init-reference.md
-      - name: Input-Endpoint
-        href: ~/cluster-references/input-endpoint.md
-      - name: Cluster Configuration
-        href: ~/cluster-references/cluster-configuration.md
-      - name: (beta) Environment
-        href: ~/cluster-references/environment.md
-      - name: (beta) Noderef
-        href: ~/cluster-references/noderef.md
-      - name: Cluster Parameters
-        href: ~/cluster-references/parameter-reference.md
-      - name: Cluster Parameter Special Parsing
-        href: ~/cluster-references/special-parsing.md
-      - name: Download Existing Cluster Templates
-        href: download-cluster-templates.md
-
-  - name: CycleCloud Application
-    items:
-    - name: Performance Tuning
-      href: ~/cyclecloud-references/performance-tuning.md
-    - name: Backup and Restore
-      href: ~/cyclecloud-references/backup-and-restore.md
-    - name: Upgrade and Migrate
-      href: ~/cyclecloud-references/upgrade-and-migrate.md
-    - name: HTTP Proxy Configuration
-      href: ~/cyclecloud-references/running-behind-proxy.md
-    - name: Running in Locked Down Networks
-      href: ~/cyclecloud-references/running-in-locked-down-network.md
-    - name: User Interface Theming
-      href: ~/cyclecloud-references/theming.md
+    - name: Cluster Template Overview
+      href: ./cluster-references/cluster-template-reference.md
+    - name: Cluster
+      href: ./cluster-references/cluster-reference.md
+    - name: Node and Nodearray
+      href: ./cluster-references/node-nodearray-reference.md
+    - name: Volume
+      href: ./cluster-references/volume-reference.md
+    - name: Network Interface
+      href: ./cluster-references/network-interface-reference.md
+    - name: Cluster-Init
+      href: ./cluster-references/cluster-init-reference.md
+    - name: Input-Endpoint
+      href: ./cluster-references/input-endpoint-reference.md
+    - name: Cluster Configuration
+      href: ./cluster-references/configuration-reference.md
+    - name: Environment
+      href: ./cluster-references/environment-reference.md
+    - name: Noderef
+      href: ./cluster-references/noderef-reference.md
+    - name: Cluster Parameters
+      href: ./cluster-references/parameter-reference.md
+    - name: Cluster Parameter Special Parsing
+      href: ./cluster-references/special-parsing.md
   - name: REST API Reference
     href: api.md
   - name: Python API Reference
     href: python-api.md
+  - name: CycleCloud CLI
+    href: cli.md
   - name: Jetpack
     href: jetpack.md
   - name: Common Cookbook Reference
     href: cookbook-reference.md
-  - name: Node Configuration
-    href: node-configuration-reference.md
-
-  - name: pogo
-    items:
-    - name: Overview
-      href: pogo-overview.md
-    - name: pogo Configuration
-      href: pogo-configuration.md
-    - name: Using pogo
-      href: pogo-guide.md
-  - name: Auto Scale
-    href: autoscale-api.md
-  - name: Scheduler
-    href: scheduler-integration.md
+  - name: Schedulers
     items:
     - name: PBS Professional OSS
       href: pbspro.md
@@ -185,6 +179,8 @@
       href: htcondor.md
     - name: IBM Spectrum LSF
       href: lsf.md
+  - name: Log Locations
+    href: log_locations.md
   - name: Error Messages
     href: error_messages.md
 - name: Resources

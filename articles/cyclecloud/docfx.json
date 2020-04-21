@@ -47,8 +47,9 @@
       "ms.topic":
       {
         "includes/**/*.md": "include",
-        "**/quickstart-*.md": "quickstart",
+        "**/qs-*.md": "quickstart",
         "tutorials/**/*.md": "tutorial",
+        "how-to/**/*.md": "how-to",
         "**overview.md": "overview"
       }
     },

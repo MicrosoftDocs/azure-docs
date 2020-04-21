@@ -14,11 +14,11 @@ This article describes the servicing policy for Azure CycleCloud, and what you m
 
 ## Lifecycle Policy
 
-Azure CycleCloud follows Microsoft’s [Modern Lifecycle Policy](https://support.microsoft.com/help/30881/modern-lifecycle-policy).
+Azure CycleCloud follows Microsoft's [Modern Lifecycle Policy](https://support.microsoft.com/help/30881/modern-lifecycle-policy).
 
 ## Release Types
 
-Microsoft is responsible for the end-to-end servicing lifecycle for the Azure CycleCloud software release and update packages, which can be downloaded directly from Microsoft. We recommend Azure CycleCloud Operators set maintenance windows when installing releases. Releases update your Azure CycleCloud installation’s version.
+Microsoft is responsible for the end-to-end servicing lifecycle for the Azure CycleCloud software release and update packages, which can be downloaded directly from Microsoft. We recommend Azure CycleCloud Operators set maintenance windows when installing releases. Releases update your Azure CycleCloud installation's version.
 
 There are three types of Azure CycleCloud release: major, minor, and hotfix.
 
@@ -30,7 +30,7 @@ For more information about a specific release, see the [product documentation](h
 
 ## Azure CycleCloud Release Cadence
 
-Microsoft expects to release Azure CycleCloud updates on a monthly cadence. However, it’s possible to have multiple, or no update releases in a month.
+Microsoft expects to release Azure CycleCloud updates on a monthly cadence. However, it's possible to have multiple, or no update releases in a month.
 
 For information about a specific update see the release notes for that update in our [product documentation](https://docs.microsoft.com/azure/cyclecloud/release-notes).
 
@@ -51,7 +51,7 @@ Azure CycleCloud software update packages are cumulative. If you decide to defer
 
 ## Keeping Your System Supported
 
-See product documentation to learn how to upgrade running deployments to a supported version: [Upgrade Azure CycleCloud](~/cyclecloud-references/upgrade-and-migrate.md).
+See product documentation to learn how to upgrade running deployments to a supported version: [Upgrade Azure CycleCloud](~/how-to/upgrade-and-migrate.md).
 
 ## Get Support
 

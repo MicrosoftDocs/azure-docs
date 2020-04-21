@@ -1,9 +1,9 @@
 ---
 title: Cookbook Reference
 description: Reference resource for Chef Cookbooks in Azure CycleCloud
-author: KimliW
+author: adriankjohnson
 ms.topic: reference
-ms.date: 08/01/2018
+ms.date: 03/09/2020
 ms.author: adjohnso
 ---
 
@@ -22,7 +22,7 @@ CycleCloud ships with a set of pre-defined cluster templates which can be used t
 However, CycleCloud clusters are provisioned using a set of *Common Cookbooks* available to all CycleCloud clusters, and those `cookbooks` have a set of `attributes` which users may wish to customize. Some of the most commonly used `attributes` are documented below.
 
 > [!NOTE]
-> Prefer Cluster Template features to direct modification of Chef `attributes`.
+> Prefer Cluster Template features to direct modification of Chef attributes.
 
 Common Cookbook attributes are subject to change. Attribute settings are commonly superceded as the features they control are made available as more general/powerful features of CycleCloud itself. If a customization is available in both the Cluster Template and via a Chef attribute, always prefer the Cluster Template method since it is the more general solution.
 
@@ -71,40 +71,14 @@ The table below lists all of the attributes of the thunderball resource.
 
 Custom configuration sections can be used in order to download objects from another repository.
 
-| Attribute   | Description                                                                                                                                              |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| base        | Base URL.                                                                                                                                                |
-| client      | Command line tool to interact with provider.                                                                                                             |
-| endpoint    | URL endpoint to use.                                                                                                                                     |
-| filename    | Config file to use.                                                                                                                                      |
-| password    | Password for Azure.                                                                                                                                      |
-| proxy_host  | Host to use as proxy.                                                                                                                                    |
-| proxy_port  | Port to use for proxy.                                                                                                                                   |
-| user        | Local system user that will use this configuration. Configuration file is placed in this user’s home directory (`filename` is ignored when this is used) |
-| username    | Access_key/username for Azure.                                                                                                                           |
-
-## Attribute Reference
-
-## CycleServer Cookbook
-
-These may be applied to any node configured to run a CycleServer instance.
-
-| Attribute                 | Description                                                                                                   |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| cycle_server.admin.name   | Set the user name for the CycleServer administrator account.  Valid values: any username. Defaults to admin.  |
-| cycle_server.admin.pass   | Set the password for the CycleServer administrator account.  Valid values: any password.                      |
-| cycle_server.http_port    | Set the HTTP port for CycleServer.  Defaults to 8080.                                                         |
-| cycle_server.https_port   | Set the HTTPS port for CycleServer.  Default: 8443                                                            |
-
-## Cluster User
-
-The cluster user is a non-root, non-sudo user that can log into nodes in the cluster and do basic tasks such as creating and submitting jobs.
-
-> [!NOTE]
-> These attributes should be set to the same values for all nodes in a cluster. Using node defaults is a
-> good way to accomplish this.
-
-| Attribute                        | Description                                                                                                                |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| cyclecloud.shared_user.name      |  Set the user name for the shared cluster user. Prior to CycleCloud 1.10 this was the 'Username' attribute on the cluster. |
-| cyclecloud.shared_user.password  | Set the password for the shared cluster user. Prior to CycleCloud 1.10 this was the 'Password' attribute on the cluster.   |
+| Attribute   | Description |
+| ---------   | ----------- |
+| base        | Base URL.   |
+| client      | Command line tool to interact with provider.  |
+| endpoint    | URL endpoint to use.   |
+| filename    | Config file to use.   |
+| password    | Password for Azure.  |
+| proxy_host  | Host to use as proxy.    |
+| proxy_port  | Port to use for proxy.  |
+| user        | Local system user that will use this configuration. Configuration file is placed in this user's home directory (`filename` is ignored when this is used) |
+| username    | Access_key/username for Azure.  |

@@ -33,12 +33,12 @@ sections:
           image:
             src: media/index/ccswoosh.jpg
           title: What is Azure CycleCloud?
-        - href: quickstart-install-cyclecloud
+        - href: qs-install-marketplace
           html: <p>New to Azure CycleCloud? Start here for a guided walkthrough of the installation, setup, and use of Azure CycleCloud.</p>
           image:
             src: media/index/i_quick-start.svg
           title: Quickstarts
-        - href: clusters
+        - href: concepts/clusters
           html: <p>Learn how Azure CycleCloud uses Cluster Templates to create and scale your jobs quickly and easily.</p>
           image:
             src: media/index/i_get-started.svg
@@ -50,13 +50,13 @@ sections:
       className: cardsD
       items:
         - title: Clusters
-          html: <p><a href="clusters">Clusters and Nodes</a></p><p><a href="cluster-templates">Cluster Templates</a></p><p><a href="projects">CycleCloud Projects</a></p><p><a href="custom-images">Custom Images</a></p>
+          html: <p><a href="concepts/clusters">Clusters & Node Concepts</a></p><p><a href="how-to/cluster-templates">Cluster Templates</a></p><p><a href="how-to/projects">CycleCloud Projects</a></p><p><a href="how-to/create-custom-image">Custom Images</a></p>
         - title: Storage
-          html: <p><a href="attach-storage">Attach Storage</a></p><p><a href="storage-mount-volumes">Mount Volumes</a></p><p><a href="storage-nfs-mounts">Configure NFS Mounts</a></p><p><a href="storage-blobs">Blobs and Lockers</a></p>
-        - title: Auto Scale
-          html: <p><a href="autoscale">Auto Scale</a></p><p><a href="autoscale-api">Auto Scale Plugins</a></p>
+          html: <p><a href="how-to/add-disk">Add Disks</a></p><p><a href="how-to/mount-disk">Mount Disks</a></p><p><a href="how-to/create-fileserver">Configure NFS Mounts</a></p><p><a href="how-to/storage-blobs">Blobs and Lockers</a></p>
+        - title: Networking
+          html: <p><a href="how-to/network-security">Network Security</a></p><p><a href="how-to/running-behind-proxy">Configure Proxy</a></p><p><a href="how-to/running-in-locked-down-network">Locked Down Network</a></p>
         - title: Tools
-          html: <p><a href="pogo-overview">pogo</a></p><p><a href="jetpack">Jetpack</a></p><p><a href="scheduler-integration">Scheduler Integration</a></p><p><a href="healthcheck">HealthCheck</a></p>
+          html: <p><a href="how-to/install-cyclecloud-cli">CycleCloud CLI</a></p><p><a href="jetpack">Jetpack</a></p><p><a href="how-to/use-rest-api">REST API</a></p><p><a href="python-api">Python API</p>
 
   - title: Get Help
     items:
@@ -67,7 +67,7 @@ sections:
       className: spaced noBullet
       items:
       - html: <a href="cookbook-reference">Chef Cookbooks</a>
-      - html: <a href="node-configuration-reference">Node Configuration Reference</a>
+      - html: <a href="cluster-references/cluster-template-reference">Cluster Template Reference</a>
       - html: <a href="download-cluster-templates">CycleCloud Cluster Templates</a>
       - html: <a href="https://github.com/CycleCloudCommunity">CycleCloud Community GitHub</a>
       - html: <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecyclecloud">Azure Forums</a>

@@ -8,7 +8,9 @@ ms.author: adjohnso
 
 # Open Grid Scheduler (Grid Engine)
 
-[Open Grid Scheduler (Grid Engine)](http://gridscheduler.sourceforge.net/) can easily be enabled on an azure CycleCloud cluster by modifying the "run_list" in the cluster definition. The two basic components of a Grid Engine cluster are the 'master' node which provides a shared filesystem on which the Grid Engine software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple Grid Engine cluster template snippet may look like:
+[//]: # (Need to link to the scheduler README on Github)
+
+[Open Grid Scheduler (Grid Engine)](http://gridscheduler.sourceforge.net/) can easily be enabled on an Azure CycleCloud cluster by modifying the "run_list" in the cluster definition. The two basic components of a Grid Engine cluster are the 'master' node which provides a shared filesystem on which the Grid Engine software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple Grid Engine cluster template snippet may look like:
 
 ``` ini
 [cluster grid-engine]
@@ -170,7 +172,7 @@ The parameter 'job' passed in is a dictionary that contains the data in a 'qstat
 }
 ```
 
-You can use this scripting functionality to automatically assign 'slot_type's based on any parameter defined in the job such as arguments, other resource requirements like memory, submitting user, etc.
+You can use this scripting functionality to automatically assign slot_type's based on any parameter defined in the job such as arguments, other resource requirements like memory, submitting user, etc.
 
 If you were to submit 5 jobs of each 'slot_type':
 
@@ -199,5 +201,4 @@ The following are the Grid Engine specific configuration options you can toggle 
 | gridengine.version                 | Default: '2011.11'. This is the Grid Engine version to install and run. This is currently the default and *only* option. In the future additional versions of the Grid Engine software may be supported. |
 | gridengine.root                    | Default: '/sched/sge/sge-2011.11' This is where the Grid Engine will be installed and mounted on every node in the system. It is recommended this value not be changed, but if it is it should be set to the same value on **every** node in the cluster.   |
 
-
-CycleCloud supports a `standard set <autostop-attributes>` of autostop attributes for Grid Engine.
+[!INCLUDE [scheduler-integration](~/includes/scheduler-integration.md)]

@@ -8,7 +8,7 @@ ms.author: adjohnso
 
 # Cluster Template Downloads
 
-Azure CycleCloud comes with built-in cluster templates that you can use out of the box, or customize to [build a template](cluster-templates.md) for your specific needs. For the full list of available cluster templates, please take a look at the "cyclecloud" repositories in [Microsoft Azure GitHub](https://github.com/Azure?q=cyclecloud).
+Azure CycleCloud comes with built-in cluster templates that you can use out of the box, or customize to [build a template](~/how-to/cluster-templates.md) for your specific needs. For the full list of available cluster templates, please take a look at the "cyclecloud" repositories in [Microsoft Azure GitHub](https://github.com/Azure?q=cyclecloud).
 
 Customized templates can be imported into CycleCloud using the CycleCloud CLI:
 

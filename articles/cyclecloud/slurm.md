@@ -8,6 +8,8 @@ ms.author: adjohnso
 
 # Slurm
 
+[//]: # (Need to link to the scheduler README on Github)
+
 Slurm is a highly configurable open source workload manager. See the [Slurm project site](https://www.schedmd.com/) for an overview.
 
 Slurm can easily be enabled on a CycleCloud cluster by modifying the "run_list" in the configuration section of your cluster definition. The two basic components of a Slurm cluster are the 'master' node which provides a shared filesystem on which the Slurm software runs, and the 'execute' nodes which are the hosts that mount the shared filesystem and execute the jobs submitted. For example, a simple cluster template snippet may look like:
@@ -38,7 +40,7 @@ Slurm can easily be enabled on a CycleCloud cluster by modifying the "run_list" 
     slurm.default_partition = true
 ```
 
-## Slurm Clusters in CycleCloud versions >= 7.8
+## Editing Existing Slurm Clusters
 
 Slurm clusters running in CycleCloud versions 7.8 and later implement an updated version of the autoscaling APIs that allows the clusters to utilize multiple nodearrays and partitions. To facilitate this functionality in Slurm, CycleCloud pre-populates the execute nodes in the cluster. Because of this, you need to run a command on the Slurm master node after making any changes to the cluster, such as autoscale limits or VM types.
 
@@ -84,6 +86,28 @@ CycleCloud automatically sets the amount of available memory for Slurm to use fo
 ``` ini
     slurm.dampen_memory=20
 ```
+
+## Disabling autoscale for specific nodes or partitions
+
+While the built-in CycleCloud "KeepAlive" feature does not currently work for Slurm clusters, it is possible to disable autoscale for a running Slurm cluster by editing the slurm.conf file directly. You can exclude either individual nodes or entire partitions from being autoscaled.
+
+### Excluding a node
+
+To exclude a node or multiple nodes from autoscale, add `SuspendExcNodes=<listofnodes>` to the Slurm configuration file. For example, to exclude nodes 1 and 2 from the hpc partition, add the following to `/etc/slurm/slurm.conf`:
+
+```bash
+SuspendExcNodes=hpc-pg0-[1-2]
+```
+
+Then restart the `slurmctld` service for the new configuration to take effect.
+### Excluding a partition
+Excluding entire partitions from autoscale is similar to excluding nodes. To exclude the entire `hpc` partition, add the following to `/etc/slurm/slurm.conf`
+
+```bash
+SuspendExcParts=hpc
+```
+
+Then restart the `slurmctld` service.
 
 ## Troubleshooting
 
@@ -140,3 +164,5 @@ The following are the Slurm specific configuration options you can toggle to cus
 | munge.user.name                      | Default: 'munge'. This is the username for the MUNGE authentication service to use. |
 | munge.user.uid                       | Default: '11101'. The User ID to use for the MUNGE user. |
 | munge.user.gid                       | Default: '11101'. The Group ID to use for the MUNGE user. |
+
+[!INCLUDE [scheduler-integration](~/includes/scheduler-integration.md)]

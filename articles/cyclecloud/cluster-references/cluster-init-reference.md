@@ -1,14 +1,14 @@
 ---
 title: Azure CycleCloud Cluster Template Reference
 description: Parameter reference for cluster templates for use with Azure CycleCloud
-author: KimliW
-ms.date: 08/01/2018
+author: adriankjohnson
+ms.date: 03/10/2020
 ms.author: adjohnso
 ---
 
 # Cluster-Init
 
-Cluster-init objects are subordinate in rank to `node`. The cluster-init object defines the [CycleCloud project](~/projects.md) specs to run on a node.
+Cluster-init objects are subordinate in rank to `node` and `nodearray`. The cluster-init object defines the [CycleCloud project](~/how-to/projects.md) specs to run on a node.
 
 Adding a `[[[cluster-init]]]` section to a node will include a project spec. Cluster-init definition can also be written in short-hand notation:
 
@@ -34,19 +34,18 @@ Adding a `[[[cluster-init]]]` section to a node will include a project spec. Clu
 
 ```
 
-The `$` is a reference to a parameter name.
+Attribute values that begin with `$` are referencing parameters.
 
-The order of the Project specs is important, and respected as provided
-in the Cluster Template File. In this case `my-proj:default` will run first as it
-comes from the node defaults, followed by `myproject:x.y.x`, and finally `my-proj:my-spec`
+The order of the Project specs is respected as provided in the Cluster Template File. In this case `my-proj:default` will run first as it
+comes from the node defaults, followed by `myproject:x.y.x`, and finally `my-proj:my-spec`.
 
 ## Attribute Reference
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-Project | String | Name of CycleCloud Project.
+Project | String | Name of CycleCloud project.
 Version | String | Version of CycleCloud project spec.
-Spec | String | Name of CycleCloud Project spec.
+Spec | String | Name of CycleCloud project spec.
 Locker | String | Name of locker from which to download project spec.
 
 For projects contained in the CycleCloud project, Locker should be set to `cyclecloud`.
