@@ -311,7 +311,7 @@ Use this statement in cases where you want to download and then process CSV data
 
 Use the *split_size* parameter to specify the number of bytes that you want each batch to contain. For example, if you want to process only 10 MB of data at a time, you're statement would look like this: `SELECT sys.split(10485760)FROM BlobStorage` because 10 MB is equal to 10,485,760 bytes. Each batch will contain as many records as can fit into those 10 MB. 
 
-In most cases, the total bytes contained in each batch will be slightly higher than the number that you specify. That's because the **sys.split** function returns complete records only, and a record might start just before the threshold that you specify. The size of the last batch of records will likely be smaller than the size that you specify.
+In most cases, the size of each batch will be slightly higher than the number that you specify. That's because a batch cannot contain a partial record. If the last record in a batch starts before the end of your threshold, the batch will be larger so that it can contain the complete record. The size of the last batch will likely be smaller than the size that you specify.
 
 >[!NOTE]
 > The split_size must be at least 10 MB (10485760).
