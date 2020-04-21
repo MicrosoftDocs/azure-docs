@@ -121,6 +121,7 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | {SAML:AllowCreate} | The `AllowCreate` attribute value, from the `NameIDPolicy` element of the SAML request. | True |
 | {SAML:ForceAuthn} | The `ForceAuthN` attribute value, from the `AuthnRequest` element of the SAML request. | True |
 | {SAML:ProviderName} | The `ProviderName` attribute value, from the `AuthnRequest` element of the SAML request.| Contoso.com |
+| {SAML:RelayState} | The `RelayState` query string parameter.| 
 
 ## Using claim resolvers
 
