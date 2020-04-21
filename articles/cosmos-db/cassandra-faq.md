@@ -11,13 +11,13 @@ ms.author: thvankra
 
 ## What are some key differences between Apache Cassandra and Cassandra API?
 
-- Apache Cassandra recommends a 100MB limit on the size of a partition key. Cassandra API allows up to 10GB per partition.
-- Apache Cassandra allows you to disable durable commits - i.e. skip writing to the commit log and go directly to the Memtable(s). This can lead to data loss if the node goes down prior to Memtables being flushed to SStables on disk. Cosmos DB always does durable commits so you will never have data loss.
-- Apache Cassandra can see diminished performance if the workload involves a lot of replaces and/or deletes. The reason for this is tombstones that the read workload needs to skip over to fetch the latest data. Cassandra API will not see diminished read performance when the workload has a lot of replaces and/or deletes.
+- Apache Cassandra recommends a 100-MB limit on the size of a partition key. Cassandra API allows up to 10 GB per partition.
+- Apache Cassandra allows you to disable durable commits. You can skip writing to the commit log and go directly to the memtables. This can lead to data loss if the node goes down before memtables are flushed to SSTables on disk. Azure Cosmos DB always does durable commits to help prevent data loss.
+- Apache Cassandra can see diminished performance if the workload involves a lot of replace and/or delete actions. The reason for this is tombstones that the read workload needs to skip over to fetch the latest data. Cassandra API won't see diminished read performance when the workload has a lot of replacements and/or deletions.
 - During high replace workload scenarios, compaction needs to run to merge SSTables on disk (merge is needed because Apache Cassandra's writes are append only, thus multiple updates are stored as individual SSTable entries that need to be periodically merged). This can also lead to lowered read performance during compaction. This does not occur in Cassandra API as it does not implement compaction.
 - Setting a replication factor of 1 is possible with Apache Cassandra. However, it leads to low availability if the only node with the data goes down. This is not an issue with Azure Cosmos DB Cassandra API because there is always a replication factor of 4 (quorum of 3).
 - Adding/removing nodes in Apache Cassandra requires a lot of manual intervention, but also high CPU on the new node while existing nodes move some of their token ranges to the new node. This is the same when decommissioning an existing node. However, scaling out is done seamlessly under the hood in Azure Cosmos DB Cassandra API, without any issues observed in the service/application.
-- There is no need to set num_tokens on each node in the cluster as in Apache Cassandra. Nodes and token ranges are fully managed by Cosmos DB.
+- There is no need to set num_tokens on each node in the cluster as in Apache Cassandra. Nodes and token ranges are fully managed by Azure Cosmos DB.
 - Azure Cosmos DB Cassandra API is fully managed so you don't require the nodetool commands such as repair, decommission etc. that are used in Apache Cassandra.
 
 ## Other frequently asked questions
@@ -162,7 +162,7 @@ No. Cassandra API supports [secondary indexes](cassandra-secondary-index.md), wh
 Yes this is supported. You can find details of how to enable this [here](local-emulator.md#cassandra-api)
 
 
-### How can I migrate data from their Apache Cassandra clusters to Cosmos DB?
+### How can I migrate data from their Apache Cassandra clusters to Azure Cosmos DB?
 
 You can read about migration options [here](cassandra-import-data.md).
 
