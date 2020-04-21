@@ -52,6 +52,9 @@ To get a device in Azure AD, you have multiple options:
 
 ![Devices displayed in Azure AD Devices blade](./media/overview/azure-active-directory-devices-all-devices.png)
 
+> [!NOTE]
+> The Hybrid State is not just the state of the device, but it also requires a valid Azure AD user before the Hybrid state is valid.
+
 ## Device management
 
 Devices in Azure AD can be managed using Mobile Device Management (MDM) tools like Microsoft Intune, Microsoft Endpoint Configuration Manager, Group Policy (hybrid Azure AD join), Mobile Application Management (MAM) tools, or other third-party tools.
@@ -62,6 +65,8 @@ Registering and joining devices to Azure AD gives your users Seamless Sign-on (S
 
 > [!NOTE]
 > Device-based Conditional Access policies require either hybrid Azure AD joined devices or compliant Azure AD joined or Azure AD registered devices.
+
+The primary refresh token (PRT) is needed for SSO. The PRT contains information about the device. If you have any device-based Conditional Access policy set on an application, without the PRT, access will be denied as Hybrid Conditional Access policies checks require a Hybrid state device and a valid user currently signed-in.
 
 Devices that are Azure AD joined or hybrid Azure AD joined benefit from SSO to your organization's on-premises resources as well as cloud resources. More information can be found in the article, [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
 
