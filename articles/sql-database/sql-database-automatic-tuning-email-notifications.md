@@ -54,7 +54,7 @@ If you have several Azure subscriptions for which you would like to build the sa
 
 The PowerShell script to retrieve Automatic tuning recommendation uses [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) and [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) commands for which Azure Module version 4 and above is required.
 
-- In case your Azure Modules need updating, see [Az module support in Azure Automation](../automation/az-modules.md).
+- In case your Azure Modules need updating, see [Az module support in Azure Automation](../automation/shared-resources/modules.md).
 
 ## Create Azure Automation Runbook
 
