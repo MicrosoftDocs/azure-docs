@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 If you're the first person to use Privileged Identity Management (PIM) in your Azure Active Directory (Azure AD)organization, you are presented with a wizard to get started. The wizard helps you understand the security risks of privileged identities and how to use Privileged Identity Management to reduce those risks. You don't need to make any changes to existing role assignments in the wizard, if you prefer to do it later.
 
 > [!Important]
-> The security wizard is temporarily unavailable. It will be back online with improvements soon.
+> The security wizard is temporarily unavailable. Thank you for your patience.
 
 ## Wizard overview
 
