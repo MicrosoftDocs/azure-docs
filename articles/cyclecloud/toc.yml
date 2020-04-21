@@ -88,6 +88,8 @@
       href: ./how-to/tag-nodes.md
   - name: Customize Clusters
     items:
+    - name: Use Cluster Templates
+      href: ./how-to/cluster-templates.md
     - name: Add a Node Array
       href: ./how-to/add-node-array.md
     - name: Add a Disk
