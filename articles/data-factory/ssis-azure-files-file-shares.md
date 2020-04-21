@@ -41,3 +41,9 @@ To use **Azure Files** when you lift and shift packages that use local file syst
 2. Connect your Azure-SSIS IR to Azure Files by setting up access credentials that use Windows authentication. For more info, see [Connect to data and file shares with Windows Authentication](ssis-azure-connect-with-windows-auth.md).
 
 3. Update local file paths in your packages to UNC paths pointing to Azure Files. For example, update `C:\abc.txt` to `\\<storage-account-name>.file.core.windows.net\<share-name>\abc.txt`.
+
+## Next steps
+
+- Deploy your packages. For more info, see [Deploy an SSIS project to Azure with SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-deploy-ssms).
+- Run your packages. For more info, see [Run SSIS packages in Azure with SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-run-ssms).
+- Schedule your packages. For more info, see [Schedule SSIS packages in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15).
