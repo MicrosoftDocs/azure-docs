@@ -58,11 +58,11 @@ With maintenance control, you can:
 
 ## Assign the configuration
 
-On the details page of the maintenance configuration, click Assignments and then click **Assign resource**. The VM needs to be running to assign the configuration. An error occurs if you try to assign a configuration to a VM that is stopped. <!---Shantanu to add details about the error case--->
+On the details page of the maintenance configuration, click Assignments and then click **Assign resource**. 
 
 ![Screenshot showing how to assign a resource](media/virtual-machines-maintenance-control-portal/maintenance-configurations-add-assignment.png)
 
-Select the resources that you want the maintenance configuration assigned to and click **Ok**. The **Type** column shows whether the resource is an isolated VM or Azure Dedicated Host. 
+Select the resources that you want the maintenance configuration assigned to and click **Ok**. The **Type** column shows whether the resource is an isolated VM or Azure Dedicated Host. The VM needs to be running to assign the configuration. An error occurs if you try to assign a configuration to a VM that is stopped. <!---Shantanu to add details about the error case--->
 
 ![Screenshot showing how to select a resource](media/virtual-machines-maintenance-control-portal/maintenance-configurations-select-resource.png)
 
@@ -83,7 +83,6 @@ There are also two ways to check pending updates for a maintenance configuration
 
 You can also check a specific host using **Virtual Machines**. 
 
-
 ## Apply updates
 
 Use `az maintenance apply update` to apply pending updates. On success, this command will return JSON containing the details of the update.
@@ -94,6 +93,10 @@ You can check on the progress of the updates using .
 
 
 ## Delete a maintenance configuration
+
+To delete a configuration, open the configuration details and click **Delete**.
+
+![Screenshot showing how to check Maintenance for a host](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
 
 
 ## Next steps
