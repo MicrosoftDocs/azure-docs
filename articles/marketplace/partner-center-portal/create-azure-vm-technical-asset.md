@@ -104,7 +104,7 @@ Follow these steps to create the base VM image in the [Azure portal](https://ms.
 
 Azure begins provisioning the virtual machine you specified. You can track its progress by selecting the **Virtual Machines** tab on the left. After it's created, the status will change to **Running**.
 
-If you encounter difficulty creating your new Azure-based VHD, see [Common issues during VHD creation (FAQs)](https://aka.ms/VHDcreationIssues).
+If you encounter difficulty creating your new Azure-based VHD, see [Common issues during VHD creation (FAQs)](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation).
 
 ### Connect to your Azure VM
 
