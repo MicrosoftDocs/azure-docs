@@ -215,7 +215,7 @@ If you get an error message telling you that you used an invalid scope, you prob
 If you get an **Insufficient privileges to complete the operation** error when you call the API, the tenant administrator needs to grant permissions to the application. See step 6 of Register the client app above.
 You'll typically see an error that looks like this error:
 
-```JSon
+```json
 Failed to call the web API: Forbidden
 Content: {
   "error": {
