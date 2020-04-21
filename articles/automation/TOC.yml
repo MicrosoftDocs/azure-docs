@@ -44,9 +44,9 @@
   items:
     - name: Automation Account
       items:
-        - name: Create Automation account using Azure portal
+        - name: Create from Azure portal
           href: automation-create-standalone-account.md
-        - name: Create Automation account with Resource Manager template
+        - name: Create with Resource Manager template
           href: automation-create-account-template.md
         - name: Manage an Automation Run As account
           href: manage-runas-account.md
@@ -134,7 +134,7 @@
           href: source-control-integration.md
     - name: Configuration Management
       items:
-        - name: Manage State Configuration (DSC)
+        - name: State Configuration (DSC)
           items:
             - name: Overview
               href: automation-dsc-overview.md
@@ -156,7 +156,7 @@
               href: automation-dsc-diagnostics.md
             - name: Troubleshoot issues with DSC
               href: troubleshoot/desired-state-configuration.md
-        - name: Manage Change Tracking and Inventory
+        - name: Change Tracking and Inventory
           items:
             - name: Overview
               href: change-tracking.md
@@ -164,13 +164,13 @@
               href: how-to/region-mappings.md
             - name: Enable Change Tracking and Inventory
               items:
-                - name: Use Azure portal
+                - name: Enable from Azure portal
                   href: automation-onboard-solutions-from-browse.md
-                - name: From an Azure VM
+                - name: Enable from Azure VM
                   href: automation-onboard-solutions-from-vm.md
-                - name: From an Automation account
+                - name: Enable from Automation account
                   href: automation-onboard-solutions-from-automation-account.md
-                - name: From an Automation runbook
+                - name: Enable from Automation runbook
                   href: automation-onboard-solutions.md
             - name: View contents of tracked files
               href: change-tracking-file-contents.md
@@ -206,11 +206,11 @@
           items:
             - name: Use a Resource Manager template
               href: automation-update-management-deploy-template.md
-            - name: Use Azure portal
+            - name: Enable from Azure portal
               href: automation-onboard-solutions-from-browse.md
-            - name: From an Azure VM
+            - name: Enable from an Azure VM
               href: automation-onboard-solutions-from-vm.md
-            - name: From an Automation account
+            - name: Enable from Automation account
               href: automation-onboard-solutions-from-automation-account.md      
         - name: Manage updates for your Azure VMs
           href: automation-tutorial-update-management.md
