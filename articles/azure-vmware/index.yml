@@ -33,5 +33,5 @@ landingContent:
             url: tutorial-create-private-cloud.md
           - text: Configure networking
             url: tutorial-configure-networking.md
-          - text: Create a jump box
-            url: tutorial-create-jump-box.md
+          - text: Access Private Cloud
+            url: tutorial-access-private-cloud.md

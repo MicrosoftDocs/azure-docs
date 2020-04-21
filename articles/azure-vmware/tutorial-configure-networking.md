@@ -186,4 +186,4 @@ In this tutorial you learned how to:
 Continue to the next tutorial to learn how to create a jump box that is used to connect to your environment.
 
 > [!div class="nextstepaction"]
-> [Create a jump box](tutorial-create-jump-box.md)
+> [Access Private Cloud](tutorial-access-private-cloud.md)
