@@ -11,14 +11,18 @@ ms.reviewer: mbullwin
 
 # Configure BYOS (Bring Your Own Storage) for Profiler & Snapshot Debugger
 
-## What is Bring Your Own Storage (BYOS) and why I need it?
+## What is Bring Your Own Storage (BYOS) and why do I need it?
 Applications used to send profiler and snapshot debugger data to a regional storage account provided by the Diagnostic Services.
 
 With Bring Your Own Storage, the diagnostics data, it's written into your own storage accounts, giving you the capability to control it at your own pace.
 
-One thing to have in mind is that you'll take over of all the related costs of the storage account, like Storage and Networking. 
+One thing to have in mind is that you'll take over of all the related costs of the storage account, like Storage and Networking.
 
-## How does my Storage Account will be accessed?
+> [!NOTE]
+> If you are enabling Private Link, Bring Your Own Storage is a requirement. For more information about Private Link, [see the documentation](https://docs.microsoft.com/azure/private-link/private-link-overview).
+> If you are enabling Customer-Managed Keys, Bring Your Own Storage is a requirement. For more information about Customer-Managed Keys, [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).
+
+## How will my Storage Account be accessed?
 1. The data it's written by agents running in your Virtual Machines or App Service.
 1. Your application contacts our service (Profiler/Debugger) when they want to upload data and we hand back a SAS (Shared Access Signature) token to a blob in your storage account.
 1. Later, when you want to analyze the data, the profiler/debugger service will reach back into that storage account to read the blob and write back the results of the analysis.
@@ -95,6 +99,7 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), follow the bel
     ```
 
 1. Run the following PowerShell command to deploy previous template (create Linked Storage Account).
+
     Pattern:
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName "{your_resource_name}" -TemplateFile "{local_path_to_arm_template}"
