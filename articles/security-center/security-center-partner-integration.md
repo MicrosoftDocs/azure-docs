@@ -43,7 +43,7 @@ Security Center also offers vulnerability analysis for your:
 ## How security solutions are integrated
 Azure security solutions that are deployed from Security Center are automatically connected. You can also connect other security data sources, including computers running on-premises or in other clouds.
 
-[![Partner solutions integration](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)](./media/security-center-partner-integration/security-center-partner-integration-fig8.png#lightbox)
+[![Partner solutions integration](./media/security-center-partner-integration/security-solutions-page.png)](./media/security-center-partner-integration/security-solutions-page.png#lightbox)
 
 ## Manage integrated Azure security solutions and other data sources
 
@@ -51,15 +51,13 @@ Azure security solutions that are deployed from Security Center are automaticall
 
 1. From Security Center's menu, select **Security solutions**.
 
-   ![Security Center Overview](./media/security-center-partner-integration/overview.png)
-
 From the **Security solutions** page, you can see the health of integrated Azure security solutions and run basic management tasks.
 
 ### Connected solutions
 
 The **Connected solutions** section includes security solutions that are currently connected to Security Center. It also shows the health status of each solution.  
 
-![Connected solutions](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
+![Connected solutions](./media/security-center-partner-integration/connected-solutions.png)
 
 The status of a partner solution can be:
 
@@ -97,7 +95,7 @@ Select **CONNECT** under a solution to integrate with Security Center and be not
 
 The **Add data sources** section includes other available data sources that can be connected. For instructions on adding data from any of these sources, click **ADD**.
 
-![Data sources](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
+![Data sources](./media/security-center-partner-integration/add-data-sources.png)
 
 
 
