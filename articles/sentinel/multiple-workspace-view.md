@@ -31,12 +31,12 @@ When you open Azure Sentinel, you are presented with a list of all the workspace
 > If you check more than 10 workspaces, a warning message will appear.
 
 Note that in the list of workspaces, you can see the directory, subscription, location, and resource group associated with each workspace. The directory corresponds to the tenant.
-   ![Choose multiple workspaces](./media/multiple-workspace-view/image1.png)
+   ![Choose multiple workspaces](./media/multiple-workspace-view/workspaces.png)
 
 ## Working with incidents
 
 In **Multiple Workspace View**, only the **Incidents** screen is available for now. It looks and functions in most ways like the regular **Incidents** screen. There are a few important differences, though:
-   ![View incidents in multiple workspaces](./media/multiple-workspace-view/image2.png)
+   ![View incidents in multiple workspaces](./media/multiple-workspace-view/incidents.png)
 
 - The counters at the top of the page - *Open incidents*, *New incidents*, *In progress*, etc. - show the numbers for all of the selected workspaces collectively.
 
