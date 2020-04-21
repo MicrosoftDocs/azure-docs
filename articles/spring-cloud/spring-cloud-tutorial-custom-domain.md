@@ -100,7 +100,7 @@ In your app page, in the left navigation, select **Custom Domain**. Then, set **
 
 ![Add SSL binding](./media/custom-dns-tutorial/enforce-http.png)
 
-When the operation is complete, navigate to any of the HTTPs URLs that point to your app. Note that HTTP URLs don't work.
+When the operation is complete, navigate to any of the HTTPS URLs that point to your app. Note that HTTP URLs don't work.
 
 ## See also
 * [What is Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
