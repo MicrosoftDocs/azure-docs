@@ -25,7 +25,7 @@ Your app is integrated with the Microsoft identity platform by registering it wi
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* An [Azure AD tentant](quickstart-create-new-tenant.md).
+* An [Azure AD tenant](quickstart-create-new-tenant.md).
 
 ## Register a new application using the Azure portal
 

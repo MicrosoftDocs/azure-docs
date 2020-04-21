@@ -15,7 +15,8 @@ ms.author: memildin
 
 ---
 
-# Azure Kubernetes Services integration with Security Center (Preview)
+# Azure Kubernetes Services integration with Security Center
+
 Azure Kubernetes Service (AKS) is Microsoft's managed service for developing, deploying, and managing containerized applications. 
 
 Use AKS together with Azure Security Center's standard tier (see [pricing](security-center-pricing.md)) to gain deeper visibility to your AKS nodes, cloud traffic, and security controls.
@@ -30,10 +31,7 @@ Together, these two tools form the best cloud-native Kubernetes security offerin
 
 Using the two services together provides:
 
-* **Security recommendations** - Security Center identifies your AKS resources and categorizes them: from clusters to individual virtual machines. You can then view security recommendations per resource. For more information, see the containers recommendations in the [reference list of recommendations](recommendations-reference.md#recs-computeapp). 
-
-    > [!NOTE]
-    > If the name of a Security Center recommendation ends with a "(Preview)" tag, it's referring to the preview nature of the recommendation, not the feature.
+* **Security recommendations** - Security Center identifies your AKS resources and categorizes them: from clusters to individual virtual machines. You can then view security recommendations per resource. For more information, see the containers recommendations in the [reference list of recommendations](recommendations-reference.md#recs-containers). 
 
 * **Environment hardening** - Security Center constantly monitors the configuration of your Kubernetes clusters and Docker configurations. It then generates security recommendations that reflect industry standards.
 

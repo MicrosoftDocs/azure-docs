@@ -39,6 +39,15 @@ Azure file share backup is a native, cloud based backup solution that protects y
 
 7. The backup and restore job monitoring data is pushed to the Azure Backup Monitoring service. This allows you to monitor cloud backups for your file shares in a single dashboard. In addition, you can also configure alerts or email notifications when backup health is affected. Emails are sent via the Azure email service.
 
+## Backup costs
+
+Azure File share backup is a snapshot-based solution and storage charges incurred for snapshots are billed along with Azure Files Usage as per the pricing details mentioned [here](https://azure.microsoft.com/pricing/details/storage/files/).
+
+However, the protected instance fee for leveraging the backup solution is according to the pricing model described under the [Backup For Azure Files](https://azure.microsoft.com/pricing/details/backup/) section. Currently, the actual price has been updated only for West Central US. For other regions, exact prices will be updated soon with some regional variations, but using the same pricing model.
+
+>[!NOTE]
+>During preview, there is no "Protected Instance fee" and you will be charged only for snapshots according to the pricing mentioned [here](https://azure.microsoft.com/pricing/details/storage/files/).
+
 ## Next steps
 
 * Learn how to [Back up Azure file shares](backup-afs.md)

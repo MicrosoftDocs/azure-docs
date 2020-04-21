@@ -2,20 +2,15 @@
 title: OAuth 2.0 client credentials flow on the Microsoft identity platform | Azure
 description: Build web applications by using the Microsoft identity platform implementation of the OAuth 2.0 authentication protocol.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.author: ryanwi
+ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ---
@@ -27,9 +22,6 @@ You can use the [OAuth 2.0 client credentials grant](https://tools.ietf.org/html
 This article describes how to program directly against the protocol in your application. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
 
 The OAuth 2.0 client credentials grant flow permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. In this scenario, the client is typically a middle-tier web service, a daemon service, or a web site. For a higher level of assurance, the Microsoft identity platform also allows the calling service to use a certificate (instead of a shared secret) as a credential.
-
-> [!NOTE]
-> The Microsoft identity platform endpoint doesn't support all Azure AD scenarios and features. To determine whether you should use the Microsoft identity platform endpoint, read about [Microsoft identity platform limitations](active-directory-v2-limitations.md).
 
 In the more typical *three-legged OAuth*, a client application is granted permission to access a resource on behalf of a specific user. The permission is delegated from the user to the application, usually during the [consent](v2-permissions-and-consent.md) process. However, in the client credentials (*two-legged OAuth*) flow, permissions are granted directly to the application itself. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action and not the user.
 
@@ -71,7 +63,7 @@ To use application permissions in your app, follow the steps discussed in the ne
 
 
 > [!NOTE]
-> When authenticating as an application, as opposed to with a user, you cannot use "delegated permissions" (scopes that are granted by a user).  You must use "application permissions", also known as "roles", that are granted by an admin for the application (or via pre-authorization by the web API).    
+> When authenticating as an application, as opposed to with a user, you cannot use "delegated permissions" (scopes that are granted by a user).  You must use "application permissions", also known as "roles", that are granted by an admin for the application (or via pre-authorization by the web API).
 
 
 #### Request the permissions in the app registration portal
@@ -172,7 +164,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 ```
 
 ```
-// Replace {tenant} with your tenant! 
+// Replace {tenant} with your tenant!
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
@@ -223,7 +215,7 @@ A successful response looks like this:
 
 | Parameter | Description |
 | --- | --- |
-| `access_token` | The requested access token. The app can use this token to authenticate to the secured resource, such as to a Web API. |
+| `access_token` | The requested access token. The app can use this token to authenticate to the secured resource, such as to a web API. |
 | `token_type` | Indicates the token type value. The only type that Microsoft identity platform supports is `bearer`. |
 | `expires_in` | The amount of time that an access token is valid (in seconds). |
 

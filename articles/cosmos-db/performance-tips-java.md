@@ -34,7 +34,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
       Gateway mode is supported on all SDK platforms and is the configured default.  If your application runs within a corporate network with strict firewall restrictions, Gateway is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, DirectHttps mode offers better performance due to fewer network hops. 
 
-      The Java SDK uses HTTPS as a transport protocol. HTTPS uses SSL for initial authentication and encrypting traffic. When using the Java SDK, only HTTPS port 443 needs to be open. 
+      The Java SDK uses HTTPS as a transport protocol. HTTPS uses TLS for initial authentication and encrypting traffic. When using the Java SDK, only HTTPS port 443 needs to be open. 
 
       The ConnectionMode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. 
 

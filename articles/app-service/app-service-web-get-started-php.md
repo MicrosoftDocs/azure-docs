@@ -4,10 +4,9 @@ description: Deploy your first PHP Hello World to Azure App Service in minutes. 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 08/24/2018
-ms.custom: mvc, cli-validate
-ms.custom: seodec18
-
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Create a PHP web app in Azure
 
 > [!NOTE]
@@ -68,12 +67,16 @@ In the Cloud Shell, create a web app in the `myAppServicePlan` App Service plan 
 
 In the following example, replace `<app_name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.0`. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
 
+
 ```azurecli-interactive
 # Bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git
 # PowerShell
 az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git
 ```
+> [!NOTE]
+> The stop-parsing symbol `(--%)`, introduced in PowerShell 3.0, directs PowerShell to refrain from interpreting input as PowerShell commands or expressions. 
+>
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
 
@@ -91,7 +94,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
   < JSON data removed for brevity. >
 }
 ```
-You’ve created an empty new web app, with git deployment enabled.
+You've created an empty new web app, with git deployment enabled.
 
 > [!NOTE]
 > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Save this URL as you need it later.

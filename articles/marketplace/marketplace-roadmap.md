@@ -1,15 +1,12 @@
 ---
-title: Azure Marketplace and AppSource Roadmap | Azure
+title: Azure Marketplace and AppSource Roadmap
 description: A roadmap to what's happening in the Marketplace
-services: Azure, Marketplace, Compute
 author: qianw211
-manager: MaggiePucciEvans
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/02/2019
-ms.author: blevens
-
 ---
 
 # Microsoft commercial marketplace roadmap
@@ -27,7 +24,7 @@ Once a capability is live, it will be removed from the roadmap. Functionality th
 
 * [Marketplace + CSP Update Blog](https://aka.ms/marketplacemarchupdateblog)
 * [Publish offerings into CSP channel (ISV)](https://aka.ms/publishtocsp)
-* [Resell Marketplace offerings (CSP)](hhttps://aka.ms/marketplaceincsp)
+* [Resell Marketplace offerings (CSP)](https://aka.ms/marketplaceincsp)
 * [Standard Contract](https://aka.ms/standardcontract)
 * [SaaS Fulfillment API](https://aka.ms/saasapiv2)
 * [Marketplace Geos and Currencies](https://aka.ms/marketplacegeos)

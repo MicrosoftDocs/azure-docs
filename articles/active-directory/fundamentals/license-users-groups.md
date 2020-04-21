@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Assign or remove licenses in the Azure Active Directory portal
 
-Many Azure Active Directory (Azure AD) services require you to license each of your users or groups (and associated members) for that service. Only users with active licenses will be able to access and use the licensed Azure AD services for which that's true.
+Many Azure Active Directory (Azure AD) services require you to license each of your users or groups (and associated members) for that service. Only users with active licenses will be able to access and use the licensed Azure AD services for which that's true. Licenses are applied per tenant and do not transfer to other tenants. 
 
 ## Available license plans
 
@@ -132,6 +132,9 @@ You can remove a license from a user's Azure AD user page, from the group overvi
 1. Select **Remove license**.
 
     ![Licensed groups page with Remove license option highlighted](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+    
+    > [!NOTE]
+    > When an on-premises user account synced to Azure AD falls out of scope for the sync or when the sync is removed, the user is soft-deleted in Azure AD. When this occurs, licenses assigned to the user directly or via group-based licensing will be marked as **suspended** rather than **deleted**.
 
 ## Next steps
 

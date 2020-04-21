@@ -35,7 +35,7 @@ You can create the AdventureWorksLT sample database with a few clicks in the [Az
 For a more simplistic, but more visually appealing performance demo for In-Memory OLTP, see:
 
 - Release: [in-memory-oltp-demo-v1.0](https://github.com/Microsoft/sql-server-samples/releases/tag/in-memory-oltp-demo-v1.0)
-- Source code: [in-memory-oltp-demo-source-code](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/in-memory/ticket-reservations)
+- Source code: [in-memory-oltp-demo-source-code](https://github.com/microsoft/sql-server-samples/tree/master/samples/features/in-memory-database)
 
 #### Installation steps
 
@@ -50,8 +50,8 @@ For a more simplistic, but more visually appealing performance demo for In-Memor
 
 ```sql
 CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
-	[SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED ...,
-	...
+    [SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED ...,
+    ...
 ) WITH (MEMORY_OPTIMIZED = ON);
 ```
 
@@ -89,8 +89,8 @@ Or you can query the catalog views, such as:
 
 ```sql
 SELECT is_memory_optimized, name, type_desc, durability_desc
-	FROM sys.tables
-	WHERE is_memory_optimized = 1;
+    FROM sys.tables
+    WHERE is_memory_optimized = 1;
 ```
 
 
@@ -99,8 +99,8 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 
 ```sql
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
-	FROM sys.sql_modules
-	WHERE uses_native_compilation = 1;
+    FROM sys.sql_modules
+    WHERE uses_native_compilation = 1;
 ```
 
 
@@ -140,24 +140,24 @@ The following script inserts a sample sales order with five line items into the 
 
 ```sql
 DECLARE
-	@i int = 0,
-	@od SalesLT.SalesOrderDetailType_inmem,
-	@SalesOrderID int,
-	@DueDate datetime2 = sysdatetime(),
-	@CustomerID int = rand() * 8000,
-	@BillToAddressID int = rand() * 10000,
-	@ShipToAddressID int = rand() * 10000;
+    @i int = 0,
+    @od SalesLT.SalesOrderDetailType_inmem,
+    @SalesOrderID int,
+    @DueDate datetime2 = sysdatetime(),
+    @CustomerID int = rand() * 8000,
+    @BillToAddressID int = rand() * 10000,
+    @ShipToAddressID int = rand() * 10000;
 
 INSERT INTO @od
-	SELECT OrderQty, ProductID
-	FROM Demo.DemoSalesOrderDetailSeed
-	WHERE OrderID= cast((rand()*60) as int);
+    SELECT OrderQty, ProductID
+    FROM Demo.DemoSalesOrderDetailSeed
+    WHERE OrderID= cast((rand()*60) as int);
 
 WHILE (@i < 20)
 begin;
-	EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
-		@DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
-	SET @i = @i + 1;
+    EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
+        @DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+    SET @i = @i + 1;
 end
 ```
 
@@ -325,13 +325,13 @@ SET STATISTICS TIME ON
 GO
 
 SELECT c.Year
-	,e.ProductCategoryKey
-	,FirstName + ' ' + LastName AS FullName
-	,count(SalesOrderNumber) AS NumSales
-	,sum(SalesAmount) AS TotalSalesAmt
-	,Avg(SalesAmount) AS AvgSalesAmt
-	,count(DISTINCT SalesOrderNumber) AS NumOrders
-	,count(DISTINCT a.CustomerKey) AS CountCustomers
+    ,e.ProductCategoryKey
+    ,FirstName + ' ' + LastName AS FullName
+    ,count(SalesOrderNumber) AS NumSales
+    ,sum(SalesAmount) AS TotalSalesAmt
+    ,Avg(SalesAmount) AS AvgSalesAmt
+    ,count(DISTINCT SalesOrderNumber) AS NumOrders
+    ,count(DISTINCT a.CustomerKey) AS CountCustomers
 FROM FactResellerSalesXL_PageCompressed a
 INNER JOIN DimProduct b ON b.ProductKey = a.ProductKey
 INNER JOIN DimCustomer d ON d.CustomerKey = a.CustomerKey
@@ -350,13 +350,13 @@ SET STATISTICS IO ON
 SET STATISTICS TIME ON
 GO
 SELECT c.Year
-	,e.ProductCategoryKey
-	,FirstName + ' ' + LastName AS FullName
-	,count(SalesOrderNumber) AS NumSales
-	,sum(SalesAmount) AS TotalSalesAmt
-	,Avg(SalesAmount) AS AvgSalesAmt
-	,count(DISTINCT SalesOrderNumber) AS NumOrders
-	,count(DISTINCT a.CustomerKey) AS CountCustomers
+    ,e.ProductCategoryKey
+    ,FirstName + ' ' + LastName AS FullName
+    ,count(SalesOrderNumber) AS NumSales
+    ,sum(SalesAmount) AS TotalSalesAmt
+    ,Avg(SalesAmount) AS AvgSalesAmt
+    ,count(DISTINCT SalesOrderNumber) AS NumOrders
+    ,count(DISTINCT a.CustomerKey) AS CountCustomers
 FROM FactResellerSalesXL_CCI a
 INNER JOIN DimProduct b ON b.ProductKey = a.ProductKey
 INNER JOIN DimCustomer d ON d.CustomerKey = a.CustomerKey
@@ -387,7 +387,7 @@ In a database with the P2 pricing tier, you can expect about nine times the perf
 
 #### Deeper information
 
-- [Learn how Quorum doubles key database’s workload while lowering DTU by 70% with In-Memory OLTP in SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [Learn how Quorum doubles key database's workload while lowering DTU by 70% with In-Memory OLTP in SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 - [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 

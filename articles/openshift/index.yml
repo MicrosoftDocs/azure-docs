@@ -5,7 +5,7 @@ summary: Azure Red Hat OpenShift provides single-tenant, high-availability Kuber
 
 metadata:
   title: Azure Red Hat OpenShift documentation
-  description: Microsoft Azure Red Hat OpenShift allows you to quickly deploy a production ready Red Hat OpenShift cluster in Azure. Learn how to use Azure Red Hat OpenShift with these tutorials and how-to guides.
+  description: Microsoft Azure Red Hat OpenShift allows you to deploy a production ready Red Hat OpenShift cluster in Azure. Learn how with these tutorials and how-to guides.
   ms.service: container-service
   services: container-service
   ms.topic: landing-page

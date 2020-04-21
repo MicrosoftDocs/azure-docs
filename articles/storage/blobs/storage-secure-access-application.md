@@ -6,6 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: tamram

@@ -4,19 +4,16 @@ description: This article provides an overview of signing in Microsoft work and 
 services: active-directory
 author: rwike77
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/24/2018
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
+ROBOTS: NOINDEX
 ---
 
 # Azure Active Directory for developers (v1.0) overview

@@ -6,7 +6,7 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/19/2019
+ms.date: 03/27/2020
 ---
 # Troubleshoot Azure Stream Analytics by using diagnostics logs
 

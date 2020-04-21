@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/10/2020
+ms.date: 03/24/2020
 ---
 # What's new in Azure Cognitive Search
 
@@ -23,6 +23,8 @@ Azure Search is now renamed to **Azure Cognitive Search** to reflect the expande
 ## Feature announcements
 
 ### March 2020
+
++ [Native blob soft delete (preview)](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) means that the Azure Blob Storage indexer in Azure Cognitive Search will recognize blobs that are in a soft deleted state, and remove the corresponding search document during indexing.
 
 + New stable [Management REST API (2020-03-13)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) is now available. 
 

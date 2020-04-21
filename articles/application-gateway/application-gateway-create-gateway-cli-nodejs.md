@@ -11,7 +11,7 @@ ms.author: victorh
 ---
 # Create an application gateway by using the Azure CLI
 
-Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application gateway has the following application delivery features: HTTP load balancing, cookie-based session affinity, and Secure Sockets Layer (SSL) offload, custom health probes, and support for multi-site.
+Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application gateway has the following application delivery features: HTTP load balancing, cookie-based session affinity, and Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), offload, custom health probes, and support for multi-site.
 
 ## Prerequisite: Install the Azure CLI
 
@@ -132,7 +132,7 @@ If you already have your web application defined with the backend pool in the pr
 
 Learn how to create custom health probes by visiting [Create a custom health probe](application-gateway-create-probe-portal.md)
 
-Learn how to configure SSL Offloading and take the costly SSL decryption off your web servers by visiting [Configure SSL Offload](application-gateway-ssl-arm.md)
+Learn how to configure TLS Offloading and take the costly TLS decryption off your web servers by visiting [Configure TLS Offload](application-gateway-ssl-arm.md)
 
 <!--Image references-->
 

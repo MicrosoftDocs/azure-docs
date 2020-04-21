@@ -127,3 +127,4 @@ Several Azure AD administrator roles span Azure AD and Microsoft Office 365, suc
 - [What is role-based access control (RBAC) for Azure resources?](overview.md)
 - [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 - [Azure classic subscription administrators](classic-administrators.md)
+- [Cloud Adoption Framework: Resource access management in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)
