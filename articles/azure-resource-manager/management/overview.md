@@ -66,7 +66,7 @@ There are some important factors to consider when defining your resource group:
 
 * Each resource can only exist in one resource group.
 
-* Some resources can exist outside of a resource group. These resources are deployed to the [subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), or [tenant](deploy-to-tenant.md). Only specific resource types are supported at these scopes.
+* Some resources can exist outside of a resource group. These resources are deployed to the [subscription](../templates/deploy-to-subscription.md), [management group](../templates/deploy-to-management-group.md), or [tenant](../templates/deploy-to-tenant.md). Only specific resource types are supported at these scopes.
 
 * You can add or remove a resource to a resource group at any time.
 
