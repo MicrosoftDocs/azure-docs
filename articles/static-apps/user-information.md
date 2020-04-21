@@ -15,23 +15,23 @@ Once logged in, each request to an API function includes authentication-related 
 
 ## Header
 
-The `x-ms-client-principal` header is a base64-encoded string, which includes the following user-identifying data.
+The `x-ms-client-principal` header is a Base64-encoded string, which includes the following user-identifying data.
 
 | Property  | Description |
 |-----------|---------|
-| identityProvider | The name of the identity provider |
-| userId | An Azure Static Web Apps-specific unique identifier for the user.  <ul><li>This value is unique on a per-app basis. The same user returns a different `userId` on a different Static App<li>The value persists for the lifetime of a user. If you delete and then add a user back, the `userId` returns a different value.</ul>|
-| userDetails | [Username or email address of the user](authentication-authorization.md). Some providers return a user's email address, while others use send the user handle. |
-| userRoles     | An array of the [user's roles](authentication-authorization.md). |
+| `identityProvider` | The name of the [identity provider](authentication-authorization.md). |
+| `userId` | An Azure Static Web Apps-specific unique identifier for the user.  <ul><li>The value is unique on a per-app basis. For instance, the same user returns a different `userId` value on a different Static App<li>The value persists for the lifetime of a user. If you delete and then add the same user back to the app, the `userId` then returns a different value.</ul>|
+| `userDetails` | Username or email address of the user. Some providers return the [user's email address](authentication-authorization.md), while others use send the [user handle](authentication-authorization.md). |
+| `userRoles`     | An array of the [user's roles](authentication-authorization.md). |
 
 The following is a sample `x-ms-client-principal` value:
 
-```javascript
+```json
 {
-  identityProvider: "facebook",
-  userId: "d75b260a64504067bfc5b2905e3b8182",
-  userDetails: "user@example.com",
-  userRoles: [ "anonymous", "authenticated" ]
+  "identityProvider": "facebook",
+  "userId": "d75b260a64504067bfc5b2905e3b8182",
+  "userDetails": "user@example.com",
+  "userRoles": [ "anonymous", "authenticated" ]
 }
 ```
 
