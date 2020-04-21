@@ -29,7 +29,7 @@ We also have published updates to end of support date for major releases startin
 
 ## What is new in-Service Fabric 7.1?
 We are excited to announce the next release of Service Fabric. This release is loaded with key features and improvements. Some of the key features are highlighted below:
-## Key Annoucements
+## Key Announcements
 - **General Availability** of [**Service Fabric Managed Identities for Service Fabric applications**](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity)
 - [**Support for Ubuntu 1804**](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-vnet-and-linux-cluster)
  - [**Preview: VMSS Ephemeral OS disk support**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-azure-deployment-preparation#use-ephemeral-os-disks-for-virtual-machine-scale-sets)**: Ephemeral OS disks are storage created on the local virtual machine, and not saved to remote Azure Storage. They are recommended for all Service Fabric node types (Primary and Secondary), because compared to traditional persistent OS disks, ephemeral OS disks:
@@ -40,7 +40,7 @@ We are excited to announce the next release of Service Fabric. This release is l
 - [**Support for Health Probes for containerized services**](https://docs.microsoft.com/azure/service-fabric/probes-codepackage): Support for Liveness Probe mechanism for containerized applications. Liveness Probe help announce the liveness of the containerized application and when they do not respond in a timely fashion, it will result in a restart. 
 - [**Support for Initializer Code Packages**](https://docs.microsoft.com/azure/service-fabric/initializer-codepackages) for [containers](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview) and [guest executable](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-guest-executables-introduction) applications. This allows executing Code Packages (e.g. containers), in a specified order, to perform Service Package initialization.
 - **FabricObserver and ClusterObserver** are stateless applications that capture Service Fabric Telemetry related to different aspects of an SF cluster. Both these applications are ready for deployment to Windows production clusters to capture rich telemetry with implemented support for ApplicationInsights, EventSource and LogAnalytics.
-    - [**FabricObserver (FO) 2.0**](https://github.com/microsoft/service-fabric-observer)- runs on all nodes, generates health events, emits telmetry when user configured resource usage thresholds are reached. This release contains several enhancements across monitoring, data management, health event details,structured telemetry.
+    - [**FabricObserver (FO) 2.0**](https://github.com/microsoft/service-fabric-observer)- runs on all nodes, generates health events, emits telemetry when user configured resource usage thresholds are reached. This release contains several enhancements across monitoring, data management, health event details,structured telemetry.
      - [**ClusterObserver (CO) 1.1**](https://github.com/microsoft/service-fabric-observer/tree/master/ClusterObserver) - runs on one node, captures cluster level health telemetry. In this release, ClusterObserver also monitors node status and emits telemetry when node is down/disabling/disabled  for longer than user-specified time period.
 
 ### Improve Application life cycle experience
