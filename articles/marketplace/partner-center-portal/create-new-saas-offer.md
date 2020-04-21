@@ -285,6 +285,9 @@ Use the following instructions to use the rich text editor:
 
 Remember to **Save** before moving on to the next section.
 
+>[!Note]
+>If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
+
 #### Additional marketplace listing resources
 
 - [Best practices for marketplace offer listings](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
