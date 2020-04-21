@@ -5,7 +5,7 @@ author: normesta
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.date: 03/31/2020
+ms.date: 04/21/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ---

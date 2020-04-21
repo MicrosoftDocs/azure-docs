@@ -6,7 +6,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 04/21/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
@@ -104,7 +104,7 @@ Here's a few examples:
 |SUBSTRING|``SUBSTRING('123456789', 1, 5)``|``23456``|
 |TRIM|``TRIM(BOTH '123' FROM '1112211Microsoft22211122')``|``Microsoft``|
 
-The [LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) function helps you to search for a pattern. Here's a few examples that use the [LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) function to search the data string ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i ``
+The [LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) function helps you to search for a pattern. Here's a few examples that use the [LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) function to search the data string ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i ``.
 
 |Query|Example|
 |--|--|
@@ -307,11 +307,11 @@ This is a special form of the SELECT statement, which is available only for CSV-
 SELECT sys.split(split_size)FROM BlobStorage
 ```
 
-Use this statement to return data records in batches of a specific size. That way you can process records in parallel instead of having to download them all at one time.
+Use this statement in cases where you want to download and then process CSV data records in batches. That way you can process records in parallel instead of having to download all records at one time. This statement doesn't return records from the CSV file. Instead, it returns a collection of batch sizes. You can then use each batch size to retrieve a batch of data records. 
 
 Use the *split_size* parameter to specify the number of bytes that you want each batch to contain. For example, if you want to process only 10 MB of data at a time, you're statement would look like this: `SELECT sys.split(10485760)FROM BlobStorage` because 10 MB is equal to 10,485,760 bytes. Each batch will contain as many records as can fit into those 10 MB. 
 
-In most cases, the total bytes contained in each batch will be slightly higher than the number that you specify. That's because the **sys.split** function returns complete records only, and a record might start just before the threshold that you specify. 
+In most cases, the total bytes contained in each batch will be slightly higher than the number that you specify. That's because the **sys.split** function returns complete records only, and a record might start just before the threshold that you specify. The size of the last batch of records will likely be smaller than the size that you specify.
 
 >[!NOTE]
 > The split_size must be at least 10 MB (10485760).
