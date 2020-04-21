@@ -93,7 +93,7 @@ Create an ASP.NET web app by following these steps:
 
 3. In the **Publish** page, click **Publish**. Visual Studio builds, packages, and publishes the app to Azure, and then launches the app in the default browser.
 
-![Published ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
+    ![Published ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
 The app name specified in the **App Service Create new** page is used as the URL prefix in the format `http://<app-name>.azurewebsites.net`.
 
