@@ -288,33 +288,3 @@ There are two options for outputting an Event Hub message from a function by usi
 | Binding | Reference |
 |---|---|
 | Event Hub | [Operations Guide](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
-
-<a name="host-json"></a>  
-
-## host.json settings
-
-This section describes the global configuration settings available for this binding in versions 2.x and higher. The example host.json file below contains only the version 2.x+ settings for this binding. For more information about global configuration settings in versions 2.x and beyond, see [host.json reference for Azure Functions](../articles/azure-functions/functions-host-json.md).
-
-> [!NOTE]
-> For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](../articles/azure-functions/functions-host-json-v1.md).
-
-```json
-{
-    "version": "2.0",
-    "extensions": {
-        "eventHubs": {
-            "batchCheckpointFrequency": 5,
-            "eventProcessorOptions": {
-                "maxBatchSize": 256,
-                "prefetchCount": 512
-            }
-        }
-    }
-}  
-```
-
-|Property  |Default | Description |
-|---------|---------|---------|
-|`maxBatchSize`|10|The maximum event count received per receive loop.|
-|`prefetchCount`|300|The default pre-fetch count used by the underlying `EventProcessorHost`.|
-|`batchCheckpointFrequency`|1|The number of event batches to process before creating an EventHub cursor checkpoint.|
