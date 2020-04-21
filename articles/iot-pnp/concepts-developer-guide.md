@@ -13,28 +13,28 @@ services: iot-pnp
 
 IoT Plug and Play Preview lets you build devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications. 
 
-To build an IoT Plug and Play device, you need to create a device description. The description is done with a simple definition language called Digital Twins Definition Language (DTDL).
+To build an IoT Plug and Play device, you create a Model to describe the device using the Digital Twins Definition Language  ([DTDL](https://aka.ms/DTDL)).
 
-## Device capability model
+## Device Model
 
-With DTDL, you create a _device capability model_ to describe the parts of your device. A typical IoT device is made up of:
+With DTDL, you create a Model to describe the parts of your device. A typical IoT device is made up of:
 
 - Custom parts, which are the things that make your device unique.
 - Standard parts, which are things that are common to all devices.
 
-These parts are called _components_ in a device capability model. Interfaces define the details of each part your device implements.
+These parts are called _components_ in a device model. Interfaces define the details of each part your device implements.
 
-The following example shows the device capability model for a thermostat device:
+The following example shows the Model for a thermostat device:
 
 ```json
 {
-  "@id": "dtmi:aziot-samples:Thermostat_T_1000;1",
+  "@id": "dtmi:aziotsamples:Thermostat_T_1000;1",
   "@type": "Interface",
   "contents": [
     {
       "@type" : "Component",
       "name": "thermostat",
-      "schema": "dtmi:aziot-samples:Thermostat;1"
+      "schema": "dtmi:aziotsamples:Thermostat;1"
     },
     {
       "@type" : "Component",
@@ -46,24 +46,24 @@ The following example shows the device capability model for a thermostat device:
 }
 ```
 
-A capability model has some required fields:
+A model has some required fields:
 
 - `@id`: a unique ID in the form of a DTMI.
 - `@type`: declares that this object is an interface.
 - `@context`: specifies the DTDL version used for the capability model.
 - `contents`: lists the interfaces that your device implements.
 
-Each entry in the list of interfaces in the implements section has a:
+Each entry in the list of interfaces in the contents section has a:
 
 - `type`: This must be `Component`
 - `name`: the programming name of the interface.
-- `schema`: the interface the capability model implements.
+- `schema`: the interface the components implements.
 
-There are additional optional fields you can use to add more details to the capability model, such as display name and description. Interfaces that are declared within a capability model can be thought of as components of the device. 
+There are additional optional fields you can use to add more details to the model, such as display name and description. 
 
-## Interface
+## Interfaces
 
-With DTDL, you describe the capabilities of your device using interfaces. Interfaces describe the _properties_, _telemetry_, and _commands_ a part of your device implements:
+With DTDL, you describe the Model of your device using interfaces. Interfaces describe the _properties_, _telemetry_, and _commands_ a part of your device implements:
 
 - `Properties`. Properties are data fields that represent the state of your device. Use properties to represent the durable state of the device, such as the on-off state of a coolant pump. Properties can also represent basic device properties, such as the firmware version of the device. You can declare properties as read-only or writable.
 - `Telemetry`. Telemetry fields represent measurements from sensors. Whenever your device takes a sensor measurement, it should send a telemetry event containing the sensor data.
@@ -73,7 +73,7 @@ The following example shows the interface for a thermostat device:
 
 ```json
 {
-  "@id": "dtmi:aziot-samples:Thermostat;1",
+  "@id": "dtmi:aziotsamples:Thermostat;1",
   "@type": "Interface",
   "contents": [
     {
@@ -99,7 +99,7 @@ In this simple example, there's only a single telemetry field. A minimal field d
 - `name`: provides the name of the telemetry value.
 - `schema`: specifies the data type for the telemetry. This value can be a primitive type, such as double, integer, boolean, or string. Complex object types, arrays, and maps are also supported.
 
-Other optional fields, such as display name and description, let you add more details to the interface and capabilities.
+Other optional fields, such as display name and description let you add more details to the interface and capabilities.
 
 ### Properties
 
@@ -121,26 +121,19 @@ You can use [IoT Hub's custom endpoints and routing rules](../iot-hub/iot-hub-de
 
 ### Commands
 
-Commands are either synchronous or asynchronous. A synchronous command must execute within 30 seconds by default, and the device must be connected when the command arrives. If the device does respond in time, or the device isn't connected, then the command fails.
+A command must execute within 30 seconds by default, and the device must be connected when the command arrives. If the device does respond in time, or the device isn't connected, then the command fails.
 
-Use asynchronous commands for long-running operations. The device sends progress information using telemetry messages. These progress messages have the following header properties:
-
-- `iothub-command-name`: the command name, for example `UpdateFirmware`.
-- `iothub-command-request-id`: the request ID generated on the server side and sent to the device in the initial call.
-- `iothub-interface-id`:  The ID of the interface this command is defined on, for example `urn:example:AssetTracker:1`.
- `iothub-interface-name`: the instance name of this interface, for example `myAssetTracker`.
-- `iothub-command-statuscode`: the status code returned from the device, for example `202`.
 
 ## Register a device
 
-IoT Plug and Play makes it easy to advertise the capabilities of your device. With IoT Plug and Play you must specify the *Device Capability Model ID* when you establish the connection with the IoT Hub. The ID will be available in the Digital Twin associated to your device, under the $metadata/$model property.
+IoT Plug and Play makes it easy to advertise the capabilities of your device. With IoT Plug and Play you must specify the *Model ID* when you establish the connection with the IoT Hub. The ID will be available in the Digital Twin associated to your device, under the `$metadata.$model` property.
  
 This guide shows you how to connect a device and advertise the Model ID using the Azure IoT Device SDK for C.
 
 ```c
-#define DIGITALTWIN_SAMPLE_DEVICE_CAPABILITY_MODEL_ID "dtmi:aziot-samples:Thermostat_T_1000;1"
+#define DIGITALTWIN_SAMPLE_DEVICE_MODEL_ID "dtmi:aziotsamples:Thermostat_T_1000;1"
 deviceHandle = IoTHubDeviceClient_CreateFromConnectionString(connectionString, MQTT_Protocol);
-DigitalTwin_DeviceClient_CreateFromDeviceHandle(deviceHandle, DIGITALTWIN_SAMPLE_DEVICE_CAPABILITY_MODEL_ID, &dtDeviceClientHandle)
+DigitalTwin_DeviceClient_CreateFromDeviceHandle(deviceHandle, DIGITALTWIN_SAMPLE_DEVICE_MODEL_ID, &dtDeviceClientHandle)
 ```
 
 For each interface your device implements, you must create an interface and connect it to its implementation.
@@ -152,7 +145,7 @@ DIGITALTWIN_INTERFACE_HANDLE thermostatInterfaceHandle;
 
 DIGITALTWIN_CLIENT_RESULT result = DigitalTwin_InterfaceClient_Create(
     "thermostat",
-    "dtmi:aziot-samples:Thermostat;1",
+    "dtmi:aziotsamples:Thermostat;1",
     null, null,
     &thermostatInterfaceHandle);
 ```
@@ -192,18 +185,6 @@ More generally, all properties on all interfaces are accessed with this REST API
 GET /digitalTwins/{device-id}
 ```
 
-If you know the name of the interface, such as `deviceInformation`, and want to get properties for that specific interface, scope the request to a specific interface by name:
-
-```REST
-GET /digitalTwins/t-123/interfaces/deviceInformation
-```
-
-More generally, properties for a specific interface can be accessed through this REST API template where `device-id` is the identifier for the device and `{interface-name}` is the name of the interface:
-
-```REST
-GET /digitalTwins/{device-id}/interfaces/{interface-name}
-```
-
 You can call IoT Plug and Play device commands directly. If the `Thermostat` interface in the `t-123` device has a `restart` command, you can call it with a REST API POST call:
 
 ```REST
@@ -213,11 +194,11 @@ POST /digitalTwins/t-123/interfaces/thermostat/commands/restart
 More generally, commands can be called through this REST API template:
 
 - `device-id`: the identifier for the device.
-- `interface-name`: the name of the interface from the implements section in the device capability model.
+- `component-name`: the name of the interface from the implements section in the device capability model.
 - `command-name`: the name of the command.
 
 ```REST
-/digitalTwins/{device-id}/interfaces/{interface-name}/commands/{command-name}
+/digitalTwins/{device-id}/components/{interface-name}/commands/{command-name}
 ```
 
 ## Next steps
