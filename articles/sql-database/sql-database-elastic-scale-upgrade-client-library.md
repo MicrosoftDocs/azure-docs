@@ -1,6 +1,6 @@
 ---
 title: Upgrade to the latest elastic database client library
-description: Use Nuget to upgrade elastic database client library.
+description: Use NuGet to upgrade elastic database client library.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
