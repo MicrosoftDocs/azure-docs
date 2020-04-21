@@ -177,11 +177,11 @@ In order to sign in to vVenter and NSX manager you'll need the urls to the vCent
 
 1. Select your AVS private cloud
 
-   ![](./media/image30.png)
+   ![](./media/tutorial-configure-networking/image30.png)
 
 1. Under **Manage**, select **Identity**, here you'll find the information needed.
 
-   ![](./media/image31.png)
+   ![](./media/tutorial-configure-networking/image31.png)
 
 In this tutorial you learned how to:
 
