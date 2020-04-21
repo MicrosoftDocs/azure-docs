@@ -32,7 +32,7 @@ Ingress Route: Traffic from user in Seattle enters Microsoft Network Point Of Pr
 
 Return Path (Egress Route): Traffic from Azure resources deployed in West Europe traverses on Microsoft Global Network all the way to Seattle, and exits Microsoft Network in Seattle.
 
-![Microsoft Global Network Routing Preference](./media/routing-preference-overview/routing-preference-global-example.png)
+![Microsoft Global Network Routing Preference](./media/routing-preference-overview/route-via-microsoft-global-network.png)
 
 ## Routing on Internet Path(ISP Network)
 
@@ -44,7 +44,7 @@ Ingress Route: Traffic from user in Seattle takes internet route and enters Micr
 
 Return Path (Egress Route): Traffic from Azure resources deployed in West Europe exits Microsoft Network in Amsterdam, and takes internet route to reach users in Seattle.
 
-![Internet Routing Preference](./media/routing-preference-overview/routing-preference-internet-example.png)
+![Internet Routing Preference](./media/routing-preference-overview/route-via-isp-network.png)
 
 ## Next steps
 
