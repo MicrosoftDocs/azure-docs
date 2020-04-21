@@ -2,11 +2,11 @@
   href: index.yml
 - name: Overview 
   items:
-  - name: What is Azure Key Vault?
+  - name: About Azure Key Vault
     href: overview.md
-- name: Quickstarts
-  expanded: true
-  items:
+  - name: About keys, secrets, and certificates
+    href: about-keys-secrets-certificates.md
+
 - name: Tutorials 
   items:
   - name: Azure Virtual Machine
@@ -17,6 +17,7 @@
       href: tutorial-python-windows-virtual-machine.md
   - name: Use Azure Key Vault with an Azure web app in .NET
     href: tutorial-net-create-vault-azure-web-app.md
+
 - name: Concepts 
   items:
   - name: Basic concepts
@@ -41,9 +42,9 @@
     items:
     - name: Monitor with Azure Event Grid (preview)
       href: event-grid-overview.md
-  - name: Soft delete
+  - name: Soft-delete
     items:
-    - name: Azure Key Vault soft delete
+    - name: Azure Key Vault soft-delete
       href: overview-soft-delete.md
   - name: Authentication, requests and responses
     href: authentication-requests-and-responses.md
@@ -51,6 +52,7 @@
     href: overview-throttling.md
   - name: Virtual network service endpoints for Azure Key Vault - Azure Key Vault
     href: overview-vnet-service-endpoints.md
+
 - name: How-to guides
   items:
   - name: Authenticate
@@ -69,8 +71,10 @@
       href: service-to-service-authentication.md
     - name: Use Key Vault Connected Service
       href: vs-key-vault-add-connected-service.md
-  - name: Monitor and Govern
+  - name: Monitor and govern
     items:
+    - name: Configure monitoring and alerting for Azure Key Vault
+      href: alert.md
     - name: Integrate Azure Key Vault with Azure Policy
       href: azure-policy.md
     - name: Azure Key Vault logging
@@ -85,9 +89,9 @@
       href: private-link-service.md
     - name: Access Key Vault behind a firewall - Azure Key Vault
       href: access-behind-firewall.md
-  - name: Soft-Delete
+  - name: Soft-delete
     items:
-    - name: Use soft delete with CLI
+    - name: Use soft-delete with CLI
       href: soft-delete-cli.md
     - name: Use soft-delete with PowerShell
       href: soft-delete-powershell.md
@@ -95,6 +99,7 @@
     items:
     - name: Change the key vault tenant ID after a subscription move
       href: subscription-move-fix.md
+
 - name: Reference
   items:
   - name: REST API error codes - Azure Key Vault
@@ -118,6 +123,7 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
     displayName: ARM
+
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

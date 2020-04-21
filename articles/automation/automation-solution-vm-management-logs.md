@@ -66,4 +66,4 @@ The following table provides sample log searches for job records collected by th
 
 ## Next steps
 
-The Start/Stop VMs during off hours solution does not include a predefined set of alerts. Review the [Create log alerts](../azure-monitor/platform/alerts-log.md) with Azure Monitor to learn how to create job failed alerts to support your DevOps or operational processes and procedures.
+The **Start/Stop VMs during off-hours** solution does not include a predefined set of alerts. Review the [Create log alerts](../azure-monitor/platform/alerts-log.md) with Azure Monitor to learn how to create job failed alerts to support your DevOps or operational processes and procedures.

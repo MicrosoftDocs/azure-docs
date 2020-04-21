@@ -17,7 +17,7 @@
     items:
     - name: Bulk invite via PowerShell
       href: bulk-invite-powershell.md
-    - name: Bulk invite via the portal (preview)
+    - name: Bulk invite via the portal
       href: tutorial-bulk-invite.md
     - name: Enforce multi-factor authentication
       href: b2b-tutorial-require-mfa.md
