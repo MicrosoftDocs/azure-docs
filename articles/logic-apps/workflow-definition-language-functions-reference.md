@@ -2519,7 +2519,7 @@ iterationIndexes('<loopName>')
 
 This example creates a counter variable and increments that variable by one during each iteration in an Until loop until the counter value reaches five. The example also creates a variable that tracks the current index for each iteration. In the Until loop, during each iteration, the example increments the counter and then assigns the counter value to the current index value and then increments the counter. While in the loop, this example references the current iteration index by using the `iterationIndexes` function:
 
-`iterationIndexes(`Until_Max_Increment`)`
+`iterationIndexes('Until_Max_Increment')`
 
 ```json
 {
