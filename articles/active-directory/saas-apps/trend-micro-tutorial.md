@@ -86,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://auth.iws-hybrid.trendmicro.com/simplesaml/module.php/saml/sp/saml2-acs.php/ics-sp`
 
 	> [!NOTE]
-	> The Identifier value is not real. Update this value with the actual Identifier. Contact [Trend Micro Web Security(TMWS) Client support team](https://success.trendmicro.com/contact-support-north-america) to get Identifier value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Identifier value is not real. Update this value with the actual Identifier. You can get these values under the **Service Provider Settings for the Azure Admin Portal** area on the **Authentication Method** screen for Azure AD from **Administration > Directory Services**.
 
 1. Trend Micro Web Security(TMWS) application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
