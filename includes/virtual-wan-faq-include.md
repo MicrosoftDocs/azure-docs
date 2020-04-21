@@ -210,8 +210,8 @@ A virtual hub can propagate a learned default route to a virtual network/site-to
 If a Virtual Hub learns the same route from multiple remote hubs,  the order in which it decides is as follows
 1) Route Origin 
 	a) Network routes – VNET prefixes directly learnt by the Virtual Hub gateways
-	b) BGP
-	c) Hub RouteTable (statically configured routes)
+	b) Hub RouteTable (statically configured routes)
+	c) BGP
 	d) InterHub routes
 2)	Route metric : Virtual WAN prefers ExpressRoute over VPN. ExpressRoute peer have a higher weightage compared to the VPN peer
 3)	AS path length
