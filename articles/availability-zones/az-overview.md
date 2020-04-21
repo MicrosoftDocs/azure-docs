@@ -22,8 +22,8 @@ To better understand regions and Availability Zones in Azure, it helps to unders
 | region | A set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. |
 | geography | An area of the world containing at least one Azure region. Geographies define a discrete market that preserve data residency and compliance boundaries. Geographies allow customers with specific data-residency and compliance needs to keep their data and applications close. Geographies are fault-tolerant to withstand complete region failure through their connection to our dedicated high-capacity networking infrastructure. |
 | Availability Zone | Unique physical locations within a region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. |
-| recommended region | A region that provides data residency, provides the broadest range of service capabilities, is designed to support Availability Zones now or in the future, and is recommended for new customer deployments. |
-| alternate region | A region that provides data residency and an additional location that customers can deploy for latency or disaster recovery needs. |
+| recommended region | A region that provides the broadest range of service capabilities and is designed to support Availability Zones now, or in the future. These are designated in the Azure portal as **Recommended**. |
+| alternate (other) region | A region that extends Azure's footprint within a data residency boundary where a recommended region also exists. Alternate regions help to optimize latency and provide a second region for disaster recovery needs. They are not designed to support Availability Zones (although Azure conducts regular assessment of these regions to determine if they should become recommended regions). These are designated in the Azure portal as **Other**. |
 | foundational service | A core Azure service that is available in all regions when the region is generally available. |
 | mainstream service | An Azure service that is available in all recommended regions within 12 months of the region/service general availability or demand-driven availability in alternate regions. |
 | specialized service | An Azure service that is demand-driven availability across regions backed by customized/specialized hardware. |
@@ -56,21 +56,13 @@ Azure's approach on availability of Azure services across regions is best descri
 
 ### Recommended regions
 
-A recommended region is a region that provides the following capabilities:
-
-- Preserves data residency and compliance boundaries
-- Provides the broadest range of service capabilities
-- Designed to support Availability Zones now or in the future
+A recommended region is a region that provides the broadest range of service capabilities and is designed to support Availability Zones now, or in the future. These are designated in the Azure portal as **Recommended**.
 
 Availability Zones are currently/planned to be available in most recommended regions.
 
-### Alternate regions
+### Alternate (other) regions
 
-An alternate region is a region that extends Azure's footprint within a data residency boundary where a recommended region also exists. Alternate regions are listed as **Other** in the [Azure portal](https://portal.azure.com) and include the following capabilities:
-
-- Preserves data residency and compliance boundaries
-- Additional location to meet specialized latency needs and provide a second region for disaster recovery needs
-- Not designed to support Availability Zones
+An alternate (other) region is a region that extends Azure's footprint within a data residency boundary where a recommended region also exists. Alternate regions help to optimize latency and provide a second region for disaster recovery needs. They are not designed to support Availability Zones (although Azure conducts regular assessment of these regions to determine if they should become recommended regions). These are designated in the Azure portal as **Other**.
 
 ### Comparing region types
 
