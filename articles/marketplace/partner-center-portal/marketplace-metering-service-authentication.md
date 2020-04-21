@@ -101,11 +101,50 @@ Using this approach will allow the deployed resources identity to authenticate t
 >[!Note]
 >Publisher should ensure that the resources that emit usage are locked, so it will not be tampered.
 
-Your managed application can contain different type of resources, from Virtual Machines to Azure Functions.  For more information on how to authenticate using managed identities for different services, see [how to use managed identities for Azure resources](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview#how-can-i-use-managed-identities-for-azure-resources).
+Your managed application can contain different type of resources, from Virtual Machines to Azure Functions.  For more information on how to authenticate using managed identities for different services, see [how to use managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-can-i-use-managed-identities-for-azure-resources).
 
 For example, this is how to authenticate using a Windows VM,
 
+1. Make sure Managed Identity is configured using one of the methods:
+    1. [Azure Portal UI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+    1. [CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
+    1. [PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
+    1. [Azure Resource Manager Template](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
+    1. [REST](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm#system-assigned-managed-identity)
+    1. [Azure SDKs](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
 
-## Next steps
+1. Get an access token for Marketplace metering service application ID (`20e940b3-4c77-4b0b-9a53-9e16a1b010a7`) using the system identity, RDP to the VM, open PowerShell console and run the command below
 
-For more information, see [SaaS metered billing](./saas-metered-billing.md).
+    ```json
+    # curl is an alias to Web-Invoke PowerShell command
+    # Get system identity access tokenn
+    $MetadataUrl = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F"
+    $Token = curl -H @{"Metadata" = "true"} $MetadataUrl | Select-Object -Expand Content | ConvertFrom-Json
+    $Headers = @{}
+    $Headers.Add("Authorization","$($Token.token_type) "+ " " + "$($Token.access_token)")
+    ```
+
+1. Get the managed app id from the current resource groups 'ManagedBy' property
+
+    ```json
+    # Get subscription and resource group
+    $metadata = curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-06-01 | select -ExpandProperty Content | ConvertFrom-Json 
+    
+    # Make sure the system identity has at least reader permission on the resource group
+    $managementUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "?api-version=2019-10-01"
+    $resourceGroupInfo = curl -Headers $Headers $managementUrl | select -ExpandProperty Content | ConvertFrom-Json
+    $managedappId = $resourceGroupInfo.managedBy 
+    ```
+
+1. Marketplace metering service requires to report usage on a `resourceID`, in the case of a Managed App this is the `resourceUsageId`.
+
+    ```json
+    # Get resourceUsageId from the Managed App
+    $managedAppUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + /providers/Microsoft.Solutions/applications/" + $managedappId <ManagedAppName>+ "\?api-version=2019-07-01"
+    $ManagedApp = curl $managedAppUrl Url -H $Headers | Select-Object -Expand Content | ConvertFrom-Json
+    # Use this resource ID to emit usage 
+    $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId 
+    ```
+
+1. Use the [Marketplace metering service API](https://review.docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis?branch=pr-en-us-101847) to emit usage
+
