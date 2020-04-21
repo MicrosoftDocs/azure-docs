@@ -52,7 +52,7 @@ You can also do other actions using the hand menu:
 
 **Start/Stop Tracing**: Capture diagnostics data and save it to the device. See more detail in section **Debug Detection Issues and Capture Diagnostics**
 
-:::image type="content" source="./media/ou_unity_readme_handmenu.png" alt-text="Unity hand menu":::
+:::image type="content" source="./media/unity-readme-handmenu.png" alt-text="Unity hand menu":::
 
 [!INCLUDE [Unity setup Windows Device Portal](../../../includes/object-understanding-quickstart-unity-setup-device-portal.md)]
 
@@ -80,7 +80,7 @@ The sample above requires a user to provide a tight bounding box to cover the ta
 
 In Unity, navigate to `Assets/MixedReality.ObjectUnderstanding/Scenes`, open **OUAutoSearchArea**, add it to the scene build list. Optionally, adjust the two thresholds (explained below), then follow the above instructions for **OUSampleScene** to set up and build the app. When running the app, you can move the cubic box to partially cover the object in arbitrary orientation, then start the search. The cubic box will adjust automatically to fit to the object's position and orientation if detection succeeds.
 
-:::image type="content" source="./media/ou_unity_auto_search_area.png" alt-text="Unity Auto Search Area":::
+:::image type="content" source="./media/unity-auto-search-area.png" alt-text="Unity Auto Search Area":::
 
 There are two parameters to fine-tune the auto-adjustment. **Surface Coverage Scale** down-weights the default coverage threshold to allow a detection on partially observed data. **Bounding Box Scale** specifies the scale of adjusted bounding box.
 
