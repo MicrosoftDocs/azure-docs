@@ -90,7 +90,7 @@ The following sections list available claim resolvers.
 
 | Claim | Description | Example |
 | ----- | ----------- | --------|
-| {Claim:claim type} | A identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file.  For example: `{Claim:displayName}`, or `{Claim:objectId}`. | A claim type value.|
+| {Claim:claim type} | An identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file.  For example: `{Claim:displayName}`, or `{Claim:objectId}`. | A claim type value.|
 
 
 ### OAuth2 key-value parameters
