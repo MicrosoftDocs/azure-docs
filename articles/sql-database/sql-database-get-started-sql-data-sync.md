@@ -1,10 +1,10 @@
 ---
-title: Set up Data Sync
-description: This tutorial shows you how to set up Azure SQL Data Sync
+title: Set up SQL Data Sync
+description: This tutorial shows you how to set up SQL Data Sync for Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -14,16 +14,16 @@ ms.date: 01/14/2019
 ---
 # Tutorial: Set up SQL Data Sync between Azure SQL Database and SQL Server on-premises
 
-In this tutorial, you learn how to set up Azure SQL Data Sync by creating a sync group that contains both Azure SQL Database and SQL Server instances. The sync group is custom configured and synchronizes on the schedule you set.
+In this tutorial, you learn how to set up SQL Data Sync by creating a sync group that contains both Azure SQL Database and SQL Server instances. The sync group is custom configured and synchronizes on the schedule you set.
 
 The tutorial assumes you have at least some prior experience with SQL Database and SQL Server.
 
-For an overview of SQL Data Sync, see [Sync data across cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md).
+For an overview of SQL Data Sync, see [Sync data across cloud and on-premises databases with SQL Data Sync](sql-database-sync-data.md).
 
-For PowerShell examples on how to configure SQL Data Sync, see [How to sync between Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md) or [an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+For PowerShell examples on how to configure SQL Data Sync, see [How to sync between SQL databases](scripts/sql-database-sync-data-between-sql-databases.md) or [an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 > [!IMPORTANT]
-> Azure SQL Data Sync does **not** support Azure SQL Database Managed Instance at this time.
+> SQL Data Sync does **not** support Azure SQL Managed Instance at this time.
 
 ## Create sync group
 

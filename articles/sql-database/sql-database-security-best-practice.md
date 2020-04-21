@@ -1,9 +1,10 @@
 ---
-title: Playbook for Addressing Common Security Requirements | Microsoft Docs
-titleSuffix: Azure SQL Database
-description: This article provides common security requirements and best practices in Azure SQL Database.
+title: Playbook for Addressing Common Security Requirements 
+titleSuffix: Azure SQL Database & SQL Managed Instance
+description: This article provides common security requirements and best practices in Azure SQL Database and Azure SQL Managed Instance
 ms.service: sql-database
 ms.subservice: security
+ms.custom: sqldbrb=2
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
@@ -13,17 +14,16 @@ ms.reviewer: ""
 
 # Playbook for Addressing Common Security Requirements with Azure SQL Database
 
-> [!NOTE]
-> This document provides best practices on how to solve common security requirements. Not all requirements are applicable to all environments, and you should consult your database and security team on which features to implement.
+This article provides best practices on how to solve common security requirements. Not all requirements are applicable to all environments, and you should consult your database and security team on which features to implement.
 
 ## Solving common security requirements
 
-This document provides guidance on how to solve common security requirements for new or existing applications using Azure SQL Database. It's organized by high level security areas. For addressing specific threats, refer to the [Common security threats and potential mitigations](#common-security-threats-and-potential-mitigations) section. Although some of the presented recommendations are applicable when migrating applications from on-premises to Azure, migration scenarios are not the focus of this document.
+This document provides guidance on how to solve common security requirements for new or existing applications using Azure SQL Database and Azure SQL Managed Instance. It's organized by high level security areas. For addressing specific threats, refer to the [Common security threats and potential mitigations](#common-security-threats-and-potential-mitigations) section. Although some of the presented recommendations are applicable when migrating applications from on-premises to Azure, migration scenarios are not the focus of this document.
 
 ### Azure SQL Database deployment offers covered in this guide
 
-- [SQL Databases](https://docs.microsoft.com/azure/sql-database/sql-database-single-index): [single databases](sql-database-single-database.md) and [elastic pools](sql-database-elastic-pool.md) in [Azure SQL Database servers](sql-database-servers.md)
-- [Managed instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)
+- [Azure SQL Databases](https://docs.microsoft.com/azure/sql-database/sql-database-single-index): [single databases](sql-database-single-database.md) and [elastic pools](sql-database-elastic-pool.md) in [Azure SQL Database servers](sql-database-servers.md)
+- [Azure SQL Managed Instances](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)
 
 ### SQL deployment offers not covered in this guide
 
@@ -60,7 +60,7 @@ We plan on continuing to update the recommendations and best practices listed he
 
 ## Authentication
 
-Authentication is the process of proving the user is who they claim to be. Azure SQL Database supports two types of authentication:
+Authentication is the process of proving the user is who they claim to be. Azure SQL Database and SQL Managed Instance support two types of authentication:
 
 - SQL authentication
 - Azure Active Directory authentication
@@ -72,7 +72,7 @@ Authentication is the process of proving the user is who they claim to be. Azure
 
 Central identity management offers the following benefits:
 
-- Manage group accounts and control user permissions without duplicating logins across Azure SQL Database servers and databases.
+- Manage group accounts and control user permissions without duplicating logins across Azure SQL Database servers, databases and SQL Managed Instances.
 - Simplified and flexible permission management.
 - Management of applications at scale.
 
@@ -87,25 +87,25 @@ Central identity management offers the following benefits:
 - Assign access rights to resources to Azure AD principals via group assignment: Create Azure AD groups, grant access to groups, and add individual members to the groups. In your database, create contained database users that map your Azure AD groups. To assign permissions inside the database, put the users that are associated with your Azure AD groups in database roles with the appropriate permissions.
   - See the articles, [Configure and manage Azure Active Directory authentication with SQL](sql-database-aad-authentication-configure.md) and [Use Azure AD for authentication with SQL](sql-database-aad-authentication.md).
   > [!NOTE]
-  > In a managed instance, you can also create logins that map to Azure AD principals in the master database. See [CREATE LOGIN (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+  > In SQL Managed Instance, you can also create logins that map to Azure AD principals in the master database. See [CREATE LOGIN (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
 - Using Azure AD groups simplifies permission management and both the group owner, and the resource owner can add/remove members to/from the group. 
 
-- Create a separate group for Azure AD administrators for each SQL DB server.
+- Create a separate group for Azure AD administrators for each SQL Database server or SQL Managed Instance.
 
   - See the article, [Provision an Azure Active Directory administrator for your Azure SQL Database server](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server).
 
 - Monitor Azure AD group membership changes using Azure AD audit activity reports. 
 
-- For a managed instance, a separate step is required to create Azure AD admin. 
-  - See the article, [Provision an Azure Active Directory administrator for your managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). 
+- For a SQL Managed Instance, a separate step is required to create Azure AD admin. 
+  - See the article, [Provision an Azure Active Directory administrator for your SQL Managed Instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). 
 
 > [!NOTE]
 > - Azure AD authentication is recorded in Azure SQL audit logs, but not in Azure AD sign-in logs.
 > - RBAC permissions granted in Azure do not apply to Azure SQL DB permissions. Such permissions must be created/mapped manually in SQL DB using existing SQL permissions.
 > - On the client-side, Azure AD authentication needs access to the internet or via User Defined Route (UDR) to a VNet.
 > - The Azure AD access token is cached on the client side and its lifetime depends on token configuration. See the article, [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md)
-> - For guidance on troubleshooting Azure AD Authentication issues, see the following blog: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
+> - For guidance on troubleshooting Azure AD Authentication issues, see the following blog: [Troubleshooting Azure AD](https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991). 
 
 ### Multi-Factor Authentication (MFA)
 
@@ -129,8 +129,8 @@ Azure Multi-Factor Authentication (MFA) helps provides additional security by re
 
 - MFA can be enabled for the entire Azure AD or for the whole Active Directory federated with Azure AD. 
 
-- Use Azure AD Interactive authentication mode for SQL DB where a password is requested interactively, followed by MFA authentication:      
-  - Use Universal Authentication in SSMS. See the article, [Using Multi-factor AAD authentication with Azure SQL Database and Azure SQL Data Warehouse (SSMS support for MFA)](sql-database-ssms-mfa-authentication.md).
+- Use Azure AD Interactive authentication mode for Azure SQL Database and Azure SQL Managed Instance where a password is requested interactively, followed by MFA authentication:      
+  - Use Universal Authentication in SSMS. See the article, [Using Multi-factor AAD authentication with Azure SQL Database, SQL Managed Instance, Azure Synapse (SSMS support for MFA)](sql-database-ssms-mfa-authentication.md).
   - Use Interactive Authentication supported in SQL Server Data Tools (SSDT). See the article, [Azure Active Directory support in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory?view=azuresqldb-current).
   - Use other SQL tools supporting MFA. 
     - SSMS Wizard support for export/extract/deploy database  
@@ -138,7 +138,7 @@ Azure Multi-Factor Authentication (MFA) helps provides additional security by re
     - [sqlcmd Utility](https://docs.microsoft.com/sql/tools/sqlcmd-utility): option -G (interactive)
     - [bcp Utility](https://docs.microsoft.com/sql/tools/bcp-utility): option -G (interactive) 
 
-- Implement your applications to connect to Azure SQL Database using interactive authentication with MFA support. 
+- Implement your applications to connect to Azure SQL Database or Azure SQL Managed Instance using interactive authentication with MFA support. 
   - See the article, [Connect to Azure SQL Database with Azure Multi-Factor Authentication](active-directory-interactive-connect-azure-sql-db.md). 
   > [!NOTE]
   > This authentication mode requires user-based identities. In cases where a trusted identity model is used that is bypassing individual Azure AD user authentication (e.g. using managed identity for Azure resources), MFA does not apply.
@@ -195,7 +195,7 @@ For cases when passwords aren't avoidable, make sure they're secured.
 
 ### Use SQL authentication for legacy applications 
 
-SQL authentication refers to the authentication of a user when connecting to Azure SQL Database using username and password. A login will need to be created in each SQL Database server or a managed instance, and a user created in each database.
+SQL authentication refers to the authentication of a user when connecting to Azure SQL Database or SQL Managed Instance using username and password. A login will need to be created in each SQL Database server or SQL Managed Instance, and a user created in each database.
 
 **How to implement**:
 
@@ -203,8 +203,8 @@ SQL authentication refers to the authentication of a user when connecting to Azu
 
 **Best practices**:
 
-- As a server admin, create logins and users. Unless using contained database users with passwords, all passwords are stored in master database.
-  - See the article, [Controlling and granting database access to SQL Database and SQL Data Warehouse](sql-database-manage-logins.md).
+- As a server or instance admin, create logins and users. Unless using contained database users with passwords, all passwords are stored in master database.
+  - See the article, [Controlling and granting database access to SQL Database, SQL Managed Instance and SQL Data Warehouse](sql-database-manage-logins.md).
 
 ## Access management
 
@@ -628,7 +628,7 @@ Advanced threat protection enables you to detect and respond to potential threat
 
 **How to implement**:
 
-- Use [Advanced Threat Protection for SQL](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts) to detect unusual and potentially harmful attempts to access or exploit databases, including:
+- Use [Advanced Threat Protection for SQL](sql-database-threat-detection-overview.md#alerts) to detect unusual and potentially harmful attempts to access or exploit databases, including:
   - SQL injection attack.
   - Credentials theft/leak.
   - Privilege abuse.

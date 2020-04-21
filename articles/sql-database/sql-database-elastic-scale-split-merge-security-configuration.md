@@ -4,7 +4,7 @@ description: Set up x409 certificates for encryption with the split/merge servic
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: VanMSFT
@@ -14,7 +14,7 @@ ms.date: 12/18/2018
 ---
 # Split-merge security configuration
 
-To use the Split/Merge service, you must correctly configure security. The service is part of the Elastic Scale feature of Microsoft Azure SQL Database. For more information, see [Elastic Scale Split and Merge Service Tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+To use the Split/Merge service, you must correctly configure security. The service is part of the Elastic Scale feature of Azure SQL Database. For more information, see [Elastic Scale Split and Merge Service Tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
 ## Configuring certificates
 
