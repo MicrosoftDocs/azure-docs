@@ -15,7 +15,7 @@ Azure Monitor for containers provides rich monitoring experience for the Azure K
 
 Azure Monitor for containers can be enabled for one or more existing deployments of Azure Red Hat OpenShift using the following supported methods:
 
-- For an existing cluster using the [Azure CLI](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create) or from the Azure portal in the Multi-cluster view.
+- For an existing cluster using the [Azure CLI](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create) or from the Azure portal in the Azure Monitor for containers **Multi-cluster** view.
 
 ## Supported and unsupported features
 
@@ -40,11 +40,7 @@ Perform the following steps to enable monitoring of an Azure Red Hat OpenShift v
 
 ### Using script
 
-1. Download and save the script to a local folder that configures your cluster with the monitoring add-on using the following commands:
-
-    `curl -LO  https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/openshiftV4/onboarding_azuremonitor_for_containers.sh`
-
-2. Sign into Azure
+1. Sign into Azure
 
     ```azurecli
     az login
@@ -52,9 +48,13 @@ Perform the following steps to enable monitoring of an Azure Red Hat OpenShift v
 
     If you have access to multiple subscriptions, run `az account set -s {subscription ID}` replacing `{subscription ID}` with the subscription you want to use.
 
-3. The following step enables monitoring on the specified cluster by using Azure CLI. Specify your Azure SubscriptionId, Log Analytics workspace region, cluster name, and context of Kubernetes cluster.
+2. Download and save the script to a local folder that configures your cluster with the monitoring add-on using the following commands:
 
-    `bash onboarding_azuremonitor_for_containers.sh <azureSubscriptionId> <azureRegionforLogAnalyticsWorkspace> <clusterName> <kubeconfigContextNameOftheCluster>`
+    `curl -LO  https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/openshiftV4/onboarding_azuremonitor_for_containers.sh`
+
+3. The following step enables monitoring on the specified cluster by using Azure CLI. Specify your Azure Subscription ID, Log Analytics workspace region, cluster name, and context of Kubernetes cluster.
+
+    `bash onboarding_azuremonitor_for_containers.sh <azureSubscriptionId> <LogAnalyticsWorkspaceRegion> <clusterName> <kubeconfigContextNameOfCluster>`
 
     For example:
 
@@ -84,7 +84,7 @@ After you've enabled monitoring, it might take about 15 minutes before you can v
 
 - With monitoring enabled to collect health and resource utilization of your RedHat OpenShift version 4.x cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
 
-- By default, the containerized agent collects the stdout/ stderr container logs of all the containers running in all the namespaces except kube-system. To configure container log collection specific to particular namespace or namespaces, review [Container Insights agent configuration](container-insights-agent-config.md) to configure desired data collection settings to your  ConfigMap configurations file.
+- By default, the containerized agent collects the stdout/ stderr container logs of all the containers running in all the namespaces except kube-system. To configure container log collection specific to particular namespace or namespaces, review [Container Insights agent configuration](container-insights-agent-config.md) to configure desired data collection settings to your ConfigMap configurations file.
 
 - To scrape and analyze Prometheus metrics from your cluster, review [Configure Prometheus metrics scraping](container-insights-prometheus-integration.md)
 
