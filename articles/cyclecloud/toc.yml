@@ -18,7 +18,7 @@
     href: ./tutorials/clean-up.md
 - name: Concepts
   items:
-  - name: Architecture
+  - name: Core
     href: ./concepts/core.md
   - name: Clusters & Nodes
     href: ./concepts/clusters.md
