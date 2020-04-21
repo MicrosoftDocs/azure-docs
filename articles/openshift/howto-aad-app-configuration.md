@@ -21,13 +21,13 @@ In the [Azure portal](https://portal.azure.com), ensure that your tenant appears
 ![Screenshot of portal with tenant listed in top right](./media/howto-create-tenant/tenant-callout.png)
 If the wrong tenant is displayed, click your user name in the top right, then click **Switch Directory**, and select the correct tenant from the **All Directories** list.
 
-Create a new Azure Active Directory global administrator user to sign in to your Azure Red Hat OpenShift cluster.
+Create a new Azure Active Directory 'Owner' user to sign in to your Azure Red Hat OpenShift cluster.
 
 1. Go to the [Users-All users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) blade.
 2. Click **+New user** to open the **User** pane.
 3. Enter a **Name** for this user.
 4. Create a **User name** based on the name of the tenant you created, with  `.onmicrosoft.com` appended at the end. For example, `yourUserName@yourTenantName.onmicrosoft.com`. Write down this user name. You'll need it to sign in to your cluster.
-5. Click **Directory role** to open the directory role pane, and select **Global administrator** and then click **Ok** at the bottom of the pane.
+5. Click **Directory role** to open the directory role pane, and select **Owner** and then click **Ok** at the bottom of the pane.
 6. In the **User** pane, click **Show Password** and record the temporary password. After you sign in the first time, you'll be prompted to reset it.
 7. At the bottom of the pane, click **Create** to create the user.
 

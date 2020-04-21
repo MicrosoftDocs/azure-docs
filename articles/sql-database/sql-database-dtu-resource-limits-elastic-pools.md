@@ -4,28 +4,36 @@ description: This page describes some common DTU resource limits for elastic poo
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019,sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
-ms.date: 03/14/2019
+ms.date: 04/17/2020
 ---
 # Resources limits for elastic pools using the DTU purchasing model
 
 This article provides the detailed resource limits for Azure SQL Database elastic pools and pooled databases using the DTU purchasing model.
 
-For DTU purchasing model resource limits for single databases, see [DTU resource limits - single databases](sql-database-vcore-resource-limits-elastic-pools.md). For vCore resource limits, see [vCore resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [vCore resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
+* For DTU purchasing model resource limits for Azure SQL Database, see [DTU resource limits - Azure SQL Database](sql-database-vcore-resource-limits-elastic-pools.md). 
+* For vCore resource limits, see [vCore resource limits - Azure SQL Database](sql-database-vcore-resource-limits-single-databases.md) and [vCore resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
 
 ## Elastic pool: Storage sizes and compute sizes
 
-For SQL Database elastic pools, the following tables show the resources available at each service tier and compute size. You can set the service tier, compute size, and storage amount using the [Azure portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), the [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), or the [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
+For Azure SQL Database elastic pools, the following tables show the resources available at each service tier and compute size. You can set the service tier, compute size, and storage amount using:
+* [Azure portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)
+* [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases)
+* [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases)
+* [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale an elastic pool](sql-database-elastic-pool-scale.md)
 > [!NOTE]
 > The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools based on DTUs and the service tier. For example, the max concurrent workers for an S2 database is 120 workers. So, the max concurrent workers for a database in a Standard pool is also 120 workers if the max DTU per database in the pool is 50 DTUs (which is equivalent to S2).
+
+> [!NOTE]
+> The storage per pool resource limit in each of the following tables do not include tempdb and log storage.
 
 ### Basic elastic pool limits
 
