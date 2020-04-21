@@ -7,7 +7,7 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/25/2020
 ms.author: cynthn
-#pmcontact: jagaveer
+ms.reviewer: jagaveer
 ---
 
 # Deploy Spot VMs using the Azure CLI
