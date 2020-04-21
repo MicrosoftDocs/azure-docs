@@ -31,4 +31,4 @@ Azure Monitor has several throttling limits to protect against users sending an 
 
 - Optimize your queries as described in [Optimize log queries in Azure Monitor](../articles/azure-monitor/log-query/query-optimization.md).
 - Dashboards and workbooks can contain multiple queries in a single view that generate a burst of queries every time they load or refresh. Consider breaking them up into multiple views that load on demand. 
-- -	In Power BI, consider extracting only aggregated results rather than raw logs.
+- In Power BI, consider extracting only aggregated results rather than raw logs.
