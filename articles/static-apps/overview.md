@@ -1,6 +1,6 @@
 ---
-title: What is App Service Static Apps?
-description: The key features and functionality of App Service Static Apps.
+title: What is Azure Static Web Apps?
+description: The key features and functionality of Azure Static Web Apps.
 services: azure-functions
 author: craigshoemaker
 ms.service: azure-functions
@@ -10,9 +10,9 @@ ms.author: cshoe
 # Customer intent: As a developer, I want to publish a website from a GitHub repository so that the app is publicly available on the web.
 ---
 
-# What is App Service Static Apps (Preview)?
+# What is Azure Static Web Apps (Preview)?
 
-App Service Static Apps is a service that automatically builds and deploys web apps to Azure from a GitHub repository.
+Azure Static Web Apps is a service that automatically builds and deploys web apps to Azure from a GitHub repository.
 
 :::image type="content" source="media/overview/static-apps-overview.png" alt-text="Static Apps overview":::
 
