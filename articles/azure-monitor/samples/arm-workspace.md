@@ -42,33 +42,473 @@ The following table lists the API version for the resources used in this example
 
 ## Simple workspace
 
-### Template file
-
-### Parameter file
-
-## Workspace with Windows events
+- If you specify a pricing tier of **Free**, then remove the 
 
 ### Template file
 
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "workspaceName": {
+          "type": "string",
+          "metadata": {
+            "description": "Name of the workspace."
+          }
+      },
+      "sku": {
+          "type": "string",
+          "allowedValues": [
+            "pergb2018",
+            "Free",
+            "Standalone",
+            "PerNode",
+            "Standard",
+            "Premium"
+            ],
+          "defaultValue": "pergb2018",
+          "metadata": {
+          "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+          }
+        },
+        "location": {
+          "type": "string",
+          "allowedValues": [
+          "australiacentral", 
+          "australiaeast", 
+          "australiasoutheast", 
+          "brazilsouth",
+          "canadacentral", 
+          "centralindia", 
+          "centralus", 
+          "eastasia", 
+          "eastus", 
+          "eastus2", 
+          "francecentral", 
+          "japaneast", 
+          "koreacentral", 
+          "northcentralus", 
+          "northeurope", 
+          "southafricanorth", 
+          "southcentralus", 
+          "southeastasia",
+          "switzerlandnorth",
+          "switzerlandwest",
+          "uksouth", 
+          "ukwest", 
+          "westcentralus", 
+          "westeurope", 
+          "westus", 
+          "westus2" 
+          ],
+          "metadata": {
+              "description": "Specifies the location for the workspace."
+              }
+        },
+        "retentionInDays": {
+          "type": "int",
+          "defaultValue": 120,
+          "metadata": {
+            "description": "Number of days to retain data."
+          }
+        },
+        "resourcePermissions": {
+          "type": "bool",
+          "metadata": {
+            "description": "true to use resource or workspace permissions. false to require workspace permissions."
+          }
+      }
+
+      },
+      "resources": [
+      {
+          "type": "Microsoft.OperationalInsights/workspaces",
+          "name": "[parameters('workspaceName')]",
+          "apiVersion": "2017-03-15-preview",
+          "location": "[parameters('location')]",
+          "properties": {
+              "sku": {
+                  "name": "[parameters('sku')]"
+              },
+              "retentionInDays": "[parameters('retentionInDays')]",
+              "features": {
+                  "searchVersion": 1,
+                  "legacy": 0,
+                  "enableLogAccessUsingOnlyResourcePermissions": "[parameters('resourcePermissions')]"
+              }
+          }
+      }
+  ]
+}
+```
+
 ### Parameter file
 
-## Workspace with syslog
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspaceName": {
+      "value": "MyWorkspace"
+    },
+    "sku": {
+      "value": "pergb2018"
+    },
+    "location": {
+      "value": "eastus"
+    },
+    "resourcePermissions": {
+      "value": true
+    }
+  }
+}
+```
+
+## Collect Windows events
 
 ### Template file
 
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "workspaceName": {
+          "type": "string"
+      },
+      "location": {
+        "type": "string"
+      }
+  },
+  "resources": [
+  {
+      "type": "Microsoft.OperationalInsights/workspaces",
+      "apiVersion": "2017-03-15-preview",
+      "name": "[parameters('workspaceName')]",
+      "location": "[parameters('location')]",
+      "resources": [
+        {
+          "apiVersion": "2015-11-01-preview",
+          "type": "datasources",
+          "name": "WindowsEventsSystem",
+          "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+          ],
+          "kind": "WindowsEvent",
+          "properties": {
+            "eventLogName": "System",
+            "eventTypes": [
+              {
+                "eventType": "Error"
+              },
+              {
+                "eventType": "Warning"
+              }
+            ]
+          }
+        },
+        {
+          "apiVersion": "2015-11-01-preview",
+          "type": "datasources",
+          "name": "WindowsEventsApplication",
+          "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+          ],
+          "kind": "WindowsEvent",
+          "properties": {
+            "eventLogName": "Application",
+            "eventTypes": [
+              {
+                "eventType": "Error"
+              },
+              {
+                "eventType": "Warning"
+              },
+              {
+                "eventType": "Information"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+
+```
+
 ### Parameter file
 
-## Workspace with Windows performance counters
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspaceName": {
+      "value": "MyWorkspace"
+    },
+    "location": {
+      "value": "eastus"
+    }
+  }
+}
+```
+
+## Collect syslog
+
 
 ### Template file
 
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the workspace."
+            }
+        },
+        "location": {
+            "type": "string",
+            "metadata": {
+            "description": "Specifies the location in which to create the workspace."
+            }
+        }
+    },
+    "resources": [
+    {
+        "apiVersion": "2017-03-15-preview",
+        "type": "Microsoft.OperationalInsights/workspaces",
+        "name": "[parameters('workspaceName')]",
+        "location": "[parameters('location')]",
+        "resources": [
+            {
+                "apiVersion": "2015-11-01-preview",
+                "type": "datasources",
+                "name": "SyslogKern",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+                ],
+                "kind": "LinuxSyslog",
+                "properties": {
+                    "syslogName": "kern",
+                    "syslogSeverities": [
+                        {
+                            "severity": "emerg"
+                        },
+                        {
+                            "severity": "alert"
+                        },
+                        {
+                            "severity": "crit"
+                        },
+                        {
+                            "severity": "err"
+                        },
+                        {
+                            "severity": "warning"
+                        },
+                        {
+                            "severity": "notice"
+                        },
+                        {
+                            "severity": "info"
+                        },
+                        {
+                            "severity": "debug"
+                        }
+                    ]
+                }
+            },
+            {
+                "apiVersion": "2015-11-01-preview",
+                "type": "datasources",
+                "name": "SyslogDaemon",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+                ],
+                "kind": "LinuxSyslog",
+                "properties": {
+                    "syslogName": "daemon",
+                    "syslogSeverities": [
+                        {
+                            "severity": "emerg"
+                        },
+                        {
+                            "severity": "alert"
+                        },
+                        {
+                            "severity": "crit"
+                        },
+                        {
+                            "severity": "err"
+                        },
+                        {
+                            "severity": "warning"
+                        }
+                    ]
+                }
+            },
+            {
+                "apiVersion": "2015-11-01-preview",
+                "type": "datasources",
+                "name": "SyslogCollection",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+                ],
+                "kind": "LinuxSyslogCollection",
+                "properties": {
+                    "state": "Enabled"
+                }
+            }
+        ]
+      }
+    ]
+}
+
+```
+
+
 ### Parameter file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspaceName": {
+      "value": "MyWorkspace"
+    },
+    "location": {
+      "value": "eastus"
+    }
+  }
+}
+```
+
+## Collect Windows performance counters
+
+### Template file
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the workspace."
+            }
+        },
+        "location": {
+            "type": "string",
+            "metadata": {
+            "description": "Location of the workspace."
+            }
+        }
+    },
+    "resources": [
+    {
+        "apiVersion": "2017-03-15-preview",
+        "type": "Microsoft.OperationalInsights/workspaces",
+        "name": "[parameters('workspaceName')]",
+        "location": "[parameters('location')]",
+        "resources": [
+          {
+            "apiVersion": "2015-11-01-preview",
+            "type": "datasources",
+            "name": "WindowsPerfMemoryAvailableBytes",
+            "dependsOn": [
+              "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+            ],
+            "kind": "WindowsPerformanceCounter",
+            "properties": {
+              "objectName": "Memory",
+              "instanceName": "*",
+              "intervalSeconds": 10,
+              "counterName": "Available MBytes "
+            }
+          },
+          {
+            "apiVersion": "2015-11-01-preview",
+            "type": "datasources",
+            "name": "WindowsPerfMemoryPercentageBytes",
+            "dependsOn": [
+              "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+            ],
+            "kind": "WindowsPerformanceCounter",
+            "properties": {
+              "objectName": "Memory",
+              "instanceName": "*",
+              "intervalSeconds": 10,
+              "counterName": "% Committed Bytes in Use"
+            }
+          },
+          {
+            "apiVersion": "2015-11-01-preview",
+            "type": "datasources",
+            "name": "WindowsPerfProcessorPercentage",
+            "dependsOn": [
+              "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+            ],
+            "kind": "WindowsPerformanceCounter",
+            "properties": {
+              "objectName": "Processor",
+              "instanceName": "_Total",
+              "intervalSeconds": 10,
+              "counterName": "% Processor Time"
+            }
+          }
+        ]
+      }
+    ]
+}
+
+```
+
+### Parameter file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspaceName": {
+      "value": "MyWorkspace"
+    },
+    "location": {
+      "value": "eastus"
+    }
+  }
+}
+```
+
 
 ## Workspace with Linux performance counters
 
 ### Template file
 
 ### Parameter file
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspaceName": {
+      "value": "MyWorkspace"
+    },
+    "location": {
+      "value": "eastus"
+    }
+  }
+}
+```
 
 ## Workspace with IIS log
 
