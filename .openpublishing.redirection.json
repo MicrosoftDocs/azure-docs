@@ -3639,7 +3639,7 @@
     },
    {
       "source_path": "articles/key-vault/about-keys-secrets-and-certificates.md",
-      "redirect_url": "/azure/key-vault",
+      "redirect_url": "/azure/key-vault/general/about-keys-secrets-certificates",
       "redirect_document_id": false
     },
    {
@@ -7554,6 +7554,46 @@
     {
       "source_path": "articles/application-insights/app-insights-java-track-http-requests.md",
       "redirect_url": "/azure/azure-monitor/app/java-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/status-monitor-v2-api-disable-instrumentation-engine.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/status-monitor-v2-api-disable-monitoring.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/status-monitor-v2-api-enable-instrumentation-engine.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/status-monitor-v2-api-enable-monitoring.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/status-monitor-v2-api-get-config.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/status-monitor-v2-api-get-status.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/status-monitor-v2-api-set-config.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/status-monitor-v2-api-start-trace.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
       "redirect_document_id": false
     },
     {

@@ -69,13 +69,20 @@ If you receive this error after updating one AzureRM or Az module, you should up
 If you're trying to access resources in another subscription, you can follow the steps below to configure permissions.
 
 1. Go to the Automation Run As account and copy the application ID and thumbprint.
-  ![Copy Application ID and Thumbprint](../media/troubleshoot-runbooks/collect-app-id.png)
+
+    ![Copy ID and thumbprint](../media/troubleshoot-runbooks/collect-app-id.png)
+
 1. Go to the subscription's Access Control where the Automation account is NOT hosted, and add a new role assignment.
-  ![Access control](../media/troubleshoot-runbooks/access-control.png)
+
+    ![Access control](../media/troubleshoot-runbooks/access-control.png)
+
 1. Add the application ID collected earlier. Select Contributor permissions.
-   ![Add role assignment](../media/troubleshoot-runbooks/add-role-assignment.png)
+
+    ![Add role assignment](../media/troubleshoot-runbooks/add-role-assignment.png)
+
 1. Copy the name of the subscription.
-1. You can now use the following runbook code to test the permissions from your Automation account to the other subscription. Replace `"\<CertificateThumbprint\>"` with the value you copied in step 1. Replace `"\<SubscriptionName\>"` with the value you copied in step 4.
+
+1. You can now use the following runbook code to test the permissions from your Automation account to the other subscription. Replace `"\<CertificateThumbprint\>"` with the value copied in step 1. Replace `"\<SubscriptionName\>"` with the value copied in step 4.
 
     ```powershell
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
