@@ -22,7 +22,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ### Azure Machine Learning SDK for Python v1.4.0
 
 + **New features**
-  + [Insert new features below. Reference articles and/or doc pages]
+  + AmlCompute clusters now support setting up a managed identity on the cluster at the time of provisioning. Just specify whether you would like to use a system-assigned identity or a user-assigned identity, and pass an identityId in the case of the latter. You can then setup permissiosn to access various resources like Storage or ACR in a way that the identity of the compute gets used to securely access the data, instead of a token based approach that AmlCompute employs today. Check out our SDK reference for more information on the parameters.
   
   + **Preview features**
     + [Contrib features below] 
