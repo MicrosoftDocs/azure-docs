@@ -27,7 +27,18 @@ One thing to have in mind is that you'll take over of all the related costs of t
 1. Your application contacts our service (Profiler/Debugger) when they want to upload data and we hand back a SAS (Shared Access Signature) token to a blob in your storage account.
 1. Later, when you want to analyze the data, the profiler/debugger service will reach back into that storage account to read the blob and write back the results of the analysis.
 
-## What do I need to do to enable BYOS? 
+## Prerequisites
+* Make sure to create your Storage Account in the same location as your Application Insights Resource. Ex. If your Application Insights resource is in West US 2, your Storage Account must be also in West US 2. 
+* Grant the "Storage Blob Contributor" role to the AAD application "Diagnostic Services Trusted Storage Access" in your storage account via the IAM UI.
+* If Private Link enabled, configure the additional setting to allow connection to our Trusted Microsoft Service from your Virtual Network. 
+
+## How to enable BYOS
+
+### Create Storage Account
+Create a brand-new Storage Account (if you don't have it) on the same location as your Application Insights resource.
+If you Application Insights resource it's on `West US 2`, then, your Storage Account must be in `West US 2`.
+
+### Grant Access to Diagnostic Services to your Storage Account
 You'll need to add the role `Storage Blob Data Contributor` to the AAD application named `Diagnostic Services Trusted Storage Access` in your storage account.
 It can be done via the Access control UI, as shown in Figure 1.0. 
 
@@ -47,51 +58,31 @@ _Figure 1.1_
 
 If you're also using Private Link, it's required one additional configuration to allow connection to our Trusted Microsoft Service from your Virtual Network. Refer to the [Storage Network Security documentation](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services).
 
-## Prerequisites
-* Make sure to create your Storage Account in the same location as your Application Insights Resource. Ex. If your Application Insights resource is in West US 2, your Storage Account must be also in West US 2. 
-* Grant the "Storage Blob Contributor" role to the AAD application "Diagnostic Services Trusted Storage Access" in your storage account via the IAM UI.
-* If Private Link enabled, configure the additional setting to allow connection to our Trusted Microsoft Service from your Virtual Network. 
-
-## How to enable
+### Link your Storage Account with your Application Insights resource
 To configure BYOS for code-level diagnostics (Profiler/Debugger), follow the below steps:
 
 1. Create an Azure Resource Manager template file with the following content (byos.template.json).
     ```json
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
-        "application_insights_name": {
+        "applicationinsights_name": {
           "type": "String"
         },
-        "application_insights_location": {
-          "type": "String"
-        },
-        "storage_account_name": {
+        "storageaccount_name": {
           "type": "String"
         }
       },
       "variables": {},
       "resources": [
         {
-          "type": "microsoft.insights/components",
-          "apiVersion": "2015-05-01",
-          "location": "[parameters('application_insights_location')]",
-          "name": "[parameters('application_insights_name')]",
-          "properties": {},
-          "resources": [
-            {
-              "type": "linkedStorageAccounts",
-              "name": "serviceprofiler",
-              "apiVersion": "2020-03-01-preview",
-              "properties": {
-                "linkedStorageAccount": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storage_account_name'))]"
-              },
-              "dependsOn": [
-                "[concat('Microsoft.Insights/components/', parameters('application_insights_name'))]"
-              ]
-            }
-          ]
+          "name": "[concat(parameters('applicationinsights_name'), '/serviceprofiler')]",
+          "type": "Microsoft.Insights/components/linkedStorageAccounts",
+          "apiVersion": "2020-03-01-preview",
+          "properties": {
+            "linkedStorageAccount": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageaccount_name'))]"
+          }
         }
       ],
       "outputs": {}
@@ -115,7 +106,6 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), follow the bel
     |           Parameter           |                                Description                               |
     |-------------------------------|--------------------------------------------------------------------------|
     | application_insights_name     | The name of the Application Insights resource to enable BYOS.            |
-    | application_insights_location | The location of your Application Insights resource (ex. westus2).        |
     | storage_account_name          | The name of the Storage Account resource that you'll use as your BYOS. |
     
     Expected output:
@@ -123,7 +113,6 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), follow the bel
     Supply values for the following parameters:
     (Type !? for Help.)
     application_insights_name: byos-test-westus2-ai
-    application_insights_location: westus2
     storage_account_name: byosteststoragewestus2
     
     DeploymentName          : byos.template
@@ -136,7 +125,6 @@ To configure BYOS for code-level diagnostics (Profiler/Debugger), follow the bel
                               Name                            Type                       Value
                               ==============================  =========================  ==========
                               application_insights_name        String                     byos-test-westus2-ai
-                              application_insights_location    String                     westus2
                               storage_account_name             String                     byosteststoragewestus2
                               
     Outputs                 :
