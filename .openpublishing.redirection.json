@@ -20,7 +20,7 @@
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-cli",
       "redirect_document_id": false
     },
-	
+
     {
       "source_path": "articles/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md",
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file",
@@ -727,6 +727,13 @@
       "redirect_url": "/azure/cognitive-services/personalizer/how-to-manage-model",
       "redirect_document_id": false
     },
+
+      {
+        "source_path": "articles/cognitive-services/LUIS/luis-migration-api-authoring.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-authoring-entities",
+        "redirect_document_id": false
+      },
+
     {
       "source_path": "articles/cognitive-services/LUIS/luis-resources-faq.md",
       "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting",
@@ -5291,7 +5298,7 @@
       "source_path": "articles/event-grid/event-sources.md",
       "redirect_url": "/azure/event-grid/overview#event-sources",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-grid/event-subscription-template.md",
       "redirect_url": "/azure/event-grid/template-samples",
