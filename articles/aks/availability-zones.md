@@ -82,7 +82,7 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --load-balancer-sku standard \
     --node-count 3 \
-    --zones 1 2 3
+    --node-zones 1 2 3
 ```
 
 It takes a few minutes to create the AKS cluster.
