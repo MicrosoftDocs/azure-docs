@@ -236,6 +236,9 @@ To first identify the full resource ID of your Log Analytics workspace required 
 
 ## Install the chart
 
+>[!NOTE]
+>Below commands are applicable for Helm v2, use of --name is removed with Helm v3. Please adjust the commands accordingly when using Helm V3.
+
 To enable the HELM chart, do the following:
 
 1. Add the Azure charts repository to your local list by running the following command:
