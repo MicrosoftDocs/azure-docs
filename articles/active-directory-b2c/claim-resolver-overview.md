@@ -86,11 +86,11 @@ The following sections list available claim resolvers.
 | {Context:IPAddress} | The user IP address. | 11.111.111.11 |
 | {Context:KMSI} | Indicates whether [Keep me signed in](custom-policy-keep-me-signed-in.md) checkbox is selected. |  true |
 
-### Claim 
+### Claims 
 
 | Claim | Description | Example |
 | ----- | ----------- | --------|
-| {Claim:claim type} | The identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file.  For example: `{Claim:displayName}`, or `{Claim:objectId}`. | A claim type value.|
+| {Claim:claim type} | A identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file.  For example: `{Claim:displayName}`, or `{Claim:objectId}`. | A claim type value.|
 
 
 ### OAuth2 key-value parameters
