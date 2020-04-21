@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 # Enable Kdump service
 This document describes the details on how to enable Kdump service on  HANA Large Instances(Type I and Type II)
 
-# Supported SKU
+## Supported SKU
 |  Hana Large Instance Type   |  OS Vendor   |  OS Package Version   |  SKU	       |
 |-----------------------------|--------------|-----------------------|-------------|
 |   Type 2                    |  SuSE        |   SLES 12 SP3         |  S384       |
