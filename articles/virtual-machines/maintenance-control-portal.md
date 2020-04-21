@@ -60,7 +60,7 @@ With maintenance control, you can:
 
 Use the following steps to assign the configuration to your isolated VM or Azure Dedicated Host.
 
-
+An error occurs if you try to assign a configuration to a VM that is stopped. 
 
 ### Isolated VM
 
@@ -98,7 +98,7 @@ az maintenance assignment create \
 
 ## Check configuration
 
-You can verify that the configuration was applied correctly, or check to see what configuration is currently applied using `az maintenance assignment list`.
+You can verify that the configuration was applied correctly, or check to see what configuration is currently applied using **Virtual Machines**. The 
 
 ### Isolated VM
 
