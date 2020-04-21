@@ -7557,6 +7557,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/app/status-monitor-v2-api-disable-instrumentation-engine.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/status-monitor-v2-api-disable-monitoring.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/status-monitor-v2-api-enable-instrumentation-engine.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/status-monitor-v2-api-enable-monitoring.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/status-monitor-v2-api-get-config.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/status-monitor-v2-api-get-status.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/status-monitor-v2-api-set-config.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/status-monitor-v2-api-start-trace.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-api-reference.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-insights/app-insights-mobile-hockeyapp.md",
       "redirect_url": "/azure/azure-monitor/app/hockeyapp-bridge-app",
       "redirect_document_id": false
