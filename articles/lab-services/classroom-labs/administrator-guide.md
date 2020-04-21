@@ -55,7 +55,7 @@ The following list highlights scenarios where more than one lab account may be b
     
     When you set up a lab account, you set policies that apply to *all* classroom labs under the lab account, such as:
     - The Azure virtual network with shared resources that the classroom lab can access. For example, you may have a set of classroom labs that need access to a shared data set within a virtual network.
-    - The virtual machine (VM) images that the classroom labs can use to create VMs. For example, you may have a set of classroom labs that need access to the [Data Science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) Marketplace image. 
+    - The virtual machine (VM) images that the classroom labs can use to create VMs. For example, you may have a set of classroom labs that need access to the [Data Science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) Marketplace image. 
     
     If you have classroom labs that have unique policy requirements from one another, it may be beneficial to create separate lab accounts to manage these classroom labs separately.
 

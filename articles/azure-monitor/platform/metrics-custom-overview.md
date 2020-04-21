@@ -11,15 +11,32 @@ ms.subservice: metrics
 ---
 # Custom metrics in Azure Monitor
 
-As you deploy resources and applications in Azure, you'll want to start collecting telemetry to gain insights into their performance and health. Azure makes some metrics available to you out of the box. These metrics are called standard or platform. However, they're limited in nature. You might want to collect some custom performance indicators or business-specific metrics to provide deeper insights.
+As you deploy resources and applications in Azure, you'll want to start collecting telemetry to gain insights into their performance and health. Azure makes some metrics available to you out of the box. These metrics are called [standard or platform](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). However, they're limited in nature. You might want to collect some custom performance indicators or business-specific metrics to provide deeper insights.
 These **custom** metrics can be collected via your application telemetry, an agent that runs on your Azure resources, or even an outside-in monitoring system and submitted directly to Azure Monitor. After they're published to Azure Monitor, you can browse, query, and alert on custom metrics for your Azure resources and applications side by side with the standard metrics emitted by Azure.
 
-## Send custom metrics
+## Methods to send custom metrics
+
 Custom metrics can be sent to Azure Monitor via several methods:
 - Instrument your application by using the Azure Application Insights SDK and send custom telemetry to Azure Monitor. 
 - Install the Windows Azure Diagnostics (WAD) extension on your [Azure VM](collect-custom-metrics-guestos-resource-manager-vm.md), [virtual machine scale set](collect-custom-metrics-guestos-resource-manager-vmss.md), [classic VM](collect-custom-metrics-guestos-vm-classic.md), or [classic Cloud Services](collect-custom-metrics-guestos-vm-cloud-service-classic.md) and send performance counters to Azure Monitor. 
 - Install the [InfluxData Telegraf agent](collect-custom-metrics-linux-telegraf.md) on your Azure Linux VM and send metrics by using the Azure Monitor output plug-in.
 - Send custom metrics [directly to the Azure Monitor REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
+
+## Pricing model
+
+There is no cost to ingest standard metrics (platform metrics) into Azure Monitor metrics store. Custom metrics ingested into the Azure Monitor metrics store will be billed per MByte with each custom metric datapoint written considered as 8 bytes in size. All ingested metrics are retained for 90 days.
+
+Metric queries will be charged based on the number of standard API calls. A standard API call is a call that analyzes 1,440 data points (1,440 is also the total number of data points that can be stored per metric per day). If an API call analyzes more than 1,440 data points, then it will count as multiple standard API calls. If an API call analyzes less than 1,440 data points, it will count as less than one API call. The number of standard API calls is calculated every day as the total number of data points analyzed per day divided by 1,440.
+
+Specific price details for custom metrics and metric queries are available on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
+
+> [!NOTE]  
+> Metrics sent to Azure Monitor via the Application Insights SDK will be billed as ingested log data, and incur additional metrics charges only if the Application Insights feature [Enable alerting on custom metric dimensions](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) has been selected. Learn more about the [Application Insights pricing model](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) and [prices in your region](https://azure.microsoft.com/pricing/details/monitor/).
+
+> [!NOTE]  
+> Check the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details on when billing will be enabled for custom metrics and metrics queries. 
+
+## How to send custom metrics
 
 When you send custom metrics to Azure Monitor, each data point, or value, reported must include the following information.
 
@@ -29,7 +46,7 @@ To submit custom metrics to Azure Monitor, the entity that submits the metric ne
 2. [Azure AD Service Principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). In this scenario, an Azure AD application, or service, can be assigned permissions to emit metrics about an Azure resource.
 To authenticate the request, Azure Monitor validates the application token by using Azure AD public keys. The existing **Monitoring Metrics Publisher** role already has this permission. It's available in the Azure portal. The service principal, depending on what resources it emits custom metrics for, can be given the **Monitoring Metrics Publisher** role at the scope required. Examples are a subscription, resource group, or specific resource.
 
-> [!NOTE]  
+> [!TIP]  
 > When you request an Azure AD token to emit custom metrics, ensure that the audience or resource the token is requested for is `https://monitoring.azure.com/`. Be sure to include the trailing '/'.
 
 ### Subject
@@ -37,8 +54,7 @@ This property captures which Azure resource ID the custom metric is reported for
 
 > [!NOTE]  
 > You can't emit custom metrics against the resource ID of a resource group or subscription.
->
->
+
 
 ### Region
 This property captures what Azure region the resource you're emitting metrics for is deployed in. Metrics must be emitted to the same Azure Monitor regional endpoint as the region the resource is deployed in. For example, custom metrics for a VM deployed in West US must be sent to the WestUS regional Azure Monitor endpoint. The region information is also encoded in the URL of the API call.
@@ -79,7 +95,7 @@ Azure Monitor stores all metrics at one-minute granularity intervals. We underst
 * **Sum**: The summation of all the observed values from all the samples and measurements during the minute.
 * **Count**: The number of samples and measurements taken during the minute.
 
-For example, if there were 4 sign-in transactions to your app during a given a minute, the resulting measured latencies for each might be as follows:
+For example, if there were four sign-in transactions to your app during a given a minute, the resulting measured latencies for each might be as follows:
 
 |Transaction 1|Transaction 2|Transaction 3|Transaction 4|
 |---|---|---|---|

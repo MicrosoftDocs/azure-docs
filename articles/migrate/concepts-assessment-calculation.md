@@ -13,6 +13,9 @@ This article provides an overview of assessments in the [Azure Migrate:Server As
 
 An assessment with the Server Assessment tool measures the readiness, and estimates the impact, of migrating on-premises servers to Azure.
 
+> [!NOTE]
+> In Azure Government, review the [supported target](migrate-support-matrix.md#supported-geographies-azure-government) assessment locations. Note that VM size recommendations in assessments will use the VM series specifically for Government Cloud regions. [Learn more](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) about VM types.
+
 ## Types of assessments
 
 Assessments you create with Server Assessment are a point-in-time snapshot of data. Server Assessment provides two types of assessments.
@@ -177,7 +180,7 @@ After the machine is marked as ready for Azure, Server Assessment makes sizing r
 If you use performance-basing sizing, Server Assessment making sizing recommendations as follows:
 
 - Server Assessment considers the performance history of the machine to identify the VM size and disk type in Azure.
-- If servers have been imported using a CSV file, the values you specify are used. This method is especially helpful if you've over-allocated the on-premises machine, utilization is actually low, and you want to right-size the VM in Azure to save costs. 
+- If servers have been imported using a CSV file, the values you specify are used. This method is especially helpful if you've over-allocated the on-premises machine, utilization is low, and you want to right-size the VM in Azure to save costs. 
 - If you don't want to use the performance data, reset the sizing criteria to as-is on-premises, as described in the previous section.
 
 #### Calculate storage sizing

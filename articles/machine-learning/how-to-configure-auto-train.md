@@ -192,7 +192,7 @@ Learn about the specific definitions of these metrics in [Understand automated m
 
 In every automated machine learning experiment, your data is [automatically scaled and normalized](concept-automated-ml.md#preprocess) to help *certain* algorithms that are sensitive to features that are on different scales.  However, you can also enable additional featurization, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-use-automated-ml-for-ml-models.md#featurization).
 
-When configuring your experiments, you can enable the advanced setting `featurization`. The following table shows the accepted settings for featurization in the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+When configuring your experiments, you can enable the advanced setting `featurization`. The following table shows the accepted settings for featurization in the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
 |Featurization Configuration | Description |
 | ------------- | ------------- |
@@ -451,7 +451,7 @@ To understand the scaling/normalization and algorithm/hyperparameter values for 
 [('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))
 ```
 
-To get more details, use this helper function shown in [this sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification/auto-ml-classification.ipynb).
+To get more details, use this helper function: 
 
 ```python
 from pprint import pprint
@@ -471,7 +471,7 @@ def print_model(model, prefix=""):
             print()
 
 
-print_model(fitted_model)
+print_model(model)
 ```
 
 The following sample output is for a pipeline using a specific algorithm (LogisticRegression with RobustScalar, in this case).

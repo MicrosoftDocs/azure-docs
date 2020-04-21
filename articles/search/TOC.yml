@@ -198,6 +198,8 @@
         href: cognitive-search-custom-skill-python.md
       - name: Example - Azure Functions
         href: cognitive-search-create-custom-skill-example.md
+      - name: Example - Azure Form Recognizer
+        href: cognitive-search-custom-skill-form.md
       - name: Example - Containers
         href: https://go.microsoft.com/fwlink/?linkid=2089500 
     - name: Design tips
@@ -230,7 +232,7 @@
       items:
       - name: Create a suggester
         href: index-add-suggesters.md
-      - name: Add suggestions or autocomplete
+      - name: Add autocomplete and suggestions
         href: search-autocomplete-tutorial.md
     - name: Query from Power Apps   
       href: search-howto-powerapps.md  

@@ -41,7 +41,7 @@ The following table compares key management options for Azure Storage encryption
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    Encryption/decryption operations    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
 |    Azure Storage services supported    |    All                                                |    Blob storage, Azure Files<sup>1,2</sup>                                                                                                               |    Blob storage                                                                  |
-|    Key storage                         |    Microsoft key store    |    Azure Key Vault                                                                                                                              |    Azure Key Vault or any other key store                                                                 |
+|    Key storage                         |    Microsoft key store    |    Azure Key Vault                                                                                                                              |    Customer's own key store                                                                 |
 |    Key rotation responsibility         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
 |    Key control                          |    Microsoft                                     |    Customer                                                                                                                    |    Customer                                                                 |
 
@@ -50,7 +50,7 @@ The following table compares key management options for Azure Storage encryption
 
 ## Next steps
 
-- [What is Azure Key Vault?](../../key-vault/key-vault-overview.md)
+- [What is Azure Key Vault?](../../key-vault/general/overview.md)
 - [Configure customer-managed keys for Azure Storage encryption from the Azure portal](storage-encryption-keys-portal.md)
 - [Configure customer-managed keys for Azure Storage encryption from PowerShell](storage-encryption-keys-powershell.md)
 - [Configure customer-managed keys for Azure Storage encryption from Azure CLI](storage-encryption-keys-cli.md)
