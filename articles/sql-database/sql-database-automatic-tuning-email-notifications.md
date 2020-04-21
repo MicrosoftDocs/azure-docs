@@ -178,9 +178,9 @@ With the above steps, the PowerShell script to retrieve Automatic tuning recomme
 
 To complete the solution, as the final step, create an automation flow in Microsoft Flow consisting of three actions (jobs):
 
-1. "**Azure Automation - Create job**" – used to execute the PowerShell script to retrieve Automatic tuning recommendations inside the Azure Automation runbook.
-2. "**Azure Automation - Get job output**" – used to retrieve output from the executed PowerShell script.
-3. "**Office 365 Outlook – Send an email**" – used to send out email. E-mails are sent out using the Office 365 account of the individual creating the flow.
+ - "**Azure Automation - Create job**" – used to execute the PowerShell script to retrieve Automatic tuning recommendations inside the Azure Automation runbook.
+ - "**Azure Automation - Get job output**" – used to retrieve output from the executed PowerShell script.
+ - "**Office 365 Outlook – Send an email**" – used to send out email. E-mails are sent out using the Office 365 account of the individual creating the flow.
 
 To learn more about Microsoft Flow capabilities, see [Getting started with Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 
