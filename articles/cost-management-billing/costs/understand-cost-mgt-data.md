@@ -70,7 +70,12 @@ The following offers aren't supported yet:
 | **Support Plans** | Azure Government Pro-Direct Support | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **Support Plans** | Azure Government Developer Support  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-## Determine your offer type
+### Free trial to pay-as-you-go upgrade
+
+For information about the availability of free tier services after you upgrade to pay-as-you-go pricing from a Free trial, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/).
+
+### Determine your offer type
+
 If you don't see data for a subscription and you want to determine if your subscription falls under the supported offers, you can validate that your subscription is supported. To validate an Azure subscription is supported, sign in to the [Azure portal](https://portal.azure.com). Then select **All Services** in the left menu pane. In the list of services, select **Subscriptions**. In the subscription list menu, select the subscription that you want to verify. Your subscription is shown on the Overview tab and you can see the **Offer** and **Offer ID**. The following image shows an example.
 
 ![Example of the Subscription Overview tab showing Offer and Offer ID](./media/understand-cost-mgt-data/offer-and-offer-id.png)
@@ -130,24 +135,22 @@ Here are a few tips for working with tags:
 - Use the Tags API in conjunction with either Query or UsageDetails to get all cost based on the current tags.
 
 
-## Free trial to pay-as-you-go upgrade
+## Cost and usage data updates and retention
 
-For information about the availability of free tier services after you upgrade to pay-as-you-go pricing from a Free trial, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/).
+Cost and usage data is typically available in Cost Management + Billing in the Azure portal and [supporting APIs](../index.yml) within 8-24 hours. Keep the following points in mind as you review costs:
 
-## Rated usage data refresh schedule
-
-Cost and usage data is available in Cost Management + Billing in the Azure portal and [supporting APIs](../index.yml). Keep the following points in mind as you review costs:
-
+- Each Azure service (such as Storage, Compute, and SQL) emits usage at different intervals – You might see data for some services sooner than others.
 - Estimated charges for the current billing period are updated six times per day.
 - Estimated charges for the current billing period can change as you incur more usage.
 - Each update is cumulative and includes all the line items and information from the previous update.
 - Azure finalizes or _closes_ the current billing period up to 72 hours (three calendar days) after the billing period ends.
 
-The following examples illustrate how billing periods could end.
+The following examples illustrate how billing periods could end:
 
-Enterprise Agreement (EA) subscriptions – If the billing month ends on March 31, estimated charges are updated up to 72 hours later. In this example, by midnight (UTC) April 4.
+* Enterprise Agreement (EA) subscriptions – If the billing month ends on March 31, estimated charges are updated up to 72 hours later. In this example, by midnight (UTC) April 4.
+* Pay-as-you-go subscriptions – If the billing month ends on May 15, then the estimated charges might get updated up to 72 hours later. In this example, by midnight (UTC) May 19.
 
-Pay-as-you-go subscriptions – If the billing month ends on May 15, then the estimated charges might get updated up to 72 hours later. In this example, by midnight (UTC) May 19.
+Once cost and usage data becomes available in Cost Management + Billing, it will be retained for at least 7 years.
 
 ### Rerated data
 
@@ -162,16 +165,6 @@ Costs shown in Cost Management are rounded. Costs returned by the Query API aren
   - Charge 2: $0.004
   -    Aggregate charge rendered: 0.004 + 0.004 = 0.008. The charge shown is $0.01.
 - Query API - Charges are shown at eight decimal places and rounding doesn't occur.
-
-
-## Usage data update frequency varies
-
-The availability of your incurred usage data in Cost Management depends on a couple of factors, including:
-
-- How frequently Azure services (such as Storage, Compute, CDN, and SQL) emit usage.
-- The time taken to process the usage data through the rating engine and cost management pipelines.
-
-Some services emit usage more frequently than others. So, you might see data in Cost Management for some services sooner than other services that emit data less frequently. Typically, usage for services takes 8-24 hours to appear in Cost Management. Keep in mind that data for an open month gets refreshed as you incur more usage because updates are cumulative.
 
 ## Historical data might not match invoice
 
