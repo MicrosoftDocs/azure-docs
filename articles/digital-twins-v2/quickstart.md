@@ -165,7 +165,9 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
 * **What are all the entities in my environment represented in Azure Digital Twins?** (query all)
 
-    `queryTwins`
+    ```cmd
+    queryTwins
+    ```
 
     This allows you to take stock of your environment at a glance, and make sure everything is represented as you'd like it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details.
 
@@ -176,7 +178,9 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
 * **What are all the rooms in my environment?** (query by model)
 
-    `queryTwins SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'urn:example:Room:2')`
+    ```cmd
+    queryTwins SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'urn:example:Room:2')
+    ```
 
     You can restrict your query to twins of a certain type, to get more specific information about what's represented. The result of this shows *room0* and *room1*, but does **not** show *floor0* or *floor1* (since they are floors, not rooms).
     
@@ -184,7 +188,9 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
 * **What are all the rooms on *floor0*?** (query by relationship)
 
-    `queryTwins SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0'`
+    ```cmd
+    queryTwins SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0'
+    ```
 
     You can query based on relationships in your graph, to get information about how twins are connected or to restrict your query to a certain area. Only *room0* is on *floor0*, so it's the only room in the result.
 
@@ -192,7 +198,9 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
 * **What are all the twins in my environment with a temperature above 75?** (query by property)
 
-    `queryTwins SELECT * FROM DigitalTwins T WHERE T.Temperature > 75`
+    ```cmd
+    queryTwins SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
+    ```
 
     You can query the graph based on properties to answer a variety of questions, including finding outliers in your environment that might need attention. Other comparison operators (*<*,*>*, *=*, or *!=*) are also supported.
 
@@ -200,7 +208,9 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
 * **What are all the rooms on *floor0* with a temperature above 75?** (compound query)
 
-    `queryTwins SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0' AND IS_OF_MODEL(room, 'urn:example:Room:2') AND room.Temperature > 75`
+    ```cmd
+    queryTwins SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0' AND IS_OF_MODEL(room, 'urn:example:Room:2') AND room.Temperature > 75
+    ```
 
     You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result now only includes rooms with temperatures above 75 that are on *floor0*—which in this case, is none of them.
 
