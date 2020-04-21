@@ -48,8 +48,8 @@ The deployment generally takes less than an hour.
 
 ## How do you access a deployed system?
 
-Deployed systems can be accessed via the Microsoft Translator Text API V3 by
-specifying the CategoryID. More information about the Translator Text API can
+Deployed systems can be accessed via the Microsoft Translator API V3 by
+specifying the CategoryID. More information about the Translator API can
 be found in the [API
 Reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 webpage.

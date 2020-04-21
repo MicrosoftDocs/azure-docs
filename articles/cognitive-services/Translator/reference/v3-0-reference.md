@@ -1,7 +1,7 @@
 ---
-title: Translator Text API V3.0 Reference
+title: Translator API V3.0 Reference
 titleSuffix: Azure Cognitive Services
-description: Reference documentation for the Translator Text API V3.0. Version 3 of the Translator Text API provides a modern JSON-based Web API.
+description: Reference documentation for the Translator API V3.0. Version 3 of the Translator API provides a modern JSON-based Web API.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -12,11 +12,11 @@ ms.date: 4/2/2020
 ms.author: swmachan
 ---
 
-# Translator Text API v3.0
+# Translator API v3.0
 
 ## What's new?
 
-Version 3 of the Translator Text API provides a modern JSON-based Web API. It improves usability and performance by consolidating existing features into fewer operations and it provides new features.
+Version 3 of the Translator API provides a modern JSON-based Web API. It improves usability and performance by consolidating existing features into fewer operations and it provides new features.
 
  * Transliteration to convert text in one language from one script to another script.
  * Translation to multiple languages in one request.
@@ -32,7 +32,7 @@ Microsoft Translator is served out of multiple datacenter locations. Currently t
 * **Asia Pacific:** Korea South, Japan East, Southeast Asia, and Australia East
 * **Europe:** North Europe and West Europe
 
-Requests to the Microsoft Translator Text API are in most cases handled by the datacenter that is closest to where the request originated. In case of a datacenter failure, the request may be routed outside of the Azure geography.
+Requests to the Microsoft Translator API are in most cases handled by the datacenter that is closest to where the request originated. In case of a datacenter failure, the request may be routed outside of the Azure geography.
 
 To force the request to be handled by a specific Azure geography, change the Global endpoint in the API request to the desired regional endpoint:
 
@@ -45,13 +45,13 @@ To force the request to be handled by a specific Azure geography, change the Glo
 
 ## Authentication
 
-Subscribe to Translator Text API or [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure Cognitive Services, and use your subscription key (available in the Azure portal) to authenticate. 
+Subscribe to Translator API or [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure Cognitive Services, and use your subscription key (available in the Azure portal) to authenticate. 
 
 There are three headers that you can use to authenticate your subscription. This table describes how each is used:
 
 |Headers|Description|
 |:----|:----|
-|Ocp-Apim-Subscription-Key|*Use with Cognitive Services subscription if you are passing your secret key*.<br/>The value is the Azure secret key for your subscription to Translator Text API.|
+|Ocp-Apim-Subscription-Key|*Use with Cognitive Services subscription if you are passing your secret key*.<br/>The value is the Azure secret key for your subscription to Translator API.|
 |Authorization|*Use with Cognitive Services subscription if you are passing an authentication token.*<br/>The value is the Bearer token: `Bearer <token>`.|
 |Ocp-Apim-Subscription-Region|*Use with Cognitive Services multi-service and regional translator resource.*<br/>The value is the region of the multi-service or regional translator resource. This value is optional when using a global translator resource.|
 
@@ -64,7 +64,7 @@ When you use a [global translator resource](https://ms.portal.azure.com/#create/
 
 |Headers|Description|
 |:-----|:----|
-|Ocp-Apim-Subscription-Key| The value is the Azure secret key for your subscription to Translator Text API.|
+|Ocp-Apim-Subscription-Key| The value is the Azure secret key for your subscription to Translator API.|
 
 Here's an example request to call the Translator API using the global translator resource
 
@@ -83,7 +83,7 @@ There are 2 headers that you need to call the translator API.
 
 |Headers|Description|
 |:-----|:----|
-|Ocp-Apim-Subscription-Key| The value is the Azure secret key for your subscription to Translator Text API.|
+|Ocp-Apim-Subscription-Key| The value is the Azure secret key for your subscription to Translator API.|
 |Ocp-Apim-Subscription-Region| The value is the region of the translator resource. |
 
 Here's an example request to call the Translator API using the regional translator resource
@@ -150,7 +150,7 @@ You can find the custom endpoint once you create the [translator resource](https
 
 |Headers|Description|
 |:-----|:----|
-|Ocp-Apim-Subscription-Key| The value is the Azure secret key for your subscription to Translator Text API.|
+|Ocp-Apim-Subscription-Key| The value is the Azure secret key for your subscription to Translator API.|
 |Ocp-Apim-Subscription-Region| The value is the region of the translator resource. This value is optional if the resource is `global`|
 
 Here's an example request to call the Translator API using the custom endpoint
@@ -213,7 +213,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 400079| The custom system requested for translation between from and to language does not exist.|
 | 400080| Transliteration is not supported for the language or script.|
 | 401000| The request is not authorized because credentials are missing or invalid.|
-| 401015| "The credentials provided are for the Speech API. This request requires credentials for the Text API. Use a subscription to Translator Text API."|
+| 401015| "The credentials provided are for the Speech API. This request requires credentials for the Text API. Use a subscription to Translator API."|
 | 403000| The operation is not allowed.|
 | 403001| The operation is not allowed because the subscription has exceeded its free quota.|
 | 405000| The request method is not supported for the requested resource.|

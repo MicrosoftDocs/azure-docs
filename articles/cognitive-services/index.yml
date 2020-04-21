@@ -83,7 +83,7 @@ conceptualContent:
           text: Text Analytics
         - url: ./translator/index.yml
           itemType: overview
-          text: Translator Text
+          text: Translator
     - title: Speech
       summary: Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.
       links:
