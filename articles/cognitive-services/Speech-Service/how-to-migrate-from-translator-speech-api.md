@@ -50,7 +50,7 @@ If you or your organization have applications in development or production that 
 
 * If your application uses long-lived connections and can't use the available SDKs, you can use a WebSockets connection. Manage the 10-minute timeout limit by reconnecting at the appropriate times.
 
-* If your application uses the Translator Text API and Translator Speech API to enable custom translation models, you can add Category IDs directly by using the Speech service.
+* If your application uses the Translator API and Translator Speech API to enable custom translation models, you can add Category IDs directly by using the Speech service.
 
 * Unlike the Translator Speech API, the Speech service can complete translations into multiple languages in a single request.
 

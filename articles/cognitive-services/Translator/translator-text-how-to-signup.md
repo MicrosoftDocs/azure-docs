@@ -1,7 +1,7 @@
 ---
-title: Get started - Translator Text API
+title: Get started - Translator API
 titleSuffix: Azure Cognitive Services
-description: This article will show you how to sign up for the Azure Cognitive Services Translator Text API and get a subscription key.
+description: This article will show you how to sign up for the Azure Cognitive Services Translator API and get a subscription key.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -12,16 +12,16 @@ ms.date: 06/04/2019
 ms.author: swmachan
 ms.custom: seodec18
 ---
-# How to sign up for the Translator Text API
+# How to sign up for the Translator API
 
 ## Sign in to the Azure portal
 
 - Don't have an account? You can create a [free account](https://azure.microsoft.com/free/) to experiment at no charge.
 - Already have an account? [Sign in](https://ms.portal.azure.com/)
 
-## Create a subscription to the Translator Text API
+## Create a subscription to the Translator API
 
-After you sign in to the portal, you can create a subscription to the Translator Text API as follows:
+After you sign in to the portal, you can create a subscription to the Translator API as follows:
 
 1. Select **+ Create a resource**.
 1. In the **Search the Marketplace** search box, enter **Translator Text** and then select it from the results.
@@ -33,7 +33,7 @@ After you sign in to the portal, you can create a subscription to the Translator
 
 ## Authentication key
 
-When you sign up for Translator Text, you get a personalized access key unique to your subscription. This key is required on each call to the Translator Text API.
+When you sign up for Translator, you get a personalized access key unique to your subscription. This key is required on each call to the Translator API.
 
 1. Retrieve your authentication key by first selecting the appropriate subscription.
 1. Select **Keys** in the **Resource Management** section of your subscription's details.
@@ -48,7 +48,7 @@ Microsoft Translator will generally let your first couple of requests pass befor
 
 ## Pricing options
 
-- [Translator Text API](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
+- [Translator API](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 
 ## Customization
 

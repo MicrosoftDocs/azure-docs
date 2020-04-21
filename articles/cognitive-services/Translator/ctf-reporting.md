@@ -1,5 +1,5 @@
 ---
-title: Collaborative Translation Framework (CTF) Reporting - Translator Text API
+title: Collaborative Translation Framework (CTF) Reporting - Translator API
 titleSuffix: Azure Cognitive Services
 description: How to use Collaborative Translation Framework (CTF) reporting.
 services: cognitive-services
@@ -15,9 +15,9 @@ ms.author: swmachan
 # How to use Collaborative Translation Framework (CTF) reporting
 
 > [!NOTE]
-> This method is deprecated. It is not available in V3.0 of the Translator Text API.
+> This method is deprecated. It is not available in V3.0 of the Translator API.
 > 
-> The Collaborative Translations Framework (CTF), previously available for V2.0 of the Translator Text API, was deprecated as of February 1, 2018. The AddTranslation and AddTranslationArray functions let users enable corrections through the Collaborative Translation Framework. After January 31, 2018, these two functions did not accept new sentence submissions, and users receive an error message. These functions were retired and will not be replaced.
+> The Collaborative Translations Framework (CTF), previously available for V2.0 of the Translator API, was deprecated as of February 1, 2018. The AddTranslation and AddTranslationArray functions let users enable corrections through the Collaborative Translation Framework. After January 31, 2018, these two functions did not accept new sentence submissions, and users receive an error message. These functions were retired and will not be replaced.
 
 The Collaborative Translation Framework (CTF) Reporting API returns statistics and the actual content in the CTF store. This API is different from the GetTranslations() method because it:
 * Returns the translated content and its total count only from your account (appId or Azure Marketplace account).
@@ -25,12 +25,10 @@ The Collaborative Translation Framework (CTF) Reporting API returns statistics a
 * Does not return the automatic translation (machine translation).
 
 ## Endpoint
-The endpoint of the CTF Reporting API is
-https://api.microsofttranslator.com/v2/beta/ctfreporting.svc
-
+The endpoint of the CTF Reporting API is https://api.microsofttranslator.com/v2/beta/ctfreporting.svc.
 
 ## Methods
-| Name |	Description|
+| Name | Description|
 |:---|:---|
 | GetUserTranslationCounts Method | Get counts of the translations that are created by the user. |
 | GetUserTranslations Method | Retrieves the translations that are created by the user. |
