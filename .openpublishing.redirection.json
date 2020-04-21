@@ -1768,6 +1768,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-csharp-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-nodejs-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries?pivots=programming-language-javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Anomaly-Detector/quickstarts/detect-data-anomalies-python-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Anomaly-Detector/quickstarts/client-libraries?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Web-Search/web-search-sdk-quickstart.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/quickstarts/client-libraries?pivots=programming-language-csharp",
       "redirect_document_id": false
