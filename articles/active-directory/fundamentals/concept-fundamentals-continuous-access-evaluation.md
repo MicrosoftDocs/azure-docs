@@ -1,6 +1,6 @@
 ---
 title: Continuous access evaluation in Azure AD
-description: Resonding to changes in user state faster with continuous access evaluation in Azure AD
+description: Responding to changes in user state faster with continuous access evaluation in Azure AD
 
 services: active-directory
 ms.service: active-directory
@@ -27,7 +27,7 @@ Because the security benefits are so great, we are rolling out a Microsoft-speci
 
 ## How does CAE work in Microsoft services?
 
-We are focusing our initial implementation to continuous access evaluation in Exchange and Teams. We hope to expand support to other Microsoft services in the future. We will start to enable continuous access evaluation only for tenants with no Conditional Access policies. We will use our learnings from this phase of CAE to inform our ongoing rollout of CAE.
+We are focusing our initial implementation of continuous access evaluation to Exchange and Teams. We hope to expand support to other Microsoft services in the future. We will start to enable continuous access evaluation only for tenants with no Conditional Access policies. We will use our learnings from this phase of CAE to inform our ongoing rollout of CAE.
 
 ## Service side requirements
 
@@ -55,28 +55,30 @@ Before continuous access evaluation, clients would always try to replay the acce
 
 ## Token Lifetime
 
-Because risk and policy are evaluated in real time, clients that negotiate continuous access evaluation aware sessions will rely on CAE instead of existing static access token lifetime policies, which means that configurable token lifetime policy will not be honored anymore for enlightened clients that negotiate CAE-aware sessions.
+Because risk and policy are evaluated in real time, clients that negotiate continuous access evaluation aware sessions will rely on CAE instead of existing static access token lifetime policies, which means that configurable token lifetime policy will not be honored anymore for CAE-capable clients that negotiate CAE-aware sessions.
 
 We will increase access token lifetime to 24 hours in CAE sessions. Revocation is driven by critical events and policy evaluation, not an arbitrary time period. This change increases the stability of your applications without affecting your security posture. 
 
 ## Example flows
 
 ### User revocation event flow:
- 
-1. An enlightened client presents credentials or a refresh token to AAD asking for an access token for some resource.
+
+![User revocation event flow](./media/concept-fundamentals-continuous-access-evaluation/user-revocation-event-flow.png)
+
+1. A CAE-capable client presents credentials or a refresh token to AAD asking for an access token for some resource.
 1. An access token is returned along with other artifacts to the client.
 1. An Administrator explicitly [revokes all refresh tokens for the user](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). A revocation event will be sent to the resource provider from Azure AD.
 1. An access token is presented to the resource provider. The resource provider evaluates the validity of the token and checks whether there is any revocation event for the user. The resource provider uses this information to decide to grant access to the resource or not.
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client
-1. The enlightened client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD will then reevaluate all the conditions and prompt the user to reauthenticate in this case.
+1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD will then reevaluate all the conditions and prompt the user to reauthenticate in this case.
  
 ## FAQs
 
 ### What is the lifetime of my Access Token?
 
-If you are not using enlightened clients, your default Access Token lifetime will still be 1 hour unless you have configured your Access Token lifetime with the [Configurable Token Lifetime (CTL)](../develop/active-directory-configurable-token-lifetimes.md) preview feature.
+If you are not using CAE-capable clients, your default Access Token lifetime will still be 1 hour unless you have configured your Access Token lifetime with the [Configurable Token Lifetime (CTL)](../develop/active-directory-configurable-token-lifetimes.md) preview feature.
 
-If you are using enlightened clients that negotiate CAE-aware sessions, your CTL settings for Access Token lifetime will be overwritten and Access Token lifetime will be 24 hours.
+If you are using CAE-capable clients that negotiate CAE-aware sessions, your CTL settings for Access Token lifetime will be overwritten and Access Token lifetime will be 24 hours.
 
 ### How quick is enforcement?
 
@@ -88,4 +90,4 @@ Sign-in Frequency will be honored with or without CAE.
 
 ## Next steps
 
-Announcing continuous access evaluation
+[Announcing continuous access evaluation](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933)
