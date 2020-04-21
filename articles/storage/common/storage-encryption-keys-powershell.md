@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 04/21/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -78,7 +78,9 @@ By default, Azure Storage encryption uses Microsoft-managed keys. In this step, 
 
 When you configure encryption with customer-managed keys, you can choose to automatically rotate the key version used for encryption when the version changes in the associated Azure key vault. Alternately, you can explicitly specify a key version to be used for encryption until the key version is manually updated.
 
-### Configure encryption for auto-rotation of key versions
+### Configure encryption for automatic rotation of key versions
+
+To configure encryption for automatic rotation of key versions, install [Az.Storage version 1.13.4-preview](https://www.powershellgallery.com/packages/Az.Storage/1.13.4-preview).
 
 To automatically rotate key versions, omit the key version when you configure customer-managed keys for the storage account. Call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings, as shown in the following example, and include the **-KeyvaultEncryption** option to enable customer-managed keys for the storage account. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
