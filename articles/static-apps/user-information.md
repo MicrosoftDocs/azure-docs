@@ -1,5 +1,5 @@
 ---
-title: Accessing user information in an App Service Static Apps API
+title: Accessing user information in an Azure Static Web Apps API
 description: Learn to read authorization provider-returned user data in a function.
 services: azure-functions
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 05/08/2020
 ms.author: cshoe
 ---
 
-# Accessing user information in an App Service Static Apps API
+# Accessing user information in an Azure Static Web Apps API
 
 Once logged in, each request to an API function includes authentication-related user information. This information is available in the request headers sent to an API function.
 
