@@ -1,5 +1,5 @@
 ---
-title: Connection assets in Azure Automation
+title: Manage connections in Azure Automation
 description: Connection assets in Azure Automation contain the information required to connect to an external service or application from a runbook or DSC configuration. This article explains the details of connections and how to work with them in both textual and graphical authoring.
 services: automation
 ms.subservice: shared-capabilities
@@ -7,7 +7,7 @@ ms.date: 01/13/2020
 ms.topic: conceptual
 ---
 
-# Connection assets in Azure Automation
+# Manage connections in Azure Automation
 
 An Automation connection asset contains the information required to connect to an external service or application from a runbook or DSC configuration. This may include information required for authentication such as a username and password in addition to connection information such as a URL or a port. The value of a connection is keeping all of the properties for connecting to a particular application in one asset as opposed to creating multiple variables. The user can edit the values for a connection in one place, and you can pass the name of a connection to a runbook or DSC configuration in a single parameter. The properties for a connection can be accessed in the runbook or DSC configuration with the `Get-AutomationConnection` activity.
 
