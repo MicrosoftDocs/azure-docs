@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 04/21/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -23,28 +23,6 @@ You can enable or disable blob versioning (preview) for the storage account at a
 ???need screenshot here - i have access now, but need grammatical errors in text fixed first
 
 :::image type="content" source="media/versioning-manage/portal-enable-versioning.png" alt-text="Screenshot showing how to enable blob versioning in Azure portal":::
-
-# [PowerShell](#tab/powershell)
-
-???preview module info
-
-To enable blob versioning with PowerShell, call the [Update-AzStorageBlobServiceProperty](/powershell/module/az.storage/update-azstorageblobserviceproperty) command and specify **$true** for the `-EnableVersioning` parameter.
-
-```powershell
-Update-AzStorageBlobServiceProperty -ResourceGroupName <resource-group> `
-    -StorageAccountName <storage-account> `
-    -EnableVersioning $true
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To enable blob versioning with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-update) command.
-
-```azurecli
-az storage account blob-service-properties update --resource-group <resource-group> \
-    --account-name <storage-account> \
-    --enableVersioning true ???
-```
 
 # [Template](#tab/template)
 

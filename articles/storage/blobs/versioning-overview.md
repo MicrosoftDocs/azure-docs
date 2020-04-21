@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 04/21/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -167,7 +167,7 @@ Blob versioning is available in preview in the following regions:
 
 The preview is intended for non-production use only.
 
-Version 2019-10-19 of the Azure Storage REST API supports blob versioning.
+Version 2019-10-10 of the Azure Storage REST API supports blob versioning.
 
 ### Storage account support
 
