@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
+ms.custom: [amqp, mqtt]
 ---
 # Communicate with your IoT hub using the MQTT protocol
 
