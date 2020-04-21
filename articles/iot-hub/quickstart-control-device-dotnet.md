@@ -10,6 +10,7 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/04/2020
+ms.custom: mqtt
 # As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
 
@@ -27,7 +28,7 @@ The quickstart uses two pre-written .NET applications:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
