@@ -3,7 +3,7 @@ title: 'QuickStart: Create a C# ASP.NET app'
 description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET web app template from Visual Studio.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
-ms.date: 10/21/2020
+ms.date: 04/21/2020
 ms.custom: mvc, devcenter, seodec18
 ---
 
@@ -89,7 +89,7 @@ Create an ASP.NET web app by following these steps:
 
    ![Configure app name](./media/app-service-web-get-started-dotnet-framework/web-app-name-framework-vs2019.png)
 
-Once the wizard completes, the Azure resources are created for you and you are ready to publish.
+    Once the wizard completes, the Azure resources are created for you and you are ready to publish.
 
 3. In the **Publish** page, click **Publish**. Visual Studio builds, packages, and publishes the app to Azure, and then launches the app in the default browser.
 
@@ -114,9 +114,9 @@ The app name specified in the **App Service Create new** page is used as the URL
 
 1. To redeploy to Azure, right-click the **myFirstAzureWebApp** project in **Solution Explorer** and select **Publish**. Then, select **Publish**.
 
-When publishing completes, Visual Studio launches a browser to the URL of the web app.
+    When publishing completes, Visual Studio launches a browser to the URL of the web app.
 
-![Updated ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet-framework/updated-azure-web-app.png)
+    ![Updated ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet-framework/updated-azure-web-app.png)
 
 ## Manage the Azure app
 
