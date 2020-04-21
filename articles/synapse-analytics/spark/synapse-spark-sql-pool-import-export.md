@@ -6,7 +6,7 @@ author: euangMS
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: 
-ms.date: 01/22/2019 
+ms.date: 04/15/2020 
 ms.author: prgomata
 ms.reviewer: euang
 ---
@@ -16,7 +16,7 @@ The Spark SQL Analytics Connector is designed to efficiently transfer data betwe
 
 ## Design
 
-Transferring data between Spark pools and SQL pools can be done using JDBC. However, given two distributed systems such as Spark and SQL pools (which provides massively parallel processing (MPP)), JDBC tends to be a bottleneck with serial data transfer.
+Transferring data between Spark pools and SQL pools can be done using JDBC. However, given two distributed systems such as Spark and SQL pools, JDBC tends to be a bottleneck with serial data transfer.
 
 The Spark pools to SQL Analytics Connector is a data source implementation for Apache Spark. It uses the Azure Data Lake Storage Gen 2, and Polybase in SQL pools to efficiently transfer data between the Spark cluster and the SQL Analytics instance.
 
@@ -155,5 +155,9 @@ val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
 
 pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
 ```
-
 Similarly, in the read scenario, read the data using Scala and write it into a temp table, and use Spark SQL in PySpark to query the temp table into a dataframe.
+
+## Next steps
+
+- [Create a SQL pool]([Create a new Apache Spark pool for an Azure Synapse Analytics workspace](../../synapse-analytics/quickstart-create-apache-spark-pool.md))
+- [Create a new Apache Spark pool for an Azure Synapse Analytics workspace](../../synapse-analytics/quickstart-create-apache-spark-pool.md) 

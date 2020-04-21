@@ -1,21 +1,21 @@
 ---
-title: Use GROUP BY options in SQL Analytics
-description: SQL Analytics allows for developing solutions by implementing different GROUP BY options.
+title: Use GROUP BY options in Synapse SQL
+description: Synapse SQL allows for developing solutions by implementing different GROUP BY options.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice:
-ms.date: 01/06/2020
+ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: 
 ---
 
-# GROUP BY options in SQL Analytics
 
-SQL Analytics allows for developing solutions by implementing different GROUP BY options.
+# GROUP BY options in Synapse SQL
+Synapse SQL allows for developing solutions by implementing different GROUP BY options. 
 
 ## What does GROUP BY do
 

@@ -6,7 +6,7 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice:
-ms.date: 03/20/2020
+ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
@@ -175,6 +175,4 @@ Once you're done using this report, delete the resources with the following step
 
 ## Next steps
 
-Advance to the next article to learn how to query storage files using SQL Analytics.
-> [!div class="nextstepaction"]
-> [Query storage files](develop-storage-files-overview.md)
+Advance to the [Query storage files](develop-storage-files-overview.md) to learn how to query storage files using Synapse SQL.

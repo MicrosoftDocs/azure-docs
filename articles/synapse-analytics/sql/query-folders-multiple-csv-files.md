@@ -6,7 +6,7 @@ author: azaricstefan
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice:
-ms.date: 03/20/2020
+ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
@@ -64,7 +64,7 @@ FROM OPENROWSET(
            trip_distance FLOAT,
         rate_code INT,
         store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
-           pickup_location_id INT,'
+        pickup_location_id INT,
         dropoff_location_id INT,
            payment_type INT,
         fare_amount FLOAT,

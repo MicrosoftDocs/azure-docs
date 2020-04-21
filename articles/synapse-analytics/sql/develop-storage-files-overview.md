@@ -1,17 +1,16 @@
 ---
-title: Query storage files using SQL on-demand (preview) within SQL Analytics
-description: Describes querying storage files using SQL on-demand (preview) resources within SQL Analytics.
+title: Query storage files using SQL on-demand (preview) within Synapse SQL
+description: Describes querying storage files using SQL on-demand (preview) resources within Synapse SQL.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice:
-ms.date: 03/20/2020
+ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
-
-# Query storage files using SQL on-demand (preview) resources within SQL Analytics
+# Query storage files using SQL on-demand (preview) resources within Synapse SQL
 
 SQL on-demand (preview) enables you to query data in your data lake. It offers a T-SQL query surface area that accommodates semi-structured and unstructured data queries.
 
@@ -20,7 +19,7 @@ For querying, the following T-SQL aspects are supported:
 - Full [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) surface area, including majority of SQL functions, operators, and so on.
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)) creates an [external table](develop-tables-external-tables.md) and then exports, in parallel, the results of a Transact-SQL SELECT statement to Azure Storage.
 
-For more information on what is vs. what isn't currently supported, read the [SQL on-demand overview](on-demand.md) article.
+For more information on what is vs. what isn't currently supported, read the [SQL on-demand overview](on-demand-workspace-overview.md) article.
 
 When Azure AD users run queries, the default is for storage accounts to be accessed using the Azure AD pass-through authentication protocol. As such, users will be impersonated and permissions checked at the storage level. You can [control storage access](develop-storage-files-storage-access-control.md) to suit your needs.
 
@@ -57,7 +56,7 @@ Refer to [Query folders and multiple files](query-folders-multiple-csv-files.md)
 
 To query Parquet source data, use FORMAT = 'PARQUET'
 
-```sql
+```syntaxsql
 OPENROWSET
 (
     { BULK 'data_file' ,
@@ -119,7 +118,6 @@ By omitting the WITH clause from OPENROWSET statement, you can instruct the serv
 ```sql
 OPENROWSET(
 BULK N'path_to_file(s)', FORMAT='PARQUET');
-
 ```
 
 ### Filename function
@@ -139,7 +137,7 @@ For additional information, read the Filepath section of the [Query specific fil
 
 ### Work with complex types and nested or repeated data structures
 
-To enable a smooth experience when working with data stored in nested or repeated data types, such as in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files, Starlight has added the extensions below.
+To enable a smooth experience when working with data stored in nested or repeated data types, such as in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files, SQL on-demand has added the extensions below.
 
 #### Project nested or repeated data
 
@@ -161,7 +159,7 @@ To access nested elements from a nested column, such as Struct, use "dot notatio
 
 The syntax fragment example is as follows:
 
-```sql
+```syntaxsql
     OPENROWSET
     (   BULK 'unstructured_data_path' ,
         FORMAT = 'PARQUET' )
@@ -191,11 +189,11 @@ To access elements from a repeated column, such as an element of an Array or Map
 To access non-scalar elements from a repeated column, use the [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) function for every non-scalar element you need to project and provide:
 
 - Nested or repeated column, as the first parameter
-- A [JSON path](https://docs.microsoft.com/lational-databases/json/json-path-expressions-sql-server?view=sql-server-2017) that specifies the element or property to access, as a second parameter
+- A [JSON path](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) that specifies the element or property to access, as a second parameter
 
 See syntax fragment below:
 
-```sql
+```syntaxsql
     SELECT
        { JSON_VALUE (column_name, path_to_sub_element), }
        { JSON_QUERY (column_name [ , path_to_sub_element ]), )

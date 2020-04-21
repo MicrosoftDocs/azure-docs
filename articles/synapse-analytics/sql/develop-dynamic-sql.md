@@ -1,21 +1,20 @@
 ---
-title: Use dynamic SQL in SQL Analytics 
-description: Tips for using dynamic SQL in SQL Analytics.
+title: Use dynamic SQL in Synapse SQL 
+description: Tips for using dynamic SQL in Synapse SQL.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice:
-ms.date: 01/06/2020
+ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: 
 ---
 
-# Dynamic SQL in SQL Analytics
-
-In this article, you'll find tips for using dynamic SQL and developing solutions using SQL Analytics.
+# Dynamic SQL in Synapse SQL
+In this article, you'll find tips for using dynamic SQL and developing solutions using Synapse SQL.
 
 ## Dynamic SQL Example
 

@@ -6,7 +6,7 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice:
-ms.date: 01/13/2020
+ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
@@ -165,3 +165,7 @@ REVOKE CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
 --Deleting the user in the DB
 DROP USER [<workspacename>];
 ```
+
+## Next steps
+
+For an overview of access and control in Synapse SQL, see [Synapse SQL access control](../sql/access-control.md). To learn more about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx). Additional information about database roles, can be found in the [Database roles](https://msdn.microsoft.com/library/ms189121.aspx) article.

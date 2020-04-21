@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice:
-ms.date: 10/25/2019
+ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ---
@@ -63,4 +63,4 @@ As CETAS generates Parquet files, statistics will be automatically created when 
 
 ## Next steps
 
-Review the [Troubleshooting](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article for common issues and solutions. If you're working with SQL pools rather than SQL on-demand, please see the [Best Practices for SQL pools](best-practices-sql-pool.md) article for specific guidance.
+Review the [Troubleshooting](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article for common issues and solutions. If you're working with SQL pool rather than SQL on-demand, please see the [Best Practices for SQL pool](best-practices-sql-pool.md) article for specific guidance.

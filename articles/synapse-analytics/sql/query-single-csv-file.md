@@ -6,7 +6,7 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice:
-ms.date: 03/20/2020
+ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
@@ -230,6 +230,6 @@ WITH (
 ## Next steps
 
 The next articles will show you how to:
-> [!div class="nextstepaction"]
-> [Querying Parquet files](query-parquet-files.md)
-> [Querying folders and multiple files](query-folders-multiple-csv-files.md)
+
+- [Querying Parquet files](query-parquet-files.md)
+- [Querying folders and multiple files](query-folders-multiple-csv-files.md)

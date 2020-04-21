@@ -6,7 +6,7 @@ author: MikeRys
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice:
-ms.date: 02/24/2020
+ms.date: 04/15/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ---
@@ -15,7 +15,9 @@ ms.reviewer: jrasnick
 
 Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its Spark pools (preview), SQL on-demand engine (preview), and SQL pools.
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
+[!INCLUDE [preview](../includes/note-preview.md)]
+
+
 
 The sharing supports the so-called modern data warehouse pattern and gives the workspace SQL engines access to databases and tables created with Spark. It also allows the SQL engines to create their own objects that aren't being shared with the other engines.
 
@@ -39,13 +41,9 @@ Object synchronization occurs asynchronously. Objects will have a slight delay o
 
 ## Which metadata objects are shared
 
-[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
-
 Spark allows you to create databases, external tables, managed tables, and views. Since Spark views require a Spark engine to process the defining Spark SQL statement, and cannot be processed by a SQL engine, only databases and their contained external and managed tables that use the Parquet storage format are shared with the workspace SQL engines. Spark views are only shared among the Spark pool instances.
 
 ## Security model at a glance
-
-[!INCLUDE [synapse-analytics-preview-features](../../../includes/synapse-analytics-preview-features.md)]
 
 The Spark databases and tables, along with their synchronized representations in the SQL engines, are secured at the underlying storage level. When the table is queried by any of the engines that the query submitter has the right to use, the query submitter's security principal is being passed through to the underlying files. Permissions are checked at the file system level.
 

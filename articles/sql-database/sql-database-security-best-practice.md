@@ -84,14 +84,14 @@ Central identity management offers the following benefits:
 
 - Create an Azure AD tenant and [create users](../active-directory/fundamentals/add-users-azure-active-directory.md) to represent human users and create [service principals](../active-directory/develop/app-objects-and-service-principals.md) to represent apps, services, and automation tools. Service principals are equivalent to service accounts in Windows and Linux. 
 
-- Assign access rights to resources to Azure AD principals via group assignment: Create Azure AD groups, grant access to groups, and add individual members to the groups. In your database, create contained database users that map your Azure AD groups. To assign permissions inside the database, put users in database roles with the appropriate permissions.
+- Assign access rights to resources to Azure AD principals via group assignment: Create Azure AD groups, grant access to groups, and add individual members to the groups. In your database, create contained database users that map your Azure AD groups. To assign permissions inside the database, put the users that are associated with your Azure AD groups in database roles with the appropriate permissions.
   - See the articles, [Configure and manage Azure Active Directory authentication with SQL](sql-database-aad-authentication-configure.md) and [Use Azure AD for authentication with SQL](sql-database-aad-authentication.md).
   > [!NOTE]
   > In a managed instance, you can also create logins that map to Azure AD principals in the master database. See [CREATE LOGIN (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
 - Using Azure AD groups simplifies permission management and both the group owner, and the resource owner can add/remove members to/from the group. 
 
-- Create a separate group for Azure AD administrator for SQL DB servers.
+- Create a separate group for Azure AD administrators for each SQL DB server.
 
   - See the article, [Provision an Azure Active Directory administrator for your Azure SQL Database server](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server).
 
@@ -103,7 +103,7 @@ Central identity management offers the following benefits:
 > [!NOTE]
 > - Azure AD authentication is recorded in Azure SQL audit logs, but not in Azure AD sign-in logs.
 > - RBAC permissions granted in Azure do not apply to Azure SQL DB permissions. Such permissions must be created/mapped manually in SQL DB using existing SQL permissions.
-> - On the client-side Azure AD authentication needs access to the internet or via User Defined Route (UDR) to a VNet.
+> - On the client-side, Azure AD authentication needs access to the internet or via User Defined Route (UDR) to a VNet.
 > - The Azure AD access token is cached on the client side and its lifetime depends on token configuration. See the article, [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 > - For guidance on troubleshooting Azure AD Authentication issues, see the following blog: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
@@ -208,7 +208,7 @@ SQL authentication refers to the authentication of a user when connecting to Azu
 
 ## Access management
 
-Access management is the process of controlling and managing authorized users' access and privileges to Azure SQL Database.
+Access management (also called Authorization) is the process of controlling and managing authorized users' access and privileges to Azure SQL Database.
 
 ### Implement principle of least privilege
 
@@ -220,7 +220,7 @@ The principle of least privilege states that users shouldn't have more privilege
 
 Assign only the necessary [permissions](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) to complete the required tasks:
 
-- In SQL Data Plane: 
+- In SQL Databases: 
     - Use granular permissions and user-defined database roles (or server-roles in MI): 
         1. Create the required roles
             - [CREATE ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
@@ -289,7 +289,7 @@ Separation of Duties, also called Segregation of Duties describes the requiremen
   - Create Server roles for server-wide tasks (creating new logins, databases) in a managed instance. 
   - Create Database Roles for database-level tasks.
 
-- For certain sensitive tasks, consider creating special stored procedures signed by a certificate to execute the tasks on behalf of the users. 
+- For certain sensitive tasks, consider creating special stored procedures signed by a certificate to execute the tasks on behalf of the users. One important advantage of digitally signed stored procedures is that if the procedure is changed, the permissions that were granted to the previous version of the procedure are immediately removed.
   - Example: [Tutorial: Signing Stored Procedures with a Certificate](https://docs.microsoft.com/sql/relational-databases/tutorial-signing-stored-procedures-with-a-certificate) 
 
 - Implement Transparent Data Encryption (TDE) with customer-managed keys in Azure Key Vault to enable Separation of Duties between data owner and security owner. 
@@ -298,7 +298,7 @@ Separation of Duties, also called Segregation of Duties describes the requiremen
 - To ensure that a DBA can't see data that is considered highly sensitive and can still do DBA tasks, you can use Always Encrypted with role separation. 
   - See the articles, [Overview of Key Management for Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted), [Key Provisioning with Role Separation](https://docs.microsoft.com/sql/relational-databases/security/encryption/configure-always-encrypted-keys-using-powershell#KeyProvisionWithRoles), and [Column Master Key Rotation with Role Separation](https://docs.microsoft.com/sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-powershell#column-master-key-rotation-with-role-separation). 
 
-- In cases when it isn't feasible at least not without major costs and efforts that may render the system near unusable, compromises can be made and mitigated through the use of compensating controls such as: 
+- In cases where the use of Always Encrypted isn't feasible, or at least not without major costs and efforts that may even render the system near unusable, compromises can be made and mitigated through the use of compensating controls such as: 
   - Human intervention in processes. 
   - Audit trails – for more information on Auditing, see, [Audit critical security events](#audit-critical-security-events).
 
@@ -310,17 +310,17 @@ Separation of Duties, also called Segregation of Duties describes the requiremen
 
 - Use built-in roles when the permissions match exactly the needed permissions – if the union of all permissions from multiple built-in roles leads to a 100% match, you can assign multiple roles concurrently as well. 
 
-- Create and use custom roles when built-in roles grant too many permissions or insufficient permissions. 
+- Create and use user-defined roles when built-in roles grant too many permissions or insufficient permissions. 
 
 - Role assignments can also be done temporarily, also known as Dynamic Separation of Duties (DSD), either within SQL Agent Job steps in T-SQL or using Azure PIM for RBAC roles. 
 
-- Make sure that DBAs don't have access to the encryption keys or key stores and Security Administrators with access to the keys have no access to the database in turn. 
+- Make sure that DBAs don't have access to the encryption keys or key stores, and that Security Administrators with access to the keys have no access to the database in turn. The use of [Extensible Key Management (EKM)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) can make this separation easier to achieve. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) can be used to implement EKM. 
 
 - Always make sure to have an Audit trail for security-related actions. 
 
 - You can retrieve the definition of the built-in RBAC roles to see the permissions used and create a custom role based on excerpts and cumulations of these via PowerShell.
 
-- Since any member of the db_owner database role can change security settings like Transparent Data Encryption (TDE), or change the SLO, this membership should be granted with care. However, there are many tasks that require db_owner privileges. Task like changing any database setting such as changing DB options. Auditing plays a key role in any solution.
+- Because any member of the db_owner database role can change security settings like Transparent Data Encryption (TDE), or change the SLO, this membership should be granted with care. However, there are many tasks that require db_owner privileges. Task like changing any database setting such as changing DB options. Auditing plays a key role in any solution.
 
 - It is not possible to restrict permissions of a db_owner, and therefore prevent an administrative account from viewing user data. If there's highly sensitive data in a database, Always Encrypted can be used to safely prevent db_owners or any other DBA from viewing it.
 
@@ -397,7 +397,7 @@ Encryption at rest is the cryptographic protection of data when it is persisted 
 
 **Best practices**:
 
-- Don't store data that require encryption-at-rest in the master database. The master database can't be encrypted with TDE.
+- Don't store data that requires encryption-at-rest in the master database. The master database can't be encrypted with TDE.
 
 - Use customer-managed keys in Azure Key Vault if you need increased transparency and granular control over the TDE protection. Azure Key Vault allows the ability to revoke permissions at any time to render the database inaccessible. You can centrally manage TDE protectors along with other keys, or rotate the TDE protector at your own schedule using Azure Key Vault.
 
@@ -431,11 +431,11 @@ The policies that determine which data is sensitive and whether the sensitive da
 
 - Use deterministic encryption if computations (equality) on data need to be supported. Otherwise, use randomized encryption. Avoid using deterministic encryption for low-entropy data sets, or data sets with publicly known distribution. 
 
-- If you're concerned about third-party accessing your data legally without your consent, ensure that all application and tools that have access to the keys and data in plaintext run outside of Microsoft Azure Cloud. Without access to the keys, the third party will have no way of decrypting the data unless they bypass the encryption.
+- If you're concerned about third parties accessing your data legally without your consent, ensure that all application and tools that have access to the keys and data in plaintext run outside of Microsoft Azure Cloud. Without access to the keys, the third party will have no way of decrypting the data unless they bypass the encryption.
 
 - Always Encrypted doesn't easily support granting temporary access to the keys (and the protected data). For example, if you need to share the keys with a DBA to allow the DBA to do some cleansing operations on sensitive and encrypted data. The only way to reliability revoke the access to the data from the DBA will be to rotate both the column encryption keys and the column master keys protecting the data, which is an expensive operation. 
 
-- To access the plaintext values in encrypted columns, a user needs to have access to the CMK that protects columns, which is configured in the key store holding the CMK. The user also needs to have the **VIEW ANY COLUMN MASTER KEY DEFINITION** and **VIEW ANY COLUMN ENCRYPTION KEY DEFINITION** database permissions.
+- To access the plaintext values in encrypted columns, a user needs to have access to the Column Master Key (CMK) that protects columns, which is configured in the key store holding the CMK. The user also needs to have the **VIEW ANY COLUMN MASTER KEY DEFINITION** and **VIEW ANY COLUMN ENCRYPTION KEY DEFINITION** database permissions.
 
 ### Control access of application users to sensitive data through encryption
 

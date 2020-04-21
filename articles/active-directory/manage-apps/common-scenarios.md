@@ -85,7 +85,7 @@ Identity can only be your control plane if it can connect everything across clou
 
 - [Application management](https://docs.microsoft.com/azure/active-directory/manage-apps/index)
 - [Application provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning)
-- [Hybrid secure access]()
+- [Hybrid secure access](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
 - [Identity governance](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
 - [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 - [Identity security](https://docs.microsoft.com/azure/active-directory/conditional-access/index)

@@ -5,7 +5,7 @@ services: synapse-analytics
 author: pimorano 
 ms.service: synapse-analytics 
 ms.topic: conceptual 
-ms.date: 12/23/2019
+ms.date: 04/15/2020
 ms.author: pimorano 
 ms.reviewer: omafnan
 ---

@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/15/2020
 ms.author: jingwang
 
 ---
@@ -277,11 +277,7 @@ Copy activity performs source types to sink types mapping with the following 2-s
 1. Convert from native source types to Azure Data Factory interim data types
 2. Convert from Azure Data Factory interim data types to native sink type
 
-You can find the mapping between native type to interim type in the "Data type mapping" section in each connector topic.
-
-### Supported data types
-
-Data Factory supports the following interim data types: You can specify below values when configuring type information in [dataset structure](concepts-datasets-linked-services.md#dataset-structure-or-schema) configuration:
+Copy activity supports the following interim data types: 
 
 * Byte[]
 * Boolean

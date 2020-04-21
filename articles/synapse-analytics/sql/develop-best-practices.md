@@ -7,14 +7,13 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice:
-ms.date: 09/04/2018
+ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
 # Development best practices for Synapse SQL
-
-This article describes guidance and best practices as you develop your data warehouse solution.
+This article describes guidance and best practices as you develop your data warehouse solution. 
 
 ## Development best practices for Synapse SQL
 
@@ -43,8 +42,7 @@ See the following links for additional details on how selecting a distribution c
 See also [Table overview](develop-tables-overview.md), [Table distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Selecting table distribution](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), and [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### Do not over-partition
-
-While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  
+While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy that may work well on SQL Server may not work well on SQL pool.  
 
 > [!NOTE]
 > Often a high granularity partitioning strategy that may work well on SQL Server may not work well on SQL pool.  
@@ -158,5 +156,4 @@ As CETAS generates Parquet files, statistics will be automatically created when 
 If you need information not provided in this article, use the "Search for docs" on the left side of this page to search all of the SQL pool documents.  The [SQL pool Forum](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) is a place for you to pose questions to other users and to the SQL pool Product Group.  
 
 We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL pool Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
-
-For feature requests, use the [Azure SQL pool Feedback](https://feedback.azure.com/forums/307516-sql-data-warehouse) page.  Adding your requests or up-voting other requests helps us to focus on the most in-demand features.
+ 

@@ -6,7 +6,7 @@ author: acomet
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: 
-ms.date: 3/15/2020
+ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ---
@@ -63,6 +63,6 @@ You have now established a secure and private connection between Synapse and you
 
 ## Next steps
 
-For more understanding of Managed private endpoint in Synapse, see the [Concept around Synapse Managed private endpoint](data-integration-data-lake.md) article.
+To develop further understanding of Managed private endpoint in Synapse Analytics, see the [Concept around Synapse Managed private endpoint](data-integration-data-lake.md) article.
 
 For more information on data integration for Synapse Analytics, see the [Ingesting data into a Data Lake](data-integration-data-lake.md) article.

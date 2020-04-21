@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Load Contoso retail data to a Synapse SQL data warehouse
+# Load Contoso retail data to Synapse SQL 
 
 In this tutorial, you learn to use PolyBase and T-SQL commands to load two tables from the Contoso retail data into a Synapse SQL data warehouse.
 

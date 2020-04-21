@@ -6,7 +6,7 @@ author: euangMS
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: 
-ms.date: 11/25/2019 
+ms.date: 04/15/2020 
 ms.author: euang 
 ms.reviewer: euang
 ---
@@ -19,7 +19,25 @@ The extension includes a data tab, graph tab, and diagnosis tab. Use the **Data*
 
 ## Access the Apache Spark history server
 
-Apache Spark history server is the web user interface for completed and running Spark applications. You can open the Apache Spark history server web interface from Azure Synapse Studio (preview).
+Apache Spark history server is the web user interface for completed and running Spark applications. You can open the Apache Spark history server web interface from the Azure Synapse Analytics.
+
+### Open the Spark History Server web UI from Apache spark applications node
+
+1. Open [Azure Synapse Analytics](https://web.azuresynapse.net/).
+
+2. Click **Monitor**, then select **Apache Spark Applications**.
+
+    ![Click monitor then select spark application.](./media/apache-spark-history-server/click-monitor-spark-application.png)
+
+3. Select an application, then open **Log query** by clicking it.
+
+    ![Open log query window.](./media/apache-spark-history-server/open-application-window.png)
+
+4. Select **Spark history server**, then the Spark History Server web UI will show up.
+
+    ![Open spark history server.](./media/apache-spark-history-server/open-spark-history-server.png)
+
+### Open the Spark History Server web UI from Data node
 
 1. From your Azure Synapse Studio notebook, select **Spark history server** from the job execution output cell or from the status panel at the bottom of the notebook document. Select **Session details**.
 
@@ -215,5 +233,6 @@ Input/output data using Resilient Distributed Datasets (RDDs) does not show in d
 
 ## Next steps
 
-* [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
-* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../overview-what-is.md)
+- [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+

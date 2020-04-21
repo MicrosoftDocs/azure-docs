@@ -13,7 +13,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 04/15/2020
 ms.author: jingwang
 
 ---
@@ -53,6 +53,7 @@ The Get Metadata activity takes a dataset as an input and returns metadata infor
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x	| x/x | √ | x | √ | √ | √/√ |
 
+- When using Get Metadata activity against a folder, make sure you have LIST/EXECUTE permission to the given folder.
 - For Amazon S3 and Google Cloud Storage, `lastModified` applies to the bucket and the key but not to the virtual folder, and `exists` applies to the bucket and the key but not to the prefix or virtual folder.
 - For Azure Blob storage, `lastModified` applies to the container and the blob but not to the virtual folder.
 - `lastModified` filter currently applies to filter child items but not the specified folder/file itself.

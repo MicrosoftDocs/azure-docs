@@ -3,7 +3,7 @@ title: Scheduled Events for Windows VMs in Azure
 description: Scheduled events using the Azure Metadata service for on your Windows virtual machines.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
-author: ericrad
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
-ms.author: ericrad
+ms.author: mimckitt
 
 ---
 # Azure Metadata Service: Scheduled Events for Windows VMs

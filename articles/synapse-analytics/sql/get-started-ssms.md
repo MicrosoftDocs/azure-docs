@@ -1,17 +1,17 @@
 ---
-title: "SSMS: Connect and query SQL Analytics"
-description: Use SQL Server Management Studio (SSMS) to connect to and query SQL Analytics in Azure Synapse Analytics. 
+title: "SSMS: Connect and query Synapse SQL"
+description: Use SQL Server Management Studio (SSMS) to connect to and query Synapse SQL in Azure Synapse Analytics. 
 services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: overview 
 ms.subservice: 
-ms.date: 10/21/2019 
+ms.date: 04/15/2020 
 ms.author: v-stazar 
 ms.reviewer: jrasnick
 ---
 
-# Connect to SQL Analytics with SQL Server Management Studio (SSMS)
+# Connect to Synapse SQL with SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
@@ -21,7 +21,7 @@ ms.reviewer: jrasnick
 > 
 > 
 
-You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to connect to and query SQL Analytics in Azure Synapse Analytics through either SQL on-demand (preview) or SQL pool resources. 
+You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to connect to and query Synapse SQL in Azure Synapse Analytics through either SQL on-demand (preview) or SQL pool resources. 
 
 ### Supported tools for SQL on-demand (preview)
 
@@ -33,18 +33,18 @@ Before you begin, make sure you have the following prerequisites:
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
 * For SQL pool, you need an existing data warehouse. To create one, see [Create a SQL pool](../quickstart-create-sql-pool.md). For SQL on-demand, one is already provisioned in your workspace at creation time. 
-* The fully qualified SQL Server name. To find this, see [Connect to SQL Analytics](connect-overview.md).
+* The fully qualified SQL Server name. To find this, see [Connect to Synapse SQL](connect-overview.md).
 
 ## Connect
 
 ### SQL pool
 
-To connect to SQL Analytics using SQL pool, follow these steps: 
+To connect to Synapse SQL using SQL pool, follow these steps: 
 
 1. Open SQL Server Management Studio (SSMS). 
 1. In the **Connect to Server** dialog box, fill in the fields and then select **Connect**: 
   
-    ![Connect to Server](./media/get-started-ssms/connect-object-explorer1.png)
+    ![Connect to Server](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
    * **Server name**: Enter the **server name** previously identified.
    * **Authentication**:  Choose an authentication type, such as **SQL Server Authentication** or **Active Directory Integrated Authentication**.
@@ -52,12 +52,12 @@ To connect to SQL Analytics using SQL pool, follow these steps:
 
 1. Expand your Azure SQL Server in **Object Explorer**. You can view the databases associated with the server, such as the sample AdventureWorksDW database. You can expand the database to see the tables:
    
-    ![Explore AdventureWorksDW](./media/get-started-ssms/explore-tables.png)
+    ![Explore AdventureWorksDW](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
 ### SQL on-demand (preview)
 
-To connect to SQL Analytics using SQL on-demand, follow these steps: 
+To connect to Synapse SQL using SQL on-demand, follow these steps: 
 
 1. Open SQL Server Management Studio (SSMS).
 1. In the **Connect to Server** dialog box, fill in the fields and then select **Connect**: 
@@ -83,7 +83,7 @@ Now that a database connection has been established, you can query the data.
 1. Right-click your database in SQL Server Object Explorer.
 2. Select **New Query**. A new query window opens.
    
-    ![New query](./media/get-started-ssms/new-query.png)
+    ![New query](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png)
 3. Copy this T-SQL query into the query window:
    
     ```sql
@@ -91,10 +91,10 @@ Now that a database connection has been established, you can query the data.
     ```
 4. Run the query. To do this, click `Execute` or use the following shortcut: `F5`.
    
-    ![Run query](./media/get-started-ssms/execute-query.png)
+    ![Run query](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
 5. Look at the query results. In this example, the FactInternetSales table has 60398 rows.
    
-    ![Query results](./media/get-started-ssms/results.png)
+    ![Query results](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
 ### SQL on-demand
 
@@ -119,5 +119,5 @@ Now that you've established a database connection, you can query the data.
 ## Next steps
 Now that you can connect and query, try [visualizing the data with Power BI](get-started-power-bi-professional.md).
 
-To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL Analytics](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+To configure your environment for Azure Active Directory authentication, see [Authenticate to Synapse SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 

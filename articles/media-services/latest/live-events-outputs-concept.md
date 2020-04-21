@@ -107,7 +107,7 @@ You can either use non-vanity URLs or vanity URLs.
 
 * Vanity URL
 
-    Vanity mode is preferred by large media broadcasters who use hardware broadcast encoders and don't want to reconfigure their encoders when they start the Live Event. They want a predictive ingest URL, which doesn't change over time.
+    Vanity mode is preferred by large media broadcasters who use hardware broadcast encoders and don't want to reconfigure their encoders when they start the Live Event. These broadcasters want a predictive ingest URL which doesn't change over time.
     
     > [!NOTE]
     > In the Azure portal, the vanity URL is named "*Persistent input URL*".
