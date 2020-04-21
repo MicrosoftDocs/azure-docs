@@ -54,21 +54,16 @@ To achieve comprehensive business continuity on Azure, build your application ar
 
 Azure's approach on availability of Azure services across regions is best described in two ways – recommended regions and alternate regions.
 
-### Recommended regions
-
-A recommended region is a region that provides the broadest range of service capabilities and is designed to support Availability Zones now, or in the future. These are designated in the Azure portal as **Recommended**.
-
-### Alternate (other) regions
-
-An alternate (other) region is a region that extends Azure's footprint within a data residency boundary where a recommended region also exists. Alternate regions help to optimize latency and provide a second region for disaster recovery needs. They are not designed to support Availability Zones (although Azure conducts regular assessment of these regions to determine if they should become recommended regions). These are designated in the Azure portal as **Other**.
+- Recommended region - A region that provides the broadest range of service capabilities and is designed to support Availability Zones now, or in the future. These are designated in the Azure portal as **Recommended**.
+- Alternate (other) region - A region that extends Azure's footprint within a data residency boundary where a recommended region also exists. Alternate regions help to optimize latency and provide a second region for disaster recovery needs. They are not designed to support Availability Zones (although Azure conducts regular assessment of these regions to determine if they should become recommended regions). These are designated in the Azure portal as **Other**.
 
 ### Comparing region types
 
 The Azure services available in each region are grouped in three categories: foundational, mainstream, and specialized services. Azure's general policy on deploying services into region types is dependent on customer demand, region type, and service categories:
 
-- Foundational – available in all recommended and alternate regions when the region is generally available, or within 12 months of a new foundational service becoming generally available.
-- Mainstream – available in all recommended regions within 12 months of the region/service general availability; demand-driven in alternate regions (many are already deployed into a large subset of alternate regions).
-- Specialized – targeted service offerings, often industry-focused or backed by customized/specialized hardware. Demand-driven availability across regions (many are already deployed into a large subset of recommended regions).
+- Foundational – Available in all recommended and alternate regions when the region is generally available, or within 12 months of a new foundational service becoming generally available.
+- Mainstream – Available in all recommended regions within 12 months of the region/service general availability; demand-driven in alternate regions (many are already deployed into a large subset of alternate regions).
+- Specialized – Targeted service offerings, often industry-focused or backed by customized/specialized hardware. Demand-driven availability across regions (many are already deployed into a large subset of recommended regions).
 
 To see which services are deployed in a given region, as well as the future roadmap for preview or general availability of services in a region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all)
 
