@@ -8,7 +8,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/20/2020
+ms.date: 04/21/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -61,18 +61,12 @@ This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filte
 
 > [!IMPORTANT]
 > If you have cloned the **In from AD - Group Join** sync rule and have not cloned the **In from AD - Group Common** sync rule and plan to upgrade, complete the following steps as part of the upgrade:
-> 1. During Upgrade, on the configure page, uncheck the option **Start the synchronization process when configuration completes**.
-> 2. Edit cloned join sync rule and add the following two transformations:
-    - direct flow `objectGUID` to `sourceAnchorBinary`	
-    - expression flow `ConvertToBase64([objectGUID])` to `sourceAnchor`      
-> 3. Enable the scheduler using `Set-ADSyncScheduler -SyncCycleEnabled $true`
-> If you use mS-DS-ConsistencyGuid as the source anchor, and you have cloned the **In from AD - Group Join** sync rule and plan to upgrade, complete the following steps as part of the upgrade:
 > 1. During Upgrade, uncheck the option **Start the synchronization process when configuration completes**.
 > 2. Edit the cloned join sync rule and add the following two transformations:
 >     - Set direct flow `objectGUID` to `sourceAnchorBinary`.
 >     - Set expression flow `ConvertToBase64([objectGUID])` to `sourceAnchor`.     
 > 3. Enable the scheduler using `Set-ADSyncScheduler -SyncCycleEnabled $true`.
->>>>>>> c3a0900afdca88441432231dcef7873bf2a78adb
+
 
 
 ## 1.5.18.0
