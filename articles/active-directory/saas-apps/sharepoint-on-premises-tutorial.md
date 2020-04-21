@@ -148,7 +148,7 @@ To configure Azure AD single sign-on with SharePoint on-premises, perform the fo
     New-SPTrustedRootAuthority -Name "AzureAD" -Certificate $cert
     $map1 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" -IncomingClaimTypeDisplayName "name" -LocalClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
     $map2 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" -IncomingClaimTypeDisplayName "Role" -SameAsIncoming
-    $ap = New-SPTrustedIdentityTokenIssuer -Name "AzureAD" -Description "AAD SharePoint server 201x" -realm $realm -ImportTrustCertificate $cert -ClaimsMappings $map1,$map2 -SignInUrl $wsfedurl -IdentifierClaim $map1.InputClaimType
+    $ap = New-SPTrustedIdentityTokenIssuer -Name "AzureAD" -Description "Azure AD SharePoint server 201x" -realm $realm -ImportTrustCertificate $cert -ClaimsMappings $map1,$map2 -SignInUrl $wsfedurl -IdentifierClaim $map1.InputClaimType
 	```
 1. **Enable the trusted identity provider for your application**
 
@@ -171,7 +171,7 @@ The objective of this section is to create a test user in the Azure portal.
 2. Then select **All users** followed by **New user** at the top of the screen.
 
 3. Select the option **Create User** and in the User properties, perform the following steps.  
-   You might be able to create users in your AAD using your tenant suffix or any verified domain. 
+   You might be able to create users in your Azure AD using your tenant suffix or any verified domain. 
 
     a. In the **Name** field enter the user name , we used **TestUser**.
   
@@ -209,7 +209,7 @@ There is no validation on the values you search for, which can lead to misspelli
   > [!NOTE]
   > Without AzureCP you can add Groups by adding the Azure AD group's ID but this is not user's friendly and reliable. There is how it looks:  
   >   
-  >![Add AAD group to Sharepoint Group](./media/sharepoint-on-premises-tutorial/adding-group-by-id.png)
+  >![Add Azure AD group to Sharepoint Group](./media/sharepoint-on-premises-tutorial/adding-group-by-id.png)
   
 ### Grant permissions to Azure AD group in SharePoint on-premises
 
@@ -232,7 +232,7 @@ To grant access to the Azure Active Directory Security Group in the on-premise S
 
 1. Browse to the SharePoint Site Collection, under Site Settings for the Site Collection, click on "People and groups". Select the SharePoint group then click on New, "Add Users to this Group" and start to type the name of your group the People Picker will display the Azure Active Directory Security Group.
 
-    ![Add AAD group to Sharepoint Group](./media/sharepoint-on-premises-tutorial/permission-azure-ad-group.png)
+    ![Add Azure AD group to Sharepoint Group](./media/sharepoint-on-premises-tutorial/permission-azure-ad-group.png)
 
 ### Grant access to a Guest account to SharePoint on-premises in the Azure portal
 
