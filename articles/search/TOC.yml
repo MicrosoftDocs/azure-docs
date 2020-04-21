@@ -95,7 +95,7 @@
   items:
   - name: Full-text search
     href: search-lucene-query-architecture.md
-  - name: IndexersIndex
+  - name: Indexers
     href: search-indexer-overview.md
   - name: AI enrichment
     href: cognitive-search-concept-intro.md
