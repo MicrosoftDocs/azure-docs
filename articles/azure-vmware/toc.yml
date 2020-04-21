@@ -1,12 +1,16 @@
 - name: Azure VMware Solution (AVS)
-  href:
+  href: index.yml
 - name: Overview
   items:
-  - name: About AVS
+  - name: About Azure VMware Solution (AVS)
     href: introduction.md
 - name: Quickstarts
   expanded: true
   items:
+  - name: Network planning
+    href: network-checklist.md
+  - name: Create a private cloud with Azure CLI
+    href: quickstart-private-cloud-cli.md
 - name: Tutorials
   items:
   - name: 1 - Create an AVS private cloud
@@ -14,13 +18,9 @@
   - name: 2 - Create a service VNet and resources
     href: tutorial-configure-networking.md
   - name: 3 - Access a private cloud 
-    href: tutorial-access-private-cloud.md   
-  - name: x - Create an NSX-T network
-    href: tutorials-create-t1-ls.md
-  - name: x - Deploy a VM
-    href: tutorials-deploy-vm.md
-  - name: x - Scale a private cloud
-    href: tutorials-scale-private-cloud.md
+    href: tutorial-access-private-cloud.md
+  - name: 4 - Scale a private cloud
+    href: tutorial-scale-private-cloud.md
 - name: Concepts
   items:
   - name: Private clouds and clusters

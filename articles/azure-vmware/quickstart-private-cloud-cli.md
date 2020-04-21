@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create an Azure VMWare Solution (AVS) private cloud (preview) using the Azure CLI"
+title: "Quickstart: Create a private cloud in Azure using the Azure CLI"
 description: This quickstart walks you through deploying an Azure VMWare Solution private cloud in Azure
 author: dikamath
 ms.author: dikamath

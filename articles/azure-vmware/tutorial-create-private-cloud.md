@@ -1,11 +1,8 @@
 ---
 title: Tutorial - Deploy vSphere Cluster in Azure
 description: Learn to deploy a vSphere Cluster in Azure using Azure VMWare Solution (AVS)
-author: dikamath
-ms.author: dikamath
-ms.service: azure-vmware
 ms.topic: tutorial
-ms.date: 04/07/2020
+ms.date: 05/04/2020
 ---
 
 # Tutorial: Deploy an AVS private cloud in Azure
@@ -19,10 +16,13 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Private Cloud
+> * Verify deployment was successful
 
 ## Prerequisites
 
-* Ensure you have the appropriate networking configured as described in [Quickstart: Network checklist](network-checklist.md)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Appropriate administrative rights & permission to create a private cloud.
+- Ensure you have the appropriate networking configured as described in [Quickstart: Network checklist](network-checklist.md)
 
 ## Sign in to the Azure portal
 
@@ -88,7 +88,7 @@ deployment is successful. Navigate to the Azure portal to verify your private cl
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
-> * Create an SDDC (Private Cloud)
+> * Create an AVS private cloud
 > * Verified the Private Cloud deployed
 
 Continue to the next tutorial to learn how to create a virtual network for use with your Private Cloud.
