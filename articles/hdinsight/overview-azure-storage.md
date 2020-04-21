@@ -35,12 +35,12 @@ Consider the following principles when using an Azure Storage account with HDIns
 
 * **Containers in the storage accounts that are connected to a cluster:** Because the account name and key are associated with the cluster during creation, you have full access to the blobs in those containers.
 
-* **Public containers or public blobs in storage accounts that aren't* connected to a cluster:** You have read-only permission to the blobs in the containers.
+* **Public containers or public blobs in storage accounts that aren't connected to a cluster:** You have read-only permission to the blobs in the containers.
   
   > [!NOTE]  
   > Public containers allow you to get a list of all blobs that are available in that container and to get container metadata. Public blobs allow you to access the blobs only if you know the exact URL. For more information, see [Manage anonymous read access to containers and blobs](../storage/blobs/storage-manage-access-to-resources.md).
 
-* **Private containers in storage accounts that aren't connected to a cluster:** You can't access the blobs in the containers unless you define the storage account when you submit the WebHCat jobs. 
+* **Private containers in storage accounts that aren't connected to a cluster:** You can't access the blobs in the containers unless you define the storage account when you submit the WebHCat jobs.
 
 The storage accounts that are defined in the creation process and their keys are stored in %HADOOP_HOME%/conf/core-site.xml on the cluster nodes. By default, HDInsight uses the storage accounts defined in the core-site.xml file. You can modify this setting by using [Apache Ambari](./hdinsight-hadoop-manage-ambari.md).
 

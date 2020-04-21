@@ -19,6 +19,8 @@ You can choose between a few different Azure storage services when creating HDIn
 
 This article provides an overview of these storage types and their unique features.
 
+## Storage types and features
+
 The following table summarizes the Azure Storage services that are supported with different versions of HDInsight:
 
 | Storage service | Account type | Namespace Type | Supported services | Supported performance tiers | Supported access tiers | HDInsight Version | Cluster type |
