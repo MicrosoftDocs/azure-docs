@@ -160,6 +160,21 @@ The following are dimensions that can be used to filter quota metrics:
 | Vm Family Name | Quota utilization percentage | The name of the VM family used by the cluster. |
 | Vm Priority | Quota utilization percentage | The priority of the VM.
 
+**Resource**
+
+| Metric | Unit | Description |
+| ----- | ----- | ----- |
+| CpuUtilization | Count | |
+| GpuUtilization | Count | |
+
+The following are dimensions that can be used to filter resource metrics:
+
+| Dimension | Description |
+| ----- | ----- |
+| CreatedTime | |
+| NodeId | ID of the node to show utilization for. |
+| RunId | |
+
 **Run**
 
 Information on training runs.
