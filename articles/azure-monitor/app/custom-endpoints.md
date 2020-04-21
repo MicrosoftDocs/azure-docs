@@ -13,6 +13,8 @@ To send data from Application Insights to certain regions, you'll need to overri
 > [!NOTE]
 > [Connection strings](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) are the new preferred method of setting custom endpoints within Application Insights.
 
+---
+
 ## SDK code changes
 
 # [.NET](#tab/net)
@@ -191,6 +193,8 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 # [Python](#tab/python)
 
 For guidance on modifying the ingestion endpoint for the opencensus-python SDK consult the [opencensus-python repo.](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)
+
+---
 
 ## Regions that require endpoint modification
 
