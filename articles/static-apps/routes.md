@@ -1,5 +1,5 @@
 ---
-title: Routes in App Service Static Apps
+title: Routes in Azure Static Web Apps
 description: Learn about server-side routing rules and how to secure routes with roles.
 services: azure-functions
 author: craigshoemaker
@@ -9,9 +9,9 @@ ms.date: 05/08/2020
 ms.author: cshoe
 ---
 
-# Routes in App Service Static Apps
+# Routes in Azure Static Web Apps
 
-Routing in App Service Static Apps enforces server-side routing rules and authorization behavior for both static content and APIs. The rules are defined and controlled by the _routes.json_ file, which features an array of routing rules that are enforced in the same order as they appear in the array.
+Routing in Azure Static Web Apps enforces server-side routing rules and authorization behavior for both static content and APIs. The rules are defined and controlled by the _routes.json_ file, which features an array of routing rules that are enforced in the same order as they appear in the array.
 
 - The _routes.json_ file must exist at the root of the static app.
 - Roles are defined in the _routes.json_ file and users are associated to roles via invitations.
