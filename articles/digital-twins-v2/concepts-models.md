@@ -25,11 +25,11 @@ You can think of the models as nouns in a description of your world.
 
 ## Digital Twin Definition Language (DTDL) for writing models
 
-Models for Azure Digital Twins are defined using the [Digital Twins Definition language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). DTDL is based on JSON-LD and is programming-language independent.
+Models for Azure Digital Twins are defined using the Digital Twins Definition language (DTDL). DTDL is based on JSON-LD and is programming-language independent.
 
 DTDL is also used as part of [Azure IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md). Developers of PnP devices use a subset of the same description language used for Azure Digital Twins. The DTDL version used for PnP is, semantically, a subset of DTDL for Azure Digital Twins: every *capability model* as defined by PnP is also a valid model for use in Azure Digital Twins. 
 
-For more information about DTDL, see its [reference documentation](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+For more information about DTDL, see the concept documentation on [Digital Twins Definition language (DTDL)](concepts-dtdl.md) for Azure Digital Twins, or view its [reference documentation](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
 ## Elements of a model
 
@@ -179,6 +179,9 @@ The extending interface cannot change any of the definitions of the parent inter
 
 Learn about creating digital twins based on models:
 * [Create digital twins and the twin graph](concepts-twins-graph.md)
+
+Read more detail about DTDL:
+* [Digital Twins Definition Language (DTDL)](concepts-dtdl.md)
 
 Or, see how a model is managed with the DigitalTwinsModels APIs:
 * [Manage a twin model](how-to-manage-model.md)
