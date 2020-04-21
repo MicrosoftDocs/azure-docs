@@ -29,7 +29,7 @@ Instance pools provide the following benefits:
 2. Predictable and fast instance deployment time (up to 5 minutes).
 3. Minimal IP address allocation.
 
-The following diagram illustrates an instance pool with multiple instances deployed within a virtual network subnet.
+The following diagram illustrates an instance pool with multiple SQL Managed Instances deployed within a virtual network subnet.
 
 ![instance pool with multiple instances](./media/sql-database-instance-pools/instance-pools1.png)
 
