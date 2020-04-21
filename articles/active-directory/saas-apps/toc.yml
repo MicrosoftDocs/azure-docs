@@ -77,6 +77,8 @@
         href: allbound-sso-tutorial.md  
       - name: Allocadia
         href: allocadia-tutorial.md
+      - name: Ally
+        href: ally-tutorial.md
       - name: Amazon Business
         href: amazon-business-tutorial.md
       - name: Amazon Web Services (AWS)
@@ -936,6 +938,8 @@
         href: mcm-tutorial.md
       - name: Menlo Security
         href: menlosecurity-tutorial.md
+      - name: Meraki Dashboard
+        href: meraki-dashboard-tutorial.md
       - name: Mercell
         href: mercell-tutorial.md
       - name: Mercer BenefitsCentral (MBC)
@@ -1825,6 +1829,8 @@
       items:
       - name: Netskope Administrator Console
         href: netskope-administrator-console-provisioning-tutorial.md
+      - name: New Relic(Limited Release)
+        href: new-relic-limited-release-provisioning-tutorial.md
       - name: Netsuite
         href: netsuite-provisioning-tutorial.md
       - name: OfficeSpace Software
