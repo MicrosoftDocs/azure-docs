@@ -4,7 +4,7 @@ description: Frequently Asked Questions about Azure SQL Database Elastic Scale.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein

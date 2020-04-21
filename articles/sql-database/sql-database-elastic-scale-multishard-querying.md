@@ -5,6 +5,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
 ms.topic: conceptual
+ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019

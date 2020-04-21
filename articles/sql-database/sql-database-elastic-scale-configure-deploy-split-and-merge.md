@@ -4,7 +4,7 @@ description: Use the split-merge too to move data between sharded databases.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -323,7 +323,7 @@ The Split-Merge service does not create the target database (or schema for any t
 
 ## Troubleshooting
 
-You may see the below message when running the sample powershell scripts:
+You may see the below message when running the sample PowerShell scripts:
 
    `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.`
 

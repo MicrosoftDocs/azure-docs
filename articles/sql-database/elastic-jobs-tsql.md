@@ -4,7 +4,7 @@ description: Run scripts across many databases with Elastic Database Job agent u
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 ms.author: jaredmoo
@@ -185,7 +185,7 @@ The following example creates a new job to collect performance data from multipl
 
 By default, the job agent will create the output table to store returned results. Therefore, the database principal associated with the output credential must at a minimum have the following permissions: `CREATE TABLE` on the database, `ALTER`, `SELECT`, `INSERT`, `DELETE` on the output table or its schema, and `SELECT` on the [sys.indexes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql) catalog view.
 
-If you want to manually create the table ahead of time then it needs to have the following properties:
+If you want to manually create the table ahead of time, then it needs to have the following properties:
 1. Columns with the correct name and data types for the result set.
 2. Additional column for internal_execution_id with the data type of uniqueidentifier.
 3. A nonclustered index named `IX_<TableName>_Internal_Execution_ID` on the internal_execution_id column.
@@ -280,7 +280,7 @@ select * from jobs.jobsteps
 ```
 
 
-## Begin ad hoc execution of a job
+## Begin unplanned execution of a job
 
 The following example shows how to start a job immediately.  
 Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
@@ -625,7 +625,7 @@ The name of the job to which to add the step. job_name is nvarchar(128).
 The sequence identification number for the job step. Step identification numbers start at 1 and increment without gaps. If an existing step already has this id, then that step and all following steps will have their id's incremented so that this new step can be inserted into the sequence. If not specified, the step_id will be automatically assigned to the last in the sequence of steps. step_id is an int.
 
 [ **\@step_name =** ] step_name  
-The name of the step. Must be specified, except for the first step of a job which (for convenience) has a default name of 'JobStep'. step_name is nvarchar(128).
+The name of the step. Must be specified, except for the first step of a job that (for convenience) has a default name of 'JobStep'. step_name is nvarchar(128).
 
 [ **\@command_type =** ] 'command_type'  
 The type of command that is executed by this jobstep. command_type is nvarchar(50), with a default value of TSql, meaning that the value of the @command_type parameter is a T-SQL script.
@@ -1336,7 +1336,7 @@ Shows all members of all target groups.
 |**server_name**	|nvarchar(128)	|Name of the SQL Database server contained in the target group. Specified only if target_type is ‘SqlServer’. |
 |**database_name**	|nvarchar(128)	|Name of the database contained in the target group. Specified only when target_type is ‘SqlDatabase’.|
 |**elastic_pool_name**	|nvarchar(128)|	Name of the Elastic pool contained in the target group. Specified only when target_type is ‘SqlElasticPool’.|
-|**shard_map_name**	|nvarchar(128)|	Name of the shard map contained in the target group. Specified only when target_type is ‘SqlShardMap’.|
+|**shard_map_name**	|nvarchar(128)|	Name of the shard maps contained in the target group. Specified only when target_type is ‘SqlShardMap’.|
 
 
 ## Resources
