@@ -267,6 +267,8 @@
           href: msal-net-migration-ios-broker.md
         - name: Web browser considerations
           href: msal-net-web-browsers.md
+        - name: Handle errors and exceptions
+          href: msal-handling-exceptions.md?tabs=dotnet
         - name: Logging
           href: msal-logging.md?tabs=dotnet
     - name: Android
@@ -283,7 +285,7 @@
           href: migrate-android-adal-msal.md
         - name: Shared device mode
           href: msal-android-shared-devices.md
-          displayName: firstline worker, frontline worker
+          displayName: firstline worker, frontline worker, flw
         - name: Single and multi account public client apps
           href: single-multi-account.md
         - name: Logging
@@ -296,13 +298,15 @@
           href: migrate-objc-adal-msal.md
         - name: Shared device mode for iOS devices
           href: msal-ios-shared-devices.md
-          displayName: firstline worker, frontline worker
+          displayName: firstline worker, frontline worker, flw
         - name: SSO between MSAL apps
           href: single-sign-on-macos-ios.md
         - name: SSO between ADAL and MSAL apps
           href: sso-between-adal-msal-apps-macos-ios.md
         - name: Troubleshoot SSL issues (MSAL iOS/macOS)
           href: ssl-issues.md
+        - name: Handle errors and exceptions
+          href: msal-handling-exceptions.md?tabs=iosmacos
         - name: Logging - Objective-C
           href: msal-logging.md?tabs=objc
         - name: Logging - Swift
@@ -313,6 +317,8 @@
           href: migrate-adal-msal-java.md
         - name: ADFS support in MSAL for Java
           href: msal-java-adfs-support.md
+        - name: Handle errors and exceptions
+          href: msal-handling-exceptions.md?tabs=java
         - name: Logging
           href: msal-logging.md?tabs=java
     - name: JavaScript & Node.js
@@ -331,6 +337,8 @@
           href: msal-js-known-issues-ie-edge-browsers.md
         - name: Known issues - Safari
           href: msal-js-known-issues-safari-browser.md
+        - name: Handle errors and exceptions
+          href: msal-handling-exceptions.md?tabs=javascript
         - name: Logging
           href: msal-logging.md?tabs=javascript
     - name: Python
@@ -339,6 +347,8 @@
           href: migrate-python-adal-msal.md
         - name: ADFS support in MSAL for Python
           href: msal-python-adfs-support.md
+        - name: Handle errors and exceptions
+          href: msal-handling-exceptions.md?tabs=python
         - name: Logging
           href: msal-logging.md?tabs=python
 #    - name: Migration
@@ -357,11 +367,9 @@
         href: msal-client-application-configuration.md
       - name: Shared devices
         href: msal-shared-devices.md
-        displayName: shared device mode, firstline worker, frontline worker
+        displayName: shared device mode, firstline worker, frontline worker, flw
 #     - name: Scopes for v1.0 apps   # TODO: Move to v1 or delete this article
 #       href: msal-v1-app-scopes.md
-      - name: Handle errors and exceptions
-        href: msal-handling-exceptions.md
       - name: Handle SameSite cookie changes in Chrome browser
         href: howto-handle-samesite-cookie-changes-chrome-browser.md
   - name: Authentication protocols
