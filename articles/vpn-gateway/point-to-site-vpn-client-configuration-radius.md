@@ -110,7 +110,7 @@ Use the following steps to configure the native Windows VPN client for certifica
       <key>ServerAddresses</key>
         <array>
             <string>10.0.0.132</string>
-        <array>
+        </array>
       <key>SupplementalMatchDomains</key>
         <array>
             <string>TestDomain.com</string>

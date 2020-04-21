@@ -5,7 +5,7 @@ services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.date: 01/01/2020
+ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
 ---
@@ -46,9 +46,4 @@ To view details about your pipeline run, select the pipeline run. Then view the 
   
 ## Next steps
 
-This article showed you how to monitor pipeline runs in your Azure Synapse workspace. You learned how to:
-
-> [!div class="checklist"]
-> * View the list of pipeline runs in your workspace
-> * Filter the list of pipeline runs to find the pipeline you'd like to monitor
-> * Monitor your selected pipeline run in detail.
+To learn more about monitoring applications, see the [Monitor Apache Spark applications](how-to-monitor-spark-applications.md) article. 

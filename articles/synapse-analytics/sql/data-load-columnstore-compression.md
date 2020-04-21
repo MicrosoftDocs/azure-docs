@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice:
-ms.date: 03/22/2019
+ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
@@ -72,10 +72,6 @@ The trim_reason_desc tells whether the rowgroup was trimmed(trim_reason_desc = N
 
 ## How to estimate memory requirements
 
-<!--
-To view an estimate of the memory requirements to compress a rowgroup of maximum size into a columnstore index, download and run the view [dbo.vCS_mon_mem_grant](). This view shows the size of the memory grant that a rowgroup requires for compression in to the columnstore.
--->
-
 The maximum required memory to compress one rowgroup is approximately
 
 - 72 MB +
@@ -88,7 +84,7 @@ where short-string-columns use string data types of <= 32 bytes and long-string-
 Long strings are compressed with a compression method designed for compressing text. This compression method uses a *dictionary* to store text patterns. The maximum size of a dictionary is 16 MB. There is only one dictionary for each long string column in the rowgroup.
 
 For an in-depth discussion of columnstore memory requirements, see the
-video [SQL Analytics scaling: configuration and guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+video [Synapse SQL scaling: configuration and guidance](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## Ways to reduce memory requirements
 
@@ -117,7 +113,7 @@ Another reason to avoid over-partitioning is there is a memory overhead for load
 
 The database shares the memory grant for a query among all the operators in the query. When a load query has complex sorts and joins, the memory available for compression is reduced.
 
-Design the load query to focus only on loading the query. If you need to run transformations on the data, run them separate from the load query. For example, stage the data in a heap table, run the transformations, and then load the staging table into the columnstore index. You can also load the data first and then use the MPP system to transform the data.
+Design the load query to focus only on loading the query. If you need to run transformations on the data, run them separate from the load query. For example, stage the data in a heap table, run the transformations, and then load the staging table into the columnstore index. 
 
 ### Adjust MAXDOP
 
@@ -141,4 +137,6 @@ DWU size and the user resource class together determine how much memory is avail
 
 ## Next steps
 
-To find more ways to improve performance in SQL Analytics, see the [Performance overview](../overview-cheat-sheet.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+To find more ways to improve performance in Synapse SQL, see the [Performance overview](../overview-cheat-sheet.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+
+ 

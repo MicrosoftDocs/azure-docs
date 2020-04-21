@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/02/2019
+ms.date: 04/09/2020
 ---
 
 # Copy data from an SAP table by using Azure Data Factory
@@ -238,6 +238,7 @@ In `rfcTableOptions`, you can use the following common SAP query operators to fi
 | `LE` | Less than or equal to |
 | `GT` | Greater than |
 | `GE` | Greater than or equal to |
+| `IN` | As in `TABCLASS IN ('TRANSP', 'INTTAB')` |
 | `LIKE` | As in `LIKE 'Emma%'` |
 
 ### Example

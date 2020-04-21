@@ -311,7 +311,8 @@ For different types of build environments, you can explicitly obtain the latest 
 		
            System.out.println("End of sample");
        }
-    ```
+   }
+   ```
 3. Create one more class called `EventProcessor`, using the following code:
    
     ```java

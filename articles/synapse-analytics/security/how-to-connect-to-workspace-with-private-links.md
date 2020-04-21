@@ -4,7 +4,7 @@ description: This article will teach you how to connect to your Azure Synapse wo
 author: RonyMSFT 
 ms.service: synapse-analytics 
 ms.topic: how-to 
-ms.date: 03/16/2020 
+ms.date: 04/15/2020 
 ms.author: ronytho
 ms.reviewer: jrasnick
 ---

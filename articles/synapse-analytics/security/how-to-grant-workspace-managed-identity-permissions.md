@@ -4,7 +4,7 @@ description: An article that explains how to configure permissions for managed i
 author: RonyMSFT 
 ms.service: synapse-analytics 
 ms.topic: how-to 
-ms.date: 03/19/2020 
+ms.date: 04/15/2020 
 ms.author: ronytho 
 ms.reviewer: jrasnick
 ---
@@ -114,4 +114,4 @@ You should see your managed identity listed under the **Storage Blob Data Contri
 
 ## Next steps
 
-[Workspace managed identity](./synapse-workspace-managed-identity.md)
+Learn more about [Workspace managed identity](./synapse-workspace-managed-identity.md)

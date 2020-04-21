@@ -5,7 +5,7 @@ services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview
-ms.date: 1/23/2020
+ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ---
@@ -70,7 +70,7 @@ To create new users, you must have the `ALTER ANY USER` permission in the databa
 To create a contained database user in Synapse SQL, you must connect to the database or instance using an Azure AD identity. To create the first contained database user, you must connect to the database by using an Azure AD administrator (who is the owner of the database). 
 
 Any Azure AD authentication is only possible if the Azure AD admin was created for Synapse SQL. If the Azure Active Directory admin was removed from the server, existing Azure Active Directory users created previously inside Synapse SQL can no longer connect to the database using their Azure Active Directory credentials.
-
+ 
 ## Azure AD features and limitations
 
 - The following members of Azure AD can be provisioned in Synapse SQL:

@@ -6,7 +6,7 @@ author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice:
-ms.date: 10/09/2019
+ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ---

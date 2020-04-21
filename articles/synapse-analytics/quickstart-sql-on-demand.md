@@ -6,7 +6,7 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice:
-ms.date: 10/07/2019
+ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
@@ -93,16 +93,14 @@ FROM OPENROWSET
   (
       BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/*.csv'
     , FORMAT = 'CSV'
-    , FIELDTERMINATOR =','
-    , ROWTERMINATOR = '\n'
   )
 WITH
   (
-      [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2
-    , [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2
-    , [year] smallint
-    , [population] bigint
-  ) AS [r]
+      country_code VARCHAR (5)
+    , country_name VARCHAR (100)
+    , year smallint
+    , population bigint
+  ) AS r
 WHERE
   country_name = 'Luxembourg' AND year = 2017
 ```
@@ -178,7 +176,7 @@ WHERE
 
 ## Next steps
 
-Now you are ready to start with following Quickstarts:
+Now you are ready to start with following Quickstart articles:
 
 - [Query single CSV file](sql/query-single-csv-file.md)
 - [Query folders and multiple CSV files](sql/query-folders-multiple-csv-files.md)

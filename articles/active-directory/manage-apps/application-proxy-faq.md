@@ -49,6 +49,9 @@ For recommendations, see [High availability and load balancing of your Applicati
 
 The Application Proxy Connector performs certificate-based authentication to Azure. TLS Termination (TLS/HTTPS inspection or acceleration) breaks this authentication method and isn't supported. Traffic from the connector to Azure must bypass any devices that are performing TLS Termination.  
 
+### Can I place a forward proxy device between the connector server(s) and the back-end application server?
+Yes, this scenario is supported starting from the connector version 1.5.1526.0. See [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md).
+
 ### Should I create a dedicated account to register the connector with Azure AD Application Proxy?
 
 There's no reason to. Any global admin or application administrator account will work. The credentials entered during installation aren't used after the registration process. Instead, a certificate is issued to the connector, which is used for authentication from that point on.

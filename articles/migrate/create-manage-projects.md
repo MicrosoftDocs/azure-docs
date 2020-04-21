@@ -2,7 +2,7 @@
 title: Create and manage Azure Migrate projects
 description: Find, create, manage, and delete projects in Azure Migrate.
 ms.topic: how-to
-ms.date: 02/17/2020
+ms.date: 04/19/2020
 ---
 
 # Create and manage Azure Migrate projects
@@ -18,7 +18,7 @@ The first time you set up Azure Migrate, you create a project and add an assessm
 
 If you already have an Azure Migrate project and you want to create an additional project, do the following:  
 
-1. In the [Azure portal](https://portal.azure.com), search for **Azure Migrate**.
+1. In the [Azure public portal](https://portal.azure.com) or [Azure Government](https://portal.azure.us), search for **Azure Migrate**.
 2. On the Azure Migrate dashboard > **Servers**, select **change** in the upper-right corner.
 
    ![Change Azure Migrate project](./media/create-manage-projects/switch-project.png)

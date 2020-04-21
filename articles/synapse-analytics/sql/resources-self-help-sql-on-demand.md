@@ -6,7 +6,7 @@ author: vvasic-msft
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice:
-ms.date: 2/28/2020
+ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ---
@@ -38,7 +38,7 @@ If your query fails with the error message 'This query cannot be executed due to
 
 ## Next steps
 
-Take a look at these articles to learn more about how to use SQL on-demand:
+Review the following articles to learn more about how to use SQL on-demand:
 
 - [Query single CSV file](query-single-csv-file.md)
 

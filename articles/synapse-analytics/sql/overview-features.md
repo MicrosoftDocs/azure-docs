@@ -6,7 +6,7 @@ author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice:
-ms.date: 01/15/2020
+ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
 ---
@@ -70,7 +70,7 @@ Synapse SQL enable you to use built-in security features to secure your data and
 | Storage AAD passthrough authentication | Yes | Yes |
 | Storage SAS token authentication | No | Yes, using [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) in [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) or instance-level [CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |
 | Storage Access Key authentication | Yes, using [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) in [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | No |
-| Storage Managed Identity authentication | Yes, using [Managed Service Identity Credential](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Yes, using `Managed Identity` credential. |
+| Storage Managed Identity authentication | Yes, using [Managed Service Identity Credential](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Yes, using `Managed Identity` credential. |
 | Storage Application identity authentication | [Yes](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | No |
 | Permissions - Object-level | Yes, including ability to GRANT, DENY, and REVOKE permissions to users | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the system objects that are supported |
 | Permissions - Schema-level | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the schema | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the schema |
@@ -120,3 +120,9 @@ Data that is analyzed can be stored in various storage formats. The following ta
 | JSON | Yes | [Yes](query-json-files.md) |
 | [Delta-lake](https://delta.io/) | No | No |
 | [CDM](https://docs.microsoft.com/common-data-model/) | No | No |
+
+## Next steps
+Additional information on best practices for SQL pool and SQL on-demand can be found in the following articles:
+
+- [Best Practices for SQL pool](best-practices-sql-pool.md)
+- [Best practices for SQL on-demand](best-practices-sql-on-demand.md)

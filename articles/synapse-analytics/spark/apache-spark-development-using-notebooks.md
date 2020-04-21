@@ -6,7 +6,7 @@ author: ruixinxu
 ms.service: synapse-analytics 
 ms.topic: conceptual 
 ms.subservice:
-ms.date: 03/10/2020
+ms.date: 04/15/2020
 ms.author: ruxu 
 ms.reviewer: 
 ---
@@ -387,5 +387,5 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 
 ## Next steps
 
-- [.NET for Apache Spark documentation](https://docs.microsoft.com/dotnet/spark)
+- [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
