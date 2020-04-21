@@ -68,7 +68,7 @@ Only 2048-bit RSA and RSA-HSM keys are supported with Azure Storage encryption. 
 
 You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. You have two options for rotating versions of a customer-managed key:
 
-- **Automatic rotation:** To configure automatic rotation of key versions, omit the key version when you enable encryption with customer-managed keys for the storage account. If the key version is omitted, then Azure Storage checks Azure Key Vault daily for a new version of a customer-managed key. If a new key version is available, Azure Storage automatically uses the new version of the key.
+- **Automatic rotation:** To configure automatic rotation of key versions, omit the key version when you enable encryption with customer-managed keys for the storage account. If the key version is omitted, then Azure Storage checks Azure Key Vault daily for a new version of a customer-managed key. If a new key version is available, then Azure Storage automatically uses the latest version of the key.
 - **Manual rotation:** To use a particular key version, explicitly specify that key version when you enable encryption with customer-managed keys for the storage account. If you specify the key version, then Azure Storage uses that version for encryption until you manually update the key version.
 
     When the key is manually rotated, you must update the storage account to use the new key version URI. To learn how to update the storage account to use a new version of the key in the Azure portal, see the section titled **Update the key version** in [Configure customer-managed keys for Azure Storage by using the Azure portal](storage-encryption-keys-portal.md).
