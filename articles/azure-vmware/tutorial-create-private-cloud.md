@@ -7,22 +7,19 @@ ms.date: 05/04/2020
 
 # Tutorial: Deploy an AVS private cloud in Azure
 
-Ability to deploy a vSphere cluster in Azure from the Azure portal.
-Minimum initial deployment is three hosts. Additional hosts can be added
-one at a time, up to a maximum of 16 hosts per cluster. Deployment
-within 150 minute time frame.
+Azure VMware Solution (AVS) gives you the ability to deploy a vSphere cluster in Azure. The minimum initial deployment is three hosts. Additional hosts can be added one at a time, up to a maximum of 16 hosts per cluster. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a Private Cloud
-> * Verify deployment was successful
+> * Create an AVS private cloud
+> * Verify the private cloud deployed
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Appropriate administrative rights & permission to create a private cloud.
-- Ensure you have the appropriate networking configured as described in [Quickstart: Network checklist](network-checklist.md)
+- Appropriate administrative rights and permission to create a private cloud.
+- Ensure you have the appropriate networking configured as described in [Quickstart: Network checklist](network-checklist.md).
 
 ## Sign in to the Azure portal
 
