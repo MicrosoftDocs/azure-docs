@@ -628,7 +628,7 @@ Advanced threat protection enables you to detect and respond to potential threat
 
 **How to implement**:
 
-- Use [Advanced Threat Protection for SQL](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts) to detect unusual and potentially harmful attempts to access or exploit databases, including:
+- Use [Advanced Threat Protection for SQL](sql-database-threat-detection-overview.md#alerts) to detect unusual and potentially harmful attempts to access or exploit databases, including:
   - SQL injection attack.
   - Credentials theft/leak.
   - Privilege abuse.

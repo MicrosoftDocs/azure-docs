@@ -5,15 +5,16 @@ description: Advanced Threat Protection detects anomalous database activities in
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
+ms.custom: sqldbrb=2
 author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 02/05/2020
 tags: azure-synapse
 ---
+
 # Advanced Threat Protection for Azure SQL Database, SQL Managed Instance & Azure Synapse
 
 Advanced Threat Protection for [Azure SQL Database](sql-database-technical-overview.md), [Azure SQL Managed Instance](sql-database-managed-instance.md) and [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.

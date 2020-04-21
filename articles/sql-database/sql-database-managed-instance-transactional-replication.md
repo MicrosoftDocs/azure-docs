@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author:  mathoma
 ms.reviewer: carlrab
-ms.date: 0/20/2020
+ms.date: 04/20/2020
 ---
 # Transactional replication with Azure SQL Managed Instance
 
