@@ -72,7 +72,7 @@ Open *Room.json*, and change it in the following ways:
 
 When you are finished, the updated model should look like this:
 
-![Edited Room.json with updated version number, HumidityLevel and DisplayName properties, and "contains" relationship](media/quickstart/room-model.png)
+:::image type="content" source="media/quickstart/room-model.png" alt-text="Edited Room.json with updated version number, HumidityLevel and DisplayName properties, and contains relationship" border="false":::
 
 Make sure to save the file before moving on.
 
@@ -85,8 +85,7 @@ Once you have designed your model(s), you need to upload them to your Azure Digi
 
 Open _DigitalTwinsMetadata/**DigitalTwinsSample.sln**_ in Visual Studio. Run the project with this button in the toolbar:
 
-[!div class="mx-imgBorder"]
-![The Visual Studio start button](media/quickstart/start-button-sample.png)
+:::image type="content" source="media/quickstart/start-button-sample.png" alt-text="The Visual Studio start button (DigitalTwinsSample project":::
  
 A console window will open, carry out authentication, and wait for a command. In this console, run the following command to upload both your edited model for *Room* and another model, *Floor*.
 
@@ -99,7 +98,7 @@ addModels Room Floor
 
 Verify the models were created by running the `listModels` command. This will query the Azure Digital Twins instance for all models that have been uploaded. Look for the edited *Room* model in the results:
 
-![Results of listModels, showing the updated Room model](media/quickstart/output-listModels.png)
+:::image type="content" source="media/quickstart/output-listModels.png" alt-text="Results of listModels, showing the updated Room model":::
 
 Keep the project console window running for the following steps.
 
@@ -123,7 +122,7 @@ addTwin urn:example:Room:2 room1 DisplayName string Room1 Temperature double 80 
 
 The output from these commands should indicate the twins were created successfully. 
 
-![Excerpt from the results of addTwin commands, showing floor0, floor1, room0, and room1](media/quickstart/output-addTwin.png)
+:::image type="content" source="media/quickstart/output-addTwin.png" alt-text="Excerpt from the results of addTwin commands, showing floor0, floor1, room0, and room1":::
 
 You can also verify that the twins were created by running the `queryTwins` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the *floor0*, *floor1*, *room0*, and *room1* twins in the results.
 
@@ -142,7 +141,7 @@ addEdge floor1 contains room1 relationship1
 
 The output from these commands shows information about the relationships being created:
 
-![Excerpt from the results of addEdge commands, showing relationship0 and relationship1](media/quickstart/output-addEdge.png)
+:::image type="content" source="media/quickstart/output-addEdge.png" alt-text="Excerpt from the results of addEdge commands, showing relationship0 and relationship1":::
 
 To verify the relationships were created successfully, use either of the following commands to query the relationships in your Azure Digital Twins instance.
 * To see all relationships coming off of each floor,
@@ -158,7 +157,7 @@ To verify the relationships were created successfully, use either of the followi
 
 The twins and relationships you have set up in this tutorial form the following conceptual graph:
 
-![A graph showing floor0 connected via relationship0 to room0, and floor1 connected via relationship1 to room1](media/quickstart/sample-graph.png)
+:::image type="content" source="media/quickstart/sample-graph.png" alt-text="A graph showing floor0 connected via relationship0 to room0, and floor1 connected via relationship1 to room1" border="false":::
 
 ## Query the twin graph to answer environment questions
 
@@ -170,7 +169,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
     This allows you to take stock of your environment at a glance, and make sure everything is represented as you'd like it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details.
 
-    ![Results of twin query, showing floor0, floor1, room0, and room1](media/quickstart/output-query-all.png)
+    :::image type="content" source="media/quickstart/output-query-all.png" alt-text="Results of twin query, showing floor0, floor1, room0, and room1":::
 
     >[!NOTE]
     >Observe how `queryTwins` without any additional arguments is the equivalent of `queryTwins SELECT * FROM DIGITALTWINS`.
@@ -180,7 +179,8 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
     `queryTwins SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'urn:example:Room:2')`
 
     You can restrict your query to twins of a certain type, to get more specific information about what's represented. The result of this shows *room0* and *room1*, but does **not** show *floor0* or *floor1* (since they are floors, not rooms).
-    ![Results of model query, showing only room0 and room1](media/quickstart/output-query-model.png)
+    
+    :::image type="content" source="media/quickstart/output-query-model.png" alt-text="Results of model query, showing only room0 and room1":::
 
 * **What are all the rooms on *floor0*?** (query by relationship)
 
@@ -188,7 +188,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
     You can query based on relationships in your graph, to get information about how twins are connected or to restrict your query to a certain area. Only *room0* is on *floor0*, so it's the only room in the result.
 
-    ![Results of relationship query, showing room0](media/quickstart/output-query-relationship.png)
+    :::image type="content" source="media/quickstart/output-query-relationship.png" alt-text="Results of relationship query, showing room0":::
 
 * **What are all the twins in my environment with a temperature above 75?** (query by property)
 
@@ -196,7 +196,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
     You can query the graph based on properties to answer a variety of questions, including finding outliers in your environment that might need attention. Other comparison operators (*<*,*>*, *=*, or *!=*) are also supported.
 
-    ![Results of property query, showing only room1](media/quickstart/output-query-property.png)
+    :::image type="content" source="media/quickstart/output-query-property.png" alt-text="Results of property query, showing only room1":::
 
 * **What are all the rooms on *floor0* with a temperature above 75?** (compound query)
 
@@ -204,7 +204,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
     You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result now only includes rooms with temperatures above 75 that are on *floor0*—which in this case, is none of them.
 
-    ![Results of compound query, showing no results](media/quickstart/output-query-compound.png)
+    :::image type="content" source="media/quickstart/output-query-compound.png" alt-text="Results of compound query, showing no results":::
 
 ## Clean up resources
 
