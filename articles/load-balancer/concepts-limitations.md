@@ -169,7 +169,7 @@ Load balancer supports both Basic and Standard SKUs. These SKUs differ in scenar
 
 The complete scenario configuration might differ slightly depending on SKU. Load balancer documentation calls out when an article applies only to a specific SKU. To compare and understand the differences, see the following table. For more information, see [Azure Standard Load Balancer overview](load-balancer-standard-overview.md).
 
-To ugprade Basic Load Balancer to Standard, see [Upgrade a Basic Load Balancer](upgrade-basic-standard.md).
+To upgrade Basic Load Balancer to Standard, see [Upgrade a Basic Load Balancer](upgrade-basic-standard.md).
 
 >[!NOTE]
 > Microsoft recommends Standard Load Balancer.
