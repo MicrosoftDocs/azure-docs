@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create a jump box
-description: Learn to deploy a vSphere Cluster in Azure suing Azure VMWare Solution
+title: Tutorial - Learn how to access an Azure VMware Solution (AVS) private cloud
+description: Learn how to access an Azure VMware Solution (AVS) private cloud
 author: dikamath
 ms.author: dikamath
 ms.service: azure-vmware
@@ -8,9 +8,7 @@ ms.topic: tutorial
 ms.date: 04/07/2020
 ---
 
-# Create a Jump Box
-
-Create a Virtual Network Gateway In this exercise you add a new Virtual Network Gateway
+# Tutorial: Learn how to access an Azure VMware Solution (AVS) private cloud
 
 In this exercise you create a jump box in the Resource Group you created
 previously. This is a VM on the VNET you created that will provide you
@@ -21,6 +19,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a jump box
 > * Login to vCenter from your jump box
+
+## Create a jump box
 
 1. Display the Resource Group you created in the
 previous test and click **+ Add** to define a new resource. 2.Use the
