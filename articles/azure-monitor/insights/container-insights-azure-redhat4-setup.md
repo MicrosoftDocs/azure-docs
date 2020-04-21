@@ -40,7 +40,25 @@ Perform the following steps to enable monitoring of an Azure Red Hat OpenShift v
 
 ### Using script
 
-1. Download the onboarding script 
+1. Download and save the script to a local folder that configures your cluster with the monitoring add-on using the following commands:
+
+    `curl -LO  https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/openshiftV4/onboarding_azuremonitor_for_containers.sh`
+
+2. Sign into Azure
+
+    ```azurecli
+    az login
+    ```
+
+    If you have access to multiple subscriptions, run `az account set -s {subscription ID}` replacing `{subscription ID}` with the subscription you want to use.
+
+3. The following step enables monitoring on the specified cluster by using Azure CLI. Specify your Azure SubscriptionId, Log Analytics workspace region, cluster name, and context of Kubernetes cluster.
+
+    `bash onboarding_azuremonitor_for_containers.sh <azureSubscriptionId> <azureRegionforLogAnalyticsWorkspace> <clusterName> <kubeconfigContextNameOftheCluster>`
+
+    For example:
+
+    `bash onboarding_azuremonitor_for_containers.sh 27ac26cf-a9f0-4908-b300-9a4e9a0fb205 eastus myocp42 admin`
 
 ### From the Azure portal
 
@@ -64,7 +82,7 @@ After you've enabled monitoring, it might take about 15 minutes before you can v
 
 ## Next steps
 
-- With monitoring enabled to collect health and resource utilization of your RedHat OpenShift version 4.3 cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
+- With monitoring enabled to collect health and resource utilization of your RedHat OpenShift version 4.x cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
 
 - By default, the containerized agent collects the stdout/ stderr container logs of all the containers running in all the namespaces except kube-system. To configure container log collection specific to particular namespace or namespaces, review [Container Insights agent configuration](container-insights-agent-config.md) to configure desired data collection settings to your  ConfigMap configurations file.
 
