@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 04/21/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
@@ -28,7 +28,7 @@ Before your organization starts using Privileged Identity Management, all role a
 The second step of the wizard gives you an opportunity to change administrator's role assignments.  
 
 > [!WARNING]
-> It is important that you have at least one Global administrator, and more than one Privileged role administrator with an organizational account (not a Microsoft account). If there is only one Privileged role administrator, the organization can't manage Privileged Identity Management if that account is deleted.
+> It is important that you have at least one Global administrator, and more than one Privileged role administrator with a work or school account (not a Microsoft account). If there is only one Privileged role administrator, the organization can't manage Privileged Identity Management if that account is deleted.
 > Also, keep role assignments permanent if a user has a Microsoft account (in other words, an account they use to sign in to Microsoft services like Skype and Outlook.com). If you plan to require multi-factor authentication for activation for that role, that user will be locked out.
 
 ## Run the wizard
