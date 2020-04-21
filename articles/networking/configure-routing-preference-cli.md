@@ -46,7 +46,7 @@ To create a public IP Address in the Azure portal, see [Create, change, or delet
 ### Option 1 - Create a Virtual Machine and assign Public IP address to NIC
 
 1. If you do not yet have a virtual machine associated with your account, follow Steps 1 - 5 on the associated tutorial page to create one: [Create a virtual machine](../virtual-machines/windows/quick-create-portal.md) Ensure the Public IP (under the Networking section) is set to 'none'.  
-2. Once the virtual machine is created, follow the steps in [Associate a public IP address to a virtual machine](../virtual-network/associate-public-ip-address-vm.md) to associate the Public IP with Internet Routing Preference to your VM.  (Additionally, ensure that [network traffic can be routed to the VM](associate-public-ip-address-vm.md#allow-network-traffic-to-the-vm) by opening required ports and checking network security groups.)
+2. Once the virtual machine is created, follow the steps in [Associate a public IP address to a virtual machine](../virtual-network/associate-public-ip-address-vm.md) to associate the Public IP with Internet Routing Preference to your VM.  (Additionally, ensure that [network traffic can be routed to the VM](../virtual-network/associate-public-ip-address-vm.md#allow-network-traffic-to-the-vm) by opening required ports and checking network security groups.)
 
 ### Option 2 - Create a Load Balancer and assign Public IP address to NIC
 

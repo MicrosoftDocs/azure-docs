@@ -48,4 +48,4 @@ Return Path (Egress Route): Traffic from Azure resources deployed in West Europe
 
 ## Next steps
 
-* [Configure Routing Preference for Azure resources](routing-preference-portal.md)
+* [Configure Routing Preference for Azure resources](configure-routing-preference-portal.md)
