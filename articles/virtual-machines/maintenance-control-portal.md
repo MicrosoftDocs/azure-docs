@@ -79,18 +79,25 @@ You can also check the assignment for a specific host using **Virtual Machines**
 
 ## Check for pending updates
 
-There are also two ways to check pending updates for a maintenance configuration. In **Maintenance Configurations**, you can check **Maintenance status**.
+There are also two ways to check if updates are pending for a maintenance configuration. In **Maintenance Configurations**, on the details for the configuration, click **Assignments** and check **Maintenance status**.
 
-You can also check a specific host using **Virtual Machines**. 
+![Screenshot showing how to check pending updates](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending.png)
+
+You can also check a specific host using **Virtual Machines** or properties of the Dedicated Host. 
+
+<!---need screenshot--->
 
 ## Apply updates
 
-Use `az maintenance apply update` to apply pending updates. On success, this command will return JSON containing the details of the update.
+You can apply pending updates on demand using **Virtual Machines**. On the VM details, click **Maintenance** and click **Apply maintenance now**.
+
+![Screenshot showing how to apply pending updates](media/virtual-machines-maintenance-control-portal/maintenance-configurations-apply-updates-now.png)
 
 ## Check the status of applying updates 
 
-You can check on the progress of the updates using . 
+You can check on the progress of the updates for a configuration in **Maintenance Configurations** or using **Virtual Machines**. On the VM details, click **Maintenance**. In the following example, the **Maintenance state** shows an update is **Pending**.
 
+![Screenshot showing how to check status of pending updates](media/virtual-machines-maintenance-control-portal/maintenance-configurations-status.png)
 
 ## Delete a maintenance configuration
 
