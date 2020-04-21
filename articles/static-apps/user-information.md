@@ -11,11 +11,11 @@ ms.author: cshoe
 
 # Accessing user information in an Azure Static Web Apps
 
-Once logged in, the Static Web App is able to provide authentication-related user information. You can access this information [directly](#direct-access) or in your [API](#api-access).
+Azure Static Web Apps provides authentication-related user information via a [direct request URL](#direct-access) and from [API](#api-access) functions.
 
 ## Client principal data
 
-Client principal is available in the app via the `x-ms-client-principal` request header. The data available in the header is a Base64-encoded string that contains a serialized JSON object containing information about the user. The object contains the following properties:
+User information is available in the app via the `x-ms-client-principal` request header. Client principal data sent in the header is a Base64-encoded string that contains a serialized JSON object containing information about the user. The object contains the following properties:
 
 | Property  | Description |
 |-----------|---------|
@@ -63,7 +63,7 @@ axios.get(`/.auth/me`).then((response) => {
 
 ## API access
 
-Authenticated user information is passed to an API function in the request header. To make this information accessible to the browser, you can return the header value in a response intended for the client.
+Authenticated user information is passed to an API function in the request header. To make this information accessible to the browser, you can return user data from a function.
 
 ### In the function
 
