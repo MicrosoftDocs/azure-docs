@@ -44,8 +44,7 @@ bash enable-kdump.sh
 - Reboot the system to apply changes.
 
 ### Support issue
-In case, if the script fails with some error:
-Raise a ticket with Microsoft Operations team by opening a support ticket.
+In case, if the script fails with some error Raise a ticket with Microsoft Operations team by opening a support ticket.
 
 Include in your ticket:
 
