@@ -29,14 +29,14 @@ An Azure PowerShell script is available that does the following:
 
 ### Caveats\Limitations
 
-* Script only supports Public Load Balancer upgrade. For Internal Basic Load Balancer upgrade, create a Standard Internal Load Balancer if outbound connectivity is not desired, and create a Standard Internal Load Balancer and Standard Public Load Balancer if outbound connectivity is required.
+* Script only supports Public Load Balancer upgrade. For Internal Basic Load Balancer upgrade, refer to [this page](https://docs.microsoft.com/azure/load-balancer/upgrade-basicinternal-standard) for instructions.
 * The Standard Load Balancer has a new public address. It’s impossible to move the IP addresses associated with existing Basic Load Balancer seamlessly to Standard Load Balancer since they have different SKUs.
 * If the Standard load balancer is created in a different region, you won’t be able to associate the VMs existing in the old region to the newly created Standard Load Balancer. To work around this limitation, make sure to create a new VM in the new region.
 * If your Load Balancer does not have any frontend IP configuration or backend pool, you are likely to hit an error running the script. Please make sure they are not empty.
 
 ## Download the script
 
-Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0).
+Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0).
 ## Use the script
 
 There are two options for you depending on your local PowerShell environment setup and preferences:
