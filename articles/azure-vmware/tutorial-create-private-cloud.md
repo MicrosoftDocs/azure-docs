@@ -7,22 +7,19 @@ ms.date: 05/04/2020
 
 # Tutorial: Deploy an AVS private cloud in Azure
 
-Ability to deploy a vSphere cluster in Azure from the Azure portal.
-Minimum initial deployment is three hosts. Additional hosts can be added
-one at a time, up to a maximum of 16 hosts per cluster. Deployment
-within 150 minute time frame.
+Azure VMware Solution (AVS) gives you the ability to deploy a vSphere cluster in Azure. The minimum initial deployment is three hosts. Additional hosts can be added one at a time, up to a maximum of 16 hosts per cluster. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a Private Cloud
-> * Verify deployment was successful
+> * Create an AVS private cloud
+> * Verify the private cloud deployed
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Appropriate administrative rights & permission to create a private cloud.
-- Ensure you have the appropriate networking configured as described in [Quickstart: Network checklist](network-checklist.md)
+- Appropriate administrative rights and permission to create a private cloud.
+- Ensure you have the appropriate networking configured as described in [Quickstart: Network checklist](network-checklist.md).
 
 ## Sign in to the Azure portal
 
@@ -30,51 +27,29 @@ Sign in to the [Azure portal](https://rc.portal.azure.com).
 
 ## Create a Private Cloud
 
-1. Select your appropriate Resource Group
-(**000-rstn01-p01-test**, for example), and click **+Add** on the
-overview tab.
+In the Azure portal, select **+ Create a new resource**. In the **Search the Marketplace**
+text box type `avs`, and select **AVS - Private Cloud** from the list. On the **AVS - Private Cloud** window, click **Create**
 
-   ![](./media/tutorial-create-private-cloud/image6.jpg)
+On the **Basics** tab, enter values for the fields. The following table shows a detailed list of the properties.
 
-   
-1. Enter vmcp in the **Search the Marketplace**
-box, and select **AVSV - Private Cloud** from the list.
+| Field   | Value  |
+| ---| --- |
+| **Subscription** | The subscription you plan to use for the deployment.|
+| **Resource group** | The resource group for your private cloud resources. |
+| **Location** | Select a location, such as **east us**.|
+| **Resource name** | The name of your AVS private cloud. |
+| **SKU** | Select the appropriate SKU, available values are: |
+| **Hosts** | This is the number of hosts to add to the private cloud cluster. The default value is 3. This value can be raised or lowered after deployment.  |
+| **vCenter admin password** | Enter a cloud administrator password. |
+| **NSX-T manager password** | Enter a NSX-T administrator password. |
+| **Address block** | Enter an IP address block for the CIDR network for the private cloud. An example is, 10.175.0.0/22. |
 
-   ![](./media/tutorial-create-private-cloud/image7.jpg)
+![](./media/tutorial-create-private-cloud/image9.jpg)
 
-1. The Portal displays a splash screen for AVSV
-private cloud.
+Once finished, click **Review + Create**. On the next screen verify the information entered. If the information is all correct, click **Create**.
 
-   ![](./media/tutorial-create-private-cloud/image8.jpg)
-
-1. Click **Create**.
-
-   ![](./media/tutorial-create-private-cloud/image9.jpg)
-
-1. On the Basics tab, complete the fields as shown in the following
-table. Use the example values in the table, unless the test discipline
-requires otherwise:
-
-   | Field                      | Value                                                                                                                                                 |
-   | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **Subscription**           | Request Unique ID from lab proctor                                                                                                                    |
-   | **Resource group**         | Request Unique ID from lab proctor                                                                                                                    |
-   | **Location**               | Request location from lab proctor                                                                                                                     |
-   | **Resource name**          | Depending on the situation, suggested names include devdaily-mm-dd, platdaily-mm-dd, sredaily-mm-dd, or first-last-daily-mm-dd.                       |
-   | **SKU**                    | VS36Node                                                                                                                                              |
-   | **Hosts**                  | Typically, leave the value at 3, but you may use a larger cluster if there are enough hosts. Be careful not to exhaust the supply of available hosts. |
-   | **vCenter admin password** | Enter cloud administrator credentials.                                                                                                                |
-   | **NSX-T manager password** | Enter NSX-T administrator credentials.                                                                                                                |
-   | **Address block**          | Enter an IP address block for the CIDR network in this box, such as 10.175.0.0/22. Lab proctor will provide address block.                            |
-   |                            |                                                                                                                                                       |
-
-1. Click **Review + Create**.
-
-1. If the values appear valid, click **Create**.
-
-1. This step takes roughly two hours and provides virtually no
-indication of progress. If it does not report success within 3 hours
-then troubleshooting will be required.
+> [!NOTE]
+> This step takes roughly two hours. 
 
 ## Verify deployment was successful
 
