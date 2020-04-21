@@ -219,29 +219,23 @@ SELECT COUNT(1) FROM c WHERE CONTAINS(c.description, "spinach")
 Query with both equality filter and `CONTAINS` filter - lower RU charge:
 
 ```sql
-SELECT AVG(_ts) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" AND CONTAINS(c.description, "spinach")
+SELECT AVG(c._ts) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" AND CONTAINS(c.description, "spinach")
 ```
 
-#### Here are additional examples of aggregates queries that will not fully use the index:
-
-#### Aggregate queries with inequality filters
-
-```sql
-SELECT COUNT(1) FROM c WHERE c.description != "Malabar spinach, cooked"
-```
+Here are additional examples of aggregates queries that will not fully use the index:
 
 #### Queries with system functions that don't use the index
 
-You should refer to the specific system function's page to see if it uses the index.
+You should refer to the specific [system function's page](sql-query-system-functions.md) to see if it uses the index.
 
 ```sql
-SELECT MAX(_ts) FROM c WHERE CONTAINS(c.description, "spinach")
+SELECT MAX(c._ts) FROM c WHERE CONTAINS(c.description, "spinach")
 ```
 
 #### Aggregate queries with user-defined functions(UDF's)
 
 ```sql
-SELECT AVG(_ts) FROM c WHERE MyUDF("Sausages and Luncheon Meats")
+SELECT AVG(c._ts) FROM c WHERE MyUDF("Sausages and Luncheon Meats")
 ```
 
 #### Queries with GROUP BY
