@@ -46,7 +46,7 @@ Deep learning models have three intrinsic capabilities:
 1. They support multiple inputs and outputs
 1. They can automatically extract patterns in input data that spans over long sequences
 
-Given larger data, deep learning models, such as Microsoft's ForecastTCN, can improve the scores of the resulting model. Learn how to [configure your experiment for deep learning](#Configure-a-DNN-enable-Forecasting-experiment).
+Given larger data, deep learning models, such as Microsoft's ForecastTCN, can improve the scores of the resulting model. Learn how to [configure your experiment for deep learning](#configure-a-dnn-enable-forecasting-experiment).
 
 Native time series learners are also provided as part of automated ML. Prophet works best with time series that have strong seasonal effects and several seasons of historical data. Prophet is accurate & fast, robust to outliers, missing data, and dramatic changes in your time series. 
 
@@ -191,7 +191,7 @@ automl_config = AutoMLConfig(task='forecasting',
                              ...
                              **time_series_settings)
 ```
-Learn more about [the AutoMLConfig](#Configure-and-run-experiment).
+Learn more about [the AutoMLConfig](#configure-and-run-experiment).
 
 Alternatively, you can select the `Enable deep learning` option in the studio.
 ![alt text](./media/how-to-auto-train-forecast/enable_dnn.png)
