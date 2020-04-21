@@ -109,7 +109,7 @@ conceptualContent:
         - url: ../virtual-machines/extensions/key-vault-linux.md
           itemType: overview
           text: Key Vault VM extension - Linux
-        - url: ../developer/ansible/key-vault-configure-vm-security.md
+        - url: /azure/developer/ansible/key-vault-configure-vm-security
           itemType: overview
           text: Key Vault with Linux VMs in Ansible
         - url: ../virtual-machines/windows/disk-encryption-key-vault.md
