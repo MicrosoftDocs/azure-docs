@@ -51,6 +51,8 @@ Status Monitor Configuration - needed only when making changes.
 ## Availability tests
 This is the list of addresses from which [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md) are run. If you want to run web tests on your app, but your web server is restricted to serving specific clients, then you will have to permit incoming traffic from our availability test servers.
 
+### Service tag
+
 If you are using Azure Network Security Groups, simply add an **inbound port rule** to allow traffic from Application Insights availability tests by selecting **Service Tag** as the **Source** and **ApplicationInsightsAvailability** as the **Source service tag**.
 
 >[!div class="mx-imgBorder"]
@@ -60,6 +62,11 @@ If you are using Azure Network Security Groups, simply add an **inbound port rul
 >![Add inbound security rule tab](./media/ip-addresses/add-inbound-security-rule2.png)
 
 Open ports 80 (http) and 443 (https) for incoming traffic from these addresses (IP addresses are grouped by location):
+
+### Addresses grouped by location
+
+> [!NOTE]
+> These addresses are listed using Classless Inter-Domain Routing (CIDR) notation. This means that an entry like `51.144.56.112/28` is equivalent to 16 IPs starting at `51.144.56.112` and ending at `51.144.56.127`.
 
 ```
 Australia East

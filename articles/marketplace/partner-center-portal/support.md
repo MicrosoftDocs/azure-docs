@@ -2,8 +2,7 @@
 title: Get support for the Commercial Marketplace portal in Partner Center
 description: Learn about your support options in Partner Center, including how to file a support request.
 author: qianw211
-manager: evansma
-ms.author: jamwall 
+ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -36,7 +35,7 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
 5. Select **[Marketplace Partner community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** to answer your questions by leveraging the knowledge of other Microsoft publishers. 
 
-6. Select **[Additional help](https://aka.ms/marketplacepublishersupport)** to open a **New support request** ticket.  
+6. Select **[Additional help](https://partner.microsoft.com/support/v2/?stage=1)** to open a **New support request** ticket.  
 
 ## How to open a support ticket
 

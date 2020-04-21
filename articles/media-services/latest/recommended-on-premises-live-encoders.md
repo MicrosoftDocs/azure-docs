@@ -7,7 +7,7 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 02/10/2020
+ms.date: 04/16/2020
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
@@ -63,8 +63,6 @@ When streaming via RTMPS, check firewall and/or proxy settings to confirm that o
 - Telestream Wirecast (version 13.0.2 or higher due to the TLS 1.2 requirement)
 - Telestream Wirecast S (only RTMP is supported)
 - Teradek Slice 756
-- TriCaster 8000
-- Tricaster Mini HD-4
 - VMIX
 - xStream
 - [Ffmpeg](https://www.ffmpeg.org)
@@ -104,6 +102,13 @@ To play back content, both an audio and video stream must be present. Playback o
 - When using software-based encoders, close out any unnecessary programs.
 - Changing your encoder configuration after it has started pushing has negative effects on the event. Configuration changes can cause the event to become unstable. 
 - Ensure that you give yourself ample time to set up your event. For high-scale events, we recommend starting the setup an hour before your event.
+- Use the H.264 video and AAC audio codec output.
+- Ensure that there is key frame or GOP temporal alignment across video qualities.
+- Make sure there is a unique stream name for each video quality.
+- Use strict CBR encoding recommended for optimum adaptive bitrate performance.
+
+> [!IMPORTANT]
+> Watch the physical condition of the machine (CPU / Memory / etc) as uploading fragments to cloud involves CPU and IO operations. If you change any settings in the encoder, be certain reset the channels / live event for the change to take effect.
 
 ## See also
 

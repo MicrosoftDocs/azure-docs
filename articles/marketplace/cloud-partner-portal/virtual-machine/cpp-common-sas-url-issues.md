@@ -1,16 +1,18 @@
 ---
 title: Common SAS URL issues and fixes for the Azure Marketplace 
 description: List common problems around using shared access signature URIs and possible solutions.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Common SAS URL issues and fixes
+
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Common SAS URL issues and fixes](https://aka.ms/AzureSAS_URL_FAQ) to manage your migrated offers.
 
 The following table lists some of the common issues encountered when working with shared access signatures (which are used to identify and share the uploaded VHDs for your solution), along with suggested resolutions.
 

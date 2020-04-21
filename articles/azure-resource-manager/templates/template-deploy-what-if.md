@@ -3,23 +3,62 @@ title: Template deployment what-if (Preview)
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: mumian
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 04/09/2020
 ms.author: jgao
 ---
-# Resource Manager template deployment what-if operation (Preview)
+# ARM template deployment what-if operation (Preview)
 
-Before deploying a template, you might want to preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the template. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified template is deployed.
+Before deploying an Azure Resource Manager (ARM) template, you might want to preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the template. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified template is deployed.
 
 > [!NOTE]
-> The what-if operation is currently in preview. To use it, you must [sign up for the preview](https://aka.ms/armtemplatepreviews). As a preview release, the results may sometimes show that a resource will change when actually no change will happen. We're working to reduce these issues, but we need your help. Please report these issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+> The what-if operation is currently in preview. As a preview release, the results may sometimes show that a resource will change when actually no change will happen. We're working to reduce these issues, but we need your help. Please report these issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
 You can use the what-if operation with the PowerShell commands or REST API operations.
+
+## Install PowerShell module
+
+To use what-if in PowerShell, install a preview version of the Az.Resources module from the PowerShell gallery.
+
+### Install preview version
+
+To install the preview module, use:
+
+```powershell
+Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+```
+
+### Uninstall alpha version
+
+If you previously installed an alpha version of the what-if module, uninstall that module. The alpha version was only available to users who signed up for an early preview. If you didn't install that preview, you can skip this section.
+
+1. Run PowerShell as administrator
+1. Check your installed versions of the Az.Resources module.
+
+   ```powershell
+   Get-InstalledModule -Name Az.Resources -AllVersions | select Name,Version
+   ```
+
+1. If you have an installed version with a version number in the format **2.x.x-alpha**, uninstall that version.
+
+   ```powershell
+   Uninstall-Module Az.Resources -RequiredVersion 2.0.1-alpha5 -AllowPrerelease
+   ```
+
+1. Unregister the what-if repository that you used to install the preview.
+
+   ```powershell
+   Unregister-PSRepository -Name WhatIfRepository
+   ```
+
+You're ready to use what-if.
+
+## See results
 
 In PowerShell, the output includes color-coded results that help you see the different types of changes.
 
 ![Resource Manager template deployment what-if operation fullresourcepayload and change types](./media/template-deploy-what-if/resource-manager-deployment-whatif-change-types.png)
 
-The text ouptput is:
+The text output is:
 
 ```powershell
 Resource and property changes are indicated with these symbols:
@@ -66,11 +105,8 @@ Or, you can use the `-Confirm` switch parameter to preview the changes and get p
 
 The preceding commands return a text summary that you can manually inspect. To get an object that you can programmatically inspect for changes, use:
 
-* `$results = Get-AzResourceGroupDeploymentWhatIf` for resource group deployments
-* `$results = Get-AzSubscriptionDeploymentWhatIf` or `$results = Get-AzDeploymentWhatIf` for subscription level deployments
-
-> [!NOTE]
-> Prior to the release of version 2.0.1-alpha5, you used the `New-AzDeploymentWhatIf` command. This command has been replaced by the `Get-AzDeploymentWhatIf`, `Get-AzResourceGroupDeploymentWhatIf`, and `Get-AzSubscriptionDeploymentWhatIf` commands. If you've used an earlier version, you need to update that syntax. The `-ScopeType` parameter has been removed.
+* `$results = Get-AzResourceGroupDeploymentWhatIfResult` for resource group deployments
+* `$results = Get-AzSubscriptionDeploymentWhatIfResult` or `$results = Get-AzDeploymentWhatIfResult` for subscription level deployments
 
 ### Azure REST API
 
@@ -164,7 +200,7 @@ New-AzResourceGroupDeployment `
 
 ### Test modification
 
-After the deployment completes, you're ready to test the what-if operation. This time deploy a [template that changes the virtual network](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json). It is missing one the original tags, a subnet has been removed, and the address prefix has changed.
+After the deployment completes, you're ready to test the what-if operation. This time deploy a [template that changes the virtual network](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json). It's missing one the original tags, a subnet has been removed, and the address prefix has changed.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -208,7 +244,7 @@ Resource changes: 1 to modify.
 
 Notice at the top of the output that colors are defined to indicate the type of changes.
 
-At the bottom of the output, it shows the tag Owner was deleted. The address prefix changed from 10.0.0.0/16 to 10.0.0.0/15. The subnet named subnet001 was deleted. Remember this changes weren't actually deployed. You see a preview of the changes that will happen if you deploy the template.
+At the bottom of the output, it shows the tag Owner was deleted. The address prefix changed from 10.0.0.0/16 to 10.0.0.0/15. The subnet named subnet001 was deleted. Remember these changes weren't actually deployed. You see a preview of the changes that will happen if you deploy the template.
 
 Some of the properties that are listed as deleted won't actually change. Properties can be incorrectly reported as deleted when they aren't in the template, but are automatically set during deployment as default values. This result is considered "noise" in the what-if response. The final deployed resource will have the values set for the properties. As the what-if operation matures, these properties will be filtered out of the result.
 
@@ -217,7 +253,7 @@ Some of the properties that are listed as deleted won't actually change. Propert
 Now, let's programmatically evaluate the what-if results by setting the command to a variable.
 
 ```azurepowershell
-$results = Get-AzResourceGroupDeploymentWhatIf `
+$results = Get-AzResourceGroupDeploymentWhatIfResult `
   -ResourceGroupName ExampleGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/what-if-after.json"
 ```
@@ -281,5 +317,5 @@ You see the expected changes and can confirm that you want the deployment to run
 ## Next steps
 
 - If you notice incorrect results from the preview release of what-if, please report the issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
-- To deploy templates with Azure PowerShell, see [Deploy resources with Resource Manager templates and Azure PowerShell](deploy-powershell.md).
-- To deploy templates with REST, see [Deploy resources with Resource Manager templates and Resource Manager REST API](deploy-rest.md).
+- To deploy templates with Azure PowerShell, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
+- To deploy templates with REST, see [Deploy resources with ARM templates and Resource Manager REST API](deploy-rest.md).

@@ -2,10 +2,10 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/10/2020	
+ms.date: 02/10/2020    
 ms.author: cynthn
 ---
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | VMs per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |25,000<sup>1</sup> per region. |
 | VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. Contact support to increase limit. |

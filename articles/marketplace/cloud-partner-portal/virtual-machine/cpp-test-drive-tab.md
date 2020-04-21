@@ -1,16 +1,18 @@
 ---
 title: Virtual machine Test Drive tab in the Cloud Partner Portal for the Azure Marketplace
 description: Describes the Test Drive tab used in creating an Azure Marketplace VM offer.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Virtual machine Test Drive tab
+
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Virtual Machine offer](https://aka.ms/CreateAzureVMoffer) to manage your migrated offers.
 
 The **Test Drive** tab of the **New Offer** page enables you to provide your prospective customers with a hands-on, self-guided demonstration of your product's key features and benefits, demonstrated in a standardized scenario.  Test Drive is an optional feature for the offer types that support Test Drive.  Test Drive requires supporting assets to be properly implemented.  For more information, see the article [Azure Marketplace Test Drive](https://azure.microsoft.com/blog/azure-marketplace-test-drive/).  <!--TD: Replace with migrated version of Test Drive article! -->
 

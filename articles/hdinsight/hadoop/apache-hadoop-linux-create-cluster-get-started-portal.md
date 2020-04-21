@@ -49,7 +49,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
     |Secure Shell (SSH) username | The default username is **sshuser**.  You can provide another name for the SSH username. |
     |Use cluster login password for SSH| Select this check box to use the same password for SSH user as the one you provided for the cluster login user.|
 
-    ![HDInsight Linux get started provide cluster basic values](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-basics-blank.png "Provide basic values for creating an HDInsight cluster")
+    ![HDInsight Linux get started provide cluster basic values](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-basics.png "Provide basic values for creating an HDInsight cluster")
 
     Select the **Next: Storage >>** to advance to the storage settings.
 

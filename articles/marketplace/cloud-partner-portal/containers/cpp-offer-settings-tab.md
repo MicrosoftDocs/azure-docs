@@ -1,16 +1,18 @@
 ---
 title: Offer settings for an Azure Containers image | Azure Marketplace
 description: Configure offer settings for an Azure container.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Container Offer Settings tab
+
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Container offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Container offer](https://aka.ms/CreateContainerOffer) to manage your migrated offers.
 
 The **Containers > New Offer** page opens with the focus on the **Offer Settings** tab. 
 

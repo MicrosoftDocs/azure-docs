@@ -23,13 +23,15 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Core con
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Configuration Explorer** > **Create** to add the following key-value pairs:
+6. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
     | TestApp:Settings:Message | Data from Azure App Configuration |
 
     Leave **Label** and **Content Type** empty for now.
+
+7. Select **Apply**.
 
 ## Create a .NET Core console app
 
@@ -79,7 +81,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 ## Build and run the app locally
 
-1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
+1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. At the command line, run the following command:
 
     ```cmd
     setx ConnectionString "connection-string-of-your-app-configuration-store"
@@ -94,6 +96,8 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
     If you use macOS or Linux, run the following command:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
+
+    Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly.
 
 2. Run the following command to build the console app:
 

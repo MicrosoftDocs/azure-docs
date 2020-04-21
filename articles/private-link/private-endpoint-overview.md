@@ -68,7 +68,9 @@ A private link resource is the destination target of a given private endpoint. T
 |**Azure Relay** | Microsoft.Relay/namespaces | namespace |
 |**Azure Event Grid** | Microsoft.EventGrid/topics	| topic |
 |**Azure Event Grid** | Microsoft.EventGrid/domains	| domain |
-|**Azure WebApps** | Microsoft.Web/sites	| sites |
+|**Azure WebApps** | Microsoft.Web/sites	| site |
+|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces	| workspace |
+  
  
 ## Network security of private endpoints 
 When using private endpoints for Azure services, traffic is secured to a specific private link resource. The platform performs an access control to validate network connections reaching only the specified private link resource. To access additional resources within the same Azure service, additional private endpoints are required. 
@@ -107,7 +109,7 @@ You can use the following options to configure your DNS settings for private end
 > [!IMPORTANT]
 > It's not recommended to override a zone that is actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service below. 
  
-For Azure services, use the recommended zone names as described in the following table:
+For Azure services, use the zone names as described in the following table:
 
 |Private Link resource type   |Subresource  |Zone name  |
 |---------|---------|---------|
@@ -136,9 +138,10 @@ For Azure services, use the recommended zone names as described in the following
 |Azure Event Hub (Microsoft.EventHub/namespaces)| namespace |privatelink.servicebus.windows.net|
 |Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace |privatelink.servicebus.windows.net|
 |Azure Relay (Microsoft.Relay/namespaces) | namespace |privatelink.servicebus.windows.net|
-|Azure Event Grid (Microsoft.EventGrid/topics)	 | topic | topic.<region>.privatelink.eventgrid.azure.net|
-|Azure Event Grid (Microsoft.EventGrid/domains) | domain | domain.<region>.privatelink.eventgrid.azure.net |
-|Azure WebApps(Microsoft.Web/sites)	| site | privatelink.azurewebsites.net |
+|Azure Event Grid (Microsoft.EventGrid/topics)	 | topic | topic.{region}.privatelink.eventgrid.azure.net|
+|Azure Event Grid (Microsoft.EventGrid/domains) | domain | domain.{region}.privatelink.eventgrid.azure.net |
+|Azure WebApps (Microsoft.Web/sites)	| site | privatelink.azurewebsites.net |
+|Azure Machine Learning(Microsoft.MachineLearningServices/workspaces)	| workspace | privatelink.api.azureml.ms |
  
 Azure will create a canonical name DNS record (CNAME) on the public DNS to redirect the resolution to the suggested domain names. You'll be able to override the resolution with the private IP address of your private endpoints. 
  

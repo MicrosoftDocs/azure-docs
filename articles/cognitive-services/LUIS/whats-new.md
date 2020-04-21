@@ -11,6 +11,10 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 ## Release notes
 
+### March 2020
+
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../cognitive-services-security.md).
+
 ### November 4, 2019 - Ignite
 
 * Video - [Advanced Natural Language Understanding (NLU) models using LUIS and Azure Cognitive Services | BRK2188](https://www.youtube.com/watch?v=JdJEV2jV0_Y)
@@ -64,8 +68,8 @@ The following features were released at the Build 2019 Conference:
 * [Preview of V3 API migration guide](luis-migration-api-v3.md)
 * [Improved analytics dashboard](luis-how-to-use-dashboard.md)
 * [Improved prebuilt domains](luis-reference-prebuilt-domains.md)
-* [Dynamic list entities](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
-* [External entities](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
+* [Dynamic list entities](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
+* [External entities](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time)
 
 ## Blogs
 

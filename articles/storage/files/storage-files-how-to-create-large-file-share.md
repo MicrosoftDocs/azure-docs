@@ -39,7 +39,7 @@ Enabling large file shares on an account is an irreversible process. After you e
     ![Screenshot showing how to create a resource group in the portal](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. Next, enter a name for your storage account. The name must be unique across Azure. The name also must be 3 to 24 characters in length, and it can only have numbers and lowercase letters.
-1. Select a location for your storage account, and make sure it's [one of the supported replication for large file shares](storage-files-planning.md#regional-availability).
+1. Select a location for your storage account.
 1. Set the replication to either **Locally redundant storage** or **Zone-redundant storage**.
 1. Leave these fields at their default values:
 
@@ -74,7 +74,7 @@ First, [install the latest version of PowerShell](https://docs.microsoft.com/pow
 
 To create a storage account with large file shares enabled, use the following command. Replace `<yourStorageAccountName>`, `<yourResourceGroup>`, and `<yourDesiredRegion>` with your information.
 
-```PowerShell
+```powershell
 ## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
@@ -108,7 +108,7 @@ az storage account update --name <yourStorageAccountName> -g <yourResourceGroup>
 
 To enable large file shares on your existing account, use the following command. Replace `<yourStorageAccountName>` and `<yourResourceGroup>` with your information.
 
-```PowerShell
+```powershell
 Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -EnableLargeFileShare
 ```
 
@@ -138,7 +138,7 @@ az storage share create --account-name <yourStorageAccountName> --account-key <y
 
 To create a large file share, use the following command. Replace `<YourStorageAccountName>`, `<YourStorageAccountKey>`, and `<YourStorageAccountFileShareName>` with your information.
 
-```PowerShell
+```powershell
 ##Config
 $storageAccountName = "<YourStorageAccountName>"
 $storageAccountKey = "<YourStorageAccountKey>"
@@ -171,7 +171,7 @@ az storage share update --account-name <yourStorageAccountName> --account-key <y
 
 To set the quota to the maximum size, use the following command. Replace `<YourStorageAccountName>`, `<YourStorageAccountKey>`, and `<YourStorageAccountFileShareName>` with your information.
 
-```PowerShell
+```powershell
 ##Config
 $storageAccountName = "<YourStorageAccountName>"
 $storageAccountKey = "<YourStorageAccountKey>"

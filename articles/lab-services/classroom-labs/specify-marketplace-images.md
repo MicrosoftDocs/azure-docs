@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 04/10/2020
 ms.author: spelluru
 
 ---
@@ -47,6 +47,19 @@ To disable multiple images at the same time, select checkboxes before the image 
 To enable a disabled image, select **... (ellipsis)** in the last column, and select **Enable image**. Alternatively, you select the checkbox before the image name, and select **Enable selected images** on the toolbar. 
 
 To disable multiple images at the same time, select checkboxes before the image names, and select **Enable selected images** on the toolbar. 
+
+## Enable images at the time of lab creation
+You can enable more images at the time lab creation: 
+
+1. Sign in to the [Azure Lab Services website](https://labs.azure.com) using **lab account owner** credentials
+2. Select the default virtual machine image or the down arrow. 
+3. Select **Enable more image options**. 
+
+    ![Enable more image options](../media/specify-marketplace-images/enable-more-images-menu.png)
+4. Follow instructions from the previous section to enable the images you select. 
+5. You may need to close the **New lab** window and reopen it to see the images you selected in the previous step. 
+
+
 
 ## Next steps
 See the following articles:

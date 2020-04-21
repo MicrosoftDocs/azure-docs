@@ -5,9 +5,11 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 03/21/2018
+ ms.date: 03/19/2020
  ms.author: cherylmc
  ms.custom: include file
+
+# this include is used for both Virtual WAN and VPN Gateway articles. Any changes you make must apply address both services.
 ---
 When you generate a client certificate, it's automatically installed on the computer that you used to generate it. If you want to install the client certificate on another client computer, you need to export the client certificate that you generated.
 

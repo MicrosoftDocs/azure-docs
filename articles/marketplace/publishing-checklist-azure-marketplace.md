@@ -1,21 +1,12 @@
 ---
 title: Publishing checklist for Azure Marketplace | Azure
 description: Publishing checklist for Azure Marketplace using Cloud Partner Portal.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-
-author: jm-aditi-ms
-manager: pabutler
-
-
-
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-
-
-
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/05/2018
-ms.author: ellacroi
+ms.author: dsindona
 
 ---
 

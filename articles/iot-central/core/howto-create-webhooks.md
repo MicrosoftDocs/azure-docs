@@ -4,7 +4,7 @@ description: Create webhooks in Azure IoT Central to automatically notify other 
 author: viv-liu
 ms.author: viviali
 ms.date: 12/02/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
