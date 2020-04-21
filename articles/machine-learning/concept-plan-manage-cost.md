@@ -93,7 +93,7 @@ To set quotas at the workspace level, start in the [Azure portal](https://portal
 Configure your training runs to limit their duration or to terminate them early in case of certain conditions especially when you are using Azure Machine Learning's built-in Hyperparameter Tuning or Automated Machine Learning capabilities. 
 
 Here are a few options that you have:
-* Define a parameter called ma`x_run_duration_seconds in your RunConfiguration to control the maximum duration a run can extend to on the compute you choose (either local or remote cloud compute).
+* Define a parameter called `max_run_duration_seconds` in your RunConfiguration to control the maximum duration a run can extend to on the compute you choose (either local or remote cloud compute).
 * For [hyperparameter tuning](how-to-tune-hyperparameters.md#early-termination), define an early termination policy from a Bandit policy, a Median stopping policy or a Truncation selection policy. In addition, also use parameters such as `max_total_runs` or `max_duration_minutes` to further control the various hyperparameter sweeps.
 * For [automated machine learning](how-to-configure-auto-train.md#exit), set similar termination policies using the  `enable_early_stopping` flag. Also use properties such as `iteration_timeout_minutes` and `experiment_timeout_minutes` to control the maximum duration of a run or for the entire experiment.
 
@@ -101,7 +101,7 @@ Here are a few options that you have:
 
 Azure allows you to use excess unutilized capacity as Low-Priority VMs across virtual machine scale sets, Batch, and the Machine Learning service. These allocations are pre-emptible but come at a reduced price compared to dedicated VMs. In general, we recommend using Low-Priority VMs for Batch workloads or where interruptions are recoverable either through resubmits (for Batch Inferencing) or through restarts (for deep learning training with checkpointing).
 
-Low-Priority VMs have a single quota separate from the Dedicated quota value, which is by VM family. Learn [more about AmlCompute quotas](how-to-manage-quotas.md).
+Low-Priority VMs have a single quota separate from the dedicated quota value, which is by VM family. Learn [more about AmlCompute quotas](how-to-manage-quotas.md).
 
 Set the priority of your VM in any of these ways:
 
@@ -125,9 +125,9 @@ Set the priority of your VM in any of these ways:
 
 ### Use reserved instances
 
-Azure Reserved VM Instance (RI) provides another way to get huge savings on compute resources by committing to one-year or three-year terms. These discounts range up to 72% of the pay-as-you-go prices and are applied directly to your monthly Azure bill.
+Azure Reserved VM Instance provides another way to get huge savings on compute resources by committing to one-year or three-year terms. These discounts range up to 72% of the pay-as-you-go prices and are applied directly to your monthly Azure bill.
 
-Azure Machine Learning Compute supports reserved instances inherently. So if you have purchased a one-year or three-year RI we will automatically apply that RI discount against the managed compute that is used within Azure Machine Learning without requiring any additional setup from your end.
+Azure Machine Learning Compute supports reserved instances inherently. So if you have purchased a one-year or three-year reserved instance we will automatically apply that reserved instance discount against the managed compute that is used within Azure Machine Learning without requiring any additional setup from your end.
 
 
 ## Next steps
