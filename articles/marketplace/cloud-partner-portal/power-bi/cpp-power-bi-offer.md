@@ -1,15 +1,18 @@
 ---
 title: Power BI App offer | Azure Marketplace 
 description: How to publish a Power BI app to the Microsoft AppSource marketplace.
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/27/2019
-ms.author: pabutler
+ms.date: 04/06/2020
+ms.author: dsindona
 ---
 
 # Power BI App offer
+
+>[!Important]
+>Starting April 13, 2020, we'll begin moving management of your Power BI app offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Power BI app creation overview](https://aka.ms/AzurePBIAppCreationOverview) to manage your migrated offers.
 
 |              |                                |
 |--------------|--------------------------------|

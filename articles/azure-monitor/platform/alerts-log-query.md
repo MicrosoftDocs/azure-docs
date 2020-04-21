@@ -2,11 +2,9 @@
 title: Log alert queries in Azure Monitor | Microsoft Docs
 description: Provides recommendations on writing efficient queries for log alerts in Azure Monitor updates and a process for converting existing queries.
 author: yossi-y
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: yossiy
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: bwren
 ms.subservice: alerts
 ---
 # Log alert queries in Azure Monitor

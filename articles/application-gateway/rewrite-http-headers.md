@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 08/08/2019
 ms.author: absha
 ---
 
@@ -59,7 +59,7 @@ Application gateway supports these server variables:
 | -------------------------- | :----------------------------------------------------------- |
 | add_x_forwarded_for_proxy  | The X-Forwarded-For client request header field with the `client_ip` variable (see explanation later in this table) appended to it in the format IP1, IP2, IP3, and so on. If the X-Forwarded-For field isn't in the client request header, the `add_x_forwarded_for_proxy` variable is equal to the `$client_ip` variable. This variable is particularly useful when you want to rewrite the X-Forwarded-For header set by Application Gateway so that the header contains only the IP address without the port information. |
 | ciphers_supported          | A list of the ciphers supported by the client.          |
-| ciphers_used               | The string of ciphers used for an established SSL connection. |
+| ciphers_used               | The string of ciphers used for an established TLS connection. |
 | client_ip                  | The IP address of the client from which the application gateway received the request. If there's a reverse proxy before the application gateway and the originating client, *client_ip* will return the IP address of the reverse proxy. |
 | client_port                | The client port.                                                  |
 | client_tcp_rtt             | Information about the client TCP connection. Available on systems that support the TCP_INFO socket option. |
@@ -76,8 +76,8 @@ Application gateway supports these server variables:
 | request_uri                | The full original request URI (with arguments).                   |
 | sent_bytes                 | The number of bytes sent to a client.                             |
 | server_port                | The port of the server that accepted a request.                 |
-| ssl_connection_protocol    | The protocol of an established SSL connection.        |
-| ssl_enabled                | “On” if the connection operates in SSL mode. Otherwise, an empty string. |
+| ssl_connection_protocol    | The protocol of an established TLS connection.        |
+| ssl_enabled                | “On” if the connection operates in TLS mode. Otherwise, an empty string. |
 
 ## Rewrite configuration
 
@@ -98,6 +98,8 @@ To configure HTTP header rewrite, you need to complete these steps.
    - **Rewrite set**: Contains multiple rewrite rules that will be associated with a request routing rule.
 
 2. Attach the rewrite set (*rewriteRuleSet*) to a routing rule. The rewrite configuration is attached to the source listener via the routing rule. When you use a basic routing rule, the header rewrite configuration is associated with a source listener and is a global header rewrite. When you use a path-based routing rule, the header rewrite configuration is defined on the URL path map. In that case, it applies only to the specific path area of a site.
+   > [!NOTE]
+   > URL Rewrite alter the headers; it does not change the URL for the path.
 
 You can create multiple HTTP header rewrite sets and apply each rewrite set to multiple listeners. But you can apply only one rewrite set to a specific listener.
 
@@ -148,7 +150,7 @@ You can evaluate an HTTP request or response header for the presence of a header
 
 ## Limitations
 
-- If a response has more than one headers with the same name, then rewriting the value of one of those headers will result in dropping the other headers in the response. This can usually happen with Set-Cookie header since you can have more than one Set-Cookie header in a response. One such scenario is when you are using an app service with an application gateway and have configured cookie-based session affinity on the application gateway. In this case the response will contain 2 Set-Cookie headers: one used by the app service, i.e., `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` and another for application gateway affinity, i.e., `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Rewriting one of the Set-Cookie headers in this scenario can result in removing the other Set-Cookie header from the response.
+- If a response has more than one header with the same name, then rewriting the value of one of those headers will result in dropping the other headers in the response. This can usually happen with Set-Cookie header since you can have more than one Set-Cookie header in a response. One such scenario is when you are using an app service with an application gateway and have configured cookie-based session affinity on the application gateway. In this case the response will contain two Set-Cookie headers: one used by the app service, for example: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` and another for application gateway affinity, for example, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Rewriting one of the Set-Cookie headers in this scenario can result in removing the other Set-Cookie header from the response.
 
 - Rewriting the Connection, Upgrade, and Host headers isn't currently supported.
 

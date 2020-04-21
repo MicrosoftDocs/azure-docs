@@ -1,11 +1,11 @@
 ---
-title: Create users in Azure Database for MariaDB server
+title: Create users - Azure Database for MariaDB
 description: This article describes how you can create new user accounts to interact with an Azure Database for MariaDB server.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 4/2/2020
 ---
 
 # Create users in Azure Database for MariaDB 
@@ -17,6 +17,9 @@ The server admin user gets certain privileges for your server as listed:
 SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
 
 Once the Azure Database for MariaDB server is created, you can use the first server admin user account to create additional users and grant admin access to them. Also, the server admin account can be used to create less privileged users that have access to individual database schemas.
+
+> [!NOTE]
+> The SUPER privilege and DBA role are not supported. Review the [privileges](concepts-limits.md#privilege-support) in the limitations article to understand what's not supported in the service.
 
 ## Create additional admin users
 1. Get the connection information and admin user name.

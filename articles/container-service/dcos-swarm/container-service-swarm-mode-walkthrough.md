@@ -1,12 +1,9 @@
 ---
 title: (DEPRECATED) Quickstart - Azure Docker CE cluster for Linux
 description: Quickly learn to create a Docker CE cluster for Linux containers in Azure Container Service with the Azure CLI.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
-
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom:
@@ -16,7 +13,7 @@ ms.custom:
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-In this quick start, a Docker CE cluster is deployed using the Azure CLI. A multi-container application consisting of web front-end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
+In this quickstart, a Docker CE cluster is deployed using the Azure CLI. A multi-container application consisting of web front-end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
 
 Docker CE on Azure Container Service is in preview and **should not be used for production workloads**.
 
@@ -51,7 +48,7 @@ Output:
 
 ## Create Docker Swarm cluster
 
-Create a Docker CE cluster in Azure Container Service with the [az acs create](/cli/azure/acs#az-acs-create) command. For information on region availaiblity of Docker CE, see [ACS regions for Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
+Create a Docker CE cluster in Azure Container Service with the [az acs create](/cli/azure/acs#az-acs-create) command. For information on region availability of Docker CE, see [ACS regions for Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
 
 The following example creates a cluster named *mySwarmCluster* with one Linux master node and three Linux agent nodes.
 
@@ -65,16 +62,15 @@ After several minutes, the command completes and returns JSON-formatted informat
 
 ## Connect to the cluster
 
-Throughout this quick start, you need the FQDN of both the Docker Swarm master and the Docker agent pool. Run the following command to return both the master and agent FQDNs.
+Throughout this quickstart, you need the FQDN of both the Docker Swarm master and the Docker agent pool. Run the following command to return both the master and agent FQDNs.
 
-
-```bash
+```azurecli
 az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Agent:agentPoolProfiles[0].fqdn}' -o table
 ```
 
 Output:
 
-```bash
+```output
 Master                                                               Agent
 -------------------------------------------------------------------  --------------------------------------------------------------------
 myswarmcluster-myresourcegroup-d5b9d4mgmt.ukwest.cloudapp.azure.com  myswarmcluster-myresourcegroup-d5b9d4agent.ukwest.cloudapp.azure.com
@@ -102,7 +98,6 @@ Create a file named `azure-vote.yaml` and copy the following content into it.
 
 ```yaml
 version: '3'
-services:
   azure-vote-back:
     image: redis
     ports:
@@ -124,7 +119,7 @@ docker stack deploy azure-vote --compose-file azure-vote.yaml
 
 Output:
 
-```bash
+```output
 Creating network azure-vote_default
 Creating service azure-vote_azure-vote-back
 Creating service azure-vote_azure-vote-front
@@ -138,7 +133,7 @@ docker stack ps azure-vote
 
 Once the `CURRENT STATE` of each service is `Running`, the application is ready.
 
-```bash
+```output
 ID                  NAME                            IMAGE                                 NODE                               DESIRED STATE       CURRENT STATE                ERROR               PORTS
 tnklkv3ogu3i        azure-vote_azure-vote-front.1   microsoft/azure-vote-front:v1   swarmm-agentpool0-66066781000004   Running             Running 5 seconds ago                            
 lg99i4hy68r9        azure-vote_azure-vote-back.1    redis:latest                          swarmm-agentpool0-66066781000002   Running             Running about a minute ago
@@ -159,13 +154,13 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## Get the code
 
-In this quick start, pre-created container images have been used to create a Docker service. The related application code, Dockerfile, and Compose file are available on GitHub.
+In this quickstart, pre-created container images have been used to create a Docker service. The related application code, Dockerfile, and Compose file are available on GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## Next steps
 
-In this quick start, you deployed a Docker Swarm cluster and deployed a multi-container application to it.
+In this quickstart, you deployed a Docker Swarm cluster and deployed a multi-container application to it.
 
 To learn about integrating Docker swarm with Azure DevOps, continue to the CI/CD with Docker Swarm and Azure DevOps.
 

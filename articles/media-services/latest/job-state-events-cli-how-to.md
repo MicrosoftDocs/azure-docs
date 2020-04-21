@@ -76,7 +76,7 @@ Replace `<event_subscription_name>` with a unique name for your event subscripti
 
     ```azurecli
     az eventgrid event-subscription create \
-    --resource-id $amsResourceId \
+    --source-resource-id $amsResourceId \
     --name <event_subscription_name> \
     --endpoint <endpoint_URL>
     ```
@@ -84,7 +84,7 @@ Replace `<event_subscription_name>` with a unique name for your event subscripti
     For example:
 
     ```
-    az eventgrid event-subscription create --resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/
+    az eventgrid event-subscription create --source-resource-id $amsResourceId --name amsTestEventSubscription --endpoint https://amstesteventgrid.azurewebsites.net/api/updates/
     ```    
 
     > [!TIP]

@@ -1,5 +1,5 @@
 ---
-title: Use an Azure SDK to configure a VM with managed identities for Azure resources
+title: Use a SDK to configure managed identities on a VM - Azure AD
 description: Step by step instructions for configuring and using managed identities for Azure resources on an Azure VM, using an Azure SDK.
 services: active-directory
 documentationcenter: ''
@@ -40,7 +40,7 @@ Azure supports multiple programming platforms through a series of [Azure SDKs](h
 | Java   | [Manage storage from a VM enabled with managed identities for Azure resources](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
 | Node.js| [Create a VM with system-assigned managed identity enabled](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
 | Python | [Create a VM with system-assigned managed identity enabled](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
-| Ruby   | [Create Azure VM with an system-assigned identity enabled](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
+| Ruby   | [Create Azure VM with an system-assigned identity enabled](https://github.com/Azure-Samples/compute-ruby-msi-vm/) |
 
 ## Next steps
 

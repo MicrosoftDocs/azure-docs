@@ -1,21 +1,13 @@
 ---
-title: Azure CLI Samples - Zone-redundant scale set | Microsoft Docs
-description: Azure CLI Samples
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
+title: Azure CLI Samples - Zone-redundant scale set
+description: This script creates an Azure virtual machine scale set running Ubuntu across multiple Availability Zones.
+author: ju-shim
 tags: azure-resource-manager
-
-ms.assetid:
 ms.service: virtual-machine-scale-sets
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
 
 ---

@@ -1,20 +1,15 @@
 ﻿---
-title: Create an application gateway with multiple site hosting - Azure PowerShell | Microsoft Docs
+title: Multiple site hosting using PowerShell
+titleSuffix: Azure Application Gateway
 description: Learn how to create an application gateway that hosts multiple sites using Azure Powershell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 11/14/2019
 ms.author: victorh
-
 ---
+
 # Create an application gateway with multiple site hosting using Azure PowerShell
 
 You can use Azure Powershell to configure [hosting of multiple web sites](application-gateway-multi-site-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you create backend pools using virtual machines scale sets. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate servers in the pools. This tutorial assumes that you own multiple domains and uses examples of *www.contoso.com* and *www.fabrikam.com*.
@@ -256,7 +251,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## Test the application gateway
 
-Enter your domain name into the address bar of your browser. Such as, http://www.contoso.com.
+Enter your domain name into the address bar of your browser. Such as, `https://www.contoso.com`.
 
 ![Test contoso site in application gateway](./media/application-gateway-create-multisite-azureresourcemanager-powershell/application-gateway-iistest.png)
 

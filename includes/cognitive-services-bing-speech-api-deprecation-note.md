@@ -7,4 +7,4 @@ ms.author: nitinme
 ---
 
 > [!NOTE] 
-> The new Speech Service and SDK is replacing Bing Speech, which will no longer work starting October 15, 2019. For information on switching to the Speech Service, see [Migrating from Bing Speech to the Speech Service](../articles/cognitive-services/Speech-Service/how-to-migrate-from-bing-speech.md).
+> The new Speech Service and SDK is replacing Bing Speech, which will no longer work starting January 14, 2020. For information on switching to the Speech Service, see [Migrating from Bing Speech to the Speech Service](../articles/cognitive-services/Speech-Service/how-to-migrate-from-bing-speech.md).

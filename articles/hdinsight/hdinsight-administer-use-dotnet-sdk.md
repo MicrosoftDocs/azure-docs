@@ -104,9 +104,6 @@ namespace HDInsightManagement
 
 You shall see a prompt when you run this program.  If you don't want to see the prompt, see [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
-## Create clusters
-
-See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 
 ## List clusters
 
@@ -174,7 +171,7 @@ The impact of changing the number of data nodes for each type of cluster support
     Here is an example how to use the CLI command to rebalance the Storm topology:
     
 
-    ```cli
+    ```console
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors
@@ -252,10 +249,6 @@ See [Run MapReduce samples in HDInsight](hadoop/apache-hadoop-run-samples-linux.
 **To submit Apache Hive jobs** 
 
 See [Run Apache Hive queries using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
-
-**To submit Apache Pig jobs**
-
-See [Run Apache Pig jobs using .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
 **To submit Apache Sqoop jobs**
 

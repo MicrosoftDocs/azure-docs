@@ -1,12 +1,12 @@
 ---
 title: Create Azure application technical assets  | Azure Marketplace
 description: Create the technical assets for an Azure application offer.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
-ms.topic: article
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Prepare your Azure application technical assets
@@ -28,7 +28,7 @@ Review the following Azure application documentation, which provides Quickstarts
 
   - [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
   - [GitHub Azure Quickstart templates](https://github.com/azure/azure-quickstart-templates)
-  - [Publish application definition](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
+  - [Publish application definition](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
   - [Deploy service catalog app](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
   

@@ -1,19 +1,19 @@
 ---
-title: Return your Azure Data Box Edge device | Microsoft Docs 
-description: Describes how to return the Azure Data Box Edge device and delete the order for the device.
+title: Return or replace your Azure Data Box Edge device | Microsoft Docs 
+description: Describes how to return or replace the Azure Data Box Edge device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 02/26/2020
 ms.author: alkohli
 ---
 
-# Return your Azure Data Box Edge device
+# Return or replace your Azure Data Box Edge device
 
-This article describes how to wipe the data and then return your Azure Data Box Edge device. After you've returned the device, you can also delete the resource associated with the device.
+This article describes how to wipe the data and then return your Azure Data Box Edge device. After you've returned the device, you can also delete the resource associated with the device or order a replacement device.
 
 In this article, you learn how to:
 
@@ -22,6 +22,7 @@ In this article, you learn how to:
 > * Open a Support ticket to return your device
 > * Pack up the device and schedule a pickup
 > * Delete the resource in Azure portal
+> * Get a replacement device
 
 ## Erase data from the device
 
@@ -67,7 +68,7 @@ To begin the return process, take the following steps.
 3. Unplug the power cables and remove all the network cables from the device.
 4. Prepare the shipment package by using your own box or the empty box you received from Azure. Place the device and the power cords that were shipped with the device in the box.
 5. Affix the shipping label that you received from Azure on the package.
-6. Schedule a pickup with your regional carrier. If returning the device in US, your carrier is UPS. To schedule a pickup:
+6. Schedule a pickup with your regional carrier. If returning the device in US, your carrier could be UPS or FedEx. To schedule a pickup with UPS:
 
     1. Call the local UPS (country-specific toll free number).
     2. In your call, quote the reverse shipment tracking number as shown on your printed label.
@@ -101,6 +102,21 @@ Take the following steps to delete the device and the resource in Azure portal.
     ![Confirm delete](media/data-box-edge-return-device/delete-resource-2.png)
 
 You're notified after the device and the associated resource is successfully deleted.
+
+## Get a replacement device
+
+A replacement device is needed when the existing device has a hardware failure or needs an upgrade. Take the following steps when your device has a hardware issue:
+
+1. [Open a Support ticket for hardware issue](#open-a-support-ticket). Microsoft Support will determine that a Field Replacement Unit (FRU) is not available for this instance or the device needs a hardware upgrade. In either case, Support will order a replacement device.
+2. [Create a new resource](data-box-edge-deploy-prep.md#create-a-new-resource) for the replacement device. Make sure to select the check box against **I have a Data Box Edge device**. 
+3. After you receive a replacement device, [install](data-box-edge-deploy-install.md) and [activate](data-box-edge-deploy-connect-setup-activate.md) the replacement device against the new resource.
+4. Follow all the steps to return the original device:
+    1. Open another ticket to return the original device.
+    2. [Erase the data on the device](#erase-data-from-the-device).
+    3. [Schedule a pickup](#schedule-a-pickup).
+    5. [Delete the resource](#delete-the-resource) associated with the returned device.
+
+
 
 ## Next steps
 

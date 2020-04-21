@@ -1,17 +1,14 @@
 ---
-title: Key phrase extraction cognitive search skill - Azure Search
-description: Evaluates unstructured text, and for each record, returns a list of key phrases in an Azure Search enrichment pipeline.
-services: search
-manager: pablocas
-author: luiscabrer
+title: Key Phrase Extraction cognitive skill
+titleSuffix: Azure Cognitive Search
+description: Evaluates unstructured text, and for each record, returns a list of key phrases in an AI enrichment pipeline in Azure Cognitive Search.
 
-ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+manager: nitinme
+author: luiscabrer
 ms.author: luisca
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 #	Key Phrase Extraction cognitive skill
 
@@ -20,16 +17,16 @@ The **Key Phrase Extraction** skill evaluates unstructured text, and for each re
 This capability is useful if you need to quickly identify the main talking points in the record. For example, given input text "The food was delicious and there were wonderful staff", the service returns "food" and "wonderful staff".
 
 > [!NOTE]
-> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
+> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
 >
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## @odata.type  
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
 
 ## Data limits
-The maximum size of a record should be 50,000 characters as measured by `String.Length`. If you need to break up your data before sending it to the key phrase extractor, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
+The maximum size of a record should be 50,000 characters as measured by [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). If you need to break up your data before sending it to the key phrase extractor, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Skill parameters
 
@@ -55,7 +52,7 @@ Parameters are case-sensitive.
     "inputs": [
       {
         "name": "text",
-        "source": "/document/text"
+        "source": "/document/content"
       },
       {
         "name": "languageCode",
@@ -120,5 +117,5 @@ If your text is larger than 50,000 characters, only the first 50,000 characters 
 
 ## See also
 
-+ [Predefined skills](cognitive-search-predefined-skills.md)
++ [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)

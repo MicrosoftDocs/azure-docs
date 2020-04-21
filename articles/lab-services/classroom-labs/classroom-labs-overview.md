@@ -1,6 +1,6 @@
 ---
-title: About Azure Lab Services | Microsoft Docs
-description: Learn how Lab Services can make it easy to create, manage, and secure labs with virtual machines that can be used by developers, testers, educators, students, and others. 
+title: About classroom labs in Azure Lab Services | Microsoft Docs
+description: Learn how to quickly set up a classroom lab environment in the cloud - configure a lab with a template VM with the software required for the class and make a copy of the VM available to each student in the class. 
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 05/21/2018
+ms.date: 11/26/2019
 ms.author: spelluru
 
 ---
@@ -29,6 +29,9 @@ Users who are invited to your lab get immediate access to the resources you give
 
 ## Cost optimization and tracking  
 Keep your budget in check by controlling exactly how many hours your lab users can use the virtual machines. Set up schedules in the lab to allow users to use the virtual machines only during designated time slots or set up reoccurring auto-shutdown and start times. Keep track of individual users’ usage and set limits.
+
+## Example class types
+You can set up labs for several types of classes with Azure Lab Services. See the [Example class types on Azure Lab Services](class-types.md) article for a few example types of classes for which you can set up labs with Azure Lab Services. 
 
 ## Next steps
 Get started with setting up a lab account that's required to create a classroom lab using Azure Lab Services:

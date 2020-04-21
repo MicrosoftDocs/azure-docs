@@ -1,12 +1,12 @@
 ---
-title: Push notifications to Xamarin.iOS apps using Azure Notification Hubs | Microsoft Docs
+title: Send push notifications to Xamarin using Azure Notification Hubs | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to a Xamarin.iOS application.
 services: notification-hubs
 keywords: ios push notifications,push messages,push notifications,push message
 documentationcenter: xamarin
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.assetid: 4d4dfd42-c5a5-4360-9d70-7812f96924d2
 ms.service: notification-hubs
@@ -15,11 +15,13 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/23/2019
-ms.author: jowargo
+ms.date: 12/05/2019
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 05/23/2019
 ---
 
-# Tutorial: Push notifications to Xamarin.iOS apps using Azure Notification Hubs
+# Tutorial: Send push notifications to Xamarin.iOS apps using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -52,25 +54,6 @@ In this tutorial, you create/update code to do the following tasks:
 Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Xamarin.iOS apps.
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
-
-## Configure your notification hub for iOS push notifications
-
-This section walks you through the steps to create a new notification hub and configure authentication with APNs using the **.p12** push certificate that you previously created. If you want to use a notification hub that you have already created, you can skip to step 5.
-
-[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
-
-### Configure iOS settings for the notification hub
-
-1. Select **Apple (APNS)** in the **NOTIFICATION SETTINGS** group.
-2. Select **Certificate**, click the **file** icon, and select the **.p12** file that you exported earlier.
-3. Specify the **password** for the certificate.
-4. Select **Sandbox** mode. Use the **Production** mode only if you want to send push notifications to users who purchased your app from the store.
-
-    ![Configure APNs in Azure portal][6]
-
-    ![Configure APNs certification in Azure portal][7]
-
-Your notification hub is now configured to work with APNs, and you have the connection strings to register your app and send push notifications.
 
 ## Connect your app to the notification hub
 
@@ -120,7 +103,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
     {
         if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
         {
-            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
+            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound,
                                                                     (granted, error) =>
             {
                 if (granted)
@@ -149,7 +132,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
     {
         Hub = new SBNotificationHub(Constants.ListenConnectionString, Constants.NotificationHubName);
 
-        Hub.UnregisterAllAsync (deviceToken, (error) => {
+        Hub.UnregisterAll (deviceToken, (error) => {
             if (error != null)
             {
                 System.Diagnostics.Debug.WriteLine("Error calling Unregister: {0}", error.ToString());

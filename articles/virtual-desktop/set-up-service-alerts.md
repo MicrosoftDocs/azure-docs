@@ -2,12 +2,13 @@
 title: Set up service alerts for Windows Virtual Desktop - Azure
 description: How to set up Azure Service Health to receive service notifications for Windows Virtual Desktop.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/11/2019
-ms.author: v-chjenk
+ms.author: helohr
+manager: lizross
 ---
 # Tutorial: Set up service alerts
 
@@ -22,9 +23,9 @@ To learn more about Azure Service Health, see the [Azure Health Documentation](h
 
 ## Prerequisites
 
-- [Tutorial: Create a tenant in Windows Virtual Desktop Preview](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory)
-- [Tutorial: Create service principals and role assignments with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell)
-- [Tutorial: Create a host pool with Azure Marketplace](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace)
+- [Tutorial: Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
+- [Tutorial: Create service principals and role assignments with PowerShell](create-service-principal-role-powershell.md)
+- [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
 
 ## Create service alerts
 

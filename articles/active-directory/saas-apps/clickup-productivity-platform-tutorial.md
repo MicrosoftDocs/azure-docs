@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 06853edd-e8da-4ad2-a4e6-5555d592cee5
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -117,7 +118,9 @@ To configure Azure AD single sign-on with ClickUp Productivity Platform, perform
 
 1. In a different web browser window, sign-on to your ClickUp Productivity Platform tenant as an administrator.
 
-2. Click on the **User profile** and select **Settings**.
+2. Click on the **User profile**, and then select **Settings**.
+
+    ![ClickUp Productivity Configuration](./media/clickup-productivity-platform-tutorial/configure0.png)
 
     ![ClickUp Productivity Configuration](./media/clickup-productivity-platform-tutorial/configure1.png)
 
@@ -192,7 +195,9 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In a different web browser window, sign-on to your ClickUp Productivity Platform tenant as an administrator.
 
-2. Click on the **User profile** and select **Users**.
+2. Click on the **User profile**, and then select **People**.
+   
+    ![ClickUp Productivity Configuration](./media/clickup-productivity-platform-tutorial/configure0.png)
 
     ![ClickUp Productivity Configuration](./media/clickup-productivity-platform-tutorial/user1.png)
 
@@ -201,7 +206,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
     ![ClickUp Productivity Configuration](./media/clickup-productivity-platform-tutorial/user2.png)
 
     > [!NOTE]
-    > The user will get the notification and they must accept the invitation to activate the account.
+    > The user will receive the notification and must accept the invitation to activate the account.
 
 ### Test single sign-on
 

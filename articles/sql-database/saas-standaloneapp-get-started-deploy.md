@@ -1,5 +1,5 @@
 ---
-title: Single-tenant SaaS tutorial - Azure SQL Database | Microsoft Docs
+title: Single-tenant SaaS tutorial
 description: "Deploy and explore a standalone single-tenant SaaS application, that uses Azure SQL Database."
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 11/07/2018
 ---
 # Deploy and explore a standalone single-tenant application that uses Azure SQL Database

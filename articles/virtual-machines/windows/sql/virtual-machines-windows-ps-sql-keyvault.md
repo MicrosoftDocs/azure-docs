@@ -9,7 +9,7 @@ editor: ''
 tags: azure-service-management
 ms.assetid: cd66dfb1-0e9b-4fb0-a471-9deaf4ab4ab8
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -50,7 +50,7 @@ For a detailed walkthrough of provisioning, see [Provision a SQL Server virtual 
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-For existing SQL Server virtual machines, open your [SQL virtual machines resource](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) and select **Security** under **Settings**. Select **Enable** to enable Azure Key Vault integration. 
+For existing SQL Server virtual machines, open your [SQL virtual machines resource](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) and select **Security** under **Settings**. Select **Enable** to enable Azure Key Vault integration. 
 
 ![SQL AKV Integration for existing VMs](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-existing-vms.png)
 

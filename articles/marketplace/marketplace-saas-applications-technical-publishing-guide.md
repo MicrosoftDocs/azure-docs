@@ -1,12 +1,13 @@
 ---
-title: Azure Marketplace SaaS Applications Technical Publishing Guide
+title: Azure Marketplace SaaS Applications Publishing Guide
 description: Step-by-step guide and publishing checklists for publishing SaaS applications to Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-author: keithcharlie
+author: dsindona
 ms.service: marketplace
-ms.topic: article
-ms.date: 07/09/2018
-ms.author: keithcharlie
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+ms.date: 04/15/2020
+ms.author: dsindona
 ---
 
 # SaaS applications Offer Publishing Guide
@@ -19,8 +20,8 @@ SaaS applications are available in both Azure Storefronts The following table de
 
 | Storefront option | Listing | Trial/Transact |  
 | --- | --- | --- |  
-| AppSource | Yes (Contact Me) | Yes (PowerBI/Dynamics) |
-| Azure marketplace | No | Yes (SaaS Apps) |   
+| AppSource | Yes | Yes |
+| Azure marketplace | No | Yes |   
 
 **List:**  The Listing publishing option consists of a Contact Me offer type and is used when a Trial- or Transaction-level participation is not feasible. The benefit of this approach is that it enables publishers with a solution in-market to immediately begin receiving leads that can be turned into deals to increase your business.  
 **Trial/Transaction:**  The customer has the option to directly buy or request a trial for your solution. Providing a Trial experience increases the engagement level offered to customers and enables customers to explore your solution before buying. With a Trial experience, you will have better chances of promotion in the storefronts, and you should expect more and richer leads from customer engagements. Trials must include free support at least for the duration of the trial period.  
@@ -104,8 +105,8 @@ Certify your Azure AD integration in a few different ways, depending on whether 
 **For multi-tenant applications:**  
 
 If you already support Azure AD, do the following:
-1.	Register your application in the Azure portal
-2.	Enable the multi-tenancy support feature in Azure AD to get a 'one-click' trial experience. More specific information can be found [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+1.    Register your application in the Azure portal
+2.    Enable the multi-tenancy support feature in Azure AD to get a 'one-click' trial experience. More specific information can be found [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
 If you are new to Azure AD Federated SSO, do the following: 
 1.  Register your application in the Azure portal
@@ -121,13 +122,13 @@ If you are new to Azure AD Federated SSO, do the following:
 ## SaaS Subscriptions
 
 Use SaaS app offer type to enable your customer to buy your SaaS-based, technical solution as a subscription. The following requirements must be met for your SaaS app:
-- Price and bill the service at a flat, monthly rate.
+- Price and bill the service at a flat (monthly or yearly), or at a per-user rate.
 - Provide a method to upgrade or cancel the service at any time.
-Microsoft hosts the commerce transaction. Microsoft bills your customer on your behalf. To use bill a SaaS App as a subscription, you must enable you own subscription management service API. Your subscription management service API must communicate directly with the Azure Resource Manager APIs. Your subscription management service API must support service provisioning, upgrading, and canceling.
+Microsoft hosts the commerce transaction. Microsoft bills your customer on your behalf. To offer a SaaS App as a subscription, you must integrate with the SaaS fulfillment APIs.  Your service must support provisioning, upgrading, and canceling.
 
 | Requirement | Details |  
 |:--- |:--- |  
-|Billing and metering | Your offer is priced at a monthly flat rate. Usage-based pricing and usage-based "true-up" capabilities are not supported at this time. |  
+|Billing and metering | Your offer is priced based on the pricing model you select before publishing (flat rate or per-user).  If using the flat rate model, you can optionally include additional dimensions used to charge customers for usage not included in the flat rate. |  
 |Cancellation | Your offer is cancelable by the customer at any time. |  
 |Transaction landing page | You host an Azure co-branded transaction landing page where users can create and manage their SaaS service account. |   
 | Subscription API | You expose a service that can interact with the SaaS Subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. |  
@@ -138,9 +139,9 @@ Microsoft hosts the commerce transaction. Microsoft bills your customer on your 
 ## Next steps
 If you haven't already done so,
 
-- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace.
+* [Learn](https://azuremarketplace.microsoft.com/sell) about the marketplace.
 
-If you're registered and are creating a new offer or working on an existing one,
+To register in Partner Center, start creating a new offer or working on an existing one:
 
-- [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer.
-- See [Azure SaaS application offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) for more information.
+* [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
+* See [create a SaaS application offer](./partner-center-portal/create-new-saas-offer.md) for more information.

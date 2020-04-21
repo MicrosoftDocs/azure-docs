@@ -5,14 +5,14 @@ services: networking
 documentationcenter: 
 author: KumudD
 manager: 
-ms.service: networking
+ms.service: virtual-network
 ms.devlang: 
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/13/2019
-ms.author: ypitsch,kumud
-
+ms.author: kumud
+ms.reviewer: ypitsch
 ---
 
 # Microsoft global network
@@ -51,7 +51,7 @@ Microsoft Azure offers the richest portfolio of services and capabilities, allow
 
 ## Well managed using software-defined innovation
 
-Running one of the leading clouds in the world, Microsoft has gained a lot of insight and experience in [building and managing](https://myignite.techcommunity.microsoft.com/sessions/66668) high-performance global infrastructure.  
+Running one of the leading clouds in the world, Microsoft has gained a lot of insight and experience in building and managing high-performance global infrastructure.  
  
 We adhere to a robust set of operational principles: 
  

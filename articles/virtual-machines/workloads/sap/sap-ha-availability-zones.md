@@ -4,18 +4,18 @@ description: High-availability architecture and scenarios for SAP NetWeaver usin
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 
 ms.assetid: 887caaec-02ba-4711-bd4d-204a7d16b32b
 ms.service: virtual-machines-windows
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/03/2019
+ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -55,8 +55,8 @@ When you deploy Azure VMs across Availability Zones and establish failover solut
 
 - You must use [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) when you deploy to Azure Availability Zones. 
 - The mapping of zone enumerations to the physical zones is fixed on an Azure subscription basis. If you're using different subscriptions to deploy your SAP systems, you need to define the ideal zones for each subscription.
-- You can't deploy Azure availability sets within an Azure Availability Zone. Choose one or the other as a deployment framework for virtual machines.
-- You can't use an [Azure Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) to create failover cluster solutions based on Windows Server Failover Clustering or Linux Pacemaker. Instead, you need to use the [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
+- You can't deploy Azure availability sets within an Azure Availability Zone unless you use [Azure Proximity Placement Group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). The way how you can deploy the SAP DBMS layer and the central services across zones and at the same time deploy the SAP application layer using availability sets and still achieve close proximity of the VMs is documented in the article [Azure Proximity Placement Groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md). If you are not leveraging Azure proximity placement groups, you need to choose one or the other as a deployment framework for virtual machines.
+- You can't use an [Azure Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) to create failover cluster solutions based on Windows Server Failover Clustering or Linux Pacemaker. Instead, you need to use the [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
 
 
 
@@ -73,6 +73,8 @@ To determine the latency between the different zones, you need to:
 - Deploy the VM SKU you want to use for your DBMS instance in all three zones. Make sure [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is enabled when you take this measurement.
 - When you find the two zones with the least network latency, deploy another three VMs of the VM SKU that you want to use as the application layer VM across the three Availability Zones. Measure the network latency against the two DBMS VMs in the two DBMS zones that you selected. 
 - Use **niping** as a measuring tool. This tool, from SAP, is described in SAP support notes [#500235](https://launchpad.support.sap.com/#/notes/500235) and [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Focus on the commands documented for latency measurements. Because **ping** doesn't work through the Azure Accelerated Networking code paths, we don't recommend that you use it.
+
+You don't need to perform these tests manually. You can find a PowerShell procedure [Availability Zone Latency Test](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test) that automates the latency tests described. 
 
 Based on your measurements and the availability of your VM SKUs in the Availability Zones, you need to make some decisions:
 
@@ -100,7 +102,8 @@ A simplified schema of an active/active deployment across two zones could look l
 
 The following considerations apply for this configuration:
 
-- You treat the Azure Availability Zones as fault and update domains for all the VMs because availability sets can't be deployed in Azure Availability Zones.
+- Not using [Azure Proximity Placement Group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location), you treat the Azure Availability Zones as fault and update domains for all the VMs because availability sets can't be deployed in Azure Availability Zones.
+- If you want to combine zonal deployments for the DBMS layer and central services, but want to use Azure availability sets for the application layer, you need to use Azure proximity groups as described in the article [Azure Proximity Placement Groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
 - For the load balancers of the failover clusters of SAP Central Services and the DBMS layer, you need to use the [Standard SKU Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). The Basic Load Balancer won't work across zones.
 - The Azure virtual network that you deployed to host the SAP system, together with its subnets, is stretched across zones. You don't need separate virtual networks for each zone.
 - For all virtual machines you deploy, you need to use [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Unmanaged disks aren't supported for zonal deployments.
@@ -111,8 +114,11 @@ The following considerations apply for this configuration:
 	
     Currently, the solution that uses Microsoft Scale-Out File Server, as documented in [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), is not supported across zones.
 - The third zone is used to host the SBD device in case you build a [SUSE Linux Pacemaker cluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) or additional application instances.
-- To achieve run time consistency for critical business processes, you can try to direct certain batch jobs and users to application instances that are in-zone with the active DBMS instance by using SAP batch server groups, logon groups, or RFC groups. However, in the case of a zonal failover, you would need to manually move these groups to instances running on VMs that are in-zone with the active DB VM.  
+- To achieve run time consistency for critical business processes, you can try to direct certain batch jobs and users to application instances that are in-zone with the active DBMS instance by using SAP batch server groups, SAP logon groups, or RFC groups. However, in the case of a zonal failover, you would need to manually move these groups to instances running on VMs that are in-zone with the active DB VM.  
 - You might want to deploy dormant dialog instances in each of the zones. This is to enable an immediate return to the former resource capacity if a zone used by part of your application instances is out of service.
+
+> [!IMPORTANT]
+> In this active/active scenario additional charges for bandwidth are announced by Microsoft from 04/01/2020 on. Check the document [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/). The data transfer between the SAP application layer and SAP DBMS layer is quite intensive. Therefore the active/active scenario can contribute to costs quite a bit. Keep checking this article to get the exact costs 
 
 
 ## Active/Passive deployment
@@ -124,7 +130,7 @@ The basic layout of the architecture looks like this:
 
 The following considerations apply for this configuration:
 
-- Availability sets can't be deployed in Azure Availability Zones. So, in this case, you have one update and fault domain for your application layer. That's because it's only deployed in one zone. This configuration is slightly less desirable than the reference architecture, which suggests that you deploy the application layer in an Azure availability set.
+- Availability sets can't be deployed in Azure Availability Zones. To compensate for that, you can use Azure proximity placement groups as documented in  the article [Azure Proximity Placement Groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
 - When you use this architecture, you need to monitor the status closely and try to keep the active DBMS and SAP Central Services instances in the same zone as your deployed application layer. In case of a failover of SAP Central Service or the DBMS instance, you want to make sure that you can manually fail back into the zone with the SAP application layer deployed as quickly as possible.
 - For the load balancers of the failover clusters of SAP Central Services and the DBMS layer, you need to use the [Standard SKU Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). The Basic Load Balancer won't work across zones.
 - The Azure virtual network that you deployed to host the SAP system, together with its subnets, is stretched across zones. You don't need separate virtual networks for each zone.
@@ -152,7 +158,7 @@ Here's one example of how such a configuration might look:
 
 The following considerations apply for this configuration:
 
-- You're either assuming that there's a significant distance between the facilities hosting an Availability Zone or you're forced to stay within a certain Azure region. Availability sets can't be deployed in Azure Availability Zones. So, in this case, you have one update and fault domain for your application layer. That's because it's only deployed in one zone. This configuration is slightly less desirable than the reference architecture, which suggests that you deploy the application layer in an Azure availability set.
+- You're either assuming that there's a significant distance between the facilities hosting an Availability Zone or you're forced to stay within a certain Azure region. Availability sets can't be deployed in Azure Availability Zones. To compensate for that, you can use Azure proximity placement groups as documented in  the article [Azure Proximity Placement Groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
 - When you use this architecture, you need to monitor the status closely and try to keep the active DBMS and SAP Central Services instances in the same zone as your deployed application layer. In case of a failover of SAP Central Service or the DBMS instance, you want to make sure that you can manually fail back into the zone with the SAP application layer deployed as quickly as possible.
 - You should have production application instances pre-installed in the VMs that run the active QA application instances.
 - In case of a zone failure, shut down the QA application instances and start the production instances instead. Note that you need to use virtual names for the application instances to make this work.

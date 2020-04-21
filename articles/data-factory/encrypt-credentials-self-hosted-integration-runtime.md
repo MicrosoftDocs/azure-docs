@@ -1,15 +1,15 @@
 ---
-title: Encrypt credentials in Azure Data Factory | Microsoft Docs
+title: Encrypt credentials in Azure Data Factory 
 description: Learn how to encrypt and store credentials for your on-premises data stores on a machine with self-hosted integration runtime. 
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/15/2018
@@ -18,9 +18,13 @@ ms.author: abnarain
 ---
 
 # Encrypt credentials for on-premises data stores in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 You can encrypt and store credentials for your on-premises data stores (linked services with sensitive information) on a machine with self-hosted integration runtime. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 You pass a JSON definition file with credentials to the <br/>[**New-AzDataFactoryV2LinkedServiceEncryptedCredential**](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) cmdlet to produce an output JSON definition file with the encrypted credentials. Then, use the updated JSON definition to create the linked services.
 
@@ -34,10 +38,7 @@ Replace `<servername>`, `<databasename>`, `<username>`, and `<password>` with va
 	"properties": {
 		"type": "SqlServer",
 		"typeProperties": {
-			"connectionString": {
-				"type": "SecureString",
-				"value": "Server=<servername>;Database=<databasename>;User ID=<username>;Password=<password>;Timeout=60"
-			}
+			"connectionString": "Server=<servername>;Database=<databasename>;User ID=<username>;Password=<password>;Timeout=60"
 		},
 		"connectVia": {
 			"type": "integrationRuntimeReference",

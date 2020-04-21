@@ -1,6 +1,6 @@
 ---
 title: Rendering capabilities - Azure Batch
-description: Specific rendering capabilities in Azure Batch
+description: Standard Azure Batch capabilities are used to run rendering workloads and apps. Batch includes specific features to support rendering workloads.
 services: batch
 ms.service: batch
 author: mscurrell
@@ -32,8 +32,8 @@ For an example pool configuration, see the [Azure CLI rendering tutorial](https:
 
 Other options are available if additional applications are required on the pool VMs:
 
-* A custom image based on a standard Marketplace image:
-  * Using this option, you can configure your VM with the exact applications and specific versions that you require. For more information, see [Use a custom image to create a pool of virtual machines](https://docs.microsoft.com/azure/batch/batch-custom-images). Autodesk and Chaos Group have modified Arnold and V-Ray, respectively, to validate against an Azure Batch licensing service. Make sure you have the versions of these applications with this support, otherwise the pay-per-use licensing won't work. Current versions of Maya or 3ds Max don't require a license server when running headless (in batch/command-line mode). Contact Azure support if you're not sure how to proceed with this option.
+* A custom image from the Shared Image Gallery:
+  * Using this option, you can configure your VM with the exact applications and specific versions that you require. For more information, see [Create a pool with the Shared Image Gallery](batch-sig-images.md). Autodesk and Chaos Group have modified Arnold and V-Ray, respectively, to validate against an Azure Batch licensing service. Make sure you have the versions of these applications with this support, otherwise the pay-per-use licensing won't work. Current versions of Maya or 3ds Max don't require a license server when running headless (in batch/command-line mode). Contact Azure support if you're not sure how to proceed with this option.
 * [Application packages](https://docs.microsoft.com/azure/batch/batch-application-packages):
   * Package the application files using one or more ZIP files, upload via the Azure portal, and specify the package in pool configuration. When pool VMs are created, the ZIP files are downloaded and the files extracted.
 * Resource files:

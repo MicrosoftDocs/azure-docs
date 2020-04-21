@@ -1,12 +1,12 @@
 ---
 author: mdgattuso
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
-ms.date: 04/29/2019	
+ms.date: 04/29/2019    
 ms.author: magattus
 ---
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Azure Content Delivery Network profiles |25 |
 | Content Delivery Network endpoints per profile |25 |

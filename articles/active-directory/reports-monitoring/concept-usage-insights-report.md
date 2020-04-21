@@ -1,5 +1,5 @@
 ---
-title: Usage and insights report in the Azure Active Directory portal | Microsoft Docs
+title: Usage and insights report | Microsoft Docs
 description: Introduction to usage and insights report in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''

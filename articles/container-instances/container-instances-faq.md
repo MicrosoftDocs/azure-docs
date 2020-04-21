@@ -1,14 +1,9 @@
 ---
-title: Azure Container Instances - frequently asked questions
+title: Frequently asked questions
 description: Answers for frequently asked questions related to the Azure Container Instances service 
-services: container-instances
 author: dkkapur
-manager: jeconnoc
-
-ms.service: container-instances
 ms.topic: article
-ms.date: 4/25/2019
-ms.author: dekapur
+ms.date: 04/10/2020
 ---
 
 # Frequently asked questions about Azure Container Instances
@@ -43,9 +38,9 @@ See more [detailed guidance](container-instances-troubleshooting.md#container-ta
 
 #### Windows Server 2019 and client base images (preview)
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`, `10.0.17763.x`
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`, `10.0.17763.x`
-* [Windows](https://hub.docker.com/_/microsoft-windows): `1809`, `10.0.17763.x` 
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`, `10.0.17763.914` or earlier
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`, `10.0.17763.914` or earlier
+* [Windows](https://hub.docker.com/_/microsoft-windows): `1809`, `10.0.17763.914` or earlier
 
 ### What .NET or .NET Core image layer should I use in my container? 
 
@@ -83,7 +78,7 @@ Currently, scaling is not available for containers or container groups. If you n
 
 ### What features are available to instances running in a custom VNet?
 
-You can deploy container groups in an Azure virtual network of your choice, and delegate private IPs to the container groups to route traffic within the VNet across your Azure resources. Deployment of a container group into a virtual network is currently in preview, and some aspects of this feature may change prior to general availability (GA). See [Preview limitations](container-instances-vnet.md#preview-limitations) for updated information.
+You can [deploy container groups in an Azure virtual network](container-instances-vnet.md) of your choice, and delegate private IPs to the container groups to route traffic within the VNet across your Azure resources. Deployment of a container group into a virtual network is currently available for production workloads in a subset of Azure regions.
 
 ## Pricing
 

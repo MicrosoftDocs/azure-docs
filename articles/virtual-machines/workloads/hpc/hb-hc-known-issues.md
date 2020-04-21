@@ -4,7 +4,7 @@ description: Learn about known issues with HB-series VM sizes in Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -27,13 +27,13 @@ HB-series VMs can only expose 228 GB of RAM to guest VMs at this time. This is d
 
 Azure Accelerated Networking is not enabled at this time, but will as we progress through the Preview period. We will notify customers when this feature is supported.
 
+## qp0 Access Restriction
+
+To prevent low-level hardware access that can result in security vulnerabilities, Queue Pair 0 is not accessible to guest VMs. This should only affect actions typically associated with administration of the ConnectX-5 NIC, and running some InfiniBand diagnostics like ibdiagnet, but not end-user applications themselves.
+
 ## UD Transport
 
-At launch, HB-series does not support Dynamically Connected Transport (DCT). Support for DCT will be implemented over time. Reliable Connection (RC) and Unreliable Datagram (UD) transports are supported.
-
-## Azure Batch
-
-While HB-series VMs are in preview, use a Batch account in User Subscription mode not in Service mode.
+At launch, the HB- and HC-series do not support Dynamically Connected Transport (DCT). Support for DCT will be implemented over time. Reliable Connection (RC) and Unreliable Datagram (UD) transports are supported.
 
 ## GSS Proxy
 

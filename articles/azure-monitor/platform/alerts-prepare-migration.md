@@ -1,11 +1,10 @@
 ---
-title: "Prepare for Azure Monitor classic alerts migration by updating your logic apps and runbooks"
+title: Update logic apps & runbooks for alerts migration
 description: Learn how to modify your webhooks, logic apps, and runbooks to prepare for voluntary migration.
-author: snehithm
-ms.service: azure-monitor
+author: yanivlavi
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: snmuvva
 ms.subservice: alerts
 ---
 # Prepare your logic apps and runbooks for migration of classic alert rules
@@ -46,7 +45,7 @@ Use the following table to map the webhook payload fields from the classic forma
 | Description of the alert rule | **context.description** | **data.context.description** |
 | Alert rule condition | **context.condition** | **data.context.condition** |
 | Metric name | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
-| Time aggregation (how the metric is aggregated over the evaluation window)| **data.context.condition.timeAggregation** | **data.context.condition.timeAggregation** |
+| Time aggregation (how the metric is aggregated over the evaluation window)| **context.condition.timeAggregation** | **context.condition.timeAggregation** |
 | Evaluation period | **context.condition.windowSize** | **data.context.condition.windowSize** |
 | Operator (how the aggregated metric value is compared against the threshold) | **context.condition.operator** | **data.context.condition.operator** |
 | Threshold | **context.condition.threshold** | **data.context.condition.allOf[0].threshold** |

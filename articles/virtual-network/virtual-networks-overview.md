@@ -22,7 +22,7 @@ Azure Virtual Network (VNet) is the fundamental building block for your private 
 ## VNet concepts
 
 - **Address space:** When creating a VNet, you must specify a custom private IP address space using public and private (RFC 1918) addresses. Azure assigns resources in a virtual network a private IP address from the address space that you assign. For example, if you deploy a VM in a VNet with address space, 10.0.0.0/16, the VM will be assigned a private IP like 10.0.0.4.
-- **Subnets:** Subnets enable you to segment the virtual network into one or more sub-networks and allocate a portion of the virtual network's address space to each subnet. You can then deploy Azure resources in a specific subnet. Just like in a traditional network, subnets allow you to segment your VNet address space into segments that are appropriate for the organization's internal network. This also improves address allocation efficiency. You can secure resources within subnets using Network Security Groups. For more information, see [Security groups](/security-overview.md).
+- **Subnets:** Subnets enable you to segment the virtual network into one or more sub-networks and allocate a portion of the virtual network's address space to each subnet. You can then deploy Azure resources in a specific subnet. Just like in a traditional network, subnets allow you to segment your VNet address space into segments that are appropriate for the organization's internal network. This also improves address allocation efficiency. You can secure resources within subnets using Network Security Groups. For more information, see [Security groups](security-overview.md).
 - **Regions**: VNet is scoped to a single region/location; however, multiple virtual networks from different regions can be connected together using Virtual Network Peering.
 - **Subscription:** VNet is scoped to a subscription. You can implement multiple virtual networks within each Azure [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) and Azure [region](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region).
 
@@ -33,7 +33,7 @@ As you build your network in Azure, it is important to keep in mind the followin
 - Ensure non-overlapping address spaces. Make sure your VNet address space (CIDR block) does not overlap with your organization's other network ranges.
 - Your subnets should not cover the entire address space of the VNet. Plan ahead and reserve some address space for the future.
 - It is recommended you have fewer large VNets than multiple small VNets. This will prevent management overhead.
-- Secure your VNet using Network Security Groups (NSGs).
+- Secure your VNet's by assigning Network Security Groups (NSGs) to the subnets beneath them.
 
 ## Communicate with the internet
 
@@ -72,9 +72,18 @@ Azure routes traffic between subnets, connected virtual networks, on-premises ne
 - **Route tables:** You can create custom route tables with routes that control where traffic is routed to for each subnet. Learn more about [route tables](virtual-networks-udr-overview.md#user-defined).
 - **Border gateway protocol (BGP) routes:** If you connect your virtual network to your on-premises network using an Azure VPN Gateway or ExpressRoute connection, you can propagate your on-premises BGP routes to your virtual networks. Learn more about using BGP with [Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange).
 
+## Virtual network integration for Azure services
+
+Integrating Azure services to an Azure virtual network enables private access to the service from virtual machines or compute resources in the virtual network.
+You can integrate Azure services in your virtual network with the following options:
+- Deploying [dedicated instances of the service](virtual-network-for-azure-services.md) into a virtual network. The services can then be privately accessed within the virtual network and from on-premises networks.
+- Using [Private Link](../private-link/private-link-overview.md) to access privately a specific instance of the service from your virtual network and from on-premises networks.
+- You can also access the service using public endpoints by extending a virtual network to the service, through [service endpoints](virtual-network-service-endpoints-overview.md). Service endpoints allow service resources to be secured to the virtual network.
+ 
+
 ## Azure VNet limits
 
-There are certain limits around the number of Azure resources you can deploy. Most Azure networking limits are at the maximum values. However, you can [increase certain networking limits](../azure-supportability/networking-quota-requests.md) as specified on the [VNet limits page](../azure-subscription-service-limits.md#networking-limits). 
+There are certain limits around the number of Azure resources you can deploy. Most Azure networking limits are at the maximum values. However, you can [increase certain networking limits](../azure-portal/supportability/networking-quota-requests.md) as specified on the [VNet limits page](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits). 
 
 ## Pricing
 

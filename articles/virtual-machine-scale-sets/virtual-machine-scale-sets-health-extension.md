@@ -1,21 +1,12 @@
 ---
-title: Use Application Health extension with Azure virtual machine scale sets | Microsoft Docs
+title: Use Application Health extension with Azure virtual machine scale sets
 description: Learn how to use the Application Health extension to monitor the health of your applications deployed on virtual machine scale sets.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: mayanknayar
-manager: drewm
-editor: ''
+author: mimckitt
 tags: azure-resource-manager
-
-ms.assetid:
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: manayar
+ms.author: mimckitt
 
 ---
 # Using Application Health extension with virtual machine scale sets
@@ -145,16 +136,25 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 
 Use [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) to add the Application Health extension to the scale set model definition.
 
-The following example adds the Application Health extension to the scale set model of a Windows-based scale set.
+The following example adds the Application Health extension to the scale set model of a Linux-based scale set.
 
 ```azurecli-interactive
 az vmss extension set \
-  --name ApplicationHealthWindows \
+  --name ApplicationHealthLinux \
   --publisher Microsoft.ManagedServices \
   --version 1.0 \
   --resource-group <myVMScaleSetResourceGroup> \
   --vmss-name <myVMScaleSet> \
   --settings ./extension.json
+```
+The extension.json file content.
+
+```json
+{
+  "protocol": "<protocol>",
+  "port": "<port>",
+  "requestPath": "</requestPath>"
+}
 ```
 
 

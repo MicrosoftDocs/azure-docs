@@ -1,13 +1,10 @@
 ---
-title: Connect to Dropbox - Azure Logic Apps
-description: Upload and manage files with Dropbox REST APIs and Azure Logic Apps
+title: Connect to Dropbox
+description: Automate tasks and workflows that upload and manage files in Dropbox by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.topic: article
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
 ms.date: 03/01/2019
 tags: connectors
 ---
@@ -26,7 +23,7 @@ Dropbox **Get file content using path** action.
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * A [Dropbox account](https://www.dropbox.com/), 
 which you can sign up for free. Your account credentials 
@@ -88,13 +85,8 @@ create a new file in Dropbox.
 ## Connector reference
 
 For technical details, such as triggers, actions, and limits, 
-as described by the connector's OpenAPI (formerly Swagger) file, 
+as described by the connector's Swagger file, 
 see the [connector's reference page](/connectors/dropbox/).
-
-## Get support
-
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

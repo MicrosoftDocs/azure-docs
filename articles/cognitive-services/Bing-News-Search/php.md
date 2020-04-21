@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Perform a news search with PHP and the Bing News Search REST API"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing News Search REST API using PHP, and receive a JSON response.
 services: cognitive-services
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/18/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -35,6 +35,7 @@ The [Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices
 2. Create a new PHP project in your favorite IDE or editor.
 3. Add the code provided below.
 4. Replace the `accessKey` value with an access key valid for your subscription.
+5. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 5. Run the program.
 
 ```php

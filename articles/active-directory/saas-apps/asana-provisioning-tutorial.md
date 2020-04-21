@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Asana for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: User provisioning for Asana - Azure AD'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Asana.
 services: active-directory
 documentationcenter: ''
@@ -86,7 +86,7 @@ This section guides you through connecting your Azure AD to Asana user account p
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Asana**.
 
-1. In the **Attribute Mappings** section, review the user attributes to be synchronized from Azure AD to Asana. The attributes selected as **Matching** properties are used to match the user accounts in Asana for update operations. Select **Save** to commit any changes. For more information, see [Customize user provision attribute mappings](../manage-apps/customize-application-attributes.md).
+1. In the **Attribute Mappings** section, review the user attributes to be synchronized from Azure AD to Asana. The attributes selected as **Matching** properties are used to match the user accounts in Asana for update operations. Select **Save** to commit any changes. For more information, see [Customize user provision attribute mappings](../app-provisioning/customize-application-attributes.md).
 
 1. To enable the Azure AD provisioning service for Asana, in the **Settings** section, change **Provisioning Status** to **On**.
 
@@ -94,10 +94,10 @@ This section guides you through connecting your Azure AD to Asana user account p
 
 Now the initial synchronization starts for any users assigned to Asana in the **Users** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. Use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs. The audit logs describe all actions performed by the provisioning service on your Asana app.
 
-For more information on how to read the Azure AD provisioning logs, see [Report on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+For more information on how to read the Azure AD provisioning logs, see [Report on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
-* [Manage user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Manage user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Configure single sign-on](asana-tutorial.md)

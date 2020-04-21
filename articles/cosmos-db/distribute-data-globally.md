@@ -5,11 +5,11 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ---
 # Global data distribution with Azure Cosmos DB - overview
 
-Today’s applications are required to be highly responsive and always online. To achieve low latency and high availability, instances of these applications need to be deployed in datacenters that are close to their users. These applications are typically deployed in multiple datacenters and are called globally distributed. Globally distributed applications need a globally distributed database that can transparently replicate the data anywhere in the world to enable the applications to operate on a copy of the data that's close to its users. 
+Today's applications are required to be highly responsive and always online. To achieve low latency and high availability, instances of these applications need to be deployed in datacenters that are close to their users. These applications are typically deployed in multiple datacenters and are called globally distributed. Globally distributed applications need a globally distributed database that can transparently replicate the data anywhere in the world to enable the applications to operate on a copy of the data that's close to its users. 
 
 Azure Cosmos DB is a globally distributed database service that's designed to provide low latency, elastic scalability of throughput, well-defined semantics for data consistency, and high availability. In short, if your application needs guaranteed fast response time anywhere in the world, if it's required to be always online, and needs unlimited and elastic scalability of throughput and storage, you should build your application on Azure Cosmos DB.
 
@@ -35,7 +35,7 @@ By using the Azure Cosmos DB multi-homing APIs, your application is aware of the
 
 **Maintain business continuity during regional outages.** Azure Cosmos DB supports [automatic failover](how-to-manage-database-account.md#automatic-failover) during a regional outage. During a regional outage, Azure Cosmos DB continues to maintain its latency, availability, consistency, and throughput SLAs. To help make sure that your entire application is highly available, Cosmos DB offers a manual failover API to simulate a regional outage. By using this API, you can carry out regular business continuity drills.
 
-**Scale read and write throughput globally.** You can enable every region to be writable and elastically scale reads and writes all around the world. The throughput that your application configures on an Azure Cosmos database or a container is guaranteed to be delivered across all regions associated with your Azure Cosmos account. The provisioned throughput is guaranteed up by [financially backed SLAs](https://aka.ms/acdbsla).
+**Scale read and write throughput globally.** You can enable every region to be writable and elastically scale reads and writes all around the world. The throughput that your application configures on an Azure Cosmos database or a container is guaranteed to be delivered across all regions associated with your Azure Cosmos account. The provisioned throughput is guaranteed up by [financially backed SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/).
 
 **Choose from several well-defined consistency models.** The Azure Cosmos DB replication protocol offers five well-defined, practical, and intuitive consistency models. Each model has a tradeoff between consistency and performance. Use these consistency models to build globally distributed applications with ease.
 
@@ -48,3 +48,8 @@ Read more about global distribution in the following articles:
 * [Configure clients for multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Create a custom conflict resolution policy for SQL API accounts](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
+* [Programmable consistency models in Cosmos DB](consistency-levels.md)
+* [Choose the right consistency level for your application](consistency-levels-choosing.md)
+* [Consistency levels across Azure Cosmos DB APIs](consistency-levels-across-apis.md)
+* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
+

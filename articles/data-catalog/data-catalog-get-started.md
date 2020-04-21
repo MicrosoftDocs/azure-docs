@@ -1,11 +1,11 @@
 ---
 title: Create an Azure Data Catalog
-description: A quickstart on how to create an Azure Data Catalog.
+description: This quickstart describes how to create an Azure Data Catalog using the Azure portal. 
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 08/01/2019
 
 # Customer intent: As a user, I want to access my company's data all in one place so I can easily build reports or presentations from it.
 ---
@@ -33,7 +33,7 @@ You can provision only one data catalog per organization (Azure Active Directory
 
 1. Go to the [Azure portal](https://portal.azure.com) > **Create a resource** and select **Data Catalog**.
 
-    ![Create Data Catalog](media/data-catalog-get-started/data-catalog-create.png)
+    ![Azure Data Catalog create button](media/data-catalog-get-started/data-catalog-create.png)
 
 2. Specify a **name** for the data catalog, the **subscription** you want to use, the **location** for the catalog, and the **pricing tier**. Then select **Create**.
 

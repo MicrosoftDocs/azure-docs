@@ -1,22 +1,17 @@
 ---
-title: Create an application gateway with HTTP to HTTPS redirection - Azure PowerShell | Microsoft Docs
+title: HTTP to HTTPS redirection using PowerShell - Azure Application Gateway
 description: Learn how to create an application gateway with redirected traffic from HTTP to HTTPS using Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
-
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 11/14/2019
 ms.author: victorh
-
 ---
+
 # Create an application gateway with HTTP to HTTPS redirection using Azure PowerShell
 
-You can use the Azure PowerShell to create an [application gateway](overview.md) with a certificate for SSL termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for the backend pool of the application gateway that contains two virtual machine instances. 
+You can use the Azure PowerShell to create an [application gateway](overview.md) with a certificate for TLS/SSL termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for the backend pool of the application gateway that contains two virtual machine instances. 
 
 In this article, you learn how to:
 
@@ -283,7 +278,7 @@ Set-AzVmssStorageProfile $vmssConfig `
   -ImageReferencePublisher MicrosoftWindowsServer `
   -ImageReferenceOffer WindowsServer `
   -ImageReferenceSku 2016-Datacenter `
-  -ImageReferenceVersion latest
+  -ImageReferenceVersion latest `
   -OsDiskCreateOption FromImage
 Set-AzVmssOsProfile $vmssConfig `
   -AdminUsername azureuser `

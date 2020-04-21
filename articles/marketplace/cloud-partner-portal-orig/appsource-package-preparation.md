@@ -1,13 +1,12 @@
 ---
 title: AppSource Package Preparation | Azure Marketplace
 description: Explanaion in how to prepare and build AppSource packages .
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: pbutlerm
-manager: Ricardo.Villalobos  
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # AppSource Package Preparation

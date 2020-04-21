@@ -1,6 +1,6 @@
 ---
 title: Reacting to Azure Media Services events | Microsoft Docs
-description: Use Azure Event Grid to subscribe to Media Services events. 
+description: This article describes how to use Azure Event Grid to subscribe to Media Services events. 
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 08/08/2019
 ms.author: juliako
 ---
  
@@ -35,6 +35,10 @@ Applications that handle Media Services events should follow a few recommended p
 * Ignore fields you don’t understand.  This practice will help keep you resilient to new features that might be added in the future.
 * Use the "subject" prefix and suffix matches to limit events to a particular event.
 
+> [!NOTE]
+> Events are subject to the Event Grid [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/). If you want to get event notifications using APIs, see examples on how to consume events, with [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet) or [Java SDK](https://github.com/Azure-Samples/media-services-v3-java).
+
 ## Next steps
 
-[Get job state events](job-state-events-cli-how-to.md)
+* [Monitor events - portal](monitor-events-portal-how-to.md)
+* [Monitor events - CLI](job-state-events-cli-how-to.md)

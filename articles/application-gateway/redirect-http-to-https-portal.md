@@ -1,17 +1,17 @@
 ---
-title: Create an application gateway with HTTP to HTTPS redirection using the Azure portal
+title: HTTP to HTTPS redirection in portal - Azure Application Gateway
 description: Learn how to create an application gateway with redirected traffic from HTTP to HTTPS using the Azure portal.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 12/7/2018
+ms.date: 11/13/2019
 ms.author: victorh
 
 ---
 # Create an application gateway with HTTP to HTTPS redirection using the Azure portal
 
-You can use the Azure portal to create an [application gateway](overview.md) with a certificate for SSL termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for the backend pool of the application gateway that contains two virtual machine instances.
+You can use the Azure portal to create an [application gateway](overview.md) with a certificate for TLS termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for the backend pool of the application gateway that contains two virtual machine instances.
 
 In this article, you learn how to:
 
@@ -78,7 +78,7 @@ A virtual network is needed for communication between the resources that you cre
    - *myVNet* - for the name of the virtual network.
    - *10.0.0.0/16* - for the virtual network address space.
    - *myAGSubnet* - for the subnet name.
-   - *10.0.1.0/24* - for the subnet address space.
+   - *10.0.0.0/24* - for the subnet address space.
 
      ![Create virtual network](./media/create-url-route-portal/application-gateway-vnet.png)
 
@@ -114,15 +114,15 @@ First, add the listener named *myListener* for port 80.
 
 ### Add a routing rule with a redirection configuration
 
-1. On **myAppGateway**, select **Rules** and then select **+Basic**.
-2. For the **Name**, type *Rule2*.
+1. On **myAppGateway**, select **Rules** and then select **+Request routing rule**.
+2. For the **Rule name**, type *Rule2*.
 3. Ensure **MyListener** is selected for the listener.
-4. Select the **Configure redirection** check box.
+4. Click on **Backend targets** tab and select **Target type** as *Redirection*.
 5. For **Redirection type**, select **Permanent**.
 6. For **Redirection target**, select **Listener**.
 7. Ensure the **Target listener** is set to **appGatewayHttpListener**.
-8. Select the **Include query string** and **Include path** check boxes.
-9. Select **OK**.
+8. For the **Include query string** and **Include path** select *Yes*.
+9. Select **Add**.
 
 ## Create a virtual machine scale set
 

@@ -1,13 +1,13 @@
 ---
 title: Send ink data to the Ink Recognizer API 
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn about calling the Ink Analyzer API for different applications
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ---
@@ -77,7 +77,7 @@ Having the recognition results in advance gives you information about the charac
 
 ## Integrate the Ink Recognizer API with Windows Ink
 
-[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) provides tools and technologies to enable digital inking experiences on a diverse range of devices. You can combine the Windows Ink platform with the Ink Recognition API to create applications that display and interpret digital ink strokes.
+[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) provides tools and technologies to enable digital inking experiences on a diverse range of devices. You can combine the Windows Ink platform with the Ink Recognizer API to create applications that display and interpret digital ink strokes.
 
 ## Next steps
 

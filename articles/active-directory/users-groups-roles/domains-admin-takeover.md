@@ -1,17 +1,15 @@
 ---
-title: Administrator takeover of an unmanaged directory - Azure Active Directory | Microsoft Docs
-description: How to take over a DNS domain name in an unmanaged directory (shadow tenant) in Azure Active Directory. 
+title: Admin takeover of an unmanaged directory - Azure AD | Microsoft Docs
+description: How to take over a DNS domain name in an unmanaged Azure AD organization (shadow tenant). 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
-
+manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 03/18/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -20,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # Take over an unmanaged directory as administrator in Azure Active Directory
 
-This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" sign-up for a service, see [What is self-service signup for Azure Active Directory?](directory-self-service-signup.md)
+This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" sign-up for a service, see [What is self-service sign-up for Azure Active Directory?](directory-self-service-signup.md)
 
 ## Decide how you want to take over an unmanaged directory
 During the process of admin takeover, you can prove ownership as described in [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md). The next sections explain the admin experience in more detail, but here's a summary:
@@ -39,7 +37,7 @@ Some products that include SharePoint and OneDrive, such as Office 365, do not s
 
 3. In the confirmation email from Power BI, select **Yes, that's me**.
 
-4. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com) with the Power BI user account. You receive a message that instructs you to **Become the Admin** of the domain name that was already verified in the unmanaged tenant. select **Yes, I want to be the admin**.
+4. Sign in to the [Microsoft 365 admin center](https://portal.office.com/admintakeover) with the Power BI user account. You receive a message that instructs you to **Become the Admin** of the domain name that was already verified in the unmanaged tenant. select **Yes, I want to be the admin**.
   
    ![first screenshot for Become the Admin](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -84,39 +82,33 @@ When you verify ownership of the domain name, Azure AD removes the domain name f
 ### Support for external admin takeover
 External admin takeover is supported by the following online services:
 
-- Power BI
 - Azure Rights Management
 - Exchange Online
 
 The supported service plans include:
 
-- Power BI Free
-- Power BI Pro
 - PowerApps Free
 - PowerFlow Free
 - RMS for individuals
 - Microsoft Stream
 - Dynamics 365 free trial
 
-External admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business; for example, through an Office free subscription or the Office Basic SKU. You can optionally use the [**ForceTakeover** option](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) for removing the domain name from the unmanaged tenant and verifying it on the desired tenant. This ForceTakeover option will not move over users, or retain access to the subscription. Instead, this option only moves the domain name. 
+External admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business; for example, through an Office free subscription. 
+
+You can optionally use the [**ForceTakeover** option](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) for removing the domain name from the unmanaged tenant and verifying it on the desired tenant. 
 
 #### More information about RMS for individuals
 
-For [RMS for individuals](/azure/information-protection/rms-for-individuals), when the unmanaged tenant is in the same region as the tenant that you own, the automatically created [Azure Information Protection tenant key](/azure/information-protection/plan-implement-tenant-key) and [default protection templates](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) are additionally moved over with the domain name. 
+For [RMS for individuals](/azure/information-protection/rms-for-individuals), when the unmanaged tenant is in the same region as the tenant that you own, the automatically created [Azure Information Protection tenant key](/azure/information-protection/plan-implement-tenant-key) and [default protection templates](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) are additionally moved over with the domain name.
 
-The key and templates are not moved over when the unmanaged tenant is in a different region. For example, the unmanaged tenant is in Europe and the tenant you own is in North American. 
+The key and templates are not moved over when the unmanaged tenant is in a different region. For example, if the unmanaged tenant is in Europe and the organization that you own is in North America.
 
-Although RMS for individuals is designed to support Azure AD authentication to open protected content, it doesn't prevent users from also protecting content. If users did protect content with the RMS for individuals subscription, and the key and templates were not moved over, that content will not be accessible after the domain takeover.
-
-#### More information about Power BI
-
-When you perform an external takeover, Power BI content that was created before the takeover is placed in a [Power BI Archived Workspace](/power-bi/service-admin-power-bi-archived-workspace). You must manually migrate any content that you want to use in the new tenant.
+Although RMS for individuals is designed to support Azure AD authentication to open protected content, it doesn't prevent users from also protecting content. If users did protect content with the RMS for individuals subscription, and the key and templates were not moved over, that content is not accessible after the domain takeover.
 
 ### Azure AD PowerShell cmdlets for the ForceTakeover option
 You can see these cmdlets used in [PowerShell example](#powershell-example).
 
-
-cmdlet | Usage 
+cmdlet | Usage
 ------- | -------
 `connect-msolservice` | When prompted, sign in to your managed tenant.
 `get-msoldomain` | Shows your domain names associated with the current tenant.
@@ -126,44 +118,47 @@ cmdlet | Usage
 `confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>If your domain name is still not verified, you can proceed with the **-ForceTakeover** option. It verifies that the TXT record was created and kicks off the takeover process.<li>The **-ForceTakeover** option should be added to the cmdlet only when forcing an external admin takeover, such as when the unmanaged tenant has Office 365 services blocking the takeover.
 `get-msoldomain` | The domain list now shows the domain name as **Verified**.
 
+> [!NOTE]
+> The unmanaged Azure AD organization is deleted 10 days after you exercise the external takeover force option.
+
 ### PowerShell example
 
 1. Connect to Azure AD using the credentials that were used to respond to the self-service offering:
    ```powershell
-    Install-Module -Name MSOnline
-    $msolcred = get-credential
+   Install-Module -Name MSOnline
+   $msolcred = get-credential
     
-    connect-msolservice -credential $msolcred
+   connect-msolservice -credential $msolcred
    ```
 2. Get a list of domains:
   
    ```powershell
-    Get-MsolDomain
+   Get-MsolDomain
    ```
 3. Run the Get-MsolDomainVerificationDns cmdlet to create a challenge:
    ```powershell
-    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
-  
+   Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
+   ```
     For example:
-  
-    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
+   ```
+   Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
 4. Copy the value (the challenge) that is returned from this command. For example:
    ```powershell
-    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
+   MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
 5. In your public DNS namespace, create a DNS txt record that contains the value that you copied in the previous step. The name for this record is the name of the parent domain, so if you create this resource record by using the DNS role from Windows Server, leave the Record name blank and just paste the value into the Text box.
 6. Run the Confirm-MsolDomain cmdlet to verify the challenge:
   
    ```powershell
-    Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
+   Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force
    ```
   
    For example:
   
    ```powershell
-    Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
+   Confirm-MsolDomain –DomainName contoso.com –ForceTakeover Force
    ```
 
 A successful challenge returns you to the prompt without an error.

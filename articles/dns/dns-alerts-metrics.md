@@ -1,20 +1,18 @@
 ---
-title: Azure DNS metrics and alerts | Microsoft Docs
-description: Learn about Azure DNS metrics and alerts.
+title: Metrics and alerts - Azure DNS
+description: With this learning path, get started with Azure DNS metrics and alerts.
 services: dns
 documentationcenter: na
-author: vhorne
-manager: jennoc
-editor: ''
+author: rohinkoul
+manager: kumudD
 
-ms.assetid: 
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
-ms.author: victorh
+ms.author: rohink
 ---
 
 # Azure DNS metrics and alerts

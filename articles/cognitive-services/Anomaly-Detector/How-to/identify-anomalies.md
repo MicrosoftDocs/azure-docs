@@ -1,13 +1,14 @@
 ---
 title: How to use the Anomaly Detector API on your time series data
+titleSuffix: Azure Cognitive Services
 description: Learn how to detect anomalies in your data either as a batch, or on streaming data.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
-ms.date: 03/26/2019
+ms.topic: conceptual
+ms.date: 10/01/2019
 ms.author: aahi
 ---
 
@@ -21,7 +22,7 @@ The Anomaly Detector API provides detection modes: batch and streaming.
 
 > [!NOTE]
 > The following request URLs must be combined with the appropriate endpoint for your subscription. For example:
-> `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
+> `https://<your-custom-subdomain>.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
 
 
 ### Batch detection

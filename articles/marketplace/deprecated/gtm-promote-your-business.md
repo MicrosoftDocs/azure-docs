@@ -1,21 +1,12 @@
 ---
 title: Go-To-Market Services - Promote your business with Microsoft | Azure
 description: Go-To-Market Services - Publishers can learn how to promote your business with Microsoft in this section.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-
 author: qianw211
-
-
-
-
 ms.service: marketplace
-
-
-
-ms.topic: article
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
 ms.date: 01/12/2019
-ms.author: ellacroi
-
+ms.author: dsindona
 ---
 
 # Promote your business with Microsoft
@@ -32,7 +23,7 @@ To promote your offer or app, and to access more benefits and resources, use the
 
 | Benefits | Resources |
 |:--- |:--- |
-| Use your Core Benefits | As part of the Microsoft Partner Network, you receive a set of core benefits that can help save time and money. The benefits can help you <ul> <li> strengthen your capabilities, </li> <li> better serve customers, and </li> <li> build connections to reach your full business potential. </li> </ul> For more information about core benefits, visit [Core Benefits and Requirements](https://partner.microsoft.com/en-US/membership/core-benefits#tab-content-1). |
+| Use your Core Benefits | As part of the Microsoft Partner Network, you receive a set of core benefits that can help save time and money. The benefits can help you <ul> <li> strengthen your capabilities, </li> <li> better serve customers, and </li> <li> build connections to reach your full business potential. </li> </ul> For more information about core benefits, visit [Core Benefits and Requirements](https://partner.microsoft.com/membership/core-benefits#tab-content-1). |
 | Earn your Cloud Platform Competency | Earning a competency helps you to <ul> <li> Differentiate yourself among other Microsoft partners. </li> <li> Demonstrate technical expertise and customer success in the market. </li> </ul> Competency is a prerequisite for many key partner programs, such as Co-Sell. See [Cloud Platform competency](https://partner.microsoft.com/reach-customers/selling-with-microsoft) for more information. |
 | Become IP Co-Sell Ready | You might be eligible for the IP Co-Sell Ready program.  This program allows you to: <ul> <li> Collaborate directly with Microsoft sellers and other partners on target customer opportunities and account planning. </li> <li> Making your solution visible to Microsoft sellers in the seller solution catalog. </li> <li> Microsoft sellers are rewarded for collaborating and winning with you. </li> </ul> See [the Co-Sell Ready program and Promote your business](https://partner.microsoft.com/reach-customers/selling-with-microsoft) for more information including eligibility requirements. |
 
@@ -40,6 +31,6 @@ To promote your offer or app, and to access more benefits and resources, use the
 
 To learn more about marketplace GTM services, go to [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
 
-Log in to the [Cloud Partner Portal](https://cloudpartner.azure.com) to create and configure your offer.
+[Log in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
 
 ---

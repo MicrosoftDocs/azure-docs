@@ -1,23 +1,16 @@
 ---
-title: StorSimple region availability | Microsoft Docs
+title: StorSimple region availability
 description: Explains the Azure regions in which the various StorSimple device models are available.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
 
 ---
 # Available regions for your StorSimple
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## Overview
 

@@ -1,5 +1,5 @@
 ---
-title: Creating Filters with Azure Media Services REST API | Microsoft Docs
+title: Creating filters with Azure Media Services v3 REST API
 description: This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achieve this selective streaming.
 services: media-services
 documentationcenter: ''
@@ -93,7 +93,7 @@ Select **Send**.
 
 The filter has been created.
 
-For more information, see [Create or update](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate). Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create_an_account_filter).
+For more information, see [Create or update](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate). Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
 
 ## Create asset filters  
 
@@ -111,7 +111,7 @@ Select **Send**.
 
 The asset filter has been created.
 
-For details on how to create or update asset filters, see [Create or update](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate). Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter). 
+For details on how to create or update asset filters, see [Create or update](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate). Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter). 
 
 ## Associate filters with Streaming Locator
 

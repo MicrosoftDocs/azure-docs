@@ -1,22 +1,23 @@
 ---
 title: Azure Event Grid security and authentication
-description: Describes Azure Event Grid and its concepts.
+description: This article describes different ways of authenticating access to your Event Grid resources (WebHook, subscriptions, custom topics)
 services: event-grid
 author: banisadr
 manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 03/06/2020
 ms.author: babanisa
 ---
-# Event Grid security and authentication 
+
+# Authenticating access to Event Grid resources
 
 Azure Event Grid has three types of authentication:
 
-* WebHook event delivery
-* Event subscriptions
-* Custom topic publishing
+- WebHook event delivery
+- Event subscriptions
+- Custom topic publishing
 
 ## WebHook Event delivery
 
@@ -24,52 +25,54 @@ Webhooks are one of the many ways to receive events from Azure Event Grid. When 
 
 Like many other services that support webhooks, Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint. This requirement prevents a malicious user from flooding your endpoint with events. When you use any of the three Azure services listed below, the Azure infrastructure automatically handles this validation:
 
-* Azure Logic Apps with [Event Grid Connector](https://docs.microsoft.com/connectors/azureeventgrid/)
-* Azure Automation via [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
-* Azure Functions with [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md)
+- Azure Logic Apps with [Event Grid Connector](https://docs.microsoft.com/connectors/azureeventgrid/)
+- Azure Automation via [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
+- Azure Functions with [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md)
 
 If you're using any other type of endpoint, such as an HTTP trigger based Azure function, your endpoint code needs to participate in a validation handshake with Event Grid. Event Grid supports two ways of validating the subscription.
 
-1. **ValidationCode handshake (programmatic)**: If you control the source code for your endpoint, this method is recommended. At the time of event subscription creation, Event Grid sends a subscription validation event to your endpoint. The schema of this event is similar to any other Event Grid event. The data portion of this event includes a `validationCode` property. Your application verifies that the validation request is for an expected event subscription, and echoes the validation code to Event Grid. This handshake mechanism is supported in all Event Grid versions.
+1. **Synchronous handshake**: At the time of event subscription creation, Event Grid sends a subscription validation event to your endpoint. The schema of this event is similar to any other Event Grid event. The data portion of this event includes a `validationCode` property. Your application verifies that the validation request is for an expected event subscription, and returns the validation code in the response synchronously. This handshake mechanism is supported in all Event Grid versions.
 
-2. **ValidationURL handshake (manual)**: In certain cases, you can't access the source code of the endpoint to implement the ValidationCode handshake. For example, if you use a third-party service (like [Zapier](https://zapier.com) or [IFTTT](https://ifttt.com/)), you can't programmatically respond with the validation code.
+2. **Asynchronous handshake**: In certain cases, you can't return the ValidationCode in response synchronously. For example, if you use a third-party service (like [`Zapier`](https://zapier.com) or [IFTTT](https://ifttt.com/)), you can't programmatically respond with the validation code.
 
-   Starting with version 2018-05-01-preview, Event Grid supports a manual validation handshake. If you're creating an event subscription with an SDK or tool that uses API version 2018-05-01-preview or later, Event Grid sends a `validationUrl` property in the data portion of the subscription validation event. To complete the handshake, find that URL in the event data and manually send a GET request to it. You can use either a REST client or your web browser.
+   Starting with version 2018-05-01-preview, Event Grid supports a manual validation handshake. If you're creating an event subscription with an SDK or tool that uses API version 2018-05-01-preview or later, Event Grid sends a `validationUrl` property in the data portion of the subscription validation event. To complete the handshake, find that URL in the event data and do a GET request to it. You can use either a REST client or your web browser.
 
-   The provided URL is valid for 5 minutes. During that time, the provisioning state of the event subscription is `AwaitingManualAction`. If you don't complete the manual validation within 5 minutes, the provisioning state is set to `Failed`. You'll have to create the event subscription again before starting the manual validation.
+   The provided URL is valid for **5 minutes**. During that time, the provisioning state of the event subscription is `AwaitingManualAction`. If you don't complete the manual validation within 5 minutes, the provisioning state is set to `Failed`. You'll have to create the event subscription again before starting the manual validation.
 
-    This authentication mechanism also requires the webhook endpoint to return an HTTP status code of 200 so that it knows that the POST for the validation event was accepted before it can be put in the manual validation mode. In other words, if the endpoint returns 200 but doesn’t return back a validation response programmatically, the mode is transitioned to the manual validation mode. If there is a GET on the validation URL within 5 minutes, the validation handshake is considered to be successful.
+   This authentication mechanism also requires the webhook endpoint to return an HTTP status code of 200 so that it knows that the POST for the validation event was accepted before it can be put in the manual validation mode. In other words, if the endpoint returns 200 but doesn't return back a validation response synchronously, the mode is transitioned to the manual validation mode. If there's a GET on the validation URL within 5 minutes, the validation handshake is considered to be successful.
 
 > [!NOTE]
 > Using self-signed certificates for validation isn't supported. Use a signed certificate from a certificate authority (CA) instead.
 
 ### Validation details
 
-* At the time of event subscription creation/update, Event Grid posts a subscription validation event to the target endpoint. 
-* The event contains a header value "aeg-event-type: SubscriptionValidation".
-* The event body has the same schema as other Event Grid events.
-* The eventType property of the event is `Microsoft.EventGrid.SubscriptionValidationEvent`.
-* The data property of the event includes a `validationCode` property with a randomly generated string. For example, "validationCode: acb13…".
-* The event data also includes a `validationUrl` property with a URL for manually validating the subscription.
-* The array contains only the validation event. Other events are sent in a separate request after you echo back the validation code.
-* The EventGrid DataPlane SDKs have classes corresponding to the subscription validation event data and subscription validation response.
+- At the time of event subscription creation/update, Event Grid posts a subscription validation event to the target endpoint.
+- The event contains a header value "aeg-event-type: SubscriptionValidation".
+- The event body has the same schema as other Event Grid events.
+- The eventType property of the event is `Microsoft.EventGrid.SubscriptionValidationEvent`.
+- The data property of the event includes a `validationCode` property with a randomly generated string. For example, "validationCode: acb13…".
+- The event data also includes a `validationUrl` property with a URL for manually validating the subscription.
+- The array contains only the validation event. Other events are sent in a separate request after you echo back the validation code.
+- The EventGrid DataPlane SDKs have classes corresponding to the subscription validation event data and subscription validation response.
 
 An example SubscriptionValidationEvent is shown in the following example:
 
 ```json
-[{
-  "id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
-  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "subject": "",
-  "data": {
-    "validationCode": "0000000000-0000-0000-0000-00000000000000",
-    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=0000000000-0000-0000-0000-0000000000000&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
-  },
-  "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
-  "eventTime": "2018-01-25T22:12:19.4556811Z",
-  "metadataVersion": "1",
-  "dataVersion": "1"
-}]
+[
+  {
+    "id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
+    "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "subject": "",
+    "data": {
+      "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
+      "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=512d38b6-c7b8-40c8-89fe-f46f9e9622b6&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
+    },
+    "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
+    "eventTime": "2018-01-25T22:12:19.4556811Z",
+    "metadataVersion": "1",
+    "dataVersion": "1"
+  }
+]
 ```
 
 To prove endpoint ownership, echo back the validation code in the validationResponse property, as shown in the following example:
@@ -80,22 +83,38 @@ To prove endpoint ownership, echo back the validation code in the validationResp
 }
 ```
 
-You must return an HTTP 200 OK response status code. HTTP 202 Accepted is not recognized as a valid Event Grid subscription validation response.
+You must return an HTTP 200 OK response status code. HTTP 202 Accepted is not recognized as a valid Event Grid subscription validation response. The http request must complete within 30 seconds. If the operation doesn't finish within 30 seconds, then the operation will be canceled and it may be reattempted after 5 seconds. If all the attempts fail, then it will be treated as validation handshake error.
 
-Or, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated.
+Or, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated. The validation Url uses port 553. If your firewall rules block port 553 then rules may need to be updated for successful manual handshake.
 
 For an example of handling the subscription validation handshake, see a [C# sample](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
-### Checklist
+## Troubleshooting EventSubsciption Validation
 
 During event subscription creation, if you're seeing an error message such as "The attempt to validate the provided endpoint https:\//your-endpoint-here failed. For more details, visit https:\//aka.ms/esvalidation", it indicates that there's a failure in the validation handshake. To resolve this error, verify the following aspects:
 
-* Do you have control of the application code in the target endpoint? For example, if you're writing an HTTP trigger based Azure Function, do you have access to the application code to make changes to it?
-* If you have access to the application code, implement the ValidationCode based handshake mechanism as shown in the sample above.
+- Do a HTTP POST to your webhook url with a [sample SubscriptionValidationEvent](#validation-details) request body using Postman or curl or similar tool.
+- If your webhook is implementing synchronous validation handshake mechanism, verify that the ValidationCode is returned as part of the response.
+- If your webhook is implementing asynchronous validation handshake mechanism, verify that you are the HTTP POST is returning 200 OK.
+- If your webhook is returning 403 (Forbidden) in the response, check if your webhook is behind an Azure Application Gateway or Web Application Firewall. If it is, then your need to disable these firewall rules and do a HTTP POST again:
 
-* If you don't have access to the application code (for example, if you're using a third-party service that supports webhooks), you can use the manual handshake mechanism. Make sure you're using the 2018-05-01-preview API version or later (install Event Grid Azure CLI extension) to receive the validationUrl in the validation event. To complete the manual validation handshake, get the value of the `validationUrl` property and visit that URL in your web browser. If validation is successful, you should see a message in your web browser that validation is successful. You'll see that event subscription's provisioningState is "Succeeded". 
+  920300 (Request Missing an Accept Header, we can fix this)
+
+  942430 (Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12))
+
+  920230 (Multiple URL Encoding Detected)
+
+  942130 (SQL Injection Attack: SQL Tautology Detected.)
+
+  931130 (Possible Remote File Inclusion (RFI) Attack = Off-Domain Reference/Link)
 
 ### Event delivery security
+
+#### Azure AD
+
+You can secure your webhook endpoint by using Azure Active Directory to authenticate and authorize Event Grid to publish events to your endpoints. You'll need to create an Azure Active Directory Application, create a role and service principle in your application authorizing Event Grid, and configure the event subscription to use the Azure AD Application. [Learn how to configure AAD with Event Grid](secure-webhook-delivery.md).
+
+#### Query parameters
 
 You can secure your webhook endpoint by adding query parameters to the webhook URL when creating an Event Subscription. Set one of these query parameters to be a secret such as an [access token](https://en.wikipedia.org/wiki/Access_token). The webhook can use the secret to recognize the event is coming from Event Grid with valid permissions. Event Grid will include these query parameters in every event delivery to the webhook.
 
@@ -127,7 +146,7 @@ For example, to subscribe to a custom topic named **mytopic**, you need the Micr
 
 ## Custom topic publishing
 
-Custom topics use either Shared Access Signature (SAS) or key authentication. We recommend SAS, but key authentication provides simple programming, and is compatible with many existing webhook publishers. 
+Custom topics use either Shared Access Signature (SAS) or key authentication. We recommend SAS, but key authentication provides simple programming, and is compatible with many existing webhook publishers.
 
 You include the authentication value in the HTTP header. For SAS, use **aeg-sas-token** for the header value. For key authentication, use **aeg-sas-key** for the header value.
 
@@ -145,7 +164,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 SAS tokens for Event Grid include the resource, an expiration time, and a signature. The format of the SAS token is: `r={resource}&e={expiration}&s={signature}`.
 
-The resource is the path for the event grid topic to which you're sending events. For example, a valid resource path is: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+The resource is the path for the event grid topic to which you're sending events. For example, a valid resource path is: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01`. To see all the supported API versions, see [Microsoft.EventGrid resource types](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions). 
 
 You generate the signature from a key.
 
@@ -180,169 +199,13 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 }
 ```
 
-## Management Access Control
+### Encryption at rest
 
-Azure Event Grid allows you to control the level of access given to different users to do various management operations such as list event subscriptions, create new ones, and generate keys. Event Grid uses Azure's role-based access control (RBAC).
+All events or data written to disk by the Event Grid service is encrypted by a Microsoft-managed key ensuring that it's encrypted at rest. Additionally, the maximum period of time that events or data retained is 24 hours in adherence with the [Event Grid retry policy](delivery-and-retry.md). Event Grid will automatically delete all events or data after 24 hours, or the event time-to-live, whichever is less.
 
-### Operation types
-
-Event Grid supports the following actions:
-
-* Microsoft.EventGrid/*/read
-* Microsoft.EventGrid/*/write
-* Microsoft.EventGrid/*/delete
-* Microsoft.EventGrid/eventSubscriptions/getFullUrl/action
-* Microsoft.EventGrid/topics/listKeys/action
-* Microsoft.EventGrid/topics/regenerateKey/action
-
-The last three operations return potentially secret information, which gets filtered out of normal read operations. It's recommended that you restrict access to these operations. 
-
-### Built-in roles
-
-Event Grid provides two built-in roles for managing event subscriptions. They are important when implementing [event domains](event-domains.md) because they give users the permissions they need to subscribe to topics in your event domain. These roles are focused on event subscriptions and don't grant access for actions such as creating topics.
-
-You can [assign these roles to a user or group](../role-based-access-control/quickstart-assign-role-user-portal.md).
-
-**EventGrid EventSubscription Contributor (Preview)**: manage Event Grid subscription operations
-
-```json
-[
-  {
-    "Description": "Lets you manage EventGrid event subscription operations.",
-    "IsBuiltIn": true,
-    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
-    "Name": "EventGrid EventSubscription Contributor (Preview)",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/*",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Resources/deployments/*",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Support/*"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": [],
-        "Condition": null
-      }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
-
-**EventGrid EventSubscription Reader (Preview)**: read Event Grid subscriptions
-
-```json
-[
-  {
-    "Description": "Lets you read EventGrid event subscriptions.",
-    "IsBuiltIn": true,
-    "Id": "2414bbcf64974faf8c65045460748405",
-    "Name": "EventGrid EventSubscription Reader (Preview)",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/read",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": []
-       }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
-
-### Custom roles
-
-If you need to specify permissions that are different than the built-in roles, you can create custom roles.
-
-The following are sample Event Grid role definitions that allow users to take different actions. These custom roles are different from the built-in roles because they grant broader access than just event subscriptions.
-
-**EventGridReadOnlyRole.json**: Only allow read-only operations.
-
-```json
-{
-  "Name": "Event grid read only role",
-  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
-  "IsCustom": true,
-  "Description": "Event grid read only role",
-  "Actions": [
-    "Microsoft.EventGrid/*/read"
-  ],
-  "NotActions": [
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription Id>"
-  ]
-}
-```
-
-**EventGridNoDeleteListKeysRole.json**: Allow restricted post actions but disallow delete actions.
-
-```json
-{
-  "Name": "Event grid No Delete Listkeys role",
-  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
-  "IsCustom": true,
-  "Description": "Event grid No Delete Listkeys role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action"
-  ],
-  "NotActions": [
-    "Microsoft.EventGrid/*/delete"
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
-}
-```
-
-**EventGridContributorRole.json**: Allows all event grid actions.
-
-```json
-{
-  "Name": "Event grid contributor role",
-  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
-  "IsCustom": true,
-  "Description": "Event grid contributor role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/*/delete",
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-  ],
-  "NotActions": [],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
-}
-```
-
-You can create custom roles with [PowerShell](../role-based-access-control/custom-roles-powershell.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md), and [REST](../role-based-access-control/custom-roles-rest.md).
+## Endpoint Validation with CloudEvents v1.0
+If you are already familiar with Event Grid, you may be aware of Event Grid's endpoint validation handshake for preventing abuse. CloudEvents v1.0 implements its own [abuse protection semantics](security-authentication.md#webhook-event-delivery) using the HTTP OPTIONS method. You can read more about it [here](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When using the CloudEvents schema for output, Event Grid uses with the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism.
 
 ## Next steps
 
-* For an introduction to Event Grid, see [About Event Grid](overview.md)
+- For an introduction to Event Grid, see [About Event Grid](overview.md)

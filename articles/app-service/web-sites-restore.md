@@ -1,20 +1,10 @@
 ---
-title: Restore app - Azure App Service
-description: Learn how to restore your app from a backup.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: jimbe
+title: Restore app from backup
+description: Learn how to restore your app from a backup. Certain linked databases can be restored along with the app in one operation.
 
 ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
 ms.custom: seodec18
 
 ---
@@ -29,7 +19,7 @@ your original app's backups. Azure App Service supports the following databases 
 - [MySQL in-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 Restoring from backups is available to apps running in **Standard** and **Premium** tier. For information about scaling
-up your app, see [Scale up an app in Azure](web-sites-scale.md). **Premium** tier allows a greater number of daily
+up your app, see [Scale up an app in Azure](manage-scale-up.md). **Premium** tier allows a greater number of daily
 backups to be performed than **Standard** tier.
 
 <a name="PreviousBackup"></a>

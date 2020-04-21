@@ -3,15 +3,12 @@ title: Intro to authentication in Azure Automation
 description: This article provides an overview of Automation security and the different authentication methods available for Automation Accounts in Azure Automation.
 keywords: automation security, secure automation; automation authentication
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
-manager: carmonm
 ROBOTS: NOINDEX
 ---
+
 # Introduction to authentication in Azure Automation  
 Azure Automation allows you to automate tasks against resources in Azure, on-premises, and with other cloud providers such as Amazon Web Services (AWS).  In order for a runbook to perform its required actions, it must have permissions to securely access the resources with the minimal rights required within the subscription.
 

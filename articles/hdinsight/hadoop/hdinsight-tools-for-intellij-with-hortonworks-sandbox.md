@@ -3,15 +3,14 @@ title: Use Azure Toolkit for IntelliJ with Hortonworks Sandbox
 description: Learn how to use HDInsight Tools in Azure Toolkit for IntelliJ with Hortonworks Sandbox.
 keywords: hadoop tools,hive query,intellij,hortonworks sandbox,azure toolkit for intellij
 author: hrasheed-msft
-ms.reviewer: jasonh
-
-ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/16/2018
 ms.author: hrasheed
-
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.custom: hdinsightactive
+ms.date: 05/16/2018
 ---
+
 # Use HDInsight Tools for IntelliJ with Hortonworks Sandbox
 
 Learn how to use HDInsight Tools for IntelliJ to develop Apache Scala applications, and then test the applications on [Hortonworks Sandbox](https://hortonworks.com/products/sandbox/) running on your computer. 
@@ -51,7 +50,7 @@ In this section, you create a sample Scala project by using IntelliJ IDEA. In th
       * **Maven**: For Scala project-creation wizard support.
       * **SBT**: For managing dependencies and building for the Scala project.
 
-   ![The New Project dialog box](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
+   ![Intellij create new scala project](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. Select **Next**.
 3. In the next **New Project** dialog box, complete the following steps:
@@ -154,4 +153,3 @@ To submit a project to an emulator:
 
 - Learn how to [Use HDInsight Tools in Azure Toolkit for Eclipse to create Apache Spark applications](../spark/apache-spark-eclipse-tool-plugin.md).
 
-- For a video about HDInsight Tools for Eclipse, see [Use HDInsight Tools for Eclipse to create Spark applications](https://mix.office.com/watch/1rau2mopb6fha).

@@ -1,20 +1,11 @@
 ---
 title: Get more out of Azure Application Insights | Microsoft Docs
 description: After getting started with Application Insights, here's a summary of the features you can explore.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: 7ec10a2d-c669-448d-8d45-b486ee32c8db
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/03/2017
-ms.author: mbullwin
 
 ---
+
 # More telemetry from Application Insights
 After you have [added Application Insights to your ASP.NET code](../../azure-monitor/app/asp-net.md), there are a few things you can do to get even more telemetry. 
 

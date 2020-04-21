@@ -1,15 +1,14 @@
 ---
-title: Speech SDK logging - Speech Services
+title: Speech SDK logging - Speech service
 titleSuffix: Azure Cognitive Services
-description: Enable logging in the Speech SDK.
+description: Learn about how to enable logging in the Speech SDK (C++, C#, Python, Objective-C, Java).
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 07/05/2019
 ms.author: amishu
 ---
 
@@ -115,4 +114,3 @@ More about iOS File System is available [here](https://developer.apple.com/libra
 
 > [!div class="nextstepaction"]
 > [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
-

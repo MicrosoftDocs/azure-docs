@@ -9,7 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 754b1f5b-6694-4fd6-9e1e-9fad769c64db
 ms.service: active-directory
-ms.workload: identity
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -119,7 +119,7 @@ To configure Azure AD single sign-on with Uberflip, take the following steps:
 
    ![The Federation Metadata XML download option](common/metadataxml.png)
 
-1. In the **Set up Uberflip** pane, copy the URL or URLS that you need:
+1. In the **Set up Uberflip** pane, copy the URL or URLs that you need:
 
    * **Login URL**
    * **Azure AD Identifier**

@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Check spelling with the Bing Spell Check REST API and Java"
-titlesuffix: Azure Cognitive Services
+title: "Quickstart: Check spelling with the REST API and Java - Bing Spell Check"
+titleSuffix: Azure Cognitive Services
 description: Get started using the Bing Spell Check REST API to check spelling and grammar.
 services: cognitive-services
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/11/2019
+ms.date: 12/16/2019
 ms.author: aahi
 ---
 
@@ -36,7 +36,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
     import javax.net.ssl.HttpsURLConnection;
     ```
 
-2. Create variables for the API endpoint's host, path, and your subscription key. Then create variables for your market, the text you want to spell check, and a string for the spell check mode.
+2. Create variables for the API endpoint's host, path, and your subscription key. Then create variables for your market, the text you want to spell check, and a string for the spell check mode. You can use the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```java
     static String host = "https://api.cognitive.microsoft.com";
@@ -97,6 +97,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(json);
     }
+    ```
 
 1. Create a `BufferedReader` and read the response from the API. Print it to the console.
     
@@ -105,7 +106,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 	new InputStreamReader(connection.getInputStream()));
 	String line;
 	while ((line = in.readLine()) != null) {
-		System.out.println(prettify(line);
+		System.out.println(prettify(line));
 	}
 	in.close();
     ```
@@ -113,17 +114,16 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 ## Call the API
 
 In the main function of your application, call your check() method created above.
-
-    ```java
-    public static void main(String[] args) {
-    	try {
-    		check();
+```java
+    	public static void main(String[] args) {
+    		try {
+    			check();
+    		}
+    		catch (Exception e) {
+    			System.out.println (e);
+    		}
     	}
-    	catch (Exception e) {
-    		System.out.println (e);
-    	}
-    }
-    ```
+```
 
 ## Run the application
 

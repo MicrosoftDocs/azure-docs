@@ -1,21 +1,12 @@
 ---
 title: Requirements by Listing Type | Azure
 description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to the Azure Marketplace.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-
-author: jm-aditi-ms
-manager: pabutler
-
-
-
+author: dsindona
 ms.service: marketplace
-
-
-
-ms.topic: article
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
 ms.date: 12/19/2018
-ms.author: ellacroi
-
+ms.author: dsindona
 ---
 
 # Requirements by Listing Type  
@@ -71,7 +62,7 @@ The List listing type includes the following Offer types on the storefronts in t
 | Requirements | Details |  
 |:--- |:--- |  
 | Service offer characteristics | Your consulting service must meet the following criteria.<ul> <li>Deliver a fixed-scope, fixed-duration, fixed-price (or free) engagement.</li> <li>Orient primarily for pre-sales.</li> <li>Limit to a single customer.</li> <li>Conduct on site.</li> </ul> |  
-| Partner requirements for Consulting Services | You meet the criteria in the relevant area for your service.<table><tr><th>Solution Area</th><th>Criteria</th></tr><tr><td>Dynamics 365 for Customer Engagement</td><td>Have Silver or Gold Cloud Customer Relationship Management competency.</td></tr><tr><td>Dynamics 365 for Finance and Operations, Enterprise edition</td><td>Have Silver or Gold Enterprise Resource Planning competency and revenue from your cloud operations in the trailing 12 months of $25,000 or more.</td></tr><tr><td>Dynamics 365 for Finance and Operations, Business edition</td><td>Serve as Cloud Services Provider (CSP) or Digital Partner of Record (DPOR) for one or more customers.</td></tr><tr><td>Power BI</td><td>Meet the Solution Partner criteria.</td></tr><tr><td>PowerApps</td><td>Have a Partner Showcase solution.</td></tr></table><ul> <li>For more information about customer relationship management, visit the Cloud Customer Relationship Management page located at [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>For more information about resource planning, visit the Enterprise Resource Planning page located at [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>For more information about CSP, visit the Cloud Services Provider page located at [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>For more information about DPOR, visit the Digital Partner of Record and Partner Association page located at [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>For more information about solution partner criteria, visit the Solution Partner Overview and Incentives document located at [www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf).</li> <li>For more information about partner showcase, visit the Partner Showcase page located at [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
+| Partner requirements for Consulting Services | You meet the criteria in the relevant area for your service.<table><tr><th>Solution Area</th><th>Criteria</th></tr><tr><td>Dynamics 365 for Customer Engagement</td><td>Have Silver or Gold Cloud Customer Relationship Management competency.</td></tr><tr><td>Dynamics 365 for Finance and Operations, Enterprise edition</td><td>Have Silver or Gold Enterprise Resource Planning competency and revenue from your cloud operations in the trailing 12 months of $25,000 or more.</td></tr><tr><td>Dynamics 365 for Finance and Operations, Business edition</td><td>Serve as Cloud Services Provider (CSP) or Digital Partner of Record (DPOR) for one or more customers.</td></tr><tr><td>Power BI</td><td>Meet the Solution Partner criteria.</td></tr><tr><td>PowerApps</td><td>Have a Partner Showcase solution.</td></tr></table><ul> <li>For more information about customer relationship management, visit the Cloud Customer Relationship Management page located at [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>For more information about resource planning, visit the Enterprise Resource Planning page located at [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>For more information about CSP, visit the Cloud Services Provider page located at [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>For more information about DPOR, visit the Digital Partner of Record and Partner Association page located at [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>For more information about solution partner criteria, visit the Solution Partner Overview and Incentives document located at [https://partner.microsoft.com/en-us/membership/partner-incentives](https://partner.microsoft.com/en-us/membership/partner-incentives).</li> <li>For more information about partner showcase, visit the Partner Showcase page located at [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
 
 #### Requirements: Azure Marketplace: List: Consulting service  
 

@@ -132,7 +132,7 @@ For information about availability in datacenters, see the [Availability](#avail
 
 ## Consuming content
 
-Azure Media Services provides the tools you need to create rich, dynamic client player applications for most platforms including: iOS Devices, Android Devices, Windows, Windows Phone, Xbox, and Set-top boxes. The following topic provides links to SDKs and Player Frameworks that you can use to develop your own client applications that can consume streaming media from Media Services. For more information, see [Developing video payer applications](media-services-develop-video-players.md)
+Azure Media Services provides the tools you need to create rich, dynamic client player applications for most platforms including: iOS Devices, Android Devices, Windows, Windows Phone, Xbox, and Set-top boxes. 
 
 ## Enabling Azure CDN
 
@@ -164,7 +164,7 @@ This section provides details about availability of Media Services features acro
 
 #### Availability
 
-To determine if Media Services is available in a datacenter, browse to https://azure.microsoft.com/status/ and scroll to the MEDIA table.
+Use [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all) to determine whether Media Services is available in a specific datacenter.
 
 ### Streaming endpoints 
 
@@ -198,6 +198,9 @@ AMS offers two on-demand encoders **Media Encoder Standard** and **Media Encoder
 
 Media Analytics is a collection of speech and vision components that makes it easier for organizations and enterprises to derive actionable insights from their video files. For more information, see [Azure Media Services Analytics Overview](media-services-analytics-overview.md).
 
+> [!NOTE]
+> Some analytics media processors will be retired. For the retirement dates, see the [legacy components](legacy-components.md) topic.
+
 #### Availability
 
 |Media processor name|Status|Datacenters
@@ -206,10 +209,8 @@ Media Analytics is a collection of speech and vision components that makes it ea
 |Azure Media Indexer|GA|All|
 |Azure Media Motion Detector|Preview|All|
 |Azure Media OCR|Preview|All|
-|Azure Media Redactor|Preview|All|
-|Azure Media Stabilizer|Preview|All|
+|Azure Media Redactor|GA|All|
 |Azure Media Video Thumbnails|Preview|All|
-|Azure Media Indexer 2|Preview|All except China and Federal Government region|
 
 ### Protection
 
@@ -248,6 +249,10 @@ For more information, see the [scaling](#scaling) section.
 |S1|GA|All|
 |S2|GA|All except Brazil South, and India West|
 |S3|GA|All except India West|
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Next steps
 

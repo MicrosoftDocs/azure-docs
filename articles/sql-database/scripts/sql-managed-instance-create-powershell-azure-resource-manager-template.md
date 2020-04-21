@@ -1,16 +1,15 @@
 ---
-title: PowerShell example - create a managed instance in Azure SQL Database | Microsoft Docs
-description: Azure PowerShell example script to create a managed instance in Azure SQL Database
+title: Template example - create a managed instance in Azure SQL Database 
+description: Use this Azure PowerShell example script to create a managed instance in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: 
+ms.custom: "seo-dt-2019"
 ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft
-ms.author: jovanpop-msft
+ms.author: jovanpop
 ms.reviewer: sstein
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Use PowerShell with Azure Resource Manager template to create a managed instance in Azure SQL Database
@@ -72,7 +71,7 @@ The following content should be placed in a file that represents a template that
                 "Description":"GP Instance with custom instance collation - Serbian_Cyrillic_100_CS_AS"
             },
             "sku": {
-                "name": "GP_Gen4",
+                "name": "GP_Gen5",
                 "tier": "GeneralPurpose"
             },
             "properties": {
@@ -82,7 +81,7 @@ The following content should be placed in a file that represents a template that
                 "storageSizeInGB": 256,
                 "vCores": 8,
                 "licenseType": "LicenseIncluded",
-                "hardwareFamily": "Gen4",
+                "hardwareFamily": "Gen5",
                 "collation": "Serbian_Cyrillic_100_CS_AS"
             },
             "type": "Microsoft.Sql/managedInstances",

@@ -1,24 +1,18 @@
 ---
-title: Move data from MongoDB using Data Factory | Microsoft Docs
+title: Move data from MongoDB
 description: Learn about how to move data from MongoDB database using Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-
-
-ms.assetid: 10ca7d9a-7715-4446-bf59-2d2876584550
+ms.author: jingwang
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 04/13/2018
-ms.author: jingwang
-
-robots: noindex
 ---
+
 # Move data From MongoDB using Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-on-premises-mongodb-connector.md)
 > * [Version 2 (current version)](../connector-mongodb.md)
@@ -47,7 +41,7 @@ You can create a pipeline with a copy activity that moves data from an on-premis
 
 The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
+You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
@@ -98,7 +92,7 @@ When the source is of type **MongoDbSource** the following properties are availa
 
 
 ## JSON example: Copy data from MongoDB to Azure Blob
-This example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). It shows how to copy data from an on-premises MongoDB to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
+This example provides sample JSON definitions that you can use to create a pipeline by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). It shows how to copy data from an on-premises MongoDB to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
 The sample has the following data factory entities:
 

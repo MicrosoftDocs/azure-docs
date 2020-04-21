@@ -1,5 +1,5 @@
 ---
-title: Configure your account for offline streaming of PlayReady protected content - Azure
+title: Configure offline PlayReady streaming with Azure Media Services v3
 description: This article shows how to configure your Azure Media Services account for streaming PlayReady for Windows 10 offline.
 services: media-services
 keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android
@@ -18,7 +18,7 @@ ms.author: willzhan
 
 ---
 
-# Offline PlayReady Streaming for Windows 10
+# Offline PlayReady Streaming for Windows 10 with Media Services v3
 
 Azure Media Services support offline download/playback with DRM protection. This article covers offline support of Azure Media Services for Windows 10/PlayReady clients. You can read about the offline mode support for iOS/FairPlay and Android/Widevine devices in the following articles:
 
@@ -41,7 +41,7 @@ The challenge we face in implementing offline mode is the following:
 * MP4 is supported by many players, encoder tools, but there is no binding between MP4 container and DRM;
 * In the long term, CFF with CENC is the way to go. However, today, the tools/player support ecosystem is not there yet. We need a solution, today.
  
-The idea is: smooth streaming ([PIFF](https://go.microsoft.com/?linkid=9682897)) file format with H264/AAC has a binding with PlayReady (AES-128 CTR). Individual smooth streaming .ismv file (assuming audio is muxed in video) is itself a fMP4 and can be used for playback. If a smooth streaming content goes through PlayReady encryption, each .ismv file becomes a PlayReady protected fragmented MP4. We can choose an .ismv file with the preferred bitrate and rename it as .mp4 for download.
+The idea is: smooth streaming ([PIFF](https://docs.microsoft.com/iis/media/smooth-streaming/protected-interoperable-file-format)) file format with H264/AAC has a binding with PlayReady (AES-128 CTR). Individual smooth streaming .ismv file (assuming audio is muxed in video) is itself a fMP4 and can be used for playback. If a smooth streaming content goes through PlayReady encryption, each .ismv file becomes a PlayReady protected fragmented MP4. We can choose an .ismv file with the preferred bitrate and rename it as .mp4 for download.
 
 There are two options for hosting the PlayReady protected MP4 for progressive download:
 
@@ -109,7 +109,6 @@ private async void LoadUri_Click(object sender, RoutedEventArgs e)
 ```
 
 ![Offline mode playback of PlayReady protected fMP4](./media/offline-playready-for-windows/offline-playready1.jpg)
-
 
 Since the video is under PlayReady protection, the screenshot will not be able to include the video.
 

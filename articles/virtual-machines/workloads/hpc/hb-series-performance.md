@@ -4,7 +4,7 @@ description: Learn about performance testing results for HB-series VM sizes in A
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -33,7 +33,7 @@ Several performance tests have been run on HB-series sizes. The following are so
 ## InfiniBand send latency
 Mellanox Perftest.
 
-```azure-cli
+```console
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 

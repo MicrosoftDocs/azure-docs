@@ -9,7 +9,7 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -23,7 +23,6 @@ This article helps you find troubleshooting information about common problems re
 
 - In a few cases, enabling Seamless SSO can take up to 30 minutes.
 - If you disable and re-enable Seamless SSO on your tenant, users will not get the single sign-on experience till their cached Kerberos tickets, typically valid for 10 hours, have expired.
-- Microsoft Edge browser support is not available.
 - If Seamless SSO succeeds, the user does not have the opportunity to select **Keep me signed in**. Due to this behavior, [SharePoint and OneDrive mapping scenarios](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) don't work.
 - Office 365 Win32 clients (Outlook, Word, Excel, and others) with versions 16.0.8730.xxxx and above are supported using a non-interactive flow. Other versions are not supported; on those versions, users will enter their usernames, but not passwords, to sign-in. For OneDrive, you will have to activate the [OneDrive silent config feature](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) for a silent sign-on experience.
 - Seamless SSO doesn't work in private browsing mode on Firefox.
@@ -31,8 +30,8 @@ This article helps you find troubleshooting information about common problems re
 - Seamless SSO doesn't work on mobile browsers on iOS and Android.
 - If a user is part of too many groups in Active Directory, the user's Kerberos ticket will likely be too large to process, and this will cause Seamless SSO to fail. Azure AD HTTPS requests can have headers with a maximum size of 50 KB; Kerberos tickets need to be smaller than that limit to accommodate other Azure AD artifacts (typically, 2 - 5 KB) such as cookies. Our recommendation is to reduce user's group memberships and try again.
 - If you're synchronizing 30 or more Active Directory forests, you can't enable Seamless SSO through Azure AD Connect. As a workaround, you can [manually enable](#manual-reset-of-the-feature) the feature on your tenant.
-- Adding the Azure AD service URL (https://autologon.microsoftazuread-sso.com) to the Trusted sites zone instead of the Local intranet zone *blocks users from signing in*.
-- Seamless SSO uses the **RC4_HMAC_MD5** encryption type for Kerberos. Disabling the use of the **RC4_HMAC_MD5** encryption type in your Active Directory settings will break Seamless SSO. In your Group Policy Management Editor tool ensure that the policy value for **RC4_HMAC_MD5** under **Computer Configuration -> Windows Settings -> Security Settings -> Local Policies -> Security Options -> "Network Security: Configure encryption types allowed for Kerberos"** is **enabled**. In addition, Seamless SSO can't use other encryption types, so ensure that they are **disabled**.
+- Adding the Azure AD service URL (`https://autologon.microsoftazuread-sso.com`) to the Trusted sites zone instead of the Local intranet zone *blocks users from signing in*.
+- Seamless SSO supports the AES256_HMAC_SHA1, AES128_HMAC_SHA1 and RC4_HMAC_MD5 encryption types for Kerberos. It is recommended that the encryption type for the AzureADSSOAcc$ account is set to AES256_HMAC_SHA1, or one of the AES types vs. RC4 for added security. The encryption type is stored on the msDS-SupportedEncryptionTypes attribute of the account in your Active Directory.  If the AzureADSSOAcc$ account encryption type is set to RC4_HMAC_MD5, and you want to change it to one of the AES encryption types, please make sure that you first roll over the Kerberos decryption key of the AzureADSSOAcc$ account as explained in the [FAQ document](how-to-connect-sso-faq.md) under the relevant question, otherwise Seamless SSO will not happen.
 
 ## Check status of feature
 
@@ -71,7 +70,7 @@ Use the following checklist to troubleshoot Seamless SSO problems:
 
 - Ensure that the Seamless SSO feature is enabled in Azure AD Connect. If you can't enable the feature (for example, due to a blocked port), ensure that you have all the [prerequisites](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites) in place.
 - If you have enabled both [Azure AD Join](../active-directory-azureadjoin-overview.md) and Seamless SSO on your tenant, ensure that the issue is not with Azure AD Join. SSO from Azure AD Join takes precedence over Seamless SSO if the device is both registered with Azure AD and domain-joined. With SSO from Azure AD Join the user sees a sign-in tile that says "Connected to Windows".
-- Ensure that the Azure AD URL (https://autologon.microsoftazuread-sso.com) is part of the user's Intranet zone settings.
+- Ensure that the Azure AD URL (`https://autologon.microsoftazuread-sso.com`) is part of the user's Intranet zone settings.
 - Ensure that the corporate device is joined to the Active Directory domain. The device _doesn't_ need to be [Azure AD Joined](../active-directory-azureadjoin-overview.md) for Seamless SSO to work.
 - Ensure that the user is logged on to the device through an Active Directory domain account.
 - Ensure that the user's account is from an Active Directory forest where Seamless SSO has been set up.
@@ -116,7 +115,10 @@ If troubleshooting didn't help, you can manually reset the feature on your tenan
 1. Call `$creds = Get-Credential`. When prompted, enter the domain administrator credentials for the intended Active Directory forest.
 
    > [!NOTE]
-   > We use the Domain Administrator's username, provided in the User Principal Names (UPN) (johndoe@contoso.com) format or the domain qualified sam-account name (contoso\johndoe or contoso.com\johndoe) format, to find the intended AD forest. If you use domain qualified sam-account name, we use the domain portion of the username to [locate the Domain Controller of the Domain Administrator using DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). If you use UPN instead, we [translate it to a domain qualified sam-account name](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) before locating the appropriate Domain Controller.
+   >The domain administrator credentials username must be entered in the SAM account name format  (contoso\johndoe or contoso.com\johndoe). We use the domain portion of the username to locate the Domain Controller of the Domain Administrator using DNS.
+
+   >[!NOTE]
+   >The domain administrator account used must not be a member of the Protected Users group. If so, the operation will fail.
 
 2. Call `Disable-AzureADSSOForest -OnPremCredentials $creds`. This command removes the `AZUREADSSOACC` computer account from the on-premises domain controller for this specific Active Directory forest.
 3. Repeat the preceding steps for each Active Directory forest where you’ve set up the feature.
@@ -126,7 +128,10 @@ If troubleshooting didn't help, you can manually reset the feature on your tenan
 1. Call `Enable-AzureADSSOForest`. When prompted, enter the domain administrator credentials for the intended Active Directory forest.
 
    > [!NOTE]
-   > We use the Domain Administrator's username, provided in the User Principal Names (UPN) (johndoe@contoso.com) format or the domain qualified sam-account name (contoso\johndoe or contoso.com\johndoe) format, to find the intended AD forest. If you use domain qualified sam-account name, we use the domain portion of the username to [locate the Domain Controller of the Domain Administrator using DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). If you use UPN instead, we [translate it to a domain qualified sam-account name](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) before locating the appropriate Domain Controller.
+   >The domain administrator credentials username must be entered in the SAM account name format  (contoso\johndoe or contoso.com\johndoe). We use the domain portion of the username to locate the Domain Controller of the Domain Administrator using DNS.
+
+   >[!NOTE]
+   >The domain administrator account used must not be a member of the Protected Users group. If so, the operation will fail.
 
 2. Repeat the preceding step for each Active Directory forest where you want to set up the feature.
 

@@ -1,17 +1,12 @@
 ---
 title: Profile ASP.NET Core Azure Linux web apps with Application Insights Profiler | Microsoft Docs
 description: A conceptual overview and step-by-step tutorial on how to use Application Insights Profiler.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.reviewer: mbullwin
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/23/2018
+author: cweining
 ms.author: cweining
+ms.date: 02/23/2018
+
+ms.reviewer: mbullwin
 ---
 
 # Profile ASP.NET Core Azure Linux web apps with Application Insights Profiler
@@ -169,10 +164,6 @@ You should see output similar to the following example:
 
     ![View Profiler traces](./media/profiler-aspnetcore-linux/view-traces.png)
 
-## Known issues
-
-### Profile Now button doesn't work for Linux Profiler
-The Linux version of the App Insights profiler does not yet support on demand profiling using the profile now button.
 
 
 ## Next steps
