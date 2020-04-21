@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/15/2020
+ms.date: 04/21/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Review access to groups and applications in Azure AD access reviews
 
-Azure Active Directory (Azure AD) simplifies how enterprises manage access to groups and applications in Azure AD and other Microsoft Online Services with a feature called Azure AD access reviews. This article will go over how a designated reviewer performs an access review for members of a group or users with access to an application. If you would like to review access to a package read [Review access of an access package in Azure AD entitlement management](entitlement-management-access-reviews-review-access.md)
+Azure Active Directory (Azure AD) simplifies how enterprises manage access to groups and applications in Azure AD and other Microsoft Online Services with a feature called Azure AD access reviews. This article will go over how a designated reviewer performs an access review for members of a group or users with access to an application. If you would like to review,  access to a package read [Review access of an access package in Azure AD entitlement management](entitlement-management-access-reviews-review-access.md)
 
 ## Perform access review
 
@@ -101,11 +101,11 @@ To make access reviews easier and faster for you, we also provide recommendation
 
 ## Perform access review using My Access (Preview)
 
-During the preview you can get to the My Access experience three different ways:
+You can preview the reviewer experience with the updated user interface in My Access three different ways:
 
 ### New experience banner**
 
-These instructions only apply if you are not already participating in the preview. If you are already on the preview you will not see the banner.
+If you don't see the banner, follow one of the other two options covered in this article.
 
 1. Sign in to the MyApps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
@@ -118,11 +118,12 @@ These instructions only apply if you are not already participating in the previe
 
 ![Pending access reviews list for apps and groups with the new experience available banner displayed during the preview](./media/perform-access-review/banner.png)
 
-3. Click on **Try it!** This will take you to the new My Access experience.
+3. Click on **Try it!** in the banner at the top of the page. This will take you to the new My Access experience.
   
 ### Email
-  
-  This option is only available if you are whitelisted for the new experience or onboarded to access reviews after March 2020. 
+
+  >[!IMPORTANT]
+> There could be delays in receiving email and it some cases it could take up to 24 hours. Whitelist azure-noreply@microsoft.com to make sure that you are receiving all emails.
 
    1. Look for an email from Microsoft asking you to review access. You can see an example email message below:
 
@@ -130,8 +131,7 @@ These instructions only apply if you are not already participating in the previe
 
    2. Click the **Start review** link to open the access review.
 
->[!NOTE]
-> There could be delays in receiving email, due to high traffic, it could take 24 hours. Whitelist azure-noreply@microsoft.com to make sure that you are receiving all emails.
+
 
 ### If you don't have an email
 
@@ -144,22 +144,19 @@ You can also view your pending access reviews by using your browser to open My A
 
 2. Select **Access reviews** from the menu on the left side bar to see a list of pending access reviews assigned to you.
 
-   ![access reviews in the menu](./media/perform-access-review/access-review-menu-03.png)
+   ![access reviews in the menu](./media/perform-access-review/access-review-menu.png)
 
-3. Under groups and Apps you can see:
+3. Under Groups and Apps you can see:
     - **Name** The name of the access review.
-    - **Due** The due date for the review. (What else do we want to say about this?what happens if no one processes the request is dependent on the policy right?)
+    - **Due** The due date for the review. After this date denied users could be removed from the group or app being reviewed. 
     - **Resource** Users access to the resourced named in this column is being evaluated as part of this access review.
-    - **Progress** The number of users processed over the total number of users part of this access review.
+    - **Progress** The number of users reviewed over the total number of users part of this access review.
 
 4. Click on the name of an Access review to get started.
  
-   ![Pending access reviews list for apps and groups](./media/perform-access-review/access-reviews-list-preview-03.png)
+   ![Pending access reviews list for apps and groups](./media/perform-access-review/access-reviews-list-preview.png)
 
-Once you have opened the access review, you see user names.
-
-If the request is to review your own access, the page will look different. For more information, see [Review access for yourself to groups or applications](review-your-access.md).
-
+Once that it opens, you will see the list of users in scope for the access review. If the request is to review your own access, the page will look different. For more information, see [Review access for yourself to groups or applications](review-your-access.md).
 
 ### Approve or deny access for one or more users (Preview)
 
@@ -171,9 +168,9 @@ There are two ways that you can approve or deny access:
 #### Manually approve or deny access for one or more users
 
 1. Review the list of users and decide whether to approve or deny their continued access.
-2. Select one or more users by adding check marks next to the their names.
+2. Select one or more users by adding check marks next to their names.
 3. Select **Approve** or **Deny** on the bar above their names.
-    - If you are unsure, you can click **Don't know**. and the user gets to keep their access and your choice is recorded in the audit logs.
+    - If you are unsure, you can click **Don't know**.The user gets to keep their access and your choice is recorded in the audit logs. It is important that you keep in mind that any information you provide will be available to other reviewers. They can read your comments and take them into account when they review the request.
 
 ![Open access review listing the users who need review](./media/perform-access-review/user-list-preview.png)
 
@@ -190,12 +187,13 @@ There are two ways that you can approve or deny access:
 
 To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single click. The recommendations are generated based on the user's sign-in activity.
 
-1. Select one or more users and then choose **Accept recommendations** 
+1. Select one or more users and then choose **Accept recommendations**. You can also choose all users 
 
     ![Open access review listing showing the Accept recommendations button](./media/perform-access-review/accept-recommendations-preview.png)
 
 1. Click **Submit** to accept the recommendations.
 
+You can review individual users, multiple users or all users by selecting them and choosing **Accept recommendations** button on the top bar.
 
 ## Next steps
 

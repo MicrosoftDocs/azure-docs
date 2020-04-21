@@ -11,8 +11,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/15/2020
-ms.author: ajburnle
+ms.date: 04/21/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -80,27 +80,39 @@ Once you have opened the access review, you can see your access.
 
 The first step to perform an access review is to find and open the access review.
 
-1. Look for an email from Microsoft that asks you to review access. Here is an example email to review your access to a group.
+  >[!IMPORTANT]
+> There could be delays in receiving email and it some cases it could take up to 24 hours. Whitelist azure-noreply@microsoft.com to make sure that you are receiving all emails.
 
-    ![Example email from Microsoft to review your access to a group](./media/review-your-access/access-review-email.png)
+   1. Look for an email from Microsoft asking you to review access. You can see an example email message below:
 
-1. Click the **Review access** link to open the access review.
+   ![Example email from Microsoft to review access to a group](./media/review-your-access/access-review-email-preview.png)
+
+   2. Click the **Start review** link to open the access review.
 
 If you don't have the email, you can find your pending access reviews by following these steps.
 
-1. Sign in to the MyApps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
+ou can also view your pending access reviews by using your browser to open My Access.
 
-    ![MyApps portal listing apps you have permissions to](./media/review-your-access/myapps-access-panel.png)
+1. Sign  in to the My Access at ht<span>tps://<span>myacces<span>s.m<span>icrosof<span>t.<span>com/@**Castelia<span>.<span>onmicrosoft<span>.<span>com**?enableReviews=true#/access-reviews
 
-1. In the upper-right corner of the page, click the user symbol, which displays your name and default organization. If more than one organization is listed, select the organization that requested an access review.
+  >[!IMPORTANT]
+  >Replace `Castelia.onmicrosoft.com` with your domain URL between the **@** and **?**.
 
-1. On the right side of the page, click the **Access reviews** tile to see a list of the pending access reviews.
+2. Select **Access reviews** from the menu on the left side bar to see a list of pending access reviews assigned to you.
 
-    If the tile isn't visible, there are no access reviews to perform for that organization and no action is needed at this time.
+   ![access reviews in the menu](./media/review-your-access/access-review-menu.png)
 
-    ![Pending access reviews list for your apps and groups](./media/review-your-access/access-reviews-list.png)
+3. Under Groups and Apps you can see:
+    - **Name** The name of the access review.
+    - **Due** The due date for the review. After this date denied users could be removed from the group or app being reviewed. 
+    - **Resource** Users access to the resourced named in this column is being evaluated as part of this access review.
+    - **Progress** The number of users reviewed over the total number of users part of this access review.
 
-1. Click the **Begin review** link for the access review you want to perform.
+4. Click on the name of an Access review to get started.
+ 
+   ![Pending access reviews list for apps and groups](./media/perform-access-review/access-reviews-list-preview.png)
+
+Once that it opens, you will see the list of users in scope for the access review. If the request is to review your own access, the page will look different. For more information, see [Review access for yourself to groups or applications](review-your-access.md).
 
 ### Perform the access review
 
