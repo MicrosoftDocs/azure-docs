@@ -53,7 +53,7 @@ Review the following Azure application documentation, which provides Quickstarts
 
     * [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
     * [GitHub Azure Quickstart templates](https://github.com/azure/azure-quickstart-templates)
-    * [Publish application definition](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
+    * [Publish application definition](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Deploy service catalog app](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
 * Tutorials:
@@ -288,7 +288,7 @@ This plan must be made available in at least one cloud.
 
 Select the **Public Azure** option to make your solution deployable to customers in all public Azure regions that have Marketplace integration.  Learn more about [geographic availability](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Select the **Azure Government Cloud** option to make your solution deployable in the [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome), a government-community cloud with controlled access for customers from the US Federal, State, local or tribal and partners eligible to serve these entities.  You, as the publisher, are responsible for any compliance controls, security measures, and best practices to serve this cloud community.  Azure Government uses physically isolated data centers and networks (located in U.S. only).  Before publishing to the [Azure Government](https://aka.ms/azuregovpublish), Microsoft recommends that you test and validate your solution in the environment as certain endpoints may differ. To stage and test your solution, request a trial account from this [link](https://azure.microsoft.com/global-infrastructure/government/request/).
+Select the **Azure Government Cloud** option to make your solution deployable in the [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome), a government-community cloud with controlled access for customers from the US Federal, State, local or tribal and partners eligible to serve these entities.  You, as the publisher, are responsible for any compliance controls, security measures, and best practices to serve this cloud community.  Azure Government uses physically isolated data centers and networks (located in U.S. only).  Before publishing to the [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft recommends that you test and validate your solution in the environment as certain endpoints may differ. To stage and test your solution, request a trial account from this [link](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 >[!Note]
 >Once a plan is published as available in a specific cloud, that cloud cannot be removed.

@@ -24,7 +24,7 @@ The pricing for [Azure Application Insights][start] is a **Pay-As-You-Go** model
 
 [Multi-step web tests](../../azure-monitor/app/availability-multistep.md) incur an additional charge. Multi-step web tests are web tests that perform a sequence of actions. There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
 
-The Application Insights option to [Enable alerting on custom metric dimensions](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) can also generate in additional costs because this can result in the creation of additional pre-aggregation metrics. [Learn more] about log-based and pre-aggregated metrics in Application Insights and about [pricing](https://azure.microsoft.com/pricing/details/monitor/) for Azure Monitor custom metrics.
+The Application Insights option to [Enable alerting on custom metric dimensions](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) can also generate in additional costs because this can result in the creation of additional pre-aggregation metrics. [Learn more](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics) about log-based and pre-aggregated metrics in Application Insights and about [pricing](https://azure.microsoft.com/pricing/details/monitor/) for Azure Monitor custom metrics.
 
 ## Estimating the costs to manage your application
 
@@ -214,7 +214,9 @@ To change the retention, from your Application Insights resource, go to the **Us
 
 ![Adjust the daily telemetry volume cap](./media/pricing/pricing-005.png)
 
-The retention can also be [set programatically using PowerShell](powershell.md#set-the-data-retention) using the `retentionInDays` parameter. When the retention is lowered, there is a several day grace period before the oldest data is removed. If you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This purge functionality is only exposed via Azure Resource Manager and should be used with extreme care. The daily reset time for the data volume cap can be configured using Azure Resource Manager to set the `dailyQuotaResetTime` parameter.
+When the retention is lowered, there is a several day grace period before the oldest data is removed.
+
+The retention can also be [set programatically using PowerShell](powershell.md#set-the-data-retention) using the `retentionInDays` parameter. If you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This purge functionality is only exposed via Azure Resource Manager and should be used with extreme care. The daily reset time for the data volume cap can be configured using Azure Resource Manager to set the `dailyQuotaResetTime` parameter.
 
 ## Data transfer charges using Application Insights
 

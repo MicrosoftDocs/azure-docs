@@ -102,6 +102,8 @@
         href: hdinsight-hadoop-customize-cluster-linux.md
       - name: Develop script actions
         href: hdinsight-hadoop-script-actions-linux.md
+      - name: Open-source software support
+        href: open-source-software.md
       - name: Add Apache Hive libraries
         href: hdinsight-hadoop-add-hive-libraries.md
       - name: Use Hue
@@ -282,7 +284,7 @@
       - name: Run queries on an Apache Spark cluster
         href: ./spark/apache-spark-load-data-run-query.md
       - name: Failure spark job debugging in IntelliJ (preview)
-        href: ./spark/apache-spark-intellij-tool-failure-debug.md
+        href: ./spark/apache-spark-intellij-tool-failure-debug.md     
       - name: Analyze data using BI tools
         href: ./spark/apache-spark-use-bi-tools.md
       - name: Create a machine learning app
@@ -878,6 +880,8 @@
       href: ./domain-joined/apache-domain-joined-architecture.md
     - name: HDInsight virtual network architecture
       href: ./hdinsight-virtual-network-architecture.md
+    - name: Transport layer security
+      href: ./transport-layer-security.md
     - name: Plan VNETs for HDInsight
       href: ./hdinsight-plan-virtual-network-deployment.md
     - name: Required IP Addresses for NSGs and UDRs
