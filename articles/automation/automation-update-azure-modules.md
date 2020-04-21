@@ -1,5 +1,5 @@
 ---
-title: Update Azure modules in Azure Automation
+title: Update Azure PowerShell modules in Azure Automation
 description: This article describes how you can now update common Azure PowerShell modules provided by default in Azure Automation.
 services: automation
 ms.subservice: process-automation
@@ -7,7 +7,7 @@ ms.date: 06/14/2019
 ms.topic: conceptual
 ---
 
-# How to update Azure PowerShell modules in Azure Automation
+# Update Azure PowerShell modules in Azure Automation
 
 To update the Azure modules in your Automation account you need to use the [Update Azure modules runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), which is available as open source. To start using the **Update-AutomationAzureModulesForAccount** runbook to update your Azure modules, download it from the [Update Azure modules runbook repository](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) on GitHub. You can then import it into your Automation account or run it as a script. To learn how to import a runbook in your Automation account, see [Import a runbook](manage-runbooks.md#importing-a-runbook).
 
@@ -32,7 +32,7 @@ If you develop your scripts locally, it's recommended to have the same module ve
 
 The following are some considerations to take into account when using this article to update your Azure Modules:
 
-* The runbook described in this article supports updating the Azure, AzureRM, and Az modules by default. Review the [Update Azure modules runbook README](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) for more information on updating Az.Automation modules with this runbook. There are additional important factors that you need to take into account when using the Az modules in your Automation account. To learn more, see [Using Az modules in your Automation account](az-modules.md).
+* The runbook described in this article supports updating the Azure, AzureRM, and Az modules by default. Review the [Update Azure modules runbook README](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) for more information on updating Az.Automation modules with this runbook. There are additional important factors that you need to take into account when using the Az modules in your Automation account. To learn more, see [Manage modules in Azure Automation](shared-resources/modules.md).
 
 * Before starting this runbook, make sure your Automation account has an [Azure Run As account credential](manage-runas-account.md) created.
 
