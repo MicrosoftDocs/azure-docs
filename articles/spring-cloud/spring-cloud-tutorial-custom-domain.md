@@ -26,9 +26,9 @@ To upload your certificate to key vault:
 1. Go to your key vault instance.
 1. In the left navigation pane, click **Certificates**.
 1. On the upper menu, click **Generate/import**.
-1. In the **Create a certificate** dialog under **Method of certificate creation** select `Import`.
-1. Under **Upload Certificate File** navigate to certificate location and select it.
-1. Under **Password** enter the private key for your certificate.
+1. In the **Create a certificate** dialog under **Method of certificate creation**, select `Import`.
+1. Under **Upload Certificate File**, navigate to certificate location and select it.
+1. Under **Password**, enter the private key for your certificate.
 1. Click **Create**.
 
 ![Import certificate 1](./media/custom-dns-tutorial/import-certificate-a.png)
