@@ -64,7 +64,7 @@ There are two ways to create an application with enabled user assignment. One re
 ### App registration
 
 1. Go to the [**Azure portal**](https://portal.azure.com/).
-1. On the top bar, select the signed-in account.
+1. On the top bar, select the signed-in account. 
 1. Under **Directory**, select the Azure AD tenant where the app will be registered.
 1. In the navigation on the left, select **Azure Active Directory**.
 1. In the **Azure Active Directory** pane, select **App Registrations** from the **Azure Active Directory** left-hand navigation menu.
