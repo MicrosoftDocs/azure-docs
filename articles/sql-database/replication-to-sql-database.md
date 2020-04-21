@@ -16,7 +16,7 @@ ms.date: 01/25/2019
 
 You can configure an Azure SQL Database as the push subscriber in a SQL server one-way transactional or snapshot replication topology. 
 
-## **Supported Configurations:**
+## Supported Configurations
   
 - The Azure SQL database can only be the push subscriber of a SQL Server publisher and distributor.  
 - The SQL Server acting as publisher and/or distributor can be an instance of [SQL Server running on-premises](https://www.microsoft.com/en-us/sql-server/sql-server-downloads), an [Azure SQL Managed Instance](sql-database-managed-instance-get-started), or an instance of [SQL Server running on an Azure virtual machine in the cloud](/virtual-machines/windows/quickstart-sql-vm-create-portal.md). 
@@ -24,7 +24,7 @@ You can configure an Azure SQL Database as the push subscriber in a SQL server o
 - [Snapshot](/relational-databases/replication/snapshot-replication) and [one-way transactional](/sql/relational-databases/replication/transactional/transactional-replication) replication are supported. Peer-to-peer transactional replication and merge replication are not supported.
 
 
-## Versions  
+### Versions  
 
 To successfully replicate to an Azure SQL Database, SQL Server publishers and distributors must be using (at least) one of the following versions: 
 
@@ -38,6 +38,20 @@ Publishing to any Azure SQL Database from an on-premises SQL Server is supported
 > Attempting to configure replication using an unsupported version can result in error number MSSQL_REPL20084 (The process could not connect to Subscriber.) and MSSQL_REPL40532 (Cannot open server \<name> requested by the login. The login failed.).  
 
 To use all the features of Azure SQL Database, you must be using the latest versions of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt).  
+
+### Types of replication
+
+There are different [types of replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
+
+| Replication | Azure SQL Database | Azure SQL Managed Instance |
+| :----| :------------- | :--------------- |
+| [**Standard Transactional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Yes (only as subscriber) | Yes | 
+| [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Yes (only as subscriber) | Yes|
+| [**Merge replication**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | No | No|
+| [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No | No|
+| [**Bidirectional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Yes|
+| [**Updatable subscriptions**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No | No|
+| &nbsp; | &nbsp; | &nbsp; |
 
   
 ## Remarks

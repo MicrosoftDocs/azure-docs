@@ -4,7 +4,7 @@ description: For a small data size, uses bcp to import data into Azure SQL Datab
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein

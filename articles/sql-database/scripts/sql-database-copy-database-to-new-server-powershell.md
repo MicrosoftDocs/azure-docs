@@ -4,7 +4,7 @@ description: Azure PowerShell example script to copy an Azure SQL Database to a 
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
 author: stevestein
@@ -42,7 +42,7 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts a single database or elastic pool. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a logical SQL Database server that hosts a single database or elastic pool. |
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a single database or elastic pool. |
 | [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) | Creates a copy of a database that uses the snapshot at the current time. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |

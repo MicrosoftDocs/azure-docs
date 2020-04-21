@@ -26,6 +26,9 @@ You can use transactional replication to push changes made in an Azure SQL Manag
 - A single or pooled database in Azure SQL Database
 - A single or pooled database in Azure SQL Managed Instance
 
+  >[!NOTE]
+  > 
+  > - To use all the features of Azure SQL Managed Instance, you must be using the latest versions of [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
 
 ### Components
 
@@ -56,7 +59,8 @@ Azure SQL Managed Instance can support being a Subscriber from the following ver
 - SQL Server 2012 [SP2 CU8 (11.0.5634.1)](https://support.microsoft.com/help/3082561/cumulative-update-8-for-sql-server-2012-sp2) or [SP3 (11.0.6020.0)](https://www.microsoft.com/download/details.aspx?id=49996)
 
    > [!NOTE] 
-   > For other versions of SQL Server that do not support publishing to objects in Azure, it is possible to utilize the [republishing data](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) method to move data to newer versions of SQL Server. 
+   > - For other versions of SQL Server that do not support publishing to objects in Azure, it is possible to utilize the [republishing data](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) method to move data to newer versions of SQL Server. 
+   > - Attempting to configure replication using an older version can result in error number MSSQL_REPL20084 (The process could not connect to Subscriber.) and MSSQ_REPL40532 (Cannot open server \<name> requested by the login. The login failed.)
 
 
 ### Types of replication
@@ -73,14 +77,9 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 | [**Updatable subscriptions**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No | No|
 | &nbsp; | &nbsp; | &nbsp; |
 
-  >[!NOTE]
-  > - Attempting to configure replication using an older version can result in error number MSSQL_REPL20084 (The process could not connect to Subscriber.) and MSSQ_REPL40532 (Cannot open server \<name> requested by the login. The login failed.)
-  > - To use all the features of Azure SQL Database, you must be using the latest versions of [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
-  
-
 ### Supportability Matrix
 
-  The replication supportability matrix for Azure SQL Managed Instance is the same as the one for SQL Server on-premises. 
+  The transactional replication supportability matrix for Azure SQL Managed Instance is the same as the one for SQL Server on-premises. 
   
 | **Publisher**   | **Distributor** | **Subscriber** |
 | :------------   | :-------------- | :------------- |
@@ -91,6 +90,8 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 | SQL Server 2012 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | 
 | SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |  SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
 | &nbsp; | &nbsp; | &nbsp; |
+
+
 
 ## When to use 
 
@@ -105,7 +106,7 @@ Transactional replication is useful in the following scenarios:
 | | Data Sync | Transactional Replication |
 |---|---|---|
 | Advantages | - Active-active support<br/>- Bi-directional between on-premises and Azure SQL Database | - Lower latency<br/>- Transactional consistency<br/>- Reuse existing topology after migration |
-| Disadvantages | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can’t publish from Azure SQL Database single database or pooled database<br/>-	High maintenance cost |
+| Disadvantages | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can’t publish from Azure SQL Database <br/>-	High maintenance cost |
 | | | |
 
 
@@ -151,6 +152,8 @@ In this configuration, an Azure SQL Database or Azure SQL Managed Instance datab
 
 
 ## With failover groups
+
+[Active geo-replication](sql-database-active-geo-replication.md) is not supported with a SQL Managed Instance using transactional replication. Instead of active geo-replication, use [Auto-failover groups](sql-database-auto-failover-group.md), but note that the publication has to be [manually deleted](sql-database-managed-instance-transact-sql-information.md#replication) from the primary SQL Managed instance and recreated on the secondary SQL Managed Instance after failover.
 
 If geo-replication is enabled on a **publisher** or **distributor** SQL Managed Instance in a [failover group](sql-database-auto-failover-group.md), the SQL Managed Instance administrator must clean up all publications on the old primary and reconfigure them on the new primary after a failover occurs. The following activities are needed in this scenario:
 
