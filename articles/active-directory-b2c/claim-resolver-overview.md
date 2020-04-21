@@ -90,7 +90,7 @@ The following sections list available claim resolvers.
 
 | Claim | Description | Example |
 | ----- | ----------- | --------|
-| {Claim:claim type} | A string claim type included in the user journey.  | A claim type value. |
+| {Claim:claim type} | The identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file.  | A claim type value. |
 
 
 ### OAuth2 key-value parameters
