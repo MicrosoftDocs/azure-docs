@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 04/21/2020
 ---
 
-## Transport layer security in Azure HDInsight
+# Transport layer security in Azure HDInsight
 
 Connections to the HDInsight cluster via the public cluster endpoint `https://CLUSTERNAME.azurehdinsight.net` are proxied through cluster gateway nodes. These connections are secured using a protocol called TLS. Enforcing higher versions of TLS on gateways improves the security for these connections. For more information on why you should use newer versions of TLS, see [Solving the TLS 1.0 Problem](https://docs.microsoft.com/security/solving-tls1-problem).
 
