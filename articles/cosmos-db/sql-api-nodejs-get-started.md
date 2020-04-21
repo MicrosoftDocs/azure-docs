@@ -119,7 +119,7 @@ In the *app.js* file, copy and paste the following code to use the previously sa
 
 > [!Note]
 > If connecting to the **Cosmos DB Emulator**, disable TLS verification for your node process:
->   ```
+>   ```javascript
 >   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 >   const client = new CosmosClient({ endpoint, key });
 >   ```
@@ -128,7 +128,7 @@ Now that you have the code to initialize the Azure Cosmos DB client, let's take 
 
 ## <a id="QueryItem"></a>Query items
 
-Azure Cosmos DB supports rich queries against JSON documents stored in each container. The following sample code shows a query that you can run against the items in your container.You can query the items by using the query function of the `Items` class. Add the following code to the *app.js* file to query the items from your Azure Cosmos account:
+Azure Cosmos DB supports rich queries against JSON items stored in each container. The following sample code shows a query that you can run against the items in your container.You can query the items by using the query function of the `Items` class. Add the following code to the *app.js* file to query the items from your Azure Cosmos account:
 
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="QueryItems":::
 
@@ -148,7 +148,7 @@ An item can be created by using the create function of the `Items` class. When y
 
 Azure Cosmos DB supports replacing the contents of items. Copy and paste the following code to *app.js* file. This code gets an item from the container and updates the *isComplete* field to true.
 
-:::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="CreateItem":::
+:::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="UpdateItem":::
 
 ## <a id="DeleteItem"></a>Delete an item
 
