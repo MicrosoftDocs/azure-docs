@@ -18,6 +18,12 @@ ms.custom: devops
 ---
 # Tutorial - Configure Rolling deployment strategy for Azure Linux Virtual Machines
 
+Azure DevOps is a built-in Azure service that automates each part of the DevOps process with continuous integration and continuous delivery for any Azure resource.
+Whether your app uses virtual machines, web apps, Kubernetes, or any other resource, you can implement infrastructure as code, continuous integration, continuous testing, continuous delivery, and continuous monitoring with Azure and Azure DevOps.  
+
+![AzDevOps_portalView](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png) 
+
+
 ## IaaS - Configure CI/CD 
 Azure Pipelines provides a complete, fully featured set of CI/CD automation tools for deployments to virtual machines. You can configure a continuous delivery pipeline for an Azure VM directly from Azure portal. This document contains the steps associated with setting up a CI/CD pipeline for rolling multi-machine deployments from Azure portal. You can also take a look at other strategies like [canary](https://aka.ms/AA7jdrz) and [blue-green](https://aka.ms/AA83fwu), which are supported out-of-box from Azure portal. 
 
