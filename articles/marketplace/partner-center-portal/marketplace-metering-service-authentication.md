@@ -140,10 +140,10 @@ For example, this is how to authenticate using a Windows VM,
 
     ```json
     # Get resourceUsageId from the Managed App
-    $managedAppUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + /providers/Microsoft.Solutions/applications/" + $managedappId <ManagedAppName>+ "\?api-version=2019-07-01"
-    $ManagedApp = curl $managedAppUrl Url -H $Headers | Select-Object -Expand Content | ConvertFrom-Json
+    $managedAppUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "/providers/Microsoft.Solutions/applications/" + $managedappId + "\?api-version=2019-07-01"
+    $ManagedApp = curl $managedAppUrl -H $Headers | Select-Object -Expand Content | ConvertFrom-Json
     # Use this resource ID to emit usage 
-    $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId 
+    $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
     ```
 
 1. Use the [Marketplace metering service API](https://review.docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis?branch=pr-en-us-101847) to emit usage
