@@ -41,7 +41,7 @@ If you don’t already have Visual Studio 2019 installed, you can download and u
 
 ## Clone the sample application
 
-Now let's clone a Table app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. For an additional walkthrough of similar code, see the [Cosmos DB Table API sample](table-storage-how-to-use-dotnet.md) article.
+Now let's clone a Table app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 

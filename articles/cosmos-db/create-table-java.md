@@ -68,7 +68,7 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
     ```
 
 > ![TIP]
-> For a more detailed walkthrough of similar code, see the [Cosmos DB Table API sample](table-storage-how-to-use-java.md) article.
+> For a more detailed walkthrough of similar code, see the [Cosmos DB Table API sample](table-storage-how-to-use-java.md) article. 
 
 ## Update your connection string
 
