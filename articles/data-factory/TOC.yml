@@ -575,6 +575,8 @@
       href: create-azure-ssis-integration-runtime.md
     - name: Shared self-hosted integration runtime
       href: create-shared-self-hosted-integration-runtime-powershell.md
+    - name: Automating self-hosted integration runtime installation
+      href: self-hosted-integration-runtime-automation-scripts.md
   - name: Run SSIS packages in Azure
     items:
     - name: Run SSIS packages in Azure from SSDT
