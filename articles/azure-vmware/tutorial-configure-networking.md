@@ -1,11 +1,8 @@
 ---
 title: Tutorial - Configure networking for your VMWare private cloud in Azure
 description: Learn to create and configure the networking needed to deploy your private cloud in Azure
-author: dikamath
-ms.author: dikamath
-ms.service: azure-vmware
 ms.topic: tutorial
-ms.date: 04/07/2020
+ms.date: 05/04/2020
 ---
 
 # Tutorial: Configure networking for your VMWare private cloud in Azure
@@ -18,6 +15,7 @@ In this tutorial, you learn how to:
 > * Create a Virtual Network
 > * Create a Virtual Network Gateway
 > * Connect your ExpressRoute circuit to the gateway
+> * Locate the URLs for vCenter and NSX Manager
 
 ## Sign in to the Azure portal
 
@@ -123,12 +121,9 @@ the Resource Group.
 
 ![](./media/tutorial-configure-networking/image23.jpg)
 
-## Connect EXPRESSROUTE to the VNET Gateway
+## Connect ExpressRoute to the VNET Gateway
 
-In this exercise you add a connection between your SDDC and the VNET
-gateway you created.
-
-**Steps**
+In this exercise you add a connection between your AVS private cloud and the virtual network gateway you created.
 
 1. Display the Resource Group you created in the
 previous test and click **Connectivity**.
@@ -176,12 +171,25 @@ You receive notification that the connection was successfully created.
 
 ![](./media/tutorial-configure-networking/image29.jpg)
 
+## Locate the URLs for vCenter and NSX Manager
+
+In order to sign in to vVenter and NSX manager you'll need the urls to the vCenter web client and the NSX-T manager site. To find the urls:
+
+1. Select your AVS private cloud
+
+   ![](./media/image30.png)
+
+1. Under **Manage**, select **Identity**, here you'll find the information needed.
+
+   ![](./media/image31.png)
+
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
 > * Create a Virtual Network
 > * Create a Virtual Network Gateway
 > * Connect your ExpressRoute circuit to the gateway
+> * Locate the URLs for vCenter and NSX Manager
 
 Continue to the next tutorial to learn how to create a jump box that is used to connect to your environment.
 
