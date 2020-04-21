@@ -554,7 +554,7 @@
         href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md 
     - name: Marketplace metering service
       items:
-        - name: Marketplace metering service authentication strategies
+        - name: Authentication strategies
           href: ./partner-center-portal/marketplace-metering-service-authentication.md
         - name: Marketplace metering service APIs
           href: ./partner-center-portal/marketplace-metering-service-apis.md   
