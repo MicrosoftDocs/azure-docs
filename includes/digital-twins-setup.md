@@ -46,7 +46,8 @@ az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-res
 ```
 
 The result of these commands looks something like this, outputting information about the resources you've created:
-![Command window with successful creation of resource group and Azure Digital Twins instance](../articles/digital-twins-v2/media/include-setup/create-instance.png)
+
+:::image type="content" source="../articles/digital-twins-v2/media/include-setup/create-instance.png" alt-text="Command window with successful creation of resource group and Azure Digital Twins instance":::
 
 Save the Azure Digital Twins instance's *hostName*, *name*, and *resourceGroup*  from the output. You will use them later.
 
@@ -81,7 +82,7 @@ The result of this command is outputted information about the role assignment yo
 
 To configure an app registration, complete the "Create an app registration" section of [How to authenticate](../articles/digital-twins-v2/how-to-authenticate.md). After doing this, your command window should look something like this:
 
-![New AAD app registration](../articles/digital-twins-v2/media/include-setup/new-app-registration.png)        
+:::image type="content" source="../articles/digital-twins-v2/media/include-setup/new-app-registration.png" alt-text="New AAD app registration":::
 
 Take note of the `appId` value from the output. This is your *Application (client) ID*, and you will use it later.
 
