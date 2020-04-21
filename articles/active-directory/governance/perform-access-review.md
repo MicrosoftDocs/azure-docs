@@ -187,7 +187,7 @@ There are two ways that you can approve or deny access:
 
 To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single click. The recommendations are generated based on the user's sign-in activity.
 
-1. Select one or more users and then choose **Accept recommendations**. You can also choose all users 
+1. Select one or more users and then choose **Accept recommendations**.
 
     ![Open access review listing showing the Accept recommendations button](./media/perform-access-review/accept-recommendations-preview.png)
 
