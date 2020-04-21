@@ -75,7 +75,7 @@ The following table shows a list of supported operating system on Azure images:
 
 Windows Server Nano Server isn't supported in any version.
 
-## Guest Configuration Extension network requirements
+## Network requirements
 
 Virtual machines in Azure can use either their local network adapter
 or a private link to communicate with the Guest Configuration service.
