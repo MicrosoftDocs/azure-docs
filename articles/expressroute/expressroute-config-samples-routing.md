@@ -171,7 +171,8 @@ Configure your router to advertise select prefixes to Microsoft by using the fol
         policy-statement <Policy_Name> {
             term 1 {
                 from protocol OSPF;
-        route-filter <Prefix_to_be_advertised/Subnet_Mask> exact;
+        route-filter 
+    <Prefix_to_be_advertised/Subnet_Mask> exact;
                 then {
                     accept;
                 }
@@ -200,7 +201,7 @@ You can use route maps and prefix lists to filter prefixes propagated into your 
         policy-statement <MS_Prefixes_Inbound> {
             term 1 {
                 from {
-        prefix-list MS_Prefixes;
+                prefix-list MS_Prefixes;
                 }
                 then {
                     accept;
