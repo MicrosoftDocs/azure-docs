@@ -1,5 +1,5 @@
 ---
-title: Authentication and authorization for App Service Static Apps
+title: Authentication and authorization for Azure Static Web Apps
 description: Learn to use different authorization providers to secure your static app.
 services: azure-functions
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 05/08/2020
 ms.author: cshoe
 ---
 
-# Authentication and authorization for App Service Static Apps
+# Authentication and authorization for Azure Static Web Apps
 
 Authentication and authorization is enforced by rules defined in the _routes.json_ file and managed through the role management features in the portal. Granting access to secured routes is enabled by creating invitations that associate a user to roles. Roles are defined in the _routes.json_ file and invitations are tied to one of the following authorization providers:
 
