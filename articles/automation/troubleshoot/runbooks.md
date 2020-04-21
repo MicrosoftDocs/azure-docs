@@ -179,7 +179,7 @@ This error is caused by using both AzureRM and Az module cmdlets in a runbook. I
 
 ### Resolution
 
-Az and AzureRM cmdlets can't be imported and used in the same runbook. To learn more about Az cmdlets in Azure Automation, see [Az module support in Azure Automation](../az-modules.md).
+Az and AzureRM cmdlets can't be imported and used in the same runbook. To learn more about Az cmdlets in Azure Automation, see [Manage modules in Azure Automation](../shared-resources/modules.md).
 
 ## <a name="task-was-cancelled"></a>Scenario: The runbook fails with the error: A task was canceled
 
@@ -604,6 +604,33 @@ If your script parses cmdlet output, the script must store the output in a varia
 $SomeVariable = add-pnplistitem ....
 if ($SomeVariable.someproperty -eq ....
 ```
+
+## Scenario: Invalid status code "Forbidden" when using Key Vault inside a runbook
+
+### Issue
+
+When trying to access Key Vault through an Azure Automation runbook, you get the following error:
+
+```error
+Operation returned an invalid status code 'Forbidden' 
+```
+
+### Cause
+
+Possible causes for this issue:
+
+* Not using a Run As account.
+* Insufficient permissions.
+
+### Resolution
+
+#### Not using Run As account
+
+Follow steps at [Step 5 - Add authentication to manage Azure resources](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) to ensure that you are using a Run As account to access Key Vault. 
+
+#### Insufficient permissions
+
+Follow steps at [Add permissions to Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault. 
 
 ## <a name="other"></a>My problem isn't listed above
 
