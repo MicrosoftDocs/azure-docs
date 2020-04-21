@@ -1,19 +1,19 @@
 ---
-title: About using Azure Virtual Network
-description: Scenarios, limitations, and resources to deploy container groups to an Azure virtual network.
+title: Scenarios to use a virtual network
+description: Scenarios, resources, and limitations to deploy container groups to an Azure virtual network.
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: danlep
 
 ---
 
-# Virtual network background and scenarios
+# Virtual network scenarios and resources
 
 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) provides secure, private networking for your Azure and on-premises resources. By deploying container groups into an Azure virtual network, your containers can communicate securely with other resources in the virtual network. This article provides background about virtual network scenarios, limitations, and resources.
 
 For deployment information, see:
 
-*[Deploy container instances into an Azure virtual network](container-instances-vnet.md).
+* [Deploy container instances into an Azure virtual network](container-instances-vnet.md).
 * [Regions and resource availability](container-instances-region-availability.md#availability---virtual-network-deployment) for container group deployments to a virtual network
 
 ## Scenarios
@@ -79,4 +79,5 @@ In the following diagram, several container groups have been deployed to a subne
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
+[az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list
 

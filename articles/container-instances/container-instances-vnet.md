@@ -16,7 +16,7 @@ Examples in this article are formatted for the Bash shell. If you prefer another
 
 For background, see:
 
-* [Virtual network scenarios, limitations, and resources for Azure Container Instances](container-instances-virtual-network-concepts.md)
+* [Virtual network scenarios and resources for Azure Container Instances](container-instances-virtual-network-concepts.md)
 * [Regions and resource availability](container-instances-region-availability.md#availability---virtual-network-deployment) for container group deployments to a virtual network.
 
 > [!IMPORTANT]
@@ -52,7 +52,7 @@ az container create \
 
 When you deploy to a new virtual network by using this method, the deployment can take a few minutes while the network resources are created. After the initial deployment, additional container group deployments to the same subnet complete more quickly.
 
-### Deploy to existing virtual network
+## Deploy to existing virtual network
 
 To deploy a container group to an existing virtual network:
 
