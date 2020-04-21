@@ -137,7 +137,7 @@ Support for SAP Hybris Commerce Platform on Azure is detailed in the [Hybris Wik
 
 - SQL Server and Oracle on the Windows operating system platform. Same minimum releases apply as for SAP NetWeaver. See [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533) for details
 - SAP HANA on Red Hat and SUSE Linux. SAP HANA certified VM types are required as documented earlier in [this document](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support). SAP (Hybris) Commerce Platform is considered OLTP workload
-- SQL Azure DB as of SAP (Hybris) Commerce cloud version 1811.
+- SQL Azure DB as of SAP (Hybris) Commerce Platform version 1811
 
 
 
