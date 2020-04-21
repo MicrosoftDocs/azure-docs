@@ -41,5 +41,9 @@ landingContent:
         links:
           - text: Model ingestion
             url: ./quickstarts/get-started-model-ingestion.md
+          - text: Unity HoloLens
+            url: ./quickstarts/get-started-unity-hololens.md
+          - text: Unity HoloLens with MRTK
+            url: ./quickstarts/get-started-unity-hololens-mrtk.md
           - text: HoloLens DirectX
             url: ./quickstarts/get-started-hololens-directx.md
