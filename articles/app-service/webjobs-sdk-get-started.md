@@ -131,7 +131,7 @@ In this section, you set up console logging that uses the [ASP.NET Core logging 
     * Disables [dashboard logging](https://github.com/Azure/azure-webjobs-sdk/wiki/Queues#logs). The dashboard is a legacy monitoring tool, and dashboard logging is not recommended for high-throughput production scenarios.
     * Adds the console provider with default [filtering](webjobs-sdk-how-to.md#log-filtering).
 
-Now, you can add a function that is triggered by messages arriving in an [Azure Storage queue](../azure-functions/functions-bindings-storage-queue.md).
+Now, you can add a function that is triggered by messages arriving in an Azure Storage queue.
 
 ## Install the Storage binding extension
 
