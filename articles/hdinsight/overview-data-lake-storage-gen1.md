@@ -37,7 +37,7 @@ Data Lake Storage Gen1 is designed for analytic systems. Systems that require ma
 
 Data Lake Storage Gen1 provides industry-standard availability and reliability. Data assets are stored durably: redundant copies guard against unexpected failures. Enterprises can use Data Lake Storage Gen1 in their solutions as an important part of their existing data platform.
 
-Data Lake Storage Gen1 also provides enterprise-grade security for stored data. For more information, see [Securing data in Azure Data Lake Storage Gen1](#DataLakeStoreSecurity).
+Data Lake Storage Gen1 also provides enterprise-grade security for stored data. For more information, see [Securing data in Azure Data Lake Storage Gen1](#data-security-in-data-lake-storage-gen1).
 
 ## Flexible data structures
 
