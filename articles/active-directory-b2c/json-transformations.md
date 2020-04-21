@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -219,6 +219,39 @@ In the following example, the claims transformation extracts the `id` element fr
 - Output claims:
     - **extractedClaim**: 6353399
 
+## GetSingleItemFromJson
+
+Gets the first element from a JSON data.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputJsonClaim | string | The ClaimTypes that are used by the claims transformation to get the item from the JSON data. |
+| OutputClaim | key | string | The ClaimType that is produced after this ClaimsTransformation has been invoked, the first element key in the JSON array. |
+| OutputClaim | value | string | The ClaimType that is produced after this ClaimsTransformation has been invoked, the first element value in the JSON array. |
+
+In the following example, the claims transformation extracts the first element (first name) from the JSON data.
+
+```XML
+<ClaimsTransformation Id="GetGivenNameFromResponse" TransformationMethod="GetSingleItemFromJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="json" TransformationClaimType="inputJson" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="givenNameAttribute" TransformationClaimType="key" />
+    <OutputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="value" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+  - **inputJson**: {"firstName": "Emilty", "lastName": "Smith"}
+- Output claims:
+  - **key**: firstName
+  - **value**: Emilty
+
+
 ## GetSingleValueFromJsonArray
 
 Gets the first element from a JSON data array.
@@ -290,3 +323,5 @@ Output claim:
   }
 }
 ```
+
+
