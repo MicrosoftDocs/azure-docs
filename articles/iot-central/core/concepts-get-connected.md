@@ -8,10 +8,13 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
+ms.custom:  [amqp, mqtt]
 
 ---
 
 # Get connected to Azure IoT Central
+
+*This article applies to operators and device developers.*
 
 This article describes the options for connecting your devices to an Azure IoT Central application.
 
@@ -261,7 +264,8 @@ All data exchanged between devices and your Azure IoT Central is encrypted. IoT 
 
 ## Next steps
 
-Now that you've learned about device connectivity in Azure IoT Central, here are the suggested next steps:
+If you're a device developer, some suggested next steps are to:
 
-- [Prepare and connect a DevKit device](howto-connect-devkit.md)
-- [C SDK: Provisioning Device Client SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
+- Learn how to [Monitor device connectivity using Azure CLI](./howto-monitor-devices-azure-cli.md)
+- Learn how to [Define a new IoT device type in your Azure IoT Central application](./howto-set-up-template.md)
+- Read about [Azure IoT Edge devices and Azure IoT Central](./concepts-iot-edge.md)

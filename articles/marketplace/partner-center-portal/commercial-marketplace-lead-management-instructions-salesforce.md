@@ -14,7 +14,7 @@ ms.author: dsindona
 This article describes how to set up your Salesforce system to process sales leads from your commercial marketplace offer.
 
 > [!NOTE]
-> Marketplace doesn't support prepopulated lists, such as a list of values for the **Country** field. Make sure there are no lists set up before you continue. Alternatively, you can configure an [HTTPS endpoint](./commercial-marketplace-lead-management-instructions-https.md) or an [Azure table](./commercial-marketplace-lead-management-instructions-azure-table.md) to receive leads.
+> Azure Marketplace doesn't support prepopulated lists, such as a list of values for the **Country** field. Make sure there are no lists set up before you continue. Alternatively, you can configure an [HTTPS endpoint](./commercial-marketplace-lead-management-instructions-https.md) or an [Azure table](./commercial-marketplace-lead-management-instructions-azure-table.md) to receive leads.
 
 ## Set up your Salesforce system
 
@@ -43,17 +43,17 @@ The rest of the instructions are the same no matter which Salesforce experience 
 1. On the Web-to-Lead Setup page, select the **Create Web-to-Lead Form** button.
 1. On **Web-to-Lead Setup**, select **Create a Web-to-Lead Form**.
 
-    ![Salesforce - Web-to-Lead Setup](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-3.png)
+    ![Salesforce Web-to-Lead Setup](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-3.png)
 
 1. On **Create a Web-to-Lead Form**, make sure the `Include reCAPTCHA in HTML` setting is cleared and select **Generate**.
 
-    ![Salesforce - Create a Web-to-Lead Form](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-4.png)
+    ![Salesforce Create a Web-to-Lead Form pane](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-4.png)
 
-1. You'll be presented with some HTML text. Search for the text "oid" and copy the **oid value** from the HTML text (only the text in between quotation marks) and save it. You'll paste this value in the **Organization Identifier** field on the publishing portal.
+1. You'll be presented with some HTML text. Search for the text "oid" and copy the **"oid" value** from the HTML text (only the text in between quotation marks) and save it. You'll paste this value in the **Organization Identifier** field on the publishing portal.
 
-    ![Salesforce - Create a Web-to-Lead Form](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-5.png)
+    ![Salesforce Create a Web-to-Lead Form showing HTML "oid" value](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-5.png)
 
-1. Selected **Finished**.
+1. Select **Finished**.
 
 ## Configure your offer to send leads to Salesforce
 
@@ -62,7 +62,7 @@ When you're ready to configure the lead management information for your offer in
 1. Go to the **Offer setup** page for your offer.
 1. Select **Connect** under the **Lead management** section.
 
-    ![Lead management Connect button](./media/commercial-marketplace-lead-management-instructions-salesforce/lead-management-connect.png)
+    ![Lead management section Connect button](./media/commercial-marketplace-lead-management-instructions-salesforce/lead-management-connect.png)
 
 1. On the Connection details pop-up window, select **Salesforce** for the **Lead destination** and paste the `oid` value from the Web-to-Lead Form you created into the **Organization identifier** field.
 

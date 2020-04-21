@@ -12,7 +12,7 @@ ms.author: dsindona
 
 # Configure lead management for Dynamics 365 Customer Engagement
 
-This article describes how to set up Dynamics 365 Customer Engagement (previously named Dynamics CRM Online). Read more about the change in [Configure server-based authentication with Customer Engagement and SharePoint Online](https://docs.microsoft.com/dynamics365/customerengagement/on-premises/admin/on-prem-server-based-sharepoint-online) to process sales leads from your marketplace offer.
+This article describes how to set up Dynamics 365 Customer Engagement (previously named Dynamics CRM Online). Read more about the change in [Configure server-based authentication with Customer Engagement and SharePoint Online](https://docs.microsoft.com/dynamics365/customerengagement/on-premises/admin/on-prem-server-based-sharepoint-online) to process sales leads from your commercial marketplace offer.
 
 >[!NOTE]
 >These instructions are specific for the Microsoft-hosted cloud environment for Dynamics 365 Customer Engagement. Connecting directly to a Dynamics on-premises environment isn't currently supported. There are other options for you to receive leads, such as configuring an [HTTPS endpoint](./commercial-marketplace-lead-management-instructions-https.md) or an [Azure table](./commercial-marketplace-lead-management-instructions-azure-table.md).
@@ -190,7 +190,7 @@ To configure the lead management information for your offer in the publishing po
 1. For **Contact email**, enter email addresses for people in your company who should receive email notifications when a new lead is received. You can enter multiple email addresses by separating them with semicolons.
 1. Select **OK**.
 
-To make sure you successfully connected to a lead destination, select the **Validate** button. If successful, you'll have a test lead in the lead destination.
+To make sure you've successfully connected to a lead destination, select the **Validate** button. If successful, you'll have a test lead in the lead destination.
 
 ![Contact email box](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-connection-details.png)
 

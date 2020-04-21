@@ -91,7 +91,7 @@ The customer's information is sent via multiple fields. The following example sh
 
 ### Where can I get help in setting up my lead destination?
 
-Follow the steps in the section [Connect to your CRM system](#connect-to-your-crm-system), or submit a support ticket through aka.ms/marketplacepublishersupport. Then select **Offer creation** > **Your type of offer** > **Lead management configuration**.
+Follow the steps in the section [Connect to your CRM system](#connect-to-your-crm-system), or submit a support ticket through [Partner Center Help and support](https://partner.microsoft.com/support/v2/?stage=1). Then select **Offer creation** > **Your type of offer** > **Lead management configuration**.
 
 ### Am I required to configure a lead destination in order to publish an offer in the marketplace?
 
@@ -128,7 +128,7 @@ The Azure Blob lead destination is no longer supported, so you're missing any cu
 
 ### I received an email from the marketplace, but why can't I find the lead in my CRM?
 
-It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass personally identifiable information from the .edu domain. Submit a support ticket through aka.ms/marketplacepublishersupport.
+It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass personally identifiable information from the .edu domain. Submit a support ticket through [Partner Center Help and support](https://partner.microsoft.com/support/v2/?stage=1).
 
 ### I configured an Azure table as my lead destination. How can I view the leads?
 
@@ -150,7 +150,7 @@ Due to personally identifiable information policies, we can't share lead informa
 
 Lead generation data is low. It's less than 1 GB for almost all publishers. The cost depends on the number of leads received. For example, if 1,000 leads are received in a month, the cost is around 50 cents. For more information about storage pricing, see [Azure Storage overview pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-If your question isn't answered, contact Microsoft Support through aka.ms/marketplacepublishersupport. Then select **Offer creation** > **Your type of offer** > **Lead management configuration**.
+If your question isn't answered, contact Microsoft Support through [Partner Center Help and support](https://aka.ms/marketplacepublishersupport). Then select **Offer creation** > **Your type of offer** > **Lead management configuration**.
 
 ### I'm receiving email notifications when new customer leads are received. How can I configure someone else to receive these emails?
 
