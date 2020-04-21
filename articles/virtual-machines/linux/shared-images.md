@@ -3,12 +3,11 @@ title: Create shared image galleries with the Azure CLI
 description: In this article, you learn how to use the Azure CLI to create a shared image of a VM in Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice
+ms.subservice: imaging
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
-ms.reviewer: akjosh
 ms.reviewer: akjosh
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
