@@ -42,7 +42,7 @@ Click on the banner to start your account migration process. You're expected to 
 
 Companies that want to partner with Microsoft must join the Microsoft Partner Network (MPN) and get an MPN ID. If you're already a member of the Microsoft Partner Network and have an MPN ID, keep the information handy as you'll need it during the account activation process.  
 
-If you're not a member of the Microsoft Partner Network, you can [join here](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/en-us/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) to get an MPN ID. Make a note of your MPN ID as you'll need to enter it during the account activation process.
+If you're not a member of the Microsoft Partner Network, you can [join here](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) to get an MPN ID. Make a note of your MPN ID as you'll need to enter it during the account activation process.
 
 To learn more about the Microsoft Partner Network, see [Join the Microsoft Partner Network](https://partner.microsoft.com/en-US/membership) on the partner website. To learn more about ISV benefits in the Microsoft Partner Network, see the [ISV Resource Hub](https://partner.microsoft.com/isv-resource-hub).  
 
@@ -68,10 +68,10 @@ For specific information on what needs to be done by **October 15, 2019** for yo
 
 ## Additional Resources
 
-Join the weekly [Dynamics ISV community call](https://aka.ms/DynamicsISV-CommunityCall) for support and updates.
+Get help from experts and peers in forums and discover blogs, webinars, videos, events, and more at [Microsoft Dynamics CRM](https://community.dynamics.com/crm?wa=wsignin1.0).
 
-If you need help publishing, certifying, or managing your marketplace offers, [submit a support ticket](https://aka.ms/MarketplacePublisherSupport).
+If you need help publishing, certifying, or managing your marketplace offers, [submit a support ticket](https://partner.microsoft.com/support/v2/?stage=1).
 
-## Next steps
+## Next step
 
 - [Manage your commercial marketplace account in Partner Center](./manage-account.md)
