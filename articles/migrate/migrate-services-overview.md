@@ -30,7 +30,7 @@ The Azure Migrate hub includes these tools:
 **Tool** | **Assess and migrate** | **Details**
 --- | --- | ---
 **Azure Migrate: Server Assessment** | Assess servers. | Discover and assess on-premises VMware VMs, Hyper-V VMs, and physical servers in preparation for migration to Azure.
-**Azure Migrate: Server Migration** | Migrate servers. | Migrate to Azure:<ul><li>VMware VMs.</li><li>Hyper-V VMs.</li><li>Physical servers.</li><li>Other virtualized machines.</li><li>Public cloud VMs.</li></ul>
+**Azure Migrate: Server Migration** | Migrate servers. | Migrate VMware VMs, Hyper-V VMs, physical servers, other virtualized machines, and public cloud VMs to Azure.
 **Data Migration Assistant** | Assess on-premises SQL Server databases for migration to Azure SQL Database, an Azure SQL Database managed instance, or Azure VMs running SQL Server. | Data Migration Assistant helps pinpoint potential problems blocking migration. It identifies unsupported features, new features that can benefit you after migration, and the right path for database migration. [Learn more](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017).
 **Azure Database Migration Service** | Migrate on-premises databases to Azure VMs running SQL Server, Azure SQL Database, or Azure SQL Database managed instances. | [Learn more](https://docs.microsoft.com/azure/dms/dms-overview) about Database Migration Service.
 **Movere** | Assess servers. | [Learn more](#movere) about Movere.
