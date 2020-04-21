@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/20/2020
 ms.author: juliako
 ---
 
@@ -25,6 +25,20 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## April 2020
+
+### New widget parameters capabilities
+
+The **Insights** widget includes new parameters: `language` and `control`.
+
+The **Player** widget has a new `locale` parameter. Both `locale` and `language` parameters control the player’s language.
+
+For more information, see the [widget types](video-indexer-embed-widgets.md#widget-types) section. 
+
+## New player skin
+
+A new player skin launched With updated design.
 
 ## January 2020
  
