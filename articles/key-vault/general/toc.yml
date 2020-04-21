@@ -2,8 +2,10 @@
   href: index.yml
 - name: Overview 
   items:
-  - name: What is Azure Key Vault?
+  - name: About Azure Key Vault
     href: overview.md
+  - name: About keys, secrets, and certificates
+    href: about-keys-secrets-certificates.md
 
 - name: Tutorials 
   items:
