@@ -101,7 +101,7 @@ location=westus2
 adminlogin=azureuser
 password=Azure1234567
 
-# Set a logical server name that is unique in the system
+# Set a logical server name that is unique to Azure DNS (<server_name>.database.windows.net)
 servername=server-$RANDOM
 
 # Set the ip address range that can access your database

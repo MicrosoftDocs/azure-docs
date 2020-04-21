@@ -6,11 +6,10 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice:
-ms.date: 04/15/2020
+ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
-
 # Query storage files using SQL on-demand (preview) resources within Synapse SQL
 
 SQL on-demand (preview) enables you to query data in your data lake. It offers a T-SQL query surface area that accommodates semi-structured and unstructured data queries.
@@ -57,7 +56,7 @@ Refer to [Query folders and multiple files](query-folders-multiple-csv-files.md)
 
 To query Parquet source data, use FORMAT = 'PARQUET'
 
-```sql
+```syntaxsql
 OPENROWSET
 (
     { BULK 'data_file' ,
@@ -119,7 +118,6 @@ By omitting the WITH clause from OPENROWSET statement, you can instruct the serv
 ```sql
 OPENROWSET(
 BULK N'path_to_file(s)', FORMAT='PARQUET');
-
 ```
 
 ### Filename function
@@ -139,7 +137,7 @@ For additional information, read the Filepath section of the [Query specific fil
 
 ### Work with complex types and nested or repeated data structures
 
-To enable a smooth experience when working with data stored in nested or repeated data types, such as in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files, Starlight has added the extensions below.
+To enable a smooth experience when working with data stored in nested or repeated data types, such as in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files, SQL on-demand has added the extensions below.
 
 #### Project nested or repeated data
 
@@ -161,7 +159,7 @@ To access nested elements from a nested column, such as Struct, use "dot notatio
 
 The syntax fragment example is as follows:
 
-```sql
+```syntaxsql
     OPENROWSET
     (   BULK 'unstructured_data_path' ,
         FORMAT = 'PARQUET' )
@@ -195,7 +193,7 @@ To access non-scalar elements from a repeated column, use the [JSON_QUERY](/sql/
 
 See syntax fragment below:
 
-```sql
+```syntaxsql
     SELECT
        { JSON_VALUE (column_name, path_to_sub_element), }
        { JSON_QUERY (column_name [ , path_to_sub_element ]), )

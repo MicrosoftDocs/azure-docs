@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/15/2019
+ms.date: 04/17/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
@@ -33,6 +33,12 @@ In this article, you learn how to create, list and delete a user-assigned manage
     - Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
     - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
     - [Install the latest version of the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. Sign in to Azure using `az login`, using an account that is associated with the Azure subscription under which you would like to deploy the user-assigned managed identity.
+
+
+> [!NOTE]
+> In order to modify user permissions when using an app servivce principal using CLI you must provide the service principal additional permissions in Azure AD Graph API as portions of CLI perform GET requests against the Graph API. Otherwise, you may end up recieving a 'Insufficient privileges to complete the operation' message. To do this you will need to go into the App registration in Azure Active Directory, select your app, click on API permissions, scroll down and select Azure Active Directory Graph. From there select Application permissions, and then add the appropriate permissions. 
+
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
