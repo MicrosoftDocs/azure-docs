@@ -36,9 +36,10 @@ For more information, see [License requirements to use Privileged Identity Manag
 Once you have enabled Privileged Identity Management for your directory, you can prepARE Privileged Identity Management to manage Azure AD roles.
 
 You should get started with Azure AD roles in the following order:
-1. [Configure a role setting](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-how-to-change-default-settings?tabs=new).
-1. [Give eligible assignments](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user?tabs=new).
-1. [Allow eligible users to activate their role just-in-time](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-how-to-activate-role?tabs=new).
+
+1. [Configure a role setting](pim-how-to-change-default-settings.md).
+1. [Give eligible assignments](pim-how-to-add-role-to-user.md).
+1. [Allow eligible users to activate their role just-in-time](pim-how-to-activate-role.md).
 
 ## Navigate to your tasks
 
