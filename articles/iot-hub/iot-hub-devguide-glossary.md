@@ -8,6 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
+ms.custom: [amqp, mqtt]
 ---
 
 # Glossary of IoT Hub terms
