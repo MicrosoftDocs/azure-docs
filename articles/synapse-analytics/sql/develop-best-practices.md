@@ -15,7 +15,7 @@ ms.reviewer: igorstan
 # Development best practices for Synapse SQL
 This article describes guidance and best practices as you develop your data warehouse solution. 
 
-## Development best practices for Synapse SQL
+## SQL pool development best practices
 
 ### Reduce cost with pause and scale
 
@@ -25,7 +25,10 @@ For more information about reducing costs through pausing and scaling, see the [
 
 Ensure you update your statistics daily or after each load.  There are always trade-offs between performance and the cost to create and update statistics. If you find it is taking too long to maintain all of your statistics, be more selective about which columns have statistics or which columns need frequent updating.  
 
-For example, you might want to update date columns, where new values may be added on a daily basis. **You will gain the most benefit by having statistics on columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.**
+For example, you might want to update date columns, where new values may be added on a daily basis. 
+
+> [!NOTE]
+> You will gain the most benefit by having statistics on columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.
 
 See also [Manage table statistics](develop-tables-statistics.md), [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
@@ -33,7 +36,11 @@ See also [Manage table statistics](develop-tables-statistics.md), [CREATE STATIS
 
 By default, tables are Round Robin distributed.  This makes it easy for users to start creating tables without having to decide how their tables should be distributed.  Round Robin tables may perform sufficiently for some workloads. But, in most cases, selecting a distribution column will perform much better.  
 
-The most common example of when a table distributed by a column will far outperform a Round Robin table is when two large fact tables are joined.  For example, if you have an orders table, which is distributed by order_id, and a transactions table, which is also distributed by order_id, when you join your orders table to your transactions table on order_id, this query becomes a pass-through query. This means we eliminate data movement operations.  Fewer steps mean a faster query.  Less data movement also makes for faster queries.
+The most common example of when a table distributed by a column will far outperform a Round Robin table is when two large fact tables are joined.  
+
+For example, if you have an orders table, which is distributed by order_id, and a transactions table, which is also distributed by order_id, when you join your orders table to your transactions table on order_id, this query becomes a pass-through query. 
+
+This means we eliminate data movement operations.  Fewer steps mean a faster query.  Less data movement also makes for faster queries.
 
 > [!TIP]
 > When loading a distributed table, be sure that your incoming data is not sorted on the distribution key as this will slow down your loads.  
@@ -104,7 +111,7 @@ When querying a columnstore table, queries will run faster if you select only th
 
 See also [Table indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Columnstore indexes guide](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), [Rebuilding columnstore indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#rebuilding-indexes-to-improve-segment-quality).
 
-## Development best practices for SQL on-demand (preview)
+## SQL on-demand development best practices
 
 ### General considerations
 
