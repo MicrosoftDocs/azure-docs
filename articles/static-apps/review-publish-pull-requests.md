@@ -14,7 +14,7 @@ ms.author: yolasors
 This article demonstrates how to use pre-production environments to review changes to applications deployed with [Azure Static Web Apps](overview.md).
 
 
-A pre-production environment is a fully functional deployed environment using the latest code changes not yet available on your production environment, for example from a pull request. It works and behaves just like how your production would do with these changes, allowing to perform sanity checks and catch issues before pushing these changes to your actual production environment.
+A pre-production environment is a fully-functional staged version of your application that includes changes not available in production. Generated from GitHub pull requests, staged apps work and behave just as they would in production allowing you to perform reviews before pushing to production.
 
 Multiple pre-production environments can co-exist at the same time when using Azure Static Web Apps. Each time you create a pull request on GitHub, a staged version with your changes is deployed to a distinct pre-production environment.
 
