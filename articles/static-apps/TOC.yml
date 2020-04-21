@@ -1,4 +1,4 @@
-- name: App Service Static Apps Documentation
+- name: Azure Static Web Apps Documentation
   href: index.yml
 - name: Overview
   items:
