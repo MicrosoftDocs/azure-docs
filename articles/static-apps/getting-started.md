@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Building your first app with App Service Static Apps"
+title: "Quickstart: Building your first app with Azure Static Web Apps"
 description: Learn to build an App Service Static App with your preferred front-end framework.
 services: azure-functions
 author: craigshoemaker
@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Quickstart: Building your first static app
 
-App Service Static Apps publishes websites to a production environment by building apps from a GitHub repository. In this quickstart, you build a web application using your preferred front-end framework from a GitHub repository.
+Azure Static Web Apps publishes websites to a production environment by building apps from a GitHub repository. In this quickstart, you build a web application using your preferred front-end framework from a GitHub repository.
 
 If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 
