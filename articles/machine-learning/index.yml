@@ -14,7 +14,7 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 04/18/2020
+  ms.date: 04/22/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -85,14 +85,10 @@ landingContent:
             url: concept-model-management-and-deployment.md
           - text: How & where to deploy
             url: how-to-deploy-and-where.md
-          - text: MLOps examples
-            url: https://github.com/microsoft/MLOps
           - text: Realtime prediction
             url: how-to-consume-web-service.md
           - text: Batch prediction 
             url: how-to-use-parallel-run-step.md
-          - text: Authentication
-            url: how-to-setup-authentication.md
 
   # Reference
   - title: Go to reference docs
@@ -103,6 +99,8 @@ landingContent:
             url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
           - text: Designer algorithms & modules
             url: algorithm-module-reference/module-reference.md
+          - text: MLOps examples repository
+            url: https://github.com/microsoft/MLOps            
           - text: REST API
             url: https://docs.microsoft.com/rest/api/azureml/
           - text: Machine learning CLI
