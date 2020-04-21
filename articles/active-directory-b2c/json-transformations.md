@@ -225,11 +225,11 @@ Gets the first element from a JSON data.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJsonClaim | string | The ClaimTypes that are used by the claims transformation to get the item from the JSON data. |
-| OutputClaim | key | string | The ClaimType that is produced after this ClaimsTransformation has been invoked, the first element key in the JSON array. |
-| OutputClaim | value | string | The ClaimType that is produced after this ClaimsTransformation has been invoked, the first element value in the JSON array. |
+| InputClaim | inputJson | string | The ClaimTypes that are used by the claims transformation to get the item from the JSON data. |
+| OutputClaim | key | string | The first element key in the JSON. |
+| OutputClaim | value | string | The first element value in the JSON. |
 
-In the following example, the claims transformation extracts the first element (first name) from the JSON data.
+In the following example, the claims transformation extracts the first element (given name) from the JSON data.
 
 ```XML
 <ClaimsTransformation Id="GetGivenNameFromResponse" TransformationMethod="GetSingleItemFromJson">
@@ -237,7 +237,7 @@ In the following example, the claims transformation extracts the first element (
     <InputClaim ClaimTypeReferenceId="json" TransformationClaimType="inputJson" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="givenNameAttribute" TransformationClaimType="key" />
+    <OutputClaim ClaimTypeReferenceId="givenNameKey" TransformationClaimType="key" />
     <OutputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="value" />
   </OutputClaims>
 </ClaimsTransformation>
@@ -246,9 +246,9 @@ In the following example, the claims transformation extracts the first element (
 ### Example
 
 - Input claims:
-  - **inputJson**: {"firstName": "Emilty", "lastName": "Smith"}
+  - **inputJson**: {"givenName": "Emilty", "lastName": "Smith"}
 - Output claims:
-  - **key**: firstName
+  - **key**: givenName
   - **value**: Emilty
 
 
