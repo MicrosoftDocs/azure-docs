@@ -36,7 +36,7 @@ For more information on the supported interpretability techniques and machine le
 ## Generate feature importance value on your personal machine 
 The following example shows how to use the interpretability package on your personal machine without contacting Azure services.
 
-1. Install `azureml-interpret` and `azureml-interpret-contrib` packages.
+1. Install `azureml-interpret` and `azureml-contrib-interpret` packages.
     ```bash
     pip install azureml-interpret
     pip install azureml-contrib-interpret
