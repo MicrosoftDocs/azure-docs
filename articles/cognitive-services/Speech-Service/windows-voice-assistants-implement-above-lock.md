@@ -12,3 +12,28 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ---
+
+Windows allows applications to launch a new application instance above the lock screen. This is a guide to enable a Windows Conversational Agent application to run above lock, including references to example code and guidelines for managing the application lifecycle.
+
+## Limitations
+
+Above lock applications have a few limitations to note before you decide to enable above-lock functionality.
+
+### Transitioning between above and below lock
+
+Applications cannot transition from being below lock to above lock or vice versa. This means that you must run a new instance of your application when your application is launched above lock. Since Windows Conversational Agent applications can only have one instance running at a time, this means that a below lock instance of your application needs to close when the user locks their screen. Otherwise, only the app below lock will receive an activation signal when the user tries to activate the application.
+
+### User interface limitations
+
+Applications running above lock are advised to treat any key press as a dismissal. In addition, the "x" button in the top right corner of the app typically provided by the UWP framework is not rendered above lock. These limitations mean that the user interface will have to be changed programmatically based on the lock screen state. See [lock screen design guidance link] for guidance on the design and behavior of above lock voice agent experiences.
+
+## User permission
+The application entry in the Voice Activation Privacy settings page has a toggle for above lock functionality. For your app to be able to launch above lock, the user will need to turn this setting on.
+
+## Implementation
+
+### Lock screen state
+The Windows Conversational Agent SDK provides an API to make the lock screen state and changes to the lock screen state easily accessible. To detect the current lock screen state, check the ConversationalAgentSession.IsUserAuthenticated field. To detect changes in lock state, add an event handler to the ConversationalAgentSession object's SystemStateChanged event. It will fire whenever the screen changes from unlocked to locked or vice versa. If the value of the event arguments is ConversationalAgentSystemStateChangeType.UserAuthentication, then the lock screen state has changed and the application should close. See example code [here](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-uwp/UWPVoiceAssistantSample/AgentSessionManager.cs#L51).
+
+### Detect user preference
+To check whether the user has given above lock permissions, 
