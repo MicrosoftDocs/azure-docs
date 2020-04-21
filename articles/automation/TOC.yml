@@ -17,13 +17,13 @@
 - name: Tutorials
   items:
     - name: Create a Graphical runbook
-      href: automation-first-runbook-graphical.md
+      href: learn/automation-tutorial-runbook-graphical.md
     - name: Create a PowerShell runbook
-      href: automation-first-runbook-textual-powershell.md
+      href: learn/automation-tutorial-runbook-textual-powershell.md
     - name: Create a PowerShell workflow runbook
-      href: automation-first-runbook-textual.md
+      href: learn/automation-tutorial-runbook-textual.md
     - name: Create a Python runbook
-      href: automation-first-runbook-textual-python2.md
+      href: learn/automation-tutorial-runbook-textual-python2.md
 - name: Concepts
   items:
     - name: Runbook execution overview
@@ -62,12 +62,12 @@
           href: shared-resources/certificates.md
         - name: Connections
           href: automation-connections.md
+        - name: Credentials
+          href: shared-resources/credentials.md
         - name: PowerShell modules
           items:
             - name: Manage modules in Azure Automation
               href: shared-resources/modules.md
-            - name: Az module support in Azure Automation
-              href: az-modules.md
             - name: Update Azure PowerShell modules
               href: automation-update-azure-modules.md
         - name: Schedules

@@ -8,7 +8,7 @@ manager: maiye
 editor: ''
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 04/18/2020
 ms.author: lcozzens
 
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.
@@ -145,19 +145,19 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 1. Set an environment variable named **APP_CONFIGURATION_CONNECTION_STRING**, and set it to the access key to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-        setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
+    setx APP_CONFIGURATION_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
     ```
 
     If you use Windows PowerShell, run the following command:
 
     ```azurepowershell
-        $Env:APP_CONFIGURATION_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
+    $Env:APP_CONFIGURATION_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```cmd
-        export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
+    export APP_CONFIGURATION_CONNECTION_STRING='connection-string-of-your-app-configuration-store'
     ```
 
 ## Build and run the app locally
