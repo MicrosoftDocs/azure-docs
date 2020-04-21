@@ -62,6 +62,10 @@ To specify a key as a URI, follow these steps:
 1. Specify the subscription that contains the key vault.
 1. Save your changes.
 
+After you've specified the key, the Azure portal indicates whether automatic key rotation is enabled and displays the key version currently in use for encryption.
+
+:::image type="content" source="media/storage-encryption-keys-portal/portal-auto-rotation-enabled.png" alt-text="Screenshot showing auto-rotation of key versions enabled":::
+
 ### Specify a key from a key vault
 
 When you select the key from a key vault, auto-rotation of the key version is automatically enabled. To manually manage the key version, specify the key URI instead, and include the key version. For more information, see [Specify a key as a URI](#specify-a-key-as-a-uri).
