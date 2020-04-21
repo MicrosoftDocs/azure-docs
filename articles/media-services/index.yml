@@ -60,7 +60,9 @@ conceptualContent:
           - url: https://docs.microsoft.com/samples/browse/?products=azure-media-services
             itemType: sample
             text: Code samples
-            
+          - url: ./latest/release-notes.md
+            itemType: concept
+            text: Find out what's new in Media Services v3
     - title: Stream live 
       links: 
         - url: ./latest/live-streaming-overview.md 
