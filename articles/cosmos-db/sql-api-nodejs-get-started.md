@@ -162,7 +162,7 @@ Altogether, your code should look like this:
 
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js":::
 
-In your terminal, locate your ```app.js``` file and run the command: 
+In your terminal, locate your ```app.js``` file and run the command:
 
 ```bash 
 node app.js
