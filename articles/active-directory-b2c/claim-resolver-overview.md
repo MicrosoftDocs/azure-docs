@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/30/2020
+ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -86,7 +86,14 @@ The following sections list available claim resolvers.
 | {Context:IPAddress} | The user IP address. | 11.111.111.11 |
 | {Context:KMSI} | Indicates whether [Keep me signed in](custom-policy-keep-me-signed-in.md) checkbox is selected. |  true |
 
-### Non-protocol parameters
+### Claim 
+
+| Claim | Description | Example |
+| ----- | ----------- | --------|
+| {Claim:claim type} | A string claim type included in the user journey.  | A claim type value. |
+
+
+### OAuth2 key-value parameters
 
 Any parameter name included as part of an OIDC or OAuth2 request can be mapped to a claim in the user journey. For example, the request from the application might include a query string parameter with a name of `app_session`, `loyalty_number`, or any custom query string.
 
