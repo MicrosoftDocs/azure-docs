@@ -94,7 +94,7 @@ The sample application contains [Azure Resource Manager templates](https://githu
 | applicationTypeVersion | The version of the application type         | 1.0.0                                                        | Must match ApplicationManifest.xml                 |
 | serviceName            | The name of the service         | Voting~VotingWeb                                             | Must be in the format ApplicationName~ServiceType            |
 | serviceTypeName        | The type name of the service                | VotingWeb                                                    | Must match ServiceManifest.xml                 |
-| appPackageUrl          | The blob storage URL of the application     | https://servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | The URL of the application package in blob storage (the procedure to set the URL is described later in the article) |
+| appPackageUrl          | The blob storage URL of the application     | https:\//servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | The URL of the application package in blob storage (the procedure to set the URL is described later in the article) |
 
 ```json
 {
