@@ -5,7 +5,7 @@ summary: Learn how to use Azure Machine Learning to train, deploy, and manage ma
 
 metadata:
   title: Azure Machine Learning documentation
-  description: Learn how to use Azure Machine Learning to train, deploy, and manage machine learning models and pipelines at scale. Tutorials, code examples, API references, and more show you how. 
+  description: Learn how to use Azure Machine Learning to train, deploy, and manage machine learning models, automl experiments, and pipelines at scale. Tutorials, code examples, API references, and more show you how. 
  
   services: machine-learning
   ms.service: machine-learning
@@ -14,7 +14,7 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 03/18/2020
+  ms.date: 04/18/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -31,17 +31,11 @@ landingContent:
             url: tutorial-1st-experiment-sdk-setup.md
           - text: The designer (drag & drop)
             url: tutorial-designer-automobile-price-train-score.md
+          - text: Auto ML (no code/low-code)
+            url: tutorial-first-experiment-automated-ml.md
           - text: RStudio
             url: tutorial-1st-r-experiment.md
-          - text: Auto ML
-            url: tutorial-first-experiment-automated-ml.md
-      - linkListType: overview
-        links:
-          - text: What is Azure machine learning?
-            url: overview-what-is-azure-ml.md
-          - text: Architecture and concepts
-            url: concept-azure-machine-learning-architecture.md
-            
+        
   # PYTHON
   - title: 'Use the Python SDK'
     linkLists:
@@ -107,13 +101,13 @@ landingContent:
         links:
           - text: SDK for Python
             url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
-          - text: SDK for R
-            url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
+          - text: Designer algorithms & modules
+            url: algorithm-module-reference/module-reference.md
           - text: REST API
             url: https://docs.microsoft.com/rest/api/azureml/
           - text: Machine learning CLI
             url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
-          - text: Designer algorithms & modules
-            url: algorithm-module-reference/module-reference.md
           - text: AI reference architectures (GitHub)
             url: https://github.com/Microsoft/AI
+          - text: SDK for R
+            url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
