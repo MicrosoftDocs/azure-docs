@@ -20,6 +20,8 @@ landingContent:
       links:
       - text: What is speech translation?
         url: speech-translation.md
+      - text: Speech translation basics
+        url: speech-translation-basics.md
       - text: Use SPX to translate speech with no code
         url: spx-overview.md
     - linkListType: quickstart
