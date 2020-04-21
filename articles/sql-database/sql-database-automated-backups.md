@@ -71,11 +71,11 @@ For more information about LTR, see [Long-term backup retention](sql-database-lo
 
 ## Backup storage consumption
 
-For single databases, this equation is used to calculate the total backup storage usage:
+For single databases and managed instances, this equation is used to calculate the total backup storage usage:
 
 `Total backup storage size = (size of full backups + size of differential backups + size of log backups) – database size`
 
-For elastic database pools, the total backup storage size is aggregated at the pool level and is calculated as follows:
+For pooled databases, the total backup storage size is aggregated at the pool level and is calculated as follows:
 
 `Total backup storage size = (total size of all full backups + total size of all differential backups + total size of all log backups) - allocated pool data storage`
 

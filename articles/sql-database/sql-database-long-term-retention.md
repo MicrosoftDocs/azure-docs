@@ -88,7 +88,7 @@ You can configure long-term backup retention using the Azure Portal and PowerShe
 
 To learn how to configure long-term retention or restore a database from backup for an Azure SQL Database using the Azure Portal or PowerShell, see [Manage Azure SQL Database long-term backup retention](sql-database-long-term-backup-retention-configure.md)
 
-To learn how to configure long-term retention or restore a database from  backup for an Azure SQL Managed Instance using PowerShell, see [Manage Azure SQL Managed Instance long-term backup retention](sql-database-managed-instance-long-term-backup-configure.md). 
+To learn how to configure long-term retention or restore a database from  backup for an Azure SQL Managed Instance using PowerShell, see [Manage Azure SQL Managed Instance long-term backup retention](sql-database-managed-instance-long-term-backup-retention-configure.md). 
 
 
 ## Next steps

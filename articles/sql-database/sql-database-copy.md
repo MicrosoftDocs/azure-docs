@@ -108,7 +108,7 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
 ### Copy to a different subscription
 
-You can use the steps in the [Copy a SQL Database to a different server](#copy-a-sql-database-to-a-different-server) section to copy your database to a SQL Database server in a different subscription using T-SQL. Make sure you use a login that has the same name and password as the database owner of the source database. Additionally, the login must be a member of the `dbmanager` role or a server administrator, on both source and target servers.
+You can use the steps in the [Copy a SQL Database to a different server](#copy-to-a-different-server) section to copy your database to a SQL Database server in a different subscription using T-SQL. Make sure you use a login that has the same name and password as the database owner of the source database. Additionally, the login must be a member of the `dbmanager` role or a server administrator, on both source and target servers.
 
 > [!NOTE]
 > The [Azure portal](https://portal.azure.com), PowerShell, and Azure CLI do not support database copy to a different subscription.

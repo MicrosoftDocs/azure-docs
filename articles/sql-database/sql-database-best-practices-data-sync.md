@@ -48,9 +48,9 @@ Azure SQL Database supports only a single set of credentials. To accomplish thes
 
 ### <a name="database-considerations-and-constraints"></a> Database considerations and constraints
 
-#### SQL Database instance size
+#### SQL Database size
 
-When you create a new SQL Database instance, set the maximum size so that it's always larger than the database you deploy. If you don't set the maximum size to larger than the deployed database, sync fails. Although SQL Data Sync doesn't offer automatic growth, you can run the `ALTER DATABASE` command to increase the size of the database after it has been created. Ensure that you stay within the SQL Database instance size limits.
+When you create a new SQL Database, set the maximum size so that it's always larger than the database you deploy. If you don't set the maximum size to larger than the deployed database, sync fails. Although SQL Data Sync doesn't offer automatic growth, you can run the `ALTER DATABASE` command to increase the size of the database after it has been created. Ensure that you stay within the SQL Database size limits.
 
 > [!IMPORTANT]
 > SQL Data Sync stores additional metadata with each database. Ensure that you account for this metadata when you calculate space needed. The amount of added overhead is related to the width of the tables (for example, narrow tables require more overhead) and the amount of traffic.

@@ -149,10 +149,10 @@ Once the move completes, remove the resources in the source region to avoid unne
 1. If audit is enabled for the SQL Managed Instance, ensure that:
     - The storage container or event hub with the existing logs is moved to the target region. 
     - Audit is configured on the target instance. For more information, see [auditing with managed instance](sql-database-managed-instance-auditing.md).
-1. If your instance has a long-term retention policy (LTR), the existing LTR backups will remain associated with the current server. Because the target server is different, you will be able to access the older LTR backups in the source region using the source server, even if the server is deleted. 
+1. If your instance has a long-term retention policy (LTR), the existing LTR backups will remain associated with the current instance. Because the target instance is different, you will be able to access the older LTR backups in the source region using the source instance, even if the instance is deleted. 
 
   > [!NOTE]
-  > This will be insufficient for moving between the sovereign cloud and a public region. Such a migration will require moving the LTR backups to the target server, which is not currently supported. 
+  > This will be insufficient for moving between the sovereign cloud and a public region. Such a migration will require moving the LTR backups to the target instance, which is not currently supported. 
 
 ### Prepare resources
 
