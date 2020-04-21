@@ -217,14 +217,11 @@
     items:
     - name: For Developers
       href: developer-reference-resource.md
-    - name: Authoring APIs
-      href: luis-migration-api-authoring.md
-    - name: Migrate to V3 Authoring API
+    - name: Migrate to V3 Authoring APIs
       href: luis-migration-authoring-entities.md
-    - name: Migrate to V3 Prediction Runtime API
+    - name: Migrate to V3 Prediction APIs
       href: luis-migration-api-v3.md
-      displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override
-    - name: Migrate to V2 APIs
+    - name: Migrate to V2 API
       href: luis-migration-api-v1-to-v2.md
   - name: Use containers
     items:
