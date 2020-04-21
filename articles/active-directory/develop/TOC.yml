@@ -267,6 +267,8 @@
           href: msal-net-migration-ios-broker.md
         - name: Web browser considerations
           href: msal-net-web-browsers.md
+        - name: Logging
+          href: msal-logging.md?tabs=dotnet
     - name: Android
       items:
         - name: Accounts and tenant profiles
@@ -284,6 +286,8 @@
           displayName: firstline worker, frontline worker
         - name: Single and multi account public client apps
           href: single-multi-account.md
+        - name: Logging
+          href: msal-logging.md?tabs=android
     - name: iOS & macOS
       items:
         - name: Integrate with Azure AD B2C
@@ -299,12 +303,18 @@
           href: sso-between-adal-msal-apps-macos-ios.md
         - name: Troubleshoot SSL issues (MSAL iOS/macOS)
           href: ssl-issues.md
+        - name: Logging - Objective-C
+          href: msal-logging.md?tabs=objc
+        - name: Logging - Swift
+          href: msal-logging.md?tabs=swift
     - name: Java
       items:
         - name: Migrate to MSAL for Java
           href: migrate-adal-msal-java.md
         - name: ADFS support in MSAL for Java
           href: msal-java-adfs-support.md
+        - name: Logging
+          href: msal-logging.md?tabs=java
     - name: JavaScript & Node.js
       items:
         - name: Initialize applications - JavaScript
@@ -321,12 +331,16 @@
           href: msal-js-known-issues-ie-edge-browsers.md
         - name: Known issues - Safari
           href: msal-js-known-issues-safari-browser.md
+        - name: Logging
+          href: msal-logging.md?tabs=javascript
     - name: Python
       items:
         - name: Migrate to MSAL Python
           href: migrate-python-adal-msal.md
         - name: ADFS support in MSAL for Python
           href: msal-python-adfs-support.md
+        - name: Logging
+          href: msal-logging.md?tabs=python
 #    - name: Migration
 #      items:
 #      - name: Overview
@@ -350,8 +364,6 @@
         href: msal-handling-exceptions.md
       - name: Handle SameSite cookie changes in Chrome browser
         href: howto-handle-samesite-cookie-changes-chrome-browser.md
-      - name: Logging
-        href: msal-logging.md
   - name: Authentication protocols
     displayName: Auth protocol
     items:
