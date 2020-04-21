@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/21/2020
 # As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio
 ---
 
@@ -58,7 +58,7 @@ Your workspace contains a **Samples** folder with notebooks designed to help you
 
 For an example, see [Tutorial: Create your first ML experiment](tutorial-1st-experiment-sdk-setup.md#azure).
 
-### Use files from Git and version my files
+### <a name="terminal"> Use files from Git and version my files
 
 You can access all Git operations by using a terminal window. All Git files and folders will be stored in your workspace file system.
 
@@ -110,7 +110,7 @@ You *can't* delete the **Samples** notebooks.  These notebooks are part of the s
 You *can* delete **User files** notebooks in any of these ways:
 
 * In the studio, select the **...** at the end of a folder or file.  Make sure to use a supported browser (Microsoft Edge, Chrome, or Firefox).
-* From any Notebook toolbar, select **Terminal**  to access the terminal window for the compute instance.
+* From any Notebook toolbar, select [**Open terminal**](#terminal)  to access the terminal window for the compute instance.
 * In either Jupyter or JupyterLab with their tools.
 
 ## Run an experiment
@@ -139,7 +139,7 @@ These actions will not change the notebook state or the values of any variables 
 |Stop the kernel     |  Stops any running cell. Running a cell will automatically restart the kernel. |
 |Navigate to another workspace section     |     Running cells are stopped. |
 
-These actions will reset the notebook state as well as all variables in the notebook.
+These actions will reset the notebook state and will reset all variables in the notebook.
 
 |Action  |Result  |
 |---------|---------| --------|
@@ -153,7 +153,7 @@ These actions will reset the notebook state as well as all variables in the note
 
 The Notebook will automatically find all Jupyter kernels installed on the connected compute instance.  To add a kernel to the compute instance:
 
-1. Select **Terminal** in the Notebook toolbar.
+1. Select [**Open terminal**](#terminal) in the Notebook toolbar.
 1. Use the terminal window to create a new environment.
 1. Activate the environment.  For example, after creating `newenv`:
 
@@ -166,7 +166,7 @@ Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/J
 
 ### Status indicators
 
-A dot next to the **Compute** dropdown shows its status.  The status is also shown in the dropdown itself.  
+An indicator next to the **Compute** dropdown shows its status.  The status is also shown in the dropdown itself.  
 
 |Color |Compute status |
 |---------|---------| 
@@ -176,14 +176,12 @@ A dot next to the **Compute** dropdown shows its status.  The status is also sho
 |  Light Blue |Compute creating, starting, restarting, setting Up |
 |  Gray |Compute deleting, stopping |
 
-A dot next to the **Kernel** dropdown shows its status.
+An indicator next to the **Kernel** dropdown shows its status.
 
 |Color |Kernel status |
 |---------|---------|
 |  Green |Kernel connected, idle, busy|
 |  Gray |Kernel not connected |
-
-
 
 ## Find compute details 
 
