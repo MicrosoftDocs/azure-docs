@@ -670,7 +670,7 @@ Checks whether the provided email address is valid, and return the email alias.
 - Input claims:
     - **claimToMatch**: "emily@contoso.com"
 - Input parameters:
-    - **matchTo**: "(?&lt;mailAlias&gt;.*)@(.*)$"
+    - **matchTo**: `(?&lt;mailAlias&gt;.*)@(.*)$`
     - **outputClaimIfMatched**:  "isEmail"
     - **extractGroups**: true
 - Output claims:
