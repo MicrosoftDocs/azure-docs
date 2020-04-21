@@ -573,7 +573,8 @@ All your data is accessible after the key rotation operation including data inge
 
   200 OK
 
-- Recover your *Cluster* resource and your data -- during the soft-delete period, create a *Cluster* resource with the same name and in the same subscription, resource group and region. Follow the [Create Cluster resource](#create-cluster-resource) step to recover your *Cluster* resource. Previously associated workspaces were de-associated from the *Cluster* resource at delete time and you need to [associate your workspaces](#workspace-association-to-cluster-resource) after the recovery.
+- Recover your *Cluster* resource and your data -- 
+A *Cluster* resource that was deleted in the last 14 days is in soft-delete state and can be recovered. This is performed manually by the product group currently. Use your Microsoft channel for recovery requests.
 
 ## Appendix
 
