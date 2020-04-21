@@ -31,7 +31,17 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + [Reference upcoming breaking changes and old API support drop date]
 
 + **Bug fixes and improvements**
-  + [Insert fixes and improvements below. Link github issues resolved with this release]
+  + **azureml-automl-core**
+    + Explicitely checking for label_column_name & weight_column_name parameters for AutoMLConfig to be of type string.
+  + **azureml-contrib-automl-dnn-vision**
+    +  Reorganize tests of automl-vision
+  + **azureml-dataprep**
+    + Support european-style dot-delimited decimal conversion in set_column_types.
+  + **azureml-interpret**
+    + added upper bound to file size for the visualization data on uploaded explanations
+  + **azureml-train-automl-client**
+    + Explicitely checking for label_column_name & weight_column_name parameters for AutoMLConfig to be of type string.
+
   
 ## 2020-04-13
 
