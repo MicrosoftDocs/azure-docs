@@ -2,7 +2,7 @@
 title: Configure Azure Monitor for containers Prometheus Integration | Microsoft Docs
 description: This article describes how you can configure the Azure Monitor for containers agent to scrape metrics from Prometheus with your Kubernetes cluster.
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 04/21/2020
 ---
 
 # Configure scraping of Prometheus metrics with Azure Monitor for containers
@@ -12,7 +12,9 @@ ms.date: 04/20/2020
 ![Container monitoring architecture for Prometheus](./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png)
 
 >[!NOTE]
->The minimum agent version supported for scraping Prometheus metrics is ciprod07092019 or later, and the agent version supported for writing configuration and agent errors in the `KubeMonAgentEvents` table is ciprod10112019. For more information about the agent versions and what's included in each release, see [agent release notes](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod). 
+>The minimum agent version supported for scraping Prometheus metrics is ciprod07092019 or later, and the agent version supported for writing configuration and agent errors in the `KubeMonAgentEvents` table is ciprod10112019. For Azure Red Hat OpenShift and Red Hat OpenShift v4, agent version ciprod04162020 or higher. 
+>
+>For more information about the agent versions and what's included in each release, see [agent release notes](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod). 
 >To verify your agent version, from the **Node** tab select a node, and in the properties pane note value of the **Agent Image Tag** property.
 
 Scraping of Prometheus metrics is supported with Kubernetes clusters hosted on:
@@ -20,40 +22,12 @@ Scraping of Prometheus metrics is supported with Kubernetes clusters hosted on:
 - Azure Kubernetes Service (AKS)
 - Azure Stack or on-premises
 - Azure Red Hat OpenShift version 3.x
-- Azure Red Hat OpenShift version 4.x
+- Azure Red Hat OpenShift and Red Hat OpenShift version 4.x
 
->[!NOTE]
->For Azure Red Hat OpenShift, a template ConfigMap file is created in the *openshift-azure-logging* namespace. It is not configured to actively scrape metrics or data collection from the agent.
+
+
+
 >
-
-## Azure Red Hat OpenShift Prerequisites
-
-Before you start, confirm you are a member of the Customer Cluster Admin role of your Azure Red Hat OpenShift cluster to configure the containerized agent and Prometheus scraping settings. To verify you are a member of the *osa-customer-admins* group, run the following command:
-
-``` bash
-  oc get groups
-```
-
-The output will resemble the following:
-
-``` bash
-NAME                  USERS
-osa-customer-admins   <your-user-account>@<your-tenant-name>.onmicrosoft.com
-```
-
-If you are member of *osa-customer-admins* group, you should be able to list the `container-azm-ms-agentconfig` ConfigMap using the following command:
-
-``` bash
-oc get configmaps container-azm-ms-agentconfig -n openshift-azure-logging
-```
-
-The output will resemble the following:
-
-``` bash
-NAME                           DATA      AGE
-container-azm-ms-agentconfig   4         56m
-```
-
 ### Prometheus scraping settings
 
 Active scraping of metrics from Prometheus is performed from one of two perspectives:
@@ -180,9 +154,44 @@ Perform the following steps to configure your ConfigMap configuration file for t
 
 The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
 
-## Configure and deploy ConfigMaps - Red Hat OpenShift v3
+## Configure and deploy ConfigMaps - Azure Red Hat OpenShift v3
 
-Perform the following steps to configure your ConfigMap configuration file for your Azure Red Hat OpenShift v3 clusters.
+This section includes the requirements and steps to successfully configure your ConfigMap configuration file for Azure Red Hat OpenShift v3.x cluster.
+
+>[!NOTE]
+>For Azure Red Hat OpenShift v3.x, a template ConfigMap file is created in the *openshift-azure-logging* namespace. It is not configured to actively scrape metrics or data collection from the agent.
+
+### Prerequisites
+
+Before you start, confirm you are a member of the Customer Cluster Admin role of your Azure Red Hat OpenShift cluster to configure the containerized agent and Prometheus scraping settings. To verify you are a member of the *osa-customer-admins* group, run the following command:
+
+``` bash
+  oc get groups
+```
+
+The output will resemble the following:
+
+``` bash
+NAME                  USERS
+osa-customer-admins   <your-user-account>@<your-tenant-name>.onmicrosoft.com
+```
+
+If you are member of *osa-customer-admins* group, you should be able to list the `container-azm-ms-agentconfig` ConfigMap using the following command:
+
+``` bash
+oc get configmaps container-azm-ms-agentconfig -n openshift-azure-logging
+```
+
+The output will resemble the following:
+
+``` bash
+NAME                           DATA      AGE
+container-azm-ms-agentconfig   4         56m
+```
+
+### Enable monitoring
+
+Perform the following steps to configure your ConfigMap configuration file for your Azure Red Hat OpenShift v3.x cluster.
 
 1. Edit the ConfigMap yaml file with your customizations to scrape Prometheus metrics. The ConfigMap template already exists on the Red Hat OpenShift v3 cluster. Run the command `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` to open the file in a text editor.
 
@@ -266,9 +275,15 @@ You can view the updated ConfigMap by running the command, `oc describe configma
 
 If you have already deployed a ConfigMap to your cluster and you want to update it with a newer configuration, you can edit the ConfigMap file you've previously used, and then apply using the same commands as before.
 
-For Kubernetes clusters other than Azure Red Hat OpenShift, run the command `kubectl apply -f <configmap_yaml_file.yaml`. 
+For the following Kubernetes environments:
 
-For an Azure Red Hat OpenShift cluster, run the command, `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` to open the file in your default editor to modify and then save it.
+- Azure Kubernetes Service (AKS)
+- Azure Stack or on-premises
+- Azure Red Hat OpenShift and Red Hat OpenShift version 4.x
+
+run the command `kubectl apply -f <configmap_yaml_file.yaml`. 
+
+For an Azure Red Hat OpenShift v3.x cluster, run the command, `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` to open the file in your default editor to modify and then save it.
 
 The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" updated`.
 
@@ -277,7 +292,7 @@ The configuration change can take a few minutes to finish before taking effect, 
 To verify the configuration was successfully applied to a cluster, use the following command to review the logs from an agent pod: `kubectl logs omsagent-fdf58 -n=kube-system`. 
 
 >[!NOTE]
->This command is not applicable to Azure Red Hat OpenShift cluster.
+>This command is not applicable to Azure Red Hat OpenShift v3.x cluster.
 > 
 
 If there are configuration errors from the omsagent pods, the output will show errors similar to the following:
@@ -304,9 +319,9 @@ Errors related to applying configuration changes are also available for review. 
 
 - For Azure Red Hat OpenShift, check the omsagent logs by searching the **ContainerLog** table to verify if log collection of openshift-azure-logging is enabled.
 
-Errors prevent omsagent from parsing the file, causing it to restart and use the default configuration. After you correct the error(s) in ConfigMap on clusters other than Azure Red Hat OpenShift, save the yaml file and apply the updated ConfigMaps by running the command: `kubectl apply -f <configmap_yaml_file.yaml`. 
+Errors prevent omsagent from parsing the file, causing it to restart and use the default configuration. After you correct the error(s) in ConfigMap on clusters other than Azure Red Hat OpenShift v3.x, save the yaml file and apply the updated ConfigMaps by running the command: `kubectl apply -f <configmap_yaml_file.yaml`. 
 
-For Azure Red Hat OpenShift, edit and save the updated ConfigMaps by running the command: `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging`.
+For Azure Red Hat OpenShift v3.x, edit and save the updated ConfigMaps by running the command: `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging`.
 
 ## Query Prometheus metrics data
 
