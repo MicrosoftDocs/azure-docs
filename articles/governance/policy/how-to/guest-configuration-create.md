@@ -26,6 +26,11 @@ non-Azure machine.
 
 > [!IMPORTANT]
 > Custom policies with Guest Configuration is a Preview feature.
+>
+> The Guest Configuration extension is required to perform audits in Azure virtual machines.
+> To deploy the extension at scale, assign the following policy definitions:
+>   - Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.
+>   - Deploy prerequisites to enable Guest Configuration Policy on Linux VMs.
 
 ## Install the PowerShell module
 
@@ -220,8 +225,11 @@ Configuration AuditBitLocker
 }
 
 # Compile the configuration to create the MOF files
-AuditBitLocker -out ./Config
+AuditBitLocker ./Config
 ```
+
+Save this file with name `config.ps1` in the project folder. Run it in PowerShell by executing `./config.ps1`
+in the terminal. A new mof file will be created.
 
 The `Node AuditBitlocker` command isn't technically required but it produces a file named
 `AuditBitlocker.mof` rather than the default, `localhost.mof`. Having the .mof file name follow the
