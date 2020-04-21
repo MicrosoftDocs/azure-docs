@@ -3639,7 +3639,7 @@
     },
    {
       "source_path": "articles/key-vault/about-keys-secrets-and-certificates.md",
-      "redirect_url": "/azure/key-vault",
+      "redirect_url": "/azure/key-vault/general/about-keys-secrets-certificates",
       "redirect_document_id": false
     },
    {
@@ -7854,6 +7854,26 @@
     {
       "source_path": "articles/automation/automation-source-control-integration.md",
       "redirect_url": "/azure/automation/source-control-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-first-runbook-graphical.md",
+      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-graphical",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-first-runbook-textual.md",
+      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-textual",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-first-runbook-textual-powershell.md",
+      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-textual-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-first-runbook-textual-python2.md",
+      "redirect_url": "/azure/automation/learn/automation-tutorial-runbook-textual-python2",
       "redirect_document_id": false
     },
     {
