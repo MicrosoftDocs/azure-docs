@@ -172,7 +172,7 @@ If you don't yet have a library for your chosen language, you might want to use 
 
 #### First case: Access the token request by using a shared secret
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -185,7 +185,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 
 #### Second case: Access the token request by using a certificate
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
