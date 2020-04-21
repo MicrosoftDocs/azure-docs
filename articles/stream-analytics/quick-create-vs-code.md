@@ -14,8 +14,8 @@ ms.custom: mvc
 
 This quickstart shows you how to create and run an Azure Stream Analytics job by using the Azure Stream Analytics Tools extension for Visual Studio Code. The example job reads streaming data from an Azure IoT Hub device. You define a job that calculates the average temperature when over 27° and writes the resulting output events to a new file in blob storage.
 
->[!Note]
->Stream Analytics tools for Visual Studio Code do not have the support for jobs in China East, China North, Germany Central and Germany NorthEast regions.
+> [!NOTE]
+> Visual Studio and Visual Studio Code tools don't support jobs in the China East, China North, Germany Central, and Germany NorthEast regions.
 
 ## Before you begin
 
