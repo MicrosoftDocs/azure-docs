@@ -36,11 +36,18 @@ Azure resources defined in the template:
 
     [![Deploy to Azure](./media/create-member-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
 
-1. Specify the Blockchain **Member name** and **Member password**.
+1. Specify the settings for the Azure Blockchain Service member.
 
-    Available locations for the deployment are *westeurope, eastus, southeastasia, westeurope, northeurope, westus2*, and *japaneast*.
-
-    By default, the example template uses the *Basic* pricing tier, a consortium name based on the member name, and the same value for the member and consortium management account password.
+    Setting | Description
+    --------|------------
+    Subscription | Select the Azure subscription that you want to use for your service. If you have multiple subscriptions, choose the subscription in which you get billed for the resource.
+    Resource group | Create a new resource group name or choose an existing one from your subscription.
+    Location | Choose a location to create the member. All members of the consortium must be in the same location. Available locations for the deployment are *westeurope, eastus, southeastasia, westeurope, northeurope, westus2*, and *japaneast*.
+    Member name | Choose a unique name for the Azure Blockchain Service member. The blockchain member name can only contain lowercase letters and numbers. The first character must be a letter. The value must be between 2 and 20 characters long.
+    Consortium name | Enter a unique name. For more information on consortia, see [Azure Blockchain Service consortium](consortium.md).
+    Member password | The member account password is used to encrypt the private key for the Ethereum account that is created for your member. You use the member account and member account password for consortium management.
+    Sku tier | The pricing tier for your new service. Choose between **Standard** and **Basic** tiers. Use the *Basic* tier for development, testing, and proof of concepts. Use the *Standard* tier for production grade deployments. You should also use the *Standard* tier if you are using Blockchain Data Manager or sending a high volume of private transactions. Changing the pricing tier between basic and standard after member creation is not supported.
+    Sku name | The node configuration and cost for your new service.
 
 1. Select **Purchase** to deploy the template.
 
