@@ -61,7 +61,7 @@ Each of these options is described in the [detailed instructions](status-monitor
 
 - How do I verify that the enablement succeeded?
 
-  - The [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-reference#get-applicationinsightsmonitoringstatus) cmdlet can be used to verify that enablement succeeded.
+  - The [Get-ApplicationInsightsMonitoringStatus](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#get-applicationinsightsmonitoringstatus) cmdlet can be used to verify that enablement succeeded.
   - We recommend you use [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) to quickly determine if your app is sending telemetry.
 
   - You can also use [Log Analytics](../log-query/get-started-portal.md) to list all the cloud roles currently sending telemetry:
