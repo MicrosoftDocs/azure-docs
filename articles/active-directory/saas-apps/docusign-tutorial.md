@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/10/2020
+ms.date: 04/21/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -214,20 +214,20 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 
        ![View SAML 2.0 Endpoints][60]
        
-       1. Copy the **Service Provider Issuer URL**, and then paste it into the **Identifier** box in **Basic SAML Configuration** section in the Azure portal.
+       * Copy the **Service Provider Issuer URL**, and then paste it into the **Identifier** box in **Basic SAML Configuration** section in the Azure portal.
        
-       1. Copy the **Service Provider Assertion Consumer Service URL**, and then paste it into the **Reply URL** box in **Basic SAML Configuration** section in the Azure portal.
+       * Copy the **Service Provider Assertion Consumer Service URL**, and then paste it into the **Reply URL** box in **Basic SAML Configuration** section in the Azure portal.
        
-       1. Copy the **Service Provider Login URL**, and then paste it into the **Sign On URL** box in **Basic SAML Configuration** section in the Azure portal.
+       * Copy the **Service Provider Login URL**, and then paste it into the **Sign On URL** box in **Basic SAML Configuration** section in the Azure portal.
 
-       1. Select **Close**.
+       * Select **Close**.
 
 ### Create DocuSign test user
 
 In this section, a user named B.Simon is created in DocuSign. DocuSign supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in DocuSign, a new one is created after authentication.
 
->[!Note]
->If you need to create a user manually, contact the [DocuSign support team](https://support.docusign.com/).
+> [!Note]
+> If you need to create a user manually, contact the [DocuSign support team](https://support.docusign.com/).
 
 ## Test SSO 
 
