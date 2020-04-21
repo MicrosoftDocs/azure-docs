@@ -531,7 +531,7 @@
   items:
   - name: SPX
     items:
-      - name: What is speech-to-text?
+      - name: What is SPX?
         href: spx-overview.md
       - name: SPX basics
         href: spx-basics.md
