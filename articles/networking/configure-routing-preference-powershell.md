@@ -73,7 +73,7 @@ $publicIp = New-AzRmPublicIpAddress
 
 ## Create a Virtual Machine and assign Public IP address to NIC
 
-Once the Public IP is created, use the PowerShell section on the tutorial page: [Associate a public IP address to a virtual machine](associate-public-ip-address-vm.md#powershell) to associate the Public IP with Internet Routing Preference to your VM.  (Additionally, ensure that [network traffic can be routed to the VM](associate-public-ip-address-vm.md#allow-network-traffic-to-the-vm) by opening required ports and checking network security groups.)
+Once the Public IP is created, use the PowerShell section on the tutorial page: [Associate a public IP address to a virtual machine](associate-public-ip-address-vm.md#powershell) to associate the Public IP with Internet Routing Preference to your VM.  (Additionally, ensure that [network traffic can be routed to the VM](../virtual-network/associate-public-ip-address-vm.md#allow-network-traffic-to-the-vm) by opening required ports and checking network security groups.)
 
 ## Verify the traffic to/from the Azure Resource is utilizing the Internet Routing Preference
 
