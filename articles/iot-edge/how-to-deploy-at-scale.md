@@ -5,7 +5,7 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/17/2020
+ms.date: 4/21/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -190,17 +190,6 @@ When you modify a deployment, the changes immediately replicate to all targeted 
     ![Edit custom metrics in a deployment](./media/how-to-deploy-monitor/metric-list.png)
 
 1. Select the **Labels** tab and make any desired changes and select **Save**.
-
-### Modify tags and desired properties
-
-If you developed custom code modules to your devices, you can add or modify tags and desired properties in the module twin. For an overview of IoT Edge properties, see [Properties of the IoT Edge agent and IoT Edge hub module twins](module-edgeagent-edgehub.md).
-
-1. In your IoT hub, select **IoT Edge** from the left pane menu.
-1. Select the device with the module you want to edit.
-1. On the **Modules** tab, select the module.
-1. On the module details page, on the upper menu bar select **Module Identity Twin**. Edit the JSON as needed and select **Save**.
-
-    ![Edit properties on the module identity twin](./media/how-to-deploy-monitor/module-twin.png)
 
 ## Delete a deployment
 

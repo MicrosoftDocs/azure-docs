@@ -4,7 +4,7 @@ description: High-level monitoring including edgeHub and edgeAgent reported prop
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/17/2020
+ms.date: 04/21/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
@@ -13,16 +13,6 @@ services: iot-edge
 # Monitor IoT Edge deployments
 
 Azure IoT Edge provides reporting that lets you monitor real-time information on the modules deployed to your IoT Edge devices. The IoT Hub service retrieves the status from the devices and makes them available to the operator. Monitoring is also important for [deployments made at scale](module-deployment-monitoring.md) that include automatic deployments and layered deployments.
-
-Successful deployments require monitoring the following information:
-
-* The last time the device or module connected or disconnected.
-
-* Connectivity status of the device or module.
-
-* Status codes of the IoT Edge runtime modules.
-
-* Versions of the deployed modules.
 
 Both devices and modules have similar data, such as connectivity, so values are obtained according to the device ID or the module ID.
 
@@ -62,9 +52,12 @@ To view the details of a deployment and monitor the devices running it, use the 
 
    ![View targeted devices for a deployment](./media/how-to-monitor-iot-edge-deployments/target-devices.png)
 
-1. Select the **Metrics** tab. If you choose a metric from the **Select Metric** drop-down, a **View** button appears for you to display the results. You can also select **Edit Metics** to adjust the criteria for any custom metrics that you have defined. Select **Save** if you made changes.
+1. Select the **Metrics** tab. If you choose a metric from the **Select Metric** drop-down, a **View** button appears for you to display the results. You can also select **Edit Metrics** to adjust the criteria for any custom metrics that you have defined. Select **Save** if you made changes.
 
    ![View metrics for a deployment](./media/how-to-monitor-iot-edge-deployments/deployment-metrics-tab.png)
+
+
+To make changes to your deployment, see [Modify a deployment](how-to-deploy-at-scale.md#modify-a-deployment).
 
 ## Monitor a deployment with Azure CLI
 
