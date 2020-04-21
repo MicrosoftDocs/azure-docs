@@ -38,13 +38,6 @@ To make it easy for you to create a new repository, you use a GitHub template re
 - Name your repository **my-first-static-app**
 - Click the **Create repository from template** button
 
-# [Svelte](#tab/svelte)
-
-- Navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/svelte-basic/generate
-- Name your repository **my-first-static-app**
-- Click the **Create repository from template** button
-
 # [Vue](#tab/vue)
 
 - Navigate to the following location to create a new repository
@@ -101,13 +94,6 @@ Next, add configuration details specific to your preferred front-end framework.
 - Enter **/** in the _App location_ box
 - Clear the default value from the _Api location_ box
 - Enter **build** in the _App artifact location_ box
-- Click the **Review + create** button
-
-# [Svelte](#tab/svelte)
-
-- Enter **/** in the _App location_ box
-- Clear the default value from the _Api location_ box
-- Enter **public** in the _App artifact location_ box
 - Click the **Review + create** button
 
 # [Vue](#tab/vue)
