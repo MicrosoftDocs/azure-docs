@@ -361,10 +361,10 @@ You're now equipped with the skills you need to move on to the next guides:
 Learn more about the different Azure Maps services discussed in this article:
 
 > [!div class="nextstepaction"]
-> [Data Upload](creator-for-indoor-maps.md#uploading-a-drawing-package)
+> [Data Upload](creator-for-indoor-maps.md#upload-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Data Conversion](creator-for-indoor-maps.md#converting-a-drawing-package)
+> [Data Conversion](creator-for-indoor-maps.md#convert-a-drawing-package)
 
 > [!div class="nextstepaction"]
 > [Dataset](creator-for-indoor-maps.md#datasets)

@@ -22,7 +22,7 @@ Before you can download the Drawing Error Visualizer, you will need to:
 
 2. [Enable the Creator resource](tutorial-creator-indoor-maps.md) in your Azure Maps account
 
-3. Upload your Drawing package to the Azure Maps service, and obtain a `udid` for the uploaded package. For more details on uploading a Drawing package, see [Uploading a Drawing package](creator-for-indoor-maps.md#uploading-a-drawing-package).
+3. Upload your Drawing package to the Azure Maps service, and obtain a `udid` for the uploaded package. For more details on uploading a Drawing package, see [Uploading a Drawing package](creator-for-indoor-maps.md#upload-a-drawing-package).
 
 ## Download
 

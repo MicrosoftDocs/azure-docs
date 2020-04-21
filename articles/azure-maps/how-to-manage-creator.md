@@ -28,11 +28,11 @@ For each Azure Maps account, you can have up to one Creator.  After you create C
 
     ![ Select your Azure Maps account](./media/how-to-manage-creator/select-your-azure-maps-account.png)
 
-3. Once you're on the Azure Maps account page, navigate to the **Overview** option under the **Creator**.
+3. Once you're on the Azure Maps account page, navigate to the **Overview** option under **Creator**.
   
     ![Overview Option](./media/how-to-manage-creator/overview-option.png)
 
-4. Select the **create** button to create your Creator. Enter the information for your Creator account and select the location for your Creator. Currently, the United States is the only supported geographical location.
+4. Select the **create** button to create your Azure Maps Creator. Enter the information for your Creator account and select the location for your Creator. Currently, the United States is the only supported geographical location.
 
     ![Creator account information form](./media/how-to-manage-creator/creator-account-information-form.png)
 
@@ -40,7 +40,7 @@ For each Azure Maps account, you can have up to one Creator.  After you create C
 
      ![Creator account creation](./media/how-to-manage-creator/creator-account-creation.png)
 
-6. Click Create.
+6. Click **Create**.
 
 7. When the deployment completes, you'll see a page with a success or a failure message.
 
@@ -81,10 +81,10 @@ Creator inherits your Azure Maps Access Control (IAM) settings. Access to any da
 Introduction to Creator for Indoor mapping:
 
 > [!div class="nextstepaction"]
-> [Data Upload](creator-for-indoor-maps.md#uploading-a-drawing-package)
+> [Data Upload](creator-for-indoor-maps.md#upload-a-drawing-package)
 
 > [!div class="nextstepaction"]
-> [Data Conversion](creator-for-indoor-maps.md#converting-a-drawing-package)
+> [Data Conversion](creator-for-indoor-maps.md#convert-a-drawing-package)
 
 > [!div class="nextstepaction"]
 > [Dataset](creator-for-indoor-maps.md#datasets)
