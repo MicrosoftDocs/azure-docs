@@ -114,17 +114,6 @@ A single chunk of data, which will be passed into the Content of the Immersive R
 | application/mathml+xml | Mathematical Markup Language (MathML). [Learn more](./how-to/display-math.md).
 | application/vnd.openxmlformats-officedocument.wordprocessingml.document | Microsoft Word .docx format document.
 
-### LaunchResponse
-
-Contains the response from the call to `ImmersiveReader.launchAsync`.
-
-```typescript
-{
-    container: HTMLDivElement;    // HTML element which contains the Immersive Reader iframe
-    sessionId: string;            // Globally unique identifier for this session, used for debugging
-}
-```
-
 ### Options
 
 Contains properties that configure certain behaviors of the Immersive Reader.
@@ -157,13 +146,14 @@ type ReadAloudOptions = {
 };
 ```
 
-### RenderButtonsOptions
+### LaunchResponse
 
-Options for rendering the Immersive Reader buttons.
+Contains the response from the call to `ImmersiveReader.launchAsync`.
 
 ```typescript
 {
-    elements: HTMLDivElement[];    // Elements to render the Immersive Reader buttons in
+    container: HTMLDivElement;    // HTML element which contains the Immersive Reader iframe
+    sessionId: string;            // Globally unique identifier for this session, used for debugging
 }
 ```
 
@@ -186,6 +176,16 @@ Contains information about the error.
 | Timeout | The Immersive Reader failed to load within the specified timeout. |
 | TokenExpired | The supplied token is expired. |
 | Throttled | The call rate limit has been exceeded. |
+
+### RenderButtonsOptions
+
+Options for rendering the Immersive Reader buttons.
+
+```typescript
+{
+    elements: HTMLDivElement[];    // Elements to render the Immersive Reader buttons in
+}
+```
 
 ## Launching the Immersive Reader
 
