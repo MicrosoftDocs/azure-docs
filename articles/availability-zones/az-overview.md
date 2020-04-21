@@ -58,8 +58,6 @@ Azure's approach on availability of Azure services across regions is best descri
 
 A recommended region is a region that provides the broadest range of service capabilities and is designed to support Availability Zones now, or in the future. These are designated in the Azure portal as **Recommended**.
 
-Availability Zones are currently/planned to be available in most recommended regions.
-
 ### Alternate (other) regions
 
 An alternate (other) region is a region that extends Azure's footprint within a data residency boundary where a recommended region also exists. Alternate regions help to optimize latency and provide a second region for disaster recovery needs. They are not designed to support Availability Zones (although Azure conducts regular assessment of these regions to determine if they should become recommended regions). These are designated in the Azure portal as **Other**.
