@@ -11,27 +11,39 @@ ms.author: cshoe
 
 # Accessing user information in an Azure Static Web Apps API
 
-Once logged in, each request to an API function includes authentication-related user information. This information is available in the request headers sent to an API function.
+Once logged in, each request to an API function includes authentication-related user information in the request header.
 
-| Header  | Description |
-|---------|-------------|
-| <nobr>`x-ms-client-principal-name`</nobr> | The provider's unique identifier. Depending on the provider, this value is either the user's email address or the person's username. |
-| `x-ms-client-principal-id`  | Either the user's ID for the identity provider, or a server-generated unique ID. |
-| `x-ms-client-principal-idp` | The name of the identity provider used to log in. |
-| `x-ms-client-principal`     | A serialized object containing values of each of the above data. |
+## Header
+
+The `x-ms-client-principal` header is a base64-encoded string, which includes the following user-identifying data.
+
+| Property  | Description |
+|-----------|---------|
+| identityProvider | The name of the identity provider |
+| userId | An Azure Static Web Apps-specific unique identifier for the user.  <ul><li>This value is unique on a per-app basis. The same user returns a different `userId` on a different Static App<li>The value persists for the lifetime of a user. If you delete and then add a user back, the `userId` returns a different value.</ul>|
+| userDetails | [Username or email address of the user](authentication-authorization.md). Some providers return a user's email address, while others use send the user handle. |
+| userRoles     | An array of the [user's roles](authentication-authorization.md). |
+
+The following is a sample `x-ms-client-principal` value:
+
+```javascript
+{
+  identityProvider: "facebook",
+  userId: "d75b260a64504067bfc5b2905e3b8182",
+  userDetails: "user@example.com",
+  userRoles: [ "anonymous", "authenticated" ]
+}
+```
 
 ## In the API
 
-Authenticated user information is passed to an API function in the request header. To make this information accessible to the browser, you can return the headers in a response intended for the client.
+Authenticated user information is passed to an API function in the request header. To make this information accessible to the browser, you can return the header value in a response intended for the client.
 
 The following example function named `user` shows how to return user information to the client.
 
 ```javascript
 module.exports = async function (context, req) {
   const data = {
-    name: req.headers[`x-ms-client-principal-name`],
-    id: req.headers[`x-ms-client-principal-id`],
-    provider: req.headers[`x-ms-client-principal-idp`],
     principal: req.headers[`x-ms-client-principal`],
   };
 
@@ -57,25 +69,7 @@ Using libraries like [axios](https://github.com/axios/axios) make the process of
 axios.get(`/api/user`).then(response => console.log(response.data));
 ```
 
-## Example output
-
-The following response is similar to what is sent to the browser based on the example shown in this article.
-
-```json
-{
-    "id": "55545156",
-    "name": "staticwebdev",
-    ​"principal": {
-      "identityProvider": "github",
-      "userId": "55545156",
-      "userDetails": "staticwebdev",
-      "userRoles":["anonymous", "authenticated"]
-      },
-​    "provider": "github"
-}
-```
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add a database](add-database.md)
+> [Configure environment variables](environment-variables.md)
