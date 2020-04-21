@@ -49,10 +49,10 @@ landingContent:
             url: tutorial-labeling.md
       - linkListType: overview
         links:
-        - text: What is the designer?
+        - text: What is the drag & drop designer?
           url: concept-designer.md   
-
-
+        - text: What is automated machine learning?
+          url: concept-automated-ml.md   
 
 
   # PYTHON
@@ -78,22 +78,6 @@ landingContent:
             url: how-to-train-pytorch.md
           - text: Train with Keras
             url: how-to-train-keras.md
-
-  # Pipelines
-  - title: 'Build ML pipelines'
-    linkLists:
-    - linkListType: tutorial
-      links:
-      - text: Create ML pipelines (Python)
-        url: tutorial-pipeline-batch-scoring-classification.md   
-      - text: Linear regression to predict prices (designer)
-        url: tutorial-designer-automobile-price-train-score.md
-    - linkListType: overview
-      links:
-      - text: What are ML pipelines?
-        url: concept-ml-pipelines.md   
-      - text: What is the designer?
-        url: concept-designer.md   
 
   # MLOps
   - title: Deploy & manage models
@@ -128,3 +112,19 @@ landingContent:
             url: https://github.com/Microsoft/AI
           - text: SDK for R
             url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
+
+  # Pipelines
+  - title: 'Build ML pipelines'
+    linkLists:
+    - linkListType: tutorial
+      links:
+      - text: Create ML pipelines (Python)
+        url: tutorial-pipeline-batch-scoring-classification.md   
+      - text: Linear regression to predict prices (designer)
+        url: tutorial-designer-automobile-price-train-score.md
+    - linkListType: overview
+      links:
+      - text: What are ML pipelines?
+        url: concept-ml-pipelines.md   
+      - text: What is the designer?
+        url: concept-designer.md   
