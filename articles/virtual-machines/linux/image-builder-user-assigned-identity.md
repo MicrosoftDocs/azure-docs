@@ -59,7 +59,7 @@ az provider register -n Microsoft.Storage
 We will be using some pieces of information repeatedly, so we will create some variables to store that information.
 
 
-```azurecli-interactive
+```console
 # Image resource group name 
 imageResourceGroup=aibmdimsi
 # storage resource group
@@ -74,13 +74,13 @@ runOutputName=u1804ManImgMsiro
 
 Create a variable for your subscription ID. You can get this using `az account show | grep id`.
 
-```azurecli-interactive
+```console
 subscriptionID=<Your subscription ID>
 ```
 
 Create the resource groups for both the image and the script storage.
 
-```azurecli-interactive
+```console
 # create resource group for image template
 az group create -n $imageResourceGroup -l $location
 # create resource group for the script storage
@@ -148,7 +148,7 @@ imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/p
 
 Download the example .json file and configure it with the variables you created.
 
-```azurecli-interactive
+```console
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage/helloImageTemplateMsi.json -o helloImageTemplateMsi.json
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateMsi.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateMsi.json
@@ -188,7 +188,7 @@ Wait for the build to complete. This can take about 15 minutes.
 
 Create a VM from the image. 
 
-```bash
+```azurecli
 az vm create \
   --resource-group $imageResourceGroup \
   --name aibImgVm00 \
@@ -200,13 +200,13 @@ az vm create \
 
 After the VM has been created, start an SSH session with the VM.
 
-```azurecli-interactive
+```console
 ssh aibuser@<publicIp>
 ```
 
 You should see the image was customized with a Message of the Day as soon as your SSH connection is established!
 
-```console
+```output
 
 *******************************************************
 **            This VM was built from the:            **

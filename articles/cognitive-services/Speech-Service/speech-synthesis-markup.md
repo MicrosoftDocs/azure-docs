@@ -3,13 +3,13 @@ title: Speech Synthesis Markup Language (SSML) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Using the Speech Synthesis Markup Language to control pronunciation and prosody in text-to-speech.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.author: dapine
+ms.date: 03/23/2020
+ms.author: trbye
 ---
 
 # Improve synthesis with Speech Synthesis Markup Language (SSML)
@@ -45,7 +45,7 @@ Each SSML document is created with SSML elements (or tags). These elements are u
 **Syntax**
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="string"></speak>
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="string"></speak>
 ```
 
 **Attributes**
@@ -54,7 +54,7 @@ Each SSML document is created with SSML elements (or tags). These elements are u
 |-----------|-------------|---------------------|
 | `version` | Indicates the version of the SSML specification used to interpret the document markup. The current version is 1.0. | Required |
 | `xml:lang` | Specifies the language of the root document. The value may contain a lowercase, two-letter language code (for example, `en`), or the language code and uppercase country/region (for example, `en-US`). | Required |
-| `xmlns` | Specifies the URI to the document that defines the markup vocabulary (the element types and attribute names) of the SSML document. The current URI is https://www.w3.org/2001/10/synthesis. | Required |
+| `xmlns` | Specifies the URI to the document that defines the markup vocabulary (the element types and attribute names) of the SSML document. The current URI is http://www.w3.org/2001/10/synthesis. | Required |
 
 ## Choose a voice for text-to-speech
 
@@ -80,7 +80,7 @@ The `voice` element is required. It is used to specify the voice that is used fo
 > This example uses the `en-US-AriaRUS` voice. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech).
 
 ```XML
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         This is the text that is spoken.
     </voice>
@@ -171,7 +171,7 @@ speechConfig!.setPropertyTo(
 **Example**
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         Good morning!
     </voice>
@@ -190,7 +190,6 @@ By default, the text-to-speech service synthesizes text using a neutral speaking
 
 Currently, speaking style adjustments are supported for these neural voices:
 * `en-US-AriaNeural`
-* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 
 Changes are applied at the sentence level, and style vary by voice. If a style isn't supported, the service will return speech in the default neutral speaking style.
@@ -198,37 +197,38 @@ Changes are applied at the sentence level, and style vary by voice. If a style i
 **Syntax**
 
 ```xml
-<mstts:express-as type="string"></mstts:express-as>
+<mstts:express-as style="string"></mstts:express-as>
 ```
 
 **Attributes**
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| `type` | Specifies the speaking style. Currently, speaking styles are voice-specific. | Required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then type must be provided. If an invalid value is provided, this element will be ignored. |
+| `style` | Specifies the speaking style. Currently, speaking styles are voice-specific. | Required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then style must be provided. If an invalid value is provided, this element will be ignored. |
 
 Use this table to determine which speaking styles are supported for each neural voice.
 
-| Voice | Type | Description |
-|-------|------|-------------|
-| `en-US-AriaNeural` | `type="cheerful"` | Expresses an emotion that is positive and happy |
-| | `type="empathy"` | Expresses a sense of caring and understanding |
-| | `type="chat"` | Speak in a casual, relaxed tone |
-| | `type="newscast"` | Expresses a formal tone, similar to news broadcasts |
-| | `type="customerservice"` | Speak in a friendly and patient way as customer service |
-| `pt-BR-FranciscaNeural` | `type="cheerful"` | Expresses an emotion that is positive and happy |
-| `zh-CN-XiaoxiaoNeural` | `type="newscast"` | Expresses a formal tone, similar to news broadcasts |
-| | `type="sentiment"` | Conveys a touching message or a story |
+| Voice                   | Style                     | Description                                                 |
+|-------------------------|---------------------------|-------------------------------------------------------------|
+| `en-US-AriaNeural`      | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
+|                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
+|                         | `style="chat"`            | Expresses a casual and relaxed tone                         |
+|                         | `style="cheerful"`        | Expresses a positive and happy tone                         |
+|                         | `style="empathetic"`      | Expresses a sense of caring and understanding               |
+| `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
+|                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
+|                         | `style="assistant"`       | Expresses a warm and relaxed tone for digital assistants    |
+|                         | `style="lyrical"`         | Expresses emotions in a melodic and sentimental way         |
 
 **Example**
 
 This SSML snippet illustrates how the `<mstts:express-as>` element is used to change the speaking style to `cheerful`.
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis"
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
     <voice name="en-US-AriaNeural">
-        <mstts:express-as type="cheerful">
+        <mstts:express-as style="cheerful">
             That'd be just amazing!
         </mstts:express-as>
     </voice>
@@ -256,20 +256,19 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 | `strength` | Specifies the relative duration of a pause using one of the following values:<ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul> | Optional |
 | `time` | Specifies the absolute duration of a pause in seconds or milliseconds. Examples of valid values are `2s` and `500` | Optional |
 
-| Strength | Description |
-|----------|-------------|
-| None, or if no value provided | 0 ms |
-| x-weak | 250 ms |
-| weak | 500 ms |
-| medium | 750 ms |
-| strong | 1000 ms |
-| x-strong | 1250 ms |
-
+| Strength                      | Description |
+|-------------------------------|-------------|
+| None, or if no value provided | 0 ms        |
+| x-weak                        | 250 ms      |
+| weak                          | 500 ms      |
+| medium                        | 750 ms      |
+| strong                        | 1000 ms     |
+| x-strong                      | 1250 ms     |
 
 **Example**
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
@@ -294,7 +293,7 @@ The `s` element may contain text and the following elements: `audio`, `break`, `
 **Example**
 
 ```XML
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         <p>
             <s>Introducing the sentence element.</s>
@@ -324,15 +323,15 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| `alphabet` | Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you may specify.<ul><li>`ipa` &ndash; International Phonetic Alphabet</li><li>`sapi` &ndash; Speech service phonetic alphabet</li><li>`ups` &ndash; Universal Phone Set</li></ul><br>The alphabet applies only to the `phoneme` in the element. For more information, see [Phonetic Alphabet Reference](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet). | Optional |
+| `alphabet` | Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you may specify.<ul><li>`ipa` &ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet <span class="docon docon-navigate-external x-hidden-focus"></span></a></li><li>`sapi` &ndash; [Speech service phonetic alphabet](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash; Universal Phone Set</li></ul><br>The alphabet applies only to the `phoneme` in the element.. | Optional |
 | `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, the text-to-speech (TTS) service rejects the entire SSML document and produces none of the speech output specified in the document. | Required if using phonemes. |
 
 **Examples**
 
-```XML
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
-        <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
+        <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
     </voice>
 </speak>
 ```
@@ -340,7 +339,15 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
-        <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
+        <phoneme alphabet="sapi" ph="iy eh n y uw eh s"> en-US </phoneme>
+    </voice>
+</speak>
+```
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-AriaRUS">
+        <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
     </voice>
 </speak>
 ```
@@ -357,9 +364,9 @@ Sometimes TTS cannot accurately pronounce a word, for example, a company or fore
 
 **Attributes**
 
-| Attribute | Description | Required / Optional |
-|-----------|-------------|---------------------|
-| `uri` | The address of the external PLS document. | Required. |
+| Attribute | Description                               | Required / Optional |
+|-----------|-------------------------------------------|---------------------|
+| `uri`     | The address of the external PLS document. | Required.           |
 
 **Usage**
 
@@ -423,13 +430,13 @@ You can use the `sapi` as the vale for the `alphabet` attribute with custom lexi
 <?xml version="1.0" encoding="UTF-16"?>
 <lexicon version="1.0" 
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
         http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
       alphabet="sapi" xml:lang="en-US">
   <lexeme>
-    <grapheme>BTW</grapheme> 
-    <alias> By the way </alias> 
+    <grapheme>BTW</grapheme>
+    <alias> By the way </alias>
   </lexeme>
   <lexeme>
     <grapheme> Benigni </grapheme>
@@ -442,7 +449,7 @@ For more information on the detailed Speech service phonetic alphabet, see the [
 
 ## Adjust prosody
 
-The `prosody` element is used to specify changes to pitch, countour, range, rate, duration, and volume for the text-to-speech output. The `prosody` element may contain text and the following elements: `audio`, `break`, `p`, `phoneme`, `prosody`, `say-as`, `sub`, and `s`.
+The `prosody` element is used to specify changes to pitch, contour, range, rate, duration, and volume for the text-to-speech output. The `prosody` element may contain text and the following elements: `audio`, `break`, `p`, `phoneme`, `prosody`, `say-as`, `sub`, and `s`.
 
 Because prosodic attribute values can vary over a wide range, the speech recognizer interprets the assigned values as a suggestion of what the actual prosodic values of the selected voice should be. The text-to-speech service limits or substitutes values that are not supported. Examples of unsupported values are a pitch of 1 MHz or a volume of 120.
 
@@ -470,7 +477,7 @@ Speaking rate can be applied to standard voices at the word or sentence-level. W
 **Example**
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-Guy24kRUS">
         <prosody rate="+30.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
@@ -486,7 +493,7 @@ Volume changes can be applied to standard voices at the word or sentence-level. 
 **Example**
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         <prosody volume="+20.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
@@ -502,7 +509,7 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 **Example**
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-Guy24kRUS">
         Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
     </voice>
@@ -517,7 +524,7 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 **Example**
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         <prosody contour="(80%,+20%) (90%,+30%)" >
             Good morning.
@@ -568,7 +575,7 @@ The `say-as` element may contain only text.
 The speech synthesis engine speaks the following example as "Your first request was for one room on October nineteenth twenty ten with early arrival at twelve thirty five PM."
  
 ```XML
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         <p>
         Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
@@ -584,7 +591,7 @@ The speech synthesis engine speaks the following example as "Your first request 
 
 Any audio included in the SSML document must meet these requirements:
 
-* The MP3 must be hosted on an Internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the MP3 file must present a valid, trusted SSL certificate.
+* The MP3 must be hosted on an Internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the MP3 file must present a valid, trusted TLS/SSL certificate.
 * The MP3 must be a valid MP3 file (MPEG v2).
 * The bit rate must be 48 kbps.
 * The sample rate must be 16,000 Hz.
@@ -599,14 +606,14 @@ Any audio included in the SSML document must meet these requirements:
 
 **Attributes**
 
-| Attribute | Description | Required / Optional |
-|-----------|-------------|---------------------|
-| `src` | Specifies the location/URL of the audio file. | Required if using the audio element in your SSML document. |
+| Attribute | Description                                   | Required / Optional                                        |
+|-----------|-----------------------------------------------|------------------------------------------------------------|
+| `src`     | Specifies the location/URL of the audio file. | Required if using the audio element in your SSML document. |
 
 **Example**
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaRUS">
         <p>
             <audio src="https://contoso.com/opinionprompt.wav"/>

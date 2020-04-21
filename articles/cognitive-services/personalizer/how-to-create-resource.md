@@ -2,7 +2,7 @@
 title: Create Personalizer resource
 description: Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 03/26/2020
 ---
 
 # Create a Personalizer resource
@@ -24,20 +24,24 @@ Create a Personalizer resource for each feedback loop.
 
 1. Select **Create** to create the resource.
 
-1. Once your resource has deployed, select the **Go to Resource** button to go to your Personalizer resource. Go to the **Configuration** page for the new resource to [configure the learning loop](how-to-settings.md).
+1. After your resource has deployed, select the **Go to Resource** button to go to your Personalizer resource.
+
+1. Select the **Quick start** page for your resource, then copy the values for your endpoint and key. You need both the resource endpoint and key to use the Rank and Reward APIs.
+
+1. Select the **Configuration** page for the new resource to [configure the learning loop](how-to-settings.md).
 
 ## Create a resource with the Azure CLI
 
 1. Sign in to the Azure CLI with the following command:
 
-    ```bash
+    ```azurecli-interactive
     az login
     ```
 
 1. Create a resource group, a logical grouping to manage all Azure resources you intend to use with the Personalizer resource.
 
 
-    ```bash
+    ```azurecli-interactive
     az group create \
         --name your-personalizer-resource-group \
         --location westus2
@@ -45,7 +49,7 @@ Create a Personalizer resource for each feedback loop.
 
 1. Create a new Personalizer resource, _learning loop_, with the following command for an existing resource group.
 
-    ```bash
+    ```azurecli-interactive
     az cognitiveservices account create \
         --name your-personalizer-learning-loop \
         --resource-group your-personalizer-resource-group \
@@ -54,6 +58,19 @@ Create a Personalizer resource for each feedback loop.
         --location westus2 \
         --yes
     ```
+
+    This returns a JSON object, which includes your **resource endpoint**.
+
+1. Use the following Azure CLI command to get your **resource key**.
+
+    ```azurecli-interactive
+        az cognitiveservices account keys list \
+        --name your-personalizer-learning-loop \
+        --resource-group your-personalizer-resource-group
+    ```
+
+    You need both the resource endpoint and key to use the Rank and Reward APIs.
+
 ## Next steps
 
 * [Configure](how-to-settings.md) Personalizer learning loop

@@ -296,7 +296,7 @@ To give other people access to the storage resources:
 
 **How do I use an HTTPS custom domain with my storage account? For example, how do I make "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" appear as "https:\//www.contoso.com/images/image.gif"?**
 
-SSL is not currently supported on storage accounts with custom domains.
+TLS/SSL is not currently supported on storage accounts with custom domains.
 But you can use non-HTTPS custom domains. For more information,
 see [Configure a custom domain name for your Blob storage endpoint](../blobs/storage-custom-domain-name.md).
 

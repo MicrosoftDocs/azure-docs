@@ -7,12 +7,15 @@ ms.date: 1/27/2020
 
 # Restore Azure Files with PowerShell
 
-This article explains how to restore an entire file share, or specific files, from a restore point created by the [Azure Backup](backup-overview.md) service using Azure Powershell.
+This article explains how to restore an entire file share, or specific files, from a restore point created by the [Azure Backup](backup-overview.md) service using Azure PowerShell.
 
 You can restore an entire file share or specific files on the share. You can restore to the original location, or to an alternate location.
 
 > [!WARNING]
-> Make sure the PS version is upgraded to the minimum version for 'Az.RecoveryServices 2.6.0' for AFS backups. For more details, refer to [the section](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) outlining the requirement for this change.
+> Make sure the PS version is upgraded to the minimum version for 'Az.RecoveryServices 2.6.0' for AFS backups. For more information, see [the section](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) outlining the requirement for this change.
+
+>[!NOTE]
+>Azure Backup now supports restoring multiple files or folders to the original or alternate Location using PowerShell. Refer to [this section](#restore-multiple-files-or-folders-to-original-or-alternate-location) of the document to learn how.
 
 ## Fetch recovery points
 
@@ -97,17 +100,67 @@ This command returns a job with an ID to be tracked, as shown in the previous se
 
 When you restore to an original location, you don't need to specify destination- and target-related parameters. Only **ResolveConflict** must be provided.
 
-#### Overwrite an Azure file share
+### Overwrite an Azure file share
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -ResolveConflict Overwrite
 ```
 
-#### Overwrite an Azure file
+### Overwrite an Azure file
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -SourceFileType File -SourceFilePath "TestDir/TestDoc.docx" -ResolveConflict Overwrite
 ```
+
+## Restore multiple files or folders to original or alternate location
+
+Use the [Restore-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) command by passing the path of all files or folders you want to restore as a value for the **MultipleSourceFilePath** parameter.
+
+### Restore multiple files
+
+In the following script, we're trying to restore the *FileSharePage.png* and *MyTestFile.txt* files.
+
+```powershell
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "azurefiles" -Name "azurefilesvault"
+
+$Container = Get-AzRecoveryServicesBackupContainer -ContainerType AzureStorage -Status Registered -FriendlyName "afsaccount" -VaultId $vault.ID
+
+$BackupItem = Get-AzRecoveryServicesBackupItem -Container $Container -WorkloadType AzureFiles -VaultId $vault.ID -FriendlyName "azurefiles"
+
+$RP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -VaultId $vault.ID
+
+$files = ("FileSharePage.png", "MyTestFile.txt")
+
+Restore-AzRecoveryServicesBackupItem -RecoveryPoint $RP[0] -MultipleSourceFilePath $files -SourceFileType File -ResolveConflict Overwrite -VaultId $vault.ID -VaultLocation $vault.Location
+```
+
+### Restore multiple directories
+
+In the following script, we're trying to restore the *zrs1_restore* and *Restore* directories.
+
+```powershell
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "azurefiles" -Name "azurefilesvault"
+
+$Container = Get-AzRecoveryServicesBackupContainer -ContainerType AzureStorage -Status Registered -FriendlyName "afsaccount" -VaultId $vault.ID
+
+$BackupItem = Get-AzRecoveryServicesBackupItem -Container $Container -WorkloadType AzureFiles -VaultId $vault.ID -FriendlyName "azurefiles"
+
+$RP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -VaultId $vault.ID
+
+$files = ("Restore","zrs1_restore")
+
+Restore-AzRecoveryServicesBackupItem -RecoveryPoint $RP[0] -MultipleSourceFilePath $files -SourceFileType Directory -ResolveConflict Overwrite -VaultId $vault.ID -VaultLocation $vault.Location
+```
+
+The output will be similar to the following:
+
+```output
+WorkloadName         Operation         Status          StartTime                EndTime       JobID
+------------         ---------         ------          ---------                -------       -----
+azurefiles           Restore           InProgress      4/5/2020 8:01:24 AM                    cd36abc3-0242-44b1-9964-0a9102b74d57
+```
+
+If you want to restore multiple files or folders to alternate location, use the scripts above by specifying the target location-related parameter values, as explained above in [Restore an Azure file to an alternate location](#restore-an-azure-file-to-an-alternate-location).
 
 ## Next steps
 

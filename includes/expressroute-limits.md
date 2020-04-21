@@ -9,7 +9,7 @@
  ms.author: cherylmc
  ms.custom: include file
 ---
-| Resource | Default/maximum limit |
+| Resource | Limit |
 | --- | --- |
 | ExpressRoute circuits per subscription |10 |
 | ExpressRoute circuits per region per subscription, with Azure Resource Manager |10 |

@@ -7,7 +7,7 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 02/24/2020
+ms.date: 03/24/2020
 ms.topic: overview
 ---
 
@@ -49,7 +49,7 @@ The following versions of the Windows and Linux operating system are officially 
 - CentOS Linux 7
 - SUSE Linux Enterprise Server (SLES) 15
 - Red Hat Enterprise Linux (RHEL) 7
-- Amazon Linux 7
+- Amazon Linux 2
 
 >[!NOTE]
 >This preview release of the Connected Machine agent for Windows only supports Windows Server configured to use the English language.
@@ -138,11 +138,11 @@ You can download the Azure Connected Machine agent package for Windows and L
 >[!NOTE]
 >During this preview, only one package has been released, which is suitable for Ubuntu 16.04 or 18.04.
 
-The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. For Windows, the agent update can be automatically accomplished using Windows Update and for Ubuntu, using the [apt](https://help.ubuntu.com/lts/serverguide/apt.html) command-line tool.
+The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. For more information, see [here](manage-agent.md).
 
 ### Agent status
 
-The Connected Machine agent sends a regular heartbeat message to the service every 5 minutes. If one is not received for 15 minutes, the machine is considered offline and the status will automatically be changed to **Disconnected** in the portal. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically be changed to **Connected**.
+The Connected Machine agent sends a regular heartbeat message to the service every 5 minutes. If the service stops receiving these heartbeat messages from a machine, that machine is considered offline and the status will automatically be changed to **Disconnected** in the portal within 15 to 30 minutes. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically be changed to **Connected**.
 
 ## Install and configure agent
 
@@ -152,6 +152,7 @@ Connecting machines in your hybrid environment directly with Azure can be accomp
 |--------|-------------|
 | Interactively | Manually install the agent on a single or small number of machines following the steps in [Connect machines from Azure portal](onboard-portal.md).<br> From the Azure portal, you can generate a script and execute it on the machine to automate the install and configuration steps of the agent.|
 | At scale | Install and configure the agent for multiple machines following the [Connect machines using a Service Principal](onboard-service-principal.md).<br> This method creates a service principal to connect machines non-interactively.|
+| At scale | Install and configure the agent for multiple machines following the method [Using Windows PowerShell DSC](onboard-dsc.md).<br> This method uses a service principal to connect machines non-interactively with PowerShell DSC. |
 
 ## Next steps
 

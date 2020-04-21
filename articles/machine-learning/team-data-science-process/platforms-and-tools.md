@@ -45,7 +45,7 @@ It also includes **ML and AI tools** like xgboost, mxnet, and Vowpal Wabbit.
 
 Currently DSVM is available in **Windows** and **Linux CentOS** operating systems. Choose the size of your DSVM (number of CPU cores and the amount of memory) based on the needs of the data science projects that you are planning to execute on it. 
 
-For more information on Windows edition of DSVM, see [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) on the Azure Marketplace. For the Linux edition of the DSVM, see [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+For more information on Windows edition of DSVM, see [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) on the Azure Marketplace. For the Linux edition of the DSVM, see [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
 
 To learn how to execute some of the common data science tasks on the DSVM efficiently, see [10 things you can do on the Data science Virtual Machine](../data-science-virtual-machine/vm-do-ten-things.md)
 
@@ -106,15 +106,15 @@ The TDSP team from Microsoft has published two end-to-end walkthroughs that show
 
 If you are following the TDSP on **Windows**, you need to install the **Git Credential Manager (GCM)** to communicate with the Git repositories. To install GCM, you first need to install **Chocolaty**. To install Chocolaty and the GCM, run the following commands in Windows PowerShell as an **Administrator**:  
 
-	iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
-	choco install git-credential-manager-for-windows -y
-	
+    iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
+    choco install git-credential-manager-for-windows -y
+    
 
 ### Install Git on Linux (CentOS) machines
 
 Run the following bash command to install Git on Linux (CentOS) machines:
 
-	sudo yum install git
+    sudo yum install git
 
 
 ### Generate public SSH key on Linux (CentOS) machines
@@ -133,7 +133,7 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
 1. Copy the entire ssh key including *ssh-rsa*. 
 1. Log in to your Azure DevOps Services. 
 1. Click **<Your Name\>** at the top-right corner of the page and click **security**. 
-	
+    
    ![Click your name and then click security](./media/platforms-and-tools/resources-2-user-setting.png)
 
 1. Click **SSH public keys**, and click **+Add**. 

@@ -1,11 +1,11 @@
 ---
 title: Manage and monitor workload importance
 description: Learn how to manage and monitor request level importance in Azure Synapse Analytics.
-services: sql-data-warehouse
+services: synapse-analytics
 author: ronortloff
 manager: craigg
-ms.service: sql-data-warehouse
-ms.subservice: workload-management
+ms.service: synapse-analytics
+ms.subservice: 
 ms.topic: conceptual
 ms.date: 02/04/2020
 ms.author: rortloff
@@ -15,11 +15,11 @@ ms.custom: azure-synapse
 
 # Manage and monitor workload importance in Azure Synapse Analytics
 
-Manage and monitor SQL Analytics request level importance in Azure Synapse using DMVs and catalog views.
+Manage and monitor Synapse SQL request level importance in Azure Synapse using DMVs and catalog views.
 
 ## Monitor importance
 
-Monitor importance using the new importance column in the [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) dynamic management view.
+Monitor importance using the new importance column in the [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) dynamic management view.
 The below monitoring query shows submit time and start time for queries. Review the submit time and start time along with importance to see how importance influenced scheduling.
 
 ```sql
@@ -42,7 +42,7 @@ SELECT *
   WHERE classifier_id > 12
 ```
 
-The catalog view, [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest), contains information on the parameters used in creation of the classifier.  The below query shows that ExecReportsClassifier was created on the ```membername``` parameter for values with ExecutiveReports:
+The catalog view, [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), contains information on the parameters used in creation of the classifier.  The below query shows that ExecReportsClassifier was created on the ```membername``` parameter for values with ExecutiveReports:
 
 ```sql
 SELECT c.name,cd.classifier_type, classifier_value
@@ -64,8 +64,9 @@ GO
 ```
 
 ## Next steps
-- For more information on Classification, see [Workload Classification](../../sql-data-warehouse/sql-data-warehouse-workload-classification.md).
-- For more information on Importance, see [Workload Importance](../../sql-data-warehouse/sql-data-warehouse-workload-importance.md)
+
+- For more information on Classification, see [Workload Classification](sql-data-warehouse-workload-classification.md).
+- For more information on Importance, see [Workload Importance](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
 > [Go to Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md)

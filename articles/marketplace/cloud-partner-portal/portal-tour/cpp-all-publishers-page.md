@@ -1,13 +1,12 @@
 ---
 title: All publishers page for Azure Marketplace  
 description: Deprecated CPP article, pointed to PC article; was "Overview of the All publishers in the Cloud Partner Portal for Azure Marketplace."
-services: Azure, Marketplace, Cloud Partner Portal, Partner Center
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # All publishers page

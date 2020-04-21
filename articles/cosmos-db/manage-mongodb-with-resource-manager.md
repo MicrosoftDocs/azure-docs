@@ -20,7 +20,7 @@ Create Azure Cosmos DB resources using an Azure Resource Manager template. This 
 > Account names must be lowercase and 44 or fewer characters.
 > To update RU/s, resubmit the template with updated throughput property values.
 >
-> Currently you can only create 3.2 version (that is, accounts using the endpoint in the format `*.documents.azure.com`) of Azure Cosmos DB's API for MongoDB accounts by using PowerShell, CLI, and Resource Manager templates. To create 3.6 version of accounts, use Azure portal instead.
+> Currently you can only create 3.2 version (that is, accounts using the endpoint in the format `*.documents.azure.com`) of Azure Cosmos DB's API for MongoDB accounts by using PowerShell and CLI. To create 3.6 version of accounts, use Resource Manager templates (below) or Azure portal instead.
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-mongodb/azuredeploy.json":::
 

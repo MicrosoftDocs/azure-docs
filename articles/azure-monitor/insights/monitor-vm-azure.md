@@ -161,7 +161,7 @@ Azure Monitor for VMs enables the collection of a predetermined set of performan
 
 | Data source | Requirements | Tables |
 |:---|:---|:---|
-| Azure Monitor for VMs | Enable on each virtual machine. | InsightsMetrics<br>VMBoundPort<br>VMComputer<br>VMConnection<br>VMProcess<br>See [How to query logs from Azure Monitor for VMs](vminsights-log-search.md#sample-log-searches) for details. |
+| Azure Monitor for VMs | Enable on each virtual machine. | InsightsMetrics<br>VMBoundPort<br>VMComputer<br>VMConnection<br>VMProcess<br>See [How to query logs from Azure Monitor for VMs](vminsights-log-search.md) for details. |
 | Activity log | Diagnostic setting for the subscription. | AzureActivity |
 | Host metrics | Diagnostic setting for the virtual machine. | AzureMetrics |
 | Data sources from the guest operating system | Enable Log Analytics agent and configure data sources. | See documentation for each data source. |

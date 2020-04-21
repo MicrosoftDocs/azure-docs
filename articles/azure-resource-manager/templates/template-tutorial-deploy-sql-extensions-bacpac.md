@@ -7,11 +7,11 @@ ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Import SQL BACPAC files with Azure Resource Manager templates
+# Tutorial: Import SQL BACPAC files with ARM templates
 
-Learn how to use Azure SQL Database extensions to import a BACPAC file with Azure Resource Manager templates. Deployment artifacts are any files, in addition to the main template files, that are needed to complete a deployment. The BACPAC file is an artifact. 
+Learn how to use Azure SQL Database extensions to import a BACPAC file with Azure Resource Manager (ARM) templates. Deployment artifacts are any files, in addition to the main template files, that are needed to complete a deployment. The BACPAC file is an artifact.
 
-In this tutorial, you create a template to deploy an Azure SQL server and a SQL database and import a BACPAC file. For information about how to deploy Azure virtual machine extensions by using Azure Resource Manager templates, see [Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates](./template-tutorial-deploy-vm-extensions.md).
+In this tutorial, you create a template to deploy an Azure SQL server and a SQL database and import a BACPAC file. For information about how to deploy Azure virtual machine extensions by using ARM templates, see [Tutorial: Deploy virtual machine extensions with ARM templates](./template-tutorial-deploy-vm-extensions.md).
 
 This tutorial covers the following tasks:
 
@@ -28,20 +28,20 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with the Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./use-vs-code-to-create-template.md).
+* Visual Studio Code with the Resource Manager Tools extension. See [Use Visual Studio Code to create ARM templates](./use-vs-code-to-create-template.md).
 * To increase security, use a generated password for the Azure SQL Server administrator account. Here's a sample you can use to generate a password:
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./template-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
+    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in ARM template deployment](./template-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
 
 ## Prepare a BACPAC file
 
 A BACPAC file is shared in [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). To create your own, see [Export an Azure SQL database to a BACPAC file](../../sql-database/sql-database-export.md). If you choose to publish the file to your own location, you must update the template later in the tutorial.
 
-The BACPAC file must be stored in an Azure Storage account before it can be imported by using a Resource Manager template. The following PowerShell script prepares the BACPAC file with these steps:
+The BACPAC file must be stored in an Azure Storage account before it can be imported by using an ARM template. The following PowerShell script prepares the BACPAC file with these steps:
 
 * Download the BACPAC file.
 * Create an Azure Storage account.
@@ -250,7 +250,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you deployed a SQL server and a SQL database and imported a BACPAC file. The BACPAC file is stored in an Azure Storage account. Anybody with the URL can access the file. To learn how to secure the BACPAC file (artifact), see:
+In this tutorial, you deployed a SQL server and a SQL database and imported a BACPAC file. To learn how to troubleshoot template deployment, see:
 
 > [!div class="nextstepaction"]
-> [Secure the artifacts](./template-tutorial-secure-artifacts.md)
+> [Troubleshoot ARM template deployments](./template-tutorial-troubleshoot.md)

@@ -1,16 +1,18 @@
 ---
 title: Create a consulting offer | Azure Marketplace
 description: Create an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal for the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, 
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pabutler
+ms.date: 04/06/2020
+ms.author: dsindona
 ---
 
 # Create a consulting offer
+
+>[!Important]
+>Starting April 13, 2020, we'll begin moving management of your Consulting service offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Consulting service creation overview](https://aka.ms/AzureCreateConsultingService) to manage your migrated offers.
 
 This article describes how to create and publish a consulting service offer.
 
@@ -30,5 +32,5 @@ To create a new offer, follow these steps.
 
 The **New Offer** page for the consulting service offer type provides a set of tabs and form fields that you use to create a new offer. The following articles explain how to use the tab to define the offer settings and storefront details for your new offer:
 
--	[Define offer settings](./cpp-consulting-service-define-offer-settings.md)
--	[Enter storefront details, and whether to publish in the Azure Marketplace or on AppSource](./cpp-consulting-service-storefront-details.md)
+-    [Define offer settings](./cpp-consulting-service-define-offer-settings.md)
+-    [Enter storefront details, and whether to publish in the Azure Marketplace or on AppSource](./cpp-consulting-service-storefront-details.md)

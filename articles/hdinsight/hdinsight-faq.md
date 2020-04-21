@@ -116,7 +116,7 @@ It depends on the type of metastore that your cluster is configured to use.
 
 For a default metastore: The default metastore is part of the cluster lifecycle. When you delete a cluster, the corresponding metastore and metadata are also deleted.
 
-For a custom metastore: The lifecycle of the metastore is not tied to a cluster’s lifecycle. Therefore, you can create and delete clusters without losing metadata. Metadata such as your Hive schemas persists even after you delete and re-create the HDInsight cluster.
+For a custom metastore: The lifecycle of the metastore is not tied to a cluster's lifecycle. Therefore, you can create and delete clusters without losing metadata. Metadata such as your Hive schemas persists even after you delete and re-create the HDInsight cluster.
 
 For more information, see [Use external metadata stores in Azure HDInsight](hdinsight-use-external-metadata-stores.md).
 
@@ -130,7 +130,7 @@ Yes, you can migrate a Hive metastore from an ESP to a non-ESP cluster.
 
 ### How can I estimate the size of a Hive metastore database?
 
-A Hive metastore is used to store the metadata for data sources that are used by the Hive server.The size requirements depend partly on the number and complexity of your Hive data sources, and can't be estimated up front. As outlined in [Hive metastore best practices](hdinsight-use-external-metadata-stores.md#hive-metastore-best-practices), you can start with a S2 tier, which provides 50 DTU and 250 GB of storage, and if you see a bottleneck, you can scale up the database.
+A Hive metastore is used to store the metadata for data sources that are used by the Hive server.The size requirements depend partly on the number and complexity of your Hive data sources, and can't be estimated up front. As outlined in [Hive metastore guidelines](hdinsight-use-external-metadata-stores.md#hive-metastore-guidelines), you can start with a S2 tier, which provides 50 DTU and 250 GB of storage, and if you see a bottleneck, you can scale up the database.
 
 ### Do you support any other database other than Azure SQL Database as an external metastore?
 

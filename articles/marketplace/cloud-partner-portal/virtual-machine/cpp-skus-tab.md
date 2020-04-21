@@ -1,16 +1,18 @@
 ---
 title: Virtual machine SKUs tab in the Cloud Partner Portal for Azure Marketplace 
 description: Describes the SKUs tab used in creating a virtual machine offer in the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Virtual machine SKUs tab
+
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Virtual Machine offer](https://aka.ms/CreateAzureVMoffer) to manage your migrated offers.
 
 The **SKUs** tab of the **New Offer** page enables you to create one or more SKUs and associate them to your new offer.  Different SKUs can differentiate a solution by feature sets, VM image types, throughput or scalability, billing models, or some other characteristic.
 

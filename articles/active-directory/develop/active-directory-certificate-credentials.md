@@ -6,13 +6,12 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.author: ryanwi
+ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ---

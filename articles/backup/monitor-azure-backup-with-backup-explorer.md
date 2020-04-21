@@ -21,6 +21,7 @@ These capabilities are provided out-of-box by native integration with Azure Reso
 > [!NOTE]
 > * Backup Explorer is currently available only for Azure virtual machines (VMs) data.
 > * Backup Explorer is meant to be an operational dashboard for viewing information about your backups over the last 7 days (maximum).
+> * Backup Explorer is currently not supported in national clouds.
 > * Currently, customizing the Backup Explorer template is not supported. 
 > * We do not recommend writing custom automations on Azure Resource Graph data.
 

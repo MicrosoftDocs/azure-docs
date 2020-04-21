@@ -7,7 +7,7 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 03/23/2020
 ms.author: dapine
 ---
 
@@ -17,17 +17,17 @@ Security should be considered a top priority when developing any and all applica
 
 ## Transport Layer Security (TLS)
 
-All of the Cognitive Services endpoints exposed over HTTP enforce TLS 1.2. With an enforced security protocol, consumers attempting to call a Cognitive Services endpoint should adhere to guidelines:
+All of the Cognitive Services endpoints exposed over HTTP enforce TLS 1.2. With an enforced security protocol, consumers attempting to call a Cognitive Services endpoint should adhere to these guidelines:
 
-* The client Operating System (OS) would need to support TLS 1.2
-* The language (and platform) used to make the HTTP call would need to specify TLS 1.2 as part of the request
+* The client Operating System (OS) needs to support TLS 1.2
+* The language (and platform) used to make the HTTP call need to specify TLS 1.2 as part of the request
   * Depending on the language and platform, specifying TLS is done either implicitly or explicitly
 
 For .NET users, consider the <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">Transport Layer Security best practices <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## Authentication
 
-When discussing authentication, there are several common misconceptions. Authentication and authorization are often confused for one another. Identity is also a major component in security. An identity is a collection of information about a <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Identity providers (IdP) provide identities to authentication services. Authentication is the act of verifying a user's identity. Authorization is the specification of access rights and privileges to resources for a given identity.
+When discussing authentication, there are several common misconceptions. Authentication and authorization are often confused for one another. Identity is also a major component in security. An identity is a collection of information about a <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Identity providers (IdP) provide identities to authentication services. Authentication is the act of verifying a user's identity. Authorization is the specification of access rights and privileges to resources for a given identity. Several of the Cognitive Services offerings, include role-based access control (RBAC). RBAC could be used to simplify some of the ceremony involved with manually managing principals. For more details, see [role-based access control for Azure resources](../role-based-access-control/overview.md).
 
 For more information on authentication with subscription keys, access tokens and Azure Active Directory (AAD), see <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">authenticate requests to Azure Cognitive Services<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
@@ -47,32 +47,53 @@ To set environment variables, use one the following commands - where the `ENVIRO
 
 # [Command Line](#tab/command-line)
 
+Create and assign persisted environment variable, given the value.
+
 ```CMD
 :: Assigns the env var to the value
-set ENVIRONMENT_VARIABLE_KEY=value
+setx ENVIRONMENT_VARIABLE_KEY="value"
+```
 
+In a new instance of the **Command Prompt**, read the environment variable.
+
+```CMD
 :: Prints the env var value
 echo %ENVIRONMENT_VARIABLE_KEY%
 ```
 
 # [PowerShell](#tab/powershell)
 
+Create and assign persisted environment variable, given the value.
+
 ```powershell
 # Assigns the env var to the value
-$Env:ENVIRONMENT_VARIABLE_KEY="value"
+[System.Environment]::SetEnvironmentVariable('ENVIRONMENT_VARIABLE_KEY', 'value', 'User')
+```
 
+In a new instance of the **Windows PowerShell**, read the environment variable.
+
+```powershell
 # Prints the env var value
-$Env:ENVIRONMENT_VARIABLE_KEY
+[System.Environment]::GetEnvironmentVariable('ENVIRONMENT_VARIABLE_KEY')
 ```
 
 # [Bash](#tab/bash)
 
+Create and assign persisted environment variable, given the value.
+
 ```Bash
 # Assigns the env var to the value
-export ENVIRONMENT_VARIABLE_KEY=value
+echo export ENVIRONMENT_VARIABLE_KEY="value" >> /etc/environment && source /etc/environment
+```
 
+In a new instance of the **Bash**, read the environment variable.
+
+```Bash
 # Prints the env var value
-echo ENVIRONMENT_VARIABLE_KEY
+echo "${ENVIRONMENT_VARIABLE_KEY}"
+
+# Or use printenv:
+# printenv ENVIRONMENT_VARIABLE_KEY
 ```
 
 ---

@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.assetid: 
@@ -56,7 +56,7 @@ az vm create \
 
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
 
-```azurecli-interactive
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",

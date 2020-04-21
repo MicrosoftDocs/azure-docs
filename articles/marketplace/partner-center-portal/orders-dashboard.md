@@ -1,23 +1,22 @@
 ---
 title: Partner Center Orders dashboard in Commercial Marketplace analytics
 description: Learn how to access analytic reports about your marketplace offer orders in a graphical and downloadable format.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
 ---
 
-# Orders dashboard in Commercial Marketplace analytics
+# Orders dashboard in commercial marketplace analytics
 
 This article provides information on the **Orders dashboard** in Partner Center. This dashboard displays information about your orders in a graphical and downloadable format.
 
 To access the **Orders dashboard** in the Partner Center analytics tools, open the **[Analyze dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** under Commercial Marketplace.
 
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology.md).
+> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
 
 ## Orders dashboard
 
@@ -32,7 +31,7 @@ The **Orders dashboard** of the **Analyze** menu displays the current orders for
 - [Order details table](#order-details-table)
 
 > [!NOTE]
-> There are differences between how analytics reports display in the Cloud Partner Portal (CPP) and the new Commercial Marketplace program in Partner Center. One specific way is that the **Seller Insights** in CPP has an **Orders & Usage** tab, which displays data for usage-based offers and non-usage-based offers. In Partner Center, the **Orders** page has a separate tab for SaaS Offers.
+> There are differences between how analytics reports display in the Cloud Partner Portal (CPP) and the new commercial marketplace program in Partner Center. One specific way is that the **Seller Insights** in CPP has an **Orders & Usage** tab, which displays data for usage-based offers and non-usage-based offers. In Partner Center, the **Orders** page has a separate tab for SaaS Offers.
 
 ## Order dashboard details
 
@@ -62,7 +61,7 @@ The **Orders by geography** heatmap displays a count of your orders on a world m
 
 The **Orders by offers** donut graph organizes orders (including canceled orders) according to their offer names.
 
-- The top offers are displayed in the graph and the rest of the offers are grouped as ‘Rest All’.
+- The top offers are displayed in the graph and the rest of the offers are grouped as 'Rest All'.
 - You can select specific offers in the legend to display only those offers in the graph.
 - Hovering over a slice in the graph will display the number of orders and percentage of that offer compared to your total number of orders across all offers.
 - The **orders by offers trend** displays month-by-month growth trends. The month column represents the number of orders by offer name. The line chart displays the growth percentage trend plotted on a z-axis.
@@ -87,7 +86,7 @@ The **orders and seats trend** chart presents the top 50 offers with the highest
 
 ### Canceled orders by offers
 
-The **Canceled orders by offers** pie chart organizes all of your canceled orders according to their offer names. The top offers are displayed in the graph and the rest of the offers are grouped as “Rest All.” You can select specific offers in the legend to display in the graph.
+The **Canceled orders by offers** pie chart organizes all of your canceled orders according to their offer names. The top offers are displayed in the graph and the rest of the offers are grouped as "Rest All." You can select specific offers in the legend to display in the graph.
 
 - Hovering over a slice in the graph will display the number of orders and percentage of the selected offer compared to the total number of orders across all offers.
 - The column chart displays month-by-month trends. The columns represent the number of canceled orders by offer name. You can use the slider on top of the chart to scroll right and left along the x-axis and focus on specific data points. You can display the trend chart by selecting a specific item on the legend.
@@ -109,7 +108,7 @@ You can select multiple filters to render the chart for the criteria you choose 
 
 - Offer types and offer names are only listed for offers you have orders for during the selected date range. Offer names in the list are displayed for offers types you've selected in the list.
 - Applied filters show the total metrics within each selection(s) for each filter selected. Applied filters aren't displayed when the default selection is chosen.
-- If **All** is selected for one of the dropdown lists, then all metrics in the page selected will be aggregated. For example: “All” in the offer types filter option means that all offer types have been selected. This is the default selection for the dropdown lists. Applied filters displays won't show anything when **All** is selected.
+- If **All** is selected for one of the dropdown lists, then all metrics in the page selected will be aggregated. For example: "All" in the offer types filter option means that all offer types have been selected. This is the default selection for the dropdown lists. Applied filters displays won't show anything when **All** is selected.
 - **Multiple value selection**: All metrics in the page will be aggregated for all the selections made under the dropdown list. If multiple selections are made, the applied filter will show the count of all selections made. See the image below for reference.
 
     ![Partner Center Analyze order with multiple values applied to filter](./media/filters-applied.png)
@@ -120,10 +119,10 @@ You can select multiple filters to render the chart for the criteria you choose 
 
 ## Next steps
 
-- For an overview of analytics reports available in the Partner Center Commercial Marketplace, see [Analytics for the Commercial Marketplace in Partner Center](./analytics.md).
-- For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary dashboard in Commercial Marketplace analytics](./summary-dashboard.md).
-- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage dashboard in Commercial Marketplace analytics](./usage-dashboard.md).
-- For detailed information about your customers, including growth trends, see [Customer dashboard in Commercial Marketplace analytics](./customer-dashboard.md).
-- For a list of your download requests over the last 30 days, see [Downloads dashboard in Commercial Marketplace analytics](./downloads-dashboard.md).
-- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in Commercial Marketplace analytics](./ratings-reviews.md).
-- For frequently asked questions about Commercial Marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for Commercial Marketplace analytics](./faq-terminology.md).
+- For an overview of analytics reports available in the Partner Center commercial marketplace, see [Analytics for the commercial marketplace in Partner Center](./analytics.md).
+- For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary dashboard in commercial marketplace analytics](./summary-dashboard.md).
+- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](./usage-dashboard.md).
+- For detailed information about your customers, including growth trends, see [Customer dashboard in commercial marketplace analytics](./customer-dashboard.md).
+- For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](./downloads-dashboard.md).
+- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in commercial marketplace analytics](./ratings-reviews.md).
+- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).

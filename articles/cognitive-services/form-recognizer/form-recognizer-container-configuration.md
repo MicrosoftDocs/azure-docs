@@ -2,13 +2,13 @@
 title: How to configure a container for Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn how to configure the Form Recognizer container to parse form and table data.
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 # Configure Form Recognizer containers
 

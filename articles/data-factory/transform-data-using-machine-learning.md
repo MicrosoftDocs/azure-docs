@@ -17,6 +17,8 @@ ms.date: 02/20/2019
 > * [Version 1](v1/data-factory-azure-ml-batch-execution-activity.md)
 > * [Current version](transform-data-using-machine-learning.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps:
 
 1. **Create a training experiment**. You do this step by using the Azure Machine Learning Studio (classic). Azure Machine Learning Studio (classic) is a collaborative visual development environment that you use to train and test a predictive analytics model using training data.

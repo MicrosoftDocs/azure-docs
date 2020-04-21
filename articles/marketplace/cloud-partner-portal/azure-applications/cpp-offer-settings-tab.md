@@ -1,13 +1,12 @@
 ---
 title: Azure application offer settings | Azure Marketplace
 description: Configure the offer settings for an  Azure application offer.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Azure application Offer Settings tab
