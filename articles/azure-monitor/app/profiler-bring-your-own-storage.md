@@ -20,6 +20,7 @@ One thing to have in mind is that you'll take over of all the related costs of t
 
 > [!NOTE]
 > If you are enabling Private Link, Bring Your Own Storage is a requirement. For more information about Private Link, [see the documentation](https://docs.microsoft.com/azure/private-link/private-link-overview).
+>
 > If you are enabling Customer-Managed Keys, Bring Your Own Storage is a requirement. For more information about Customer-Managed Keys, [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).
 
 ## How will my Storage Account be accessed?
