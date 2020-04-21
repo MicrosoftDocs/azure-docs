@@ -32,8 +32,8 @@ This article provides examples that you can re-create by using the [nutrition](h
     - The number of items in a page will always be less than the specified `MaxItemCount`. However, `MaxItemCount` is strictly a maximum and there could be fewer results than this amount.
 - Sometimes queries may have empty pages even when there are results on a future page. Reasons for this could be:
     - The SDK could be doing multiple network calls.
-    - The query might be taking a long to retrieve the documents.
-- All queries a continuation token that will allow the query to continue. Be sure to drain the query completely. Look at the SDK samples, and use a `while` loop on `FeedIterator.HasMoreResults` to drain the entire query.
+    - The query might be taking a long time to retrieve the documents.
+- All queries have a continuation token that will allow the query to continue. Be sure to drain the query completely. Look at the SDK samples, and use a `while` loop on `FeedIterator.HasMoreResults` to drain the entire query.
 
 ## Get query metrics
 
@@ -208,7 +208,7 @@ Other parts of the query might still use the index even though the system functi
 In most cases, aggregate system functions in Azure Cosmos DB will use the index. However, depending on the filters or additional clauses in an aggregate query, the query engine may be required to load a high number of documents. Typically, the query engine will apply equality and range filters first. After applying these filters,
 the query engine can evaluate additional filters and resort to loading remaining documents to compute the aggregate, if needed.
 
-For example, given these two sample queries, the query with both an equality and `CONTAINS` system function filter will generally be more efficient than a query with just the `CONTAINS` system function filter. This is because the equality filter is applied first and uses the index before documents need to be loaded for the more expensive `CONTAINS` filter.
+For example, given these two sample queries, the query with both an equality and `CONTAINS` system function filter will generally be more efficient than a query with just a `CONTAINS` system function filter. This is because the equality filter is applied first and uses the index before documents need to be loaded for the more expensive `CONTAINS` filter.
 
 Query with only `CONTAINS` filter - higher RU charge:
 
@@ -226,7 +226,7 @@ Here are additional examples of aggregates queries that will not fully use the i
 
 #### Queries with system functions that don't use the index
 
-You should refer to the specific [system function's page](sql-query-system-functions.md) to see if it uses the index.
+You should refer to the relevant [system function's page](sql-query-system-functions.md) to see if it uses the index.
 
 ```sql
 SELECT MAX(c._ts) FROM c WHERE CONTAINS(c.description, "spinach")
@@ -235,12 +235,12 @@ SELECT MAX(c._ts) FROM c WHERE CONTAINS(c.description, "spinach")
 #### Aggregate queries with user-defined functions(UDF's)
 
 ```sql
-SELECT AVG(c._ts) FROM c WHERE MyUDF("Sausages and Luncheon Meats")
+SELECT AVG(c._ts) FROM c WHERE udf.MyUDF("Sausages and Luncheon Meats")
 ```
 
 #### Queries with GROUP BY
 
-The RU charge of `GROUP BY` will increase as the cardinality of the properties in the `GROUP BY` clause increases.
+The RU charge of `GROUP BY` will increase as the cardinality of the properties in the `GROUP BY` clause increases. In this example, the query engine must load every document that matches the `c.foodGroup = "Sausages and Luncheon Meats"` filter so the RU charge is expected to be high.
 
 ```sql
 SELECT COUNT(1) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" GROUP BY c.description
