@@ -35,7 +35,26 @@ landingContent:
             url: tutorial-first-experiment-automated-ml.md
           - text: RStudio
             url: tutorial-1st-r-experiment.md
-        
+
+  # Studio
+  - title: 'Use the studio web experience'
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Build a classification model with AutoML 
+            url: tutorial-first-experiment-automated-ml.md                 
+          - text: Build regression models with the designer
+            url: tutorial-designer-automobile-price-train-score.md
+          - text: Create an image labeling project  
+            url: tutorial-labeling.md
+      - linkListType: overview
+        links:
+        - text: What is the designer?
+          url: concept-designer.md   
+
+
+
+
   # PYTHON
   - title: 'Use the Python SDK'
     linkLists:
