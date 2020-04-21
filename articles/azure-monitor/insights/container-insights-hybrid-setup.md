@@ -245,9 +245,10 @@ To first identify the full resource ID of your Log Analytics workspace required 
 
 ## Install the chart
 
-There are two methods to enable the Helm chart, running Helm commands or by specifying an addon in the AKS engine cluster specification json file.
+>[!NOTE]
+>The following commands are applicable only for Helm version 2. Use of the `--name` parameter is not applicable with Helm version 3.
 
-### Enable the Helm chart using Helm commands
+To enable the HELM chart, do the following:
 
 1. Add the Azure charts repository to your local list by running the following command:
 
