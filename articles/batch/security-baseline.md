@@ -713,7 +713,7 @@ Optionally, if you have a Rapid7, Qualys, or any other vulnerability management 
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager (ARM) resources going forward.
 
-How to create queries with Azure Graph:
+How to create queries with Azure Resource Graph:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
