@@ -22,7 +22,7 @@ If you reduce the RU charge of a query, you'll almost certainly decrease latency
 
 This article provides examples that you can re-create by using the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
 
-## Important
+## Common SDK issues
 
 - For best performance, follow the [Performance tips](performance-tips.md).
     > [!NOTE]
