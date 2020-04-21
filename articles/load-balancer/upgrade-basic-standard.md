@@ -16,7 +16,6 @@ There are three stages in a upgrade:
 
 1. Migrate the configuration
 2. Add VMs to backend pools of Standard Load Balancer
-3. Create an outbound rule on the load balancer for outbound connection
 
 This article covers configuration migration. Adding VMs to backend pools may vary depending on your specific environment. However, some high-level, general recommendations [are provided](#add-vms-to-backend-pools-of-standard-load-balancer).
 
@@ -26,6 +25,7 @@ An Azure PowerShell script is available that does the following:
 
 * Creates a Standard SKU Load Balancer in the resource group and location the you specify.
 * Seamlessly copies the configurations of the Basic SKU Load Balancer to the newly create Standard Load Balancer.
+* Creates a default oubound rule which enables outbound connectivity.
 
 ### Caveats\Limitations
 
