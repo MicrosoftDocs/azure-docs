@@ -103,7 +103,7 @@ To make access reviews easier and faster for you, we also provide recommendation
 
 You can preview the reviewer experience with the updated user interface in My Access three different ways:
 
-### New experience banner**
+### New experience banner
 
 If you don't see the banner, follow one of the other two options covered in this article.
 
