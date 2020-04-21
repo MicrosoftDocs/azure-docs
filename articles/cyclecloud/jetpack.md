@@ -1,168 +1,239 @@
 ---
-title: Jetpack Tool
-description: Learn about the Jetpack tool in Azure CycleCloud.
-author: KimliW
-ms.technology: jetpack
-ms.date: 08/01/2018
+title: Jetpack Reference
+description: Learn about Azure CycleCloud's Jetpack tool.
+author: staer
+ms.date: 01/06/2020
 ms.author: adjohnso
 ---
 
 # Jetpack
 
-When a virtual machine is provisioned to become a node in a cluster, Jetpack is automatically installed when using Azure CycleCloud. Jetpack is required on every node of a cluster, as it provides three main functions:
+Jetpack is required on every node of a cluster. It is automatically installed by Azure CycleCloud on each virtual machine that is provisioned to become a node in a cluster. Jetpack provides three main functions:
 
-* Node Configuration
-
-Azure CycleCloud uses [Chef](https://www.chef.io) to automate the configuration of a provisioned VM into a working cluster node. A Chef client is embedded within Jetpack, and the Chef cookbooks needed for the configuration of the node are downloaded by Jetpack.
-
-* Distributed Synchronization
-
-Jetpack manages communication between the node and the Azure CycleCloud application server, which enables CycleCloud to monitor the status of the provisioning VMs and synchronize the orchestration of multiple nodes in the cluster.
-
-* HeathCheck
-
-Jetpack runs [HealthCheck](~/how-to/healthcheck.md) on VMs, and terminates them if they are unhealthy.
+* **Node Configuration** -- CycleCloud uses scripts and [Chef](https://www.chef.io) to automate the configuration of a provisioned VM into a working cluster node. A Chef client as well as the necessary resources for the configuration of the VM are embedded within Jetpack.
+* **Distributed Synchronization** -- Jetpack manages communication between the node and the CycleCloud application server. This enables CycleCloud to monitor the status of the provisioning VMs and synchronize the orchestration of multiple nodes in the cluster.
+* **HeathCheck** -- Jetpack uses [HealthCheck](./how-to/healthcheck.md) to determine the health of VMs so that unhealthy VMs can be terminated.
 
 ## Jetpack Installation
 
-When you first start a cluster using Azure CycleCloud, the software fetches the jetpack installer and caches it into a locker in your Azure Storage Account. When the VMs in the cluster are provisioned, a [custom script extension](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) is executed as part of the boot process. This will download the Jetpack installer from your locker cache and install it on the VM.
+The Jetpack installer is cached in your Azure Storage Account when you first start a cluster using CycleCloud. As cluster VMs are provisioned, a [custom script extension](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) is executed as part of the boot process which downloads the Jetpack installer from your Azure Storage cache and then installs it on the VM.
 
-## Jetpack Install Location
-All Jetpack files are installed inside a singular directory tree:
+The Jetpack installer:
 
-* Windows: `C:\cycle\jetpack`
-* Linux: `/opt/cycle/Jetpack`
+* Unpacks the Jetpack files to a single directory tree:
+  * Windows: _C:\cycle\jetpack_
+  * Linux: _/opt/cycle/Jetpack_
+* Creates system init startup scripts which configure a VM as a cluster node
+* Installs the [HealthCheck](#healthcheck) service
+* Installs the [Jetpack Command Line Tool](#jetpack-command-line-tool) to:
+  * Windows: _C:\cycle\jetpack\bin\jetpack_
+  * Linux: _/opt/cycle/jetpack/bin/jetpack_
+* Creates [udev](https://www.freedesktop.org/wiki/Software/systemd/) rules on Linux
+* Sets the environment variable `CYCLECLOUD_HOME`
 
-In addition to creating this directory, the Jetpack installer:
+## Jetpack Subdirectories
 
-  * Creates system init startup scripts which configure a VM as a cluster
-    node
-  * Creates udev rules on Linux
-  * Installs the [HealthCheck](~/how-to/healthcheck.md) service
-  * Sets the environment variable `CYCLECLOUD_HOME`
-
-### Jetpack Subdirectories
-
-| Directory | Description                                                                                                                                                               |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `bin`     | Useful binaries and scripts.                                                                                                                                              |
-| `config`  | User defined and cluster defined configuration files and scripts.                                                                                                         |
+| Directory | Description  |
+| --------- | ------------ |
+| `bin`     | Useful binaries and scripts. |
+| `config`  | User defined and cluster defined configuration files and scripts. |
 | `logs`    | Logs generated by joining a cluster and converging the node, of particular interest is the *chef-client.log* which contains the results from converging Chef recipes. |
-| `system`  | Internal files. We don't recommend directly using or accessing any files in this directory as they will change significantly from release to release.                     |
-
+| `run`     | Runtime files generated by the system. We don't recommend directly accessing these files. |
+| `system`  | Internal files. We don't recommend directly using any files in this directory as they can significantly change from release to release.  |
 
 ## HealthCheck
 
-The HealthCheck service executes user-defined scripts to determine a VM's
-current viability as a cluster node. Scripts may be written in Python or be
-Bash (Linux) or batch (Windows) scripts. If the script exits with a code of 254,
-the VM will be terminated. Other non-zero return codes are treated as
-unknown and are logged to CycleCloud. Checks are stored in
-`/opt/cycle/jetpack/config/healthcheck.d` on Linux and in
-`C:\cycle\jetpack\config\healthcheck.d` on Windows.
-
-To delay a HealthCheck related termination, use the `jetpack keepalive` command.
+The HealthCheck service executes user-defined scripts to determine a VM's current viability as a cluster node. Please see the [HealthCheck](./how-to/healthcheck.md) documentation for more information.
 
 ## Jetpack Command Line Tool
 
-The **Jetpack** command-line tool, located at `/opt/cycle/jetpack/bin/jetpack`
-or `C:\cycle\jetpack\bin\jetpack`, provides a useful set of subcommands for
-manipulating the current VM and interacting with Azure CycleCloud.
+The **Jetpack** command-line tool provides a useful set of subcommands for manipulating the current VM and interacting with Azure CycleCloud.
 
 | Command             | Description                                              |
 | ------------------- | -------------------------------------------------------- |
+| `jetpack autoscale` | Autoscale the cluster this node belongs to.              |
 | `jetpack config`    | Retrieve a configuration value.                          |
 | `jetpack converge`  | Execute a Chef converge.                                 |
+| `jetpack download`  | Download a blob resource from a project in Azure Storage.|
 | `jetpack keepalive` | Delay system termination by the HealthCheck Service.     |
 | `jetpack log`       | Log a message to CycleCloud cluster UI.                  |
 | `jetpack send`      | Send an arbitrary AMQP message to the CycleCloud server. |
+| `jetpack shutdown`  | Request the shutdown of the VM by CycleCloud.            |
+| `jetpack test`      | Run tests associated with projects assigned to the VM.   |
+| `jetpack users`     | List users that CycleCloud will manage on this VM.       |
 
-## Jetpack Subcommands
+### jetpack autoscale
 
-## jetpack config
+`jetpack autoscale` sets the autoscaling targets for the cluster that the node belongs to. Clusters can be scaled by cores, instance count or custom definitions.
 
-`jetpack config` is used to fetch information passed into a VM by Azure
-CycleCloud. It exposes all the system properties made available via
-[Ohai](https://docs.getchef.com/ohai.html), a subset of the VM's [Azure metadata](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service), and information about the parent CycleCloud cluster.
+To scale to 100 cores:
 
-## jetpack converge
+```console
+jetpack autoscale --corecount=100
+```
 
-`jetpack converge` downloads all CycleCloud Project (TODO: include link to CycleCloud
-project) Chef cookbooks and cluster-init scripts associated with the node, and
-starts a Chef converge process that runs all the Chef recipes and cluster-init
-scripts for the node.
+To scale the 'gpu' nodearray to 5 nodes:
 
-## jetpack keepalive
+```console
+jetpack autoscale --instancecount 5 --name=gpu
+```
 
-`jetpack keepalive` interacts with the HealthCheck service to delay the termination of
-the VM due to a failing HealthCheck. Termination can be delayed for a fixed
-period or indefinitely. By default, termination is delayed for one hour.
+To customize autoscale, a json file must be written to disk containing the nodearray definition you would like to scale. To scale by 100 cores:
+
+```json
+[
+  {
+      "Name": "execute",
+      "TargetCoreCount": 100
+  }
+]
+```
+
+```console
+jetpack autoscale --file=custom-autoscale.json
+```
+
+### jetpack config
+
+`jetpack config` fetches information passed into a VM by CycleCloud. It exposes:
+
+* all the system properties made available via [Ohai](https://docs.getchef.com/ohai.html)
+* a subset of the VM's [Azure metadata](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+* information about the parent CycleCloud cluster.
+
+### jetpack converge
+
+`jetpack converge` downloads all CycleCloud projects associated with the node, and starts a Chef converge process that runs all the Chef recipes and cluster-init scripts for the node.
+
+### jetpack download
+
+`jetpack download` downloads a blob that was uploaded with a [project](~/how-to/projects.md) to the node. You must specify the project the blob belongs to.
+
+To download the blob big-file.zip that was uploaded as part of the `example-project` project to the current directory:
+
+```console
+jetpack download --project example-project big-file.zip .
+```
+
+### jetpack keepalive
+
+`jetpack keepalive` interacts with the HealthCheck service to delay the termination of the VM due to a failing HealthCheck. Termination can be delayed for a fixed period or indefinitely. By default, termination is delayed for one hour.
 
 To delay system termination by one hour:
 
-```azurecli-interactive
+```console
 jetpack keepalive
-```
-
-To disable the HealthCheck service entirely, i.e. delay termination
-indefinitely:
-
-```azurecli-interactive
-jetpack keepalive forever
 ```
 
 To delay system termination by six hours:
 
-```azurecli-interactive
+```console
 jetpack keepalive 6h
 ```
 
-## jetpack log
+To disable the HealthCheck service entirely, i.e. delay termination indefinitely:
 
-`jetpack log` sends a log message back to CycleCloud. The message will appear in
-application server log (typically `/opt/cycle_server/cycle_server.log`), the
-main event log, and the Cluster UI page.
+```console
+jetpack keepalive forever
+```
 
-Each message has two properties: *level* and *priority*.
+> [!NOTE] 
+> Only the `forever` option is available for HealthCheck on Windows VMs
 
-The *level* property indicates the type of message. Valid levels are 'info', 'warn', and 'error'. The
-level does not indicate importance of a given message - for example, some errors
-are trivial and some informational messages critical.
+### jetpack log
 
-Priority indicates the importance of the message. Valid *priority* values are 'low', 'medium', and
-'high'. Only messages with a priority of medium or higher are displayed on the
-Cluster UI page to avoid flooding the page with low priority messages.
+`jetpack log` sends a log message back to CycleCloud. The message will appear in the application server log (typically _/opt/cycle_server/cycle_server.log_), the main event log, and the Cluster UI page.
+
+Each message has two properties: **level** and **priority**.
+
+The **level** property indicates the type of message. Valid levels are 'info', 'warn', and 'error'. The
+level does not indicate importance of a given message - for example, some errors are trivial and some informational messages critical.
+
+Priority indicates the importance of the message. Valid **priority** values are 'low', 'medium', and 'high'. Only messages with a priority of medium or higher are displayed on the Cluster UI page to avoid flooding the page with low priority messages.
 
 To send an informational log message that will appear on the Cluster UI page:
 
-```azurecli-interactive
+```console
 jetpack log 'system is now ready'
 ```
 
 To send a low priority log message that you do not want to appear on the Cluster
 UI page:
 
-```azurecli-interactive
+```console
 jetpack log 'system is now ready' --priority low
 ```
 
 By default, messages with a level of *error* have a high priority. To send an
 error message:
 
-```azurecli-interactive
+```console
 jetpack log 'the machine cannot process jobs' --level error
 ```
 
 To send a trivial error message:
 
-```azurecli-interactive
+```console
 jetpack log 'the machine cannot process jobs' --level error --priority low
 ```
 
-## jetpack send
+### jetpack send
 
-`jetpack send` is an advanced command that you can use to send an arbitrary AMQP message
-to CycleCloud. It is most useful if you have created a CycleCloud plugin that
-can process that information.
+`jetpack send` sends an AMQP message to CycleCloud. It is an advanced command that is not recommended unless you are developing plugins for CycleCloud.
 
 You can send arbitrary strings or files with specified AMQP routing keys.
+
+### jetpack shutdown
+
+`jetpack shutdown` requests that CycleCloud terminate the node. Options can be passed to the command to specify the reason for the shutdown request (idle vs unhealthy) as well as how to terminate the node (terminate vs deallocate).
+
+To shutdown an unhealthy node:
+
+```console
+jetpack shutdown --unhealthy
+```
+
+To deallocate the node:
+
+```console
+jetpack shutdown --deallocate
+```
+
+### jetpack test
+
+`jetpack test` runs any tests that are included with [projects](~/how-to/projects.md) assigned to the node and prints the results to stdout.
+
+### jetpack users
+
+`jetpack users` lists the users that CycleCloud will manage on the node. This list can change over time as users are assigned and removed to the cluster.
+
+To get a user-friendly print out of the users assigned to the node:
+
+```console
+$ jetpack users
+
+Username: test-user
+Full Name: Test User
+UID: 10201
+Is Admin: True
+Is Owner: True
+```
+
+To get script-friendly JSON output:
+
+```console
+$ jetpack users --json
+
+[
+    {
+        "fullName": "Test User",
+        "isAdmin": true,
+        "isOwner": true,
+        "name": "test-user",
+        "publicKeys": [
+            "ssh-rsa public-key-goes-here\n"
+        ],
+        "uid": 10201
+    }
+]
+```
