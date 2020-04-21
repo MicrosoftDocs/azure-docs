@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure VMWare Soluation (AVS) documentation
+title: Azure VMWare Solution (AVS) documentation
 summary: Learn how to use Azure VMWare Solution (AVS) to deploy a VMWare private cloud to Azure
 
 metadata:
-  title: Azure VMWare Soluation (AVS) documentation 
+  title: Azure VMWare Solution (AVS) documentation 
   description: Learn how to use Azure VMWare Solution (AVS) to deploy a VMWare private cloud to Azure
   ms.service: azure-vmware 
   ms.topic: landing-page 
@@ -17,7 +17,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure VMWare Soluation (AVS)?
+          - text: What is Azure VMWare Solution (AVS)?
             url: introduction.md
       - linkListType: get-started
         links:

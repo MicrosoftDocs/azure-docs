@@ -1,9 +1,6 @@
 ---
 title: "Quickstart: Create a private cloud in Azure using the Azure CLI"
 description: This quickstart walks you through deploying an Azure VMWare Solution private cloud in Azure
-author: dikamath
-ms.author: dikamath
-ms.service: azure-vmware
 ms.topic: quickstart 
 ms.date: 04/07/2020
 ---
@@ -15,7 +12,7 @@ This QuickStart shows you how to use the Azure CLI to create a Private cloud in 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Appropriate administrative rights & permission to create a private cloud.
+- Appropriate administrative rights and permission to create a private cloud.
 
 ## Open Azure Cloud Shell
 

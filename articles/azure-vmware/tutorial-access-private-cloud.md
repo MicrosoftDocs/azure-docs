@@ -7,7 +7,7 @@ ms.date: 05/04/2020
 
 # Tutorial: Learn how to access an Azure VMware Solution (AVS) private cloud
 
-In this tutorial you create a Windows virtual machine in the resource group you created in the previous tutorial [Tutorial: Configure networking for your VMWare private cloud in Azure](tutorial-configure-networking.md). This is a VM on the same virtual network you created and provides access to vCenter and NSX Manager.
+In this tutorial you create a Windows virtual machine in the resource group you created in the previous tutorial [Tutorial: Configure networking for your VMWare private cloud in Azure](tutorial-configure-networking.md) and sign into vCenter. This is a VM on the same virtual network you created and provides access to vCenter and NSX Manager.
 
 In this tutorial, you learn how to:
 
@@ -21,34 +21,30 @@ In the resource group, select **+ Add** then search and select **Microsoft Windo
 
 ![Add a new Windows 10 VM for a jumpbox](./media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png)
 
-Enter the required information and then select **Review + create**.
+Enter the required information in the fields, and then select **Review + create**. For additional information on the fields, see the following table.
+
+| Field | Value |
+| --- | --- |
+| **Subscription** | This value is already populated with the Subscription the Resource Group belongs to. |
+| **Resource group** | This value is already populated for the current Resource Group. This should be the Resource Group you created in a preceding tutorial. |
+| **Virtual machine name** | Enter a unique name for the VM. |
+| **Region** | Select the geographical location of the VM. |
+| **Availability options** | Leave the default value selected. |
+| **Image** | Select the VM image. |
+| **Size** | Leave the default size value. |
+| **Authentication type**  | Select **Password**. |
+| **Username** | Enter the user name for logging on to the VM. |
+| **Password** | Enter the password for logging on to the VM. |
+| **Confirm password** | Enter the password for logging on to the VM. |
+| **Public inbound ports** | Select **None**. |
 
 ![Configure a new Windows 10 VM for a jumpbox](./media/tutorial-access-private-cloud/ss9-basic-wjb01.png)
 
-complete the
-fields as shown in the following table. Use the example values in the
-table, unless the test discipline requires otherwise:
-
-   | Field                    | Value                                                                                                                             |
-   | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
-   | **Subscription**         | This value is already populated with the Subscription the Resource Group belongs to.                                              |
-   | **Resource group**       | This value is already populated for the current Resource Group. This should be the Resource Group you created in a previous test. |
-   | **Virtual machine name** | Enter a unique name for the VM.                                                                                                   |
-   | **Region**               | Select the geographical location of the VM.                                                                                       |
-   | **Availability options** | Leave the default value selected.                                                                                                 |
-   | **Image**                | Select the VM image.                                                                                                              |
-   | **Size**                 | Leave the default size value.                                                                                                     |
-   | **Authentication type**  | Select **Password**.                                                                                                              |
-   | **Username**             | Enter the user name for logging on to the VM.                                                                                     |
-   | **Password**             | Enter the password for logging on to the VM.                                                                                      |
-   | **Confirm password**     | Enter the password for logging on to the VM.                                                                                      |
-   | **Public inbound ports** | Select **None**.                                                                                                                  |
-
-When the new VM is configured to your specifications, select **Review + create**. Once validation passes, select **Create**.
+After you have entered the appropriate information, click **Review + create**. Once validation passes, select **Create** to start the virtual machine creation process.
 
 ![Create a new Windows 10 VM for a jumpbox](./media/tutorial-access-private-cloud/ss11-review-create-wjb01.png)
 
-## Connect to vCenter from the Windows VM in your VNet
+## Connect to vCenter
 
 From the jump box log In to vSphere Client with VMware vCenter SSO. Log in to the vSphere Client using a cloud administrator user name; accept the security risk and continue when you see a warning about a potential security risk; log in to VMware vCenter with Single Sign-On credentials and verify the user interface successfully displays.
 
@@ -58,7 +54,7 @@ In the Azure portal, select your private cloud and then in the **Overview** view
 
 Navigate to the virtual machine you created in the preceding step and connect to the virtual machine. For detailed steps on how to connect to the virtual machine, see [connect to a virtual machine](../virtual-machines/windows/connect-logon.md#connect-to-the-virtual-machine)
 
-In the Windows VM, open a browser and navigate to the vCenter and NSX-T Manger URLs in two tabs. In the vCenter tab, enter the "cloudadmin@vmcp.local" user credentials from the previous step.
+In the Windows VM, open a browser and navigate to the vCenter and NSX-T Manger URLs in two tabs. In the vCenter tab, enter the `cloudadmin@vmcp.local` user credentials from the previous step.
 
 ![Sign in to private cloud vCenter](./media/tutorial-access-private-cloud/ss5-vcenter-login.png)
 
