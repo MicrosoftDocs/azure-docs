@@ -95,12 +95,13 @@ Events are batched into approximately five-minute intervals and sent as a single
 
 For example, about 18 events per second ordinarily occur for a large tenant of more than 100,000 users, a rate that equates to 5,400 events every five minutes. Because audit logs are about 2 KB per event, this equates to 10.8 MB of data. Therefore, 43 messages are sent to the event hub in that five-minute interval. 
 
-The following table contains estimated costs per month for a basic event hub in West US, depending on the volume of event data. To calculate an accurate estimate of the data volume that you anticipate for your application, use the [Event Hubs pricing calculator](https://azure.microsoft.com/pricing/details/event-hubs/).
+The following table contains estimated costs per month for a basic event hub in West US, depending on the volume of event data which can vary from tenant to tenant as per many factors like user sign-in behaviour etc. To calculate an accurate estimate of the data volume that you anticipate for your application, use the [Event Hubs pricing calculator](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 | Log category | Number of users | Events per second | Events per five-minute interval | Volume per interval | Messages per interval | Messages per month | Cost per month (est.) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | Audit | 100,000 | 18 | 5,400 | 10.8 MB | 43 | 371,520 | $10.83 |
 | Audit | 1,000 | 0.1 | 52 | 104 KB | 1 | 8,640 | $10.80 |
+| Sign-ins | 100,000 | 18000 | 5,400,000 | 10.8 GB | 42188 | 364,504,320 | $23.9 |  
 | Sign-ins | 1,000 | 178 | 53,400 | 106.8&nbsp;MB | 418 | 3,611,520 | $11.06 |  
 
 ### Azure Monitor logs cost considerations
