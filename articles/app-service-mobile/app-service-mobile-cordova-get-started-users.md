@@ -43,7 +43,7 @@ Next, update the app to authenticate users before requesting resources from the 
    | Facebook | facebook | https://www.facebook.com |
    | Google | google | https://accounts.google.com |
    | Microsoft | microsoftaccount | https://login.live.com |
-   | Twitter | twitter | https://api.twitter.com |
+   | Twitter | twitter | https://developer.twitter.com/en |
 
     An example Content-Security-Policy (implemented for Azure Active Directory) is as follows:
 
