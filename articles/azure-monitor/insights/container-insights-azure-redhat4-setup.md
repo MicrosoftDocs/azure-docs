@@ -13,13 +13,13 @@ Azure Monitor for containers provides rich monitoring experience for the Azure K
 >Support for Azure Red Hat OpenShift is a feature in public preview at this time.
 >
 
-Azure Monitor for containers can be enabled for one or more existing deployments of Azure Red Hat OpenShift using the following supported methods:
+Azure Monitor for containers can be enabled for one or more existing deployments of Azure Red Hat OpenShift v4.x using the following supported methods:
 
 - For an existing cluster using the provided bash script and running in the [Azure CLI](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
 
 ## Supported and unsupported features
 
-Azure Monitor for containers supports monitoring Azure Red Hat OpenShift as described in the [Overview](container-insights-overview.md) article, except for the following features:
+Azure Monitor for containers supports monitoring Azure Red Hat OpenShift v4.x as described in the [Overview](container-insights-overview.md) article, except for the following features:
 
 - Live Data (preview)
 - [Collect metrics](container-insights-update-metrics.md) from cluster nodes and pods and storing them in the Azure Monitor metrics database
@@ -51,7 +51,7 @@ Perform the following steps to enable monitoring of an Azure Red Hat OpenShift v
 
 3. To identify the **kube-context** of your cluster, after successful `oc login` on to your cluster, run the command `kubectl config current-context` and copy the value.
 
-4. The following step enables monitoring of your cluster using the bash script you downloaded earlier. To integrate with an existing Log Analytics workspace, perform the following steps to first identify the full resource ID of your Log Analytics workspace required for the `workspaceResourceId` parameter, and then run the command to enable the monitoring add-on against the specified workspace.
+4. The following step enables monitoring of your cluster using the bash script you downloaded earlier. To integrate with an existing Log Analytics workspace, perform the following steps to first identify the full resource ID of your Log Analytics workspace required for the `workspaceResourceId` parameter, and then run the command to enable the monitoring add-on against the specified workspace. If you don't have a workspace to specify, you can skip to step 5 and let the script create a new workspace for you.
 
     1. List all the subscriptions that you have access to using the following command:
 
