@@ -2,7 +2,7 @@
 title: Complete a disaster recovery of virtual machines
 description: This article shows how to complete a disaster recovery of virtual machines by using AVS
 ms.topic: how-to
-ms.date: 04/07/2020
+ms.date: 05/04/2020
 ---
 
 # Complete a disaster recovery of virtual machines using Azure VMWare Solution

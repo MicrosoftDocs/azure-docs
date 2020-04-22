@@ -1,8 +1,8 @@
 ---
-title: Concepts - Storage in Azure VMware Solution (AVS) Preview private clouds
+title: Concepts - Storage
 description: Learn about the key storage capabilities in Azure VMware Solution (AVS) Preview private clouds.
 ms.topic: conceptual
-ms.date: 7/29/2019
+ms.date: 05/04/2020
 ---
 
 # Azure VMware Solution (AVS) Preview storage concepts
