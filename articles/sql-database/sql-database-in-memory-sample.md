@@ -4,7 +4,7 @@ description: Try Azure SQL Database In-Memory technologies with OLTP and columns
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: jovanpop-msft
