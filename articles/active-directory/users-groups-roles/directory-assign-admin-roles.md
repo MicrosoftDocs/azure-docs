@@ -66,18 +66,15 @@ Users in this role can create application registrations when the "Users can regi
 
 ### [Authentication Administrator](#authentication-administrator-permissions)
 
-The Authentication administrator role is currently in public preview. Users with this role can set or reset non-password credentials for some users and can update passwords for all users. Authentication administrators can:
+Users with this role can set or reset non-password credentials for some users and can update passwords for all users. Authentication administrators can require users who are non-administrators or assigned to some roles to re-register against existing non-password credentials (for example, MFA or FIDO), and can also revoke **remember MFA on the device**, which prompts for MFA on the next sign-in. THese actions apply only to users who are non-administrators or who are assigned one or more of the following roles:
 
-* Require users to re-register against existing non-password credentials (for example, MFA or FIDO)
-* Revoke **remember MFA on the device**, which prompts for MFA on the next sign-in of users who are non-administrators or assigned the following roles only:
+* Authentication Administrator
+* Directory Readers
+* Guest Inviter
+* Message Center Reader
+* Reports Reader
 
-  * Authentication Administrator
-  * Directory Readers
-  * Guest Inviter
-  * Message Center Reader
-  * Reports Reader
-
-The [Privileged authentication administrator](#privileged-authentication-administrator) role has permission can force re-registration and MFA for all users.
+The [Privileged authentication administrator](#privileged-authentication-administrator) role has permission can force re-registration and multi-factor authentication for all users.
 
 > [!IMPORTANT]
 > Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -352,7 +349,13 @@ Users with this role can register printers and manage printer status in the Micr
 
 ### [Privileged Authentication Administrator](#privileged-authentication-administrator-permissions)
 
-Users with this role can set or reset non-password credentials for all users, including global administrators, and can update passwords for all users. Privileged Authentication Administrators can force users to re-register against existing non-password credential (such as MFA or FIDO) and revoke 'remember MFA on the device', prompting for MFA on the next sign-in of all users. The [Authentication administrator](#authentication-administrator) role can force re-registration and MFA for users and readers.
+Users with this role can set or reset non-password credentials for all users, including global administrators, and can update passwords for all users. Privileged Authentication Administrators can force users to re-register against existing non-password credential (such as MFA or FIDO) and revoke 'remember MFA on the device', prompting for MFA on the next sign-in of all users. The [Authentication administrator](#authentication-administrator) role can force re-registration and MFA for non-admins and users assigned to the following Azure AD roles:
+
+* Authentication Administrator
+* Directory Readers
+* Guest Inviter
+* Message Center Reader
+* Reports Reader
 
 ### [Privileged Role Administrator](#privileged-role-administrator-permissions)
 
