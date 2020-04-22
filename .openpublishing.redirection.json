@@ -51236,6 +51236,11 @@
       "source_path": "articles/media-services/previous/media-services-configure-tricaster-live-encoder.md",
       "redirect_url": "/azure/media-services",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/kubernetes-draft.md",
+      "redirect_url": "/azure/aks/quickstart-helm",
+      "redirect_document_id": false
     }
   ]
 }

@@ -4,7 +4,7 @@ description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB S
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 02/10/2020
+ms.date: 04/20/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
@@ -13,7 +13,7 @@ ms.reviewer: sngun
 
 This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput.
 
-You can broadly categorize query optimizations in Azure Cosmos DB: 
+You can broadly categorize query optimizations in Azure Cosmos DB:
 
 - Optimizations that reduce the Request Unit (RU) charge of the query
 - Optimizations that just reduce latency
@@ -22,19 +22,18 @@ If you reduce the RU charge of a query, you'll almost certainly decrease latency
 
 This article provides examples that you can re-create by using the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset.
 
-## Important
+## Common SDK issues
 
 - For best performance, follow the [Performance tips](performance-tips.md).
     > [!NOTE]
     > For improved performance, we recommend Windows 64-bit host processing. The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally. ServiceInterop.dll is supported only on the Windows x64 platform. For Linux and other unsupported platforms where ServiceInterop.dll isn't available, an additional network call will be made to the gateway to get the optimized query.
-- Azure Cosmos DB queries don't support a minimum item count.
-    - Code should handle any page size, from zero to the maximum item count.
-    - The number of items in a page can and will change without notice.
-- Empty pages are expected for queries and can appear at any time.
-    - Empty pages are exposed in the SDKs because that exposure allows more opportunities to cancel a query. It also makes it clear that the SDK is doing multiple network calls.
-    - Empty pages can appear in existing workloads because a physical partition is split in Azure Cosmos DB. The first partition will have zero results, which causes the empty page.
-    - Empty pages are caused by the backend preempting a query because the query is taking more than some fixed amount of time on the backend to retrieve the documents. If Azure Cosmos DB preempts a query, it will return a continuation token that will allow the query to continue.
-- Be sure to drain the query completely. Look at the SDK samples, and use a `while` loop on `FeedIterator.HasMoreResults` to drain the entire query.
+- You can set a `MaxItemCount` for your queries but you can't specify a minimum item count.
+    - Code should handle any page size, from zero to the `MaxItemCount`.
+    - The number of items in a page will always be less than the specified `MaxItemCount`. However, `MaxItemCount` is strictly a maximum and there could be fewer results than this amount.
+- Sometimes queries may have empty pages even when there are results on a future page. Reasons for this could be:
+    - The SDK could be doing multiple network calls.
+    - The query might be taking a long time to retrieve the documents.
+- All queries have a continuation token that will allow the query to continue. Be sure to drain the query completely. Look at the SDK samples, and use a `while` loop on `FeedIterator.HasMoreResults` to drain the entire query.
 
 ## Get query metrics
 
@@ -55,6 +54,8 @@ Refer to the following sections to understand the relevant query optimizations f
 - [Include necessary paths in the indexing policy.](#include-necessary-paths-in-the-indexing-policy)
 
 - [Understand which system functions use the index.](#understand-which-system-functions-use-the-index)
+
+- [Understand which aggregate queries use the index.](#understand-which-aggregate-queries-use-the-index)
 
 - [Modify queries that have both a filter and an ORDER BY clause.](#modify-queries-that-have-both-a-filter-and-an-order-by-clause)
 
@@ -184,7 +185,7 @@ You can add properties to the indexing policy at any time, with no effect on wri
 
 If an expression can be translated into a range of string values, it can use the index. Otherwise, it can't.
 
-Here's the list of string functions that can use the index:
+Here's the list of some common string functions that can use the index:
 
 - STARTSWITH(str_expr, str_expr)
 - LEFT(str_expr, num_expr) = str_expr
@@ -201,6 +202,51 @@ Following are some common system functions that don't use the index and must loa
 ------
 
 Other parts of the query might still use the index even though the system functions don't.
+
+### Understand which aggregate queries use the index
+
+In most cases, aggregate system functions in Azure Cosmos DB will use the index. However, depending on the filters or additional clauses in an aggregate query, the query engine may be required to load a high number of documents. Typically, the query engine will apply equality and range filters first. After applying these filters,
+the query engine can evaluate additional filters and resort to loading remaining documents to compute the aggregate, if needed.
+
+For example, given these two sample queries, the query with both an equality and `CONTAINS` system function filter will generally be more efficient than a query with just a `CONTAINS` system function filter. This is because the equality filter is applied first and uses the index before documents need to be loaded for the more expensive `CONTAINS` filter.
+
+Query with only `CONTAINS` filter - higher RU charge:
+
+```sql
+SELECT COUNT(1) FROM c WHERE CONTAINS(c.description, "spinach")
+```
+
+Query with both equality filter and `CONTAINS` filter - lower RU charge:
+
+```sql
+SELECT AVG(c._ts) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" AND CONTAINS(c.description, "spinach")
+```
+
+Here are additional examples of aggregates queries that will not fully use the index:
+
+#### Queries with system functions that don't use the index
+
+You should refer to the relevant [system function's page](sql-query-system-functions.md) to see if it uses the index.
+
+```sql
+SELECT MAX(c._ts) FROM c WHERE CONTAINS(c.description, "spinach")
+```
+
+#### Aggregate queries with user-defined functions(UDF's)
+
+```sql
+SELECT AVG(c._ts) FROM c WHERE udf.MyUDF("Sausages and Luncheon Meats")
+```
+
+#### Queries with GROUP BY
+
+The RU charge of `GROUP BY` will increase as the cardinality of the properties in the `GROUP BY` clause increases. In this example, the query engine must load every document that matches the `c.foodGroup = "Sausages and Luncheon Meats"` filter so the RU charge is expected to be high.
+
+```sql
+SELECT COUNT(1) FROM c WHERE c.foodGroup = "Sausages and Luncheon Meats" GROUP BY c.description
+```
+
+If you plan to frequently run the same aggregate queries, it may be more efficient to build a real-time materialized view with the [Azure Cosmos DB change feed](change-feed.md) than running individual queries.
 
 ### Modify queries that have both a filter and an ORDER BY clause
 
