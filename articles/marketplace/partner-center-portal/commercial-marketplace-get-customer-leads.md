@@ -1,6 +1,6 @@
 ---
-title: Configure customer leads | Azure Marketplace
-description: Configure customer leads in a commercial marketplace.
+title: Configure leads from your Microsoft commercial marketplace offer
+description: Configure customer leads in the Microsoft commercial marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -11,7 +11,7 @@ ms.author: dsindona
 
 # Customer leads from your marketplace offer
 
-Leads are customers interested in or deploying your offers from [Azure Marketplace](https://azuremarketplace.microsoft.com) or [AppSource](https://appsource.microsoft.com). You'll receive customer leads after your offer is published to the marketplace. This article explains:
+Leads are customers interested in or deploying your offers from Microsoft [AppSource](https://appsource.microsoft.com) and [Azure Marketplace](https://azuremarketplace.microsoft.com). You'll receive customer leads after your offer is published to the marketplace. This article explains:
 
 * How your marketplace offer generates customer leads to ensure that you don't miss business opportunities. 
 * How to connect your customer relationship management (CRM) system to your offer so that you can manage your leads in one central location.
@@ -21,7 +21,7 @@ Leads are customers interested in or deploying your offers from [Azure Marketpla
 
 Here are places where a lead is generated:
 
-- A customer consents to sharing their information after they select **Contact me** from the marketplace. This lead is an *initial interest* lead. We share information with you about the customer who has expressed interest in getting your product. The lead is the top of the acquisition funnel.
+- A customer consents to sharing their information after they select **Contact me** from the commercial marketplace. This lead is an *initial interest* lead. We share information with you about the customer who has expressed interest in getting your product. The lead is the top of the acquisition funnel.
 
     ![Dynamics 365 Contact Me](./media/commercial-marketplace-get-customer-leads/dynamics-365-contact-me.png)
 
@@ -57,7 +57,7 @@ Possible values are:
 - **"Create"**: This action is only inside the Azure portal and is generated when a customer purchases your offer to their account.
 - **"StartTestDrive"**: This action is only for the **Test Drive** option and is generated when a customer starts their test drive.
 
-**Offers**: You might have multiple offers in the marketplace. The value for this field is populated based on the offer that generated the lead. The publisher ID and offer ID are both sent in this field and are values you provided when you published the offer to the marketplace.
+**Offers**: You might have multiple offers in the commercial marketplace. The value for this field is populated based on the offer that generated the lead. The publisher ID and offer ID are both sent in this field and are values you provided when you published the offer to the marketplace.
 
 The following examples show values in the expected format `publisherid.offerid`: 
 
@@ -93,7 +93,7 @@ The customer's information is sent via multiple fields. The following example sh
 
 Follow the steps in the section [Connect to your CRM system](#connect-to-your-crm-system), or submit a support ticket through [Partner Center Help and support](https://partner.microsoft.com/support/v2/?stage=1). Then select **Offer creation** > **Your type of offer** > **Lead management configuration**.
 
-### Am I required to configure a lead destination in order to publish an offer in the marketplace?
+### Am I required to configure a lead destination in order to publish an offer in the commercial marketplace?
 
 The answer depends on the type of offer you're publishing. Software as a service (SaaS) and Dynamics 365 Customer Engagement use **Contact Me** to list all Dynamics 365 for Finance and Operations offers, all Dynamics 365 Business Central offers, and all Consulting Service offers. As a result, they require a connection to a lead destination. If your offer type wasn't listed, a connection to a lead destination isn't required. We recommend that you configure a lead destination so you don't miss business opportunities.
 
@@ -118,7 +118,7 @@ title = MSFT_TEST_636573304831318844
 
 ### I have a live offer, but why am I not seeing any leads?
 
-Make sure your connection to the lead destination is valid. We'll send you a test lead after you select **Publish** on your offer in Partner Center. If you see the test lead, the connection is valid. You can also test your lead connection by trying to acquire the offer preview during the preview step. Select **Get It Now**, **Contact Me**, or **Free Trial** on the listing in the marketplace.
+Make sure your connection to the lead destination is valid. We'll send you a test lead after you select **Publish** on your offer in Partner Center. If you see the test lead, the connection is valid. You can also test your lead connection by trying to acquire the offer preview during the preview step. Select **Get It Now**, **Contact Me**, or **Free Trial** on the listing in the commercial marketplace.
 
 Also, make sure you're looking for the right data. The content in the [Understand lead data](#understand-lead-data) section of this article describes the lead data we send to your lead destination.
 
@@ -126,7 +126,7 @@ Also, make sure you're looking for the right data. The content in the [Understan
 
 The Azure Blob lead destination is no longer supported, so you're missing any customer leads generated by your offer. Switch to any of the other [lead destination options](./commercial-marketplace-get-customer-leads.md). 
 
-### I received an email from the marketplace, but why can't I find the lead in my CRM?
+### I received an email from the commercial marketplace, but why can't I find the lead in my CRM?
 
 It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass personally identifiable information from the .edu domain. Submit a support ticket through [Partner Center Help and support](https://partner.microsoft.com/support/v2/?stage=1).
 
@@ -134,7 +134,7 @@ It's possible that the end user's email domain is from .edu. For privacy reasons
 
 You can access the lead data stored in the Azure table from the Azure portal. You can also download and install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) for free to view your Azure storage account's table data.
 
-### I configured an Azure table as my lead destination. Can I get notified whenever a new lead is sent by the marketplace?
+### I configured an Azure table as my lead destination. Can I get notified whenever a new commercial marketplace lead is sent?
 
 Yes. Follow the instructions in [Configure lead management by using an Azure table](./commercial-marketplace-lead-management-instructions-azure-table.md) to set up a Microsoft flow that sends an email if a lead is added to the Azure table.
 
@@ -159,4 +159,4 @@ Access your offer in Partner Center, and go to the **Offer setup** page > **Lead
 ## Next steps
 
 After the technical setup is in place, incorporate these leads into your current sales and marketing strategy and operational processes. We're interested in better understanding your overall sales process and want to work closely with you to provide high-quality leads and enough data to make you successful. We welcome your feedback on how we can optimize and enhance the leads we send you with additional data to help make these customers successful. Let us know if you're interested in [providing
-feedback](mailto:AzureMarketOnboard@microsoft.com) and suggestions to enable your sales team to be more successful with marketplace leads.
+feedback](mailto:AzureMarketOnboard@microsoft.com) and suggestions to enable your sales team to be more successful with commercial marketplace leads.

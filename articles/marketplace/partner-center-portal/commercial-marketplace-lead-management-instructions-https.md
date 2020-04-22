@@ -1,6 +1,6 @@
 ---
-title: HTTPS endpoint | Azure Marketplace
-description: Configure lead management for an HTTPS endpoint.
+title: Microsoft commercial marketplace lead management with HTTPS
+description: Configure Microsoft commercial marketplace lead management for an HTTPS endpoint.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -14,7 +14,7 @@ ms.author: dsindona
 >[!NOTE]
 >The Power Automate connector used in these instructions requires a paid subscription to Power Automate. Make sure you account for this before you follow the instructions in this article.
 
-If your customer relationship management (CRM) system isn't explicitly supported in Partner Center to receive Azure Marketplace and AppSource leads, you can use an HTTPS endpoint in Power Automate to handle these leads. With an HTTPS endpoint, these leads can be sent out as an email notification or they can be written to a CRM system supported by Power Automate. The instructions in this article walk you through the basic process to create a new flow by using Power Automate, which generates the HTTP POST URL that you'll enter into the publishing portal for the **Lead Management** > **HTTPS Endpoint URL** field. Also included are instructions on how to test your flow with the help of a tool called [Postman](https://www.getpostman.com/downloads/), which is available online.
+If your customer relationship management (CRM) system isn't explicitly supported in Partner Center to receive Microsoft AppSource and Azure Marketplace leads, you can use an HTTPS endpoint in Power Automate to handle these leads. With an HTTPS endpoint, these leads can be sent out as an email notification or they can be written to a CRM system supported by Power Automate. The instructions in this article walk you through the basic process to create a new flow by using Power Automate, which generates the HTTP POST URL that you'll enter into the publishing portal for the **Lead Management** > **HTTPS Endpoint URL** field. Also included are instructions on how to test your flow with the help of a tool called [Postman](https://www.getpostman.com/downloads/), which is available online.
 
 ## Create a flow by using Power Automate
 
@@ -101,7 +101,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 >[!NOTE]
 >At this point in the configuration, you can select to either connect to a CRM system or configure an email notification. Follow the remaining instructions based on your choice.
 
-### To connect to a CRM system
+### Connect to a CRM system
 
 1. Select **+ New step**.
 1. Choose the CRM system of your choice by searching for it where it says **Search connectors and actions**. Select it on the **Actions** tab with the action to create a new record. The following screen shows **Create a new record (Dynamics 365)** as an example.
@@ -120,7 +120,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     ![When an HTTP request is received](./media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png)
 
-### To set up email notification
+### Set up email notification
 
 1. Now that you've finished the JSON schema, select **+ New step**.
 1. Under **Choose an action**, select **Actions**.

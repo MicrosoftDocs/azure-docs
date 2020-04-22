@@ -22,7 +22,7 @@ This article describes how to set up Dynamics 365 Customer Engagement (previousl
 The following user permissions are needed to complete the steps in this article. You need to:
 
 * Be an admin on your Dynamics 365 Customer Engagement instance to be able to install a solution and follow these instructions.
-* Be a tenant admin to create a new service account for the lead service used to send leads from marketplace offers.
+* Be a tenant admin to create a new service account for the lead service used to send leads from commercial marketplace offers.
 * Have access to the Office 365 admin portal.
 * Have access to the Azure portal.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Table | Azure Marketplace
-description: Configure lead management for an Azure table.
+title: Configure Microsoft commercial marketplace lead management with an Azure table
+description: Learn how to use an Azure table to manage leads from Microsoft AppSource and Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -11,7 +11,7 @@ ms.author: dsindona
 
 # Configure lead management by using an Azure table
 
-If your customer relationship management (CRM) system isn't explicitly supported in Partner Center to receive Azure Marketplace and AppSource leads, you can use an Azure table to handle these leads. You can then choose to export the data and import it into your CRM system. The instructions in this article walk you through the process of creating an Azure Storage account and an Azure table under that account. In addition, you can create a new flow by using Power Automate to send an email notification when your offer receives a lead.
+If your customer relationship management (CRM) system isn't explicitly supported in Partner Center to receive Microsoft AppSource and Azure Marketplace leads, you can use an Azure table to handle these leads. You can then choose to export the data and import it into your CRM system. The instructions in this article walk you through the process of creating an Azure Storage account and an Azure table under that account. In addition, you can create a new flow by using Power Automate to send an email notification when your offer receives a lead.
 
 ## Configure an Azure table
 
