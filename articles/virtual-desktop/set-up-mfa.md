@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/18/2020
+ms.date: 04/22/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -31,24 +31,25 @@ Here's what you'll need to get started:
 
 ## Create a Conditional Access policy
 
-The following steps will help create a Conditional Access policy to require multi-factor authentication when connecting to a Windows Virtual Desktop.
+This section will show you how to create a Conditional Access policy that requires multi-factor authentication when connecting to Windows Virtual Desktop.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**
+1. Under **Assignments**, select **Users and groups**.
    1. Under **Include**, select **Select users and groups** > **Users and groups** > Choose the group created in the prerequisites stage.
    1. Select **Done**.
-1. Under **Cloud apps or actions** > **Include**, select **Select apps**, choose **Windows Virtual Desktop** and **Windows Virtual Desktop Client**, and select **Select** then **Done**.
+1. Under **Cloud apps or actions** > **Include**, select **Select apps**.
+   1. Choose **Windows Virtual Desktop** and **Windows Virtual Desktop Client**, and select **Select** then **Done**.
    ![A screenshot of the Cloud apps or actions page. The Windows Virtual Desktop and Windows Virtual Desktop Client apps are highlighted in red.](media/cloud-apps-enterprise-selected.png)
-1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
-1. Under **Access controls** > **Session**, select **Sign-in frequency**, set the value to **1** and the unit to **Hours**, then select **Select**.
+1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and then **Select**.
+1. Under **Access controls** > **Session**, select **Sign-in frequency**, set the value to **1** and the unit to **Hours**, and then **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
-1. Select **Create** to create to enable your policy.
+1. Select **Create** to enable your policy.
 
 ## Next steps
 
-[Learn more about Conditional Access policies](../active-directory/conditional-access/concept-conditional-access-policies.md)
+- [Learn more about Conditional Access policies](../active-directory/conditional-access/concept-conditional-access-policies.md)
 
-[Learn more about user sign in frequency](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency)
+- [Learn more about user sign in frequency](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency)
