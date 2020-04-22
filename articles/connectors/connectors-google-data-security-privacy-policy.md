@@ -46,9 +46,7 @@ If you have to use the Gmail connector with a Gmail consumer account and non-app
 
 ### Create Google client app
 
-1. To create this app, use [Google's setup tool](https://console.developers.google.com/start/api?id=gmail&credential=client_key) and follow the instructions.
-
-   For detailed steps, review the instructions in the [Gmail connector's technical reference documentation](https://docs.microsoft.com/connectors/gmail/).
+1. To create this app, use the [Google API Console wizard](https://console.developers.google.com/start/api?id=gmail&credential=client_key) and follow the instructions. For detailed steps, review the instructions in the [Gmail connector's technical reference documentation](https://docs.microsoft.com/connectors/gmail/).
 
 1. Provide these values when required:
 
@@ -56,9 +54,9 @@ If you have to use the Gmail connector with a Gmail consumer account and non-app
    * Authorized domain: `azure-apim.net`
    * Redirect URI: `https://global.consent.azure-apim.net/consent`
 
-When you're done, your screen looks like this example except you'll have your own **Client ID** and **Client secret** values, which you later use in your logic app.
+   When you're done, your screen looks like this example except you'll have your own **Client ID** and **Client secret** values, which you later use in your logic app.
 
-![Client ID and client secret for your Google client app](./media/connectors-google-data-security-privacy-policy/google-api-console.png)
+   ![Client ID and client secret for your Google client app](./media/connectors-google-data-security-privacy-policy/google-api-console.png)
 
 ### Use client app settings in logic app
 
