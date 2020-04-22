@@ -43,16 +43,6 @@ bash enable-kdump.sh
 ```
 - Reboot the system to apply changes.
 
-### Support issue
-In case, if the script fails with some error Raise a ticket with Microsoft Operations team by opening a support ticket.
-
-Include in your ticket:
-
-* Your HLI subscription ID.
-* Your server name.
-* OS name
-* OS version
-
 ## Test Kdump
 - Trigger a kernel crash
 ```
@@ -61,4 +51,13 @@ echo c > /proc/sysrq-trigger
 ```
 - After the system reboots successfully, check the `/var/crash directory` for kernel crash logs.
 - If the `/var/crash` has directory with current date, then the Kdump is successfully enabled.
-- If not, then raise a ticket with microsoft using the method describe above.
+
+### Support issue
+In case, if the script fails with some error or Kdump is not enabled, Please raise a ticket with Microsoft Op erations team by opening a support ticket.
+
+Include in your ticket:
+
+* Your HLI subscription ID.
+* Your server name.
+* OS name
+* OS version
