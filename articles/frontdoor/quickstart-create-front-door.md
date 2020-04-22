@@ -28,9 +28,9 @@ In this quickstart, Azure Front Door pools two instances of a web application th
 
 ## Create two instances of a web app
 
-This quickstart requires two instances of a web application that run in different Azure regions. Both the web application instances run in *Active/Active* mode, so either of them can take traffic at any time. This configuration differs from an *Active/Stand-By* configuration, where one acts as a failover.
+This quickstart requires two instances of a web application that run in different Azure regions. Both the web application instances run in *Active/Active* mode, so either one can take traffic. This configuration differs from an *Active/Stand-By* configuration, where one acts as a failover.
 
-If you don't already have them, use the following steps to set up example web apps.
+If you don't already have a web app, use the following steps to set up example web apps.
 
 1. Sign in to the Azure portal at https://portal.azure.com.
 
@@ -44,7 +44,7 @@ If you don't already have them, use the following steps to set up example web ap
 
 1. For **Resource Group**, select **Create new**. Enter *FrontDoorQS_rg1* for the **Name** and select **OK**.
 
-1. Under **Instance Details**, enter a unique **Name** for your web app, *WebAppContoso-1* in this example.
+1. Under **Instance Details**, enter a unique **Name** for your web app. This example uses *WebAppContoso-1*.
 
 1. Select a **Runtime stack**, in this example, *.NET Core 2.1 (LTS)*.
 
@@ -52,9 +52,9 @@ If you don't already have them, use the following steps to set up example web ap
 
 1. For **Windows Plan**, select **Create new**. Enter *myAppServicePlanCentralUS* for **Name** and select **OK**.
 
-1. Be sure that the **Sku and size** is **Standard S1 100 total ACU, 1.75 GB memory**. Select **Review + create**.
+1. Be sure that the **Sku and size** is **Standard S1 100 total ACU, 1.75 GB memory**.
 
-1. Review the **Summary**, then select **Create**. It may take several minutes for the deployment to complete.
+1. Select **Review + create**, review the **Summary**, and then select **Create**. It might take several minutes for the deployment to complete.
 
    ![Review summary for web app](media/quickstart-create-front-door/summary-for-web-app-for-front-door.png)
 
@@ -131,7 +131,7 @@ To test instant global failover in action, try the following steps:
 1. Refresh your browser. You should see the same information page.
 
    >[!TIP]
-   >There is a little bit of delay for these actions. You may need to refresh again.
+   >There is a little bit of delay for these actions. You might need to refresh again.
 
 1. Find the other web app, and stop it as well.
 
@@ -141,11 +141,11 @@ To test instant global failover in action, try the following steps:
 
 ## Clean up resources
 
-After you're done, you can remove all the items you created. Delete the resource groups, which deletes their contents. If you don't intend to use this Front Door, you should remove resources to avoid unnecessary charges.
+After you're done, you can remove all the items you created. Deleting a resource group also deletes its contents. If you don't intend to use this Front Door, you should remove resources to avoid unnecessary charges.
 
 1. In the Azure portal, search for and select **Resource groups**, or select **Resource groups** from the Azure portal menu.
 
-1. Filter or scroll down to find a resource group such as **FrontDoorQS_rg0**.
+1. Filter or scroll down to find a resource group, such as **FrontDoorQS_rg0**.
 
 1. Select the resource group, then select **Delete resource group**.
 
@@ -158,7 +158,7 @@ Repeat the procedure for the other two groups.
 
 ## Next steps
 
-Advance to the next article to learn how add a custom domain to your Front Door.
+Advance to the next article to learn how to add a custom domain to your Front Door.
 > [!div class="nextstepaction"]
 > [Add a custom domain](front-door-custom-domain.md)
 
