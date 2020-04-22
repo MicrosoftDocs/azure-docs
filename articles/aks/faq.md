@@ -93,9 +93,9 @@ AKS supports the following [admission controllers][admission-controllers]:
 
 Currently, you can't modify the list of admission controllers in AKS.
 
-## Do Kuberentes admission controllers impact kube-system?
+## Do Kubernetes admission controllers impact kube-system?
 
-No, to help prevent issues, by default admissions controllers use a namespace selector to ignore any actions from the MutatingAdmissionWebhook and ValidatingAdmissionWebhook to the kube-system namesapce. You can override this behavior by adding a label of **"admissions.enforcer/disabled": "true"** or an **annotation of "admissions.enforcer/disabled": true**.
+No, to help prevent issues, by default admission controllers use a namespace selector to ignore any actions from the MutatingAdmissionWebhook and ValidatingAdmissionWebhook to the kube-system namesapce. You can override this behavior by adding a label of **"admissions.enforcer/disabled": "true"** or an **annotation of "admissions.enforcer/disabled": true**.
 
 ## Is Azure Key Vault integrated with AKS?
 
