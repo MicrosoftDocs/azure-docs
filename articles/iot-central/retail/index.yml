@@ -52,13 +52,9 @@ landingContent:
           - text: Set up a device template
             url: ../core/howto-set-up-template.md
           - text: Connect a device
-            url: ../core/tutorial-connect-device-nodejs.md
-          - text: Connect an IoT Plug and Play (preview) device
-            url: ../core/tutorial-connect-pnp-device.md
+            url: ../core/tutorial-connect-device.md
       - linkListType: how-to-guide
         links:
-          - text: Prepare and connect an MXChip IoT DevKit
-            url: ../core/howto-connect-devkit.md
           - text: Connect other IoT clouds
             url: ../core/howto-build-iotc-device-bridge.md
   - title: Stay connected

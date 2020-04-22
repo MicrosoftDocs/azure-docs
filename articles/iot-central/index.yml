@@ -44,9 +44,6 @@ conceptualContent:
         - url: ./core/howto-set-up-template.md
           itemType: how-to-guide
           text: Set up a device template 
-        - url: ./core/tutorial-connect-pnp-device.md
-          itemType: tutorial
-          text: Connect an IoT Plug and Play (preview) device
       footerLink: 
         url: ./core/index.yml
         text: See more

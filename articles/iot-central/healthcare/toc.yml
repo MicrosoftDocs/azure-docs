@@ -25,8 +25,6 @@
   
     - name: Connect devices
       items:
-        - name: Prepare and connect an MXChip IoT DevKit
-          href: ../core/howto-connect-devkit.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Prepare and connect a Rigado Cascade 500
           href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Monitor device connectivity using Azure CLI
