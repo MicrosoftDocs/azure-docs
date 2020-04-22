@@ -67,7 +67,7 @@ When you select a new subscription to use, you don't need to specify that subscr
 Get-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname>
 ```
 
-You can also change subcriptions on a per-cmdlet basis by adding the desired subscription name as a parameter. The next cmdlet is the same as the previou example, except with the subcription ID added as a parameter to change which subscription the cmdlet uses.
+You can also change subscriptions on a per-cmdlet basis by adding the desired subscription name as a parameter. The next cmdlet is the same as the previous example, except with the subscription ID added as a parameter to change which subscription the cmdlet uses.
 
 ```powershell
 Get-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -SubscriptionId <subscriptionGUID>
@@ -126,7 +126,7 @@ New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -W
 Now that you've set up your PowerShell module, you can run cmdlets to do all sorts of things in Windows Virtual Desktop. Here are some of the places you can use your module:
 
 - Run through our [Windows Virtual Desktop tutorials]() to set up your very own Windows Virtual Desktop environment.
-- [Create a host pool with Powershell](create-host-pools-powershell.md)
+- [Create a host pool with PowerShell](create-host-pools-powershell.md)
 - [Configure the Windows Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)
 - [Configure the personal desktop host pool assignment type](configure-host-pool-personal-desktop-assignment-type.md)
 - And much more!
