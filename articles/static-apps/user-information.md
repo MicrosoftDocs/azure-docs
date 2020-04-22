@@ -67,7 +67,7 @@ Client principal data is passed to API functions in the request header. To make 
 
 ### In the function
 
-The following example function named `user` shows how to return user information to the client.
+The following example function, named `user`, shows how to return user information to the client.
 
 ```javascript
 module.exports = async function (context, req) {
