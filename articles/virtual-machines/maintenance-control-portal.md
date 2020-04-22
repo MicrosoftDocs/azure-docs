@@ -70,14 +70,13 @@ Select the resources that you want the maintenance configuration assigned to and
 
 ## Check configuration
 
-You can verify that the configuration was applied correctly or check to see any maintenance configuration that is currently assigned using **Maintenance Configurations**. The **Type** column shows whether the assignment is assigned to an isolated VM or Azure Dedicated Host. 
+You can verify that the configuration was applied correctly or check to see any maintenance configuration that is currently assigned using **Maintenance Configurations**. The **Type** column shows whether the configuration is assigned to an isolated VM or Azure Dedicated Host. 
 
-![Screenshot showing how to check a maintenance configuration](media/virtual-machines-maintenance-control-portal/maintenance-configurations-create.png)
+![Screenshot showing how to check a maintenance configuration](media/virtual-machines-maintenance-control-portal/maintenance-configurations-host-type.png)
 
-You can also check the assignment for a specific host using **Virtual Machines**. Click the name of a host to see its properties. On the host properties page, click **Maintenance** to see the assignment assigned to that host. 
+You can also check the configuration for a specific virtual machine on its properties page. Click **Maintenance** to see the configuration assigned to that virtual machine.
 
-![Screenshot showing how to check Maintenance for a host](media/virtual-machines-maintenance-control-portal/maintenance-configurations-create.png)
-
+![Screenshot showing how to check Maintenance for a host](media/virtual-machines-maintenance-control-portal/maintenance-configurations-check.png)
 
 ## Check for pending updates
 
@@ -87,7 +86,7 @@ There are also two ways to check if updates are pending for a maintenance config
 
 You can also check a specific host using **Virtual Machines** or properties of the Dedicated Host. 
 
-<!---need screenshot--->
+![Screenshot showing how to check Maintenance for a host](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
 
 ## Apply updates
 
