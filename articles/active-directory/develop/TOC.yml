@@ -307,9 +307,7 @@
           href: ssl-issues.md
         - name: Handle errors and exceptions
           href: msal-handling-exceptions.md?tabs=iosmacos
-        - name: Logging - Objective-C
-          href: msal-logging.md?tabs=objc
-        - name: Logging - Swift
+        - name: Logging
           href: msal-logging.md?tabs=swift
     - name: Java
       items:
