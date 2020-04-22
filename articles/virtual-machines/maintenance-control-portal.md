@@ -62,7 +62,7 @@ You can verify that the configuration was applied correctly or check to see any 
 
 You can also check the configuration for a specific virtual machine on its properties page. Click **Maintenance** to see the configuration assigned to that virtual machine.
 
-![Screenshot showing how to check Maintenance for a host](media/virtual-machines-maintenance-control-portal/maintenance-configurations-check.png)
+![Screenshot showing how to check Maintenance for a host](media/virtual-machines-maintenance-control-portal/maintenance-configurations-check-config.png)
 
 ## Check for pending updates
 
