@@ -125,7 +125,7 @@ Uses:
 
 ### Configure endpoints
 
-Command group: `az dt endpoints`
+Command group: `az dt endpoint`
 
 These commands are used to configure egress endpoints of an Azure Digital Twins instance.
 
@@ -145,21 +145,21 @@ Uses:
 
   `az dt endpoint create eventhub --endpoint-name myeh_endpoint --eventhub-resource-group myeh_resourcegroup --eventhub-namespace myeh_namespace --eventhub myeventhub --eventhub-policy myeh_policy -n mydtinstance`
 
-#### az dt endpoints show
+#### az dt endpoint show
 
 Uses:
 
 * Show a configured endpoint on an Azure Digital Twins instance
 
-  `az dt endpoints show --endpoint-name myeh_endpoint -n mydtinstance`
+  `az dt endpoint show --endpoint-name myeh_endpoint -n mydtinstance`
 
-#### az dt endpoints list
+#### az dt endpoint list
 
 Uses:
 
 * List all configured endpoints on an Azure Digital Twins instance
 
-  `az dt endpoints list -n mydtinstance`
+  `az dt endpoint list -n mydtinstance`
 
 #### az dt endpoint delete
 
@@ -203,9 +203,9 @@ Uses:
 
   `az dt rbac remove-role --assignee 'notcoolperson@microsoft.com -n mydtinstance`
 
-### Manage Azure Digital Twins routes
+### Manage Azure Digital Twins route
 
-Command group: `az dt routes`
+Command group: `az dt route`
 
 These commands are used to manage and configure event routes. 
 
@@ -224,23 +224,23 @@ Uses:
 
   `az dt route create -n <Azure-Digital-Twins-instance> --endpoint-name <endpoint-name> --route-name <route-name> --filter "type = 'Microsoft.DigitalTwins.Twin.Create'"`
 
-#### az dt routes show
+#### az dt route show
 
 Uses:
 
 * Show an existing event route
 
-  `az dt routes show --route-name myeh_route -n mydtinstance`
+  `az dt route show --route-name myeh_route -n mydtinstance`
 
-#### az dt routes list
+#### az dt route list
 
 Uses:
 
 * List all event routes on an Azure Digital Twins instance
 
-  `az dt routes list -n mydtinstance`
+  `az dt route list -n mydtinstance`
 
-#### az dt routes delete
+#### az dt route delete
 
 Uses:
 
