@@ -20,20 +20,20 @@ We will explain when and how to use the different authentication strategies to s
 
 ## Using the Azure AD security token
 
-Applicable offer types are SaaS and Azure Applications with Managed Application plan type.  
+Applicable offer types are SaaS and Azure Applications with managed application plan type.  
 
 Submit custom meters by using a predefined fixed application ID to authenticate.
 
-For SaaS offers this is the only available option.
+For SaaS offers, Azure AD is the only available option.
 
-For Azure Applications with Managed Application plan, you should consider using this strategy in the following cases:
+For Azure applications with managed application plan, you should consider using this strategy in the following cases:
 
 * You already have a mechanism to communicate with your backend services, and you want to extend this mechanism to emit custom meters from a central service.
-* You have complex custom meters logic; in this case, it will make more sense to run this logic in a central location instead of running it on the managed application resources.
+* You have complex custom meters logic.  Run this logic in a central location, instead of the managed application resources.
 
 Once you have registered your application, you can programmatically request an Azure AD security token. The publisher is expected to use this token and make a request to resolve it.
 
-See [Azure Active Directory access tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) for more information about these tokens.
+For more information about these tokens, see [Azure Active Directory access tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
 
 ### Get a token based on the Azure AD app
 
@@ -92,9 +92,9 @@ Sample response token:
   }
 ```
 
-## Using the Azure managed identities token
+## Using the Azure-managed identities token
 
-Applicable offer type is Azure Applications with Managed Application plan type.
+Applicable offer type is Azure applications with managed application plan type.
 
 Using this approach will allow the deployed resources identity to authenticate to send custom meters usage events.  You can embed the code that emits usage within the boundaries of your deployment.
 
@@ -103,10 +103,10 @@ Using this approach will allow the deployed resources identity to authenticate t
 
 Your managed application can contain different type of resources, from Virtual Machines to Azure Functions.  For more information on how to authenticate using managed identities for different services, see [how to use managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-can-i-use-managed-identities-for-azure-resources).
 
-For example, this is how to authenticate using a Windows VM,
+For example, follow the steps below to authenticate using a Windows VM,
 
 1. Make sure Managed Identity is configured using one of the methods:
-    1. [Azure Portal UI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+    1. [Azure portal UI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
     1. [CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
     1. [PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
     1. [Azure Resource Manager Template](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
@@ -124,7 +124,7 @@ For example, this is how to authenticate using a Windows VM,
     $Headers.Add("Authorization","$($Token.token_type) "+ " " + "$($Token.access_token)")
     ```
 
-1. Get the managed app id from the current resource groups 'ManagedBy' property
+1. Get the managed app ID from the current resource groups 'ManagedBy' property
 
     ```powershell
     # Get subscription and resource group
@@ -136,15 +136,15 @@ For example, this is how to authenticate using a Windows VM,
     $managedappId = $resourceGroupInfo.managedBy 
     ```
 
-1. Marketplace metering service requires to report usage on a `resourceID`, in the case of a Managed App this is the `resourceUsageId`.
+1. Marketplace metering service requires to report usage on a `resourceID`, and `resourceUsageId` if a managed application.
 
     ```powershell
-    # Get resourceUsageId from the Managed App
+    # Get resourceUsageId from the managed app
     $managedAppUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "/providers/Microsoft.Solutions/applications/" + $managedappId + "\?api-version=2019-07-01"
     $ManagedApp = curl $managedAppUrl -H $Headers | Select-Object -Expand Content | ConvertFrom-Json
     # Use this resource ID to emit usage 
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
     ```
 
-1. Use the [Marketplace metering service API](https://review.docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis?branch=pr-en-us-101847) to emit usage
+1. Use the [Marketplace metering service API](https://review.docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis?branch=pr-en-us-101847) to emit usage.
 
