@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 01/31/2017
+ms.date: 04/23/2020
 ---
 
 # Exchange X12 messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
@@ -38,15 +38,23 @@ To work with X12 messages in Azure Logic Apps, you can use the X12 connector, wh
 
 ## Receive message settings
 
-After you set the agreement properties, you can configure how this agreement identifies and handles incoming messages received from your partner through this agreement.
+After you set the agreement properties, you can configure how this agreement identifies and handles inbound messages that you receive from your partner through this agreement.
 
 1. Under **Add**, select **Receive Settings**.
 
 1. Configure these properties based on your agreement with the partner that exchanges messages with you. For property descriptions, see the tables in this section.
 
-   The **Receive Settings** are organized into these sections: Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, Validations, and Internal Settings
+   The **Receive Settings** are organized into these sections:
 
-1. After you're done, save your settings by selecting **OK**.
+   * Identifiers
+   * Acknowledgment
+   * Schemas
+   * Envelopes
+   * Control Numbers
+   * Validations
+   * Internal Settings
+
+1. After you're done, make sure to save your settings by selecting **OK**.
 
 <a name="receive-identifiers"></a>
 
@@ -104,7 +112,7 @@ In this section, select a [schema](../logic-apps/logic-apps-enterprise-integrati
 
 <a name="receive-control-numbers"></a>
 
-### Control numbers
+### Control Numbers
 
 ![Settings for handling control number duplicates](./media/logic-apps-enterprise-integration-x12/x12-35.png) 
 
@@ -115,57 +123,53 @@ In this section, select a [schema](../logic-apps/logic-apps-enterprise-integrati
 | **Disallow Transaction set control number duplicates** | Block interchanges that have duplicate transaction set control numbers. |
 |||
 
-
 <a name="receive-validation"></a>
 
 ### Validation
 
-![Set validation properties for received messages](./media/logic-apps-enterprise-integration-x12/x12-36.png) 
+If you don't specify any rules, validation uses the **Default** row. Otherwise, after you complete each validation row, a new empty row automatically appears.
 
-When you complete each validation row, another is automatically added. 
-If you don't specify any rules, then validation uses the "Default" row.
-
-| Property | Description |
-|----------|-------------|
-| Message Type |Select the EDI message type. |
-| EDI Validation |Perform EDI validation on data types as defined by the schema's EDI properties, length restrictions, empty data elements, and trailing separators. |
-| Extended Validation |If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
-| Allow Leading/Trailing Zeroes |Retain any additional leading or trailing zero and space characters. Don't remove these characters. |
-| Trim Leading/Trailing Zeroes |Remove leading or trailing zero and space characters. |
-| Trailing Separator Policy |Generate trailing separators. <p>Select **Not Allowed** to prohibit trailing delimiters and separators in the received interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>Select **Optional** to accept interchanges with or without trailing delimiters and separators. <p>Select **Mandatory** when the interchange must have trailing delimiters and separators. |
-
-### Internal settings
-
-![Select internal settings](./media/logic-apps-enterprise-integration-x12/x12-37.png) 
+![Validation properties for received messages](./media/logic-apps-enterprise-integration-x12/x12-36.png) 
 
 | Property | Description |
 |----------|-------------|
-| Convert implied decimal format "Nn" to a base 10 numeric value |Converts an EDI number that is specified with the format "Nn" into a base-10 numeric value |
-| Create empty XML tags if trailing separators are allowed |Select this check box to have the interchange sender include empty XML tags for trailing separators. |
-| Split Interchange as transaction sets - suspend transaction sets on error|Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope to the transaction set. Suspends only the transactions where the validation fails. |
-| Split Interchange as transaction sets - suspend interchange on error|Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope. Suspends entire interchange when one or more transaction sets in the interchange fail validation. | 
-| Preserve Interchange - suspend transaction sets on error |Leaves the interchange intact, creates an XML document for the entire batched interchange. Suspends only the transaction sets that fail validation, while continuing to process all other transaction sets. |
-| Preserve Interchange - suspend interchange on error |Leaves the interchange intact, creates an XML document for the entire batched interchange. Suspends the entire interchange when one or more transaction sets in the interchange fail validation. |
+| **Message Type** | The EDI message type |
+| **EDI Validation** | Perform EDI validation on data types as defined by the schema's EDI properties, length restrictions, empty data elements, and trailing separators. |
+| **Extended Validation** | If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min or max). |
+| **Allow Leading/Trailing Zeroes** | Keep any additional leading or trailing zero and space characters. Don't remove these characters. |
+| **Trim Leading/Trailing Zeroes** | Remove any leading or trailing zero and space characters. |
+| **Trailing Separator Policy** | Generate trailing separators. <p>- **Not Allowed**: Prohibit trailing delimiters and separators in the received interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>- **Optional**: Accept interchanges with or without trailing delimiters and separators. <p>- **Mandatory**: When the interchange must have trailing delimiters and separators. |
+|||
 
-## Configure how your agreement sends messages
+<a name="receive-internal"></a>
 
-You can configure how this agreement identifies and handles outgoing 
-messages that you send to your partner through this agreement.
+### Internal Settings
 
-1.	Under **Add**, select **Send Settings**.
-Configure these properties based on your agreement 
-with your partner who exchanges messages with you. 
-For property descriptions, see the tables in this section.
+![Internal settings for received messages](./media/logic-apps-enterprise-integration-x12/x12-received-messages-internal-settings.png)
 
-	**Send Settings** is organized into these sections: Identifiers, 
-	Acknowledgment, Schemas, Envelopes, Character Sets and Separators, 
-	Control Numbers, and Validation.
+| Property | Description |
+|----------|-------------|
+| **Convert implied decimal format Nn to a base 10 numeric value** | Convert an EDI number that is specified with the format "Nn" into a base-10 numeric value. |
+| **Create empty XML tags if trailing separators are allowed** | Have the interchange sender include empty XML tags for trailing separators. |
+| **Split Interchange as transaction sets - suspend transaction sets on error** | Parse each transaction set that's in an interchange into a separate XML document by applying the appropriate envelope to the transaction set. Suspend only the transactions where the validation fails. |
+| **Split Interchange as transaction sets - suspend interchange on error** | Parse each transaction set that's in an interchange into a separate XML document by applying the appropriate envelope. Suspend the entire interchange when one or more transaction sets in the interchange fail validation. |
+| **Preserve Interchange - suspend transaction sets on error** | Leave the interchange intact and create an XML document for the entire batched interchange. Suspend only the transaction sets that fail validation, but continue to process all other transaction sets. |
+| **Preserve Interchange - suspend interchange on error** |Leaves the interchange intact, creates an XML document for the entire batched interchange. Suspends the entire interchange when one or more transaction sets in the interchange fail validation. |
+|||
 
-2. After you're done, 
-make sure to save your settings by choosing **OK**.
+<a name="send-message-settings"></a>
 
-Now your agreement is ready to handle outgoing 
-messages that conform to your selected settings.
+## Send message settings
+
+After you set the agreement properties, you can configure how this agreement identifies and handles outbound messages that you send to your partner through this agreement.
+
+1. Under **Add**, select **Send Settings**.
+
+1. Configure these properties based on your agreement with the partner that exchanges messages with you. For property descriptions, see the tables in this section.
+
+   The **Send Settings** are organized into these sections: Identifiers, Acknowledgment, Schemas, Envelopes, Character Sets and Separators, Control Numbers, and Validation.
+
+1. After you're done, make sure to save your settings by selecting **OK**.
 
 ### Identifiers
 
