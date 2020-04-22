@@ -75,7 +75,7 @@ To enable Azure Monitor for VMs by using Azure Policy in your tenant:
 - Assign the initiative to a scope: management group, subscription, or resource group.
 - Review and remediate compliance results.
 
-For more information about assigning Azure Policy, see [Azure Policy overview](../../governance/policy/overview.md#policy-assignment) and review the [overview of management groups](../../governance/management-groups/overview.md) before you continue.
+For more information about assigning Azure Policy, see [Azure Policy overview](../../governance/policy/overview.md#assignments) and review the [overview of management groups](../../governance/management-groups/overview.md) before you continue.
 
 ### Policies for Azure VMs
 
