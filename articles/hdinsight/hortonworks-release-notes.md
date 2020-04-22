@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ---
 
-## Hortonworks release notes associated with HDInsight versions
+# Hortonworks release notes associated with HDInsight versions
 
 The section provides links to release notes for the Hortonworks Data Platform distributions and Apache components that are used with HDInsight.
 
