@@ -1,7 +1,7 @@
 ---
-title: Network checklist
+title: "Tutorial: Network checklist"
 description: Network Requirement prerequisites and details on Network Connectivity and Network Ports
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/04/2020
 ---
 
@@ -9,7 +9,13 @@ ms.date: 05/04/2020
 
 Azure VMware Solution offers a VMware private cloud environment, which is accessible for users and applications from on-premises environments and Azure resources. The connectivity is delivered through networking services such as Azure ExpressRoute and VPN connections. These networking services will require some specific network address ranges and firewall ports for enabling the services. This article provides you the information you need to know to properly configure your networking to work with AVS.
 
-## Network Connectivity
+In this tutorial, you learn how about:
+
+> [!div class="checklist"]
+> * Network connectivity requirements
+> * DHCP in AVS
+
+## Network connectivity
 
 The AVS private cloud can be connected to your Azure virtual network using Azure ExpressRoute. This high bandwidth, low latency connection allows you to
 access services running in your Azure subscription from your private cloud environment.
@@ -59,10 +65,15 @@ On-premises vCenter network|      Private Cloud management network|      TCP
 Applications and workloads running in a private cloud environment require name resolution and DHCP services for lookup and IP address assignment. A proper DHCP and DNS infrastructure is required to provide these services. You can configure a virtual machine to provide these services in your private cloud environment.  
 It is recommended to use the DHCP service that is built-in to NSX or using a local DHCP server in the private cloud instead of routing broadcast DHCP traffic over the WAN back to on-premises.
 
+In this tutorial, you learned about:
+
+> [!div class="checklist"]
+> * Network connectivity requirements
+> * DHCP in AVS
 
 ## Next steps
 
-Once you have the proper networking in place, continue to the next quickstart to create your AVS private cloud.
+Once you have the proper networking in place, continue to the next tutorial to create your AVS private cloud.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create an AVS private cloud](quickstart-private-cloud-cli.md)
+> [Tutorial: Create an AVS private cloud](tutorial-create-private-cloud.md)
