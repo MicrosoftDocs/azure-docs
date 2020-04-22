@@ -38,16 +38,12 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 ## Create a web app
 
-Change to the directory that contains the sample code and run the `az webapp up` command.
-
-In the following example, replace <app_name> with a unique app name.
+Change to the directory that contains the sample code and run the `az webapp up` command. In the following example, replace <app_name> with a unique app name. Static content is indicated by the `--html` flag.
 
 ```bash
 cd html-docs-hello-world
-```
 
-```azurecli
-az webapp up --location westeurope --name <app_name> 
+az webapp up --location westeurope --name <app_name> --html
 ```
 
 The `az webapp up` command does the following actions:
@@ -98,7 +94,7 @@ Save your changes and exit nano. Use the command `^O` to save and `^X` to exit.
 
 You'll now redeploy the app with the same `az webapp up` command.
 
-```azurecli
+```bash
 az webapp up --location westeurope --name <app_name> --html
 ```
 
@@ -126,7 +122,7 @@ The left menu provides different pages for configuring your app.
 
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell. Remember that the resource group name was automatically generated for you in the [create a web app](#create-a-web-app) step.
 
-```azurecli
+```bash
 az group delete --name appsvc_rg_Windows_westeurope
 ```
 

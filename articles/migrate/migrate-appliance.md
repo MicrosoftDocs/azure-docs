@@ -121,7 +121,7 @@ download.microsoft.com/download | Allow downloads from Microsoft download.
 *.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Connect to Azure Migrate service URLs.
 *.hypervrecoverymanager.windowsazure.us | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
 *.blob.core.usgovcloudapi.net  |  **Used for VMware agentless migration**<br/><br/>Upload data to storage for migration.
-*.applicationinsights.us | Used by Gateway agent on the appliance to access the Application Insights endpoint for diagnostic monitoring.
+*.applicationinsights.us | Upload app logs used for internal monitoring.
 
 
 
