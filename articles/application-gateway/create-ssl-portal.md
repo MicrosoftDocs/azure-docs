@@ -9,6 +9,7 @@ ms.date: 04/22/2019
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to use the Azure portal to configure Application Gateway with TLS termination so I can secure my application traffic.
 ---
+
 # Tutorial: Configure an application gateway with TLS termination using the Azure portal
 
 You can use the Azure portal to configure an [application gateway](overview.md) with a certificate for TLS termination that uses virtual machines for backend servers.
