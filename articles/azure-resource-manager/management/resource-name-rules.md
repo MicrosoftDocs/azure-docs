@@ -535,7 +535,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | solutions | workspace | N/A | Name must be in the pattern:<br>`SolutionType(WorkspaceName)`<br><br>For example, `AntiMalware(contoso-IT)` is a valid name.<br><br>The solution type is case-sensitive. |
+> | solutions | workspace | N/A | Name must be in the pattern:<br>`SolutionType(WorkspaceName)`<br><br>For example, a valid name is:<br>`AntiMalware(contoso-IT)`<br><br>The solution type is case-sensitive. |
 
 ## Microsoft.Portal
 
