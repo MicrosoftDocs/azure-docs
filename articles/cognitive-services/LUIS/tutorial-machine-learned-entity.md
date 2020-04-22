@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: extract structured data with machine-learned entity - LUIS"
-description: Extract structured data from an utterance using the machine-learned entity. To increase the extraction accuracy, add subcomponents with descriptors and constraints.
+description: Extract structured data from an utterance using the machine-learned entity. To increase the extraction accuracy, add subcomponents with features and constraints.
 ms.topic: tutorial
-ms.date: 04/01/2020
+ms.date: 04/22/2020
 #Customer intent: As a new user, I want to understand how to extract complex data contained in a user utterance.
 ---
 
@@ -10,7 +10,7 @@ ms.date: 04/01/2020
 
 In this tutorial, extract structured data from an utterance using the machine-learned entity.
 
-The machine-learned entity supports the [model decomposition concept](luis-concept-model.md#v3-authoring-model-decomposition) by providing subcomponent entities with their descriptors and constraints.
+The machine-learned entity supports the [model decomposition concept](luis-concept-model.md#v3-authoring-model-decomposition) by providing subcomponent entities with their features and constraints.
 
 **In this tutorial, you learn how to:**
 
@@ -18,7 +18,7 @@ The machine-learned entity supports the [model decomposition concept](luis-conce
 > * Import example app
 > * Add machine-learned entity
 > * Add subcomponent
-> * Add subcomponent's descriptor
+> * Add subcomponent's feature
 > * Add subcomponent's constraint
 > * Train app
 > * Test app
@@ -80,13 +80,13 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
     ![Add structure to entity](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
 1. In the **Create a machine learned entity** box, in the **Structure** box, add `Size` then select Enter.
-1. To add a **descriptor**, select the `+` in the **Descriptors** area, then select **Create new phrase list**.
+1. To add a **Feature**, select the `+` in the **Features** area, then select **Create new phrase list**.
 
-1. In the **Create new phrase list descriptor** box, enter the name `SizeDescriptor` then enter values of: `small`, `medium`, and `large`. When the **Suggestions** box fills in, select `extra large`, and `xl`. Select **Done** to create the new phrase list.
+1. In the **Create new phrase list** box, enter the name `SizeFeature` then enter values of: `small`, `medium`, and `large`. When the **Suggestions** box fills in, select `extra large`, and `xl`. Select **Done** to create the new phrase list.
 
-    This phrase list descriptor helps the `Size` subcomponent find words related to size by providing it with example words. This list doesn't need to include every size word but should include words that are expected to indicate size.
+    This phrase list feature helps the `Size` subcomponent find words related to size by providing it with example words. This list doesn't need to include every size word but should include words that are expected to indicate size.
 
-    ![Create a descriptor for the size subcomponent](media/tutorial-machine-learned-entity/size-entity-size-descriptor-phrase-list.png)
+    ![Create a feature for the size subcomponent](media/tutorial-machine-learned-entity/size-entity-size-descriptor-phrase-list.png)
 
 1. On the **Create a machine learned entity** window, select **Create** to finish creating the `Size` subcomponent.
 
@@ -199,7 +199,7 @@ Test the app using the interactive **Test** panel. This process lets you enter a
 
     ![View the entity predictions in the interactive test panel.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance-and-entity-predictions.png)
 
-    The size was correctly identified. Remember that the example utterances in the `OrderPizza` intent don't have an example of `medium` as a size but do use a descriptor of a `SizeDescriptor` phrase list that includes medium.
+    The size was correctly identified. Remember that the example utterances in the `OrderPizza` intent don't have an example of `medium` as a size but do use a feature of a `SizeFeature` phrase list that includes medium.
 
     The quantity is not correctly predicted. You can fix this in your client application by defaulting size to one (1) if no size is returned in the LUIS prediction.
 
