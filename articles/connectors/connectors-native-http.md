@@ -140,8 +140,8 @@ For example, suppose you have a logic app that sends an HTTP POST request for an
 Here is the same example that shows the HTTP action's JSON definition in the underlying workflow definition:
 
 ```json
-{
-   "HTTP_action": {
+"HTTP_action": {
+   "inputs": {
       "body": {
          "$content-type": "multipart/form-data",
          "$multipart": [
