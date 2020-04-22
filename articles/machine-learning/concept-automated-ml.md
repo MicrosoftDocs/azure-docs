@@ -18,24 +18,48 @@ Automated machine learning, also referred to as automated ML, is the process of 
 
 Traditional machine learning model development is resource-intensive, requiring significant domain knowledge and time to produce and compare dozens of models. With automated machine learning, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
 
-## When to use automated ML
+## When to use AutoML: classify, regression, & forecast
 
 Apply automated ML when you want Azure Machine Learning to train and tune a model for you using the target metric you specify. Automated ML democratizes the machine learning model development process, and empowers its users, no matter their data science expertise, to identify an end-to-end machine learning pipeline for any problem.
 
 Data scientists, analysts, and developers across industries can use automated ML to:
-
-+ Implement machine learning solutions without extensive programming knowledge
++ Implement ML solutions without extensive programming knowledge
 + Save time and resources
 + Leverage data science best practices
 + Provide agile problem-solving
 
-The following table lists common automated ML use cases. 
+### Classification
 
-Classification| Time series forecasting | Regression
----|---|---
-[Fraud Detection](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)|[Sales Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)|[CPU Performance Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb)
-|[Marketing Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)|[Demand Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)|
-|[Newsgroup Data Classification](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)|[Beverage Production Forecast](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)|
+Classification is a common machine learning task. Classification is a type of supervised learning in which models learn using training data, and apply those learnings to new data. Azure Machine Learning offers featurizations specifically for these tasks, such as deep neural network text featurizers for classification. Learn more about [featurization options](how-to-use-automated-ml-for-ml-models.md#featurization). 
+
+The main goal of classification models is to predict which categories new data will fall into based on learnings from its training data. Common classification examples include fraud detection, handwriting recognition, and object detection.  Learn more and see an example of [classification with automated machine learning](tutorial-train-models-with-aml.md).
+
+See examples of classification and automated machine learning in these Python notebooks: [Fraud Detection](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [Marketing Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb), and [Newsgroup Data Classification](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)
+
+### Regression
+Similar to classification, regression tasks are also a common supervised learning task. Azure Machine Learning offers [featurizations specifically for these tasks](how-to-use-automated-ml-for-ml-models.md#featurization).
+
+Different from classification where predicted output values are categorical, regression models predict numerical output values based on independent predictors. In regression, the objective is to help establish the relationship among those independent predictor variables by estimating how one variable impacts the others. For example, automobile price based on features like, gas mileage, safety rating, etc. Learn more and see an example of [regression with automated machine learning](tutorial-auto-train-models.md).
+
+See examples of regression and automated machine learning for predictions in these Python notebooks: [CPU Performance Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb), 
+
+### Time-series forecasting
+
+Building forecasts is an integral part of any business, whether it's revenue, inventory, sales, or customer demand. You can use automated ML to combine techniques and approaches and get a recommended, high-quality time-series forecast.
+
+An automated time-series experiment is treated as a multivariate regression problem. Past time-series values are "pivoted" to become additional dimensions for the regressor together with other predictors. This approach, unlike classical time series methods, has an advantage of naturally incorporating multiple contextual variables and their relationship to one another during training. Automated ML learns a single, but often internally branched model for all items in the dataset and prediction horizons. More data is thus available to estimate model parameters and generalization to unseen series becomes possible.
+
+Advanced forecasting configuration includes:
+* holiday detection and featurization
+* time-series and DNN learners (Auto-ARIMA, Prophet, ForecastTCN)
+* many models support through grouping
+* rolling-origin cross validation
+* configurable lags
+* rolling window aggregate features
+
+Learn more with this how-to: [automated machine learning for time series forecasting](how-to-auto-train-forecast.md). 
+
+See examples of regression and automated machine learning for predictions in these Python notebooks: [Sales Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb), [Demand Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb), and [Beverage Production Forecast](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb).
 
 ## Design automated ML experiments
 
@@ -101,33 +125,7 @@ Enable this setting with:
 
 + Python SDK: Specifying `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` for the [`AutoMLConfig` class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
-## Classification, regression, & forecasting
 
-### Classification and AutoML
-
-Classification is a common machine learning task. Classification is a type of supervised learning in which models learn using training data, and apply those learnings to new data. Azure Machine Learning offers featurizations specifically for these tasks, such as deep neural network text featurizers for classification. Learn more about [featurization options](how-to-use-automated-ml-for-ml-models.md#featurization). 
-
-The main goal of classification models is to predict which categories new data will fall into based on learnings from its training data. Common classification examples include fraud detection, handwriting recognition, and object detection.  Learn more and see an example of [classification with automated machine learning](tutorial-train-models-with-aml.md).
-
-### Regression and AutoML
-Similar to classification, regression tasks are also a common supervised learning task. Azure Machine Learning offers [featurizations specifically for these tasks](how-to-use-automated-ml-for-ml-models.md#featurization).
-
-Different from classification where predicted output values are categorical, regression models predict numerical output values based on independent predictors. In regression, the objective is to help establish the relationship among those independent predictor variables by estimating how one variable impacts the others. For example, automobile price based on features like, gas mileage, safety rating, etc. Learn more and see an example of [regression with automated machine learning](tutorial-auto-train-models.md).
-
-### Time-series forecasting and AutoML
-
-Building forecasts is an integral part of any business, whether it's revenue, inventory, sales, or customer demand. You can use automated ML to combine techniques and approaches and get a recommended, high-quality time-series forecast.
-
-An automated time-series experiment is treated as a multivariate regression problem. Past time-series values are "pivoted" to become additional dimensions for the regressor together with other predictors. This approach, unlike classical time series methods, has an advantage of naturally incorporating multiple contextual variables and their relationship to one another during training. Automated ML learns a single, but often internally branched model for all items in the dataset and prediction horizons. More data is thus available to estimate model parameters and generalization to unseen series becomes possible.
-
-Learn more and see an example of [automated machine learning for time series forecasting](how-to-auto-train-forecast.md). Or, see the [energy demand notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) for detailed code examples of advanced forecasting configuration including:
-
-* holiday detection and featurization
-* time-series and DNN learners (Auto-ARIMA, Prophet, ForecastTCN)
-* many models support through grouping
-* rolling-origin cross validation
-* configurable lags
-* rolling window aggregate features
 
 ## <a name="ensemble"></a> Ensemble models
 
@@ -164,7 +162,7 @@ The following summarizes the high-level automated ML capabilities supported in e
 
 The following settings allow you to configure your automated ML experiment. 
 
-| | Python SDK| studio
+| |The Python SDK|The studio web experience|
 ----|:----:|:----:
 Split data into train/validation sets| ✓|✓
 Supports ML tasks: classification, regression, and forecasting| ✓| ✓
@@ -179,35 +177,31 @@ Cross validation |✓|✓
 Supports training on Azure Databricks clusters| ✓|
 View engineered feature names|✓|
 Featurization summary| ✓|
-Holiday featurization|✓|
-Verbosity level for log files| ✓|
+Featurization for holidays|✓|
+Log file verbosity levels| ✓|
 
 ### Model settings
 
 These settings can be applied to the best model as a result of your automated ML experiment.
 
-||Python SDK|studio
-----|:----:|:----:
-Best model registration| ✓|✓
-Best model deployment| ✓| ✓
-Best model explainability| ✓|✓
-Enable voting ensemble & stack ensemble models| ✓|✓
-Show best model based on non-primary metric|✓|
-Enable/disable ONNX model compatibility|✓|
-Test the model | ✓| |
+| |The Python SDK|The studio web experience|
+|----|:----:|:----:|
+|Best model registration, deployment, explainability| ✓|✓|
+|Enable voting ensemble & stack ensemble models| ✓|✓|
+|Show best model based on non-primary metric|✓||
+|Enable/disable ONNX model compatibility|✓||
+|Test the model | ✓| |
 
 ### Run control settings
 
 These settings allow you to review and control your experiment runs and its child runs. 
 
-||Python SDK| studio
-----|:----:|:----:
-Run summary table| ✓|✓
-Cancel run| ✓|✓
-Cancel child run| ✓| ✓
-Get guardrails| ✓|✓
-Pause run| ✓| 
-Resume run| ✓| 
+| |The Python SDK|The studio web experience|
+|----|:----:|:----:|
+|Run summary table| ✓|✓|
+|Cancel runs & child runs| ✓|✓|
+|Get guardrails| ✓|✓|
+|Pause & resume runs| ✓| |
 
 ## Next steps
 
