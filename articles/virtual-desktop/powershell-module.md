@@ -24,9 +24,9 @@ The Windows Virtual Desktop PowerShell module is integrated into the Azure Power
 
 To get started with using the module, first install the [latest version of PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core). Windows Virtual Desktop cmdlets currently only work with PowerShell Core.
 
-Next, follow the instructions in [Windows Virtual Desktop cmdlets for Windows PowerShell](/powershell/windows-virtual-desktop/overview/) to install the DesktopVirtualization module to use in your PowerShell session.
+Next, you'll need to install the DesktopVirtualization module to use in your PowerShell session.
 
-After that, run the following PowerShell cmdlets in elevated mode to install the module and to connect to Azure.
+Run the following PowerShell cmdlet in elevated mode to install the module:
 
 ```powershell
 Install-Module -Name Az.DesktopVirtualization
@@ -34,6 +34,8 @@ Install-Module -Name Az.DesktopVirtualization
 
 >[!NOTE]
 > If this cmdlet doesn't work, try try running it again with elevated permissions.
+
+Next, run the following cmdlet to connect to Azure:
 
 ```powershell
 Connect-AzAccount
@@ -73,9 +75,9 @@ Get-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -Resou
 
 ## Get locations
 
-The location parameter is mandatory for all cmdlets in the Windows Virtual Desktop PowerShell module.
+The location parameter is mandatory for all **New-AzWVD** cmdlets that create new objects.
 
-Run the following cmdlet to get a list of locations your subscripiton supports:
+Run the following cmdlet to get a list of locations your subscription supports:
 
 ```powershell
 Get-AzLocation
