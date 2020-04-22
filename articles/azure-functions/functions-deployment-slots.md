@@ -166,13 +166,15 @@ Use the following steps to change a slot's App Service plan:
 
 1. Under **App Service plan**, select **App Service plan**.
 
-    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-settings.png" alt-text="Find slots in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-settings.png" alt-text="Access the App Service plan in the Azure portal." border="true":::
 
-1. Select a new App Service plan, or create a new plan.
+1. Select **Scale up (App Service plan)**, and then select the plan you want to upgrade to.
 
-1. Select **OK**.
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service.png" alt-text="Change the App Service plan in the Azure portal." border="true":::
 
-    ![Change app service plan](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
+1. Select **Apply**.
+
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Apply the App Service plan in the Azure portal." border="true":::
 
 
 ## Limitations
