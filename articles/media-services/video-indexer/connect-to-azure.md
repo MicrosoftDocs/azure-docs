@@ -7,8 +7,8 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
-ms.topic: article
-ms.date: 08/05/2019
+ms.topic: article 
+ms.date: 04/22/2020
 ms.author: juliako
 ---
  
