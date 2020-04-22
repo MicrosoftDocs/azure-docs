@@ -12,6 +12,8 @@ manager: peterpr
 
 # Define a new IoT device type in your Azure IoT Central application
 
+*This article applies to solution builders and device developers.*
+
 A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an Azure IoT Central application.
 
 For example, a builder can create a device template for a connected fan that has the following characteristics:
@@ -248,18 +250,6 @@ To publish a device template, go to you your device template, and select **Publi
 
 After you publish a device template, an operator can go to the **Devices** page, and add either real or simulated devices that use your device template. You can continue to modify and save your device template as you're making changes. When you want to push these changes out to the operator to view under the **Devices** page, you must select **Publish** each time.
 
-
 ## Next steps
 
-In this tutorial, you learned how to:
-
-* Create a new IoT device template.
-* Create cloud properties.
-* Create customizations.
-* Define a visualization for the device telemetry.
-* Publish your device template.
-
-Next, you can:
-
-> [!div class="nextstepaction"]
-> [Connect a device](howto-connect-devkit.md)
+If you're a device developer, a suggested next step is to read about [device template versioning](./howto-version-device-template.md).

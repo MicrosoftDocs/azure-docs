@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/11/2020
+ms.date: 04/20/2020
 ms.author: spelluru
 
 ---
@@ -199,11 +199,13 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 1. Now, add the following event and error handler methods to the class. 
 
     ```csharp
-        static Task ProcessEventHandler(ProcessEventArgs eventArgs)
-        { 
+        static async Task ProcessEventHandler(ProcessEventArgs eventArgs)
+        {
             // Write the body of the event to the console window
-            Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray())); 
-            return Task.CompletedTask; 
+            Console.WriteLine("\tRecevied event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+
+            // Update checkpoint in the blob storage so that the app receives only new events the next time it's run
+            await eventArgs.UpdateCheckpointAsync(eventArgs.CancellationToken);
         }
 
         static Task ProcessErrorHandler(ProcessErrorEventArgs eventArgs)
