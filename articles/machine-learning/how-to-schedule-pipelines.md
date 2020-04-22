@@ -88,7 +88,7 @@ If the pipeline was constructed with a [DataPath](https://docs.microsoft.com/pyt
 ```python
 datastore = Datastore(workspace=ws, name="workspaceblobstore")
 
-reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="Based on time",
+reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="Based on input file change.",
                             pipeline_id=pipeline_id, experiment_name=experiment_name, datastore=datastore, data_path_parameter_name="input_data")
 ```
 
