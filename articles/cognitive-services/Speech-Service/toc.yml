@@ -214,6 +214,8 @@
       items:
         - name: What is speech translation?
           href: speech-translation.md
+        - name: Speech translation basics
+          href: speech-translation-basics.md
     - name: Quickstart
       items:
         - name: Translate speech-to-text

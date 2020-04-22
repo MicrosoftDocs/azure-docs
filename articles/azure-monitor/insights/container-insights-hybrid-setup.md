@@ -223,7 +223,7 @@ To first identify the full resource ID of your Log Analytics workspace required 
        az login
        az account set --subscription "Subscription Name"
        # execute deployment command to add container insights solution to the specified Log Analytics workspace
-       az group deployment create --resource-group <resource group of log analytics workspace> --template-file ./containerSolution.json --parameters @./containerSolutionParams.json
+       az deployment group create --resource-group <resource group of log analytics workspace> --name <deployment name> --template-file  ./containerSolution.json --parameters @./containerSolutionParams.json
        ```
 
        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
@@ -235,6 +235,9 @@ To first identify the full resource ID of your Log Analytics workspace required 
        After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
 ## Install the chart
+
+>[!NOTE]
+>The following commands are applicable only for Helm version 2. Use of the --name parameter is not applicable with Helm version 3.
 
 To enable the HELM chart, do the following:
 

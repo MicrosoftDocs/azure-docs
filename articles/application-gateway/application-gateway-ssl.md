@@ -1,6 +1,6 @@
 ---
-title: SSL offload using PowerShell - Azure Application Gateway
-description: This article provides instructions to create an application gateway with SSL offload by using the Azure classic deployment model
+title: TLS offload using PowerShell - Azure Application Gateway
+description: This article provides instructions to create an application gateway with TLS offload by using the Azure classic deployment model
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,7 +9,7 @@ ms.date: 11/13/2019
 ms.author: victorh
 ---
 
-# Configure an application gateway for SSL offload by using the classic deployment model
+# Configure an application gateway for TLS offload by using the classic deployment model
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-ssl-portal.md)
@@ -17,7 +17,7 @@ ms.author: victorh
 > * [Azure classic PowerShell](application-gateway-ssl.md)
 > * [Azure CLI](application-gateway-ssl-cli.md)
 
-Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies the front-end server setup and management of the web application.
+Azure Application Gateway can be configured to terminate the Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), session at the gateway to avoid costly TLS decryption tasks to happen at the web farm. TLS offload also simplifies the front-end server setup and management of the web application.
 
 ## Before you begin
 
@@ -25,10 +25,10 @@ Azure Application Gateway can be configured to terminate the Secure Sockets Laye
 2. Verify that you have a working virtual network with a valid subnet. Make sure that no virtual machines or cloud deployments are using the subnet. The application gateway must be by itself in a virtual network subnet.
 3. The servers that you configure to use the application gateway must exist or have their endpoints that are created either in the virtual network or with a public IP address or virtual IP address (VIP) assigned.
 
-To configure SSL offload on an application gateway, complete the following steps in the order listed:
+To configure TLS offload on an application gateway, complete the following steps in the order listed:
 
 1. [Create an application gateway](#create-an-application-gateway)
-2. [Upload SSL certificates](#upload-ssl-certificates)
+2. [Upload TLS/SSL certificates](#upload-tlsssl-certificates)
 3. [Configure the gateway](#configure-the-gateway)
 4. [Set the gateway configuration](#set-the-gateway-configuration)
 5. [Start the gateway](#start-the-gateway)
@@ -50,7 +50,7 @@ In the sample, **Description**, **InstanceCount**, and **GatewaySize** are optio
 Get-AzureApplicationGateway AppGwTest
 ```
 
-## Upload SSL certificates
+## Upload TLS/SSL certificates
 
 Enter `Add-AzureApplicationGatewaySslCertificate` to upload the server certificate in PFX format to the application gateway. The certificate name is a user-chosen name and must be unique within the application gateway. This certificate is referred to by this name in all certificate management operations on the application gateway.
 
@@ -90,12 +90,12 @@ The values are:
 * **Back-end server pool**: The list of IP addresses of the back-end servers. The IP addresses listed should belong to the virtual network subnet or should be a public IP or VIP address.
 * **Back-end server pool settings**: Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 * **Front-end port**: This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
-* **Listener**: The listener has a front-end port, a protocol (Http or Https; these values are case-sensitive), and the SSL certificate name (if configuring an SSL offload).
+* **Listener**: The listener has a front-end port, a protocol (Http or Https; these values are case-sensitive), and the TLS/SSL certificate name (if configuring a TLS offload).
 * **Rule**: The rule binds the listener and the back-end server pool and defines which back-end server pool to direct the traffic to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
 
 **Additional configuration notes**
 
-For SSL certificates configuration, the protocol in **HttpListener** should change to **Https** (case sensitive). Add the **SslCert** element to **HttpListener** with the value set to the same name used in the [Upload SSL certificates](#upload-ssl-certificates) section. The front-end port should be updated to **443**.
+For TLS/SSL certificates configuration, the protocol in **HttpListener** should change to **Https** (case sensitive). Add the **SslCert** element to **HttpListener** with the value set to the same name used in the [Upload TLS/SSL certificates](#upload-tlsssl-certificates) section. The front-end port should be updated to **443**.
 
 **To enable cookie-based affinity**: You can configure an application gateway to ensure that a request from a client session is always directed to the same VM in the web farm. To accomplish this, insert a session cookie that allows the gateway to direct traffic appropriately. To enable cookie-based affinity, set **CookieBasedAffinity** to **Enabled** in the **BackendHttpSettings** element.
 
