@@ -2,7 +2,7 @@
 title: Configure Azure Monitor for containers Prometheus Integration | Microsoft Docs
 description: This article describes how you can configure the Azure Monitor for containers agent to scrape metrics from Prometheus with your Kubernetes cluster.
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 04/22/2020
 ---
 
 # Configure scraping of Prometheus metrics with Azure Monitor for containers
@@ -24,10 +24,6 @@ Scraping of Prometheus metrics is supported with Kubernetes clusters hosted on:
 - Azure Red Hat OpenShift version 3.x
 - Azure Red Hat OpenShift and Red Hat OpenShift version 4.x
 
-
-
-
->
 ### Prometheus scraping settings
 
 Active scraping of metrics from Prometheus is performed from one of two perspectives:
@@ -66,7 +62,7 @@ Perform the following steps to configure your ConfigMap configuration file for t
 
 * Azure Kubernetes Service (AKS)
 * Azure Stack or on-premises
-* Azure Red Hat OpenShift version 4.x
+* Azure Red Hat OpenShift version 4.x and Red Hat OpenShift version 4.x
 
 1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) the template ConfigMap yaml file and save it as container-azm-ms-agentconfig.yaml.
 
