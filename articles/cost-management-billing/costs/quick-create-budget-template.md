@@ -6,7 +6,7 @@ ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.topic: quickstart
-ms.date: 03/18/2020
+ms.date: 04/22/2020
 ms.custom: subject-armqs
 ---
 
@@ -84,21 +84,14 @@ You can use the Azure portal to verify that the budget is created by navigating 
 
 # [CLI](#tab/CLI)
 
-```azurecli
-az consumption budget show --budget-name
-                           [--only-show-errors]
-                           [--resource-group]
-                           [--subscription]
+```azurecli-interactive
+az consumption budget list
 ```
 
 # [PowerShell](#tab/PowerShell)
 
-```azurepowershell
-Get-AzureRmConsumptionBudget
-   [-DefaultProfile <IAzureContextContainer>]
-   [-ResourceGroupName <String>]
-   [-Name <String>]
-   [<CommonParameters>]
+```azurepowershell-interactive
+Get-AzConsumptionBudget
 ```
 
 ---

@@ -1,7 +1,6 @@
 ---
-
-title: Understand Azure Security Center for IoT costs| Microsoft Docs
-description: Learn about the costs associated with Azure Security Center for IoT, and how to  control them. 
+title: Pricing and associated costs
+description: Learn about the costs associated with Azure Security Center for IoT, and how to control them.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -17,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2019
 ms.author: mlottner
-
 ---
+
 # Pricing and associated costs
 
 This article explains Azure Security Center for IoT pricing model, summarizes all associated costs and explains how to manage them.
@@ -31,13 +30,11 @@ The Azure Security Center for IoT pricing model is comprised of two parts, and i
 
 - Cost by message - enhanced security capabilities based on security messages from IoT Edge or leaf devices.
 
-
 For more information, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Associated costs
 
 Azure Security Center for IoT has associated costs, which are not part of the direct pricing:
-
 
 - Log Analytics storage costs
 
@@ -47,9 +44,9 @@ To change your settings:
 
 1. Open IoT Hub.
 
-2. Under **Security**, click **Overview**.
+1. Under **Security**, click **Overview**.
 
-3. Click **Settings**.
+1. Click **Settings**.
 
 The following table provides a summary of associated costs and implications of each option.
 
@@ -61,8 +58,8 @@ The following table provides a summary of associated costs and implications of e
 |
 
 >[!Important]
-> Opting out has severe implications to Azure Security Center for IoT security feature availability. 
-  
+> Opting out has severe implications to Azure Security Center for IoT security feature availability.
+
 | Opt out | Implications |
 | --- | --- |
 | _Twin metadata collection_ | Disable [custom alerts](quickstart-create-custom-alerts.md) |
@@ -71,7 +68,6 @@ The following table provides a summary of associated costs and implications of e
 | _Store raw device security events_ | Details on device OS baseline recommendations are not available |
 | | Details on [alert](concept-security-alerts.md) and [recommendation](concept-recommendations.md) investigations are not available |
 |
-
 
 ## See also
 

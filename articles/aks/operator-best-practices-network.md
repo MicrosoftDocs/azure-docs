@@ -1,5 +1,6 @@
 ---
-title: Operator best practices - Network connectivity in Azure Kubernetes Services (AKS)
+title: Best practices for network resources
+titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for virtual network resources and connectivity in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
@@ -38,7 +39,7 @@ When you use Azure CNI networking, the virtual network resource is in a separate
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-For more information about AKS service principal delegation, see [Delegate access to other Azure resources][sp-delegation].
+For more information about AKS service principal delegation, see [Delegate access to other Azure resources][sp-delegation]. Instead of a service principal, you can also use the system assigned managed identity for permissions. For more information, see [Use managed identities](use-managed-identity.md).
 
 As each node and pod receive its own IP address, plan out the address ranges for the AKS subnets. The subnet must be large enough to provide IP addresses for every node, pods, and network resources that you deploy. Each AKS cluster must be placed in its own subnet. To allow connectivity to on-premises or peered networks in Azure, don't use IP address ranges that overlap with existing network resources. There are default limits to the number of pods that each node runs with both kubenet and Azure CNI networking. To handle scale out events or cluster upgrades, you also need additional IP addresses available for use in the assigned subnet. This additional address space is especially important if you use Windows Server containers (currently in preview in AKS), as those node pools require an upgrade to apply the latest security patches. For more information on Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade].
 

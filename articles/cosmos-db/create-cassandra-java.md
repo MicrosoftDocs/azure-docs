@@ -171,10 +171,10 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Run the Java app
 
-1. In the git terminal window, `cd` to the `azure-cosmosdb-cassandra-java-getting-started\java-examples` folder.
+1. In the git terminal window, `cd` to the `azure-cosmosdb-cassandra-java-getting-started` folder.
 
     ```git
-    cd "C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples"
+    cd "C:\git-samples\azure-cosmosdb-cassandra-java-getting-started"
     ```
 
 2. In the git terminal window, use the following command to generate the `cosmosdb-cassandra-examples.jar` file.

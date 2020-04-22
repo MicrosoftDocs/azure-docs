@@ -3,7 +3,7 @@ title: Call service endpoints by using HTTP or HTTPS
 description: Send outbound HTTP or HTTPS requests to service endpoints from Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 03/12/2020
 tags: connectors
@@ -18,6 +18,8 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in H
 > versions 1.0, 1.1, and 1.2. Logic Apps negotiates with the endpoint over using the highest supported 
 > version possible. So for example, if the endpoint supports 1.2, the connector uses 1.2 first. 
 > Otherwise, the connector uses the next highest supported version.
+>
+> The HTTP connector doesn't support intermediate TLS/SSL certificates for authentication.
 
 To check or *poll* an endpoint on a recurring schedule, [add the HTTP trigger](#http-trigger) as the first step in your workflow. Each time that the trigger checks the endpoint, the trigger calls or sends a *request* to the endpoint. The endpoint's response determines whether your logic app's workflow runs. The trigger passes any content from the endpoint's response to the actions in your logic app.
 
@@ -140,8 +142,8 @@ For example, suppose you have a logic app that sends an HTTP POST request for an
 Here is the same example that shows the HTTP action's JSON definition in the underlying workflow definition:
 
 ```json
-{
-   "HTTP_action": {
+"HTTP_action": {
+   "inputs": {
       "body": {
          "$content-type": "multipart/form-data",
          "$multipart": [

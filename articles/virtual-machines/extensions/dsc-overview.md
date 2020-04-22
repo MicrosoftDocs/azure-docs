@@ -70,8 +70,7 @@ three values will need to be provided.
 - RegistrationKey - a shared secret used to register nodes with the service
 - NodeConfigurationName - the name of the Node Configuration (MOF) to pull from the service to configure the server role
 
-This information can be seen in the
-[Azure portal](../../automation/automation-dsc-onboarding.md#onboard-a-vm-using-azure-portal) or you can use PowerShell.
+This information can be seen in the Azure portal or you can use PowerShell.
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
