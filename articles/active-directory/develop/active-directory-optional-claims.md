@@ -101,16 +101,17 @@ Some optional claims can be configured to change the way the claim is returned. 
 #### Additional properties example
 
 ```json
-        "optionalClaims":
-          {
-              "idToken": [
-             {
-                       "name": "upn",
-                       "essential": false,
-              "additionalProperties": [ "include_externally_authenticated_upn"]
-                   }
-                ]
-    }
+"optionalClaims": {
+    "idToken": [
+        {
+            "name": "upn",
+            "essential": false,
+            "additionalProperties": [
+                "include_externally_authenticated_upn"
+            ]
+        }
+    ]
+}
 ```
 
 This OptionalClaims object causes the ID token returned to the client to include a upn claim with the additional home tenant and resource tenant information. The `upn` claim is only changed in the token if the user is a guest in the tenant (that uses a different IDP for authentication).
@@ -145,32 +146,31 @@ You can configure optional claims for your application through the UI or applica
     The following application manifest entry adds the auth_time, ipaddr, and upn optional claims to ID, access, and SAML tokens.
 
     ```json
-        "optionalClaims":
-           {
-              "idToken": [
-                    {
-                          "name": "auth_time",
-                          "essential": false
-                     }
-              ],
-              "accessToken": [
-                     {
-                            "name": "ipaddr",
-                            "essential": false
-                      }
-              ],
-              "saml2Token": [
-                      {
-                            "name": "upn",
-                            "essential": false
-                       },
-                       {
-                            "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
-                            "source": "user",
-                            "essential": false
-                       }
-               ]
-           }
+    "optionalClaims": {
+        "idToken": [
+            {
+                "name": "auth_time",
+                "essential": false
+            }
+        ],
+        "accessToken": [
+            {
+                "name": "ipaddr",
+                "essential": false
+            }
+        ],
+        "saml2Token": [
+            {
+                "name": "upn",
+                "essential": false
+            },
+            {
+                "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
+                "source": "user",
+                "essential": false
+            }
+        ]
+    }
     ```
 
 2. When finished, select **Save**. Now the specified optional claims will be included in the tokens for your application.
@@ -259,7 +259,7 @@ This section covers the configuration options under optional claims for changing
    For example:
 
     ```json
-           "groupMembershipClaims": "SecurityGroup"
+    "groupMembershipClaims": "SecurityGroup"
     ```
 
    By default Group ObjectIDs will be emitted in the group claim value.  To modify the claim value to contain on premises group attributes, or to change the claim type to role, use OptionalClaims configuration as follows:
@@ -278,12 +278,12 @@ This section covers the configuration options under optional claims for changing
    For each relevant token type, modify the groups claim to use the OptionalClaims section in the manifest. The OptionalClaims schema is as follows:
 
     ```json
-       {
-       "name": "groups",
-       "source": null,
-       "essential": false,
-       "additionalProperties": []
-       }
+    {
+        "name": "groups",
+        "source": null,
+        "essential": false,
+        "additionalProperties": []
+    }
     ```
 
    | Optional claims schema | Value |
@@ -311,12 +311,16 @@ This section covers the configuration options under optional claims for changing
     **Application manifest entry:**
 
     ```json
-        "optionalClaims": {
-            "accessToken": [{
-            "name": "groups",
-            "additionalProperties": ["dns_domain_and_sam_account_name"]
-            }]
-        }
+    "optionalClaims": {
+        "accessToken": [
+            {
+                "name": "groups",
+                "additionalProperties": [
+                    "dns_domain_and_sam_account_name"
+                ]
+            }
+        ]
+    }
     ```
 
 2) Emit group names to be returned in netbiosDomain\sAMAccountName format as the roles claim in SAML and OIDC ID Tokens
@@ -328,15 +332,26 @@ This section covers the configuration options under optional claims for changing
     **Application manifest entry:**
 
     ```json
-        "optionalClaims": {
-        "saml2Token": [{
-            "name": "groups",
-            "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
-        }],
-        "idToken": [{
-            "name": "groups",
-            "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
-        }]
+    "optionalClaims": {
+        "saml2Token": [
+            {
+                "name": "groups",
+                "additionalProperties": [
+                    "netbios_name_and_sam_account_name",
+                    "emit_as_roles"
+                ]
+            }
+        ],
+        "idToken": [
+            {
+                "name": "groups",
+                "additionalProperties": [
+                    "netbios_name_and_sam_account_name",
+                    "emit_as_roles"
+                ]
+            }
+        ]
+    }
     ```
 
 ## Optional claims example
@@ -390,27 +405,30 @@ In the example below, you will use the **Token configuration** UI and **Manifest
 1. You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest), and automatically formats the manifest once saved. New elements will be added to the `OptionalClaims` property.
 
     ```json
-            "optionalClaims": {
-                   "idToken": [
-                     {
-                        "name": "upn",
-                        "essential": false,
-                        "additionalProperties": [ "include_externally_authenticated_upn"]
-                     }
-                        ],
-                   "accessToken": [
-                      {
-                        "name": "auth_time",
-                        "essential": false
-                      }
-                        ],
-            "saml2Token": [
-                  {
-                    "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
-                    "source": "user",
-                    "essential": true
-                  }
-                    ]
+    "optionalClaims": {
+        "idToken": [
+            {
+                "name": "upn",
+                "essential": false,
+                "additionalProperties": [
+                    "include_externally_authenticated_upn"
+                ]
+            }
+        ],
+        "accessToken": [
+            {
+                "name": "auth_time",
+                "essential": false
+            }
+        ],
+        "saml2Token": [
+            {
+                "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
+                "source": "user",
+                "essential": true
+            }
+        ]
+    }
     ```
 
 1. When you're finished updating the manifest, select **Save** to save the manifest.
