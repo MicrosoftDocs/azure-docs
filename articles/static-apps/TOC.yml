@@ -17,9 +17,9 @@
       href: routes.md
     - name: Authentication and authorization
       href: authentication-authorization.md
-    - name: Accessing user information
+    - name: Access user information
       href: user-information.md
-    - name: Review pull requests in preproduction environments
+    - name: Review pull requests in pre-production environments
       href: review-publish-pull-requests.md
     - name: Custom domain
       href: custom-domain.md
