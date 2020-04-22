@@ -1,10 +1,10 @@
 ---
-title: Database advisor performance recommendations for single and pooled databases
-description: Azure SQL Database provides recommendations for single and pooled databases that can improve query performance in Azure SQL database.
+title: Database advisor performance recommendations for Azure SQL Database
+description: Azure SQL Database provides recommendations for databases that can improve query performance in Azure SQL database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: danimir
@@ -12,9 +12,9 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ---
-# Database Advisor performance recommendations for single and pooled databases
+# Database Advisor performance recommendations for Azure SQL Database
 
-Azure SQL Database learns and adapts with your application. For single and pooled databases, SQL Database has a number of database advisors that provide customized recommendations that enable you to maximize performance. These database advisors continuously assess and analyze the usage history and provide recommendations based on workload patterns that help improve performance.
+Azure SQL Database learns and adapts with your application. SQL Database has a number of database advisors that provide customized recommendations that enable you to maximize performance. These database advisors continuously assess and analyze the usage history and provide recommendations based on workload patterns that help improve performance.
 
 ## Performance overview
 
@@ -29,7 +29,7 @@ Performance overview provides a summary of your database performance, and helps 
 
 ## Performance recommendation options
 
-Performance recommendation options available for single and pooled databases in Azure SQL Database are:
+Performance recommendation options available in Azure SQL Database are:
 
 | Performance recommendation | Single database and pooled database support | Instance database support |
 | :----------------------------- | ----- | ----- |
