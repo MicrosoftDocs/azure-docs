@@ -32,8 +32,8 @@ ms.date: 03/30/2020
 >
 > ## Frequently asked questions
 > 
-> ### Q: Is it possible to on-board the Office 365 Azure Monitor solution between now and April 30th?
-> No, the Azure Monitor Office 365 solution onboarding scripts are no longer available. The solution will be removed on April 30th.
+> ### Q: Is it possible to on-board the Office 365 Azure Monitor solution between now and July 30th?
+> No, the Azure Monitor Office 365 solution onboarding scripts are no longer available. The solution will be removed on July 30th.
 > 
 > ### Q: Will the tables and schemas be changed?
 > The **OfficeActivity** table name and schema will remain the same as in the current solution. You can continue using the same queries in the new solution excluding queries that reference Azure AD data.
@@ -99,11 +99,11 @@ ms.date: 03/30/2020
 > ### Q: Does Azure Sentinel provide additional connectors as part of the solution?
 > Yes, see [Azure Sentinel connect data sources](../../sentinel/connect-data-sources.md).
 > 
-> ###    Q: What will happen on April 30? Do I need to offboard beforehand?
+> ###    Q: What will happen on July 30? Do I need to offboard beforehand?
 > 
 > - You won't be able to receive data from the **Office365** solution. The solution will no longer be available in the Marketplace
 > - For Azure Sentinel customers, the Log Analytics workspace solution **Office365** will be included in the Azure Sentinel **SecurityInsights** solution.
-> - If you don't offboard your solution manually, your data will be disconnected automatically on April 30.
+> - If you don't offboard your solution manually, your data will be disconnected automatically on July 30.
 > 
 > ### Q: Will my data transfer to the new solution?
 > Yes. When you remove the **Office 365** solution from your workspace, its data will become temporarily unavailable because the schema is removed. When you enable the new **Office 365** connector in Sentinel, the schema is restored to the workspace and any data already collected will become available. 
