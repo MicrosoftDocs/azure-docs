@@ -1,6 +1,6 @@
 ---
-title: X12 messages for B2B integration
-description: Exchange X12 messages in EDI format for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
+title: Send and receive X12 messages for B2B
+description: Exchange X12 messages for B2B enterprise integration scenarios by using Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -12,161 +12,111 @@ ms.date: 01/31/2017
 
 # Exchange X12 messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
 
-Before you can exchange X12 messages for Azure Logic Apps, 
-you must create an X12 agreement and 
-store that agreement in your integration account. 
-Here are the steps for how to create an X12 agreement.
+To work with X12 messages in Azure Logic Apps, you can use the X12 connector, which provides triggers and actions for managing X12 communication. For information about EDIFACT messages instead, see [Exchange EDIFACT messsages](logic-apps-enterprise-integration-edifact.md).
 
-> [!NOTE]
-> This page covers the X12 features for Azure Logic Apps. 
-> For more information, see [EDIFACT](logic-apps-enterprise-integration-edifact.md).
+## Prerequisites
 
-## Before you start
+* An Azure subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-Here's the items you need:
+* The logic app from where you want to use the X12 connector and a trigger that starts your logic app's workflow. The X12 connector provides only actions, not triggers. If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* An [integration account](logic-apps-enterprise-integration-create-integration-account.md) 
-that's already defined and associated with your Azure subscription
-* At least two [partners](../logic-apps/logic-apps-enterprise-integration-partners.md) 
-that are defined in your integration account and configured with the X12 identifier under **Business Identities**    
-* A required [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) 
-that you can upload to your integration account
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's associated with your Azure subscription and linked to the logic app where you plan to use the X12 connector. Both your logic app and integration account must exist in the same location or Azure region.
 
-After you [create an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), 
-[add partners](logic-apps-enterprise-integration-partners.md), 
-and have a [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) that you want to use, 
-you can create an X12 agreement by following these steps.
+* At least two [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md) that you've already defined in your integration account by using the X12 identity qualifier.
 
-## Create an X12 agreement
+* A [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) to use for XML validation that you've already added to your integration account. If you're working with Health Insurance Portability and Accountability Act (HIPAA) schemas, see [Settings for HIPAA schemas](#hipaa-schemas).
 
-1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
+* Before you can use the X12 connector, you must create an X12 [agreement](../logic-apps/logic-apps-enterprise-integration-agreements.md) between your trading partners and store that agreement in your integration account.
 
-2. From the main Azure menu, select **All services**. 
-   In the search box, enter "integration", 
-   and then select **Integration accounts**.  
+* If you use [Azure Key Vault](../key-vault/general/overview.md) for certificate management, check that your vault keys permit the **Encrypt** and **Decrypt** operations. Otherwise, the encoding and decoding actions fail.
 
-   ![Find your integration account](./media/logic-apps-enterprise-integration-x12/account-1.png)
+  In the Azure portal, go to the key in your key vault, review your key's **Permitted operations**, and confirm that the **Encrypt** and **Decrypt** operations are selected, for example:
 
-   > [!TIP]
-   > If **All services** doesn't appear, you might have to expand the menu first. 
-   > At the top of the collapsed menu, select **Show menu**.
+  ![Check vault key operations](media/logic-apps-enterprise-integration-x12/key-vault-permitted-operations.png)
 
-3. Under **Integration Accounts**, 
-   select the integration account where you want to add the agreement.
+<a name="receive-message-settings"></a>
 
-   ![Select integration account where to create the agreement](./media/logic-apps-enterprise-integration-x12/account-3.png)
+## Receive message settings
 
-4. Select **Overview**, then select the **Agreements** tile. 
-   If you don't have an Agreements tile, add the tile first. 
+After you set the agreement properties, you can configure how this agreement identifies and handles incoming messages received from your partner through this agreement.
 
-   ![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-x12/agreement-1.png)
+1. Under **Add**, select **Receive Settings**.
 
-5. Under **Agreements**, choose **Add**.
+1. Configure these properties based on your agreement with the partner that exchanges messages with you. For property descriptions, see the tables in this section.
 
-   ![Choose "Add"](./media/logic-apps-enterprise-integration-x12/agreement-2.png)     
+   The **Receive Settings** are organized into these sections: Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, Validations, and Internal Settings
 
-6. Under **Add**, enter a **Name** for your agreement. 
-   For the agreement type, select **X12**. 
-   Select the **Host Partner**, **Host Identity**, 
-   **Guest Partner**, and **Guest Identity** for your agreement. 
-   For more property details, see the table in this step.
+1. After you're done, save your settings by selecting **OK**.
 
-	![Provide agreement details](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
-
-	| Property | Description |
-	| --- | --- |
-	| Name |Name of the agreement |
-	| Agreement Type | Should be X12 |
-	| Host Partner |An agreement needs both a host and guest partner. The host partner represents the organization that configures the agreement. |
-	| Host Identity |An identifier for the host partner |
-	| Guest Partner |An agreement needs both a host and guest partner. The guest partner represents the organization that's doing business with the host partner. |
-	| Guest Identity |An identifier for the guest partner |
-	| Receive Settings |These properties apply to all messages received by an agreement. |
-	| Send Settings |These properties apply to all messages sent by an agreement. |  
-
-   > [!NOTE]
-   > Resolution of X12 agreement depends on matching the sender qualifier and identifier, 
-   > and the receiver qualifier and identifier defined in the partner and incoming message. 
-   > If these values change for your partner, update the agreement too.
-
-## Configure how your agreement handles received messages
-
-Now that you've set the agreement properties, 
-you can configure how this agreement identifies and 
-handles incoming messages received from your partner through this agreement.
-
-1.	Under **Add**, select **Receive Settings**.
-Configure these properties based on your agreement 
-with the partner that exchanges messages with you. 
-For property descriptions, see the tables in this section.
-
-	**Receive Settings** is organized into these sections: 
-	Identifiers, Acknowledgment, Schemas, Envelopes, Control Numbers, 
-	Validations, and Internal Settings.
-
-2. After you're done, 
-make sure to save your settings by choosing **OK**.
-
-Now your agreement is ready to handle incoming 
-messages that conform to your selected settings.
+<a name="receive-identifiers"></a>
 
 ### Identifiers
 
-![Set identifier properties](./media/logic-apps-enterprise-integration-x12/x12-2.png)  
+![Set identifier properties](./media/logic-apps-enterprise-integration-x12/x12-2.png)
 
-| Property | Description |
-| --- | --- |
-| ISA1 (Authorization Qualifier) |Select the Authorization qualifier value from the drop-down list. |
-| ISA2 |Optional. Enter Authorization information value. If the value you entered for ISA1 is other than 00, enter a minimum of one alphanumeric character and a maximum of 10. |
-| ISA3 (Security Qualifier) |Select the Security qualifier value from the drop-down list. |
-| ISA4 |Optional. Enter the Security information value. If the value you entered for ISA3 is other than 00, enter a minimum of one alphanumeric character and a maximum of 10. |
+| Property | Required | Description |
+|----------|----------|-------------|
+| **ISA1 (Authorization Qualifier)** | Yes | The Authorization qualifier value |
+| **ISA2** | No | The Authorization information value. If the value that you entered for ISA1 is other than 00, enter a minimum of one alphanumeric character and a maximum of 10. |
+| **ISA3 (Security Qualifier)** | Yes | The Security qualifier value |
+| **ISA4** | No | The Security information value. If the value you entered for ISA3 is other than 00, enter a minimum of one alphanumeric character and a maximum of 10. |
+||||
+
+<a name="receive-acknowledgment"></a>
 
 ### Acknowledgment
 
 ![Set acknowledgement properties](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
 
-| Property | Description |
-| --- | --- |
-| TA1 expected |Returns a technical acknowledgment to the interchange sender |
-| FA expected |Returns a functional acknowledgment to the interchange sender. Then select whether you want the 997 or 999 acknowledgments, based on the schema version |
-| Include AK2/IK2 Loop |Enables generation of AK2 loops in functional acknowledgments for accepted transaction sets |
+| Property | Required | Description |
+|----------|----------|-------------|
+| **TA1 Expected** | No | Return a technical acknowledgment to the interchange sender. |
+| **FA Expected** | No | Return a functional acknowledgment to the interchange sender. Based on the schema version, select either the 997 or 999 acknowledgments. |
+| **Include AK2 / IK2 Loop** | No | Enable generation of AK2 loops in functional acknowledgments for accepted transaction sets. |
+||||
+
+<a name="receive-schemas"></a>
 
 ### Schemas
 
-Select a schema for each transaction type (ST1) and Sender Application (GS2). 
-The receive pipeline disassembles the incoming message by matching the values for ST1 and GS2 
-in the incoming message with the values you set here, and the schema of the incoming message with the schema you set here.
+In this section, select a [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) from your [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) for each transaction type (ST1) and Sender Application (GS2). The receive pipeline disassembles the incoming message by matching the values and schema that you set in this section with the values for ST1 and GS2 in the incoming message and with the schema of the incoming message.
 
 ![Select schema](./media/logic-apps-enterprise-integration-x12/x12-33.png) 
 
 | Property | Description |
-| --- | --- |
-| Version |Select the X12 version |
-| Transaction Type (ST01) |Select the transaction type |
-| Sender Application (GS02) |Select the sender application |
-| Schema |Select the schema file you want to use. Schemas are added to your integration account. |
+|----------|-------------|
+| **Version** | The X12 version |
+| **Transaction Type (ST01)** | The transaction type |
+| **Sender Application (GS02)** | The sender application |
+| **Schema** | The schema file that you want to use |
+|||
 
-> [!NOTE]
-> Configure the required [Schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) 
-> that is uploaded to your [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md).
+<a name="receive-envelopes"></a>
 
 ### Envelopes
 
-![Specify the separator in a transaction set: choose Standard Identifier or Repetition Separator](./media/logic-apps-enterprise-integration-x12/x12-34.png)
+![Settings for the separator to use in a transaction set](./media/logic-apps-enterprise-integration-x12/x12-34.png)
 
 | Property | Description |
-| --- | --- |
-| ISA11 Usage |Specifies the separator to use in a transaction set: <p>Select **Standard identifier** to use a period (.) for decimal notation, rather than the decimal notation of the incoming document in the EDI receive pipeline. <p>Select **Repetition Separator** to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually the carat (^) is used as the repetition separator. For HIPAA schemas, you can only use the carat. |
+|----------|-------------|
+| **ISA11 Usage** | The separator to use in a transaction set: <p>- **Standard Identifier**: Use a period (.) for decimal notation, rather than the decimal notation of the incoming document in the EDI receive pipeline. <p>- **Repetition Separator**: Specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually the carat (^) is used as the repetition separator. For HIPAA schemas, you can only use the carat. |
+|||
+
+<a name="receive-control-numbers"></a>
 
 ### Control numbers
 
-![Select how to handle control number duplicates](./media/logic-apps-enterprise-integration-x12/x12-35.png) 
+![Settings for handling control number duplicates](./media/logic-apps-enterprise-integration-x12/x12-35.png) 
 
 | Property | Description |
-| --- | --- |
-| Disallow Interchange Control Number duplicates |Block duplicate interchanges. Checks the interchange control number (ISA13) for the received interchange control number. If a match is detected, the receive pipeline doesn't process the interchange. You can specify the number of days for performing the check by giving a value for *Check for duplicate ISA13 every (days)*. |
-| Disallow Group control number duplicates |Block interchanges with duplicate group control numbers. |
-| Disallow Transaction set control number duplicates |Block interchanges with duplicate transaction set control numbers. |
+|----------|-------------|
+| **Disallow Interchange control number duplicates** | Block duplicate interchanges. Check the interchange control number (ISA13) for the received interchange control number. If a match is detected, the receive pipeline doesn't process the interchange. <p><p>To specify the number of days to perform the check, enter a value for the **Check for duplicate ISA13 every (days)** property. |
+| **Disallow Group control number duplicates** | Block interchanges that have duplicate group control numbers. |
+| **Disallow Transaction set control number duplicates** | Block interchanges that have duplicate transaction set control numbers. |
+|||
+
+
+<a name="receive-validation"></a>
 
 ### Validation
 
@@ -176,7 +126,7 @@ When you complete each validation row, another is automatically added.
 If you don't specify any rules, then validation uses the "Default" row.
 
 | Property | Description |
-| --- | --- |
+|----------|-------------|
 | Message Type |Select the EDI message type. |
 | EDI Validation |Perform EDI validation on data types as defined by the schema's EDI properties, length restrictions, empty data elements, and trailing separators. |
 | Extended Validation |If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
@@ -189,7 +139,7 @@ If you don't specify any rules, then validation uses the "Default" row.
 ![Select internal settings](./media/logic-apps-enterprise-integration-x12/x12-37.png) 
 
 | Property | Description |
-| --- | --- |
+|----------|-------------|
 | Convert implied decimal format "Nn" to a base 10 numeric value |Converts an EDI number that is specified with the format "Nn" into a base-10 numeric value |
 | Create empty XML tags if trailing separators are allowed |Select this check box to have the interchange sender include empty XML tags for trailing separators. |
 | Split Interchange as transaction sets - suspend transaction sets on error|Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope to the transaction set. Suspends only the transactions where the validation fails. |
