@@ -222,15 +222,15 @@ conceptualContent:
 
     - title: Identity governance
       links:
+        - url: ./governance/entitlement-management-access-package-first.md
+          itemType: how-to-guide
+          text:  Create an access package
         - url: ./governance/create-access-review.md
           itemType: how-to-guide
-          text:  Create an access review
-        - url: ./governance/perform-access-review.md
-          itemType: how-to-guide
-          text:  Start an access review
+          text:  Create an access review of a group or app 
         - url: ./conditional-access/terms-of-use.md
           itemType: how-to-guide
-          text:  Require terms of use
+          text: Require users to accept a terms of use
       footerLink:
         url: ./governance/index.yml
         text: See more
