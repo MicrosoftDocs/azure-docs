@@ -53,7 +53,7 @@ echo c > /proc/sysrq-trigger
 - If the `/var/crash` has directory with current date, then the Kdump is successfully enabled.
 
 ### Support issue
-In case, if the script fails with some error or Kdump is not enabled, Please raise a ticket with Microsoft Op erations team by opening a support ticket.
+In case, if the script fails with some error or Kdump is not enabled. Please raise a ticket with Microsoft Operations team by opening a support ticket.
 
 Include in your ticket:
 
