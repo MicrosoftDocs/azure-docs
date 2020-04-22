@@ -9,12 +9,12 @@
  ms.author: lahugh
 ---
 
-# Preview: DCsv2-series
+# DCsv2-series
 
 
 The DCsv2-series can help protect the confidentiality and integrity of your data and code while it’s processed in the public cloud. These machines are backed by the latest generation of Intel XEON E-2288G Processor with SGX technology. With the Intel Turbo Boost Technology these machines can go up to 5.0GHz. DCsv2 series instances enable customers to build secure enclave-based applications to protect their code and data while it’s in use.
 
-Example use cases include confidential multiparty data sharing, fraud detection, anti-money laundering, blockchain, confidential usage analytics, intelligence analysis and confidential machine learning.
+Example use cases include: confidential multiparty data sharing, fraud detection, anti-money laundering, blockchain, confidential usage analytics, intelligence analysis and confidential machine learning.
 
 Premium Storage: Supported*
 
@@ -36,9 +36,9 @@ Memory Preserving Updates: Not Supported
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128 (172)                                                         | 12800/192                                 | 2                                            |
 
 - DCsv2-series VMs are [generation 2 VMs](./linux/generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
-- Currently available in UK South and Canada Central only.
-- Previous generation of Confidential Compute VMs: [DC Series](sizes-previous-gen.md)
-- Create DCsv2 VMs using Azure Portal [Create VM - Portal](./linux/quick-create-portal.md)
+- Currently available in UK South, Canada Central, and US East only.
+- Previous generation of Confidential Compute VMs: [DC Series](sizes-previous-gen#preview-dc-series)
+- Create DCsv2 VMs using [Azure Portal](./linux/quick-create-portal.md) or the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)
 
 
 
