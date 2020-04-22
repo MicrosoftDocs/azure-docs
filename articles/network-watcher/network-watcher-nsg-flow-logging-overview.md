@@ -22,8 +22,7 @@ ms.author: damendo
 
 [Network security group](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) (NSG) flow logs is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an NSG. Flow data is sent to Azure Storage accounts from where you can access it as well as export it to any visualization tool, SIEM or IDS of your choice.
 
-
-![flow logs overview](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
+![flow logs overview](./media/network-watcher-nsg-flow-logging-overview/Homepage.png)
 
 ## Why use Flow Logs?
 
