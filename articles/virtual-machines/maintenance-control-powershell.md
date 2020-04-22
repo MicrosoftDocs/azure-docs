@@ -12,22 +12,7 @@ ms.author: cynthn
 
 # Control updates with Maintenance Control and Azure PowerShell
 
-Manage platform updates, that don't require a reboot, using maintenance control. Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window. 
-
-Maintenance control lets you decide when to apply updates to your isolated VMs.
-
-With maintenance control, you can:
-- Batch updates into one update package.
-- Wait up to 35 days to apply updates. 
-- Automate platform updates for your maintenance window using Azure Functions.
-- Maintenance configurations work across subscriptions and resource groups. 
-
-## Limitations
-
-- VMs must be on a [dedicated host](./linux/dedicated-hosts.md), or be created using an [isolated VM size](./linux/isolation.md).
-- After 35 days, an update will automatically be applied.
-- User must have **Resource Contributor** access.
-
+This topic covers the Azure PowerShell options for Maintenance Control. 
 
 ## Enable the PowerShell module
 
