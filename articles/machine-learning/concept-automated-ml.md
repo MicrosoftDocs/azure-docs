@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
-ms.date: 02/28/2020
+ms.date: 04/22/2020
 ---
 
 # What is automated machine learning?
@@ -72,6 +72,13 @@ Using **Azure Machine Learning**, you can design and run your automated ML train
 
 1. **Identify the ML problem** to be solved: classification, forecasting, or regression
 
+1. **Choose whether you want to use the Python SDK or the studio web experience**.
+   * For Python developers, check out the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#automlconfig) 
+
+   * For limited or no code experience, try the Azure Machine Learning studio web experience at [https://ml.azure.com](https://ml.azure.com/)  
+   
+   Learn about the parity between the [Python SDK and studio web experience](#parity).
+
 1. **Specify the source and format of the labeled training data**: Numpy arrays or Pandas dataframe
 
 1. **Configure the compute target for model training**, such as your [local computer, Azure Machine Learning Computes, remote VMs, or Azure Databricks](how-to-set-up-training-targets.md).  Learn about automated training [on a remote resource](how-to-auto-train-remote.md).
@@ -125,8 +132,6 @@ Enable this setting with:
 
 + Python SDK: Specifying `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` for the [`AutoMLConfig` class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
-
-
 ## <a name="ensemble"></a> Ensemble models
 
 Automated machine learning supports ensemble models, which are enabled by default. Ensemble learning improves machine learning results and predictive performance by combining multiple models as opposed to using single models. The ensemble iterations appear as the final iterations of your run. Automated machine learning uses both voting and stacking ensemble methods for combining models:
@@ -148,15 +153,9 @@ See how to convert to ONNX format [in this Jupyter notebook example](https://git
 
 The ONNX runtime also supports C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Learn more about [inferencing ONNX models with the ONNX runtime C# API](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
 
-## Automated ML in Azure Machine Learning
+## Automated ML in studio vs SDK
 
-Azure Machine Learning offers two experiences for working with automated ML
-
-* For code experienced customers, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
-
-* For limited/no code experience customers, Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/)  
-
-The following summarizes the high-level automated ML capabilities supported in each experience.
+Learn about the parity and differences between the high-level automated ML capabilities available through the Python SDK and the studio. 
 
 <a name="parity"></a>
 
