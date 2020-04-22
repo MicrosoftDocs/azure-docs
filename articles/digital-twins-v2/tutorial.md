@@ -316,7 +316,7 @@ The output from this command is information about the endpoint you've created.
 You can also verify that the endpoint creation succeeded by running the following command to query your Azure Digital Twins instance for this endpoint:
 
 ```azurecli
-az dt endpoints show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
+az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
 ```
 
 Look for the `provisioningState` field in the output, and check that the value is "Succeeded".
