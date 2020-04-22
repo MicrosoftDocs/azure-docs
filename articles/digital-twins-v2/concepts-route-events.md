@@ -51,7 +51,7 @@ To define an event route, developers first must define endpoints. An **endpoint*
 * Event Hub
 * Service Bus
 
-Endpoints are set up using control plane APIs (supported by the [Azure Digital Twins CLI](https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI)), or via the Azure portal. An endpoint definition gives:
+Endpoints are set up using control plane APIs (supported by the [Azure Digital Twins CLI](how-to-use-cli.md), or via the Azure portal. An endpoint definition gives:
 * The endpoint's ID (or friendly name)
 * The endpoint type (Event Grid, Event Hub, or Service Bus)
 * The primary connection string and secondary connection string to authenticate 
@@ -75,7 +75,7 @@ await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<e
 
 The event route object passed to `EventRoutes.Add` also takes a **filter** parameter, which can be used to restrict the types of events that follow this route.
 
-Routes can be also created using [Azure Digital Twins CLI for Routes](https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI#adt-routes).
+Routes can be also created using [Azure Digital Twins CLI](how-to-use-cli.md).
 
 ### Types of event messages
 
