@@ -12,7 +12,7 @@ This article shows you how to get started using the Custom Vision SDK with Java 
 - A Java IDE of your choice
 - [JDK 7 or 8](https://aka.ms/azure-jdks) installed.
 - [Maven](https://maven.apache.org/) installed
-- [!INCLUDE [create-resources](includes/create-resources.md)]
+- [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
 ## Get the Custom Vision SDK and sample code
 
@@ -26,7 +26,7 @@ Clone or download the [Cognitive Services Java SDK Samples](https://github.com/A
 
 This Java project creates a new Custom Vision object detection project named __Sample Java OD Project__, which can be accessed through the [Custom Vision website](https://customvision.ai/). It then uploads images to train and test a classifier. In this project, the classifier is intended to determine whether an object is a **fork** or **scissors**.
 
-[!INCLUDE [get-keys](includes/get-keys.md)]
+[!INCLUDE [get-keys](../../includes/get-keys.md)]
 
 The program is configured to reference your key data as environment variables. Navigate to the **Vision/CustomVision** folder and enter the following PowerShell commands to set the environment variables. 
 
@@ -44,7 +44,7 @@ Load the `Vision/CustomVision` project in your Java IDE and open the _CustomVisi
 
 ### Create a new Custom Vision Service project
 
-Go to the code block that creates a training client and an object detection project. The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. See the [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) method overloads to specify other options when you create your project (explained in the [Build a detector](get-started-build-detector.md) web portal guide).
+Go to the code block that creates a training client and an object detection project. The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. See the [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) method overloads to specify other options when you create your project (explained in the [Build a detector](../../get-started-build-detector.md) web portal guide).
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_create_od)]
 
@@ -91,11 +91,11 @@ mvn compile exec:java
 
 View the console output for logging and prediction results. You can then verify that the test image is tagged appropriately and that the region of detection is correct.
 
-[!INCLUDE [clean-od-project](includes/clean-od-project.md)]
+[!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 
 ## Next steps
 
 Now you've seen how every step of the object detection process can be done in code. This sample executes a single training iteration, but often you'll need to train and test your model multiple times in order to make it more accurate. The following training guide deals with image classification, but its principles are similar to object detection.
 
 > [!div class="nextstepaction"]
-> [Test and retrain a model](test-your-model.md)
+> [Test and retrain a model](../../test-your-model.md)

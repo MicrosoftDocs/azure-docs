@@ -11,11 +11,11 @@ This article shows you how to get started using the Custom Vision SDK with Node.
 
 - [Node.js 8](https://www.nodejs.org/en/download/) or later installed.
 - [npm](https://www.npmjs.com/) installed.
-- [!INCLUDE [create-resources](includes/create-resources.md)]
+- [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-[!INCLUDE [get-keys](includes/get-keys.md)]
+[!INCLUDE [get-keys](../../includes/get-keys.md)]
 
-[!INCLUDE [node-get-images](includes/node-get-images.md)]
+[!INCLUDE [node-get-images](../../includes/node-get-images.md)]
 
 
 ## Install the Custom Vision SDK
@@ -215,11 +215,11 @@ node sample.js
 
 The output of the application should appear in the console. You can then verify that the test image (found in **samples/vision/images/Test**) is tagged appropriately and that the region of detection is correct.
 
-[!INCLUDE [clean-od-project](includes/clean-od-project.md)]
+[!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 
 ## Next steps
 
 Now you've seen how every step of the object detection process can be done in code. This sample executes a single training iteration, but often you'll need to train and test your model multiple times in order to make it more accurate. The following training guide deals with image classification, but its principles are similar to object detection.
 
 > [!div class="nextstepaction"]
-> [Test and retrain a model](test-your-model.md)
+> [Test and retrain a model](../../test-your-model.md)
