@@ -35,6 +35,8 @@
     href: concepts-developer-guide.md
   - name: Common interfaces
     href: concepts-common-interfaces.md
+  - name: Model repository
+    href: concepts-model-repository.md
   - name: Model discovery
     href: concepts-model-discovery.md
   - name: Limits and quotas
