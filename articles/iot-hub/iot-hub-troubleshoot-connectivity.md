@@ -8,6 +8,8 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: jlian
+ms.custom: mqtt
+
 # As an operator for Azure IoT Hub, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away
 ---
 # Monitor, diagnose, and troubleshoot disconnects with Azure IoT Hub
