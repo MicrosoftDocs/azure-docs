@@ -21,7 +21,7 @@ landingContent:
   # Card
   - title: Azure Media Player
     linkLists:
-      - linkListType: Overview
+      - linkListType: overview
         links:
           - text: Overview
             url: azure-media-player-overview.md
