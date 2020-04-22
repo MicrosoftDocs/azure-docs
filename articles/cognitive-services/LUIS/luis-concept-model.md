@@ -7,12 +7,11 @@ ms.date: 04/17/2020
 
 # Design with intent and entity models
 
-Language understanding provides several types of models for you to define your app schema. Your app schema determines what information you receive from the prediction of a new user utterance.
+Language understanding provides two types of models for you to define your app schema. Your app schema determines what information you receive from the prediction of a new user utterance.
 
 The app schema is built from models you create using [machine teaching](#authoring-uses-machine-teaching):
 * [Intents](#intents-classify-utterances) classify user utterances
 * [Entities](#entities-extract-data) extract data from utterance
-* [Features](#features)
 
 ## Authoring uses machine teaching
 
@@ -110,7 +109,7 @@ If you want to only recognize 3 letter codes for airport codes, use a regular ex
 
 ## Intents versus entities
 
-An intent is the desired outcome of the _whole_ utterance while entities are pieces of data extracted from the utterance. Usually intents are tied to actions the client application should take and entities are information needed to perform this action. From a programming perspective, an intent would trigger a method call and the entities would be used as parameters to that method call.
+An intent is the desired outcome of the _whole_ utterance while entities are pieces of data extracted from the utterance. Usually intents are tied to actions, which the client application should take. Entities are information needed to perform this action. From a programming perspective, an intent would trigger a method call and the entities would be used as parameters to that method call.
 
 This utterance _must_ have an intent and _may_ have entities:
 
@@ -127,9 +126,9 @@ This utterance _may_ have several entities:
 
 ## Features
 
-A feature is applied to a model at training time, including phrase lists and entities.
+A [feature](luis-concept-feature.md) is applied to a model at training time, including phrase lists and entities.
 
-**Use a features when you want to**:
+**Use a feature when you want to**:
 
 * boost the significance of words and phrases identified by the feature
 * have LUIS recommend new text or phrases to recommend for the phrase list
@@ -138,3 +137,4 @@ A feature is applied to a model at training time, including phrase lists and ent
 ## Next steps
 
 * Understand [intents](luis-concept-intent.md) and [entities](luis-concept-entity-types.md).
+* Learn more about [features](luis-concept-feature.md)
