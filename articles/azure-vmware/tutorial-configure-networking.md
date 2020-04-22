@@ -23,26 +23,13 @@ Sign in to the [Azure portal](https://rc.portal.azure.com).
 
 ## Create a virtual network
 
-Navigate to the resource group you created in the
-previous tutorial, and click **+ Add** to define a new resource.
+Navigate to the resource group you created in the [previous tutorial](tutorial-create-prviate-cloud.md), and select **+ Add** to define a new resource.
 
-![](./media/tutorial-configure-networking/image11.jpg)
+In the **Search the Marketplace** text box type, **Virtual Network**. Find the Virtual Network resource and select it.
 
-Use the **Search the Marketplace** box to find
-the **Virtual Network** option and select it.
+On the Virtual Network page, select **Create**.
 
-![](./media/tutorial-configure-networking/image12.jpg)
-
-The portal displays a Virtual Network splash
-screen.
-
-![](./media/tutorial-configure-networking/image13.jpg)
-
-Click **Create**.
-
-![](./media/tutorial-configure-networking/image14.jpg)
-
-On the Create Virtual Network tab, complete the fields as shown in the following table. Use the example values in the table, unless the lab proctor specifies otherwise:
+On the **Create Virtual Network** page, complete the fields as shown in the following table. A description of the properties is shown in the following table:
 
 | Field | Value |
 | --- | --- |
@@ -57,19 +44,21 @@ On the Create Virtual Network tab, complete the fields as shown in the following
 | **Service endpoints** | Select **Disabled**. |
 | **Firewall** | Select **Disabled**. |
 
-Click **Create**. Once the deployment is complete you'll see your virtual network in the resource group.
+![](./media/tutorial-configure-networking/image14.jpg)
+
+Select **Create**. Once the deployment is complete you'll see your virtual network in the resource group.
 
 ## Create a Virtual Network Gateway
 
 You have created a virtual network in the preceding section, now you'll create a Virtual Network Gateway.
 
-In your resource group, click **+ Add** to add a new new resource.
+In your resource group, select **+ Add** to add a new new resource.
 
-Type **Virtual network gateway** in the **Search the Marketplace** box and select it, on the Virtual Network Gateway screen, click **Create**.
+In the **Search the Marketplace** text box type, **Virtual network gateway**. Find the Virtual Network resource and select it.
 
-![](./media/tutorial-configure-networking/image21.jpg)
+On the **Virtual Network gateway** page, select **Create**.
 
-On the Basics tab of the Create virtual network gateway page, complete the fields as shown in the following table.
+On the Basics tab of the **Create virtual network gateway** page provide values for the fields. A description of the fields are shown in the following table:
 
 | Field | Value |
 | --- | --- |
@@ -86,40 +75,35 @@ On the Basics tab of the Create virtual network gateway page, complete the field
 
 ![](./media/tutorial-configure-networking/image22.jpg)
 
-Click **Review + create** to start deployment of your virtual network gateway. Once complete, move to the next section in this tutorial to connect your ExpressRoute connection to the virtual network containing your private cloud.
+Select **Review + create** to start deployment of your virtual network gateway. Once complete, move to the next section in this tutorial to connect your ExpressRoute connection to the virtual network containing your private cloud.
 
 ## Connect ExpressRoute to the Virtual Network Gateway
 
 This section walks you through adding a connection between your AVS private cloud and the virtual network gateway you created.
 
-Navigate to the private cloud you created in the previous tutorial and click **Connectivity** under **Manage**.Display the Resource Group you created in the
-previous test and click **Connectivity**. On the **Connectivity** page, click the **ExpressRoute** tab.
+Navigate to the private cloud you created in the previous tutorial and select **Connectivity** under **Manage**, select the **ExpressRoute** tab.
 
 ![](./media/tutorial-configure-networking/image25.jpg)
 
-Copy the authorization key. If there is not an authorization key, you need to create one, to do that click **+ Request an authorization key**
+Copy the authorization key. If there is not an authorization key, you need to create one, to do that select **+ Request an authorization key**
 
 Navigate to the Virtual Network Gateway you created
-in the previous step and under **Settings**, click **Connections**. On the **Connections** page click **+ Add**.
+in the previous step and under **Settings**, select **Connections**. On the **Connections** page select **+ Add**.
 
-![](./media/tutorial-configure-networking/image27.jpg)
+On the **Add connection** page provide values for the fields. A description of the fields are shown in the following table:
 
+| Field | Value |
+| --- | --- |
+| **Name**  | Enter a name for the connection.  |
+| **Connection type**  | Select **ExpressRoute**.  |
+| **Redeem authorization**  | Ensure this box is selected.  |
+| **Virtual network gateway** | The VNET gateway you created previously is  |
+| **Authorization key**  | Copy and paste the authorization key from the ExpressRoute tab for your Resource Group. |
+| **Peer circuit URI**  | Copy and paste the ExpressRoute ID from the ExpressRoute tab for your Resource Group.  |
 
+![](./media/tutorial-configure-networking/image28.jpg)
 
-1. On the Add connection tab, complete the fields as shown in the following table. Use the example values in the table, unless the test discipline requires otherwise:
-
-   | Field                       | Value                                                                                   |
-   | --------------------------- | --------------------------------------------------------------------------------------- |
-   | **Name**                    | Enter a name for the connection.                                                        |
-   | **Connection type**         | Select **ExpressRoute**.                                                                |
-   | **Redeem authorization**    | Ensure this box is selected.                                                            |
-   | **Virtual network gateway** | The VNET gateway you created previously is selected.                                    |
-   | **Authorization key**       | Copy and paste the authorization key from the ExpressRoute tab for your Resource Group. |
-   | **Peer circuit URI**        | Copy and paste the ExpressRoute ID from the ExpressRoute tab for your Resource Group.   |
-
-   ![](./media/tutorial-configure-networking/image28.jpg)
-
-Click **OK**. This creates the connection between your ExpressRoute circuit and your virtual network.
+Select **OK**. This creates the connection between your ExpressRoute circuit and your virtual network.
 
 ## Locate the URLs for vCenter and NSX Manager
 
