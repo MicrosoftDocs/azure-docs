@@ -65,31 +65,29 @@ See examples of regression and automated machine learning for predictions in the
 
 During training, Azure Machine Learning creates a number of pipelines in parallel that try different algorithms and parameters for you. The service iterates through ML algorithms paired with feature selections, where each iteration produces a model with a training score. The higher the score, the better the model is considered to "fit" your data.  It will stop once it hits the exit criteria defined in the experiment. 
 
-The following diagram illustrates this process. 
-![Automated Machine learning](./media/concept-automated-ml/automl-concept-diagram2.png)
-
 Using **Azure Machine Learning**, you can design and run your automated ML training experiments with these steps:
 
 1. **Identify the ML problem** to be solved: classification, forecasting, or regression
 
 1. **Choose whether you want to use the Python SDK or the studio web experience**.
-   * For Python developers, check out the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#automlconfig) 
 
    * For limited or no code experience, try the Azure Machine Learning studio web experience at [https://ml.azure.com](https://ml.azure.com/)  
-   
-   Learn about the parity between the [Python SDK and studio web experience](#parity).
+   * For Python developers, check out the [Azure Machine Learning Python SDK](how-to-configure-auto-train.md) 
+
+    [!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku-inline.md)]  Learn about the parity between the [Python SDK and studio web experience](#parity).
 
 1. **Specify the source and format of the labeled training data**: Numpy arrays or Pandas dataframe
 
 1. **Configure the compute target for model training**, such as your [local computer, Azure Machine Learning Computes, remote VMs, or Azure Databricks](how-to-set-up-training-targets.md).  Learn about automated training [on a remote resource](how-to-auto-train-remote.md).
 
-1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, advanced preprocessing/featurization, and what metrics to look at when determining the best model.  You can configure the settings for automatic training experiment in [Azure Machine Learning studio](https://ml.azure.com), or [with the SDK](how-to-configure-auto-train.md). 
-
-    [!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku-inline.md)]
-
+1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, advanced preprocessing/featurization, and what metrics to look at when determining the best model.  
 1. **Submit the training run.**
 
 1. **Review the results** 
+
+The following diagram illustrates this process. 
+![Automated Machine learning](./media/concept-automated-ml/automl-concept-diagram2.png)
+
 
 You can also inspect the logged run information, which [contains metrics](how-to-understand-automated-ml.md) gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
