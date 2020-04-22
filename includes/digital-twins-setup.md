@@ -71,10 +71,9 @@ az dt rbac assign-role --dt-name <your-Azure-Digital-Twins-instance> --assignee 
 The result of this command is outputted information about the role assignment you've created.
 
 > [!TIP]
-> If you get a *400: BadRequest* error instead, run the following commands to get the *ObjectID* for your user:
+> If you get a *400: BadRequest* error instead, run the following command to get the *ObjectID* for your user:
 > ```azurecli
-> Connect-AzureAD
-> Get-AzureADUser -ObjectId "<your-AAD-email>"
+> az ad user show --id <your-AAD-email> --query objectId
 > ```
 > Then, repeat the role assignment command using your user's *Object ID* in place of your email.
 
@@ -86,11 +85,10 @@ To configure an app registration, complete the "Create an app registration" sect
 
 Take note of the `appId` value from the output. This is your *Application (client) ID*, and you will use it later.
 
-Next, run this command to take note of your *Directory (tenant) ID*. It appears as `ObjectId` in the command output.
+Next, run this command to take note of your *Directory (tenant) ID*.
 
 ```azurecli
-Connect-AzureAD
-Get-AzureADTenantDetail
+az account show --query tenantId
 ```
 
 You will use both of these values in the next step.
