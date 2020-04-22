@@ -19,7 +19,8 @@ ms.custom: H1Hack27Feb2017
 ---
 
 # Enable Kdump service
-This document describes the details on how to enable Kdump service on  HANA Large Instances(**Type I and Type II**)
+This document describes the details on how to enable Kdump service on Azure HANA Large
+Instance(**Type I and Type II**)
 
 ## Supported SKU
 |  Hana Large Instance Type   |  OS Vendor   |  OS Package Version   |  SKU	       |
@@ -53,7 +54,7 @@ echo c > /proc/sysrq-trigger
 - If the `/var/crash` has directory with current date, then the Kdump is successfully enabled.
 
 ### Support issue
-In case, if the script fails with some error or Kdump is not enabled. Please raise a ticket with Microsoft Operations team by opening a support ticket.
+In case, if the script fails with some error or Kdump isn't enabled. Raise a ticket with Microsoft Operations team by opening a support ticket.
 
 Include in your ticket:
 
