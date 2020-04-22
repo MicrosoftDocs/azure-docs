@@ -138,7 +138,8 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 ## Limitations
 
-Importing to a database in elastic pool isn't supported. You can import data into a single database and then move the database to an elastic pool.
+- Importing to a database in elastic pool isn't supported. You can import data into a single database and then move the database to an elastic pool.
+- Import Export Service does not work when Allow access to Azure services is set to OFF. However you can work around the problem by manually running sqlpackage.exe from an Azure VM or performing the export directly in your code by using the DACFx API.
 
 ## Import using wizards
 

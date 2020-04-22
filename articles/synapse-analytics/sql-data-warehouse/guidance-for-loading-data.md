@@ -99,7 +99,7 @@ When there is memory pressure, the columnstore index might not be able to achiev
 
 ## Increase batch size when using SqLBulkCopy API or bcp
 
-Loading with PolyBase will provide the highest throughput with SQL pool. If you cannot use PolyBase to load and must use the [SqLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx) or [bcp](https://docs.microsoft.com/sql/tools/bcp-utility?view=sql-server-ver15), you should consider increasing batch size for better throughput.
+Loading with PolyBase will provide the highest throughput with SQL pool. If you cannot use PolyBase to load and must use the [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) or [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), you should consider increasing batch size for better throughput.
 
 > [!TIP]
 > A batch size between 100 K to 1M rows is the recommended baseline for determining optimal batch size capacity.
@@ -115,7 +115,7 @@ A data record is considered to be dirty if it meets one of the following conditi
 
 To fix the dirty records, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions.
 
-If a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in [CREATE EXTERNAL TABLE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15).
+If a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in [CREATE EXTERNAL TABLE (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## Inserting data into a production table
 

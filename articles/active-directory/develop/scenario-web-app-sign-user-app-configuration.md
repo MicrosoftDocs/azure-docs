@@ -2,15 +2,12 @@
 title: Configure a web app that signs in users - Microsoft identity platform | Azure
 description: Learn how to build a web app that signs in users (code configuration)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
@@ -24,7 +21,7 @@ Learn how to configure the code for your web app that signs in users.
 
 ## Libraries for protecting web apps
 
-<!-- This section can be in an include for Web App and Web APIs -->
+<!-- This section can be in an include for web app and web APIs -->
 The libraries that are used to protect a web app (and a web API) are:
 
 | Platform | Library | Description |

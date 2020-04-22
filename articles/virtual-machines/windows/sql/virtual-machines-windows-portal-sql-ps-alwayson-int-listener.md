@@ -54,9 +54,13 @@ If you are restricting access with an Azure Network Security Group, ensure that 
 
 ## Determine the load balancer SKU required
 
-[Azure load balancer](../../../load-balancer/load-balancer-overview.md) is available in 2 SKUs: Basic & Standard. The standard load balancer is recommended. If the virtual machines are in an availability set, basic load balancer is permitted. Standard load balancer requires that all VM IP addresses use standard IP addresses.
+[Azure load balancer](../../../load-balancer/load-balancer-overview.md) is available in 2 SKUs: Basic & Standard. The standard load balancer is recommended. If the virtual machines are in an availability set, basic load balancer is permitted. If the virtual machines are in an availability zone, a standard load balancer is required. Standard load balancer requires that all VM IP addresses use standard IP addresses.
 
 The current [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) for an availability group uses a basic load balancer with basic IP addresses.
+
+   > [!NOTE]
+   > You will need to configure a [service endpoint](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network) if you use a standard load balancer and Azure Storage for the cloud witness. 
+
 
 The examples in this article specify a standard load balancer. In the examples, the script includes `-sku Standard`.
 
@@ -222,6 +226,8 @@ Note the following guidelines on availability group listener in Azure using inte
 * With an internal load balancer, you only access the listener from within the same virtual network.
 
 * If you are restricting access with an Azure Network Security Group, ensure that the allow rules include the backend SQL Server VM IP addresses, and the load balancer floating IP addresses for the AG listener and the cluster core IP address, if applicable.
+
+* Create a service endpoint when using a standard load balancer with Azure Storage for the cloud witness. For more information, see [Grant access from a virtual network](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
 ## For more information
 For more information, see [Configure Always On availability group in Azure VM manually](virtual-machines-windows-portal-sql-availability-group-tutorial.md).

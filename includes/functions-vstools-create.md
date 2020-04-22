@@ -5,20 +5,20 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/26/2020
+ms.date: 03/06/2020
 ms.author: glenga
 ms.custom: include file
 ---
 
 The Azure Functions project template in Visual Studio creates a project that you can publish to a function app in Azure. You can use a function app to group functions as a logical unit for easier management, deployment, scaling, and sharing of resources.
 
-1. From the Visual Studio menu, select **File** > **New** > **Project**.
+1. In Visual Studio, on the **File** menu, select **New** > **Project**.
 
-1. In **Create a new project**, enter *functions* in the search box, choose the **Azure Functions** template, and then select **Next**.
+1. In **Create a new project**, enter *functions* in the search box, and then choose the **Azure Functions** template.
 
 1. In **Configure your new project**, enter a **Project name** for your project, and then select **Create**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
 
-1. For the **Create a new Azure Function Application** settings, use the values in the following table:
+1. For the **New Project - &lt;your project name&gt;** settings, use the values in the following table:
 
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
@@ -33,4 +33,4 @@ The Azure Functions project template in Visual Studio creates a project that you
 
     Make sure you set the **Access rights** to **Anonymous**. If you choose the default level of **Function**, you're required to present the [function key](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) in requests to access your function endpoint.
 
-1. Select **Create** to create the function project and HTTP trigger function.
+1. Select **OK** to create the function project and HTTP-triggered function.

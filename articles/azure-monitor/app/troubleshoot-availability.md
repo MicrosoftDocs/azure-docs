@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot your Azure Application Insights availability tests | Microsoft Docs
+title: Troubleshoot your Azure Application Insights availability tests
 description: Troubleshoot web tests in Azure Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
 author: lgayhardt

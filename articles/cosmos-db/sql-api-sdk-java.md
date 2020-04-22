@@ -35,7 +35,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**Get started**|[Get started with the Java SDK](sql-api-java-get-started.md)|
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-java-application.md)|
-|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
+|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
 
 ## Release notes
 
@@ -127,7 +127,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 ### <a name="1.15.0"/>1.15.0
 * Improved Json Serialization performance.
-* This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
+* This SDK version requires the latest version of [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
 
 ### <a name="1.14.0"/>1.14.0
 * Internal changes for Microsoft friends libraries.

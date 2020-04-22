@@ -4,7 +4,7 @@ title: Azure Kubernetes Service (AKS)
 summary: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples. # < 160 chars
 
 metadata:
-  title: Azure Kubernetes Service (AKS)
+  title: Azure Kubernetes Service (AKS) documentation
   description: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.
   ms.service: container-service 
   ms.topic: landing-page

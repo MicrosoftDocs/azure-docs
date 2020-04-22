@@ -1,9 +1,9 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 ## Prerequisites
@@ -12,7 +12,7 @@ Before you get started:
 
 > [!div class="checklist"]
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
 > * Make sure that you have access to a microphone for audio capture
 
 ## Source code
@@ -39,4 +39,5 @@ Now you're ready to test the app, and verify the speech recognition functionalit
 
 ## Next steps
 
-[!INCLUDE [footer](../footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
+

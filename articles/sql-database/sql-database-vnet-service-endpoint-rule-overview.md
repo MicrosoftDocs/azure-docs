@@ -58,6 +58,7 @@ You have the option of using [role-based access control (RBAC)][rbac-what-is-813
 
 > [!NOTE]
 > In some cases the Azure SQL Database and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
+>
 > - Both subscriptions must be in the same Azure Active Directory tenant.
 > - The user has the required permissions to initiate operations, such as enabling service endpoints and adding a VNet-subnet to the given Server.
 > - Both subscriptions must have the Microsoft.Sql provider registered.
@@ -128,7 +129,7 @@ PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure 
    > [!NOTE]
    > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - For known issues with Azure Data Lake Storage Gen2, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
-    
+
 1. Under your storage account, navigate to **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to your Azure SQL Server hosting your Azure SQL Data Warehouse which you've registered with Azure Active Directory (AAD) as in step#1.
 
    > [!NOTE]
@@ -258,6 +259,7 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 
 > [!NOTE]
 > The following statuses or states apply to the rules:
+>
 > - **Ready:** Indicates that the operation that you initiated has Succeeded.
 > - **Failed:** Indicates that the operation that you initiated has Failed.
 > - **Deleted:** Only applies to the Delete operation, and indicates that the rule has been deleted and no longer applies.

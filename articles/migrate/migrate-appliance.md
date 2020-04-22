@@ -21,6 +21,17 @@ The Azure Migrate appliance is used in the following scenarios.
 **Hyper-V VM assessment** | Azure Migrate:Server Assessment | Discover Hyper-V VMs<br/><br/> Collect machine metadata and performance metadata for assessments.
 **Physical machine assessment** |  Azure Migrate:Server Assessment |  Discover physical servers (or VMs you treat as physical servers).<br/><br/> Collect machine metadata and performance metadata for assessments.
 
+## Deployment methods
+
+The appliance can be deployed using a couple of methods:
+
+- The appliance can be deployed using a template for VMware VMs and Hyper-V VMs (OVA template for VMware or VHD for Hyper-V).
+- If you don't want to use a template, you can deploy the appliance for VMware or Hyper-V using a PowerShell script.
+- In Azure Government, you should deploy the appliance using a script.
+- For physical servers, you always deploy the appliance using a script.
+- Download links are available in the tables below.
+
+
 ## Appliance - VMware 
 
 The following table summarizes the Azure Migrate appliance requirements for VMware.
@@ -63,7 +74,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Requirement** | **Physical** 
 --- | ---
 **Appliance components** | The appliance has the following components: <br/><br/> - **Management app**: This is a web app for user input during appliance deployment. Used when assessing machines for migration to Azure.<br/> - **Discovery agent**: The agent gathers machine configuration data. Used when assessing machines for migration to Azure.<br/>- **Assessment agent**: The agent collects performance data. Used when assessing machines for migration to Azure.<br/>- **Auto update service**: Updates appliance components (runs every 24 hours).
-**Supported deployment** | Deploy as a dedicated physical machine, or a VM, using a PowerShell installation script.
+**Supported deployment** | Deploy as a dedicated physical machine, or a VM, using a PowerShell installation script. The script is available for download from the portal.
 **Project support** |  An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> 
 **Discovery limits** | An appliance can discover up to 250 physical servers.
 **PowerShell script** | Download the script (AzureMigrateInstaller.ps1) in a zipped folder from the portal. [Learn more](tutorial-assess-physical.md#set-up-the-appliance). Alternatively, [download directly](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> Download size is 59.7 MB.
@@ -74,8 +85,10 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 
 The Azure Migrate appliance needs connectivity to the internet.
 
-- When you deploy the appliance, Azure Migrate does a connectivity check to the URLs summarized in the table below.
+- When you deploy the appliance, Azure Migrate does a connectivity check to the required URLs.
 - If you're using a URL-based proxy to connect to the internet, you need to allow access to these URLs, making sure that the proxy resolves any CNAME records received while looking up the URLs.
+
+### Public cloud URLs
 
 **URL** | **Details**  
 --- | --- |
@@ -91,6 +104,25 @@ download.microsoft.com/download | Allow downloads from Microsoft download.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Connect to Azure Migrate service URLs.
 *.hypervrecoverymanager.windowsazure.com | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
 *.blob.core.windows.net |  **Used for VMware agentless migration**<br/><br/>Upload data to storage for migration.
+
+### Government cloud URLs
+
+**URL** | **Details**  
+--- | --- |
+*.portal.azure.us  | Navigate to the Azure portal.
+graph.windows.net | Sign in to your Azure subscription.
+login.microsoftonline.us  | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate.
+management.usgovcloudapi.net | Create Azure AD apps for the appliance to communicate with the Azure Migrate service.
+dc.services.visualstudio.com | Upload app logs used for internal monitoring.
+*.vault.usgovcloudapi.net | Manage secrets in the Azure Key Vault.
+aka.ms/* | Allow access to aka links. Used for Azure Migrate appliance updates.
+download.microsoft.com/download | Allow downloads from Microsoft download.
+*.servicebus.usgovcloudapi.net  | Communication between the appliance and the Azure Migrate service.
+*.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Connect to Azure Migrate service URLs.
+*.hypervrecoverymanager.windowsazure.us | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
+*.blob.core.usgovcloudapi.net  |  **Used for VMware agentless migration**<br/><br/>Upload data to storage for migration.
+*.applicationinsights.us | Upload app logs used for internal monitoring.
+
 
 
 

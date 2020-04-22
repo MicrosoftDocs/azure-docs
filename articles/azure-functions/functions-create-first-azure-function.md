@@ -2,7 +2,7 @@
 title: Create your first function in the Azure portal
 description: Learn how to create your first Azure Function for serverless execution using the Azure portal.
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: mvc, devcenter, cc996988-fb4f-47
 ---
@@ -29,29 +29,27 @@ Next, create a function in the new function app.
 
 ## <a name="create-function"></a>Create an HTTP triggered function
 
-1. From the left menu of the **Functions** window, select **Functions**, then select **Add** from the top menu. 
- 
-1. From the **New Function** window, select **Http trigger**.
+1. Expand your new function app, select the **+** button next to **Functions**, choose **In-portal**, and then select **Continue**.
 
-    ![Choose HTTP trigger function](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
+    ![Functions quickstart for choosing a platform.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
 
-1. In the **New Function** window, accept the default name for **New Function**, or enter a new name. 
+1. Choose **WebHook + API**, and then select **Create**.
 
-1. Choose **Anonymous** from the **Authorization level** drop-down list, and then select **Create Function**.
+    ![Functions quickstart in the Azure portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-    Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
+   A function is created using a language-specific template for an HTTP triggered function.
+
+Now, you can run the new function by sending an HTTP request.
 
 ## Test the function
 
-1. In your new HTTP trigger function, select **Code + Test** from the left menu, then select **Get function URL** from the top menu.
+1. In your new function, select **</> Get function URL** at the top right. 
 
-    ![Select Get function URL](./media/functions-create-first-azure-function/function-app-select-get-function-url.png)
-
-1. In the **Get function URL** dialog box, select **default** from the drop-down list, and then select the **Copy to clipboard** icon. 
+1. In the **Get function URL** dialog box, select **default (Function key)** from the drop-down list, and then select **Copy**. 
 
     ![Copy the function URL from the Azure portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. Paste the function URL into your browser's address bar. Add the query string value `?name=<your_name>` to the end of this URL and press Enter to run the request. 
+1. Paste the function URL into your browser's address bar. Add the query string value `&name=<your_name>` to the end of this URL and press Enter to run the request. 
 
     The following example shows the response in the browser:
 
@@ -59,7 +57,7 @@ Next, create a function in the new function app.
 
     The request URL includes a key that is required, by default, to access your function over HTTP.
 
-1. When your function runs, trace information is written to the logs. To see the trace output, return to the **Code + Test** page in the portal and expand the **Logs** arrow at the bottom of the page.
+1. When your function runs, trace information is written to the logs. To see the trace output from the previous execution, return to your function in the portal and select the arrow at the bottom of the screen to expand the **Logs**.
 
    ![Functions log viewer in the Azure portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 

@@ -8,7 +8,6 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: Java
 ms.workload: identity
@@ -80,7 +79,7 @@ If you use the `https://login.microsoftonline.com/common` authority in v2.0, use
 
 The v1.0 endpoint (used by ADAL) only emits v1.0 tokens.
 
-The v2.0 endpoint (used by MSAL) can emit v1.0 and v2.0 tokens. A property of the application manifest of the Web API enables developers to choose which version of token is accepted. See `accessTokenAcceptedVersion` in the [application manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) reference documentation.
+The v2.0 endpoint (used by MSAL) can emit v1.0 and v2.0 tokens. A property of the application manifest of the web API enables developers to choose which version of token is accepted. See `accessTokenAcceptedVersion` in the [application manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) reference documentation.
 
 For more information about v1.0 and v2.0 tokens, see [Azure Active Directory access tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
 
@@ -107,7 +106,7 @@ PublicClientApplication app = PublicClientApplication.builder(CLIENT_ID) // Clie
 IAuthenticationResult result = app.acquireToken(parameters);
 ```
 
-The `IAuthenticationResult` returns an access token and ID token, while your new refresh token is stored in the cache. 
+The `IAuthenticationResult` returns an access token and ID token, while your new refresh token is stored in the cache.
 The application will also now contain an IAccount:
 
 ```java
@@ -117,6 +116,6 @@ Set<IAccount> accounts =  app.getAccounts().join();
 To use the tokens that are now in the cache, call:
 
 ```java
-SilentParameters parameters = SilentParameters.builder(scope, accounts.iterator().next()).build(); 
+SilentParameters parameters = SilentParameters.builder(scope, accounts.iterator().next()).build();
 IAuthenticationResult result = app.acquireToken(parameters);
 ```
