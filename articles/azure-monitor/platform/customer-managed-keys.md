@@ -119,8 +119,7 @@ The procedure is not supported in the UI currently and the provisioning process 
 For example:
 
 ```rst
-GET
-https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>?api-version=2015-11-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
 Authorization: Bearer eyJ0eXAiO....
 ```
 
@@ -130,8 +129,8 @@ You can acquire the token using one of these methods:
 
 1. Use [App registrations](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens) method.
 2. In the Azure portal
-    1. Navigate to Azure portal in "developer tool (F12)
-    1. Look for authorization string under "Request Headers" in one of the "batch?api-version" instances. It looks like: "authorization: Bearer \<token\>". 
+    1. Navigate to Azure portal while in "developer tool" (F12)
+    1. Look for authorization string under "Request Headers" in one of the "batch?api-version" instances. It looks like: "authorization: Bearer eyJ0eXAiO....". 
     1. Copy and add it to your API call per the examples below.
 3. Navigate to Azure REST documentation site. Press "Try it" on any API and copy the Bearer token.
 
@@ -139,12 +138,12 @@ You can acquire the token using one of these methods:
 
 Some of the operations in this configuration procedure run asynchronously because they can't be completed quickly. The response for asynchronous operation initially returns an HTTP status code 200 (OK) and header with *Azure-AsyncOperation* property when accepted:
 ```json
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/ subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2015-11-01-preview"
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-03-01-preview"
 ```
 
 You can check the status of the asynchronous operation by sending a GET request to the *Azure-AsyncOperation* header value:
 ```rst
-GET https://management.azure.com/subscriptions/ subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2015-11-01-preview
+GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 ```
 
@@ -239,11 +238,9 @@ The identity is assigned to the *Cluster* resource at creation time.
 **Response**
 
 200 OK and header.
-
->[!Important]
-> During the early access period of the feature, the ADX cluster is provisioned manually. While it takes the provisioning of the underly ADX cluster a while to complete, you can check the provisioning state in two ways:
-> 1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
-> 2. Send a GET request on the *Cluster* resource and look at the *provisioningState* value. It is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
+During the early access period of the feature, the ADX cluster is provisioned manually. While it takes the provisioning of the underly ADX cluster a while to complete, you can check the provisioning state in two ways:
+1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
+2. Send a GET request on the *Cluster* resource and look at the *provisioningState* value. It is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
 ### Azure Monitor data-store (ADX cluster) provisioning
 
@@ -255,7 +252,7 @@ Authorization: Bearer <token>
 ```
 
 > [!IMPORTANT]
-> Copy and save the response since you will need its details in later steps
+> Copy and save the response since you will need the details in next steps.
 
 **Response**
 
@@ -309,13 +306,13 @@ details.
 
 **Update**
 
-This Resource Manager request is asynchronous operation.
+This Resource Manager request is asynchronous operation when updating Key identifier details, while it is synchronous when updating Capacity value.
 
->[!Warning]
+> [!Warning]
 > You must provide a full body in *Cluster* resource update that includes *identity*, *sku*, *KeyVaultProperties* and *location*. Missing the *KeyVaultProperties* details will remove the key identifier from the *Cluster* resource and cause [key revocation](#cmk-kek-revocation).
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -342,11 +339,9 @@ Content-type: application/json
 **Response**
 
 200 OK and header.
-
->[!Important]
-> It takes the propagation of the Key identifier a few minutes to complete. You can check the provisioning state in two ways:
-> 1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
-> 2. Send a GET request on the *Cluster* resource and look at the *KeyVaultProperties* properties. Your recently updated Key identifier details should return in the response.
+It takes the propagation of the Key identifier a few minutes to complete. You can check the update state in two ways:
+1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
+2. Send a GET request on the *Cluster* resource and look at the *KeyVaultProperties* properties. Your recently updated Key identifier details should return in the response.
 
 A response to GET request on the *Cluster* resource should look like this when Key identifier update is complete:
 
@@ -382,8 +377,6 @@ A response to GET request on the *Cluster* resource should look like this when K
 ### Workspace association to *Cluster* resource
 For Application Insights CMK configuration, follow the Appendix content for this step.
 
-This Resource Manager request is asynchronous operation.
-
 You need to have 'write' permissions to both your workspace and *Cluster* resource to perform this operation, which include these actions:
 
 - In workspace: Microsoft.OperationalInsights/workspaces/write
@@ -397,7 +390,7 @@ You need to have 'write' permissions to both your workspace and *Cluster* resour
 This Resource Manager request is asynchronous operation.
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2019-08-01-preview 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -411,14 +404,12 @@ Content-type: application/json
 **Response**
 
 200 OK and header.
-
->[!Important]
-> Ingested data is stored encrypted with your managed key after association operation, which can take up to 90 minutes to complete. You can check the workspace association state in two ways:
-> 1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
-> 2. Send a [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) request and observe the response, associated workspace will have a clusterResourceId under "features".
+Ingested data is stored encrypted with your managed key after association operation, which can take up to 90 minutes to complete. You can check the workspace association state in two ways:
+1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
+2. Send a [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) request and observe the response, associated workspace will have a clusterResourceId under "features".
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
 ```
 
 **Response**
@@ -473,20 +464,16 @@ All your data is accessible after the key rotation operation including data inge
 
 - The max number of *Cluster* resources per subscription is limited to 2
 
-- *Cluster* resource association to workspace should be carried ONLY after you have verified that the ADX cluster provisioning was fulfilled. Data that is sent prior to this provisioning will be dropped and won't be recoverable.
+- *Cluster* resource association to workspace should be carried ONLY after you have verified that the ADX cluster provisioning was completed. Data sent to your workspace prior to the completion of the provisioning will be dropped and won't be recoverable.
 
 - CMK encryption applies to newly ingested data after the CMK
     configuration. Data that was ingested prior to the CMK
     configuration, remains encrypted with Microsoft key. You can query
     data ingested before and after the CMK configuration seamlessly.
 
-- Once workspace is associated to a *Cluster* resource, it cannot be
-    de-associated from the *Cluster* resource, since data is encrypted
-    with your key and isn't accessible without your KEK in Azure Key
-    Vault.
+- You can de-associate a workspace from a *Cluster* resource when deciding that CMK isn’t required for particular workspace. New ingested data after the de-association operation is stored in shared Log Analytics storage as it was before it was associated to the *Cluster* resource. You can query data ingested before and after the de-association seamlessly if your *Cluster* resource is provisioned and configured with valid Key Vault key.
 
-- The Azure Key Vault must be configured as recoverable. These
-    properties aren't enabled by default and should be configured using CLI and PowerShell:
+- The Azure Key Vault must be configured as recoverable. These properties aren't enabled by default and should be configured using CLI or PowerShell:
 
   - [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
     must be turned on
@@ -518,10 +505,12 @@ All your data is accessible after the key rotation operation including data inge
 
 - If you try to delete a *Cluster* resource that is associated to a workspace, the delete operation will fail.
 
+- If you get conflict error when creating a *Cluster* resource – It may be that you have deleted your *Cluster* resource in the last 14 days and it’s in a soft-delete period. The *Cluster* resource name remains reserved during the soft-delete period and you can't create a new cluster with that name. The name is released after the soft-delete period when the *Cluster* resource is permanently deleted.
+
 - Get all *Cluster* resources for a resource group:
 
   ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
   Authorization: Bearer <token>
   ```
     
@@ -536,6 +525,11 @@ All your data is accessible after the key rotation operation including data inge
           "tenantId": "tenant-id",
           "principalId": "principal-Id"
         },
+        "sku": {
+          "name": "capacityReservation",
+          "capacity": 1000,
+          "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
+          },
         "properties": {
            "KeyVaultProperties": {
               KeyVaultUri: "https://key-vault-name.vault.azure.net",
@@ -558,20 +552,20 @@ All your data is accessible after the key rotation operation including data inge
 - Get all *Cluster* resources for a subscription:
 
   ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2019-08-01-preview
+  GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
   Authorization: Bearer <token>
   ```
     
   **Response**
     
   The same response as for '*Cluster* resources for a resource group', but in subscription scope.
-    
-- Delete your *Cluster* resource -- a soft-delete operation is performed to allow the recovery of your Cluster resource, your data and associated workspaces within 14 days, whether the deletion was accidental or intentional. The *Cluster* resource name remains reserved during the soft-delete period and you can't create a new cluster with that name. 
-After the soft-delete period, your *Cluster* resource and data are non-recoverable. Associated workspaces are de-associated from the *Cluster* resource and new data is ingested to shared Storage and encrypted with Microsoft key.
+
+- Update *capacity reservation* in *Cluster* resource -- when the data volume to your associated workspaces change and you want to update the capacity reservation level for billing considerations, follow the [update *Cluster* resource](#update-cluster-resource-with-key-identifier-details) and provide your new capacity value. The capacity reservation level can be in the range of 1,000 to 2,000 GB per day and in steps of 100. For level higher than 2,000 GB per day, reach your Microsoft contact to enable it.
+
+- Delete your *Cluster* resource -- a soft-delete operation is performed to allow the recovery of your *Cluster* resource including its data within 14 days, whether the deletion was accidental or intentional. The *Cluster* resource name remains reserved during the soft-delete period and you can't create a new cluster with that name. After the soft-delete period, The *Cluster* resource name is released, your *Cluster* resource and data are permanently deleted and are non-recoverable. Any associated workspace gets de-associated from the *Cluster* resource on delete operation. New ingested data is stored in shared Log Analytics storage and encrypted with Microsoft key. The workspaces de-associated operation is asynchronous.
 
   ```rst
-  DELETE
-  https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
   Authorization: Bearer <token>
   ```
 
@@ -579,8 +573,8 @@ After the soft-delete period, your *Cluster* resource and data are non-recoverab
 
   200 OK
 
-- Recover your *Cluster* resource and your data -- during the soft-delete period, create a *Cluster* resource with the same name and in the same subscription, resource group and region. Follow the **Create *Cluster* resource** step to recover your *Cluster* resource.
-
+- Recover your *Cluster* resource and your data -- 
+A *Cluster* resource that was deleted in the last 14 days is in soft-delete state and can be recovered. This is performed manually by the product group currently. Use your Microsoft channel for recovery requests.
 
 ## Appendix
 
@@ -614,8 +608,10 @@ This resource is used as intermediate identity connection between your Key Vault
 
 **Create**
 
+This Resource Manager request is asynchronous operation.
+
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -636,11 +632,10 @@ Content-type: application/json
 
 **Response**
 
-200 OK and header when accepted.
->[!Important]
-> During the early access period of the feature, the ADX cluster is provisioned manually. While it takes the provisioning of the underly ADX cluster a while to complete, you can check the provisioning state in two ways:
-> 1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
-> 2. Send a GET request on the *Cluster* resource and look at the *provisioningState* value. It is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
+200 OK and header.
+During the early access period of the feature, the ADX cluster is provisioned manually. While it takes the provisioning of the underly ADX cluster a while to complete, you can check the provisioning state in two ways:
+1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
+2. Send a GET request on the *Cluster* resource and look at the *provisioningState* value. It is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
 ### Associate a component to a *Cluster* resource using [Components - Create Or Update](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
 
@@ -654,7 +649,7 @@ You need to have 'write' permissions on both your component and *Cluster* resour
 > To verify that the ADX cluster is provisioned, execute *Cluster* resource Get REST API and check that the *provisioningState* value is *Succeeded*.
 
 ```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 ```
 
@@ -689,7 +684,7 @@ Authorization: Bearer <token>
 ```
 
 > [!IMPORTANT]
-> Copy and keep the "principle-id" value since you will need it in next steps.
+> Copy and keep the response since you will need it in next steps.
 
 **Associate a component**
 

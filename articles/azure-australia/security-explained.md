@@ -1,11 +1,11 @@
 ---
 title: Azure Australia security explained
 description: Information most asked about the Australian regions and meeting the specific requirements of Australian Government policy, regulations, and legislation.
-author: galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: v-emread
 ---
 
 # Azure Australia security explained
@@ -34,7 +34,7 @@ The assessment of Azure services at the PROTECTED level identifies that the impl
 
 ## Australian data classification changes
 
-On October 1, 2018, the Attorney General’s Department publicly announced changes to the Protective Security Policy Framework (PSPF), specifically a new [sensitive and classified information system](https://www.protectivesecurity.gov.au/information/sensitive-classified-information/Pages/default.aspx).
+On October 1, 2018, the Attorney General's Department publicly announced changes to the Protective Security Policy Framework (PSPF), specifically a new [sensitive and classified information system](https://www.protectivesecurity.gov.au/information/sensitive-classified-information/Pages/default.aspx).
 
 ![Revised PSPF classifications](media/pspf-classifications.png)
 
@@ -77,9 +77,9 @@ The Microsoft certifications demonstrate that Azure services were subjected to a
 
 It's a mandatory requirement of government and critical infrastructure to explicitly know the data centre location and ownership for cloud services processing their data. Microsoft is unique as a hyperscale cloud provider in providing extensive information about these locations and ownership.
 
-Microsoft’s Azure Australia regions (Australia Central and Australia Central 2) operate within the facilities of CDC Datacentres. The ownership of CDC Datacentres is Australian controlled with 48% ownership from the Commonwealth Superannuation Corporation, 48% ownership from Infratil (a New Zealand-based, dual Australian and New Zealand Stock Exchange listed long-term infrastructure asset fund), and 4% Australian management. 
+Microsoft's Azure Australia regions (Australia Central and Australia Central 2) operate within the facilities of CDC Datacentres. The ownership of CDC Datacentres is Australian controlled with 48% ownership from the Commonwealth Superannuation Corporation, 48% ownership from Infratil (a New Zealand-based, dual Australian and New Zealand Stock Exchange listed long-term infrastructure asset fund), and 4% Australian management. 
 
-The management of CDC Datacentres has contractual assurances in place with the Australian Government that restrict future transfer of ownership and control. This transparency of supply chain and ownership via Microsoft’s partnership with CDC Datacentres is in line with the principles of the [Whole-of-Government Hosting Strategy](https://www.dta.gov.au/our-projects/whole-government-hosting-strategy) and the definition of a Certified Sovereign Datacentre.
+The management of CDC Datacentres has contractual assurances in place with the Australian Government that restrict future transfer of ownership and control. This transparency of supply chain and ownership via Microsoft's partnership with CDC Datacentres is in line with the principles of the [Whole-of-Government Hosting Strategy](https://www.dta.gov.au/our-projects/whole-government-hosting-strategy) and the definition of a Certified Sovereign Datacentre.
 
 ## Azure services that are included in the current CCSL certification
 
@@ -125,7 +125,7 @@ Microsoft operates our services globally with screened and trained security pers
 
 Microsoft has a zero standing access policy with access granted through a system of just in time and just enough administration based on role-based access controls. In the vast majority of cases, our administrators don't require access or privileges to customer data in order to troubleshoot and maintain the service. High degrees of automation and scripting of tasks for remote execution negate the need for direct access to customer data.
 
-The Attorney General’s Department has confirmed that Microsoft’s personnel security policies and procedures within Azure are consistent with the intent of the PSPF Access to Information provisions in INFOSEC-9.
+The Attorney General's Department has confirmed that Microsoft's personnel security policies and procedures within Azure are consistent with the intent of the PSPF Access to Information provisions in INFOSEC-9.
 
 ## Store International Traffic of Arms Regulations (ITAR) or Export Administration Regulations (EAR) data
 
@@ -133,7 +133,7 @@ The Azure technical controls that assist customers with meeting their obligation
 
 For Azure Government and Office 365 US Government for Defense, we've put additional contractual and process measures in place to support customers subject to export controls. Those additional contractual clauses and the guaranteed U.S. national support and administration of the Azure regions isn't in place for Australia.
 
-That doesn’t mean that Azure in Australia can't be used for ITAR/EAR, but you need to clearly understand the restrictions imposed on you through your export license. You also must implement additional protections to meet those obligations before you use Azure to store that data. For example, you might need to:
+That doesn't mean that Azure in Australia can't be used for ITAR/EAR, but you need to clearly understand the restrictions imposed on you through your export license. You also must implement additional protections to meet those obligations before you use Azure to store that data. For example, you might need to:
 
 - Build nationality as an attribute into Azure Active Directory.
 - Use Azure Information Protection to enforce encryption rules over the data and limit it to only U.S. and whatever other nationalities are included on the export license.

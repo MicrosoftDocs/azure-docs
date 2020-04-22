@@ -29,7 +29,7 @@ You can write queries against Azure Cognitive Search based on the rich [Lucene Q
 > [!NOTE]
 > The full Lucene syntax is used for query expressions passed in the **search** parameter of the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) API, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter](search-filters.md) parameter of that API. These different syntaxes have their own rules for constructing queries, escaping strings, and so on.
 
-## How to invoke full parsing
+## Invoke full parsing
 
 Set the `queryType` search parameter to specify which parser to use. Valid values include `simple|full`, with `simple` as the default, and `full` for Lucene. 
 
@@ -101,7 +101,7 @@ Unsafe characters are ``" ` < > # % { } | \ ^ ~ [ ]``. Reserved characters are `
 
 Field grouping is similar but scopes the grouping to a single field. For example, `hotelAmenities:(gym+(wifi||pool))` searches the field "hotelAmenities" for "gym" and "wifi", or "gym" and "pool".  
 
-##  <a name="bkmk_boolean"></a> Boolean operators (AND, OR, NOT) 
+##  <a name="bkmk_boolean"></a> Boolean search
 
  Always specify text boolean operators (AND, OR, NOT) in all caps.  
 

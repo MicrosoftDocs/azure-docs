@@ -11,6 +11,9 @@ ms.author: dsindona
 
 # Virtual machine Offer Settings tab
 
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Virtual Machine offer](https://aka.ms/CreateAzureVMoffer) to manage your migrated offers.
+
 The **New Offer** page for virtual machines opens in the first tab named **Offer Settings**.  
 
 ![New Offer page for virtual machines](./media/publishvm_004.png)

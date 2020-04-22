@@ -16,7 +16,7 @@ There is also a [Visual Studio Code-based version](functions-create-first-functi
 
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> If Maven is not your prefered development tool, check out our similar tutorials for Java devlopers using [Gradle](/azure/azure-functions/functions-create-first-java-gradle), [IntelliJ IDEA](/azure/java/intellij/azure-toolkit-for-intellij-quickstart-functions) and [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+> If Maven is not your prefered development tool, check out our similar tutorials for Java developers using [Gradle](/azure/azure-functions/functions-create-first-java-gradle), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) and [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
 ::: zone-end  
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
@@ -92,7 +92,7 @@ Navigate into the project folder:
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ```
-cd LocalFunctionsProject
+cd LocalFunctionProj
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
@@ -217,9 +217,9 @@ Use the following Azure CLI commands to create these items. Each command provide
 
 If you haven't done so already, sign in to Azure with the [az login](/cli/azure/reference-index#az-login) command:
 
-    ```azurecli
-    az login
-    ```
+```azurecli
+az login
+```
     
 Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named `AzureFunctionsQuickstart-rg` in the `westeurope` region. (You generally create your resource group and resources in a region near you, using an available region from the `az account list-locations` command.)
 
