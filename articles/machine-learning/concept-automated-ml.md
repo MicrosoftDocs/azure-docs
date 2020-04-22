@@ -61,7 +61,12 @@ Learn more with this how-to: [automated machine learning for time series forecas
 
 See examples of regression and automated machine learning for predictions in these Python notebooks: [Sales Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb), [Demand Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb), and [Beverage Production Forecast](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb).
 
-## Design automated ML experiments
+## How automated ML works
+
+During training, Azure Machine Learning creates a number of pipelines in parallel that try different algorithms and parameters for you. The service iterates through ML algorithms paired with feature selections, where each iteration produces a model with a training score. The higher the score, the better the model is considered to "fit" your data.  It will stop once it hits the exit criteria defined in the experiment. 
+
+The following diagram illustrates this process. 
+![Automated Machine learning](./media/concept-automated-ml/automl-concept-diagram2.png)
 
 Using **Azure Machine Learning**, you can design and run your automated ML training experiments with these steps:
 
@@ -77,12 +82,7 @@ Using **Azure Machine Learning**, you can design and run your automated ML train
 
 1. **Submit the training run.**
 
-## How automated ML works
-
-During training, Azure Machine Learning creates a number of in parallel pipelines that try different algorithms and parameters. The service iterates through ML algorithms paired with feature selections, where each iteration produces a model with a training score. The higher the score, the better the model is considered to "fit" your data.  It will stop once it hits the exit criteria defined in the experiment. The following diagram illustrates this process. 
-
-  ![Automated Machine learning](./media/concept-automated-ml/automl-concept-diagram2.png)
-
+1. **Review the results** 
 
 You can also inspect the logged run information, which [contains metrics](how-to-understand-automated-ml.md) gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
@@ -137,6 +137,8 @@ Automated machine learning supports ensemble models, which are enabled by defaul
 The [Caruana ensemble selection algorithm](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) with sorted ensemble initialization is used to decide which models to use within the ensemble. At a high level, this algorithm initializes the ensemble with up to five models with the best individual scores, and verifies that these models are within 5% threshold of the best score to avoid a poor initial ensemble. Then for each ensemble iteration, a new model is added to the existing ensemble and the resulting score is calculated. If a new model improved the existing ensemble score, the ensemble is updated to include the new model.
 
 See the [how-to](how-to-configure-auto-train.md#ensemble) for changing default ensemble settings in automated machine learning.
+
+<a name="use-with-onnx"></a>
 
 ## AutoML & ONNX
 
