@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/16/2020
+ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: 
 
@@ -65,3 +65,4 @@ References:
 | SAP Hybris Commerce Platform  | Windows | SQL Server, Oracle | All NetWeaver certified VM types <br /> [Hybris Wiki](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |
 | SAP Hybris Commerce Platform  | SLES 12 or more recent | SAP HANA | All NetWeaver certified VM types <br /> [Hybris Wiki](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |
 | SAP Hybris Commerce Platform  | RHEL 7 or more recent | SAP HANA | All NetWeaver certified VM types <br /> [Hybris Wiki](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |
+| SAP (Hybris) Commerce Platform 1811 and later  | Windows, SLES, or RHEL | SQL Azure DB | All NetWeaver certified VM types <br /> [Hybris Documentation](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html) |
