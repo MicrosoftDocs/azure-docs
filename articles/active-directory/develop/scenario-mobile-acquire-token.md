@@ -265,7 +265,7 @@ When you use the protocol to get tokens for mobile apps, make two requests:
 
 #### Get an authorization code
 
-```Text
+```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=<CLIENT_ID>
 &response_type=code
@@ -277,7 +277,7 @@ client_id=<CLIENT_ID>
 
 #### Get access and refresh the token
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
