@@ -39,10 +39,6 @@ landingContent:
           url: tutorial-visual-studio-code-linux.md
         - text: Build a device that's ready for certification
           url: tutorial-build-device-certification.md
-    - linkListType: how-to-guide
-      links:
-        - text: Use Azure IoT Tools for Visual Studio Code
-          url: howto-develop-with-vs-vscode.md
     - linkListType: concept
       links:
         - text: Common interfaces
