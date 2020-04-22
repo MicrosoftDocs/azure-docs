@@ -100,7 +100,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 1. Select **Create** to start provisioning the SQL Managed Instance.
 
 > [!IMPORTANT]
-> Deploying a SQL Managed Instance is a long-running operation. Deployment of the first instance in the subnet typically takes much longer than deploying into a subnet with existing SQL Managed Instances. For average provisioning times, see [SQL Managed Instance management operations](sql-database-managed-instance.md#managed-instance-management-operations).
+> Deploying a SQL Managed Instance is a long-running operation. Deployment of the first instance in the subnet typically takes much longer than deploying into a subnet with existing SQL Managed Instances. For average provisioning times, see [SQL Managed Instance management operations](sql-database-managed-instance.md#management-operations).
 
 ## Monitor deployment progress
 

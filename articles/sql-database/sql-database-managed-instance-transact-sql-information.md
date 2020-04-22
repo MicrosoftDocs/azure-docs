@@ -285,7 +285,7 @@ For more information, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-
     - The merge replication job step isn't supported. 
     - Queue Reader isn't supported. 
     - Command shell isn't yet supported.
-  - Managed instances can't access external resources, for example, network shares via robocopy. 
+  - SQL Managed Instances can't access external resources, for example, network shares via robocopy. 
   - SQL Server Analysis Services aren't supported.
 - Notifications are partially supported.
 - Email notification is supported, although it requires that you configure a Database Mail profile. SQL Server Agent can use only one Database Mail profile, and it must be called `AzureManagedInstance_dbmail_profile`. 
@@ -344,7 +344,7 @@ Undocumented DBCC statements that are enabled in SQL Server aren't supported in 
 
 - Only a limited number of Global Trace flags are supported. Session-level `Trace flags` aren't supported. See [Trace flags](/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - [DBCC TRACEOFF](/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) and [DBCC TRACEON](/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) work with the limited number of global trace-flags.
-- [DBCC CHECKDB](/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) with options REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST, and REPAIR_REBUILD cannot be used because database cannot be set in `SINGLE_USER` mode - see [ALTER DATABASE differences](#alter-database-statement). Potential database corruptions are handled by Azure support team. Contact Azure support if you are noticing database corruption that should be fixed.
+- [DBCC CHECKDB](/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) with options REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST, and REPAIR_REBUILD cannot be used because database cannot be set in `SINGLE_USER` mode - see [ALTER DATABASE differences](#alter-database-statement). Potential database corruption is handled by the Azure support team. Contact Azure support if there is any indication of database corruption.
 
 ### Distributed transactions
 
@@ -384,11 +384,11 @@ For more information, see [FILESTREAM](/sql/relational-databases/blob/filestream
 
 Linked servers in SQL Managed Instances support a limited number of targets:
 
-- Supported targets are Managed Instances, Single Databases, and SQL Server instances. 
+- Supported targets are SQL Managed Instance, SQL Database, and SQL Server instances. 
 - Linked servers don't support distributed writable transactions (MS DTC).
 - Targets that aren't supported are files, Analysis Services, and other RDBMS. Try to use native CSV import from Azure Blob Storage using `BULK INSERT` or `OPENROWSET` as an alternative for file import.
 
-Operations
+Operations: 
 
 - Cross-instance write transactions aren't supported.
 - `sp_dropserver` is supported for dropping a linked server. See [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
@@ -405,12 +405,12 @@ External tables that reference the files in HDFS or Azure Blob storage aren't su
 - Snapshot and Bi-directional replication types are supported. Merge replication, Peer-to-peer replication, and updatable subscriptions are not supported.
 - [Transactional Replication](sql-database-managed-instance-transactional-replication.md) is available for public preview on SQL Managed Instance with some constraints:
     - All types of replication participants (Publisher, Distributor, Pull Subscriber, and Push Subscriber) can be placed on SQL Managed Instances, but the publisher and the distributor must be either both in the cloud or both on-premises.
-    - Managed instances can communicate with the recent versions of SQL Server. See the [supported versions matrix](sql-database-managed-instance-transactional-replication.md#supportability-matrix) for more information.
+    - SQL Managed Instances can communicate with the recent versions of SQL Server. See the [supported versions matrix](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems) for more information.
     - Transactional Replication has some [additional networking requirements](sql-database-managed-instance-transactional-replication.md#requirements).
 
 For more information about configuring transactional replication, see the following tutorials:
-- [Replication between an MI publisher and subscriber](replication-with-sql-database-managed-instance.md)
-- [Replication between an MI publisher, MI distributor, and SQL Server subscriber](sql-database-managed-instance-configure-replication-tutorial.md)
+- [Replication between a SQL MI publisher and SQL MI subscriber](replication-with-sql-database-managed-instance.md)
+- [Replication between an SQL MI publisher, SQL MI distributor, and SQL Server subscriber](sql-database-managed-instance-configure-replication-tutorial.md)
 
 ### RESTORE statement 
 
@@ -442,8 +442,8 @@ The following database options are set or overridden and can't be changed later:
 
 Limitations: 
 
-- Backups of the corrupted databases might be restored depending on the type of the corruption, but automated backups will not be taken until the corruption is fixed. Make sure that you run `DBCC CHECKDB` on the source instance and use backup `WITH CHECKSUM` in order to prevent this issue.
-- Restore of `.BAK` file of a database that contains any limitation described in this document (for example, `FILESTREAM` or `FILETABLE` objects) cannot be restored on Managed Instance.
+- Backups of the corrupted databases might be restored depending on the type of the corruption, but automated backups will not be taken until the corruption is fixed. Make sure that you run `DBCC CHECKDB` on the source SQL Managed Instance and use backup `WITH CHECKSUM` in order to prevent this issue.
+- Restore of `.BAK` file of a database that contains any limitation described in this document (for example, `FILESTREAM` or `FILETABLE` objects) cannot be restored on SQL Managed Instance.
 - `.BAK` files that contain multiple backup sets can't be restored. 
 - `.BAK` files that contain multiple log files can't be restored.
 - Backups that contain databases bigger than 8 TB, active in-memory OLTP objects, or number of files that would exceed 280 files per instance can't be restored on a General Purpose instance. 
@@ -504,7 +504,7 @@ The following variables, functions, and views return different results:
 
 ### TEMPDB
 
-The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the instance storage size. `Tempdb` log file size is limited to 120 GB on General Purpose tier. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
+The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the SQL Managed Instance storage size. `Tempdb` log file size is limited to 120 GB on General Purpose tier. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
 
 ### MSDB
 
@@ -532,7 +532,7 @@ A SQL Managed Instance places verbose information in error logs. There are many 
 
 ## Next steps
 
-- For more information about SQL Managed Instances, see [What is a SQL Managed Instance?](sql-database-managed-instance.md)
-- For a features and comparison list, see [Azure SQL Database feature comparison](sql-database-features.md).
-- For release updates and known issues state, see [SQL Database release notes](sql-database-release-notes.md)
+- For more information about SQL Managed Instances, see [What is SQL Managed Instance?](sql-database-managed-instance.md)
+- For a features and comparison list, see [Azure SQL Managed Instance feature comparison](sql-database-features.md).
+- For release updates and known issues state, see [SQL Managed Instance release notes](sql-database-release-notes.md)
 - For a quickstart that shows you how to create a new SQL Managed Instance, see [Create a SQL Managed Instance](sql-database-managed-instance-get-started.md).

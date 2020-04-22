@@ -44,7 +44,7 @@ Peering is preferable because peering uses the Microsoft backbone network so, fr
 > [!IMPORTANT]
 > Virtual network peering scenario for SQL Managed Instance is limited to the networks in the same region due to the [constraints ofGlobal Virtual Network peering](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). See also the relevant section of the [Azure Virtual Networks Frequently Asked Questions](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) article for more details. 
 
-## Connect on-premises 
+## Connect from on-premises 
 
 You can also connect your on-premises application to your SQL Managed Instance. SQL Managed Instance can only be accessed through a private IP address. In order to access it from on-premises, you need to make a Site-to-Site connection between the application and the SQL Managed Instance virtual network.
 
@@ -130,7 +130,7 @@ For troubleshooting connectivity issues, review the following:
    None
    ```
 
-- If using virtual network peering, ensure that you have followed the instructions for setting [Allow Gateway Transit and Use Remote Gateways](#connect-from-on-premises-with-vnet-peering).
+- If using virtual network peering, ensure that you have followed the instructions for setting [Allow Gateway Transit and Use Remote Gateways](#connect-from-on-premises).
 
 - If using virtual network peering to connect an Azure App Service hosted application, and the SQL Managed Instance virtual network has a public IP address range, make sure that your hosted application settings allow your outbound traffic to be routed to public IP networks. Follow the instructions in [Regional virtual network Integration](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration).
 

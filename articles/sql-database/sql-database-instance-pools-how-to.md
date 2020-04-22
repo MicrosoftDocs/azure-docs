@@ -41,8 +41,8 @@ Available [PowerShell commands](https://docs.microsoft.com/powershell/module/az.
 |[New-AzSqlInstancePool](/powershell/module/az.sql/new-azsqlinstancepool/) | Creates a SQL Managed Instance pool. |
 |[Get-AzSqlInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | Returns information about instance pool. |
 |[Set-AzSqlInstancePool](/powershell/module/az.sql/set-azsqlinstancepool/) | Sets properties for an SQL Managed Instance pool. |
-|[Remove-AzSqlInstancePool](/powershell/module/az.sql/remove-azsqlinstancepool/) | Removes an Azure SQL Managed instance pool. |
-|[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Returns information about Azure SQL Managed Instace pool usage. |
+|[Remove-AzSqlInstancePool](/powershell/module/az.sql/remove-azsqlinstancepool/) | Removes an SQL Managed instance pool. |
+|[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Returns information about SQL Managed Instance pool usage. |
 
 
 To use PowerShell, [install the latest version of PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell), and follow instructions to [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
@@ -51,22 +51,17 @@ For operations related to instances both inside pools and single instances, use 
 
 ## Deployment process
 
-The process of deploying an instance into a pool consists of the following two steps:
+To deploy a SQL Managed Instance into an instance pool, you must first deploy the instance pool, which is a one-time long-running operation where the duration is the same as deploying a [single instance created in an empty subnet](sql-database-managed-instance.md#management-operations). After that, you can deploy SQL Managed Instances into the pool, which is a relatively fast operation that typically takes up to five minutes. The instance pool parameter must be explicitly specified as part of this operation.
 
-1. One-off instance pool deployment. This is a long running operation, where the duration is the same as deploying a [single instance created in an empty subnet](sql-database-managed-instance.md#managed-instance-management-operations).
+In public preview, both actions are only supported using PowerShell and Resource Manager templates. The Azure portal experience is not currently available.
 
-2. Repetitive instance deployment in an instance pool. The instance pool parameter must be explicitly specified as part of this operation. This is a relatively fast operation that typically takes up to 5 minutes.
-
-In public preview, both steps are only supported using PowerShell and Resource Manager templates. The Azure portal experience is not currently available.
-
-After a managed instance is deployed to a pool, you *can* use the Azure portal to change its properties on the pricing tier page.
-
+After the SQL Managed Instance is deployed to a pool, you *can* use the Azure portal to change its properties on the pricing tier page.
 
 ## Create virtual network with a subnet 
 
 To place multiple instance pools inside the same virtual network, see the following articles:
 
-- [Determine VNet subnet size for an Azure SQL Database managed instance](sql-database-managed-instance-determine-size-vnet-subnet.md).
+- [Determine VNet subnet size for an Azure SQL Managed Instance](sql-database-managed-instance-determine-size-vnet-subnet.md).
 - Create new virtual network and subnet using the [Azure portal template](sql-database-managed-instance-create-vnet-subnet.md) or follow the instructions for [preparing an existing virtual network](sql-database-managed-instance-configure-vnet-subnet.md).
  
 
@@ -127,7 +122,7 @@ $instanceTwo = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 4 -
 
 To create and manage databases in a SQL Managed Instance that's inside a pool, use the single instance commands.
 
-To create a database inside a managed instance:
+To create a database inside a SQL Managed Instance:
 
 ```powershell
 $poolinstancedb = New-AzSqlInstanceDatabase -Name "mipooldb1" -InstanceName "poolmi-001" -ResourceGroupName "myResourceGroup"
@@ -190,7 +185,7 @@ $instance | Set-AzSqlInstance -StorageSizeInGB 1024 -InstancePoolName "mi-pool-n
 
 To connect to a SQL Managed Instance in a pool, the following two steps are required:
 
-1. [Enable the public endpoint for the instance](#enable-the-public-endpoint-for-the-instance).
+1. [Enable the public endpoint for the instance](#enable-public-endpoint).
 2. [Add an inbound rule to the network security group (NSG)](#add-an-inbound-rule-to-the-network-security-group).
 
 After both steps are complete, you can connect to the instance by using a public endpoint address, port, and credentials provided during instance creation. 
