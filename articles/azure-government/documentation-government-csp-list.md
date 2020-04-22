@@ -23,7 +23,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[1901 Group, LLC](https://1901group.com)|
 |[3Di inc](https://www.3disystems.com)|
 |[AC4S Consulting, Inc.](https://ac4s.com)|
-|[Accelera Solutions Inc](https://www.accelerasolutions.com/)|
+|[Accelera Solutions Inc](http://www.accelerasolutions.com/)|
 |[Accenture Federal Services LLC](https://www.accenture.com/us-en/afs-industry-index)|
 |[Access Interactive Inc.](https://www.access-interactive.com/)|
 |[ACP Technologies](https://acp.us.com)|
@@ -87,11 +87,11 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[CloudFit Software, LLC](https://www.cloudfitsoftware.com/)|
 |[Cloud Navigator, Inc - formerly ISC](https://www.cloudnav.com )|
 |[CNSS - Cherokee Nation System Solutions LLC](http://cherokee-cnt.com/Pages/home.aspx)|
-|[CodeLynx, LLC](https://www.codelynx.com/)|
+|[CodeLynx, LLC](http://www.codelynx.com/)|
 |[Competitive Innovations, LLC](https://www.cillc.com)|
 |[Computer Professionals International](http://www.comproinc.com/)|
 |[Computer Solutions Inc.](http://cs-inc.co/)|
-|[Computex Technology Solutions](https://www.computex-inc.com/)|
+|[Computex Technology Solutions](http://www.computex-inc.com/)|
 |[ConvergeOne](https://www.convergeone.com)|
 |[Copper River Technologies, LLC](http://www.copperrivertech.com/)|
 |[Coretek Services](https://www.coretekservices.com/)|
@@ -272,13 +272,13 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Red Level](https://redlevelgroup.com/)|
 |[Redapt Attunix](https://www.redapt.com)|
 |[Redhorse Corporation](https://www.redhorsecorp.com)|
-|[Regan Technologies Corporation](https://www.regantech.com/)|
+|[Regan Technologies Corporation](http://www.regantech.com/)|
 |Reperi LLC|
 |[Resource Metrix](https://www.rmtrx.com)|
 |[Revenue Solutions, Inc](https://www.revenuesolutionsinc.com)|
 |[RMON Networks Inc.](https://rmonnetworks.com/)|
 |[rmsource, Inc.](https://www.rmsource.com)|
-|[Saiph Technologies Corporation](https://www.saiphtech.com/)|
+|[Saiph Technologies Corporation](http://www.saiphtech.com/)|
 |[SAP NS2](https://sapns2.com)|
 |[Science Applications International Corporation](https://www.saic.com)|
 |[Secure-24](https://www.secure-24.com)|
@@ -291,7 +291,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Sirius Computer Solutions, Inc.](https://www.siriuscom.com/)|
 |[SKY SOLUTIONS LLC](https://www.skysolutions.com/)|
 |[Smartronix](https://www.smartronix.com)|
-|[Socius 1 LLC](https://www.socius1.com)|
+|[Socius 1 LLC](http://www.socius1.com)|
 |[Softchoice Corporation](https://www.softchoice.com)|
 |[Software Services Group (dba Secant Technolgies)](https://www.secantcorp.com/)|
 |[SoftwareONE Inc.](https://www.softwareone.com/en-us)|
@@ -336,7 +336,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Vana Solutions LLC](https://vanasolutions.com)|
 |[Vazata - Horizon Data Center Solutions LLC](https://www.vazata.com/)|
 |[VC3 INC](https://www.vc3.com/)|
-|[VerisVisalign](https://www.verisvisalign.com)|
+|[VerisVisalign](http://www.verisvisalign.com)|
 |[Vertosoft](https://vertosoft.com)|
 |[Vespa Group LLC](https://www.vespa-group.com)|
 |[Virsage Solutions](https://www.virsage.com/)|
