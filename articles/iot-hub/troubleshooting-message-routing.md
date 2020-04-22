@@ -5,7 +5,7 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/225/2020
 ms.author: robinsh
 ---
 
@@ -24,6 +24,24 @@ To set up and use metrics, see the article [Set up and use metrics sand diagnost
 
 ## Scenario driven examples
 
+I was pulling data from build in endpoint into TSI or ASA and after configuring a new message route, TSI/ASA is not getting data. {Note: I don't have any idea what this means.}
+
+My endpoint status is dead on the portal, what can I do to debug?
+
+My endpoint is not getting data, how do I troubleshoot?
+
+Messages dropped, check per endpoint metrics, diag logs and get endpoint health for last known error
+
+What messages go to fallback route? How do I use this capability? 
+
+What services can I send data to using message routing? (should this be added? Its more for information than for debugging)  
+Link to routing docs/custom endpoints
+{These are covered in the routing tutorial and also one of the devguide articles, so adding it here would be super redundant. We should add the links at the bottom in a "for more information" link.}
+
+### Route to blob is failing
+
+TBD.
+
 ### What to do when messages are dropped due to large size of message or enrichment
 
 -- figure out if it's dropped because the size of the message or enrichment is too large.
@@ -36,15 +54,20 @@ To set up and use metrics, see the article [Set up and use metrics sand diagnost
 #### setting alerts in Azure Monitor
 #### Enabling diagnostic logs
 #### Using diagnostic logs to debug
+{Note: add an article detailing the diagnostic log usage and all of the fields added. Link to it from here}
 
 See the article [Set up and use metrics and diagnostic logs with an IoT Hub](tutorial-use-metrics-and-diags.md).    --> I think this is the classic alerts, and it needs to be updated to the azure monitor alerts.
 
-### Route to blob is failing
+## List of last known errors for IoT Hub
 
-TBD.
+[!INCLUDE [iot-hub-include-last-known-error](iot-hub-include-last-known-error.md)]
+
+## Endpoint Status
+
+[!INCLUDE [iot-hub-include-endpoint-health](iot-hub-include-endpoint-health.md)]
 
 ## common error codes
 
-TBD.
+If this is the diagnostics, should go there.
 
 ## Next steps
