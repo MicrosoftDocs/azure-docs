@@ -19,10 +19,15 @@ Azure Machine Learning pipelines provide an efficient way to modularize your cod
 ## Getting started
 
 {>> How do you begin? "Difficult to get started on a new pipeline without referring to an existing notebook"<<}
+There are several options for getting started if your are new to pipelines:
 
-Generally, pipeline projects do not start from a blank slate. If you are starting from scratch with your ML solution, you should develop at least a rough idea of your data preparation needs and know what kind of learning architecture you'll be applying to your problem. Individual pipeline steps are substantially walled-off from each other, so it's generally best to have an understanding of the scope of your data and functions.
+* If you learn best by reading and recreating the construction process, the article [Create and run machine learning pipelines with Azure Machine Learning SDK](how-to-create-your-first-pipeline.md) is a good fit 
+* If you like learning interactively in a Jupyter notebook, the pipeline developed in the [Azure Machine Learning Pipelines: Getting Started](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-getting-started.ipynb) notebook may be right for you
+* If you prefer a code-first situation, cloning the [Azure Machine Learning Pipelines Demo](https://github.com/microsoft/aml-pipelines-demo) repo provides a good starting point
 
-Of course, the most straightforward pay to begin creating a machine learning pipeline is to start with a monolithic, single-step pipeline. Getting a single `PythonScriptStep` pipeline up and running will get you familiar with the pipeline-iteration process without introducing other complexities. One important advantage of a monolithic initial project is that you can troubleshoot the environment and compute configuration in a single place. Locking down the Python libraries and versions in a single place can save you headaches later. See tk environment article tk. 
+After you've familiarized yourself with the general concepts and mechanics of creating a pipeline, you might decide to start from a blank slate. Generally, if you are starting from scratch with your ML solution, you should first develop at least a rough idea of your data preparation needs and know what kind of learning architecture you'll be applying to your problem. Individual pipeline steps are substantially walled-off from each other, so it's generally best to have an understanding of the scope of your data and functions.
+
+Of course, the most straightforward way to begin creating a machine learning pipeline is to start with a monolithic, single-step pipeline. Getting a single `PythonScriptStep` pipeline up and running will get you familiar with the pipeline-iteration process without introducing other complexities. Even a single-step pipeline will allow you to publish it independently, even as you continue to iterate it and build a more complex workflow.
 
 You can create a monolithic `PythonScriptStep` pipeline by using [tk notebook tk](tk does it exist? tk).
 
