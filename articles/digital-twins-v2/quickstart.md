@@ -244,4 +244,4 @@ In this quickstart, you got started with Azure Digital Twins by setting up an in
 Continue on to the tutorial to see how to connect a sample solution to other Azure services to complete a data-driven, end-to-end scenario: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Build an end-to-end solution](tutorial-connect.md)
+> [Tutorial: Build an end-to-end solution](tutorial.md)

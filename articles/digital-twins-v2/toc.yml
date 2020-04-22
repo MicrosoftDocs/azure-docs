@@ -13,7 +13,7 @@
 - name: Tutorial
   items:
   - name: Build an end-to-end solution
-    href: tutorial-connect.md
+    href: tutorial.md
 - name: Concepts
   items:
   - name: Create a twin model
