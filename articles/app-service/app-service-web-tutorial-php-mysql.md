@@ -168,7 +168,7 @@ When the MySQL server is created, the Azure CLI shows information similar to the
 <pre>
 {
   "location": "westeurope",
-  "name": "\<mysql_server_name>",
+  "name": "&lt;mysql_server_name&gt;",
   "resourceGroup": "myResourceGroup",
   "sku": {
     "additionalProperties": {},
@@ -180,7 +180,7 @@ When the MySQL server is created, the Azure CLI shows information similar to the
   },
   "sslEnforcement": "Enabled",
   ...    +  
-  -  < Output has been truncated for readability >
+  -  &lt; Output has been truncated for readability &gt;
 }
 </pre>
 

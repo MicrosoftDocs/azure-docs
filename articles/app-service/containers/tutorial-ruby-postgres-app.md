@@ -125,10 +125,10 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI shows in
 {
   "administratorLogin": "adminuser",
   "earliestRestoreDate": "2018-06-15T12:38:25.280000+00:00",
-  "fullyQualifiedDomainName": "\<postgres-server-name>.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/\<postgres-server-name>",
+  "fullyQualifiedDomainName": "&lt;postgres-server-name&gt;.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/&lt;postgres-server-name&gt;",
   "location": "westeurope",
-  "name": "\<postgres-server-name>",
+  "name": "&lt;postgres-server-name&gt;",
   "resourceGroup": "myResourceGroup",
   "sku": {
     "capacity": 2,
@@ -137,7 +137,7 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI shows in
     "size": null,
     "tier": "GeneralPurpose"
   },
-  < Output has been truncated for readability >
+  &lt; Output has been truncated for readability &gt;
 }
 </pre>
 

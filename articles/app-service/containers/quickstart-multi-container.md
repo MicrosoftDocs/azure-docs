@@ -84,7 +84,7 @@ When the App Service plan has been created, the Azure CLI shows information simi
   "location": "South Central US",
   "maximumNumberOfWorkers": 1,
   "name": "myAppServicePlan",
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
   "targetWorkerSizeId": 0,
   "type": "Microsoft.Web/serverfarms",
   "workerTierName": null
@@ -113,9 +113,9 @@ When the web app has been created, the Azure CLI shows output similar to the fol
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "\<app_name>.azurewebsites.net",
+  "defaultHostName": "&lt;app_name&gt;.azurewebsites.net",
   "enabled": true,
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
 }
 </pre>
 

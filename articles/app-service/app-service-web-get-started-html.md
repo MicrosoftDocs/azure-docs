@@ -60,15 +60,15 @@ This command may take a few minutes to run. While running, it displays informati
 
 <pre>
 {
-  "app_url": "https://\<app_name>.azurewebsites.net",
+  "app_url": "https://&lt;app_name&gt;.azurewebsites.net",
   "location": "westeurope",
-  "name": "\<app_name>",
+  "name": "&lt;app_name&gt;",
   "os": "Windows",
   "resourcegroup": "appsvc_rg_Windows_westeurope",
   "serverfarm": "appsvc_asp_Windows_westeurope",
   "sku": "FREE",
-  "src_path": "/home/\<username>/quickstart/html-docs-hello-world ",
-  < JSON data removed for brevity. >
+  "src_path": "/home/&lt;username&gt;/quickstart/html-docs-hello-world ",
+  &lt; JSON data removed for brevity. &gt;
 }
 </pre>
 

@@ -135,10 +135,10 @@ When the Cosmos DB account is created, the Azure CLI shows information similar t
     "maxStalenessPrefix": 100
   },
   "databaseAccountOfferType": "Standard",
-  "documentEndpoint": "https://\<cosmosdb-name>.documents.azure.com:443/",
+  "documentEndpoint": "https://&lt;cosmosdb-name&gt;.documents.azure.com:443/",
   "failoverPolicies":
   ...
-  < Output truncated for readability >
+  &lt; Output truncated for readability &gt;
 }
 </pre>
 

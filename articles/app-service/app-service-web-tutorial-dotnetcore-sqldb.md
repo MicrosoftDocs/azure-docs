@@ -97,14 +97,14 @@ When the SQL Database logical server is created, the Azure CLI shows information
 
 <pre>
 {
-  "administratorLogin": "\<db_username>",
+  "administratorLogin": "&lt;db_username&gt;",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "\<server_name>.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/\<server_name>",
+  "fullyQualifiedDomainName": "&lt;server_name&gt;.database.windows.net",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/&lt;server_name&gt;",
   "identity": null,
   "kind": "v12.0",
   "location": "westeurope",
-  "name": "\<server_name>",
+  "name": "&lt;server_name&gt;",
   "resourceGroup": "myResourceGroup",
   "state": "Ready",
   "tags": null,

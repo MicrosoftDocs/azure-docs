@@ -94,7 +94,7 @@ When the App Service plan has been created, Cloud Shell shows information simila
   "location": "South Central US",
   "maximumNumberOfWorkers": 1,
   "name": "myAppServicePlan",
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
   "targetWorkerSizeId": 0,
   "type": "Microsoft.Web/serverfarms",
   "workerTierName": null
@@ -122,9 +122,9 @@ When the web app has been created, Cloud Shell shows output similar to the follo
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "\<app-name>.azurewebsites.net",
+  "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
   "enabled": true,
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
 }
 </pre>
 
@@ -156,10 +156,10 @@ Creating the server may take a few minutes to complete. When the MySQL server is
 {
   "administratorLogin": "adminuser",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "\<mysql-server-name>.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/\<mysql-server-name>",
+  "fullyQualifiedDomainName": "&lt;mysql-server-name&gt;.database.windows.net",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/&lt;mysql-server-name&gt;",
   "location": "southcentralus",
-  "name": "\<mysql-server-name>",
+  "name": "&lt;mysql-server-name&gt;",
   "resourceGroup": "myResourceGroup",
   ...
 }
@@ -190,7 +190,7 @@ When the database has been created, Cloud Shell shows information similar to the
   "additionalProperties": {},
   "charset": "latin1",
   "collation": "latin1_swedish_ci",
-  "id": "/subscriptions/12db1644-4b12-4cab-ba54-8ba2f2822c1f/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/\<mysql-server-name>/databases/wordpress",
+  "id": "/subscriptions/12db1644-4b12-4cab-ba54-8ba2f2822c1f/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/&lt;mysql-server-name&gt;/databases/wordpress",
   "name": "wordpress",
   "resourceGroup": "myResourceGroup",
   "type": "Microsoft.DBforMySQL/servers/databases"
@@ -214,12 +214,12 @@ When the app setting has been created, Cloud Shell shows information similar to 
   {
     "name": "WORDPRESS_DB_HOST",
     "slotSetting": false,
-    "value": "\<mysql-server-name>.mysql.database.azure.com"
+    "value": "&lt;mysql-server-name&gt;.mysql.database.azure.com"
   },
   {
     "name": "WORDPRESS_DB_USER",
     "slotSetting": false,
-    "value": "adminuser@\<mysql-server-name>"
+    "value": "adminuser@&lt;mysql-server-name&gt;"
   },
   {
     "name": "WORDPRESS_DB_NAME",
@@ -314,7 +314,7 @@ When the app setting has been created, Cloud Shell shows information similar to 
 
 <pre>
 [
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
   {
     "name": "WORDPRESS_DB_NAME",
     "slotSetting": false,
@@ -419,11 +419,11 @@ When the app setting has been created, Cloud Shell shows information similar to 
 
 <pre>
 [
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
   {
     "name": "WORDPRESS_DB_USER",
     "slotSetting": false,
-    "value": "adminuser@\<mysql-server-name>"
+    "value": "adminuser@&lt;mysql-server-name&gt;"
   },
   {
     "name": "WP_REDIS_HOST",
@@ -496,7 +496,7 @@ You'll see output similar to the following example:
       "machineName":"RD00XYZYZE567A",
       "lastUpdated":"2018-05-10T04:11:45Z",
       "size":25125,
-      "href":"https://\<app-name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_05_10_RD00XYZYZE567A_docker.log",
+      "href":"https://&lt;app-name&gt;.scm.azurewebsites.net/api/vfs/LogFiles/2018_05_10_RD00XYZYZE567A_docker.log",
       "path":"/home/LogFiles/2018_05_10_RD00XYZYZE567A_docker.log"
    }
 ]
