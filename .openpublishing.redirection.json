@@ -17829,6 +17829,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/synapse-analytics/apache-spark-notebook-create-spark-use-sql.md",
+      "redirect_url": "/azure/synapse-analytics/quickstart-apache-spark-notebook",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/sql-database/sql-database-auditing-get-started.md",
       "redirect_url": "/azure/sql-database/sql-database-auditing",
       "redirect_document_id": false
