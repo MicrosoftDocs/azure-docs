@@ -14,19 +14,11 @@ ms.date: 01/25/2019
 ---
 # Monitor In-Memory OLTP storage in Azure SQL Database and Azure SQL Managed Instance
 
-When using [In-Memory OLTP](sql-database-in-memory.md), data in memory-optimized tables and table variables resides in In-Memory OLTP storage. Each Premium and Business Critical service tier has a maximum In-Memory OLTP storage size.
-
-- [DTU-based resource limits - single database](sql-database-dtu-resource-limits-single-databases.md)
-- [DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md)
-- [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md)
-- [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md)
-- [vCore-based resource limits - managed instance](sql-database-managed-instance-resource-limits.md)
-
-Once this limit is exceeded, insert and update operations may start failing with error 41823 for single databases and error 41840 for elastic pools. At that point you need to either delete data to reclaim memory, or upgrade the service tier or compute size of your database.
+When using [In-Memory OLTP](sql-database-in-memory.md), data in memory-optimized tables and table variables resides in In-Memory OLTP storage. 
 
 ## Determine whether data fits within the In-Memory OLTP storage cap
 
-Determine the storage caps of the different service tiers.
+Determine the storage caps of the different service tiers.Each Premium and Business Critical service tier has a maximum In-Memory OLTP storage size.
 
 - [DTU-based resource limits - single database](sql-database-dtu-resource-limits-single-databases.md)
 - [DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md)
@@ -34,9 +26,11 @@ Determine the storage caps of the different service tiers.
 - [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md)
 - [vCore-based resource limits - managed instance](sql-database-managed-instance-resource-limits.md)
 
-Estimating memory requirements for a memory-optimized table works the same way for SQL Server as it does in Azure SQL Database and Azure SQL Managed Instance. Take a few minutes to review that article on [MSDN](/sql/relational-databases/in-memory-oltp/estimate-memory-requirements-for-memory-optimized-tables).
+Estimating memory requirements for a memory-optimized table works the same way for SQL Server as it does in Azure SQL Database and Azure SQL Managed Instance. Take a few minutes to review [Estimate memory requirements](/sql/relational-databases/in-memory-oltp/estimate-memory-requirements-for-memory-optimized-tables).
 
 Table and table variable rows, as well as indexes, count toward the max user data size. In addition, ALTER TABLE needs enough room to create a new version of the entire table and its indexes.
+
+Once this limit is exceeded, insert and update operations may start failing with error 41823 for single databases in Azure SQL Database and databases in Azure SQL Managed Instance, and error 41840 for elastic pools in Azure SQL Database. At that point you need to either delete data to reclaim memory, or upgrade the service tier or compute size of your database.
 
 ## Monitoring and alerting
 
