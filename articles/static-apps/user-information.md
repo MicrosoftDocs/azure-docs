@@ -49,7 +49,7 @@ Using the [fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fet
 
 ```javascript
 async function getUserInfo() {
-  const response = await fetch("/api/user");
+  const response = await fetch("/.auth/me");
   const payload = await response.json();
   const { clientPrincipal } = payload;
   return clientPrincipal;
