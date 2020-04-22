@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/03/2020
+ms.date: 04/21/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -86,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://auth.iws-hybrid.trendmicro.com/simplesaml/module.php/saml/sp/saml2-acs.php/ics-sp`
 
 	> [!NOTE]
-	> The Identifier value is not real. Update this value with the actual Identifier. Contact [Trend Micro Web Security(TMWS) Client support team](https://success.trendmicro.com/contact-support-north-america) to get Identifier value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Identifier value is not real. Update this value with the actual Identifier. You can get these values under the **Service Provider Settings for the Azure Admin Portal** area on the **Authentication Method** screen for Azure AD from **Administration > Directory Services**.
 
 1. Trend Micro Web Security(TMWS) application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -172,7 +172,41 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Trend Micro Web Security SSO
 
-To configure single sign-on on **Trend Micro Web Security(TMWS)** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Trend Micro Web Security(TMWS) support team](https://success.trendmicro.com/contact-support-north-america). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Sign into the TMWS management console, and go to **Administration** > **USERS & AUTHENTICATION** > **Directory Services**.
+
+1. Click here on the upper area of the screen.
+
+1. On the Authentication Method screen that appears, click **Azure AD**.
+
+1. Click **On** or **Off** to decide whether to allow the AD users of your organization to visit websites through TMWS if their data is not synchronized to TMWS.
+
+    > [!NOTE]
+    > Users not synchronized from Azure AD can be authenticated only through known TMWS gateways or the dedicated port for your organization.
+
+1. On the **Identity Provider Settings** section, perform the following steps:
+
+    a. In the **Service URL** field, paste the **Login URL** value, which you have copied from Azure portal
+
+    b. In the **Logon name attribute** field, paste the User claim name with the **user.onpremisessamaccountname** source attribute from the Azure portal.
+
+    c. In the **Public SSL certificate** field, use the downloaded **Certificate (Base64)** from the Azure portal.
+
+1. On the **Synchronization Settings** section, perform the following steps:
+
+    a. In the **Tenant** field, use **Directory (tenant) ID** or **Custom domain name** value from the Azure portal.
+
+    b. In the **Application ID** field, **Application (client) ID** value from the Azure portal.
+
+    c. In the **Client secret** field, use **Client secret** from the Azure portal.
+
+    d. In the **Synchronization schedule** field, Select to synchronize with Azure AD manually or according to a schedule. If you choose Manually, whenever there are changes to Active Directory user information, remember to go back to the Directory Services screen and perform manual synchronization so that information in TMWS remains current.
+
+    e. Click **Test Connection** to check whether the Azure AD service can be connected successfully. 
+    
+    f. Click **Save**.
+ 
+ > [!NOTE]
+ > For more information on how to configure Trend Micro Web Security with Azure AD, please refer [this](https://docs.trendmicro.com/en-us/enterprise/trend-micro-web-security-online-help/administration_001/directory-services/azure-active-directo/configuring-azure-ad.aspx) document.
 
 ## Test SSO 
 
