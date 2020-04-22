@@ -11,7 +11,7 @@ ms.author: dsindona
 
 # Azure Applications: Solution template offer publishing requirements
 
-This article explains the requirements for the solution template offer type, which is one way to publish an Azure application offer in the Azure Marketplace. The solution template offer type requires an [Azure Resource Manager (ARM) template](../azure-resource-manager/templates/overview.md) to automatically deploy your solution infrastructure.
+This article explains the requirements for the solution template offer type, which is one way to publish an Azure application offer in the Azure Marketplace. The solution template offer type requires an [Azure Resource Manager template (ARM template)](../azure-resource-manager/templates/overview.md) to automatically deploy your solution infrastructure.
 
 Use the Azure application solution template offer type when the following conditions are required:
 
