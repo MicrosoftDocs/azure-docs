@@ -182,7 +182,7 @@ You'll have full administrator privileges on NSX-T and can manage role-based acc
 
 ## Billing and Support
 
-For questions on billing, see [pricing](https://azure.microsoft.com/en-us/pricing/calculator/)
+For questions on billing, see [pricing](https://azure.microsoft.com/pricing/calculator/)
 
 **Who supports AVS?**
 

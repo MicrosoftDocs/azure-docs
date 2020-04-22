@@ -21,7 +21,7 @@ VMware software versions are provided in the [private clouds and clusters concep
 
 ## Next steps
 
-The next step is to [create a private cloud](tutorials-create-private-cloud.md).
+The next step is to [create a private cloud](tutorial-create-private-cloud.md).
 
 <!-- LINKS - external -->
 

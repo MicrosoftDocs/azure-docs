@@ -22,11 +22,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Network checklist
-            url: network-checklist.md
-      - linkListType: quickstart
-        links:
-          - text: Create an AVS private cloud with Azure CLI
-            url: quickstart-private-cloud-cli.md
+            url: tutorial-network-checklist.md
       - linkListType: tutorial
         links:
           - text: Create an AVS private cloud

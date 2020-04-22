@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Appropriate administrative rights and permission to create a private cloud.
-- Ensure you have the appropriate networking configured as described in [Quickstart: Network checklist](network-checklist.md).
+- Ensure you have the appropriate networking configured as described in [Tutorial: Network checklist](tutorial-network-checklist.md).
 
 ## Sign in to the Azure portal
 
