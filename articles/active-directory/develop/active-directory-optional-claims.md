@@ -128,7 +128,6 @@ You can configure optional claims for your application through the UI or applica
 
 **Configuring optional claims through the UI:**
 
-[!div class="mx-imgBorder"]
 [![Shows how to configure optional claims using the UI](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
 1. From the **Manage** section, select **Token configuration**.
@@ -285,7 +284,7 @@ This section covers the configuration options under optional claims for changing
        "essential": false,
        "additionalProperties": []
        }
-       ```
+    ```
 
    | Optional claims schema | Value |
    |----------|-------------|
