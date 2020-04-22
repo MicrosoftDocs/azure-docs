@@ -77,7 +77,7 @@ Once you have selected your desired configuration, click **Apply**.
 
 ### Rest API
 
-Find out more about using REST API to enable Automatic tuning on a single database, see [SQL Database Automatic tuning UPDATE and GET HTTP methods](/rest/api/sql/databaseautomatictuning).
+Find out more about using REST API to enable Automatic tuning on a single database, see [Azure SQL Database Automatic tuning UPDATE and GET HTTP methods](/rest/api/sql/databaseautomatictuning).
 
 ### T-SQL
 
@@ -101,7 +101,7 @@ Setting the individual tuning option to ON, will override any setting that datab
 > In case of [active geo-replication](sql-database-auto-failover-group.md), Automatic tuning needs to be configured on the primary database only. Automatically applied tuning actions, such are for example index create or delete will be automatically replicated to the read-only secondary. Attempting to enable Automatic tuning via T-SQL on the read-only secondary will result in a failure as having a different tuning configuration on the read-only secondary is unsupported.
 >
 
-Find our more abut T-SQL options to configure Automatic tuning, see [ALTER DATABASE SET Options (Transact-SQL) for SQL Database server](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+Find our more abut T-SQL options to configure Automatic tuning, see [ALTER DATABASE SET Options (Transact-SQL) for Azure SQL Database servers](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 
 ## Disabled by the system
 
