@@ -18,7 +18,7 @@ In this article, you'll learn how to:
 ## Prerequisites
 
 * Identify or create a [Recovery Services vault](#create-a-recovery-services-vault) in the same region as the storage account that hosts the file share.
-* Ensure that the file share is present in one of the [supported storage account types](afs-support-matrix.md).
+* Ensure that the file share is present in one of the [supported storage account types](azure-file-share-support-matrix.md).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

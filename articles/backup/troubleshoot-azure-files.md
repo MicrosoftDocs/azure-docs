@@ -1,61 +1,61 @@
 ---
-title: Troubleshoot Azure File Shares Backup
+title: Troubleshoot Azure file share backup
 description: This article is troubleshooting information about issues occurring when protecting your Azure file shares.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
 ---
 
-# Troubleshoot Problems while backing up Azure File shares
+# Troubleshoot problems while backing up Azure file shares
 
 This article provides troubleshooting information to address any issues you come across while configuring backup or restoring Azure file shares using the Azure Backup Service.
 
-## Common Configuration Issues
+## Common configuration issues
 
-### Could not find my Storage Account to configure backup for the Azure file share
+### Could not find my storage account to configure backup for the Azure file share
 
 - Wait until discovery is complete.
-- Check if any File share under the storage account is already protected with another Recovery Services vault.
+- Check if any file share under the storage account is already protected with another Recovery Services vault.
 
   >[!NOTE]
   >All file shares in a Storage Account can be protected only under one Recovery Services vault. You can use [this script](scripts/backup-powershell-script-find-recovery-services-vault.md) to find the recovery services vault where your storage account is registered.
 
-- Ensure that the File share isn't present in any of the unsupported Storage Accounts. You can refer to the [Support Matrix for Azure File Share Backup](afs-support-matrix.md) to find supported Storage Accounts.
+- Ensure that the file share isn't present in any of the unsupported Storage Accounts. You can refer to the [Support matrix for Azure file share backup](azure-file-share-support-matrix.md) to find supported Storage Accounts.
 
 ### Error in portal states discovery of storage accounts failed
 
 If you have a partner subscription (CSP-enabled), ignore the error. If your subscription isn't CSP-enabled, and your storage accounts can't be discovered, contact support.
 
-### Selected Storage Account validation or registration failed
+### Selected storage account validation or registration failed
 
 Retry the registration. If the problem persists, contact support.
 
-### Could not list or find File shares in the selected Storage Account
+### Could not list or find file shares in the selected storage account
 
 - Ensure that the Storage Account exists in the Resource Group and hasn't been deleted or moved after the last validation or registration in the vault.
-- Ensure that the File share you're looking to protect hasn't been deleted.
-- Ensure that the Storage Account is a supported storage account for File share backup. You can refer to the [Support Matrix for Azure File Share Backup](afs-support-matrix.md) to find supported Storage Accounts.
-- Check if the File share is already protected in the same Recovery Services vault.
+- Ensure that the file share you're looking to protect hasn't been deleted.
+- Ensure that the Storage Account is a supported storage account for file share backup. You can refer to the [Support matrix for Azure file share backup](azure-file-share-support-matrix.md) to find supported Storage Accounts.
+- Check if the file share is already protected in the same Recovery Services vault.
 
-### Backup File share configuration (or the protection policy configuration) is failing
+### Backup file share configuration (or the protection policy configuration) is failing
 
 - Retry the configuration to see if the issue persists.
-- Ensure that the File share you want to protect hasn't been deleted.
-- If you're trying to protect multiple File shares at once, and some of the file shares are failing, try configuring backup for the failed File shares again.
+- Ensure that the file share you want to protect hasn't been deleted.
+- If you're trying to protect multiple file shares at once, and some of the file shares are failing, try configuring backup for the failed file shares again.
 
-### Unable to delete the Recovery Services vault after unprotecting a File share
+### Unable to delete the Recovery Services vault after unprotecting a file share
 
 In the Azure portal, open your **Vault** > **Backup Infrastructure** > **Storage accounts** and click **Unregister** to remove the storage accounts from the Recovery Services vault.
 
 >[!NOTE]
 >A recovery services vault can only be deleted after unregistering all storage accounts registered with the vault.
 
-## Common Backup or Restore Errors
+## Common backup or restore errors
 
-### FileShareNotFound- Operation failed as the File share is not found
+### FileShareNotFound- Operation failed as the file share is not found
 
 Error Code: FileShareNotFound
 
-Error Message: Operation failed as the File share is not found
+Error Message: Operation failed as the file share is not found
 
 Ensure that the file share you're trying to protect hasn't been deleted.
 
@@ -67,7 +67,7 @@ Error Message: Storage account not found or not supported
 
 - Ensure that the storage account exists in the Resource Group and wasn't deleted or removed from the Resource Group after the last validation.
 
-- Ensure that the Storage account is a supported Storage account for File share backup.
+- Ensure that the Storage account is a supported Storage account for file share backup.
 
 ### AFSMaxSnapshotReached- You have reached the max limit of snapshots for this file share; you will be able to take more once the older ones expire
 
@@ -76,7 +76,7 @@ Error Code: AFSMaxSnapshotReached
 Error Message: You have reached the max limit of snapshots for this file share; you will be able to take more once the older ones expire.
 
 - This error can occur when you create multiple on-demand backups for a file share.
-- There is a limit of 200 snapshots per File share including the ones taken by Azure Backup. Older scheduled backups (or snapshots) are cleaned up automatically. On-demand backups (or snapshots) must be deleted if the maximum limit is reached.
+- There is a limit of 200 snapshots per file share including the ones taken by Azure Backup. Older scheduled backups (or snapshots) are cleaned up automatically. On-demand backups (or snapshots) must be deleted if the maximum limit is reached.
 
 Delete the on-demand backups (Azure file share snapshots) from the Azure Files portal.
 
@@ -125,21 +125,21 @@ Error Message: File share backup or restore failed due to storage service thrott
 
 Try the backup/restore operation at a later time.
 
-### TargetFileShareNotFound- Target File Share Not Found
+### TargetFileShareNotFound- Target file share not found
 
 Error Code: TargetFileShareNotFound
 
-Error Message: Target File Share Not Found.
+Error Message: Target file share not found.
 
-- Ensure that the selected Storage Account exists, and the target File share isn't deleted.
+- Ensure that the selected Storage Account exists, and the target file share isn't deleted.
 
-- Ensure that the Storage Account is a supported storage account for File share backup.
+- Ensure that the Storage Account is a supported storage account for file share backup.
 
-### UserErrorStorageAccountIsLocked- Backup or Restore jobs failed due to storage account being in Locked state
+### UserErrorStorageAccountIsLocked- Backup or restore jobs failed due to storage account being in locked state
 
 Error Code: UserErrorStorageAccountIsLocked
 
-Error Message: Backup or Restore jobs failed due to storage account being in Locked state.
+Error Message: Backup or restore jobs failed due to storage account being in locked state.
 
 Remove the lock on the Storage Account or use **delete lock** instead of **read lock** and retry the backup or restore operation.
 
@@ -151,7 +151,7 @@ Error Message: Recovery failed because number of failed files are more than the 
 
 - Recovery failure reasons are listed in a file (path provided in the job details). Address the failures and retry the restore operation for the failed files only.
 
-- Common reasons for File restore failures:
+- Common reasons for file restore failures:
 
   - files that failed are currently in use
   - a directory with the same name as the failed file exists in the parent directory.
@@ -164,7 +164,7 @@ Error Message: Recovery failed as no file could be recovered.
 
 - Recovery failure reasons are listed in a file (path provided in the job details). Address the failures and retry the restore operations for the failed files only.
 
-- Common reasons for File restore failures:
+- Common reasons for file restore failures:
 
   - files that failed are currently in use
   - a directory with the same name as the failed file exists in the parent directory.
@@ -178,13 +178,13 @@ Error Message: Restore fails because one of the files in the source does not exi
 - The selected items aren't present in the recovery point data. To recover the files, provide the correct file list.
 - The file share snapshot that corresponds to the recovery point is manually deleted. Select a different recovery point and retry the restore operation.
 
-### UserErrorDTSDestLocked- A Recovery job is in process to the same destination
+### UserErrorDTSDestLocked- A recovery job is in process to the same destination
 
 Error Code: UserErrorDTSDestLocked
 
-Error Message: A Recovery job is in process to the same destination.
+Error Message: A recovery job is in process to the same destination.
 
-- File share backup doesn't support parallel recovery to the same target File share.
+- File share backup doesn't support parallel recovery to the same target file share.
 
 - Wait for the existing recovery to finish and then try again. If you can’t find a recovery job in the Recovery Services vault, check other Recovery Services vaults in the same subscription.
 
@@ -196,7 +196,7 @@ Error Message: Restore operation failed as target file share is full.
 
 Increase the target file share size quota to accommodate the restore data and retry the restore operation.
 
-### UserErrorTargetFileShareQuotaNotSufficient- Target File share does not have sufficient storage size quota for restore
+### UserErrorTargetFileShareQuotaNotSufficient- Target file share does not have sufficient storage size quota for restore
 
 Error Code: UserErrorTargetFileShareQuotaNotSufficient
 
@@ -227,7 +227,7 @@ Error Code: UserErrorAFSRecoverySomeFilesNotRestored
 Error Message: One or more files could not be recovered successfully. For more information, check the failed file list in the path given above.
 
 - Recovery failure reasons are listed in the file (path provided in the Job details). Address the reasons and retry the restore operation for the failed files only.
-- Common reasons for File restore failures:
+- Common reasons for file restore failures:
 
   - files that failed are currently in use
   - a directory with the same name as the failed file exists in the parent directory.
@@ -253,7 +253,7 @@ Error Message: Another restore job is in progress on the same target file share
 
 Use a different target file share. Alternatively, you can cancel or wait for the other restore to complete.
 
-## Common Modify Policy Errors
+## Common modify policy errors
 
 ### BMSUserErrorConflictingProtectionOperation- Another configure protection operation is in progress for this item
 

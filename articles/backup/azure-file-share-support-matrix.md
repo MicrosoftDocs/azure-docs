@@ -1,11 +1,11 @@
 ---
-title: Support Matrix for Azure File shares backup
+title: Support Matrix for Azure file share backup
 description: Provides a summary of support settings and limitations when backing up Azure file shares.
 ms.topic: conceptual
 ms.date: 1/26/2020
 ---
 
-# Support Matrix for Azure file shares backup
+# Support matrix for Azure file share backup
 
 You can use the [Azure Backup service](https://docs.microsoft.com/azure/backup/backup-overview) to back up Azure file shares. This article summarizes support settings when you back up Azure file shares with Azure Backup.
 

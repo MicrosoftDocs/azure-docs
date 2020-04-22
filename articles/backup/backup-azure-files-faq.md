@@ -15,7 +15,7 @@ To quickly scan the sections in this article, use the links to the right, under 
 
 ### Why can't I see some of my Storage Accounts that I want to protect, which contain valid Azure file shares?
 
-Refer to the [Support Matrix for Azure file shares backup](afs-support-matrix.md) to ensure the storage account belongs to one of the supported storage account types. It's also possible the Storage Account you're looking for is already protected or registered with another Vault. [Unregister the storage account](manage-afs-backup.md#unregister-a-storage-account) from the vault to discover the Storage Account in other vaults for protection.
+Refer to the [Support Matrix for Azure file shares backup](azure-file-share-support-matrix.md) to ensure the storage account belongs to one of the supported storage account types. It's also possible the Storage Account you're looking for is already protected or registered with another Vault. [Unregister the storage account](manage-afs-backup.md#unregister-a-storage-account) from the vault to discover the Storage Account in other vaults for protection.
 
 ### Why can't I see some of my Azure file shares in the Storage Account when I'm trying to configure backup?
 
@@ -73,7 +73,7 @@ All snapshots taken by Azure Backup can be accessed by viewing snapshots in the 
 
 ### What is the maximum retention I can configure for backups?
 
-Refer to the [support matrix](afs-support-matrix.md) for details on maximum retention. Azure Backup does a real-time calculation of the number of snapshots when you enter the retention values while configuring backup policy. As soon as the number of snapshots corresponding to your defined retention values exceeds 200, the portal will show a warning requesting you to adjust your retention values. This is so you don’t exceed the limit of maximum number of snapshots supported by Azure Files for any file share at any point in time.
+Refer to the [support matrix](azure-file-share-support-matrix.md) for details on maximum retention. Azure Backup does a real-time calculation of the number of snapshots when you enter the retention values while configuring backup policy. As soon as the number of snapshots corresponding to your defined retention values exceeds 200, the portal will show a warning requesting you to adjust your retention values. This is so you don’t exceed the limit of maximum number of snapshots supported by Azure Files for any file share at any point in time.
 
 ### What happens when I change the Backup policy for an Azure file share?
 
