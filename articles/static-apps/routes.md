@@ -33,7 +33,7 @@ Each rule is composed of a route to match the incoming request, along with one o
 
 | Rule property  | Required | Default value | Comment                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Yes      | none          | The route requested by the caller. [Wildcards](#route-wildcards) are supported at the end of route paths. For instance, the route _admin/\*_ matches any route under the _admin_ path. |
+| `route`        | Yes      | none          | The route requested by the caller. [Wildcards](#wildcards) are supported at the end of route paths. For instance, the route _admin/\*_ matches any route under the _admin_ path. |
 | `serve`        | No       | none          | Defines the file returned from the request. The file path and name can be different from the requested path. If no path or file is defined, then the requested path is used. |
 | `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role `anonymous` applies to all unauthenticated users.<li>The built-in role `authenticated` applies any logged-in user.<li>Users must belong to at least one role<li>Roles are matched on an _OR_ basis. If a user is in at any of the listed roles, then access is granted.</ul> |
 | `statusCode`   | No       | 200           | The [HTTP status](https://wikipedia.org/wiki/List_of_HTTP_status_codes) server response for the request. |
