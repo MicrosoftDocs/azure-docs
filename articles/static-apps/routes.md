@@ -1,6 +1,6 @@
 ---
 title: Routes in Azure Static Web Apps
-description: Learn about server-side routing rules and how to secure routes with roles.
+description: Learn about back-end routing rules and how to secure routes with roles.
 services: azure-functions
 author: craigshoemaker
 ms.service: azure-functions
@@ -11,11 +11,11 @@ ms.author: cshoe
 
 # Routes in Azure Static Web Apps
 
-Routing in Azure Static Web Apps enforces back-end routing rules and authorization behavior for both static content and APIs. The rules are defined and controlled by the _routes.json_ file, which features an array of routing rules that are enforced in the same order as they appear in the array.
+Routing in Azure Static Web Apps enforces back-end routing rules and authorization behavior for both static content and APIs. The rules are defined and controlled by the _routes.json_ file. Routing rules are defined as an array of rules that are enforced in the same order as they appear in the array.
 
 - The _routes.json_ file must exist at the root of the static app.
 - Roles are defined in the _routes.json_ file and users are associated to roles via [invitations](authentication-authorization.md).
-- You have full control over how to name roles. There is no system-wide master list you must use.
+- You have full control over role names. There is no system-wide master list you must use.
 
 The topic of routing significantly overlaps with authentication and authorization concepts. Make sure to read the [authentication and authorization](authentication-authorization.md) guide along with this article.
 
@@ -38,7 +38,7 @@ Each rule is composed of a route to match the incoming request, along with one o
 | `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role `anonymous` applies to all unauthenticated users.<li>The built-in role `authenticated` applies any logged-in user.<li>Users must belong to at least one role<li>Roles are matched on an _OR_ basis. If a user is in at any of the listed roles, then access is granted.</ul> |
 | `statusCode`   | No       | 200           | The [HTTP status](https://wikipedia.org/wiki/List_of_HTTP_status_codes) server response for the request. |
 
-## Securing routes
+## Security
 
 By default, every user belongs to the built-in `anonymous` role and all logged-in users are members of the `authenticated` role.
 
@@ -62,7 +62,7 @@ To customize your security rules, you can create new roles as needed in the role
 
 You have full control over role names. There is no master list to which your roles must adhere.
 
-## Route wildcards
+## Wildcards
 
 Wildcards rules match all requests under a given route. If you define a `serve` value in your rule, the designated file is served in response to requests for any matching routes.
 
@@ -75,15 +75,9 @@ For instance, to implement a site that handles a series of routes for a calendar
 }
 ```
 
-The _calendar.html_ file can then use a front-end JavaScript framework with client-side routing to serve a different view for URL variations like `/calendar/january/1`, `/calendar/august/18`, and `/calendar/december/25`.
+The _calendar.html_ file can then use client-side routing to serve a different view for URL variations like `/calendar/january/1`, `/calendar/august/18`, and `/calendar/december/25`.
 
-Wildcard route rules are execute against all URLs that match the route pattern. 
-
-Often applications that use a front-end JavaScript frameworks configure requests for all pages to resolve to a single page.
-
-**TODO:** with wild route, request under the route for files only auth checks
-
-You can also use wildcards to secure an entire path tree. In the following example, any file requested under the _admin_ path requires an authenticated user to be a member of the _administrator_ role.
+You can also use wildcards to secure an entire path tree. In the following example, any file requested under the _admin_ path requires an authenticated user who is a member of the _administrator_ role.
 
 ```json
 {
@@ -92,11 +86,12 @@ You can also use wildcards to secure an entire path tree. In the following examp
 }
 ```
 
-**TODO**: harmonized explanation with SPA routing (for SPA apps, common to have a fallback route) - section on working with client-side routing
+> [!NOTE]
+> Requests for files referenced by a served file are only evaluated for authentication checks. For instance, if a served file references a CSS file under a wild card path, the CSS file is served to the browser if the user meets the required authentication requirements.
 
 ## Redirects
 
-By defining custom HTTP status codes, you can create redirects from one route to another.
+By designating [HTTP redirect status codes](https://www.wikipedia.org/wiki/URL_redirection#HTTP_status_codes_3xx), you can redirect requests from one route to another.
 
 For instance, the following rule creates a 301 redirect from one page to another.
 
@@ -108,7 +103,7 @@ For instance, the following rule creates a 301 redirect from one page to another
 }
 ```
 
-Redirects also work with paths are are not distinct files.
+Redirects also work with paths that don't list distinct files.
 
 ```json
 {
@@ -120,9 +115,9 @@ Redirects also work with paths are are not distinct files.
 
 ## Custom error pages
 
-Ranging from requesting files not found (404) to a host of authorization-related errors, users may encounter a number of common scenarios which can result in an error. Using the `platformErrorOverrides`, you can provide a custom experience in response to these errors.
+Ranging from requesting files not found (404) to a host of authorization-related errors, users may encounter scenarios which can result in an error. Using the `platformErrorOverrides` array, you can provide a custom experience in response to these errors.
 
-platformErrorOverrides
+The following table lists the available platform error overrides:
 
 | Error type  | HTTP status code | Description |
 |---------|---------|---------|
@@ -133,6 +128,60 @@ platformErrorOverrides
 | `Unauthorized_MissingRoles` | 401 | You don't have the required role |
 | `Unauthorized_TooManyUsers` | 401 | Throttling number of invited users |
 | `Unauthorized_Unknown` | 401 | Identity provider doesn't recognize you. You tell provider not to allow consent |
+
+## Example route file
+
+The following example shows how to build route rules in a _routes.json_ file.
+
+```json
+{
+  "routes": [
+    {
+      "route": "/profile",
+      "roles": ["authenticated"]
+    },
+    {
+      "route": "/admin/*",
+      "allowedRoles": ["admin"]
+    },
+    {
+      "route": "/login",
+      "serve": "/.auth/login/github"
+    },
+    {
+      "route": "/logout",
+      "serve": "/.auth/logout"
+    },
+    {
+      "route": "/calendar/*",
+      "serve": "/calendar.html"
+    },
+    {
+      "route": "/specials",
+      "serve": "/deals",
+      "statusCode": 301
+    }
+  ],
+  "platformErrorOverrides": [
+    {
+      "errorType": "NotFound",
+      "serve": "/custom-404.html"
+    }
+  ]
+}
+```
+
+The following explanation describes what happens when a request matches a rule.
+
+|Requests to...  | Result in... |
+|---------|---------|
+| _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users are challenged to authenticate. |
+| _/admin/reports_ | Authenticated users are served the _/admin/reports/index.html_ file. Unauthenticated users are challenged to authenticate. |
+| _/login_     | Unauthenticated users are challenged to authenticate with GitHub. |
+| _/logout_     | Users are logged out of any authentication provider. |
+| _/calendar/2020/01_ | The browser is served the _/calendar.html_ file. |
+| _/specials_ | TODO |
+| _/foo_     | The _/custom-404.html_ file is served, with a 404 HTTP status code. |
 
 ## Restrictions
 
