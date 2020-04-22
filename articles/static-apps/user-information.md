@@ -11,9 +11,9 @@ ms.author: cshoe
 
 # Accessing user information in Azure Static Web Apps
 
-Azure Static Web Apps provides authentication-related user information via a [direct access endpoint](#direct-access-endpoint) and to [API functions](#api-functions).
+Azure Static Web Apps provides authentication-related user information via a [direct-access endpoint](#direct-access-endpoint) and to [API functions](#api-functions).
 
-Many user interfaces rely heavily on user authentication data. The direct access endpoint is a helper that exposes user information without having to implement a custom function. Beyond convenience, the direct access endpoint is not subject to cold start delays associated with serverless architecture.
+Many user interfaces rely heavily on user authentication data. The direct-access endpoint is a helper that exposes user information without having to implement a custom function. Beyond convenience, the direct-access endpoint isn't subject to cold start delays associated with serverless architecture.
 
 ## Client principal data
 
@@ -39,9 +39,9 @@ The following example is a sample decoded `x-ms-client-principal` object:
 }
 ```
 
-## Direct access endpoint
+## Direct-access endpoint
 
-You can send a `GET` request to the `/.auth/me` route and receive direct access to the client principal data. When the state of your view is relies on authorization data, use this approach for the best performance.
+You can send a `GET` request to the `/.auth/me` route and receive direct access to the client principal data. When the state of your view relies on authorization data, use this approach for the best performance.
 
 For logged-in users, the response contains a client principal JSON object. Requests from unauthenticated users returns `null`.
 
@@ -89,7 +89,7 @@ async function getUser() {
 console.log(getUser());
 ```
 
-\* The [fetch](https://caniuse.com/#feat=fetch) API and [await](https://caniuse.com/#feat=mdn-javascript_operators_await) operator are not supported in Internet Explorer.
+\* The [fetch](https://caniuse.com/#feat=fetch) API and [await](https://caniuse.com/#feat=mdn-javascript_operators_await) operator aren't supported in Internet Explorer.
 
 ## Next steps
 
