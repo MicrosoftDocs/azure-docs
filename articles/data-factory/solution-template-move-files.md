@@ -33,9 +33,9 @@ The template contains five activities:
 - **Delete** deletes the same one file from the source store.
 
 The template defines four parameters:
-- *SourceStore_Location* is the folder path of your source store where you want to move files from. 
+- *SourceStore_Location* is the folder path (file system or container) of your source store where you want to move files from. 
 - *SourceStore_Directory* is the subfolder path of your source store where you want to move files from.
-- *DestinationStore_Location* is the folder path of your destination store where you want to move files to. 
+- *DestinationStore_Location* is the folder path (file system or container) of your destination store where you want to move files to. 
 - *DestinationStore_Directory* is the subfolder path of your destination store where you want to move files to.
 
 ## How to use this solution template
