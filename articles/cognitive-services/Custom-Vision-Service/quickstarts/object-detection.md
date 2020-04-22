@@ -14,21 +14,21 @@ zone_pivot_groups: programming-languages-set-one
 # Quickstart: Create an object detection project with the Custom Vision SDK
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [C# quickstart](../includes/quickstarts-sdk/csharp-tutorial-od.md)]
+[!INCLUDE [C# quickstart](../includes/quickstarts/csharp-tutorial-od.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-[!INCLUDE [Go quickstart](../includes/quickstarts-sdk/go-tutorial-object-detection.md)]
+[!INCLUDE [Go quickstart](../includes/quickstarts/go-tutorial-object-detection.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Java quickstart](../includes/quickstarts-sdk/java-tutorial-od.md)]
+[!INCLUDE [Java quickstart](../includes/quickstarts/java-tutorial-od.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Node.js quickstart](../includes/quickstarts-sdk/node-tutorial-object-detection.md)]
+[!INCLUDE [Node.js quickstart](../includes/quickstarts/node-tutorial-object-detection.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Python quickstart](../includes/quickstarts-sdk/python-tutorial-od.md)]
+[!INCLUDE [Python quickstart](../includes/quickstarts/python-tutorial-od.md)]
 ::: zone-end

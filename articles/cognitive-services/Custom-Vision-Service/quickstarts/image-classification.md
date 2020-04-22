@@ -14,21 +14,21 @@ zone_pivot_groups: programming-languages-set-one
 # Quickstart: Create an image classification project with the Custom Vision SDK
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [C# quickstart](../includes/quickstarts-sdk/csharp-tutorial.md)]
+[!INCLUDE [C# quickstart](../includes/quickstarts/csharp-tutorial.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-[!INCLUDE [Go quickstart](../includes/quickstarts-sdk/go-tutorial.md)]
+[!INCLUDE [Go quickstart](../includes/quickstarts/go-tutorial.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Java quickstart](../includes/quickstarts-sdk/java-tutorial.md)]
+[!INCLUDE [Java quickstart](../includes/quickstarts/java-tutorial.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Node.js quickstart](../includes/quickstarts-sdk/node-tutorial.md)]
+[!INCLUDE [Node.js quickstart](../includes/quickstarts/node-tutorial.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [python quickstart](../includes/quickstarts-sdk/python-tutorial.md)]
+[!INCLUDE [python quickstart](../includes/quickstarts/python-tutorial.md)]
 ::: zone-end
