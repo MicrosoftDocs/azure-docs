@@ -105,6 +105,15 @@ deployment is successful. Navigate to the Azure portal to verify your private cl
 
 ![](./media/tutorial-create-private-cloud/image10.jpg)
 
+## Delete a private cloud
+
+If you have an AVS private cloud that you have verified you no longer in need, you can delete it. When you delete a private cloud, all clusters along with all their components are deleted.
+
+To do so, navigate to your private cloud in the Azure portal, and click **Delete**. On the confirmation page, confirm with the name of the private cloud and click **Yes**.
+
+> [!CAUTION]
+> Deleting the private cloud is an irreversible operation. Once the private cloud is deleted, the data cannot be recovered as it terminates all running workloads, components, and destroys all private cloud data and configuration settings including public IP addresses. 
+
 ## Next steps
 
 In this tutorial you learned how to:
