@@ -5,7 +5,7 @@
  author: erindormier
  ms.service: cognitive-services
  ms.topic: include
- ms.date: 03/11/2020
+ ms.date: 05/11/2020
  ms.author: egeaney
  ms.custom: include
 ---

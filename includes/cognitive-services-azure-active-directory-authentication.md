@@ -3,7 +3,7 @@ author: erhopf
 ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 07/23/2019
+ms.date: 05/11/2020
 ---
 
 ## Authenticate with Azure Active Directory

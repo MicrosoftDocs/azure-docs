@@ -7,13 +7,13 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 05/11/2020
 ms.author: dapine
 ---
 
 # Azure Cognitive Services security
 
-Security should be considered a top priority when developing any and all applications. With the onset of artificial intelligence enabled applications, security is even more important. In this article various aspects of Azure Cognitive Services security are outlined, such as the use of transport layer security, authentication, and securely configuring sensitive data.
+Security should be considered a top priority when developing any and all applications. With the onset of artificial intelligence enabled applications, security is even more important. In this article various aspects of Azure Cognitive Services security are outlined, such as the use of transport layer security, authentication, securely configuring sensitive data, and Customer Lockbox for customer data access.
 
 ## Transport Layer Security (TLS)
 
@@ -188,6 +188,15 @@ NSString* value =
 ```
 
 ---
+
+## Customer Lockbox
+
+[Customer Lockbox for Microsoft Azure](../azure/security/fundamentals/customer-lockbox-overview) provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data during a support request. For information on how Customer Lockbox requests are initiated, tracked, and stored for later reviews and audits, please see the [Customer Lockbox article](../azure/security/fundamentals/customer-lockbox-overview). The Customer Lockbox is available for these Cognitive Services:
+
+* Translator Text
+* Speech
+
+For the remaining Cognitive Services, Microsoft engineers will not access customer data.
 
 ## Next steps
 
