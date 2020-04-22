@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Accessing user information in an Azure Static Web Apps
 
-Azure Static Web Apps provides authentication-related user information via a [direct request URL](#direct-access) and from [API](#api-access) functions.
+Azure Static Web Apps provides authentication-related user information via a [direct request URL](#direct-access) and to [API](#api-access) functions.
 
 ## Client principal data
 
@@ -20,11 +20,11 @@ User information is available in the app via the `x-ms-client-principal` request
 | Property  | Description |
 |-----------|---------|
 | `identityProvider` | The name of the [identity provider](authentication-authorization.md). |
-| `userId` | An Azure Static Web Apps-specific unique identifier for the user.  <ul><li>The value is unique on a per-app basis. For instance, the same user returns a different `userId` value on a different Static App<li>The value persists for the lifetime of a user. If you delete and then add the same user back to the app, the `userId` then returns a different value.</ul>|
-| `userDetails` | Username or email address of the user. Some providers return the [user's email address](authentication-authorization.md), while others use send the [user handle](authentication-authorization.md). |
-| `userRoles`     | An array of the [user's roles](authentication-authorization.md). |
+| `userId` | An Azure Static Web Apps-specific unique identifier for the user.  <ul><li>The value is unique on a per-app basis. For instance, the same user returns a different `userId` value on a different Static App.<li>The value persists for the lifetime of a user. If you delete and then add the same user back to the app, then the `userId` is a different value.</ul>|
+| `userDetails` | Username or email address of the user. Some providers return the [user's email address](authentication-authorization.md), while others send the [user handle](authentication-authorization.md). |
+| `userRoles`     | An array of the [user's assigned roles](authentication-authorization.md). |
 
-The following is a sample decoded `x-ms-client-principal` value:
+The following example is a sample decoded `x-ms-client-principal` payload:
 
 ```json
 {
@@ -37,16 +37,16 @@ The following is a sample decoded `x-ms-client-principal` value:
 
 ## Direct access
 
-To get direct access to the client principal data, you can send a `GET` request to the `/.auth/me` route. When the state of your view is driven by authorization, use the direct access approach for the best performance.
+To get direct access to the client principal data, you can send a `GET` request to the `/.auth/me` route. When the state of your view is driven by authorization, use this approach for the best performance.
 
-When the user is logged-in, the payload is a client principal object. Requests from unauthenticated users returns `null`.
+When users are logged-in, the payload from this request is a client principal JSON object. Requests from unauthenticated users returns `null`.
 
-Using the [fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fetch) API, you can access the response data using the following syntax.
+Using the [fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fetch) API, you can access the client principal data using the following syntax.
 
 ```javascript
 fetch("/.auth/me/")
-  .then((response) => response.json())
-  .then((payload) => {
+  .then(response => response.json())
+  .then(payload => {
     const { clientPrincipal } = payload;
     console.log(clientPrincipal);
   });
@@ -55,7 +55,7 @@ fetch("/.auth/me/")
 Libraries like [axios](https://github.com/axios/axios) make accessing user information even easier.
 
 ```javascript
-axios.get(`/.auth/me`).then((response) => {
+axios.get("/.auth/me").then(response => {
   const { clientPrincipal } = response.data;
   console.log(clientPrincipal);
 });
@@ -63,7 +63,7 @@ axios.get(`/.auth/me`).then((response) => {
 
 ## API access
 
-Authenticated user information is passed to an API function in the request header. To make this information accessible to the browser, you can return user data from a function.
+Client principal data is passed to API functions in the request header. To make this information accessible to the browser, you can return user data from a function.
 
 ### In the function
 
@@ -71,7 +71,7 @@ The following example function named `user` shows how to return user information
 
 ```javascript
 module.exports = async function (context, req) {
-  const header = req.headers[`x-ms-client-principal`];
+  const header = req.headers["x-ms-client-principal"];
   const encoded = Buffer.from(header, "base64").toString("ascii");
   const principal = JSON.parse(encoded);
 
@@ -84,7 +84,7 @@ module.exports = async function (context, req) {
 
 ### In the browser
 
-Using the [fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fetch) API, you can access the response data using the following syntax.
+Using the [fetch](https://developer.mozilla.org/docs/Web/API/Fetch_API/Using_Fetch) API, you can access the API's response  using the following syntax.
 
 ```javascript
 fetch("/api/user/")
@@ -95,7 +95,7 @@ fetch("/api/user/")
   });
 ```
 
-Libraries like [axios](https://github.com/axios/axios) make accessing user information even easier.
+Libraries like [axios](https://github.com/axios/axios) make accessing the response even easier.
 
 ```javascript
 axios.get(`/api/user`).then(response => {
