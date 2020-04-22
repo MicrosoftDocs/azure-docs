@@ -160,12 +160,12 @@ When the MySQL server is created, the Azure CLI shows information similar to the
 
 <pre>
 {
-  "administratorLogin": "<admin-user>",
+  "administratorLogin": "\<admin-user>",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<mysql-server-name>.mysql.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>",
+  "fullyQualifiedDomainName": "\<mysql-server-name>.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/\<mysql-server-name>",
   "location": "westeurope",
-  "name": "<mysql-server-name>",
+  "name": "\<mysql-server-name>",
   "resourceGroup": "myResourceGroup",
   ...
 }

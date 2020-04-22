@@ -115,8 +115,8 @@ remote: Repository Commit : d6b54472f7e8e9fd885ffafaa64522e74cf370e1
 .
 .
 remote: Deployment successful.
-remote: Deployment Logs : 'https://<app-name>.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/d6b54472f7e8e9fd885ffafaa64522e74cf370e1/log'
-To https://<app-name>.scm.azurewebsites.net:443/<app-name>.git
+remote: Deployment Logs : 'https://\<app-name>.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/d6b54472f7e8e9fd885ffafaa64522e74cf370e1/log'
+To https://\<app-name>.scm.azurewebsites.net:443/\<app-name>.git
    d87e6ca..d6b5447  master -> master
 </pre>
 

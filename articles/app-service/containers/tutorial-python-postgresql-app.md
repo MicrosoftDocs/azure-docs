@@ -157,12 +157,12 @@ Once the deployment finishes, you see a JSON output like the following:
 
 <pre>
 {
-  "URL": "http://<app-name>.azurewebsites.net",
+  "URL": "http://\<app-name>.azurewebsites.net",
   "appserviceplan": "myAppServicePlan",
   "location": "westus",
-  "name": "<app-name>",
+  "name": "\<app-name>",
   "os": "Linux",
-  "resourcegroup": "<app-resource-group>",
+  "resourcegroup": "\<app-resource-group>",
   "runtime_version": "python|3.7",
   "runtime_version_detected": "-",
   "sku": "BASIC",

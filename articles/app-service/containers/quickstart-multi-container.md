@@ -113,7 +113,7 @@ When the web app has been created, the Azure CLI shows output similar to the fol
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
+  "defaultHostName": "\<app_name>.azurewebsites.net",
   "enabled": true,
   < JSON data removed for brevity. >
 }

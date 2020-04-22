@@ -168,7 +168,7 @@ When the MySQL server is created, the Azure CLI shows information similar to the
 <pre>
 {
   "location": "westeurope",
-  "name": "<mysql_server_name>",
+  "name": "\<mysql_server_name>",
   "resourceGroup": "myResourceGroup",
   "sku": {
     "additionalProperties": {},

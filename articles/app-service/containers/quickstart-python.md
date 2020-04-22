@@ -112,18 +112,18 @@ Creating Resource group 'appsvc_rg_Linux_centralus' ...
 Resource group creation complete
 Creating App service plan 'appsvc_asp_Linux_centralus' ...
 App service plan creation complete
-Creating app '<app-name>' ....
+Creating app '\<app-name>' ....
 Configuring default logging for the app, if not already enabled
 Creating zip with contents of dir D:\Examples\python-docs-hello-world ...
 Getting scm site credentials for zip deployment
 Starting zip deployment. This operation can take a while to complete ...
 Deployment endpoint responded with status code 202
-You can launch the app at http://<app-name>.azurewebsites.net
+You can launch the app at http://\<app-name>.azurewebsites.net
 {
-  "URL": "http://<app-name>.net",
+  "URL": "http://\<app-name>.net",
   "appserviceplan": "appsvc_asp_Linux_centralus",
   "location": "eastus",
-  "name": "<app-name>",
+  "name": "\<app-name>",
   "os": "Linux",
   "resourcegroup": "appsvc_rg_Linux_centralus",
   "runtime_version": "python|3.7",

@@ -131,7 +131,7 @@ The output reveals two passwords along with the user name.
       "value": "{password}"
     }
   ],
-  "username": "<registry-username>"
+  "username": "\<registry-username>"
 }
 </pre>
 
@@ -192,8 +192,8 @@ When the web app has been created, the Azure CLI shows output similar to the fol
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app-name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git",
+  "defaultHostName": "\<app-name>.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://\<username>@\<app-name>.scm.azurewebsites.net/\<app-name>.git",
   "enabled": true,
   < JSON data removed for brevity. >
 }
