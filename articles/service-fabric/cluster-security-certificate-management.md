@@ -60,7 +60,18 @@ Let us quickly revisit the progression of a certificate from issuance to consump
   - the provisioning agent or the cluster owner is also responsible for cleaning up/deleting unused certificates
   
 For our purposes, the first two steps in the sequence above are largely unrelated; the only connection is that the subject common name of the certificate is the DNS name declared in the cluster definition.
-  
+
+These steps are illustrated below; note the differences in provisioning between certificates declared by thumbprint and common name, respectively.
+<center>
+
+![Journey of certificates declared by thumbprint][Image1]
+<center>
+
+<center>
+
+![Journey of certificates declared by subject common name][Image2]
+<center>
+
 ### Certificate enrollment
 This topic is covered in detail in the Key Vault [documentation](../key-vault/create-certificate.md); we're including a synopsis here for continuity and easier reference. Continuing with Azure as the context, and using Azure Key Vault as the secret management service, an authorized certificate requester must have at least certificate management permissions on the vault, granted by the vault owner; the requester would then enroll into a certificate as follows:
     - creates a certificate policy in Azure Key Vault (AKV), which specifies the domain/subject of the certificate, the desired issuer, key type and length, intended key usage and more; see [Certificates in Azure Key Vault](../key-vault/certificate-scenarios.md) for details. For Microsoft-internal services, the list of supported issuers includes OneCert and SslAdmin.
@@ -479,3 +490,5 @@ For Microsoft-internal PKIs, the authority on, well, authorized issuers is the d
 Q: Are multiple PKIs supported? 
 A: Yes; you may not declare multiple CN entries in the cluster manifest with the same value, but can list issuers from multiple PKIs corresponding to the same CN. It is not a recommended practice, and certificate transparency practices may prevent such certificates from being issued. However, as means to migrate from one PKI to another, this is an acceptable mechanism.
 
+[Image1]:.media/security-cluster-certificate-mgmt/certificate-journey-thumbprint.png
+[Image2]:./media/security-cluster-certificate-mgmt/certificate-journey-common-name.png
