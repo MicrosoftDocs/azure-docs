@@ -21,9 +21,9 @@ Digital Twins Definition Language (DTDL) is the JSON-like language used to write
 
 ## Introduction
 
-DTDL is based on [JSON-LD](https://json-ld.org/spec/latest/json-ld) and is programming-language independent. 
+DTDL is based on [JSON-LD](https://json-ld.org/spec/latest/json-ld) and is programming-language independent.
 
-DTDL is also used as part of [Azure IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md). Developers of PnP devices use a subset of the same description language used for Azure Digital Twins. DTDL version used for PnP is, semantically, a subset of DTDL for Azure Digital Twins: every *capability model* as defined by PnP is also a valid model for use in Azure Digital Twins. 
+DTDL is also used as part of [Azure IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md). Developers of PnP devices use a subset of the same description language used for Azure Digital Twins. DTDL version used for PnP is, semantically, a subset of DTDL for Azure Digital Twins: every *capability model* as defined by PnP is also a valid model for use in Azure Digital Twins.
 
 You can also learn more about DTDL from its [reference documentation](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
@@ -39,7 +39,7 @@ You can also learn more about DTDL from its [reference documentation](https://gi
 * Semantic type support is added.
 * Character set for the `name` property is updated.
 * The `unit` property is replaced with a semantic unit `unit` property.
-* The property `displayUnit` is removed. 
+* The property `displayUnit` is removed.
 
 ## Digital Twins Definition Language
 
@@ -239,7 +239,7 @@ The chart below lists the properties that a DTDL property may have.
 | `@type` | required | IRI |  | immutable | This must at least be "Property". It can also include a semantic type. |
 | `name` | required | *string* | 1-64 chars | immutable | The "programming" name of the property. The name must match this regular expression "^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$". The name must be unique for all contents in this interface. |
 | `schema` | required | Schema | may not be Array nor any complex schema that contains Array | immutable | The data type of the Property |
-| `@id` | optional | DTMI | max 2048 chars	version number can be incremented | The ID of the property. If no `@id` is provided, the digital twin interface processor will assign one. |
+| `@id` | optional | DTMI | max 2048 chars | version number can be incremented | The ID of the property. If no `@id` is provided, the digital twin interface processor will assign one. |
 | `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
 | `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
 | `displayName` | optional | *string* | 1-64 chars | mutable | A localizable name for human display |
@@ -313,7 +313,7 @@ The chart below lists the properties that a command may have.
 
 Command types are defined for the Command/commandType property.
 
-| `commandType` | Value | Description |
+| `commandType` value | Description |
 | --- | --- | --- |
 | `asynchronous` | The command will complete sometime after control returns to the caller. After the command completes, the result and any outputs are available. |
 | `synchronous` | The command will be complete when control returns to the caller. The result and any outputs are available immediately. This is the default value for commandType. |
@@ -327,7 +327,7 @@ The chart below lists the properties that CommandPayload may have.
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
 | `name` | required | *string* | 1-64 chars | immutable | The "programming" name of the payload. The name must match this regular expression "^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$". |
-| `schema` | required | Schema | immutable | The data type of the payload |
+| `schema` | required | Schema |  | immutable | The data type of the payload |
 | `@id` | optional | DTMI | max 2048 chars | version number can be incremented | The ID of the command payload. If no `@id` is provided, the digital twin interface processor will assign one. |
 | `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
 | `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
@@ -343,7 +343,7 @@ The chart below lists the properties that a relationship may have.
 | --- | --- | --- | --- | --- | --- |
 | `@type` | required | IRI |  | immutable | This must be "Relationship" |
 | `name` | required | *string* | 1-64 chars | immutable | The "programming" name of the relationship. The name must match this regular expression "^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$". The name must be unique for all contents in this interface. |
-| `@id` | optional | DTMI | max 2048 chars	version number can be incremented | The ID of the relationship description. If no `@id` is provided, the digital twin interface processor will assign one. |
+| `@id` | optional | DTMI | max 2048 chars | version number can be incremented | The ID of the relationship description. If no `@id` is provided, the digital twin interface processor will assign one. |
 | `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
 | `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
 | `displayName` | optional | *string* | 1-64 chars | mutable | A localizable name for human display |
@@ -649,7 +649,7 @@ The chart below lists the properties that a Field may have.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `name` | required | *string* | 1-64 chars	immutable	The "programming" name of the field. The name must match this regular expression "^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$". The name must be unique for all fields in this object. |
+| `name` | required | *string* | 1-64 chars | immutable | The "programming" name of the field. The name must match this regular expression "^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$". The name must be unique for all fields in this object. |
 | `schema` | required | Schema |  | immutable | The data type of the field |
 | `@id` | optional | DTMI | max 2048 chars | version number can be incremented | The ID of the field. If no `@id` is provided, the digital twin interface processor will assign one. |
 | `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
@@ -778,10 +778,10 @@ DTDL provides two ways to create new versions of interfaces.
 
 In general, minor changes include adding new contents (telemetry, properties, commands, relationships, and components) or changing metadata, such as display names or descriptions. Changing the names of any contents or schemas or removing contents is not allowed from version to version. The specific rules for versioning are described with each model element in this document.
 
-### Model Versioning Examples
+### Model versioning examples
 
 This example shows the kinds of changes that are allowed in new versions of an interface. In this example,
-* The interface's @id is updated to reflect the new version.
+* The interface's `@id` is updated to reflect the new version.
 * The interface's description is updated.
 * The temp telemetry's displayName is updated.
 * A new humidity telemetry is added.
@@ -833,7 +833,7 @@ Unless stated otherwise in this document, the Digital Twins Definition Language 
 
 ### Digital Twin Model Identifier (DTMI)
 
-All elements in digital twin models must have an identifier that is a digital twin model identifier (DTMI). This includes interfaces, properties, telemetry, commands, relationships, components, complex schema objects, etc. This does not require that every model element have an explicit identifier, but any identifier assigned to a model element by a digital twin processor must follow this identifier format.
+All elements in digital twin models must have an identifier that is a **digital twin model identifier (DTMI)**. This includes interfaces, properties, telemetry, commands, relationships, components, complex schema objects, etc. This does not require that every model element have an explicit identifier, but any identifier assigned to a model element by a digital twin processor must follow this identifier format.
 
 A DTMI has three components: scheme, path, and version. Scheme and path are separated by a colon; path and version are separated by a semicolon: `<scheme> : <path> ; <version>`.
 
@@ -896,7 +896,7 @@ In the following example, the localizable `displayName` property is localized in
 
 When writing a digital twin definition, it's necessary to specify the version of DTDL being used. Because DTDL is based on JSON-LD, you use the JSON-LD context (the @context statement) to specify the version of DTDL being used.
 
-1. For this version of DTDL, the context is exactly *dtmi:dtdl:context;2*.
+For this version of DTDL, the context is exactly *dtmi:dtdl:context;2*.
 
 ## Next steps
 
