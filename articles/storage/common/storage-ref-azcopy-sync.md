@@ -61,8 +61,8 @@ Sync a single file:
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
 
-[!NOTE] The destination blob MUST exist. Use ```azcopy copy``` to copy a single file which does not yet exist in the destination.
-Otherwise, the error *Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container* occurs.
+> [!NOTE]
+> The destination blob *must* exist. Use `azcopy copy` to copy a single file that does not yet exist in the destination. Otherwise, the following error occurs: `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container`.
 
 Same as above, but this time, also compute MD5 hash of the file content and save it as the blob's Content-MD5 property:
 
