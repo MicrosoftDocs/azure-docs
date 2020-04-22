@@ -11,6 +11,9 @@ ms.author: dsindona
 
 # Virtual machine offer
 
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Virtual Machine offer](https://aka.ms/CreateAzureVMoffer) to manage your migrated offers.
+
 |    |    |
 |-----------------------------------------------------------------|------------------------------------------|
 | This section explains how to publish a new virtual machine offer to the [Azure Marketplace](https://azuremarketplace.microsoft.com). Support is provided for both Windows-based and Linux-based virtual machines, containing an operating system virtual hard disk (VHD) and zero or more data VHDs. | ![virtual machine icon](./media/virtual-machine-icon.png)  |

@@ -13,7 +13,7 @@ ms.date: 04/08/2020
 # Create a new Managed Service offer
 
 > [!IMPORTANT]
-> We're moving the management of your managed services offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Publish a managed service offer to Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md) to manage your offers.
+> We're moving the management of your Managed Service offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Publish a Managed Service offer to Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md) to manage your offers in Cloud Partner Portal.
 
 Managed Service offers help to enable [Azure Lighthouse](../../lighthouse/overview.md) scenarios. When a customer accepts a Managed Service offer, they are then able to onboard resources for [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
@@ -132,6 +132,9 @@ If you have support websites for **Azure Global Customers** and/or **Azure Gover
 ### Marketplace images
 
 In this section, you can provide logos and images that will be used when showing your offer to customer. All images must be in .png format.
+
+>[!Note]
+>If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Marketplace logos
 

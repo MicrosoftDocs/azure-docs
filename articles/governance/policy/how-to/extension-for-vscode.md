@@ -141,7 +141,7 @@ resource with the following steps:
 ## Discover aliases for resource properties
 
 When a resource is selected, whether through the search interface or by selecting it in the
-treeview, the Azure Policy extension opens the JSON file representing that resource and all it's
+treeview, the Azure Policy extension opens the JSON file representing that resource and all its
 Resource Manager property values.
 
 Once a resource is open, hovering over the Resource Manager property name or value displays the

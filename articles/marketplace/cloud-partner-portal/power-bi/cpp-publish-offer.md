@@ -12,7 +12,7 @@ ms.author: dsindona
 # Publish a Power BI App offer
 
 >[!Important]
->Starting March 30th, 2020, we'll begin moving management of your Power BI app offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Power BI app creation overview](https://aka.ms/AzureCreatePBIServiceApp) to manage your migrated offers.
+>Starting April 13, 2020, we'll begin moving management of your Power BI app offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Power BI app creation overview](https://aka.ms/AzureCreatePBIServiceApp) to manage your migrated offers.
 
 The last step, after you've defined an offer in the Cloud Partner Portal and created the associated technical assets, is to submit the offer for publishing. To start this process, in the left pane of the **New Offer** window, select **Publish**. For more information, see [Publish Azure Marketplace and AppSource offers](../manage-offers/cpp-publish-offer.md).
 

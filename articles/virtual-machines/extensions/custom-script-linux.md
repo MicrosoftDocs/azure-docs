@@ -448,7 +448,7 @@ Here you can see:
 * The extension downloading file and the result of that.
 * The command being run and the result.
 
-You can also retrieve the execution state of the Custom Script Extension by using Azure CLI:
+You can also retrieve the execution state of the Custom Script Extension including the actual arguments passed as the `commandToExecute` by using Azure CLI:
 
 ```azurecli
 az vm extension list -g myResourceGroup --vm-name myVM
@@ -457,13 +457,44 @@ az vm extension list -g myResourceGroup --vm-name myVM
 The output looks like the following text:
 
 ```output
-info:    Executing command vm extension get
-+ Looking up the VM "scripttst001"
-data:    Publisher                   Name                                      Version  State
-data:    --------------------------  ----------------------------------------  -------  ---------
-data:    Microsoft.Azure.Extensions  CustomScript                              2.0      Succeeded
-data:    Microsoft.OSTCExtensions    Microsoft.Insights.VMDiagnosticsSettings  2.3      Succeeded
-info:    vm extension get command OK
+[
+  {
+    "autoUpgradeMinorVersion": true,
+    "forceUpdateTag": null,
+    "id": "/subscriptions/subscriptionid/resourceGroups/rgname/providers/Microsoft.Compute/virtualMachines/vmname/extensions/customscript",
+    "resourceGroup": "rgname",
+    "settings": {
+      "commandToExecute": "sh script.sh > ",
+      "fileUris": [
+        "https://catalogartifact.azureedge.net/publicartifacts/scripts/script.sh",
+        "https://catalogartifact.azureedge.net/publicartifacts/scripts/script.sh"
+      ]
+    },
+    "tags": null,
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "typeHandlerVersion": "2.0",
+    "virtualMachineExtensionType": "CustomScript"
+  },
+  {
+    "autoUpgradeMinorVersion": true,
+    "forceUpdateTag": null,
+    "id": "/subscriptions/subscriptionid/resourceGroups/rgname/providers/Microsoft.Compute/virtualMachines/vmname/extensions/OmsAgentForLinux",
+    "instanceView": null,
+    "location": "eastus",
+    "name": "OmsAgentForLinux",
+    "protectedSettings": null,
+    "provisioningState": "Succeeded",
+    "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+    "resourceGroup": "rgname",
+    "settings": {
+      "workspaceId": "workspaceid"
+    },
+    "tags": null,
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "typeHandlerVersion": "1.0",
+    "virtualMachineExtensionType": "OmsAgentForLinux"
+  }
+]
 ```
 
 ## Next steps
