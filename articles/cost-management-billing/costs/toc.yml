@@ -10,6 +10,8 @@
     items:
     - name: Start analyzing costs
       href: quick-acm-cost-analysis.md
+    - name: Create a budget using a template
+      href: quick-create-budget-template.md
   - name: Tutorials
     items:
     - name: Create and manage budgets

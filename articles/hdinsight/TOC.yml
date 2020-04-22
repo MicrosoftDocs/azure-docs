@@ -39,6 +39,8 @@
     items: 
     - name: Apache Hadoop components on HDInsight
       href: ./hdinsight-component-versioning.md
+    - name: Hortonworks release notes
+      href: ./hortonworks-release-notes.md
     - name: High availability components
       href: ./hdinsight-high-availability-components.md   
     - name: Apache Ambari in Azure HDInsight
