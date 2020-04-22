@@ -7,7 +7,7 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: patricka
-ms.date: 04/15/2020
+ms.date: 04/22/2020
 ---
 
 # Create an Azure Blockchain Service member using an Azure Resource Manager template
@@ -19,6 +19,10 @@ An Azure Blockchain Service member is a blockchain node in a private consortium 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+
+## Prerequisites
+
+None.
 
 ## Review the template
 
@@ -34,7 +38,7 @@ Azure resources defined in the template:
 
 1. Select the following link to sign in to Azure and open a template.
 
-    [![Deploy to Azure](./media/create-member-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
+    [![Deploy to Azure](./media/create-member-template/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
 
 1. Specify the settings for the Azure Blockchain Service member.
 
