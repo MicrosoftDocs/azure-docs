@@ -19,7 +19,7 @@ With the support of multiple origins, you can establish global redundancy and el
 
 ## Create the origin group
 
-1. Sign in to the [Azure portal](http://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com)
 
 2. Select your Azure CDN profile and then select the endpoint to be configured for multi-origin.
 
