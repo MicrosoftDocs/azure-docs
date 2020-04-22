@@ -11,6 +11,8 @@ ms.date: 04/22/2020
 
 # Use SCP with Apache Hadoop in Azure HDInsight
 
+This article provides information on securely transferring files with your HDInsight cluster.
+
 ## Copy files
 
 The `scp` utility can be used to copy files to and from individual nodes in the cluster. For example, the following command copies the `test.txt` directory from the local system to the primary head node:
