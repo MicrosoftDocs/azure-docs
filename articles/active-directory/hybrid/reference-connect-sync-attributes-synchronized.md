@@ -370,7 +370,7 @@ This group is a set of attributes used as the minimal attributes needed for a ge
 * Yammer (only User is consumed)
 * [Hybrid Business-to-Business (B2B) cross-org collaboration scenarios offered by resources like SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
 
-This group is a set of attributes that can be used if the Azure AD directory is not used to support Office 365, Dynamics, or Intune. It has a small set of core attributes.  Note that single sign on or provisioning to some third party applications will require configuring synchronization of additional attributes in addition to these attributes. The application requirements are described in the [SaaS app tutorial](/azure/active-directory/saas-apps/) for each application.
+This group is a set of attributes that can be used if the Azure AD directory is not used to support Office 365, Dynamics, or Intune. It has a small set of core attributes. Note that single sign-on or provisioning to some third-party applications requires configuring synchronization of attributes in addition to the attributes described here. Application requirements are described in the [SaaS app tutorial](../saas-apps/tutorial-list.md) for each application.
 
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
