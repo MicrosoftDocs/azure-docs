@@ -227,6 +227,8 @@
       items:
       - name: Troubleshoot script actions
         href: ./troubleshoot-script-action.md
+      - name: Resource creation failures
+        href: ./troubleshoot-resource-creation-fails.md
   - name: Reference
     items:
     - name: Azure PowerShell
