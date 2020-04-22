@@ -33,7 +33,7 @@ Learn what's new in the service. These items include release notes, videos, blog
     * [Decomposable machine-learned entity](tutorial-machine-learned-entity.md)
 * Advance language understanding capabilities - [building sophisticated language models](luis-concept-entity-types.md) with less effort.
 * Define machine learning features at the model level and enable models to be used as signals to other models, for example using entities as features to intents and to other entities.
-* New, expanded [limits](luis-boundaries.md) - higher maximum for phrase lists and total phrases, new model as a feature limits
+* New, expanded [limits](luis-limits.md) - higher maximum for phrase lists and total phrases, new model as a feature limits
 * Extract information from text in the format of deep hierarchy structure, making conversation applications more powerful.
 
     ![machine-learned entity image](./media/whats-new/deep-entity-extraction-example.png)

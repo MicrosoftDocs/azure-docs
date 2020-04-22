@@ -251,7 +251,7 @@
     - name: Recognizers-Text
       href: https://github.com/Microsoft/Recognizers-Text
     - name: Intelligent Kiosk
-      href: https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk      
+      href: https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk
 - name: Reference
   items:
   - name: Developer reference
@@ -328,7 +328,7 @@
     href: luis-reference-regions.md
     displayName: failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr
   - name: Limits
-    href: luis-boundaries.md
+    href: luis-limits.md
   - name: Application settings
     href: luis-reference-application-settings.md
   - name: Prebuilt entity reference
