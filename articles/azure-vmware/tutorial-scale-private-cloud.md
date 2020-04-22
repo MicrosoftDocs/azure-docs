@@ -19,7 +19,7 @@ In this tutorial, you use the Azure portal to:
 
 ## Prerequisites
 
-You need a private cloud to complete this tutorial. If you haven't yet created a private cloud, use the [create a private cloud tutorial](tutorials-create-private-cloud.md) to create a private cloud.
+You need a private cloud to complete this tutorial. If you haven't yet created a private cloud, use the [create a private cloud tutorial](tutorial-create-private-cloud.md) to create a private cloud.
 
 ## Scale a private cloud
 
@@ -51,7 +51,7 @@ The addition of hosts to the cluster will begin.
 
 ## Next steps
 
-If you require another AVS private cloud, [create another private cloud](tutorials-create-private-cloud.md).
+If you require another AVS private cloud, [create another private cloud](tutorial-create-private-cloud.md).
 
 <!-- LINKS - external-->
 
