@@ -139,7 +139,7 @@ This import process can also be done through the [PowerShell Gallery](https://ww
 
 ### Test your runbooks
 
-Once you've imported the Az modules into the Automation account, you can start editing your runbooks to use the new modules. The majority of the cmdlets have the same names as for the AzureRM modules, except that the AzureRM (or AzureRm) prefix has been changed to Az. For a list of modules that don't follow this naming convention, see [list of exceptions](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
+Once you've imported the Az modules into the Automation account, you can start editing your runbooks to use the new modules. The majority of the cmdlets have the same names as for the AzureRM modules, except that the AzureRm prefix has been changed to Az. For a list of modules that don't follow this naming convention, see [list of exceptions](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
 
 One way to test the modification of a runbook to use the new cmdlets is by using `Enable-AzureRmAlias -Scope Process` at the beginning of the runbook. By adding this command to your runbook, the script can run without changes. 
 
