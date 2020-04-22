@@ -1,30 +1,27 @@
 ---
 title: Network checklist
 description: Network Requirement prerequisites and details on Network Connectivity and Network Ports
-author: dikamath
-ms.author: dikamath
-ms.service: azure-vmware
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 05/04/2020
 ---
 
-# Networking checklist for Azure VMWare Solution (AVS)
+# Networking checklist for Azure VMware Solution (AVS)
 
-Azure VMware Solution offers a VMWare private cloud environment, which is accessible for users and applications from on-premises environments and Azure resources. The connectivity is delivered through networking services such as Azure ExpressRoute and VPN connections. These networking services will require some specific network address ranges firewall ports for enabling the services. This article provides you all the information you need to know to properly configure your networking to work with AVS.
+Azure VMware Solution offers a VMware private cloud environment, which is accessible for users and applications from on-premises environments and Azure resources. The connectivity is delivered through networking services such as Azure ExpressRoute and VPN connections. These networking services will require some specific network address ranges and firewall ports for enabling the services. This article provides you the information you need to know to properly configure your networking to work with AVS.
 
 ## Network Connectivity
 
 The AVS private cloud can be connected to your Azure virtual network using Azure ExpressRoute. This high bandwidth, low latency connection allows you to
-access services running in your Azure subscription from your Private Cloud environment.
+access services running in your Azure subscription from your private cloud environment.
 
 `Example: 10.10.0.0/22`
 
-This configuration will require a minimum of a `/22` CIDR block for network dedicated to the POC environment, which will complement your on-premises networks. This configuration is broken down into several subnets upon deployment.
+This configuration will require a minimum of a `/22` CIDR block for the network dedicated to the private cloud environment. This network complements your on-premises networks. This configuration is broken down into several subnets upon deployment.
 
 The subnets will be:
 
 1. A gateway subnet (mandatory `/28`)  
-2. Private Cloud vSphere/VSAN network (minimum `/24`)
+2. Private cloud vSphere and VSAN network (minimum `/24`)
 3. A virtual machine network.
 
 | Network usage             | Subnet | Example        |
@@ -41,7 +38,7 @@ The subnets will be:
 > The following list doesn't include any additional ports required for applications.
 
 Source|Destination|Protocol |Port |Description  |Comment
-:-----:|:-----:|:-----:|:-----:|-----|-----
+---|-----|:-----:|:-----:|-----|-----
 Private Cloud DNS server  |On-Premises DNS Server  |UDP |53|DNS Client - Forward requests from PC vCenter for any on-premises DNS queries (check DNS section below) |
 On-premises DNS Server  |Private Cloud DNS server  |UDP |53|DNS Client - Forward requests from on-premises services to Private Cloud DNS servers (check DNS section below)
 On-premises network  |Private Cloud vCenter server  |TCP(HTTP)  |80|vCenter Server requires port 80 for direct HTTP connections. Port 80 redirects requests to HTTPS port 443. This redirection helps if you use `http://server` instead of `https://server`.  <br><br>WS-Management (also requires port 443 to be open) <br><br>If you use a custom Microsoft SQL database and not the bundled SQL Server 2008 database on the vCenter Server, port 80 is used by the SQL Reporting Services. When you install vCenter Server, the installer prompts you to change the HTTP port for the vCenter Server. Change the vCenter Server HTTP port to a custom value to ensure a successful installation. Microsoft Internet Information Services (IIS) also uses port 80. See Conflict Between vCenter Server and IIS for Port 80.
@@ -59,8 +56,8 @@ On-premises vCenter network|      Private Cloud management network|      TCP
 
 ## DHCP
 
-Applications and workloads running in a Private Cloud environment require name resolution and DHCP services for lookup and IP address assignment. A proper DHCP and DNS infrastructure is required to provide these services. You can configure a virtual machine to provide these services in your Private Cloud environment.  
-We recommend using the DHCP service that is built-in to NSX or using a local DHCP server in the Private Cloud instead of routing broadcast DHCP traffic over the WAN back to on-premises.
+Applications and workloads running in a private cloud environment require name resolution and DHCP services for lookup and IP address assignment. A proper DHCP and DNS infrastructure is required to provide these services. You can configure a virtual machine to provide these services in your private cloud environment.  
+It is recommended to use the DHCP service that is built-in to NSX or using a local DHCP server in the private cloud instead of routing broadcast DHCP traffic over the WAN back to on-premises.
 
 
 ## Next steps

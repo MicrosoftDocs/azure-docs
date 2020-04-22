@@ -1,5 +1,5 @@
 ---
-title: Concepts - Network interconnectivity for Azure VMware Solution (AVS) Preview
+title: Concepts - Network interconnectivity
 description: Learn about key aspects and use cases of networking and interconnectivity in Azure VMware Solution (AVS)
 ms.topic: conceptual
 ms.date: 05/04/2020

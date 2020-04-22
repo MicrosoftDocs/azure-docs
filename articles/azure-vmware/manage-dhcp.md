@@ -1,13 +1,10 @@
 ---
-title: How to manage DHCP in Azure VMWare Solution (AVS)
+title: How to manage DHCP
 description: This article explains how to manage DHCP in Azure VMWare Solution (AVS)
-author: dikamath
-ms.author: dikamath
-ms.service: azure-vmware
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 05/04/2020
 ---
-# How to manage DHCP in Azure VMWare Solution (AVS)
+# How to manage DHCP in Azure VMWare Solution (AVS) Preview
 
 NSX-T provides the ability to configure DHCP for your private cloud. If you plan to use NSX-T to host your DHCP server, see [Create DHCP server](#create-dhcp-server). Otherwise, if you have a 3rd party external DHCP server in your network and you want to relay requests to that DHCP server, see [Create DHCP relay service](#create-dhcp-relay-service).
 

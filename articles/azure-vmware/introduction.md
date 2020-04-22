@@ -1,5 +1,5 @@
 ---
-title: Introduction to Azure VMware Solution (AVS) Preview
+title: Introduction
 description: Learn the features and benefits of Azure VMware Solution (AVS) to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
 ms.date: 05/04/2020
@@ -41,7 +41,7 @@ Regular upgrades of the AVS private cloud and VMware software ensures the latest
 
 ## Next steps
 
-The next step is to learn key [private cloud and cluster concepts][concepts-private-clouds-clusters].
+The next step is to learn key [private cloud and cluster concepts][concepts-private-clouds-clusters.md].
 
 <!-- LINKS - external -->
 

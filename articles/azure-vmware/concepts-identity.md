@@ -1,15 +1,8 @@
 ---
-title: Concepts - identity and access for Azure VMware Solution (AVS)
+title: Concepts - Identity and access
 description: Learn about the identity and access concepts of Azure VMware Solution (AVS)
-services: 
-author: dikamath
-
-ms.service: vmware-virtustream
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.author: dikamath
-ms.custom: 
-
+ms.date: 05/04/2020
 ---
 
 # Azure VMware Solution (AVS) identity concepts
