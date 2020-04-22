@@ -28,93 +28,86 @@ To work with X12 messages in Azure Logic Apps, you can use the X12 connector, wh
 
 * Before you can use the X12 connector, you must create an X12 [agreement](../logic-apps/logic-apps-enterprise-integration-agreements.md) between your trading partners and store that agreement in your integration account.
 
-* If you use [Azure Key Vault](../key-vault/general/overview.md) for certificate management, check that your vault keys permit the **Encrypt** and **Decrypt** operations. Otherwise, the encoding and decoding actions fail.
+<a name="receive-settings"></a>
 
-  In the Azure portal, go to the key in your key vault, review your key's **Permitted operations**, and confirm that the **Encrypt** and **Decrypt** operations are selected, for example:
-
-  ![Check vault key operations](media/logic-apps-enterprise-integration-x12/key-vault-permitted-operations.png)
-
-<a name="receive-message-settings"></a>
-
-## Receive message settings
+## Receive Settings
 
 After you set the agreement properties, you can configure how this agreement identifies and handles inbound messages that you receive from your partner through this agreement.
 
 1. Under **Add**, select **Receive Settings**.
 
-1. Configure these properties based on your agreement with the partner that exchanges messages with you. For property descriptions, see the tables in this section.
+1. Configure these properties based on your agreement with the partner that exchanges messages with you. The **Receive Settings** are organized into these sections:
 
-   The **Receive Settings** are organized into these sections:
+   * [Identifiers](#inbound-identifiers)
+   * [Acknowledgement](#inbound-acknowledgement)
+   * [Schemas](#inbound-schemas)
+   * [Envelopes](#inbound-envelopes)
+   * [Control Numbers](#inbound-control-numbers)
+   * [Validations](#inbound-validations)
+   * [Internal Settings](#inbound-internal-settings)
 
-   * Identifiers
-   * Acknowledgment
-   * Schemas
-   * Envelopes
-   * Control Numbers
-   * Validations
-   * Internal Settings
+   For property descriptions, see the tables in this section.
 
-1. After you're done, make sure to save your settings by selecting **OK**.
+1. When you're done, make sure to save your settings by selecting **OK**.
 
-<a name="receive-identifiers"></a>
+<a name="inbound-identifiers"></a>
 
-### Identifiers
+### Receive Settings - Identifiers
 
-![Set identifier properties](./media/logic-apps-enterprise-integration-x12/x12-2.png)
-
-| Property | Required | Description |
-|----------|----------|-------------|
-| **ISA1 (Authorization Qualifier)** | Yes | The Authorization qualifier value |
-| **ISA2** | No | The Authorization information value. If the value that you entered for ISA1 is other than 00, enter a minimum of one alphanumeric character and a maximum of 10. |
-| **ISA3 (Security Qualifier)** | Yes | The Security qualifier value |
-| **ISA4** | No | The Security information value. If the value you entered for ISA3 is other than 00, enter a minimum of one alphanumeric character and a maximum of 10. |
-||||
-
-<a name="receive-acknowledgment"></a>
-
-### Acknowledgment
-
-![Set acknowledgement properties](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
-
-| Property | Required | Description |
-|----------|----------|-------------|
-| **TA1 Expected** | No | Return a technical acknowledgment to the interchange sender. |
-| **FA Expected** | No | Return a functional acknowledgment to the interchange sender. Based on the schema version, select either the 997 or 999 acknowledgments. |
-| **Include AK2 / IK2 Loop** | No | Enable generation of AK2 loops in functional acknowledgments for accepted transaction sets. |
-||||
-
-<a name="receive-schemas"></a>
-
-### Schemas
-
-In this section, select a [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) from your [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) for each transaction type (ST1) and Sender Application (GS2). The receive pipeline disassembles the incoming message by matching the values and schema that you set in this section with the values for ST1 and GS2 in the incoming message and with the schema of the incoming message.
-
-![Select schema](./media/logic-apps-enterprise-integration-x12/x12-33.png) 
+![Identifier properties for inbound messages](./media/logic-apps-enterprise-integration-x12/x12-received-messages-identifiers.png)
 
 | Property | Description |
 |----------|-------------|
-| **Version** | The X12 version |
+| **ISA1 (Authorization Qualifier)** | The Authorization Qualifier value that you want to use. The default value is **00 - No Authorization Information Present**. <p>**Note**: If you select other values, specify a value for the **ISA2** property. |
+| **ISA2** | The Authorization Information value to use when the **ISA1** property is not **00 - No Authorization Information Present**. This property value must have a minimum of one alphanumeric character and a maximum of 10. |
+| **ISA3 (Security Qualifier)** | The Security Qualifier value that you want to use. The default value is **00 - No Security Information Present**. <p>**Note**: If you select other values, specify a value for the **ISA4** property. |
+| **ISA4** | The Security Information value to use when the **ISA3** property is not **00 - No Security Information Present**. This property value must have a minimum of one alphanumeric character and a maximum of 10. |
+|||
+
+<a name="inbound-acknowledgement"></a>
+
+### Receive Settings - Acknowledgement
+
+![Acknowledgement for inbound messages](./media/logic-apps-enterprise-integration-x12/x12-received-messages-acknowledgement.png)
+
+| Property | Description |
+|----------|-------------|
+| **TA1 Expected** | Return a technical acknowledgment (TA1) to the interchange sender. |
+| **FA Expected** | Return a functional acknowledgment (FA) to the interchange sender. <p>For the **FA Version** property, based on the schema version, select the 997 or 999 acknowledgments. <p>To enable generation of AK2 loops in functional acknowledgments for accepted transaction sets, select **Include AK2 / IK2 Loop**. |
+||||
+
+<a name="inbound-schemas"></a>
+
+### Receive Settings - Schemas
+
+In this section, select a [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) from your [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) for each transaction type (ST01) and Sender Application (GS02). The receive pipeline disassembles the incoming message by matching the values and schema that you set in this section with the values for ST01 and GS02 in the incoming message and with the schema of the incoming message.
+
+![Schemas for inbound messages](./media/logic-apps-enterprise-integration-x12/x12-received-messages-schemas.png)
+
+| Property | Description |
+|----------|-------------|
+| **Version** | The X12 version for the schema |
 | **Transaction Type (ST01)** | The transaction type |
 | **Sender Application (GS02)** | The sender application |
 | **Schema** | The schema file that you want to use |
 |||
 
-<a name="receive-envelopes"></a>
+<a name="inbound-envelopes"></a>
 
-### Envelopes
+### Receive Settings - Envelopes
 
-![Settings for the separator to use in a transaction set](./media/logic-apps-enterprise-integration-x12/x12-34.png)
+![Separators to use in transaction sets for inbound messages](./media/logic-apps-enterprise-integration-x12/x12-received-messages-envelopes.png)
 
 | Property | Description |
 |----------|-------------|
 | **ISA11 Usage** | The separator to use in a transaction set: <p>- **Standard Identifier**: Use a period (.) for decimal notation, rather than the decimal notation of the incoming document in the EDI receive pipeline. <p>- **Repetition Separator**: Specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually the carat (^) is used as the repetition separator. For HIPAA schemas, you can only use the carat. |
 |||
 
-<a name="receive-control-numbers"></a>
+<a name="inbound-control-numbers"></a>
 
-### Control Numbers
+### Receive Settings - Control Numbers
 
-![Settings for handling control number duplicates](./media/logic-apps-enterprise-integration-x12/x12-35.png) 
+![Handling control number duplicates for inbound messages](./media/logic-apps-enterprise-integration-x12/x12-received-messages-control-numbers.png) 
 
 | Property | Description |
 |----------|-------------|
@@ -123,13 +116,13 @@ In this section, select a [schema](../logic-apps/logic-apps-enterprise-integrati
 | **Disallow Transaction set control number duplicates** | Block interchanges that have duplicate transaction set control numbers. |
 |||
 
-<a name="receive-validation"></a>
+<a name="inbound-validations"></a>
 
-### Validation
+### Receive Settings - Validations
 
 If you don't specify any rules, validation uses the **Default** row. Otherwise, after you complete each validation row, a new empty row automatically appears.
 
-![Validation properties for received messages](./media/logic-apps-enterprise-integration-x12/x12-36.png) 
+![Validations for inbound messages](./media/logic-apps-enterprise-integration-x12/x12-received-messages-validations.png)
 
 | Property | Description |
 |----------|-------------|
@@ -141,11 +134,11 @@ If you don't specify any rules, validation uses the **Default** row. Otherwise, 
 | **Trailing Separator Policy** | Generate trailing separators. <p>- **Not Allowed**: Prohibit trailing delimiters and separators in the received interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>- **Optional**: Accept interchanges with or without trailing delimiters and separators. <p>- **Mandatory**: When the interchange must have trailing delimiters and separators. |
 |||
 
-<a name="receive-internal"></a>
+<a name="inbound-internal-settings"></a>
 
-### Internal Settings
+### Receive Settings - Internal Settings
 
-![Internal settings for received messages](./media/logic-apps-enterprise-integration-x12/x12-received-messages-internal-settings.png)
+![Internal settings for inbound messages](./media/logic-apps-enterprise-integration-x12/x12-received-messages-internal-settings.png)
 
 | Property | Description |
 |----------|-------------|
@@ -157,9 +150,9 @@ If you don't specify any rules, validation uses the **Default** row. Otherwise, 
 | **Preserve Interchange - suspend interchange on error** |Leaves the interchange intact, creates an XML document for the entire batched interchange. Suspends the entire interchange when one or more transaction sets in the interchange fail validation. |
 |||
 
-<a name="send-message-settings"></a>
+<a name="send-settings"></a>
 
-## Send message settings
+## Send Settings
 
 After you set the agreement properties, you can configure how this agreement identifies and handles outbound messages that you send to your partner through this agreement.
 
@@ -167,59 +160,78 @@ After you set the agreement properties, you can configure how this agreement ide
 
 1. Configure these properties based on your agreement with the partner that exchanges messages with you. For property descriptions, see the tables in this section.
 
-   The **Send Settings** are organized into these sections: Identifiers, Acknowledgment, Schemas, Envelopes, Character Sets and Separators, Control Numbers, and Validation.
+   The **Send Settings** are organized into these sections:
 
-1. After you're done, make sure to save your settings by selecting **OK**.
+   * [Identifiers](#outbound-identifiers)
+   * [Acknowledgement](#outbound-acknowledgement)
+   * [Schemas](#outbound-schemas)
+   * [Envelopes](#outbound-envelopes)
+   * [Character Sets and Separators](#outbound-character-sets-separators)
+   * [Control Numbers](#outbound-control-numbers)
+   * [Validation](#outbound-validation)
 
-### Identifiers
+1. When you're done, make sure to save your settings by selecting **OK**.
 
-![Set identifier properties](./media/logic-apps-enterprise-integration-x12/x12-4.png)  
+<a name="outbound-identifiers"></a>
 
-| Property | Description |
-| --- | --- |
-| Authorization qualifier (ISA1) |Select the Authorization qualifier value from the drop-down list. |
-| ISA2 |Enter Authorization information value. If this value is other than 00, then enter a minimum of one alphanumeric character and a maximum of 10. |
-| Security qualifier (ISA3) |Select the Security qualifier value from the drop-down list. |
-| ISA4 |Enter the Security information value. If this value is other than 00, for the Value (ISA4) text box, then enter a minimum of one alphanumeric value and a maximum of 10. |
+### Send Settings - Identifiers
 
-### Acknowledgment
-
-![Set acknowledgement properties](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
-
-| Property | Description |
-| --- | --- |
-| TA1 expected |Return a technical acknowledgment (TA1) to the interchange sender. This setting specifies that the host partner who is sending the message requests an acknowledgment from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the Receive Settings of the agreement. |
-| FA expected |Return a functional acknowledgment (FA) to the interchange sender. Select whether you want the 997 or 999 acknowledgements, based on the schema versions you are working with. These acknowledgments are expected by the host partner based on the Receive Settings of the agreement. |
-| FA Version |Select the FA version |
-
-### Schemas
-
-![Select schema to use](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
+![Identifier properties for outbound messages](./media/logic-apps-enterprise-integration-x12/x12-send-messages-identifiers.png)
 
 | Property | Description |
-| --- | --- |
-| Version |Select the X12 version |
-| Transaction Type (ST01) |Select the transaction type |
-| SCHEMA |Select the schema to use. Schemas are located in your integration account. If you select schema first, it automatically configures version and transaction type  |
+|----------|-------------|
+| **ISA1 (Authorization Qualifier)** | The Authorization Qualifier value that you want to use. The default value is **00 - No Authorization Information Present**. <p>**Note**: If you select other values, specify a value for the **ISA2** property. |
+| **ISA2** | The Authorization Information value to use when the **ISA1** property is not **00 - No Authorization Information Present**. This property value must have a minimum of one alphanumeric character and a maximum of 10. |
+| **ISA3 (Security Qualifier)** | The Security Qualifier value that you want to use. The default value is **00 - No Security Information Present**. <p>**Note**: If you select other values, specify a value for the **ISA4** property. |
+| **ISA4** | The Security Information value to use when the **ISA3** property is not **00 - No Security Information Present**. This property value must have a minimum of one alphanumeric character and a maximum of 10. |
+|||
 
-> [!NOTE]
-> Configure the required [Schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) 
-> that is uploaded to your [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md).
+<a name="outbound-acknowledgement"></a>
 
-### Envelopes
+### Send Settings - Acknowledgement
 
-![Specify the separator in a transaction set: choose Standard Identifier or Repetition Separator](./media/logic-apps-enterprise-integration-x12/x12-6.png) 
+![Acknowledgement properties for outbound messages](./media/logic-apps-enterprise-integration-x12/x12-send-messages-acknowledgement.png)
 
 | Property | Description |
-| --- | --- |
+|----------|-------------|
+| **TA1 Expected** | Return a technical acknowledgment (TA1) to the interchange sender. <p>This setting specifies that the host partner, who is sending the message, requests an acknowledgment from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the agreement's Receive Settings. |
+| **FA Expected** | Return a functional acknowledgment (FA) to the interchange sender. For the **FA Version** property, based on the schema version, select the 997 or 999 acknowledgements. <p>This settings specifies that the host partner, who is sending the message, requests an acknowledgement from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the agreement's Receive Settings. |
+|||
+
+<a name="outbound-schemas"></a>
+
+### Send Settings - Schemas
+
+In this section, select a [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) from your [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) for each transaction type (ST01).
+
+![Schemas for outbound messages](./media/logic-apps-enterprise-integration-x12/x12-send-messages-schemas.png)
+
+| Property | Description |
+|----------|-------------|
+| **Version** | The X12 version for the schema |
+| **Transaction Type (ST01)** | The transaction type for the schema |
+| **Schema** | The schema file that you want to use. If you select the schema first, the version and transaction type are automatically set. |
+|||
+
+<a name="outbound-envelopes"></a>
+
+### Send Settings - Envelopes
+
+![Separators in a transaction set to use for outbound messages](./media/logic-apps-enterprise-integration-x12/x12-6.png) 
+
+| Property | Description |
+|----------|-------------|
 | ISA11 Usage |Specifies the separator to use in a transaction set: <p>Select **Standard identifier** to use a period (.) for decimal notation, rather than the decimal notation of the incoming document in the EDI receive pipeline. <p>Select **Repetition Separator** to specify the separator for repeated occurrences of a simple data element or a repeated data structure. For example, usually the carat (^) is used as the repetition separator. For HIPAA schemas, you can only use the carat. |
+|||
 
-### Control numbers
+<a name="outbound-control-numbers"></a>
 
-![Specify control number properties](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
+### Send Settings - Control Numbers
+
+![Control numbers for outbound messages](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
 
 | Property | Description |
-| --- | --- |
+|----------|-------------|
 | Control Version Number (ISA12) |Select the version of the X12 standard |
 | Usage Indicator (ISA15) |Select the context of an interchange.  The values are information, production data, or test data |
 | Schema |Generates the GS and ST segments for an X12-encoded interchange that it sends to the Send Pipeline |
@@ -235,16 +247,22 @@ After you set the agreement properties, you can configure how this agreement ide
 | Transaction Set Control Number (ST02) |Required, enter a range of numbers for the Transaction Set Control number. Enter a range of numeric values with a minimum of 1 and a maximum of 999999999 |
 | Prefix |Optional, designated for the range of transaction set control numbers used in acknowledgment. Enter a numeric value for the middle two fields, and an alphanumeric value (if desired) for the prefix and suffix fields. The middle fields are required and contain the minimum and maximum values for the control number |
 | Suffix |Optional, designated for the range of transaction set control numbers used in an acknowledgment. Enter a numeric value for the middle two fields and an alphanumeric value (if desired) for the prefix and suffix fields. The middle fields are required and contain the minimum and maximum values for the control number |
+|||
 
-### Character sets and separators
+<a name="outbound-character-sets-separators"></a>
+
+### Send Settings - Character Sets and Separators
 
 Other than the character set, you can enter a different set of delimiters for each message type. 
 If a character set isn't specified for a given message schema, then the default character set is used.
 
-![Specify delimiters for message types](./media/logic-apps-enterprise-integration-x12/x12-9.png) 
+![Delimiters for message types in outbound messages](./media/logic-apps-enterprise-integration-x12/x12-9.png) 
+
+> [!TIP]
+> To provide special character values, edit the agreement as JSON and provide the ASCII value for the special character.
 
 | Property | Description |
-| --- | --- |
+|----------|-------------|
 | Character Set to be used |To validate the properties, select the X12 character set. The options are Basic, Extended, and UTF8. |
 | Schema |Select a schema from the drop-down list. After you complete each row, a new row is automatically added. For the selected schema, select the separators set that you want to use, based on the separator descriptions below. |
 | Input Type |Select an input type from the drop-down list. |
@@ -253,42 +271,30 @@ If a character set isn't specified for a given message schema, then the default 
 | Replacement Character |Enter a replacement character used for replacing all separator characters in the payload data when generating the outbound X12 message. |
 | Segment Terminator |To indicate the end of an EDI segment, enter a single character. |
 | Suffix |Select the character that is used with the segment identifier. If you designate a suffix, then the segment terminator data element can be empty. If the segment terminator is left empty, then you must designate a suffix. |
+|||
 
-> [!TIP]
-> To provide special character values, edit the agreement as JSON and provide the ASCII value for the special character.
+<a name="outbound-validation"></a>
 
-### Validation
+### Send Settings - Validation
 
-![Set validation properties for sending messages](./media/logic-apps-enterprise-integration-x12/x12-10.png) 
+![Validation properties for outbound messages](./media/logic-apps-enterprise-integration-x12/x12-10.png) 
 
 When you complete each validation row, another is automatically added. 
 If you don't specify any rules, then validation uses the "Default" row.
 
 | Property | Description |
-| --- | --- |
+|----------|-------------|
 | Message Type |Select the EDI message type. |
 | EDI Validation |Perform EDI validation on data types as defined by the schema's EDI properties, length restrictions, empty data elements, and trailing separators. |
 | Extended Validation |If the data type isn't EDI, validation is on the data element requirement and allowed repetition, enumerations, and data element length validation (min/max). |
 | Allow Leading/Trailing Zeroes |Retain any additional leading or trailing zero and space characters. Don't remove these characters. |
 | Trim Leading/Trailing Zeroes |Remove leading or trailing zero characters. |
 | Trailing Separator Policy |Generate trailing separators. <p>Select **Not Allowed** to prohibit trailing delimiters and separators in the sent interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>Select **Optional** to send interchanges with or without trailing delimiters and separators. <p>Select **Mandatory** if the sent interchange must have trailing delimiters and separators. |
-
-## Find your created agreement
-
-1.	After you finish setting all your agreement properties, 
-on the **Add** page, choose **OK** to finish creating your agreement 
-and return to your integration account.
-
-	Your newly added agreement now appears in your **Agreements** list.
-
-2.	You can also view your agreements in your integration account overview. 
-On your integration account menu, choose **Overview**, then select the **Agreements** tile.
-
-	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
+|||
 
 ## Connector reference
 
-For more technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/x12/). 
+For additional technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/x12/).
 
 > [!NOTE]
 > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
@@ -296,4 +302,4 @@ For more technical details about this connector, such as actions and limits as d
 
 ## Next steps
 
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* Learn about other [connectors for Logic Apps](../connectors/apis-list.md)
