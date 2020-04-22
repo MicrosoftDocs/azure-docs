@@ -96,7 +96,7 @@ Alternatively, you can also add the generated code from AutoRest directly to the
 Once you have added a reference to the project or added the classes, add the following line to your project to enable you to access the Azure Digital Twins API.
 
 ```csharp
-using Azure Digital TwinsApi;
+using ADTApi;
 ```
 
 ## Add authentication code to the function
@@ -168,7 +168,7 @@ using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Azure.EventGrid.Models;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Extensions.Logging;
-using Azure Digital TwinsApi;
+using ADTApi;
 using System.Threading.Tasks;
 using Microsoft.Azure.Services.AppAuthentication;
 using System.Net.Http.Headers;
