@@ -15,7 +15,7 @@ ms.author: v-miegge
 
 You may experience an issue when you try to sign up for a new account in the Microsoft Azure portal or Azure account center. Before you troubleshoot the issue, first verify the following:
 
-> [!NOTE]:
+> [!NOTE]
 > If you already have an existing account and are looking for guidance to troubleshoot sign-in issues, see [Troubleshoot Azure subscription sign-in issues](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue).
 
 - The information that you provided for your Azure account profile (including contact email address, street address, and telephone number) is correct.
