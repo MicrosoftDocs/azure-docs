@@ -256,6 +256,8 @@
       href: search-query-troubleshoot-collection-filters.md
     - name: Understand collection filters
       href: search-query-understand-collection-filters.md
+    - name: Filter by language
+      href: search-filters-language.md
     - name: Example of multi-level facets
       href: search-example-adventureworks-multilevel-faceting.md
   - name: Results
