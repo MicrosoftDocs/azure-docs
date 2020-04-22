@@ -79,6 +79,10 @@ shows a list of supported operating systems on Azure images:
 |Red Hat|Red Hat Enterprise Linux|7.4 and later|
 |Suse|SLES|12 SP3 and later|
 
+### Custom virtual machine images
+
+Custom virtual machine images are supported by Guest Configuration policies as long as they are one of the operating systems in the table above.
+
 ### Unsupported client types
 
 Windows Server Nano Server isn't supported in any version.
