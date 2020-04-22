@@ -28,11 +28,11 @@ ms.author: damendo
 
 It is vital to monitor, manage, and know your own network for uncompromised security, compliance, and performance. Knowing your own environment is of paramount importance to protect and optimize it. You often need to know the current state of the network, who is connecting, where they're connecting from, which ports are open to the internet, expected network behavior, irregular network behavior, and sudden rises in traffic.
 
-Flow logs is the source of truth for all network activity in your cloud environment. Whether you're a upcoming startup trying to optimize resources or large enterprise trying to detect intrusion, Flow logs is your best bet. You can use it for optimizing network flows, monitoring throughput, verifying compliance, detecting intrusions and more.
+Flow logs are the source of truth for all network activity in your cloud environment. Whether you're an upcoming startup trying to optimize resources or large enterprise trying to detect intrusion, Flow logs are your best bet. You can use it for optimizing network flows, monitoring throughput, verifying compliance, detecting intrusions and more.
 
 ## Common Use Cases
 
-**Network Monitoring**: Identify unknown or undesired traffic. Monitor traffic levels and bandwidth consumption. Filter flow logs by IP and port to understand application behaviour. Export Flow Logs to analytics and visualization tools of your choice to setup monitoring dashboards.
+**Network Monitoring**: Identify unknown or undesired traffic. Monitor traffic levels and bandwidth consumption. Filter flow logs by IP and port to understand application behavior. Export Flow Logs to analytics and visualization tools of your choice to setup monitoring dashboards.
 
 **Usage monitoring and optimization:**: Identify top talkers in your network. Combine with GeoIP data to identify cross-region traffic. Understand traffic growth for capacity forecasting. Use data to remove overtly restrictive traffic rules.
 
@@ -44,7 +44,7 @@ Flow logs is the source of truth for all network activity in your cloud environm
 
 **Key Properties**
 
-- Flow logs operates at [Layer 4](https://en.wikipedia.org/wiki/OSI_model#Layer_4:_Transport_Layer) and records all IP flows going in and out of an NSG
+- Flow logs operate at [Layer 4](https://en.wikipedia.org/wiki/OSI_model#Layer_4:_Transport_Layer) and records all IP flows going in and out of an NSG
 - Logs are collected through the Azure platform and do not affect customer resources or network performance in any way.
 - Logs are written in the JSON format and show outbound as well as inbound flows on a per NSG rule basis.
 - Each log record contains the network interface (NIC) the flow applies to, 5-tuple information, the traffic decision & (Version 2 only) throughput information. See _Log Format_ below for full details.
@@ -52,12 +52,12 @@ Flow logs is the source of truth for all network activity in your cloud environm
 
 **Core concepts**
 
-- Software defined networks are organised around Virtual Networks (VNETs) and subnets. The security of these VNets and subnets can be managed using an NSG.
+- Software defined networks are organized around Virtual Networks (VNETs) and subnets. The security of these VNets and subnets can be managed using an NSG.
 - A Network security group (NSG) contains a list of _security rules_ that allow or deny network traffic in resources it is connected to. NSGs can be associated with subnets, individual VMs, or individual network interfaces (NIC) attached to VMs (Resource Manager). For more information, see [Network security group overview](https://docs.microsoft.com/azure/virtual-network/security-overview?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json).
-- All traffic flow in your network are evaluated using the rules in the applicable NSG.
-- The result of these evaluations is NSG Flow Logs. Flow logs are collected through the Azure platform and don't require any change to the customers resources.
+- All traffic flows in your network are evaluated using the rules in the applicable NSG.
+- The result of these evaluations is NSG Flow Logs. Flow logs are collected through the Azure platform and do not require any change to the customer resources.
 - NSG Flow Logs are written to storage accounts from where they can be accessed.
-- You can export, process, analyse and visualise Flow Logs using tools like TA, Splunk, Grafana, Stealthwatch, etc.
+- You can export, process, analyze and visualize Flow Logs using tools like TA, Splunk, Grafana, Stealthwatch, etc.
 
 ## Log format
 
@@ -332,13 +332,13 @@ While flow logs target NSGs, they are not displayed the same as the other logs. 
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-*Visualise flow Logs*
+*Visualize flow Logs*
 
-- [Azure Traffic analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) is an Azure native service to process flow logs, extracts insights and visualise flow logs. 
+- [Azure Traffic analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) is an Azure native service to process flow logs, extracts insights and visualize flow logs. 
 - [[Tutorial] Visualize NSG Flow logs with PowerBI](https://docs.microsoft.com/azure/network-watcher/network-watcher-visualize-nsg-flow-logs-power-bi)
 - [[Tutorial] Visualize NSG Flow logs with Elastic Stack](https://docs.microsoft.com/azure/network-watcher/network-watcher-visualize-nsg-flow-logs-open-source-tools)
-- [[Tutorial] Manage and analyse NSG Flow logs using Grafana](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-grafana)
-- [[Tutorial] Manage and analyse NSG Flow logs using Graylog](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog)
+- [[Tutorial] Manage and analyze NSG Flow logs using Grafana](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-grafana)
+- [[Tutorial] Manage and analyze NSG Flow logs using Graylog](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog)
 
 
 ## NSG flow logging considerations
