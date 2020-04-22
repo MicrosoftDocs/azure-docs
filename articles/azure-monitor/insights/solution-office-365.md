@@ -13,7 +13,6 @@ ms.date: 03/30/2020
 
 ![Office 365 logo](media/solution-office-365/icon.png)
 
-
 > [!IMPORTANT]
 > ## Solution update
 > This solution has been replaced by the [Office 365](../../sentinel/connect-office-365.md) General Availability solution in [Azure Sentinel](../../sentinel/overview.md) and the [Azure AD reporting and monitoring solution](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Together they provide an updated version of the previous Azure Monitor Office 365 solution with an improved configuration experience. You can continue to use the existing solution until July 30, 2020.
