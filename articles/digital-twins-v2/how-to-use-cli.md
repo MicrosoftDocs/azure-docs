@@ -23,7 +23,9 @@ Azure Digital Twins has a CLI that you can use to perform most major actions wit
 * Configuring role-based access control (RBAC)
 * Managing routes
 
-This guide provides the CLI commands for these tasks, and other information that you need to use this tool.
+This article provides the CLI commands for these tasks, and other information that you need to use this tool.
+
+You can also view the reference documentation for these commands as part of the [az iot command set](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest).
 
 ## Getting started
 
@@ -133,7 +135,7 @@ These commands are used to configure egress endpoints of an Azure Digital Twins 
 
 Uses:
 
-* Add Event Grid topic endpoint (requires pre-created Event Grid resource)
+* Add event grid topic endpoint (requires pre-created Event Grid resource)
 
   `az dt endpoint create eventgrid --endpoint-name myeg_endpoint --eventgrid-resource-group myeg_resourcegroup --eventgrid-topic myeg_topic -n mydtinstance`
 
@@ -203,7 +205,7 @@ Uses:
 
   `az dt rbac remove-role --assignee 'notcoolperson@microsoft.com -n mydtinstance`
 
-### Manage Azure Digital Twins route
+### Manage Azure Digital Twins routes
 
 Command group: `az dt route`
 

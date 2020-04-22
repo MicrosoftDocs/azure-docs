@@ -30,7 +30,8 @@ Data egress for scenarios like these is handled using **event routes**.
 An event route lets you send event data from digital twins in Azure Digital Twins to custom-defined endpoints in your subscriptions. Three Azure services are currently supported for endpoints: [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Each of these Azure services can be connected to other services and acts as the middleman, sending data along to final destinations such as TSI or Azure Maps for whatever processing you need.
 
 The following diagram illustrates the flow of event data through a larger IoT solution with an Azure Digital Twins aspect:
-![Azure Digital Twins routing data through endpoints to several downstream services](./media/concepts-route-events/routing-workflow.jpg)
+
+:::image type="content" source="media/concepts-route-events/routing-workflow.jpg" alt-text="Azure Digital Twins routing data through endpoints to several downstream services" border="false":::
 
 ## Uses for event routes
 
@@ -51,7 +52,7 @@ To define an event route, developers first must define endpoints. An **endpoint*
 * Event Hub
 * Service Bus
 
-Endpoints are set up using control plane APIs (supported by the [Azure Digital Twins CLI](https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI)), or via the Azure portal. An endpoint definition gives:
+Endpoints are set up using control plane APIs (supported by the [Azure Digital Twins CLI](how-to-use-cli.md), or via the Azure portal. An endpoint definition gives:
 * The endpoint's ID (or friendly name)
 * The endpoint type (Event Grid, Event Hub, or Service Bus)
 * The primary connection string and secondary connection string to authenticate 
@@ -75,7 +76,7 @@ await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<e
 
 The event route object passed to `EventRoutes.Add` also takes a **filter** parameter, which can be used to restrict the types of events that follow this route.
 
-Routes can be also created using [Azure Digital Twins CLI for Routes](https://github.com/Azure/azure-digital-twins/tree/private-preview/CLI#adt-routes).
+Routes can be also created using [Azure Digital Twins CLI](how-to-use-cli.md).
 
 ### Types of event messages
 
