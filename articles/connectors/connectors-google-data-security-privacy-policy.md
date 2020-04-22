@@ -73,7 +73,7 @@ To use the client ID and client secret from your Google client app in your Gmail
 
 1. Provide your connection information, for example:
 
-   ![Provide connection information](./media/connectors-google-data-security-privacy-policy/authentication-type-bring-your-own-application.png)
+   ![Provide connection information](./media/connectors-google-data-security-privacy-policy/authentication-type-bring-your-own.png)
 
    | Property | Value | Description |
    |----------|-------|-------------|
