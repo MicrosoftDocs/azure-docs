@@ -1,5 +1,5 @@
 ---
-title: Unable to sign up a new Azure account
+title: Troubleshoot issues when you sign up for a new account in Azure portal or Azure account center
 description: Resolving an issue when trying to sign up for a new account in the Microsoft Azure portal account center.
 services: cost-management-billing
 author: v-miegge
@@ -11,9 +11,12 @@ ms.date: 02/12/2020
 ms.author: v-miegge
 ---
 
-# Troubleshoot issues when you sign up a new account in Azure portal or Azure account center
+# Troubleshoot issues when you sign up for a new account in Azure portal or Azure account center
 
 You may experience an issue when you try to sign up for a new account in the Microsoft Azure portal or Azure account center. Before you troubleshoot the issue, first verify the following:
+
+> [!Note]:
+> If you already have an existing account and are looking for guidance to troubleshoot sign-in issues, see [Troubleshoot Azure subscription sign-in issues](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue).
 
 - The information that you provided for your Azure account profile (including contact email address, street address, and telephone number) is correct.
 - The credit card information is correct.
