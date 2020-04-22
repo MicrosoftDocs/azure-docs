@@ -60,11 +60,11 @@ To customize your security rules, you can create new roles as needed in the role
 }
 ```
 
-You have full control over role names. There is no master list to which your roles must adhere.
+You have full control over role names; there's no master list to which your roles must adhere.
 
 ## Wildcards
 
-Wildcards rules match all requests under a given route. If you define a `serve` value in your rule, the designated file is served in response to requests for any matching routes.
+Wildcards rules match all requests under a given route. If you define a `serve` value in your rule, the named file is served in response to requests for any matching routes.
 
 For instance, to implement a site that handles a series of routes for a calendar application, you can map all URLs that fall under the _calendar_ route to serve a single HTML file.
 
@@ -115,7 +115,7 @@ Redirects also work with paths that don't list distinct files.
 
 ## Custom error pages
 
-Ranging from requesting files not found (404) to a host of authorization-related errors, users may encounter scenarios which can result in an error. Using the `platformErrorOverrides` array, you can provide a custom experience in response to these errors.
+Ranging from requesting files not found (404) to a host of authorization-related errors, users may encounter situations which can result in an error. Using the `platformErrorOverrides` array, you can provide a custom experience in response to these errors.
 
 The following table lists the available platform error overrides:
 
@@ -185,7 +185,7 @@ The following explanation describes what happens when a request matches a rule.
 
 ## Restrictions
 
-- The _routes.json_ file cannot be more than 100KB
+- The _routes.json_ file cannot be more than 100 KB
 - The _routes.json_ file supports a maximum of 50 distinct roles
 
 ## Next steps
