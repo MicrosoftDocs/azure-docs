@@ -24,7 +24,7 @@ highlightedContent:
     - title: Basic concepts
       itemType: overview
       url: ./general/basic-concepts.md
-    - title: Soft delete
+    - title: Soft-delete
       itemType: overview
       url: ./general/overview-soft-delete.md
     - title: Logging
@@ -89,17 +89,39 @@ conceptualContent:
         url: ./secrets/index.yml
         text: See more
 
-    - title: Managing storage keys
+    - title: Key Vault with Storage
       links:
         - url: ./secrets/overview-storage-keys.md
           itemType: overview
-          text: Storage keys - CLI
+          text: Manage storage keys - CLI
         - url: ./secrets/overview-storage-keys-powershell.md
           itemType: overview
-          text: Storage keys - PowerShell
+          text: Manage storage keys - PowerShell
         - url: ./secrets/storage-keys-sas-tokens-code.md
           itemType: overview
           text: Fetch SAS tokens in code
+
+    - title: Key Vault with Virtual Machines
+      links:
+        - url: ../virtual-machines/extensions/key-vault-windows.md
+          itemType: overview
+          text: Key Vault VM extension - Windows
+        - url: ../virtual-machines/extensions/key-vault-linux.md
+          itemType: overview
+          text: Key Vault VM extension - Linux
+        - url: /azure/developer/ansible/key-vault-configure-vm-security
+          itemType: overview
+          text: Key Vault with Linux VMs in Ansible
+        - url: ../virtual-machines/windows/disk-encryption-key-vault.md
+          itemType: overview
+          text: Key Vault with Azure Disk Encryption - Windows
+        - url: ../virtual-machines/linux/disk-encryption-key-vault.md
+          itemType: overview
+          text: Key Vault with Azure Disk Encryption - Linux
+        - url: ../virtual-machine-scale-sets/disk-encryption-key-vault.md
+          itemType: overview
+          text: Key Vault with Virtual Machine Scale Sets
+
 
 
 

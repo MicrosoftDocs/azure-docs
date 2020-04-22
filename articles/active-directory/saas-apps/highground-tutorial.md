@@ -81,15 +81,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.highground.com/`
+    `https://app.highground.com/`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.highground.com/svc/SSONoAuth/<companyName>`
+    `https://app.highground.com/svc/SSONoAuth/SAML?groupid=<company-guid>`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://app.highground.com/#/login/<companyName>`
+    `https://app.highground.com/#/login/<company-slug>`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [HighGround Client support team](https://youearnedit.freshdesk.com/support/home) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

@@ -73,9 +73,9 @@ Configure company properties | Global Administrator |
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Passthrough authentication | Global Administrator | 
-Read all configuration | Global reader | 
-Seamless single sign-on | Global Administrator | 
+Passthrough authentication | Hybrid Identity Administrator | 
+Read all configuration | Global reader | Hybrid Identity Administrator |
+Seamless single sign-on | Hybrid Identity Administrator | 
 
 ## Connect Health
 
