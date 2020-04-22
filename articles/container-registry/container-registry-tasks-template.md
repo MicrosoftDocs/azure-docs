@@ -2,7 +2,7 @@
 title: Run task using template
 description: Run an ACR quick task using an Azure Resource Manager template
 ms.topic: article
-ms.date: 04/13/2020
+ms.date: 04/22/2020
 ---
 
 # Run ACR Tasks using Resource Manager templates
@@ -39,7 +39,7 @@ For this example, provide values for the following template parameters:
 |registryName     |Unique name of registry that's created         |
 |repository     |Target repository for build task        |
 |taskRunName     |Name of task run, which specifies image tag |
-|sourceLocation     |Remote context for the build task, for example, *https://github.com/Azure-Samples/acr-build-helloworld-node*. The Dockerfile in the repo root builds a container image for a small Node.js web app. If desired, use your fork of the repo as the build context.         |
+|sourceLocation     |Remote context for the build task, for example, https://github.com/Azure-Samples/acr-build-helloworld-node. The Dockerfile in the repo root builds a container image for a small Node.js web app. If desired, use your fork of the repo as the build context.         |
 
 ### Deploy the template
 
@@ -132,7 +132,7 @@ For demonstration purposes, create a separate container registry as your base re
 
 ### Create new Dockerfile
 
-Create a Dockerfile that pulls the base image from your base registry. Perform the following steps in your local fork of the GitHub repo, for example, *https://github.com/\<your-GitHub-ID\>/acr-build-helloworld-node.git*.
+Create a Dockerfile that pulls the base image from your base registry. Perform the following steps in your local fork of the GitHub repo, for example, https://github.com/myGitHubID/acr-build-helloworld-node.git*.
 
 1. In the GitHub UI, select **Create new file**.
 1. Name your file *Dockerfile-test* and paste the following contents. Substitute your registry name for *mybaseregistry*.
@@ -179,7 +179,7 @@ For this example, provide values for the following template parameters:
 |taskRunName     |Name of task run, which specifies image tag |
 |userAssignedIdentity |Resource ID of user-assigned identity enabled in the task|
 |customRegistryIdentity | Client ID of user-assigned identity enabled in the task, used to authenticate with custom registry |
-|customRegistry |Log in server name of the custom registry accessed in the task, for example, *mybaseregistry.azurecr.io*|
+|customRegistry |Login server name of the custom registry accessed in the task, for example, *mybaseregistry.azurecr.io*|
 |sourceLocation     |Remote context for the build task, for example, *https://github.com/\<your-GitHub-ID\>/acr-build-helloworld-node.* |
 |dockerFilePath | Path to the Dockerfile at the remote context, used to build the image. |
 
