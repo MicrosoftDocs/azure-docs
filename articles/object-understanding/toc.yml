@@ -26,6 +26,12 @@
   items:
   - name: Azure Object Understanding samples (GitHub)
     href: https://github.com/Azure/azure-object-understanding
+- name: References
+  items:
+  - name: SDK for Unity
+    href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.ObjectUnderstanding/
+  - name: SDK for HoloLens C++/WinRT
+    href: https://docs.microsoft.com/cpp/api/object-understanding/winrt/
 - name: Resources
   items:
   - name: Release notes
