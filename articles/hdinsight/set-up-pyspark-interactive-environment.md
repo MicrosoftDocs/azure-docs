@@ -2,12 +2,12 @@
 title: PySpark interactive environment with Azure HDInsight Tools
 description: Learn how to use the Azure HDInsight Tools for Visual Studio Code to create and submit queries and scripts.
 keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
-author: jejiang
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 04/14/2020
 ---
 
 # Set up the PySpark interactive environment for Visual Studio Code
@@ -29,21 +29,21 @@ We use **python/pip** command to build virtual environment in your Home path. If
 
 2. Install **virtualenv** by running command below.
 
-   ```
+   ```bash
    pip install virtualenv
    ```
 
 ## Other packages
 
-If you encounter an error message, install the required packages by running the following commands:
+If you come across an error message, install the required packages by running the following commands:
 
    ![Install libkrb5 package for python](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
 
-```
+```bash
 sudo apt-get install libkrb5-dev
 ```
 
-```
+```bash
 sudo apt-get install python-dev
 ```
 
@@ -52,9 +52,11 @@ Restart VS Code, and then go back to the script editor that's running **HDInsigh
 ## Next steps
 
 ### Demo
+
 * HDInsight for VS Code: [Video](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### Tools and extensions
+
 * [Use Azure HDInsight Tool for Visual Studio Code](hdinsight-for-vscode.md)
 * [Use Azure Toolkit for IntelliJ to create and submit Apache Spark Scala applications](spark/apache-spark-intellij-tool-plugin.md)
 * [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely through SSH](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)

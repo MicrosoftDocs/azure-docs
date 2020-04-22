@@ -37,7 +37,7 @@ Azure Time Series Insights Preview supports the following event sources:
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
-Azure Time Series Insights Preview supports a maximum of two event sources per instance.
+Azure Time Series Insights Preview supports a maximum of two event sources per instance. When you connect an event source, your TSI environment will read all of the events currently stored in your Iot or Event Hub, starting with the oldest event. 
 
 > [!IMPORTANT] 
 > * You may experience high initial latency when attaching an event source to your Preview environment. 

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 04/03/2020
 ms.author: nitinme
 
 # Customer intent: As a developer currently using the deprecated Bing Speech, I want to learn the differences between Bing Speech and the Speech service, so that I can migrate my application to the Speech service.
@@ -91,4 +91,4 @@ For Speech service, SDK, and API support, visit the Speech service [support page
 ## See also
 * [Speech service release notes](releasenotes.md)
 * [What is the Speech service](overview.md)
-* [Speech service and Speech SDK documentation](speech-sdk.md#get-the-sdk)
+* [Speech service and Speech SDK documentation](speech-sdk.md#get-the-speech-sdk)

@@ -133,7 +133,7 @@ In this example, the Developer Console is the client-app. The following steps de
 
 1. If you use **v1** endpoints, add a body parameter named **resource**. For the value of this parameter, use **Application ID** of the back-end app. 
 
-1. If you use **v2** endpoints, use the scope you created for the backend-app in the **Default scope** field.
+1. If you use **v2** endpoints, use the scope you created for the backend-app in the **Default scope** field. Also, make sure to set the value for the [`accessTokenAcceptedVersion`](/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) property to `2` in your [application manifest](/azure/active-directory/develop/reference-app-manifest).
 
 1. Next, specify the client credentials. These are the credentials for the client-app.
 
