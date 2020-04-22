@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 04/17/2020
+ms.date: 04/23/2020
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -142,12 +142,12 @@ To work with conditions, compare values and expression results, or evaluate vari
 
 To change a value's type or format, you can use these conversion functions. For example, you can change a value from a Boolean to an integer. For more information about how Logic Apps handles content types during conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md). For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
-> [!IMPORTANT]
-> The Logic Apps service automatically converts values between specific data types, which means 
-> that you don't have to manually convert between those types by using the relevant expressions. 
-> If you use these expressions in the designer or code view, Logic Apps removes those expressions 
-> after you save your logic app because these conversions happen automatically. For more information, 
-> see [Implicit data type conversions](#implicit-data-conversions).
+> [!NOTE]
+> Azure Logic Apps automatically converts values between some data types, 
+> which means that you don't have to manually perform these conversions. 
+> However, if you do so, you might experience unexpected display behaviors, 
+> which don't affect the actual conversions, only how they are shown. 
+> For more information, see [Implicit data type conversions](#implicit-data-conversions).
 
 | Conversion function | Task |
 | ------------------- | ---- |
@@ -972,6 +972,13 @@ And returns this result: `["hello"]`
 
 Return the base64-encoded version for a string.
 
+> [!NOTE]
+> Azure Logic Apps automatically performs base64 encoding and decoding, 
+> which means that you don't have to manually perform these conversions. 
+> However, if you do so, you might experience unexpected display behaviors, 
+> which don't affect the actual conversions, only how they are shown. 
+> For more information, see [Implicit data type conversions](#implicit-data-conversions).
+
 ```
 base64('<value>')
 ```
@@ -1001,6 +1008,13 @@ And returns this result: `"aGVsbG8="`
 ### base64ToBinary
 
 Return the binary version for a base64-encoded string.
+
+> [!NOTE]
+> Azure Logic Apps automatically performs base64 encoding and decoding, 
+> which means that you don't have to manually perform these conversions. 
+> However, if you do so, you might experience unexpected display behaviors, 
+> which don't affect the actual conversions, only how they are shown. 
+> For more information, see [Implicit data type conversions](#implicit-data-conversions).
 
 ```
 base64ToBinary('<value>')
@@ -1032,11 +1046,14 @@ And returns this result:
 
 ### base64ToString
 
-Return the string version for a base64-encoded string,
-effectively decoding the base64 string.
-Use this function rather than [decodeBase64()](#decodeBase64).
-Although both functions work the same way,
-`base64ToString()` is preferred.
+Return the string version for a base64-encoded string, effectively decoding the base64 string. Use this function rather than [decodeBase64()](#decodeBase64). Although both functions work the same way, `base64ToString()` is preferred.
+
+> [!NOTE]
+> Azure Logic Apps automatically performs base64 encoding and decoding, 
+> which means that you don't have to manually perform these conversions. 
+> However, if you do so, you might experience unexpected display behaviors, 
+> which don't affect the actual conversions, only how they are shown. 
+> For more information, see [Implicit data type conversions](#implicit-data-conversions).
 
 ```
 base64ToString('<value>')
@@ -1643,11 +1660,7 @@ And returns this result: `74`
 
 ### decodeBase64
 
-Return the string version for a base64-encoded string,
-effectively decoding the base64 string.
-Consider using [base64ToString()](#base64ToString)
-rather than `decodeBase64()`.
-Although both functions work the same way,
+Return the string version for a base64-encoded string, effectively decoding the base64 string. Consider using [base64ToString()](#base64ToString) rather than `decodeBase64()`. Although both functions work the same way,
 `base64ToString()` is preferred.
 
 ```
@@ -1678,11 +1691,14 @@ And returns this result: `"hello"`
 
 ### decodeDataUri
 
-Return the binary version for a data uniform resource identifier (URI).
-Consider using [dataUriToBinary()](#dataUriToBinary),
-rather than `decodeDataUri()`.
-Although both functions work the same way,
-`dataUriToBinary()` is preferred.
+Return the binary version for a data uniform resource identifier (URI). Consider using [dataUriToBinary()](#dataUriToBinary), rather than `decodeDataUri()`. Although both functions work the same way, `dataUriToBinary()` is preferred.
+
+> [!NOTE]
+> Azure Logic Apps automatically performs base64 encoding and decoding, 
+> which means that you don't have to manually perform these conversions. 
+> However, if you do so, you might experience unexpected display behaviors, 
+> which don't affect the actual conversions, only how they are shown. 
+> For more information, see [Implicit data type conversions](#implicit-data-conversions).
 
 ```
 decodeDataUri('<value>')
@@ -1780,12 +1796,14 @@ And return this result: `2`
 
 ### encodeUriComponent
 
-Return a uniform resource identifier (URI) encoded version for a
-string by replacing URL-unsafe characters with escape characters.
-Consider using [uriComponent()](#uriComponent),
-rather than `encodeUriComponent()`.
-Although both functions work the same way,
-`uriComponent()` is preferred.
+Return a uniform resource identifier (URI) encoded version for a string by replacing URL-unsafe characters with escape characters. Consider using [uriComponent()](#uriComponent), rather than `encodeUriComponent()`. Although both functions work the same way, `uriComponent()` is preferred.
+
+> [!NOTE]
+> Azure Logic Apps automatically performs base64 encoding and decoding, 
+> which means that you don't have to manually perform these conversions. 
+> However, if you do so, you might experience unexpected display behaviors, 
+> which don't affect the actual conversions, only how they are shown. 
+> For more information, see [Implicit data type conversions](#implicit-data-conversions).
 
 ```
 encodeUriComponent('<value>')
