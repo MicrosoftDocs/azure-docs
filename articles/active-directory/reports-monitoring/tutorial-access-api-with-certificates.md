@@ -42,10 +42,10 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
     - Access tokens from user, application keys, and certificates using ADAL
     - Graph API handling paged results
 
-6. If it's your first time using the module run **Install-MSCloudIdUtilsModule**, otherwise import it using the **Import-Module** Powershell command. Your session should look similar to this screen:
-    ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. If it's your first time using the module run **Install-MSCloudIdUtilsModule**, otherwise import it using the **Import-Module** PowerShell command. Your session should look similar to this screen:
+    ![Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-7. Use the **New-SelfSignedCertificate** Powershell commandlet to create a test certificate.
+7. Use the **New-SelfSignedCertificate** PowerShell commandlet to create a test certificate.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
@@ -85,7 +85,7 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
 
    ![Azure portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-7. Use the access token in your Powershell script to query the Graph API. Use the **Invoke-MSCloudIdMSGraphQuery** cmdlet from the MSCloudIDUtils to enumerate the signins and directoryAudits endpoint. This cmdlet handles multi-paged results, and sends those results to the PowerShell pipeline.
+7. Use the access token in your PowerShell script to query the Graph API. Use the **Invoke-MSCloudIdMSGraphQuery** cmdlet from the MSCloudIDUtils to enumerate the signins and directoryAudits endpoint. This cmdlet handles multi-paged results, and sends those results to the PowerShell pipeline.
 
 8. Query the directoryAudits endpoint to retrieve the audit logs. 
    ![Azure portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
