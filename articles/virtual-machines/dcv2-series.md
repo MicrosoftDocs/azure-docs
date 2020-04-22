@@ -37,7 +37,7 @@ Memory Preserving Updates: Not Supported
 
 - DCsv2-series VMs are [generation 2 VMs](./linux/generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
 - Currently available in UK South, Canada Central, and US East only.
-- Previous generation of Confidential Compute VMs: [DC series](sizes-previous-gen.md#preview--dc--series)
+- Previous generation of Confidential Compute VMs: [DC series](sizes-previous-gen.md#preview-dc-series)
 - Create DCsv2 VMs using the [Azure portal](./linux/quick-create-portal.md) or [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)
 
 
