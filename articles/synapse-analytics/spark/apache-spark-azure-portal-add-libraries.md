@@ -48,6 +48,16 @@ Upload the environment configuration file using the file selector in the **Packa
 
 ![Add Python libraries](./media/apache-spark-azure-portal-add-libraries/add-python-libraries.png "Add Python libraries")
 
+### Verifying installed libraries
+
+To verify if the correct versions of the correct libraries are installed run the following code
+
+```python
+import pip #needed to use the pip functions
+for i in pip.get_installed_distributions(local_only=True):
+    print(i)
+```
+
 ## Next steps
 
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
