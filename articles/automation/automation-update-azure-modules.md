@@ -32,7 +32,7 @@ If you develop your scripts locally, it's recommended to have the same module ve
 
 The following are some considerations to take into account when using this article to update your Azure Modules:
 
-* The runbook described in this article supports updating the Azure, AzureRM, and Az modules by default. Review the [Update Azure modules runbook README](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) for more information on updating Az.Automation modules with this runbook. There are additional important factors that you need to take into account when using the Az modules in your Automation account. To learn more, see [Using Az modules in your Automation account](az-modules.md).
+* The runbook described in this article supports updating the Azure, AzureRM, and Az modules by default. Review the [Update Azure modules runbook README](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) for more information on updating Az.Automation modules with this runbook. There are additional important factors that you need to take into account when using the Az modules in your Automation account. To learn more, see [Manage modules in Azure Automation](shared-resources/modules.md).
 
 * Before starting this runbook, make sure your Automation account has an [Azure Run As account credential](manage-runas-account.md) created.
 
