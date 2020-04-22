@@ -146,5 +146,5 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 
 In this tutorial, you updated a certificate's life-cycle. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
-Read more about [Managing certificate creation in Azure Key Vault](../articles/key-vault/certificates/create-certificate-scenarios.md)
+Read more about [Managing certificate creation in Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios)
 - Review the [Key Vault Overview](../general/overview.md)
