@@ -28,7 +28,7 @@
         href: connect-macos.md
       - name: Connect with the iOS client
         href: connect-ios.md
-  - name: Install the PowerShell module
+  - name: Set up the PowerShell module
     href: powershell-module.md
   - name: Create a host pool and session hosts
     items:
