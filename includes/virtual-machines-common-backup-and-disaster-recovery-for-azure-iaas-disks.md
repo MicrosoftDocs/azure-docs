@@ -1,4 +1,4 @@
-﻿---
+---
 title: "include file"
 description: "include file"
 services: storage
@@ -228,7 +228,7 @@ For VMs with multiple disks, you must copy all the snapshots that are part of th
 
 ### SQL Server
 
-SQL Server running in a VM has its own built-in capabilities to back up your SQL Server database to Azure Blob storage or a file share. If the storage account is geo-redundant storage or read-access geo-redundant storage, you can access those backups in the storage account’s secondary datacenter in the event of a disaster, with the same restrictions as previously discussed. For more information, see [Back up and restore for SQL Server in Azure virtual machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md). In addition to back up and restore, [SQL Server AlwaysOn availability groups](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md) can maintain secondary replicas of databases. This ability greatly reduces the disaster recovery time.
+SQL Server running in a VM has its own built-in capabilities to back up your SQL Server database to Azure Blob storage or a file share. If the storage account is geo-redundant storage or read-access geo-redundant storage, you can access those backups in the storage account’s secondary datacenter in the event of a disaster, with the same restrictions as previously discussed. For more information, see [Back up and restore for SQL Server in Azure virtual machines](../articles/sql-database/virtual-machines/windows/backup-recovery.md). In addition to back up and restore, [SQL Server AlwaysOn availability groups](../articles/sql-database/virtual-machines/windows/high-availability-dr.md) can maintain secondary replicas of databases. This ability greatly reduces the disaster recovery time.
 
 ## Other considerations
 

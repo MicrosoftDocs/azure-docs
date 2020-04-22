@@ -1,10 +1,10 @@
 ---
-title: PowerShell example Restore Geo-backup - Azure SQL Database 
-description: Azure PowerShell example script to restore an Azure SQL Managed Instance Database from a geo-redundant backup.
+title: "PowerShell: Restore geo-back up for an Azure SQL Managed Instance"
+description: Azure PowerShell example script to restore an Azure SQL Managed Instance from a geo-redundant backup.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft
@@ -12,7 +12,7 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
 ---
-# Use PowerShell to restore a Managed Instance database to another geo-region
+# Use PowerShell to restore an Azure SQL Managed Instance database to another geo-region
 
 This PowerShell script example restores an Azure SQL Managed Instance database from a remote geo-region (geo-restore).  
 
@@ -68,8 +68,8 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/New-AzResourceGroup) | Creates a resource group in which all resources are stored. |
-| [Get-AzSqlInstanceDatabaseGeoBackup](/powershell/module/az.sql/Get-AzSqlInstanceDatabaseGeoBackup) | Creates a Geo-redundant backup of Managed Instance Database. |
-| [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/Restore-AzSqlInstanceDatabase) | Creates a database on a Managed Instance from geo-backup. |
+| [Get-AzSqlInstanceDatabaseGeoBackup](/powershell/module/az.sql/Get-AzSqlInstanceDatabaseGeoBackup) | Creates a Geo-redundant backup of SQL Managed Instance database. |
+| [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/Restore-AzSqlInstanceDatabase) | Creates a database on a SQL Managed Instance from geo-backup. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 
 ## Next steps

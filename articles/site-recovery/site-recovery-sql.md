@@ -157,6 +157,6 @@ Site Recovery is application agnostic. Site Recovery can help protect any versio
 ## Next steps
 
 * Learn more about [Site Recovery architecture](site-recovery-components.md).
-* For SQL Server in Azure, learn more about [high availability solutions](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions) for recovery in a secondary Azure region.
+* For SQL Server in Azure, learn more about [high availability solutions](../sql-database/virtual-machines/windows/high-availability-dr.md#azure-only-high-availability-solutions) for recovery in a secondary Azure region.
 * For SQL Database, learn more about the [business continuity](../sql-database/sql-database-business-continuity.md) and [high availability](../sql-database/sql-database-high-availability.md) options for recovery in a secondary Azure region.
-* For SQL Server machines at on-premises, learn more about the [high availability options](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md#hybrid-it-disaster-recovery-solutions) for recovery in Azure Virtual Machines.
+* For SQL Server machines at on-premises, learn more about the [high availability options](../sql-database/virtual-machines/windows/high-availability-dr.md#hybrid-it-disaster-recovery-solutions) for recovery in Azure Virtual Machines.

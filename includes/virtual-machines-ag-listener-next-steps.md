@@ -13,5 +13,5 @@ In addition to automatically connecting clients to the primary replica, a listen
 > 
 > 
 
-For more information about using SQL Server in Azure, see [SQL Server on Azure virtual machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
+For more information about using SQL Server in Azure, see [SQL Server on Azure virtual machines](../articles/sql-database/virtual-machines/windows/overview.md).
 
