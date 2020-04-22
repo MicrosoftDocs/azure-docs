@@ -43,7 +43,7 @@ landingContent:
         links:
           - text: 'AutoML: build a classification model'
             url: tutorial-first-experiment-automated-ml.md                 
-          - text:'The designer: predict auto prices
+          - text:'The designer: predict auto prices'
             url: tutorial-designer-automobile-price-train-score.md
           - text: Create an image labeling project  
             url: tutorial-labeling.md
