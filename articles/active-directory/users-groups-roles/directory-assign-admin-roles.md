@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 04/14/2020
+ms.date: 04/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
@@ -101,7 +101,7 @@ Users with this role can create and manage B2C User Flows (also called "built-in
 
 ### [B2C User Flow Attribute Administrator](#b2c-user-flow-attribute-administrator-permissions)
 
-Users with this role add or delete custom attributes available to all user flows in the tenant. As such, users with this role can change or add new elements to the end user schema and impact the behavior of all user flows and indirectly result in changes to what data may be asked of end users and ultimately sent as claims to applications. This role cannot edit user flows.
+Users with this role add or delete custom attributes available to all user flows in the tenant. As such, users with this role can change or add new elements to the end-user schema and impact the behavior of all user flows and indirectly result in changes to what data may be asked of end users and ultimately sent as claims to applications. This role cannot edit user flows.
 
 ### [B2C IEF Keyset Administrator](#b2c-ief-keyset-administrator-permissions)
 
@@ -211,10 +211,10 @@ Users with this role have global permissions within Microsoft Exchange Online, w
 
 ### [External Identity Provider Administrator](#external-identity-provider-administrator-permissions)
 
-This administrator manages federation between Azure Active Directory tenants and external identity providers. With this role, users can add new identity providers and configure all available settings (e.g. authentication path, service ID, assigned key containers). This user can enable the tenant to trust authentications from external identity providers. The resulting impact on end user experiences depends on the type of tenant:
+This administrator manages federation between Azure Active Directory tenants and external identity providers. With this role, users can add new identity providers and configure all available settings (e.g. authentication path, service ID, assigned key containers). This user can enable the tenant to trust authentications from external identity providers. The resulting impact on end-user experiences depends on the type of tenant:
 
 * Azure Active Directory tenants for employees and partners: The addition  of a federation (e.g. with Gmail) will immediately impact all guest invitations not yet redeemed. See [Adding Google as an identity provider for B2B guest users](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
-* Azure Active Directory B2C tenants: The addition of a federation (for example, with Facebook, or with another Azure AD organization) does not immediately impact end user flows until the identity provider is added as an option in a user flow (also called a built-in policy). See [Configuring a Microsoft account as an identity provider](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) for an example. To change user flows, the limited role of "B2C User Flow Administrator" is required.
+* Azure Active Directory B2C tenants: The addition of a federation (for example, with Facebook, or with another Azure AD organization) does not immediately impact end-user flows until the identity provider is added as an option in a user flow (also called a built-in policy). See [Configuring a Microsoft account as an identity provider](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) for an example. To change user flows, the limited role of "B2C User Flow Administrator" is required.
 
 ### [Global Administrator / Company Administrator](#company-administrator-permissions)
 
@@ -283,7 +283,7 @@ Users in this role can enable, configure and manage services and settings relate
 
 Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control).
 
-This role can create and manage all security groups. However, Intune Admin does not have admin rights over Office groups. That means the admin cannot update owners or memberships of all Office groups in the tenant. However, he/she can manage the Office group that he creates which comes as a part of his/her end user privileges. So, any Office group (not security group) that he/she creates should be counted against his/her quota of 250.
+This role can create and manage all security groups. However, Intune Admin does not have admin rights over Office groups. That means the admin cannot update owners or memberships of all Office groups in the tenant. However, he/she can manage the Office group that he creates which comes as a part of his/her end-user privileges. So, any Office group (not security group) that he/she creates should be counted against his/her quota of 250.
 
 > [!NOTE]
 > In the Microsoft Graph API and Azure AD PowerShell, this role is identified as "Intune Service Administrator ". It is "Intune Administrator" in the [Azure portal](https://portal.azure.com).
