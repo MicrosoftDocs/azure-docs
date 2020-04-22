@@ -13,9 +13,9 @@ ms.author: dsindona
 # Consulting services for Azure Marketplace and AppSource
 Azure Marketplace and AppSource consulting services offer Microsoft system-integrator partners the benefit of connecting their customers with services that support and extend their use of Azure. These consulting services help customers assess, evaluate, and deploy the business solutions that further their business objectives and goals.  
 
-The consulting-service offerings are customer-specific engagements. Publishers have the option to determine the listing type, scope and duration, pricing structure (fixed-price or free), and have a defined agenda with deliverables to the customer. Leads are received through a notification in partners' CRM systems, and they aim to respond to customers within 48 hours. 
+The consulting-service offerings are customer-specific engagements. Publishers have the option to determine the listing type, scope and duration, and pricing structure (fixed-price or free), and they have a defined agenda with deliverables to the customer. Leads are received through a notification in partners' CRM systems, and they aim to respond to customers within 48 hours. 
 
-## Consulting services in Azure Marketplace vs AppSource storefronts
+## Compare consulting services in Azure Marketplace and AppSource storefronts
 The marketplace storefronts are aligned with audiences and Microsoft cloud products to help customers find what they need. Each storefront offers specialized publishing options to help you maximize your publishing investment. The following table summarizes these options:
 
 |         |Azure Marketplace  |Microsoft AppSource |
