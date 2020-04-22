@@ -2,15 +2,13 @@
 title: Share VM images with Shared Galleries 
 description: Learn how to use shared image galleries to share VM images across your organization.
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 03/25/2020
+ms.date: 04/22/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-#PMcontact: akjosh
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
