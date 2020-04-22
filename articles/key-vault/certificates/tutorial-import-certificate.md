@@ -101,7 +101,7 @@ az keyvault certificate import --file
 ```
 Learn more about the parameters [here](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)
 
-After importing the certificate, you can view the certificate using [Certificate show](https://docs.microsoft.com/en-us/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)
+After importing the certificate, you can view the certificate using [Certificate show](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)
 
 
 ```azurecli
@@ -131,6 +131,6 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 
 In this tutorial, you created a Key Vault and imported a certificate in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
-- Read more about [Managing certificates in Azure Key Vault](/archive/blogs/kv/manage-certificates-via-azure-key-vault)
+- Read more about [Managing certificate creation in Azure Key Vault](../articles/key-vault/certificates/create-certificate-scenarios.md)
 - See examples of [Importing Certificates Using REST APIs](/rest/api/keyvault/importcertificate/importcertificate)
 - Review [Azure Key Vault best practices](../general/best-practices.md)
