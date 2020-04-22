@@ -179,38 +179,34 @@ To change a value's type or format, you can use these conversion functions. For 
 
 ## Implicit data type conversions
 
-The Logic Apps service automatically or implicitly performs some data type conversions, which means that you can omit the corresponding expressions to manually or explicitly make those conversions. However, if you use these expressions in your logic app, save your logic app, reload your logic app, and edit the expression's parameter values, Logic Apps removes those expressions from designer view. To avoid this Logic Apps behavior, don't edit the expression's parameter values. If Logic Apps removes the expressions anyway, those expressions reappear after you save your logic app.
+Azure Logic Apps automatically or implicitly converts between some data types, so you don't have to manually convert these types. For example, if you use non-string values where strings are expected as inputs, Logic Apps automatically converts the non-string values into strings.
 
-This table describes the functions or expressions that are affected by this Logic Apps behavior and should omit:
+For example, suppose a trigger returns a numerical value as output:
 
-| Function or expression | Example use cases |
-|------------------------|-------------------|
-| `base64(<value>)` | - Converting from **Binary** or **File** to **Byte** <br>- Converting from **Other** to **Byte** |
-| `base64ToBinary(<value>)` | Converting from **Byte** to **Binary** or **File** |
-| `base64ToString(<value>)` | Converting from **Byte** to **Other** |
-| `base64(decodeDataUri(<value>))` | Converting from **DataUri** to **Byte** |
-| `concat('data:;base64,',<value>)` | - Converting from **Binary** or **File** to **DataUri** <br>- Converting from **Byte** to **DataUri** |
-| `concat('data:,',encodeUriComponent(<value>))` | Converting from **Other** to **DataUri** |
-| `decodeDataUri(<value>)` | Converting from **DataUri** to **Binary**, **File**, or **Other** type |
-|||
+`triggerBody()?['123']`
 
-If you use non-string values where strings are expected as inputs, Logic Apps automatically converts the non-string values into strings, for example:
+If you use this numerical output where string input is expected, such as a URL, Logic Apps automatically converts the value into a string by using the curly braces (`{}`) notation:
 
-* A trigger returns a numerical value as output through this expression:
+`@{triggerBody()?['123']}`
 
-  `triggerBody()?['number']`
+### Base64 encoding and decoding
 
-  If the numerical value is used for a string input, such as an HTTP URL, you get this result:
+Logic Apps automatically or implicitly performs base64 encoding or decoding, so you don't have to manually perform these operations by using the corresponding expressions:
 
-  `@{triggerBody()?['number']}`
+* `base64(<value>)`
+* `base64ToBinary(<value>)`
+* `base64ToString(<value>)`
+* `base64(decodeDataUri(<value>))`
+* `concat('data:;base64,',<value>)`
+* `concat('data:,',encodeUriComponent(<value>))`
+* `decodeDataUri(<value>)`
 
-* A trigger returns a string value as output through this expression:
-
-  `triggerBody()?['string']`
-
-  If the string value is used for a string input, you get this result:
-
-  `@triggerBody()?['string']`
+> [!NOTE]
+> If you manually add these expressions to your logic app, for example, by using the expression editor, 
+> navigate away from the Logic App Designer and return to the designer, the designer shows only the 
+> parameter values. The expressions are preserved in code view only if you don't edit the parameter 
+> values. Otherwise, Logic Apps removes the expressions from code view, leaving only the parameter values. 
+> This behavior doesn't affect encoding or decoding, only whether the expressions are shown.
 
 <a name="math-functions"></a>
 
