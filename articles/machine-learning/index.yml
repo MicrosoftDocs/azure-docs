@@ -118,15 +118,3 @@ landingContent:
             url: https://github.com/Microsoft/AI
           - text: SDK for R
             url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
-
-  # Pipelines
-  - title: 'Build ML pipelines'
-    linkLists:
-    - linkListType: tutorial
-      links:
-
-    - linkListType: overview
-      links:
-
-      - text: What is the designer?
-        url: concept-designer.md   
