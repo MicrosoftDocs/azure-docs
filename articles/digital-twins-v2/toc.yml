@@ -32,8 +32,8 @@
   items:
   - name: Create an Azure Digital Twins instance
     href: how-to-set-up-instance.md
-  - name: Authenticate against Azure Digital Twins
-    href: how-to-authenticate.md
+  - name: Authenticate a client application
+    href: how-to-authenticate-client.md
   - name: Ingest telemetry from IoT Hub
     href: how-to-ingest-iot-hub-data.md
   - name: Use the APIs

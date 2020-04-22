@@ -27,7 +27,13 @@ In this tutorial, you will...
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Azure Digital Twins setup steps](../../includes/digital-twins-setup.md)]
+[!INCLUDE [Azure Digital Twins setup steps: instance creation and authentication](../../includes/digital-twins-setup-1.md)]
+
+#### Register your application
+
+[!INCLUDE [Azure Digital Twins setup steps: client app registration](../../includes/digital-twins-setup-2.md)]
+
+[!INCLUDE [Azure Digital Twins setup steps: client app configuration](../../includes/digital-twins-setup-3.md)]
 
 ## Get started with the building scenario
 

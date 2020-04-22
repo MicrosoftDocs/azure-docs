@@ -30,7 +30,13 @@ Here are the steps included:
 > [!NOTE]
 > The PowerShell version of Azure Cloud Shell is recommended for its parsing of quotations. The other bash version will work for most commands, but may fail on commands with *single-quote* and/or *double-quote* characters.
 
-[!INCLUDE [Azure Digital Twins setup steps](../../includes/digital-twins-setup.md)]
+[!INCLUDE [Azure Digital Twins setup steps: instance creation and authentication](../../includes/digital-twins-setup-1.md)]
+
+#### Register your application
+
+[!INCLUDE [Azure Digital Twins setup steps: client app registration](../../includes/digital-twins-setup-2.md)]
+
+[!INCLUDE [Azure Digital Twins setup steps: client app configuration](../../includes/digital-twins-setup-3.md)]
 
 ## Build out a sample solution
 

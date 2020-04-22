@@ -1,9 +1,9 @@
 ---
 author: baanders
-description: include file with Azure Digital Twins setup steps
+description: include file with Azure Digital Twins setup steps (1, instance creation and authentication)
 ms.service: digital-twins
 ms.topic: include
-ms.date: 4/16/2020
+ms.date: 4/22/2020
 ms.author: baanders
 ---
 
@@ -40,7 +40,6 @@ az provider register --namespace 'Microsoft.DigitalTwins'
 Next, run the following commands to create a new Azure resource group for use in this tutorial, and then create a new instance of Azure Digital Twins in this resource group.
 
 ```azurecli
-
 az group create --location "westcentralus" --name <name-for-your-resource-group>
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l "westcentralus"
 ```
@@ -76,34 +75,3 @@ The result of this command is outputted information about the role assignment yo
 > az ad user show --id <your-AAD-email> --query objectId
 > ```
 > Then, repeat the role assignment command using your user's *Object ID* in place of your email.
-
-#### Register your application
-
-To configure an app registration, complete the "Create an app registration" section of [How to authenticate](../articles/digital-twins-v2/how-to-authenticate.md). After doing this, your command window should look something like this:
-
-:::image type="content" source="../articles/digital-twins-v2/media/include-setup/new-app-registration.png" alt-text="New AAD app registration":::
-
-Take note of the `appId` value from the output. This is your *Application (client) ID*, and you will use it later.
-
-Next, run this command to take note of your *Directory (tenant) ID*.
-
-```azurecli
-az account show --query tenantId
-```
-
-You will use both of these values in the next step.
-
-## Configure the sample project
-
-To get started with the sample project, navigate on your local machine to the project folder you downloaded from this repository.
-
-Open _DigitalTwinsMetadata/DigitalTwinsSample/**Program.cs**_, and change `AdtInstanceUrl` to your Azure Digital Twins instance hostName, `ClientId` to your *Application ID*, and `TenantId` to your *Directory ID*.
-
-```csharp
-private const string ClientId = "<your-application-ID>";
-private const string TenantId = "<your-directory-ID>";
-//...
-const string AdtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"
-```
-
-Save the file.

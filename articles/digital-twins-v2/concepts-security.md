@@ -71,6 +71,6 @@ The following list describes the levels at which you can scope access to Azure D
 
 ## Next steps
 
-* Walk through the steps to [Authenticate against Azure Digital Twins](how-to-authenticate.md).
+* See how to walk through these steps with a sample client application in [Authenticate a client application](how-to-authenticate-client.md).
 
 * Read more about [RBAC for Azure](../role-based-access-control/overview.md).

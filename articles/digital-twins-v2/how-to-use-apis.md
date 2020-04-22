@@ -21,7 +21,7 @@ This article gives a brief overview of the API surface of Azure Digital Twins, a
 
 > [!NOTE]
 > * To learn how to create an Azure Digital Twins instance, please see [Create an Azure Digital Twins instance](how-to-set-up-instance.md).
-> * To learn how to authenticate and connect to an instance, please see [Authenticate against Azure Digital Twins](how-to-authenticate.md).
+> * To learn how to authenticate a client app and connect it to an instance, please see [Authenticate a client application](how-to-authenticate-client.md).
 
 The Azure Digital Twins API surface can be broadly divided into the following categories: 
 
