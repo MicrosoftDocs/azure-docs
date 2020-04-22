@@ -1,27 +1,86 @@
 ---
-title: Create a Service Fabric cluster by using Azure Resource Manager template
-description: Learn how to create an Azure Service Fabric cluster by using Azure Resource Manager template.
+title: Create a Service Fabric cluster using Azure Resource Manager template
+description: In this quickstart, you will create an Azure Service Fabric test cluster by using Azure Resource Manager template.
 author: erikadoyle
 ms.service: service-fabric
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
-ms.date: 04/22/20
+ms.date: 04/24/20
 ---
-# The H1 heading must include words "Resource Manager template"
+# Quickstart: Create a Service Fabric cluster using Resource Manager template
 
-<!-- The second paragraph must be the following include file. You might need to change the file path of the include file depending on your content structure. This include is a paragraph that consistently introduces ARM concepts before doing a deployment and includes all our desired links to ARM content.-->
-
+Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and containers. An Service Fabric *cluster* is a network-connected set of virtual machines into which your microservices are deployed and managed.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+This article describes how to deploy a Service Fabric test cluster in Azure using the Resource Manager. This 5-node Windows cluster is secured with a self-signed certificate and thus only intended for instructional purposes (rather than production workloads).
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
 
-<!-- If there aren't any prerequisites, just place "None" in the section. -->
+### Install Service Fabric SDK and PowerShell modules
 
-## Create a ...
+To complete this quickstart, you'll need to:
+
+* Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
+
+* Install [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+
+### Download the sample template and certificate helper script
+
+Clone or download the [Azure Resource Manager QuickStart Templates](https://github.com/Azure/azure-quickstart-templates) repo. Alternatively, simply copy down locally the following files we'll be using from the *service-fabric-secure-cluster-5-node-1-nodetype* folder:
+
+* [New-ServiceFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/New-ServiceFabricClusterCertificate.ps1)
+* [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json)
+* [azuredeploy.parameters.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.parameters.json)
+
+### Sign in to Azure
+
+Sign in to Azure and designate the subscription to use for creating your Service Fabric cluster.
+
+```powershell
+# Sign in to your Azure account
+Login-AzAccount -SubscriptionId "<subscription ID>"
+```
+
+### Create a self-signed certificate stored in Key Vault
+
+Service Fabric uses X.509 certificates to [secure a cluster](./service-fabric-cluster-security.md) and provide application security features, and [Key Vault](../key-vault/general/overview) to manage those certificates. Successful cluster creation requires a cluster certificate to enable node-to-node communication. For the purpose of creating this quickstart test cluster, we'll create a self-signed certificate for cluster authentication. Production workloads require certificates created using a correctly configured Windows Server certificate service or one from an approved certificate authority (CA).
+
+```powershell
+# Designate unique (within cloudapp.azure.com) names for your resources
+
+$resourceGroupName = "SFQuickstartRG"
+$keyVaultName = "SFQuickstartKV"
+
+# Create a new resource group for your Key Vault and Service Fabric cluster
+New-AzResourceGroup -Name $resourceGroupName -Location SouthCentralUS
+
+# Create a Key Vault enabled for deployment
+New-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $resourceGroupName -Location SouthCentralUS -EnabledForDeployment
+
+# Generate a certificate and upload it to Key Vault
+.\New-ServiceFabricClusterCertificate.ps1
+```
+
+The script will prompt you for the following (be sure to modify *CertDNSName* and *KeyVaultName* from the example values below):
+
+* **Password:** Password!1
+* **CertDNSName:** sfquickstart.southcentralus.cloudapp.azure.com
+* **KeyVaultName:** SFQuickstartKV0416
+* **KeyVaultSecretName:** clustercert
+
+Upon completion, the script will provide the parameter values needed for template deployment. Be sure to store these in the following variables, as they will be needed to deploy your cluster template:
+
+```powershell
+$sourceVaultId = ""
+$certUrlValue = ""
+$certThumbprint = ""
+```
+
+## Create a Service Fabric cluster
 
 <!-- The second H2 must start with "Create a". For example,  'Create a Key Vault', 'Create a virtual machine', etc. -->
 
