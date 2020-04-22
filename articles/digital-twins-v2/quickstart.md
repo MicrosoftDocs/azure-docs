@@ -25,6 +25,8 @@ Here are the steps included:
 3. Build out a sample solution, including models, digital twins, and relationships
 4. Query the sample solution to see how Azure Digital Twins can help you answer questions about your environment
 
+Get the sample project you'll use in this tutorial by downloading [this repository](https://github.com/Azure-Samples/digital-twins-building-scenario) as a ZIP file to your machine.
+
 [!INCLUDE [instructions on using the Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
 > [!NOTE]
