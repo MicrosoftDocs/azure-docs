@@ -8,6 +8,7 @@ ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom:  mqtt
 ---
 
 # Understand how Azure IoT Edge uses certificates
