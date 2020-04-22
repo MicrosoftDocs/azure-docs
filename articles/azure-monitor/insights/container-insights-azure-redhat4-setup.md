@@ -103,13 +103,15 @@ After you've enabled monitoring, it might take about 15 minutes before you can v
 
 ### From the Azure portal
 
+The multi-cluster view in Azure Monitor for containers highlights your Azure Red Hat OpenShift clusters that don't have monitoring enabled under the **Non-monitored clusters** tab. The **Enable** option next to your cluster does not initiate onboarding of monitoring from the portal. You are redirected to this article to manually enable monitoring following the steps earlier in this article.
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. On the Azure portal menu or from the Home page, select **Azure Monitor**. Under the **Insights** section, select **Containers**.
 
 3. On the **Monitor - containers** page, select **Non-monitored clusters**.
 
-4. From the list of non-monitored clusters, find the cluster in the list and click **Enable**. You can identify the results in the list by looking for the value **ARO** under the column **CLUSTER TYPE**. After you click **Enable**, you are redirected to this article and need to follow the steps above to manually enable monitoring on your Azure Red Hat OpenShift v4.x cluster.
+4. From the list of non-monitored clusters, find the cluster in the list and click **Enable**. You can identify the results in the list by looking for the value **ARO** under the column **CLUSTER TYPE**. After you click **Enable**, you are redirected to this article.
 
 ## Next steps
 
