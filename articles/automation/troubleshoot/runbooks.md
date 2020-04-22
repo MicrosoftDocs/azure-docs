@@ -69,12 +69,19 @@ If you receive this error after updating one AzureRM or Az module, you should up
 If you're trying to access resources in another subscription, you can follow the steps below to configure permissions.
 
 1. Go to the Automation Run As account and copy the application ID and thumbprint.
-  ![Copy Application ID and Thumbprint](../media/troubleshoot-runbooks/collect-app-id.png)
+
+    ![Copy ID and thumbprint](../media/troubleshoot-runbooks/collect-app-id.png)
+
 1. Go to the subscription's Access Control where the Automation account is NOT hosted, and add a new role assignment.
-  ![Access control](../media/troubleshoot-runbooks/access-control.png)
+
+    ![Access control](../media/troubleshoot-runbooks/access-control.png)
+
 1. Add the application ID collected earlier. Select Contributor permissions.
-  ![Add role assignment](../media/troubleshoot-runbooks/add-role-assignment.png)
+
+    ![Add role assignment](../media/troubleshoot-runbooks/add-role-assignment.png)
+
 1. Copy the name of the subscription.
+
 1. You can now use the following runbook code to test the permissions from your Automation account to the other subscription. Replace `"\<CertificateThumbprint\>"` with the value copied in step 1. Replace `"\<SubscriptionName\>"` with the value copied in step 4.
 
     ```powershell
@@ -172,7 +179,7 @@ This error is caused by using both AzureRM and Az module cmdlets in a runbook. I
 
 ### Resolution
 
-Az and AzureRM cmdlets can't be imported and used in the same runbook. To learn more about Az cmdlets in Azure Automation, see [Az module support in Azure Automation](../az-modules.md).
+Az and AzureRM cmdlets can't be imported and used in the same runbook. To learn more about Az cmdlets in Azure Automation, see [Manage modules in Azure Automation](../shared-resources/modules.md).
 
 ## <a name="task-was-cancelled"></a>Scenario: The runbook fails with the error: A task was canceled
 
@@ -597,6 +604,33 @@ If your script parses cmdlet output, the script must store the output in a varia
 $SomeVariable = add-pnplistitem ....
 if ($SomeVariable.someproperty -eq ....
 ```
+
+## Scenario: Invalid status code "Forbidden" when using Key Vault inside a runbook
+
+### Issue
+
+When trying to access Key Vault through an Azure Automation runbook, you get the following error:
+
+```error
+Operation returned an invalid status code 'Forbidden' 
+```
+
+### Cause
+
+Possible causes for this issue:
+
+* Not using a Run As account.
+* Insufficient permissions.
+
+### Resolution
+
+#### Not using Run As account
+
+Follow steps at [Step 5 - Add authentication to manage Azure resources](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) to ensure that you are using a Run As account to access Key Vault. 
+
+#### Insufficient permissions
+
+Follow steps at [Add permissions to Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault. 
 
 ## <a name="other"></a>My problem isn't listed above
 
