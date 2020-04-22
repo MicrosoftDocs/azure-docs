@@ -22,7 +22,7 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 ## Create a repository
 
-To make it easy for you to create a new repository, you use a GitHub template repository. Each template includes a simple application built with your preferred front-end framework.
+This article uses GitHub template repos to make it easy for you to create a new repository. The templates feature starter apps built with different front-end frameworks.
 
 # [Angular](#tab/angular)
 
@@ -59,8 +59,8 @@ To make it easy for you to create a new repository, you use a GitHub template re
 Now that the repo is created, you can create a static app from the Azure portal.
 
 - Navigate to the [Azure portal](https://portal.azure.com)
-- In the top bar, search for **Static Apps**
-- Click **Static Apps**
+- In the top bar, search for **Static Web Apps**
+- Click **Static Web Apps**
 
 ### Basics
 
@@ -121,10 +121,10 @@ After the build validates, you can continue to create the application.
 
 ## View website
 
-There are two automated aspects to deploying a static app. The first provisions the underlying Azure resources and services that make up your app. The second is a GitHub build process that builds your application and makes it publicly available.
+There are two automated aspects to deploying a static app. The first provisions the underlying Azure resources that make up your app. The second is a GitHub Actions workflow that builds and publishes your application.
 
 > [!NOTE]
-> You can ensure that the GitHub build process is complete by checking the status of your commits available at `https://github.com/<YOUR_GITHUB_USERNAME>/my-first-static-app/actions`.
+> You can ensure that the GitHub Actions workflow is complete by checking the status of your commits available at `https://github.com/<YOUR_GITHUB_USERNAME>/my-first-static-app/actions`.
 
 Once the provisioning and deployment is complete, you can click on the _URL_ link in the Azure portal to launch your app in the browser.
 
@@ -134,7 +134,7 @@ If you're not going to continue to use this application, you can delete the stat
 
 1. Open the [Azure portal](https://portal.azure.com)
 1. Search for **my-first-static-app** from the top search bar
-1. Click on the app
+1. Click on the app name
 1. Click on the **Delete** button
 1. Click **Yes** to confirm the delete action
 
