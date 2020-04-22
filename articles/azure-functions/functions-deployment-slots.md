@@ -13,7 +13,7 @@ Azure Functions deployment slots allow your function app to run different instan
 The following reflect how functions are affected by swapping slots:
 
 - Traffic redirection is seamless; no requests are dropped because of a swap.
-- If a function is running during a swap, execution continues and subsequent triggers are routed to the swapped app instance.
+- If a function is running during a swap, execution continues and the next triggers are routed to the swapped app instance.
 
 > [!NOTE]
 > Slots are currently not available for the Linux Consumption plan.
@@ -23,7 +23,7 @@ The following reflect how functions are affected by swapping slots:
 There are a number of advantages to using deployment slots. The following scenarios describe common uses for slots:
 
 - **Different environments for different purposes**: Using different slots gives you the opportunity to differentiate app instances before swapping to production or a staging slot.
-- **Prewarming**: Deploying to a slot instead of directly to production allows the app to warm up before going live. Additionally, using slots reduces latency for HTTP-triggered workloads. Instances are warmed up before deployment which reduces the cold start for newly-deployed functions.
+- **Prewarming**: Deploying to a slot instead of directly to production allows the app to warm up before going live. Additionally, using slots reduces latency for HTTP-triggered workloads. Instances are warmed up before deployment, which reduces the cold start for newly deployed functions.
 - **Easy fallbacks**: After a swap with production, the slot with a previously staged app now has the previous production app. If the changes swapped into the production slot aren't as you expect, you can immediately reverse the swap to get your "last known good instance" back.
 
 ## Swap operations
@@ -39,15 +39,15 @@ During a swap, one slot is considered the source and the other the target. The s
 
 1. **Update routing:** If all instances on the source slot are warmed up successfully, the two slots complete the swap by switching routing rules. After this step, the target slot (for example, the production slot) has the app that's previously warmed up in the source slot.
 
-1. **Repeat operation:** Now that the source slot has the pre-swap app previously in the target slot, perform the same operation by applying all settings and restarting the instances for the source slot.
+1. **Repeat operation:** Now that the source slot has the pre-swap app previously in the target slot, complete the same operation by applying all settings and restarting the instances for the source slot.
 
 Keep in mind the following points:
 
-- At any point of the swap operation, initialization of the swapped apps happens on the source slot. The target slot remains online while the source slot is being prepared, whether the swap succeeds or fails.
+- At any point of the swap operation, initialization of the swapped apps happens on the source slot. The target slot remains online while the source slot is prepared, whether the swap succeeds or fails.
 
 - To swap a staging slot with the production slot, make sure that the production slot is *always* the target slot. This way, the swap operation doesn't affect your production app.
 
-- Settings related to event sources and bindings need to be configured as [deployment slot settings](#manage-settings) *before you initiate a swap*. Marking them as "sticky" ahead of time ensures events and outputs are directed to the proper instance.
+- Settings related to event sources and bindings must be configured as [deployment slot settings](#manage-settings) *before you start a swap*. Marking them as "sticky" ahead of time ensures events and outputs are directed to the proper instance.
 
 ## Manage settings
 
@@ -55,9 +55,9 @@ Keep in mind the following points:
 
 ### Create a deployment setting
 
-You can mark settings as a deployment setting which makes it "sticky". A sticky setting does not swap with the app instance.
+You can mark settings as a deployment setting, which makes it "sticky". A sticky setting doesn't swap with the app instance.
 
-If you create a deployment setting in one slot, make sure to create the same setting with a unique value in any other slot involved in a swap. This way, while a setting's value doesn't change, the setting names remain consistent among slots. This name consistency ensures your code doesn't try to access a setting that is defined in one slot but not another.
+If you create a deployment setting in one slot, make sure to create the same setting with a unique value in any other slot that is involved in a swap. This way, while a setting's value doesn't change, the setting names remain consistent among slots. This name consistency ensures your code doesn't try to access a setting that is defined in one slot but not another.
 
 Use the following steps to create a deployment setting:
 
@@ -153,7 +153,7 @@ Using the [Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/deploymen
 
 ## Change App Service plan
 
-With a function app that is running under an App Service plan, you have the option to change the underlying App Service plan for a slot.
+With a function app that is running under an App Service plan, you can change the underlying App Service plan for a slot.
 
 > [!NOTE]
 > You can't change a slot's App Service plan under the Consumption plan.
@@ -183,7 +183,7 @@ Azure Functions deployment slots have the following limitations:
 
 - The number of slots available to an app depends on the plan. The Consumption plan is only allowed one deployment slot. Additional slots are available for apps running under the App Service plan.
 - Swapping a slot resets keys for apps that have an `AzureWebJobsSecretStorageType` app setting equal to `files`.
-- Slots are not available for the Linux Consumption plan.
+- Slots aren't available for the Linux Consumption plan.
 
 ## Support levels
 
