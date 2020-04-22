@@ -151,6 +151,21 @@ az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --nam
 > [!NOTE]
 > The steps shown in this section are for topics. You can use similar steps to create private endpoints for **domains**. 
 
+
+
+### Prerequisites
+Update the Azure Event Grid extension for CLI by running the following command: 
+
+```azurecli-interactive
+az extension update -n eventgrid
+```
+
+If the extension isn't installed, run the following command to install it: 
+
+```azurecli-interactive
+az extension add -n eventgrid
+```
+
 ### Create a private endpoint
 To create a private endpoint, use the [az network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) method as shown in the following example:
 
