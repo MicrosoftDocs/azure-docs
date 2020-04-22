@@ -19,10 +19,11 @@ In-Memory technologies in Azure SQL Database enable you to improve performance o
 In this article you'll see two samples that illustrate the use of In-Memory OLTP, as well as columnstore indexes in Azure SQL Database.
 
 For more information, see:
-- [In-Memory OLTP Overview and Usage Scenarios](https://msdn.microsoft.com/library/mt774593.aspx) (includes references to customer case studies and information to get started)
-- [Documentation for In-Memory OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
-- [Columnstore Indexes Guide](https://msdn.microsoft.com/library/gg492088.aspx)
-- Hybrid transactional/analytical processing (HTAP), also known as [real-time operational analytics](https://msdn.microsoft.com/library/dn817827.aspx)
+
+- [In-Memory OLTP Overview and Usage Scenarios](/sql/relational-databases/in-memory-oltp/overview-and-usage-scenarios) (includes references to customer case studies and information to get started)
+- [Documentation for In-Memory OLTP](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
+- [Columnstore Indexes Guide](/sql/relational-databases/indexes/columnstore-indexes-overview)
+- Hybrid transactional/analytical processing (HTAP), also known as [real-time operational analytics](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 

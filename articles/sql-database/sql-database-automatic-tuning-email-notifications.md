@@ -4,7 +4,7 @@ description: Enable e-mail notifications for Azure SQL Database automatic query 
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: danimir
@@ -46,7 +46,6 @@ Follow these steps to create Azure Automation Account through the method of sele
 
 > [!TIP]
 > Record your Azure Automation account name, subscription ID, and resources (such as copy-paste to a notepad) exactly as entered while creating the Automation app. You need this information later.
->
 
 If you have several Azure subscriptions for which you would like to build the same automation, you need to repeat this process for your other subscriptions.
 
