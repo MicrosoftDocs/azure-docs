@@ -97,6 +97,35 @@ If these two steps did not help, it is required to find out whether video frames
 
 In many cases, the model is displayed correctly but located outside the camera frustum. A common reason is that the model has been exported with a far off-center pivot so it is clipped by the camera's far clipping plane. It helps to query the model's bounding box programmatically and visualize the box with Unity as a line box or print its values to the debug log.
 
+Furthermore the conversion process generates an [output json file](../how-tos/conversion/get-information.md) alongside with the converted model. To debug model positioning issues, it is worth looking at the `boundingBox` entry in the [outputStatistics section](../how-tos/conversion/get-information.md#the-outputstatistics-section):
+
+```JSON
+{
+    ...
+    "outputStatistics": {
+        ...
+        "boundingBox": {
+            "min": [
+                -43.52,
+                -61.775,
+                -79.6416
+            ],
+            "max": [
+                43.52,
+                61.775,
+                79.6416
+            ]
+        }
+    }
+}
+```
+
+The bounding box is described as a `min` and `max` position in 3D space, in meters. So a coordinate of 1000.0 means it is 1 kilometer away from the origin.
+
+There can be two problems with this bounding box that lead to invisible geometry:
+* **The box can be far off-center**, so the object is clipped altogether due to far plane clipping. The `boundingBox` values in this case would look like this: `min = [-2000, -5,-5], max = [-1990, 5,5]`, using a large offset on the x-axis as an example here. To resolve this type of issue, enable the `recenterToOrigin` option in the [model conversion configuration](../how-tos/conversion/configure-model-conversion.md).
+* **The box can be centered but be orders of magnitude too large**. That means that albeit the camera starts in the center of the model, its geometry is clipped in all directions. Typical `boundingBox` values in this case would look like this: `min = [-1000,-1000,-1000], max = [1000,1000,1000]`. The reason for this type of issue is usually a unit scale mismatch. To compensate, specify a [scaling value during conversion](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) or mark up the source model with the correct units. Scaling can also be applied to the root node when loading the model at runtime.
+
 **The Unity render pipeline doesn't include the render hooks:**
 
 Azure Remote Rendering hooks into the Unity render pipeline to do the frame composition with the video, and to do the reprojection. To verify that these hooks exist, open the menu *Window > Analysis > Frame debugger*. Enable it and make sure there are two entries for the `HolographicRemotingCallbackPass` in the pipeline:

@@ -84,7 +84,7 @@ Here is the client app code.
 using Microsoft.Identity.Client;
 using Microsoft.Rest;
 using Microsoft.Rest.Azure;
-using Azure Digital TwinsApi; // The SDK library, as built in the "Use the Azure Digital Twins APIs" how-to article
+using ADTApi; // The SDK library, as built in the "Use the Azure Digital Twins APIs" how-to article
 ...
 ...
 

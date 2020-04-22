@@ -23,7 +23,9 @@ Azure Digital Twins has a CLI that you can use to perform most major actions wit
 * Configuring role-based access control (RBAC)
 * Managing routes
 
-This guide provides the CLI commands for these tasks, and other information that you need to use this tool.
+This article provides the CLI commands for these tasks, and other information that you need to use this tool.
+
+You can also view the reference documentation for these commands as part of the [az iot command set](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest).
 
 ## Getting started
 
@@ -125,49 +127,49 @@ Uses:
 
 ### Configure endpoints
 
-Command group: `az dt endpoints`
+Command group: `az dt endpoint`
 
 These commands are used to configure egress endpoints of an Azure Digital Twins instance.
 
-#### az dt endpoints add
+#### az dt endpoint create
 
 Uses:
 
-* Add Event Grid topic endpoint (requires pre-created Event Grid resource)
+* Add event grid topic endpoint (requires pre-created Event Grid resource)
 
-  `az dt endpoints add eventgrid --endpoint-name myeg_endpoint --eventgrid-resource-group myeg_resourcegroup --eventgrid-topic myeg_topic -n mydtinstance`
+  `az dt endpoint create eventgrid --endpoint-name myeg_endpoint --eventgrid-resource-group myeg_resourcegroup --eventgrid-topic myeg_topic -n mydtinstance`
 
 * Add Service Bus topic endpoint (requires pre-created Service Bus resource)
 
-  `az dt endpoints add servicebus --endpoint-name mysb_endpoint --servicebus-resource-group mysb_resourcegroup --servicebus-namespace mysb_namespace --servicebus-topic mysb_topic --servicebus-policy mysb_topicpolicy -n mydtinstance`
+  `az dt endpoint create servicebus --endpoint-name mysb_endpoint --servicebus-resource-group mysb_resourcegroup --servicebus-namespace mysb_namespace --servicebus-topic mysb_topic --servicebus-policy mysb_topicpolicy -n mydtinstance`
 
 * Add Event Hub endpoint (requires pre-created Event Hub resource)
 
-  `az dt endpoints add eventhub --endpoint-name myeh_endpoint --eventhub-resource-group myeh_resourcegroup --eventhub-namespace myeh_namespace --eventhub myeventhub --eventhub-policy myeh_policy -n mydtinstance`
+  `az dt endpoint create eventhub --endpoint-name myeh_endpoint --eventhub-resource-group myeh_resourcegroup --eventhub-namespace myeh_namespace --eventhub myeventhub --eventhub-policy myeh_policy -n mydtinstance`
 
-#### az dt endpoints show
+#### az dt endpoint show
 
 Uses:
 
 * Show a configured endpoint on an Azure Digital Twins instance
 
-  `az dt endpoints show --endpoint-name myeh_endpoint -n mydtinstance`
+  `az dt endpoint show --endpoint-name myeh_endpoint -n mydtinstance`
 
-#### az dt endpoints list
+#### az dt endpoint list
 
 Uses:
 
 * List all configured endpoints on an Azure Digital Twins instance
 
-  `az dt endpoints list -n mydtinstance`
+  `az dt endpoint list -n mydtinstance`
 
-#### az dt endpoints delete
+#### az dt endpoint delete
 
 Uses:
 
 * Delete a target endpoint on an Azure Digital Twins instance
 
-  `az dt endpoints delete --endpoint-name myeh_endpoint -n mydtinstance`
+  `az dt endpoint delete --endpoint-name myeh_endpoint -n mydtinstance`
 
 ### Configure RBAC
 
@@ -205,44 +207,48 @@ Uses:
 
 ### Manage Azure Digital Twins routes
 
-Command group: `az dt routes`
+Command group: `az dt route`
 
 These commands are used to manage and configure event routes. 
 
 >[!IMPORTANT]
 > You must assign yourself to the **Owner** role for the Azure Digital Twins instance before you can execute route commands.
 
-#### az dt routes add
+#### az dt route create
 
 Uses:
 
-* Add an event route
+* Add an event route (without filter)
 
-  `az dt routes add -n mydtinstance --endpoint-name myeh_endpoint --route-name myeh_route`
+  `az dt route create -n <Azure-Digital-Twins-instance> --endpoint-name <endpoint-name> --route-name <route-name>`
 
-#### az dt routes show
+* Add an event route with filter
+
+  `az dt route create -n <Azure-Digital-Twins-instance> --endpoint-name <endpoint-name> --route-name <route-name> --filter "type = 'Microsoft.DigitalTwins.Twin.Create'"`
+
+#### az dt route show
 
 Uses:
 
 * Show an existing event route
 
-  `az dt routes show --route-name myeh_route -n mydtinstance`
+  `az dt route show --route-name myeh_route -n mydtinstance`
 
-#### az dt routes list
+#### az dt route list
 
 Uses:
 
 * List all event routes on an Azure Digital Twins instance
 
-  `az dt routes list -n mydtinstance`
+  `az dt route list -n mydtinstance`
 
-#### az dt routes delete
+#### az dt route delete
 
 Uses:
 
 * Delete a target event route from an Azure Digital Twins instance
 
-  `az dt routes delete --route-name myeh_route -n mydtinstance`
+  `az dt route delete --route-name myeh_route -n mydtinstance`
 
 ## Next steps
 

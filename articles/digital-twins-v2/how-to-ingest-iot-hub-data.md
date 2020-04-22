@@ -35,7 +35,7 @@ Whenever a temperature telemetry event is sent by the thermometer device, the *t
 
 This scenario is outlined in a diagram below:
 
-![A device uses system topics to send data to digital twins](media/how-to-ingest-iot-hub-data/events.png)
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="A device uses system topics to send data to digital twins" border="false":::
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ Before continuing with this example, you'll need to complete the following prere
 2. Create at least one Azure Function to process events from IoT Hub. See [Set up an Azure Function](how-to-create-azure-function.md) to build a basic Azure function that can connect to Azure Digital Twins and call Azure Digital Twins API functions. The rest of this how-to will build on this function.
 3. Set up an event destination for hub data. In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub instance. Under *Events*, create a subscription for your Azure function. 
 
-    ![Azure portal: Adding an event subscription](media/how-to-ingest-iot-hub-data/add-event-subscription.png)
+    :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Azure portal: Adding an event subscription":::
 
 4. In the *Create Event Subscription* page, fill the fields as follows:
   * Under *EVENT SUBSCRIPTION DETAILS*, name the subscription what you would like
@@ -179,8 +179,8 @@ using System.Threading.Tasks;
 using System.Net.Http.Headers;
 using Microsoft.Rest;
 using Newtonsoft.Json.Linq;
-using Azure Digital TwinsApi;
-using Azure Digital TwinsApi.Models;
+using ADTApi;
+using ADTApi.Models;
 using Microsoft.Azure.Services.AppAuthentication;
 using System.Linq;
 using System.Collections.Generic;
