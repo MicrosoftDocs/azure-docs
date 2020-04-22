@@ -20,7 +20,7 @@
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-cli",
       "redirect_document_id": false
     },
-
+	
     {
       "source_path": "articles/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md",
       "redirect_url": "/previous-versions/azure/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file",
@@ -720,11 +720,6 @@
     {
       "source_path": "articles/cognitive-services/personalizer/how-to-learning-policy.md",
       "redirect_url": "/azure/cognitive-services/personalizer/how-to-manage-model",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/LUIS/luis-boundaries.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-limits",
       "redirect_document_id": false
     },
     {
