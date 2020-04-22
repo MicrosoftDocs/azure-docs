@@ -260,31 +260,30 @@ To open *index.html* in the browser with the Visual Studio Code debugger attache
 
 In the [Azure portal](https://portal.azure.com), you can verify the results of the API calls as you follow the steps below.
 
-1. In the Azure portal, select **Storage accounts**.
-1. Select the storage account you created for this project.
-1. Select **Containers** in the account pane.
-1. Switch focus back to the web app.
-1. Click the **Create container** button at the top of the page to create a new container.
-1. Switch focus back to the Azure portal.
-1. Click **Refresh** near the top of the containers pane.
-1. Click on the newly created container to see its contents. You'll see **No blobs found** because the container is new.
-1. Switch focus back to the web app.
-1. Click the **Select and upload files** button.
-1. In the **Open** dialog, select one or more files.
-1. Click the **Open** button to upload the selected files.
-1. Switch focus back to the Azure portal.
-1. Click **Refresh** to see the files you uploaded.
-1. Switch focus back to the web app.
-1. Select one or more files in the **Files** list.
-1. Click the **Delete selected files** button to delete them.
-1. Switch focus back to the Azure portal.
-1. Click **Refresh** to see that the files were deleted from the container.
-1. Select the **\<account-name\> | Containers** link at the top of the portal pane.
-1. Switch focus back to the web app.
-1. Click the **Delete container** button to delete the container and all files in the container.
-1. Switch focus back to the Azure portal.
-1. Click **Refresh** to see that the container was deleted.
-1. Close the web app.
+#### Step 1 - Create a container
+
+1. In the web app, select **Create container**. The status indicates that a container was created.
+2. To verify in the Azure portal, select your storage account. Under **Blob service**, select **Containers**. Verify that the new container appears. (You may need to select **Refresh**.)
+
+#### Step 2 - Upload a blob to the container
+
+1. On your local computer, create and save a test file, such as *test.txt*.
+2. In the web app, click **Select and upload files**.
+3. Browse to your test file, and then select **Open**. The status indicates that the file was uploaded, and the file list was retrieved.
+4. In the Azure portal, select the name of the new container that you created earlier. Verify that the test file appears.
+
+#### Step 3 - Delete the blob
+
+1. In the web app, under **Files**, select the test file.
+2. Select **Delete selected files**. The status indicates that the file was deleted and that the container contains no files.
+3. In the Azure portal, select **Refresh**. Verify that you see **No blobs found**.
+
+#### Step 4 - Delete the container
+
+1. In the web app, select **Delete container**. The status indicates that the container was deleted.
+2. In the Azure portal, select the **\<account-name\> | Containers** link at the top-left of the portal pane.
+3. Select **Refresh**. The new container disappears.
+4. Close the web app.
 
 ### Clean up resources
 
