@@ -80,7 +80,7 @@ See [Azure Active Directory access tokens](https://docs.microsoft.com/azure/acti
 
 Sample response token:
 
-```json
+```JSON
   {
       "token_type": "Bearer",
       "expires_in": "3600",
@@ -115,7 +115,7 @@ For example, this is how to authenticate using a Windows VM,
 
 1. Get an access token for Marketplace metering service application ID (`20e940b3-4c77-4b0b-9a53-9e16a1b010a7`) using the system identity, RDP to the VM, open PowerShell console and run the command below
 
-    ```json
+    ```powershell
     # curl is an alias to Web-Invoke PowerShell command
     # Get system identity access tokenn
     $MetadataUrl = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F"
@@ -126,7 +126,7 @@ For example, this is how to authenticate using a Windows VM,
 
 1. Get the managed app id from the current resource groups 'ManagedBy' property
 
-    ```json
+    ```powershell
     # Get subscription and resource group
     $metadata = curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-06-01 | select -ExpandProperty Content | ConvertFrom-Json 
     
@@ -138,7 +138,7 @@ For example, this is how to authenticate using a Windows VM,
 
 1. Marketplace metering service requires to report usage on a `resourceID`, in the case of a Managed App this is the `resourceUsageId`.
 
-    ```json
+    ```powershell
     # Get resourceUsageId from the Managed App
     $managedAppUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "/providers/Microsoft.Solutions/applications/" + $managedappId + "\?api-version=2019-07-01"
     $ManagedApp = curl $managedAppUrl -H $Headers | Select-Object -Expand Content | ConvertFrom-Json
