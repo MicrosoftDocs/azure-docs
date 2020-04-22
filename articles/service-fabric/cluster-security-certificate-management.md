@@ -64,12 +64,12 @@ For our purposes, the first two steps in the sequence above are largely unrelate
 These steps are illustrated below; note the differences in provisioning between certificates declared by thumbprint and common name, respectively.
 <center>
 
-![Journey of certificates declared by thumbprint][Image1]
+![Provisioning certificates declared by thumbprint][Image1]
 <center>
 
 <center>
 
-![Journey of certificates declared by subject common name][Image2]
+![Provisioning certificates declared by subject common name][Image2]
 <center>
 
 ### Certificate enrollment
@@ -490,5 +490,5 @@ For Microsoft-internal PKIs, the authority on, well, authorized issuers is the d
 Q: Are multiple PKIs supported? 
 A: Yes; you may not declare multiple CN entries in the cluster manifest with the same value, but can list issuers from multiple PKIs corresponding to the same CN. It is not a recommended practice, and certificate transparency practices may prevent such certificates from being issued. However, as means to migrate from one PKI to another, this is an acceptable mechanism.
 
-[Image1]:.media/security-cluster-certificate-mgmt/certificate-journey-thumbprint.png
+[Image1]:./media/security-cluster-certificate-mgmt/certificate-journey-thumbprint.png
 [Image2]:./media/security-cluster-certificate-mgmt/certificate-journey-common-name.png
