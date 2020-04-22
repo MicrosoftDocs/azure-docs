@@ -54,7 +54,7 @@ You can **upgrade** from the basic tier to the premium tier on the **Networking*
 This section shows you how to use Azure CLI commands to change the pricing tier of a topic. To update pricing tier of a domain, use the `az eventgrid domain update` command in a similar fashion.
  
 
-## Upgrade a topic from basic to premium
+### Upgrade a topic from basic to premium
 
 ```azurecli-interactive
 az eventgrid topic update \
@@ -64,7 +64,7 @@ az eventgrid topic update \
     --sku "Premium" 
 ```
 
-## Downgrade a topic from premium to basic
+### Downgrade a topic from premium to basic
 
 ```azurecli-interactive
 az eventgrid topic update \

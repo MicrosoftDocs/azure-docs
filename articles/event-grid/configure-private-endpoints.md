@@ -64,7 +64,7 @@ This section shows you how to use the Azure portal to create a private endpoint 
     ![Private endpoint - review & create page](./media/configure-private-endpoints/review-create-page.png)
     
 
-## Manage private link connection
+### Manage private link connection
 
 When you create a private endpoint, the connection must be approved. If the resource for which you're creating a private endpoint is in your directory, you can approve the connection request provided you have sufficient permissions. If you're connecting to an Azure resource in another directory, you must wait for the owner of that resource to approve your connection request.
 
