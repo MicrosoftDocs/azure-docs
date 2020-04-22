@@ -285,7 +285,7 @@ The text that follows is an example of a flow log. As you can see, there are mul
 ```
 **Log Tuple Explained**
 
-*INSERT IMAGE HERE*
+![flow logs overview](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
 
 **Sample bandwidth calculation**
 
