@@ -5,7 +5,7 @@ keywords: sql database security,database security management,login security,data
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: VanMSFT
@@ -60,7 +60,7 @@ To identify the administrator accounts for a database, open the Azure portal, an
 ![SQL Server Admins](media/sql-database-manage-logins/sql-admins2.png)
 
 > [!IMPORTANT]
-> The admin login name cannot be changed after it has been created. To reset the password for the logical server admin, go to the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**. To reset the password for a managed instance server, go to the Azure portal, click the instance, and click **Reset password**. You can also use PowerShell or the Azure CLI.
+> The admin login name cannot be changed after it has been created. To reset the password for the logical server admin, go to the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**. To reset the password for the managed instance, go to the Azure portal, click the instance, and click **Reset password**. You can also use PowerShell or the Azure CLI.
 
 ## Create additional logins and users having administrative permissions
 
