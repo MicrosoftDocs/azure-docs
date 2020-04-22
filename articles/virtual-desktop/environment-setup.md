@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -57,7 +57,7 @@ After you've assigned users to their app groups, they can connect to a Windows V
 
 Learn more about delegated access and how to assign roles to users at [Delegated Access in Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
-To learn how to set up your Windows Virtual Desktop tenant, see [Create a host pool with the Azure portal]().
+To learn how to set up your Windows Virtual Desktop host pool, see [Create a host pool with the Azure portal]().
 
 <!--->Get a link for this article once I've created it.<--->
 

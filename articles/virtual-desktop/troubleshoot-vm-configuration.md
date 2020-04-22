@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/29/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -136,8 +136,8 @@ When the Windows Virtual Desktop Agent is first installed on session host VMs (e
 **Fix:** Follow these instructions to fix the agent registry error.
 
 1. If there's already a registration token, remove it with Remove-AzWvdRegistrationInfo. 
-2. Generate new token by running the **New-AzWvdRegistrationInfo** cmdlet. 
-3. Confirm that the *-ExpriationHours* parameter is set to 72 (the maximum recommended amount is a month in hours, or about 720 hours).
+2. Run the **New-AzWvdRegistrationInfo** cmdlet to generate a new token. 
+3. Confirm that the *-ExpriationTime* parameter is set to 3 days.
 
 ### Error: Windows Virtual Desktop agent isn't reporting a heartbeat when running Get-AzWvdSessionHost
 

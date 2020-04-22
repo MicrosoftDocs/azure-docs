@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -30,7 +30,7 @@ This article assumes you've already followed the instructions in [Create a Power
 
 First, [download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already.
 
-Run the following cmdlet to sign in to the Windows Virtual Desktop environment
+Run the following cmdlet to sign in to the Windows Virtual Desktop environment:
 
 ```powershell
 New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> 
@@ -41,13 +41,13 @@ This will create the host pool, workspace and desktop app group. Additionally, i
 Run the next cmdlet to create a registration token to authorize a session host to join the host pool and save it to a new file on your local computer. You can specify how long the registration token is valid by using the -ExpirationHours parameter.
 
 >[!NOTE]
->The token's expiration date can be no less than an hour and no more than one month. If you set *-ExpirationHours* outside of that limit, the cmdlet won't create the token.
+>The token's expiration date can be no less than an hour and no more than one month. If you set *-ExpirationTime* outside of that limit, the cmdlet won't create the token.
 
 ```powershell
-New-AzWvdHostPoolRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours>| Select-Object -ExpandProperty Token | Out-File -FilePath <PathToRegFile> 
+New-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> -ExpirationTime $((get-date).ToUniversalTime().AddDays(1).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ'))
 ```
 
-For example, if you want to create a token with an expiry of just couple of hours, run this cmdlet: 
+For example, if you want to create a token that expires in two hours, run this cmdlet: 
 
 ```powershell
 New-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> -ExpirationTime $((get-date).ToUniversalTime().AddHours(2).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ')) 

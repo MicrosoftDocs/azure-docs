@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/29/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -65,10 +65,10 @@ Fix: In the error message, a list of supported regions will be published. Use on
 ### Error: New-AzWvdApplicationGroup must be in same location as host pool
 
 ```powershell
-New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'.
+New-AzWvdApplicationGroup_CreateExpanded: ActivityId: e5fe6c1d-5f2c-4db9-817d-e423b8b7d168 Error: ApplicationGroup must be in same location as associated HostPool
 ```
 
-**Cause:** All host pools, application groups, and workspaces that you select a location to store service metadata must be in the same location. For example, if a host pool is in `eastus`, then you also need to create the application groups in `eastus`. If you create a workspace to register these application groups to, that workspace needs to be in `eastus` as well.
+**Cause:** All host pools, application groups, and workspaces that you select a location to store service metadata for must be in the same location. Any objects you create that are associated with each other must be in the same location as well. For example, if a host pool is in `eastus`, then you also need to create the application groups in `eastus`. If you create a workspace to register these application groups to, that workspace needs to be in `eastus` as well.
 
 **Fix:** Retrieve the location the host pool is created in, then assign the application group you're creating to that same location.
 
