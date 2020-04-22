@@ -34,7 +34,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
 ## <a name="create-api"> </a>Import and publish a back-end API
 
-1. Select **APIs** from under **API MANAGEMENT**.
+1. Navigate to your API Management service in the Azure portal and select **APIs** from the menu.
 2. Select **WSDL** from the **Add a new API** list.
 
     ![Soap api](./media/import-soap-api/wsdl-api.png)

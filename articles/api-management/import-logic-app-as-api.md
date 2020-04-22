@@ -36,7 +36,7 @@ In this article, you learn how to:
 
 ## <a name="create-api"> </a>Import and publish a back-end API
 
-1. Select **APIs** from under **API MANAGEMENT**.
+1. Navigate to your API Management service in the Azure portal and select **APIs** from the menu.
 2. Select **Logic App** from the **Add a new API** list.
 
     ![Logic app](./media/import-logic-app-as-api/logic-app-api.png)
