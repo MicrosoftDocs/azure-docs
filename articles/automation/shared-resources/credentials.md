@@ -1,5 +1,5 @@
 ---
-title: Manage credential assets in Azure Automation
+title: Manage credentials in Azure Automation
 description: Credential assets in Azure Automation contain security credentials that can be used to authenticate to resources accessed by the runbook or DSC configuration. This article describes how to create credential assets and use them in a runbook or DSC configuration.
 services: automation
 ms.service: automation
@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ---
 
-# Manage credential assets in Azure Automation
+# Manage credentials in Azure Automation
 
 An Automation credential asset holds an object that contains security credentials, such as a user name and a password. Runbooks and DSC configurations use cmdlets that accept a [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) object for authentication. Alternatively, they can extract the user name and password of the `PSCredential` object to provide to some application or service requiring authentication. 
 
