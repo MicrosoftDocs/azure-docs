@@ -25,15 +25,15 @@ Instance(**Type I and Type II**)
 ## Supported SKU
 |  Hana Large Instance Type   |  OS Vendor   |  OS Package Version   |  SKU	       |
 |-----------------------------|--------------|-----------------------|-------------|
-|   Type 2                    |  SuSE        |   SLES 12 SP3         |  S384       |
-|   Type 2                    |  SuSE        |   SLES 12 SP3         |  S576m      |
 |   Type 1                    |  SuSE        |   SLES 12 SP3         |  S224m      |
 |   Type 1                    |  SuSE        |   SLES 12 SP4         |  S224m      |
 |   Type 1                    |  SuSE        |   SLES 12 SP3         |  S96        |
 |   Type 1                    |  SuSE        |   SLES 12 SP4         |  S96        |
+|   Type 2                    |  SuSE        |   SLES 12 SP3         |  S384       |
+|   Type 2                    |  SuSE        |   SLES 12 SP3         |  S576m      |
 
 ## Pre-requisites
-- Kdump service uses /var directory to write logs, make sure the partition correspond to this directory has sufficient
+- Kdump service uses `/var/crash` directory to write logs, make sure the partition corresponds to this directory has sufficient
 space to accommodate logs.
 
 ## Setup details
@@ -50,15 +50,15 @@ bash enable-kdump.sh
 echo 1 > /proc/sys/kernel/sysrq
 echo c > /proc/sysrq-trigger
 ```
-- After the system reboots successfully, check the `/var/crash directory` for kernel crash logs.
+- After the system reboots successfully, check the `/var/crash` directory for kernel crash logs.
 - If the `/var/crash` has directory with current date, then the Kdump is successfully enabled.
 
-### Support issue
-In case, if the script fails with some error or Kdump isn't enabled. Raise a ticket with Microsoft Operations team by opening a support ticket.
+## Support issue
+If the script fails with an error or Kdump isn't enabled, raise a ticket with Microsoft Operations team by opening a support ticket.
 
-Include in your ticket:
+Include in ticket:
 
-* Your HLI subscription ID.
-* Your server name.
+* HLI subscription ID.
+* server name.
 * OS name
 * OS version
