@@ -165,7 +165,7 @@ az mysql server create --resource-group myResourceGroup --name <mysql_server_nam
 
 When the MySQL server is created, the Azure CLI shows information similar to the following example:
 
-```json
+<pre>
 {
   "location": "westeurope",
   "name": "<mysql_server_name>",
@@ -182,7 +182,7 @@ When the MySQL server is created, the Azure CLI shows information similar to the
   ...    +  
   -  < Output has been truncated for readability >
 }
-```
+</pre>
 
 ### Configure server firewall
 

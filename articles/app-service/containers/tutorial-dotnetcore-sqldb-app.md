@@ -95,7 +95,7 @@ az sql server create --name <server-name> --resource-group myResourceGroup --loc
 
 When the SQL Database logical server is created, the Azure CLI shows information similar to the following example:
 
-```json
+<pre>
 {
   "administratorLogin": "sqladmin",
   "administratorLoginPassword": null,
@@ -111,7 +111,7 @@ When the SQL Database logical server is created, the Azure CLI shows information
   "type": "Microsoft.Sql/servers",
   "version": "12.0"
 }
-```
+</pre>
 
 ### Configure a server firewall rule
 

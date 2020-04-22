@@ -126,7 +126,7 @@ The *--kind MongoDB* parameter enables MongoDB client connections.
 
 When the Cosmos DB account is created, the Azure CLI shows information similar to the following example:
 
-```json
+<pre>
 {
   "consistencyPolicy":
   {
@@ -140,7 +140,7 @@ When the Cosmos DB account is created, the Azure CLI shows information similar t
   ...
   < Output truncated for readability >
 }
-```
+</pre>
 
 ## Connect app to production configured with Azure Cosmos DB's API for MongoDB
 
@@ -156,14 +156,14 @@ az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup
 
 The Azure CLI shows information similar to the following example:
 
-```json
+<pre>
 {
   "primaryMasterKey": "RS4CmUwzGRASJPMoc0kiEvdnKmxyRILC9BWisAYh3Hq4zBYKr0XQiSE4pqx3UchBeO4QRCzUt1i7w0rOkitoJw==",
   "primaryReadonlyMasterKey": "HvitsjIYz8TwRmIuPEUAALRwqgKOzJUjW22wPL2U8zoMVhGvregBkBk9LdMTxqBgDETSq7obbwZtdeFY7hElTg==",
   "secondaryMasterKey": "Lu9aeZTiXU4PjuuyGBbvS1N9IRG3oegIrIh95U6VOstf9bJiiIpw3IfwSUgQWSEYM3VeEyrhHJ4rn3Ci0vuFqA==",
   "secondaryReadonlyMasterKey": "LpsCicpVZqHRy7qbMgrzbRKjbYCwCKPQRl0QpgReAOxMcggTvxJFA94fTi0oQ7xtxpftTJcXkjTirQ0pT7QFrQ=="
 }
-```
+</pre>
 
 Copy the value of `primaryMasterKey`. You need this information in the next step.
 

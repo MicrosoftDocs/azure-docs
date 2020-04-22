@@ -23,7 +23,7 @@ az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
 
-```json
+<pre>
 Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git'
 {
   "availabilityState": "Normal",
@@ -37,7 +37,7 @@ Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebs
   "enabled": true,
   < JSON data removed for brevity. >
 }
-```
+</pre>
 
 You’ve created an empty web app in a Linux container, with git deployment enabled.
 

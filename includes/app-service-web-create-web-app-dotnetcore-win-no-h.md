@@ -20,7 +20,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
 
-```json
+<pre>
 Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git'
 {
   "availabilityState": "Normal",
@@ -35,7 +35,7 @@ Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebs
   "enabled": true,
   < JSON data removed for brevity. >
 }
-```
+</pre>
 
 > [!NOTE]
 > The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL as you need it later.

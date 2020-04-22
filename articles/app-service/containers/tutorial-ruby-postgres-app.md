@@ -121,7 +121,7 @@ az postgres server create --location "West Europe" --resource-group myResourceGr
 
 When the Azure Database for PostgreSQL server is created, the Azure CLI shows information similar to the following example:
 
-```json
+<pre>
 {
   "administratorLogin": "adminuser",
   "earliestRestoreDate": "2018-06-15T12:38:25.280000+00:00",
@@ -139,7 +139,7 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI shows in
   },
   < Output has been truncated for readability >
 }
-```
+</pre>
 
 ### Configure server firewall
 

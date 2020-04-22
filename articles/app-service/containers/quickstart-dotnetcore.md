@@ -93,7 +93,7 @@ Here is what your new app should look like:
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
-```bash
+<pre>
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
 Compressing objects: 100% (3/3), done.
@@ -118,7 +118,7 @@ remote: Deployment successful.
 remote: Deployment Logs : 'https://<app-name>.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/d6b54472f7e8e9fd885ffafaa64522e74cf370e1/log'
 To https://<app-name>.scm.azurewebsites.net:443/<app-name>.git
    d87e6ca..d6b5447  master -> master
-```
+</pre>
 
 ## Browse to the app
 

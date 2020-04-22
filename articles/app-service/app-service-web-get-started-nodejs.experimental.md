@@ -72,7 +72,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
 
-```json
+<pre>
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -84,7 +84,7 @@ When the web app has been created, the Azure CLI shows output similar to the fol
   "enabled": true,
   < JSON data removed for brevity. >
 }
-```
+</pre>
 
 ### Set Node.js runtime
 
