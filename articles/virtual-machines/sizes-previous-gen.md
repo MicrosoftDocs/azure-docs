@@ -215,6 +215,8 @@ Premium Storage caching:  Not Supported
 
 ## Preview: DC-series
 
+**Newer size recommendation**: [DCsv2-series](dcv2-series.md)
+
 Premium Storage: Supported
 
 Premium Storage caching: Supported
