@@ -214,8 +214,8 @@ If you have reached the quota limit, the following steps may help resolve the is
 
 #### From API
 
-- PowerShell - [Get-AzScheduledQueryRule](https://docs.microsoft.com/en-us/powershell/module/az.monitor/get-azscheduledqueryrule?view=azps-3.7.0)
-- REST API - [List by subscription](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/listbysubscription)
+- PowerShell - [Get-AzScheduledQueryRule](https://docs.microsoft.com/powershell/module/az.monitor/get-azscheduledqueryrule?view=azps-3.7.0)
+- REST API - [List by subscription](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/listbysubscription)
 
 ## Next steps
 
