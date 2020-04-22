@@ -18,12 +18,9 @@ Starting May 1, 2020, changes by Google to their [data security and privacy poli
 
 If you have logic apps that are affected by these changes, we will notify you through email about the affected logic apps.
 
-> [!IMPORTANT]
-> Starting June 15, 2020, any non-compliant workflows will be disabled. 
-> You will have to make sure that your workflow uses only the approved 
-> connectors before you can enable your workflow again. Or, you can 
-> [follow the steps in this topic to update affected workflows](#affected-workflows), 
-> which help you create a Google client app that the Gmail connector can use for authentication.
+## Non-compliant logic apps
+
+Starting June 15, 2020, any non-compliant workflows will be disabled. You will have to make sure that your workflow uses only the approved connectors before you can enable your workflow again. Or, you can [follow the steps in this topic to update affected workflows](#affected-workflows), which help you create a Google client app that the Gmail connector can use for authentication.
 
 <a name="approved-connectors"></a>
 
@@ -63,19 +60,19 @@ When you're done, your screen looks like this example except you'll have your ow
 
 ![Client ID and client secret for your Google client app](./media/connectors-google-data-security-privacy-policy/google-api-console.png)
 
-### Update existing logic app
+### Use client app settings in logic app
 
 To use the client ID and client secret from your Google client app in your Gmail trigger or action, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
-1. In the Gmail trigger or action, select **Change connection** > **Add new**, for example:
+1. If you're adding a new Gmail trigger or action and creating an entirely new connection, continue to the next step. Otherwise, in the Gmail trigger or action, select **Change connection** > **Add new**, for example:
 
    ![Select "Change connection" > "Add new"](./media/connectors-google-data-security-privacy-policy/change-gmail-connection.png)
 
-1. Provide your connection information, and select **Sign in**, for example:
+1. Provide your connection information, for example:
 
-   ![Provide connection information, select "Sign in"](./media/connectors-google-data-security-privacy-policy/authentication-type-bring-your-own-application.png)
+   ![Provide connection information](./media/connectors-google-data-security-privacy-policy/authentication-type-bring-your-own-application.png)
 
    | Property | Value | Description |
    |----------|-------|-------------|
@@ -84,5 +81,16 @@ To use the client ID and client secret from your Google client app in your Gmail
    | **Client Secret** | <*client-secret*> | The client secret from your Google client app |
    ||||
 
-   The sign-in page that appears shows the information from your Google app. If you're using a Gmail consumer account, you may see a screen that the App is not verified by Google.
+1. When you're done, select **Sign in**.
 
+   A page appears that shows the client app that you created. If you're using a Gmail consumer account, you might get a page that show your client app isn't verified by Google and prompts you to first allow access to your Google account.
+
+   ![Prompt for access to your Google account](./media/connectors-google-data-security-privacy-policy/allow-access-authorized-domain.png)
+
+1. If necessary, select **Allow**.
+
+   You can now use the Gmail connector without restrictions in your logic app.
+
+## Next steps
+
+Learn more about the [Gmail connector](https://docs.microsoft.com/connectors/gmail/)
