@@ -1,8 +1,8 @@
 ---
 title: Bulk import data into a dataset | Microsoft Azure Maps
 description: In this article, you'll learn how to use the Dataset Import API to bulk import data into a dataset. This article also shows you how to upload the data that you want to be imported.
-author: farah-alyasari
-ms.author: v-faalya
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/13/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -52,21 +52,19 @@ This section assumes that you already have a data set, and that you know your `d
 
 5. In the **Body** tab, select **binary**. Click on **Select File** and choose the zip folder that contains your bulk data. When you're done, select the blue **Send** button.
 
-    <center>
 
     ![Upload data folder](./media/how-to-ingest-bulk-data-in-dataset/data-upload.png)
 
-    </center>
 
 6. Upon a successful post request, the response **Headers** tab will contain a **Location** key with a URL. Make a **GET** request at this URL to obtain the `udid` for the successfully uploaded data. Remember to append your Azure Maps key for authentication.
 
 7. If the upload failed, the response body will contain a message with details. If the upload was successful, then the response body will contain the `resourceLocation` element. The upload `udid` is in the URL of the `resourceLocation` element, as seen in the image below. Copy the `udid` for the upload data.
 
-    <center>
+ 
 
     ![Upload data folder](./media/how-to-ingest-bulk-data-in-dataset/upload-id.png)
 
-    </center>
+
 
 8. Call the [Dataset Import API]() to import bulk data from the zip folder resource to the dataset resource. You'll need the `datasetId` and the `udid` for the uploaded zip folder. Use the `type` parameter key with the `fixture` value. The **PATCH** request URL should look similar to the one below.
 
@@ -80,11 +78,10 @@ This section assumes that you already have a data set, and that you know your `d
 
 11. The response body will contain a status indicating if your data bulk import failed or succeeded. If the request failed, you'll see a message with the error details. Remember to append your Azure Maps key for authentication. If the bulk import operation failed, you'll see a message with details. For example, the operation fails if your data isn't in the right format. If the bulk import was successful, you'll see a success message, like in the below image.
 
-    <center>
-
+ 
     ![Upload data folder](./media/how-to-ingest-bulk-data-in-dataset/success-bulk-import.png)
 
-    </center>
+   
 
 ## Next steps
 

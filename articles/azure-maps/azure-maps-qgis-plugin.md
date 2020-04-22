@@ -1,8 +1,8 @@
 ---
 title: Azure Maps plugin for the Quantum Geographic Information System (QGIS) software | Microsoft Docs
 description: This article shows you how to install the Azure Maps QGIS plug-in. It also shows you how to use the plugin to perform common tasks on your data set.
-author: farah-alyasari
-ms.author: v-faalya
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 12/18/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -114,23 +114,15 @@ The first step in adding a feature to the map is to decide the category and the 
 
    ![Add category](./media/azure-maps-qgis-plugin/plugin-save-icon.png)
 
-   
-
 4. To see the assigned category ID, reload the data set by clicking the **Get Features** button in the **Creator** tab. If you closed the **Azure Maps** plug-in window, you can reopen the window and click **Get Features**.
 
 5. Right click on the **category** layer in **Layers** panel. Click on **Open Attributes Table**, and you should see the new category in the list along with its unique category ID. Copy the **ID** for the category, you may right-click and select **Copy Cell Content**.
 
    ![Category table](./media/azure-maps-qgis-plugin/categories-table.png)
 
-   
-
 6. Right click on the **unit** layer in the **Layers** panel. Click on **OpenAttribute Table**. Copy the **ID** of the chosen unit.
 
-   
-
    ![Unit table](./media/azure-maps-qgis-plugin/unit-table.png)
-
-   
 
 7. Choose **area_element** in the **Layers** panel. Click the **edit** icon, then click on the **Add Polygon Feature** button in the toolbar. 
 
@@ -145,27 +137,15 @@ The first step in adding a feature to the map is to decide the category and the 
    | **unit_ID** | provide the unit ID to add the desk to this unit |
    | **name** | Give a name for the element |
 
-   
-
    ![Element features attributes](./media/azure-maps-qgis-plugin/feature-attributes.png)
-
-   
 
 10. Now that you provide the required information, you should see the element on the map. Click the **Save Layer Edits** button in the toolbar to save changes to your data set.
 
-   
-
    ![Element map](./media/azure-maps-qgis-plugin/element-map.png)
-
-   
 
 5. You should see the new category we generated. Right click on **area_element** layer in the **Layers** panel. Click on the **Open Attributes Table**. Check the new category in the list along with the unique category ID that we generated in a previous step.
 
-   
-
     ![Element table](./media/azure-maps-qgis-plugin/element-table.png)
-
-   
 
 You can use the same thinking processes and steps to add additional features to your map. See the [supported categories](https://aka.ms/pa-indoor-spacecategories) and [supported map layer](drawing-requirements.md#drawing-package-requirements) to decide where to add your features.
 

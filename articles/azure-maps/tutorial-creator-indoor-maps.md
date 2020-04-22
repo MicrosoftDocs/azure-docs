@@ -59,7 +59,7 @@ Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpr
 6. To check the status of the API call, create a GET HTTP request on the `status URL`. You'll need to append your primary subscription key to the URL for authentication.
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/{uploadOperationStatusId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/mapData/operations/<operationsId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 7. When the **GET** HTTP request completes successfully, you can use the `resourceLocation` URL to retrieve metadata from this resource in the next step.
@@ -72,7 +72,7 @@ Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpr
     }
     ```
 
-8. To retrieve content metadata, you can make another **GET** HTTP request on the `resourceLocation` URL you copied in step 7. The response body contains a unique `udid` for the uploaded content, the location to access/download the content in the future, and some other metadata about the content like created/updated date, size, etc. An example of the overall response is:
+8. To retrieve content metadata, create a **GET** HTTP request on the `resourceLocation` URL you copied in step 7. The response body contains a unique `udid` for the uploaded content, the location to access/download the content in the future, and some other metadata about the content like created/updated date, size, etc. An example of the overall response is:
 
      ```json
     {
@@ -87,7 +87,7 @@ Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpr
 
 ## Convert a Drawing package
 
- Now that the Drawing package is uploaded, we will use `udid` for the uploaded package to convert the package into map data. The Convert API is a long running transaction that implements the pattern defined [here](private-atlas-long-running-operation.md). Once the operation completes, we will use the `conversionId` to access the converted data. Follow the steps below to obtain the `conversionId`.
+ Now that the Drawing package is uploaded, we will use `udid` for the uploaded package to convert the package into map data. The Convert API is a long running transaction that implements the pattern defined [here](creator-long-running-operation.md). Once the operation completes, we will use the `conversionId` to access the converted data. Follow the steps below to obtain the `conversionId`.
 
 1. Select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**.
 
@@ -99,30 +99,28 @@ Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpr
 
 3. Click the **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response, and look for the **Location** key. Copy the value of the **Location** key. This is the `status URL` for the conversion request.
 
-4. Start a new **GET** HTTP method in the builder tab. Append your Azure Maps primary subscription key to the `status URL`. Make a **GET** request at the `status URL` from the previous step.
-
-5. Once the request completes successfully, you will see a success status message in the response body. Copy the `conversionId` for the converted package. The `conversionId` is used by other API to access the converted map data.
-
+4. Start a new **GET** HTTP method in the builder tab. Append your Azure Maps primary subscription key to the `status URL`. Make a **GET** request at the `status URL` from the previous step. If the conversion process has not yet completed, you may see something like the following:
+    
     ```json
     {
-        "conversionId": "f34df8ff-65fc-4743-8463-017dd779042a",
-        "udid": "e028ed5b-5432-ee53-6fb9-51e3b7a56c05",
-        "created": "4/2/2020 2:01:59 AM +00:00",
-        "description": null,
-        "featureCounts":
-        {
-            "DIR": 1,
-            "LVL": 2,
-            "FCL": 0,
-            "UNIT": 182,
-            "CTG": 7,
-            "VRT": 5,
-            "AEL": 107,
-            "OPN": 47
-        }
+        "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+        "created": "2020-04-22T19:39:54.9518496+00:00",
+        "status": "Running"
     }
     ```
-      
+
+5. Once the request completes successfully, you will see a success status message in the response body. Copy the `conversionId` from the `resourceLocation` URL for the converted package. The `conversionId` is used by other API to access the converted map data.
+
+    ```json
+   {
+        "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+        "created": "2020-04-22T19:39:54.9518496+00:00",
+        "status": "Succeeded",
+        "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
+        "properties": {}
+    }
+    ```
+
     > [!NOTE]
     > The Postman application does not natively support HTTP Long Running Requests. As a result, you may notice a long delay while making a **GET** request at the status URL.  Wait about thirty seconds and try clicking the **Send** button again until the response shows success or fail.
 
@@ -137,7 +135,7 @@ The dataset is a collection of map features, such as buildings, levels, and room
 2. Make a **POST** request to the [Dataset Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview) to create a new dataset. Before submitting the request, append both your subscription key and the `conversionId` with the `conversionId` obtained during the Conversion process in step 5.  The request URL should look like the following:
 
     ```http
-    https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionID=<conversion-udid>&type=facility&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionID=<conversionId>&type=facility&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 3. Obtain the `statusURL` in the **Location** key of the response **Headers**.
@@ -148,14 +146,15 @@ The dataset is a collection of map features, such as buildings, levels, and room
     https://atlas.microsoft.com/dataset/operations/<operationsId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
-5. When the **GET** HTTP request completes successfully, the response header will contain the `datasetId` for the created dataset. Copy the `datasetId`.
+5. When the **GET** HTTP request completes successfully, the response header will contain the `datasetId` for the created dataset. Copy the `datasetId`. You will need to use the `datasetId` in order to create a tileset.
 
     ```json
     {
-        "createdDateTime": "3/11/2020 8:45:13 PM +00:00",
+        "operationId": "a93570cb-3e4f-4e45-a2b1-360df174180a",
+        "created": "2020-04-22T19:52:38.9352189+00:00",
         "status": "Succeeded",
-        "resourceLocation": "https://atlas.microsoft.com/dataset/{datasetId}"
-    }
+        "resourceLocation": "https://azure.microsoft.com/dataset/{datasetiId}?api-version=1.0"
+     }
     ```
 
 ## Create a tileset
@@ -167,7 +166,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 2. Make a **POST** request in the builder tab. The request URL should look like the following:
 
     ```http
-    https://atlas.microsoft.com/tileset/create/vector?api-version=1.0&datasetID=<dataset-udid>&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/create/vector?api-version=1.0&datasetID={datasetId}&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 3. Make a **GET** request at the `statusURL` for the tileset. Append your Azure Maps primary subscription key for authentication. The request URL should look like the following:
@@ -176,10 +175,11 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
     https://atlas.microsoft.com/tileset/operations/<operationsId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
-4. When the **GET** HTTP request completes successfully, the response header will contain the `tilesetId` for the created dataset. Copy the `tilesetId`.
+4. When the **GET** HTTP request completes successfully, the response header will contain the `tilesetId` for the created tileset. Copy the `tilesetId`.
 
     ```json
     {
+        "operationId": "a93570cb-3e4f-4e45-a2b1-360df174180a",
         "createdDateTime": "3/11/2020 8:45:13 PM +00:00",
         "status": "Succeeded",
         "resourceLocation": "https://atlas.microsoft.com/tileset/{tilesetId}"

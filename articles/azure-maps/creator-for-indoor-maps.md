@@ -80,7 +80,7 @@ The [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestat
 
 The value of each *state* in a stateset can be updated or retrieved by IoT devices or other applications.  For example, using the [Feature State Update API](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview), devices measuring space occupancy can systematically post the state change of a room.
 
-An application can use a feature stateset to dynamically render features in a facility according to their current state and respective map style. For more information on using feature statesets to style features in a rendering map, see [Indoor Web SDK Module](#indoor-web-sdk-module).
+An application can use a feature stateset to dynamically render features in a facility according to their current state and respective map style. For more information on using feature statesets to style features in a rendering map, see [Indoor Web SDK Module](#indoor-maps-module).
 
 >[!NOTE]
 >Like tilesets, changing a dataset does not affect the existing feature stateset and deleting a feature stateset will have no effect on the dataset to which it is attached.
