@@ -24,6 +24,11 @@ landingContent:
         links:
           - text: What is Windows Virtual Desktop?
             url: overview.md
+            
+      - linkListType: video
+        links:
+          - text: Windows Virtual Desktop 
+            url: https://www.youtube.com/watch?v=gC-Z_mHBtWg          
 
   # Card
   - title: Get started
