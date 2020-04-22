@@ -10,9 +10,10 @@ ms.date: 04/24/2020
 
 # Data security and privacy policies for Google connectors in Azure Logic Apps
 
-Starting **May 1, 2020**, changes by Google to their [data security and privacy policies](https://www.blog.google/technology/safety-security/project-strobe/) might affect your logic app workflows that use the [Gmail connector](https://docs.microsoft.com/connectors/gmail/).
+Starting **May 1, 2020**, changes by Google to their [data security and privacy policies](https://www.blog.google/technology/safety-security/project-strobe/) might affect your logic app workflows that use the [Gmail connector](https://docs.microsoft.com/connectors/gmail/). If your logic apps use the Gmail connector with a Gmail consumer account (email address that ends with @gmail.com or @googlemail.com), your logic apps can use only specific [Google-approved triggers, actions, and connectors](#approved-connectors). 
 
-If your logic apps use the Gmail connector with a Gmail consumer account (email address that ends with @gmail.com or @googlemail.com), your logic apps can use only specific [Google-approved triggers, actions, and connectors](#approved-connectors). But, if your logic apps use the Gmail connector with a G-Suite business account (email address with a custom domain), your logic apps aren't affected and have no limits on using the Gmail connector.
+> [!NOTE]
+> if your logic apps use the Gmail connector with a G-Suite business account (email address with a custom domain), your logic apps aren't affected and have no limits on using the Gmail connector.
 
 ## Affected logic apps
 
@@ -20,7 +21,7 @@ If your logic apps are affected by these policy changes, you'll receive an email
 
 * Update the affected logic apps by [following the steps in this topic](#update-affected-workflows). You need to create a Google client app, which provides a client ID and client secret that you use for authentication in your Gmail trigger or action.
 
-* Update the affected logic apps so that they use only the [approved connectors](#approved-connectors) before you re-enable the disabled logic apps.
+* Update the affected logic apps so that they use only the [Google-approved connectors](#approved-connectors) before you re-enable the disabled logic apps.
 
 <a name="approved-connectors"></a>
 
@@ -42,7 +43,7 @@ For detailed and the most recent information, see the [Gmail connector's technic
 
 If you have to use the Gmail connector with a Gmail consumer account and Google non-approved connectors in a logic app, you can create your own Google app for personal or internal use in your enterprise. For this scenario, here are the high-level steps that you need to take:
 
-1. Create a Google client app by using the Google API Console.
+1. Create a Google client app by using the [Google API Console](https://console.developers.google.com).
 
 1. In your Gmail connector, use the client ID and client secret values from your Google client app.
 
