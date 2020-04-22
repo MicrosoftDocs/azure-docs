@@ -880,7 +880,7 @@ Deploy Diagnostic Settings for Key Vault to Event Hub
 
 Use recommendations from Azure Security Center as a secure configuration baseline for your Azure Key Vault instances.
 
-How to view available Azure Policy Aliases:
+How to view available Azure Policy aliases:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
