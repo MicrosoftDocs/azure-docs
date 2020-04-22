@@ -72,8 +72,8 @@ landingContent:
             url: https://docs.microsoft.com/learn/modules/secure-and-isolate-with-nsg-and-service-endpoints    
       - linkListType: video
         links:
-          - text: Securely access a service with Azure Private Link
-            url: https://www.youtube.com/watch?reload=9&v=nuFEVvewUgQ         
+          - text: Securely access your Azure PaaS resources with Azure Private Link
+            url: https://www.youtube.com/watch?v=PWKM5KXjWno        
        
   # Card
   - title: Connect virtual networks
