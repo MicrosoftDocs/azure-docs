@@ -1,5 +1,5 @@
 ---
-title: Using SCIM and the Microsoft Graph together to provision users and enrich your application with the data it needs | Microsoft Docs
+title: Using SCIM, the Microsoft Graph, and the Azure AD provisioning service to provision users and enrich your application with the data it needs | Microsoft Docs
 description: Using SCIM and the Microsoft Graph together to provision users and enrich your application with the data it needs .
 services: active-directory
 documentationcenter: ''
@@ -36,7 +36,7 @@ ms.collection: M365-identity-device-management
 
 ![SCIM Graph decision tree](./media/user-provisioning/scim-graph.png)
 
-## Scenario 1: Automatically create users in my application
+## Scenario 1: Automatically create users in my app
 Today, IT admins manually create user accounts in my application each time someone needs access or periodically upload CSV files. The process is time consuming for customers and slows down adoption of my application. All I need is basic [user](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) information such as name, email, and userPrincipalName to create a user. Furthermore, my customers use various IdPs and I don't have the resources to maintain a sync engine and custom integrations with each IdP. 
 
 **Recommendation**: Support a SCIM compliant [/Users](https://aka.ms/scimreferencecode) endpoint. Your customers will be able to easily use this endpoint to integrate with the Azure AD provisioning service and automatically create user accounts when they need access. You can build the endpoint once and it will be compatible with all IdPs, without having to maintain a sync engine. Check out the example request below for how a user would be created.
@@ -62,7 +62,7 @@ POST /Users
 }
 ```
     
-## Scenario 2: Automatically remove users from my application when they shouldn't have access anymore
+## Scenario 2: Automatically remove users from my app
 The customers using my application are security focused and have governance requirements to remove accounts when employees don't need them anymore. How can I automate deprovisioning from my application?
 
 **Recommendation:** Support a SCIM compliant /Users endpoint. The Azure AD provisioning service will send requests to disable and delete when the user shouldn't have access anymore. We recommend supporting both disabling and deleting users. See the examples below for what a disable and delete request look like. 
@@ -88,12 +88,12 @@ Delete user
 DELETE /Users/5171a35d82074e068ce2 HTTP/1.1
 ```
 
-## Scenario 3: Automate provisioning groups and managing group memberships in my application. 
+## Scenario 3: Automate managing group memberships in my app
 My application relies on groups for access to various resources, and customers want to reuse the groups that they have in Azure AD. How can I import groups from Azure AD and keep them updated as the memberships change?  
 
 **Recommendation:** Support a SCIM compliant /Groups [endpoint](https://aka.ms/scimreferencecode). The Azure AD provisioning service will take care of creating groups and managing membership updates in your application. 
 
-## Scenario 4: Enrich my application with data from Microsoft services such as Teams, Outlook, and OneDrive.
+## Scenario 4: Enrich my app with data from Microsoft services such as Teams, Outlook, and OneDrive.
 My application is built into Microsoft Teams and relies on message data. In addition, we store files for users in OneDrive. How can I enrich my application with the data from these services and across Microsoft?
 
 **Recommendation:** The [Microsoft Graph](https://docs.microsoft.com/graph/) is your entry point to access Microsoft data. Each workload exposes APIs with the data that you need. The Microsoft graph can be used along with [SCIM provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) for the scenarios above. You can use SCIM to provision basic user attributes into your application while calling into graph to get any other data that you need. 
@@ -107,7 +107,7 @@ I need to be able to track changes to Teams and Outlook messages and react to th
 - Change notifications don't always contain the [resource data](https://docs.microsoft.com/graph/webhooks-with-resource-data)
 For the reasons above, developers often use change notifications along with change tracking for synchronization scenarios. 
 
-## Scenario 6: Automatically create, update, and delete users and groups in Azure AD.
+## Scenario 6: Provision users and groups in Azure AD.
 My application creates information about a user that customers need in Azure AD. This could be an HR application than manages hiring, a communications app that creates phone numbers for users, or some other app that generates data that would be valuable in Azure AD. How do I populate the user record in Azure AD with that data? 
 
 **Recommendation** The Microsoft graph exposes /Users and /Groups endpoints that you can integrate with today to provision users into Azure AD. Please note that Azure Active Directory doesn't support writing those users back into Active Directory. 
