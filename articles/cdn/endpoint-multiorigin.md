@@ -86,13 +86,13 @@ With the support of multiple origins, you can establish global redundancy and el
 
 Once you have several origins and an origin group, you can add or remove the origins into different groups. Origins within the same group should serve similar workloads. Traffic will be distributed into these origins based on their healthy status, priority, and weight value. 
 
-1. In the origin settings of the Azure CDN endpoint, select **Configure origin group**:
+1. In the origin settings of the Azure CDN endpoint, select **Configure Origin group**:
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-8.png" alt-text="Azure CDN multi-origin" border="true":::
 
 2. Select the origin group you want to configure in the pull-down box, and select **OK**.
 
-3. In **Update origin group**, select **+ Add origin**:
+3. In **Update origin group**, select **+ Add Origin**:
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-9.png" alt-text="Azure CDN multi-origin" border="true":::
 
@@ -104,7 +104,7 @@ Once you have several origins and an origin group, you can add or remove the ori
 
 ## Remove origin from origin group
 
-1. In the origin settings of the Azure CDN endpoint, select **Configure origin group**:
+1. In the origin settings of the Azure CDN endpoint, select **Configure Origin group**:
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-8.png" alt-text="Azure CDN multi-origin" border="true":::
 
