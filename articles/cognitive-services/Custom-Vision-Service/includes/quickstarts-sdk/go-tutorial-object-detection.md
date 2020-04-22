@@ -1,18 +1,9 @@
 ---
-title: "Quickstart: Create an object detection project with the SDK for Go - Custom Vision"
-titleSuffix: Azure Cognitive Services
-description: Create a project, add tags, upload images, train your project, and detect objects using the Go SDK.
-services: cognitive-services
 author: areddish
 ms.author: areddish
-manager: nitinme
 ms.service: cognitive-services
-ms.subservice: custom-vision
-ms.topic: quickstart
 ms.date: 04/14/2020
 ---
-
-# Quickstart: Create an object detection project with the Custom Vision Go SDK
 
 This article provides information and sample code to help you get started using the Custom Vision SDK with Go to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Go application.
 

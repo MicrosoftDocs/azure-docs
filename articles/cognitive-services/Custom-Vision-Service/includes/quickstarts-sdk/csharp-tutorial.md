@@ -1,19 +1,9 @@
 ---
-title: "Quickstart: Create an image classification project with the Custom Vision SDK for C#"
-titleSuffix: Azure Cognitive Services
-description: Create a project, add tags, upload images, train your project, and make a prediction using the .NET SDK with C#.
-services: cognitive-services
 author: PatrickFarley
-manager: nitinme
-
-ms.service: cognitive-services
-ms.subservice: custom-vision
-ms.topic: quickstart
-ms.date: 04/14/2020
 ms.author: pafarley
+ms.service: cognitive-services
+ms.date: 04/14/2020
 ---
-
-# Quickstart: Create an image classification project with the Custom Vision .NET SDK
 
 This article provides information and sample code to help you get started using the Custom Vision SDK with C# to build an image classification model. After it's created, you can add tags, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own .NET application. If you want to go through the process of building and using a classification model _without_ code, see the [browser-based guidance](getting-started-build-a-classifier.md) instead.
 

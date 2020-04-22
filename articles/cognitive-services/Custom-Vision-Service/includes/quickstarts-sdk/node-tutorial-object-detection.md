@@ -1,19 +1,9 @@
 ---
-title: "Quickstart: Create an object detection project with the Custom Vision SDK for Node.js"
-titleSuffix: Azure Cognitive Services
-description: Create a project, add tags, upload images, train your project, and detect objects using the Node.js SDK.
-services: cognitive-services
 author: areddish
-manager: daauld
-
-ms.service: cognitive-services
-ms.subservice: custom-vision
-ms.topic: quickstart
-ms.date: 04/14/2020
 ms.author: areddish
+ms.service: cognitive-services
+ms.date: 04/14/2020
 ---
-
-# Quickstart: Create an object detection project with the Custom Vision Node.js SDK
 
 This article shows you how to get started using the Custom Vision SDK with Node.js to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Node.js application.
 
