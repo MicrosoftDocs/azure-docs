@@ -20,7 +20,7 @@
     - name: Using the web portal
       href: get-started-build-detector.md
     - name: Using the Custom Vision SDK
-      href: object-detection.md
+      href: quickstarts/object-detection.md
 - name: Tutorials
   items:
   - name: Report visual states on IoT device
