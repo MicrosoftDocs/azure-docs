@@ -51,7 +51,7 @@ However, the provided effects do no give any detailed introspection into service
 ## Performance considerations
 
 * Enabling the text overlays incurs little to no performance overhead.
-* Additionally enabling the overlay does incur a non-trivial performance overhead, though it may vary depending on the scene. For complex scenes, this mode can cause the framerate to drop below the 60-Hz target.
+* Enabling the wireframe mode does incur a non-trivial performance overhead, though it may vary depending on the scene. For complex scenes, this mode can cause the frame rate to drop below the 60-Hz target.
 
 ## Next steps
 
