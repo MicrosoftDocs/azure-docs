@@ -133,6 +133,9 @@ If you have support websites for **Azure Global Customers** and/or **Azure Gover
 
 In this section, you can provide logos and images that will be used when showing your offer to customer. All images must be in .png format.
 
+>[!Note]
+>If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
+
 #### Marketplace logos
 
 Four logo sizes are required: **Small (40x40)**, **Medium (90x90)**, **Large (115x115)**, and **Wide (255x115)**. Follow these guidelines for your logos:
