@@ -375,7 +375,7 @@ Add-AzAccount : Object reference not set to an instance of an object
 
 ### Cause
 
-This error can occur if the runbook doesn't do the proper steps before calling `Add-AzAccount` to add the Automation account. An example of one of the necessary steps is signing in with a Run As account. For the correct operations to use in your runbook, see [Runbook execution in Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-runbook-execution).
+This error can occur if the runbook doesn't do the proper steps before calling `Add-AzAccount` to add the Automation account. An example of one of the necessary steps is signing in with a Run As account. For the correct operations to use in your runbook, see [Runbook execution in Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution).
 
 ## <a name="child-runbook-object"></a>Scenario: Object reference not set to an instance of an object
 
