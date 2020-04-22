@@ -25,7 +25,7 @@ In this tutorial, you will...
 * Use an [Azure Functions](../azure-functions/functions-overview.md) app to route simulated telemetry from an [IoT Hub](../iot-hub/about-iot-hub.md) device into digital twin properties
 * Propagate changes through the twin graph, by processing digital twin notifications with Azure Functions, endpoints, and routes
 
-Get the sample project you'll use in this tutorial by downloading [this repository](https://github.com/Azure-Samples/digital-twins-building-scenario) as a ZIP file to your machine.
+The tutorial is driven by a sample project written in C#. Get the sample project on your machine by [downloading the Azure Digital Twins samples repository as a ZIP file](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -113,7 +113,7 @@ The first part of this step is setting up and publishing an [Azure function](../
 To configure the function, you will need the *resourceGroup* and *hostName* of your Azure Digital Twins instance that you noted earlier. You can also run this command in Azure Cloud Shell to see them outputted again, along with other properties of the instance: `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
 Go to your Visual Studio window where the _**DigitalTwinsSample**_ project is open.
-Open _HubToDT/**ProcessHubToDTEvents.cs**_ in the editing window, and change the value of `AdtInstanceUrl` to your Azure Digital Twins instance's *hostName*. 
+From the *Solution Explorer* pane, select _HubToDT/**ProcessHubToDTEvents.cs**_ to open it in the editing window. Change the value of `AdtInstanceUrl` to your Azure Digital Twins instance's *hostName*. 
 
 ```csharp
 const string AdtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"
@@ -242,7 +242,7 @@ In a new Visual Studio window, open _Device Simulator > **DeviceSimulator.sln**_
 >[!NOTE]
 > You should now have two Visual Studio windows, one with _**DeviceSimulator.sln**_ and one from earlier with _**DigitalTwinsSample.sln**_.
 
-Open _DeviceSimulator/**AzureIoTHub.cs**_ in the editing window, and change the following connection string values to the values you gathered above:
+From the *Solution Explorer* pane, select _DeviceSimulator/**AzureIoTHub.cs**_ to open it in the editing window. Change the following connection string values to the values you gathered above:
 
 ```csharp
 connectionString = <Iot-hub-connection-string>

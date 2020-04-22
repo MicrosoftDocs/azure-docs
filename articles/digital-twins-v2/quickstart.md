@@ -25,7 +25,7 @@ Here are the steps included:
 3. Build out a sample solution, including models, digital twins, and relationships
 4. Query the sample solution to see how Azure Digital Twins can help you answer questions about your environment
 
-Get the sample project you'll use in this tutorial by downloading [this repository](https://github.com/Azure-Samples/digital-twins-building-scenario) as a ZIP file to your machine.
+The quickstart is driven by a sample project written in C#. Get the sample project on your machine by [downloading the Azure Digital Twins samples repository as a ZIP file](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip).
 
 [!INCLUDE [instructions on using the Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
@@ -50,7 +50,7 @@ The first step in building out an Azure Digital Twins solution is concepting and
 
 Models are similar to classes in object-oriented programming languages; they provide user-defined templates for digital twins to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *commands*, *relationships*, and *components*.
 
-In the sample project you downloaded earlier, navigaet to the *DigitalTwinsMetadata/DigitalTwinsSample/Models* folder. This folder contains sample models.
+In the sample project folder, navigate to the *DigitalTwinsMetadata/DigitalTwinsSample/Models* folder. This folder contains sample models.
 
 Open *Room.json*, and change it in the following ways:
 
