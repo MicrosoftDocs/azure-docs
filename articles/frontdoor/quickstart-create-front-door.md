@@ -97,9 +97,9 @@ Next, create a backend pool that contains your two web apps.
 
 1. Select **Add a backend** again. For **Backend host type**, select *App Service*.
 
-1. Select your subscription, again, and choose the second web app you created from **Backend host name**. Select **Add'**.
+1. Select your subscription, again, and choose the second web app you created from **Backend host name**. Select **Add**.
 
-   ![Add a backend host to your Front Door](mmedia/quickstart-create-front-door/add-backend-host-to-pool-for-front-door.png)
+   ![Add a backend host to your Front Door](media/quickstart-create-front-door/add-backend-host-to-pool-for-front-door.png)
 
 Finally, add a routing rule. A routing rule maps your frontend host to the backend pool. The rule forwards a request for `contoso-frontend.azurefd.net` to **myBackendPool**.
 
