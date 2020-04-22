@@ -34,6 +34,7 @@ OpenID Connect describes a metadata document that contains most of the informati
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
+
 > [!TIP]
 > Try it! Click [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) to see the `common` tenants configuration.
 
@@ -48,7 +49,7 @@ The `{tenant}` can take one of four values:
 
 The metadata is a simple JavaScript Object Notation (JSON) document. See the following snippet for an example. The snippet's contents are fully described in the [OpenID Connect specification](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
-```
+```json
 {
   "authorization_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/authorize",
   "token_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/token",
@@ -80,7 +81,7 @@ When your web app needs to authenticate the user, it can direct the user to the 
 
 For example:
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -119,7 +120,7 @@ After the user authenticates and grants consent, the Microsoft identity platform
 
 A successful response when you use `response_mode=form_post` looks like this:
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
@@ -136,7 +137,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 Error responses might also be sent to the redirect URI so that the app can handle them. An error response looks like this:
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
@@ -183,7 +184,7 @@ When you want to sign out the user from your app, it isn't sufficient to clear y
 
 You can redirect the user to the `end_session_endpoint` listed in the OpenID Connect metadata document:
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
@@ -207,7 +208,7 @@ The full OpenID Connect sign-in and token acquisition flow looks similar to the 
 ## Get access tokens
 To acquire access tokens, modify the sign-in request:
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -232,7 +233,7 @@ By including permission scopes in the request and by using `response_type=id_tok
 
 A successful response from using `response_mode=form_post` looks like this:
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
@@ -250,7 +251,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 Error responses might also be sent to the redirect URI so that the app can handle them appropriately. An error response looks like this:
 
-```
+```HTTP
 POST /myapp/ HTTP/1.1
 Host: localhost
 Content-Type: application/x-www-form-urlencoded
