@@ -36,9 +36,9 @@
       href: /powershell/scripting/dsc/overview/overview
     - name: Data security
       items:
-        - name: Encrypt secure assets 
+        - name: Encryption of secure assets 
           href: automation-secure-asset-encryption.md
-        - name: Manage Azure Automation data
+        - name: Management of Azure Automation data
           href: automation-managing-data.md
 - name: How-to guides
   items:
