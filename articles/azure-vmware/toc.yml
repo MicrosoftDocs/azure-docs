@@ -10,7 +10,7 @@
     href: tutorial-network-checklist.md
   - name: 2 - Create an AVS private cloud
     href: tutorial-create-private-cloud.md
-  - name: 3 - Create a service VNet and resources
+  - name: 3 - Configure networking
     href: tutorial-configure-networking.md
   - name: 4 - Access a private cloud 
     href: tutorial-access-private-cloud.md

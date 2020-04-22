@@ -32,7 +32,7 @@ You can create an AVS private cloud by using the [Azure portal](#azure-portal) o
 ### Azure portal
 
 In the Azure portal, select **+ Create a new resource**. In the **Search the Marketplace**
-text box type `avs`, and select **AVS - Private Cloud** from the list. On the **AVS - Private Cloud** window, click **Create**
+text box type `avs`, and select **AVS - Private Cloud** from the list. On the **AVS - Private Cloud** window, select **Create**
 
 On the **Basics** tab, enter values for the fields. The following table shows a detailed list of the properties.
 
@@ -50,7 +50,7 @@ On the **Basics** tab, enter values for the fields. The following table shows a 
 
 ![](./media/tutorial-create-private-cloud/image9.jpg)
 
-Once finished, click **Review + Create**. On the next screen verify the information entered. If the information is all correct, click **Create**.
+Once finished, select **Review + Create**. On the next screen verify the information entered. If the information is all correct, select **Create**.
 
 > [!NOTE]
 > This step takes roughly two hours. 
@@ -109,7 +109,7 @@ deployment is successful. Navigate to the Azure portal to verify your private cl
 
 If you have an AVS private cloud that you have verified you no longer in need, you can delete it. When you delete a private cloud, all clusters along with all their components are deleted.
 
-To do so, navigate to your private cloud in the Azure portal, and click **Delete**. On the confirmation page, confirm with the name of the private cloud and click **Yes**.
+To do so, navigate to your private cloud in the Azure portal, and select **Delete**. On the confirmation page, confirm with the name of the private cloud and select **Yes**.
 
 > [!CAUTION]
 > Deleting the private cloud is an irreversible operation. Once the private cloud is deleted, the data cannot be recovered as it terminates all running workloads, components, and destroys all private cloud data and configuration settings including public IP addresses. 
