@@ -148,7 +148,7 @@ az eventgrid topic update \
 This section shows you how to use Azure PowerShell commands to create Azure Event Grid topics with inbound IP firewall rules. The steps shown in this section are for topics. You can use similar steps to create inbound IP rules for **domains**. 
 
 ### Prerequisites
-Follow instructions from [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md) to create an Azure Active Directory application and note down the following values:
+Follow instructions from [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md) to create an Azure Active Directory application and note down the following values:
 
 - Directory (tenant) ID
 - Application (Client) ID
