@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Machine Learning documentation
-summary: Learn how to use Azure Machine Learning to train, deploy, and manage machine learning models and pipelines at scale. Tutorials, code examples, API references, and more show you how. 
+summary: Learn how to train, deploy, and manage machine learning models, automl experiments, and pipelines at scale with Azure Machine Learning. Tutorials, code examples, API references, and more show you how. 
 
 metadata:
   title: Azure Machine Learning documentation
-  description: Learn how to use Azure Machine Learning to train, deploy, and manage machine learning models, automl experiments, and pipelines at scale. Tutorials, code examples, API references, and more show you how. 
+  description: Learn how to train, deploy, and manage machine learning models, automl experiments, and pipelines at scale with Azure Machine Learning. Tutorials, code examples, API references, and more show you how. 
  
   services: machine-learning
   ms.service: machine-learning
@@ -41,9 +41,9 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Use AutoML to build a classification model
+          - text: 'AutoML: build a classification model'
             url: tutorial-first-experiment-automated-ml.md                 
-          - text: Use the designer to predict prices
+          - text:'The designer: predict auto prices
             url: tutorial-designer-automobile-price-train-score.md
           - text: Create an image labeling project  
             url: tutorial-labeling.md
@@ -51,7 +51,7 @@ landingContent:
         links:
         - text: What is the designer (drag & drop)?
           url: concept-designer.md   
-        - text: What is automated ML?
+        - text: What is automated machine learning?
           url: concept-automated-ml.md   
 
 
