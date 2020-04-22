@@ -135,7 +135,7 @@ These commands are used to configure egress endpoints of an Azure Digital Twins 
 
 Uses:
 
-* Add Event Grid topic endpoint (requires pre-created Event Grid resource)
+* Add event grid topic endpoint (requires pre-created Event Grid resource)
 
   `az dt endpoint create eventgrid --endpoint-name myeg_endpoint --eventgrid-resource-group myeg_resourcegroup --eventgrid-topic myeg_topic -n mydtinstance`
 
