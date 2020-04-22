@@ -83,7 +83,7 @@ npm start
 
 When the app is fully loaded, you see something similar to the following message:
 
-```console
+<pre>
 --
 MEAN.JS - Development Environment
 
@@ -93,7 +93,7 @@ Database:        mongodb://localhost/mean-dev
 App version:     0.5.0
 MEAN.JS version: 0.5.0
 --
-```
+</pre>
 
 Navigate to `http://localhost:3000` in a browser. Click **Sign Up** in the top menu and create a test user. 
 
@@ -221,16 +221,16 @@ node server.js
 
 When the app is loaded, check to make sure that it's running in the production environment:
 
-```console
+<pre>
 --
 MEAN.JS
 
 Environment:     production
 Server:          http://0.0.0.0:8443
-Database:        mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false
+Database:        mongodb://&lt;cosmosdb_name&gt;:&lt;primary_master_key&gt;@&lt;cosmosdb_name&gt;.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false
 App version:     0.5.0
 MEAN.JS version: 0.5.0
-```
+</pre>
 
 Navigate to `http://localhost:8443` in a browser. Click **Sign Up** in the top menu and create a test user. If you are successful creating a user and signing in, then your app is writing data to the Cosmos DB database in Azure. 
 
@@ -280,7 +280,7 @@ db: {
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-```bash
+<pre>
 Counting objects: 5, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (5/5), done.
@@ -296,9 +296,9 @@ remote: Handling node.js deployment.
 .
 .
 remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
  * [new branch]      master -> master
-``` 
+</pre>
 
 You may notice that the deployment process runs [Gulp](https://gulpjs.com/) after `npm install`. App Service does not run Gulp or Grunt tasks during deployment, so this sample repository has two additional files in its root directory to enable it: 
 

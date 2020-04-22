@@ -360,8 +360,8 @@ Because you made changes to the data model, you need to rerun database migration
 ```
 cd site/wwwroot
 
-# Activate the virtual environment
-source venv/bin/activate
+# Activate default virtual environment in App Service container
+source /antenv/bin/activate
 # Run database migrations
 python manage.py migrate
 ```

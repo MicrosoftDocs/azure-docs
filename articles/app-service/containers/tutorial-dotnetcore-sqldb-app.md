@@ -218,7 +218,7 @@ git commit -m "connect to SQLDB in Azure"
 
 [!INCLUDE [app-service-plan-no-h](../../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-```bash
+<pre>
 Counting objects: 98, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (92/92), done.
@@ -240,9 +240,9 @@ remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
 remote: App container will begin restart within 10 seconds.
-To https://<app-name>.scm.azurewebsites.net/<app-name>.git
+To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
  * [new branch]      master -> master
-```
+</pre>
 
 ### Browse to the Azure app
 
