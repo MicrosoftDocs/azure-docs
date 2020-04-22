@@ -14,17 +14,31 @@ ms.author: philmea
 
 The IoT Plug and Play Preview model repository stores device capability models and interfaces. The repository makes the models and interfaces discoverable and consumable by solution developers.
 
-There are two tools you can use to manage the repository:
+There are three tools you can use to manage the repository:
 
 - The Azure CLI
+
 - Visual Studio Code
 
-## Model repositories
+- The [Azure Certified for IoT portal](https://aka.ms/ACFI)  
 
-There are two types of model repository for storing device capability models and interfaces:
+## Public and Private models and interfaces
 
-- There is a single _Public repository_ that stores the device capability models and interfaces for devices in the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). This repository also stores [common interfaces](./concepts-common-interfaces.md) and DCMs and interfaces published by Microsoft Partners.
-- There are multiple _Company repositories_. A company repository is automatically created for your organization when you onboard to the Azure Certified for IoT portal. You can use your company repository to store your device capability models and interfaces during development and test.
+Models and interfaces can be public or private.
+
+Public models and interfaces have been published and are visible to all service principals and users. Some examples of public models are:
+
+- The device capability models and interfaces for devices in the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat).
+
+- The [common interfaces](./concepts-common-interfaces.md) and DCMs and interfaces published by Microsoft Partners.
+
+Private models and interfaces are maintained by your company. Access to these models and interfaces is controlled with role-based access control (RBAC) both on your organization's tenant and on individual models and interfaces. These controls determine who can create, read, and publish interfaces and models in your organization. You can also grant read access on your private models and interfaces to service principals and external users. Some examples of the use of private models and interfaces are:
+
+- Models and interfaces that your company uses during development and test.
+
+- Models and interfaces that you may choose to expose to only a limited audience of your partners.
+
+To learn more about the model repository and RBAC, see [Understand the IoT Plug and Play Preview model repository](concepts-model-repository.md).
 
 ## Azure CLI
 
