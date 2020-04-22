@@ -1,7 +1,7 @@
 ---
-title: Create or modify a Direct peering using the portal
+title: Create or modify a Direct peering by using the Azure portal
 titleSuffix: Azure
-description: Create or modify a Direct peering using the portal
+description: Create or modify a Direct peering by using the Azure portal
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -10,24 +10,24 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-# Create or modify a Direct peering using the portal
+# Create or modify a Direct peering by using the Azure portal
 
-This article describes how to create a Microsoft Direct peering by using the portal. This article also shows how to check the status of the resource, update it, or delete and deprovision it.
+This article describes how to create a Microsoft Direct peering by using the Azure portal. This article also shows how to check the status of the resource, update it, or delete and deprovision it.
 
-If you prefer, you can complete this guide using the [PowerShell](howto-direct-powershell.md).
+If you prefer, you can complete this guide by using Azure [PowerShell](howto-direct-powershell.md).
 
 ## Before you begin
-* Review [Prerequisites](prerequisites.md) and [Direct peering walkthrough](walkthrough-direct-all.md) before you begin configuration.
-* In case you have Direct peering with Microsoft already, which are not converted to Azure resources, refer to [Convert a legacy Direct peering to Azure resource using the portal](howto-legacy-direct-portal.md)
+* Review the [prerequisites](prerequisites.md) and the [Direct peering walkthrough](walkthrough-direct-all.md) before you begin configuration.
+* If you already have Direct peering connections with Microsoft that aren't converted to Azure resources, see [Convert a legacy Direct peering to an Azure resource by using the portal](howto-legacy-direct-portal.md).
 
 ## Create and provision a Direct peering
 
-### Sign in to portal and select your subscription
+### Sign in to the portal and select your subscription
 [!INCLUDE [Account](./includes/account-portal.md)]
 
 ### <a name=create></a>Create a Direct peering
 
-You can create a new peering request by using **Peering** resource.
+You can create a new peering request by using the **Peering** resource.
 
 #### Launch resource and configure basic settings
 [!INCLUDE [direct-peering-basic](./includes/direct-portal-basic.md)]
@@ -46,9 +46,9 @@ You can create a new peering request by using **Peering** resource.
 
 ## Next steps
 
-* [Create or modify Exchange peering using the portal](howto-exchange-portal.md).
-* [Convert a legacy Exchange peering to Azure resource using the portal](howto-legacy-exchange-portal.md).
+* [Create or modify Exchange peering by using the portal](howto-exchange-portal.md)
+* [Convert a legacy Exchange peering to an Azure resource by using the portal](howto-legacy-exchange-portal.md)
 
 ## Additional resources
 
-For more information, visit [Internet peering FAQs](faqs.md)
+For more information, see [Internet peering FAQs](faqs.md).

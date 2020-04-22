@@ -77,7 +77,7 @@ When an encryption scope is disabled, you are no longer billed for it. ???Need m
 
 ## Next steps
 
-- [What is Azure Key Vault?](../../key-vault/key-vault-overview.md)
+- [What is Azure Key Vault?](../../key-vault/general/overview.md)
 - [Configure customer-managed keys for Azure Storage encryption from the Azure portal](storage-encryption-keys-portal.md)
 - [Configure customer-managed keys for Azure Storage encryption from PowerShell](storage-encryption-keys-powershell.md)
 - [Configure customer-managed keys for Azure Storage encryption from Azure CLI](storage-encryption-keys-cli.md)
