@@ -15,7 +15,7 @@ Azure Static Web Apps provides authentication-related user information via a [di
 
 ## Client principal data
 
-User information is available in the app via the `x-ms-client-principal` request header. Client principal data sent in the header is a Base64-encoded string that contains a serialized JSON object containing information about the user. The object contains the following properties:
+User information is available in the app via the `x-ms-client-principal` request header. The client principal data is sent as a Base64-encoded string that contains a serialized JSON object. The object contains the following properties:
 
 | Property  | Description |
 |-----------|---------|
