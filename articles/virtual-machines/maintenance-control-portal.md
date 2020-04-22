@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/20/2020
+ms.date: 04/22/2020
 ms.author: cynthn
 #pmcontact: shants
 ---
@@ -40,7 +40,7 @@ With maintenance control, you can:
 
    ![Screenshot showing how to add a maintenance configuration](media/virtual-machines-maintenance-control-portal/maintenance-configurations-add.png)
 
-1. Complete basics. Click **Next**.
+1. Choose a subscription and resource group, provide a name for the configuration, and choose a region. Click **Next**.
 
    ![Screenshot showing Maintenance Configuration basics](media/virtual-machines-maintenance-control-portal/maintenance-configurations-basics.png)
 
