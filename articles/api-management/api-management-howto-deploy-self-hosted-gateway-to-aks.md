@@ -35,7 +35,7 @@ This article provides the steps for deploying self-hosted Azure API Management g
 5. Make sure **Kubernetes** is selected under **Deployment scripts**.
 6. Select **<gateway-name>.yml** file link next to **Deployment** to download the file.
 7. Adjust the port mappings and container name in the yml file as needed.
-8. Depending on your scenario, you might need to change the [service type](https://docs.microsoft.com/en-us/azure/aks/concepts-network#services). The default value is `NodePort`.
+8. Depending on your scenario, you might need to change the [service type](https://docs.microsoft.com/azure/aks/concepts-network#services). The default value is `NodePort`.
 9. Select the **copy** icon located at the right end of the **Deploy** text box to save the `kubectl` command to clipboard. 
 10. Paste the command to the terminal (or command) window. Note that the command expects the downloaded environment file to be present in the current directory.
 ```console
