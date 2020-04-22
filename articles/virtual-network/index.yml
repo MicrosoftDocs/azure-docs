@@ -74,7 +74,8 @@ landingContent:
         links:
           - text: Azure Virtual Network Service Endpoint
             url: https://www.youtube.com/watch?v=gxsitRRgylI          
-       
+          - text: Azure Private Link 
+            url: https://www.youtube.com/watch?v=vVDql7IKneg
   # Card
   - title: Connect virtual networks
     linkLists:
