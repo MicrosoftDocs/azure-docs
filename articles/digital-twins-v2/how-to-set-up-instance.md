@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Set up an Azure Digital Twins instance
 
-This article will walk you through the basic steps to set up a new Azure Digital Twins instance. This includes creating the instance, and assigning [Azure Active Directory (AAD)](../articles/active-directory/fundamentals/active-directory-whatis.md) permissions to the instance for yourself.
+This article will walk you through the basic steps to set up a new Azure Digital Twins instance. This includes creating the instance, and assigning [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) permissions to the instance for yourself.
 
 [!INCLUDE [Azure Digital Twins setup steps: instance creation and authentication](../../includes/digital-twins-setup-1.md)]
 

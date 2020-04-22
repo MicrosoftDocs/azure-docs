@@ -48,10 +48,10 @@ The result of these commands looks something like this, outputting information a
 
 :::image type="content" source="../articles/digital-twins-v2/media/include-setup/create-instance.png" alt-text="Command window with successful creation of resource group and Azure Digital Twins instance":::
 
-Save the Azure Digital Twins instance's *hostName*, *name*, and *resourceGroup*  from the output. You will use them later.
+Note the Azure Digital Twins instance's *hostName*, *name*, and *resourceGroup* from the output. These are all key values that you may need as you continue working with your Azure Digital Twins instance, to set up authentication and related Azure resources.
 
 > [!TIP]
-> You can see the properties of your instance at any time by running `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
+> You can see these properties, along with all the properties of your instance, at any time by running `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
 ### Assign Azure Active Directory permissions
 
