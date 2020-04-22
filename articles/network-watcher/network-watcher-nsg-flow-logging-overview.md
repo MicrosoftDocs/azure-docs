@@ -337,8 +337,8 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 - [Azure Traffic analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) is an Azure native service to process flow logs, extracts insights and visualize flow logs. 
 - [[Tutorial] Visualize NSG Flow logs with PowerBI](https://docs.microsoft.com/azure/network-watcher/network-watcher-visualize-nsg-flow-logs-power-bi)
 - [[Tutorial] Visualize NSG Flow logs with Elastic Stack](https://docs.microsoft.com/azure/network-watcher/network-watcher-visualize-nsg-flow-logs-open-source-tools)
-- [[Tutorial] Manage and analyze NSG Flow logs using Grafana](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-grafana)
-- [[Tutorial] Manage and analyze NSG Flow logs using Graylog](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog)
+- [[Tutorial] Manage and analyze NSG Flow logs using Grafana](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-grafana)
+- [[Tutorial] Manage and analyze NSG Flow logs using Graylog](https://docs.microsoft.com/azure/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog)
 
 
 ## NSG flow logging considerations
