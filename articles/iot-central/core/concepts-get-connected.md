@@ -44,7 +44,7 @@ This approach is useful when you're experimenting with IoT Central or testing de
 
 ![SAS keys for an individual device](./media/concepts-get-connected/single-device-sas.png)
 
-To learn more, see the [Create and connect a Node.js client application to your Azure IoT Central application](./tutorial-connect-device.md) tutorial.
+To learn more, see the [Create and connect a Node.js client application to your Azure IoT Central application](./tutorial-connect-device-nodejs.md) tutorial.
 
 ## Connect devices at scale using SAS
 
