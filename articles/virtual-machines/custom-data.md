@@ -49,7 +49,7 @@ In Azure Resource Manager (ARM), there is a [base64 function](https://docs.micro
         "computerName": "[parameters('virtualMachineName')]",
         "adminUsername": "[parameters('adminUsername')]",
         "adminPassword": "[parameters('adminPassword')]",
-        "customDataBase64": "[variables('customData')]"
+        "customData": "[variables('customDataBase64')]"
     	},
 ```
 
