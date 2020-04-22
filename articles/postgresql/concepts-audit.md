@@ -21,14 +21,14 @@ If you want Azure resource-level logs for operations like compute and storage sc
 ## Usage considerations
 By default, pgAudit log statements are emitted along with your regular log statements by using Postgres's standard logging facility. In Azure Database for PostgreSQL, these .log files can be downloaded through the Azure portal or the CLI. The maximum storage for the collection of files is 1 GB, and each file is available for a maximum of seven days (the default is three days). This service is a short-term storage option.
 
-Alternatively, you can configure all logs to be emitted to Azure Monitor's diagnostic log service. If you enable Azure Monitor diagnostic logging, your logs will be automatically sent (in JSON format) to Azure Storage, Event Hubs, and/or Azure Monitor logs, depending on your choice.
+Alternatively, you can configure all logs to be sent to Azure Monitor Log store for later analytics in Log Analytics. If you enable Azure Monitor resource logging, your logs will be automatically sent (in JSON format) to Azure Storage, Event Hubs, and/or Azure Monitor logs, depending on your choice.
 
-Enabling pgAudit generates a large volume of logging on a server, which has an impact on performance and log storage. We recommend that you use the Azure diagnostic log service, which offers longer-term storage options, as well as analysis and alerting features. We recommend that you turn off standard logging to reduce the performance impact of additional logging:
+Enabling pgAudit generates a large volume of logging on a server, which has an impact on performance and log storage. We recommend that you use Azure Monitor Logs, which offers longer-term storage options, as well as analysis and alerting features. We recommend that you turn off standard logging to reduce the performance impact of additional logging:
 
    1. Set the parameter `logging_collector` to OFF. 
    2. Restart the server to apply this change.
 
-To learn how to set up logging to Azure Storage, Event Hubs, or Azure Monitor logs, visit the diagnostic logs section of the [server logs article](concepts-server-logs.md).
+To learn how to set up logging to Azure Storage, Event Hubs, or Azure Monitor logs, visit the resource logs section of the [server logs article](concepts-server-logs.md).
 
 ## Installing pgAudit
 
