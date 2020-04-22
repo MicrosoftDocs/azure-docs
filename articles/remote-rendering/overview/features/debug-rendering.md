@@ -17,7 +17,7 @@ The debug rendering API provides a range of global options to alter server-side 
 |---------------------------------|:-------------------------------------|
 |Frame counter                    | Renders a text overlay into the top-left corner of the frame. The text shows the current server-side frame ID, which is continuously incremented as rendering proceeds. |
 |Polygon count                    | Renders a text overlay into the top-left corner of the frame. The text shows the currently rendered amount of polygons, the same value as queried by [Server-side performance queries](performance-queries.md)| 
-|Wireframe                        | If enabled, all object geometry loaded on the server will be rendered in wireframe mode. Only the edges of polygons will be rasterized n this mode. |
+|Wireframe                        | If enabled, all object geometry loaded on the server will be rendered in wireframe mode. Only the edges of polygons will be rasterized in this mode. |
 
 The following code enables these debugging effects:
 
