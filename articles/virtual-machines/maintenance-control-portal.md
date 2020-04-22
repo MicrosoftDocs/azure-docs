@@ -48,7 +48,7 @@ On the details page of the maintenance configuration, click Assignments and then
 
 ![Screenshot showing how to assign a resource](media/virtual-machines-maintenance-control-portal/maintenance-configurations-add-assignment.png)
 
-Select the resources that you want the maintenance configuration assigned to and click **Ok**. The **Type** column shows whether the resource is an isolated VM or Azure Dedicated Host. The VM needs to be running to assign the configuration. An error occurs if you try to assign a configuration to a VM that is stopped. 
+Select the resources that you want the maintenance configuration assigned to and click **Ok**. The **Type** column shows whether the resource is an isolated VM or Azure dedicated host. The VM needs to be running to assign the configuration. An error occurs if you try to assign a configuration to a VM that is stopped. 
 
 <!---Shantanu to add details about the error case--->
 
@@ -56,7 +56,7 @@ Select the resources that you want the maintenance configuration assigned to and
 
 ## Check configuration
 
-You can verify that the configuration was applied correctly or check to see any maintenance configuration that is currently assigned using **Maintenance Configurations**. The **Type** column shows whether the configuration is assigned to an isolated VM or Azure Dedicated Host. 
+You can verify that the configuration was applied correctly or check to see any maintenance configuration that is currently assigned using **Maintenance Configurations**. The **Type** column shows whether the configuration is assigned to an isolated VM or Azure dedicated host. 
 
 ![Screenshot showing how to check a maintenance configuration](media/virtual-machines-maintenance-control-portal/maintenance-configurations-host-type.png)
 
@@ -70,7 +70,7 @@ There are also two ways to check if updates are pending for a maintenance config
 
 ![Screenshot showing how to check pending updates](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending.png)
 
-You can also check a specific host using **Virtual Machines** or properties of the Dedicated Host. 
+You can also check a specific host using **Virtual Machines** or properties of the dedicated host. 
 
 ![Screenshot showing how to check Maintenance for a host](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
 
