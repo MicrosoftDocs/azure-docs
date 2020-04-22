@@ -72,7 +72,7 @@ landingContent:
             url: https://docs.microsoft.com/learn/modules/secure-and-isolate-with-nsg-and-service-endpoints    
       - linkListType: video
         links:
-          - text: Azure Private Link
+          - text: Securely access a service with Azure Private Link
             url: https://www.youtube.com/watch?reload=9&v=nuFEVvewUgQ         
        
   # Card
