@@ -34,8 +34,7 @@ You'll need to enter the following parameters to create a host pool:
 You'll also need to know the following things:
 
 - Where the source of the image you want to use is. Is it from Azure Gallery or is it a custom image?
-- Your domain join credentials
-- Your Windows Virtual Desktop credentials
+- Your domain join credentials.
 
 When you create a Windows Virtual Desktop host pool with the Azure Resource Manager template, you can create a virtual machine from the Azure gallery, a managed image, or an unmanaged image. To learn more about how to create VM images, see [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) and [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
 
@@ -97,7 +96,7 @@ To set up your virtual machine within the host pool setup process:
 4. Under Number of VMs, provide the number of VMs you want to create for your host pool.
 
     >[!NOTE]
-    >The setup process will only create VMs and APIs within the established Azure VM and API limits and doesn't check your subscription quota. This means you can only create up to 400 VMs while setting up your host pool in the Azure portal. Each VM setup process creates four objects. You can add more VMs after you complete the setup process and create the host pool. 
+    >The setup process can create up to 400 VMs while setting up your host pool, and each VM setup process creates four objects in your resource group. Since the creation proces doesn't check your subscription quota, make sure the number of VMs you enter is within the Azure VM and API limits for your resource group and subscription. You can add more VMs after you finish creating your host pool.
 
 5. After that, provide a **Name prefix** to name the virtual machines the setup process creates. The suffix will be `-` with numbers starting from 0.
 
@@ -158,7 +157,10 @@ To register the desktop app group to a workspace:
 
     Here you can add tags so you can group the objects with metadata to make things easier for your admins.
 
-4. When you're done, select **Review + create**.
+4. When you're done, select **Review + create**. 
+
+     >[!NOTE]
+     >The review + create validation process doesn't check if your password meets security standards or if your architecture is correct, so you'll need to check for any problems with either of those things yourself. 
 
 5. Review the information about your deployment to make sure everything looks correct. When you're done, select **Create**. This starts the deployment process, which creates the following objects:
 
