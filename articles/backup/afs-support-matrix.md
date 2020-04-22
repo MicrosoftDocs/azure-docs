@@ -13,10 +13,9 @@ You can use the [Azure Backup service](https://docs.microsoft.com/azure/backup/b
 
 Backup for Azure file shares is available in the following GEOS:
 
-| [Soft Delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud) (Protection against accidental delete of backed up file share) | Regions                                                      |
+| GA regions | Supported regions but not GA                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Enabled                                                      | Australia South East (ASE), Canada Central (CNC)                   |
-| Disabled                                                     | Australia  East (AE), Brazil  South (BRS), Canada East (CE),Central US (CUS),East Asia (EA),East US  (EUS),East US 2 (EUS2),Japan East (JPE),Japan West (JPW),India Central  (INC),India South (INS),Korea Central (KRC),Korea South (KRS),North Central  US (NCUS),North Europe (NE),South Central US (SCUS),South East Asia (SEA),UK  South (UKS),UK West (UKW),West Europe (WE),West US (WUS),West Central US  (WCUS),West US 2 (WUS 2),US Gov Arizona (UGA),US Gov Texas (UGT),US Gov  Virginia (UGV),Australia Central (ACL),India West(INW),South Africa  North(SAN),UAE North(UAN),France Central (FRC),Germany North (GN),Germany  West Central (GWC),South Africa West (SAW),UAE Central (UAC),Norway East  (NWE),Norway West (NWW),Switzerland North (SZN) |
+| Australia East (AE), Canada Central (CNC),West Central US (WCUS), India South (INS), North Central US (NCUS), Japan East (JPE), Brazil South (BRS)                                                     |Australia South East (ASE), Canada East (CE),Central US (CUS),East Asia (EA),East US (EUS),East US 2 (EUS2), Japan West (JPW),India Central (INC), Korea Central (KRC),Korea South (KRS) ,North Europe (NE),South Central US (SCUS),South East Asia (SEA),UK South (UKS),UK West (UKW),West Europe (WE),West US (WUS), US Gov Arizona (UGA),US Gov Texas (UGT),US Gov Virginia (UGV),Australia Central (ACL),India West(INW),South Africa North(SAN),UAE North(UAN),France Central (FRC),Germany North (GN),Germany West Central (GWC),South Africa West (SAW),UAE Central (UAC),Norway East (NWE),Norway West (NWW),Switzerland North (SZN), West US 2 (WUS 2)             |
 
 ## Supported storage accounts
 

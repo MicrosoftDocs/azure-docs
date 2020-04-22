@@ -205,14 +205,3 @@ The following example undeletes the *01D5D7F77ACC7864* version of the *share1* f
    .\UnDelete.ps1 -ResourceGroupName afsshare-StorageAccountName afsshare -SubscriptionId f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4 -FileShareName share1 -DeletedShareVersion 01D5D7F77ACC7864
 ```
 
-#### Scenario 3
-
-You want to undelete a file share with a new name.
-
-In this scenario, you need to execute the script with an additional parameter, **-RestoreAsFileShareName**, and pass the new name you want to give as a value for this parameter.
-
-The following example undeletes the *share1* file share with the *share2* name.
-
-```powershell
-   .\UnDelete.ps1 -ResourceGroupName afsshare-StorageAccountName afsshare -SubscriptionId f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4 -FileShareName share1-RestoreAsFileShareName share2
-```

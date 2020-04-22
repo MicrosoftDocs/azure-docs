@@ -110,11 +110,14 @@ Occasionally, you might want to generate a backup snapshot, or recovery point, o
 
 1. Monitor the portal notifications to keep a track of backup job run completion. You can monitor the job progress in the vault dashboard. Select **Backup Jobs** > **In progress**.
 
+>[!NOTE]
+>Azure Backup locks the storage account when you configure protection for any file share in the corresponding account. This provides protection against accidental deletion of a storage account with backed up file shares.
+
 ## Best practices
 
 * Don't delete snapshots created by Azure Backup. Deleting snapshots can result in loss of recovery points and/or restore failures.
 
-* Use [resource locks](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) on the storage account to prevent accidental deletion of backups in your Recovery services vault.
+* Don't remove the lock taken on the storage account by Azure Backup. If you delete the lock, your storage account will be prone to accidental deletion and if it's deleted, you will lose your snapshots or backups.
 
 ## Next steps
 

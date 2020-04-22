@@ -1,7 +1,7 @@
 ---
 title: Back up Azure Files FAQ
 description: In this article, discover answers to common questions about how to protect your Azure file shares with the Azure Backup service.
-ms.date: 07/29/2019
+ms.date: 04/22/2020
 ms.topic: conceptual
 ---
 
@@ -73,7 +73,7 @@ All snapshots taken by Azure Backup can be accessed by viewing snapshots in the 
 
 ### What is the maximum retention I can configure for backups?
 
-Refer to the [support matrix](afs-support-matrix.md) for details on maximum retention. Azure Backup does a real-time calculation of the number of snapshots when you enter the retention values while configuring backup policy. As soon as the number of snapshots corresponding to your defined retention values exceeds 200, it will show a warning requesting that you adjust your retention values. This is so you don’t exceed the limit of maximum number of snapshots supported by Azure Files for any file share at any point in time.
+Refer to the [support matrix](afs-support-matrix.md) for details on maximum retention. Azure Backup does a real-time calculation of the number of snapshots when you enter the retention values while configuring backup policy. As soon as the number of snapshots corresponding to your defined retention values exceeds 200, the portal will show a warning requesting you to adjust your retention values. This is so you don’t exceed the limit of maximum number of snapshots supported by Azure Files for any file share at any point in time.
 
 ### What happens when I change the Backup policy for an Azure file share?
 
