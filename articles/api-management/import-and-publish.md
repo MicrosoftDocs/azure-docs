@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/27/2020
+ms.date: 04/20/2020
 ms.author: apimpm
 
 ---

@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 04/22/2020
 ms.author: apimpm
 ---
 
@@ -53,7 +53,8 @@ In this article, you learn how to:
     - **Starter**
     - **Unlimited**
 
-7. Select **Create**.
+7. Enter other API settings. You can set the values during creation or configure them later by going to the **Settings** tab. The settings are explained in the [Import and publish your first API](import-and-publish.md#-import-and-publish-a-backend-api) tutorial.
+8. Select **Create**.
 
 ## Test the API in the Azure portal
 
