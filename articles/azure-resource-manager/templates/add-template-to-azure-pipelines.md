@@ -255,4 +255,4 @@ You can select the currently running pipeline to see details about the tasks. Wh
 
 ## Next steps
 
-For step-by-step process on using Azure Pipelines with ARM templates, see [Tutorial: Continuous integration of ARM templates with Azure Pipelines](template-tutorial-use-azure-pipelines.md).
+For step-by-step process on using Azure Pipelines with ARM templates, see [Tutorial: Continuous integration of Azure Resource Manager templates with Azure Pipelines](deployment-tutorial-pipeline.md).
