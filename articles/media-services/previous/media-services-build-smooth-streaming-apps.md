@@ -34,7 +34,7 @@ This tutorial contains four lessons:
 
 * Windows 8 32-bit or 64-bit.
 * Visual Studio versions 2012 through 2015.
-* [Microsoft Smooth Streaming Client SDK for Windows 8](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttps://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
+* [Microsoft Smooth Streaming Client SDK for Windows 8](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
 The completed solution for each lesson can be downloaded from MSDN Developer Code Samples (Code Gallery): 
 

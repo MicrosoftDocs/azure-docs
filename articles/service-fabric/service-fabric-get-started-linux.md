@@ -1,22 +1,9 @@
 ---
-title: Set up your development environment on Linux | Microsoft Docs
+title: Set up your development environment on Linux 
 description: Install the runtime and SDK and create a local development cluster on Linux. After completing this setup, you'll be ready to build applications.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
 
-ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
-
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-
 ---
 # Prepare your development environment on Linux
 > [!div class="op_single_selector"]
@@ -28,7 +15,7 @@ ms.author: subramar
 
 To deploy and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core development. 
 
-The steps in this article assume that you install natively on Linux or use the Service Fabric OneBox container image, `microsoft/service-fabric-onebox`.
+The steps in this article assume that you install natively on Linux or use the Service Fabric OneBox container image, `mcr.microsoft.com/service-fabric/onebox:latest`.
 
 Installing the Service Fabric runtime and SDK on Windows Subsystem for Linux is not supported. You can manage Service Fabric entities hosted elsewhere in the cloud or on-premises with the Azure Service Fabric command-line interface (CLI), which is supported. For information on how to install the CLI, see [Set up the Service Fabric CLI](./service-fabric-cli.md).
 
@@ -84,8 +71,7 @@ To install the SDK and associated runtime package via the apt-get command-line t
 4. Add the new Gnu Privacy Guard (GnuPG or GPG) key to your APT keyring.
 
     ```bash
-    sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
 5. Add the official Docker GPG key to your APT keyring.
@@ -104,8 +90,8 @@ To install the SDK and associated runtime package via the apt-get command-line t
 7. Add Azul JDK Key to your APT keyring and setup its repository.
 
     ```bash
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
-    sudo apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
+    sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
 8. Refresh your package lists based on the newly added repositories.
@@ -214,7 +200,7 @@ Service Fabric provides scaffolding tools that help you create Service Fabric ap
 1. Install Node.js and npm on your machine.
 
     ```bash
-    sudo apt-add-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
+    sudo add-apt-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
     sudo apt-get update
     sudo apt-get install nodejs
     ```
@@ -275,7 +261,7 @@ You can install the Eclipse plug-in for Service Fabric from within the Eclipse I
 
 2. To install the Service Fabric plug-in, select **Help** > **Install New Software**.
 
-3. In the **Work with** box, enter **https://dl.microsoft.com/eclipse**.
+3. In the **Work with** box, enter **https:\//dl.microsoft.com/eclipse**.
 
 4. Select **Add**.
 

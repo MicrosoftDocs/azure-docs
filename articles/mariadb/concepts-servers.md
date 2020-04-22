@@ -1,11 +1,11 @@
 ---
-title: Server concepts in Azure Database for MariaDB
+title: Servers - Azure Database for MariaDB
 description: This topic provides considerations and guidelines for working with Azure Database for MariaDB servers.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 3/18/2020
 ---
 # Server concepts in Azure Database for MariaDB
 This article provides considerations and guidelines for working with Azure Database for MariaDB servers.

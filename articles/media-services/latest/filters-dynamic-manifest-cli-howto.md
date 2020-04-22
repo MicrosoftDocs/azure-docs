@@ -1,6 +1,6 @@
 ---
 title: Use CLI to create filters with Azure Media Services| Microsoft Docs
-description: This topic shows how to use CLI to create filters with Media Services.
+description: This article shows how to use CLI to create filters with Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -84,7 +84,7 @@ The command allows you to pass an optional `--tracks` parameter that contains JS
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
 ```
 
-Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create_an_account_filter).
+Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
 
 ## Create asset filters
 
@@ -94,7 +94,7 @@ The following [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/ass
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
 ```
 
-Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter).
+Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter).
 
 ## Associate filters with Streaming Locator
 

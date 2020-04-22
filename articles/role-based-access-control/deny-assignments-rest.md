@@ -1,5 +1,5 @@
 ---
-title: List deny assignments for Azure resources using the REST API - Azure | Microsoft Docs
+title: List deny assignments for Azure resources with the REST API
 description: Learn how to list deny assignments for users, groups, and applications using role-based access control (RBAC) for Azure resources and the REST API.
 services: active-directory
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -41,11 +41,12 @@ To get information about a deny assignment, you must have:
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the deny assignments.
 
-    | Scope | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId}` | Subscription |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Replace *{deny-assignment-id}* with the deny assignment identifier you want to retrieve.
 
@@ -65,19 +66,24 @@ To get information about a deny assignment, you must have:
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the deny assignments.
 
-    | Scope | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId}` | Subscription |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. Replace *{filter}* with the condition that you want to apply to filter the deny assignment list.
 
-    | Filter | Description |
-    | --- | --- |
-    | (no filter) | List all deny assignments at, above, and below the specified scope. |
-    | `$filter=atScope()` | List deny assignments for only the specified scope and above. Does not include the deny assignments at subscopes. |
-    | `$filter=denyAssignmentName%20eq%20'{deny-assignment-name}'` | List deny assignments with the specified name. |
+    > [!div class="mx-tableFixed"]
+    > | Filter | Description |
+    > | --- | --- |
+    > | (no filter) | Lists all deny assignments at, above, and below the specified scope. |
+    > | `$filter=atScope()` | Lists deny assignments for only the specified scope and above. Does not include the deny assignments at subscopes. |
+    > | `$filter=assignedTo('{objectId}')` | Lists deny assignments for the specified user or service principal.<br/>If the user is a member of a group that has a deny assignment, that deny assignment is also listed. This filter is transitive for groups which means that if the user is a member of a group and that group is a member of another group that has a deny assignment, that deny assignment is also listed.<br/>This filter only accepts an object ID for a user or a service principal. You cannot pass an object ID for a group. |
+    > | `$filter=atScope()+and+assignedTo('{objectId}')` | Lists deny assignments for the specified user or service principal and at the specified scope. |
+    > | `$filter=denyAssignmentName+eq+'{deny-assignment-name}'` | Lists deny assignments with the specified name. |
+    > | `$filter=principalId+eq+'{objectId}'` | Lists deny assignments for the specified user, group, or service principal. |
 
 ## List deny assignments at the root scope (/)
 
@@ -91,10 +97,11 @@ To get information about a deny assignment, you must have:
 
 1. Replace *{filter}* with the condition that you want to apply to filter the deny assignment list. A filter is required.
 
-    | Filter | Description |
-    | --- | --- |
-    | `$filter=atScope()` | List deny assignments for only the root scope. Does not include the deny assignments at subscopes. |
-    | `$filter=denyAssignmentName%20eq%20'{deny-assignment-name}'` | List deny assignments with the specified name. |
+    > [!div class="mx-tableFixed"]
+    > | Filter | Description |
+    > | --- | --- |
+    > | `$filter=atScope()` | List deny assignments for only the root scope. Does not include the deny assignments at subscopes. |
+    > | `$filter=denyAssignmentName+eq+'{deny-assignment-name}'` | List deny assignments with the specified name. |
 
 1. Remove elevated access.
 

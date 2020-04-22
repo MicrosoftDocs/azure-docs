@@ -1,12 +1,13 @@
 ---
-title: Configure a connection string for Azure Storage
+title: Configure a connection string
+titleSuffix: Azure Storage
 description: Configure a connection string for an Azure storage account. A connection string contains the information needed to authorize access to a storage account from your application at runtime using Shared Key authorization.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/20/2019
+ms.date: 12/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -14,13 +15,11 @@ ms.subservice: common
 
 # Configure Azure Storage connection strings
 
-A connection string includes the authentication information required for your application to access data in an Azure Storage account at runtime using Shared Key authorization. You can configure connection strings to:
+A connection string includes the authorization information required for your application to access data in an Azure Storage account at runtime using Shared Key authorization. You can configure connection strings to:
 
 * Connect to the Azure storage emulator.
 * Access a storage account in Azure.
 * Access specified resources in Azure via a shared access signature (SAS).
-
-[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
@@ -141,5 +140,4 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 * [Use the Azure storage emulator for development and testing](storage-use-emulator.md)
 * [Azure Storage explorers](storage-explorers.md)
-* [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
-
+* [Using Shared Access Signatures (SAS)](storage-sas-overview.md)

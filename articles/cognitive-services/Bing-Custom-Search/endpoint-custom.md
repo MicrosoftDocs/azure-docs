@@ -1,7 +1,7 @@
 ---
 title: Bing Custom Search endpoint
-titlesuffix: Azure Cognitive Services
-description: Summary of the Bing Custom Search API endpoint.
+titleSuffix: Azure Cognitive Services
+description: Create tailored search experiences for topics that you care about. Users see search results tailored to the content they care about.
 services: cognitive-services
 author: aahill
 manager: nitinme

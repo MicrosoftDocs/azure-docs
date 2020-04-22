@@ -1,16 +1,17 @@
 ---
-title: Migrate SQL Server Integration Services packages to an Azure SQL Database managed instance | Microsoft Docs
-description: Learn how to migrate SQL Server Integration Services packages to an Azure SQL Database managed instance.
+title: Migrate SSIS packages to SQL managed instance
+titleSuffix: Azure Database Migration Service
+description: Learn how to migrate SQL Server Integration Services (SSIS) packages and projects to an Azure SQL Database managed instance using the Azure Database Migration Service or the Data Migration Assistant.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 06/08/2019
+ms.date: 02/20/2020
 ---
 
 # Migrate SQL Server Integration Services packages to an Azure SQL Database managed instance
@@ -31,8 +32,8 @@ In this article, you learn how to:
 
 To complete these steps, you need:
 
-* To create an Azure Virtual Network (VNet) for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). For more information, see the article [Network topologies for Azure SQL Database managed instance migrations using Azure Database Migration Service]( https://aka.ms/dmsnetworkformi). For more information about creating a VNet, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
-* To ensure that your VNet Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on Azure VNet NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+* To create a Microsoft Azure Virtual Network for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). For more information, see the article [Network topologies for Azure SQL Database managed instance migrations using Azure Database Migration Service]( https://aka.ms/dmsnetworkformi). For more information about creating a virtual network, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
+* To ensure that your virtual network Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 * To configure your [Windows Firewall for source database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access?view=sql-server-2017).
 * To open your Windows Firewall to allow the Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
 * If you're running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that the Azure Database Migration Service can connect to a named instance on your source server.
@@ -73,11 +74,11 @@ While assessment of source SSISDB isn't yet integrated into the Database Migrati
 
 4. Select the location in which you want to create the instance of DMS.
 
-5. Select an existing VNet or create one.
+5. Select an existing virtual network or create one.
 
-    The VNet provides Azure Database Migration Service with access to the source SQL Server and target Azure SQL Database managed instance.
+    The virtual network provides Azure Database Migration Service with access to the source SQL Server and target Azure SQL Database managed instance.
 
-    For more information on how to create a VNet in Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/DMSVnet).
+    For more information on how to create a virtual network in Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/DMSVnet).
 
     For additional detail, see the article [Network topologies for Azure SQL DB managed instance migrations using the Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
 
@@ -116,7 +117,7 @@ After an instance of the service is created, locate it within the Azure portal, 
     When a trusted certificate isn't installed, SQL Server generates a self-signed certificate when the instance is started. This certificate is used to encrypt the credentials for client connections.
 
     > [!CAUTION]
-    > SSL connections that are encrypted using a self-signed certificate does not provide strong security. They are susceptible to man-in-the-middle attacks. You should not rely on SSL using self-signed certificates in a production environment or on servers that are connected to the internet.
+    > TLS connections that are encrypted using a self-signed certificate does not provide strong security. They are susceptible to man-in-the-middle attacks. You should not rely on TLS using self-signed certificates in a production environment or on servers that are connected to the internet.
 
    ![Source Details](media/how-to-migrate-ssis-packages-mi/dms-source-details1.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Governance of Azure DevTest Labs infrastructure
-description: This article provides guidance for governance of Azure DevTest Labs infrastructure. 
+title: Governance of Azure DevTest Labs infrastructure - Resource
+description: This article addresses the alignment and management of resources for Azure DevTest Labs within your organization. 
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 
@@ -33,15 +33,15 @@ Before an organization begins to use Azure for general application development, 
 - Is segmentation required to separate the development and production environments? 
 - What controls are introduced for long term ease of management, stability, and growth?
 
-The **first recommended practice** is to review organizations' Azure taxonomy where the divisions between production and development subscriptions are outlined. In the following diagram, the suggested taxonomy allows for a logical separation of development/testing and production environments. With this approach, an organization can introduce billing codes to track costs associated with each environment separately. For more information, see [Prescriptive subscription governance](/azure/architecture/cloud-adoption/appendix/azure-scaffold). Additionally, you can use [Azure tags](../azure-resource-manager/resource-group-using-tags.md) to organize resources for tracking and billing purposes.
+The **first recommended practice** is to review organizations' Azure taxonomy where the divisions between production and development subscriptions are outlined. In the following diagram, the suggested taxonomy allows for a logical separation of development/testing and production environments. With this approach, an organization can introduce billing codes to track costs associated with each environment separately. For more information, see [Prescriptive subscription governance](/azure/architecture/cloud-adoption/appendix/azure-scaffold). Additionally, you can use [Azure tags](../azure-resource-manager/management/tag-resources.md) to organize resources for tracking and billing purposes.
 
-The **second recommended practice** is to enable the DevTest subscription within the Azure Enterprise portal. It allows an organization to run client operating systems that are not typically available in an Azure enterprise subscription. Then, use enterprise software where you pay only for the compute and not don't worry about licensing. It ensures that the billing for designated services, including gallery images in IaaS such as Microsoft SQL Server, is based on consumption only. Details about the Azure DevTest subscription can be found [here](https://azure.microsoft.com/offers/ms-azr-0148p/) for Enterprise Agreement (EA) customers and [here](https://azure.microsoft.com/offers/ms-azr-0023p/) for Pay as you Go customers.
+The **second recommended practice** is to enable the DevTest subscription within the Azure Enterprise portal. It allows an organization to run client operating systems that are not typically available in an Azure enterprise subscription. Then, use enterprise software where you pay only for the compute and don't worry about licensing. It ensures that the billing for designated services, including gallery images in IaaS such as Microsoft SQL Server, is based on consumption only. Details about the Azure DevTest subscription can be found [here](https://azure.microsoft.com/offers/ms-azr-0148p/) for Enterprise Agreement (EA) customers and [here](https://azure.microsoft.com/offers/ms-azr-0023p/) for Pay as you Go customers.
 
 ![Resource alignment with subscriptions](./media/devtest-lab-guidance-governance/resource-alignment-with-subscriptions.png)
 
 This model provides an organization the flexibility to deploy Azure DevTest Labs at scale. An organization can support hundreds of labs for various business units with 100 to 1000 virtual machines running in parallel. It promotes the notion of a centralized enterprise lab solution that can share the same principles of configuration management and security controls.
 
-This model also ensures that the organization does not exhaust their resource limits associated with their Azure subscription. For details about subscription and service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). The DevTest Labs provisioning process can consume large number of resource groups. You can request for limits to be increased through a support request in the Azure DevTest subscription. The resources within the production subscription are not affected as the development subscription grows in use. For more information on scaling DevTest Labs, see [Scale quotas and limits in DevTest Labs](devtest-lab-scale-lab.md).
+This model also ensures that the organization does not exhaust their resource limits associated with their Azure subscription. For details about subscription and service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md). The DevTest Labs provisioning process can consume large number of resource groups. You can request for limits to be increased through a support request in the Azure DevTest subscription. The resources within the production subscription are not affected as the development subscription grows in use. For more information on scaling DevTest Labs, see [Scale quotas and limits in DevTest Labs](devtest-lab-scale-lab.md).
 
 A common subscription level limit that needs to be accounted for is how the network IP range assignments are allocated to support both production and development subscriptions. These assignments should account for growth over time (assuming on-premises connectivity or another networking topology that requires the enterprise to manage their networking stack instead of defaulting to Azure’s implementation). The recommended practice is to have a few virtual networks that have a large IP address prefix assigned and divided with many large subnets rather than to have multiple virtual networks with small subnets. For example, with 10 subscriptions, you can define 10 virtual networks (one for each subscription). All labs that don’t require isolation can share the same subnet on the subscription’s vnet.
 

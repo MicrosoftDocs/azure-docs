@@ -1,0 +1,28 @@
+- name: Azure management groups documentation
+  href: ./index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: Azure Management
+    href: ../azure-management.md
+  - name: Management groups
+    href: ./overview.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Create management groups
+    href: ./create.md
+  - name: Manage your resources
+    href: ./manage.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/account/management-group
+  - name: Azure PowerShell
+    href: /powershell/module/az.resources/#resources
+  - name: Azure SDK for .NET
+    href: /dotnet/api/overview/azure/managementgroups
+  - name: Azure SDK for Node
+    href: /javascript/api/@azure/arm-managementgroups/managementgroups
+  - name: REST
+    href: /rest/api/resources/managementgroups

@@ -1,15 +1,10 @@
 ---
-title: Azure Diagnostics Extension for Windows | Microsoft Docs
+title: Azure Diagnostics Extension for Windows 
 description: Monitor Azure Windows VMs using the Azure Diagnostics Extension
-services: virtual-machines-windows
-documentationcenter: ''
 author: johnkemnetz
 manager: ashwink
-editor: ''
-
 ms.service: virtual-machines-windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
@@ -33,7 +28,7 @@ The Azure Diagnostics Extension requires that the target virtual machine is conn
 
 ## Extension schema
 
-[The Azure Diagnostics Extension schema and property values are described in this document.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
+[The Azure Diagnostics Extension schema and property values are described in this document.](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)
 
 ## Template deployment
 
@@ -57,7 +52,7 @@ az vm extension set \
 
 The `Set-AzVMDiagnosticsExtension` command can be used to add the Azure Diagnostics extension to an existing virtual machine. See also [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](ps-extensions-diagnostics.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 
 ```powershell
@@ -88,4 +83,4 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 ## Next Steps
 * [Learn more about the Azure Diagnostics Extension](../../azure-monitor/platform/diagnostics-extension-overview.md)
-* [Review the extension schema and versions](../../azure-monitor/platform/diagnostics-extension-schema.md)
+* [Review the extension schema and versions](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)

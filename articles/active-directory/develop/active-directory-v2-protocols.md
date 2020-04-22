@@ -1,45 +1,36 @@
 ---
-title: Learn about the authorization protocols supported by Microsoft identity platform | Azure
+title: OAuth 2.0 and OpenID Connect protocols - Microsoft identity platform | Azure
 description: A guide to OAuth 2.0 and OpenID Connect protocols that are supported by the Microsoft identity platform endpoint.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/30/2019
-ms.author: ryanwi
+ms.topic: conceptual
+ms.date: 04/13/2020
+ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
-# Microsoft identity platform protocols
+# OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform
 
 The Microsoft identity platform endpoint for identity-as-a-service with industry standard protocols, OpenID Connect and OAuth 2.0. While the service is standards-compliant, there can be subtle differences between any two implementations of these protocols. The information here will be useful if you choose to write your code by directly sending and handling HTTP requests or use a third party open-source library, rather than using one of our [open-source libraries](reference-v2-libraries.md).
-
-> [!NOTE]
-> Not all Azure AD scenarios and features are supported by the Microsoft identity platform endpoint. To determine if you should use the Microsoft identity platform endpoint, read about [Microsoft identity platform limitations](active-directory-v2-limitations.md).
 
 ## The basics
 
 In nearly all OAuth 2.0 and OpenID Connect flows, there are four parties involved in the exchange:
 
-![OAuth 2.0 Roles](./media/active-directory-v2-flows/protocols-roles.svg)
+![Diagram showing the OAuth 2.0 roles](./media/active-directory-v2-flows/protocols-roles.svg)
 
 * The **Authorization Server** is the Microsoft identity platform endpoint and responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens. The authorization server also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in a flow.
 * The **Resource Owner** is typically the end user. It's the party that owns the data and has the power to allow third parties to access that data or resource.
 * The **OAuth Client** is your app, identified by its application ID. The OAuth client is usually the party that the end user interacts with, and it requests tokens from the authorization server. The client must be granted permission to access the resource by the resource owner.
 * The **Resource Server** is where the resource or data resides. It trusts the Authorization Server to securely authenticate and authorize the OAuth Client, and uses Bearer access tokens to ensure that access to a resource can be granted.
 
-## App Registration
+## App registration
 
 Every app that wants to accept both personal and work or school accounts must be registered through the **App registrations** experience in the [Azure portal](https://aka.ms/appregistrations) before it can sign these users in using OAuth 2.0 or OpenID Connect. The app registration process will collect and assign a few values to your app:
 
@@ -70,7 +61,7 @@ Where the `{tenant}` can take one of four different values:
 To learn how to interact with these endpoints, choose a particular app type in the [Protocols](#protocols) section and follow the links for more info.
 
 > [!TIP]
-> Any app registered in Azure AD can use the Microsoft identity platform endpoint, even if they don't sign in personal accounts.  This way, you can migrate existing applications to Microsoft identity platform and [MSAL](reference-v2-libraries.md) without re-creating your application.  
+> Any app registered in Azure AD can use the Microsoft identity platform endpoint, even if they don't sign in personal accounts.  This way, you can migrate existing applications to Microsoft identity platform and [MSAL](reference-v2-libraries.md) without re-creating your application.
 
 ## Tokens
 

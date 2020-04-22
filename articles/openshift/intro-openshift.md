@@ -1,11 +1,9 @@
 ---
-title: Introduction to Azure Red Hat OpenShift | Microsoft Docs
+title: Introduction to Azure Red Hat OpenShift
 description: Learn the features and benefits of Microsoft Azure Red Hat OpenShift to deploy and manage container-based applications.
-services: container-service
 author: jimzim
 ms.author: jzim
 ms.service: container-service
-manager: jeconnoc
 ms.topic: overview
 ms.date: 05/08/2019
 ms.custom: mvc
@@ -33,7 +31,7 @@ Azure Red Hat OpenShift nodes run on Azure virtual machines. You can connect sto
 
 ## Virtual networks and ingress
 
-You can connect an Azure Red Hat OpenShift cluster to an existing virtual network via peering. In this configuration, pods can connect to other services in a peered virtual network, and to on-premises networks over [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) or site-to-site (S2S) VPN connections.
+You can [connect an Azure Red Hat OpenShift cluster to an existing virtual network](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) via peering. In this configuration, pods can connect to other services in a peered virtual network.
 
 See [Connect a cluster's virtual network to an existing virtual network](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) for details.
 

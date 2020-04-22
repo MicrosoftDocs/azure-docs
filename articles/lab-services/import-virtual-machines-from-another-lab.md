@@ -1,6 +1,6 @@
 ---
-title: Import virtual machines from another lab in Azure DevTest Labs | Microsoft Docs
-description: Learn how to import virtual machines from another lab into the current lab.
+title: Import virtual machines from another lab in Azure DevTest Labs
+description: This article describes how to import virtual machines from another lab into the current lab in Azure DevTest Labs.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 01/24/2020
 ms.author: spelluru
 
 ---
@@ -23,7 +23,7 @@ This article provides information about how to import virtual machines from anot
 Here are some scenarios where you need to import VMs from one lab into another lab:
 
 - An individual on the team is moving to another group within the enterprise and wants to take the developer desktop to the new team’s DevTest Labs.
-- The group has hit a [subscription-level quota](../azure-subscription-service-limits.md) and wants to split up the teams into a few subscriptions
+- The group has hit a [subscription-level quota](../azure-resource-manager/management/azure-subscription-service-limits.md) and wants to split up the teams into a few subscriptions
 - The company is moving to Express Route (or some other new networking topology) and the team wants to move the Virtual Machines to use this new infrastructure
 
 ## Solution and constraints

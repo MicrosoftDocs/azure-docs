@@ -1,16 +1,16 @@
 ---
-title: Data Management Gateway for Data Factory | Microsoft Docs
+title: Data Management Gateway for Data Factory 
 description: Set up a data gateway to move data between on-premises and the cloud. Use Data Management Gateway in Azure Data Factory to move your data.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 
 
 ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/10/2018
@@ -327,7 +327,7 @@ The Settings page allows you to do the following actions:
 * View, change, and export **certificate** used by the gateway. This certificate is used to encrypt data source credentials.
 * Change **HTTPS port** for the endpoint. The gateway opens a port for setting the data source credentials.
 * **Status** of the endpoint
-* View **SSL certificate** is used for SSL communication between portal and the gateway to set credentials for data sources.
+* View **SSL certificate** is used for TLS/SSL communication between portal and the gateway to set credentials for data sources.
 
 ### Remote access from intranet
 This functionality will be enabled in the future. In the upcoming updates (v3.4 or later) we will let you enable/ disable any remote connectivity that today happens using port 8050 (see section above) while using PowerShell or Credential Manager application for encrypting credentials.
@@ -496,7 +496,7 @@ This section describes how to create and register a gateway using Azure PowerShe
     **Example command and output**:
 
     ```
-    PS C:\> $MyDMG = New-AzDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+    PS C:\> $MyDMG = New-AzDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description "gateway for walkthrough"
 
     Name              : MyGateway
     Description       : gateway for walkthrough

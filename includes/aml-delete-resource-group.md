@@ -11,14 +11,14 @@ ms.date: 12/04/2018
 ---
 
 >[!IMPORTANT]
->The resources you created can be used as prerequisites to other Azure Machine Learning service tutorials and how-to articles. 
+>The resources you created can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles. 
 
 
 If you don't plan to use the resources you created, delete them, so you don't incur any charges:
 
 1. In the Azure portal, select **Resource groups** on the far left.
  
-   ![Delete in the Azure portal](./media/aml-delete-resource-group/delete-resources.png)
+   [![Delete in the Azure portal](./media/aml-delete-resource-group/delete-resources.png)](./media/aml-delete-resource-group/delete-resources-expanded.png)
 
 1. From the list, select the resource group you created.
 

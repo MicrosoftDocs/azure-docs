@@ -1,26 +1,15 @@
 ---
-title: How to use the Azure Mobile Apps SDK for Android | Microsoft Docs
+title: How to use the SDK for Android
 description: How to use the Azure Mobile Apps SDK for Android
-services: app-service\mobile
-documentationcenter: android
-author: elamalani
-manager: crdun
 
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
 ---
 
 # How to use the Azure Mobile Apps SDK for Android
-
-> [!NOTE]
-> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-how-to-use-client-library) today.
->
 
 This guide shows you how to use the Android client SDK for Mobile Apps to implement common scenarios, such as:
 

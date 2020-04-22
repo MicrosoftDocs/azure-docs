@@ -1,14 +1,14 @@
 ---
-title: Adjust network settings for the Microsoft Azure FXT Edge Filer cluster 
+title: 'Tutorial: Configure network in an Azure FXT Edge Filer cluster'
 description: How to customize network settings after creating the Azure FXT Edge Filer cluster 
 author: ekpgh
+ms.author: rohogue 
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: v-erkell 
 ---
 
-# Tutorial: Configure the cluster's network settings 
+# Tutorial: Configure the cluster's network settings
 
 Before you use a newly created Azure FXT Edge Filer cluster, you should check and customize several network settings for your workflow. 
 
@@ -18,7 +18,7 @@ You will learn:
 
 > [!div class="checklist"]
 > * Which network settings might need to be updated after creating a cluster
-> * Which FXT Edge Filer use cases require an AD server or a DNS server 
+> * Which Azure FXT Edge Filer use cases require an AD server or a DNS server 
 > * How to configure round-robin DNS (RRDNS) to automatically load balance client requests to the FXT cluster
 
 The amount of time it takes to complete these steps depends on how many configuration changes are needed in your system:
@@ -71,7 +71,7 @@ The FXT Edge Filer cluster uses X.509 certificates for these functions:
 
 If you need to upload certificates to the cluster, use the **Cluster** > **Certificates** settings page. Details are in the [Cluster > Certificates](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_certificates.html) page of the Cluster Configuration Guide.
 
-To encrypt cluster management communication, use the **Cluster** > **General Setup** settings page to select which certificate to use for administrative SSL.
+To encrypt cluster management communication, use the **Cluster** > **General Setup** settings page to select which certificate to use for administrative TLS.
 
 > [!Note] 
 > Cloud service access keys are stored by using the **Cloud Credentials** configuration page. The [Add a core filer](fxt-add-storage.md#add-a-core-filer) section above shows an example; read the Cluster Configuration Guide [Cloud Credentials](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) section for details. 
@@ -100,7 +100,7 @@ For optimal performance, configure your DNS server to handle client-facing clust
 
 A cluster vserver is shown on the left, and IP addresses appear in the center and on the right. Configure each client access point with A records and pointers as illustrated.
 
-![Cluster round-robin DNS diagram - detailed alt text link follows image](media/fxt-rrdns-diagram.png) 
+![Cluster round-robin DNS diagram - detailed alt text link follows image](media/fxt-cluster-config/fxt-rrdns-diagram.png) 
 [detailed text description](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
 
 Each client-facing IP address must have a unique name for internal use by the cluster. (In this diagram, the client IPs are named vs1-client-IP-* for clarity, but in production you should probably use something more concise, like client*.)

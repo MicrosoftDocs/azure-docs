@@ -1,5 +1,5 @@
 ---
-title: Tutorial Get data using the Azure AD Reporting API with certificates | Microsoft Docs
+title: Tutorial for AD Reporting API with certificates | Microsoft Docs
 description: This tutorial explains how to use the Azure AD Reporting API with certificate credentials to get data from directories without user intervention. 
 services: active-directory
 documentationcenter: ''

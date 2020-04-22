@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions on Microsoft Azure StorSimple and Cloud Solutions Provider Program for partners | Microsoft Docs
+title: 'FAQ for partners: StorSimple for Cloud Solutions Provider Program'
 description: Find answers to some common questions regarding StorSimple and CSP for partners.
 services: storsimple
 documentationcenter: NA
@@ -85,7 +85,7 @@ Yes. The partner sales executive and the customer account team for the end custo
 You can visit the StorSimple in CSP forum to get answers to some commonly asked questions. You would need to join the [Azure Advisors Yammer group](https://www.yammer.com/azureadvisors) first. Next search for and join the group - **StorSimple Partner Advisors**.
 
 ### How does the Support work for StorSimple for CSP? 
-The support model for StorSimple in CSP is the same as that of other Azure services in CSP. For more information, go to [Customer Support for CSP](https://msdn.microsoft.com/partner-center/customer-support). 
+The support model for StorSimple in CSP is the same as that of other Azure services in CSP. For more information, go to [Customer Support for CSP](/partner-center/csp-overview).
 
 For more information about StorSimple for CSP, go to:
 

@@ -1,20 +1,11 @@
 ---
-title: Web application performance monitoring - Azure Application Insights | Microsoft Docs
+title: Web app performance monitoring - Azure Application Insights
 description: How Application Insights fits into the devOps cycle
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.author: mbullwin
 
 ---
+
 # Deep diagnostics for web apps and services with Application Insights
 ## Why do I need Application Insights?
 Application Insights monitors your running web app. It tells you about failures and performance issues, and helps you analyze how customers use your app. It works for apps running on many platforms (ASP.NET, Java EE, Node.js, ...) and is hosted either in the Cloud or on-premises. 

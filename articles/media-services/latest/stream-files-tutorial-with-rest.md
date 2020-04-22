@@ -1,5 +1,5 @@
 ---
-title: Encode a remote file based on URL and stream using Azure Media Services - REST | Microsoft Docs
+title: Encode a remote file and stream using Azure Media Services v3
 description: Follow the steps of this tutorial to encode a file based on a URL and stream your content with Azure Media Services using REST.
 services: media-services
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/22/2019
+ms.date: 03/16/2020
 ms.author: juliako
 ---
 
@@ -54,15 +54,15 @@ Clone a GitHub repository that contains the  Postman collection and environment 
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+## Access API
+
+For detailed information, see [Get credentials to access Media Services API](access-api-howto.md)
 
 ## Configure Postman
 
-This section configures the Postman.
-
 ### Configure the environment 
 
-1. Open the **Postman**.
+1. Open the **Postman** app.
 2. On the right of the screen, select the **Manage environment** option.
 
     ![Manage env](./media/develop-with-postman/postman-import-env.png)
@@ -73,7 +73,7 @@ This section configures the Postman.
     > [!Note]
     > Update access variables with values you got from the **Access the Media Services API** section above.
 
-7. Double-click on the selected file and enter values that you got by following the [accessing API](#access-the-media-services-api) steps.
+7. Double-click on the selected file and enter values that you got by following the [accessing API](#access-api) steps.
 8. Close the dialog.
 9. Select the **Azure Media Service v3 Environment** environment from the dropdown.
 
@@ -92,18 +92,19 @@ This section configures the Postman.
 In this section, we send requests that are relevant to encoding and creating URLs so you can stream your file. Specifically, the following requests are sent:
 
 1. Get Azure AD Token for Service Principal Authentication
+1. Start a Streaming Endpoint
 2. Create an output asset
-3. Create a **Transform**
-4. Create a **Job**
-5. Create a **Streaming Locator**
-6. List paths of the **Streaming Locator**
+3. Create a Transform
+4. Create a Job
+5. Create a Streaming Locator
+6. List paths of the Streaming Locator
 
 > [!Note]
 >  This tutorial assumes you are creating all resources with unique names.  
 
 ### Get Azure AD Token 
 
-1. In the left window of the Postman, select "Step 1: Get AAD Auth token".
+1. In the left window of the Postman app, select "Step 1: Get AAD Auth token".
 2. Then, select "Get Azure AD Token for Service Principal Authentication".
 3. Press **Send**.
 
@@ -117,11 +118,38 @@ In this section, we send requests that are relevant to encoding and creating URL
 
     ![Get AAD token](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
+
+### Start a Streaming Endpoint
+
+To enable streaming, you first have to start the [Streaming Endpoint](https://docs.microsoft.com/azure/media-services/latest/streaming-endpoint-concept) from which you want to stream the video.
+
+> [!NOTE]
+> You are only billed when your Streaming Endpoint is in the running state.
+
+1. In the left window of the Postman app, select "Streaming and Live".
+2. Then, select "Start StreamingEndpoint".
+3. Press **Send**.
+
+    * The following **POST** operation is sent:
+
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName/start?api-version={{api-version}}
+        ```
+    * If the request is successful, the `Status: 202 Accepted` is returned.
+
+        This status means that the request has been accepted for processing; however, the processing has not been completed. You can query for the operation status based on the value in the `Azure-AsyncOperation` response header.
+
+        For example, the following GET operation returns the status of your operation:
+        
+        `https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/<resourceGroupName>/providers/Microsoft.Media/mediaservices/<accountName>/streamingendpointoperations/1be71957-4edc-4f3c-a29d-5c2777136a2e?api-version=2018-07-01`
+
+        The [track asynchronous Azure operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) article explains in depth how to track the status of asynchronous Azure operations through values returned in the response.
+
 ### Create an output asset
 
 The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your encoding job. 
 
-1. In the left window of the Postman, select "Assets".
+1. In the left window of the Postman app, select "Assets".
 2. Then, select "Create or update an Asset".
 3. Press **Send**.
 
@@ -152,7 +180,7 @@ You can use a built-in EncoderNamedPreset or use custom presets.
 > [!Note]
 > When creating a [Transform](https://docs.microsoft.com/rest/api/media/transforms), you should first check if one already exists using the **Get** method. This tutorial assumes you are creating the transform with a unique name.
 
-1. In the left window of the Postman, select "Encoding and Analysis".
+1. In the left window of the Postman app, select "Encoding and Analysis".
 2. Then, select "Create Transform".
 3. Press **Send**.
 
@@ -187,7 +215,7 @@ A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to
 
 In this example, the job's input is based on an HTTPS URL ("https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
-1. In the left window of the Postman, select "Encoding and Analysis".
+1. In the left window of the Postman app, select "Encoding and Analysis".
 2. Then, select "Create or Update Job".
 3. Press **Send**.
 
@@ -228,34 +256,36 @@ See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcod
 
 ### Create a streaming locator
 
-After the encoding job is complete, the next step is to make the video in the output **Asset** available to clients for playback. You can accomplish this in two steps: first, create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
+After the encoding job is complete, the next step is to make the video in the output **Asset** available to clients for playback. You can accomplish this in two steps: first, create a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
 
-The process of creating a **Streaming Locator** is called publishing. By default, the **Streaming Locator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
+The process of creating a streaming locator is called publishing. By default, the streaming locator is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
-When creating a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), you need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted) content, so the predefined clear streaming policy "Predefined_ClearStreamingOnly" is used.
+When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted) content, so the predefined clear streaming policy "Predefined_ClearStreamingOnly" is used.
 
 > [!IMPORTANT]
 > When using a custom [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. 
 
-Your Media Service account has a quota for the number of **Streaming Policy** entries. You should not be creating a new **Streaming Policy** for each **Streaming Locator**.
+Your Media Service account has a quota for the number of **Streaming Policy** entries. You should not be creating a new **Streaming Policy** for each streaming locator.
 
-1. In the left window of the Postman, select "Streaming Policies".
-2. Then, select "Create a Streaming Locator".
+1. In the left window of the Postman app, select "Streaming Policies and Locators".
+2. Then, select "Create a Streaming Locator (clear)".
 3. Press **Send**.
 
     * The following **PUT** operation is sent.
 
         ```
-        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}
         ```
     * The operation has the following body:
 
         ```json
         {
-            "properties":{
-            "assetName": "{{assetName}}",
-            "streamingPolicyName": "{{streamingPolicyName}}"
-            }
+          "properties": {
+            "streamingPolicyName": "Predefined_ClearStreamingOnly",
+            "assetName": "testAsset1",
+            "contentKeys": [],
+            "filters": []
+         }
         }
         ```
 
@@ -265,7 +295,7 @@ Your Media Service account has a quota for the number of **Streaming Policy** en
 
 Now that the [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators) has been created, you can get the streaming URLs
 
-1. In the left window of the Postman, select "Streaming Policies".
+1. In the left window of the Postman app, select "Streaming Policies".
 2. Then, select "List Paths".
 3. Press **Send**.
 

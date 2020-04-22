@@ -1,22 +1,11 @@
----
-title: Node.js (MEAN.js) with MongoDB on Linux - Azure App Service | Microsoft Docs 
-description: Learn how to get a Node.js app working in Azure App Service on Linux, with connection to a Cosmos DB database with a MongoDB connection string. MEAN.js is used in the tutorial.
-services: app-service\web
-documentationcenter: nodejs
-author: cephalin
-manager: jeconnoc
-editor: ''
-
+﻿---
+title: 'Tutorial: Linux Node.js app with MongoDB' 
+description: Learn how to get a Linux Node.js app working in Azure App Service, with connection to a MongoDB database in Azure (Cosmos DB). MEAN.js is used in the tutorial.
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, cli-validate, seodec18
 ---
 # Build a Node.js and MongoDB app in Azure App Service on Linux
 
@@ -293,7 +282,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://<app-name>.scm.azurewebsites.net/<app-name>.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 ```
 
 You may notice that the deployment process runs [Gulp](https://gulpjs.com/) after `npm install`. App Service does not run Gulp or Grunt tasks during deployment, so this sample repository has two additional files in its root directory to enable it:

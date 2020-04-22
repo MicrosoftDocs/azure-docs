@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
-ms.author: willzhan, dwgeo
+ms.author: willzhan
+ms.reviewer: dwgeo
 
 ---
 # Offline FairPlay Streaming for iOS 
@@ -242,6 +243,10 @@ A sample boot.xml file:
 </HLSMoviePackage>
 ```
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## Summary
 This document includes the following steps and information you can use to implement FPS offline mode:
 
@@ -249,3 +254,7 @@ This document includes the following steps and information you can use to implem
 * An iOS player based on the sample from the FPS Server SDK sets up an iOS player that can play FPS content either in online streaming mode or offline mode.
 * Sample FPS videos are used to test offline mode and online streaming.
 * A FAQ answers questions about FPS offline mode.
+
+## Next steps
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

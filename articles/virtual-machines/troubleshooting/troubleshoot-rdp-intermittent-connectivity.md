@@ -4,11 +4,11 @@ description: Learn how to troubleshoot frequent disconnections of Remote Desktop
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -20,9 +20,6 @@ ms.author: genli
 
 This article explains how to troubleshoot frequent disconnections to an Azure virtual machine (VM) through Remote Desktop Protocol RDP).
 
-> [!NOTE] 
-> Azure has two different deployment models for creating and working with resources: 
-[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model. We recommend that you use this model for new deployments instead of using the classic deployment model.
 
 ## Symptom
 

@@ -1,5 +1,6 @@
 ---
-title: Diagnose a virtual machine network traffic filter problem - quickstart - Azure CLI | Microsoft Docs
+title: 'Quickstart: Diagnose a VM network traffic filter problem - Azure CLI'
+titleSuffix: Azure Network Watcher
 description:  In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using the IP flow verify  capability of Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
@@ -8,7 +9,6 @@ manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
-
 ms.assetid: 
 ms.service: network-watcher
 ms.devlang: na
@@ -18,7 +18,6 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-
 ---
 
 # Quickstart: Diagnose a virtual machine network traffic filter problem - Azure CLI
@@ -29,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.28 or later. To find the installed version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). After you verify the CLI version, run `az login`  to create a connection with Azure. The CLI commands in this quickstart are formatted to run in a Bash shell.
+If you choose to install and use the Azure CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.28 or later. To find the installed version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). After you verify the Azure CLI version, run `az login`  to create a connection with Azure. The Azure CLI commands in this quickstart are formatted to run in a Bash shell.
 
 ## Create a VM
 
@@ -49,7 +48,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-The VM takes a few minutes to create. Don't continue with remaining steps until the VM is created and the CLI returns output.
+The VM takes a few minutes to create. Don't continue with remaining steps until the VM is created and the Azure CLI returns output.
 
 ## Test network communication
 
@@ -130,7 +129,7 @@ az network nic list-effective-nsg \
 
 The returned output includes the following text for the **AllowInternetOutbound** rule that allowed outbound access to www.bing.com in a previous step under [Use IP flow verify](#use-ip-flow-verify):
 
-```azurecli
+```
 {
  "access": "Allow",
  "additionalProperties": {},
@@ -171,7 +170,7 @@ You can see in the previous output that **destinationAddressPrefix** is **Intern
 
 When you ran the `az network watcher test-ip-flow` command to test outbound communication to 172.131.0.100 in [Use IP flow verify](#use-ip-flow-verify), the output informed you that the **DefaultOutboundDenyAll** rule denied the communication. The **DefaultOutboundDenyAll** rule equates to the **DenyAllOutBound** rule listed in the following output from the `az network nic list-effective-nsg` command:
 
-```azurecli
+```
 {
  "access": "Deny",
  "additionalProperties": {},
@@ -204,7 +203,7 @@ The rule lists **0.0.0.0/0** as the **destinationAddressPrefix**. The rule denie
 
 When you ran the `az network watcher test-ip-flow` command in [Use IP flow verify](#use-ip-flow-verify) to test inbound communication from 172.131.0.100, the output informed you that the **DefaultInboundDenyAll** rule denied the communication. The **DefaultInboundDenyAll** rule equates to the **DenyAllInBound** rule listed in the following output from the `az network nic list-effective-nsg` command:
 
-```azurecli
+```
 {
  "access": "Deny",
  "additionalProperties": {},

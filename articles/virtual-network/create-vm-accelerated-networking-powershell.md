@@ -1,5 +1,5 @@
 ---
-title: Create an Azure virtual machine with Accelerated Networking | Microsoft Docs
+title: Create an Azure VM with Accelerated Networking - Azure PowerShell
 description: Learn how to create a Linux virtual machine with Accelerated Networking.
 services: virtual-network
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 01/04/2018
 ms.author: gsilva
 ---
 
-# Create a Windows virtual machine with Accelerated Networking
+# Create a Windows virtual machine with Accelerated Networking using Azure PowerShell
 
 In this tutorial, you learn how to create a Windows virtual machine (VM) with Accelerated Networking. To create a Linux VM with Accelerated Networking, see [Create a Linux VM with Accelerated Networking](create-vm-accelerated-networking-cli.md). Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath, reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
 
@@ -40,6 +40,7 @@ The benefits of accelerated networking only apply to the VM that it is enabled o
 The following distributions are supported out of the box from the Azure Gallery:
 * **Windows Server 2016 Datacenter** 
 * **Windows Server 2012 R2 Datacenter**
+* **Windows Server 2019 Datacenter**
 
 ### Supported VM instances
 Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs.  These supported series are: D/DSv2 and F/Fs
@@ -226,7 +227,7 @@ If you have created a VM without Accelerated Networking, it is possible to enabl
 First stop/deallocate the VM or, if an Availability Set, all the VMs in the Set:
 
 ```azurepowershell
-Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
+Stop-AzVM -ResourceGroup "myResourceGroup" `
 	-Name "myVM"
 ```
 
@@ -235,18 +236,18 @@ Important, please note, if your VM was created individually, without an availabi
 Once stopped, enable Accelerated Networking on the NIC of your VM:
 
 ```azurepowershell
-$nic = Get-AzureRMNetworkInterface -ResourceGroupName "myResourceGroup" `
+$nic = Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic"
 
 $nic.EnableAcceleratedNetworking = $true
 
-$nic | Set-AzureRMNetworkInterface
+$nic | Set-AzNetworkInterface
 ```
 
 Restart your VM or, if in an availability set, all the VMs in the set, and confirm that Accelerated Networking is enabled:
 
 ```azurepowershell
-Start-AzureRmVM -ResourceGroup "myResourceGroup" `
+Start-AzVM -ResourceGroup "myResourceGroup" `
 	-Name "myVM"
 ```
 

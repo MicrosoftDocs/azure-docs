@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create a custom role for Azure resources using Azure CLI | Microsoft Docs
-description: Get started creating a custom role for Azure resources using Azure CLI.
+title: "Tutorial: Create a custom role for Azure resources with Azure CLI"
+description: Get started creating a custom role for Azure resources using Azure CLI in this tutorial.
 services: active-directory
 documentationCenter: ''
 author: rolyon

@@ -1,5 +1,5 @@
 ---
-title: Generating thumbnails- Computer Vision
+title: Smart-cropped thumbnails - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Concepts related to generating thumbnails for images using the Computer Vision API.
 services: cognitive-services

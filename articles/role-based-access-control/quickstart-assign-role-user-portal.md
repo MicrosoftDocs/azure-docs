@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Grant a user access to Azure resources using RBAC and the Azure portal | Microsoft Docs
-description: Learn how to grant a user access to Azure resources using role-based access control (RBAC) in the Azure portal.
+title: "Tutorial: Grant user access to Azure resources with RBAC and the Azure portal "
+description: In this tutorial, learn how to grant a user access to Azure resources using role-based access control (RBAC) in the Azure portal.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -115,4 +115,3 @@ In RBAC, to remove access, you remove a role assignment.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Grant a user access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-

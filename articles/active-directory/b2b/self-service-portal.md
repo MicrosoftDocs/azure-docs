@@ -1,12 +1,12 @@
 ---
-title: Self-service sign-up portal for B2B collaboration - Azure Active Directory | Microsoft Docs
+title: Self-service sign-up portal for B2B collaboration - Azure AD
 description: Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: sample
-ms.date: 05/08/2018
+ms.date: 02/12/2020
 
 ms.author: mimart
 author: msmimart
@@ -16,17 +16,17 @@ ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ---
 
-# Self-service portal for Azure AD B2B collaboration sign-up
+# Self-service for Azure AD B2B collaboration sign-up
 
-Customers can do a lot with the built-in features that are exposed through the [Azure portal](https://portal.azure.com) and the [Application Access Panel](https://myapps.microsoft.com) for end users. However, you might need to customize the onboarding workflow for B2B users to fit your organization’s needs. You can do that with [the invitation API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
+Customers can do a lot with the built-in features that are exposed through the [Azure portal](https://portal.azure.com) and the [Application Access Panel](https://myapps.microsoft.com) for end users. However, you might need to customize the onboarding workflow for B2B users to fit your organization’s needs.
 
-As an inviting organization, you may not know ahead of time who the individual external collaborators are who need access to your resources. You need a way for users from partner companies to sign themselves up with a set of policies that you as the inviting organization controls. This scenario is possible through the APIs. There's a [sample project on GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web) that does just that.
+## Azure AD entitlement management for B2B guest user sign-up
 
-This GitHub project shows how organizations can use the APIs to provide a policy-based, self-service sign-up capability for your trusted partners, with rules that determine the apps they can access. Partner users can get access to resources when they need them. They can do this securely, without requiring the inviting organization to manually onboard them. You can easily deploy the project into an Azure subscription of your choice.
+As an inviting organization, you might not know ahead of time who the individual external collaborators are who need access to your resources. You need a way for users from partner companies to sign themselves up with policies that you control. If you want to enable users from other organizations to request access, and upon approval be provisioned with guest accounts and assigned to groups, apps and SharePoint Online sites, you can use [Azure AD entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) to configure policies that [manage access for external users](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
 
-## As-is code
+## Azure Active Directory B2B invitation API
 
-This code is made available as a sample to demonstrate usage of the Azure Active Directory B2B invitation API. It should be customized by your development team or a partner, and should be reviewed before you deploy it in a production scenario.
+Organizations can use the [Microsoft Graph invitation manager API](https://docs.microsoft.com/graph/api/resources/invitation?view=graph-rest-1.0) to build their own onboarding experiences for B2B guest users. When you want to offer self-service B2B guest user sign-up, we recommend that you use [Azure AD entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview). But if you want to build your own experience, you can use the [create invitation API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0&tabs=http) to automatically send your customized invitation email directly to the B2B user, for example. Or your app can use the inviteRedeemUrl returned in the creation response to craft your own invitation (through your communication mechanism of choice) to the invited user.
 
 ## Next steps
 

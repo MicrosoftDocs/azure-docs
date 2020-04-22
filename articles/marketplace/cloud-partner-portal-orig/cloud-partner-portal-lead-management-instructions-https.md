@@ -1,40 +1,41 @@
 ---
-title: HTTPS Endpoint | Azure Marketplace
-description: Configure lead management for an HTTPS endpoint.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+title: Configure lead management using an HTTPS endpoint | Azure Marketplace
+description: Learn how to use an HTTP endpoint to handle Microsoft AppSource and Azure Marketplace leads.
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/24/2018
-ms.author: pabutler
+ms.date: 04/21/2020
+ms.author: dsindona
 ---
 
 # Configure lead management using an HTTPS endpoint
 
-You can use an HTTPS endpoint to handle Azure Marketplace and AppSource leads. These leads can be written to  that can be written to a Customer Relationship Management (CRM) system or sent out as an email notification. This article describes how to configure lead management using the [Microsoft Flow](https://powerapps.microsoft.com/automate-processes/) automation service.
+You can use an HTTPS endpoint to handle Microsoft AppSource and Azure Marketplace leads. These leads can be written to a Customer Relationship Management (CRM) system or sent as an email notification. This article describes how to use the [Microsoft Power Automate](https://powerapps.microsoft.com/automate-processes/) automation service to configure lead management.
 
-## Create a flow using Microsoft Flow
+## Create a flow using Microsoft Power Automate
 
-1. Open the [Flow](https://flow.microsoft.com/) webpage. Select **Sign in** or select **Sign up free** to create a free Flow account.
+1. Open the [Power Automate](https://flow.microsoft.com/) webpage. Select **Sign in** or select **Sign up free** to create a free Flow account.
 
-2. Sign in and select **My flows** on the menu bar.
+1. Sign in and select **My flows** on the menu bar.
+    > [!div class="mx-imgBorder"]
+    > ![My flows](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows.png)
 
-    ![My flows](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows.png)
+1. Under **+ New**, select **+ Instant—from blank**.
+    > [!div class="mx-imgBorder"]
+    > ![Create from blank](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
-3. Select **+ Create from blank**.
+1. Name your flow, and then under **Choose how to trigger this flow**, select **When a HTTP request is received**.
 
-    ![Create from blank](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-create-fromblank.png)
+    > [!div class="mx-imgBorder"]
+    > ![Select the HTTP request received trigger](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
 
-4. Select **Create from blank**.
+1. Click the flow step to expand it.
 
-    ![Create from blank](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-create-fromblank2.png)
+    > [!div class="mx-imgBorder"]
+    > ![Expand the flow step](./media/cloud-partner-portal-lead-management-instructions-https/expand-flow-step.png)
 
-5. In the **Search connectors and triggers** field, type "request" to find the Request connector.
-6. Under **Triggers**, select **When a HTTP request is received**. 
-
-    ![Select the HTTP request received trigger](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
-
-7. Use one of the following steps to configure the **Request Body JSON Schema**:
+1. Use one of the following methods to configure the **Request Body JSON Schema**:
 
    - Copy the [JSON schema](#json-schema) at the end of this article into the **Request Body JSON Schema** text box.
    - Select **Use sample payload to generate schema**. In the **Enter or paste a sample JSON payload** text box, paste in the [JSON example](#json-example). Select **Done** to create the schema.
@@ -85,6 +86,7 @@ You can use an HTTPS endpoint to handle Azure Marketplace and AppSource leads. T
    ![Add an email action](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-action.png)
 
 5. Select **Save** to finish your flow.
+
 6. An HTTP POST URL is created in the request. Copy this URL and use it as the HTTPS endpoint.
 
     ![HTTP Post URL](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-get-post-url.png)
@@ -95,7 +97,7 @@ When you configure the lead management information for your offer, select **HTTP
 
 ![Add dynamic content](./media/cloud-partner-portal-lead-management-instructions-https/https-image017.png)
 
-When leads are generated, Microsoft sends leads to the Flow, which get routed to the CRM system or email address you configured.
+When leads are generated, Microsoft sends leads to your Power Automate flow, which get routed to the CRM system or email address you configured.
 
 ## JSON schema and example
 
@@ -119,6 +121,10 @@ The JSON test example uses the following schema:
     },
     "LeadSource": {
       "id": "/properties/LeadSource",
+      "type": "string"
+    },
+    "Description": {
+      "id": "/properties/Description",
       "type": "string"
     },
     "UserDetails": {
@@ -160,23 +166,25 @@ The JSON test example uses the following schema:
 }
 ```
 
-You can copy and edit the following JSON example to use as a test in your MS Flow.
+You can copy and edit the following JSON example to use as a test in your flow.
 
 ### JSON example
 
 ```json
 {
-"OfferTitle": "Test Microsoft",
-"LeadSource": "Test run through MS Flow",
-"UserDetails": {
-"Company": "Contoso",
-"Country": "USA",
-"Email": "someone@contoso.com",
-"FirstName": "Some",
-"LastName": "One",
-"Phone": "16175555555",
-"Title": "Esquire"
-}
+  "UserDetails": {
+    "FirstName": "Some",
+    "LastName": "One",
+    "Email": "someone@contoso.com",
+    "Phone": "16175555555",
+    "Country": "USA",
+    "Company": "Contoso",
+    "Title": "Esquire"
+ },
+  "LeadSource": "AzureMarketplace",
+  "ActionCode": "INS",
+  "OfferTitle": "Test Microsoft",
+  "Description": "Test run through Power Automate"
 }
 ```
 

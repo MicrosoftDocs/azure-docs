@@ -1,12 +1,9 @@
 ---
 title: Use OpenFaaS with Azure Kubernetes Service (AKS)
-description: Deploy and use OpenFaaS with Azure Kubernetes Service (AKS)
-services: container-service
+description: Learn how to deploy and use OpenFaaS on an Azure Kubernetes Service (AKS) cluster to build serverless functions with containers.
 author: justindavies
-manager: jeconnoc
 
-ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
@@ -27,9 +24,11 @@ In order to complete the steps within this article, you need the following.
 
 ## Add the OpenFaaS helm chart repo
 
+Go to [https://shell.azure.com](https://shell.azure.com) to open Azure Cloud Shell in your browser.
+
 OpenFaaS maintains its own helm charts to keep up to date with all the latest changes.
 
-```azurecli-interactive
+```console
 helm repo add openfaas https://openfaas.github.io/faas-netes/
 helm repo update
 ```
@@ -40,13 +39,13 @@ As a good practice, OpenFaaS and OpenFaaS functions should be stored in their ow
 
 Create a namespace for the OpenFaaS system and functions:
 
-```azurecli-interactive
+```console
 kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
 ```
 
 Generate a password for the OpenFaaS UI Portal and REST API:
 
-```azurecli-interactive
+```console
 # generate a random password
 PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1)
 
@@ -61,7 +60,7 @@ The password we create here will be used by the helm chart to enable basic authe
 
 A Helm chart for OpenFaaS is included in the cloned repository. Use this chart to deploy OpenFaaS into your AKS cluster.
 
-```azurecli-interactive
+```console
 helm upgrade openfaas --install openfaas/openfaas \
     --namespace openfaas  \
     --set basic_auth=true \
@@ -71,7 +70,7 @@ helm upgrade openfaas --install openfaas/openfaas \
 
 Output:
 
-```
+```output
 NAME:   openfaas
 LAST DEPLOYED: Wed Feb 28 08:26:11 2018
 NAMESPACE: openfaas
@@ -99,7 +98,7 @@ kubectl get service -l component=gateway --namespace openfaas
 
 Output.
 
-```console
+```output
 NAME               TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)          AGE
 gateway            ClusterIP      10.0.156.194   <none>         8080/TCP         7m
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
@@ -119,7 +118,7 @@ Set `$OPENFAAS_URL` to the public IP found above.
 
 Log in with the Azure CLI:
 
-```azurecli-interactive
+```console
 export OPENFAAS_URL=http://52.186.64.52:8080
 echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 ```
@@ -134,13 +133,13 @@ Click on **Deploy New Function** and search for **Figlet**. Select the Figlet fu
 
 Use curl to invoke the function. Replace the IP address in the following example with that of your OpenFaas gateway.
 
-```azurecli-interactive
+```console
 curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 ```
 
 Output:
 
-```console
+```output
  _   _      _ _            _
 | | | | ___| | | ___      / \    _____   _ _ __ ___
 | |_| |/ _ \ | |/ _ \    / _ \  |_  / | | | '__/ _ \
@@ -181,13 +180,13 @@ Now populate the Cosmos DB with test data. Create a file named `plans.json` and 
 
 ```json
 {
-	"name" : "two_person",
-	"friendlyName" : "Two Person Plan",
-	"portionSize" : "1-2 Person",
-	"mealsPerWeek" : "3 Unique meals per week",
-	"price" : 72,
-	"description" : "Our basic plan, delivering 3 meals per week, which will feed 1-2 people.",
-	"__v" : 0
+    "name" : "two_person",
+    "friendlyName" : "Two Person Plan",
+    "portionSize" : "1-2 Person",
+    "mealsPerWeek" : "3 Unique meals per week",
+    "price" : 72,
+    "description" : "Our basic plan, delivering 3 meals per week, which will feed 1-2 people.",
+    "__v" : 0
 }
 ```
 
@@ -195,32 +194,32 @@ Use the *mongoimport* tool to load the CosmosDB instance with data.
 
 If needed, install the MongoDB tools. The following example installs these tools using brew, see the [MongoDB documentation][install-mongo] for other options.
 
-```azurecli-interactive
+```console
 brew install mongodb
 ```
 
 Load the data into the database.
 
-```azurecli-interactive
+```console
 mongoimport --uri=$COSMOS -c plans < plans.json
 ```
 
 Output:
 
-```console
+```output
 2018-02-19T14:42:14.313+0000    connected to: localhost
 2018-02-19T14:42:14.918+0000    imported 1 document
 ```
 
 Run the following command to create the function. Update the value of the `-g` argument with your OpenFaaS gateway address.
 
-```azurecli-interctive
+```console
 faas-cli deploy -g http://52.186.64.52:8080 --image=shanepeckham/openfaascosmos --name=cosmos-query --env=NODE_ENV=$COSMOS
 ```
 
 Once deployed, you should see your newly created OpenFaaS endpoint for the function.
 
-```console
+```output
 Deployed. 202 Accepted.
 URL: http://52.186.64.52:8080/function/cosmos-query
 ```

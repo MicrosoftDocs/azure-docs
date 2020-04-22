@@ -1,5 +1,5 @@
 ---
-title: Elastic Database tools glossary | Microsoft Docs
+title: Elastic Database tools glossary
 description: Explanation of terms used for elastic database tools
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 12/04/2018
 ---
 # Elastic Database tools glossary

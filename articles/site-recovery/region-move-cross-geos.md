@@ -1,7 +1,6 @@
 ---
-title: Move Azure IaaS VMs between Azure Government and Public regions with the Azure Site Recovery service | Microsoft Docs
-description: Use Azure Site Recovery to move Azure IaaS VMs between Azure Government & Public regions.
-services: site-recovery
+title: Move Azure VMs between government and public regions with Azure Site Recovery 
+description: Use Azure Site Recovery to move Azure VMs between Azure government and public regions.
 author: rajani-janaki-ram
 ms.service: site-recovery
 ms.topic: tutorial
@@ -41,7 +40,7 @@ This tutorial shows you how to move Azure VMs between Azure Government and Publi
 - Make sure that the servers you want to replicate comply with [Azure VM requirements](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Prepare an account for automatic installation of the Mobility service on each server you want to replicate.
 
-- Note that after you failures to the target region in Azure, you cannot directly perform a fail back to the source region. You will have to set up replication again back to the target.
+- Note that after you fail over to the target region in Azure, you cannot directly perform a fail back to the source region. You will have to set up replication again back to the target.
 
 ### Verify Azure account permissions
 
@@ -60,7 +59,7 @@ Set up a the target [Azure network](../virtual-network/quick-create-portal.md).
 
 ### Set up an Azure storage account
 
-Set up an [Azure storage account](../storage/common/storage-quickstart-create-account.md).
+Set up an [Azure storage account](../storage/common/storage-account-create.md).
 
 - Site Recovery replicates on-premises machines to Azure storage. Azure VMs are created from the storage after failover occurs.
 - The storage account must be in the same region as the Recovery Services vault.
@@ -93,10 +92,10 @@ The Mobility service must be installed on each server you want to replicate. Sit
      Please refer to the following documents to create the most commonly used network resources relevant for you, based on the source VM configuration.
 
     - [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [Public IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Load balancers](https://docs.microsoft.com/azure/load-balancer)
+    - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
     
-    For any other networking components, refer to the networking [documentation.](https://docs.microsoft.com/azure/#pivot=products&panel=network) 
+    For any other networking components, refer to the networking [documentation](https://docs.microsoft.com/azure/?pivot=products&panel=network).
 
 4. Manually [create a non-production network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) in the target region if you wish to test the configuration before you perform the final cut over to the target region. This will create minimal interference with the production and is recommended.
 

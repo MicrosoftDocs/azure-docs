@@ -1,18 +1,12 @@
 ---
-title: User, session, and event analysis in Azure Application Insights | Microsoft docs
+title: User, session, and event analysis in Azure Application Insights
 description: Demographic analysis of users of your web app.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/24/2018
-ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
+author: NumberByColors
 ms.author: daviste
+ms.date: 01/24/2018
+
+ms.reviewer: mbullwin
 ---
 
 # Users, sessions, and events analysis in Application Insights

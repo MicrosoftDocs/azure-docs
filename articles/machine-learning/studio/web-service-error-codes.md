@@ -1,9 +1,8 @@
 ---
-title: REST API error codes - Azure Machine Learning Studio | Microsoft Docs
+title: REST API error codes - Azure Machine Learning Studio (classic) | Microsoft Docs
 description: These error codes could be returned by an operation on an Azure Machine Learning web service.
 keywords: 
 services: machine-learning
-documentationcenter: ''
 author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
@@ -12,22 +11,21 @@ editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
 ms.subservice: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
 ---
  
-# Azure Machine Learning Studio REST API Error Codes
+# Azure Machine Learning Studio (classic) REST API Error Codes
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
  
-The following error codes could be returned by an operation on an Azure Machine Learning Studio web service.
+The following error codes could be returned by an operation on an Azure Machine Learning Studio (classic) web service.
  
 ## BadArgument (HTTP status code 400)
  
 Invalid argument provided.
  
-This class of errors means an argument provided somewhere was invalid. This could be a credential or location of Azure storage to something passed to the web service. Please look at the error “code” field in the “details” section to diagnose which specific argument was invalid.
+This class of errors means an argument provided somewhere was invalid. This could be a credential or location of Azure storage to something passed to the web service. Please look at the error "code" field in the "details" section to diagnose which specific argument was invalid.
  
 | Error code | User message |
 | ---------- |--------------|

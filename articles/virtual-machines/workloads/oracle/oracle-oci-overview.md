@@ -3,34 +3,34 @@ title: Integrate Microsoft Azure with Oracle Cloud Infrastructure | Microsoft Do
 description: Learn about solutions that integrate Oracle apps running on Microsoft Azure with databases in Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
-author: romitgirdhar
-manager: jeconnoc
+author: BorisB2015
+manager: gwallace
 tags: 
 
 ms.assetid: 
 ms.service: virtual-machines
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/04/2019
-ms.author: rogirdh
+ms.date: 03/16/2020
+ms.author: borisb
 ms.custom: 
 ---
-# Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure (preview)
+# Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure
 
 Microsoft and Oracle have partnered to provide low latency, high throughput cross-cloud connectivity, allowing you to take advantage of the best of both clouds. 
 
 Using this cross-cloud connectivity, you can partition a multi-tier application to run your database tier on Oracle Cloud Infrastructure (OCI), and the application and other tiers on Microsoft Azure. The experience is similar to running the entire solution stack in a single cloud. 
-
-> [!IMPORTANT]
-> This cross-cloud capability is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
 If you are interested in deploying Oracle solutions entirely on Azure infrastructure, see [Oracle VM images and their deployment on Microsoft Azure](oracle-vm-solutions.md).
 
 ## Scenario overview
 
 Cross-cloud connectivity provides a solution for you to run Oracle’s industry-leading applications, and your own custom applications, on Azure virtual machines while enjoying the benefits of hosted database services in OCI. 
+
+> [!IMPORTANT]
+> Oracle will certify these applications to run in Azure when using the Azure / Oracle Cloud interconnect solution by May 2020.
 
 Applications you can run in a cross-cloud configuration include:
 
@@ -44,9 +44,14 @@ The following diagram is a high-level overview of the connected solution. For si
 
 ![Azure OCI solution overview](media/oracle-oci-overview/crosscloud.png)
 
-## Preview limitations
+## Region Availability 
 
-* Cross-cloud connectivity in preview is limited to the Azure East US (eastus) region and the OCI Ashburn (us-ashburn-1) region.
+Cross-cloud connectivity is limited to the following regions:
+* Azure East US (eastus) & OCI Ashburn (US East)
+* Azure UK South (uksouth) & OCI London (UK South)
+* Azure Canada Central (canadacentral) & OCI Toronto (Canada Southeast)
+* Azure West Europe (westeurope) & OCI Amsterdam (Netherlands Northwest)
+* Azure Japan East (japaneast) & OCI Tokyo (Japan East)
 
 ## Networking
 

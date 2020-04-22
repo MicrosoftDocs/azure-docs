@@ -1,11 +1,11 @@
 ---
-title: Advanced Threat Protection - Azure Database for MySQL | Microsoft Docs
-description: Threat Protection detects anomalous database activities indicating potential security threats to the database. 
+title: Advanced Threat Protection - Azure portal - Azure Database for MySQL
+description: Learn how to configure Advanced Threat Protection to detect anomalous database activities indicating potential security threats to the database. 
 author: bolzmj
 ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/24/2019
+ms.date: 3/18/2020
 ---
 # Advanced Threat Protection for Azure Database for MySQL
 
@@ -48,7 +48,7 @@ You receive an email notification upon detection of anomalous database activitie
 
 ## Explore threat detection alerts
 
-SQL Database Threat Detection integrates its alerts with [Azure Security Center](https://azure.microsoft.com/services/security-center/). A live SQL threat detection tiles within the database and SQL ATP blades in the Azure portal tracks the status of active threats.
+SQL Database Threat Detection integrates its alerts with [Azure Security Center](https://azure.microsoft.com/services/security-center/). A live SQL threat detection tile tracks the status of active threats on the database and SQL ATP pages in the Azure portal.
 
 Click **Threat detection alert** to launch the Azure Security Center alerts page and get an overview of active SQL threats detected on the database.
 

@@ -24,10 +24,11 @@ Your application will connect to a SignalR Service instance in Azure.
     | ------------ |  ------- | -------------------------------------------------- |
     | **Resource name** | Globally unique name | Name that identifies your new SignalR Service instance. Valid characters are `a-z`, `0-9`, and `-`.  | 
     | **Subscription** | Your subscription | The subscription under which this new SignalR Service instance is created. | 
-    | **[Resource Group](../../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your SignalR Service instance. | 
+    | **[Resource Group](../../azure-resource-manager/management/overview.md)** |  myResourceGroup | Name for the new resource group in which to create your SignalR Service instance. | 
     | **Location** | West US | Choose a [region](https://azure.microsoft.com/regions/) near you. |
     | **Pricing tier** | Free | Try Azure SignalR Service for free. |
     | **Unit count** |  Not applicable | Unit count specifies how many connections your SignalR Service instance can accept. It is only configurable in the Standard tier. |
+    | **Service mode** |  Serverless | For use with Azure Functions or REST API. |
 
     ![Create SignalR Service](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 

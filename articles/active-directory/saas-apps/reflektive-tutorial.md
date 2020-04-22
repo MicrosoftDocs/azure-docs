@@ -135,7 +135,7 @@ To configure Azure AD single sign-on with Reflektive, perform the following step
 
 ### Configure Reflektive Single Sign-On
 
-To configure single sign-on on **Reflektive** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Reflektive support team](mailto:https://support@reflektive.com/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Reflektive** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Reflektive support team](mailto:support@reflektive.com/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -189,7 +189,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Reflektive test user
 
-In this section, you create a user called Britta Simon in Reflektive. Work with [Reflektive support team](mailto:https://support@reflektive.com/) to add the users in the Reflektive platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Reflektive. Work with [Reflektive support team](mailto:support@reflektive.com/) to add the users in the Reflektive platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 

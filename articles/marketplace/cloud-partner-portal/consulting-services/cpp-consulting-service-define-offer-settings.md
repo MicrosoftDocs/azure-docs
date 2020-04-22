@@ -1,15 +1,18 @@
 ---
 title: Define offer settings for a consulting service offer | Azure Marketplace 
 description: Define offer settings in an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal for the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, 
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/23/2019
-ms.author: pabutler
+ms.date: 04/06/2020
+ms.author: dsindona
 ---
 
 # Offer settings tab
+
+>[!Important]
+>Starting April 13, 2020, we'll begin moving management of your Consulting service offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Consulting service creation overview](https://aka.ms/AzureCreateConsultingService) to manage your migrated offers.
 
 On the **New Offer** screen, the first step is to create the offer identity. The offer identity consists of three parts: **Offer ID**, **Publisher ID**, and **Name**. Each of these parts is covered in the following sections.
 
@@ -54,7 +57,7 @@ The following list provides several well-named offer names:
 -   Essentials for Professional Services: 1-Hr Briefing
 -   Cloud Migration Platform: 1-Hr Briefing
 -   PowerApps and Microsoft Flow: 1-Day Workshop
--   Azure Machine Learning Services: 3-Wk PoC
+-   Azure Machine Learning: 3-Wk PoC
 -   Brick and Click Retail Solution: 1-Hr Briefing
 -   Bring Your Own Data: 1-Wk Workshop
 -   Cloud Analytics: 3-Day Workshop

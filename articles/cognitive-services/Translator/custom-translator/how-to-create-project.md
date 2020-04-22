@@ -1,9 +1,9 @@
 ---
-title: How to create a project? - Custom Translator
+title: How to create a project - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: How to create a project in Custom Translator?  
+description: This article explains how to create and manage a project in the Azure Cognitive Services Custom Translator.  
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019

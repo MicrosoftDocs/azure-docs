@@ -1,11 +1,10 @@
 ---
 title: Refresh with Logic Apps for Azure Analysis Services models | Microsoft Docs
-description: Learn how to code asynchronous refresh by using Azure Logic Apps.
+description: This article describes how to code asynchronous refresh for Azure Analysis Services by using Azure Logic Apps.
 author: chrislound
-manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 10/30/2019
 ms.author: chlound
 
 ---
@@ -19,10 +18,10 @@ To learn more about using REST APIs with Azure Analysis Services, see [Asynchron
 
 All calls must be authenticated with a valid Azure Active Directory (OAuth 2) token.  The examples in this article will use a Service Principal (SPN) to authenticate to Azure Analysis Services. To learn more, see [Create a service principal by using Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
-## Design the Logic App
+## Design the logic app
 
 > [!IMPORTANT]
-> The following examples assume that the Azure Analysis Services firewall is disabled.  If the firewall is enabled, then the public IP address of the request initiator must be whitelisted in the Azure Analysis Services firewall. To learn more about Logic App IP ranges per region, see [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses).
+> The following examples assume that the Azure Analysis Services firewall is disabled. If the firewall is enabled, the public IP address of the request initiator must be whitelisted in the Azure Analysis Services firewall. To learn more about Azure Logic Apps IP ranges per region, see [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#configuration).
 
 ### Prerequisites
 
@@ -61,7 +60,7 @@ Configure the HTTP activity as follows:
 |Property  |Value  |
 |---------|---------|
 |**Method**     |POST         |
-|**URI**     | https://*your server region*/servers/*aas server name*/models/*your database name*/ <br /> <br /> For example:  https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
+|**URI**     | https://*your server region*/servers/*aas server name*/models/*your database name*/refreshes <br /> <br /> For example:  https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes|
 |**Headers**     |   Content-Type, application/json <br /> <br />  ![Headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Body**     |   To learn more about forming the request body, see [Asynchronous refresh with the REST API - POST /refreshes](analysis-services-async-refresh.md#post-refreshes). |
 |**Authentication**     |Active Directory OAuth         |

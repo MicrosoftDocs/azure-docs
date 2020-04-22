@@ -86,8 +86,8 @@ The errors contained in the *error.xml* with the corresponding recommended actio
 | `InvalidBlobNameFormat` | File path doesn’t map to a valid blob path in cloud as per the Azure Blob naming conventions.|Rename the file so that it conforms to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Retry the validation. |
 | `InvalidFileNameFormat` | File path doesn’t map to a valid file path in cloud as per the Azure File naming conventions. |Rename the file so that it conforms to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Retry the validation. |
 | `InvalidDiskNameFormat` | File path doesn’t map to a valid disk name in cloud as per the Azure Managed Disk naming conventions. |Rename the file so that it conforms to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Retry the validation.       |
-| `NotPartOfFileShare` | Could not upload the files as the upload path is not valid. Upload the files to a folder in Azure Files.   | Remove the files in error and upload those files to a precreated folder. Retry the validation. |
-| `NonVhdFileNotSupportedForManagedDisk` | A non-VHD file can’t be uploaded as a managed disk. |Remove the non-VHD files as these are not supported. Retry the validation. |
+| `NotPartOfFileShare` | The upload path for files is not valid. Upload the files to a folder in Azure Files.   | Remove the files in error and upload those files to a precreated folder. Retry the validation. |
+| `NonVhdFileNotSupportedForManagedDisk` | A non-VHD file can’t be uploaded as a managed disk. |Remove the non-VHD files from `ManagedDisk` folder as these are not supported or move these files to a `PageBlob` folder. Retry the validation. |
 
 
 ## Next steps

@@ -1,25 +1,23 @@
 ---
-title: Azure Event Grid schema for IoT Hub | Microsoft Docs
-description: Reference page for the event schema format and properties of IoT Hub 
+title: Azure IoT Hub as Event Grid source
+description: This article provides the properties and schema for Azure IoT Hub events. It lists the available event types, an example event, and event properties.  
 services: iot-hub
 documentationcenter: ''
-author: kgremban
-manager: timlt
+author: spelluru
 editor: ''
 
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
-ms.author: kgremban
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: spelluru
 ---
 
-# Azure Event Grid event schema for IoT Hub
-
+# Azure IoT Hub as an Event Grid source
 This article provides the properties and schema for Azure IoT Hub events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). 
 
-For a list of sample scripts and tutorials, see [IoT Hub event source](event-sources.md#iot-hub).
+## Event Grid event schema
 
-## Available event types
+### Available event types
 
 Azure IoT Hub emits the following event types:
 
@@ -33,7 +31,7 @@ Azure IoT Hub emits the following event types:
 
 All device events except device telemetry events are generally available in all regions supported by Event Grid. Device telemetry event is in public preview and is available in all regions except East US, West US, West Europe, [Azure Government](../azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome), and [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
-## Example event
+### Example event
 
 The schema for DeviceConnected and DeviceDisconnected events have the same structure. This sample event shows the schema of an event raised when a device is connected to an IoT hub:
 
@@ -201,6 +199,13 @@ For **Device Created** and **Device Deleted** IoT Hub events, the data object co
 | desired | object | A portion of the properties that can be written only by the application back-end, and read by the device. | 
 | reported | object | A portion of the properties that can be written only by the device, and read by the application back-end. |
 | lastUpdated | string | The ISO8601 timestamp of the last device twin property update. | 
+
+## Tutorials and how-tos
+|Title  |Description  |
+|---------|---------|
+| [Send email notifications about Azure IoT Hub events using Logic Apps](publish-iot-hub-events-to-logic-apps.md) | A logic app sends a notification email every time a device is added to your IoT Hub. |
+| [React to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md) | Overview of integrating IoT Hub with Event Grid. |
+| [Order device connected and device disconnected events](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Shows how to order device connection state events. |
 
 ## Next steps
 
