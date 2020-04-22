@@ -59,10 +59,17 @@
       href: ./cluster-management-best-practices.md
     - name: Availability and reliability
       href: ./hdinsight-high-availability-linux.md
-    - name: Compare storage options
-      href: ./hdinsight-hadoop-compare-storage-options.md
     - name: Understand managed identities
       href: ./hdinsight-managed-identities.md
+    - name: Compare storage options
+      href: hdinsight-hadoop-compare-storage-options.md
+      items:
+      - name: Azure Storage overview 
+        href: overview-azure-storage.md
+      - name: Azure Data Lake Storage Gen1 overview 
+        href: overview-data-lake-storage-gen1.md
+      - name: Azure Data Lake Storage Gen2 overview 
+        href: overview-data-lake-storage-gen2.md
   - name: How to
     items:
     - name: Create clusters
@@ -102,6 +109,8 @@
         href: hdinsight-hadoop-customize-cluster-linux.md
       - name: Develop script actions
         href: hdinsight-hadoop-script-actions-linux.md
+      - name: Open-source software support
+        href: open-source-software.md
       - name: Add Apache Hive libraries
         href: hdinsight-hadoop-add-hive-libraries.md
       - name: Use Hue
@@ -209,7 +218,11 @@
       - name: Monitor cluster performance
         href: ./hdinsight-key-scenarios-to-monitor.md
       - name: Monitor cluster availability with Ambari and Azure Monitor logs
-        href: ./hdinsight-cluster-availability.md    
+        href: ./hdinsight-cluster-availability.md
+    - name: Troubleshoot
+      items:
+      - name: Troubleshoot script actions
+        href: ./troubleshoot-script-action.md
   - name: Reference
     items:
     - name: Azure PowerShell
