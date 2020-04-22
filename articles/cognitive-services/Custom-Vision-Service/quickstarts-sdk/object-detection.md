@@ -1,15 +1,17 @@
 ---
-title:  "Quickstart: Create object detection with Custom Vision SDK"
+title: "Quickstart: Create object detection with Custom Vision SDK"
 description: "Quickstart: Create a project, add tags, upload images, train your project, and detect objects using the Custom Vision SDK."
 author: PatrickFarley
 ms.author: pafarley
-ms.service:cognitive-services
+ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 04/27/2020
 
 zone_pivot_groups: programming-languages-set-one
 ---
+
+# Quickstart: Create an object detection project with the Custom Vision SDK
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](../includes/quickstarts-sdk/csharp-tutorial-od.md)]
