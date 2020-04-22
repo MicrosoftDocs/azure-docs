@@ -480,7 +480,7 @@ You can manage IP network rules for Cognitive Services resources through the Azu
 > [!IMPORTANT]
 > Be sure to [set the default rule](#change-the-default-network-access-rule) to **deny**, or network rules have no effect.
 
-# Use private endpoints
+## Use private endpoints
 
 You can use [private endpoints](../private-link/private-endpoint-overview.md) for your Cognitive Services resources to allow clients on a virtual network to securely access data over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your Cognitive Services resource. Network traffic between the clients on the VNet and the resource traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
@@ -488,9 +488,9 @@ Using private endpoints for your Cognitive Services resource enables you to:
 
 - Secure your Cognitive Services resource by configuring the firewall to block all connections on the public endpoint for the Cognitive Services service.
 - Increase security for the virtual network (VNet), by enabling you to block exfiltration of data from the VNet.
-- Securely connect to Cognitive Services resources from on-premises networks that connect to the VNet using [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../../expressroute/expressroute-locations.md) with private-peering.
+- Securely connect to Cognitive Services resources from on-premises networks that connect to the VNet using [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../expressroute/expressroute-locations.md) with private-peering.
 
-## Conceptual overview
+### Conceptual overview
 
 A private endpoint is a special network interface for an Azure service in your [Virtual Network](../../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your Cognitive Services resource, it provides secure connectivity between clients on your VNet and your resource. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the Cognitive Services service uses a secure private link.
 
@@ -516,7 +516,7 @@ Clients on a VNet using the private endpoint should use the same connection stri
 
 We create a [private DNS zone](../dns/private-dns-overview.md) attached to the VNet with the necessary updates for the private endpoints, by default. However, if you're using your own DNS server, you may need to make additional changes to your DNS configuration. The section on [DNS changes](#dns-changes-for-private-endpoints) below describes the updates required for private endpoints.
 
-## DNS changes for private endpoints
+### DNS changes for private endpoints
 
 When you create a private endpoint, the DNS CNAME resource record for the Cognitive Services resource is updated to an alias in a subdomain with the prefix '*privatelink*'. By default, we also create a [private DNS zone](../dns/private-dns-overview.md), corresponding to the '*privatelink*' subdomain, with the DNS A resource records for the private endpoints.
 
@@ -534,7 +534,7 @@ For more information on configuring your own DNS server to support private endpo
 - [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
 - [DNS configuration for private endpoints](../private-link/private-endpoint-overview#dns-configuration)
 
-## Pricing
+### Pricing
 
 For pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link).
 
