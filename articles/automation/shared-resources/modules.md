@@ -38,7 +38,7 @@ The following table lists modules that Azure Automation imports by default when 
 Az.Automation modules are preferred in your runbooks and DSC configurations. However, Azure Automation doesn't import the root Az module automatically into any new or existing Automation accounts. For more about working with these modules, see [Migrating to Az modules](#migrating-to-az-modules).
 
 > [!NOTE]
-> We don't recommend altering modules and runbooks in Automation accounts that contain the [Start/Stop VMs during off hours solution in Azure Automation](../automation-solution-vm-management.md).
+> We don't recommend altering modules and runbooks in Automation accounts that contain the [Start/Stop VMs during off-hours solution in Azure Automation](../automation-solution-vm-management.md).
 
 |Module name|Version|
 |---|---|
@@ -92,7 +92,7 @@ Use Az or AzureRM cmdlets for manipulating Azure Automation resources outside th
 
 For local development using the Azure Automation Authoring Toolkit, the `Get-AutomationPSCredential` cmdlet is part of assembly [AzureAutomationAuthoringToolkit](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.9). For Azure working with the Automation context, the cmdlet is in `Orchestrator.AssetManagement.Cmdlets`. To find out more about the use of credentials in Azure Automation, see [Credential assets in Azure Automation](credentials.md).
 
-Note that `Get-AutomationPsCredential` returns a `PSCredential` object, which is expected by most PowerShell cmdlets that work with credentials. Most often, you should use this cmdlet instead of the [Get-AzAutomationCredential](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationcredential?view=azps-3.8.0) cmdlet. `Get-AzAutomationCredential` retrieves a [CredentialInfo](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.commands.automation.model.credentialinfo?view=azurerm-ps) object containing metadata about the credential. This information is not normally helpful to pass to another cmdlet.
+Note that `Get-AutomationPsCredential` returns a `PSCredential` object, which is expected by most PowerShell cmdlets that work with credentials. Most often, you should use this cmdlet instead of the [Get-AzAutomationCredential](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationcredential?view=azps-3.8.0) cmdlet. `Get-AzAutomationCredential` retrieves a [CredentialInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.commands.automation.model.credentialinfo?view=azurerm-ps) object containing metadata about the credential. This information is not normally helpful to pass to another cmdlet.
 
 ## Migrating to Az modules
 
