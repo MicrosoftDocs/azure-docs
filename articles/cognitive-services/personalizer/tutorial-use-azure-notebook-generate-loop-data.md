@@ -38,7 +38,9 @@ To help Personalizer learn, over time, the _system_ also knows details about the
 
 The **purpose** of the Personalizer loop is to find the best match between the users and the coffee as much of the time as possible.
 
-The code for this tutorial is available in the [Personalizer Samples GitHub repository](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook).
+### Note
+
+The Jupyter notebook, data files, and code used in this tutorial is available in the [Personalizer Samples GitHub repository](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook).
 
 ## How the simulation works
 
