@@ -18,7 +18,7 @@ Azure Static Web Apps is a service that automatically builds and deploys web app
 
 Applying commits and pull requests to a designated branch triggers a GitHub Action workflow. The workflow builds the application for production and globally deploys the app to the web.
 
-Back-end API functionality is powered by Azure Functions which provides automatic up and down scaling based on demand to the API.
+Back-end API functionality is powered by Azure Functions which provides automatic scaling (up and down) based on demand to the API.
 
 ## Key features
 
@@ -34,11 +34,11 @@ Back-end API functionality is powered by Azure Functions which provides automati
 - **Back-end routing rules** enabling full control over the content and routes you serve.
 - **Generated staging versions** powered by pull requests enabling preview versions of your site before publishing.
 
-## What you can do with Static Apps
+## What you can do with Static Web Apps
 
-- **Build modern JavaScript applications** with frameworks and libraries like [Angular](https://angular.io/), [React](https://reactjs.org/), [Svelete](https://svelte.dev/), [Vue](https://vuejs.org/) with an [Azure Functions](https://azure.microsoft.com/services/functions/) back-end
-- **Publish static sites** with frameworks like [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md)
-- **Deploy web applications** with frameworks like [Next.js](deploy-nextjs.md) and [Nuxt.js](deploy-nuxtjs.md)
+- **Build modern JavaScript applications** with frameworks and libraries like [Angular](https://angular.io/), [React](https://reactjs.org/), [Svelete](https://svelte.dev/), [Vue](https://vuejs.org/) with an [Azure Functions](https://azure.microsoft.com/services/functions/) back-end.
+- **Publish static sites** with frameworks like [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md).
+- **Deploy web applications** with frameworks like [Next.js](deploy-nextjs.md) and [Nuxt.js](deploy-nuxtjs.md).
 
 \* Apex domain registrations are not supported during preview.
 
