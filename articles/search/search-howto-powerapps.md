@@ -67,19 +67,19 @@ A connector in Power Apps is a data source connection. In this step, you'll crea
 
 1. Scroll down. In Requests, select **+ Import from sample** button to configure a query request to your search service:
 
-    * Select the verb `GET`
+   * Select the verb `GET`
 
-    * For the URL enter a sample query for your search index (`search=*` returns all documents, `$select=` lets you choose fields). The API version is required. Fully specified, a URL might look like this: `https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2019-05-06`
+   * For the URL enter a sample query for your search index (`search=*` returns all documents, `$select=` lets you choose fields). The API version is required. Fully specified, a URL might look like this: `https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2019-05-06`
 
-    * For Headers, type `Content-Type`. 
+   * For Headers, type `Content-Type`. 
 
-    **Power Apps** will use the syntax to extract parameters from the query. Notice we explicitly defined the search field. 
+     **Power Apps** will use the syntax to extract parameters from the query. Notice we explicitly defined the search field. 
 
-    :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Import from sample" border="false":::
+       :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Import from sample" border="true":::
 
 1. Click **Import** to auto-fill the Request. Complete setting the parameter metadata by clicking the **…** symbol next to each of the parameters. Click **Back** to return to the Request page after each parameter update.
 
-    :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Import from sample dialogue" border="false":::
+   :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Import from sample dialogue" border="true":::
 
 1. For *search*: Set `*` as the **default value**, set **required** as *False* and set **visibility** to *none*. 
 
@@ -108,7 +108,9 @@ A connector in Power Apps is a data source connection. In this step, you'll crea
 
 1. Return to the **3. Request** step and scroll down to the Response section. Click **"Add default response"**. This is critical because it will help Power Apps understand the schema of the response. 
 
-1. Paste a sample response. An easy way to capture a sample response is through Search Explorer in the Azure portal. In Search Explorer, you should enter the same query as you did for the request, but add **$top=2** to constrain results to just two documents. Power Apps only needs to sample a few results to detect the schema: `search=*&$select=HotelName,Description,Address/City&$top=2`
+1. Paste a sample response. An easy way to capture a sample response is through Search Explorer in the Azure portal. In Search Explorer, you should enter the same query as you did for the request, but add **$top=2** to constrain results to just two documents: : `search=*&$select=HotelName,Description,Address/City&$top=2`. 
+
+   Power Apps only needs a few results to detect the schema.
 
     ```JSON
     {
@@ -210,13 +212,12 @@ In this step, create a Power App with a search box, a search button, and a displ
    This action will cause the button to update a new collection called *azResult* with the result of the search query, using the text in the *txtQuery* text box as the query term.
 
    > [!NOTE]
-   > If you get a formula syntax error "The function 'ClearCollect' has some invalid functions":
+   > Try this if you get a formula syntax error "The function 'ClearCollect' has some invalid functions":
    > 
    > * First, make sure the connector reference is correct. Clear the connector name and begin typing the name of your connector. Intellisense should suggest the right connector and verb.
    > 
    > * If the error persists, delete and recreate the connector. If there are multiple instances of a connector, the app might be using the wrong one.
    > 
-
 
 1. Link the Vertical Gallery control to the *azResult* collection that was created when you completed the previous step. 
 
