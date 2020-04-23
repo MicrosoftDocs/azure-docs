@@ -88,7 +88,7 @@ This section describes how Apache Kafka clients that use the Kafka endpoint of A
 Kafka clients that use Event Hubs with the Apache Kafka protocol behave differently from event hub clients that use AMQP protocol. Kafka clients update their metadata once every `metadata.max.age.ms` milliseconds. You specify this value in the client configurations. The `librdkafka` libraries also use the same configuration. Metadata updates inform the clients of service changes including the partition count increases.
 
 ### Sender/producer clients
-Producers always dictate that send requests contain the partition destination for each set of produced records. So, all produce partitioning is done on client-side with producer’s view of broker's metadata. Once the newly added partitions are added to the producer’s metadata view, they will be available for producer requests.
+Producers always dictate that send requests contain the partition destination for each set of produced records. So, all produce partitioning is done on client-side with producer’s view of broker's metadata. Once the new partitions are added to the producer’s metadata view, they will be available for producer requests.
 
 ### Consumer/receiver clients
 When a consumer group member performs a metadata refresh and picks up the newly created partitions, that member initiates a group rebalance. Consumer metadata then will be refreshed for all group members, and the new partitions will be assigned by the allotted rebalance leader.
