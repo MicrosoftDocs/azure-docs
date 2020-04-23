@@ -62,11 +62,14 @@ Let us quickly revisit the progression of a certificate from issuance to consump
 For our purposes, the first two steps in the sequence above are largely unrelated; the only connection is that the subject common name of the certificate is the DNS name declared in the cluster definition.
 
 These steps are illustrated below; note the differences in provisioning between certificates declared by thumbprint and common name, respectively.
+
+Issuance and provisioning flow of certificates declared by thumbprint.
 <center>
 
 ![Provisioning certificates declared by thumbprint][Image1]
 <center>
 
+Issuance and provisioning flow of certificates declared by subject common name.
 <center>
 
 ![Provisioning certificates declared by subject common name][Image2]
@@ -476,19 +479,19 @@ A: For Microsoft-internal clients:
 	Get-AzKeyVaultCertificateOperation -VaultName $clusterVault -Name $clusterCertVaultName 
 ```
 
-Q: What happens when a certificate is issued by an undeclared/unspecified issuer? Where can I obtain the exhaustive list of active issuers of a given PKI?
-A: If the certificate declaration specifies issuer thumbprints, and the direct issuer of the certificate is not included in the list of pinned issuers, the certificate will be considered invalid - irrespective of whether or not its root is trusted by the client. Therefore it is critical to ensure the list of issuers is current/up to date. The introduction of a new issuer is a rare event, and should be widely publicized prior to it beginning to issue certificates. 
+*Q*: What happens when a certificate is issued by an undeclared/unspecified issuer? Where can I obtain the exhaustive list of active issuers of a given PKI?
+*A*: If the certificate declaration specifies issuer thumbprints, and the direct issuer of the certificate is not included in the list of pinned issuers, the certificate will be considered invalid - irrespective of whether or not its root is trusted by the client. Therefore it is critical to ensure the list of issuers is current/up to date. The introduction of a new issuer is a rare event, and should be widely publicized prior to it beginning to issue certificates. 
 
 In general, a PKI will publish and maintain a certification practice statement, in accordance with IETF [RFC 7382](https://tools.ietf.org/html/rfc7382). Among other information, it will include all active issuers. Retrieving this list programmatically may differ from a PKI to another.   
 
-For Microsoft-internal PKIs, the authority on, well, authorized issuers is the dSMS GetIssuers v2 SDK/endpoint (see links below); it is the cluster owner's responsibility to probe this list periodically, and ensure their cluster definition includes *all* expected issuers.
+For Microsoft-internal PKIs, the authority on, well, authorized issuers is the dSMS GetIssuers v2 SDK/endpoint (inquire internally); it is the cluster owner's responsibility to probe this list periodically, and ensure their cluster definition includes *all* expected issuers.
 
-	AME issuers: https://global-dsms.dsms.core.windows.net/dsms/issuercertificates?getissuersv2&caName=ame&appType=clientauth
-	MSIT TLS issuers (SslAdmin): https://global-dsms.dsms.core.windows.net/dsms/issuercertificates?getissuersv2&caName=SslAdmin&type=ssl
-	
+*Q*: Are multiple PKIs supported? 
+*A*: Yes; you may not declare multiple CN entries in the cluster manifest with the same value, but can list issuers from multiple PKIs corresponding to the same CN. It is not a recommended practice, and certificate transparency practices may prevent such certificates from being issued. However, as means to migrate from one PKI to another, this is an acceptable mechanism.
 
-Q: Are multiple PKIs supported? 
-A: Yes; you may not declare multiple CN entries in the cluster manifest with the same value, but can list issuers from multiple PKIs corresponding to the same CN. It is not a recommended practice, and certificate transparency practices may prevent such certificates from being issued. However, as means to migrate from one PKI to another, this is an acceptable mechanism.
+*Q*: What if the current cluster certificate is not CA-issued, or does not have the intended subject? 
+*A*: Obtain a certificate with the intended subject, and add it to the cluster's definition as a secondary, by thumbprint. Once the upgrade completed successfully, initiate another cluster configuration upgrade to convert the certificate declaration to common name. 
 
 [Image1]:./media/security-cluster-certificate-mgmt/certificate-journey-thumbprint.png
 [Image2]:./media/security-cluster-certificate-mgmt/certificate-journey-common-name.png
+
