@@ -110,9 +110,9 @@ The function then calculates how much a repair will cost, and how much revenue t
     }
     ```
 
-    ![Test the function in the Azure portal](media/functions-openapi-definition/test-function.png)
+    :::image type="content" source="media/functions-openapi-definition/test-function.png" alt-text="Test the function in the Azure portal":::
 
-    The following value is returned in the **Output** tab.
+    The following output is returned in the **Output** tab:
 
     ```json
     {"message":"Yes","revenueOpportunity":"$7200","costToFix":"$1600"}
@@ -122,7 +122,7 @@ Now you have a function that determines the cost-effectiveness of emergency repa
 
 ## Generate the OpenAPI definition
 
-Now you're ready to generate the OpenAPI definition.
+To generate the OpenAPI definition:
 
 1. Select the function app, choose **API Management** from the left menu, and then select **Create new** under **API Management**.
 
@@ -161,7 +161,7 @@ Now you're ready to generate the OpenAPI definition.
 
 Before you use the OpenAPI definition, you should verify that the API works.
 
-1. On your function app page, select **API Management**, select the **Test** tab, and then select **POST**. 
+1. On your function app page, select **API Management**, select the **Test** tab, and then select **POST TurbineRepair**. 
 
 1. Enter the following code in the **Request body**:
 
