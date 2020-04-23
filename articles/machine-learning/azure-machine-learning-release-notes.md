@@ -33,12 +33,15 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 + **Bug fixes and improvements**
   + **azureml-automl-runtime**
     + Enable support for unhashable type when calculating number of unique values in a column.
-  + **azureml-dataprep**
-    + Support european-style dot-delimited decimal conversion in set_column_types.
+  + **azureml-core**
+    + Improved stability when reading from Azure Blob Storage using a TabularDataset.
+    + Improved documentation for the `grant_workspace_msi` parameter for `Datastore.register_azure_blob_store`.
+    + Fixed bug with `datastore.upload` where if the `src_dir` argument ended with a `/` or `\`, we will fail to upload.
+    + Added actionable error message when trying to upload to an Azure Blob Storage datastore that does not have an access key or SAS token.
   + **azureml-interpret**
-    + added upper bound to file size for the visualization data on uploaded explanations
+    + Added upper bound to file size for the visualization data on uploaded explanations.
   + **azureml-train-automl-client**
-    + Explicitely checking for label_column_name & weight_column_name parameters for AutoMLConfig to be of type string.
+    + Explicitly checking for label_column_name & weight_column_name parameters for AutoMLConfig to be of type string.
 
   
 ## 2020-04-13
@@ -64,13 +67,12 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     +  Added Environment.clone(new_name) API to create a copy of Environment object
     +  Environment.docker.base_dockerfile accepts filepath. If able to resolve a file, the content will be read into base_dockerfile environment property
     + Automatically reset mutually exclusive values for base_image and base_dockerfile when user manually sets a value in Environment.docker
-    +  Dataset: fixed dataset download failure if data path containing unicode characters
-    +  Dataset: improved dataset mount caching mechanism to respect the minimum disk space requirement in Azure Machine Learning Compute, which avoids making the node unusable and causing the job to be canceled
     + Added user_managed flag in RSection which indicates whether the environment is managed by user or by AzureML.
-    + Dataset: we add an index for the timeseries column when you access a timeseries dataset as a pandas dataframes, which is used to speed up access to timeseries based data access.  Previously, the index was given the same name as the timestamp column, confusing users about which is the actual timestamp column and which is the index. We now don't give any specific name to the index since it should not be used as a column. 
-  + **azureml-dataprep**
-    + Fixed dataset authentication issue in sovereign cloud
-    + Fixed `Dataset.to_spark_dataframe` failure for datasets created from Azure PostgreSQL datastores
+    + Dataset: Fixed dataset download failure if data path containing unicode characters.
+    + Dataset: Improved dataset mount caching mechanism to respect the minimum disk space requirement in Azure Machine Learning Compute, which avoids making the node unusable and causing the job to be canceled.
+    + Dataset: We add an index for the timeseries column when you access a timeseries dataset as a pandas dataframes, which is used to speed up access to timeseries based data access.  Previously, the index was given the same name as the timestamp column, confusing users about which is the actual timestamp column and which is the index. We now don't give any specific name to the index since it should not be used as a column. 
+    + Dataset: Fixed dataset authentication issue in sovereign cloud.
+    + Dataset: Fixed `Dataset.to_spark_dataframe` failure for datasets created from Azure PostgreSQL datastores.
   + **azureml-interpret**
     + Added global scores to visualization if local importance values are sparse
     + Updated azureml-interpret to use interpret-community 0.9.*
@@ -89,6 +91,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-opendatasets**
     + Added additional telemetry for service monitor.
     + Enable frontdoor for blob to increase stability 
+
 ## 2020-03-23
 
 ### Azure Machine Learning SDK for Python v1.2.0
@@ -109,7 +112,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Added better error messages if time column has incorrect format.
     + Enabled customized imputation with constant value for both X and y data forecasting tasks.
   + **azureml-core**
-    + Add support for loading ServicePrincipal from environment variables: AZUREML_SERVICE_PRINCIPAL_ID, AZUREML_SERVICE_PRINCIPAL_TENANT_ID, and AZUREML_SERVICE_PRINCIPAL_PASSWORD
+    + Added support for loading ServicePrincipal from environment variables: AZUREML_SERVICE_PRINCIPAL_ID, AZUREML_SERVICE_PRINCIPAL_TENANT_ID, and AZUREML_SERVICE_PRINCIPAL_PASSWORD
     + Introduced a new parameter `support_multi_line` to `Dataset.Tabular.from_delimited_files`: By default (`support_multi_line=False`), all line breaks, including those in quoted field values, will be interpreted as a record break. Reading data this way is faster and more optimized for parallel execution on multiple CPU cores. However, it may result in silently producing more records with misaligned field values. This should be set to `True` when the delimited files are known to contain quoted line breaks.
     + Added the ability to register ADLS Gen2 in the Azure Machine Learning CLI
     + Renamed parameter 'fine_grain_timestamp' to 'timestamp' and parameter 'coarse_grain_timestamp' to 'partition_timestamp' for the with_timestamp_columns() method in TabularDataset to better reflect the usage of the parameters.
@@ -169,19 +172,19 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-core**
     + Deployed AzureML Webservices will now default to `INFO` logging. This can be controlled by setting the `AZUREML_LOG_LEVEL` environment variable in the deployed service.
     + Python sdk uses discovery service to use 'api' endpoint instead of 'pipelines'.
-    + Swap to the new routes in all SDK calls
-    + Changes routing of calls to the ModelManagementService to a new unified structure
+    + Swap to the new routes in all SDK calls.
+    + Changed routing of calls to the ModelManagementService to a new unified structure.
       + Made workspace update method publicly available.
-      + Added image_build_compute parameter in workspace update method to allow user updating the compute for image build
-    +  Added deprecation messages to the old profiling workflow. Fixed profiling cpu and memory limits
-    + Added RSection as part of Environment to run R jobs
-    +  Added validation to `Dataset.mount` to raise error when source of the dataset is not accessible or does not contain any data.
-    + Added `--grant-workspace-msi-access` as an additional parameter for the Datastore CLI for registering Azure Blob Container which will allow you to register Blob Container that is behind a VNet
+      + Added image_build_compute parameter in workspace update method to allow user updating the compute for image build.
+    + Added deprecation messages to the old profiling workflow. Fixed profiling cpu and memory limits.
+    + Added RSection as part of Environment to run R jobs.
+    + Added validation to `Dataset.mount` to raise error when source of the dataset is not accessible or does not contain any data.
+    + Added `--grant-workspace-msi-access` as an additional parameter for the Datastore CLI for registering Azure Blob Container which will allow you to register Blob Container that is behind a VNet.
     + Single instance profiling was fixed to produce a recommendation and was made available in core sdk.
-    + Fixed the issue in aks.py _deploy
+    + Fixed the issue in aks.py _deploy.
     + Validates the integrity of models being uploaded to avoid silent storage failures.
     + User may now specify a value for the auth key when regenerating keys for webservices.
-    + Fixed bug where uppercase letters cannot be used as dataset's input name
+    + Fixed bug where uppercase letters cannot be used as dataset's input name.
   + **azureml-defaults**
     + `azureml-dataprep` will now be installed as part of `azureml-defaults`. It is no longer required to install dataprep[fuse] manually on compute targets to mount datasets.
   + **azureml-interpret**
