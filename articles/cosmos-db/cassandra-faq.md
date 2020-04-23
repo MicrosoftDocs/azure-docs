@@ -37,7 +37,7 @@ The throughput concept is explained in the [Request Units in Azure Cosmos DB](re
 
 ### What is the throughput of a table that's created through CQL?
 
-Azure Cosmos DB uses Request Units per second (RU/s) as a currency for providing throughput. Tables created through CQL have 400 RU. You can change the RU from the Azure portal.
+Azure Cosmos DB uses Request Units per second (RU/s) as a currency for providing throughput. Tables created through CQL have 400 RU by default. You can change the RU from the Azure portal.
 
 CQL
 
@@ -79,11 +79,11 @@ Azure Cosmos DB is a system based on service-level agreement (SLA). It provides 
 
 You should adhere to the 10-GB limit on the number of entities or items per logical partition. To ensure that your application scales well, we recommend that you *not* create a hot partition by storing all information in one partition and querying it. This error can come only if your data is skewed: that is, you have lot of data for one partition key (more than 10&nbsp;GB). You can find the distribution of data by using the storage portal. The way to fix this error is to re-create the table and choose a granular primary (partition key), which allows better distribution of data.
 
-### Can I use the API as a key value store with millions or billions of partition keys?
+### Can I use the Cassandra API as a key value store with millions or billions of partition keys?
 
 Azure Cosmos DB can store unlimited data by scaling out the storage. This storage is independent of the throughput. Yes, you can always use the Cassandra API just to store and retrieve keys and values by specifying the right primary/partition key. These individual keys get their own logical partition and sit atop a physical partition without issues.
 
-### Can I create more than one table with the API?
+### Can I create more than one table with the Cassandra API?
 
 Yes, it's possible to create more than one table with the Cassandra API. Each of those tables is treated as unit for throughput and storage.
 
@@ -107,7 +107,7 @@ Yes. Assuming uniformly distributed partitions, the storage capacity is automati
 
 The Cassandra API for Azure Cosmos DB provides protocol-level compatibility for executing operations. It hides away the complexity of management, monitoring, and configuration. As a developer/user, you don't need to worry about availability, tombstones, key cache, row cache, bloom filter, and a multitude of other settings. The Cassandra API focuses on providing the read and write performance that you need without the overhead of configuration and management.
 
-### Will the API support node addition, cluster status, and node status commands?
+### Will the Cassandra API support node addition, cluster status, and node status commands?
 
 The Cassandra API simplifies capacity planning and responding to the elasticity demands for throughput and storage. With Azure Cosmos DB, you provision the throughput that you need. Then you can scale it up and down any number of times through the day, without worrying about adding, deleting, or managing nodes. You don't need to use tools for node and cluster management.
 
@@ -131,7 +131,7 @@ Azure Cosmos DB is a platform service that helps you increase productivity and n
 - Use [metrics](use-metrics.md)
 - Use [diagnostic logs](logging.md)
 
-### Which client SDKs can work with the API?
+### Which client SDKs can work with the Cassandra API?
 
 The Apache Cassandra SDK's client drivers that use CQLv3 were used for client programs. If you have other drivers that you use or if you're facing issues, send mail to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com).
 
@@ -143,23 +143,23 @@ Yes, you can use regular syntax to create composite partition keys.
 
 No, sstableloader isn't supported.
 
-### Can I pair an on-premises Apache Cassandra cluster with the API?
+### Can I pair an on-premises Apache Cassandra cluster with the Cassandra API?
 
 At present, Azure Cosmos DB has an optimized experience for a cloud environment without the overhead of operations. If you require pairing, send mail to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) with a description of your scenario. We're working on an offering to help pair the on-premises or cloud Cassandra cluster with the Cassandra API for Azure Cosmos DB.
 
-### Does the API provide full backups?
+### Does the Cassandra API provide full backups?
 
 Azure Cosmos DB provides two free full backups taken at four-hour intervals across all APIs. So you don't need to set up a backup schedule. 
 
 If you want to modify retention and frequency, send email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) or raise a support case. Information about backup capability is provided in the [Automatic online backup and restore with Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) article.
 
-### How does the API account handle failover if a region goes down?
+### How does the Cassandra API account handle failover if a region goes down?
 
 The Cassandra API borrows from the globally distributed platform of Azure Cosmos DB. To ensure that your application can tolerate datacenter downtime, enable at least one more region for the account in the Azure portal. For more information, see [High availability with Azure Cosmos DB](high-availability.md).
 
 You can add as many regions as you want for the account and control where it can fail over to by providing a failover priority. To use the database, you need to provide an application there too. When you do so, your customers won't experience downtime.
 
-### Does the API index all attributes of an entity by default?
+### Does the Cassandra API index all attributes of an entity by default?
 
 No. The Cassandra API supports [secondary indexes](cassandra-secondary-index.md), which behave in a similar way to Apache Cassandra. The API does not index every attribute by default.  
 
@@ -174,7 +174,7 @@ Yes, this is supported. You can find details on how to enable this in the [Use t
 You can read about migration options in the [Migrate your data to Cassandra API account in Azure Cosmos DB](cassandra-import-data.md) tutorial.
 
 
-### Where can I give feedback on API features?
+### Where can I give feedback on Cassandra API features?
 
 Provide feedback via [user voice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
