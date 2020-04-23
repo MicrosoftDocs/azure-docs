@@ -55,7 +55,7 @@ To filter by values in the data fields and specify the comparison operator, use 
 
 * operator type - The type of comparison.
 * key - The field in the event data that you're using for filtering. It can be a number, boolean, or string.
-* value or values - The value or values to compare to the key.
+* values - The value or values to compare to the key.
 
 If you specify a single filter with multiple values, an **OR** operation is performed, so the value of the key field must be one of these values. Here is an example:
 
