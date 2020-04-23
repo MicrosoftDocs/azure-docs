@@ -554,6 +554,8 @@
         href: five9-tutorial.md
       - name: Flatter Files
         href: flatter-files-tutorial.md
+      - name: Float
+        href: float-tutorial.md
       - name: Flock
         href: flock-tutorial.md
       - name: FloQast
