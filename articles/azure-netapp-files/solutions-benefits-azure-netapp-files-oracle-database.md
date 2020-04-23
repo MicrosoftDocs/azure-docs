@@ -30,7 +30,7 @@ The following summary explains how Oracle Direct NFS works at a high level:
 
     ![Traditional NFS client using a single network flow](../media/azure-netapp-files/solutions-traditional-nfs-client-using-single-network-flow.png)
 
-    Oracle Direct NFS further improves performance by load balancing network traffic across multiple network flows. As tested and shown below, 650 distinct network connections were established dynamically by the Oracle Database:  
+    Oracle Direct NFS further improves performance by load-balancing network traffic across multiple network flows. As tested and shown below, 650 distinct network connections were established dynamically by the Oracle Database:  
 
     ![Oracle Direct NFS improving performance](../media/azure-netapp-files/solutions-oracle-direct-nfs-performance-load-balancing.png)
 
