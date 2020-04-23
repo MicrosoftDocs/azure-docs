@@ -46,7 +46,7 @@ Here is the step-by-step walkthrough.
 
    ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png) 
 4. A deployment group is a logical set of deployment target machines that represent the physical environments; for example, "Dev", "Test", "UAT", and "Production". You can create a new deployment group or select an existing deployment group. 
-5. Select the build pipeline that publishes the package to be deployed to the virtual machine. Note that the published package should have a deployment script _deploy.ps1_ or _deploy.sh_ in 'deployscripts' folder at package root. This deployment script will be executed by Azure DevOps pipeline at run time.
+5. Select the build pipeline that publishes the package to be deployed to the virtual machine. Note that the published package should have a deployment script _deploy.ps1_ or _deploy.sh_ in the `deployscripts` folder at package root. This deployment script will be run by Azure DevOps pipeline at run time.
 6. Select the deployment strategy of your choice. In this case, lets select 'Rolling'.
 7. Optionally, you can tag the machine with the role. For example, ‘web’, ‘db’ etc. This helps you target VMs that have specific role only.
 8. Click **OK** on the dialog to configure the continuous delivery pipeline. 
