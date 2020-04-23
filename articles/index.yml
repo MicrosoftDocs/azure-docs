@@ -547,16 +547,6 @@ productDirectory:
         - compute
       url: virtual-machines/linux/index.yml
     # Card
-    - title: Mobile Apps
-      summary: Build and host the backend for any mobile app
-      imageSrc: https://docs.microsoft.com/media/common/i_mobileapp.svg
-      azureCategories:
-        - compute
-        - containers
-        - mobile
-        - web
-      url: app-service-mobile/index.yml
-    # Card
     - title: SAP HANA on Azure Large Instances
       summary: Run the largest SAP HANA workloads of any hyperscale cloud provider
       imageSrc: https://static.docs.com/ui/media/product/azure/sap.svg
