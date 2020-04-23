@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/21/2020
+ms.date: 04/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -26,6 +26,9 @@ Azure Active Directory (Azure AD) simplifies how enterprises manage access to gr
 You can start the Access Review process from the notification email or by going directly to the site.
 
 - **Email**:
+
+>[!IMPORTANT]
+> There could be delays in receiving email and it some cases it could take up to 24 hours. Whitelist azure-noreply@microsoft.com to make sure that you are receiving all emails.
 
     1. Look for an email from Microsoft asking you to review access. Here is an example email to review the access for a group.
 
@@ -101,11 +104,9 @@ To make access reviews easier and faster for you, we also provide recommendation
 
 ## Perform access review using My Access (Preview)
 
-You can preview the reviewer experience with the updated user interface in My Access three different ways:
+You can preview the reviewer experience with the updated user interface in My Access two different ways:
 
-### New experience banner
-
-If you don't see the banner, follow one of the other two options covered in this article.
+### MyApps portal
 
 1. Sign in to the MyApps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
@@ -152,7 +153,7 @@ You can also view your pending access reviews by using your browser to open My A
     - **Resource** Users access to the resourced named in this column is being evaluated as part of this access review.
     - **Progress** The number of users reviewed over the total number of users part of this access review.
 
-4. Click on the name of an Access review to get started.
+4. Click on the name of an access review to get started.
  
    ![Pending access reviews list for apps and groups](./media/perform-access-review/access-reviews-list-preview.png)
 
@@ -193,7 +194,7 @@ To make access reviews easier and faster for you, we also provide recommendation
 
 1. Click **Submit** to accept the recommendations.
 
-You can review individual users, multiple users or all users by selecting them and choosing **Accept recommendations** button on the top bar.
+To accept recommendations for all user make sure that no one is selected and click on the **Accept recommendations** button on the top bar.
 
 ## Next steps
 
