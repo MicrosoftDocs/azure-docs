@@ -119,7 +119,7 @@ The first step to perform an access review is to find and open the access review
 
 3. Click on **Try it!** in the banner at the top of the page. This will take you to the new My Access experience.
 
-![Pending access reviews list for apps and groups with the new experience available banner displayed during the preview](./media/perform-access-review/banner.png)
+![Pending access reviews list for apps and groups with the new experience available banner displayed during the preview](./media/review-your-access/banner.png)
 
 
 ### Directly at My Access
