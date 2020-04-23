@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 12/17/2019
+ms.date: 03/09/2020
 ms.author: aahi
 ---
 
@@ -45,14 +45,7 @@ The Text Analytics API offers two versions of Sentiment Analysis - v2 and v3. Se
 | Sentiment labeling                        |                       | X                     |
 | Model versioning                   |                       | X                     |
 
-#### [Version 2](#tab/version-2)
-
-### Sentiment scoring
-
-The sentiment analyzer classifies text as predominantly positive or negative. It assigns a score in the range of 0 to 1. Values close to 0.5 are neutral or indeterminate. A score of 0.5 indicates neutrality. When a string can't be analyzed for sentiment or has no sentiment, the score is always 0.5 exactly. For example, if you pass in a Spanish string with an English language code, the score is 0.5.
-
-
-#### [Version 3 (Public preview)](#tab/version-3)
+#### [Version 3.0-preview](#tab/version-3)
 
 ### Sentiment scoring
 
@@ -78,7 +71,14 @@ Sentiment Analysis v3 can return scores and labels at a sentence and document le
 
 ### Example C# code
 
-You can find an example C# application that calls this version of Sentiment Analysis on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
+You can find an example C# application that calls this version of Sentiment Analysis on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/TextAnalyticsSentiment.cs).
+
+
+#### [Version 2.1](#tab/version-2)
+
+### Sentiment scoring
+
+The sentiment analyzer classifies text as predominantly positive or negative. It assigns a score in the range of 0 to 1. Values close to 0.5 are neutral or indeterminate. A score of 0.5 indicates neutrality. When a string can't be analyzed for sentiment or has no sentiment, the score is always 0.5 exactly. For example, if you pass in a Spanish string with an English language code, the score is 0.5.
 
 ---
 
@@ -96,27 +96,28 @@ Document size must be under 5,120 characters per document. You can have up to 1,
 
 Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) or the **API testing console** in the following reference links to quickly structure and send one. 
 
-#### [Version 2](#tab/version-2)
-
-[Sentiment Analysis v2 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
-
-#### [Version 3 (Public preview)](#tab/version-3)
+#### [Version 3.0-preview](#tab/version-3)
 
 [Sentiment Analysis v3 reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)
+
+#### [Version 2.1](#tab/version-2)
+
+[Sentiment Analysis v2 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
 ---
 
 Set the HTTPS endpoint for sentiment analysis by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). You must include the correct URL for the version you want to use. For example:
-    
-[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
-#### [Version 2](#tab/version-2)
+> [!NOTE]
+> You can find your key and endpoint for your Text Analytics resource on the azure portal. They will be located on the resource's **Quick start** page, under **resource management**. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
-
-#### [Version 3 (Public preview)](#tab/version-3)
+#### [Version 3.0-preview](#tab/version-3)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/sentiment`
+
+#### [Version 2.1](#tab/version-2)
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
 
 ---
 
@@ -154,28 +155,9 @@ The Text Analytics API is stateless. No data is stored in your account, and resu
 
 The sentiment analyzer classifies text as predominantly positive or negative. It assigns a score in the range of 0 to 1. Values close to 0.5 are neutral or indeterminate. A score of 0.5 indicates neutrality. When a string can't be analyzed for sentiment or has no sentiment, the score is always 0.5 exactly. For example, if you pass in a Spanish string with an English language code, the score is 0.5.
 
-Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system. Then, import the output into an application that you can use to sort, search, and manipulate the data.
+Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system. Then, import the output into an application that you can use to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. See [how to process offsets](../concepts/text-offsets.md) for more information.
 
-#### [Version 2](#tab/version-2)
-
-### Sentiment Analysis v2 example response
-
-Responses from Sentiment Analysis v2 contain sentiment scores for each sent document.
-
-```json
-{
-  "documents": [{
-    "id": "1",
-    "score": 0.98690706491470337
-  }, {
-    "id": "2",
-    "score": 0.95202046632766724
-  }],
-  "errors": []
-}
-```
-
-#### [Version 3 (Public preview)](#tab/version-3)
+#### [Version 3.0-preview](#tab/version-3)
 
 ### Sentiment Analysis v3 example response
 
@@ -250,6 +232,26 @@ Responses from Sentiment Analysis v3 contain sentiment labels and scores for eac
     "errors": []
 }
 ```
+
+#### [Version 2.1](#tab/version-2)
+
+### Sentiment Analysis v2 example response
+
+Responses from Sentiment Analysis v2 contain sentiment scores for each sent document.
+
+```json
+{
+  "documents": [{
+    "id": "1",
+    "score": 0.98690706491470337
+  }, {
+    "id": "2",
+    "score": 0.95202046632766724
+  }],
+  "errors": []
+}
+```
+
 ---
 
 ## Summary

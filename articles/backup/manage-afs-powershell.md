@@ -9,6 +9,9 @@ ms.date: 1/27/2020
 
 This article describes how to use Azure PowerShell to manage and monitor the Azure file shares that are backed up by the Azure Backup service.
 
+> [!WARNING]
+> Make sure the PS version is upgraded to the minimum version for 'Az.RecoveryServices 2.6.0' for AFS backups. For more details, refer to [the section](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) outlining the requirement for this change.
+
 ## Modify the protection policy
 
 To change the policy used for backing up the Azure file share, use [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0). Specify the relevant backup item and the new backup policy.

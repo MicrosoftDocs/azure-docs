@@ -1,7 +1,6 @@
 ---
 title: OMS portal moving to Azure | Microsoft Docs
 description: The OMS portal is being sunsetted with all functionality moving to the Azure portal. This article provides details on this transition.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

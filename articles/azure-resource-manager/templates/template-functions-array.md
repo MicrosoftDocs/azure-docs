@@ -4,9 +4,9 @@ description: Describes the functions to use in an Azure Resource Manager templat
 ms.topic: conceptual
 ms.date: 07/31/2019
 ---
-# Array and object functions for Azure Resource Manager templates
+# Array and object functions for ARM templates
 
-Resource Manager provides several functions for working with arrays and objects.
+Resource Manager provides several functions for working with arrays and objects in your Azure Resource Manager (ARM) template.
 
 * [array](#array)
 * [coalesce](#coalesce)
@@ -96,7 +96,7 @@ The output from the preceding example with the default values is:
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
 ```
 
 To deploy this example template with PowerShell, use:
@@ -120,7 +120,7 @@ Returns first non-null value from the parameters. Empty strings, empty arrays, a
 
 ### Return value
 
-The value of the first non-null parameters, which can be a string, int, array, or object. Null if all parameters are null. 
+The value of the first non-null parameters, which can be a string, int, array, or object. Null if all parameters are null.
 
 ### Example
 
@@ -134,7 +134,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
         "objectToTest": {
             "type": "object",
             "defaultValue": {
-                "null1": null, 
+                "null1": null,
                 "null2": null,
                 "string": "default",
                 "int": 1,
@@ -183,7 +183,7 @@ The output from the preceding example with the default values is:
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
 ```
 
 To deploy this example template with PowerShell, use:
@@ -196,7 +196,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 `concat(arg1, arg2, arg3, ...)`
 
-Combines multiple arrays and returns the concatenated array, or combines multiple string values and returns the concatenated string. 
+Combines multiple arrays and returns the concatenated array, or combines multiple string values and returns the concatenated string.
 
 ### Parameters
 
@@ -219,22 +219,22 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": { 
-        "firstArray": { 
-            "type": "array", 
-            "defaultValue": [ 
-                "1-1", 
-                "1-2", 
-                "1-3" 
-            ] 
+    "parameters": {
+        "firstArray": {
+            "type": "array",
+            "defaultValue": [
+                "1-1",
+                "1-2",
+                "1-3"
+            ]
         },
         "secondArray": {
-            "type": "array", 
-            "defaultValue": [ 
-                "2-1", 
+            "type": "array",
+            "defaultValue": [
+                "2-1",
                 "2-2",
-                "2-3" 
-            ] 
+                "2-3"
+            ]
         }
     },
     "resources": [
@@ -257,7 +257,7 @@ The output from the preceding example with the default values is:
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
 ```
 
 To deploy this example template with PowerShell, use:
@@ -297,7 +297,7 @@ The output from the preceding example with the default values is:
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
 To deploy this example template with PowerShell, use:
@@ -390,7 +390,7 @@ The output from the preceding example with the default values is:
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
 ```
 
 To deploy this example template with PowerShell, use:
@@ -469,7 +469,7 @@ The output from the preceding example with the default values is:
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
 ```
 
 To deploy this example template with PowerShell, use:
@@ -546,7 +546,7 @@ The output from the preceding example with the default values is:
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
 ```
 
 To deploy this example template with PowerShell, use:
@@ -610,7 +610,7 @@ The output from the preceding example with the default values is:
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
 To deploy this example template with PowerShell, use:
@@ -688,7 +688,7 @@ The output from the preceding example with the default values is:
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
 To deploy this example template with PowerShell, use:
@@ -761,7 +761,7 @@ The output from the preceding example with the default values is:
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
 ```
 
 To deploy this example template with PowerShell, use:
@@ -825,7 +825,7 @@ The output from the preceding example with the default values is:
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
 ```
 
 To deploy this example template with PowerShell, use:
@@ -848,7 +848,7 @@ Returns the number of elements in an array, characters in a string, or root-leve
 
 ### Return value
 
-An int. 
+An int.
 
 ### Example
 
@@ -913,7 +913,7 @@ The output from the preceding example with the default values is:
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
 ```
 
 To deploy this example template with PowerShell, use:
@@ -931,7 +931,7 @@ You can use this function with an array to specify the number of iterations when
 }
 ```
 
-For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md).
+For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
 
 ## max
 
@@ -987,7 +987,7 @@ The output from the preceding example with the default values is:
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
 To deploy this example template with PowerShell, use:
@@ -1050,7 +1050,7 @@ The output from the preceding example with the default values is:
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
 To deploy this example template with PowerShell, use:
@@ -1061,7 +1061,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ## range
 
-`range(startingInteger, numberOfElements)`
+`range(startIndex, count)`
 
 Creates an array of integers from a starting integer and containing a number of items.
 
@@ -1069,8 +1069,8 @@ Creates an array of integers from a starting integer and containing a number of 
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| startingInteger |Yes |int |The first integer in the array. |
-| numberofElements |Yes |int |The number of integers in the array. |
+| startIndex |Yes |int |The first integer in the array. The sum of startIndex and count must be no greater than 2147483647. |
+| count |Yes |int |The number of integers in the array. Must be non-negative integer up to 10000. |
 
 ### Return value
 
@@ -1113,7 +1113,7 @@ The output from the preceding example with the default values is:
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
 ```
 
 To deploy this example template with PowerShell, use:
@@ -1193,7 +1193,7 @@ The output from the preceding example with the default values is:
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
 ```
 
 To deploy this example template with PowerShell, use:
@@ -1273,7 +1273,7 @@ The output from the preceding example with the default values is:
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
 ```
 
 To deploy this example template with PowerShell, use:
@@ -1351,7 +1351,7 @@ The output from the preceding example with the default values is:
 To deploy this example template with Azure CLI, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
 ```
 
 To deploy this example template with PowerShell, use:
@@ -1364,6 +1364,6 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md).
+* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
 * To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md).
 

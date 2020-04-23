@@ -24,6 +24,10 @@ landingContent:
         links:
           - text: What is Immersive Reader?
             url: overview.md
+      - linkListType: video
+        links:
+          - text: Getting started - short engineering videos
+            url: https://aka.ms/ImmersiveReaderSDKVideos
 
   - title: Get started
     linkLists:

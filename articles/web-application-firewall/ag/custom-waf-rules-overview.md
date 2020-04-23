@@ -5,23 +5,23 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 01/30/2020
+ms.date: 04/14/2020
 ms.author: victorh
 ---
 
 # Custom rules for Web Application Firewall v2 on Azure Application Gateway
 
-The Azure Application Gateway Web Application Firewall (WAF) v2 comes with a pre-configured, platform-managed ruleset that offers protection from many different types of attacks. These attacks include cross site scripting, SQL injection, and others. If you're a WAF admin, you may want to write you own rules to augment the core rule set (CRS) rules. Your rules can either block or allow requested traffic based on matching criteria.
+The Azure Application Gateway Web Application Firewall (WAF) v2 comes with a pre-configured, platform-managed ruleset that offers protection from many different types of attacks. These attacks include cross site scripting, SQL injection, and others. If you're a WAF admin, you may want to write your own rules to augment the core rule set (CRS) rules. Your rules can either block or allow requested traffic based on matching criteria.
 
 Custom rules allow you to create your own rules that are evaluated for each request that passes through the WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules contain a rule name, rule priority, and an array of matching conditions. If these conditions are met, an action is taken (to allow or block).
 
-For example, you can block all requests from an IP address in the range 192.168.5.4/24. In this rule, the operator is *IPMatch*, the matchValues is the IP address range (192.168.5.4/24), and the action is to block the traffic. You also set the rule’s name and priority.
+For example, you can block all requests from an IP address in the range 192.168.5.4/24. In this rule, the operator is *IPMatch*, the matchValues is the IP address range (192.168.5.4/24), and the action is to block the traffic. You also set the rule's name and priority.
 
 Custom rules support using compounding logic to make more advanced rules that address your security needs. For example, (Condition 1 **and** Condition 2) **or** Condition 3). This means that if Condition 1 **and** Condition 2 are met, **or** if Condition 3 is met, the WAF should take the action specified in the custom rule.
 
-Different matching conditions within the same rule are always compounded using **and**. For example, block traffic from a specific IP address, and only if they’re using a certain browser.
+Different matching conditions within the same rule are always compounded using **and**. For example, block traffic from a specific IP address, and only if they're using a certain browser.
 
-If you want to **or** two different conditions, the two conditions must be in different rules. For example, block traffic from a specific IP address or block traffic if they’re using a specific browser.
+If you want to **or** two different conditions, the two conditions must be in different rules. For example, block traffic from a specific IP address or block traffic if they're using a specific browser.
 
 > [!NOTE]
 > The maximum number of WAF custom rules is 100. For more information about Application Gateway limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
@@ -120,7 +120,7 @@ Describes the field of the matchVariable collection. For example, if the matchVa
 Must be one of the following operators:
 
 - IPMatch - only used when Match Variable is *RemoteAddr*
-- Equals – input is the same as the MatchValue
+- Equal – input is the same as the MatchValue
 - Contains
 - LessThan
 - GreaterThan

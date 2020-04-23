@@ -1,5 +1,5 @@
 ---
-title: Machine Learning Algorithm Cheat Sheet
+title: Machine Learning Algorithm Cheat Sheet - designer
 titleSuffix: Azure Machine Learning
 description: A printable Machine Learning Algorithm Cheat Sheet helps you choose the right algorithm for your predictive model in Azure Machine Learning designer.
 services: machine-learning
@@ -9,11 +9,11 @@ ms.topic: conceptual
 
 author: FrancescaLazzeri
 ms.author: lazzeri
-ms.date: 11/04/2019
+ms.date: 03/05/2020
 ---
 # Machine Learning Algorithm Cheat Sheet for Azure Machine Learning designer
 
-The **Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right algorithm for a predictive analytics model.
+The **Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right algorithm from the designer for a predictive analytics model.
 
 Azure Machine Learning has a large library of algorithms from the ***classification***, ***recommender systems***, ***clustering***, ***anomaly detection***, ***regression***, and ***text analytics*** families. Each is designed to address a different type of machine learning problem.
 
@@ -33,7 +33,7 @@ The suggestions offered in this algorithm cheat sheet are approximate rules-of-t
 
 Every machine learning algorithm has its own style or inductive bias. For a specific problem, several algorithms may be appropriate, and one algorithm may be a better fit than others. But it's not always possible to know beforehand which is the best fit. In cases like these, several algorithms are listed together in the cheat sheet. An appropriate strategy would be to try one algorithm, and if the results are not yet satisfactory, try the others. 
 
-To learn more about the algorithms in Azure Machine Learning, go to the [Algorithm and module reference](algorithm-module-reference/module-reference.md).
+To learn more about the algorithms in Azure Machine Learning designer, go to the [Algorithm and module reference](algorithm-module-reference/module-reference.md).
 
 ## Kinds of machine learning
 

@@ -29,7 +29,7 @@ This feature performs a polling operation against the metrics endpoints (includi
 
 The polling interval is configured from the **Set interval** drop-down allowing you to set polling for new data every 1, 5, 15 and 30 seconds. 
 
-![Go Live drop-down polling interval](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.ping.png)
+![Go Live drop-down polling interval](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.png)
 
 >[!IMPORTANT]
 >We recommend setting the polling interval to one second while troubleshooting an issue for a short period of time. These requests may impact the availability and throttling of the Kubernetes API on your cluster. Afterwards, reconfigure to a longer polling interval. 

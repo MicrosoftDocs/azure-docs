@@ -110,7 +110,7 @@ or
 - the Resource ID for your subscription:
   - Go to the [Azure portal](https://portal.azure.com),
   - select `Cognitive Services` in the search box,
-  - from the displayed services pick the speech service you want the concurrency increased for,
+  - from the displayed services pick the Speech service you want the concurrency increased for,
   - display the `Properties` for this service,
   - copy the complete `Resource ID`.
 

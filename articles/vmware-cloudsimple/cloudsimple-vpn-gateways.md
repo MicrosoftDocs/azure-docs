@@ -1,6 +1,6 @@
 ---
-title:  Azure VMware Solutions (AVS) - VPN gateways
-description: Learn about AVS Site-to-Site VPN and Point-to-Site VPN concepts 
+title:  Azure VMware Solution by CloudSimple - VPN gateways
+description: Learn about CloudSimple Site-to-Site VPN and Point-to-Site VPN concepts 
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 08/20/2019 
@@ -11,31 +11,31 @@ manager: dikamath
 ---
 # VPN gateways overview
 
-A VPN gateway is used to send encrypted traffic between an AVS region network at an on-premises location, or a computer over the public internet. Each region can have one VPN gateway, which can support multiple connections. When you create multiple connections to the same VPN gateway, all VPN tunnels share the available gateway bandwidth.
+A VPN gateway is used to send encrypted traffic between a CloudSimple region network at an on-premises location, or a computer over the public internet.  Each region can have one VPN gateway, which can support multiple connections. When you create multiple connections to the same VPN gateway, all VPN tunnels share the available gateway bandwidth.
 
-AVS provides two kinds of VPN gateways:
+CloudSimple provides two kinds of VPN gateways:
 
 * Site-to-Site VPN gateway
 * Point-to-Site VPN gateway
 
 ## Site-to-Site VPN gateway
 
-A Site-to-Site VPN gateway is used to send encrypted traffic between an AVS region network and an on-premises datacenter. Use this connection to define the subnets/CIDR range, for network traffic between your on-premises network and the AVS region network.
+A Site-to-Site VPN gateway is used to send encrypted traffic between a CloudSimple region network and an on-premises datacenter. Use this connection to define the subnets/CIDR range, for network traffic between your on-premises network and the CloudSimple region network.
 
-The VPN gateway allows you to consume services from on-premises on your AVS Private Cloud, and services on your AVS Private Cloud from the on-premises network. AVS provides a policy-based VPN server for establishing the connection from your on-premises network.
+The VPN gateway allows you to consume services from on-premises on your Private Cloud, and services on your Private Cloud from the on-premises network.  CloudSimple provides a policy-based VPN server for establishing the connection from your on-premises network.
 
 Use cases for Site-to-Site VPN:
 
-* Accessibility of your AVS Private Cloud vCenter from any workstation in your on-premises network.
+* Accessibility of your Private Cloud vCenter from any workstation in your on-premises network.
 * Use of your on-premises Active Directory as a vCenter identity source.
-* Convenient transfer of VM templates, ISOs, and other files from your on-premises resources to your AVS Private Cloud vCenter.
-* Accessibility of workloads running on your AVS Private Cloud from your on-premises network.
+* Convenient transfer of VM templates, ISOs, and other files from your on-premises resources to your Private Cloud vCenter.
+* Accessibility of workloads running on your Private Cloud from your on-premises network.
 
 ![Site-to-Site VPN connection topology](media/cloudsimple-site-to-site-vpn-connection.png)
 
 ### Cryptographic parameters
 
-A Site-to-Site VPN connection uses the following default cryptographic parameters to establish a secure connection. When you create a connection from your on-premises VPN device, use any of the following parameters that are supported by your on-premises VPN gateway.
+A Site-to-Site VPN connection uses the following default cryptographic parameters to establish a secure connection.  When you create a connection from your on-premises VPN device, use any of the following parameters that are supported by your on-premises VPN gateway.
 
 #### Phase 1 proposals
 
@@ -64,7 +64,7 @@ A Site-to-Site VPN connection uses the following default cryptographic parameter
 
 ## Point-to-Site VPN gateway
 
-A Point-to-Site VPN is used to send encrypted traffic between an AVS region network and a client computer. Point-to-Site VPN is the easiest way to access your AVS Private Cloud network, including your AVS Private Cloud vCenter and workload VMs. Use Point-to-Site VPN connectivity if you're connecting to the AVS Private Cloud remotely.
+A Point-to-Site VPN is used to send encrypted traffic between a CloudSimple region network and a client computer.  Point-to-Site VPN is the easiest way to access your Private Cloud network, including your Private Cloud vCenter and workload VMs.  Use Point-to-Site VPN connectivity if you're connecting to the Private Cloud remotely.
 
 ## Next steps
 

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2019
+ms.date: 01/31/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -42,6 +42,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Azure AD SAML Toolkit supports **SP** initiated SSO
+* Once you configure Azure AD SAML Toolkit you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Azure AD SAML Toolkit from the gallery
 
@@ -73,20 +74,20 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com/), on the **Azure AD SAML Toolkit** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings. You can retrieve settings by using the SAML Toolkit SAML Configuration page. 
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** page, enter the values for the following fields:
 
     a. In the **Sign on URL** text box, type a URL:
-    `https://samltoolkit.azurewebsites.net/SAML/Login/<3digitnumber>`
+    `https://samltoolkit.azurewebsites.net/`
 
     b. In the **Identifier (Entity ID)** text box, type a URL:
     `https://samltoolkit.azurewebsites.net`
 
 	c. In the **Reply URL** text box, type a URL:
-    `https://samltoolkit.azurewebsites.net/SAML/Consume/<3digitnumber>`
+    `https://samltoolkit.azurewebsites.net/SAML/Consume`
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 
@@ -173,3 +174,7 @@ When you click the Azure AD SAML Toolkit tile in the Access Panel, you should be
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Azure AD SAML Toolkit with Azure AD](https://aad.portal.azure.com/)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [How to protect Azure AD SAML Toolkit with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/protect-azure)

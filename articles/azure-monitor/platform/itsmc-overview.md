@@ -1,7 +1,6 @@
 ---
 title: IT Service Management Connector in Azure Log Analytics | Microsoft Docs
 description: This article provides an overview of IT Service Management Connector (ITSMC) and information about how to use this solution to centrally monitor and manage the ITSM work items in Azure Log Analytics, and resolve any issues quickly.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime

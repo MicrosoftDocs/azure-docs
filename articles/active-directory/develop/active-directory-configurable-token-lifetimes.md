@@ -6,15 +6,14 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 04/17/2020
 ms.author: ryanwi
-ms.custom: aaddev, annaba, identityplatformtop40
-ms.reviewer: hirsin
+ms.custom: aaddev, identityplatformtop40
+ms.reviewer: hirsin, jlu, annaba
 ---
 # Configurable token lifetimes in Azure Active Directory (Preview)
 
@@ -28,9 +27,8 @@ In Azure AD, a policy object represents a set of rules that are enforced on indi
 You can designate a policy as the default policy for your organization. The policy is applied to any application in the organization, as long as it is not overridden by a policy with a higher priority. You also can assign a policy to specific applications. The order of priority varies by policy type.
 
 > [!NOTE]
-> Configurable token lifetime policy is not supported for SharePoint Online.  Even though you have the ability to create this policy via PowerShell, SharePoint Online will not acknowledge this policy. Refer to the [SharePoint Online blog](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) to learn more about configuring idle session timeouts.
->* The default lifetime for the SharePoint Online access token is 1 hour. 
->* The default max inactive time of the SharePoint Online refresh token is 90 days.
+> Configurable token lifetime policy only applies to mobile and desktop clients that access SharePoint Online and OneDrive for Business resources, and does not apply to web browser sessions.
+> To manage the lifetime of web browser sessions for SharePoint Online and OneDrive for Business, use the [Conditional Access session lifetime](../conditional-access/howto-conditional-access-session-lifetime.md) feature. Refer to the [SharePoint Online blog](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) to learn more about configuring idle session timeouts.
 
 ## Token types
 
@@ -242,19 +240,25 @@ In this example, you create a policy that lets your users' sign in less frequent
         }')
         ```
 
-    2. To create the policy, run the following command:
+    1. To create the policy, run the following command:
 
         ```powershell
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    3. To see your new policy, and to get the policy's **ObjectId**, run the following command:
+    1. To remove any whitespace, run the following command:
+
+        ```powershell
+        Get-AzureADPolicy -id | set-azureadpolicy -Definition @($((Get-AzureADPolicy -id ).Replace(" ","")))
+        ```
+
+    1. To see your new policy, and to get the policy's **ObjectId**, run the following command:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Update the policy.
+1. Update the policy.
 
     You might decide that the first policy you set in this example is not as strict as your service requires. To set your Single-Factor Refresh Token to expire in two days, run the following command:
 
@@ -276,13 +280,13 @@ In this example, you create a policy that requires users to authenticate more fr
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2. To see your new policy, and to get the policy **ObjectId**, run the following command:
+    1. To see your new policy, and to get the policy **ObjectId**, run the following command:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Assign the policy to your service principal. You also need to get the **ObjectId** of your service principal.
+1. Assign the policy to your service principal. You also need to get the **ObjectId** of your service principal.
 
     1. Use the [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet to see all your organization's service principals or a single service principal.
         ```powershell
@@ -290,7 +294,7 @@ In this example, you create a policy that requires users to authenticate more fr
         $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
         ```
 
-    2. When you have the service principal, run the following command:
+    1. When you have the service principal, run the following command:
         ```powershell
         # Assign policy to a service principal
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
@@ -307,13 +311,13 @@ In this example, you create a policy that requires users to authenticate less fr
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2. To see your new policy, run the following command:
+    1. To see your new policy, run the following command:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Assign the policy to your web API. You also need to get the **ObjectId** of your application. Use the [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) cmdlet to find your app's **ObjectId**, or use the [Azure portal](https://portal.azure.com/).
+1. Assign the policy to your web API. You also need to get the **ObjectId** of your application. Use the [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) cmdlet to find your app's **ObjectId**, or use the [Azure portal](https://portal.azure.com/).
 
     Get the **ObjectId** of your app and assign the policy:
 
@@ -336,19 +340,19 @@ In this example, you create a few policies to learn how the priority system work
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    2. To see your new policy, run the following command:
+    1. To see your new policy, run the following command:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Assign the policy to a service principal.
+1. Assign the policy to a service principal.
 
     Now, you have a policy that applies to the entire organization. You might want to preserve this 30-day policy for a specific service principal, but change the organization default policy to the upper limit of "until-revoked."
 
     1. To see all your organization's service principals, you use the [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet.
 
-    2. When you have the service principal, run the following command:
+    1. When you have the service principal, run the following command:
 
         ```powershell
         # Get ID of the service principal
@@ -358,13 +362,13 @@ In this example, you create a few policies to learn how the priority system work
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
         ```
 
-3. Set the `IsOrganizationDefault` flag to false:
+1. Set the `IsOrganizationDefault` flag to false:
 
     ```powershell
     Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
-4. Create a new organization default policy:
+1. Create a new organization default policy:
 
     ```powershell
     New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "ComplexPolicyScenarioTwo" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"

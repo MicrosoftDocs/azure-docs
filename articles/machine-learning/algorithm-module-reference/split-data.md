@@ -1,5 +1,5 @@
 ---
-title:  "Split Data: Module Reference"
+title:  "Split Data: Module reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Split Data module in Azure Machine Learning to divide a dataset into two distinct sets.
 services: machine-learning
@@ -7,106 +7,145 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
 ---
 # Split Data module
 
 This article describes a module in Azure Machine Learning designer (preview).
 
-Use this module to divide a dataset into two distinct sets.
+Use the Split Data module to divide a dataset into two distinct sets.
 
-This module is particularly useful when you need to separate data into training and testing sets. You can customize the way that data is divided as well. Some options support randomization of data; others are tailored for a certain data type or model type.
+This module is useful when you need to separate data into training and testing sets. You can also customize the way that data is divided. Some options support randomization of data. Others are tailored for a certain data type or model type.
 
-## How to configure
+## Configure the module
 
 > [!TIP]
-> Before choosing the splitting mode, read all options to determine the type of split you need.
-> If you change the splitting mode, all other options could be reset.
+> Before you choose the splitting mode, read all options to determine the type of split you need.
+> If you change the splitting mode, all other options might be reset.
 
 1. Add the **Split Data** module to your pipeline in the designer. You can find this module under **Data Transformation**, in the **Sample and Split** category.
 
-2. **Splitting mode**: Choose one of the following modes, depending on the type of data you have, and how you want to divide it. Each splitting mode has different options. Click the following topics for detailed instructions and examples. 
+1. **Splitting mode**: Choose one of the following modes, depending on the type of data you have and how you want to divide it. Each splitting mode has different options.
 
-    - **Split Rows**: Use this option if you just want to divide the data into two parts. You can specify the percentage of data to put in each split, but by default, the data is divided 50-50.
+   - **Split Rows**: Use this option if you just want to divide the data into two parts. You can specify the percentage of data to put in each split. By default, the data is divided 50/50.
 
-        You can also randomize the selection of rows in each group, and use stratified sampling. In stratified sampling, you must select a single column of data for which you want values to be apportioned equally among the two result datasets.  
+     You can also randomize the selection of rows in each group, and use stratified sampling. In stratified sampling, you must select a single column of data for which you want values to be apportioned equally among the two result datasets.  
 
-    - **Regular Expression Split**  Choose this option when you want to divide your dataset by testing a single column for a value.
+   - **Regular Expression Split**: Choose this option when you want to divide your dataset by testing a single column for a value.
 
-        For example, if you are analyzing sentiment, you could check for the presence of a particular product name in a text field, and then divide the dataset into rows with the target product name, and those without.
+     For example, if you're analyzing sentiment, you can check for the presence of a particular product name in a text field. You can then divide the dataset into rows with the target product name and rows  without the target product name.
 
-    - **Relative Expression Split**:  Use this option whenever you want to apply a condition to a number column. The number could be a date/time field, a column containing age or dollar amounts, or even a percentage. For example, you might want to divide your data set depending on the cost of the items, group people by age ranges, or separate data by a calendar date.
+   - **Relative Expression Split**: Use this option whenever you want to apply a condition to a number column. The number can be a date/time field, a column that contains age or dollar amounts, or even a percentage. For example, you might want to divide your dataset based on the cost of the items, group people by age ranges, or separate data by a calendar date.
 
-### Split Rows
+### Split rows
 
-1.  Add the [Split Data](./split-data.md) module to your pipeline in the designer, and connect the dataset you want to split.
+1. Add the [Split Data](./split-data.md) module to your pipeline in the designer, and connect the dataset that you want to split.
   
-2.  For **Splitting mode**, choose **Split rows**. 
+1. For **Splitting mode**, select **Split Rows**. 
 
-3.  **Fraction of rows in the first output dataset**. Use this option to determine how many rows go into the first (left-hand) output. All other rows will go to the second (right-hand) output.
+1. **Fraction of rows in the first output dataset**: Use this option to determine how many rows will go into the first (left side) output. All other rows will go into the second (right side) output.
 
-    The ratio represents the percentage of rows sent to the first output dataset, so you must type a decimal number between 0 and 1.
+   The ratio represents the percentage of rows sent to the first output dataset, so you must enter a decimal number between 0 and 1.
      
-     For example, if you type 0.75 as the value, the dataset would be split by using a 75:25 ratio, with 75% of the rows sent to the first output dataset, and 25% sent to the second output dataset.
+   For example, if you enter **0.75** as the value, the dataset will be split 75/25. In this split, 75 percent of the rows will be sent to the first output dataset. The remaining 25 percent will be sent to the second output dataset.
   
-4. Select the **Randomized split** option if you want to randomize selection of data into the two groups. This is the preferred option when creating training and test datasets.
+1. Select the **Randomized split** option if you want to randomize selection of data into the two groups. This is the preferred option when you're creating training and test datasets.
 
-5.  **Random Seed**: Type a non-negative integer value to initialize the pseudorandom sequence of instances to be used. This default seed is used in all modules that generate random numbers. 
+1. **Random Seed**: Enter a non-negative integer value to start the pseudorandom sequence of instances to be used. This default seed is used in all modules that generate random numbers. 
 
-     Specifying a seed makes the results generally reproducible. If you need to repeat the results of a split operation, you should specify a seed for the random number generator. Otherwise the random seed is set by default to 0, which means the initial seed value is obtained from the system clock. As a result, the distribution of data might be slightly different each time you perform a split. 
+   Specifying a seed makes the results reproducible. If you need to repeat the results of a split operation, you should specify a seed for the random number generator. Otherwise the random seed is set by default to **0**, which means the initial seed value is obtained from the system clock. As a result, the distribution of data might be slightly different each time you perform a split. 
 
-6. **Stratified split**: Set this option to **True** to ensure that the two output datasets contain a representative sample of the values in the *strata column* or *stratification key column*. 
+1. **Stratified split**: Set this option to **True** to ensure that the two output datasets contain a representative sample of the values in the *strata column* or *stratification key column*. 
 
-    With stratified sampling, the data is divided such that each output dataset gets roughly the same percentage of each target value. For example, you might want to ensure that your training and testing sets are roughly balanced with regard to the outcome, or with regard ot some other column such as gender.
+   With stratified sampling, the data is divided such that each output dataset gets roughly the same percentage of each target value. For example, you might want to ensure that your training and testing sets are roughly balanced with regard to the outcome or to some other column (such as gender).
 
-7. Run the pipeline.
+1. Submit the pipeline.
 
 
-## Regular expression split
+## Select a regular expression
 
-1.  Add the [Split Data](./split-data.md) module to your pipeline, and connect it as input to the dataset you want to split.  
+1. Add the [Split Data](./split-data.md) module to your pipeline, and connect it as input to the dataset that you want to split.  
   
-2.  For **Splitting mode**, select **Regular expression split**.
+1. For **Splitting mode**, select **Regular expression split**.
 
-3. In the **Regular expression** box, type a valid regular expression. 
+1. In the **Regular expression** box, enter a valid regular expression. 
   
-   The regular expression should follow Python regular expression syntax.
+   The regular expression should follow Python syntax for regular expressions.
 
+1. Submit the pipeline.
 
-4. Run the pipeline.
+   Based on the regular expression that you provide, the dataset is divided into two sets of rows: rows with values that match the expression and all remaining rows. 
 
-    Based on the regular expression you provide, the dataset is divided into two sets of rows: rows with values that match the expression and all remaining rows. 
+The following examples demonstrate how to divide a dataset by using the **Regular expression** option. 
 
-## Relative expression split.
+### Single whole word 
 
-1. Add the [Split Data](./split-data.md) module to your pipeline, and connect it as input to the dataset you want to split.
+This example puts into the first dataset all rows that contain the text `Gryphon` in the column `Text`. It puts other rows into the second output of **Split Data**.
+
+```text
+    \"Text" Gryphon  
+```
+
+### Substring
+
+This example looks for the specified string in any position within the second column of the dataset. The position is denoted here by the index value of 1. The match is case-sensitive.
+
+```text
+(\1) ^[a-f]
+```
+
+The first result dataset contains all rows where the index column begins with one of these characters: `a`, `b`, `c`, `d`, `e`, `f`. All other rows are directed to the second output.
+
+## Select a relative expression
+
+1. Add the [Split Data](./split-data.md) module to your pipeline, and connect it as input to the dataset that you want to split.
   
-2. For **Splitting mode**, select **relative expression split**.
+1. For **Splitting mode**, select **Relative Expression**.
   
-3. In the **Relational expression** text box, type an expression that performs a comparison operation, on a single column:
+1. In the **Relational expression** box, enter an expression that performs a comparison operation on a single column.
 
+   For **Numeric column**:
+   - The column contains numbers of any numeric data type, including date and time data types.
+   - The expression can reference a maximum of one column name.
+   - Use the ampersand character, `&`, for the AND operation. Use the pipe character, `|`, for the OR operation.
+   - The following operators are supported: `<`, `>`, `<=`, `>=`, `==`, `!=`.
+   - You can't group operations by using `(` and `)`.
+   
+   For **String column**:
+   - The following operators are supported: `==`, `!=`.
 
- - Numeric column:
-    - The column contains numbers of any numeric data type, including date/time data types.
+1. Submit the pipeline.
 
-    - The expression can reference a maximum of one column name.
+   The expression divides the dataset into two sets of rows: rows with values that meet the condition, and all remaining rows.
 
-    - Use the ampersand character (&) for the AND operation and use the pipe character (|) for the OR operation.
+The following examples demonstrate how to divide a dataset by using the **Relative Expression** option in the **Split Data** module.  
 
-    - The following operators are supported: `<`, `>`, `<=`, `>=`, `==`, `!=`
+### Calendar year
 
-    - You cannot group operations by using `(` and `)`.
+A common scenario is to divide a dataset by years. The following expression selects all rows where the values in the column `Year` are greater than `2010`.
 
- - String column: 
-    - The following operators are supported: `==`, `!=`
+```text
+\"Year" > 2010
+```
 
+The date expression must account for all date parts that are included in the data column. The format of dates in the data column must be consistent. 
 
+For example, in a date column that uses the format `mmddyyyy`, the expression should be something like this:
 
-4. Run the pipeline.
+```text
+\"Date" > 1/1/2010
+```
 
-    The expression divides the dataset into two sets of rows: rows with values that meet the condition, and all remaining rows.
+### Column index
+
+The following expression demonstrates how you can use the column index to select all rows in the first column of the dataset that contain values less than or equal to 30, but not equal to 20.
+
+```text
+(\0)<=30 & !=20
+```
+
 
 ## Next steps
 

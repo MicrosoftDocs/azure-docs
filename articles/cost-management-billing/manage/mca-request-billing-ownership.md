@@ -2,15 +2,10 @@
 title: Get billing ownership of Azure subscriptions
 description: Learn how to request billing ownership of Azure subscriptions from other users.
 author: amberbhargava
-manager: amberb
-editor: banders
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/01/2019
+ms.date: 02/13/2020
 ms.author: banders
 
 ---

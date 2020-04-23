@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
 ---

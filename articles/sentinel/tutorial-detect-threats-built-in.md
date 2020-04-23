@@ -3,7 +3,7 @@ title: Investigate alerts with Azure Sentinel| Microsoft Docs
 description: Use this tutorial to learn how to investigate alerts with Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Tutorial: Detect threats out-of-the-box

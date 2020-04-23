@@ -2,14 +2,14 @@
 title: Technical and feature overview - Azure Active Directory B2C
 description: An in-depth introduction to the features and technologies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 09/19/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -191,7 +191,7 @@ You can add a REST API call at any step in the user journey defined by a custom 
 * After Azure AD B2C creates a new account in the directory
 * Before Azure AD B2C issues an access token
 
-To see how to use custom policies for RESTful API integration in Azure AD B2C, see [Integrate REST API claims exchanges in your Azure AD B2C user journey](rest-api-claims-exchange-dotnet.md).
+To see how to use custom policies for RESTful API integration in Azure AD B2C, see [Integrate REST API claims exchanges in your Azure AD B2C custom policy](custom-policy-rest-api-intro.md).
 
 ## Protect customer identities
 

@@ -6,13 +6,13 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 03/03/2020
 ms.author: victorh
 ---
 
 # Create an application gateway with internal redirection using Azure PowerShell
 
-You can use Azure Powershell to configure [web traffic redirection](multiple-site-overview.md) when you create an [application gateway](overview.md). In this tutorial, you define a backend pool using a virtual machines scale set. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate pool. This tutorial assumes that you own multiple domains and uses examples of *www.contoso.com* and *www\.contoso.org*.
+You can use Azure Powershell to configure [web traffic redirection](multiple-site-overview.md) when you create an [application gateway](overview.md). In this tutorial, you define a backend pool using a virtual machines scale set. You then configure listeners and rules based on domains that you own to make sure web traffic arrives at the appropriate pool. This tutorial assumes that you own multiple domains and uses examples of *www\.contoso.com* and *www\.contoso.org*.
 
 In this article, you learn how to:
 
@@ -102,7 +102,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### Create the first listener and rule
 
-A listener is required to enable the application gateway to route traffic appropriately to the backend pool. In this tutorial, you create two listeners for your two domains. In this example, listeners are created for the domains of *www.contoso.com* and *www\.contoso.org*.
+A listener is required to enable the application gateway to route traffic appropriately to the backend pool. In this tutorial, you create two listeners for your two domains. In this example, listeners are created for the domains of *www\.contoso.com* and *www\.contoso.org*.
 
 Create the first listener named *contosoComListener* using [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) with the frontend configuration and frontend port that you previously created. A rule is required for the listener to know which backend pool to use for incoming traffic. Create a basic rule named *contosoComRule* using [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -242,7 +242,7 @@ Set-AzVmssStorageProfile $vmssConfig `
   -ImageReferencePublisher MicrosoftWindowsServer `
   -ImageReferenceOffer WindowsServer `
   -ImageReferenceSku 2016-Datacenter `
-  -ImageReferenceVersion latest
+  -ImageReferenceVersion latest `
   -OsDiskCreateOption FromImage
 Set-AzVmssOsProfile $vmssConfig `
   -AdminUsername azureuser `
@@ -291,7 +291,7 @@ Enter your domain name into the address bar of your browser. Such as, [https://w
 
 ![Test contoso site in application gateway](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Change the address to your other domain, for example https://www.contoso.org and you should see that the traffic has been redirected back to the listener for `www.contoso.com`.
+Change the address to your other domain, for example https://www.contoso.org and you should see that the traffic has been redirected back to the listener for www\.contoso.com.
 
 ## Next steps
 

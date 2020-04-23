@@ -85,7 +85,7 @@ az hdinsight create \
     --cluster-users-group-dns $groupDNS
 ```
 
-### Create a Kafka cluster with [disk encryption](kafka/apache-kafka-byok.md)
+### Create a Kafka cluster with [disk encryption](./disk-encryption.md)
 
 ```azurecli
 export clusterName=CLUSTERNAME

@@ -2,7 +2,7 @@
 title: Reset your password using security info - Azure Active Directory | Microsoft Docs
 description: How to reset your own password if you forget it, using your security info and two-step verification.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.author: lizross
+ms.author: curtand
 ---
 
 # Reset your work or school password using security info

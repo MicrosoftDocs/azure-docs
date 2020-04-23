@@ -13,7 +13,7 @@ ms.custom: include file
 
 ## Create a Recovery Services vault
 
-A Recovery Services vault is an entity that stores backups and recovery points created over time. The Recovery Services vault also contains the backup policies that are associated with the protected virtual machines.
+A Recovery Services vault is a storage entity that stores the recovery points created over time. It also contains the backup policies that are associated with protected items.
 
 To create a Recovery Services vault, follow these steps.
 

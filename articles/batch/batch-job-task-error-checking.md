@@ -6,7 +6,7 @@ author: mscurrell
 
 ms.service: batch
 ms.topic: article
-ms.date: 12/01/2019
+ms.date: 03/10/2019
 ms.author: markscu
 ---
 
@@ -68,6 +68,17 @@ In all cases the following properties must be checked for errors and information
 The impact of task failures on the job and any task dependencies must be considered.  The [exitConditions](https://docs.microsoft.com/rest/api/batchservice/task/add#exitconditions) property can be specified for a task to configure an action for dependencies and for the job.
 - For dependencies, [DependencyAction](https://docs.microsoft.com/rest/api/batchservice/task/add#dependencyaction) controls whether the tasks dependent on the failed task are blocked or are run.
 - For the job, [JobAction](https://docs.microsoft.com/rest/api/batchservice/task/add#jobaction) controls whether the failed task leads to the job being disabled, terminated, or left unchanged.
+
+### Task command line failures
+
+When the task command line is run, output is written to `stderr.txt` and `stdout.txt`. In addition, the application may write to application-specific log files.
+
+If the pool node on which a task has run still exists, then the log files can be obtained and viewed. For example, the Azure portal lists and can view log files for a task or a pool node. Multiple APIs also allow task files to be listed and obtained, such as [Get From Task](https://docs.microsoft.com/rest/api/batchservice/file/getfromtask).
+
+Due to pools and pool nodes frequently being ephemeral, with nodes being continuously added and deleted, then it is recommended that log files are persisted. [Task output files](https://docs.microsoft.com/azure/batch/batch-task-output-files) are a convenient way to save log files to Azure Storage.
+
+### Output file failures
+On every file upload, Batch writes two log files to the compute node, `fileuploadout.txt` and `fileuploaderr.txt`. You can examine these log files to learn more about a specific failure. In cases where the file upload was never attempted, for example because the task itself couldn't run, then these log files will not exist.  
 
 ## Next steps
 

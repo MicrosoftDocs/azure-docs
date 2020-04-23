@@ -7,7 +7,7 @@ ms.date: 01/24/2020
 
 # Configure hybrid Kubernetes clusters with Azure Monitor for containers
 
-Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS Engine clusters hosted in Azure. This article describes how to enable monitoring of Kubernetes clusters hosted outside of Azure and achieve a similar monitoring experience.
+Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and [AKS Engine on Azure](https://github.com/Azure/aks-engine), which is a self-managed Kubernetes cluster hosted on Azure. This article describes how to enable monitoring of Kubernetes clusters hosted outside of Azure and achieve a similar monitoring experience.
 
 ## Prerequisites
 
@@ -223,7 +223,7 @@ To first identify the full resource ID of your Log Analytics workspace required 
        az login
        az account set --subscription "Subscription Name"
        # execute deployment command to add container insights solution to the specified Log Analytics workspace
-       az group deployment create --resource-group <resource group of log analytics workspace> --template-file ./containerSolution.json --parameters @./containerSolutionParams.json
+       az deployment group create --resource-group <resource group of log analytics workspace> --name <deployment name> --template-file  ./containerSolution.json --parameters @./containerSolutionParams.json
        ```
 
        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
@@ -235,6 +235,9 @@ To first identify the full resource ID of your Log Analytics workspace required 
        After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
 ## Install the chart
+
+>[!NOTE]
+>The following commands are applicable only for Helm version 2. Use of the --name parameter is not applicable with Helm version 3.
 
 To enable the HELM chart, do the following:
 
@@ -280,10 +283,10 @@ If you encounter an error while attempting to enable monitoring for your hybrid 
 
 * The specified Log Analytics workspace is valid
 * The Log Analytics workspace is configured with the Azure Monitor for Containers solution. If not, configure the workspace.
-* OmsAgent replicaset pod are running
-* OmsAgent daemonset pod are running
+* OmsAgent replicaset pods are running
+* OmsAgent daemonset pods are running
 * OmsAgent Health service is running
-* The Log Analytics workspace Id and key configured on the containerized agent match with the workspace the Insight is configured with.
+* The Log Analytics workspace ID and key configured on the containerized agent match with the workspace the Insight is configured with.
 * Validate all the Linux worker nodes have `kubernetes.io/role=agent` label to schedule rs pod. If it doesn't exist, add it.
 * Validate `cAdvisor secure port:10250` or `unsecure port: 10255` is opened on all nodes in the cluster.
 

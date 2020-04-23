@@ -1,8 +1,8 @@
 ---
 title: Search for a location using Azure Maps Search services | Microsoft Azure Maps
 description: In this article, you will learn how to search for a location using the Microsoft Azure Maps Search Service for geocoding and reverse geocoding.
-author: walsehgal
-ms.author: v-musehg
+author: philmea
+ms.author: philmea
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -222,5 +222,5 @@ If you have a set of coordinate locations to reverse geocode, you can use [Post 
 
 ## Next steps
 
-- Explore the [Azure Maps search service](https://docs.microsoft.com/rest/api/maps/search) API documentation.
-- Learn about [Best practices](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search).
+- Explore the [Azure Maps Search Service REST API documentation](https://docs.microsoft.com/rest/api/maps/search).
+- Learn about [Azure Maps Search Service best practices](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search) and how to optimize your queries.

@@ -39,7 +39,7 @@ Make sure you have the following resources:
 
 * [Git](https://git-scm.com/downloads).
 
-* [Java Development Kit (JDK) 8+](https://aka.ms/azure-jdks).
+* [Java Development Kit (JDK) 8+](/java/azure/jdk/?view=azure-java-stable).
 
 * [Maven](https://maven.apache.org/download.cgi).
 

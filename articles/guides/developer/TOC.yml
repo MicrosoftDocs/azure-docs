@@ -3,7 +3,7 @@
   - name: Developer guide
     href: azure-developer-guide.md
   - name: SDKs and tools
-    href: https://docs.microsoft.com/azure/index#pivot=sdkstools
+    href: https://aka.ms/azsdkpackages
 - name: Quickstart
   items:
   - name: Web Apps

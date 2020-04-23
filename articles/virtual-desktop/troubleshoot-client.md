@@ -6,8 +6,9 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/13/2019
+ms.date: 03/31/2020
 ms.author: helohr
+manager: lizross
 ---
 # Troubleshoot the Remote Desktop client
 
@@ -15,21 +16,15 @@ This article describes common issues with the Remote Desktop client and how to f
 
 ## Remote Desktop client for Windows 7 or Windows 10 stops responding or cannot be opened
 
-Use the following PowerShell cmdlets to clean up out-of-band (OOB) client registries.
+Starting with version 1.2.790, you can reset the user data from the About page or using a command.
 
-```PowerShell
-Remove-ItemProperty 'HKCU:\Software\Microsoft\Terminal Server Client\Default' - Name FeedURLs
+Use the following command to remove your user data, restore default settings and unsubscribe from all Workspaces.
 
-#Remove RdClientRadc registry key
-Remove-Item 'HKCU:\Software\Microsoft\RdClientRadc' -Recurse
-
-#Remove all files under %appdata%\RdClientRadc
-Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
+```cmd
+msrdcw.exe /reset [/f]
 ```
 
-Navigate to **%AppData%\RdClientRadc** and delete all content.
-
-Uninstall and reinstall Remote Desktop client for Windows 7 and Windows 10.
+If you're using an earlier version of the Remote Desktop client, we recommend you uninstall and reinstall the client.
 
 ## Web client won't open
 

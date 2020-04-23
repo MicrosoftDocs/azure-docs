@@ -1,8 +1,8 @@
 ---
 title: Localization support | Microsoft Azure Maps
-description: In this article, you will learn about supported languages for the services in Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+description: In this article, you'll learn about supported languages for the services in Microsoft Azure Maps.
+author: philmea
+ms.author: philmea
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -17,7 +17,7 @@ Azure Maps supports various languages and views based on country/region. This ar
 
 ## Azure Maps supported languages
 
-Azure Maps have been localized in a variety of languages across the services. The following table provides the supported language codes for each service.  
+Azure Maps have been localized in variety languages across its services. The following table provides the supported language codes for each service.  
   
 
 | ID         | Name                   |  Maps | Search | Routing | Weather | Traffic incidents | JS map control |
@@ -104,7 +104,7 @@ Azure Maps have been localized in a variety of languages across the services. Th
 >
 > After August 1, 2019, the **View** parameter will define the returned map content for the new regions/countries listed above. Azure Maps **View** parameter (also referred to as “user region parameter”) is a two letter ISO-3166 Country Code that will show the correct maps for that country/region specifying which set of geopolitically disputed content is returned via Azure Maps services, including borders and labels displayed on the map. 
 
-Ensure that you have set up the **View** parameter as required for the REST APIs and SDKs that your services are using.
+Make sure you set up the **View** parameter as required for the REST APIs and the SDKs, which your services are using.
 >  
 >
 >  **Rest APIs:**
@@ -137,7 +137,7 @@ Ensure that you have set up the **View** parameter as required for the REST APIs
 >    * Azure Maps Web SDK
 >    * Azure Maps Android SDK
 
-By default the View parameter is set to **Unified**, even if you haven’t defined it in the request. Determine the location of your users, and then set the **View** parameter correctly for that location. Alternatively, you can set ‘View=Auto’, which will return the map data based on the IP address of the request.  The **View** parameter in Azure Maps must be used in compliance with applicable laws, including those laws about mapping of the country where maps, images, and other data and third-party content that you're authorized to access via Azure Maps is made available.
+By default, the View parameter is set to **Unified**, even if you haven’t defined it in the request. Determine the location of your users. Then, set the **View** parameter correctly for that location. Alternatively, you can set ‘View=Auto’, which will return the map data based on the IP address of the request.  The **View** parameter in Azure Maps must be used in compliance with applicable laws, including those laws about mapping of the country where maps, images, and other data and third-party content that you're authorized to access via Azure Maps is made available.
 
 
 The following table provides supported views.

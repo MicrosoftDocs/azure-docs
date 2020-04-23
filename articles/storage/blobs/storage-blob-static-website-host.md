@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 > [!NOTE] 
-> Make sure to create a general-purpose v2 storage account. Static websites aren't available in any other type of storage account.
+> Make sure to create a general-purpose v2 Standard storage account . Static websites aren't available in any other type of storage account.
 
 This tutorial uses [Visual Studio Code](https://code.visualstudio.com/download), a free tool for programmers, to build the static website and deploy it to an Azure Storage account.
 
@@ -88,9 +88,7 @@ Next, create a Hello World web page with Visual Studio Code and deploy it to the
 
 Visual Studio Code will now upload your files to your web endpoint, and show the success status bar. Launch the website to view it in Azure.
 
-![View static website deployment in Azure](media/storage-blob-static-website-host/view-static-website-endpoint.png)
-
-You’ve successfully completed the tutorial and deployed a static website to Azure.
+You've successfully completed the tutorial and deployed a static website to Azure.
 
 ## Next steps
 

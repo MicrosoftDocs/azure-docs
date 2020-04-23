@@ -1,6 +1,6 @@
 --- 
-title: Azure VMware Solutions (AVS) - AVS Private Cloud permission model
-description: Describes the AVS Private Cloud permission model, groups, and categories 
+title: Azure VMware Solution by CloudSimple - Private Cloud permission model
+description: Describes the CloudSimple Private Cloud permission model, groups, and categories 
 author: sharaths-cs
 ms.author: b-shsury 
 ms.date: 08/16/2019 
@@ -10,32 +10,32 @@ ms.reviewer: cynthn
 manager: dikamath 
 ---
 
-# AVS Private Cloud permission model of VMware vCenter
+# CloudSimple Private Cloud permission model of VMware vCenter
 
-AVS retains full administrative access to the AVS Private Cloud environment. Each AVS customer is granted sufficient administrative privileges to be able to deploy and manage the virtual machines in their environment. If needed, you can temporarily escalated your privileges to perform administrative functions.
+CloudSimple retains full administrative access to the Private Cloud environment. Each CloudSimple customer is granted sufficient administrative privileges to be able to deploy and manage the virtual machines in their environment.  If needed, you can temporarily escalated your privileges to perform administrative functions.
 
 ## Cloud Owner
 
-When you create a AVS Private Cloud, a **CloudOwner** user is created in the vCenter Single Sign-On domain, with **Cloud-Owner-Role** access to manage objects in the AVS Private Cloud. This user also can set up additional [vCenter Identity Sources](set-vcenter-identity.md), and other users to the AVS Private Cloud vCenter.
+When you create a Private Cloud, a **CloudOwner** user is created in the vCenter Single Sign-On domain, with **Cloud-Owner-Role** access to manage objects in the Private Cloud. This user also can set up additional [vCenter Identity Sources](set-vcenter-identity.md), and other users to the Private Cloud vCenter.
 
 > [!NOTE]
-> Default user for your AVS Private Cloud vCenter is cloudowner@AVS.local when an AVS Private Cloud is created.
+> Default user for your CloudSimple Private Cloud vCenter is cloudowner@cloudsimple.local when a Private Cloud is created.
 
 ## User Groups
 
-A group called **Cloud-Owner-Group** is created during the deployment of an AVS Private Cloud. Users in this group can administer various parts of the vSphere environment on the AVS Private Cloud. This group is automatically given  **Cloud-Owner-Role** privileges, and the  **CloudOwner** user is added as a member of this group. AVS creates additional groups with limited privileges for ease of management. You can add any user to these pre-created groups and the privileges defined below are automatically assigned to the users in the groups.
+A group called **Cloud-Owner-Group** is created during the deployment of a Private Cloud. Users in this group can administer various parts of the vSphere environment on the Private Cloud. This group is automatically given  **Cloud-Owner-Role** privileges, and the  **CloudOwner** user is added as a member of this group.  CloudSimple creates additional groups with limited privileges for ease of management.  You can add any user to these pre-created groups and the privileges defined below are automatically assigned to the users in the groups.
 
 ### Pre-created Groups
 
 | Group Name | Purpose | Role |
 | -------- | ------- | ------ |
-| Cloud-Owner-Group | Members of this group have administrative privileges to the AVS Private Cloud vCenter | [Cloud-Owner-Role](#cloud-owner-role) |
-| Cloud-Global-Cluster-Admin-Group | Members of this group have administrative privileges on the AVS Private Cloud vCenter Cluster | [Cloud-Cluster-Admin-Role](#cloud-cluster-admin-role) |
-| Cloud-Global-Storage-Admin-Group | Members of this group can manage storage on the AVS Private Cloud vCenter | [Cloud-Storage-Admin-Role](#cloud-storage-admin-role) |
-| Cloud-Global-Network-Admin-Group | Members of this group can manage network and distributed port groups on the AVS Private Cloud vCenter | [Cloud-Network-Admin-Role](#cloud-network-admin-role) |
-| Cloud-Global-VM-Admin-Group | Members of this group can manage virtual machines on the AVS Private Cloud vCenter | [Cloud-VM-Admin-Role](#cloud-vm-admin-role) |
+| Cloud-Owner-Group | Members of this group have administrative privileges to the Private Cloud vCenter | [Cloud-Owner-Role](#cloud-owner-role) |
+| Cloud-Global-Cluster-Admin-Group | Members of this group have administrative privileges on the Private Cloud vCenter Cluster | [Cloud-Cluster-Admin-Role](#cloud-cluster-admin-role) |
+| Cloud-Global-Storage-Admin-Group | Members of this group can manage storage on the Private Cloud vCenter | [Cloud-Storage-Admin-Role](#cloud-storage-admin-role) |
+| Cloud-Global-Network-Admin-Group | Members of this group can manage network and distributed port groups on the Private Cloud vCenter | [Cloud-Network-Admin-Role](#cloud-network-admin-role) |
+| Cloud-Global-VM-Admin-Group | Members of this group can manage virtual machines on the Private Cloud vCenter | [Cloud-VM-Admin-Role](#cloud-vm-admin-role) |
 
-To grant individual users permissions to manage the AVS Private Cloud, create user accounts add to the appropriate groups.
+To grant individual users permissions to manage the Private Cloud, create user accounts add to the appropriate groups.
 
 > [!CAUTION]
 > New users must be added only to *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* or, *Cloud-Global-VM-Admin-Group*.  Users added to *Administrators* group will be removed automatically.  Only service accounts must be added to *Administrators* group and service accounts must not be used to sign in to vSphere web UI.

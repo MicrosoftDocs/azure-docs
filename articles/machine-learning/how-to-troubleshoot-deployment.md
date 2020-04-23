@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: clauren42
 ms.author:  clauren
 ms.reviewer: jmartens
-ms.date: 10/25/2019
+ms.date: 03/05/2020
 ms.custom: seodec18
 ---
 
@@ -216,6 +216,10 @@ def run(input_data):
 
 **Note**: Returning error messages from the `run(input_data)` call should be done for debugging purpose only. For security reasons, you should not return error messages this way in a production environment.
 
+## HTTP status code 502
+
+A 502 status code indicates that the service has thrown an exception or crashed in the `run()` method of the score.py file. Use the information in this article to debug the file.
+
 ## HTTP status code 503
 
 Azure Kubernetes Service deployments support autoscaling, which allows replicas to be added to support additional load. However, the autoscaler is designed to handle **gradual** changes in load. If you receive large spikes in requests per second, clients may receive an HTTP status code 503.
@@ -256,6 +260,12 @@ There are two things that can help prevent 503 status codes:
     > If you receive request spikes larger than the new minimum replicas can handle, you may receive 503s again. For example, as traffic to your service increases, you may need to increase the minimum replicas.
 
 For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas` for, see the [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) module reference.
+
+## HTTP status code 504
+
+A 504 status code indicates that the request has timed out. The default timeout is 1 minute.
+
+You can increase the timeout or try to speed up the service by modifying the score.py to remove unnecessary calls. If these actions do not correct the problem, use the information in this article to debug the score.py file. The code may be in a hung state or an infinite loop.
 
 ## Advanced debugging
 

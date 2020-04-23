@@ -83,6 +83,13 @@ The following two types of errors are classified as user errors:
 | Dead-lettered messages| Count of dead-lettered messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/>Dimension: EntityName |
 | Scheduled messages| Count of scheduled messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average  <br/> Dimension: EntityName |
 
+> [!NOTE]
+> Values for the following metrics are point-in-time values. Incoming messages that were consumed immediately after that point-in-time may not be reflected in these metrics. 
+> - Messages
+> - Active messages 
+> - Dead-lettered messages 
+> - Scheduled messages 
+
 ## Connection metrics
 
 | Metric Name | Description |
@@ -93,6 +100,10 @@ The following two types of errors are classified as user errors:
 
 > [!NOTE] 
 > The following metrics are available only with the **premium** tier. 
+> 
+> The important metrics to monitor for any outages for a premium tier namespace are: **CPU usage per namespace** and **memory size per namespace**. [Set up alerts](../azure-monitor/platform/alerts-metric.md) for these metrics using Azure Monitor.
+> 
+> The other metric you could monitor is: **throttled requests**. It shouldn't be an issue though as long as the namespace stays within its memory, CPU, and brokered connections limits. For more information, see [Throttling in Azure Service Bus Premium tier](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
 
 | Metric Name | Description |
 | ------------------- | ----------------- |

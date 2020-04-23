@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
 ---
 # Neural Network Regression module
 
@@ -51,7 +51,9 @@ Neural networks can be extensively customized. This section describes how to cre
   
 2. Indicate how you want the model to be trained, by setting the **Create trainer mode** option.  
   
-    -   **Single Parameter**: Choose this option if you already know how you want to configure the model.  
+    -   **Single Parameter**: Choose this option if you already know how you want to configure the model.
+
+    -   **Parameter Range**: Select this option if you are not sure of the best parameters, and want to run a parameter sweep. Select a range of values to iterate over, and the [Tune Model Hyperparameters](tune-model-hyperparameters.md) iterates over all possible combinations of the settings you provided to determine the hyperparameters that produce the optimal results.   
 
 3.  In **Hidden layer specification**, select **Fully connected case**. This option creates a model using the default neural network architecture, which for a neural network regression model, has these attributes:  
   
@@ -67,7 +69,6 @@ Neural networks can be extensively customized. This section describes how to cre
 
 6.  For **Number of learning iterations**, specify the maximum number of times the algorithm processes the training cases.
 
-7.  For **The initial learning weights diameter, type a value that determines the node weights at the start of the learning process.
 
 8.  For **The momentum**, type a value to apply during learning as a weight on nodes from previous iterations.
 
@@ -80,7 +81,7 @@ Neural networks can be extensively customized. This section describes how to cre
     -   If you set **Create trainer mode** to **Single Parameter**, use [Train Model](./train-model.md).  
   
    
-14. Run the pipeline.  
+14. Submit the pipeline.  
 
 ## Results
 

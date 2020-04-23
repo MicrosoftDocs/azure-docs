@@ -22,6 +22,8 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-http-connector.md)
 > * [Current version](connector-http.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from an HTTP endpoint. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 The difference among this HTTP connector, the [REST connector](connector-rest.md) and the [Web table connector](connector-web-table.md) are:
@@ -66,7 +68,7 @@ The following properties are supported for the HTTP linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **HttpServer**. | Yes |
 | url | The base URL to the web server. | Yes |
-| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you connect to an HTTP endpoint. If your HTTPS server uses a self-signed certificate, set this property to **false**. | No<br /> (the default is **true**) |
+| enableServerCertificateValidation | Specify whether to enable server TLS/SSL certificate validation when you connect to an HTTP endpoint. If your HTTPS server uses a self-signed certificate, set this property to **false**. | No<br /> (the default is **true**) |
 | authenticationType | Specifies the authentication type. Allowed values are **Anonymous**, **Basic**, **Digest**, **Windows**, and **ClientCertificate**. <br><br> See the sections that follow this table for more properties and JSON samples for these authentication types. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
@@ -175,7 +177,7 @@ The following properties are supported for HTTP under `location` settings in for
 | Property    | Description                                                  | Required |
 | ----------- | ------------------------------------------------------------ | -------- |
 | type        | The type property under `location` in dataset must be set to **HttpServerLocation**. | Yes      |
-| relativeUrl | A relative URL to the resource that contains the data. The HTTP connector copies data from the combined URL: `[URL specified in linked service]/[relative URL specified in dataset]`.   | No       |
+| relativeUrl | A relative URL to the resource that contains the data. The HTTP connector copies data from the combined URL: `[URL specified in linked service][relative URL specified in dataset]`.   | No       |
 
 > [!NOTE]
 > The supported HTTP request payload size is around 500 KB. If the payload size you want to pass to your web endpoint is larger than 500 KB, consider batching the payload in smaller chunks.

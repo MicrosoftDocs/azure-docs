@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/20/2019
+ms.date: 02/27/2020
 ---
 
 # Tutorial: Automate tasks to process emails by using Azure Logic Apps, Azure Functions, and Azure Storage
@@ -86,7 +86,7 @@ You can save incoming emails and attachments as blobs in an [Azure storage conta
 
 1. Create a blob storage container for your email attachments.
 
-   1. On your storage account menu, select **Overview**. Under **Services**, select **Containers**.
+   1. On your storage account menu, select **Overview**. On the Overview pane, select **Containers**.
 
       ![Add blob storage container](./media/tutorial-process-email-attachments-workflow/create-storage-container.png)
 
@@ -220,24 +220,24 @@ After checking that your function works, create your logic app. Although this tu
 
 ## Create your logic app
 
-1. From the Azure home page, in the search box, find and select **Logic Apps**.
+1. In the Azure top-level search box, enter `logic apps`, and select **Logic Apps**.
 
    ![Find and select "Logic Apps"](./media/tutorial-process-email-attachments-workflow/find-select-logic-apps.png)
 
-1. On the **Logic Apps** page, select **Add**.
+1. On the **Logic Apps** pane, select **Add**.
 
-   ![Add new logic app](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
+   ![Add new logic app](./media/tutorial-process-email-attachments-workflow/add-new-logic-app.png)
 
-1. Under **Create logic app**, provide details about your logic app as shown here. After you're done, select **Create**.
+1. On the **Logic App** pane, provide details about your logic app as shown here. After you're done, select **Review + create**.
 
    ![Provide logic app information](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
    | Setting | Value | Description |
    | ------- | ----- | ----------- |
-   | **Name** | LA-ProcessAttachment | The name for your logic app |
    | **Subscription** | <*your-Azure-subscription-name*> | The same Azure subscription that you previously used |
    | **Resource group** | LA-Tutorial-RG | The same Azure resource group that you previously used |
-   | **Location** | West US | The same region that you previously used |
+   | **Logic App name** | LA-ProcessAttachment | The name for your logic app |
+   | **Select the location** | West US | The same region that you previously used |
    | **Log Analytics** | Off | For this tutorial, select the **Off** setting. |
    ||||
 
@@ -672,7 +672,15 @@ Congratulations, you've now created and run a logic app that automates tasks acr
 
 When you no longer need this sample, delete the resource group that contains your logic app and related resources.
 
-1. On the main Azure menu, select **Resource groups**. From the resource groups list, select the resource group for this tutorial. On the **Overview** pane, select **Delete resource group**.
+1. In the top-level Azure search box, enter `resources groups`, and select **Resource groups**.
+
+   ![Find and select "Resource groups"](./media/tutorial-process-email-attachments-workflow/find-azure-resource-groups.png)
+
+1. From the **Resource groups** list, select the resource group for this tutorial. 
+
+   ![Find the resource group for tutorial](./media/tutorial-process-email-attachments-workflow/find-select-tutorial-resource-group.png)
+
+1. On the **Overview** pane, select **Delete resource group**.
 
    ![Delete logic app resource group](./media/tutorial-process-email-attachments-workflow/delete-resource-group.png)
 

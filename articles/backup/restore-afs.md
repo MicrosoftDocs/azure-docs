@@ -16,6 +16,7 @@ In this article, you'll learn how to:
 * Track the restore operation status.
 
 ## Steps to perform a restore operation
+
 To perform a restore operation, follow these steps.
 
 ### Select the file share to restore
@@ -105,7 +106,7 @@ You can use this restore option to restore individual files or folders in the or
 
     ![Original Location for item-level recovery](./media/restore-afs/original-location-item-level.png)
 
-2. Choose **Select File** to select the files or folders you want to restore.
+1. Choose **Select File** to select the files or folders you want to restore.
 
     ![Choose Select File](./media/restore-afs/select-file.png)
 

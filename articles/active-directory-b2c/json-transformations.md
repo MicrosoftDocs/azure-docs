@@ -3,14 +3,14 @@ title: JSON claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: JSON claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
-ms.author: marsma
+ms.date: 04/21/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -219,6 +219,39 @@ In the following example, the claims transformation extracts the `id` element fr
 - Output claims:
     - **extractedClaim**: 6353399
 
+## GetSingleItemFromJson
+
+Gets the first element from a JSON data.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputJson | string | The ClaimTypes that are used by the claims transformation to get the item from the JSON data. |
+| OutputClaim | key | string | The first element key in the JSON. |
+| OutputClaim | value | string | The first element value in the JSON. |
+
+In the following example, the claims transformation extracts the first element (given name) from the JSON data.
+
+```XML
+<ClaimsTransformation Id="GetGivenNameFromResponse" TransformationMethod="GetSingleItemFromJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="json" TransformationClaimType="inputJson" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="givenNameKey" TransformationClaimType="key" />
+    <OutputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="value" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+  - **inputJson**: {"givenName": "Emilty", "lastName": "Smith"}
+- Output claims:
+  - **key**: givenName
+  - **value**: Emilty
+
+
 ## GetSingleValueFromJsonArray
 
 Gets the first element from a JSON data array.
@@ -290,3 +323,5 @@ Output claim:
   }
 }
 ```
+
+

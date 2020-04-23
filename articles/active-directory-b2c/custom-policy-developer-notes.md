@@ -3,14 +3,14 @@ title: Developer notes for custom policies
 titleSuffix: Azure AD B2C
 description: Notes for developers on configuring and maintaining Azure AD B2C with custom policies.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.author: marsma
+ms.date: 03/30/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -55,68 +55,82 @@ Developers consuming the custom policy feature set should adhere to the followin
 
 Custom policy/Identity Experience Framework capabilities are under constant and rapid development. The following table is an index of features and component availability.
 
-### Identity Providers, Tokens, Protocols
+
+### Protocols and authorization flows
 
 | Feature | Development | Preview | GA | Notes |
 |-------- | :-----------: | :-------: | :--: | ----- |
-| IDP-OpenIDConnect |  |  | X | For example, Google+.  |
-| IDP-OAUTH2 |  |  | X | For example, Facebook.  |
-| IDP-OAUTH1 (twitter) |  | X |  | For example, Twitter. |
-| IDP-OAUTH1 (ex-twitter) |  |  |  | Not supported |
-| IDP-SAML |  |   | X | For example, Salesforce, ADFS. |
-| IDP-WSFED | X |  |  |  |
-| Relying Party OAUTH1 |  |  |  | Not supported. |
-| Relying Party OAUTH2 |  |  | X |  |
-| Relying Party OIDC |  |  | X |  |
-| Relying Party SAML | X |  |  |  |
-| Relying Party WSFED | X |  |  |  |
-| REST API with basic and certificate auth |  |  | X | For example, Azure Logic Apps. |
+| [OAuth2 authorization code](authorization-code-flow.md) |  |  | X |  |
+| OAuth2 authorization code with PKCE |  |  | X | Mobile applications only  |
+| [OAuth2 implicit flow](implicit-flow-single-page-application.md) |  |  | X |  |
+| [OAuth2 resource owner password credentials](ropc-custom.md) |  | X |  |  |
+| [OIDC Connect](openid-connect.md) |  |  | X |  |
+| [SAML2](connect-with-saml-service-providers.md)  |  |X  |  | POST and Redirect bindings. |
+| OAuth1 |  |  |  | Not supported. |
+| WSFED | X |  |  |  |
 
-### Component Support
+### Identify providers federation 
+
+| Feature | Development | Preview | GA | Notes |
+|-------- | :-----------: | :-------: | :--: | ----- |
+| [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | For example, Google+.  |
+| [OAuth2](oauth2-technical-profile.md) |  |  | X | For example, Facebook.  |
+| [OAuth1](oauth1-technical-profile.md) |  | X |  | For example, Twitter. |
+| [SAML2](saml-technical-profile.md) |  |   | X | For example, Salesforce, ADFS. |
+| WSFED| X |  |  |  |
+
+
+### REST API integration
+
+| Feature | Development | Preview | GA | Notes |
+|-------- | :-----------: | :-------: | :--: | ----- |
+| [REST API with basic auth](secure-rest-api.md#http-basic-authentication) |  |  | X |  |
+| [REST API with client certificate auth](secure-rest-api.md#https-client-certificate-authentication) |  |  | X |  |
+| [REST API with OAuth2 bearer auth](secure-rest-api.md#oauth2-bearer-authentication) |  | X |  |  |
+
+### Component support
 
 | Feature | Development | Preview | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Azure Multi Factor Authentication |  |  | X |  |
-| Azure Active Directory as local directory |  |  | X |  |
-| Azure Email subsystem for email verification |  |  | X |  |
-| Multi-language support|  |  | X |  |
-| Predicate Validations |  |  | X | For example, password complexity. |
-| Using third party email service providers | X |  |  |  |
+| [Phone factor authentication](phone-factor-technical-profile.md) |  |  | X |  |
+| [Azure MFA authentication](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [One-time password](one-time-password-technical-profile.md) |  | X |  |  |
+| [Azure Active Directory](active-directory-technical-profile.md) as local directory |  |  | X |  |
+| Azure email subsystem for email verification |  |  | X |  |
+| [Third party email service providers](custom-email.md) |  |X  |  |  |
+| [Multi-language support](localization.md)|  |  | X |  |
+| [Predicate validations](predicates.md) |  |  | X | For example, password complexity. |
+| [Display controls](display-controls.md) |  |X  |  |  |
 
-### Content Definition
+
+### Page layout versions
 
 | Feature | Development | Preview | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Error page, api.error |  |  | X |  |
-| IDP selection page, api.idpselections |  |  | X |  |
-| IDP selection for signup, api.idpselections.signup |  |  | X |  |
-| Forgot Password, api.localaccountpasswordreset |  |  | X |  |
-| Local Account Sign-in, api.localaccountsignin |  |  | X |  |
-| Local Account Sign-up, api.localaccountsignup |  |  | X |  |
-| MFA page, api.phonefactor |  |  | X |  |
-| Self-asserted social account sign-up, api.selfasserted |  |  | X |  |
-| Self-asserted profile update, api.selfasserted.profileupdate |  |  | X |  |
-| Unified signup or sign-in page, api.signuporsignin, with parameter "disableSignup" |  |  | X |  |
-| JavaScript / Page layout |  | X |  |  |
+| [2.0.0](page-layout.md#200) |  | X |  |  |
+| [1.2.0](page-layout.md#120) |  | X |  |  |
+| [1.1.0](page-layout.md#110) |  |  | X |  |
+| [1.0.0](page-layout.md#100) |  |  | X |  |
+| [JavaScript support](javascript-samples.md) |  | X |  |  |
 
 ### App-IEF integration
 
 | Feature | Development | Preview | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| Query string parameter domain_hint |  |  | X | Available as claim, can be passed to IDP. |
-| Query string parameter login_hint |  |  | X | Available as claim, can be passed to IDP. |
-| Insert JSON into UserJourney via client_assertion | X |  |  | Will be deprecated. |
-| Insert JSON into UserJourney as id_token_hint |  | X |  | Go-forward approach to pass JSON. |
-| Pass IDP TOKEN to the application |  | X |  | For example, from Facebook to app. |
+| Query string parameter `domain_hint` |  |  | X | Available as claim, can be passed to IDP. |
+| Query string parameter `login_hint` |  |  | X | Available as claim, can be passed to IDP. |
+| Insert JSON into user journey via `client_assertion` | X |  |  | Will be deprecated. |
+| Insert JSON into user journey as `id_token_hint` |  | X |  | Go-forward approach to pass JSON. |
+| [Pass identity provider token to the application](idp-pass-through-custom.md) |  | X |  | For example, from Facebook to app. |
 
 ### Session Management
 
 | Feature | Development | Preview | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| SSO Session Provider |  |  | X |  |
-| External Login Session Provider |  |  | X |  |
-| SAML SSO  Session Provider |  |  | X |  |
-| Default SSO Session Provider |  |  | X |  |
+| [Default SSO session provider](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
+| [External login session provider](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
+| [SAML SSO session provider](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
+
 
 ### Security
 
@@ -124,16 +138,19 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Policy Keys- Generate, Manual, Upload |  |  | X |  |
 | Policy Keys- RSA/Cert, Secrets |  |  | X |  |
-| Policy upload |  |  | X |  |
+
 
 ### Developer interface
 
 | Feature | Development | Preview | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Portal-IEF UX |  |  | X |  |
-| Application Insights UserJourney Logs |  | X |  | Used for troubleshooting during development.  |
-| Application Insights Event Logs (via orchestration steps) |  | X |  | Used to monitor user flows in production. |
+| Policy upload |  |  | X |  |
+| [Application Insights user journey logs](troubleshoot-with-application-insights.md) |  | X |  | Used for troubleshooting during development.  |
+| [Application Insights event logs](application-insights-technical-profile.md) |  | X |  | Used to monitor user flows in production. |
+
 
 ## Next steps
 
-Learn more about [custom policies and the differences with user flows](custom-policy-overview.md).
+- Check the [Microsoft Graph operations available for Azure AD B2C](microsoft-graph-operations.md)
+- Learn more about [custom policies and the differences with user flows](custom-policy-overview.md).

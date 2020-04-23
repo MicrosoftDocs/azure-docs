@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 11/06/2019
+ms.date: 03/17/2020
 ---
 
 # Use an existing model with Azure Machine Learning
@@ -64,11 +64,13 @@ For more information, see the [Model.register()](https://docs.microsoft.com/pyth
 az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 ```
 
+> [!TIP]
+> You can also set add `tags` and `properties` dictionary objects to the registered model. These values can be used later to help identify a specific model. For example, the framework used, training parameters, etc.
+
 For more information, see the [az ml model register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register) reference.
 
 
 For more information on model registration in general, see [Manage, deploy, and monitor machine learning models](concept-model-management-and-deployment.md).
-
 
 ## Define inference configuration
 

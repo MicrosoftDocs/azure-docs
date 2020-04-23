@@ -1,15 +1,13 @@
 ---
-title: Get maintenance notifications for Azure VMs using the CLI
+title: Get maintenance notifications using the CLI
 description: View maintenance notifications for virtual machines running in Azure, and start self-service maintenance, using the Azure CLI.
-services: virtual-machines
 author: shants123
-tags: azure-service-management,azure-resource-manager
-
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
+#pmcontact: shants
 ---
 
 # Handling planned maintenance notifications using the Azure CLI
@@ -34,6 +32,7 @@ az vm perform-maintenance -g myResourceGroup -n myVM
 
 ## Classic deployments
 
+[!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
 
 If you still have legacy VMs that were deployed using the classic deployment model, you can use the Azure classic CLI to query for VMs and initiate maintenance.
 

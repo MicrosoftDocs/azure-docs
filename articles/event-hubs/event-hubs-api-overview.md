@@ -44,7 +44,7 @@ The .NET ecosystem has multiple runtimes, so there are multiple .NET libraries f
 
 #### Node
 
-The [Node.js library](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) is currently in preview and is maintained as a side project by Microsoft employees and external contributors. All contributions including source code are welcome and will be reviewed.
+The [JavaScript library](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) is currently in preview and is maintained as a side project by Microsoft employees and external contributors. All contributions including source code are welcome and will be reviewed.
 
 ## Management APIs
 

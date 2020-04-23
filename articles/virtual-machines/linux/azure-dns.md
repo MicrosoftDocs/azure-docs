@@ -1,18 +1,9 @@
 ---
-title: DNS Name resolution options for Linux virtual machines in Azure
+title: DNS Name resolution options for Linux VMs
 description: Name Resolution scenarios for Linux virtual machines in Azure IaaS, including provided DNS services, hybrid external DNS and Bring Your Own DNS server.
-services: virtual-machines
-documentationcenter: na
 author: RicksterCDN
-manager: gwallace
-editor: tysonn
-
-ms.assetid: 787a1e04-cebf-4122-a1b4-1fcf0a2bbf5f
 ms.service: virtual-machines-linux
-
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
 
@@ -101,7 +92,7 @@ To check the current settings on a Linux virtual machine, 'cat /etc/resolv.conf'
 The resolv.conf file is auto-generated and should not be edited. The specific steps that add the 'options' line vary by distribution:
 
 **Ubuntu** (uses resolvconf)
-1. Add the options line to '/etc/resolveconf/resolv.conf.d/head'.
+1. Add the options line to '/etc/resolvconf/resolv.conf.d/head'.
 2. Run 'resolvconf -u' to update.
 
 **SUSE** (uses netconf)

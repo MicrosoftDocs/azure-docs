@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
+manager: lizross
 ---
 # Deploy a management tool with an Azure Resource Manager template
 
@@ -31,7 +32,7 @@ Before deploying the management tool, you'll need an Azure Active Directory (Azu
 
 - Have Azure Multi-Factor Authentication (MFA) disabled
 - Have permission to create resources in your Azure subscription
-- Have permission to create an Azure AD application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+- Have permission to create an Azure AD application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
 After you deploy and configure the management tool, we recommend you ask a user to launch the management UI to make sure everything works. The user who launches the management UI must have a role assignment that lets them view or edit the Windows Virtual Desktop tenant.
 

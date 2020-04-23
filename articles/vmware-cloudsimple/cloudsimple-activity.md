@@ -1,7 +1,7 @@
 ---
-title: Activity management 
-description: Describes activity concepts on VMware Solution by AVS
-titleSuffix: Azure VMware Solutions (AVS) 
+title: CloudSimple activity management
+titleSuffix: Azure VMware Solution by CloudSimple 
+description: Describes activity concepts on VMware Solution by CloudSimple
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/30/2019
@@ -12,23 +12,23 @@ manager: dikamath
 ---
 # Activity management overview
 
-AVS keeps track of all the activity that can affect the functioning of your AVS Private Cloud environment. Activities include alerts, events, tasks, and audit activity. The [Activity pages](monitor-activity.md) summarize all the current activity and allow you to drill down for additional details.
+CloudSimple keeps track of all the activity that can affect the functioning of your Private Cloud environment. Activities include alerts, events, tasks, and audit activity. The [Activity pages](monitor-activity.md) summarize all the current activity and allow you to drill down for additional details.
 
 ## Events
 
-Events track user and system activity on the AVS portal. Events show the activity associated with a specific resource and the severity of the impact.  You can view the events from the AVS portal.
+Events track user and system activity on the CloudSimple portal. Events show the activity associated with a specific resource and the severity of the impact.  You can view the events from the CloudSimple portal.
 
 ## Alerts
 
-Alerts are notifications of any significant activity in your AVS environment. Events that impact billing or user access are shown as alerts. You can acknowledge alerts from the AVS portal.
+Alerts are notifications of any significant activity in your CloudSimple environment. Events that impact billing or user access are shown as alerts.  You can acknowledge alerts from the CloudSimple portal.
 
 ## Tasks
 
-Tasks track any user operation that takes more than 30 seconds to complete. You can monitor the progress of a task from the AVS portal. For completed tasks, the information includes the total time for completion.
+Tasks track any user operation that takes more than 30 seconds to complete. You can monitor the progress of a task from the CloudSimple portal.  For completed tasks, the information includes the total time for completion.
 
 ## Audit
 
-Audit logs keep track of user operations. Audit logs contain the parameters provided for the operation by the user. You can use audit logs to monitor user activity for all users.
+Audit logs keep track of user operations. Audit logs contain the parameters provided for the operation by the user.  You can use audit logs to monitor user activity for all users.
 
 ## Next steps
 

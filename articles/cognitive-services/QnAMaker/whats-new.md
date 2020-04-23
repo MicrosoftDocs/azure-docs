@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 02/14/2020
 ms.author: diberry
 ---
 
@@ -19,6 +19,14 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 ## Release notes
 
 Learn what's new with QnA Maker.
+
+### March 2020
+
+* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../cognitive-services-security.md).
+
+### February 2020
+
+* [NPM package](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) with GenerateAnswer API
 
 ### November 2019
 

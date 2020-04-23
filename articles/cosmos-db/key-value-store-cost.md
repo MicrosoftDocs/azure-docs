@@ -21,7 +21,7 @@ Azure Cosmos DB performance is based on the amount of provisioned throughput exp
 
 As a globally distributed database system, Cosmos DB is the only Azure service that provides comprehensive SLAs covering latency, throughput, consistency and high availability. The throughput you provision is applied to each of the regions associated with your Cosmos account. For reads, Cosmos DB offers multiple, well-defined [consistency levels](consistency-levels.md) for you to choose from. 
 
-The following table shows the number of RUs required to perform read and write operations based on a data item of size 1 KB and 100 KBs.
+The following table shows the number of RUs required to perform read and write operations based on a data item of size 1 KB and 100 KBs with default automatic indexing turned off. 
 
 |Item Size|1 Read|1 Write|
 |-------------|------|-------|

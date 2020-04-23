@@ -24,6 +24,8 @@
       href: hana-data-tiering-extension-nodes.md
     - name: Operations model and responsibilities
       href: hana-operations-model.md
+    - name: Compatible Operating Systems
+      href: os-compatibility-matrix-hana-large-instance.md
   - name: Architecture
     items:
     - name: General architecture
@@ -78,9 +80,11 @@
       href: os-upgrade-hana-large-instance.md
     - name: Setting up SMT server for SUSE Linux
       href: hana-setup-smt.md
+    - name: HLI to Azure VM migration
+      href: hana-large-instance-virtual-machine-migration.md
 - name: SAP HANA on Azure Virtual Machines
   items:
-  - name: Single instance SAP HANA installation
+  - name: Installation of SAP HANA on Azure  VMs
     href: hana-get-started.md
   - name: S/4 HANA or BW/4 HANA SAP CAL deployment guide
     href: cal-s4h.md
@@ -110,14 +114,17 @@
     href: sap-hana-backup-guide.md
   - name: SAP HANA file level backup
     href: sap-hana-backup-file-level.md
-  - name: SAP HANA storage snapshot backups
-    href: sap-hana-backup-storage-snapshots.md
 - name: SAP NetWeaver and Business One on Azure Virtual Machines
   items:
   - name: SAP workload planning and deployment checklist
     href: sap-deployment-checklist.md
   - name: Plan and implement SAP NetWeaver on Azure
     href: planning-guide.md
+    items:
+    - name: SAP workload on Azure virtual machine supported scenarios
+      href: sap-planning-supported-configurations.md
+    - name: What SAP software is supported for Azure deployments
+      href: sap-supported-product-on-azure.md
   - name: SAP NetWeaver Deployment guide
     href: deployment-guide.md
   - name: DBMS deployment guides for SAP workload
@@ -218,6 +225,8 @@
         href: sap-ascs-ha-multi-sid-wsfc-file-share.md
       - name: SLES with Pacemaker multi-SID for A(SCS) Instance
         href: high-availability-guide-suse-multi-sid.md
+      - name: RHEL with Pacemaker multi-SID for A(SCS) Instance
+        href: high-availability-guide-rhel-multi-sid.md
   - name: Azure Site Recovery for SAP Disaster Recovery
     href: ../../../site-recovery/site-recovery-workload.md#protect-sap
   - name: Azure Proximity Placement Groups for optimal network latency with SAP applications

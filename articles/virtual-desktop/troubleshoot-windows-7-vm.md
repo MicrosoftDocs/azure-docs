@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: helohr
+manager: lizross
 ---
 # Troubleshoot Windows 7 virtual machines in Windows Virtual Desktop
 

@@ -15,11 +15,18 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 ## Issue
 
-Apache ZooKeeper server is unhealthy, symptoms could include: both Resource Managers/Name Nodes are in standby mode, simple HDFS operations do not work, `zkFailoverController` is stopped and cannot be started, Yarn/Spark/Livy jobs fail due to Zookeeper errors. You may see an error message similar to:
+Apache ZooKeeper server is unhealthy, symptoms could include: both Resource Managers/Name Nodes are in standby mode, simple HDFS operations do not work, `zkFailoverController` is stopped and cannot be started, Yarn/Spark/Livy jobs fail due to Zookeeper errors. LLAP Daemons may also fail to start on Secure Spark or Interactive Hive clusters. You may see an error message similar to:
 
 ```
 19/06/19 08:27:08 ERROR ZooKeeperStateStore: Fatal Zookeeper error. Shutting down Livy server.
 19/06/19 08:27:08 INFO LivyServer: Shutting down Livy server.
+```
+
+In the Zookeeper Server logs on any Zookeeper host at /var/log/zookeeper/zookeeper-zookeeper-server-\*.out, you may also see the following error:
+
+```
+2020-02-12 00:31:52,513 - ERROR [CommitProcessor:1:NIOServerCnxn@178] - Unexpected Exception:
+java.nio.channels.CancelledKeyException
 ```
 
 ## Cause
@@ -28,11 +35,11 @@ When the volume of snapshot files is large or snapshot files are corrupted, ZooK
 
 ## Resolution
 
-Check ZooKeeper data directory `/hadoop/zookeeper/version-2` and `/hadoop/hdinsight-zookeepe/version-2` to find out if the snapshots file size is large. Take the following steps if large snapshots exist:
+Check ZooKeeper data directory `/hadoop/zookeeper/version-2` and `/hadoop/hdinsight-zookeeper/version-2` to find out if the snapshots file size is large. Take the following steps if large snapshots exist:
 
-1. Back up snapshots in `/hadoop/zookeeper/version-2` and `/hadoop/hdinsight-zookeepe/version-2`.
+1. Back up snapshots in `/hadoop/zookeeper/version-2` and `/hadoop/hdinsight-zookeeper/version-2`.
 
-1. Clean up snapshots in `/hadoop/zookeeper/version-2` and `/hadoop/hdinsight-zookeepe/version-2`.
+1. Clean up snapshots in `/hadoop/zookeeper/version-2` and `/hadoop/hdinsight-zookeeper/version-2`.
 
 1. Restart all ZooKeeper servers from Apache Ambari UI.
 

@@ -2,14 +2,14 @@
 title: Tutorial - add tags to resources in template
 description: Add tags to resources that you deploy in your Azure Resource Manager template. Tags let you logically organize resources.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Add tags in your Resource Manager template
+# Tutorial: Add tags in your ARM template
 
-In this tutorial, you learn how to add tags to resources in your template. [Tags](../management/tag-resources.md) help you logically organize your resources. The tag values show up in cost reports. This tutorial takes **8 minutes** to complete.
+In this tutorial, you learn how to add tags to resources in your Azure Resource Manager (ARM) template. [Tags](../management/tag-resources.md) help you logically organize your resources. The tag values show up in cost reports. This tutorial takes **8 minutes** to complete.
 
 ## Prerequisites
 
@@ -53,8 +53,10 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addtags \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -62,6 +64,9 @@ az group deployment create \
 ```
 
 ---
+
+> [!NOTE]
+> If the deployment failed, use the **debug** switch with the deployment command to show the debug logs.  You can also use the **verbose** switch to show the full debug logs.
 
 ## Verify deployment
 

@@ -10,31 +10,33 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-This section describes how to perform the following modification operations for Direct peering:
+This section describes how to perform the following modification operations for Direct peering.
 
 ### Add Direct peering connections
-1. Click on the **+ Add connections** button on the top and configure a new peering connection.
+1. Select the **+ Add connections** button, and configure a new peering connection.
     > [!div class="mx-imgBorder"]
     > ![Peering resource view](../media/setup-direct-modify-addconnection.png)
-1. Fill-out the **Direct peering Connection** form and click **Save**. For help with configuring a peering connection review the steps under "Create and provision a Direct peering" section above.
+
+1. Fill out the **Direct Peering Connection** form, and select **Save**. For help with configuring a peering connection, review the steps in the "Create and provision a Direct peering" section.
     > [!div class="mx-imgBorder"]
-    > ![Peering resource view](../media/setup-direct-modify-savenewconnection.png)
+    > ![Direct Peering Connection form](../media/setup-direct-modify-savenewconnection.png)
 
 ### Remove Direct peering connections
 
-Removing a connection is not currently supported on portal. Contact [Microsoft peering](mailto:peeringexperience@microsoft.com).
+Removing a connection isn't currently supported in the Azure portal. For more information, contact [Microsoft peering](mailto:peeringexperience@microsoft.com).
 
 ### Upgrade or downgrade bandwidth on Active connections
-1. Click on a peering connection you want to modify and then, click on the **...** > **Edit connection** button.
+1. Select a peering connection you want to modify, and then select **...** > **Edit connection**.
     > [!div class="mx-imgBorder"]
-    > ![Peering Connection Edit](../media/setup-direct-modify-editconnection.png)
-1. Modify bandwidth as shown below and then click **Save**.
+    > ![Edit connection](../media/setup-direct-modify-editconnection.png)
+
+1. Modify bandwidth by moving the slider, and then select **Save**.
     > [!div class="mx-imgBorder"]
-    > ![Peering Connection Modify Bandwidth](../media/setup-direct-modify-editconnectionsettings.png)
+    > ![Modify bandwidth](../media/setup-direct-modify-editconnectionsettings.png)
 
-### Add IPv4/IPv6 session on Active connections.
-1. Click on a peering connection you want to modify and then, click on the **...** > **Edit connection** button as shown above.
-1. Add **Session IPv4 prefix** or **Session IPv6 prefix** info and click **Save**.
+### Add IPv4 or IPv6 session information on Active connections
+1. Select a peering connection you want to modify, and then select **...** > **Edit connection** as shown in step 1.
+1. Enter **Session IPv4 prefix** or **Session IPv6 prefix** information, and select **Save**.
 
-### Remove IPv4/IPv6 session on Active connections.
-    Removing a **Session IPv4 prefix** or **Session IPv6 prefix** info is not currently supported on portal. Contact [Microsoft peering](mailto:peeringexperience@microsoft.com).
+### Remove IPv4 or IPv6 session information on Active connections
+Removing **Session IPv4 prefix** or **Session IPv6 prefix** information isn't currently supported in the portal. For more information, contact [Microsoft peering](mailto:peeringexperience@microsoft.com).

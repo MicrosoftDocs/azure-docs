@@ -17,9 +17,9 @@ ms.author: tarcher
 ---
 
 # Deploy with Terraform from Bash in Azure Cloud Shell
-This article walks you through creating a resource group with the [Terraform AzureRM provider](https://www.terraform.io/docs/providers/azurerm/index.html). 
+This article walks you through creating a resource group with the [Terraform AzureRM provider](https://www.terraform.io/docs/providers/azurerm/index.html).
 
-[Hashicorp Terraform](https://www.terraform.io/) is an open source tool that codifies APIs into declarative configuration files that can be shared amongst team members to be edited, reviewed, and versioned. The Microsoft AzureRM provider is used to interact with resources supported by Azure Resource Manager via the AzureRM APIs. 
+[Hashicorp Terraform](https://www.terraform.io/) is an open source tool that codifies APIs into declarative configuration files that can be shared amongst team members to be edited, reviewed, and versioned. The Microsoft AzureRM provider is used to interact with resources supported by Azure Resource Manager via the AzureRM APIs.
 
 ## Automatic authentication
 Terraform is installed in Bash in Cloud Shell by default. Additionally, Cloud Shell automatically authenticates your default Azure CLI subscription to deploy resources through the Terraform Azure modules.
@@ -143,7 +143,7 @@ The [terraform apply command](https://www.terraform.io/docs/commands/apply.html)
 ### Verify deployment with Azure CLI
 Run `az group show -n myRgName` to verify the resource has succeeded provisioning.
 
-```azcliinteractive
+```azurecli-interactive
 az group show -n myRgName
 ```
 

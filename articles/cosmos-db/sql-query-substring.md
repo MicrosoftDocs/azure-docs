@@ -44,7 +44,11 @@ SELECT SUBSTRING("abc", 1, 1) AS substring
   
 ```json
 [{"substring": "b"}]  
-```  
+```
+
+## Remarks
+
+This system function will benefit from a [range index](index-policy.md#includeexclude-strategy) if the starting position is `0`.
 
 ## Next steps
 

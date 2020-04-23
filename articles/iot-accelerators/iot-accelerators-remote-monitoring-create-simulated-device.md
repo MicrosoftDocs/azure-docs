@@ -8,6 +8,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
+ms.custom:  mqtt
 
 # As a developer, I want to know how to create and test a new simulated device before I deploy it to the cloud.
 ---
@@ -69,7 +70,7 @@ The following table shows the initial status of the device:
 
 To complete the steps in this how-to guide, you need an active Azure subscription.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -79,7 +80,7 @@ To follow this how-to guide, you need:
 
 * Visual Studio Code. You can [download Visual Studio Code for Mac, Linux, and Windows](https://code.visualstudio.com/download).
 * .NET Core. You can download [.NET Core for Mac, Linux, and Windows](https://www.microsoft.com/net/download).
-* [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * Postman. You can download [Postman for Mac, Windows, or Linux](https://www.getpostman.com/apps).
 * An [IoT hub deployed to your Azure subscription](../../articles/iot-hub/iot-hub-create-through-portal.md). You need the IoT hub's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
 * A Cosmos DB database that uses the SQL API and that is configured for [strong consistency](../../articles/cosmos-db/how-to-manage-database-account.md). You need the Cosmos DB database's connection string to complete the steps in this guide. You can get the connection string from the Azure portal.
@@ -443,7 +444,7 @@ The following script assumes that the name of your IoT hub is **device-simulatio
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Monitor telemetry sent to your hub
 az iot hub monitor-events --hub-name device-simulation-test

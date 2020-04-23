@@ -47,7 +47,7 @@ An account in the Microsoft identity platform consists of:
 
 ## Account overview diagram
 
-![Account Overview Diagram](./media/accounts-overview/accounts-overview.png)
+![Account Overview Diagram](./media/accounts-overview/accounts-overview.svg)
 
 In the above diagram:
 

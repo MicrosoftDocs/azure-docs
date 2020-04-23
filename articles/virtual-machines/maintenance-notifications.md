@@ -1,17 +1,13 @@
 ---
-title: Maintenance notifications for Azure VMs | Microsoft Docs
+title: Maintenance notifications 
 description: Overview of maintenance notifications for virtual machines running in Azure.
-services: virtual-machines
-documentationcenter: ''
 author: shants123
-editor: ''
-tags: azure-service-management,azure-resource-manager
-
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
+#pmcontact: shants
 ---
 
 # Handling planned maintenance notifications
@@ -25,7 +21,7 @@ Azure periodically performs updates to improve the reliability, performance, and
 
 Planned maintenance that requires a reboot is scheduled in waves. Each wave has different scope (regions).
 
-- A wave starts with a notification to customers. By default, notification is sent to Service Administator and Co-Administrators. You can add more recipients and messaging options like email, SMS, and webhooks, using [Activity Log Alerts](../service-health/alerts-activity-log-service-notifications.md).  
+- A wave starts with a notification to customers. By default, notification is sent to the Service Administrator and Co-Administrators. You can add more recipients and messaging options like email, SMS, and webhooks, using [Activity Log Alerts](../service-health/alerts-activity-log-service-notifications.md).  
 - Once a notification goes out, a *self-service window* is made available. During this window, you can query which of your virtual machines are affected and start maintenance based on your own scheduling needs. The self-service window is typically about 35 days.
 - After the self-service window, a *scheduled maintenance window* begins. At some point during this window, Azure schedules and applies the required maintenance to your virtual machine. 
 

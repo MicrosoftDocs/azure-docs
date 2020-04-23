@@ -199,7 +199,7 @@ Flow logs will have the following fields:
 - Protocol type 
 - Action taken during mitigation
 
-
+Attack analytics will only work if DDoS Protection Standard is enabled on the virtual network of the public IP address. 
 
 ## Validate DDoS detection
 

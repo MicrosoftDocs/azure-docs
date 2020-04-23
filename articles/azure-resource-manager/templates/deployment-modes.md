@@ -18,7 +18,7 @@ In complete mode, Resource Manager **deletes** resources that exist in the resou
 
 If your template includes a resource that isn't deployed because [condition](conditional-resource-deployment.md) evaluates to false, the result depends on which REST API version you use to deploy the template. If you use a version earlier than 2019-05-10, the resource **isn't deleted**. With 2019-05-10 or later, the resource **is deleted**. The latest versions of Azure PowerShell and Azure CLI delete the resource.
 
-Be careful using complete mode with [copy loops](create-multiple-instances.md). Any resources that aren't specified in the template after resolving the copy loop are deleted.
+Be careful using complete mode with [copy loops](copy-resources.md). Any resources that aren't specified in the template after resolving the copy loop are deleted.
 
 If you deploy to [more than one resource group in a template](cross-resource-group-deployment.md), resources in the resource group specified in the deployment operation are eligible to be deleted. Resources in the secondary resource groups aren't deleted.
 
@@ -89,7 +89,7 @@ New-AzResourceGroupDeployment `
 To set the deployment mode when deploying with Azure CLI, use the `mode` parameter.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --mode Complete \
   --resource-group ExampleGroup \

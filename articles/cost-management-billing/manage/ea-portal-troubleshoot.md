@@ -1,13 +1,12 @@
 ---
 title: Troubleshoot Azure EA portal access
 description: This article describes some common issues that can occur with an Azure Enterprise Agreement (EA) in the Azure EA portal.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/04/2020
-ms.topic: troubleshooting
+ms.date: 04/01/2020
+ms.topic: conceptual
 ms.service: cost-management-billing
-manager: boalcsva
+ms.reviewer: boalcsva
 ---
 
 # Troubleshoot Azure EA portal access
@@ -104,11 +103,11 @@ Please note that if there are other EA administrators on the enrollment, we will
 
 ### My enrollment is showing in pending status. How do I activate my enrollment?
 
-Enrollments will be in pending status if the initial EA administrator has not logged on to the enrollment before. If you are the EA administrator, please sign in to the Azure EA portal. On the landing page with all your enrollment numbers, you may not see your pending enrollment. Please uncheck the “active” box on the top-right corner of your EA portal, this action would display the pending enrollment. Please click on the enrollment to access the information and once you have reached the Manage page of the enrollment, the status will be updated from Pending to Active.
+Enrollments will be in pending status if the initial EA administrator has not logged on to the enrollment before. If you are the EA administrator, please sign in to the Azure EA portal. On the landing page with all your enrollment numbers, you may not see your pending enrollment. Please uncheck the "active" box on the top-right corner of your EA portal, this action would display the pending enrollment. Please click on the enrollment to access the information and once you have reached the Manage page of the enrollment, the status will be updated from Pending to Active.
 
 ### Why is my account stuck in pending status?
 
-When new Account Owners (AO) are added to the enrollment for the first time, they will always show as “pending” under status. Upon receiving the activation welcome email, AO can sign in to activate their account. Signing in will update the account status from “pending” to “active”.
+When new Account Owners (AO) are added to the enrollment for the first time, they will always show as "pending" under status. Upon receiving the activation welcome email, AO can sign in to activate their account. Signing in will update the account status from "pending" to "active".
 
 ### I received an error when signing in to Azure EA portal
 
@@ -118,10 +117,10 @@ There are a few possible reasons for an error message on Azure EA portal during 
  1. Determine if your access to Azure EA portal is added as a work or school account or Microsoft Live ID. If you are using your work account, please enter your work email and work password. If you are using Microsoft Live ID, please enter your Live ID email and Microsoft Live ID password. If you have forgotten your Microsoft Live ID password, please have it reset at [https://account.live.com/password/reset](https://account.live.com/password/reset).
  1. It is recommended that you use a private browser to sign in so that no cookies or cache from previous/existing sessions are retained. Clear cache, and use private browsing mode/incognito window to open [https://ea.azure.com](https://ea.azure.com).
  1. If you are getting an Invalid User error when using a Microsoft account, it may be because you have multiple Microsoft accounts and the one that you are trying to sign in with is not the primary alias. To check the primary alias, go to account.live.com:
-    - Go to “Your Info" > "Manage your sign-in email or phone number".
+    - Go to "Your Info" > "Manage your sign-in email or phone number".
     - Follow the prompt on the screen to verify alternate email address and obtain a code to access sensitive information.
     - Enter the security code.
-    - If you prefer to set up two-step authentication later, select “Set it up later”.
+    - If you prefer to set up two-step authentication later, select "Set it up later".
     - You will land on the "Manage your account aliases" page where you will see the account aliases that you have. Double check that the primary alias is the one that you are using to log into Azure EA portal. If it is not, you can either make it your primary alias, or you will use the primary alias for EA portal instead.
 
 If the above troubleshooting steps failed, please submit a request at [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) with information such as:
@@ -143,7 +142,7 @@ If the above troubleshooting steps failed, please submit a request at [https://a
 
 **Microsoft account:** Accounts that have been associate to Live ID on [https://signup.live.com](https://signup.live.com).
 
-**Work/School account:** Only available to companies that have set up active directory with Federation to the Cloud and all accounts are on a single tenant. Users can be added with work/school authorization type if the company’s internal active directory is federated to the cloud.
+**Work/School account:** Only available to companies that have set up active directory with Federation to the Cloud and all accounts are on a single tenant. Users can be added with work/school authorization type if the company's internal active directory is federated to the cloud.
 
   From September 2016, Microsoft no longer allows work or school email addressed to be registered as Microsoft accounts. For more details, reference the following materials: [https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/](https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/).
 
@@ -153,11 +152,11 @@ If the above troubleshooting steps failed, please submit a request at [https://a
 
 If you have forgotten your Microsoft Live ID password, please have it reset at [https://account.live.com/password/reset](https://account.live.com/password/reset).
 
-If you have forgotten your work password, please contact your company’s IT administrator.
+If you have forgotten your work password, please contact your company's IT administrator.
 
 ### I have a valid work or school account but I can't add it to the EA Portal
 
-If you have a work or school account under a different tenant, please change the authorization level under enrollment details page to “Work or School Account Cross Tenant” and you will be able to add the account.
+If you have a work or school account under a different tenant, please change the authorization level under enrollment details page to "Work or School Account Cross Tenant" and you will be able to add the account.
 
 ## Next steps
 

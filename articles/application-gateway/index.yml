@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 09/18/2019
+  ms.date: 03/24/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -29,7 +29,15 @@ landingContent:
         links:
           - text: Frequently asked questions
             url: application-gateway-faq.md
-       
+
+  # Card
+  - title: Support high traffic volumes
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Application Gateway high traffic support
+            url: high-traffic-support.md
+
   # Card
   - title: Deploy an Application Gateway
     linkLists:

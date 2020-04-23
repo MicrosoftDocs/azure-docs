@@ -3,15 +3,15 @@ title: Migrate SSIS packages to SQL managed instance
 titleSuffix: Azure Database Migration Service
 description: Learn how to migrate SQL Server Integration Services (SSIS) packages and projects to an Azure SQL Database managed instance using the Azure Database Migration Service or the Data Migration Assistant.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 02/20/2020
 ---
 
 # Migrate SQL Server Integration Services packages to an Azure SQL Database managed instance
@@ -117,7 +117,7 @@ After an instance of the service is created, locate it within the Azure portal, 
     When a trusted certificate isn't installed, SQL Server generates a self-signed certificate when the instance is started. This certificate is used to encrypt the credentials for client connections.
 
     > [!CAUTION]
-    > SSL connections that are encrypted using a self-signed certificate does not provide strong security. They are susceptible to man-in-the-middle attacks. You should not rely on SSL using self-signed certificates in a production environment or on servers that are connected to the internet.
+    > TLS connections that are encrypted using a self-signed certificate does not provide strong security. They are susceptible to man-in-the-middle attacks. You should not rely on TLS using self-signed certificates in a production environment or on servers that are connected to the internet.
 
    ![Source Details](media/how-to-migrate-ssis-packages-mi/dms-source-details1.png)
 

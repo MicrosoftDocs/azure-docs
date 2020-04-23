@@ -7,12 +7,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
 ---
 # Perform analytics with Azure Machine Learning Studio (classic) using an on-premises SQL Server database
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Often enterprises that work with on-premises data would like to take advantage of the scale and agility of the cloud for their machine learning workloads. But they don't want to disrupt their current business processes and workflows by moving their on-premises data to the cloud. Azure Machine Learning Studio (classic) now supports reading your data from an on-premises SQL Server database and then training and scoring a model with this data. You no longer have to manually copy and sync the data between the cloud and your on-premises server. Instead, the **Import Data** module in Azure Machine Learning Studio (classic) can now read directly from your on-premises SQL Server database for your training and scoring jobs.
 
@@ -43,7 +45,7 @@ The Data Factory Self-Hosted Integration Runtime has the following prerequisites
 * The Data Factory Self-Hosted Integration requires a 64-bit Operating System with .NET Framework 4.6.1 or above.
 * The supported Windows operating system versions are Windows 10 , Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. 
 * The recommended configuration for the IR machine is at least 2 GHz, 4 Core CPU, 8GB RAM, and 80GB disk.
-* If the host machine hibernates, the IR won’t respond to data requests. Therefore, configure an appropriate power plan on the computer before installing the IR. If the machine is configured to hibernate, the IR installation displays a message.
+* If the host machine hibernates, the IR won't respond to data requests. Therefore, configure an appropriate power plan on the computer before installing the IR. If the machine is configured to hibernate, the IR installation displays a message.
 * Because copy activity occurs at a specific frequency, the resource usage (CPU, memory) on the machine also follows the same pattern with peak and idle times. Resource utilization also depends heavily on the amount of data being moved. When multiple copy jobs are in progress, you'll observe resource usage go up during peak times. While the minimum configuration listed above is technically sufficient, you may want to have a configuration with more resources than the minimum configuration depending on your specific load for data movement.
 
 Consider the following when setting up and using a Data Factory Self-hosted Integration Runtime:
@@ -51,7 +53,7 @@ Consider the following when setting up and using a Data Factory Self-hosted Inte
 * You can install only one instance of IR on a single computer.
 * You can use a single IR for multiple on-premises data sources.
 * You can connect multiple IRs on different computers to the same on-premises data source.
-* You configure an IRs for only one workspace at a time. Currently, IRs can’t be shared across workspaces.
+* You configure an IRs for only one workspace at a time. Currently, IRs can't be shared across workspaces.
 * You can configure multiple IRs for a single workspace. For example, you may want to use an IR that's connected to your test data sources during development and a production IR when you're ready to operationalize.
 * The IR does not need to be on the same machine as the data source. But staying closer to the data source reduces the time for the gateway to connect to the data source. We recommend that you install the IR on a machine that's different from the one that hosts the on-premises data source so that the gateway and data source don't compete for resources.
 * If you already have an IR installed on your computer serving Power BI or Azure Data Factory scenarios, install a separate IR for Azure Machine Learning Studio (classic) on another computer.
@@ -70,7 +72,7 @@ Machine Learning workspace, configure it, and then read data from an
 on-premises SQL Server database.
 
 > [!TIP]
-> Before you start, disable your browser’s pop-up blocker for
+> Before you start, disable your browser's pop-up blocker for
 > `studio.azureml.net`. If you're using the Google Chrome browser, download
 > and install one of the several plug-ins available at Google Chrome
 > WebStore [Click Once App
@@ -172,7 +174,7 @@ workspace. For example, you may have a gateway that you want to connect
 to your test data sources during development, and a different gateway
 for your production data sources. Azure Machine Learning Studio (classic) gives you the
 flexibility to set up multiple gateways depending upon your corporate
-environment. Currently you can’t share a gateway between workspaces and
+environment. Currently you can't share a gateway between workspaces and
 only one gateway can be installed on a single computer. For more information, see [Move data between on-premises sources and cloud with Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
 
 ### Step 2: Use the gateway to read data from an on-premises data source

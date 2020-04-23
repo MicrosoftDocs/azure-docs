@@ -1,11 +1,11 @@
 ---
 title: Create and manage Azure Cosmos DB with Resource Manager templates
 description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB for SQL (Core) API 
-author: TheovanKraay
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.author: thvankra
+ms.date: 04/14/2020
+ms.author: mjbrown
 ---
 
 # Manage Azure Cosmos DB SQL (Core) API resources with Azure Resource Manager templates
@@ -35,7 +35,7 @@ To create the Azure Cosmos DB resources, copy the following example template and
 > * Account names are limited to 44 characters, all lowercase.
 > * To change the throughput values, resubmit the template with updated RU/s.
 
-[!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
 > [!NOTE]
 > To create a container with large partition key, modify the previous template to include the `"version":2` property within the `partitionKey` object.
@@ -132,7 +132,7 @@ Copy the following example template and deploy it as described, either with [Pow
 * Optionally, you can visit [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) and deploy the template from the Azure portal.
 * You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
 
-[!code-json[create-cosmosdb-sql-sprocs](~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json":::
 
 ### Deploy with PowerShell
 

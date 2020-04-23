@@ -1,16 +1,18 @@
 ---
 title: Publish Azure Containers image offer | Azure Marketplace
 description: How to publish an Azure container offer.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Publish container offer
+
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Container offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Container offer](https://aka.ms/CreateContainerOffer) to manage your migrated offers.
 
  After you create a new offer using the **New Offer** page, you can publish the offer. Select **Publish** to start the publishing process.
 

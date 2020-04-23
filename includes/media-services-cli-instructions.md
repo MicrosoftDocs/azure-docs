@@ -10,7 +10,7 @@ ms.author: juliako
 ms.custom: include file
 ---
 
-## CLI Shell
+## Use CLI Shell
 
 It is recommended to use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) to execute CLI commands. **Cloud Shell** is a free, interactive shell that you can use to run the steps in this article. Common Azure tools are preinstalled and configured in Cloud Shell for you to use with your account. It provides the flexibility of choosing the shell experience that best suits the way you work. Linux users can opt for a Bash experience, while Windows users can opt for PowerShell.
 
@@ -38,7 +38,7 @@ Relative path to the file (all OS)
 Absolute file path on Linux/Mac and Windows OS
 
 * `@ "/usr/home/mytestfile.json"`
-*	`@"c:\tmp\user\mytestfile.json"`
+*    `@"c:\tmp\user\mytestfile.json"`
 
 Use `{file}` if the command is asking for a path to the file. For example, `az ams transform create -a amsaccount -g resourceGroup -n custom --preset .\customPreset.json`. <br/> 
 Use `@{file}` if the command is going to load the specified file. For example, `az ams account-filter create -a amsaccount -g resourceGroup -n filterName --tracks @tracks.json`.

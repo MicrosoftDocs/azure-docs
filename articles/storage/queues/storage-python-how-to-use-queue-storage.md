@@ -2,7 +2,6 @@
 title: How to use Azure Queue storage v2.1 from Python - Azure Storage
 description: Learn how to use the Azure Queue service v2.1 from Python to create and delete queues, and insert, get, and delete messages.
 author: mhopkins-msft
-ms.service: storage
 
 ms.author: mhopkins
 ms.date: 09/17/2019
@@ -38,7 +37,7 @@ The [Azure Storage SDK for Python](https://github.com/azure/azure-storage-python
 To install via the Python Package Index (PyPI), type:
 
 ```bash
-pip install azure-storage-blob==2.1.0
+pip install azure-storage-queue==2.1.0
 ```
 
 > [!NOTE]

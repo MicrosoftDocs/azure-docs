@@ -12,14 +12,14 @@ ms.subservice: msi
 ms.devlang:
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/26/2019
+ms.date: 04/18/2020
 ms.author: markvi
 
 #As a developer, I'd like to securely manage the credentials that my application uses for authenticating to cloud services without having the credentials in my code or checked into source control.
 ms.collection: M365-identity-device-management
 ---
 
-# What is managed identities for Azure resources?
+# What are managed identities for Azure resources?
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -48,12 +48,16 @@ There are two types of managed identities:
 - A **user-assigned managed identity** is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Azure AD tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances. The lifecycle of a user-assigned identity is managed separately from the lifecycle of the Azure service instances to which it's assigned.
 
 Internally, managed identities are service principals of a special type, which are locked to only be used with Azure resources. When the managed identity is deleted, the corresponding service principal is automatically removed.
+Also, when a User-Assigned or System-Assigned Identity is created, the Managed Identity Resource Provider (MSRP) issues a certificate internally to that identity. 
 
-Your code can use a managed identity to request access tokens for services that support Azure AD authentication. Azure takes care of rolling the credentials that are used by the service instance.
+Your code can use a managed identity to request access tokens for services that support Azure AD authentication. Azure takes care of rolling the credentials that are used by the service instance. 
+
+## Credential Rotation
+Credential rotation is controlled by the resource provider that hosts the Azure resource. The default rotation of the credential occurs every 46 days. It's up to the resource provider to call for new credentials, so the resource provider could wait longer than 46 days.
 
 The following diagram shows how managed service identities work with Azure virtual machines (VMs):
 
-![Managed service identities and Azure VMs](media/overview/msi-vm-vmextension-imds-example.png)
+![Managed service identities and Azure VMs](media/overview/data-flow.png)
 
 |  Property    | System-assigned managed identity | User-assigned managed identity |
 |------|----------------------------------|--------------------------------|
@@ -137,6 +141,7 @@ Learn how to use a managed identity with other Azure services:
 * [Azure Kubernetes Service](/azure/aks/use-managed-identity)
 * [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 * [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
+* [Azure Data Factory](../../data-factory/data-factory-service-identity.md)
 
 
 ## What Azure services support the feature?<a name="which-azure-services-support-managed-identity"></a>

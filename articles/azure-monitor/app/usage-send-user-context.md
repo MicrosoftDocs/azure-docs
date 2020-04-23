@@ -1,8 +1,6 @@
 ---
 title: User context IDs to track activity - Azure Application Insights
 description: Track how users move through your service by assigning each of them a unique, persistent ID string in Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste

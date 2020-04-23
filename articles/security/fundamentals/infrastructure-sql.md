@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 03/09/2020
 ms.author: terrylan
 
 ---
@@ -72,7 +72,7 @@ The isolation of the root OS from the guest VMs and the guest VMs from one anoth
 ### Types of rules on firewalls
 A rule is defined as:
 
-{Security Response Center (Src) IP, Src Port, Destination IP, Destination Port, Destination Protocol, In/Out, Stateful/Stateless, Stateful Flow Timeout}.
+{Src IP, Src Port, Destination IP, Destination Port, Destination Protocol, In/Out, Stateful/Stateless, Stateful Flow Timeout}.
 
 Synchronous idle character (SYN) packets are allowed in or out only if any one of the rules permits it. For TCP, Azure uses stateless rules where the principle is that it allows only all non-SYN packets into or out of the VM. The security premise is that any host stack is resilient of ignoring a non-SYN if it has not seen a SYN packet previously. The TCP protocol itself is stateful, and in combination with the stateless SYN-based rule achieves an overall behavior of a stateful implementation.
 
@@ -101,5 +101,3 @@ To learn more about what Microsoft does to secure the Azure infrastructure, see:
 - [Azure infrastructure monitoring](infrastructure-monitoring.md)
 - [Azure infrastructure integrity](infrastructure-integrity.md)
 - [Azure customer data protection](protection-customer-data.md)
-
-

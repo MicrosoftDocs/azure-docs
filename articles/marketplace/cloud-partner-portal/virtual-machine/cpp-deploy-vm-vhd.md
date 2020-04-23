@@ -1,16 +1,18 @@
 ---
 title: Deploy a VM from your VHDs for the Azure Marketplace 
 description: Explains how to register a VM from an Azure-deployed VHD.
-services: Azure, Marketplace, Cloud Partner Portal, 
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2019
-ms.author: evansma
+ms.author: dsindona
 ---
 
 # Deploy a VM from your VHDs
+
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin the moving management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create your Azure Virtual Machine technical assets](https://aka.ms/AzureVMTechAsset) to manage your migrated offers.
 
 This section explains how to deploy a virtual machine (VM) from an Azure-deployed virtual hard disk (VHD).  It lists the tools required, and how to use them to create a user VM image, then deploy it to Azure using PowerShell scripts.
 

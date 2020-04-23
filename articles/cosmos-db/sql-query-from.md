@@ -74,9 +74,9 @@ FROM <from_specification>
   
   Specifies that document should be retrieved from the other source defined by the provided alias.  
   
-- `<container_expression> '.' property_`  
+- `<container_expression> '.' property_name`  
   
-  Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified container expression.  
+  Specifies that document should be retrieved by accessing the `property_name` property.  
   
 - `<container_expression> '[' "property_name" | array_index ']'`  
   

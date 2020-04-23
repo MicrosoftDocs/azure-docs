@@ -5,9 +5,9 @@ services: logic-apps
 ms.suite: integration
 author: preetikr
 ms.author: preetikr
-ms.reviewer: klam, estfan, logicappspm
+ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
-ms.date: 12/12/2019
+ms.date: 02/21/2020
 tags: connectors
 ---
 
@@ -115,9 +115,9 @@ For more information about the queries you can use with this connector, see the 
 
 | Action | Description |
 |--------|-------------|
-| **Get alerts** | Get alerts filtered based on one or more [alert properties](https://docs.microsoft.com/graph/api/resources/alert), for example: <p>`Provider eq 'Azure Security Center' or 'Palo Alto Networks'` | 
+| **Get alerts** | Get alerts filtered based on one or more [alert properties](https://docs.microsoft.com/graph/api/resources/alert), for example, `Provider eq 'Azure Security Center' or 'Palo Alto Networks'`. | 
 | **Get alert by ID** | Get a specific alert based on the alert ID. | 
-| **Update alert** | Update a specific alert based on the alert ID. <p>To make sure you pass the required and editable properties in your request, see the [editable properties for alerts](https://docs.microsoft.com/graph/api/alert-update). For example, to assign an alert to a security analyst so they can investigate, you can update the alert's **Assigned to** property. |
+| **Update alert** | Update a specific alert based on the alert ID. To make sure you pass the required and editable properties in your request, see the [editable properties for alerts](https://docs.microsoft.com/graph/api/alert-update). For example, to assign an alert to a security analyst so they can investigate, you can update the alert's **Assigned to** property. |
 |||
 
 ### Manage alert subscriptions
@@ -135,6 +135,28 @@ use the format in this example:
 | **Update subscription** | [Update a subscription](https://docs.microsoft.com/graph/api/subscription-update) by providing the subscription ID. For example, to extend your subscription, you can update the subscription's `expirationDateTime` property. | 
 | **Delete subscription** | [Delete a subscription](https://docs.microsoft.com/graph/api/subscription-delete) by providing the subscription ID. | 
 ||| 
+
+### Manage threat intelligence indicators
+
+To filter, sort, or get the most recent results, provide *only* the [ODATA query parameters supported by Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Don't specify* the complete base URL or the HTTP action, for example, `https://graph.microsoft.com/beta/security/tiIndicators`, or the `GET` or `PATCH` operation. Here's a specific example that shows the parameters for a **Get tiIndicators** action when you want a list that has the `DDoS` threat type:
+
+`Filter threat intelligence indicator value as threatType eq 'DDoS'`
+
+For more information about the queries that you can use with this connector, see ["Optional Query Parameters" in the Microsoft Graph Security threat intelligence indicator reference documentation](https://docs.microsoft.com/graph/api/tiindicators-list?view=graph-rest-beta&tabs=http). To build enhanced experiences with this connector, learn more about the 
+[schema properties threat intelligence indicator](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta) that the connector supports.
+
+| Action | Description |
+|--------|-------------|
+| **Get threat intelligence indicators** | Get tiIndicators filtered based on one or more [tiIndicator properties](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta), for example, `threatType eq 'MaliciousUrl' or 'DDoS'` |
+| **Get threat intelligence indicator by ID** | Get a specific tiIndicator based on the tiIndicator ID. | 
+| **Create threat intelligence indicator** | Create a new tiIndicator by posting to the tiIndicators collection. To make sure that you pass the required properties in your request, refer to the [required properties for creating tiIndicator](https://docs.microsoft.com/graph/api/tiindicators-post?view=graph-rest-beta&tabs=http). |
+| **Submit multiple threat intelligence indicators** | Create multiple new tiIndicators by posting a tiIndicators collection. To make sure that you pass the required properties in your request, refer to the [required properties for submitting multiple tiIndicators](https://docs.microsoft.com/graph/api/tiindicator-submittiindicators?view=graph-rest-beta&tabs=http). |
+| **Update threat intelligence indicator** | Update a specific tiIndicator based on the tiIndicator ID. To make sure you pass the required and editable properties in your request, see the [editable properties for tiIndicator](https://docs.microsoft.com/graph/api/tiindicator-update?view=graph-rest-beta&tabs=http). For example, to update the action to apply if the indicator is matched from within the targetProduct security tool, you can update the tiIndicator's **action** property. |
+| **Update multiple threat intelligence indicators** | Update multiple tiIndicators. To make sure you pass the required properties in your request, refer to the [required properties for updating multiple tiIndicators](https://docs.microsoft.com/graph/api/tiindicator-updatetiindicators?view=graph-rest-beta&tabs=http). |
+| **Delete threat intelligence indicator by ID** | Delete a specific tiIndicator based on the tiIndicator ID. |
+| **Delete multiple threat intelligence indicators by IDs** | Delete multiple tiIndicators by their IDs. To make sure that you pass the required properties in your request, refer to the [required properties for deleting multiple tiIndicators by IDs](https://docs.microsoft.com/graph/api/tiindicator-deletetiindicators?view=graph-rest-beta&tabs=http). |
+| **Delete multiple threat intelligence indicators by external IDs** | Delete multiple tiIndicators by the external IDs. To make sure that you pass the required properties in your request, refer to the [required properties for deleting multiple tiIndicators by external IDs](https://docs.microsoft.com/graph/api/tiindicator-deletetiindicatorsbyexternalid?view=graph-rest-beta&tabs=http). |
+|||
 
 ## Connector reference
 

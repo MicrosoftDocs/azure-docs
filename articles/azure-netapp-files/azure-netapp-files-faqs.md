@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2020
+ms.date: 04/03/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -55,7 +55,7 @@ All Azure NetApp Files volumes are encrypted using the FIPS 140-2 standard. All 
 
 Key management for Azure NetApp Files is handled by the service. A unique XTS-AES-256 data encryption key is generated for each volume. An encryption key hierarchy is used to encrypt and protect all volume keys. These encryption keys are never displayed or reported in an unencrypted format. Encryption keys are deleted immediately when a volume is deleted.
 
-Currently, user-managed keys (Bring Your Own Keys) are not supported.
+Support for user-managed keys (Bring Your Own Keys) using Azure Dedicated HSM is available on a controlled basis in the US East, US West2, and US South Central regions.  You can request access at **anffeedback@microsoft.com**. As capacity is available, requests will be approved.
 
 ### Can I configure the NFS export policy rules to control access to the Azure NetApp Files service mount target?
 
@@ -108,11 +108,7 @@ The volume size reported in DF is the maximum size the Azure NetApp Files volume
 
 ### What NFS version does Azure NetApp Files support?
 
-Azure NetApp Files supports NFSv3 and NFSv4.1. You can create a volume using either NFS version. 
-
-> [!IMPORTANT] 
-> Access to the NFSv4.1 feature requires whitelisting.  To request whitelisting, submit a request to <anffeedback@microsoft.com>. 
-
+Azure NetApp Files supports NFSv3 and NFSv4.1. You can [create a volume](azure-netapp-files-create-volumes.md) using either NFS version. 
 
 ### How do I enable root squashing?
 
@@ -126,7 +122,9 @@ Yes, you must create an Active Directory connection before deploying an SMB volu
 
 ### How many Active Directory connections are supported?
 
-Azure NetApp Files currently supports only one Active Directory connection per NetApp account, per subscription, and in each region; the connection is not shared across NetApp accounts.
+Azure NetApp Files does not support multiple Active Directory (AD) connections in a single *region*, even if the AD connections are in different NetApp accounts. However, you can have multiple AD connections in a single *subscription*, as long as the AD connections are in different regions. If you need multiple AD connections in a single region, you can use separate subscriptions to do so. 
+
+An AD connection is configured per NetApp account; the AD connection is visible only through the NetApp account it is created in.
 
 ### Does Azure NetApp Files support Azure Active Directory? 
 
@@ -142,6 +140,18 @@ Azure NetApp Files supports Windows Server 2008r2SP1-2019 versions of Active Dir
 
 The volume size reported by the SMB client is the maximum size the Azure NetApp Files volume can grow to. The size of the Azure NetApp Files volume as shown on the SMB client is not reflective of the quota or size of the volume. You can get the Azure NetApp Files volume size or quota through the Azure portal or the API.
 
+<!--
+### Does Azure NetApp Files support Kerberos encryption?
+
+Yes, by default, Azure NetApp Files supports both AES-128 and AES-256 encryption for traffic between the service and the targeted Active Directory domain controllers. See [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) for requirements. 
+-->
+
+<!--
+### Does Azure NetApp Files support LDAP signing? 
+
+Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
+--> 
+
 ## Capacity management FAQs
 
 ### How do I monitor usage for capacity pool and volume of Azure NetApp Files? 
@@ -151,6 +161,26 @@ Azure NetApp Files provides capacity pool and volume usage metrics. You can also
 ### Can I manage Azure NetApp Files through Azure Storage Explorer?
 
 No. Azure NetApp Files is not supported by Azure Storage Explorer.
+
+### How do I determine if a directory is approaching the limit size?
+
+You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit (320 MB).
+
+For a 320 MB directory, the number of blocks is 655360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  
+
+Examples:
+
+    [makam@cycrh6rtp07 ~]$ stat bin
+    File: 'bin'
+    Size: 4096            Blocks: 8          IO Block: 65536  directory
+
+    [makam@cycrh6rtp07 ~]$ stat tmp
+    File: 'tmp'
+    Size: 12288           Blocks: 24         IO Block: 65536  directory
+ 
+    [makam@cycrh6rtp07 ~]$ stat tmp1
+    File: 'tmp1'
+    Size: 4096            Blocks: 8          IO Block: 65536  directory
 
 ## Data migration and protection FAQs
 

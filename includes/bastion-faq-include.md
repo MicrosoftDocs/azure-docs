@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 02/03/2020
+ ms.date: 03/25/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -26,6 +26,14 @@ At this time, IPv6 is not supported. Azure Bastion supports IPv4 only.
 ### <a name="rdpssh"></a>Do I need an RDP or SSH client?
 
 You do not need an RDP or SSH client to access the RDP/SSH to your Azure virtual machine in your Azure portal. Use the [Azure portal](https://portal.azure.com) to let you get RDP/SSH access to your virtual machine directly in the browser.
+
+### <a name="rdscal"></a>Does Azure Bastion require an RDS CAL for administrative purposes on Azure-hosted VMs?
+No, access to Windows Server VMs by Azure Bastion does not require an [RDS CAL](https://www.microsoft.com/en-us/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) when used solely for administrative purposes.
+
+### <a name="limits"></a>How many concurrent RDP and SSH sessions does each Azure Bastion support?
+Both RDP and SSH are a usage-based protocol. High usage of sessions will cause the bastion host to support a lower total number of sessions. The numbers below assume normal day-to-day workflows.
+
+[!INCLUDE [limits](bastion-limits.md)]
 
 ### <a name="agent"></a>Do I need an agent running in the Azure virtual machine?
 
@@ -63,3 +71,7 @@ For scenarios that include both Azure Bastion and Azure Firewall/Network Virtual
 ### <a name="filetransfer"></a>Is file-transfer supported with Azure Bastion RDP session?
 
 We are working hard to add new features. As of now, file transfer is not supported but is part of our roadmap. Please feel free to share your feedback about new features on the [Azure Bastion Feedback page](https://feedback.azure.com/forums/217313-networking?category_id=367303).
+
+### <a name="udr"></a>How do I handle deployment failures?
+
+Review any error messages and [raise a support request in the Azure Portal](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) as needed. Deployment failures may result from [Azure subscription limits, quotas and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Specifically, customers may encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.

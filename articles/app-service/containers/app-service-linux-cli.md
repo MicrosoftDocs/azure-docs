@@ -2,11 +2,9 @@
 title: Manage custom Linux containers with CLI
 description: Learn how to manage custom Linux containers in Azure App Service from the command line. Automate app provisioning or maintenance.
 keywords: azure app service, web app, cli, linux, oss
-author: ahmedelnably
 
 ms.topic: article
 ms.date: 08/22/2017
-ms.author: aelnably
 ms.custom: seodec18
 
 ---

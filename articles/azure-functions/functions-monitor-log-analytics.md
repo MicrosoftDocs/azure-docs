@@ -1,10 +1,10 @@
 ---
 title: Monitoring Azure Functions with Azure Monitor Logs
 description: Learn how to use Azure Monitor Logs with Azure Functions to monitor function executions.
-author: ahmedelnably
+author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.author: aelnably
+ms.author: cshoe
 # Customer intent: As a developer, I want to monitor my functions so I can know if they're running correctly.
 ---
 

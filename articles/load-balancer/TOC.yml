@@ -6,14 +6,16 @@
     href: load-balancer-overview.md
 - name: Quickstart
   items:
-  - name: Portal
+  - name: Create Load Balancer - Portal
     href: quickstart-load-balancer-standard-public-portal.md
-  - name: Azure CLI
+  - name: Create Load Balancer - Azure CLI
     href: quickstart-load-balancer-standard-public-cli.md
-  - name: Azure PowerShell
+  - name: Create Load Balancer - PowerShell
     href: quickstart-create-standard-load-balancer-powershell.md
-  - name: Template
+  - name: Create Load Balancer - ARM template
+    displayName: Resource Manager
     href: quickstart-load-balancer-standard-public-template.md
+  expanded: true
 - name: Tutorials
   items:
   - name: Load balance internet traffic to VMs
@@ -35,7 +37,7 @@
 - name: Concepts
   items:
   - name: Components and limitations
-    href: concepts-limitations.md 
+    href: concepts-limitations.md
   - name: Health monitoring
     items:
     - name: Health probes
@@ -62,10 +64,26 @@
     href: load-balancer-security-controls.md
 - name: How to
   items:
-  - name: Upgrade a Basic Public Load Balancer to Standard Public Load Balancer
-    href: upgrade-basic-standard.md
+  - name: Virtual machine scale sets
+    items:
+    - name: Use with an existing Azure Load Balancer - Portal
+      href: configure-vm-scale-set-portal.md
+    - name: Use with an existing Azure Load Balancer - PowerShell
+      href: configure-vm-scale-set-powershell.md
+    - name: Use with an existing Azure Load Balancer - CLI
+      href: configure-vm-scale-set-cli.md
+  - name: Upgrade a Basic Load Balancer to Standard Load Balancer
+    items:
+    - name: Upgrade a Basic Public Load Balancer
+      href: upgrade-basic-standard.md
+    - name: Upgrade a Basic Internal Load Balancer - No Outbound Connection Required
+      href: upgrade-basicInternal-standard.md
+    - name: Upgrade a Basic Internal Load Balancer - Outbound Connection Required
+      href: upgrade-InternalBasic-To-PublicStandard.md
   - name: Configure outbound rules
     items:
+    - name: Azure portal
+      href: configure-load-balancer-outbound-portal.md
     - name: Azure CLI
       href: configure-load-balancer-outbound-cli.md
     - name: Azure PowerShell
@@ -76,16 +94,18 @@
       href: https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli
     - name: Azure PowerShell
       href: https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell
-    - name: Template
+    - name: Azure Resource Manager template
       href: https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json
+      displayName: ARM
   - name: Configure internal Load Balancer
     items:
     - name: Azure CLI
       href: load-balancer-get-started-ilb-arm-cli.md
     - name: Azure PowerShell
       href: load-balancer-get-started-ilb-arm-ps.md
-    - name: Template
+    - name: Azure Resource Manager template
       href: load-balancer-get-started-ilb-arm-template.md
+      displayName: ARM
   - name: Configure TCP idle timeout for Load Balancer
     href: load-balancer-tcp-idle-timeout.md
   - name: Configure distribution mode for Load Balancer
@@ -108,7 +128,7 @@
     - name: Internal load balancer - Portal
       href: move-across-regions-internal-load-balancer-portal.md
     - name: Internal load balancer - PowerShell
-      href: move-across-regions-internal-load-balancer-powershell.md   
+      href: move-across-regions-internal-load-balancer-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Load Balancer
@@ -133,10 +153,13 @@
     href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations
   - name: REST
     href: https://msdn.microsoft.com/library/azure/mt163651.aspx
+  - name: Resource Manager template
+    href: https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers
+    displayName: ARM
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-virtual-machines
+    href: /learn/browse/?products=azure-load-balancer
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Azure Load Balancer feedback

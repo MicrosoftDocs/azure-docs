@@ -11,7 +11,6 @@ ms.assetid: 754b1f5b-6694-4fd6-9e1e-9fad769c64db
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial

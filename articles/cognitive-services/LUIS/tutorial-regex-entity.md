@@ -1,16 +1,8 @@
 ---
 title: "Tutorial: Regular-expression entity - LUIS"
-titleSuffix: Azure Cognitive Services
 description: Extract consistently formatted data from an utterance using the Regular Expression entity.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
+ms.date: 04/01/2020
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity.
 ---
 
@@ -96,11 +88,9 @@ Create a regular expression entity to match the text number. This regular expres
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-2. Go to the end of the URL in the address and enter the following utterance:
+1. Go to the end of the URL in the address bar and replace _YOUR_QUERY_HERE_ with:
 
     `Text my pizza delivery to x23456 x234567 x12345`
-
-    The last querystring parameter is `query`, the utterance **query**.
 
     ```json
     {

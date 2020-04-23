@@ -48,12 +48,12 @@ The Azure Functions project template in Visual Studio Code creates a project tha
 1. Select the Python version, (version 3.7.5 is supported by Azure Functions)
 1. Select a template for your project's first function. Select **HTTP trigger** to create an HTTP triggered function in the new function app.
 1. Provide a function name. In this case, let's use **Concatenator** 
-1. Select **Function** as the Authorization level. This means that we will provide a [function key](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) to call the function's HTTP endpoint. 
+1. Select **Function** as the Authorization level. This means that we will provide a [function key](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) to call the function's HTTP endpoint. 
 1. Select how you would like to open your project. For this step, select **Add to workspace** to create the function app in the current workspace.
 
 Visual Studio Code creates the function app project in a new workspace. This project contains the [host.json](../azure-functions/functions-host-json.md) and [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file) configuration files, plus any language-specific project files. 
 
-A new HTTP triggered function is also created in the **Concatenator** folder of the function app project. Inside it there will be a file called "\__init__.py", with this content:
+A new HTTP triggered function is also created in the **Concatenator** folder of the function app project. Inside it there will be a file called "\_\_init__.py", with this content:
 
 ```py
 import logging

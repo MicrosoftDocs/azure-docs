@@ -31,7 +31,7 @@ Azure supports two provisioning agents [cloud-init](https://cloudinit.readthedoc
 cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead you can define a list of packages to install. cloud-init automatically uses the native package management tool for the distro you select.
 
 We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. 
-These images will make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets. Initially we collaborate with the endorsed Linux distro partners and upstream to ensure cloud-init functions with the OS on Azure, then the packages are updated and made publically available in the distro package repositories. 
+These images will make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets. Initially we collaborate with the endorsed Linux distro partners and upstream to ensure cloud-init functions with the OS on Azure, then the packages are updated and made publicly available in the distro package repositories. 
 
 There are two stages to making cloud-init available to the endorsed Linux distro OS's on Azure, package support, and then image support:
 * 'cloud-init package support on Azure' documents which cloud-init packages onwards are supported or in preview, so you can use these packages with the OS in a custom image.
@@ -50,10 +50,10 @@ There are two stages to making cloud-init available to the endorsed Linux distro
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |yes | yes - support from package version: *18.2-1.el7_6.2*|
 |RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | yes (note this is a preview image, and once all RHEL 7.7 images support cloud-init, this will be removed mid 2020, notice will be given) | yes - support from package version: *18.5-3.el7*|
-|RedHat 7.7 |RHEL |7-RAW | n/a| no - image updates to start Feb 2020| yes - support from package version: *18.5-3.el7*|
-|RedHat 7.7 |RHEL |7-LVM | n/a| no - image updates to start Feb 2020| yes - support from package version: *18.5-3.el7*|
-|RedHat 7.7 |RHEL |7.7 | n/a| no - image updates to start Feb 2020 | yes - support from package version: *18.5-3.el7*|
-|RedHat 7.7 |rhel-byos | rhel-lvm77 | n/a|no - image updates to start Feb 2020  | yes - support from package version: *18.5-3.el7*|
+|RedHat 7.7 |RHEL |7-RAW | n/a| no - image updates to complete end of April 2020| yes - support from package version: *18.5-3.el7*|
+|RedHat 7.7 |RHEL |7-LVM | n/a| no - image updates to complete end of April| yes - support from package version: *18.5-3.el7*|
+|RedHat 7.7 |RHEL |7.7 | n/a| no - image updates to complete end of April | yes - support from package version: *18.5-3.el7*|
+|RedHat 7.7 |rhel-byos | rhel-lvm77 | n/a|no - image updates to complete end of April  | yes - support from package version: *18.5-3.el7*|
 
 ### CentOS
 
@@ -61,7 +61,7 @@ There are two stages to making cloud-init available to the endorsed Linux distro
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |yes (note this is a preview image, and once all CentOS 7.7 images support cloud-init, this will be removed mid 2020, notice will be given) | yes - support from package version: *18.5-3.el7.centos*|
 
-* CentOS 7.7 images that will be cloud-init enabled be updated here in Feb 2020 
+* CentOS 7.7 images that will be cloud-init enabled be updated here in March 2020 
 
 ### Oracle
 

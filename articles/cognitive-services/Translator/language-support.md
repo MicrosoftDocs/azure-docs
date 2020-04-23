@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 12/02/2019
+ms.date: 02/10/2020
 ms.author: swmachan
 ---
 # Language and region support for the Translator Text API
@@ -58,6 +58,7 @@ The V3 Translator API is neural by default and statistical systems are only avai
 |French|	`fr`	|	Neural|
 |German|	`de`	|	Neural|
 |Greek|	`el`	|	Neural|
+|Gujarati|	`gu`	|	Neural|
 |Haitian Creole|	`ht`		|Statistical|
 |Hebrew	|`he`	|Neural
 |Hindi|	`hi`	|	Neural|
@@ -80,6 +81,7 @@ The V3 Translator API is neural by default and statistical systems are only avai
 |Malayalam| `ml` | Neural
 |Maltese|	`mt`	|	Statistical|
 |Maori| `mi`  | Neural|
+|Marathi| `mr`  | Neural|
 |Norwegian|	`nb`	|	Neural|
 |Persian|	`fa`	|	Neural|
 |Polish|	`pl`	|	Neural|
@@ -136,7 +138,7 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Serbian (Latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillic `Cyrl`|
 | Tamil | `ta` | Tamil `Taml` | --> | Latin `Latn` |
 | Telugu | `te` | Telugu `Telu` | --> | Latin `Latn` |
-| Thai | `th` | Thai `Thai` | <--> | Latin `Latn` |
+| Thai | `th` | Thai `Thai` | --> | Latin `Latn` |
 
 ## Dictionary
 

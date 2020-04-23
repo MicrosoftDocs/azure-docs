@@ -1,16 +1,10 @@
 ---
 title: "Quickstart: Create knowledge base - REST, Java - QnA Maker"
-titleSuffix: Azure Cognitive Services
 description: This Java REST-based quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account..
-services: cognitive-services
-author: diberry
-manager: nitinme
-
-ms.service: cognitive-services
-ms.subservice: qna-maker
-ms.topic: quickstart
 ms.date: 12/16/2019
-ms.author: diberry
+ROBOTS: NOINDEX,NOFOLLOW
+ms.custom: RESTCURL2020FEB27
+ms.topic: conceptual
 ---
 
 # Quickstart: Create a knowledge base in QnA Maker using Java

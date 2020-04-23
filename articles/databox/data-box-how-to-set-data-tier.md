@@ -1,5 +1,5 @@
 ---
-title: Use Azure Data Box, Azure Data Box Heavy to send data to hot, cold, archive blob tier | Microsoft Docs in data 
+title: Send data to Hot, Cold, Archive blob tier via Azure Data Box/Azure Data Box Heavy 
 description: Describes how to use Azure Data Box or Azure Data Box Heavy to send data to an appropriate block blob storage tier such as hot, cold, or archive
 services: databox
 author: alkohli

@@ -9,7 +9,7 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 02/11/2020
 ms.custom: seodec18
 ---
 
@@ -68,12 +68,18 @@ The Time Series Insights update uses instances to add contextual data to incomin
 
     [![Copy the value for the primary key connection string](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. Go to https://tsiclientsample.azurewebsites.net/windFarmGen.html. The URL runs simulated windmill devices.
+1. Go to https://tsiclientsample.azurewebsites.net/windFarmGen.html. The URL creates and runs simulated windmill devices.
 1. In the **Event Hub Connection String** box on the webpage, paste the connection string that you copied in the [windmill input field](#push-events-to-windmills-sample).
   
     [![Paste the primary key connection string in the Event Hub Connection String box](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
-1. Select **Click to start**. The simulator generates instance JSON that you can use directly.
+1. Select **Click to start**. 
+
+    > [!TIP]
+    > The windmill simulator also creates JSON you can use as a payload with the [Time Series Insights GA Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
+
+    > [!NOTE]
+    > The simulator will continue to send data until the browser tab is closed.
 
 1. Go back to your event hub in the Azure portal. On the **Overview** page, the new events received by the event hub are displayed.
 

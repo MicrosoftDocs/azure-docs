@@ -9,7 +9,6 @@ metadata:
   services: cognitive-services
   author: aahill
   manager: nitinme
-  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: ink-recognizer
   ms.topic: landing-page

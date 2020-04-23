@@ -2,19 +2,15 @@
 title: SSO between ADAL & MSAL apps (iOS/macOS) - Microsoft identity platform | Azure
 description: 
 services: active-directory
-documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: 
 ms.custom: aaddev
 ---

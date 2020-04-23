@@ -25,12 +25,12 @@ The Azure Blueprints module requires the following software:
 
 ### Install the module
 
-The Blueprints module for PowerShell is **Az.Blueprint**.
+The Azure Blueprints module for PowerShell is **Az.Blueprint**.
 
 1. From an **administrative** PowerShell prompt, run the following command:
 
    ```azurepowershell-interactive
-   # Install the Blueprints module from PowerShell Gallery
+   # Install the Azure Blueprints module from PowerShell Gallery
    Install-Module -Name Az.Blueprint
    ```
 
@@ -275,7 +275,7 @@ $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Subsc
 
 For an example of the JSON assignment definition file for a user-assigned managed identity, see the
 request body in
-[Example: Assignment with user-assigned managed identity](/rest/api/blueprints/assignments/createorupdate#assignment-with-user-assigned-managed-identity)
+[Example: Assignment with user-assigned managed identity](/rest/api/blueprints/assignments/createorupdate#examples)
 for REST API.
 
 ## Update blueprint assignments

@@ -19,6 +19,8 @@ ms.date: 12/13/2019
 > * [Version 1](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [Current version](connector-amazon-simple-storage-service.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article outlines how to copy data from Amazon Simple Storage Service (Amazon S3). To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 >[!TIP]

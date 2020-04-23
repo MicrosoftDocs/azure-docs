@@ -227,7 +227,7 @@ At runtime, the configured token source automatically returns an OAuth 2.0 acces
 * Tokens are never stored in the durable orchestration state.
 * You don't need to write any code to manage token acquisition.
 
-You can find a more complete example in the [precompiled C# RestartVMs sample](https://github.com/Azure/azure-functions-durable-extension/blob/v2/samples/v2/precompiled/RestartVMs.cs).
+You can find a more complete example in the [precompiled C# RestartVMs sample](https://github.com/Azure/azure-functions-durable-extension/blob/dev/samples/precompiled/RestartVMs.cs).
 
 Managed identities aren't limited to Azure resource management. You can use managed identities to access any API that accepts Azure AD bearer tokens, including Azure services from Microsoft and web apps from partners. A partner's web app can even be another function app. For a list of Azure services from Microsoft that support authentication with Azure AD, see [Azure services that support Azure AD authentication](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
@@ -253,7 +253,7 @@ If any of these limitations might affect your use case, consider instead using a
 
 Customizing the behavior of the orchestration's internal HTTP client is possible using [Azure Functions .NET dependency injection](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection). This ability can be useful for making small behavioral changes. It can also be useful for unit testing the HTTP client by injecting mock objects.
 
-The following example demonstrates using dependency injection to disable SSL certificate validation for orchestrator functions that call external HTTP endpoints.
+The following example demonstrates using dependency injection to disable TLS/SSL certificate validation for orchestrator functions that call external HTTP endpoints.
 
 ```csharp
 public class Startup : FunctionsStartup
@@ -271,7 +271,7 @@ public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFact
 {
     public HttpMessageHandler CreateHttpMessageHandler()
     {
-        // Disable SSL certificate validation (not recommended in production!)
+        // Disable TLS/SSL certificate validation (not recommended in production!)
         return new HttpClientHandler
         {
             ServerCertificateCustomValidationCallback =

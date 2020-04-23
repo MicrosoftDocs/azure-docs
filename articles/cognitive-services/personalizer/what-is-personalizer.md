@@ -1,19 +1,14 @@
 ---
 title: What is Personalizer?
-titleSuffix: Azure Cognitive Services
 description: Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
 ms.topic: overview
-ms.date: 01/21/2020
-ms.author: diberry
+ms.date: 04/20/2020
 #Customer intent:
 ---
 
 # What is Personalizer?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Azure Personalizer is a cloud-based API service that helps your client application choose the best, single _content_ item to show each user. The service selects the best item, from content items, based on collective real-time information you provide about content and context.
 
@@ -53,13 +48,13 @@ Personalizer used reinforcement learning to select the single best action, known
 
 Personalizer's **Rank** [API](https://go.microsoft.com/fwlink/?linkid=2092082) is called _every time_ you present content, in real-time. This is known as an **event**, noted with an _event ID_.
 
-Personalizer's **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) can be called in real-time or delayed to better fit your infrastructure. You determine the reward score based on your business needs. That can be a single value such as 1 for good, and 0 for bad, or a number produced by an algorithm you create considering your business goals and metrics.
+Personalizer's **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) can be called in real-time or delayed to better fit your infrastructure. You determine the reward score based on your business needs. The reward score is between 0 and 1. That can be a single value such as 1 for good, and 0 for bad, or a number produced by an algorithm you create considering your business goals and metrics.
 
 ## Personalizer content requirements
 
 Use Personalizer when your content:
 
-* Has a limited set of items (max of ~50) to select from. If you have a larger list, [use a recommendation engine](where-can-you-use-personalizer.md#use-personalizer-with-recommendation-engines) to reduce the list down to 50 items.
+* Has a limited set of items (max of ~50) to select from. If you have a larger list, [use a recommendation engine](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) to reduce the list down to 50 items.
 * Has information describing the content you want ranked: _actions with features_ and _context features_.
 * Has a minimum of ~1k/day content-related events for Personalizer to be effective. If Personalizer doesn't receive the minimum traffic required, the service takes longer to determine the single best content item.
 

@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 12/06/2019
+ms.date: 02/26/2020
 ---
 
 # Manage Azure HDInsight clusters using Azure CLI
@@ -77,10 +77,10 @@ az group delete --name RESOURCE_GROUP_NAME
 
 ## Scale clusters
 
-Use [az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) to resize the specified HDInsight cluster to the specified size. Edit the command below by replacing `RESOURCE_GROUP_NAME`, and `CLUSTER_NAME` with the relevant information. Replace `TARGET_INSTANCE_COUNT` with the desired number of worker nodes for your cluster. For more information about scaling clusters, see [Scale HDInsight clusters](./hdinsight-scaling-best-practices.md). Enter the command:
+Use [az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) to resize the specified HDInsight cluster to the specified size. Edit the command below by replacing `RESOURCE_GROUP_NAME`, and `CLUSTER_NAME` with the relevant information. Replace `WORKERNODE_COUNT` with the desired number of worker nodes for your cluster. For more information about scaling clusters, see [Scale HDInsight clusters](./hdinsight-scaling-best-practices.md). Enter the command:
 
 ```azurecli-interactive
-az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --target-instance-count TARGET_INSTANCE_COUNT
+az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --workernode-count WORKERNODE_COUNT
 ```
 
 ## Next steps

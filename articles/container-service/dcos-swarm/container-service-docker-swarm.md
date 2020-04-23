@@ -65,9 +65,9 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ## Deploy containers by using Docker Compose
 You can use Docker Compose to automate the deployment and configuration of multiple containers. To do so, ensure that a Secure Shell (SSH) tunnel has been created and that the DOCKER_HOST variable has been set (see the pre-requisites above).
 
-Create a docker-compose.yml file on your local system. To do this, use this [sample](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
+Create a docker-compose.yml file on your local system. To do this, use this sample:
 
-```bash
+```dockerfile
 web:
   image: adtd/web:0.1
   ports:

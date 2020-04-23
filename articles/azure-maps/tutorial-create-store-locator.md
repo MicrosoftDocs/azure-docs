@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Create a store locator application using Azure Maps | Microsoft Azure Maps'
-description: In this tutorial, you will learn how to create a store locator web application by using Microsoft Azure Maps web SDK.
-author: walsehgal
-ms.author: v-musehg
+description: In this tutorial, you'll learn how to create a store locator web application by using Microsoft Azure Maps web SDK.
+author: philmea
+ms.author: philmea
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
@@ -376,7 +376,7 @@ Run the application now, you'll see the header, search box, and search button. B
 
 Everything is now set up in the user interface. We still need to add the JavaScript to load and parse the data, and then render the data on the map. To get started, open *index.js* and add code to it, as described in the following steps.
 
-1. Add global options to make settings easier to update. Define the variables for the map, pop up window, data source, an icon layer, an HTML marker that displays the center of a search area, and an instance of the Azure Maps search service client.
+1. Add global options to make settings easier to update. Define the variables for the map, pop up window, data source, icon layer, and HTML marker. Set the HTML marker to indicate the center of a search area. And, define an instance of the Azure Maps search service client.
 
     ```JavaScript
     //The maximum zoom level to cluster data point data on the map.
@@ -392,9 +392,9 @@ Everything is now set up in the user interface. We still need to add the JavaScr
 
 1. Add code to *index.js*. The following code initializes the map. We added an [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) to wait until the page is finished loading. Then, we wired up events to monitor the loading of the map, and give functionality to the search button and the My location button.
 
-   When the user selects the search button, or when the user presses Enter after entering a location in the search box, a fuzzy search against the user's query is initiated. Pass in an array of country ISO 2 values to the `countrySet` option to limit the search results to those countries/regions. Limiting the countries/regions to search helps increase the accuracy of the results that are returned. 
+   When the user selects the search button, or types a location in the search box then presses enter, a fuzzy search against the user's query is initiated. Pass in an array of country ISO 2 values to the `countrySet` option to limit the search results to those countries/regions. Limiting the countries/regions to search helps increase the accuracy of the results that are returned. 
   
-   When the search is finished, take the first result and set the map camera over that area. When the user selects the My Location button, use the HTML5 Geolocation API that's built into the browser to retrieve the user's location and center the map over their location.  
+   Once the search is finished, take the first result and set the map camera over that area. When the user selects the My Location button, retrieve the user's location using the HTML5 Geolocation API. This API is built into the browser. Then, center the map over their location.  
 
    > [!Tip]
    > When you use pop-up windows, it's best to create a single `Popup` instance and reuse the instance by updating its content and position. For every `Popup`instance you add to your code, multiple DOM elements are added to the page. The more DOM elements there are on a page, the more things the browser has to keep track of. If there are too many items, the browser might become slow.
@@ -522,7 +522,7 @@ Everything is now set up in the user interface. We still need to add the JavaScr
     map.markers.add(centerMarker);
     ```
 
-1. In the map's `ready` event listener, add a data source. Then, make a call to load and parse the dataset. Enable clustering on the data source. Clustering on the data source groups overlapping points together in a cluster. The clusters separate into individual points as the user zooms in. This makes a more fluid user experience and improves performance.
+1. In the map's `ready` event listener, add a data source. Then, make a call to load and parse the dataset. Enable clustering on the data source. Clustering on the data source groups overlapping points together in a cluster. The clusters separate into individual points as the user zooms in. This behavior provides a better user experience and improves performance.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -923,7 +923,7 @@ The first time a user selects the My Location button, the browser displays a sec
 
 ![Screenshot of the browser's request to access the user's location](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
-When you zoom in close enough in an area that has coffee shop locations, the clusters separate into individual locations. Select one of the icons on the map or select an item in the side panel to see a pop-up window that shows information for that location.
+When you zoom in close enough in an area that has coffee shop locations, the clusters separate into individual locations. Select one of the icons on the map or select an item in the side panel to see a pop-up window. The pop-up shows information for the selected location.
 
 <center>
 

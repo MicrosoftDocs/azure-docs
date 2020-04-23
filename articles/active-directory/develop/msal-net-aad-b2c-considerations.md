@@ -3,7 +3,7 @@ title: Azure AD B2C (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about specific considerations when using Azure AD B2C with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -31,7 +31,7 @@ This page is for MSAL 3.x. If you are interested in MSAL 2.x, please see [Azure 
 The authority to use is `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}` where:
 
 - `azureADB2CHostname` is the name of the Azure AD B2C tenant plus the host (for example `{your-tenant-name}.b2clogin.com`),
-- `tenant` is the full name of the Azure AD B2C tenant (for example, `{your-tenant-name}.onmicrosoft.com`) or the GUID for the tenant, 
+- `tenant` is the full name of the Azure AD B2C tenant (for example, `{your-tenant-name}.onmicrosoft.com`) or the GUID for the tenant,
 - `policyName` the name of the policy or user flow to apply (for instance "b2c_1_susi" for sign-up/sign-in).
 
 For more information on the Azure AD B2C authorities, see this [documentation](/azure/active-directory-b2c/b2clogin).
@@ -119,7 +119,7 @@ private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
 ## Resource owner password credentials (ROPC) with Azure AD B2C
 For more details on the ROPC flow, please see this [documentation](v2-oauth-ropc.md).
 
-This flow is **not recommended** because your application asking a user for their password is not secure. For more information about this problem, see [this article](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
+This flow is **not recommended** because your application asking a user for their password is not secure. For more information about this problem, see [this article](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/).
 
 By using username/password, you are giving up a number of things:
 - Core tenets of modern identity: password gets fished, replayed. Because we have this concept of a share secret that can be intercepted. This is incompatible with passwordless.
@@ -153,15 +153,15 @@ If you are a Azure AD B2C developer using Google as an identity provider we reco
 
 We will provide an update to this [issue](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/688) if things change.
 
-## Caching with Azure AD B2C in MSAL.Net 
+## Caching with Azure AD B2C in MSAL.Net
 
 ### Known issue with Azure AD B2C
 
-MSAL.Net supports a [token cache](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). The token caching key is based on the claims returned by the Identity Provider. Currently MSAL.Net needs two claims to build a token cache key:  
-- `tid` which is the Azure AD Tenant ID, and 
-- `preferred_username` 
+MSAL.Net supports a [token cache](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). The token caching key is based on the claims returned by the Identity Provider. Currently MSAL.Net needs two claims to build a token cache key:
+- `tid` which is the Azure AD Tenant ID, and
+- `preferred_username`
 
-Both these claims are missing in many of the Azure AD B2C scenarios. 
+Both these claims are missing in many of the Azure AD B2C scenarios.
 
 The customer impact is that when trying to display the username field, are you getting "Missing from the token response" as the value? If so, this is because Azure AD B2C does not return a value in the IdToken for the preferred_username because of limitations with the social accounts and external identity providers (IdPs). Azure AD returns a value for preferred_username because it knows who the user is, but for Azure AD B2C, because the user can sign in with a local account, Facebook, Google, GitHub, etc. there is not a consistent value for Azure AD B2C to use for preferred_username. To unblock MSAL from rolling out cache compatibility with ADAL, we decided to use "Missing from the token response" on our end when dealing with the Azure AD B2C accounts when the IdToken returns nothing for preferred_username. MSAL must return a value for preferred_username to maintain cache compatibility across libraries.
 
@@ -176,10 +176,10 @@ Alternatively, you can use the `tid` claim, if you are using the [B2C custom pol
 #### Mitigation for "Missing from the token response"
 One option is to use the "name" claim as the preferred username. The process is mentioned in this [B2C doc](../../active-directory-b2c/user-flow-overview.md) -> "In the Return claim column, choose the claims you want returned in the authorization tokens sent back to your application after a successful profile editing experience. For example, select Display Name, Postal Code.”
 
-## Next steps 
+## Next steps
 
 More details about acquiring tokens interactively with MSAL.NET for Azure AD B2C applications are provided in the following sample.
 
 | Sample | Platform | Description|
 |------ | -------- | -----------|
-|[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | A simple Xamarin Forms app showcasing how to use MSAL.NET to authenticate users via Azure AD B2C, and access a Web API with the resulting tokens.|
+|[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | A simple Xamarin Forms app showcasing how to use MSAL.NET to authenticate users via Azure AD B2C, and access a web API with the resulting tokens.|

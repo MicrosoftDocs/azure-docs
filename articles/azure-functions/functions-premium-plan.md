@@ -23,7 +23,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 --location <REGION> --sku EP1
 ```
 
-In this example, replace `<RESOURCE_GROUP>` with your resource group and `<PLAN_NAME>` with a name for your plan that is unique in the resource group. Specify a [supported `<REGION>`](#regions). To create a Premium plan that supports Linux, include the `--is-linux` option.
+In this example, replace `<RESOURCE_GROUP>` with your resource group and `<PLAN_NAME>` with a name for your plan that is unique in the resource group. Specify a [supported `<REGION>`](https://azure.microsoft.com/global-infrastructure/services/?products=functions). To create a Premium plan that supports Linux, include the `--is-linux` option.
 
 With the plan created, you can use [az functionapp create](/cli/azure/functionapp#az-functionapp-create) to create your function app. In the portal, both the plan and the app are created at the same time. For an example of a complete Azure CLI script, see [Create a function app in a Premium plan](scripts/functions-cli-create-premium-plan.md).
 
@@ -53,7 +53,7 @@ Azure Functions deployed to a Premium plan takes advantage of [new VNet integrat
 
 When assigning a subnet to your function app in a Premium plan, you need a subnet with enough IP addresses for each potential instance. We require an IP block with at least 100 available addresses.
 
-Fore more information, see [integrate your function app with a VNet](functions-create-vnet.md).
+For more information, see [integrate your function app with a VNet](functions-create-vnet.md).
 
 ### Rapid elastic scale
 
@@ -61,7 +61,7 @@ Additional compute instances are automatically added for your app using the same
 
 ### Longer run duration
 
-Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this 60 minutes for Premium plan apps.
+Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this unbounded for Premium plan apps (guaranteed 60 minutes).
 
 ## Plan and SKU settings
 
@@ -90,42 +90,47 @@ When creating or scaling your plan, you can choose between three instance sizes.
 |EP2|2|7GB|250GB|
 |EP3|4|14GB|250GB|
 
-## Regions
+### Memory utilization considerations
+Running on a machine with more memory does not always mean that your function app will use all available memory.
 
-Below are the currently supported regions for each OS.
+For example, a JavaScript function app is constrained by the default memory limit in Node.js. To increase this fixed memory limit, add the app setting `languageWorkers:node:arguments` with a value of `--max-old-space-size=<max memory in MB>`.
+
+## Region Max Scale Out
+
+Below are the currently supported maximum scale out values for a single plan in each region and OS configuration. To request an increase please open a support ticket.
+
+See the complete regional availability of Functions here: [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
 |Region| Windows | Linux |
 |--| -- | -- |
-|Australia Central| ✔<sup>1</sup> | |
-|Australia Central 2| ✔<sup>1</sup> | |
-|Australia East| ✔ | |
-|Australia Southeast | ✔ | ✔<sup>1</sup> |
-|Brazil South| ✔<sup>2</sup> |  |
-|Canada Central| ✔ |  |
-|Central US| ✔ |  |
-|East Asia| ✔ |  |
-|East US | ✔ | ✔<sup>1</sup> |
-|East US 2| ✔ |  |
-|France Central| ✔ |  |
-|Germany West Central| ✔ | |
-|Japan East| ✔ | ✔<sup>1</sup> |
-|Japan West| ✔ | |
-|Korea Central| ✔ |  |
-|North Central US| ✔ |  |
-|North Europe| ✔ | ✔<sup>1</sup> |
-|South Central US| ✔ | ✔<sup>1</sup> |
-|South India | ✔ | |
-|Southeast Asia| ✔ | ✔<sup>1</sup> |
-|UK South| ✔ | |
-|UK West| ✔ |  |
-|West Europe| ✔ | ✔<sup>1</sup> |
-|West India| ✔ |  |
-|West US| ✔ | ✔<sup>1</sup> |
-|West US 2| ✔ |  |
-
-<sup>1</sup>Maximum scale out limited to 20 instances.  
-<sup>2</sup>Maximum scale out limited to 60 instances.
-
+|Australia Central| 20 | Not Available |
+|Australia Central 2| 20 | Not Available |
+|Australia East| 100 | 20 |
+|Australia Southeast | 100 | 20 |
+|Brazil South| 60 | 20 |
+|Canada Central| 100 | 20 |
+|Central US| 100 | 20 |
+|East Asia| 100 | 20 |
+|East US | 100 | 20 |
+|East US 2| 100 | 20 |
+|France Central| 100 | 20 |
+|Germany West Central| 100 | Not Available |
+|Japan East| 100 | 20 |
+|Japan West| 100 | 20 |
+|Korea Central| 100 | 20 |
+|North Central US| 100 | 20 |
+|North Europe| 100 | 20 |
+|Norway East| 20 | 20 |
+|South Central US| 100 | 20 |
+|South India | 100 | Not Available |
+|Southeast Asia| 100 | 20 |
+|UK South| 100 | 20 |
+|UK West| 100 | 20 |
+|West Europe| 100 | 20 |
+|West India| 100 | 20 |
+|West Central US| 20 | 20 |
+|West US| 100 | 20 |
+|West US 2| 100 | 20 |
 
 ## Next steps
 

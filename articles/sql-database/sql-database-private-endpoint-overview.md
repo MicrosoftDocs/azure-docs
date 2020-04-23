@@ -7,10 +7,10 @@ titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.service: sql-database
 ms.topic: overview 
 ms.reviewer: vanto
-ms.date: 09/17/2019
+ms.date: 03/09/2020
 ---
 
-# Private Link for Azure SQL Database and Data Warehouse (Preview)
+# Private Link for Azure SQL Database and Data Warehouse
 
 Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list to PaaS services that support Private Link functionality, go to the [Private Link Documentation](../private-link/index.yml) page. A private endpoint is a private IP address within a specific [VNet](../virtual-network/virtual-networks-overview.md) and Subnet. 
 
@@ -141,7 +141,7 @@ The result shows that one IP address is up; which corresponds to the IP address 
 
 ### Check Connectivity using SQL Server Management Studio (SSMS)
 > [!NOTE]
->Use the **Fully Qualified Domain Name(FQDN)** of the server in connection strings for your clients. Any login attempts made directly to the IP address shall fail by design.
+> Use the **Fully Qualified Domain Name (FQDN)** of the server in connection strings for your clients. Any login attempts made directly to the IP address shall fail. This behavior is by design, since private endpoint routes traffic to the SQL Gateway in the region and the FQDN needs to be specified for logins to succeed.
 
 Follow the steps here to use [SSMS to connect to the SQL Database](sql-database-connect-query-ssms.md). After you connect to the SQL Database using SSMS, verify that you're connecting from the private IP address of the Azure VM by running the following query:
 
@@ -149,8 +149,9 @@ Follow the steps here to use [SSMS to connect to the SQL Database](sql-database-
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
-> [!NOTE]
-> In preview, connections to private endpoint only support **Proxy** as the [connection policy](sql-database-connectivity-architecture.md#connection-policy)
+
+## Limitations 
+Connections to private endpoint only support **Proxy** as the [connection policy](sql-database-connectivity-architecture.md#connection-policy)
 
 
 ## Connecting from an Azure VM in Peered Virtual Network (VNet) 
