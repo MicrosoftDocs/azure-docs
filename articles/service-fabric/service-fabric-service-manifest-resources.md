@@ -44,7 +44,7 @@ Refer to [Configuring stateful Reliable Services](service-fabric-reliable-servic
 ## Example: specifying an HTTP endpoint for your service
 The following service manifest defines one TCP endpoint resource and two HTTP endpoint resources in the &lt;Resources&gt; element.
 
-HTTP endpoints are automatically ACL'd by Service Fabric.
+HTTP endpoints are automatically ACL'd by Service Fabric by default unless you are running Service Fabric(Fabric.exe) as LocalSystem.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
