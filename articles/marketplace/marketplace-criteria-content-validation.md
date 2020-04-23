@@ -1,5 +1,5 @@
 ---
-title: Marketplace criteria content validation | Azure Marketplace 
+title: Marketplace offers and services publishing criteria | Azure Marketplace 
 description: This article describes how to become a publisher on Azure Marketplace.  
 author: qianw211
 ms.service: marketplace
@@ -13,14 +13,13 @@ ms.author: dsindona
 
 This document contains requirements and guidelines for new offers and services to be listed on Azure Marketplace.
 
-All offers must meet the requirements that are listed in the "Listing requirements for all offers" section. 
+All offers must meet the requirements that are listed in the "Listing requirements for all offers" section.
 
 Additional requirements and checklists are provided for specific listing types, including: 
 * [Trial offer requirements](#trial-offer-requirements)
 * [SaaS app requirements](#saas-app-requirements)
 * [Container offer requirements](#container-offer-requirements)
 * [Consulting offer requirements](#consulting-offer-requirements)
-
 
 ## Listing requirements for all offers
 
@@ -29,7 +28,7 @@ Additional requirements and checklists are provided for specific listing types, 
 | 1 | Lead destination | Have a lead destination configured.| The One Commercial Partner (OCP) Catalog has the lead destination CRM information that's also listed in the partner solution tab. | 
 | 2 | Offer title | Briefly describes the solution offering. Matches the online promotion of the solution on the partner's website. | Contains key search words. |
 | 3 | Logo | The logo is displayed correctly. | The logo is displayed correctly and includes a "hero image," which is the large-format image in the Azure portal. |
-| 4 |  Offer description | <ul><li> 2-3 paragraphs</li><li>Solution offering is easily understood at a glance.</li><li>Offer description is free of spelling and grammar mistakes.</li><li>Offer description is comprehensive and captures target audience, type of user, and why it's valuable (value proposition).</li><li>Offer description is in paragraph narrative form with short sentences that are easy to understand.</li></ul> | <ul><li> The target industry is outlined (if relevant).</li><li>Good style formatting, with each paragraph heading having a single sentence or phrase summarizing the content that follows and using bullet points, when appropriate, to emphasize key benefits. The objective here is for the reader to understand the offering at a glance in an easy-to-view format and not have to read long paragraphs.</li><li>There is spacing between each paragraph. It reads like a car brochure. That is, it is comprehensive and describes the offering simply, without technical jargon. | 
+| 4 |  Offer description | <ul><li> Contains 2-3 paragraphs.</li><li>Solution offering is easily understood at a glance.</li><li>Offer description is free of spelling and grammar mistakes.</li><li>Offer description is comprehensive and captures target audience, type of user, and why it's valuable (value proposition).</li><li>Offer description is in paragraph narrative form with short sentences that are easy to understand.</li></ul> | <ul><li> The target industry is outlined (if relevant).</li><li>Good style formatting, with each paragraph heading having a single sentence or phrase summarizing the content that follows and using bullet points, when appropriate, to emphasize key benefits. The objective here is for the reader to understand the offering at a glance in an easy-to-view format and not have to read long paragraphs.</li><li>There is spacing between each paragraph. It reads like a car brochure. That is, it is comprehensive and describes the offering simply, without technical jargon. | 
 | 5 | Categories and industries | <ul><li>Categories match the solution offering's capabilities.</li><li>Do not extend to categories that the solution does not fit.</li><li>Optimal industry, or all industries selected (if not optimal industries). | <ul><li>Max. 3 categories.</li><li>Max. 3 industries. |
 | 6 | Images | <ul><li>No image is required but, if provided, it must display as a high-resolution image.</li><li>Image requirements are listed in the Cloud Partner Portal (CPP) and here.</li><li>Text included in the screenshot is legible, and the image is clear. | The solution offering is easily understood at a glance. |
 | 7 | Videos | <ul><li>No video is required but, if provided, it must play back without any errors.</li><li>If provided, it may not refer to competitor companies *unless* it is demonstrating a migration solution. |<ul><li>Ideally, length is 3 min. or more.</li><li>Solution offer is easily understood through video content.</li><li>Provides demo of solution capabilities. |
@@ -38,6 +37,7 @@ Additional requirements and checklists are provided for specific listing types, 
 | 10 | Learn more | Links at the bottom (under the description, not the marketplace links on the left) lead to more information about the solution and are publicly available and displaying correctly. |    Links to specific items (for example, spec pages on the partner site) and not just the partner home page. | 
 | 11 | Solution support and help | Link to at least one of the following: <ul><li>Telephone numbers</li><li>Email support</li><li>Chat agents</li><li>Community forums |<ul><li>All support methods are listed: telephone and email support.</li><li>Paid support is offered free during the trial or test drive period. | 
 | 12 | Legal | Policies or terms are available via a public URL. |  |
+
 --- 
 
 ## Trial offer requirements
@@ -47,6 +47,7 @@ Additional requirements and checklists are provided for specific listing types, 
 |  | List status (call to action) | The link must lead to a customer-led trial experience. | Other calls to action (for example, *Buy Now*) are also available. | 
 
 ---
+
 ## SaaS app requirements
 
 |  | Listing element | Base requirement | Optimal requirement | 
@@ -56,7 +57,7 @@ Additional requirements and checklists are provided for specific listing types, 
 | 3 | Test drive | Select: Yes or No | Customer can readily understand what the next steps are: <ol><li>Try the Trial</li><li>Buy Now</li><li>Contact via email or phone number to arrange for POC, Assessment, or Briefing.</li></ol> |
 | 4 | Storefront details: Offer summary | Appears on your app's search page, and has a maximum of 100 characters. | |
 | 5 | Storefront details: Industries | Industries (max. 2): Select the industries that your app is best aligned and applicable to. | |
-| 6 | Offer description | <ul><li>Simple HTML is allowed, including \<p>, \<em>, \<ul>, \<li>, \<ol>, and header tags. Max. 3000 characters.</li><li>2-3 paragraphs</li><li>Solution offering is easily understood at a glance.</li><li>Description is comprehensive and captures target audience, type of user, why it's valuable (value proposition).</li><li>Offer description is in paragraph narrative form with short sentences that are easy to understand. | <ul><li>Target industry is outlined (if relevant).</li><li>Good style formatting, with each paragraph heading having a single sentence or phrase summarizing the content that follows and using bullet points, when appropriate, to emphasize key benefits. The objective here is for the reader to understand the offering at a glance in an easy-to-view format and not have to read paragraphs.</li><li>There is spacing between each paragraph. It reads like a car brochure.. That is, it is comprehensive and describes the offering simply, without technical jargon. | 
+| 6 | Offer description | <ul><li>Simple HTML is allowed, including \<p>, \<em>, \<ul>, \<li>, \<ol>, and header tags. Max. 3000 characters.</li><li>Contains 2-3 paragraphs.</li><li>Solution offering is easily understood at a glance.</li><li>Description is comprehensive and captures target audience, type of user, why it's valuable (value proposition).</li><li>Offer description is in paragraph narrative form with short sentences that are easy to understand. | <ul><li>Target industry is outlined (if relevant).</li><li>Good style formatting, with each paragraph heading having a single sentence or phrase summarizing the content that follows and using bullet points, when appropriate, to emphasize key benefits. The objective here is for the reader to understand the offering at a glance in an easy-to-view format and not have to read paragraphs.</li><li>There is spacing between each paragraph. It reads like a car brochure.. That is, it is comprehensive and describes the offering simply, without technical jargon. | 
 | 7 | Marketing artifacts | Logos display correctly. | <ul><li>Logo  includes "hero image," which is the large-format image in the Azure portal</li><li>Logos: Small (48 &#215; 48) and large (216 &#215; 216) are requirements</li><li>[Hero image requirements](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer)</li><li>Screenshot (max. 5): the CPP requires a PNG image with resolution 1280 &#215; 720. |
 | 8 | Categories and industries | <ul><li>Categories match solution offering capabilities</li><li>At least 1 item(s) should be chosen from pop-up box</li><li>Do not extend to categories that solution does not fit</li><li>Optimal industry, or all industries selected (if not optimal industries</li><li>Do not extend to categories that solution does not fit</li><li>Optimal industry, or all industries selected (if not optimal industries) | Max. 3 categories selected, if applicable. |
 | 9 | Lead Management | Select the system where your leads will be stored. See [get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) to connect your CRM system. |  |
@@ -82,8 +83,8 @@ Additional requirements and checklists are provided for specific listing types, 
 |:--- |:--- |:--- |:--- |
 | 1 | Offer title  |  Must clearly list the service type and duration in the following format: *Name: Duration Type* (for example, "Offer Engagement: 1-Week Proof-of-Concept").  | <ul><li>Does not repeat publisher name.</li><li>The title mirrors the title style already available in the description. Don't use long titles. | 
 | 2 | Offer description  |<ul><li>Ensure proper usage of [Microsoft product names](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx).</li><li>Offers marked as Price: Estimated must have a note either at the top or bottom of the offer to explain the variability (travel to client, number of servers being migrated, and so on).</li><li>Each offer type has description requirements as follows: <ul><li>Briefings need at least 4 or 5 bullets, with information about topics covered in the briefing.</li><li>All workshops need an agenda.</li><li>All agendas must be broken down by day or by week, depending on the duration of the workshop.</li><li>Assessment, POC, non-training workshops, and implementation offers need deliverables.</li><li>Training workshops don't need deliverables, but they need a more detailed agenda with topics that will be covered.</li></ul></ul> | <ul><li>Any offer has agenda and deliverables.</li><li>Offer includes a paragraph with context about the company providing the service in the top section.</li><li>Offer includes a paragraph about the value of the service itself as a top section. |
-| 3 | Markdown formatting  | All offers must use Markdown formatting so that the offer renders properly when converted to HTML.  |  |
-| 4 | Categories and industries | Categories not relevant. |  | 
+| 3 | Markdown formatting  | All offers must use Markdown formatting so that the offer renders properly when it's converted to HTML.  |  |
+| 4 | Categories and industries | Categories are not relevant. |  | 
 | 5 | List status (call to action) | Automatically listed as Contact Me. |  | 
 | 6 | Solution support and help  | Support and help not required.  | | 
 | 7 | Privacy policy and terms of use available  |  Policies or terms not required.  | | 
@@ -93,6 +94,7 @@ Additional requirements and checklists are provided for specific listing types, 
 | 11 | Country/region | Ensure that the country/region matches the selected currency. | |
 | 12 | Learn more  | <ul><li>Links at the bottom (under the description, not the Azure Marketplace links on the left) lead to more information about the solution and are publicly available and being displayed correctly.</li><li>Links must have a "friendly name" and are not displayed as the file name of any downloads. | |
 
+---
 
 ## Next steps
 * Learn about the various offer types in Azure Marketplace:
