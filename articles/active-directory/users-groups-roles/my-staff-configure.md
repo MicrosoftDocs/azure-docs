@@ -55,7 +55,7 @@ We recommend that you protect My Staff using Azure AD Conditional Access policie
 
 1. Create a Conditional Access policy that applies to the My Staff cloud application.
 
-    ![Create a conditional access policy for the My STaff app](media/my-staff-configure/reset-password.png)
+    ![Create a conditional access policy for the My Staff app](media/my-staff-configure/conditional-access.png)
 
 ## Using My Staff
 
