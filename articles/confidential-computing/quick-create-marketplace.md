@@ -92,10 +92,7 @@ If you already use a BASH shell, connect to the Azure VM using the **ssh** comma
 ssh azureadmin@40.55.55.555
 ```
 
-You can find the IP address of your VM in the Azure portal.
-
-[!div class="mx-imgBorder"]
-![IP address in Azure portal](media/quick-create-marketplace/publicip-virtualmachine.png)
+You can find your virtual machine's [IP address in Azure portal](media/quick-create-marketplace/publicip-virtualmachine.png).
 
 If you're running on Windows and don't have a BASH shell, install an SSH client, such as PuTTY.
 

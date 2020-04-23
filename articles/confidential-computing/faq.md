@@ -4,6 +4,8 @@ description: This article provides answers to frequently asked questions about c
 author: JBCook
 ms.topic: troubleshooting
 ms.workload: infrastructure
+ms.service: virtual-machines
+ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
 ---
