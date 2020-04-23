@@ -120,7 +120,7 @@ Use [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) to configur
     ![confirm-logic-app-create](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
 
-## Sample: Trigger retraining workflows when data drift occurs
+## Sample: Trigger retraining when data drift occurs
 
 Models go stale over time, and not remain useful in the context it is running in. One way to tell if it's time to retrain the model is detecting data drift. 
 
