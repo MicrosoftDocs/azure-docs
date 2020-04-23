@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/14/2020
+ms.date: 04/23/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
@@ -82,6 +82,30 @@ To manage a user's phone number, you must be assigned one of the following roles
 - [Authentication administrator](directory-assign-admin-roles.md#authentication-administrator)
 - [Privileged authentication administrator](directory-assign-admin-roles.md#privileged-authentication-administrator)
 - [Global administrator](directory-assign-admin-roles.md#global-administrator--company-administrator)
+
+## Conditional Access
+
+You can protect the My Staff portal using Azure AD Conditional Access policy. Use it for tasks like requiring multi-factor authentication before accessing My Staff.
+
+Until the default My Staff service principal is enabled in all Azure AD organizations, you can can manually create the My Staff service principal by running a couple of PowerShell commands.
+
+> [!Important]
+> Microsoft strongly recommends that customers protect the My Staff portal with a conditional access policy.
+
+### Manually deploy the My Staff service principal
+
+1. If you have never installed the Microsoft Graph beta PowerShell before, run the following commands:
+
+    Install-module Microsoft.Graph
+    Install-Module Microsoft.Graph.Authentication -Repository PSGallery -force
+    Connect-Graph -Scopes "Directory.AccessAsUser.All"
+    New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
+
+1. Install the [MS Graph beta PowerShell cmdlets](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1).
+
+1. Create a Conditional Access policy that applies to the My Staff cloud application.
+
+    ![Create a conditional access policy for the My STaff app](media/my-staff-configure/reset-password.png)
 
 ## Search
 
