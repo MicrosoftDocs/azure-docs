@@ -65,7 +65,7 @@ This error is a temporary issue that's planned to be resolved.
 
 Use the [Remove-AzAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration?view=azps-3.7.0 cmdlet to delete the configuration.
 
-### <a name="failed-to-register-agent"></a>Scenario: Failed to register DSC Agent
+## <a name="failed-to-register-agent"></a>Scenario: Failed to register the DSC Agent
 
 ### Issue
 
@@ -90,7 +90,7 @@ This error is normally caused by a firewall, the machine being behind a proxy se
 
 Verify that your machine has access to the proper endpoints for DSC and try again. For a list of ports and addresses needed, see [Network planning](../automation-dsc-overview.md#network-planning).
 
-## <a name="unauthorized"><a/>Scenario: Status reports return response code Unauthorized
+## <a name="unauthorized"><a/>Scenario: Status reports return the response code Unauthorized
 
 ### Issue
 
