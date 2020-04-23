@@ -63,11 +63,11 @@ To run queries using SQL on-demand, create credentials for SQL on-demand to use 
 > [!NOTE]
 > In order to successfully run samples in this section you have to use SAS token.
 >
-> To start using SAS tokens you have to drop the UserIdentity which is explained in the following [article](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
+> To start using SAS tokens you have to drop the UserIdentity which is explained in the following [article](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
 >
 > SQL on-demand by default always uses AAD pass-through.
 
-For more information on how to manage storage access control, check this [link](develop-storage-files-storage-access-control.md).
+For more information on how to manage storage access control, check this [link](sql/develop-storage-files-storage-access-control.md).
 
 Execute following code snippet to create credential used in samples in this section:
 
