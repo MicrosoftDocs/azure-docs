@@ -120,7 +120,7 @@ When you run the **AutoStop_CreateAlert_Parent** runbook, it verifies that the t
 
 ### To target the autostop action to a list of VMs
 
-1. Create a new [Schedule](shared-resources/schedules.md#creating-a-schedule) and link it to the **AutoStop_CreateAlert_Parent** runbook, adding a comma-separated list of VM names to the `VMList` parameter.
+1. Create a new [Schedule](shared-resources/schedules.md#create-a-schedule) and link it to the **AutoStop_CreateAlert_Parent** runbook, adding a comma-separated list of VM names to the `VMList` parameter.
 
 2. Optionally, if you want to exclude some VMs from the auto shutdown, you can add a comma-separated list of VM names to the `External_ExcludeVMNames` variable.
 
