@@ -383,7 +383,7 @@ tracer = Tracer(
 You can configure fixed-rate sampling for `AzureLogHandler` by modifying the `logging_sampling_rate` optional argument. If no argument is supplied, a sampling rate of 1.0 will be used. A sampling rate of 1.0 represents 100%, meaning all of your requests will be sent as telemetry to Application Insights.
 
 ```python
-exporter = metrics_exporter.new_metrics_exporter(
+handler = AzureLogHandler(
     instrumentation_key='00000000-0000-0000-0000-000000000000',
     logging_sampling_rate=0.5,
 )
