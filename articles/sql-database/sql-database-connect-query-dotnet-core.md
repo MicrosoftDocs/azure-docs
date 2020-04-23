@@ -4,7 +4,7 @@ description: This topic shows you how to use .NET Core to create a program that 
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: 
+ms.custom: sqldbrb=2
 ms.devlang: dotnet
 ms.topic: quickstart
 author: stevestein
@@ -25,7 +25,7 @@ For this tutorial, you need:
 
 - An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
-  || Single database | Managed instance |
+  || SQL Database | SQL Managed instance |
   |:--- |:--- |:---|
   | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -47,13 +47,13 @@ For this tutorial, you need:
 
 ## Get SQL server connection information
 
-Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
+Get the connection information you need to connect to the Azure SQL Database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Navigate to the **SQL databases**  or **SQL managed instances** page.
+2. Navigate to the **SQL Databases**  or **SQL Managed Instances** page.
 
-3. On the **Overview** page, review the fully qualified server name next to **Server name** for a single database or the fully qualified server name next to **Host** for a managed instance. To copy the server name or host name, hover over it and select the **Copy** icon.
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for an Azure SQL Database or the fully qualified server name next to **Host** for an Azure SQL Managed Instance. To copy the server name or host name, hover over it and select the **Copy** icon.
 
 ## Get ADO.NET connection information (optional)
 
@@ -82,7 +82,7 @@ Get the connection information you need to connect to the Azure SQL database. Yo
     </ItemGroup>
     ```
 
-## Insert code to query SQL database
+## Insert code to query SQL Database
 
 1. In a text editor, open **Program.cs**.
 
@@ -194,6 +194,6 @@ namespace sqltest
 ## Next steps
 
 - [Getting started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli).
-- Learn how to [connect and query an Azure SQL database using the .NET Framework and Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
-- Learn how to [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md) or [Design an Azure SQL database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md).
+- Learn how to [connect and query an Azure SQL Database using the .NET Framework and Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
+- Learn how to [Design your first Azure SQL Database using SSMS](sql-database-design-first-database.md) or [Design an Azure SQL Database and connect with C# and ADO.NET](sql-database-design-first-database-csharp.md).
 - For more information about .NET, see [.NET documentation](https://docs.microsoft.com/dotnet/).

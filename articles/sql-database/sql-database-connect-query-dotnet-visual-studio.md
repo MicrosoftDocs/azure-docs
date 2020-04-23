@@ -4,7 +4,7 @@ description: Use Visual Studio to create a C# app that connects to an Azure SQL 
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: 
+ms.custom: sqldbrb=2 
 ms.devlang: dotnet
 ms.topic: quickstart
 author: stevestein
@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer: 
 ms.date: 12/31/2019
 ---
-# Quickstart: Use .NET and C# in Visual Studio to connect to and query an Azure SQL database
+# Quickstart: Use .NET and C# in Visual Studio to connect to and query an Azure SQL Database
 
-This quickstart shows how to use the [.NET Framework](https://www.microsoft.com/net/) and C# code in Visual Studio to query an Azure SQL database with Transact-SQL statements.
+This quickstart shows how to use the [.NET Framework](https://www.microsoft.com/net/) and C# code in Visual Studio to query an Azure SQL Database with Transact-SQL statements.
 
 ## Prerequisites
 
 To complete this quickstart, you need:
 
-- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
+- An Azure SQL Database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
-  || Single database | Managed instance |
+  || SQL Database | SQL Managed Instance |
   |:--- |:--- |:---|
   | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -34,21 +34,21 @@ To complete this quickstart, you need:
   |||
 
   > [!IMPORTANT]
-  > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
+  > The scripts in this article are written to use the Adventure Works database. With a SQL Managed Instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) Community, Professional, or Enterprise edition.
 
 ## Get SQL server connection information
 
-Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
+Get the connection information you need to connect to the Azure SQL Database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Navigate to the **SQL databases**  or **SQL managed instances** page.
+2. Navigate to the **SQL databases**  or **SQL Managed Instances** page.
 
-3. On the **Overview** page, review the fully qualified server name next to **Server name** for a single database or the fully qualified server name next to **Host** for a managed instance. To copy the server name or host name, hover over it and select the **Copy** icon. 
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for an Azure SQL Database or the fully qualified server name next to **Host** for an Azure SQL Managed Instance. To copy the server name or host name, hover over it and select the **Copy** icon. 
 
-## Create code to query the SQL database
+## Create code to query the SQL Database
 
 1. In Visual Studio, select **File** > **New** > **Project**. 
    
@@ -132,9 +132,9 @@ Get the connection information you need to connect to the Azure SQL database. Yo
 
 ## Next steps
 
-- Learn how to [connect and query an Azure SQL database using .NET Core](sql-database-connect-query-dotnet-core.md) on Windows/Linux/macOS.  
+- Learn how to [connect and query an Azure SQL Database using .NET Core](sql-database-connect-query-dotnet-core.md) on Windows/Linux/macOS.  
 - Learn about [Getting started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli).
-- Learn how to [Design your first Azure SQL database using SSMS](sql-database-design-first-database.md) or [Design your first Azure SQL database using .NET](sql-database-design-first-database-csharp.md).
+- Learn how to [Design your first Azure SQL Database using SSMS](sql-database-design-first-database.md) or [Design your first Azure SQL Database using .NET](sql-database-design-first-database-csharp.md).
 - For more information about .NET, see [.NET documentation](https://docs.microsoft.com/dotnet/).
 - Retry logic example: [Connect resiliently to SQL with ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
 
