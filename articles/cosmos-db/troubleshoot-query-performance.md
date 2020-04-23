@@ -43,7 +43,7 @@ When you optimize a query in Azure Cosmos DB, the first step is always to [get t
 
 [ ![Getting query metrics](./media/troubleshoot-query-performance/obtain-query-metrics.png) ](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
 
-After you get the query metrics, compare the **Retrieved Document Count**with the **Output Document Count** for your query. Use this comparison to identify the relevant sections to review in this article.
+After you get the query metrics, compare the **Retrieved Document Count** with the **Output Document Count** for your query. Use this comparison to identify the relevant sections to review in this article.
 
 The **Retrieved Document Count** is the number of documents that the query engine needed to load. The **Output Document Count** is the number of documents that were needed for the results of the query. If the **Retrieved Document Count** is significantly higher than the **Output Document Count**, there was at least one part of your query that was unable to use an index and needed to do a scan.
 
@@ -255,9 +255,9 @@ WHERE udf.MyUDF("Sausages and Luncheon Meats")
 
 #### Queries with GROUP BY
 
-The RU charge of `GROUP BY` will increase as the cardinality of the properties in the `GROUP BY` clause increases. In the below query, for example, the RU charge of the query will increase as the number unique descriptions increases.
+The RU charge of queries with `GROUP BY` will increase as the cardinality of the properties in the `GROUP BY` clause increases. In the below query, for example, the RU charge of the query will increase as the number unique descriptions increases.
 
-The RU charge of an aggregate function with a `GROUP BY` clause will be higher than the RU charge of an aggregate function on its own.In this example, the query engine must load every document that matches the `c.foodGroup = "Sausages and Luncheon Meats"` filter so the RU charge is expected to be high.
+The RU charge of an aggregate function with a `GROUP BY` clause will be higher than the RU charge of an aggregate function alone. In this example, the query engine must load every document that matches the `c.foodGroup = "Sausages and Luncheon Meats"` filter so the RU charge is expected to be high.
 
 ```sql
 SELECT COUNT(1)
