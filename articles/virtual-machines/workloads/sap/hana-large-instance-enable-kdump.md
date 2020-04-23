@@ -37,16 +37,15 @@ Instance(**Type I and Type II**)
 |   Type II                   |  SuSE        |   SLES 12 SP4         |  S384xm     |
 
 ## Pre-requisites
-- Kdump service uses `/var/crash` directory to write dumps, make sure the partition corresponds to this directory has sufficient
-space to accommodate logs.
-
+- Kdump service uses `/var/crash` directory to write dumps, make sure the partition corresponds to this directory has sufficient space to accommodate dumps.
 ## Setup details
 - Script to enable Kdump can be found [here](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh)
 - Run this script on HANA Large Instance using the below command
 ```
 sudo bash enable-kdump.sh
 ```
-- Reboot the system to apply changes.
+- If the command output is "Kdump is successfully enabled, please reboot the system to apply the change", then the Kdump is succesfully enabled. Reboot the system to apply changes.
+- If the command output is "Failed to do certain operation, Exiting !!!!", then Kdump service is not enabled. Refer to section [Support issue](#support-issue).
 
 ## Test Kdump
 **Note**: Below operation will trigger a kernel crash and system reboot.
