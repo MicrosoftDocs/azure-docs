@@ -78,7 +78,7 @@ Follow these instructions if you're having issues joining virtual machines (VMs)
 
 ## Windows Virtual Desktop Agent and Windows Virtual Desktop Boot Loader are not installed
 
-The recommended way to provision VMs is using the Azure Portal creation template. The template automatically installs the Windows Virtual Desktop Agent and Windows Virtual Desktop Agent Boot Loader.
+The recommended way to provision VMs is using the Azure portal creation template. The template automatically installs the Windows Virtual Desktop Agent and Windows Virtual Desktop Agent Boot Loader.
 
 Follow these instructions to confirm the components are installed and to check for error messages.
 
@@ -181,7 +181,7 @@ The Windows Virtual Desktop side-by-side stack is automatically installed with W
 
 There are three main ways the side-by-side stack gets installed or enabled on session host pool VMs:
 
-- With the Azure Portal creation template
+- With the Azure portal creation template
 - By being included and enabled on the master image
 - Installed or enabled manually on each VM (or with extensions/PowerShell)
 
@@ -334,7 +334,7 @@ Redeploy the host operating system with the latest version of the Windows 10, ve
 ## Next steps
 
 - For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
-- To troubleshoot issues while creating a host pool in a Windows Virtual Desktop environment, see [Envrionment and host pool creation](troubleshoot-set-up-issues.md).
+- To troubleshoot issues while creating a host pool in a Windows Virtual Desktop environment, see [Environment and host pool creation](troubleshoot-set-up-issues.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues with Windows Virtual Desktop client connections, see [Windows Virtual Desktop service connections](troubleshoot-service-connection.md).
 - To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md)

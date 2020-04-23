@@ -64,5 +64,5 @@ To learn how to connect to Windows Virtual Desktop, see one of the following art
 - [Connect with Windows 10 or Windows 7](connect-windows-7-and-10.md)
 - [Connect with a web browser](connect-web.md)
 - [Connect with the Android client](connect-android.md)
-- [Connect with the MacOS client](connect-macos.md)
+- [Connect with the macOS client](connect-macos.md)
 - [Connect with the iOS client](connect-ios.md)
