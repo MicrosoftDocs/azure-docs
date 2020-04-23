@@ -5,6 +5,10 @@ keywords:  dsc, powershell, azure, extension
 title:  Azure DSC extension version history
 author: mgoedtel
 ms.author: magoedte
+services: automation
+ms.service: automation
+ms.subservice: dsc
+ms.topic: conceptual
 ---
 # Azure Desired State Configuration extension version history
 
@@ -344,7 +348,7 @@ environments it supports, and comments and remarks on new features or changes.
 ## Next steps
 
 - For more information about PowerShell DSC, go to the
-  [PowerShell documentation center](../overview/overview.md).
+  [PowerShell documentation center](/powershell/scripting/dsc/overview/overview).
 - Examine the [Resource Manager template for the DSC extension](/azure/virtual-machines/extensions/dsc-template).
 - For more functionality that you can manage by using PowerShell DSC, and for more DSC resources,
   browse the
