@@ -502,42 +502,6 @@ When you create a private endpoint for a Cognitive Services resource in your VNe
 
 Cognitive Services resource owners can manage consent requests and the private endpoints, through the '*Private endpoints*' tab for the Cognitive Services resource  in the [Azure portal](https://portal.azure.com).
 
-### Private endpoints
-
-When creating the private endpoint, you must specify the Cognitive Services resource to which it connects. For more detailed information on creating a private endpoint, refer to the following articles:
-
-- [Create a private endpoint using the Private Link Center in the Azure portal](../private-link/create-private-endpoint-portal.md)
-- [Create a private endpoint using Azure CLI](../private-link/create-private-endpoint-cli.md)
-- [Create a private endpoint using Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
-
-### Connecting to private endpoints
-
-Clients on a VNet using the private endpoint should use the same connection string for the Cognitive Services resource as clients connecting to the public endpoint. We rely upon DNS resolution to automatically route the connections from the VNet to the Cognitive Services resource over a private link.
-
-We create a [private DNS zone](../dns/private-dns-overview.md) attached to the VNet with the necessary updates for the private endpoints, by default. However, if you're using your own DNS server, you may need to make additional changes to your DNS configuration. The section on [DNS changes](#dns-changes-for-private-endpoints) below describes the updates required for private endpoints.
-
-### DNS changes for private endpoints
-
-When you create a private endpoint, the DNS CNAME resource record for the Cognitive Services resource is updated to an alias in a subdomain with the prefix '*privatelink*'. By default, we also create a [private DNS zone](../dns/private-dns-overview.md), corresponding to the '*privatelink*' subdomain, with the DNS A resource records for the private endpoints.
-
-When you resolve the endpoint URL from outside the VNet with the private endpoint, it resolves to the public endpoint of the Cognitive Services resource. When resolved from the VNet hosting the private endpoint, the endpoint URL resolves to the private endpoint's IP address.
-
-This approach enables access to the Cognitive Services resource **using the same connection string** for clients on the VNet hosting the private endpoints, as well as clients outside the VNet.
-
-If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the Cognitive Services resource endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet.
-
-> [!TIP]
-> When using a custom or on-premises DNS server, you should configure your DNS server to resolve the Cognitive Services resource name in the 'privatelink' subdomain to the private endpoint IP address. You can do this by delegating the 'privatelink' subdomain to the private DNS zone of the VNet, or configuring the DNS zone on your DNS server and adding the DNS A records.
-
-For more information on configuring your own DNS server to support private endpoints, refer to the following articles:
-
-- [Name resolution for resources in Azure virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS configuration for private endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
-
-### Pricing
-
-For pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link).
-
 ## Next steps
 
 * Explore the various [Azure Cognitive Services](welcome.md)
