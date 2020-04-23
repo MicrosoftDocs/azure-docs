@@ -30,7 +30,7 @@ Virtual machines can be added as targets to a [deployment group](https://docs.mi
  
   
 **Canary Deployments**: A canary deployment reduces risk by slowly rolling out the change to a small subset of users. As you gain more confidence in the new version, you can start releasing it to more servers in your infrastructure and routing more users to it. 
-You can configure canary deployments to your “**virtual machines**” with the Azure portal using continuous delivery option. 
+You can configure canary deployments to your virtual machines with the Azure portal using continuous delivery option. 
 Here is the step-by-step walkthrough. 
 1. Sign in to your Azure portal and navigate to a virtual machine 
 2. In the VM left pane, navigate to the **continuous delivery** menu. Then click on **Configure**. 
