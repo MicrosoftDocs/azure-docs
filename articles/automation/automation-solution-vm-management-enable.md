@@ -41,7 +41,7 @@ Perform the following steps to add the **Start/Stop VMs during off-hours** solut
 7. On the Add Solution page, select **Workspace**. Select a Log Analytics workspace that's linked to the same Azure subscription that the Automation account is in. If you don't have a workspace, select **Create New Workspace**. On the Log Analytics workspace page, perform the following steps:
 
    - Specify a name for the new Log Analytics workspace, such as **ContosoLAWorkspace**.
-   - Select a **Subscription** to link to by selecting from the drop-down list, if the default selected is not appropriate.
+   - Select a **Subscription** to link to by selecting from the dropdown list, if the default selected is not appropriate.
    - For **Resource Group**, you can create a new resource group or select an existing one.
    - Select a **Location**.
    - Select a **Pricing tier**. Choose the **Per GB (Standalone)** option. Azure Monitor logs have updated [pricing](https://azure.microsoft.com/pricing/details/log-analytics/) and the Per GB tier is the only option.
@@ -85,7 +85,7 @@ Perform the following steps to add the **Start/Stop VMs during off-hours** solut
 After all settings are validated, the solution is deployed to your subscription. This process can take several seconds to finish, and you can track its progress under **Notifications** from the menu.
 
 > [!NOTE]
-> If you have an Azure Cloud Solution Provider (Azure CSP) subscription, after deployment is complete, in your Automation account, go to **Variables** under **Shared Resources** and set the [**External_EnableClassicVMs**](automation-solution-vm-management.md#variables) variable to **False**. This stops the solution from looking for Classic VM resources.
+> If you have an Azure Cloud Solution Provider (Azure CSP) subscription, after deployment is complete, in your Automation account, go to **Variables** under **Shared Resources** and set the [External_EnableClassicVMs](automation-solution-vm-management.md#variables) variable to **False**. This stops the solution from looking for Classic VM resources.
 
 ## Next steps
 
