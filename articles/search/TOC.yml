@@ -232,7 +232,7 @@
       items:
       - name: Create a suggester
         href: index-add-suggesters.md
-      - name: Add suggestions or autocomplete
+      - name: Add autocomplete and suggestions
         href: search-autocomplete-tutorial.md
     - name: Query from Power Apps   
       href: search-howto-powerapps.md  
@@ -256,8 +256,8 @@
       href: search-query-troubleshoot-collection-filters.md
     - name: Understand collection filters
       href: search-query-understand-collection-filters.md
-    - name: Example of multi-level facets
-      href: search-example-adventureworks-multilevel-faceting.md
+    - name: Filter by language
+      href: search-filters-language.md
   - name: Results
     items:
     - name: Work with results
