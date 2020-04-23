@@ -40,6 +40,31 @@ For more information, see the [widget types](video-indexer-embed-widgets.md#widg
 
 A new player skin launched with updated design.
 
+### Prepare for upcoming changes
+
+* Today, the following APIs return an account object:
+
+    * [Create-Paid-Account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account)
+    * [Get-Account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account)
+    * [Get-Accounts-Authorization](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-Authorization)
+    * [Get-Accounts-With-Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-With-Token)
+ 
+    The Account object has a `Url` field pointing to the location of the [Video Indexer website](https://www.videoindexer.ai/).
+For paid accounts the `Url` field is currently pointing to an internal URL instead of the public website.
+In the coming weeks we will change it and return the [Video Indexer website](https://www.videoindexer.ai/) URL for all accounts (trial and paid).
+
+    Do not use the internal URLs, you should be using the [Video Indexer public APIs](https://api-portal.videoindexer.ai/).
+* If you are embedding Video Indexer URLs in your applications and the URLs are not pointing to the [Video Indexer website](https://www.videoindexer.ai/) or the [Video Indexer API endpoint](https://api.videoindexer.ai) but rather to a regional endpoint (for example, `https://wus2.videoindexer.ai`), regenerate the URLs.
+
+   You can do it it by either:
+
+    * Replacing the URL with a URL pointing to the Video Indexer widget APIs (for example, the [insights widget](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
+    * Using the Video Indexer website to generate a new embedded URL:
+         
+         Press **Play** to get to your video's page -> click the **&lt;/&gt; Embed** button -> copy the URL into your application:
+   
+    The regional URLs are not supported and will be blocked in the coming weeks.
+
 ## January 2020
  
 ### Custom language support for additional languages
