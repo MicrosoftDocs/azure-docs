@@ -13,14 +13,12 @@ ms.author: JenCook
 
 # Quickstart: Deploy an Azure confidential computing VM in the Azure portal
 
-Get started with Azure confidential computing by using the Azure portal to create a virtual machine that runs on Linux. You'll then install the Open Enclave Software Development Kit (SDK) to set up your development environment. 
+Get started with Azure confidential computing by using the Azure portal to create a virtual machine (VM) backed by Intel SGX. You'll then install the Open Enclave Software Development Kit (SDK) to set up your development environment. 
 
-This tutorial is recommended for you if you're interested in deploying a confidential compute virtual machine with custom configuration. Otherwise, we recommend following the [Azure Marketplace Confidential Compute virtual machine deployment steps.](/deploy-marketplace.md)
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+This tutorial is recommended for you if you're interested in deploying a confidential compute virtual machine with custom configuration. Otherwise, we recommend following the [confidential Computing virtual machine deployment steps for the Microsoft commercial marketplace.](quick-create-marketplace.md)
 
 ## Prerequisites
-If you don't have an Azure subscription, create an [account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you begin.
+If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you begin.
    > [!NOTE]
    > Free trial accounts do not have access to the virtual machines used in this tutorial. Please upgrade to a Pay-As-You-Go subscription.
 
@@ -48,18 +46,16 @@ In this section, you'll use the Azure portal to deploy a virtual machine that al
 
     ![Basics window](media/quick-create-portal/basics-virtualmachine.png)
 
-1. In **Virtual machine name**, enter a name for your new Linux VM.
+1. In **Virtual machine name**, enter a name for your new VM.
 1. Then, type or select the following values:
    * **Region**: Select the Azure region that's right for you.
 
         > [!NOTE]
-        > Confidential compute virtual machines only run on specialized hardware available in specific regions. Please check [here](https://aka.ms/accregions) for the latest available regions for DCsv2-Series VMs.
+        > Confidential compute virtual machines only run on specialized hardware available in specific regions. For the latest available regions for DCsv2-Series VMs, see [available regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
 1. Configure the operating system image that you would like to use for your virtual machine.
-    * **Choose Image**: Select Ubuntu 18.04 LTS.
+    * **Choose Image**: For this tutorial, select Ubuntu 18.04 LTS. You may also select Windows Server 2019, Windows Server 2016, or and Ubuntu 16.04 LTS. If you choose to do so, you'll be redirected in this tutorial accordingly.
 
-        > [!NOTE]
-        > Windows Server 2016 and Ubuntu 16.04 LTS also support confidential computing on Azure confidential computing VMs. As with Ubuntu 18.04, these images need to be Generation 2. 
     
     * **Toggle the image for Gen 2**: Confidential compute virtual machines only run on Generation 2 images. Ensure the image you select is a Gen 2 image. Click the **Advanced** tab above where you're configuring the virtual machine. Scroll down until you find the section labeled "VM Generation". Select Gen 2 and then go back to the **Basics** tab.
     
@@ -71,7 +67,7 @@ In this section, you'll use the Azure portal to deploy a virtual machine that al
 
     * **Return to basic configuration**: Go back to the **Basics** tab using the navigation at the top.
 
-    For more information about Gen 2 VMs, see [support for generation 2 VMs on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
+    For more information about Gen 2 VMs, see [support for generation 2 VMs on Azure](../virtual-machines/linux/generation-2).
 
 
 1. Choose the confidential compute VM size that's right for you.
@@ -81,20 +77,24 @@ In this section, you'll use the Azure portal to deploy a virtual machine that al
         ![DCsv2-Series VMs](media/quick-create-portal/dcsv2-virtualmachines.png)
 
        > [!TIP]
-       > You should see sizes **DC1s_v2**, **DC2s_v2**, **DC4s_V2**, and **DC8_v2**. These are the only virtual machine sizes that currently support confidential computing. [Learn more](http://aka/ms/dcv2)
+       > You should see sizes **DC1s_v2**, **DC2s_v2**, **DC4s_V2**, and **DC8_v2**. These are the only virtual machine sizes that currently support confidential computing. [Learn more](virtual-machine-solutions.md)
 
 1. Fill in the following information:
 
-   * **Authentication type**: Select **SSH public key**.
+   * **Authentication type**: Select **SSH public key** if you're creating a Linux VM. 
 
-     > [!NOTE]
-     > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+        > [!NOTE]
+         > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
 
-   * **Username**: Enter the Administrator name for the VM.
-   * **SSH public key**: Enter your RSA public key.
-   * **Public inbound ports**: Choose **Allow selected ports** and pick the **SSH (22)** port in the **Select public inbound ports** list. In this quickstart, this step is necessary to connect and complete the Open Enclave SDK configuration. 
+        * **Username**: Enter the Administrator name for the VM.
+
+        * **SSH public key**: If applicable, enter your RSA public key.
+        * **Password**: If applicable, enter your password for authentication.
+
+   * **Public inbound ports**: Choose **Allow selected ports** and select **SSH (22)** and **HTTP (80)** in the **Select public inbound ports** list. If you're deploying a Windows VM, select **HTTP (80)** and **RDP (3389)**. In this quickstart, this step is necessary to connect to the VM and complete the Open Enclave SDK configuration. 
 
      ![Inbound ports](media/quick-create-portal/inboundport-virtualmachine.png)
+
 
 1. Make changes in the **Disks** tab.
    * If you chose a **DC1s_v2**, **DC2s_v2**, **DC4s_V2** virtual machine, choose a disk type that is either **Standard SSD** or **Premium SSD**. 
@@ -109,6 +109,8 @@ In this section, you'll use the Azure portal to deploy a virtual machine that al
 
 1. Select **Review + create**.
 1. In the **Review + create** pane, select **Create**.
+
+Proceed to the next step if you deployed a Linux VM. If you deployed a Windows VM, [follow the steps to connect to your Windows VM](../virtual-machines/windows/connect-logon). And then [install the OE SDK on Windows](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Windows.md). Otherwise, continue with this tutorial. 
 
 ## Connect to the Linux VM
 
@@ -133,13 +135,15 @@ If you're running on Windows and don't have a BASH shell, install an SSH client,
 
 1. Select **Open** and enter your username and password at the prompts.
 
-For more information about connecting to Linux VMs, see [Create a Linux VM on Azure using the Portal](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal).
+For more information about connecting to Linux VMs, see [Create a Linux VM on Azure using the Portal](../virtual-machines/linux/quick-create-portal.md).
 
 > [!NOTE]
 > If you see a PuTTY security alert about the server's host key not being cached in the registry, choose from the following options. If you trust this host, select **Yes** to add the key to PuTTy's cache and continue connecting. If you want to carry on connecting just once, without adding the key to the cache, select **No**. If you don't trust this host, select **Cancel** to abandon the connection.
 
 ## <a id="Install"></a> Install the Open Enclave SDK (OE SDK)
-Follow the step-by-step instructions to install the OE SDK on your DCsv2-Series virtual machine running an Ubuntu 18.04 LTS Gen 2 image. [Learn more about the OE SDK](https://github.com/openenclave/openenclave).
+Follow the step-by-step instructions to install the [OE SDK](https://github.com/openenclave/openenclave) on your DCsv2-Series virtual machine running an Ubuntu 18.04 LTS Gen 2 image. 
+
+If your virtual machine runs on Ubuntu 16.04 LTS Gen 2, you'll need to follow [installation instructions for Ubuntu 16.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md).
 
 #### 1. Configure the Intel and Microsoft APT Repositories
 
@@ -185,11 +189,14 @@ See [Using the Open Enclave SDK](https://github.com/openenclave/openenclave/blob
 When no longer needed, you can delete the resource group, virtual machine, and all related resources. 
 
 Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
-\
 
 ## Next steps
 
-In this quickstart, you deployed a confidential computing virtual machine, and installed the Open Enclave SDK. To learn more about how you can build applications with confidential computing capabilities, continue to the Open Enclave SDK on GitHub. 
+In this quickstart, you deployed a confidential computing virtual machine, and installed the Open Enclave SDK. For more information about confidential computing virtual machines on Azure, see [Solutions on Virtual Machines](virtual-machine-solutions.md). 
+
+If you deployed a Windows VM, learn how to build applications with the [OE SDK Samples for Windows](https://github.com/openenclave/openenclave/blob/master/samples/README_Windows.md) on GitHub. 
+
+Discover how you can build confidential computing applications on Linux, by continuing to the Open Enclave SDK Linux samples on GitHub. 
 
 > [!div class="nextstepaction"]
 > [Building Open Enclave SDK Samples on Linux](https://github.com/openenclave/openenclave/blob/master/samples/README_Linux.md)

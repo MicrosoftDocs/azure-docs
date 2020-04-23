@@ -19,35 +19,39 @@ This article covers information about deploying Azure confidential computing vir
 
 Azure confidential computing virtual machines are designed to protect the confidentially and integrity of your data and code while it's processed in the cloud 
 
-[DCsv2-Series](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) VMs are the latest and most recent confidential computing size family. These VMs support a larger range of deployment capabilities, have 2x the Enclave Page Cache (EPC) and a larger selection of sizes to compared to our DC-Series VMs. The [DC-Series](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) VMs are currently in preview and will be deprecated before becoming generally available.
+[DCsv2-Series](../virtual-machines/dcv2-series) VMs are the latest and most recent confidential computing size family. These VMs support a larger range of deployment capabilities, have 2x the Enclave Page Cache (EPC) and a larger selection of sizes to compared to our DC-Series VMs. The [DC-Series](../virtual-machines/sizes-previous-gen#preview-dc-series) VMs are currently in preview and will be deprecated before becoming generally available.
 
-Start deploying a DCsv2-Series VM by following the [quickstart tutorial](quick-create-marketplace.md).
+Start deploying a DCsv2-Series VM via the Microsoft commerical marketplace by following the [quickstart tutorial](quick-create-marketplace.md).
 
 ### Current available sizes and regions
-To get a list of all generally available confidential compute VM sizes in available regions, run the following command in the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
+To get a list of all generally available confidential compute VM sizes in available regions, and availability zones, run the following command in the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
 
 
 ```azurecli-interactive
-az vm list-skus --size dc --query "[?family=='standardDCSv2Family'].{name:name,locations:locations[0]}" --all --output table
+az vm list-skus 
+    --size dc 
+    --query "[?family=='standardDCSv2Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" 
+    --all 
+    --output table
 ```
 
-As of April 2020, the following SKUs are available:
+As of April 2020, these SKUs are available in the following regions and availability zones:
 
-```bash
-Name              Locations
-----------------  -------------
-Standard_DC8_v2   eastus
-Standard_DC1s_v2  eastus
-Standard_DC2s_v2  eastus
-Standard_DC4s_v2  eastus
+```output
+Name              Locations      AZ_a
+----------------  -------------  ------
+Standard_DC8_v2   eastus         2
+Standard_DC1s_v2  eastus         2
+Standard_DC2s_v2  eastus         2
+Standard_DC4s_v2  eastus         2
 Standard_DC8_v2   CanadaCentral
 Standard_DC1s_v2  CanadaCentral
 Standard_DC2s_v2  CanadaCentral
 Standard_DC4s_v2  CanadaCentral
-Standard_DC8_v2   uksouth
-Standard_DC1s_v2  uksouth
-Standard_DC2s_v2  uksouth
-Standard_DC4s_v2  uksouth
+Standard_DC8_v2   uksouth        3
+Standard_DC1s_v2  uksouth        3
+Standard_DC2s_v2  uksouth        3
+Standard_DC4s_v2  uksouth        3
 Standard_DC8_v2   CentralUSEUAP
 Standard_DC1s_v2  CentralUSEUAP
 Standard_DC2s_v2  CentralUSEUAP
@@ -56,7 +60,9 @@ Standard_DC4s_v2  CentralUSEUAP
 
 For a more detailed view of the above sizes, run the following command 
 ```azurecli-interactive
-az vm list-skus --size dc --query "[?family=='standardDCSv2Family']"
+az vm list-skus 
+    --size dc 
+    --query "[?family=='standardDCSv2Family']"
 ```
 
 ## Deployment considerations
@@ -76,7 +82,7 @@ Follow a quickstart tutorial to deploy a DCsv2-Series virtual machine in less th
 
 - **Resizing** – Because of their specialized hardware, you can only resize confidential computing instances within the same size family. For example, you can only resize a DCsv2-series VM from one DCsv2-series size to another. Resizing from a non-confidential computing size to a confidential computing size isn't supported.  
 
-- **Image** – To provide Intel Software Guard Extension (SGX) support on confidential compute instances, all deployments need to be run on Generation 2 images. Azure confidential computing supports workloads running on Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, and Windows Server 2016 Gen 2. Read about [support for generation 2 VMs on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) to learn more about supported and unsupported scenarios. 
+- **Image** – To provide Intel Software Guard Extension (Intel SGX) support on confidential compute instances, all deployments need to be run on Generation 2 images. Azure confidential computing supports workloads running on Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, and Windows Server 2016 Gen 2. Read about [support for generation 2 VMs on Azure](../virtual-machines/linux/generation-2) to learn more about supported and unsupported scenarios. 
 
 - **Storage** – Azure confidential computing virtual machine data disks and our ephemeral OS disks are on NVMe disks. Instances support only Premium SSD and Standard SSD disks, not Ultra SSD, or Standard HDD. Virtual machine size **DC8_v2** doesn't support Premium storage. 
 
@@ -85,15 +91,15 @@ Follow a quickstart tutorial to deploy a DCsv2-Series virtual machine in less th
 ## High availability and disaster recovery considerations
 When using virtual machines in Azure, you're responsible for implementing a high availability and disaster recovery solution to avoid any downtime. 
 
-Azure confidential computing doesn't support zone-redundancy via Availability Zones at this time. For the highest availability and redundancy for confidential computing, use [Availability Sets](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Because of hardware restrictions, Availability Sets for confidential computing instances can only have a maximum of 10 update domains. 
+Azure confidential computing doesn't support zone-redundancy via Availability Zones at this time. For the highest availability and redundancy for confidential computing, use [Availability Sets](../virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Because of hardware restrictions, Availability Sets for confidential computing instances can only have a maximum of 10 update domains. 
 
 ## Deploying via an Azure Resource Manager Template 
 
 Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
-To learn about Azure Resource Manager templates, see [Template deployment overview](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
+To learn about Azure Resource Manager templates, see [Template deployment overview](../azure-resource-manager/templates/overview).
 
-To deploy a DCsv2-Series VM in an ARM template you will utilize the [Virtual Machine resource](https://docs.microsoft.com/azure/virtual-machines/windows/template-description). You need to ensure you specify the correct properties for **vmSize** and for your **imageReference**.
+To deploy a DCsv2-Series VM in an ARM template you will utilize the [Virtual Machine resource](../virtual-machines/windows/template-description). You need to ensure you specify the correct properties for **vmSize** and for your **imageReference**.
 
 ### VM Size
 Specify one of the following sizes in your ARM template in the Virtual Machine resource. This string is put as **vmSize** in **properties**.
