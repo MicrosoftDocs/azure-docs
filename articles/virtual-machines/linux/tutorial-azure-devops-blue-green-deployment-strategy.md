@@ -48,7 +48,7 @@ Here is the step-by-step walkthrough.
 7. Add a "blue" or "green" tag to the VMs that are to be part of Blue-Green deployments. If the VM is for a standby role, then you should tag it as "green", otherwise tag it as "blue".
 ![AzDevOps_bluegreen_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
 
-8. Once done Click **OK** on the dialog to configure the continuous delivery pipeline, you will now have a continuous delivery pipeline configured to deploy to the virtual machine.
+8. Click **OK** to configure the continuous delivery pipeline. You will now have a continuous delivery pipeline configured to deploy to the virtual machine.
 ![AzDevOps_bluegreen_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-pipeline.png)
 
 
