@@ -58,6 +58,7 @@ You have the option of using [role-based access control (RBAC)][rbac-what-is-813
 
 > [!NOTE]
 > In some cases the Azure SQL Database and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
+>
 > - Both subscriptions must be in the same Azure Active Directory tenant.
 > - The user has the required permissions to initiate operations, such as enabling service endpoints and adding a VNet-subnet to the given Server.
 > - Both subscriptions must have the Microsoft.Sql provider registered.
@@ -258,6 +259,7 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 
 > [!NOTE]
 > The following statuses or states apply to the rules:
+>
 > - **Ready:** Indicates that the operation that you initiated has Succeeded.
 > - **Failed:** Indicates that the operation that you initiated has Failed.
 > - **Deleted:** Only applies to the Delete operation, and indicates that the rule has been deleted and no longer applies.
