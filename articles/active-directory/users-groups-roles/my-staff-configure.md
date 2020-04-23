@@ -45,16 +45,13 @@ We recommend that you protect My Staff using Azure AD Conditional Access policie
 > [!Important]
 > Microsoft strongly recommends that customers protect the My Staff portal with a conditional access policy.
 
-### Manually deploy the My Staff service principal
+### Manually create the My Staff service principal
 
-1. If you have never installed the Microsoft Graph beta PowerShell before, run the following commands:
+1. Install the [Microsoft Graph Beta PowerShell cmdlets](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1).
+1. Run the following commands:
 
-    Install-module Microsoft.Graph
-    Install-Module Microsoft.Graph.Authentication -Repository PSGallery -force
-    Connect-Graph -Scopes "Directory.AccessAsUser.All"
-    New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
-
-1. Install the [MS Graph beta PowerShell cmdlets](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1).
+        Connect-Graph -Scopes "Directory.AccessAsUser.All"
+        New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
 
 1. Create a Conditional Access policy that applies to the My Staff cloud application.
 
