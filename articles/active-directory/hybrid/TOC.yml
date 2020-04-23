@@ -153,7 +153,7 @@
             href: plan-migrate-adfs-pass-through-authentication.md
           - name: Move groups from one forest to another
             href: how-to-connect-migrate-groups.md
-          - name: Migrate to cloud authentication by using staged rollout
+          - name: Migrate to cloud authentication using staged rollout
             href: how-to-connect-staged-rollout.md
     - name: Hybrid Identity Design Considerations
       items:
