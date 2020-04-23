@@ -1,31 +1,22 @@
 ---
-title: Azure Resource Manager template for Log Analytics workspace
-description: You can use Azure Resource Manager templates to create and configure Log Analytics workspaces.
+title: Resource Manager template samples for Azure Monitor workspaces
+description: Sample Azure Resource Manager templates to deploy Azure Monitor workspaces and configure data sources.
 ms.subservice: logs
-ms.topic: conceptual
+ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 01/09/2020
+ms.date: 04/22/2020
 
 ---
 
 # Resource Manager template samples for Azure Monitor workspaces
-This article includes sample  [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create and configure Log Analytics workspaces in Azure Monitor. Each sample includes a template file 
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create and configure Log Analytics workspaces in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
+- For more information on Log Analytics workspaces, see [Create a Log Analytics workspace in the Azure portal](../learn/quick-create-workspace.md).
+- For more information on data sources in a Log Analytics workspace, see [Agent data sources in Azure Monitor](agent-data-sources.md).
 
-## API versions
-
-The following table lists the API version for the resources used in this example.
-
-| Resource | Resource type | API version |
-|:---|:---|:---|
-| Workspace   | workspaces    | 2017-03-15-preview |
-| Search      | savedSearches | 2015-03-20 |
-| Data source | datasources   | 2015-11-01-preview |
-| Solution    | solutions     | 2015-11-01-preview |
-
-## Create a workspace
-The following sample creates a new empty workspace.
+## Create a Log Analytics workspace
+The following sample creates a new empty Log Analytics workspace.
 
 ### Notes
 
@@ -154,7 +145,7 @@ The following sample creates a new empty workspace.
 ```
 
 ## Collect Windows events
-The following sample adds collection of Windows events to an existing workspace.
+The following sample adds collection of [Windows events](data-sources-windows-events.md) to an existing workspace.
 
 ### Notes
 
@@ -249,7 +240,7 @@ The following sample adds collection of Windows events to an existing workspace.
 ```
 
 ## Collect syslog
-The following sample adds collection of syslog events to an existing workspace.
+The following sample adds collection of [syslog events](data-sources-syslog.md) to an existing workspace.
 
 ### Notes
 
@@ -387,7 +378,7 @@ The following sample adds collection of syslog events to an existing workspace.
 ```
 
 ## Collect Windows performance counters
-The following sample adds collection of Windows performance counters to an existing workspace.
+The following sample adds collection of [Windows performance counters](data-sources-performance-counters.md) to an existing workspace.
 
 ### Notes
 
@@ -490,8 +481,8 @@ The following sample adds collection of Windows performance counters to an exist
 ```
 
 
-## Workspace with Linux performance counters
-The following sample adds collection of Linux performance counters to an existing workspace.
+## Collect Linux performance counters
+The following sample adds collection of [Linux performance counters](data-sources-performance-counters.md) to an existing workspace.
 
 ### Notes
 
@@ -604,8 +595,8 @@ The following sample adds collection of Linux performance counters to an existin
 ```
 
 
-## Workspace with custom logs
-The following sample adds collection of custom logs to an existing workspace.
+## Collect custom logs
+The following sample adds collection of [custom logs](data-sources-custom-logs.md) to an existing workspace.
 
 ### Notes
 
@@ -730,29 +721,92 @@ The following sample adds collection of custom logs to an existing workspace.
 
 ### Parameter file
 
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspaceName": {
+      "value": "MyWorkspace"
+    },
+    "location": {
+      "value": "eastus"
+    }
+  }
+}
+```
 
-## Workspace with IIS log
+
+## Collect IIS log
+The following sample adds collection of [IIS logs](data-sources-iis-logs.md) to an existing workspace.
 
 ### Template file
 
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "string",
+            "metadata": {
+              "description": "Name of the workspace."
+            }
+        },
+        "location": {
+          "type": "string",
+          "metadata": {
+            "description": "Specifies the location in which to create the workspace."
+          }
+        }
+    },
+    "resources": [
+    {
+        "type": "Microsoft.OperationalInsights/workspaces",
+        "apiVersion": "2017-03-15-preview",
+        "name": "[parameters('workspaceName')]",
+        "location": "[parameters('location')]",
+        "resources": [
+            {
+                "apiVersion": "2015-11-01-preview",
+                "type": "datasources",
+                "name": "IISLog",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+                ],
+                "kind": "IISLogs",
+                "properties": {
+                    "state": "OnPremiseEnabled"
+                }
+            }
+        ]
+      }
+    ]
+}
+
+```
+
 ### Parameter file
 
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspaceName": {
+      "value": "MyWorkspace"
+    },
+    "location": {
+      "value": "eastus"
+    }
+  }
+}
+```
 
 
 
-
-## Example Resource Manager templates
-
-The Azure quickstart template gallery includes several templates for Log Analytics, including:
-
-* [Deploy a virtual machine running Windows with the Log Analytics VM extension](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
-* [Deploy a virtual machine running Linux with the Log Analytics VM extension](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
-* [Monitor Azure Site Recovery using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
-* [Monitor Azure Web Apps using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [Add an existing storage account to Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## Next steps
 
 * [Deploy Windows agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-windows.md).
-
 * [Deploy Linux agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-linux.md).
