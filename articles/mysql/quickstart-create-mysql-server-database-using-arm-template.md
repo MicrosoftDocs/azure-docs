@@ -135,7 +135,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
         | **Geo Redundant Backup** | *Disabled* | *Enabled* or *Disabled*, depending on geo-disaster recovery (Geo-DR) requirements |
         | **Virtual Network Name** | *azure_mysql_vnet* | The name of the virtual network |
         | **Subnet Name** | *azure_mysql_subnet* | The name of the subnet |
-        | **Virtual Network Rule Name** | *AllowSubnet* |  |
+        | **Virtual Network Rule Name** | *AllowSubnet* | The name of the virtual network rule allowing the subnet |
         | **Vnet Address Prefix** | *10.0.0.0/16* | The address prefix for the virtual network |
         | **Subnet Prefix** | *10.0.0.0/16* | The address prefix for the subnet |
 
