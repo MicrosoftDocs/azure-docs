@@ -88,27 +88,41 @@ npm install express
    const express = require('express');
    const morgan = require('morgan');
    const path = require('path');
+   const argv = require('yargs')
+      .usage('Usage: $0 -p [PORT]')
+      .alias('p', 'port')
+      .describe('port', '(Optional) Port Number - default is 3000')
+      .strict()
+      .argv;
+
+   const DEFAULT_PORT = 3000;
 
    //initialize express.
    const app = express();
 
    // Initialize variables.
-   const port = 3000; // process.env.PORT || 3000;
+   let port = DEFAULT_PORT; // -p {PORT} || 3000;
+   if (argv.p) {
+      port = argv.p;
+   }
 
    // Configure morgan module to log all requests.
    app.use(morgan('dev'));
 
    // Set the front-end folder to serve public assets.
-   app.use(express.static('JavaScriptSPA'))
+   app.use("/lib", express.static(path.join(__dirname, "../../lib/msal-browser/lib")));
+
+   // Setup app folders
+   app.use(express.static('app'));
 
    // Set up a route for index.html.
    app.get('*', function (req, res) {
-       res.sendFile(path.join(__dirname + '/index.html'));
+      res.sendFile(path.join(__dirname + '/index.html'));
    });
 
    // Start the server.
    app.listen(port);
-   console.log('Listening on port ' + port + '...');
+   console.log(`Listening on port ${port}...`);
 ```
 
 You now have a simple server to serve your SPA. The intended folder structure at the end of this tutorial is as follows:
@@ -117,83 +131,83 @@ You now have a simple server to serve your SPA. The intended folder structure at
 
 ## Create the SPA UI
 
-1. Create an `index.html` file for your JavaScript SPA. This file implements a UI built with **Bootstrap 4 Framework** and imports script files for configuration, authentication and API call.
+1. Create an `index.html` file for your JavaScript SPA in the **app** folder. This file implements a UI built with **Bootstrap 4 Framework** and imports script files for configuration, authentication and API call.
 
    In the `index.html` file, add the following code:
 
    ```html
    <!DOCTYPE html>
    <html lang="en">
-     <head>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-       <title>Quickstart | MSAL.JS 2.0 Vanilla JavaScript SPA</title>
-
-       <!-- msal.js with a fallback to backup CDN -->
-       <script type="text/javascript" src="https://alcdn.msauth.net/lib/1.2.1/js/msal.js" integrity="sha384-9TV1245fz+BaI+VvCjMYL0YDMElLBwNS84v3mY57pXNOt6xcUYch2QLImaTahcOP" crossorigin="anonymous"></script>
-       <script type="text/javascript">
-         if(typeof Msal === 'undefined')document.write(unescape("%3Cscript src='https://alcdn.msftauth.net/lib/1.2.1/js/msal.js' type='text/javascript' integrity='sha384-m/3NDUcz4krpIIiHgpeO0O8uxSghb+lfBTngquAo2Zuy2fEF+YgFeP08PWFo5FiJ' crossorigin='anonymous'%3E%3C/script%3E"));
-       </script>
-
-       <!-- adding Bootstrap 4 for UI components  -->
-       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-     </head>
-     <body>
-       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-         <a class="navbar-brand" href="/">MS Identity Platform</a>
-         <div class="btn-group ml-auto dropleft">
-           <button type="button" id="signIn" class="btn btn-secondary" onclick="signIn()">Sign In</button>
-           <button type="button" id="signOut" class="btn btn-success d-none" onclick="signOut()">Sign Out</button>
-       </div>
-       </nav>
-       <br>
-       <h5 class="card-header text-center">Vanilla JavaScript SPA calling MS Graph API with MSAL.JS</h5>
-       <br>
-       <div class="row" style="margin:auto" >
-       <div id="card-div" class="col-md-3 d-none">
-       <div class="card text-center">
-         <div class="card-body">
-           <h5 class="card-title" id="welcomeMessage">Please sign-in to see your profile and read your mails</h5>
-           <div id="profile-div"></div>
-           <br>
-           <br>
-           <button class="btn btn-primary" id="seeProfile" onclick="seeProfile()">See Profile</button>
-           <br>
-           <br>
-           <button class="btn btn-primary d-none" id="readMail" onclick="readMail()">Read Mails</button>
+      <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+         <title>Quickstart | MSAL.JS Vanilla JavaScript SPA</title>
+    
+         <!-- IE support: add promises polyfill before msal.js  -->    
+         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/bluebird@3.7.2/js/browser/bluebird.min.js"></script>
+         <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.0.0-beta.0/js/msal-browser.js"></script>
+    
+         <!-- adding Bootstrap 4 for UI components  -->
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+         <link rel="SHORTCUT ICON" href="https://c.s-microsoft.com/favicon.ico?v2" type="image/x-icon">
+      </head>
+      <body>
+         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="/">MS Identity Platform</a>
+            <div class="btn-group ml-auto dropleft">
+               <button type="button" id="SignIn" class="btn btn-secondary" onclick="signIn()">
+                  Sign In
+               </button>
+            </div>
+         </nav>
+         <br>
+         <h5 class="card-header text-center">Vanilla JavaScript SPA calling MS Graph API with MSAL.JS</h5>
+         <br>
+         <div class="row" style="margin:auto" >
+         <div id="card-div" class="col-md-3" style="display:none">
+         <div class="card text-center">
+            <div class="card-body">
+            <h5 class="card-title" id="WelcomeMessage">Please sign-in to see your profile and read your mails</h5>
+            <div id="profile-div"></div>
+            <br>
+            <br>
+            <button class="btn btn-primary" id="seeProfile" onclick="seeProfile()">See Profile</button>
+            <br>
+            <br>
+            <button class="btn btn-primary" id="readMail" onclick="readMail()">Read Mails</button>
+            </div>
          </div>
-       </div>
-       </div>
-       <br>
-       <br>
-         <div class="col-md-4">
-           <div class="list-group" id="list-tab" role="tablist">
-           </div>
          </div>
-         <div class="col-md-5">
-           <div class="tab-content" id="nav-tabContent">
-           </div>
+         <br>
+         <br>
+            <div class="col-md-4">
+            <div class="list-group" id="list-tab" role="tablist">
+            </div>
+            </div>
+            <div class="col-md-5">
+             <div class="tab-content" id="nav-tabContent">
+            </div>
+            </div>
          </div>
-       </div>
-       <br>
-       <br>
+         <br>
+         <br>
 
-       <!-- importing bootstrap.js and supporting js libraries -->
-       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>  
-       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-       <!-- importing app scripts (load order is important) -->
-       <script type="text/javascript" src="./authConfig.js"></script>
-       <script type="text/javascript" src="./ui.js"></script>
-
-       <!-- replace next line with authRedirect.js if you would like to use the redirect flow -->
-       <!-- <script type="text/javascript" src="./authRedirect.js"></script>   -->
-       <script type="text/javascript" src="./auth.js"></script>
-       <script type="text/javascript" src="./authConfig.js"></script>
-       <script type="text/javascript" src="./graph.js"></script>
-     </body>
-   </html>
+         <!-- importing bootstrap.js and supporting js libraries -->
+         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>  
+         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
+         <!-- importing app scripts (load order is important) -->
+         <script type="text/javascript" src="./authConfig.js"></script>
+         <script type="text/javascript" src="./graphConfig.js"></script>
+         <script type="text/javascript" src="./ui.js"></script>
+    
+         <!-- <script type="text/javascript" src="./authRedirect.js"></script>   -->
+         <!-- uncomment the above line and comment the line below if you would like to use the redirect flow -->
+         <script type="text/javascript" src="./authPopup.js"></script>
+         <script type="text/javascript" src="./graph.js"></script>
+      </body>
+     </html>
    ```
 
    > [!TIP]
@@ -279,7 +293,7 @@ Follow the instructions to [register a new single page application](https://docs
 > #### Set a redirect URL for Node.js
 > For Node.js, you can set the web server port in the *server.js* file. This tutorial uses port 3000, but you can use any other available port.
 >
-> To set up a redirect URL in the application registration information, switch back to the **Application Registration** pane and register a new SPA with either of the following:
+> To set up a redirect URL in the application registration information, switch back to the **Application Registration** pane and register a new **SPA** with either of the following:
 >
 > - Set *`http://localhost:3000/`* as the **Redirect URL**.
 > - If you're using a custom TCP port, use *`http://localhost:<port>/`* (where *\<port>* is the custom TCP port number).
@@ -303,23 +317,19 @@ Create a new .js file named `authConfig.js`, which will contain your configurati
 
   // Add here scopes for id token to be used at MS Identity Platform endpoints.
   const loginRequest = {
-      scopes: ["User.Read"],
-      forceRefresh: false // Set this to "true" to skip a cached token and go to the server to get a new token
+   scopes: ["openid", "profile", "User.Read"]
   };
 
-  // Add here the endpoints for MS Graph API services you would like to use.
-
-
-  const graphConfig = {
-      graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
-      graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
-  };
-
-  // Add here scopes for access token to be used at MS Graph API endpoints.
+   // Add here scopes for access token to be used at MS Graph API endpoints.
   const tokenRequest = {
-      scopes: ["Mail.Read"],
-      forceRefresh: false // Set this to "true" to skip a cached token and go to the server to get a new token
+   scopes: ["User.Read", "Mail.Read"]
   };
+
+   // Add here scopes for token to be fetched silently
+  const silentRequest = {
+   scopes: [msalConfig.clientId, "User.Read", "Mail.Read"],
+   forceRefresh: false // set this to "true" if you would like to skip a cached token and go to the server
+   };
 
 ```
 
@@ -331,42 +341,107 @@ Create a new .js file named `authConfig.js`, which will contain your configurati
    - If your application supports *accounts in any organizational directory*, replace this value with **organizations**.
    - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**.
 - *\Enter_the_Redirect_Uri_Here>* is the port you registered in the portal (*`http://localhost:3000/`*)
-- *\<Enter_the_Graph_Endpoint_Here>* is the instance of MS Graph API. For the global MS Graph API endpoint, simply replace this string with `https://graph.microsoft.com`. For national cloud deployments, please refer to [Graph API Documentation](https://docs.microsoft.com/graph/deployments).
 
+
+Create a new .js file named `graphConfig.js`, which will contain your configuration parameters calling Microsoft Graph API, and add the following code:
+```javascript 
+// Add here the endpoints for MS Graph API services you would like to use.
+const graphConfig = {
+    graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
+    graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
+};
+```
+- *\<Enter_the_Graph_Endpoint_Here>* is the instance of MS Graph API. For the global MS Graph API endpoint, simply replace this string with `https://graph.microsoft.com`. For national cloud deployments, please refer to [Graph API Documentation](https://docs.microsoft.com/graph/deployments).
 
 ## Use the Microsoft Authentication Library (MSAL) to sign in the user
 
-Create a new .js file named `auth.js`, which will contain your authentication and token acquisition logic, and add the following code:
+### PopUp 
+Create a new .js file named `authPopup.js`, which will contain your authentication and token acquisition logic for login popUp, and add the following code:
 
    ```JavaScript
-   // Browser check variables
-// If you support IE, our recommendation is that you sign-in using Redirect APIs
-// If you as a developer are testing using Edge InPrivate mode, please add "isEdge" to the if check
-const ua = window.navigator.userAgent;
-const msie = ua.indexOf("MSIE ");
-const msie11 = ua.indexOf("Trident/");
-const msedge = ua.indexOf("Edge/");
-const isIE = msie > 0 || msie11 > 0;
-const isEdge = msedge > 0;
+  // Create the main myMSALObj instance
+// configuration parameters are located at authConfig.js
+const myMSALObj = new msal.PublicClientApplication(msalConfig);
 
-let signInType;
+function signIn() {
+    myMSALObj.loginPopup(loginRequest)
+        .then(loginResponse => {
+            console.log('id_token acquired at: ' + new Date().toString());
 
+            if (myMSALObj.getAccount()) {
+                showWelcomeMessage(myMSALObj.getAccount());
+            }
+        }).catch(error => {
+            console.error(error);
+        });
+}
+
+function signOut() {
+    myMSALObj.logout();
+}
+
+function getTokenPopup(request) {
+    return myMSALObj.acquireTokenSilent(request)
+        .catch(error => {
+            console.warn(error);
+            console.warn("silent token acquisition fails. acquiring token using popup");
+
+            // fallback to interaction when silent call fails
+            return myMSALObj.acquireTokenPopup(request)
+                .then(tokenResponse => {
+                    return tokenResponse;
+                }).catch(error => {
+                    console.error(error);
+                });
+        });
+}
+
+function seeProfile() {
+    if (myMSALObj.getAccount()) {
+        getTokenPopup(loginRequest)
+            .then(response => {
+                callMSGraph(graphConfig.graphMeEndpoint, response.accessToken, updateUI);
+                profileButton.classList.add('d-none');
+                mailButton.classList.remove('d-none');
+            }).catch(error => {
+                console.error(error);
+            });
+    }
+}
+
+function readMail() {
+    if (myMSALObj.getAccount()) {
+        getTokenPopup(tokenRequest)
+            .then(response => {
+                callMSGraph(graphConfig.graphMailEndpoint, response.accessToken, updateUI);
+            }).catch(error => {
+                console.error(error);
+            });
+    }
+}
+   ```
+### Redirect
+Create a new .js file named `authRedirect.js`, which will contain your authentication and token acquisition logic for login redirect, and add the following code:
+
+```javascript 
 // Create the main myMSALObj instance
 // configuration parameters are located at authConfig.js
 const myMSALObj = new msal.PublicClientApplication(msalConfig);
+
+let accessToken;
 
 // Register Callbacks for Redirect flow
 myMSALObj.handleRedirectCallback(authRedirectCallBack);
 
 function authRedirectCallBack(error, response) {
     if (error) {
-        console.log(error);
+        console.error(error);
     } else {
         if (myMSALObj.getAccount()) {
             console.log('id_token acquired at: ' + new Date().toString());
             showWelcomeMessage(myMSALObj.getAccount());
             getTokenRedirect(loginRequest);
-        } else if (response.tokenType === "access_token") {
+        } else if (response.tokenType === "Bearer") {
             console.log('access_token acquired at: ' + new Date().toString());
         } else {
             console.log("token type is:" + response.tokenType);
@@ -376,49 +451,46 @@ function authRedirectCallBack(error, response) {
 
 // Redirect: once login is successful and redirects with tokens, call Graph API
 if (myMSALObj.getAccount()) {
-    // avoid duplicate code execution on page load in case of iframe and Popup window.
     showWelcomeMessage(myMSALObj.getAccount());
 }
 
-async function signIn(method) {
-    signInType = isIE ? "loginRedirect" : method;
-    if (signInType === "loginPopup") {
-        const loginResponse = await myMSALObj.loginPopup(loginRequest).catch(function (error) {
-            console.log(error);
-        });
-        console.log(loginResponse);
-        if (myMSALObj.getAccount()) {
-            showWelcomeMessage(myMSALObj.getAccount());
-        }
-    } else if (signInType === "loginRedirect") {
-        myMSALObj.loginRedirect(loginRequest)
-    }
+function signIn() {
+    myMSALObj.loginRedirect(loginRequest);
 }
 
 function signOut() {
     myMSALObj.logout();
 }
 
-async function getTokenPopup(request) {
-    return await myMSALObj.acquireTokenSilent(request).catch(async (error) => {
-        console.log("silent token acquisition fails. acquiring token using popup");
-        // fallback to interaction when silent call fails
-        return await myMSALObj.acquireTokenPopup(request).catch(error => {
-            console.log(error);
-        });
-    });
-}
-
 // This function can be removed if you do not need to support IE
-async function getTokenRedirect(request) {
-    return await myMSALObj.acquireTokenSilent(request).catch(error => {
-        console.log("silent token acquisition fails. acquiring token using redirect");
-        // fallback to interaction when silent call fails
-        return myMSALObj.acquireTokenRedirect(request)
-    });
-}
-   ```
+function getTokenRedirect(request) {
+    return myMSALObj.acquireTokenSilent(request)
+        .then((response) => {
+            console.log(response);
+            if (response.accessToken) {
+                console.log('access_token acquired at: ' + new Date().toString());
+                accessToken = response.accessToken;
 
+                callMSGraph(graphConfig.graphMeEndpoint, response.accessToken, updateUI);
+                profileButton.style.display = 'none';
+                mailButton.style.display = 'initial';
+            }
+        })
+        .catch(error => {
+            console.warn("silent token acquisition fails. acquiring token using redirect");
+            // fallback to interaction when silent call fails
+            return myMSALObj.acquireTokenRedirect(request);
+        });
+}
+
+function seeProfile() {
+    getTokenRedirect(loginRequest);
+}
+
+function readMail() {
+    getTokenRedirect(tokenRequest);
+}
+```
 <!--start-collapse-->
 ### More information
 
@@ -455,11 +527,12 @@ The `acquireTokenSilent` method handles token acquisition and renewal without an
  Create a .js file named `graph.js`, which will make a REST call to Microsoft Graph API, and add the following code:
 
    ```javascript
-   // Helper function to call MS Graph API endpoint
+ 
+// Helper function to call MS Graph API endpoint 
 // using authorization bearer token scheme
-function callMSGraph(endpoint, accessToken, callback) {
+function callMSGraph(endpoint, token, callback) {
     const headers = new Headers();
-    const bearer = `Bearer ${accessToken}`;
+    const bearer = `Bearer ${token}`;
 
     headers.append("Authorization", bearer);
 
@@ -474,26 +547,6 @@ function callMSGraph(endpoint, accessToken, callback) {
         .then(response => response.json())
         .then(response => callback(response, endpoint))
         .catch(error => console.log(error));
-}
-
-async function seeProfile() {
-    if (myMSALObj.getAccount()) {
-        const response = await getTokenPopup(loginRequest).catch(error => {
-            console.log(error);
-        });
-        callMSGraph(graphConfig.graphMeEndpoint, response.accessToken, updateUI);
-        profileButton.style.display = 'none';
-    }
-}
-
-async function readMail() {
-    if (myMSALObj.getAccount()) {
-        const response = await getTokenPopup(tokenRequest).catch(error => {
-            console.log(error);
-        });
-        callMSGraph(graphConfig.graphMailEndpoint, response.accessToken, updateUI);
-        mailButton.style.display = 'none';
-    }
 }
    ```
 
