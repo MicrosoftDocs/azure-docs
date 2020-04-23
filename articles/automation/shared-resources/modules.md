@@ -125,7 +125,7 @@ When you create a new Automation account, even after migration to Az modules, Az
 
 To ensure that you don't run any existing runbooks or DSC configurations that use AzureRM modules, you must stop and unschedule all affected runbooks and configurations. First, make sure that you review each runbook or DSC configuration and its schedules separately to ensure that you can reschedule the item in the future if necessary. 
 
-When you're ready to remove your schedules, you can either use the Azure portal or the [Remove-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationschedule?view=azurermps-6.13.0) cmdlet. See [Manage schedules in Azure Automation](shared-resources/schedules.md).
+When you're ready to remove your schedules, you can either use the Azure portal or the [Remove-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationschedule?view=azurermps-6.13.0) cmdlet. See [Removing a schedule](schedules.md#removing-a-schedule).
 
 ### Remove the AzureRM modules
 
