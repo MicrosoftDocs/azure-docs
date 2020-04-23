@@ -1,13 +1,10 @@
 ---
-title: Use Azure Pipelines to build & deploy HPC solutions - Azure Batch
+title: Use Azure Pipelines to build & deploy HPC solutions
 description: Learn how to deploy a build/release pipeline for an HPC application running on Azure Batch.
 author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: conceptual
-ms.custom: fasttrack-new
-services: batch
-ms.service: batch
 ---
 
 # Use Azure Pipelines to build and deploy HPC solutions
