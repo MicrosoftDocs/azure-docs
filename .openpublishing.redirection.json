@@ -728,15 +728,29 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-composite-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/tutorial-entity-roles.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/tutorial-list-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/tutorial-regex-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-boundaries.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-limits"
     },
-      {
-        "source_path": "articles/cognitive-services/LUIS/luis-migration-api-authoring.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-authoring-entities",
-        "redirect_document_id": false
-      },
-
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-migration-api-authoring.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-authoring-entities"
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-resources-faq.md",
       "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting",
@@ -769,13 +783,11 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-list-entity.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-list-entity",
-      "redirect_document_id": false
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intents-regex-entity.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-regex-entity",
-      "redirect_document_id": false
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-sentiment-analysis.md",
@@ -784,8 +796,7 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-add-example-utterances.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
-      "redirect_document_id": false
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-prebuilt-intents-entities.md",
@@ -14110,7 +14121,7 @@
       "source_path": "articles/event-hubs/event-hubs-api-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-samples",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-archive-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-capture-overview",
@@ -14175,7 +14186,7 @@
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-api-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
@@ -14185,7 +14196,7 @@
       "source_path": "articles/event-hubs/event-hubs-dotnet-standard-api-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
@@ -14255,7 +14266,7 @@
       "source_path": "articles/event-hubs/event-hubs-spark-connector.md",
       "redirect_url": "/azure/event-hubs/event-hubs-kafka-spark-tutorial",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-tutorial-virtual-networks-firewalls.md",
       "redirect_url": "/azure/event-hubs/event-hubs-service-endpoints",
@@ -37528,8 +37539,7 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/Add-entities.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
     },
     {
       "source_path": "articles/java-add-certificate-ca-store.md",
@@ -44788,8 +44798,7 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-hier-entity.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-entity-roles",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities"
     },
     {
       "source_path": "articles/azure-monitor/app/previews.md",
