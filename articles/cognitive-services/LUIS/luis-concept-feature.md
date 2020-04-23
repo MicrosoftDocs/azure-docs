@@ -31,18 +31,14 @@ Steps to use a phrase list:
     * Add example utterances
     * Label with a machine-learned entity
 * Add a phrase list
-    * Add words with similar meaning - do **not** add every possible word or phrase. Instead, add a few words or phrases at a time, then retrain and publish. As the list grows over time, you may find some terms have many forms (synonyms). Break these out into another list.
-        * industry terms
-        * slang
-        * abbreviations
-        * company-specific language
-        * language that is from another language but frequently used in your app
-        * key words and phrases in your example utterances
+    * Add words with similar meaning - do **not** add every possible word or phrase. Instead, add a few words or phrases at a time, then retrain and publish.
     * Review and add suggested words
 
 ### A typical scenario for a phrase list
 
 A typical scenario for a phrase list is to boost words of a specific or central idea, for example, names. A name can be any type of word such as a noun, verb, adjective, slang, or made-up words.
+
+An example of names that may need a phrase list to boost their significance are medical terms. The terms can have specific physical, chemical, therapeutic, or abstract meaning. LUIS won't know the words are important to your subject domain without a phrase list.
 
 If you want to have names that are unique to your subject domain extracted:
 * First create example utterances and label names within those utterances.
