@@ -90,7 +90,7 @@ You can verify the link between a Log Analytics workspace and an Automation acco
 
 1. Select the Automation account in the Azure portal.
 1. Scroll to the **Related Resources** section of the menu and select **Linked workspace**.
-1. If the **Workspace** is linked to an Automation account, then this page lists the workspace it is linked to. You can click on the name of the linked workspace listed and you are redirected to the overview page for that workspace.
+1. If the **Workspace** is linked to an Automation account, then this page lists the workspace it is linked to. If you select the name of the workspace listed, you are redirected to the overview page for that workspace.
 
 ## Remove a monitoring solution
 
