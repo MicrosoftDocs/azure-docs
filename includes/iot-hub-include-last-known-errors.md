@@ -9,8 +9,6 @@ ms.date: 04/22/2019
 ms.author: robinsh
 ms.custom: include file
 ---
-## List of last known errors for IoT Hub
-
 When an IoT Hub fails, the last error that caused the service problem is stored and can be retrieved . This table is the most likely errors that can happen. Please refer to this table for troubleshooting errors with your Iot hub.
 
 |Last Known Error|Description/when it occurs|Mitigation/next steps|Comments|
