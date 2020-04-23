@@ -338,7 +338,7 @@ To check in the Control Panel:
 
     ![Check version in Control Panel](./media/migrate-appliance/programs-features.png)
 
-## Manually update an older version
+### Manually update an older version
 
 If you are running an older version for any of the components, you must uninstall the service, and manually update to the latest version.
 
