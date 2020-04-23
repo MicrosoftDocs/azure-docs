@@ -79,7 +79,7 @@ Run a sample application in the SDK to simulate an IoT Plug and Play device that
 
 You see the following output, indicating the device has begun sending telemetry data to the hub, and is now ready to receive commands and property updates.
 
-   ![Device confirmation messages](media/quickstart-connect-pnp-device/device-confirmation-node.png)
+   ![Device confirmation messages](media/quickstart-connect-pnp-device-node/device-confirmation-node.png)
 
  Keep the sample running as you complete the next steps.
 
