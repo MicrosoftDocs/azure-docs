@@ -72,7 +72,7 @@ The following limits apply only for networking resources managed through Azure R
 | Outbound rules per Load Balancer        | 600                           |
 | [TCP idle timeout](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minutes/30 minutes          |
 
-<sup>1</sup>The limit is up to 150 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set resources.
+<sup>1</sup>The limit is up to 150 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set placement groups.
 
 **Basic Load Balancer**
 

@@ -31,6 +31,6 @@ To promote your offer or app, and to access more benefits and resources, use the
 
 To learn more about marketplace GTM services, go to [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
 
-Log in to the [Cloud Partner Portal](https://cloudpartner.azure.com) to create and configure your offer.
+[Log in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
 
 ---
