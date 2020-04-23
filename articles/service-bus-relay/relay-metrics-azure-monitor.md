@@ -1,6 +1,6 @@
 ---
-title: Azure Relay metrics in Azure Monitor (preview) | Microsoft Docs
-description: Use Azure Monitoring to monitor Azure Relay
+title: Azure Relay metrics in Azure Monitor  | Microsoft Docs
+description: This article provides information on how you can use Azure Monitor to monitor to state of Azure Relay. 
 services: service-bus-relay
 documentationcenter: .NET
 author: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
+ms.date: 01/21/2020
 ms.author: spelluru
 
 ---
-# Azure Relay metrics in Azure Monitor (preview)
+# Azure Relay metrics in Azure Monitor 
 Azure Relay metrics give you the state of resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your Relay resources, not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of Azure Relay. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
 
 Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) and the [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) sample on GitHub.
@@ -37,7 +37,7 @@ You can monitor metrics over time in the [Azure portal](https://portal.azure.com
 
 ![][1]
 
-You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics (Preview)**. 
+You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics **. 
 
 For metrics supporting dimensions, you must filter with the desired dimension value.
 
@@ -56,24 +56,24 @@ All metrics values are sent to Azure Monitor every minute. The time granularity 
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
-| ListenerConnections-Success (preview) | The number of successful listener connections made to Azure Relay over a specified period. <br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|ListenerConnections-ClientError (preview)|The number of client errors on listener connections over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|ListenerConnections-ServerError (preview)|The number of server errors on the listener connections over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|SenderConnections-Success (preview)|The number of successful sender connections made over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|SenderConnections-ClientError (preview)|The number of client errors on sender connections over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|SenderConnections-ServerError (preview)|The number of server errors on sender connections over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|ListenerConnections-TotalRequests (preview)|The total number of listener connections over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|SenderConnections-TotalRequests (preview)|The connection requests made by the senders over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|ActiveConnections (preview)|The number of active connections over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|ActiveListeners (preview)|The number of active listeners over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|ListenerDisconnects (preview)|The number of disconnected listeners over a specified period.<br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|SenderDisconnects (preview)|The number of disconnected senders over a specified period.<br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+| ListenerConnections-Success  | The number of successful listener connections made to Azure Relay over a specified period. <br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|ListenerConnections-ClientError |The number of client errors on listener connections over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|ListenerConnections-ServerError |The number of server errors on the listener connections over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|SenderConnections-Success |The number of successful sender connections made over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|SenderConnections-ClientError |The number of client errors on sender connections over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|SenderConnections-ServerError |The number of server errors on sender connections over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|ListenerConnections-TotalRequests |The total number of listener connections over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|SenderConnections-TotalRequests |The connection requests made by the senders over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|ActiveConnections |The number of active connections. This value is a point-in-time value.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|ActiveListeners |The number of active listeners. This value is a point-in-time value.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|ListenerDisconnects |The number of disconnected listeners over a specified period.<br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|SenderDisconnects |The number of disconnected senders over a specified period.<br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 
 ## Memory usage metrics
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
-|BytesTransferred (preview)|The number of bytes transferred over a specified period.<br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|BytesTransferred |The number of bytes transferred over a specified period.<br/><br/> Unit: Bytes <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 
 ## Metrics dimensions
 

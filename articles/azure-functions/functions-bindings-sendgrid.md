@@ -2,8 +2,7 @@
 title: Azure Functions SendGrid bindings
 description: Azure Functions SendGrid bindings reference.
 author: craigshoemaker
-
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/29/2017
 ms.author: cshoe
 
@@ -36,6 +35,10 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 ### Synchronous
 
 ```cs
+using SendGrid.Helpers.Mail;
+
+...
+
 [FunctionName("SendEmail")]
 public static void Run(
     [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
@@ -62,6 +65,10 @@ public class OutgoingEmail
 ### Asynchronous
 
 ```cs
+using SendGrid.Helpers.Mail;
+
+...
+
 [FunctionName("SendEmail")]
 public static async void Run(
  [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,

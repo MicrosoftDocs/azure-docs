@@ -3,12 +3,12 @@ title: Process Azure blob data with advanced analytics - Team Data Science Proce
 description: Explore data and generate features from data stored in Azure Blob storage using advanced analytics.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -16,9 +16,9 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 This document covers exploring data and generating features from data stored in Azure Blob storage. 
 
 ## Load the data into a Pandas data frame
-In order to explore and manipulate a dataset, it must be downloaded from the blob source to a local file which can then be loaded in a Pandas data frame. Here are the steps to follow for this procedure:
+In order to explore and manipulate a dataset, it must be downloaded from the blob source to a local file that can then be loaded in a Pandas data frame. Here are the steps to follow for this procedure:
 
-1. Download the data from Azure blob with the following sample Python code using blob service. Replace the variable in the code below with your specific values: 
+1. Download the data from Azure blob with the following sample Python code using Blob service. Replace the variable in the code below with your specific values: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -91,7 +91,7 @@ Here are a few examples of ways to explore data using Pandas:
 ## <a name="blob-featuregen"></a>Feature Generation
 We can generate features using Python as follows:
 
-### <a name="blob-countfeature"></a>Indicator value based Feature Generation
+### <a name="blob-countfeature"></a>Indicator value-based Feature Generation
 Categorical features can be created as follows:
 
 1. Inspect the distribution of the categorical column:
@@ -126,7 +126,7 @@ For generating binned features, we proceed as follows:
 
 ## <a name="sql-featuregen"></a>Writing data back to Azure blob and consuming in Azure Machine Learning
 After you have explored the data and created the necessary features, you can upload the data (sampled or featurized) to an Azure blob and consume it in Azure Machine Learning using the following steps:
-Note that additional features can be created in the Azure Machine Learning Studio (classic) as well. 
+Additional features can be created in the Azure Machine Learning Studio (classic) as well. 
 
 1. Write the data frame to local file
    

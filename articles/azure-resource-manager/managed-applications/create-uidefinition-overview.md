@@ -92,6 +92,6 @@ The createUiDefinition.json file itself has a simple schema. The real depth of i
 - [Elements](create-uidefinition-elements.md)
 - [Functions](create-uidefinition-functions.md)
 
-A current JSON schema for createUiDefinition is available here: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
+A current JSON schema for createUiDefinition is available here: `https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json`.
 
 For an example user interface file, see [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/Managed%20Application%20Sample%20Packages/201-managed-app-using-existing-vnet/createUiDefinition.json).

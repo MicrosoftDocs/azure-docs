@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus message transfers, locks, and settlement | Microsoft Docs
-description: Overview of Service Bus message transfers and settlement operations
+title: Azure Service Bus message transfers, locks, and settlement
+description: This article provides an overview of Azure Service Bus message transfers, locks, and settlement operations.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 01/24/2019
 ms.author: aschhab
 
 ---

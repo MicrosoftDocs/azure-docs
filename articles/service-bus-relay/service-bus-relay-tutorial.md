@@ -1,6 +1,6 @@
 ---
 title: Expose an on-prem WCF REST service to clients using Azure Relay
-description: 'Tutorial: Build a client and service application using WCF Relay.'
+description: This tutorial describes how to expose an on-premises WCF REST service to an external client by using Azure WCF Relay.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/05/2019
+ms.date: 01/21/2020
 ms.author: spelluru
 
 ---

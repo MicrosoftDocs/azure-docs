@@ -1,14 +1,13 @@
 ---
 title: Visualize Apache Hive data with Power BI - Azure HDInsight
 description: Learn how to use Microsoft Power BI to visualize Hive data processed by Azure HDInsight.
-keywords: hdinsight,hadoop,hive,interactive query,interactive hive,LLAP,odbc 
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.custom: hdinsightactive
+ms.date: 03/02/2020
 ---
 
 # Visualize Apache Hive data with Microsoft Power BI using ODBC in Azure HDInsight
@@ -28,9 +27,9 @@ The information also applies to the new [Interactive Query](../interactive-query
 
 Before going through this article, you must have the following items:
 
-* **HDInsight cluster**. The cluster can be either a HDInsight cluster with Hive or a newly released Interactive Query cluster. For creating clusters, see [Create cluster](apache-hadoop-linux-tutorial-get-started.md#create-cluster).
+* HDInsight cluster. The cluster can be either a HDInsight cluster with Hive or a newly released Interactive Query cluster. For creating clusters, see [Create cluster](apache-hadoop-linux-tutorial-get-started.md).
 
-* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)**. You can download a copy from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
+* [Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/). You can download a copy from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
 
 ## Create Hive ODBC data source
 

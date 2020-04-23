@@ -1,12 +1,12 @@
 ---
 title: Azure Event Grid event handlers
-description: Describes supported event handlers for Azure Event Grid 
+description: Describes supported event handlers for Azure Event Grid. Azure Automation, Functions, Event Hubs, Hybrid Connections, Logic Apps, Service Bus, Queue Storage, Webhooks.
 services: event-grid
 author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 01/21/2020
 ms.author: spelluru
 ---
 
@@ -48,8 +48,6 @@ Event Hubs can act as either an event source or event handler. The following art
 |---------|---------|
 | [Quickstart: route custom events to Azure Event Hubs with Azure CLI and Event Grid](custom-event-to-eventhub.md) | Sends a custom event to an event hub for processing by an application. |
 | [Resource Manager template: custom topic and Event Hubs endpoint](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| A Resource Manager template that creates a subscription for a custom topic. It sends events to an Azure Event Hubs. |
-
-For examples of Event Hubs as a source, see [Event Hubs source](event-sources.md#event-hubs).
 
 ## Hybrid Connections
 

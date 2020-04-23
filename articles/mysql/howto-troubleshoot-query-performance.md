@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 
 # How to use EXPLAIN to profile query performance in Azure Database for MySQL

@@ -59,7 +59,7 @@ Set up a the target [Azure network](../virtual-network/quick-create-portal.md).
 
 ### Set up an Azure storage account
 
-Set up an [Azure storage account](../storage/common/storage-quickstart-create-account.md).
+Set up an [Azure storage account](../storage/common/storage-account-create.md).
 
 - Site Recovery replicates on-premises machines to Azure storage. Azure VMs are created from the storage after failover occurs.
 - The storage account must be in the same region as the Recovery Services vault.
@@ -95,7 +95,7 @@ The Mobility service must be installed on each server you want to replicate. Sit
     - [Load balancers](https://docs.microsoft.com/azure/load-balancer)
     - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
     
-    For any other networking components, refer to the networking [documentation.](https://docs.microsoft.com/azure/#pivot=products&panel=network) 
+    For any other networking components, refer to the networking [documentation](https://docs.microsoft.com/azure/?pivot=products&panel=network).
 
 4. Manually [create a non-production network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) in the target region if you wish to test the configuration before you perform the final cut over to the target region. This will create minimal interference with the production and is recommended.
 

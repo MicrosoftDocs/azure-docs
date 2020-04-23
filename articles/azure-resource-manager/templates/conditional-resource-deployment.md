@@ -5,9 +5,9 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ---
 
-# Conditional deployment in Resource Manager templates
+# Conditional deployment in ARM templates
 
-Sometimes you need to optionally deploy a resource in a template. Use the `condition` element to specify whether the resource is deployed. The value for this element resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource.
+Sometimes you need to optionally deploy a resource in an Azure Resource Manager (ARM) template. Use the `condition` element to specify whether the resource is deployed. The value for this element resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource.
 
 ## New or existing resource
 
@@ -15,16 +15,16 @@ You can use conditional deployment to create a new resource or use an existing o
 
 ```json
 {
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[parameters('location')]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
+  "condition": "[equals(parameters('newOrExisting'),'new')]",
+  "type": "Microsoft.Storage/storageAccounts",
+  "apiVersion": "2017-06-01",
+  "name": "[variables('storageAccountName')]",
+  "location": "[parameters('location')]",
+  "sku": {
+    "name": "[variables('storageAccountType')]"
+  },
+  "kind": "Storage",
+  "properties": {}
 }
 ```
 
@@ -38,31 +38,31 @@ You can pass in a parameter value that indicates whether a condition is allowed.
 
 ```json
 {
-    "type": "Microsoft.Sql/servers",
-    "name": "[parameters('serverName')]",
-    "apiVersion": "2015-05-01-preview",
-    "location": "[parameters('location')]",
-    "properties": {
-        "administratorLogin": "[parameters('administratorLogin')]",
-        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-        "version": "12.0"
-    },
-    "resources": [
-        {
-            "condition": "[parameters('allowAzureIPs')]",
-            "type": "firewallRules",
-            "name": "AllowAllWindowsAzureIps",
-            "apiVersion": "2015-05-01-preview",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/', parameters('serverName'))]"
-            ],
-            "properties": {
-                "endIpAddress": "0.0.0.0",
-                "startIpAddress": "0.0.0.0"
-            }
-        }
-    ]
+  "type": "Microsoft.Sql/servers",
+  "apiVersion": "2015-05-01-preview",
+  "name": "[parameters('serverName')]",
+  "location": "[parameters('location')]",
+  "properties": {
+    "administratorLogin": "[parameters('administratorLogin')]",
+    "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+    "version": "12.0"
+  },
+  "resources": [
+    {
+      "condition": "[parameters('allowAzureIPs')]",
+      "type": "firewallRules",
+      "apiVersion": "2015-05-01-preview",
+      "name": "AllowAllWindowsAzureIps",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Sql/servers/', parameters('serverName'))]"
+      ],
+      "properties": {
+        "endIpAddress": "0.0.0.0",
+        "startIpAddress": "0.0.0.0"
+      }
+    }
+  ]
 }
 ```
 
@@ -82,5 +82,5 @@ If you deploy a template with [complete mode](deployment-modes.md) and a resourc
 
 ## Next steps
 
-* For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md).
-* To create multiple instances of a resource, see [Resource, property, or variable iteration in Azure Resource Manager templates](create-multiple-instances.md).
+* For recommendations about creating templates, see [ARM template best practices](template-best-practices.md).
+* To create multiple instances of a resource, see [Resource iteration in ARM templates](copy-resources.md).

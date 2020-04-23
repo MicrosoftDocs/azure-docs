@@ -32,6 +32,9 @@ You can configure this setting on the **Settings** page as shown in the followin
 
 ![Configure after the lab is created](../media/how-to-enable-shutdown-disconnect/configure-lab-automatic-shutdown.png)
 
+> [!WARNING]
+> If you shutdown the Windows operating system (OS) on a VM before disconnecting an RDP session to the VM, the autoshutdown feature will not work properly.  
+
 ## Next steps
 See the following articles:
 

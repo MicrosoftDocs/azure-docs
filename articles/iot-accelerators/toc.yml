@@ -201,33 +201,34 @@
     - name: Deploy a custom docker image
       href: iot-accelerators-device-simulation-deploy-image.md
 
-- name: Related
+- name: Resources
   items:
-  - name: IoT Central
-    href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Platform Services
+  - name: Support and help options
+    href: /azure/iot-fundamentals/iot-support-help
+  - name: Azure IoT services
     items:
     - name: IoT Hub
       href: /azure/iot-hub
-    - name: IoT Plug and Play
-      href: /azure/iot-pnp
     - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
-    - name: IoT Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Maps
+    - name: IoT Central
+      href: https://docs.microsoft.com/microsoft-iot-central/
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: IoT solution accelerators
+      href: /azure/iot-accelerators
+    - name: IoT Plug and Play
+      href: /azure/iot-pnp
+    - name: Azure Maps
       href: /azure/azure-maps
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: IoT Edge
+  - name: Azure IoT SDKs
     items:
-    - name: Azure IoT Edge
-      href: /azure/iot-edge
+    - name: IoT Service SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: IoT Device SDKs
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-
-- name: Resources
-  items:
   - name: Remote monitoring
     items:
     - name: Developer reference guide (.NET)

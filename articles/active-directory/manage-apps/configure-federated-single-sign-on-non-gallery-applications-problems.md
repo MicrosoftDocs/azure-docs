@@ -17,12 +17,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 
 ms.collection: M365-identity-device-management
-ROBOTS: NOINDEX
+
 ---
 
 # Problem configuring federated single sign-on for a non-gallery application
 
-If you encounter a problem when configuring an application. Verify you have followed all the steps in the article [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery.](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery)
+If you encounter a problem when configuring an application. Verify you have followed all the steps in the article [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery.](configure-federated-single-sign-on-non-gallery-applications.md)
 
 ## Can’t add another instance of the application
 
@@ -38,7 +38,7 @@ If the application doesn’t support any of the preceding, you cannot configure 
 
 You cannot select the EntityID (User Identifier) format that Azure AD sends to the application in the response after user authentication.
 
-Azure AD selects the format for the NameID attribute (User Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information visit the article [Single Sign-On SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under the section NameIDPolicy,
+Azure AD selects the format for the NameID attribute (User Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information visit the article [Single Sign-On SAML protocol](../develop/single-sign-on-saml-protocol.md#authnrequest) under the section NameIDPolicy,
 
 ## Where do I get the application metadata or certificate from Azure AD
 
@@ -66,7 +66,7 @@ Azure AD doesn’t provide a URL to get the metadata. The metadata can only be r
 
 ## Don't know how to customize SAML claims sent to an application
 
-To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) for more information.
+To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md) for more information.
 
 ## Next steps
 [Managing Applications with Azure Active Directory](what-is-application-management.md)

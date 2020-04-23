@@ -42,7 +42,7 @@ The following sections describe how to deploy a VDI solution using Horizon in yo
 ### Estimate the size of your desktop environment
 
 * Verify that your identified configuration is within VMware operational limits.
-* Estimate the resources that are needed in your DR site to protect your on-premises environment.
+* Estimate the resources that are needed for all your desktops and your Horizon management components.
 
 ### Create a Private Cloud for your environment
 

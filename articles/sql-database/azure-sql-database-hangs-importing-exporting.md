@@ -9,6 +9,7 @@ author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ""
 ms.date: 09/27/2019
+manager: dcscontentpm
 ---
 
 # Azure SQL Database Import/Export service takes a long time to import or export a database
@@ -41,7 +42,7 @@ If your database exports are used only for recovery from accidental data deletio
 
 ## Things to consider when you export or import an Azure SQL database
 
-* All the methods discussed in this article use up the Database Transaction Unit (DTU) quota, which causes throttling by the Azure SQL Database service. You can [view the DTU stats for the database on the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-monitor-tune-overview#monitor-database-performance). If the database has reached its resource limits, [upgrade the service tier](https://docs.microsoft.com/azure/sql-database/sql-database-scale-resources) to add more resources.
+* All the methods discussed in this article use up the Database Transaction Unit (DTU) quota, which causes throttling by the Azure SQL Database service. You can [view the DTU stats for the database on the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-monitor-tune-overview#sql-database-resource-monitoring). If the database has reached its resource limits, [upgrade the service tier](https://docs.microsoft.com/azure/sql-database/sql-database-scale-resources) to add more resources.
 * Ideally, you should run client applications (like the sqlpackage utility or your custom DAC application) from a VM in the same region as your SQL database. Otherwise, you might experience performance issues related to network latency.
 * Exporting large tables without clustered indexes can be very slow or even cause failure. This behavior occurs because the table can't be split up and exported in parallel. Instead, it must be exported in a single transaction, and that causes slow performance and potential failure during export, especially for large tables.
 

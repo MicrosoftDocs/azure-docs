@@ -28,7 +28,7 @@ To support native client applications, Application Proxy accepts Azure AD-issued
 
 ![Relationship between end users, Azure AD, and published applications](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-To publish native applications, use the Azure AD Authentication Library, which takes care of authentication and supports many client environments. Application Proxy fits into the [Native Application to Web API scenario](../develop/native-app.md).
+To publish native applications, use the Azure AD Authentication Library, which takes care of authentication and supports many client environments. Application Proxy fits into the [Native Application to Web API scenario](../azuread-dev/native-app.md).
 
 This article walks you through the four steps to publish a native application with Application Proxy and the Azure AD Authentication Library.
 
@@ -57,7 +57,7 @@ You now need to register your application in Azure AD, as follows:
 1. In the **Redirect URI** heading, select **Public client (mobile & desktop)**, and then type the redirect URI for your application.
 1. Select and read the **Microsoft Platform Policies**, and then select **Register**. An overview page for the new application registration is created and displayed.
 
-For more detailed information about creating a new application registration, see [Integrating applications with Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).
+For more detailed information about creating a new application registration, see [Integrating applications with Azure Active Directory](../develop/quickstart-register-app.md).
 
 ## Step 3: Grant access to your proxy application
 
@@ -102,6 +102,6 @@ After you edit the ADAL with these parameters, your users can authenticate to na
 
 ## Next steps
 
-For more information about the native application flow, see [Native apps in Azure Active Directory](../develop/native-app.md).
+For more information about the native application flow, see [Native apps in Azure Active Directory](../azuread-dev/native-app.md).
 
 Learn about setting up [Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md#choosing-a-single-sign-on-method).

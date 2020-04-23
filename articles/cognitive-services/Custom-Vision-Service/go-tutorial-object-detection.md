@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ---
 
 # Quickstart: Create an object detection project with the Custom Vision Go SDK
@@ -105,6 +105,9 @@ scissorsTag, _ := trainer.CreateTag(ctx, *project.ID, "scissors", "Pair of sciss
 ### Upload and tag images
 
 When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates.
+
+> [!NOTE]
+> If you don't have a click-and-drag utility to mark the coordinates of regions, you can use the web UI at [Customvision.ai](https://www.customvision.ai/). In this example, the coordinates are already provided.
 
 To add the images, tags, and regions to the project, insert the following code after the tag creation. Note that in this tutorial the regions are hard-coded inline. The regions specify the bounding box in normalized coordinates, and the coordinates are given in the order: left, top, width, height.
 
@@ -220,7 +223,7 @@ if (!*scissor_batch.IsBatchSuccessful) {
 
 ### Train the project and publish
 
-This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it's published.
+This code creates the first iteration of the prediction model and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it's published.
 
 ```go
 iteration, _ := trainer.TrainProject(ctx, *project.ID)
@@ -277,7 +280,7 @@ The output of the application should appear in the console. You can then verify 
 
 ## Next steps
 
-Now you have seen how every step of the object detection process can be done in code. This sample executes a single training iteration, but often you will need to train and test your model multiple times in order to make it more accurate. The following guide deals with image classification, but its principles are similar to object detection.
+Now you've seen how every step of the object detection process can be done in code. This sample executes a single training iteration, but often you'll need to train and test your model multiple times in order to make it more accurate. The following training guide deals with image classification, but its principles are similar to object detection.
 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](test-your-model.md)

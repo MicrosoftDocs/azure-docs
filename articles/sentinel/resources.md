@@ -3,7 +3,7 @@ title: Useful resources when working with Azure Sentinel| Microsoft Docs
 description: This document provides you with a list of useful resources when working with Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Useful resources for working with Azure Sentinel
@@ -42,13 +42,13 @@ The following supported operations can be audited.
 |Delete Saved Search	|Microsoft.OperationalInsights/workspaces/savedSearches|
 |Update Alert Rules	|Microsoft.SecurityInsights/alertRules|
 |Delete Alert Rules	|Microsoft.SecurityInsights/alertRules|
-|Update Alert Rule Response Actions	|Microsoft.SecurityInsights/alertRules|
-|Delete Alert Rule Response Actions	|Microsoft.SecurityInsights/alertRules|
+|Update Alert Rule Response Actions	|Microsoft.SecurityInsights/alertRules/actions|
+|Delete Alert Rule Response Actions	|Microsoft.SecurityInsights/alertRules/actions|
 |Update Bookmarks	|Microsoft.SecurityInsights/bookmarks|
 |Delete Bookmarks	|Microsoft.SecurityInsights/bookmarks|
 |Update Cases	|Microsoft.SecurityInsights/Cases|
-|Update Case Investigation	|Microsoft.SecurityInsights/Cases|
-|Create Case Comments	|Microsoft.SecurityInsights/Cases|
+|Update Case Investigation	|Microsoft.SecurityInsights/Cases/investigations|
+|Create Case Comments	|Microsoft.SecurityInsights/Cases/comments|
 |Update Data Connectors	|Microsoft.SecurityInsights/dataConnectors|
 |Delete Data Connectors	|Microsoft.SecurityInsights/dataConnectors|
 |Update Settings	|Microsoft.SecurityInsights/settings|

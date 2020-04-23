@@ -1,9 +1,7 @@
 ---
 title: (DEPRECATED) Azure Container Service tutorial - Prepare ACR
 description: Azure Container Service tutorial - Prepare ACR
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
@@ -72,7 +70,7 @@ docker images
 
 Output:
 
-```bash
+```output
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front             latest              4675398c9172        13 minutes ago      694MB
 redis                        latest              a1b99da73d05        7 days ago          106MB
@@ -101,7 +99,7 @@ docker images
 
 Output:
 
-```bash
+```output
 REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front                                     latest              eaf2b9c57e5e        8 minutes ago       716 MB
 mycontainerregistry082.azurecr.io/azure-vote-front   v1            eaf2b9c57e5e        8 minutes ago       716 MB
@@ -131,7 +129,7 @@ az acr repository list --name <acrName> --output table
 
 Output:
 
-```azurecli
+```output
 Result
 ----------------
 azure-vote-front
@@ -145,7 +143,7 @@ az acr repository show-tags --name <acrName> --repository azure-vote-front --out
 
 Output:
 
-```azurecli
+```output
 Result
 --------
 v1

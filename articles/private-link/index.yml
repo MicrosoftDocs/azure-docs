@@ -60,7 +60,7 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.network
           - text: REST
-            url: /rest/api/virtualnetwork/privatelinkservices           
-                
+            url: /rest/api/virtualnetwork/privatelinkservices
+
 
 

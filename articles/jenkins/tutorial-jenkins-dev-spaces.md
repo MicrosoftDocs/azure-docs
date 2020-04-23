@@ -48,26 +48,26 @@ In this section, you create Azure resources:
 
 1. Create a resource group.
 
-    ```bash
+    ```azurecli
     az group create --name MyResourceGroup --location westus2
     ```
 
 2. Create an AKS cluster. Create the AKS cluster in a [region that supports Dev Spaces](../dev-spaces/about.md#supported-regions-and-configurations).
 
-    ```bash
+    ```azurecli
     az aks create --resource-group MyResourceGroup --name MyAKS --location westus2 --kubernetes-version 1.11.9 --enable-addons http_application_routing --generate-ssh-keys --node-count 1 --node-vm-size Standard_D1_v2
     ```
 
 3. Configure AKS to use Dev Spaces.
 
-    ```bash
+    ```azurecli
     az aks use-dev-spaces --resource-group MyResourceGroup --name MyAKS
     ```
     This step installs the `azds` CLI extension.
 
 4. Create a container registry.
 
-    ```bash
+    ```azurecli
     az acr create -n MyACR -g MyResourceGroup --sku Basic --admin-enabled true
     ```
 
@@ -220,7 +220,7 @@ The sample pipeline uses Helm and kubectl to deploy to the dev space. When Jenki
 
 3. To show your ACR credentials, run this command:
 
-    ```bash
+    ```azurecli
     az acr credential show -n <yourRegistryName>
     ```
 
@@ -246,7 +246,7 @@ The sample pipeline uses Helm and kubectl to deploy to the dev space. When Jenki
 
 5. Set up an AKS credential. Add a *Kubernetes configuration (kubeconfig)* credential type in Jenkins (use the option "Enter directly"). To get the access credentials for your AKS cluster, run the following command:
 
-    ```cmd
+    ```azurecli
     az aks get-credentials -g MyResourceGroup -n <yourAKSName> -f -
     ```
 
@@ -260,7 +260,7 @@ The Jenkins pipeline configuration and Jenkinsfile define the stages in the CI p
 
 ![Jenkins pipeline flow](media/tutorial-jenkins-dev-spaces/jenkins-pipeline-flow.png)
 
-1. Download a modified version of the *mywebapi* project from https://github.com/azure-devops/mywebapi. This project contains several files needed to create a pipeline, including the *Jenkinsfile*, *Dockerfiles*, and Helm chart.
+1. Download a modified version of the *mywebapi* project from [https://github.com/azure-devops/mywebapi](https://github.com/azure-devops/mywebapi). This project contains several files needed to create a pipeline, including the *Jenkinsfile*, *Dockerfiles*, and Helm chart.
 
 2. Log into Jenkins. From the menu on the left, select **Add Item**.
 
@@ -398,22 +398,11 @@ stage('smoketest') {
 
 When you're done using the sample application, clean up Azure resources by deleting the resource group:
 
-```bash
+```azurecli
 az group delete -y --no-wait -n MyResourceGroup
 ```
 
 ## Next steps
 
-In this article, you learned how to use the Azure Dev Spaces plug-in for Jenkins and the Azure Container Registry plug-in to build code and deploy to a dev space.
-
-The following list of resources provides more information on Azure Dev Spaces, ACR Tasks, and CI/CD with Jenkins.
-
-Azure Dev Spaces:
-* [How Azure Dev Spaces works and is configured](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works)
-
-ACR Tasks:
-* [Automate OS and framework patching with ACR Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)
-* [Automatic build on code commit](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)
-
-CI/CD with Jenkins on Azure:
-* [Jenkins continuous deployment](https://docs.microsoft.com/azure/aks/jenkins-continuous-deployment)
+> [!div class="nextstepaction"]
+> [CI/CD with Jenkins on Azure](jenkins-continuous-deployment.md)

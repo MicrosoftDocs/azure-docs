@@ -1,5 +1,5 @@
 ---
-title: Stream video files with Azure Media Services and the Azure CLI | Microsoft Docs
+title: Stream video files with Azure Media Services and the Azure CLI
 description: Follow the steps of this tutorial to create a new Azure Media Services account, encode a file, and stream it to Azure Media Player.
 services: media-services
 documentationcenter: ''
@@ -7,7 +7,6 @@ author: Juliako
 manager: femila
 editor: ''
 keywords: azure media services, stream
-
 ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
@@ -17,7 +16,7 @@ ms.author: juliako
 #Customer intent: As a developer, I want to create a Media Services account so that I can store, encrypt, encode, manage, and stream media content in Azure.
 ---
 
-# Tutorial: Encode a remote file based on URL and stream the video - CLI
+# Tutorial: Encode a remote file based on URL and stream the video - Azure CLI
 
 This tutorial shows how to easily encode and stream videos on a variety of browsers and devices by using Azure Media Services and the Azure CLI. You can specify input content by using HTTPS or SAS URLs or paths to files in Azure Blob storage.
 
@@ -37,7 +36,7 @@ Your Media Services account and all associated storage accounts must be in the s
 
 ### Create a resource group
 
-```azurecli
+```azurecli-interactive
 az group create -n amsResourceGroup -l westus2
 ```
 
@@ -45,15 +44,15 @@ az group create -n amsResourceGroup -l westus2
 
 In this example, we create a General-Purpose v2 Standard LRS account.
 
-If you want to experiment with storage accounts, use `--sku Standard_LRS`. When you're picking a SKU for production, consider using `--sku Standard_RAGRS`, which provides geographic replication for business continuity. For more information, see [storage accounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
- 
-```azurecli
+If you want to experiment with storage accounts, use `--sku Standard_LRS`. When you're picking a SKU for production, consider using `--sku Standard_RAGRS`, which provides geographic replication for business continuity. For more information, see [storage accounts](/cli/azure/storage/account).
+
+```azurecli-interactive
 az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup
 ```
 
 ### Create an Azure Media Services account
 
-```azurecli
+```azurecli-interactive
 az ams account create --n amsaccount -g amsResourceGroup --storage-account amsstorageaccount -l westus2
 ```
 
@@ -82,14 +81,13 @@ You get a response like this:
 
 The following Azure CLI command starts the default **Streaming Endpoint**.
 
-```azurecli
+```azurecli-interactive
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
 ```
 
 You get a response like this:
 
 ```
-az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
 {
   "accessControl": null,
   "availabilitySetName": null,
@@ -126,7 +124,7 @@ If the streaming endpoint is already running, you get this message:
 
 Create a **Transform** to configure common tasks for encoding or analyzing videos. In this example, we do adaptive bitrate encoding. We then submit a job under the transform that we created. The job is the request to Media Services to apply the transform to the given video or audio content input.
 
-```azurecli
+```azurecli-interactive
 az ams transform create --name testEncodingTransform --preset AdaptiveStreaming --description 'a simple Transform for Adaptive Bitrate Encoding' -g amsResourceGroup -a amsaccount
 ```
 
@@ -158,7 +156,7 @@ You get a response like this:
 
 Create an output **Asset** to use as the encoding job's output.
 
-```azurecli
+```azurecli-interactive
 az ams asset create -n testOutputAssetName -a amsaccount -g amsResourceGroup
 ```
 
@@ -187,13 +185,13 @@ When you submit jobs to process videos, you have to tell Media Services where to
 
 When you run `az ams job start`, you can set a label on the job's output. You can then use the label to identify what the output asset is for.
 
-- If you assign a value to the label, set ‘--output-assets’ to “assetname=label”.
-- If you don't assign a value to the label, set ‘--output-assets’ to “assetname=”.
+- If you assign a value to the label, set '--output-assets' to "assetname=label".
+- If you don't assign a value to the label, set '--output-assets' to "assetname=".
 
   Notice that we add "=" to the `output-assets`.
 
-```azurecli
-az ams job start --name testJob001 --transform-name testEncodingTransform --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/' --files 'Ignite-short.mp4' --output-assets testOutputAssetName= -a amsaccount -g amsResourceGroup 
+```azurecli-interactive
+az ams job start --name testJob001 --transform-name testEncodingTransform --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/' --files 'Ignite-short.mp4' --output-assets testOutputAssetName= -a amsaccount -g amsResourceGroup
 ```
 
 You get a response like this:
@@ -235,7 +233,7 @@ You get a response like this:
 
 In five minutes, check the status of the job. It should be "Finished." It's not finished, check again in a few minutes. When it's finished, go to the next step and create a **Streaming Locator**.
 
-```azurecli
+```azurecli-interactive
 az ams job show -a amsaccount -g amsResourceGroup -t testEncodingTransform -n testJob001
 ```
 
@@ -245,7 +243,7 @@ After the encoding is complete, the next step is to make the video in the output
 
 ### Create a streaming locator
 
-```azurecli
+```azurecli-interactive
 az ams streaming-locator create -n testStreamingLocator --asset-name testOutputAssetName --streaming-policy-name Predefined_ClearStreamingOnly  -g amsResourceGroup -a amsaccount 
 ```
 
@@ -271,7 +269,7 @@ You get a response like this:
 
 ### Get streaming locator paths
 
-```azurecli
+```azurecli-interactive
 az ams streaming-locator get-paths -a amsaccount -g amsResourceGroup -n testStreamingLocator
 ```
 
@@ -308,13 +306,14 @@ You get a response like this:
 
 Copy the HTTP live streaming (HLS) path. In this case, it's `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)`.
 
-## Build the URL 
+## Build the URL
 
 ### Get the streaming endpoint host name
 
-```azurecli
+```azurecli-interactive
 az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 ```
+
 Copy the `hostName` value. In this case, it's `amsaccount-usw22.streaming.media.azure.net`.
 
 ### Assemble the URL
@@ -341,13 +340,12 @@ Here's an example:
 
 If you no longer need any of the resources in your resource group, including the Media Services and storage accounts that you created for this tutorial, delete the resource group.
 
-Run this CLI command:
+Run this Azure CLI command:
 
-```azurecli
+```azurecli-interactive
 az group delete --name amsResourceGroup
 ```
 
 ## Next steps
 
 [Media Services overview](media-services-overview.md)
-

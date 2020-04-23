@@ -1,15 +1,12 @@
 ---
-title: Azure Marketplace and AppSource Roadmap | Azure
+title: Azure Marketplace and AppSource Roadmap
 description: A roadmap to what's happening in the Marketplace
-services: Azure, Marketplace, Compute
 author: qianw211
-manager: MaggiePucciEvans
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/02/2019
-ms.author: blevens
-
 ---
 
 # Microsoft commercial marketplace roadmap
@@ -27,11 +24,11 @@ Once a capability is live, it will be removed from the roadmap. Functionality th
 
 * [Marketplace + CSP Update Blog](https://aka.ms/marketplacemarchupdateblog)
 * [Publish offerings into CSP channel (ISV)](https://aka.ms/publishtocsp)
-* [Resell Marketplace offerings (CSP)](hhttps://aka.ms/marketplaceincsp)
+* [Resell Marketplace offerings (CSP)](https://aka.ms/marketplaceincsp)
 * [Standard Contract](https://aka.ms/standardcontract)
 * [SaaS Fulfillment API](https://aka.ms/saasapiv2)
 * [Marketplace Geos and Currencies](https://aka.ms/marketplacegeos)
-* [Seller Insights](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
+* [Seller Insights](./partner-center-portal/analytics.md)
 * [Microsoft Build Marketplace Blog](https://aka.ms/marketplacebuildblog)
 * [Marketplace May Updates Blog](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
 * Partner Center: [Create Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) / [Manage Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account) / [Migration from CPP](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)

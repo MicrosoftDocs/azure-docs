@@ -1,14 +1,14 @@
 ---
 title: Sentiment analysis - LUIS
 titleSuffix: Azure Cognitive Services
-description: If Sentiment analysis is configured, the LUIS json response includes sentiment analysis. 
+description: If Sentiment analysis is configured, the LUIS json response includes sentiment analysis.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/22/2019
 ms.author: diberry
 ---
@@ -40,7 +40,7 @@ For all other cultures, the response is:
   "score": 0.9163064
 }
 ```
-* * * 
+* * *
 
 ## Next steps
 

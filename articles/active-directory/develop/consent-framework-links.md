@@ -1,11 +1,10 @@
 ---
-title: How application consent works | Microsoft Docs
+title: How application consent works
 description: Learn more about how the Azure AD consent framework works to see how you can use it when developing applications on Azure AD
 services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
@@ -14,7 +13,6 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 
-ms.collection: M365-identity-device-management
 ---
 
 # How application consent works

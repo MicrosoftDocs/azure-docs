@@ -119,7 +119,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>Oracle 10 and later versions.</td>
     </tr>
     <tr>
       <td>Oracle Database view</td>
@@ -127,7 +127,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>Oracle 10 and later versions.</td>
     </tr>
     <tr>
       <td>Other (generic asset)</td>

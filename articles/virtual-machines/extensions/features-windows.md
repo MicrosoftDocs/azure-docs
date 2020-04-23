@@ -32,7 +32,7 @@ Several different Azure VM extensions are available, each with a specific use ca
 
 - Apply PowerShell Desired State configurations to a VM with the DSC extension for Windows. For more information, see [Azure Desired State configuration extension](dsc-overview.md).
 - Configure monitoring of a VM with the Log Analytics Agent VM extension. For more information, see [Connect Azure VMs to Azure Monitor logs](../../log-analytics/log-analytics-azure-vm-extension.md).
-- Configure an Azure VM by using Chef. For more information, see [Automating Azure VM deployment with Chef](../windows/chef-automation.md).
+- Configure an Azure VM by using Chef. For more information, see [Automating Azure VM deployment with Chef](../../chef/chef-automation.md).
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
@@ -248,6 +248,10 @@ Moving the **command to execute** property to the **protected** configuration se
 }
 ```
 
+On an Azure IaaS VM that uses extensions, in the certificates console, you might see certificates that have the subject **_Windows Azure CRP Certificate Generator_**. On a Classic RDFE VM, these certificates have the subject name **_Windows Azure Service Management for Extensions_**.
+
+These certificates secure the communication between the VM and its host during the transfer of protected settings (password, other credentials) used by extensions. The certificates are built by the Azure fabric controller and passed to the VM Agent. If you stop and start the VM every day, a new certificate might be created by the fabric controller. The certificate is stored in the computer's Personal certificates store. These certificates can be deleted. The VM Agent re-creates certificates if needed.
+
 ### How do agents and extensions get updated?
 
 The Agents and Extensions share the same update mechanism. Some updates do not require additional firewall rules.
@@ -345,7 +349,7 @@ Each VM extension may have troubleshooting steps specific to the extension. For 
 
 The following troubleshooting steps apply to all VM extensions.
 
-1. To check the Windows Guest Agent Log, look at the activity when your extension was being provisioned in *C:\WindowsAzure\Logs\WaAppAgent.txt*
+1. To check the Windows Guest Agent Log, look at the activity when your extension was being provisioned in *C:\WindowsAzure\Logs\WaAppAgent.log*
 
 2. Check the actual extension logs for more details in *C:\WindowsAzure\Logs\Plugins\<extensionName>*
 

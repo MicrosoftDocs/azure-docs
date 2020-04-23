@@ -1,5 +1,5 @@
-- name: Cloud Foundry Documentation
-  href: index.md
+- name: Cloud Foundry documentation
+  href: index.yml
 - name: Quickstarts
   expanded: true
   items:

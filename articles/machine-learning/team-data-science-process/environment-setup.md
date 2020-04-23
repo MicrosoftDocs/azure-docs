@@ -3,13 +3,12 @@ title: Set up data science environments in Azure - Team Data Science Process
 description: Set up data science environments on Azure for use in the Team Data Science Process.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
-services: machine-learning
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -21,7 +20,7 @@ The Team Data Science Process uses various data science environments for the sto
 
 The following articles describe how to set up the various data science environments used by the Team Data Science Process.
 
-* [Azure storage-account](../../storage/common/storage-quickstart-create-account.md)
+* [Azure storage-account](../../storage/common/storage-account-create.md)
 * [HDInsight (Hadoop) cluster](customize-hadoop-cluster.md)
 * [Azure Machine Learning Studio (classic) workspace](../studio/create-workspace.md)
 

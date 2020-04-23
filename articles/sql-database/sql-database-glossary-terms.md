@@ -10,39 +10,23 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 04/26/2019
+ms.date: 01/22/2020
 ---
 # Azure SQL Database glossary of terms
 
 |Context|Term|More information|
 |:---|:---|:---|
-|Azure service name|Azure SQL Database or SQL Database|[The Azure SQL Database service](sql-database-technical-overview.md)|
-|Compute tier|Serverless |[Serverless compute tier](sql-database-serverless.md)
-||Provisioned|[Serverless compute tier](sql-database-serverless.md)
-|Deployment options |Single database|[Single databases](sql-database-single-database.md)|
+|Azure service|Azure SQL Database or SQL Database|[The Azure SQL Database service](sql-database-technical-overview.md)|
+|Purchasing model|DTU-based purchasing model|[DTU-based purchasing model](sql-database-service-tiers-dtu.md)|
+||vCore-based purchasing model|[vCore-based purchasing model](sql-database-service-tiers-vcore.md)|
+|Deployment option |Single database|[Single databases](sql-database-single-database.md)|
 ||Elastic pool|[Elastic pool](sql-database-elastic-pool.md)|
 ||Managed instance|[Managed instance](sql-database-managed-instance.md)|
-|Server objects|SQL Database server or database server|[Database server](sql-database-servers.md)|
+|Service tier|Basic, Standard, Premium, General Purpose, Hyperscale, Business Critical|For service tiers in the vCore model, see [single database and elastic pool](sql-database-service-tiers-vcore.md#service-tiers) and [managed instance](sql-database-managed-instance.md#managed-instance-service-tiers). For service tiers in the DTU model, see [DTU model](sql-database-service-tiers-dtu.md#compare-the-dtu-based-service-tiers).|
+|Compute tier|Serverless compute|[Serverless compute](sql-database-service-tiers-vcore.md#compute-tiers)
+||Provisioned compute|[Provisioned compute](sql-database-service-tiers-vcore.md#compute-tiers)
+|Compute generation|Gen5, M-series, Fsv2-series|[Hardware generations](sql-database-service-tiers-vcore.md#hardware-generations)
+|Server entity|SQL Database server or database server|[Database server](sql-database-servers.md)|
 ||SQL Database managed instance server, managed instance server, or instance server|[Managed instance](sql-database-managed-instance.md)|
-Database objects|Azure SQL database|Any database in Azure SQL Database|
-||Single database|A database created using the single database deployment option|
-||Pooled database|A database created within or moved into an elastic pool|
-||Instance database|A database created within a managed instance|
-||Basic database|A database created within or moved into the basic service tier of the DTU-based purchasing model|
-||Standard database|A database created within or moved into standard service tier of the DTU-based purchasing model|
-||Premium database|A database created within or moved into the premium service tier of the DTU-based purchasing model|
-||General purpose database|A database created within or moved into the general purpose service tier of the vCore-based purchasing model|
-||Hyperscale database|A database created within or moved into the hyperscale service tier of the vCore-based purchasing model|
-||Business critical database|A database created within or moved into the business critical service tier of the vCore-based purchasing model|
-||Provisioned database|A database configured in the provisioned compute tier|
-|[Purchase models and resources](sql-database-purchase-models.md)|DTU-based purchasing model|[DTU-based purchasing model](sql-database-service-tiers-dtu.md)|
-||vCore-based purchasing model|[vCore-based purchasing model](sql-database-service-tiers-vcore.md)|
-||vCore|A core provided to the guest OS by the hypervisor.|
-||Service tier|A level of service within a purchasing model|
-||Compute size|The amount of compute resources for a single database, elastic pool, or managed instance within a service tier|
-||Storage amount|The amount of storage available to a single database, elastic pool, or managed instance|
-||Compute generation|The generation of processor within a service tier|
-|Database server IP firewall rules|IP firewall rules|[IP firewall rules](sql-database-firewall-configure.md)|
-||Server-level IP firewall rules|[Server-level IP firewall rules](sql-database-firewall-configure.md)|
-|| Database-level IP firewall rules|[Database-level IP firewall rules](sql-database-firewall-configure.md)|
-||Virtual network endpoints and rules|[Virtual network endpoints and rules](sql-database-vnet-service-endpoint-rule-overview.md)|
+|Resource type|vCore|A CPU core provided to the compute resource for a single database, elastic pool, or managed instance.|
+||Compute size and storage amount|Compute size is the maximum amount of CPU, memory and other non-storage related resources available for a single database, elastic pool, or managed instance.  Storage size is the maximum amount of storage available for a single database, elastic pool, or managed instance.  For sizing options in the vcore model, see [vCore single databases](sql-database-vcore-resource-limits-single-databases.md), [vCore elastic pools](sql-database-vcore-resource-limits-elastic-pools.md) and [managed instances](sql-database-managed-instance-resource-limits.md).  For sizing options in the DTU model, see [DTU single databases](sql-database-dtu-resource-limits-single-databases.md) and [DTU elastic pools](sql-database-dtu-resource-limits-elastic-pools.md).

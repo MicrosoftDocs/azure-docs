@@ -3,13 +3,13 @@ title: Create custom keywords - Speech service
 titleSuffix: Azure Cognitive Services
 description: Your device is always listening for a keyword (or phrase). When the user says the keyword, the device sends all subsequent audio to the cloud, until the user stops speaking. Customizing your keyword is an effective way to differentiate your device and strengthen your branding.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.author: dapine
+ms.author: trbye
 ---
 
 # Create a custom keyword using Speech Studio
@@ -44,7 +44,7 @@ Before you can use a custom keyword, you'll need to create a keyword using the [
 
     ![Review your keyword](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
-1. It may take up to ten minutes for the model to be generated. The keyword list will change from **Processing** to **Succeeded** when the model is complete. You can then download the file.
+1. It may take up to thirty minutes for the model to be generated. The keyword list will change from **Processing** to **Succeeded** when the model is complete. You can then download the file.
 
     ![Review your keyword](media/custom-keyword/custom-kws-portal-download-model.png)
 

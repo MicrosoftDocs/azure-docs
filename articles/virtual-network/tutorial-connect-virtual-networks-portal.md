@@ -1,21 +1,16 @@
 ---
-title: Connect virtual networks with virtual network peering - tutorial - Azure portal | Microsoft Docs
+title: Connect virtual networks with VNet peering - tutorial - Azure portal
 description: In this tutorial, you learn how to connect virtual networks with virtual network peering, using the Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 08/16/2018
+ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: 
 ---
@@ -34,15 +29,15 @@ If you prefer, you can complete this tutorial using the [Azure CLI](tutorial-con
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure 
+## Log in to Azure
 
 Log in to the Azure portal at https://portal.azure.com.
 
 ## Create virtual networks
 
-1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
+1. On the Azure portal, select **Create a resource**.
 2. Select **Networking**, and then select **Virtual network**.
-3. On the **Basics** page, enter or select the following information and accept the defaults for the remaining settings:
+3. On the **Basics** tab, enter or select the following information and accept the defaults for the remaining settings:
 
     |Setting|Value|
     |---|---|
@@ -51,15 +46,17 @@ Log in to the Azure portal at https://portal.azure.com.
     |Region| Select **East US**.|
     |Name|myVirtualNetwork1|
 
-4. On the **IP Addresses** page, enter 10.0.0.0/16 for the **Address Space** field. Click the **Add subnet** button below and enter Subnet1 for **Subnet Name** and 10.0.0.0/24 for **Subnet Address range**.
+4. On the **IP Addresses** tab, enter 10.0.0.0/16 for the **Address Space** field. Click the **Add subnet** button below and enter *Subnet1* for **Subnet Name** and 10.0.0.0/24 for **Subnet Address range**.
+5. Select **Review + Create** and then select **Create**.
    
-5. Complete steps 1-3 again, with the following changes:
+5. Complete steps 1-5 again, with the following changes:
 
     |Setting|Value|
     |---|---|
     |Name|myVirtualNetwork2|
     |Address space|10.1.0.0/16|
     |Resource group| Select **Use existing** and then select **myResourceGroup**.|
+    |Subnet name | Subnet2|
     |Subnet Address range|10.1.0.0/24|
 
 ## Peer virtual networks
@@ -92,7 +89,7 @@ Create a VM in each virtual network so that you can communicate between them in 
 
 ### Create the first VM
 
-1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
+1. On the Azure portal, select **Create a resource**.
 2. Select **Compute**, and then select **Windows Server 2016 Datacenter**. You can select a different operating system, but the remaining steps assume you selected **Windows Server 2016 Datacenter**. 
 3. Enter, or select, the following information for **Basics**, accept the defaults for the remaining settings, and then select **Create**:
 
@@ -111,9 +108,6 @@ Create a VM in each virtual network so that you can communicate between them in 
     |---|---|
     |Virtual network| myVirtualNetwork1 - If it's not already selected, select **Virtual network** and then select **myVirtualNetwork1**.|
     |Subnet| Subnet1 - If it's not already selected, select **Subnet** and then select **Subnet1**.|
-    
-
-    ![Virtual machine settings](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
    
 6. Select **Networking**. Choose **Allow selected ports** for the **Public inbound ports** option. Choose **RDP** for the **Select inbound ports** option below this. 
 
@@ -172,6 +166,6 @@ When no longer needed, delete the resource group and all resources it contains:
 
 ## Next steps
 
-In this tutorial, you learned how to connect two networks in the same Azure region, with virtual network peering. You can also peer virtual networks in different [supported regions](virtual-network-manage-peering.md#cross-region) and in [different Azure subscriptions](create-peering-different-subscriptions.md#portal), as well as create [hub and spoke network designs](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) with peering. To learn more about virtual network peering, see [Virtual network peering overview](virtual-network-peering-overview.md) and [Manage virtual network peerings](virtual-network-manage-peering.md).
+In this tutorial, you learned how to connect two networks in the same Azure region, with virtual network peering. You can also peer virtual networks in different [supported regions](virtual-network-manage-peering.md#cross-region) and in [different Azure subscriptions](create-peering-different-subscriptions.md#portal), as well as create [hub and spoke network designs](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) with peering. To learn more about virtual network peering, see [Virtual network peering overview](virtual-network-peering-overview.md) and [Manage virtual network peerings](virtual-network-manage-peering.md).
 
 To connect your own computer to a virtual network through a VPN, and interact with resources in a virtual network, or in peered virtual networks, see [Connect your computer to a virtual network](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

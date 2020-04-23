@@ -1,13 +1,12 @@
 ---
-title: Go-To-Market Services - your commercial marketplace benefits | Azure
+title: Go-To-Market Services - your commercial marketplace benefits | Azure Marketplace
 description: Go-To-Market Services - Microsoft resources that publishers can use are described in this section.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
-author: MaggiePucciEvans
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
-ms.date: 01/18/2019
-ms.author: evansma
+ms.topic: conceptual
+ms.date: 04/23/2020
+ms.author: dsindona
 
 ---
 
@@ -45,7 +44,7 @@ Your steps to get started are easy:
     * Select a user from the list. If the user you want to assign is not in the list, you can add new users in **Account settings**.
     * Provide an email address for the user that's different from the email address associated with your company's Partner Center account. We will email instructions for using your Marketplace Rewards benefit to your designated marketing contact's email address.
     * Provide the contact phone and preferred language for this marketing contact. After you finish entering this information, select **Assign user**.
-    * After you’ve updated the marketing contact, select **Activate** for the benefit you want to start using. Once you activate a benefit, your marketing contact will be contacted by a member of the Rewards team within a week.
+    * After you've updated the marketing contact, select **Activate** for the benefit you want to start using. Once you activate a benefit, your marketing contact will be contacted by a member of the Rewards team within a week.
 
 **Technical benefits**
 
@@ -53,7 +52,7 @@ Your steps to get started are easy:
 2. How to make use of Azure sponsorship benefits will be shared via an email as you unlock these benefits.
 
 >[!Note]
->If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, either by looking in Cloud Partner Portal or in Partner Center. They should have the communication and next steps. <br> <br> If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at https://aka.ms/marketplacepublishersupport.
+>If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, by looking in Partner Center. They should have the communication and next steps. <br> <br> If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at https://aka.ms/marketplacepublishersupport.
 
 The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.
 
@@ -94,7 +93,7 @@ In addition to the rewards benefits, business applications partners with Dynamic
 
 ### Publisher Agreement
 
-All the activities described on this page are covered by the [marketplace publisher agreement](https://docs.microsoft.com/legal/marketplace/terms) and are pursuant to the Commercial Benefits Program Addendum.
+All the activities described on this page are covered by the [marketplace publisher agreement](https://go.microsoft.com/fwlink/?LinkID=699560) and are pursuant to the Commercial Benefits Program Addendum.
 
 ### Cancellation policy
 
@@ -105,7 +104,7 @@ Microsoft reserves the right to revoke and terminate Marketplace Rewards benefit
 * engage in illegal activity using their marketplace listing.
 * are de-listed from the commercial marketplace. 
 * use their offer to show marketing or other content that violates copyright or trademark laws.
-* violate the policies of the [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/), including, but not limited to, using the Azure sponsorship funding for their own internal operations or bitcoin mining. 
+* violate the policies of the [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/), including, but not limited to, using the Azure sponsorship funding for their own internal operations or Bitcoin mining. 
 
 ### Offer Availability
 
@@ -117,9 +116,7 @@ Transactions that are proven to be fraudulent will not count towards a publisher
 
 ## Next steps
 
-If you created your offer in [Cloud Partner Portal](https://cloudpartner.azure.com), sign in to create or configure your offer.
-
-If you created your offer in [Partner Center](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview), sign in to create or configure your offer.
+If you created your offer in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview), sign in to create or configure your offer.
 
 Review the [self-serve resources available to you](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 

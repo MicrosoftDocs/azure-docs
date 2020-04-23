@@ -3,7 +3,7 @@ title: Connect Barracuda CloudGen Firewall to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Barracuda CloudGen Firewall to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: cabailey
+ms.author: yelevin
 
 ---
 # Connect Barracuda CloudGen Firewall

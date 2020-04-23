@@ -3,7 +3,7 @@ title: MSAL for iOS & macOS differences | Azure
 titleSuffix: Microsoft identity platform
 description: Describes Microsoft Authentication Library (MSAL) usage differences between iOS and macOS.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,11 +11,10 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: oldalton
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about the Microsoft Authentication Library for macOS and iOS differences so I can decide if this platform meets my application development needs and requirements.
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft Authentication Library for iOS and macOS differences

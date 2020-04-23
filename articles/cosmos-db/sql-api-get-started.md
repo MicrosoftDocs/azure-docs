@@ -310,9 +310,11 @@ First, let's create a `Family` class that represents objects stored within Azure
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Family.cs)]
 
+
 1. Back in *Program.cs*, add the `AddItemsToContainerAsync` method after your `CreateContainerAsync` method.
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=AddItemsToContainerAsync)]
+
 
     The code checks to make sure an item with the same ID doesn't already exist. We'll insert two items, one each for the *Andersen Family* and the *Wakefield Family*.
 

@@ -1,7 +1,6 @@
 ---
 title: Working with strings in Azure Monitor log queries | Microsoft Docs
 description: This article provides a tutorial for using Azure Monitor Log Analytics in the Azure portal to query and analyze log data in Azure Monitor.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -45,7 +44,7 @@ print hosts_report
 If there is only one element, you can use only the dot notation:
 
 ```Kusto
-let hosts_report='{"location":"North_DC", "status":"running", "rate":5}';
+let hosts_report=dynamic({"location":"North_DC", "status":"running", "rate":5});
 print hosts_report 
 | extend status = hosts_report.status
 ```

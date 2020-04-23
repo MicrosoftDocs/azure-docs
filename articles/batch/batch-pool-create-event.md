@@ -1,17 +1,9 @@
 ---
-title: "Azure Batch pool create event | Microsoft Docs"
-description: Reference for Batch pool create event.
-services: batch
-author: laurenhughes
-manager: gwallace
-
-ms.assetid: 
-ms.service: batch
+title: Azure Batch pool create event
+description: Reference for the Batch pool create event, which is emitted once a pool has been created. The content of the log will expose general information about the pool.
 ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: lahugh
+ms.author: labrenne
 ---
 
 # Pool create event

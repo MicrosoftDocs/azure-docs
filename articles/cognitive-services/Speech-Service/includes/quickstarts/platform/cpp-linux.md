@@ -18,7 +18,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 ## System requirements
 
-Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9)
+Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)
 
 ## Prerequisites
 
@@ -41,6 +41,17 @@ To complete this quickstart, you'll need:
      sudo apt-get update
      sudo apt-get install build-essential libssl1.0.2 libasound2 wget
      ```
+
+   * On RHEL/CentOS 8:
+
+     ```sh
+     sudo yum update
+     sudo yum groupinstall "Development tools"
+     sudo yum install alsa-lib openssl wget
+     ```
+
+> [!NOTE]
+> On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ## Install Speech SDK
 

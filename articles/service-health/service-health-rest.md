@@ -1,8 +1,7 @@
 ---
 title: Get Azure resource health events using the REST API | Microsoft Docs
 description: Use the Azure REST APIs to get the health events for your Azure resources.
-ms.custom: REST
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/06/2017
 
 ---

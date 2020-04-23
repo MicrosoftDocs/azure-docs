@@ -25,6 +25,8 @@ To enforce consistent naming conventions for Office 365 groups created or edited
 
 The naming policy is applied to creating or editing groups created across workloads (for example, Outlook, Microsoft Teams, SharePoint, Exchange, or Planner). It is applied to both the group name and group alias. If you set up your naming policy in Azure AD and you have an existing Exchange group naming policy, the Azure AD naming policy is enforced in your organization.
 
+When group naming policy is configured, the policy will be applied to new Office 365 groups created by end users. Naming policy does not apply to certain directory roles, such as Global Administrator or User Administrator (please see below for the complete list of roles exempted from group naming policy). For existing Office 365 groups, the policy will not immediately apply at the time of configuration. Once group owner edits the group name for these groups, naming policy will be enforced.
+
 ## Naming policy features
 
 You can enforce naming policy for groups in two different ways:

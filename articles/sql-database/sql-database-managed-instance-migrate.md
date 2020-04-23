@@ -24,7 +24,7 @@ At a high level, the database migration process looks like:
 ![migration process](./media/sql-database-managed-instance-migration/migration-process.png)
 
 - [Assess managed instance compatibility](#assess-managed-instance-compatibility) where you should ensure that there are no blocking issues that can prevent your migrations.
-  - This step also includes creation of [performance baseline](#create-performance-baseline) to determine resource usage on your source SQL Server instance. This step is needed if you want o deploy properly sized Managed Instance and verify that performances after migration are not affected.
+  - This step also includes creation of [performance baseline](#create-performance-baseline) to determine resource usage on your source SQL Server instance. This step is needed if you want to deploy properly sized Managed Instance and verify that performances after migration are not affected.
 - [Choose app connectivity options](sql-database-managed-instance-connect-app.md)
 - [Deploy to an optimally sized managed instance](#deploy-to-an-optimally-sized-managed-instance) where you will choose technical characteristics (number of vCores, amount of memory) and performance tier (Business Critical, General Purpose) of your Managed Instance.
 - [Select migration method and migrate](#select-migration-method-and-migrate) where you migrate your databases using offline migration (native backup/restore, database importe/export) or online migration (Data Migration Service, Transactional Replication).
@@ -35,7 +35,7 @@ At a high level, the database migration process looks like:
 
 ## Assess managed instance compatibility
 
-First, determine whether managed instance is compatible with the database requirements of your application. The managed instance deployment option is designed to provide easy lift and shift migration for the majority of existing applications that use SQL Server on-premises or on virtual machines. However, you may sometimes require features or capabilities that are not yet supported and the cost of implementing a workaround are too high.
+First, determine whether managed instance is compatible with the database requirements of your application. The managed instance deployment option is designed to provide easy lift and shift migration for the majority of existing applications that use SQL Server on-premises or on virtual machines. However, you may sometimes require features or capabilities that are not yet supported and the cost of implementing a workaround is too high.
 
 Use [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) to detect potential compatibility issues impacting database functionality on Azure SQL Database. DMA does not yet support managed instance as migration destination, but it is recommended to run assessment against Azure SQL Database and carefully review list of reported feature parity and compatibility issues against product documentation. See [Azure SQL Database features](sql-database-features.md) to check are there some reported blocking issues that not blockers in managed instance, because most of the blocking issues preventing a migration to Azure SQL Database have been removed with managed instance. For instance, features like cross-database queries, cross-database transactions within the same instance, linked server to other SQL sources, CLR, global temp tables, instance level views, Service Broker and the like are available in managed instances.
 
@@ -66,7 +66,7 @@ Some of the parameters that you would need to measure on your SQL Server instanc
 - Monitor workload and query performance or your SQL Server instance by examining Dynamic Management Views or Query Store if you are migrating from SQL Server 2016+ version. Identify average duration and CPU usage of the most important queries in your workload to compare them with the queries that are running on the Managed Instance.
 
 > [!Note]
-> If you notice any issue with your workload on SQL Server such as high CPU usage, constant memory pressure, tempdb or parametrization issues, you should try to resolve them on your source SQL Server instance before taking the baseline and migration. Migrating know issues to any new system migh cause unexpected results and invalidate any performance comparison.
+> If you notice any issue with your workload on SQL Server such as high CPU usage, constant memory pressure, tempdb or parameterization issues, you should try to resolve them on your source SQL Server instance before taking the baseline and migration. Migrating know issues to any new system migh cause unexpected results and invalidate any performance comparison.
 
 As an outcome of this activity you should have documented average and peak values for CPU, memory, and IO usage on your source system, as well as average and max duration and CPU usage of the dominant and the most critical queries in your workload. You should use these values later to compare performance of your workload on Managed Instance with the baseline performance of the workload on the source SQL Server.
 

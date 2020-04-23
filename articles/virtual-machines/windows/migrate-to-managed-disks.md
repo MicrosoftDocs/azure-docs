@@ -25,6 +25,8 @@ You can migrate to Managed Disks in following scenarios:
 |Convert all the VMs in a vNet from classic to Resource Manager on managed disks     |[Migrate IaaS resources from classic to Resource Manager](migration-classic-resource-manager-ps.md) and then [Convert a VM from unmanaged disks to managed disks](convert-unmanaged-to-managed-disks.md)         |
 |Upgrade VMs with standard unmanaged disks to VMs with managed premium disks     | First, [Convert a Windows virtual machine from unmanaged disks to managed disks](convert-unmanaged-to-managed-disks.md). Then [Update the storage type of a managed disk](convert-disk-storage.md).         |
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 ## Next steps
 
 - Learn more about [Managed Disks](managed-disks-overview.md)

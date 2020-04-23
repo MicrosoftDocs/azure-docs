@@ -10,7 +10,7 @@ ms.date: 07/12/2019
 ms.author: danlep
 ms.custom: include file
 ---
-In the command output, the `identity` section shows an identity of type `SystemAssigned` is set in the task. The `principalId` is the service principal ID of the identity:
+In the command output, the `identity` section shows an identity of type `SystemAssigned` is set in the task. The `principalId` is the principal ID of the task identity:
 
 ```console
 [...]
@@ -23,10 +23,10 @@ In the command output, the `identity` section shows an identity of type `SystemA
   "location": "eastus",
 [...]
 ``` 
-Use the [az acr task show][az-acr-task-show] command to store the principalId in a variable, to use in later commands:
+Use the [az acr task show][az-acr-task-show] command to store the principalId in a variable, to use in later commands. Substitute the name of your task and your registry in the following command:
 
 ```azurecli
-principalID=$(az acr task show --name dockerhubtask --registry myregistry --query identity.principalId --output tsv)
+principalID=$(az acr task show --name mytask --registry myregistry --query identity.principalId --output tsv)
 ```
 
 <!-- LINKS - Internal -->

@@ -292,7 +292,7 @@ contained within the information system.
 
 - Network Security Group Rules for Internet facing virtual machines should be hardened
 - Access through Internet facing endpoint should be restricted
-- The NSGs rules for web applications on IaaS should be hardened
+- Web ports should be restricted on Network Security Groups associated to your VM
 - Audit unrestricted network access to storage accounts
 
 ## SC-7 (3) Boundary Protection | Access Points

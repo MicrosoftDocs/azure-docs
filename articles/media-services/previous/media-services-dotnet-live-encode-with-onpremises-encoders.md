@@ -36,7 +36,7 @@ The following are required to complete the tutorial:
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 * Make sure the streaming endpoint from which you want to stream content is in the **Running** state. 
 * Set up your dev environment. For more information, see [Set up your environment](media-services-set-up-computer.md).
-* A webcam. For example, [Telestream Wirecast encoder](https://www.telestream.net/wirecast/overview.htm).
+* A webcam. For example, [Telestream Wirecast encoder](media-services-configure-wirecast-live-encoder.md).
 
 Recommended to review the following articles:
 

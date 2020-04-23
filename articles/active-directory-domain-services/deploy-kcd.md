@@ -9,14 +9,14 @@ ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 11/26/2019
+ms.topic: how-to
+ms.date: 03/30/2020
 ms.author: iainfou
 
 ---
 # Configure Kerberos constrained delegation (KCD) in Azure Active Directory Domain Services
 
-As you run applications, there may be a need for those applications to access resources in the context of a different user. Active Directory Domain Services (AD DS) supports a mechanism called *Kerberos delegation* that enables this use-case. Kerberos *constrained* delegation (KCD) then builds on this mechanism to define specific resources that can be accessed in the context of the user. Azure Active Directory Domain Services (Azure AD DS) managed domains are more securely locked down that traditional on-premises AD DS environments, so use a more secure *resource-based* KCD.
+As you run applications, there may be a need for those applications to access resources in the context of a different user. Active Directory Domain Services (AD DS) supports a mechanism called *Kerberos delegation* that enables this use-case. Kerberos *constrained* delegation (KCD) then builds on this mechanism to define specific resources that can be accessed in the context of the user. Azure Active Directory Domain Services (Azure AD DS) managed domains are more securely locked down than traditional on-premises AD DS environments, so use a more secure *resource-based* KCD.
 
 This article shows you how to configure resource-based Kerberos constrained delegation in an Azure AD DS managed domain.
 
@@ -25,7 +25,7 @@ This article shows you how to configure resource-based Kerberos constrained dele
 To complete this article, you need the following resources:
 
 * An active Azure subscription.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
@@ -52,7 +52,7 @@ Resource-based KCD is configured using PowerShell. You use the [Set-ADComputer][
 
 ## Configure resource-based KCD for a computer account
 
-In this scenario, let's assume you have a web app that runs on the computer named *contoso-webapp.aadds.contoso.com*. The web app needs to access a web API that runs on the computer named *contoso-api.aadds.contoso.com* in the context of domain users. Complete the following steps to configure this scenario:
+In this scenario, let's assume you have a web app that runs on the computer named *contoso-webapp.aaddscontoso.com*. The web app needs to access a web API that runs on the computer named *contoso-api.aaddscontoso.com* in the context of domain users. Complete the following steps to configure this scenario:
 
 1. [Create a custom OU](create-ou.md). You can delegate permissions to manage this custom OU to users within the Azure AD DS managed domain.
 1. [Domain-join the virtual machines][create-join-windows-vm], both the one that runs the web app, and the one that runs the web API, to the Azure AD DS managed domain. Create these computer accounts in the custom OU from the previous step.
@@ -63,8 +63,8 @@ In this scenario, let's assume you have a web app that runs on the computer name
 1. Finally, configure resource-based KCD using the [Set-ADComputer][Set-ADComputer] PowerShell cmdlet. From your domain-joined management VM and logged in as user account that's a member of the *Azure AD DC administrators* group, run the following cmdlets. Provide your own computer names as needed:
     
     ```powershell
-    $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.aadds.contoso.com
-    Set-ADComputer contoso-api.aadds.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+    $ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.aaddscontoso.com
+    Set-ADComputer contoso-api.aaddscontoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
     ```
 
 ## Configure resource-based KCD for a user account

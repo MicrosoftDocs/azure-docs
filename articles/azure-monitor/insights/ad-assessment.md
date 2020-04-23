@@ -1,7 +1,6 @@
 ---
 title: Optimize your Active Directory environment with Azure Monitor | Microsoft Docs
 description: You can use the Active Directory Health Check solution to assess the risk and health of your environments on a regular interval.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -162,6 +161,17 @@ After the next scheduled health check runs, by default every seven days, the spe
 2. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
 
 ## AD Health Check solutions FAQ
+
+*What checks are performed by the AD Assessment solution?*
+
+* The following query shows a description of all checks currently performed:
+
+```Kusto
+ADAssessmentRecommendation
+| distinct RecommendationId, FocusArea, ActionArea, Recommendation, Description
+| sort by FocusArea,ActionArea, Recommendation
+```
+The results can then be exported to Excel for further review.
 
 *How often does a health check run?*
 

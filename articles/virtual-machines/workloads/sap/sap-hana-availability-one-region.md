@@ -106,7 +106,7 @@ In this scenario, data that's replicated to the HANA instance in the second VM i
 
 ### SAP HANA system replication with automatic failover
 
-In the standard and most common availability configuration within one Azure region, two Azure VMs running SLES Linux have a failover cluster defined. The SLES Linux cluster is based on the [Pacemaker](http://www.linux-ha.org/wiki/Pacemaker) framework, in conjunction with a [STONITH](http://linux-ha.org/wiki/STONITH) device. 
+In the standard and most common availability configuration within one Azure region, two Azure VMs running SLES Linux have a failover cluster defined. The SLES Linux cluster is based on the [Pacemaker](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) framework, in conjunction with a [STONITH](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) device. 
 
 From an SAP HANA perspective, the replication mode that's used is synced and an automatic failover is configured. In the second VM, the SAP HANA instance acts as a hot standby node. The standby node receives a synchronous stream of change records from the primary SAP HANA instance. As transactions are committed by the application at the HANA primary node, the primary HANA node waits to confirm the commit to the application until the secondary SAP HANA node confirms that it received the commit record. SAP HANA offers two synchronous replication modes. For details and for a description of differences between these two synchronous replication modes, see the SAP article [Replication modes for SAP HANA system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html).
 

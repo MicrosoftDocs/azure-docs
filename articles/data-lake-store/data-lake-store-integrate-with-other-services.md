@@ -56,7 +56,7 @@ You can register data from Data Lake Storage Gen1 into the Azure Data Catalog to
 You can use the Data Lake Storage Gen1 connection manager in SSIS to connect an SSIS package with Data Lake Storage Gen1. For more information, see [Use Data Lake Storage Gen1 with SSIS](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager).
 
 ## Use Data Lake Storage Gen1 with SQL Data Warehouse
-You can use PolyBase to load data from Data Lake Storage Gen1 into SQL Data Warehouse. For more information see [Use Data Lake Storage Gen1 with SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
+You can use PolyBase to load data from Data Lake Storage Gen1 into SQL Data Warehouse. For more information see [Use Data Lake Storage Gen1 with SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
 
 ## Use Data Lake Storage Gen1 with Azure Event Hubs
 You can use Azure Data Lake Storage Gen1 to archive and capture data received by Azure Event Hubs. For more information see [Use Data Lake Storage Gen1 with Azure Event Hubs](data-lake-store-archive-eventhub-capture.md).

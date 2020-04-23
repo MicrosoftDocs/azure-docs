@@ -3,14 +3,14 @@ title: "Quickstart: Create an object detection project with the SDK for C# - Cus
 titleSuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and detect objects using the .NET SDK with C#.
 services: cognitive-services
-author: areddish
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
-ms.author: areddish
+ms.date: 04/14/2020
+ms.author: pafarley
 ---
 
 # Quickstart: Create an object detection project with the Custom Vision .NET SDK
@@ -59,6 +59,9 @@ This next bit of code creates an object detection project. The created project w
 ### Upload and tag images
 
 When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates. The following code associates each of the sample images with its tagged region.
+
+> [!NOTE]
+> If you don't have a click-and-drag utility to mark the coordinates of regions, you can use the web UI at [Customvision.ai](https://www.customvision.ai/). In this example, the coordinates are already provided.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_upload_regions)]
 

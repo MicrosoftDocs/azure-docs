@@ -4,7 +4,7 @@ description: Workaround to allow users without subscription owner permission to 
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/19/2019
 ms.author: rohogue
 ---
 
@@ -67,7 +67,7 @@ A subscription owner also must [accept the terms of use](avere-vfxt-prereqs.md) 
 
    `az role assignment create --assignee <USERNAME> --scope /subscriptions/<SUBSCRIPTION_ID> --role 'avere-create-cluster'`
 
-After this procedure, any user assigned this role has the following permissions for the subscription:
+After completing this process, the role gives any user assigned it the following permissions for the subscription:
 
 * Create and configure the network infrastructure
 * Create the cluster controller

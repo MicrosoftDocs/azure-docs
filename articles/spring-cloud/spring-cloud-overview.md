@@ -1,12 +1,12 @@
 ---
 title: Introduction to Azure Spring Cloud
 description: Learn the features and benefits of Azure Spring Cloud to deploy and manage Java Spring applications in Azure.
-author: jpconnock
+author: bmitchell287
 
 ms.service: spring-cloud
 ms.topic: overview
 ms.date: 11/4/2019
-ms.author: jeconnoc
+ms.author: brendm
 ---
 # What is Azure Spring Cloud?
 
@@ -42,7 +42,7 @@ Azure Spring Cloud allows you to easily scale the micro-services in your Azure S
 
 ### Monitor your application using distributed tracing and Azure App Insights
 
-Spring Cloud's distributed tracing tools allow developers to debug and monitor the complex interconnections between microservices in their application.  By integrating [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](../azure-monitor/insights/insights-overview.md), Azure provides powerful distributed tracing capability directly from the Azure portal.  To learn more, complete this [tutorial](spring-cloud-tutorial-distributed-tracing.md).
+Spring Cloud's distributed tracing tools allow developers to debug and monitor the complex interconnections between microservices in an application.  By integrating [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](../azure-monitor/insights/insights-overview.md), Azure provides powerful distributed tracing capability directly from the Azure portal.  To learn more, complete this [tutorial](spring-cloud-tutorial-distributed-tracing.md).
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 11/25/2019
+ms.date: 01/23/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
@@ -22,10 +22,10 @@ For the preview, these features are supported:
 
 - Creation of golden baseline images, that includes your minimum security and corporate configurations, and allow departments to customize it further for their needs.
 - Patching of existing images, Image Builder will allow you to continually patch existing custom images.
+- Connect image builder to your existing virtual networks, so you can connect to existing configuration servers (DSC, Chef, Puppet etc.), file shares, or any other routable servers/services.
 - Integration with the Azure Shared Image Gallery, allows you to distribute, version, and scale images globally, and gives you an image management system.
 - Integration with existing image build pipelines, just call Image Builder from your pipeline, or use the simple Preview Image Builder Azure DevOps Task.
 - Migrate an existing image customization pipeline to Azure. Use your existing scripts, commands, and processes to customize images.
-- Use Red Hat Bring Your Own Subscription support. Create Red Hat Enterprise images for use with your eligible, unused Red Hat subscriptions.
 - Creation of images in VHD format.
  
 
@@ -36,23 +36,22 @@ The Azure Image Builder Service will be available for preview in these regions. 
 - West Central US
 - West US
 - West US 2
+- North Europe
+- West Europe
 
 ## OS support
 AIB will support Azure Marketplace base OS images:
 - Ubuntu 18.04
 - Ubuntu 16.04
-- RHEL 7.6
-- CentOS 7.6
-- Windows 10 RS5 Enterprise/Professional/Enterprise for Virtual Desktop (EVD) 
+- RHEL 7.6, 7.7
+- CentOS 7.6, 7.7
+- SLES 12 SP4
+- SLES 15, SLES 15 SP1
+- Windows 10 RS5 Enterprise/Enterprise multi-session/Professional
 - Windows 2016
 - Windows 2019
 
-AIB will support RHEL ISO's, as a source for:
-- RHEL 7.3
-- RHEL 7.4
-- RHEL 7.5
-
-RHEL 7.6 ISOs are not supported, but are being tested.
+RHEL ISOs support is being deprecated, please review the Template documentation for further details.
 
 ## How it works
 
@@ -87,6 +86,13 @@ az role assignment create \
     --role Contributor \
     --scope /subscriptions/$subscriptionID/resourceGroups/<distributeResoureGroupName>
 ```
+
+You can assign access using the PowerShell:
+
+```azurePowerShell-interactive
+New-AzRoleAssignment -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 -Scope /subscriptions/$subscriptionID/resourceGroups/<distributeResoureGroupName> -RoleDefinitionName Contributor
+```
+
 
 If the service account is not found, that may mean that the subscription where you are adding the role assignment has not yet registered for the resource provider.
 

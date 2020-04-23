@@ -1,11 +1,8 @@
 ---
 title: How to integrate the common alert schema with Logic Apps
 description: Learn how to create a logic app that leverages the common alert schema to handle all your alerts.
-ms.service:  azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: ananthradhakrishnan
-ms.author: robb
+ms.subservice: alerts
 ms.date: 05/27/2019
 
 ---

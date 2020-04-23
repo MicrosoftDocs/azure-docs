@@ -29,7 +29,7 @@ There are two scenarios described in this document:
 
 ## Requirements
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 The example in this document requires the following resources to be created:
 
@@ -152,4 +152,4 @@ Add-AzVirtualNetworkPeering `
 ## Next steps
 
 * Learn more about [virtual network peering constraints and behaviors](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) and [virtual network peering settings](../virtual-network/virtual-network-manage-peering.md#create-a-peering) before creating a virtual network peering for production use.
-* Learn how to [create a hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) with virtual network peering and gateway transit.
+* Learn how to [create a hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) with virtual network peering and gateway transit.

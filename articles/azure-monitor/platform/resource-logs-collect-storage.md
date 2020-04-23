@@ -3,7 +3,7 @@ title: Archive Azure resource logs to storage account | Microsoft Docs
 description: Learn how to archive your Azure resource logs for long-term retention in a storage account.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
@@ -13,8 +13,10 @@ ms.subservice: logs
 [Platform logs](platform-logs-overview.md) in Azure, including Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on.  This article describes collecting platform logs to an Azure storage account to retain data for archiving.
 
 ## Prerequisites
-You need to [create an Azure storage account](../../storage/common/storage-quickstart-create-account.md) if you don't already have one. The storage account does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+You need to [create an Azure storage account](../../storage/common/storage-account-create.md) if you don't already have one. The storage account does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
+> [!IMPORTANT]
+> To send the data to immutable storage, set the immutable policy for the storage account as described in [Set and manage immutability policies for Blob storage](../../storage/blobs/storage-blob-immutability-policies-manage.md). You must follow all steps in this article including enabling protected append blobs writes.
 
 > [!IMPORTANT]
 > Azure Data Lake Storage Gen2 accounts are not currently supported as a destination for diagnostic settings even though they may be listed as a valid option in the Azure portal.
@@ -27,8 +29,7 @@ Send platform logs to storage and other destinations by creating a diagnostic se
 
 
 ## Collect data from compute resources
-Diagnostic settings will collect resource logs for Azure compute resources like any other resource, but not their guest operating system or workloads. To collect this data, install the [Windows Azure Diagnostics agent](diagnostics-extension-overview.md). See [Store and view diagnostic data in Azure Storage
-](diagnostics-extension-to-storage.md) for details.
+Diagnostic settings will collect resource logs for Azure compute resources like any other resource, but not their guest operating system or workloads. To collect this data, install the [Windows Azure Diagnostics agent](diagnostics-extension-overview.md). 
 
 
 ## Schema of platform logs in storage account

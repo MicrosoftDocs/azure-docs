@@ -3,8 +3,6 @@ title: Supported Kubernetes versions in Azure Kubernetes Service
 description: Understand the Kubernetes version support policy and lifecycle of clusters in Azure Kubernetes Service (AKS)
 services: container-service
 author: sauryadas
-
-ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
@@ -71,7 +69,7 @@ When a new minor version is introduced, the oldest minor version and patch relea
 1.13.f
 ```
 
-And AKS releases 1.16.*, this means that the 1.13.* versions (all 1.13 versions) will be removed and out of support.
+And AKS releases 1.16.*, this means that the 1.13.* versions (all 1.13 versions) will be removed and are out of support.
 
 > [!NOTE]
 > Please note, that if customers are running an unsupported Kubernetes version, they will be asked to upgrade when
@@ -99,11 +97,10 @@ New Supported Version List
 * For new **minor** versions of Kubernetes
   * All users are notified publicly of the new version and what version will be removed.
   * When a new patch version is released, the oldest patch release is removed at the same time.
-  * Customers have **60 days** from the public notification date to upgrade to a supported minor version release.
+  * Customers have **30 days** from the public notification date to upgrade to a supported minor version release.
 * For new **patch** versions of Kubernetes
   * All users are notified of the new patch version being released and to upgrade to the latest patch release.
-  * Users have **30 days** to upgrade to a newer, supported patch release. Users have **30 days** to upgrade to
-    a supported patch release before the oldest is removed.
+  * Users have **30 days** to upgrade to a newer, supported patch release before the oldest is removed.
 
 AKS defines a "released version" as the generally available versions, enabled in all SLO / Quality of Service measurements and available in all regions. AKS may also support preview versions which are explicitly labeled and subject to Preview terms and conditions.
 
@@ -147,11 +144,11 @@ az aks get-versions --location eastus --output table
 If you are on the *n-3* version, you are outside of support and will be asked to upgrade. If your upgrade from version n-3 to n-2 succeeds, you are now within our support policies. For example:
 
 - If the oldest supported AKS version is are *1.13.a* and you are on *1.12.b* or older, you are outside of support.
-- If the upgrade from *1.12.b* to *1.13.a* or higher succeeds, you are back in the within our support policies.
+- If the upgrade from *1.12.b* to *1.13.a* or higher succeeds, you are back within our support policies.
 
 Upgrades to versions older than the supported window of *N-2* are not supported. In such cases, we recommend customers create new AKS clusters and redeploy their workloads with versions in the supported window.
 
-**What does 'Out of Support' mean**
+**What does 'Outside of Support' mean**
 
 'Outside of Support' means that the version you are running is outside of the supported versions list, and you will be
 asked to upgrade the cluster to a supported version when requesting support. Additionally, AKS does not make any

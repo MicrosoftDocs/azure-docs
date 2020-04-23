@@ -29,7 +29,7 @@ The following diagram provides a comparison between Kafka on HDInsight before ma
     > [!NOTE]  
     > The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). Premium disks are used with DS and GS series VMs. All other VM types use standard.
 
-    ![cluster size section with the disks per worker node highlighted](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka.png)
+    ![cluster size section with the disks per worker node highlighted](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png)
 
 ## Configure managed disks: Resource Manager template
 

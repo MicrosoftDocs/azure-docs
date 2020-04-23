@@ -2,7 +2,7 @@
 title: Lock resources to prevent changes
 description: Prevent users from updating or deleting critical Azure resources by applying a lock for all users and roles.
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 02/07/2020
 ---
 
 # Lock resources to prevent unexpected changes
@@ -10,9 +10,7 @@ ms.date: 05/14/2019
 As an administrator, you may need to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to **CanNotDelete** or **ReadOnly**. In the portal, the locks are called **Delete** and **Read-only** respectively.
 
 * **CanNotDelete** means authorized users can still read and modify a resource, but they can't delete the resource. 
-* **ReadOnly** means authorized users can read a resource, but they can't delete or update the resource. Applying this lock is similar to restricting all authorized users to the permissions granted by the **Reader** role. 
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+* **ReadOnly** means authorized users can read a resource, but they can't delete or update the resource. Applying this lock is similar to restricting all authorized users to the permissions granted by the **Reader** role.
 
 ## How locks are applied
 
@@ -31,6 +29,7 @@ Applying **ReadOnly** can lead to unexpected results because some operations tha
 * A **ReadOnly** lock on a resource group that contains a virtual machine prevents all users from starting or restarting the virtual machine. These operations require a POST request.
 
 ## Who can create or delete locks
+
 To create or delete management locks, you must have access to `Microsoft.Authorization/*` or `Microsoft.Authorization/locks/*` actions. Of the built-in roles, only **Owner** and **User Access Administrator** are granted those actions.
 
 ## Managed Applications and locks
@@ -53,7 +52,12 @@ To delete everything for the service, including the locked infrastructure resour
 
 ![Delete service](./media/lock-resources/delete-service.png)
 
+## Azure Backups and locks
+
+If you lock the resource group created by Azure Backup Service, backups will start to fail. The service supports a maximum of 18 restore points. With a **CanNotDelete** lock, the backup service is unable to clean up restore points. For more information, see [Frequently asked questions-Back up Azure VMs](../../backup/backup-azure-vm-backup-faq.md).
+
 ## Portal
+
 [!INCLUDE [resource-manager-lock-resources](../../../includes/resource-manager-lock-resources.md)]
 
 ## Template

@@ -82,7 +82,7 @@ Each instance of this module can perform only one type of operation at a time. T
     - **Inplace**. The values in the columns used as inputs are replaced with the new calculated values. 
     - **ResultOnly**. A single column is returned containing the results of the math operation.
   
-1.  Run the pipeline.  
+1.  Submit the pipeline.  
   
 ## Results
 

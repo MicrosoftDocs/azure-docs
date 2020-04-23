@@ -1,6 +1,6 @@
 ---
-title: View the monthly estimated lab cost trend in Azure DevTest Labs | Microsoft Docs
-description: Learn about the Azure DevTest Labs monthly estimated cost trend chart.
+title: View the monthly estimated lab cost trend in Azure DevTest Labs
+description: This article provides information on how to track the cost of your lab (monthly estimated cost trend chart) in Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 01/23/2020
 ms.author: spelluru
 
 ---
@@ -46,7 +46,7 @@ To view the Monthly Estimated Cost Trend chart, follow these steps:
 
      The following costs are *not* included in the cost calculation:
 
-   * CSP and Dreamspark subscriptions are currently not supported as Azure DevTest Labs uses the [Azure billing APIs](../billing/billing-usage-rate-card-overview.md) to calculate the lab cost, which does not support CSP or Dreamspark subscriptions.
+   * CSP and Dreamspark subscriptions are currently not supported as Azure DevTest Labs uses the [Azure billing APIs](../cost-management-billing/manage/usage-rate-card-overview.md) to calculate the lab cost, which does not support CSP or Dreamspark subscriptions.
    * Your offer rates. Currently, you can't use the offer rates (shown under your subscription) that you have negotiated with Microsoft or Microsoft partners. Only Pay-As-You-Go rates are used.
    * Your taxes
    * Your discounts

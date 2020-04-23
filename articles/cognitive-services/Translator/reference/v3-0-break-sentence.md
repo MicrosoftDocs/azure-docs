@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/01/2019
+ms.date: 01/21/2020
 ms.author: swmachan
 ---
 
@@ -29,45 +29,20 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 Request parameters passed on the query string are:
 
-<table width="100%">
-  <th width="20%">Query parameter</th>
-  <th>Description</th>
-  <tr>
-    <td>api-version</td>
-    <td>*Required query parameter*.<br/>Version of the API requested by the client. Value must be `3.0`.</td>
-  </tr>
-  <tr>
-    <td>language</td>
-    <td>*Optional query parameter*.<br/>Language tag identifying the language of the input text. If a code is not specified, automatic language detection will be applied.</td>
-  </tr>
-  <tr>
-    <td>script</td>
-    <td>*Optional query parameter*.<br/>Script tag identifying the script used by the input text. If a script is not specified, the default script of the language will be assumed.</td>
-  </tr>
-</table> 
+| Query Parameter | Description |
+| -------| ----------- |
+| api-version <img width=200/>   | **Required query parameter**.<br/>Version of the API requested by the client. Value must be `3.0`. |
+| language | **Optional query parameter**.<br/>Language tag identifying the language of the input text. If a code is not specified, automatic language detection will be applied. |
+| script    | **Optional query parameter**.<br/>Script tag identifying the script used by the input text. If a script is not specified, the default script of the language will be assumed.  | 
 
 Request headers include:
 
-<table width="100%">
-  <th width="20%">Headers</th>
-  <th>Description</th>
-  <tr>
-    <td>Authentication header(s)</td>
-    <td><em>Required request header</em>.<br/>See <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
-  </tr>
-  <tr>
-    <td>Content-Type</td>
-    <td>*Required request header*.<br/>Specifies the content type of the payload. Possible values are: `application/json`.</td>
-  </tr>
-  <tr>
-    <td>Content-Length</td>
-    <td>*Required request header*.<br/>The length of the request body.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td>*Optional*.<br/>A client-generated GUID to uniquely identify the request. Note that you can omit this header if you include the trace ID in the query string using a query parameter named `ClientTraceId`.</td>
-  </tr>
-</table> 
+| Headers | Description |
+| ------- | ----------- |
+| Authentication header(s) <img width=200/>  | **Required request header**.<br/>See <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>. |
+| Content-Type | **Required request header**.<br/>Specifies the content type of the payload. Possible values are: `application/json`. |
+| Content-Length    | **Required request header**.<br/>The length of the request body.  | 
+| X-ClientTraceId   | **Optional**.<br/>A client-generated GUID to uniquely identify the request. Note that you can omit this header if you include the trace ID in the query string using a query parameter named `ClientTraceId`.  | 
 
 ## Request body
 

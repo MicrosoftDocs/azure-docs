@@ -72,7 +72,7 @@ A file system acts as a container for your files. You can create one by using th
 This example creates a file system named `my-file-system`.
 
 ```azurecli
-az storage container create --name my-file-system
+az storage container create --name my-file-system --account-name mystorageaccount
 ```
 
 ## Create a directory
@@ -232,6 +232,12 @@ This example sets the ACL on a directory for the owning user, owning group, or o
 
 ```azurecli
 az storage blob directory access set -a "user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
+```
+
+This example sets the *default* ACL on a directory for the owning user, owning group, or other users, and then prints the ACL to the console.
+
+```azurecli
+az storage blob directory access set -a "default:user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
 ```
 
 Use the `az storage blob access set` command to set the acl of a **file**. 

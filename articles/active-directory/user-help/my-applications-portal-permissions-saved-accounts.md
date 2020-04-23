@@ -1,23 +1,22 @@
 ---
-title: Manage application permissions from the My Apps (preview) portal - Azure Active Directory | Microsoft Docs
-description: Learn how to manage application permissions for your organization's cloud-based apps from the My Apps (preview) portal.
+title: Manage application permissions from the My Apps portal - Azure Active Directory | Microsoft Docs
+description: Learn how to manage application permissions for your organization's cloud-based apps from the My Apps portal.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: kasimpso
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 10/30/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.custom: user-help
-ms.collection: M365-identity-device-management
 ---
 
-# Edit or revoke application permissions in the My Apps (preview) portal
+# Edit or revoke application permissions in the My Apps portal
 
-When you use organizational applications in the **My Apps** (preview) portal, you often grant permissions and save account information. To keep your data secure, you may want to review and revoke permissions or clear saved account credentials. Removing permissions or accounts may break some app functionality. If you have problems after you remove permissions or accounts, contact your organization's Helpdesk for additional assistance.
+When you use organizational applications in the **My Apps** portal, you often grant permissions and save account information. To keep your data secure, you may want to review and revoke permissions or clear saved account credentials. Removing permissions or accounts may break some app functionality. If you have problems after you remove permissions or accounts, contact your organization's Helpdesk for additional assistance.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
@@ -42,11 +41,11 @@ The bottom part of the permissions window shows what your administrator consente
 
 After you manage app permissions and saved accounts in the **My Apps** portal, you can:
 
-- Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use workspaces in the My Apps (preview) portal](my-applications-portal-workspaces.md).
+- Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use collections in the My Apps portal](my-applications-portal-workspaces.md).
 
 ## Related articles
 
-- [Update your profile and account info](my-account-portal-overview.md). Instructions about how to update your personal information that appears on the **My Profile** (preview) portal.
+- [Update your profile and account info](my-account-portal-overview.md). Instructions about how to update your personal information that appears on the **My Profile** portal.
 
 - [Manage your organizations](my-account-portal-organizations-page.md). Instructions about how to view and manage your organization-related information on the **Organizations** page of the **My Profile** portal.
 

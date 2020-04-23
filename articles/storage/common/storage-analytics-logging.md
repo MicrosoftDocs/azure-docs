@@ -21,8 +21,6 @@ Storage Analytics logs detailed information about successful and failed requests
 > [!NOTE]
 >  Storage Analytics logging is currently available only for the Blob, Queue, and Table services. However, premium storage account is not supported.
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## Requests logged in logging
 ### Logging authenticated requests
 
@@ -175,6 +173,9 @@ queueClient.SetServiceProperties(serviceProperties);
 ## Download Storage logging log data
 
  To view and analyze your log data, you should download the blobs that contain the log data you are interested in to a local machine. Many storage-browsing tools enable you to download blobs from your storage account; you can also use the Azure Storage team provided command-line Azure Copy Tool [AzCopy](storage-use-azcopy-v10.md) to download your log data.  
+ 
+>[!NOTE]
+> The `$logs` container isn't integrated with Event Grid, so you won't receive notifications when log files are written. 
 
  To make sure you download the log data you are interested in and to avoid downloading the same log data more than once:  
 

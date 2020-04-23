@@ -2,27 +2,27 @@
 title: Configure session behavior - Azure Active Directory B2C | Microsoft Docs
 description: Configure session behavior in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
 # Configure session behavior in Azure Active Directory B2C
 
-This feature gives you fine-grained control, on a [per-user flow basis](active-directory-b2c-reference-policies.md), of:
+This feature gives you fine-grained control, on a [per-user flow basis](user-flow-overview.md), of:
 
 - Lifetimes of web application sessions managed by Azure AD B2C.
 - Single sign-on (SSO) behavior across multiple apps and user flows in your Azure AD B2C tenant.
 
 These settings are not available for password reset user flows.
 
-Azure AD B2C supports the [OpenID Connect authentication protocol](active-directory-b2c-reference-oidc.md) for enabling secure sign-in to web applications. You can use the following properties to manage web application sessions:
+Azure AD B2C supports the [OpenID Connect authentication protocol](openid-connect.md) for enabling secure sign-in to web applications. You can use the following properties to manage web application sessions:
 
 ## Session behavior properties
 

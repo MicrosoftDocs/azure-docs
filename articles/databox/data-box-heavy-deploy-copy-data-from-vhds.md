@@ -1,5 +1,6 @@
 ---
-title: Tutorial to copy data from VHDs to managed disks with Azure Data Box Heavy| Microsoft Docs
+title: "Tutorial: Copy from VHDs to managed disks"
+titleSuffix: Azure Data Box Heavy
 description: Learn how to copy data from VHDs from on-premises VM workloads to your Azure Data Box Heavy
 services: databox
 author: alkohli

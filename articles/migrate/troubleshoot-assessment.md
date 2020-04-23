@@ -69,7 +69,7 @@ We have an on-premises VM with four cores and eight GB of memory, with 50% CPU u
 
 -  If the assessment is **As on-premises**, an Azure VM SKU with four cores and 8 GB of memory is recommended.
 - If the assessment is performance-based, based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of four cores (nearest supported core count) and eight GB of memory (nearest supported memory size) is recommended.
-- [Learn more](concepts-assessment-calculation.md#assessments-in-server-assessment) about assessment sizing.
+- [Learn more](concepts-assessment-calculation.md#types-of-assessments) about assessment sizing.
 
 ## Azure disk SKUs bigger than on-premises
 
@@ -87,6 +87,7 @@ Server Assessment reports "PercentageOfCoresUtilizedMissing" or "PercentageOfMem
 - This can occur if the VMs are turned off during the assessment duration. The appliance can't collect performance data for a VM when it's turned off.
 - If only the memory counters are missing and you're trying to assess Hyper-V VMs, check whether you have dynamic memory enabled on these VMs. There's a known issue for Hyper-V VMs only, in which an Azure Migrate appliance can't collect memory utilization data for VMs that don't have dynamic memory enabled.
 - If any of the performance counters are missing, Azure Migrate Server Assessment falls back to the allocated cores and memory, and it recommends a corresponding VM size.
+- If all of the performance counters are missing, ensure the port access requirements for assessment are met. Learn more about the port access requirements for [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access), [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) and [physical](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access) server assessment.
 
 ## Is the operating system license included?
 

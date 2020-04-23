@@ -4,7 +4,7 @@ description: Simplify complex reporting with prebuilt and custom parameterized w
 author: mrbullwinkle
 manager: carmonm
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019

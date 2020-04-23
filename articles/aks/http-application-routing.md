@@ -1,11 +1,8 @@
 ---
 title: HTTP application routing add-on on Azure Kubernetes Service (AKS)
-description: Use the HTTP application routing add-on on Azure Kubernetes Service (AKS).
+description: Use the HTTP application routing add-on to access applications deployed on Azure Kubernetes Service (AKS).
 services: container-service
 author: lachie83
-manager: jeconnoc
-
-ms.service: container-service
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
@@ -47,7 +44,7 @@ az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addo
 After the cluster is deployed or updated, use the [az aks show][az-aks-show] command to retrieve the DNS zone name. This name is needed to deploy applications to the AKS cluster.
 
 ```azurecli
-az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpapplicationrouting.config.HTTPApplicationRoutingZoneName -o table
+az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
 ```
 
 Result

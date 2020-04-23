@@ -30,7 +30,7 @@ This topic explains how Azure configures storage for your SQL Server VMs both du
 To use the automated storage configuration settings, your virtual machine requires the following characteristics:
 
 * Provisioned with a [SQL Server gallery image](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
-* Uses the [Resource Manager deployment model](../../../azure-resource-manager/resource-manager-deployment-model.md).
+* Uses the [Resource Manager deployment model](../../../azure-resource-manager/management/deployment-models.md).
 * Uses [premium SSDs](../disks-types.md).
 
 ## New VMs
@@ -53,7 +53,7 @@ Additionally, you have the ability to set the caching for the disks. Azure VMs h
 
 Disk caching for Premium SSD can be *ReadOnly*, *ReadWrite* or *None*. 
 
-- *ReadOnly* caching is highly beneficial for SQL Server data files that are stored on Premium Storage. *ReadOnly* caching brings low read latency, high read IOPS, and throughput as, reads are performed from cache, which os within the VM memory and local SSD. These reads are much faster than reads from data disk, which is from the Azure blob storage. Premium storage does not count the reads served from cache towards the disk IOPS and throughput. Therefore, your applicable is able to achieve higher total IOPS ant throughput. 
+- *ReadOnly* caching is highly beneficial for SQL Server data files that are stored on Premium Storage. *ReadOnly* caching brings low read latency, high read IOPS, and throughput as, reads are performed from cache, which is within the VM memory and local SSD. These reads are much faster than reads from data disk, which is from the Azure blob storage. Premium storage does not count the reads served from cache towards the disk IOPS and throughput. Therefore, your applicable is able to achieve higher total IOPS and throughput. 
 - *None* cache configuration should be used for the disks hosting SQL Server Log file as the log file is written sequentially and does not benefit from *ReadOnly* caching. 
 - *ReadWrite* caching should not be used to host SQL Server files as SQL Server does not support data consistency with the *ReadWrite* cache. Writes waste capacity of the *ReadOnly* blob cache and latencies slightly increase if writes go through *ReadOnly* blob cache layers. 
 

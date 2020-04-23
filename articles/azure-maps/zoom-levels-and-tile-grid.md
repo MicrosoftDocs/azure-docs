@@ -1,9 +1,9 @@
 ---
 title: Zoom levels and tile grid | Microsoft Azure Maps
 description: In this article, you will learn about zoom levels and tile grid in Microsoft Azure Maps.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,12 +12,12 @@ manager:
 
 # Zoom levels and tile grid
 
-Azure Maps use the Spherical Mercator projection coordinate system (EPSG: 3857). A projection is the mathematical model used to transform the spherical globe into a flat map. The Spherical Mercator projection stretches the map at the poles in order to create a square map. This significantly distorts the scale and area of the map but has two important properties that outweigh this distortion:
+Azure Maps use the Spherical Mercator projection coordinate system (EPSG: 3857). A projection is the mathematical model used to transform the spherical globe into a flat map. The Spherical Mercator projection stretches the map at the poles to create a square map. This projection significantly distorts the scale and area of the map but has two important properties that outweigh this distortion:
 
-- It's a conformal projection, which means that it preserves the shape of relatively small objects. This is especially important when showing aerial imagery, because we want to avoid distorting the shape of buildings. Square buildings should appear square, not rectangular.
-- It's a cylindrical projection, which means that north and south are always straight up and down, and west and east is always straight left and right. 
+- It's a conformal projection, which means that it preserves the shape of relatively small objects. Preserving the shape of small objects is especially important when showing aerial imagery. For example, we want to avoid distorting the shape of buildings. Square buildings should appear square, not rectangular.
+- It's a cylindrical projection. North and south are always up and down, and west and east are always left and right. 
 
-To optimize the performance of map retrieval and display, the map is divided into square tiles. The Azure Maps SDK's use tiles that have a size of 512 x 512 pixels for road maps, and smaller 256 x 256 pixels for satellite imagery. Azure maps provides raster and vector tiles for 23 zoom levels, numbered 0 through 22. At zoom level 0, the entire world fits on a single tile:
+To optimize the performance of map retrieval and display, the map is divided into square tiles. The Azure Maps SDK's use tiles that have a size of 512 x 512 pixels for road maps, and smaller 256 x 256 pixels for satellite imagery. Azure Maps provides raster and vector tiles for 23 zoom levels, numbered 0 through 22. At zoom level 0, the entire world fits on a single tile:
 
 <center>
 
@@ -31,7 +31,7 @@ Zoom level 1 uses four tiles to render the world: a 2 x 2 square
 
 Each additional zoom level quad-divides the tiles of the previous one, creating a grid of 2<sup>zoom</sup> x 2<sup>zoom</sup>. Zoom level 22 is a grid 2<sup>22</sup> x 2<sup>22</sup>, or 4,194,304 x 4,194,304 tiles (17,592,186,044,416 tiles in total).
 
-The Azure Maps interactive map controls for web and Android support zoom levels 25 zoom levels, numbered 0 through 24. Although road data will only be available at the zoom levels in when the tiles are available.
+The Azure Maps interactive map controls for web and Android support 25 zoom levels, numbered 0 through 24. Although road data will only be available at the zoom levels in when the tiles are available.
 
 The following table provides the full list of values for zoom levels where the tile size is 512 pixels square:
 
@@ -65,7 +65,7 @@ The following table provides the full list of values for zoom levels where the t
 
 ## Pixel coordinates
 
-Having chosen the projection and scale to use at each zoom level, we can convert geographic coordinates into pixel coordinates. The full pixel width and height of a map image of the world for a particular zoom level can be calculated as:
+Having chosen the projection and scale to use at each zoom level, we can convert geographic coordinates into pixel coordinates. The full pixel width and height of a map image of the world for a particular zoom level is calculated as:
 
 ```javascript
 var mapWidth = tileSize * Math.pow(2, zoom);
@@ -77,9 +77,11 @@ Since the map width and height is different at each zoom level, so are the pixel
 
 <center>
 
-![Map showing pixel dimensions](media/zoom-levels-and-tile-grid/map-width-height.png)</center>
+![Map showing pixel dimensions](media/zoom-levels-and-tile-grid/map-width-height.png)
 
-Given latitude and longitude in degrees, and the level of detail, the pixel XY coordinates can be calculated as follows:
+</center>
+
+Given latitude and longitude in degrees, and the level of detail, the pixel XY coordinates is calculated as follows:
 
 ```javascript
 var sinLatitude = Math.sin(latitude * Math.PI/180);
@@ -89,11 +91,11 @@ var pixelX = ((longitude + 180) / 360) * tileSize * Math.pow(2, zoom);
 var pixelY = (0.5 – Math.log((1 + sinLatitude) / (1 – sinLatitude)) / (4 * Math.PI)) * tileSize * Math.pow(2, zoom);
 ```
 
-The latitude and longitude values are assumed to be on the WGS 84 datum. Even though Azure Maps uses a spherical projection, it's important to convert all geographic coordinates into a common datum, and WGS 84 was chosen to be that datum. The longitude value is assumed to range from -180 to +180 degrees, and the latitude value must be clipped to range from -85.05112878 to 85.05112878. This avoids a singularity at the poles, and it causes the projected map to be square.
+The latitude and longitude values are assumed to be on the WGS 84 datum. Even though Azure Maps uses a spherical projection, it's important to convert all geographic coordinates into a common datum. WGS 84 is the selected datum. The longitude value is assumed to range from -180 degrees to +180 degrees, and the latitude value must be clipped to range from -85.05112878 to 85.05112878. Adhering to these values avoids a singularity at the poles, and it ensures that the projected map is a squared shape.
 
 ## Tile coordinates
 
-To optimize the performance of map retrieval and display, the rendered map is cut into tiles. As the number of pixels differs at each zoom level, so does the number of tiles:
+To optimize the performance of map retrieval and display, the rendered map is cut into tiles. The number of pixels and the number of tiles differ at each zoom level:
 
 ```javascript
 var numberOfTilesWide = Math.pow(2, zoom);
@@ -115,9 +117,9 @@ var tileX = Math.floor(pixelX / tileSize);
 var tileY = Math.floor(pixelY / tileSize);
 ```
 
-Tiles are called by zoom level and the x and y coordinates corresponding to the tile's position on the grid for that zoom level.
+Tiles are called by zoom level. The x and y coordinates correspond to the tile's position on the grid for that zoom level.
 
-When determining which zoom level to use, remember each location is in a fixed position on its tile. This means that the number of tiles needed to display a given expanse of territory is dependent on the specific placement of zoom grid on the world. For instance, if there are two points 900 meters apart, it *may* only take three tiles to display a route between them at zoom level 17. However, if the western point is on the right of its tile, and the eastern point on the left of its tile, it may take four tiles:
+When determining which zoom level to use, remember each location is in a fixed position on its tile. As a result, the number of tiles needed to display a given expanse of territory is dependent on the specific placement of zoom grid on the world map. For instance, if there are two points 900 meters apart, it *may* only take three tiles to display a route between them at zoom level 17. However, if the western point is on the right of its tile, and the eastern point on the left of its tile, it may take four tiles:
 
 <center>
 

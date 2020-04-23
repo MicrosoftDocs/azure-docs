@@ -11,7 +11,11 @@ ms.date: 01/08/2020
 
 # Data integration using Azure Data Factory and Azure Data Share
 
-As customers embark on their modern data warehouse and analytics projects, they require not only more data but also more visibility into their data across their data estate. This workshop dives into how improvements to Azure Data Factory and Azure Data Share simplify data integration and management in Azure. From enabling code-free ETL/ELT to creating a comprehensive view over your data, improvements in Azure Data Factory will empower your data engineers to confidently bring in more data, and thus more value, to your enterprise. Azure Data Share will allow you to do business to business sharing in a governed manner.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+As customers embark on their modern data warehouse and analytics projects, they require not only more data but also more visibility into their data across their data estate. This workshop dives into how improvements to Azure Data Factory and Azure Data Share simplify data integration and management in Azure. 
+
+From enabling code-free ETL/ELT to creating a comprehensive view over your data, improvements in Azure Data Factory will empower your data engineers to confidently bring in more data, and thus more value, to your enterprise. Azure Data Share will allow you to do business to business sharing in a governed manner.
 
 In this workshop, you'll use Azure Data Factory (ADF) to ingest data from an Azure SQL database (SQL DB) into Azure Data Lake Storage gen2 (ADLS gen2). Once you land the data in the lake, you'll transform it via mapping data flows, data factory's native transformation service, and sink it into Azure Synapse Analytics (formerly SQL DW). Then, you'll share the table with transformed data along with some additional data using Azure Data Share. 
 
@@ -94,7 +98,7 @@ To turn on debug, click the **Data flow debug** slider in the factory top bar. C
 
 ![Portal](media/lab-data-flow-data-share/configure10.png)
 
-## Ingest data from Azure SQL DB into ADLS gen2 using the copy activity
+## Ingest data using the copy activity
 
 In this section, you'll create a pipeline with a copy activity that ingests one table from an Azure SQL DB into an ADLS gen2 storage account. You'll learn how to add a pipeline, configure a dataset and debug a pipeline via the ADF UX. The configuration pattern used in this section can be applies to copying from a relational data store to a file-based data store.
 

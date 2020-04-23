@@ -487,4 +487,4 @@ The POST call to the /SceneFile API returns an SAS upload URL, which can be used
 
 ## Next steps
 
-For more information on REST API-based integration details, see [REST API](references-for-azure-farmbeats.md#rest-api).
+For more information on REST API-based integration details, see [REST API](rest-api-in-azure-farmbeats.md).

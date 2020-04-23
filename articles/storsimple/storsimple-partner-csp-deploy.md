@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure StorSimple and Cloud Solutions Provider Program Overview | Microsoft Docs
+title: Deploy StorSimple Virtual Array for Cloud Solution Provider Program
 description: An overview about the StorSimple and CSP for StorSimple partners.
 services: storsimple
 documentationcenter: NA

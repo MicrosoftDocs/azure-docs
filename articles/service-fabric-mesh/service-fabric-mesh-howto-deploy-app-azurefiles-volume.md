@@ -23,7 +23,7 @@ There was an error during CodePackage activation.System.Fabric.FabricException (
 Failed to start Container. ContainerName=sf-2-63fc668f-362d-4220-873d-85abaaacc83e_6d6879cf-dd43-4092-887d-17d23ed9cc78, ApplicationId=SingleInstance_0_App2, ApplicationName=fabric:/counterApp. DockerRequest returned StatusCode=InternalServerError with ResponseBody={"message":"error while mounting volume '': mount failed"}
 ```
 The workaround for the issue is to 
-1)Run below command as Powershell adminstrator and 2)Reboot the machine.
+1)Run below command as Powershell administrator and 2)Reboot the machine.
 ```powershell
 PS C:\WINDOWS\system32> Mofcomp c:\windows\system32\wbem\smbwmiv2.mof
 ```
