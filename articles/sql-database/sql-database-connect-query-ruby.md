@@ -52,7 +52,7 @@ Get the connection information you need to connect to the Azure SQL database. Yo
 
 2. Navigate to the **SQL databases**  or **SQL managed instances** page.
 
-3. On the **Overview** page, review the fully qualified server name next to **Server name** for a single database or the fully qualified server name next to **Host** for a managed instance. To copy the server name or host name, hover over it and select the **Copy** icon. 
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for an Azure SQL Database or the fully qualified server name next to **Host** for an Azure SQL Managed Instance. To copy the server name or host name, hover over it and select the **Copy** icon. 
 
 ## Create code to query your SQL database
 
