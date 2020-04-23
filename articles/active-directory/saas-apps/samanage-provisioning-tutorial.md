@@ -23,18 +23,18 @@ This tutorial describes the steps you need to perform in both Samanage and Azure
 
 ## Migrating to the new Samange application
 
-If you have an existing integration with Samanage, please see the below section about changes coming. If you are setting up Samanage for the first time you can skip this section and move to the capabilities supported.
+If you have an existing integration with Samanage, please see the below section about up coming changes. If you are setting up Samanage for the first time you can skip this section and move to **Capabilities supported**.
 
 #### What's changing?
-* Changes on the Azure AD side: The authorization method to provision users in Samange has historically been basic authorization. Soon you will see the authorization method changed to the long lived secret token.
+* Changes on the Azure AD side: The authorization method to provision users in Samange has historically been **Basic auth**. Soon you will see the authorization method changed to **Long lived secret token**.
 
 
 #### What do I need to do to migrate my existing custom integration to the new application?
-If you have an existing Samanage integration with a valid admin credentials, **no action is required**. We are automatically migrating customers to the new application. This is done completely behind the scenes. if the exisiting credentials expire or if you need to authorize access to the application again you will need to generate a long lived secret token. To generate a new token refer Step 2 of this article.
+If you have an existing Samanage integration with valid admin credentials, **no action is required**. We are automatically migrating customers to the new application. This is done completely behind the scenes. if the exisiting credentials expire or if you need to authorize access to the application again you will need to generate a long lived secret token. To generate a new token refer Step 2 of this article.
 
 
 #### How can I tell if my application has been migrated? 
-When your application is migrated, in the **Admin Credentials** section the **Admin Username** and **Admin Password** fields will be replaced with a single **Secret Token** field.
+When your application is migrated, in the **Admin Credentials** section, the **Admin Username** and **Admin Password** fields will be replaced with a single **Secret Token** field.
 
 ## Capabilities supported
 > [!div class="checklist"]
@@ -147,6 +147,10 @@ Once you've configured provisioning, use the following resources to monitor your
 If you select the **Sync all users and groups** option and configure a value for the Samanage **roles** attribute, the value under the **Default value if null (is optional)** box must be expressed in the following format:
 
 - {"displayName":"role"}, where role is the default value you want.
+
+## Change log
+
+* 04/22/2020 - Updated authorization method from basic auth to long lived secret token.
 
 ## Additional resources
 
