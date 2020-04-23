@@ -1046,7 +1046,7 @@ And returns this result:
 
 ### base64ToString
 
-Return the string version for a base64-encoded string, effectively decoding the base64 string. Use this function rather than [decodeBase64()](#decodeBase64). Although both functions work the same way, `base64ToString()` is preferred.
+Return the string version for a base64-encoded string, effectively decoding the base64 string. Use this function rather than [decodeBase64()](#decodeBase64), which is deprecated.
 
 > [!NOTE]
 > Azure Logic Apps automatically performs base64 encoding and decoding, 
@@ -1658,34 +1658,9 @@ And returns this result: `74`
 
 <a name="decodeBase64"></a>
 
-### decodeBase64
+### decodeBase64 (deprecated)
 
-Return the string version for a base64-encoded string, effectively decoding the base64 string. Consider using [base64ToString()](#base64ToString) rather than `decodeBase64()`. Although both functions work the same way,
-`base64ToString()` is preferred.
-
-```
-decodeBase64('<value>')
-```
-
-| Parameter | Required | Type | Description |
-| --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | String | The base64-encoded string to decode |
-|||||
-
-| Return value | Type | Description |
-| ------------ | ---- | ----------- |
-| <*decoded-base64-string*> | String | The string version for a base64-encoded string |
-||||
-
-*Example*
-
-This example creates a string for a base64-encoded string:
-
-```
-decodeBase64('aGVsbG8=')
-```
-
-And returns this result: `"hello"`
+This function is deprecated, so please use [base64ToString()](#base64ToString) instead.
 
 <a name="decodeDataUri"></a>
 
