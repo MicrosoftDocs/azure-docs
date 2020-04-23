@@ -11,19 +11,21 @@ ms.author: sngun
 
 # How to audit Azure Cosmos DB control plane operations
 
-Control Plane for Cosmos DB is a RESTful service that enables customers to perform diverse set of operations on the Cosmos DB account. It exposes public resource model (e.g. database account) and exposes various operations to end-users to perform actions on resource model.Control plane operations include changes to the Azure Cosmos account or container. For example, create an Azure Cosmos account, add a region, update throughput, region failover, add a VNet etc. are some of the control plane operations. This article explains how to audit the control plane operations in Azure Cosmos DB.  These operations can be done through cli, powershell or portal for accounts and through cli and ps for containers. 
+Control Plane in Azure Cosmos DB is a RESTful service that enables you to perform a diverse set of operations on the Azure Cosmos account. It exposes a public resource model (for example: database, account) and various operations to the end users to perform actions on the resource model. The control plane operations include changes to the Azure Cosmos account or container. For example, operations such as create an Azure Cosmos account, add a region, update throughput, region failover, add a VNet etc. are some of the control plane operations. This article explains how to audit the control plane operations in Azure Cosmos DB. You can run the control plane operations on Azure Cosmos accounts by using Azure CLI, PowerShell or Azure portal, whereas for containers, use Azure CLI or PowerShell.
 
-Couple examples of such scenarios
-•	Customer wants to get an alert when firewall rules for Cosmos DB are modified. This is required to catch unauthorized modifications to rules that govern network security of the Cosmos DB account and take quick action. 
-•	Customer wants to get an alert if a Cosmos DB region is added / removed. Add / remove region has implications on billing, data sovereignty requirements. The alert will help detect an accidental add / remove region on the Cosmos DB account. 
-* Customer wants to get more detail from diagnostic log for what was changed for example in case a vnet was changed. 
+The following are some example scenarios where auditing control plane operations is helpful:
+
+* You want to get an alert when the firewall rules for your Azure Cosmos account are modified. The alert is required to find unauthorized modifications to rules that govern the network security of your Azure Cosmos account and take quick action.
+
+* You want to get an alert if a new region is added or removed from your Azure Cosmos account. Adding or removing regions has implications on billing and data sovereignty requirements. This alert will help you detect an accidental addition or removal of region on your account.
+
+* You want to get more details from the diagnostic logs on what has changed. For example, a VNet was changed.
 
 ## Disable key based metadata write access
- 
-Before you audit the control plane operations in Azure Cosmos DB, disable the key-based metadata write access on your account. When key based metadata write access is disabled, clients connecting to the Azure Cosmos account through account keys are prevented from accessing the account. You can disable write access by setting the `disableKeyBasedMetadataWriteAccess` property to true. After you set this property, changes to any resource can happen from a user with the proper Role-based access control(RBAC) role and credentials. To learn more on how to set this property, see the [Preventing changes from SDKs](role-based-access-control.md#preventing-changes-from-cosmos-sdk) article. 
-This implies SDK based changes to throughput, index will not be rejected. 
 
- Consider the following points when turning off the metadata write access:
+Before you audit the control plane operations in Azure Cosmos DB, disable the key-based metadata write access on your account. When key based metadata write access is disabled, clients connecting to the Azure Cosmos account through account keys are prevented from accessing the account. You can disable write access by setting the `disableKeyBasedMetadataWriteAccess` property to true. After you set this property, changes to any resource can happen from a user with the proper Role-based access control(RBAC) role and credentials. To learn more on how to set this property, see the [Preventing changes from SDKs](role-based-access-control.md#preventing-changes-from-cosmos-sdk) article. After you disable write access, the SDK-based changes to throughput, index will continue to work.
+
+Consider the following points when turning off the metadata write access:
 
 * Evaluate and ensure that your applications do not make metadata calls that change the above resources (For example, create collection, update throughput, …) by using the SDK or account keys.
 
@@ -31,7 +33,7 @@ This implies SDK based changes to throughput, index will not be rejected.
 
 ## Enable diagnostic logs for control plane operations
 
-You can enable diagnostic logs for control plane operations by using the Azure portal.  Once enabled diagnostic log will record the operation as a pair of Start and Complete events with relevent details. For example RegionFailoverStart and RegionFailoverComplete will complete the RegionFailover event as start to end. 
+You can enable diagnostic logs for control plane operations by using the Azure portal. After enabling, the diagnostic logs will record the operation as a pair of start and complete events with relevant details. For example, the *RegionFailoverStart* and *RegionFailoverComplete* will complete the region failover event.
 
 Use the following steps to enable logging on control plane operations:
 
@@ -50,6 +52,7 @@ You can also store the logs in a storage account or stream to an event hub. This
 After you turn on logging, use the following steps to track down operations for a specific account:
 
 1. Sign into [Azure portal](https://portal.azure.com).
+
 1. Open the **Monitor** tab from the left-hand navigation and then select the **Logs** pane. It opens a UI where you can easily run queries with that specific account in scope. Run the following query to view control plane logs:
 
    ```kusto
@@ -72,21 +75,26 @@ If you want to debug further, you can identify a specific operation in the **Act
 
 ![Use the activity ID and find the operations](./media/audit-control-plane-logs/find-operations-with-activity-id.png)
 
-## Control plane operations for account which are emitted in metrics
-Many operations are tracked at account level
-* Region Added
-* Region Removed
-* Account Deleted
-* Region Failed Over
-* Account Created
-* Virtual Network Deleted
-* Account Network Settings Updated 
-* Account Replication Settings  
-* Updated Account Keys 
-* Account Backup Settings Updated
-* Account Diagnostic Settings Updated
+## Control plane operations for Azure Cosmos account
 
-## Control plane operations for database or containers emitted in metrics
+The following are the control plane operations available at the account level. Most of the operations are tracked at account level. These operations are available as metrics in Azure monitor:
+
+* Region added
+* Region removed
+* Account deleted
+* Region failed over
+* Account created
+* Virtual network deleted
+* Account network settings updated
+* Account replication settings updated
+* Account keys updated
+* Account backup settings updated
+* Account diagnostic settings updated
+
+## Control plane operations for database or containers
+
+The following are the control plane operations available at the database and container level. These operations are available as metrics in Azure monitor:
+
 * SQL Database Updated
 * SQL Container Updated
 * SQL Database Throughput Updated
@@ -116,6 +124,9 @@ Many operations are tracked at account level
 * AzureTable Table Deleted
 
 ## Diagnostic log operations
+
+The following are the operation names in diagnostic logs for different operations:
+
 * RegionAddStart, RegionAddComplete
 * RegionRemoveStart, RegionRemoveComplete
 * AccountDeleteStart, AccountDeleteComplete
@@ -124,17 +135,18 @@ Many operations are tracked at account level
 * AccountUpdateStart, AccountUpdateComplete
 * VirtualNetworkDeleteStart, VirtualNetworkDeleteComplete
 * DiagnosticLogUpdateStart, DiagnosticLogUpdateComplete
+
+For API-specific operations, the operation is named with the following format:
+
 * ApiKind + ApiKindResourceType + OperationType + Start/Complete
 * ApiKind + ApiKindResourceType + "Throughput" + operationType + Start/Complete
 
-Ex: 
+**Example** 
+
 * CassandraKeyspacesUpdateStart, CassandraKeyspacesUpdateComplete
 * CassandraKeyspacesThroughputUpdateStart, CassandraKeyspacesThroughputUpdateComplete
 
-For the ApiKind operation ResourceDetails contains the  hole resource body coming as request payload  which will contain all the properties requested to update. 
-
-
-
+The *ResourceDetails* property contains the entire resource body as a request payload and it contains all the properties requested to update
 
 ## Next steps
 
