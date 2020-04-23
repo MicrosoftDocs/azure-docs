@@ -7571,7 +7571,11 @@
       "redirect_url": "/azure/application-gateway/quick-create-cli",
       "redirect_document_id": false
     },
-
+    {
+      "source_path": "articles/application-gateway/tutorial-create-vmss-cli.md",
+      "redirect_url": "/azure/application-gateway/tutorial-url-redirect-cli",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/application-insights/app-insights-azure-diagnostics.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-to-application-insights",
