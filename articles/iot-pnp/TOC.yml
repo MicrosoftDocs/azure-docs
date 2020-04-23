@@ -11,10 +11,8 @@
   items:
   - name: Connect a device to IoT Hub
     items:
-      - name: C Linux
-        href: quickstart-connect-pnp-device-c-linux.md
-      - name: C Windows
-        href: quickstart-connect-pnp-device-c-windows.md
+      - name: C
+        href: quickstart-connect-pnp-device-c.md
       - name: Node.js
         href: quickstart-connect-pnp-device-node.md
 - name: Tutorials
