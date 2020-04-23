@@ -1,5 +1,5 @@
 ---
-title: Considerations for using VM extensions in Python 3-enabled Linux systems 
+title: Issues using VM extensions in Python 3-enabled Linux Azure virtual machines systems 
 description: Learn about using VM extensions in Python 3-enabled Linux systems
 services: virtual-machines-windows
 documentationcenter: ''
@@ -17,11 +17,9 @@ ms.date: 04/22/2020
 ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
 ---
 
-# Issues using VM extensions in Python 3-enabled Linux systems
+# Issues using VM extensions in Python 3-enabled Linux Azure virtual machines systems
 
-## Summary
-
-> ![NOTE]
+> [!NOTE]
 > Microsoft encourages users to adopt **Python 3.x** in their systems unless your workload requires **Python 2.x** support. Examples of this requirement might include legacy administration scripts, or extensions such as **Azure Disk Encryption** and **Azure Monitor**.
 >
 > Before installing **Python 2.x** in production, consider the question of long-term support of Python 2.x, particularly their ability to receive security updates. As products, including some of the extension mentioned, update with **Python 3.8** support, you should discontinue use of Python 2.x.
@@ -86,6 +84,6 @@ Consider the following general recommendations before deploying extensions in th
         },
       ```
 
-## More Information
+## Next steps
 
-[Other base system changes since 18.04 LTS - Python 3 by default](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes#Python3_by_default)
+Please refer to [Other base system changes since 18.04 LTS - Python 3 by default](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes#Python3_by_default) for additional information.
