@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/21/2020
+ms.date: 04/23/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -26,6 +26,9 @@ This article describes how to review your own access to a group or an applicatio
 ## Open the access review
 
 The first step to perform an access review is to find and open the access review.
+
+>[!IMPORTANT]
+> There could be delays in receiving email and it some cases it could take up to 24 hours. Whitelist azure-noreply@microsoft.com to make sure that you are receiving all emails.
 
 1. Look for an email from Microsoft that asks you to review access. Here is an example email to review your access to a group.
 
@@ -87,11 +90,9 @@ The first step to perform an access review is to find and open the access review
 
    ![Example email from Microsoft to review access to a group](./media/review-your-access/access-review-email-preview.png)
 
-   2. Click the **Start review** link to open the access review.
+   2. Click the **Review access** link to open the access review.
 
-If you don't have the email, you can find your pending access reviews by following these steps.
-
-ou can also view your pending access reviews by using your browser to open My Access.
+If you don't have the email, you can also view your pending access reviews by using your browser to open My Access.
 
 1. Sign  in to the My Access at ht<span>tps://<span>myacces<span>s.m<span>icrosof<span>t.<span>com/@**Castelia<span>.<span>onmicrosoft<span>.<span>com**?enableReviews=true#/access-reviews
 
@@ -110,9 +111,7 @@ ou can also view your pending access reviews by using your browser to open My Ac
 
 4. Click on the name of an Access review to get started.
  
-   ![Pending access reviews list for apps and groups](./media/perform-access-review/access-reviews-list-preview.png)
-
-Once that it opens, you will see the list of users in scope for the access review. If the request is to review your own access, the page will look different. For more information, see [Review access for yourself to groups or applications](review-your-access.md).
+   ![Pending access reviews list for apps and groups](./media/review-your-access/access-reviews-list-preview.png)
 
 ### Perform the access review
 
@@ -122,17 +121,17 @@ Once you have opened the access review, you can see your access.
 
     If the request is to review access for others, the page will look different. For more information, see [Review access to groups or applications](perform-access-review.md).
 
-    ![Open access review asking whether you still need access to a group](./media/review-your-access/perform-access-review.png)
+    ![Open access review asking whether you still need access to a group](./media/review-your-access/review-access-preview.png)
 
-1. Click **Yes** to keep your access or click **No** to remove your access.
+1. Select **Yes** to keep your access or select **No** to remove your access.
 
 1. If you click **Yes**, you might need to specify a justification in the **Reason** box.
 
-    ![Completed access review asking whether you still need access to a group](./media/review-your-access/perform-access-review-submit.png)
+    ![Completed access review asking whether you still need access to a group](./media/review-your-access/review-access-yes-preview.png)
 
 1. Click **Submit**.
 
-    Your selection is submitted and you returned to the MyApps portal.
+    Your selection is submitted and you returned to the My Access page.
 
     If you want to change your response, re-open the access reviews page and update your response. You can change your response at any time until the access review has ended.
 
