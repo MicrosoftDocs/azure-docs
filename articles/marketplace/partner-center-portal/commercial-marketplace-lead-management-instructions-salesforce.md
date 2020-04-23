@@ -24,7 +24,7 @@ This article describes how to set up your Salesforce system to process sales lea
 
        ![Salesforce setup](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-1.png)
 
-    1. On the Setup page, go to **Platform Tools** > **Feature Settings** > **Marketing** > **Web-to-Lead**.
+    1. On the **Setup** page, go to **Platform Tools** > **Feature Settings** > **Marketing** > **Web-to-Lead**.
 
         ![Salesforce Web-to-Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-2.png)
 
@@ -34,13 +34,13 @@ This article describes how to set up your Salesforce system to process sales lea
 
        ![Salesforce classic setup](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-setup.png)
 
-    1. On the Setup page, select **Build** > **Customize** > **Leads** > **Web-to-Lead**.
+    1. On the **Setup** page, select **Build** > **Customize** > **Leads** > **Web-to-Lead**.
 
         ![Salesforce classic Web-to-Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png)
 
 The rest of the instructions are the same no matter which Salesforce experience you're using.
 
-1. On the Web-to-Lead Setup page, select the **Create Web-to-Lead Form** button.
+1. On the **Web-to-Lead Setup** page, select the **Create Web-to-Lead Form** button.
 1. On **Web-to-Lead Setup**, select **Create a Web-to-Lead Form**.
 
     ![Salesforce Web-to-Lead Setup](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-3.png)
@@ -64,7 +64,7 @@ When you're ready to configure the lead management information for your offer in
 
     ![Lead management section Connect button](./media/commercial-marketplace-lead-management-instructions-salesforce/lead-management-connect.png)
 
-1. On the Connection details pop-up window, select **Salesforce** for the **Lead destination** and paste the `oid` value from the Web-to-Lead Form you created into the **Organization identifier** field.
+1. On the **Connection details** pop-up window, select **Salesforce** for the **Lead destination** and paste the `oid` value from the Web-to-Lead Form you created into the **Organization identifier** field.
 
 1. Under **Contact email**, enter email addresses for people in your company who should receive email notifications when a new lead is received. You can provide multiple emails by separating them with a semicolon.
 
