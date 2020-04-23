@@ -151,7 +151,7 @@ Budget integration with action groups only works for action groups that have the
 EA customers can create and edit budgets programmatically using the Azure PowerShell module.  To download the latest version of Azure PowerShell, run the following command:
 
 ```azurepowershell-interactive
-install-module -name AzureRm
+install-module -name Az
 ```
 
 The following example commands create a budget.
@@ -159,20 +159,20 @@ The following example commands create a budget.
 ```azurepowershell-interactive
 #Sign into Azure Powershell with your account
 
-Connect-AzureRmAccount
+Connect-AzAccount
 
 #Select a subscription to to monitor with a budget
 
-select-AzureRmSubscription -Subscription "Your Subscription"
+select-AzSubscription -Subscription "Your Subscription"
 
 #Create an action group email receiver and corresponding action group
 
-$email1 = New-AzureRmActionGroupReceiver -EmailAddress test@test.com -Name EmailReceiver1
-$ActionGroupId = (Set-AzureRmActionGroup -ResourceGroupName YourResourceGroup -Name TestAG -ShortName TestAG -Receiver $email1).Id
+$email1 = New-AzActionGroupReceiver -EmailAddress test@test.com -Name EmailReceiver1
+$ActionGroupId = (Set-AzActionGroup -ResourceGroupName YourResourceGroup -Name TestAG -ShortName TestAG -Receiver $email1).Id
 
 #Create a monthly budget that sends an email and triggers an Action Group to send a second email. Make sure the StartDate for your monthly budget is set to the first day of the current month. Note that Action Groups can also be used to trigger automation such as Azure Functions or Webhooks.
 
-New-AzureRmConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
+New-AzConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
 ```
 ## Create a budget with an Azure Resource Manager template
 

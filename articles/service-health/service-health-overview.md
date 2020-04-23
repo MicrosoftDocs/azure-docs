@@ -16,7 +16,7 @@ Service Health tracks four types of health events that may impact your resources
 
 1. **Service issues** - Problems in the Azure services that affect you right now. 
 2. **Planned maintenance** - Upcoming maintenance that can affect the availability of your services in the future.  
-3. **Health advisories** - Changes in Azure services that require your attention. Examples include when Azure features are deprecated or if you exceed a usage quota.
+3. **Health advisories** - Changes in Azure services that require your attention. Examples include deprecation of Azure features or upgrade requirements (e.g upgrade to a supported PHP framework).
 4. **Security advisories (preview)** - Security related notifications that may affect the availability of your Azure services.
 
 > [!NOTE]

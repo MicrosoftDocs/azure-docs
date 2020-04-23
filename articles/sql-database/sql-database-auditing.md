@@ -35,28 +35,28 @@ You can use SQL database auditing to:
 > [!IMPORTANT]
 > - Azure SQL Database auditing is optimized for availability & performance. During very high activity Azure SQL Database allows operations to proceed and may not record some audited events.
 
-#### Auditing limitations
+### Auditing limitations
 
 - **Premium storage** is currently **not supported**.
 - **Hierarchical namespace** for **Azure Data Lake Storage Gen2 storage account** is currently **not supported**.
 - Enabling auditing on a paused **Azure SQL Data Warehouse** is not supported. To enable auditing, resume the Data Warehouse.
 
-## <a id="server-vs-database-level"></a>Define server-level vs. database-level auditing policy
+#### <a id="server-vs-database-level"></a>Define server-level vs. database-level auditing policy
 
 An auditing policy can be defined for a specific database or as a default server policy:
 
 - A server policy applies to all existing and newly created databases on the server.
 
-- If *server blob auditing is enabled*, it *always applies to the database*. The database will be audited, regardless of the database auditing settings.
+- If *server auditing is enabled*, it *always applies to the database*. The database will be audited, regardless of the database auditing settings.
 
-- Enabling blob auditing on the database or data warehouse, in addition to enabling it on the server, does *not* override or change any of the settings of the server blob auditing. Both audits will exist side by side. In other words, the database is audited twice in parallel; once by the server policy and once by the database policy.
+- Enabling auditing on the database or data warehouse, in addition to enabling it on the server, does *not* override or change any of the settings of the server auditing. Both audits will exist side by side. In other words, the database is audited twice in parallel; once by the server policy and once by the database policy.
 
    > [!NOTE]
-   > You should avoid enabling both server blob auditing and database blob auditing together, unless:
+   > You should avoid enabling both server auditing and database blob auditing together, unless:
     > - You want to use a different *storage account*, *retention period* or *Log Analytics Workspace* for a specific database.
     > - You want to audit event types or categories for a specific database that differ from the rest of the databases on the server. For example, you might have table inserts that need to be audited only for a specific database.
    >
-   > Otherwise, we recommended that you enable only server-level blob auditing and leave the database-level auditing disabled for all databases.
+   > Otherwise, we recommended that you enable only server-level auditing and leave the database-level auditing disabled for all databases.
 
 ## <a id="setup-auditing"></a>Set up auditing for your server
 
