@@ -977,4 +977,4 @@ Here's what has changed:
 ## Next steps
 
 See how a DTDL model is managed with the DigitalTwinsModels APIs:
-* [Manage a twin model](how-to-manage-model.md)
+* [How-to: Manage a twin model](how-to-manage-model.md)
