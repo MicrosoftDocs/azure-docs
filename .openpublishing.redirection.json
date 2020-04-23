@@ -727,7 +727,10 @@
       "redirect_url": "/azure/cognitive-services/personalizer/how-to-manage-model",
       "redirect_document_id": false
     },
-
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-boundaries.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-limits"
+    },
       {
         "source_path": "articles/cognitive-services/LUIS/luis-migration-api-authoring.md",
         "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-authoring-entities",
