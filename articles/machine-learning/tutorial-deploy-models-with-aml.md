@@ -128,7 +128,7 @@ Configure the image and deploy. The following code goes through these steps:
 1. Create environment object containing dependencies needed by the model using the environment (`tutorial-env`) saved during training.
 1. Create inference configuration necessary to deploy the model as a web service using:
    * The scoring file (`score.py`)
-   * envrionment object created in previous step
+   * environment object created in previous step
 1. Deploy the model to the ACI container.
 1. Get the web service HTTP endpoint.
 
