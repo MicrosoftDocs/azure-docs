@@ -74,7 +74,7 @@ Apache Spark comes with [MLlib](https://spark.apache.org/mllib/), a machine lear
 Use the following articles to learn more about Apache Spark in Synapse Analytics:
 
 - [Quickstart: Create a Spark pool in Azure Synapse](../quickstart-create-apache-spark-pool.md)
- -[Quickstart: Create an Apache Spark notebook](../quickstart-apache-spark-notebook.md)
+- [Quickstart: Create an Apache Spark notebook](../quickstart-apache-spark-notebook.md)
 - [Tutorial: Machine learning using Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
 - [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
 
