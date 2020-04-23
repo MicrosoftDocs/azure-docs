@@ -63,16 +63,13 @@ You can use the Editor widget to create new projects and manage a video's insigh
 ## Embedding public content
 
 1. Sign in to the [Video Indexer](https://www.videoindexer.ai/) website.
-2. Select the video that you want to work with.
-3. Select the embed button (**</>**) that appears under the video.
-
-    After you select the **Embed** button, you can select the widget that you want to embed in your app.
-4. Select the type of widget that you want (**Cognitive Insights**, **Player**, or **Editor**).
+1. Select the video that you want to work with and press **Play**.
+1. Select the type of widget that you want (**Cognitive Insights**, **Player**, or **Editor**).
+1. Click **&lt;/&gt; Embed**.
 5. Copy the embed code (appears in **Copy the embedded code** in the **Share & Embed** dialog).
 6. Add the code to your app.
 
-> [!NOTE]
-> If you have issues sharing your video URLs, add the `location` parameter to the link. The parameter should be set to the [Azure regions in which Video Indexer exists](regions.md). For example: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+Make sure to add the `location` parameter to the link, if your resource is not in the **trail** region. The parameter should be set to the [Azure regions in which Video Indexer exists](regions.md). For example: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 ## Embedding private content
 
