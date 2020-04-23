@@ -16,7 +16,7 @@ Routing in Azure Static Web Apps defines back-end routing rules and authorizatio
 - The _routes.json_ file must exist at the root of the static app.
 - Rules are executed in the same order as they appear in the `routes` array.
 - Roles are defined in the _routes.json_ file and users are associated to roles via [invitations](authentication-authorization.md).
-- You have full control over role names. There is no system-wide master list you must use.
+- You have full control over role names; there's no master list to which your roles must adhere.
 
 The topic of routing significantly overlaps with authentication and authorization concepts. Make sure to read the [authentication and authorization](authentication-authorization.md) guide along with this article.
 
@@ -94,7 +94,7 @@ You can also secure routes with wildcards. In the following example, any file re
 
 ## Redirects
 
-By designating [HTTP redirect status codes](https://www.wikipedia.org/wiki/URL_redirection#HTTP_status_codes_3xx), you can redirect requests from one route to another.
+You can use [300 series HTTP redirect status codes](https://www.wikipedia.org/wiki/URL_redirection#HTTP_status_codes_3xx) to redirect requests from one route to another.
 
 For instance, the following rule creates a 301 redirect from one page to another.
 
@@ -126,10 +126,10 @@ The following table lists the available platform error overrides:
 |---------|---------|---------|
 | `NotFound` | 404  | A page is not found on the server. |
 | `Unauthenticated` | 401 | The user is not logged in with an [authentication provider](authentication-authorization.md). |
-| `Unauthorized_InsufficientUserInformation` | 401 | The user's profile on the authentication provider is not configured to expose required data. This error can happen when an authentication provider needs to expose the user's email address, but their profile has it restricted. |
+| `Unauthorized_InsufficientUserInformation` | 401 | The user's profile on the authentication provider is not configured to expose required data. This error happens when an authentication provider needs to expose the user's email address, but their profile has it restricted. |
 | `Unauthorized_InvalidInvitationLink` | 401 | An invitation has either expired, or the user followed a link generated for another recipient.  |
 | `Unauthorized_MissingRoles` | 401 | The user is not a member of a required role. |
-| `Unauthorized_TooManyUsers` | 401 | The site has reached the maximum number of users, and the server is limiting further additions. This error is exposed to the client because there is no limit to the number of [invitations](authentication-authorization.md) you can generate, and some users may never accept their invitation.|
+| `Unauthorized_TooManyUsers` | 401 | The site has reached the maximum number of users, and the server is limiting further additions. This error is exposed to the client because there's no limit to the number of [invitations](authentication-authorization.md) you can generate, and some users may never accept their invitation.|
 | `Unauthorized_Unknown` | 401 | The authentication provider doesn't recognize the user, they didn't grant consent to the application.|
 
 ## Example route file
@@ -188,7 +188,7 @@ The following examples describe what happens when a request matches a rule.
 |---------|---------|---------|
 | _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users are challenged to authenticate. |
 | _/admin/reports_ | Authenticated users are served the _/admin/reports/index.html_ file. Unauthenticated users are challenged to authenticate. |
-| _/customers/contoso_ | Authenticated users who belong to the _customers\_contoso_ role are served the _/customers/contoso/index.html_ file. Authenticated users not in the _customers\_contoso_ role are served a 401 error. You can provide a custom error page by defining a `Unauthorized_MissingRoles` rule in the `platformErrorOverrides` array. Unauthenticated users are challenged to authenticate. |
+| _/customers/contoso_ | Authenticated users who belong to either the _administrators_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file. Authenticated users not in the _administrators_ or _customers\_contoso_ roles are served a 401 error. You can provide a custom error page by defining a `Unauthorized_MissingRoles` rule in the `platformErrorOverrides` array. Unauthenticated users are challenged to authenticate. |
 | _/login_     | Unauthenticated users are challenged to authenticate with GitHub. |
 | _/logout_     | Users are logged out of any authentication provider. |
 | _/calendar/2020/01_ | The browser is served the _/calendar.html_ file. |
