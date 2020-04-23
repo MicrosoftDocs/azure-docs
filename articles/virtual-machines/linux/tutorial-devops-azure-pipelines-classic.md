@@ -30,7 +30,7 @@ Azure Pipelines provides a complete, fully featured set of CI/CD automation tool
 
 **Configure CI/CD on Virtual Machines**
 
-Virtual machines can be added as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) and can be targeted for multi-machine update. Once deployed, Deployment History views within Deployment Group provides traceability from VM to the pipeline and then to the commit. 
+Virtual machines can be added as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) and can be targeted for multi-machine update. Once deployed, **Deployment History** within a deployment group provides traceability from VM to the pipeline and then to the commit. 
  
 
 **Rolling Deployments**: A rolling deployment replaces instances of the previous version of an application with instances of the new version of the application on a fixed set of machines (rolling set) in each iteration. Let’s walkthrough how you can configure a rolling update to virtual machines.  
