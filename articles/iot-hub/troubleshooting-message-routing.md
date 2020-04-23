@@ -60,11 +60,11 @@ See the article [Set up and use metrics and diagnostic logs with an IoT Hub](tut
 
 ## List of last known errors for IoT Hub
 
-[!INCLUDE [iot-hub-last-known-error](../../includes/iot-hub-include-last-known-error.md)]
+[!INCLUDE [iot-hub-include-last-known-errors](../../includes/iot-hub-include-last-known-errors.md)]
 
 ## Endpoint Status
 
-[!INCLUDE [iot-hub-include-endpoint-health](iot-hub-include-endpoint-health.md)]
+[!INCLUDE [iot-hub-include-endpoint-health](../../includes/iot-hub-include-endpoint-health.md)]
 
 ## common error codes
 
