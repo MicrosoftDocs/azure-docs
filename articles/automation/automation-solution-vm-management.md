@@ -10,7 +10,7 @@ ms.topic: conceptual
 
 The **Start/stop VMs during off-hours** solution starts or stops your Azure virtual machines. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/platform/action-groups.md). The solution supports both Azure Resource Manager and classic VMs for most scenarios. 
 
-This solution uses [Start-AzureRmVM](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) cmdlet to start VMs. It uses [Stop-AzureRmVM](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) for stopping VMs.
+This solution uses [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) cmdlet to start VMs. It uses [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) for stopping VMs.
 
 > [!NOTE]
 > The **Start/stop VMs during off-hours** solution has been updated to support the newest versions of the Azure modules that are available.
