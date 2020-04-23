@@ -363,7 +363,7 @@ The script performs the following actions:
 
 If you want to use your own certificates, you must associate the public key of your certificate with the service principal on Azure AD, and so on.
 
-To use the script, provide the extension with your Azure Active Directory administrative credentials and the Azure Active Directory tenant ID that you copied earlier. The account must be in the same Azure AD tenant to enable the extension for. Run the script on each NPS server where you install the NPS extension.
+To use the script, provide the extension with your Azure Active Directory administrative credentials and the Azure Active Directory tenant ID that you copied earlier. The account must be in the same Azure AD tenant as you wish to enable the extension for. Run the script on each NPS server where you install the NPS extension.
 
 1. Run Windows PowerShell as an administrator.
 
