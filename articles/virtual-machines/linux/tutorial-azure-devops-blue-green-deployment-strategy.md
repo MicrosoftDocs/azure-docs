@@ -44,7 +44,7 @@ Here is the step-by-step walkthrough.
    ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png) 
 4. A deployment group is a logical set of deployment target machines that represent the physical environments; for example, "Dev", "Test", "UAT", and "Production". You can create a new deployment group or select an existing deployment group. 
 5. Select the build pipeline that publishes the package to be deployed to the virtual machine. Note that the published package should have a deployment script _deploy.ps1_ or _deploy.sh_ in `deployscripts` folder at the package root. This deployment script will be executed by Azure DevOps pipeline at run time.
-6. Select the deployment strategy of your choice. In this case, lets select 'Blue-Green'.
+6. Select the deployment strategy of your choice. Select **Blue-Green**.
 7. Add a "blue" or "green" tag to the VMs that are to be part of Blue-Green deployments. If the VM is for a standby role, then you should tag it as "green" otherwise tag it as "blue".
 ![AzDevOps_bluegreen_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
 
