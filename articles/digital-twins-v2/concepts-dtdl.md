@@ -27,7 +27,7 @@ This article describes DTDL in detail, including version information, syntax det
   - Semantic types
 * **DTDL models: Key fields**
   - Digital Twin Model Identifier (DTMI)
-  - Model version
+  - Model versioning
   - Context
 * **Other language characteristics**
   - Conformance with JSON-LD and RDF
@@ -44,7 +44,7 @@ DTDL is also used as part of [Azure IoT Plug and Play (PnP)](../iot-pnp/overview
 
 There are three key **elements of the language** that make DTDL distinct: its *metamodels*, custom *schemas*, and *semantic types*.
 
-These elements come together to make up the language, which you can then use to write complete models. DTDL requires model definitions to have three **DTDL model key fields**: an *identifier*, a *version*, and a *context*.
+These elements come together to make up the language, which you can then use to write models. DTDL requires model definitions to have three **DTDL model key fields**: an *identifier*, a *version*, and a *context*.
 
 Then, as you continue building out your model definitions, you may want to consider a few **other language characteristics**: *conformance* to popular standards, *display string localization*, and (if you've worked with DTDL in the past) *differences from previous release*.
 
@@ -52,7 +52,7 @@ Then, as you continue building out your model definitions, you may want to consi
 
 There are three key elements of the DTDL language that define how it runs and what it can do: its *metamodels*, custom *schemas*, and *semantic types*.
 
-The basic structure of the language is a set of **metamodel classes**, which are used to define the behavior of all digital twins (including devices). The classes are:
+The basic structure of the language is a set of **metamodel classes** which define the behavior of all digital twins (including devices). The classes are:
 * Interface
 * Telemetry
 * Property
@@ -70,23 +70,25 @@ When a twin model is created using DTDL, its behaviors are defined using six met
 
 #### Metamodel class: Interface
 
-An **Interface** is the overall class representing a complete model. It describes the contents of any digital twin in terms of the other metamodel classes (Properties, Telemetries, Commands, Relationships, and Components). Interfaces are reusable, and can be reused as the schema for Components in another interface.
+An **Interface** is the overall class representing a full model. It holds the contents of any digital twin in terms of the other metamodel classes (Properties, Telemetries, Commands, Relationships, and Components). Interfaces are reusable, and can be used again as the schema for a Component in another Interface.
 
-The chart below lists the properties that may be part of an interface.
+The chart below lists the DTDL properties that may be part of an Interface.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `@id` | required | DTMI | max 128 chars | version number can be incremented | A Digital Twin Model Identifier for the interface |
-| `@type` | required | IRI |  | immutable | This must be "Interface" |
-| `@context` | required (at least once in the doc) | IRI |  | immutable | The context to use when processing this interface. For this version, it must be set to "dtmi:dtdl:context;2" |
-| `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
-| `contents` | optional | set of Telemetry, Properties, Commands, Relationships, Components | max 300 contents | new contents can be added; versions of existing contents can be incremented; no contents can be removed | A set of objects that define to the contents (Telemetry, Properties, Commands, Relationships, and/or Components) of this interface |
-| `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
-| `displayName` | optional | *string* | 1-64 chars | mutable | A localizable name for human display |
-| `extends` | optional | set of interfaces | up to 2 interfaces per extends; max depth of 10 levels | new interfaces can be added; versions of existing interfaces can be incremented; no interfaces can be removed | A set of DTMIs that refer to interfaces this interface inherits from. Interfaces can inherit from multiple interfaces. |
-| `schemas` | optional | set of schemas |  | new schemas can be added; versions of existing schemas can be incremented; no schemas can be removed | A set of IRIs or objects that refer to the reusable schemas within this interface. |
+| `@id` | Required | DTMI | Max 128 chars | Version number can be incremented | A Digital Twin Model Identifier (DTMI) for the Interface |
+| `@type` | Required | IRI |  | Immutable | This must be *Interface* |
+| `@context` | Required (at least once in the doc) | IRI |  | Immutable | The context to use when processing this Interface. For this version, it must be "dtmi:dtdl:context;2" |
+| `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
+| `contents` | Optional | Set of Telemetry, Properties, Commands, Relationships, Components | Max 300 contents | New contents can be added; versions of existing contents can be incremented; no contents can be removed | A set of objects that define the contents of this Interface in terms of Telemetry, Properties, Commands, Relationships, and Components |
+| `description` | Optional | *string* | 1-512 chars | Mutable | A localizable description for human display |
+| `displayName` | Optional | *string* | 1-64 chars | Mutable | A localizable name for human display |
+| `extends` | Optional | Set of DTMIs | Up to 2 Interfaces per extends; max depth of 10 levels | New Interfaces can be added; versions of existing Interfaces can be incremented; no Interfaces can be removed | A set of IDs (DTMIs) that name other, parent Interfaces that this Interface inherits from. Interfaces can inherit from multiple parent Interfaces. |
+| `schemas` | Optional | Set of schemas |  | New schemas can be added; versions of existing schemas can be incremented; no schemas can be removed | A set of IRIs or objects that refer to the reusable schemas within this Interface |
 
-The following interface example shows a thermostat device interface. The interface has one telemetry that reports the temperature measurement, and one read/write property that controls the desired temperature.
+Here are some examples of Interfaces, illustrating what they might look like with different combinations of content types.
+
+The following Interface example shows an Interface for a thermostat device. The Interface has one Telemetry that reports the temperature measurement, and one read/write Property that controls the desired temperature.
 
 ```json
 {
@@ -110,7 +112,7 @@ The following interface example shows a thermostat device interface. The interfa
 }
 ```
 
-The following interface example shows a *Phone* device that has two cameras as components, and the standard *DeviceInformation interface* as another component.
+The next Interface example represents a phone device with three components: two cameras, and the standard *DeviceInformation* Interface that is used to hold general device information.
 
 ```json
 {
@@ -138,7 +140,7 @@ The following interface example shows a *Phone* device that has two cameras as c
 }
 ```
 
-The following interface example shows a digital twin of a building that has a *name* property and a relationship to rooms contained in the building.
+The next Interface example represents a building with a *name* Property, and the ability to form Relationships to rooms contained in the building.
 
 ```json
 {
@@ -162,7 +164,7 @@ The following interface example shows a digital twin of a building that has a *n
 }
 ```
 
-The following interface example shows how interface inheritance can be used to create specialized interfaces from more general interfaces. In this example, the *ConferenceRoom* interface inherits from the *Room* interface. Through inheritance, the *ConferenceRoom* has two properties: the *occupied* property (from *Room*) and the *capacity* property (from *ConferenceRoom()).
+The next Interface example shows how interface inheritance can be used to create specialized Interfaces from more general Interfaces. In this example, the *ConferenceRoom* Interface inherits from the *Room* Interface. Through inheritance, the *ConferenceRoom* has two properties: the *occupied* property (from *Room*) and the *capacity* property (from *ConferenceRoom*).
 
 ```json
 [
@@ -194,24 +196,26 @@ The following interface example shows how interface inheritance can be used to c
 ]
 ```
 
+The following sections describe the other metamodel classes that make up Interfaces in more detail.
+
 #### Metamodel class: Telemetry
 
-Telemetry describes the data emitted by any digital twin, whether the data is a regular stream of sensor readings or a computed stream of data, such as occupancy, or an occasional error or information message.
+Telemetry describes the data emitted by a digital twin. This data can consist of a regular stream of sensor readings, a computed stream of data (like an "occupancy" value), occasional error messages, or any other messages from the device.
 
-The chart below lists the properties that telemetry may have.
+The chart below lists the DTDL properties that Telemetry may have.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `@type` | required | IRI |  | immutable | This must be at least "Telemetry". It can also include a semantic type |
-| `name` | required | *string* | 1-64 chars | immutable | The "programming" name of the telemetry. Must be 64 characters or less. The name must match this regular expression "^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$". The name must be unique for all contents in this interface. |
-| `schema` | required | Schema | immutable | The data type of the Telemetry |
-| `@id` | optional | DTMI | max 2048 chars | version number can be incremented | The ID of the telemetry. If no `@id` is provided, the digital twin interface processor will assign one. |
-| `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
-| `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
-| `displayName` | optional | *string* | 1-64 chars | mutable | A localizable name for human display |
-| `unit` | optional | Unit |  | mutable | The unit type of the Telemetry. A semantic type is required for the unit property to be available. |
+| `@type` | Required | IRI |  | Immutable | This must be at least "Telemetry". It can also include a semantic type. |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. The name must be unique for all contents in this Interface. | Immutable | The "programming" name of the telemetry |
+| `schema` | Required | Schema (described later in this article) | Immutable | The data type of the Telemetry |
+| `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the telemetry. If this field is not provided, the digital twin interface processor will assign one. |
+| `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
+| `description` | Optional | *string* | 1-512 chars | Mutable | A localizable description for human display |
+| `displayName` | Optional | *string* | 1-64 chars | Mutable | A localizable name for human display |
+| `unit` | Optional | Unit |  | Mutable | The unit type of the Telemetry. A semantic type is required for `unit` to be available. |
 
-The following example shows a simple telemetry definition of a temperature measurement, with the data type *double*.
+The following example shows a basic Telemetry definition of a temperature measurement, with the data type *double*.
 
 ```json
 {
@@ -221,7 +225,7 @@ The following example shows a simple telemetry definition of a temperature measu
 }
 ```
 
-The following example shows a telemetry definition with a *Temperature* semantic type and the `unit` property.
+The following example shows a Telemetry definition with a *Temperature* semantic type, enabling it to have a `unit` property.
 
 ```json
 {
@@ -234,23 +238,28 @@ The following example shows a telemetry definition with a *Temperature* semantic
 
 #### Metamodel class: Property
 
-A Property describes the read-only and read/write state of any digital twin. For example, a device serial number may be a read-only property, the desired temperature on a thermostat may be a read-write property; and the name of a room may be a read-write property.
+A Property describes the state of a digital twin, and can be read/write (editable) or read-only. For example, a device serial number may be a read-only property, while the name of a room and the desired temperature on a thermostat may be read-write properties. 
 
-Because digital twins are used in a distributed system, a Property not only describes the state of a digital twin, but also describes the synchronization of that state between different components that make up the distributed system. For example, the state of a digital twin might be written to by an application running in the cloud, but the digital twin itself is a device that only goes online once a day, so state information can only be synced and responded to when the device is online. Every digital twin property has synchronization information behind it that facilitates and captures the synchronization state between the digital twin and its backing store (since this synchronization information is the same for all properties, it is not included in the model definition).
+Another consideration for Properties is synchronization. Consider that digital twins are part of a distributed IoT system: the state of a digital twin might be controlled by a cloud application that's always running, but the digital twin represents an actual device in the real world, which may only go online once or twice a day. As a result, state information can only be synced and responded to when the device is online.
 
-The chart below lists the properties that a DTDL property may have.
+For this reason, a Property describes not only the state of a digital twin, but also the synchronization of that state between different components in the distributed system (such as the cloud application in the example above). Every digital twin property has synchronization information automatically included, to facilitate and capture the synchronization state between the digital twin and its backing store. Since this synchronization information is automatic and the same for all properties, it is not included as a part of the model definition.
+
+The chart below lists the DTDL properties that a Property may have.
+
+> [!NOTE]
+> Notice the distinction between the *Property metamodel class*, used to describe the state of a digital twin, and *DTDL properties* that all metamodel classes provide.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `@type` | required | IRI |  | immutable | This must at least be "Property". It can also include a semantic type. |
-| `name` | required | *string* | 1-64 chars | immutable | The "programming" name of the property. The name must match this regular expression "^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$". The name must be unique for all contents in this interface. |
-| `schema` | required | Schema | may not be Array nor any complex schema that contains Array | immutable | The data type of the Property |
-| `@id` | optional | DTMI | max 2048 chars | version number can be incremented | The ID of the property. If no `@id` is provided, the digital twin interface processor will assign one. |
-| `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
-| `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
-| `displayName` | optional | *string* | 1-64 chars | mutable | A localizable name for human display |
-| `unit` | optional | Unit |  | mutable | The unit type of the property. A semantic type is required for the unit property to be available. |
-| `writable` | optional | *boolean* |  | immutable | A boolean value that indicates whether the property is writable by an external source, such as an application, or not. The default value is false (read-only). |
+| `@type` | Required | IRI |  | Immutable | This must at least be "Property". It can also include a semantic type. |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. The name must be unique for all contents in this Interface. | Immutable | The "programming" name of the Property |
+| `schema` | Required | Schema (described later in this article) | May not be Array nor any complex schema that contains Array | Immutable | The data type of the Property |
+| `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the Property. If this field is not provided, the digital twin interface processor will assign one. |
+| `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
+| `description` | Optional | *string* | 1-512 chars | Mutable | A localizable description for human display |
+| `displayName` | Optional | *string* | 1-64 chars | Mutable | A localizable name for human display |
+| `unit` | Optional | Unit |  | Mutable | The unit type of the property. A semantic type is required for `unit` to be available. |
+| `writable` | Optional | *boolean* |  | Immutable | A boolean value that indicates whether the Property is writable by an external source (like a client application) or not. The default value is *false*, indicating the Property is read-only. |
 
 The following example shows a property definition of a writable temperature set-point, with the data type *double*.
 
@@ -263,7 +272,7 @@ The following example shows a property definition of a writable temperature set-
 }
 ```
 
-The following example shows a property definition with a *Temperature* semantic type and the `unit` property.
+The following example shows a Property definition with a *Temperature* semantic type, enabling it to have a `unit` property. 
 
 ```json
 {
@@ -277,23 +286,23 @@ The following example shows a property definition with a *Temperature* semantic 
 
 #### Metamodel class: Command
 
-A Command describes a function or operation that can be performed on any digital twin.
+A Command describes a function or operation that can be performed on a digital twin.
 
-The chart below lists the properties that a command may have.
+The chart below lists the DTDL properties that a Command may have.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `@type` | required | IRI |  | immutable | This must be "Command" |
-| `name` | required | *string* | 1-64 chars | immutable | The "programming" name of the command. The name must match this regular expression "^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$". The name must be unique for all contents in this interface. |
-| `@id` | optional | DTMI | max 2048 chars | version number can be incremented | The ID of the command. If no `@id` is provided, the digital twin interface processor will assign one. |
-| `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
-| `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
-| `displayName` | optional | *string* | 1-64 chars | mutable | A localizable name for human display |
-| `commandType` | optional | Command-Type |  | immutable | The type of command execution, currently either synchronous or asynchronous. The default value is synchronous. |
-| `request` | optional | Command-Payload |  | immutable | A description of the input to the Command |
-| `response` | optional | Command-Payload |  | immutable | A description of the output of the Command |
+| `@type` | Required | IRI |  | Immutable | This must be *Command* |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. The name must be unique for all contents in this Interface. | Immutable | The "programming" name of the Command. |
+| `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the Command. If this field is not provided, the digital twin interface processor will assign one. |
+| `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
+| `description` | Optional | *string* | 1-512 chars | Mutable | A localizable description for human display |
+| `displayName` | Optional | *string* | 1-64 chars | Mutable | A localizable name for human display |
+| `commandType` | Optional | *CommandType* (described later in this section) |  | Immutable | The type of command execution, which during public preview can be *synchronous* or *asynchronous*. The default value is *synchronous*. |
+| `request` | Optional | *CommandPayload* (described later in this section) |  | Immutable | A description of the input to the Command |
+| `response` | Optional | *CommandPayload* (described later in this section) |  | Immutable | A description of the output of the Command |
 
-Here is an example.
+The following example shows a *reboot* command that a device may have.
 
 ```json
 {
@@ -313,51 +322,56 @@ Here is an example.
 }
 ```
 
-##### CommandType
+##### commandType
 
-Command types are defined for the Command/commandType property.
+*CommandType* allows you to classify Commands into categories.
 
 | `commandType` value | Description |
 | --- | --- | --- |
-| `asynchronous` | The command will complete sometime after control returns to the caller. After the command completes, the result and any outputs are available. |
-| `synchronous` | The command will be complete when control returns to the caller. The result and any outputs are available immediately. This is the default value for commandType. |
+| `asynchronous` | The Command will complete sometime after control returns to the caller. After the Command completes, the result and any outputs are available. |
+| `synchronous` | The Command will be complete when control returns to the caller. The result and any outputs are available immediately. This is the default value for `commandType`. |
 
 ##### CommandPayload
 
-A CommandPayload describes the inputs to or the outputs from a Command.
+A *CommandPayload* describes the inputs to or the outputs from a Command.
 
-The chart below lists the properties that CommandPayload may have.
+The chart below lists the DTDL properties that *CommandPayload* may have.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `name` | required | *string* | 1-64 chars | immutable | The "programming" name of the payload. The name must match this regular expression "^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$". |
-| `schema` | required | Schema |  | immutable | The data type of the payload |
-| `@id` | optional | DTMI | max 2048 chars | version number can be incremented | The ID of the command payload. If no `@id` is provided, the digital twin interface processor will assign one. |
-| `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
-| `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
-| `displayName` | optional | *string* | 1-64 chars | mutable | A localizable name for human display |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. | Immutable | The "programming" name of the payload |
+| `schema` | Required | Schema  (described later in this article) |  | Immutable | The data type of the payload |
+| `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the command payload. If this field is not provided, the digital twin interface processor will assign one. |
+| `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
+| `description` | Optional | *string* | 1-512 chars | Mutable | A localizable description for human display |
+| `displayName` | Optional | *string* | 1-64 chars | Mutable | A localizable name for human display |
 
 #### Metamodel class: Relationship
 
-A relationship describes a link to any other digital twin. For more details about relationships, see [Create digital twins and the twin graph](concepts-twins-graph.md).
+A Relationship describes a link from the current type of digital twin to another type of digital twin. Relationships are permitted to have their own Properties.
 
-The chart below lists the properties that a relationship may have.
+For more details about the concept of twin relationships, see [Concepts: Digital twins and the twin graph](concepts-twins-graph.md).
+
+The chart below lists the DTDL properties that a Relationship may have.
+
+>[!NOTE]
+> Don't confuse the required *DTDL properties* of the Relationship type with the custom properties that you can give to a relationship using the *Property metamodel class*.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `@type` | required | IRI |  | immutable | This must be "Relationship" |
-| `name` | required | *string* | 1-64 chars | immutable | The "programming" name of the relationship. The name must match this regular expression "^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$". The name must be unique for all contents in this interface. |
-| `@id` | optional | DTMI | max 2048 chars | version number can be incremented | The ID of the relationship description. If no `@id` is provided, the digital twin interface processor will assign one. |
-| `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
-| `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
-| `displayName` | optional | *string* | 1-64 chars | mutable | A localizable name for human display |
-| `maxMultiplicity` | optional | non-negative integer | must be > 1 and >= `min-Multiplicity` | immutable | The maximum multiplicity for the target of the relationship. The default value is infinite (there may be an unlimited number of relationship instances for this relationship). |
-| `minMultiplicity` | optional | non-negative integer | must <= `max-Multiplicity` | immutable | The minimum multiplicity for the target of the relationship. The default value is 0 (this relationship is permitted to have no instances). During public preview, `minMultiplicity` must always be 0. |
-| `properties` | optional | set of Property | max 300 properties | new properties can be added; no properties can be removed | A set of Properties that define relationship-specific state |
-| `target` | optional | Interface |  | version number can be incremented | An interface ID. The default value (when target is not specified) is that the target may be any interface. |
-| `writable` | optional | *boolean* |  | immutable | A boolean value that indicates whether the relationship is writable or not. The default value is *false*, indicating the property is read-only. |
+| `@type` | Required | IRI |  | Immutable | This must be *Relationship* |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. The name must be unique for all contents in this Interface. | Immutable | The "programming" name of the Relationship |
+| `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the relationship. If this field is not provided, the digital twin interface processor will assign one. |
+| `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
+| `description` | Optional | *string* | 1-512 chars | Mutable | A localizable description for human display |
+| `displayName` | Optional | *string* | 1-64 chars | Mutable | A localizable name for human display |
+| `maxMultiplicity` | Optional | Non-negative integer | Must be > 1 and >= `min-Multiplicity` | Immutable | The maximum multiplicity for the target of the Relationship. The default value is infinite (there may be an unlimited number of relationship instances for this Relationship type). |
+| `minMultiplicity` | Optional | Non-negative integer | Must <= `max-Multiplicity`. During public preview, `minMultiplicity` is required to be 0. | Immutable | The minimum multiplicity for the target of the Relationship. The default value is 0 (meaning it's ok for that Relationship to have no instances). |
+| `properties` | Optional | Set of Property | Max 300 properties | New Properties can be added; no Properties can be removed | A set of Properties that define relationship-specific state |
+| `target` | Optional | DTMI |  | Version number can be incremented | An Interface ID (DTMI). The default value (used when target is not specified) is that the target may be any Interface. "*" is also an accepted value to indicate any Interface. |
+| `writable` | Optional | *boolean* |  | Immutable | A boolean value that indicates whether the relationship is writable or not. The default value is *false*, indicating the Relationship is read-only. |
 
-The following example defines a relationship to be had with a *Floor* twin. In this example, there must be one and only one relationship instance to the floor.
+The following example defines a Relationship that can be had with a *Floor* twin. In this example, there must be one and only one Relationship instance to the floor.
 
 ```json
 {
@@ -369,7 +383,7 @@ The following example defines a relationship to be had with a *Floor* twin. In t
 }
 ```
 
-The following example defines a general-purpose children relationship. In this example, there may be 0 to many children (because `minMultiplicity` and `maxMultiplicity` are not specified) of any interface type (because `target` is not specified).
+The following example defines a general-purpose *children* Relationship. In this example, there may be 0 to many children (because `minMultiplicity` and `maxMultiplicity` are not specified), and they can be directed towards any Interface type (because `target` is not specified).
 
 ```json
 {
@@ -378,7 +392,7 @@ The following example defines a general-purpose children relationship. In this e
 }
 ```
 
-The following example defines a relationship with a property.
+The following example defines a Relationship that has a Property.
 
 ```json
 {
@@ -397,23 +411,25 @@ The following example defines a relationship with a property.
 
 #### Metamodel class: Component
 
-Components enable interfaces to be composed of other interfaces. Components are different from relationships because they describe contents that are directly part of the interface. (A relationship describes a link between two interfaces.)
+A Component allows you to reference another Interface that is used in making up the current Interface.
 
-A component describes the inclusion of an interface into an interface "by value". This means that cycles in components are not allowed because the value of the component would be infinitely big.
+Components are different from relationships because they describe contents that are directly part of the Interface. (A relationship describes a link between two Interfaces.)
 
-The chart below lists the properties that a component may have.
+A Component describes the inclusion of an Interface into another Interface "by value". As a result, cycles in Components are not allowed, because the value of the Component would be infinitely big.
+
+The chart below lists the DTDL properties that a Component may have.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `@type` | required | IRI |  | immutable | This must be "Component" |
-| `name` | required | *string* | 1-64 chars | immutable | The "programming" name of the component. The name must match this regular expression "^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$". The name must be unique for all contents in this interface. |
-| `schema` | required | Interface | cannot have a Component in a Component; cannot introduce a cycle of Components | version number can be incremented | The data type of the component |
-| `@id` | optional | DTMI | max 2048 chars | version number can be incremented | The ID of the component. If no `@id` is provided, the digital twin interface processor will assign one. |
-| `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
-| `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
-| `displayName` | optional | *string* | 1-64 chars | mutable | A localizable name for human display |
+| `@type` | Required | IRI |  | Immutable | This must be *Component* |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. The name must be unique for all contents in this Interface. | Immutable | The "programming" name of the Component. |
+| `schema` | Required | DTMI | cannot have a Component in a Component; cannot introduce a cycle of Components | Version number can be incremented | The data type of the component, given as the DTMI of another Interface |
+| `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the Component. If this field is not provided, the digital twin interface processor will assign one. |
+| `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
+| `description` | Optional | *string* | 1-512 chars | Mutable | A localizable description for human display |
+| `displayName` | Optional | *string* | 1-64 chars | Mutable | A localizable name for human display |
 
-Here is an example.
+Here is an example of a Component being defined. This *frontCamera* component is an excerpt from a larger Interface definition of some device that has a front camera piece (such as a *Phone*).
 
 ```json
 {
@@ -425,11 +441,15 @@ Here is an example.
 
 ### Schemas
 
-Schemas are used to describe the serialized format of the data in a digital twin interface. A full set of primitive data types are provided, along with support for a variety of complex schemas in the forms of Arrays, Enums, Maps, and Objects. Schemas described through digital twin's schema definition language are compatible with popular serialization formats, including JSON, Avro, and Protobuf.
+Schemas are used to describe the serialized format of the data in a digital twin Interface. They are the values that can be supplied in the Schema-type fields of a DTDL class (like the `schema` field of the metamodel classes from the previous section).
+
+Primitive data types can be used for schemas, along with a variety of complex schemas in the forms of Arrays, Enums, Maps, and Objects.
+
+Schemas described through Azure Digital Twin's schema definition language are compatible with popular serialization formats, including JSON, Avro, and Protobuf.
 
 #### Primitive schemas
 
-A full set of primitive data types are provided and can be specified directly as the value in a schema statement in a digital twin interface.
+A full set of primitive data types is provided to use with your digital twin data. These can be supplied directly as the value in a `schema` statement.
 
 | Digital twin primitive schema | Description |
 | --- | --- |
@@ -447,26 +467,28 @@ A full set of primitive data types are provided and can be specified directly as
 
 #### Complex schemas
 
-Complex schemas are designed for supporting complex data types made up of primitive data types. Currently the following complex schemas are provided: Array, Enum, Map, and Object. A complex schema can be specified directly as the value in a schema statement or described in the interface schemas set and referenced in the schema statement.
+Complex schemas are designed for supporting complex data types made up of primitive data types. 
 
-Complex schema definitions are recursive. An array's elementSchema may be an array, enum, map, or object. Likewise, a map's mapValue's schema may be an array, enum, map, or object and an object's field's schema may be an array, enum, map, or object. Currently, the maximum depth for arrays, maps, and objects is 5 levels of depth.
+Currently, DTDL provides the following complex schemas: Array, Enum, Map, and Object. A complex schema can be specified directly as the value in a Schema-type field, or described in the Interface schemas set (described later in this article) and then referenced in the Schema-type field that way.
+
+Complex schema definitions are recursive. For instance, an Array's `elementSchema` Schema-type field  may be Enum, Map, Object, or another Array. Similarly, a Map's `mapValue` Schema-type field may be an Array, Enum, Object, or another Map. The same applies to Enum and Object types. Currently, the maximum depth for Arrays, Maps, and Objects is 5 levels of depth.
 
 ##### Array
 
-An Array describes an indexable data type where each element is of the same schema. An Array elements' schema can itself be a primitive or complex schema.
+An Array describes an indexable data type where each element is of the same schema. An Array element's schema can itself be a primitive or complex schema.
 
-The chart below lists the properties that an array may have.
+The chart below lists the DTDL properties that an Array may have.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `@type` | required | IRI |  | immutable | This must be "Array" |
-| `elementSchema` | required | Schema |  | immutable | The data type of the array elements |
-| `@id` | optional | DTMI | max 2048 chars | version number can be incremented | The ID of the array. If no `@id` is provided, the digital twin interface processor will assign one. |
-| `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
-| `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
-| `displayName` | optional | *string* | 1-64 chars | mutable | A localizable name for human display |
+| `@type` | Required | IRI |  | Immutable | This must be *Array* |
+| `elementSchema` | Required | Schema |  | Immutable | The data type of the Array elements |
+| `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the Array. If this field is not provided, the digital twin interface processor will assign one. |
+| `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
+| `description` | Optional | *string* | 1-512 chars | Mutable | A localizable description for human display |
+| `displayName` | Optional | *string* | 1-64 chars | Mutable | A localizable name for human display |
 
-Here is an example.
+Here is an example of an Array being used in the `schema` field for a Telemetry.
 
 ```json
 {
@@ -483,19 +505,19 @@ Here is an example.
 
 An Enum describes a data type with a set of named labels that map to values. The values in an Enum can be either integers or strings, but the labels are always strings.
 
-The chart below lists the properties that an Enum may have.
+The chart below lists the DTDL properties that an Enum may have.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `@type` | required | IRI |  | immutable | This must be "Enum" |
-| `enumValues` | required | EnumValue |  | immutable | A set of enum value and label mappings |
-| `valueSchema` | required | *integer* or *string* |  | immutable | The data type for the enum values. All enum values must be of the same type. |
-| `@id` | optional | DTMI | max 2048 chars | version number can be incremented | The ID of the enum. If no `@id` is provided, the digital twin interface processor will assign one. |
-| `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
-| `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
-| `displayName` | optional | *string* | 1-64 chars | mutable | A localizable name for human display |
+| `@type` | Required | IRI |  | Immutable | This must be *Enum* |
+| *EnumValues* | Required | *EnumValue* (described later in this section) |  | Immutable | A set of *EnumValue* and label mappings |
+| `valueSchema` | Required | *integer* or *string* |  | Immutable | The data type for the Enum values. All Enum values must be of the same type. |
+| `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the Enum. If this field is not provided, the digital twin interface processor will assign one. |
+| `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
+| `description` | Optional | *string* | 1-512 chars | Mutable | A localizable description for human display |
+| `displayName` | Optional | *string* | 1-64 chars | Mutable | A localizable name for human display |
 
-Here is an example.
+Here is an example of an Enum being used in the `schema` field for a Telemetry.
 
 ```json
 {
@@ -522,36 +544,38 @@ Here is an example.
 
 ###### EnumValue
 
-An EnumValue describes an element of an Enum.
+An *EnumValue* describes an element of an Enum.
 
-The chart below lists the properties that an EnumValue may have.
+The chart below lists the DTDL properties that an *EnumValue* may have.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `name` | required | *string* | 1-64 chars | immutable | The "programming" name of the enum value. The name must match this regular expression "^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$". The name must be unique for all enum values in this enum. |
-| `enumValue` | required | *int* or *string* |  | immutable | The on-the-wire value that maps to the EnumValue. EnumValue may be either an integer or a string and must be unique for all enum values in this enum. |
-| `@id` | optional | DTMI | max 2048 chars | version number can be incremented | The ID of the enum value. If no `@id` is provided, the digital twin interface processor will assign one. |
-| `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
-| `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
-| `displayName` | optional | *string* | 1-64 chars | mutable | A localizable name for human display |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. The name must be unique for all *EnumValues* in this Enum. | Immutable | The "programming" name of the *EnumValue* |
+| `enumValue` | Required | *int* or *string* | *EnumValue* must be unique for all *EnumValues* in this Enum. | Immutable | The on-the-wire value that maps to the *EnumValue* |
+| `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the enum value. If this field is not provided, the digital twin interface processor will assign one. |
+| `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
+| `description` | Optional | *string* | 1-512 chars | Mutable | A localizable description for human display |
+| `displayName` | Optional | *string* | 1-64 chars | Mutable | A localizable name for human display |
 
 ##### Map
 
-A Map describes a data type of key-value pairs where the values share the same schema. The key in a Map must be a string. The values in a Map can be any schema.
+A Map describes a data type of key-value pairs, in which the values share the same schema. 
 
-The chart below lists the properties that a Map may have.
+The key in a Map must be a string. The values in a Map can be any schema.
+
+The chart below lists the DTDL properties that a Map may have.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `@type` | required | IRI |  | immutable | This must be "Map" |
-| `mapKey` | required | MapKey |  | immutable | A description of the keys in the map |
-| `mapValue` | required | MapValue |  | immutable | A description of the values in the map |
-| `@id` | optional | DTMI | max 2048 chars | version number can be incremented | The ID of the map. If no `@id` is provided, the digital twin interface processor will assign one. |
-| `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
-| `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
-| `displayName` | optional | *string* | 1-64 chars | mutable | A localizable name for human display |
+| `@type` | Required | IRI |  | Immutable | This must be *Map* |
+| `mapKey` | Required | *MapKey* (described later in this section) |  | Immutable | A description of the keys in the map |
+| `mapValue` | Required | *MapValue* (described later in this section) |  | Immutable | A description of the values in the map |
+| `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the map. If this field is not provided, the digital twin interface processor will assign one. |
+| `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
+| `description` | Optional | *string* | 1-512 chars | Mutable | A localizable description for human display |
+| `displayName` | Optional | *string* | 1-64 chars | Mutable | A localizable name for human display |
 
-Here is an example.
+Here is an example of a Map being used in the `schema` field for a Property.
 
 ```json
 {
@@ -574,50 +598,54 @@ Here is an example.
 
 ###### MapKey
 
-A MapKey describes the key in a Map. The schema of a MapKey must be *string*.
+A *MapKey* describes the key in a Map. The schema of a *MapKey* must be *string*.
 
-The chart below lists the properties that a MapKey may have.
+The chart below lists the DTDL properties that a *MapKey* may have.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `name` | required | *string* | 1-64 chars | immutable | The "programming" name of the map's key. The name must match this regular expression "^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$". |
-| `schema` | required | Schema | must be *string* | immutable | The data type of the map's key |
-| `@id` | optional | DTMI | max 2048 chars | version number can be incremented | The ID of the map key. If no `@id` is provided, the digital twin interface processor will assign one. |
-| `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
-| `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
-| `displayName` | optional | *string* | 1-64 chars | mutable | A localizable name for human display |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. | Immutable | The "programming" name of the map's key |
+| `schema` | Required | Schema | Must be *string* | Immutable | The data type of the map's key |
+| `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the *MapKey*. If this field is not provided, the digital twin interface processor will assign one. |
+| `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
+| `description` | Optional | *string* | 1-512 chars | Mutable | A localizable description for human display |
+| `displayName` | Optional | *string* | 1-64 chars | Mutable | A localizable name for human display |
 
 ###### MapValue
 
-A MapValue describes the values in a Map.
+A *MapValue* describes the values in a Map.
 
-The chart below lists the properties that a MapValue may have.
+The chart below lists the DTDL properties that a *MapValue* may have.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `name` | required | *string* | 1-64 chars | immutable | The "programming" name of the map's value. The name must match this regular expression "^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$". |
-| `schema` | required | Schema |  | immutable | The data type of the map's values |
-| `@id` | optional | DTMI | max 2048 chars | version number can be incremented | The ID of the map value. If no `@id` is provided, the digital twin interface processor will assign one. |
-| `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
-| `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
-| `displayName` | optional | *string* | 1-64 chars | mutable | A localizable name for human display |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. | Immutable | The "programming" name of the map's value |
+| `schema` | Required | Schema |  | Immutable | The data type of the map's values |
+| `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the *MapValue*. If this field is not provided, the digital twin interface processor will assign one. |
+| `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
+| `description` | Optional | *string* | 1-512 chars | Mutable | A localizable description for human display |
+| `displayName` | Optional | *string* | 1-64 chars | Mutable | A localizable name for human display |
 
 ##### Object
 
-An Object describes a data type made up of named fields (like a struct in C). The fields in an Object map can be primitive or complex schemas.
+An Object describes a custom data type made up of named fields (like a struct in C). The properties in an Object can be primitive or complex schemas.
 
-The chart below lists the properties that an Object may have.
+The chart below lists the DTDL properties that an Object may have.
+
+>[!NOTE]
+> Don't confuse the required *DTDL properties* of the Object type with the *custom Object fields* inside its `fields` property.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `@type` | required | IRI |  | immutable | This must be "Object" |
-| `fields` | required | set of Fields | max depth 5 levels | immutable | A set of field descriptions, one for each field in the Object |
-| `@id` | optional | DTMI | max 2048 chars | version number can be incremented | The ID of the object. If no `@id` is provided, the digital twin interface processor will assign one. |
-| `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
-| `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
-| `displayName` | optional | *string* | 1-64 chars | mutable | A localizable name for human display |
+| `@type` | Required | IRI |  | Immutable | This must be *Object* |
+| `fields` | Required | Set of *Fields* (described later in this section) | Max depth 5 levels | Immutable | A set of Field descriptions, one for each Field in the Object |
+| `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the Object. If this is not provided, the digital twin interface processor will assign one. |
+| `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
+| `description` | Optional | *string* | 1-512 chars | Mutable | A localizable description for human display |
+| `displayName` | Optional | *string* | 1-64 chars | Mutable | A localizable name for human display |
 
-Here is an example.
+
+Here is an example of an Object being used in the `schema` field for a Telemetry.
 
 ```json
 {
@@ -645,34 +673,37 @@ Here is an example.
 
 ###### Field
 
-A Field describes a field in an Object.
+A *Field* describes a custom, named field (property) of an Object.
 
-The chart below lists the properties that a Field may have.
+The chart below lists the DTDL properties that a *Field* may have.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `name` | required | *string* | 1-64 chars | immutable | The "programming" name of the field. The name must match this regular expression "^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$". The name must be unique for all fields in this object. |
-| `schema` | required | Schema |  | immutable | The data type of the field |
-| `@id` | optional | DTMI | max 2048 chars | version number can be incremented | The ID of the field. If no `@id` is provided, the digital twin interface processor will assign one. |
-| `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
-| `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
-| `displayName` | optional | *string* | 1-64 chars | mutable | A localizable name for human display |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. The name must be unique for all fields in this object. | Immutable | The "programming" name of the *Field* |
+| `schema` | Required | Schema |  | Immutable | The data type of the field |
+| `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the *Field*. If this is not provided, the digital twin interface processor will assign one. |
+| `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
+| `description` | Optional | *string* | 1-512 chars | Mutable | A localizable description for human display |
+| `displayName` | Optional | *string* | 1-64 chars | Mutable | A localizable name for human display |
 
 #### Interface schemas
 
-Within an interface definition, complex schemas may be defined for reusability across Telemetry, Properties, and Commands. This is designed to promote readability and improved maintenance because schemas that are reused can be defined once (per interface). Interface schemas are defined in the `schemas` property of an interface.
+Within an Interface definition, complex schemas may be defined in one place for reusability across Telemetry, Properties, and Commands. Allowing schemas to be defined just once per Interface promotes readability and easier maintenance. 
 
-The chart below lists the properties that interface schemas may have.
+To take advantage of this option, define one or several **Interface schemas** in the `schemas` property of an Interface. You can then continue to use this schema throughout the Interface.
+
+The chart below lists the DTDL properties that Interface schemas may have.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `@id` | required | DTMI | max 2048 chars | version number can be incremented | The globally unique identifier for the schema |
-| `@type` | required | Array, Enum, Map, Object |  | immutable | The type of complex schema. This must refer to one of the complex schema classes (Array, Enum, Map, or Object). |
-| `comment` | optional | *string* | 1-512 chars | mutable | A developer comment |
-| `description` | optional | *string* | 1-512 chars | mutable | A localizable description for human display |
-| `displayName` | optional | *string* | 1-64 chars | mutable | A localizable name for human display |
+| `@id` | Required | DTMI | Max 2048 chars | Version number can be incremented | The globally unique identifier for the schema |
+| `@type` | Required | Array, Enum, Map, Object |  | Immutable | The type of complex schema. This must refer to one of the complex schema classes (Array, Enum, Map, or Object). |
+| `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
+| `description` | Optional | *string* | 1-512 chars | Mutable | A localizable description for human display |
+| `displayName` | Optional | *string* | 1-64 chars | Mutable | A localizable name for human display |
 
-Here is an example.
+
+Here is an example of an Interface schema being defined for an Interface.
 
 ```json
 {
@@ -716,14 +747,14 @@ Here is an example.
 
 ### Semantic Types
 
-DTDL includes a set of standard semantic types that can be applied to Telemetries and Properties. When a Telemetry or Property is annotated with one of these semantic types, the unit property must be an instance of the corresponding unit type, and the schema type must be a numeric type (*double*, *float*, *integer*, or *long*).
+DTDL includes a set of standard semantic types that can be applied to Telemetries and Properties to give their values extra context. When a Telemetry or a Property is annotated with one of these semantic types, they get access to a `unit` property.
 
-Note that there is not a strict one-to-one correspondence between semantic types and unit types. For example, `Humidity` is expressed using `DensityUnit`, and `Luminosity` is expressed using `PowerUnit`.
+In order to give a Telemetry or Property a semantic type, its `schema` must be a numeric type (*double*, *float*, *integer*, or *long*).
 
 The chart below lists standard semantic types, corresponding unit types, and available units for each unit type.
 
-> [!NOTE]
-> The `TimeSpan` semantic type should not be confused with the duration schema type. The duration schema is in ISO 8601 format; it is intended for calendar durations; and it does not play well with SI units. The semantic unit for `TimeSpan` is `TimeUnit`, which gives temporal semantics to a numeric schema type.
+>[!NOTE]
+> Note that there is not a strict one-to-one correspondence between semantic types and unit types. For example, `Humidity` is expressed using `DensityUnit`, and `Luminosity` is expressed using `PowerUnit`.
 
 | Semantic type | Unit type | Unit |
 | --- | --- | --- |
@@ -758,7 +789,7 @@ The chart below lists standard semantic types, corresponding unit types, and ava
 | `MassFlowRate` | `MassFlowRateUnit` | `gramPerSecond` <br> `kilogramPerSecond` <br> `gramPerHour` <br> `kilogramPerHour` |
 | `Power` | `PowerUnit` | `watt` <br> `microwatt` <br> `milliwatt` <br> `kilowatt` <br> `megawatt` <br> `gigawatt` <br> `horsepower` <br> `kilowattHourPerYear` |
 | `Pressure` | `PressureUnit` | `pascal` <br> `kilopascal` <br> `bar` <br> `millibar` <br> `millimetresOfMercury` <br> `poundPerSquareInch` <br> `inchesOfMercury` <br> `inchesOfWater` |
-| `RelativeHumidity` | *unitless* | unity percent |
+| `RelativeHumidity` | *unitless* | Unity percent |
 | `Resistance` | `ResistanceUnit` | `ohm` <br> `milliohm` <br> `kiloohm` <br> `megaohm` |
 | `SoundPressure` | `SoundPressureUnit` | `decibel` <br> `bel` |
 | `Temperature` | `TemperatureUnit` | `kelvin` <br> `degreeCelsius` <br> `degreeFahrenheit` |
@@ -778,53 +809,69 @@ When you define a model, DTDL requires that there are certain key fields a model
 
 ### Digital Twin Model Identifier (DTMI)
 
-All elements in digital twin models must have an identifier that is a **Digital Twin Model Identifier (DTMI)**. This includes interfaces, properties, telemetry, commands, relationships, components, complex schema objects, etc. This does not require that every model element have an explicit identifier, but any identifier assigned to a model element by a digital twin processor must follow this identifier format.
+All elements in digital twin models (Interfaces, Properties, Telemetry, Commands, Relationships, Components, complex schema objects, etc...) must have an identifier that is a **Digital Twin Model Identifier (DTMI)**. This is a particular syntax used to give an ID to the model and provide some other information. Any identifier assigned to a model element by a digital twin processor must follow this identifier format.
 
-A DTMI has three components: scheme, path, and version. Scheme and path are separated by a colon; path and version are separated by a semicolon: `<scheme> : <path> ; <version>`.
+A DTMI has three components: *scheme*, *path*, and *version*. They are arranged like this: `<scheme> : <path> ; <version>`, and follow the following restrictions:
+* *scheme*: Has the value of "dtmi" (string literal) in lowercase.
+* *path*: Is a sequence of one or more segments, separated by colons. Each path segment is a non-empty string, containing only letters, digits, and underscores. The first character may not be a digit, and the last character may not be an underscore. This is so that segments can be representable as identifiers across most common programming languages.
+* *version*: Is a sequence of one or more digits. The version length is limited to nine digits, because the number 999,999,999 fits in a 32-bit signed integer value. The first digit can't be zero, to eliminate ambiguity around whether a hypothetical version "01" would be equal to version "1". For more about the concept of a version, see the next section on *Model versioning*.
 
-The scheme is the string literal "dtmi" in lowercase. The path is a sequence of one or more segments, separated by colons. The version is a sequence of one or more digits.
+>[!IMPORTANT]
+>Scheme and path are separated by a colon, while path and version are separated by a semicolon.
 
-Each path segment is a non-empty string containing only letters, digits, and underscores. The first character may not be a digit, and the last character may not be an underscore. Segments are thus representable as identifiers in all common programming languages.
+For a full definition of DTMI, visit the [DTMI repo on GitHub](https://github.com/Azure/digital-twin-model-identifier).
 
-Segments are partitioned into user segments and system segments. If a segment begins with an underscore, it is a system segment; if it begins with a letter, it is a user segment. If a DTMI contains at least one system segment, it is a system DTMI; otherwise, it is a user DTMI. System DTMIs may be referenced in non-system DTDL model documents, but they are not permitted as `@id` values of any elements defined in non-system models; only user DTMIs are permitted.
+#### System and non-system rules
 
-The version length is limited to nine digits, because the number 999,999,999 fits in a 32-bit signed integer value. The first digit may not be zero, so there is no ambiguity regarding whether version 1 matches version 01 since the latter is invalid.
+A model can be classified as either a **system model** or a **non-system model**.
+
+Similarly, on a smaller level, a DTMI itself can be classified as a **system DTMI** or a **user DTMI**. 
+* System DTMIs contain at least one **system segment**. These start with an underscore.
+* User DTMIs don't contain any **system segments**.
+
+System DTMIs can be referenced in non-system models, but they can't serve as the `@id` values for any elements that the non-system model defines. Only user DTMIs can be `@id`s for elements defined in a non-system model.
+
+#### DTMI example
 
 Here is an example of a valid DTMI: `dtmi:foo_bar:_16:baz33:qux;12`.
+* *scheme*: dtmi
+* *path*: foo_bar:_16:baz33:qux
+  - The path contains four segments: *foo_bar*, *_16*, *baz33*, and *qux*. One of the segments (*_16*) is a system segment, and therefore the identifier is a system DTMI.
+* *version*: 12
 
-The path contains four segments: *foo_bar*, *_16*, *baz33*, and *qux*. One of the segments (*_16*) is a system segment, and therefore the identifier is a system DTMI. The version is 12.
+#### Restrictions and best practices
 
-Equivalence of DTMIs is case-sensitive.
+Here are some notable restrictions on DTMI:
+* Equivalence of DTMIs is case-sensitive.
+* The maximum length of a DTMI is 4096 characters. The maximum length of a user DTMI is 2048 characters. The maximum length of a DTMI for an Interface is 128 characters.
 
-The maximum length of a DTMI is 4096 characters. The maximum length of a user DTMI is 2048 characters. The maximum length of a DTMI for an interface is 128 characters.
+Other best practice recommendations:
+* Developers are encouraged to take reasonable precautions against identifier collisions. It may help to stay away from DTMIs with very short lengths or very common terms, such as `dtmi:myDevice;1`.
+* For any definition that is the property of an organization with a registered domain name, a suggested approach to generating identifiers is to use the reversed order of domain segments as initial path segments, followed by further segments that are expected to be collectively unique among definitions within the domain. For example, `dtmi:com:microsoft:azure:iot:demoSensor5;1`.
+  - This doesn't eliminate the possibility of collisions, but may limit accidental collisions to developers who are organizationally proximate. 
+  - It will also simplify the process of identifying malicious definitions when there is a clear mismatch between the identifier and the account that uploaded the definition.
 
-Developers are encouraged to take reasonable precautions against identifier collisions. At a minimum, this means not using DTMIs with very short lengths or only common terms, such as `dtmi:myDevice;1`.
+### Model versioning
 
-Such identifiers are perfectly acceptable in sample documents but should never be used in definitions that are deployed in any fashion.
+Every Interface has a version associated with it. The version is specified with a single version number (positive integer) in the last segment of an Interface's DTMI. 
 
-For any definition that is the property of an organization with a registered domain name, a suggested approach to generating identifiers is to use the reversed order of domain segments as initial path segments, followed by further segments that are expected to be collectively unique among definitions within the domain. For example, `dtmi:com:microsoft:azure:iot:demoSensor5;1`.
+The use case for versions is making changes to models you have defined. In DTDL, once a model is finalized (published, used in production, etc...), its definition is immutable. Rather than editing a model that you want to change, you can do one of the following:
+* For major changes, just create an entirely new Interface. Publish the new interface with its own new DTMI, containing a new name and a version number of 1.
+  - Examples of "major changes" include breaking changes, such as removing a `contents` item (Telemetry, Property, Command, Relationship, or Component), or changing the names of any `contents` or `schemas` elements.
+*. For minor changes, publish a newer **version** that iterates on the current Interface. Leave the majority of the DTMI the same, but increment the version number by 1, and re-publish the model. Any number greater than the current version will also work as a new version number.
+  - Examples of "minor changes" include adding a new `contents` item (Telemetry, Property, Command, Relationship, or Component, fixing a bug in a display name or description, or changing other metadata values.
 
-This practice will not eliminate the possibility of collisions, but it will limit accidental collisions to developers who are organizationally proximate. It will also simplify the process of identifying malicious definitions when there is a clear mismatch between the identifier and the account that uploaded the definition.
+The specific rules for versioning with each model element are described with their metamodel sections earlier in this article.
 
-For a full definition of DTMI, please see the [DTMI repo on GitHub](https://github.com/Azure/digital-twin-model-identifier).
+#### Model versioning examples
 
-### Model version
+Below is an example of a model versioning update. It shows two versions of the same model, with several changes having happened in between:
+* The Interface's `description` is updated.
+* The *temp* Telemetry's `displayName` is updated.
+* A new *humidity* Telemetry is added.
+* The Interface's `@id` is updated to reflect the new version.
 
-In DTDL, interfaces are versioned by a single version number (positive integer) in the last segment of their identifier. Once a version of an interface is finalized (published, used in production, etc...), its definition is immutable.
-
-DTDL provides two ways to create new versions of interfaces.
-1. Entirely new interfaces can be created to describe major changes, including breaking changes, such as removing a contents item (telemetry, property, command, relationship, or component). Each major version has new Digital Twin Model Identifier (DTMI) and starts its version number at 1.
-2. New versions of interfaces can be created to describe minor changes, such as adding a new contents item (telemetry, property, command, relationship, or component) or fixing a bug in a display name or description. Each minor version increments the version number of the interface.
-
-In general, minor changes include adding new contents (telemetry, properties, commands, relationships, and components) or changing metadata, such as display names or descriptions. Changing the names of any contents or schemas or removing contents is not allowed from version to version. The specific rules for versioning are described with each model element in this document.
-
-#### Model version examples
-
-This example shows the kinds of changes that are allowed in new versions of an interface. In this example,
-* The interface's `@id` is updated to reflect the new version.
-* The interface's description is updated.
-* The temp telemetry's displayName is updated.
-* A new humidity telemetry is added.
+Together, these illustrate the types of changes that are allowed in new versions of a the same Interface. 
 
 ```json
 {
@@ -867,23 +914,25 @@ This example shows the kinds of changes that are allowed in new versions of an i
 
 ### Context
 
-When writing a digital twin definition, it's necessary to specify the version of DTDL being used. Because DTDL is based on JSON-LD, you use the JSON-LD context (the @context statement) to specify the version of DTDL being used.
+When writing a digital twin definition, it's necessary to specify the version of DTDL being used. Because DTDL is based on JSON-LD, you use the JSON-LD `@context` statement to specify the DTDL version.
 
 For this version of DTDL, the context is exactly *dtmi:dtdl:context;2*.
 
 ## Other characteristics
 
-Once you have the basics of your model, the next step is to continue building out your model definition as you please. As you do this, DTDL has a few more language characteristics that you may want to consider: *conformance* to popular standards, *display string localization*, and (if you've worked with DTDL in the past) *differences from previous release*.
+Once you have the key fields set within your DTDL model, the next step is to continue building out your model definition how you'd like. As you do this, DTDL has a few more language characteristics that you may want to consider: *conformance* to popular standards, *display string localization*, and (if you've worked with DTDL in the past) *differences from previous release*.
 
 ### Conformance with JSON-LD and RDF
 
-DTDL is based on a variant of JSON called [JSON-LD](https://json-ld.org/spec/latest/json-ld). DTDL conforms with the JSON and JSON-LD 1.1 specifications. This conformance includes things such as keywords, case sensitivity, terminology, etc. In particular, the JSON-LD spec states that all keys, keywords, and values in JSON-LD are case-sensitive.
+Recall that DTDL is based on a variant of JSON called [JSON-LD](https://json-ld.org/spec/latest/json-ld). DTDL conforms with the JSON and JSON-LD 1.1 specifications. This conformance includes things such as keywords, case sensitivity, terminology, etc. In particular, the JSON-LD spec states that all keys, keywords, and values in JSON-LD are case-sensitive.
 
 **Resource Description Framework (RDF)** is a widely adopted standard for describing resources in a distributed, extensible way. DTDL is compatible with RDF, and can be used in RDF systems as well.
 
 ### Display string localization
 
-Some string properties in models are meant for human display and, therefore, support localization. Digital twin models use JSON-LD's string internationalization support for localization. Each localizable property (i.e. `displayName` and `description`) is defined to be a JSON-LD language map (`"@container": "@language"`). The default language for digital twin documents is English. Localized string values are declared using their language code (as defined in [BCP47](https://tools.ietf.org/html/bcp47) using the shortest ISO 639 code or the expanded language name with culture information (RFC4646)). Because of the composable nature of JSON-LD graphs, localized strings can be prepared in a separate file and merged with an existing graph.
+Some string properties in models—currently, `displayName` and `description`—are intended to be displayed for humans to read. As a result, these properties support localization. Digital twin models use JSON-LD's **string internationalization support** for localization. 
+
+Each localizable property is defined to be a JSON-LD language map (with a structure of `"@container": "@language"`). The default language for digital twin documents is English. Localized string values are declared using their language code (as defined in [BCP47](https://tools.ietf.org/html/bcp47), using the shortest ISO 639 code or the expanded language name with culture information (RFC4646)). Because of the composable nature of JSON-LD graphs, localized strings can be prepared in a separate file and merged with an existing graph.
 
 In the following example, no language code is used for the localizable `displayName` property, so the default language English is used.
 
@@ -895,7 +944,7 @@ In the following example, no language code is used for the localizable `displayN
 }
 ```
 
-In the following example, the localizable `displayName` property is localized into multiple languages.
+In this next example, the `displayName` property takes advantage of the localization option and offers multiple language options.
 
 ```json
 {
