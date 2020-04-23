@@ -42,7 +42,7 @@
     href: how-to-manage-graph.md
   - name: Manage endpoints and routes
     href: how-to-manage-routes.md
-  - name: Understand event data
+  - name: Interpret event data
     href: how-to-interpret-event-data.md
   - name: Query the twin graph
     href: how-to-query-graph.md

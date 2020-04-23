@@ -39,6 +39,6 @@ See how to migrate an Azure Digital Twins instance created in the previous relea
 * [Migrate from Public Preview 1](how-to-migrate.md)
 
 Learn about the key elements Azure Digital Twins in the current release:
-* [Twin models](concepts-models.md)
-* [Digital twins and the twin graph](concepts-twins-graph.md)
-* [Azure Digital Twins query language](concepts-query-language.md)
+* [Concepts: Twin models](concepts-models.md)
+* [Concepts: Digital twins and the twin graph](concepts-twins-graph.md)
+* [Concepts: Azure Digital Twins query language](concepts-query-language.md)

@@ -178,7 +178,7 @@ The extending interface cannot change any of the definitions of the parent inter
 ## Next steps
 
 Learn about how digital twins are created based on models:
-* [Digital twins and the twin graph](concepts-twins-graph.md)
+* [Concepts: Digital twins and the twin graph](concepts-twins-graph.md)
 
 Or, see how to manage models with the DigitalTwinsModels APIs:
-* [Manage a twin model](how-to-manage-model.md)
+* [How-to: Manage a twin model](how-to-manage-model.md)

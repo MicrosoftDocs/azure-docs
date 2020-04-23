@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Azure Digital Twins query language
 titleSuffix: Azure Digital Twins
-description: Understand the basics of the Azure Digital Twins Query Store Language.
+description: Understand the basics of the Azure Digital Twins Query Store language.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 3/26/2020
@@ -38,4 +38,4 @@ Here are the operations available in Azure Digital Twins Query Store language:
 
 ## Next steps
 
-Learn how to write queries and see client code examples in [Query the twin graph](how-to-query-graph.md).
+Learn how to write queries and see client code examples in [How-to: Query the twin graph](how-to-query-graph.md).

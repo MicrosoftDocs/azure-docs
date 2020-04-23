@@ -20,8 +20,8 @@ ms.service: digital-twins
 This article gives a brief overview of the API surface of Azure Digital Twins, and how to use it with an existing Azure Digital Twins instance. 
 
 > [!NOTE]
-> * To learn how to create an Azure Digital Twins instance, please see [Create an Azure Digital Twins instance](how-to-set-up-instance.md).
-> * To learn how to authenticate and connect to an instance, please see [Authenticate against Azure Digital Twins](how-to-authenticate.md).
+> * To learn how to create an Azure Digital Twins instance, please see [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md).
+> * To learn how to authenticate and connect to an instance, please see [How-to: Authenticate against Azure Digital Twins](how-to-authenticate.md).
 
 The Azure Digital Twins API surface can be broadly divided into the following categories: 
 
@@ -205,6 +205,6 @@ From here, you can view the metrics for your instance and create custom views.
 ## Next steps
 
 See how to use the APIs to manage models, digital twins, and twin graphs:
-* [Manage a twin model](how-to-manage-model.md)
-* [Manage a digital twin](how-to-manage-twin.md)
-* [Manage a twin graph with relationships](how-to-manage-graph.md)
+* [How-to: Manage a twin model](how-to-manage-model.md)
+* [How-to: Manage a digital twin](how-to-manage-twin.md)
+* [How-to: Manage a twin graph with relationships](how-to-manage-graph.md)

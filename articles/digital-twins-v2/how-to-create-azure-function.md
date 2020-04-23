@@ -83,7 +83,7 @@ For more information about this, see [Debug Event Grid trigger locally](../azure
 
 ### Add the Azure Digital Twins SDK to your function app
 
-Visit [Use the Azure Digital Twins APIs](how-to-use-apis.md) to see how to generate the Azure Digital Twins SDK using AutoRest, and compile it as a reusable project.
+Visit [How-to: Use the Azure Digital Twins APIs](how-to-use-apis.md) to see how to generate the Azure Digital Twins SDK using AutoRest, and compile it as a reusable project.
 
 To access Azure Digital Twins from your Azure function, add the Azure Digital Twins SDK project to the function app. You can do that by right-selecting *Dependencies* in the Solution Explorer and choosing *Add Reference...*.
 
@@ -252,7 +252,7 @@ Also note the **object ID** shown on this page, as it will be used in the next s
 
 ### Access roles
 
-Because Azure Digital Twins uses role-based access control to manage access (see [Securing Azure Digital Twins solutions](concepts-security.md) for more information on this), you also need to add a role for each function app that you want to allow to access Azure Digital Twins.
+Because Azure Digital Twins uses role-based access control to manage access (see [Concepts: Securing Azure Digital Twins solutions](concepts-security.md) for more information on this), you also need to add a role for each function app that you want to allow to access Azure Digital Twins.
 
 [!INCLUDE [digital-twins-resource-id.md](../../includes/digital-twins-resource-id.md)]
 
@@ -265,7 +265,7 @@ az role assignment create --role "Azure Digital Twins Owner (Preview)" --assigne
 ## Next steps
 
 Read more about roles and security in Azure Digital Twins:
-* [Securing Azure Digital Twins solutions](concepts-security.md)
+* [Concepts: Securing Azure Digital Twins solutions](concepts-security.md)
 
 See how to use an Azure function to ingest IoT Hub data into Azure Digital Twins:
-* [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)
+* [How-to: Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)
