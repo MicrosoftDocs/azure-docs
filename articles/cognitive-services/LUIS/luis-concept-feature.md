@@ -2,7 +2,7 @@
 title: Features - LUIS
 description: Add features to a language model to provide hints about how to recognize input that you want to label or classify.
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/23/2020
 ---
 # Machine-learning features
 
@@ -49,21 +49,13 @@ If you want to have names that are unique to your subject domain extracted:
 <a name="how-to-use-a-phrase-lists"></a>
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## Model as a feature
-
-A model as a feature allows you to take an existing model, an intent or an entity, and apply it as a feature to another model.
-
-### When to use an entity as a feature
-
-Use an entity as a feature at the intent or the entity level.
-
-### Entity as a feature to an intent
+## When to use an entity as a feature to an intent
 
 Add an entity as a feature to an intent when the detection of that entity is significant for the intent.
 
 For example, if the intent is for booking a flight and the entity is ticket information (such as the number of seats, origin, and destination), then finding the ticket information entity should add significant weight to the prediction of the book flight intent.
 
-### Entity as a feature to another entity
+## When to use an entity as a feature to another entity
 
 An entity (A) should be added as a feature to another entity (B) when the detection of that entity (A) is significant for the prediction of entity (B).
 
@@ -71,7 +63,11 @@ For example, if the street address entity (A) is detected, then finding the stre
 
 ## Global features
 
-While the most common use is to apply a feature to a specific model, configure the feature as a global feature to boost the concept for your entire schema.
+While the most common use is to apply a feature to a specific model, configure the feature as a **global** feature to boost the concept for your entire schema.
+
+An example is to add an additional vocabulary, such as words from another language, to the app. If your customers use a primary language, but expect to be able to use another language within the same utterance, add examples of those expected tokens to a phrase list.
+
+Because the user expected to use the second language across any intent or entity, it should be added in a phrase list with the phrase list configured as a global feature.
 
 ## Best practices
 Learn [best practices](luis-concept-best-practices.md).
