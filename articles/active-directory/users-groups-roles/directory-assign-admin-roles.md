@@ -1808,12 +1808,12 @@ CRM Service Administrator | Dynamics 365 administrator | 44367163-eba1-44c3-98af
 Customer LockBox Access Approver | Customer Lockbox access approver | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 Desktop Analytics Administrator | Desktop Analytics Administrator | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 Device Administrators | Device administrators | 9f06204d-73c1-4d4c-880a-6edb90606fd8
-Device Join | Device join | 9c094953-4995-41c8-84c8-3ebb9b32c93f
-Device Managers | Device managers | 2b499bcd-da44-4968-8aec-78e1674fa64d
-Device Users | Device users | d405c6df-0af8-4e3b-95e4-4d06e542189e
+Device Join | Deprecated | 9c094953-4995-41c8-84c8-3ebb9b32c93f
+Device Managers | Deprecated | 2b499bcd-da44-4968-8aec-78e1674fa64d
+Device Users | Deprecated | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Directory Readers | Directory readers | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
-Directory Synchronization Accounts | Directory synchronization accounts | d29b2b05-8046-44ba-8758-1e26182fcf32
-Directory Writers | Directory writers | 9360feb5-f418-4baa-8175-e2a00bac4301
+Directory Synchronization Accounts | Not shown because it shouldn't be used | d29b2b05-8046-44ba-8758-1e26182fcf32
+Directory Writers | Not shown because it shouldn't be used | 9360feb5-f418-4baa-8175-e2a00bac4301
 Exchange Service Administrator | Exchange administrator | 29232cdf-9323-42fd-ade2-1d097af3e4de
 External Identity Provider Administrator | External Identity Provider Administrator | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Global Reader | Global reader | f2ef992c-3afb-46b9-b7cf-a126ee74c451
@@ -1829,8 +1829,8 @@ Message Center Privacy Reader | Message center privacy reader | ac16e43d-7b2d-40
 Message Center Reader | Message center reader | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 Network Administrator | Network administrator | d37c8bed-0711-4417-ba38-b4abe66ce4c2
 Office Apps Administrator | Office apps administrator | 2b745bdf-0803-4d80-aa65-822c4493daac
-Partner Tier1 Support | Partner tier1 support | 4ba39ca4-527c-499a-b93d-d9b492c50246
-Partner Tier2 Support | Partner tier2 support | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
+Partner Tier1 Support | Not shown because it shouldn't be used | 4ba39ca4-527c-499a-b93d-d9b492c50246
+Partner Tier2 Support | Not shown because it shouldn't be used | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Password Administrator | Password administrator | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Power BI Service Administrator | Power BI administrator | a9ea8996-122f-4c74-9520-8edcd192826c
 Power Platform Administrator | Power platform administrator | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
@@ -1850,9 +1850,9 @@ Teams Communications Administrator | Teams Communications Administrator | baf37b
 Teams Communications Support Engineer | Teams Communications Support Engineer | f70938a0-fc10-4177-9e90-2178f8765737
 Teams Communications Support Specialist | Teams Communications Support Specialist | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Teams Service Administrator | Teams Service Administrator | 69091246-20e8-4a56-aa4d-066075b2a7a8
-User | User | a0b1b346-4d3e-4e8b-98f8-753987be4970
+User | Not shown because it can't be used | a0b1b346-4d3e-4e8b-98f8-753987be4970
 User Account Administrator | User administrator | fe930be7-5e62-47db-91af-98c3a49a38b1
-Workplace Device Join | Workplace device join | c34f683f-4d5a-4403-affd-6615e00e3a7f
+Workplace Device Join | Deprecated | c34f683f-4d5a-4403-affd-6615e00e3a7f
 
 ## Deprecated roles
 
