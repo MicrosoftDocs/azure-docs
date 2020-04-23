@@ -26,11 +26,13 @@
     href: quickstarts/get-started.md
   - name: Get Started With Voice
     href: quickstarts/get-started-with-voice.md
+  - name: Get Started With SMS
+    href: quickstarts/get-started-with-sms.md
   - name: Get Started With Video
     href: quickstarts/get-started-with-video.md
   - name: Get Started With Messaging
     href: quickstarts/get-started-with-messaging.md
-- name: Tutorials
+- name: Tutorials 
   expanded: true
   items:
   - name: Add SMS To Your Web App
