@@ -99,7 +99,10 @@ When a consumer group member performs a metadata refresh and picks up the newly 
 
 ## Recommendations
 
-- If you use partition key with your producer applications and depend on key hashing to ensure ordering in a partition, dynamically adding partitions isn't recommended. While the existing data preserves ordering, partition hashing will be broken for messages hashed after the partition count changes due to addition of partitions.
+- If you use partition key with your producer applications and depend on key hashing to ensure ordering in a partition, dynamically adding partitions isn't recommended. 
+
+    > [!IMPORTANT]
+    > While the existing data preserves ordering, partition hashing will be broken for messages hashed after the partition count changes due to addition of partitions.
 - Adding partition to an existing topic or event hub instance is recommended in the following cases:
     - When you use the round robin (default) method of sending events
 	 - Kafka default partitioning strategies, example – StickyAssignor strategy
