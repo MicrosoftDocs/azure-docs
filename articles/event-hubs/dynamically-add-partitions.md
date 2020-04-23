@@ -16,14 +16,53 @@ Event Hubs provides message streaming through a partitioned consumer pattern in 
 
 You can specify the number of partitions at the time of creating an event hub. In some scenarios, you may need to add partitions after the event hub has been created. This article describes how to dynamically add partitions to an existing event hub. 
 
-> [IMPORTANT]
+> [!IMPORTANT]
 > Dynamic additions of partitions is available only on **Dedicated** Event Hubs clusters.
 
-## PowerShell
+## Update the partition count
+This section shows you how to update partition count of an event hub in different ways (PowerShell, CLI, etc.).
 
-## CLI
+### PowerShell
+Use the [Set-AzureRmEventHub](/powershell/module/azurerm.eventhub/Set-AzureRmEventHub?view=azurermps-6.13.0) PowerShell command to update partitions in an event hub. 
 
-## Resource Manager template
+```azurepowershell-interactive
+Set-AzureRmEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespaceName -Name MyEventHubName -partitionCount 12
+```
+
+### CLI
+Use the [az eventhubs eventhub update](/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) CLI command to update partitions in an event hub. 
+
+```azurecli-interactive
+az eventhubs eventhub update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12
+```
+
+### Resource Manager template
+Update value of the `partitionCount` property in the Resource Manager template and redeploy the template to update the resource. 
+
+```json
+    {
+        "apiVersion": "2017-04-01",
+        "type": "Microsoft.EventHub/namespaces/eventhubs",
+        "name": "[concat(parameters('namespaceName'), '/', parameters('eventHubName'))]",
+        "location": "[parameters('location')]",
+        "dependsOn": [
+            "[resourceId('Microsoft.EventHub/namespaces', parameters('namespaceName'))]"
+        ],
+        "properties": {
+            "messageRetentionInDays": 7,
+            "partitionCount": 12
+        }
+    }
+```
+
+### .NET SDK
+Use the `PartitionCount` property of the `EventHub` class in the management SDK to set the new partition count for the event hub. 
+
+If you are using the [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) class of the older Microsoft.ServiceBus.Messaging library, use the [UpdateEventHub](/dotnet/api/microsoft.servicebus.namespacemanager.updateeventhub?view=azure-dotnet#Microsoft_ServiceBus_NamespaceManager_UpdateEventHub_Microsoft_ServiceBus_Messaging_EventHubDescription_) method after specifying the new value for the `PartitionCount` property of the [EventHubDescription](/dotnet/api/microsoft.servicebus.messaging.eventhubdescription?view=azure-dotnet) object. 
+
+
+### Apache Kafka
+Use the `AlterTopics` API (for example, via **kafka-topics** CLI tool) to increase the partition count. For details, see [Modifying Kafka topics](http://kafka.apache.org/documentation/#basic_ops_modify_topic). 
 
 ## Event Hubs clients
 Let's look at how Event Hubs clients behave when the partition count is updated on an event hub. 
@@ -38,7 +77,7 @@ Event Hubs provides three sender options:
 - **Round-robin sender (default)** – In this scenario, the Event Hubs service round robins the events across partitions. Event Hubs service is aware of partition count changes and will send to new partitions within seconds of altering partition count.
 
 ### Receiver/consumer clients
-Event Hubs provides direct receivers and an easy consumer library called the [Event Processor Host (old SDK)](event-hubs-event-processor-host)  or [Event Processor (new SDK)](event-processor-balance-partition-load).
+Event Hubs provides direct receivers and an easy consumer library called the [Event Processor Host (old SDK)](event-hubs-event-processor-host.md)  or [Event Processor (new SDK)](event-processor-balance-partition-load.md).
 
 - **Direct receivers** – The direct receivers listen to specific partitions. Their runtime behavior isn't affected when partitions are scaled out for an event hub.
 - **Event processor host** – This client doesn't automatically refresh the entity metadata. So, it wouldn't pick up on partition count increase. Recreating an event processor instance will cause an entity metadata fetch, which in turn will create new blobs for the newly added partitions. Pre-existing blobs won't be affected. Restarting all event processor instances is recommended to ensure that all instances are aware of the newly added partitions, and load-balancing is handled correctly among consumers.
@@ -54,10 +93,14 @@ Producers always dictate that send requests contain the partition destination fo
 ### Consumer/receiver clients
 When a consumer group member performs a metadata refresh and picks up the newly created partitions, that member initiates a group rebalance. Consumer metadata then will be refreshed for all group members, and the new partitions will be assigned by the allotted rebalance leader.
 
-
-## Apache Kafka clients
-
 ## Recommendations
 
+- If you use partition key with your producer applications and depend on key hashing to ensure ordering in a partition, dynamically adding partitions isn't recommended. While the existing data preserves ordering, partition hashing will be broken for messages hashed after the partition count changes due to addition of partitions.
+- Adding partition to an existing topic or event hub instance is recommended in the following cases:
+    - When you use the round robin (default) method of sending events
+	 - Kafka default partitioning strategies, example – StickyAssignor strategy
+
+
 ## Next steps
+For more information about partitions, see [Partitions](event-hubs-scalability.md#partitions).
 
