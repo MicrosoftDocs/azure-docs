@@ -1,10 +1,10 @@
 ---
 title: Get values for app authentication
-description: Create a service principal for accessing SQL Database from code.
+description: Create a service principal for accessing Azure SQL Database from code.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: 
+ms.custom: sqldbrb=1 
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -12,9 +12,9 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 03/12/2019
 ---
-# Get the required values for authenticating an application to access SQL Database from code
+# Get the required values for authenticating an application to access Azure SQL Database from code
 
-To create and manage SQL Database from code you must register your app in the Azure Active Directory (AAD) domain  in the subscription where your Azure resources have been created.
+To create and manage SQL Database from code you must register your app in the Azure Active Directory (AAD) domain in the subscription where your Azure resources have been created.
 
 ## Create a service principal to access resources from an application
 
@@ -23,7 +23,7 @@ The following examples create the Active Directory (AD) application and the serv
 # [PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+> The PowerShell Azure Resource Manager (RM) module is still supported by SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
 ```powershell
 # sign in to Azure
@@ -95,5 +95,5 @@ Write-Output "_applicationSecret:" $secret
 
 ## See also
 
-[Create a SQL database with C#](sql-database-get-started-csharp.md)  
-[Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)
+[Create an Azure SQL Database with C#](sql-database-get-started-csharp.md)  
+[Connecting to Azure SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)

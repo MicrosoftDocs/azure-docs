@@ -4,7 +4,7 @@ description: Article provides notice to users about the migration of Azure SQL D
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: 
+ms.custom: sqldbrb=1 
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
