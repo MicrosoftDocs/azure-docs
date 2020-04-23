@@ -56,7 +56,7 @@ As a result, check the `Resources` field in the event to identify which VMs are 
 ### Endpoint Discovery
 For VNET enabled VMs, Metadata Service is available from a static nonroutable IP, `169.254.169.254`. The full endpoint for the latest version of Scheduled Events is: 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01`
 
 If the VM is not created within a Virtual Network, the default cases for cloud services and classic VMs, additional logic is required to discover the IP address to use. 
 To learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), see this sample.
@@ -66,6 +66,8 @@ The Scheduled Events service is versioned. Versions are mandatory; the current v
 
 | Version | Release Type | Regions | Release Notes | 
 | - | - | - | - | 
+| 2019-08-01 | General Availability | All | <li> Added support for EventSource |
+| 2019-04-01 | General Availability | All | <li> Added support for Event Description |
 | 2019-01-01 | General Availability | All | <li> Added support for virtual machine scale sets EventType 'Terminate' |
 | 2017-11-01 | General Availability | All | <li> Added support for Spot VM eviction EventType 'Preempt'<br> | 
 | 2017-08-01 | General Availability | All | <li> Removed prepended underscore from resource names for IaaS VMs<br><li>Metadata header requirement enforced for all requests | 
@@ -95,7 +97,7 @@ You can query for scheduled events by making the following call:
 
 #### Bash
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
 ```
 
 A response contains an array of scheduled events. An empty array means that currently no events are scheduled.
@@ -110,7 +112,9 @@ In the case where there are scheduled events, the response contains an array of 
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
-            "NotBefore": {timeInUTC},              
+            "NotBefore": {timeInUTC},       
+            "Description": {eventDescription},
+            "EventSource" : "Platform" | "User",
         }
     ]
 }
@@ -125,6 +129,8 @@ In the case where there are scheduled events, the response contains an array of 
 | Resources| List of resources this event affects. The list is guaranteed to contain machines from at most one [update domain](manage-availability.md), but it might not contain all machines in the UD. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided. The event is no longer returned when the event is finished.
 | NotBefore| Time after which this event can start. <br><br> Example: <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
+| Description | Description of this event. <br><br> Example: <br><ul><li> Host server is undergoing maintenance. |
+| EventSource | Initiator of the event. <br><br> Example: <br><ul><li> `Platform`: This event is initiated by platfrom. <li>`User`: This event is initiated by user. |
 
 ### Event Scheduling
 Each event is scheduled a minimum amount of time in the future based on the event type. This time is reflected in an event's `NotBefore` property. 
@@ -194,9 +200,14 @@ def handle_scheduled_events(data):
         eventtype = evt['EventType']
         resourcetype = evt['ResourceType']
         notbefore = evt['NotBefore'].replace(" ", "_")
+	description = evt['Description']
+	eventSource = evt['EventSource']
         if this_host in resources:
             print("+ Scheduled Event. This host " + this_host +
-                " is scheduled for " + eventtype + " not before " + notbefore)
+                " is scheduled for " + eventtype + 
+		" by " + eventSource + 
+		" with description " + description +
+		" not before " + notbefore)
             # Add logic for handling events here
 
 
