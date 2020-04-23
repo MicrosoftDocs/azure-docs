@@ -9,7 +9,7 @@ LUIS has several limit areas. The first is the [model limit](#model-limits), whi
 
 <a name="model-boundaries"></a>
 
-## Model Limits
+## Model limits
 
 If your app exceeds the LUIS model limits, consider using a [LUIS dispatch](luis-concept-enterprise.md#dispatch-tool-and-model) app or using a [LUIS container](luis-container-howto.md).
 
