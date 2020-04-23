@@ -188,6 +188,17 @@ When you implement or update a filter, the change may take a few minutes to be r
 
 Endpoints and routes can also be managed using the Azure Digital Twins CLI. The commands for this can be found in [Use the Azure Digital Twins CLI](how-to-use-cli.md).
 
+## Monitor event routes
+
+Routing metrics such as count, latency and failure rate can be viewed in the [Azure portal](https://portal.azure.com/). 
+
+From the portal homepage, search for your Azure Digital Twins instance to pull up its details. Select the **Metrics** option from the Azure Digital Twins instance's menu to bring up the *Metrics* page.
+
+[!div class="mx-imgBorder"]
+![Metrics page of an Azure Digital Twins instance in the Azure portal](./media/how-to-manage-routes/metrics.png)
+
+From here, you can view the metrics for your instance and create custom views.
+
 ## Next steps
 
 Read about the different types of event messages you can receive:
