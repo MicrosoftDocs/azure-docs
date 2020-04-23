@@ -125,5 +125,5 @@
     href: export-templates.md
   - name: Troubleshoot
     href: troubleshoot.md
-  - name: Using VM extensions in Python 3-enabled Linux systems
-    href: considerations-using-vm-extensions-python-3.md
+  - name: Issues with Python 3-enabled Linux systems
+    href: issues-using-vm-extensions-python-3.md
