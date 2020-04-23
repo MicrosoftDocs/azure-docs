@@ -312,8 +312,8 @@ The appliance is upgraded as the Azure Migrate agents running on the appliance a
 
 You can turn on auto-update using either of these methods:
 
-•	By deleting the AutoUpdate registry key from HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
-•	After discovery is complete, in the Appliance Configuration Manager in the appliance web application.
+- By deleting the AutoUpdate registry key from HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+- After discovery is complete, in the Appliance Configuration Manager in the appliance web application.
 
 To delete the registry key:
 
@@ -321,7 +321,7 @@ To delete the registry key:
 2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
 3. Delete the registry key **AutoUpdate** that was previously created to turn off auto-update.
 
-To turn on from Appliance Configuration Manager:
+To turn on from Appliance Configuration Manager after discovery is complete:
 
 1. On the appliance machine, open the Appliance Configuration Manager.
 2. In **Appliance services** > **Automatic update of Azure Migrate components is turned off**, click to turn on auto-update.
