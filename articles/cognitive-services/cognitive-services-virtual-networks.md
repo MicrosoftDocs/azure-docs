@@ -47,6 +47,7 @@ Virtual network support for Cognitive Services listed below is limited to the *C
 > * [Personalizer](./personalizer/index.yml)
 > * [Text Analytics](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
+> * [Speech Service](./speech-service/index.yml)
 
 Virtual network support for Cognitive Services listed below is limited to the *Central US EUAP*, *South Central US*, *East US*, *West US 2*, *Global*, and *US Gov Virginia* Azure regions.
 > [!div class="checklist"]
