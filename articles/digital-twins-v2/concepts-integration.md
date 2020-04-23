@@ -25,7 +25,7 @@ Azure Digital Twins can be driven with data from [IoT Hub](../iot-hub/about-iot-
 
 Azure Digital Twins does not have a built-in IoT Hub. You can use an existing IoT Hub you currently have in production, or deploy a new one. This gives you full access to all of the device management capabilities of IoT Hub.
 
-To ingest data from IoT Hub into Azure Digital Twins, you use an [Azure Function](../azure-functions/functions-overview.md). Learn more about using this pattern in a [tutorial](https://github.com/Azure/azure-digital-twins/tree/private-preview/Tutorials), or read about it in [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md).
+To ingest data from IoT Hub into Azure Digital Twins, you use an [Azure Function](../azure-functions/functions-overview.md). Learn more about using this pattern in a [tutorial](https://github.com/Azure/azure-digital-twins/tree/private-preview/Tutorials), or read about it in [How-to: Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md).
 
 ## Egress services
 
@@ -34,7 +34,7 @@ Azure Digital Twins can send data to connected **endpoints**. Supported endpoint
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Endpoints are attached to Azure Digital Twins using management APIs or the Azure portal. Learn more about how to attach an endpoint to Azure Digital Twins in [Manage endpoints and routes](how-to-manage-routes.md).
+Endpoints are attached to Azure Digital Twins using management APIs or the Azure portal. Learn more about how to attach an endpoint to Azure Digital Twins in [How-to: Manage endpoints and routes](how-to-manage-routes.md).
 
 There are many other services where you may want to ultimately direct your data, such as [Azure Storage](../storage/common/storage-introduction.md) or [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md). To send your data to services like these, attach the destination service to an endpoint.
 
@@ -43,10 +43,10 @@ For example, if you are also using [Azure Maps](../azure-maps/about-azure-maps.m
 ## Next steps
 
 See how to set up an instance of Azure Digital Twins:
-* [Create an Azure Digital Twins instance](how-to-set-up-instance.md)
+* [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md)
 
 See how to set up Azure Digital Twins to ingest data from IoT Hub:
-* [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)
+* [How-to: Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)
 
 Learn more about endpoints and routing events to external services:
-* [Route events to external services](concepts-route-events.md)
+* [Concepts: Routing Azure Digital Twins events](concepts-route-events.md)

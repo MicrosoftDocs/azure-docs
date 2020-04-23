@@ -8,19 +8,19 @@
     href: overview-differences.md
 - name: Concepts
   items:
-  - name: Create a twin model
+  - name: Twin models
     href: concepts-models.md
-  - name: Create digital twins and the twin graph
+  - name: Digital twins and the twin graph
     href: concepts-twins-graph.md
-  - name: Route events
-    href: concepts-route-events.md
   - name: Azure Digital Twins query language
     href: concepts-query-language.md
   - name: Integration with other services
     href: concepts-integration.md
-  - name: Secure Azure Digital Twins solutions
+  - name: Routing events
+    href: concepts-route-events.md
+  - name: Securing Azure Digital Twins solutions
     href: concepts-security.md
-  - name: Understand the Azure Digital Twins SDKs
+  - name: The Azure Digital Twins SDKs
     href: concepts-sdks.md
 - name: How-to guides
   items:
@@ -30,6 +30,8 @@
     href: how-to-authenticate.md
   - name: Ingest telemetry from IoT Hub
     href: how-to-ingest-iot-hub-data.md
+  - name: Set up an Azure Function
+    href: how-to-create-azure-function.md
   - name: Use the APIs
     href: how-to-use-apis.md
   - name: Manage a twin model
@@ -40,12 +42,10 @@
     href: how-to-manage-graph.md
   - name: Manage endpoints and routes
     href: how-to-manage-routes.md
+  - name: Interpret event data
+    href: how-to-interpret-event-data.md
   - name: Query the twin graph
     href: how-to-query-graph.md
-  - name: Understand event data
-    href: how-to-interpret-event-data.md
-  - name: Set up an Azure Function
-    href: how-to-create-azure-function.md
   - name: Use the Azure Digital Twins CLI
     href: how-to-use-cli.md
   - name: Migrate from Public Preview 1

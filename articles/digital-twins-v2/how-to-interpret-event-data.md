@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Understand event data
+title: Interpret event data
 titleSuffix: Azure Digital Twins
-description: See details of different event types and their different notification messages.
+description: See how to interpret different event types and their different notification messages.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
@@ -329,7 +329,7 @@ The corresponding notification (if synchronously executed by the service, such a
 ## Next steps
 
 See how to create endpoints and routes to deliver events:
-* [Manage endpoints and routes](how-to-manage-routes.md)
+* [How-to: Manage endpoints and routes](how-to-manage-routes.md)
 
 Or, learn more about the Azure Digital Twins APIs:
-* [Use the Azure Digital Twins APIs](how-to-use-apis.md)
+* [How-to: Use the Azure Digital Twins APIs](how-to-use-apis.md)
