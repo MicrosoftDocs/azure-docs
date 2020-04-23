@@ -60,7 +60,16 @@ You can use the Editor widget to create new projects and manage a video's insigh
 
 <sup>*</sup>The owner should provide `accessToken` with caution.
 
-## Embedding public content
+## Embedding videos
+
+This section discusses embgedding the public and pirvate content into apps.
+
+Make sure to add the `location` parameter to the link, if your resource is not in the **trail** region. The parameter should be set to the [Azure regions in which Video Indexer exists](regions.md). For example: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+
+> [!IMPORTANT]
+> Sharing the widget link will include the access token and grant the read-only permissions to your account.
+
+### Public content
 
 1. Sign in to the [Video Indexer](https://www.videoindexer.ai/) website.
 1. Select the video that you want to work with and press **Play**.
@@ -69,9 +78,7 @@ You can use the Editor widget to create new projects and manage a video's insigh
 5. Copy the embed code (appears in **Copy the embedded code** in the **Share & Embed** dialog).
 6. Add the code to your app.
 
-Make sure to add the `location` parameter to the link, if your resource is not in the **trail** region. The parameter should be set to the [Azure regions in which Video Indexer exists](regions.md). For example: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
-
-## Embedding private content
+## Private content
 
 To embed a private video, you must pass an access token in the `src` attribute of the iframe:
 
