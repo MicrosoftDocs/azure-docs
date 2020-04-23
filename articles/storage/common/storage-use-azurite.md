@@ -4,7 +4,7 @@ description: The Azurite open-source emulator (preview) provides a free local en
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 08/31/2019
+ms.date: 04/24/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Use the Azurite emulator for local Azure Storage development and testing (preview)
 
-The Azurite version 3.2 open-source emulator (preview) provides a free local environment for testing your Azure blob and queue storage applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and MacOS. Azurite v3 supports APIs implemented by the Azure Blob service.
+The Azurite version 3.2 open-source emulator (preview) provides a free local environment for testing your Azure blob and queue storage applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and macOS. Azurite v3 supports APIs implemented by the Azure Blob service.
 
 Azurite is the future storage emulator platform. Azurite supersedes the [Azure Storage Emulator](storage-use-emulator.md). Azurite will continue to be updated to support the latest versions of Azure Storage APIs.
 
@@ -29,11 +29,11 @@ Within Visual Studio Code, select the **EXTENSIONS** pane and search for *Azurit
 
 ![Visual Studio Code extensions marketplace](media/storage-use-azurite/azurite-vs-code-extension.png)
 
-Alternatively, navigate to [VS Code extension market](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) in your browser. Select the **Install** button to open Visual Studio Code and go directly to the Azurite extension page.
+Alternatively, navigate to [Visual Studio Code extension market](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) in your browser. Select the **Install** button to open Visual Studio Code and go directly to the Azurite extension page.
 
-You can quickly start or close Azurite by clicking on **[Azurite Blob Service]** or **[Azurite Queue Service]** in the VS Code status bar or issuing the following commands in the VS Code command palette. To open the command palette, press **F1** in VS Code.
+You can quickly start or close Azurite in the Visual Studio Code status bar. Click on **[Azurite Blob Service]** or **[Azurite Queue Service]**.
 
-The extension supports the following Visual Studio Code commands:
+The extension supports the following Visual Studio Code commands. To open the command palette, press F1 in Visual Studio Code. 
 
    * **Azurite: Start** - Start all Azurite services
    * **Azurite: Close** - Close all Azurite services
@@ -61,13 +61,13 @@ The following settings are supported:
 
 ## Install and run Azurite by using NPM
 
-This installation method requires that you have [Node.js version 8.0 or later](https://nodejs.org) installed. **npm** is the package management tool included with every Node.js installation. After installing Node.js, execute the following **npm** command to install Azurite.
+This installation method requires that you have [Node.js version 8.0 or later](https://nodejs.org) installed. Node Package Manager (npm) is the package management tool included with every Node.js installation. After installing Node.js, execute the following `npm` command to install Azurite.
 
 ```console
 npm install -g azurite
 ```
 
-After installing Azurite, see [Run Azurite from a command-line](#run-azurite-from-a-command-line).
+After installing Azurite, see [Run Azurite from a command line](#run-azurite-from-a-command-line).
 
 ## Install and run the Azurite Docker image
 
@@ -102,7 +102,7 @@ docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite
 
 **Set all Azurite parameters**:
 
-This example shows how to set all of the command-line parameters. All of the parameters below should be placed on a single command-line.
+This example shows how to set all of the command line parameters. All of the parameters below should be placed on a single command line.
 
 ```console
 docker run -p 8888:8888
@@ -116,7 +116,7 @@ docker run -p 8888:8888
            --queueHost 0.0.0.0
 ```
 
-See [Command-line options](#command-line-options) for more information about configuring Azurite at start-up.
+See [Command line options](#command-line-options) for more information about configuring Azurite at start-up.
 
 ## Clone, build, and run Azurite from the GitHub repository
 
@@ -134,24 +134,24 @@ npm run build
 npm install -g
 ```
 
-After installing and building Azurite, see [Run Azurite from a command-line](#run-azurite-from-a-command-line).
+After installing and building Azurite, see [Run Azurite from a command line](#run-azurite-from-a-command-line).
 
-## Run Azurite from a command-line
+## Run Azurite from a command line
 
 > [!NOTE]
-> Azurite cannot be run from the command line if you only installed the Visual Studio Code extension. Instead, use the VS Code command palette. For more information, see [Install and run the Azurite Visual Studio Code extension](#install-and-run-the-azurite-visual-studio-code-extension).
+> Azurite cannot be run from the command line if you only installed the Visual Studio Code extension. Instead, use the Visual Studio Code command palette. For more information, see [Install and run the Azurite Visual Studio Code extension](#install-and-run-the-azurite-visual-studio-code-extension).
 
-To get started immediately with the command-line, create a directory called **c:\azurite**, then launch Azurite by issuing the following command:
+To get started immediately with the command line, create a directory called *c:\azurite*, then launch Azurite by issuing the following command:
 
 ```console
 azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 ```
 
-This command tells Azurite to store all data in a particular directory, **c:\azurite**. If the **--location** option is omitted, it will use the current working directory.
+This command tells Azurite to store all data in a particular directory, *c:\azurite*. If the `--location` option is omitted, it will use the current working directory.
 
 ## Command-line options
 
-This section details the command-line switches available when launching Azurite. All command-line switches are optional.
+This section details the command line switches available when launching Azurite. All command line switches are optional.
 
 ```console
 C:\Azurite> azurite [--blobHost <IP address>] [--blobPort <port address>] 
@@ -160,11 +160,11 @@ C:\Azurite> azurite [--blobHost <IP address>] [--blobPort <port address>]
     [-s | --silent] [-h | --help]
 ```
 
-The **-d** is a shortcut for **--debug**, **-l** switch is a shortcut for **--location**, **-s** is a shortcut for **--silent**, and **-h** is a shortcut for **--help**.
+The `-d` is a shortcut for `--debug`, `-l` switch is a shortcut for `--location` , `-s` is a shortcut for `--silent` , and `-h` is a shortcut for `--help`.
 
 ### Blob listening host
 
-**Optional** By default, Azurite will listen to 127.0.0.1 as the local server. Use the **--blobHost** switch to set the address to your requirements.
+**Optional** By default, Azurite will listen to 127.0.0.1 as the local server. Use the `--blobHost` switch to set the address to your requirements.
 
 Accept requests on the local machine only:
 
@@ -183,7 +183,7 @@ azurite --blobHost 0.0.0.0
 
 ### Blob listening port configuration
 
-**Optional** By default, Azurite will listen for the Blob service on port 10000. Use the **--blobPort** switch to specify the listening port that you require.
+**Optional** By default, Azurite will listen for the Blob service on port 10000. Use the `--blobPort` switch to specify the listening port that you require.
 
 > [!NOTE]
 > After using a customized port, you need to update the connection string or corresponding configuration in your Azure Storage tools or SDKs.
@@ -204,7 +204,7 @@ The port in use is displayed during Azurite startup.
 
 ### Queue listening host
 
-**Optional** By default, Azurite will listen to 127.0.0.1 as the local server. Use the **--queueHost** switch to set the address to your requirements.
+**Optional** By default, Azurite will listen to 127.0.0.1 as the local server. Use the `--queueHost` switch to set the address to your requirements.
 
 Accept requests on the local machine only:
 
@@ -223,7 +223,7 @@ azurite --queueHost 0.0.0.0
 
 ### Queue listening port configuration
 
-**Optional** By default, Azurite will listen for the Queue service on port 10001. Use the **--queuePort** switch to specify the listening port that you require.
+**Optional** By default, Azurite will listen for the Queue service on port 10001. Use the `--queuePort` switch to specify the listening port that you require.
 
 > [!NOTE]
 > After using a customized port, you need to update the connection string or corresponding configuration in your Azure Storage tools or SDKs.
@@ -244,7 +244,7 @@ The port in use is displayed during Azurite startup.
 
 ### Workspace path
 
-**Optional** Azurite stores data to the local disk during execution. Use the **--location** switch to specify a path as the workspace location. By default, the current process working directory will be used.
+**Optional** Azurite stores data to the local disk during execution. Use the `--location` switch to specify a path as the workspace location. By default, the current process working directory will be used.
 
 ```console
 azurite --location c:\azurite
@@ -256,7 +256,7 @@ azurite -l c:\azurite
 
 ### Access log
 
-**Optional** By default, the access log is displayed in the console window. Disable the display of the access log by using the **--silent** switch.
+**Optional** By default, the access log is displayed in the console window. Disable the display of the access log by using the `--silent` switch.
 
 ```console
 azurite --silent
@@ -268,7 +268,7 @@ azurite -s
 
 ### Debug log
 
-**Optional** The debug log includes detailed information on every request and exception stack trace. Enable the debug log by providing a valid local file path to the **--debug** switch.
+**Optional** The debug log includes detailed information on every request and exception stack trace. Enable the debug log by providing a valid local file path to the `--debug` switch.
 
 ```console
 azurite --debug path/debug.log
@@ -280,7 +280,7 @@ azurite -d path/debug.log
 
 ### Loose mode
 
-**Optional** By default, Azurite applies strict mode to block unsupported request headers and parameters. Disable strict mode by using the **--loose** switch.
+**Optional** By default, Azurite applies strict mode to block unsupported request headers and parameters. Disable strict mode by using the `--loose` switch.
 
 ```console
 azurite --loose
@@ -292,13 +292,46 @@ Note the capital 'L' shortcut switch:
 azurite -L
 ```
 
+### Certificate configuration (HTTPS)
+
+**Optional** By default, Azurite uses the HTTP protocol. Enable HTTPS mode by providing a path to a Privacy Enhanced Mail (.pem) or [Personal Information Exchange (.pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) certificate file to the `--cert` switch.
+
+```console
+azurite --cert path/server.pem
+```
+
+When `--cert` is provided for a PEM file, you must provide a corresponding `--key` switch.
+
+```console
+azurite --cert path/server.pem --key path/key.pem
+```
+
+When `--cert` is provided for a PFX file, you must provide a corresponding `--pwd` switch.
+
+```console
+azurite --cert path/server.pfx --pwd pfxpassword
+```
+
+### OAuth configuration
+
+**Optional** Enable OAuth authentication for Azurite by using the `--oauth` switch.
+
+```console
+azurite --oauth basic
+```
+
+> [!NOTE]
+> OAuth requires an HTTPS endpoint. Make sure HTTPS is enabled by providing `--cert` switch along with the `--oauth` switch.
+
+Azurite supports basic authentication by specifying the `basic` parameter to the `--oauth` switch. Azurite will do basic authentication, like validating the incoming bearer token, checking the issuer, audience, and expiry. Azurite won't check the token signature or permissions.
+
 ## Authorization for tools and SDKs
 
 Connect to Azurite from Azure Storage SDKs or tools, like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), by using any authentication strategy. Authentication is required. Azurite supports authorization with Shared Key and shared access signatures (SAS). Azurite also supports anonymous access to public containers.
 
 ### Well-known storage account and key
 
-You can use the following account name and key with Azurite. This is the same well-known account and key used by the legacy Azure storage emulator.
+Azurite accepts the same well-known account and key used by the legacy Azure storage emulator.
 
 * Account name: `devstoreaccount1`
 * Account key: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
@@ -324,13 +357,13 @@ Azurite supports custom storage account names and keys by setting the `AZURITE_A
 
 For example, use a custom storage account that has one key:
 
-```cmd
+```console
 set AZURITE_ACCOUNTS="account1:key1"
 ```
 
 Or use multiple storage accounts with 2 keys each:
 
-```cmd
+```console
 set AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
 ```
 
@@ -375,7 +408,7 @@ The following address might be used for accessing a blob in Azurite:
 
 ### Scaling and performance
 
-Azurite is not a scalable storage service and does not support a large number of concurrent clients. There's no performance guarantee. Azurite is intended for development and testing purposes.
+Azurite isn't a scalable storage service and doesn't support a large number of concurrent clients. There's no performance guarantee. Azurite is intended for development and testing purposes.
 
 ### Error handling
 
@@ -383,7 +416,7 @@ Azurite is aligned with Azure Storage error handling logic, but there are differ
 
 ### RA-GRS
 
-Azurite supports read-access geo-redundant replication (RA-GRS). For storage resources, access the secondary location by appending **-secondary** to the account name. For example, the following address might be used for accessing a blob using the read-only secondary in Azurite:
+Azurite supports read-access geo-redundant replication (RA-GRS). For storage resources, access the secondary location by appending `-secondary` to the account name. For example, the following address might be used for accessing a blob using the read-only secondary in Azurite:
 
 `http://127.0.0.1:10000/devstoreaccount1-secondary/mycontainer/myblob.txt`
 
