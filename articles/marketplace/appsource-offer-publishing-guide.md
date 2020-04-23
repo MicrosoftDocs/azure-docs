@@ -19,7 +19,7 @@ AppSource has paid, list, and trial offers, with the calls-to-action "Get It Now
 
 For links to publishing processes and guidelines for each offer type, see the following table:
 
-| **Product**    | **Publishing guidance**  |
+| Product    | Publishing guidance  |
 | :------------------- | :-------------------|
 | Office 365 | Review the [publishing process and guidelines](https://docs.microsoft.com//office/dev/store/submit-to-appsource-via-partner-center). |
 | Dynamics 365 Business Central | To publish an offer in Partner Center, see [Create a new Dynamics 365 Business Central offer](./partner-center-portal/create-new-business-central-offer.md). |
@@ -28,29 +28,7 @@ For links to publishing processes and guidelines for each offer type, see the fo
 | Power Apps | Learn how to [let customers test drive your app on AppSource](https://powerapps.microsoft.com/blog/appsource-test-drive/). |
 | Power BI | Review the [publishing process and guidelines](https://docs.microsoft.com/power-bi/developer/office-store). |
 
-## Office 365
-
-Review the [publishing process and guidelines](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store).
-
-## Power Apps
-
-Learn how customers can [test drive your app on AppSource](https://powerapps.microsoft.com/blog/appsource-test-drive/).
-
-## Power BI
-
-Review the [publishing process and guidelines](https://docs.microsoft.com/power-bi/developer/office-store).
-
-## Dynamics 365
-
-### Dynamics 365 for Finance and Operations
-If you're building for Enterprise Edition, review the [publishing process and guidelines](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source).
-
-To learn how to publish the offer in Partner Center, see [Dynamics 365 for Finance and Operations offer](./partner-center-portal/create-new-operations-offer.md).
-
-### Dynamics 365 for Customer Engagement
-Review the [publishing process and guidelines](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource).
-
-To learn how to publish the offer in Partner Center, see [Dynamics 365 for Customer Engagement offer](./partner-center-portal/create-new-customer-engagement-offer.md).
+---
 
 ## Next steps
 
