@@ -14,7 +14,7 @@ ms.author: cynthn
 
 Manage platform updates, that don't require a reboot, using maintenance control. Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window. 
 
-Maintenance control lets you decide when to apply updates to your isolated VMs and Azure Dedicated Hosts.
+Maintenance control lets you decide when to apply updates to your isolated VMs and Azure dedicated hosts.
 
 With maintenance control, you can:
 - Batch updates into one update package.
