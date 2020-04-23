@@ -4,7 +4,7 @@ description: Azure PowerShell example script to monitor and scale a single datab
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom:
+ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
 author: juliemsft

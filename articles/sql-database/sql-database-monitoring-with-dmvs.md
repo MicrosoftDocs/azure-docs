@@ -4,7 +4,7 @@ description: Learn how to detect and diagnose common performance problems by usi
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: sqldbrb=3
+ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 author: juliemsft

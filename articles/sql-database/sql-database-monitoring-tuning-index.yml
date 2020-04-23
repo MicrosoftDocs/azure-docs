@@ -8,7 +8,7 @@ metadata:
   description: Learn about Azure SQL Database monitoring and performance tuning tools that help you collect metrics and diagnostics and improve database performance.
   ms.service: sql-database #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: performance # Optional; Remove if no subservice is used.
-  ms.custom: sqldbrb=3
+  ms.custom: sqldbrb=2
   ms.topic: landing-page # Required
   ms.collection: performance # Optional; Remove if no collection is used.
   author: CarlRabeler #Required; your GitHub user alias, with correct capitalization.
