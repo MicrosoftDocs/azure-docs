@@ -45,6 +45,6 @@ The following table summarizes the different authentication methods for each env
 
 ## Next steps
 
-* [Create an Automation account from the Azure portal](automation-create-standalone-account).
+* [Create an Automation account from the Azure portal](automation-create-standalone-account.md).
 
-* [Create an Automation account using Azure Resource Manager template](automation-create-account-template).
+* [Create an Automation account using Azure Resource Manager template](automation-create-account-template.md).
