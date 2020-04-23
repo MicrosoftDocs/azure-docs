@@ -6,12 +6,12 @@ author: erichrt
 ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
-ms.author: erichrt
+ms.author: errobin
 ---
 # Frequently Asked Questions
 
 ## Are there data throughput limits for the Load Balancer?
- There are no hard limits on ingress and egress data throughput. For Standard SKU public load balancers the recommend ingress is 10 Gbps, with no egress limit. For Basic SKU public load balancers the recommended ingress is XXX Gbps, with no egress limit. Internal load balancers have no ingress or egress throughput limits other than the capabilities of the backend resources.
+There are no hard limits on data throughput. For public load balancers, the recommend ingress is 10 Gbps for Standard SKUand XXX Gbps for Basic SKU, with no egress limit. Internal load balancers have no ingress or egress throughput limits. It is important to consider the data throughput of your backend resources in all configurations.
 
  ## What are the differences between the Azure Load Balancer, Application Gateway, Azure Front Door, and Traffic Manager?
  See [this](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) article for an in-depth explanation on the differences and recommended uses for each.
