@@ -312,7 +312,7 @@ The appliance is upgraded as the Azure Migrate agents running on the appliance a
 
 You can turn on auto-update using either of these methods:
 
-- By leting the AutoUpdate registry key from HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+- By deleting the AutoUpdate registry key from HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
 - After discovery is complete, in the Appliance Configuration Manager in the appliance web application
 
 To delete the registry key:
@@ -321,7 +321,7 @@ To delete the registry key:
 2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
 3. Delete the registry key **AutoUpdate** that was previously created to turn off auto-update.
 
-To turn on from Appliance Configuration Manager after discovery is complete:
+To turn on from Appliance Configuration Manager, after discovery is complete:
 
 1. On the appliance machine, open the Appliance Configuration Manager.
 2. In **Appliance services** > **Automatic update of Azure Migrate components is turned off**, click to turn on auto-update.
@@ -337,7 +337,7 @@ You can check the appliance services version using either of these methods:
 
 To check in the Appliance Configuration Manager:
 
-1. After discovery is complete, open Appliance Configuration Manager in the appliance web application.
+1. After discovery is complete, open Appliance Configuration Manager, in the appliance web application.
 2. In **Appliance services** > verify the appliance services versions.
 
     ![Check version](./media/migrate-appliance/version.png)
@@ -355,20 +355,20 @@ If you are running an older version for any of the components, you must uninstal
 
 1. To check for the latest versions,  [download](https://aka.ms/latestapplianceservices) the LatestComponents.json file.
 2.	After downloading, open the LatestComponents.json file in Notepad.
-3. Find the latest version in the file, and the download link for each of the appliance services. For example:
+3. Find the latest service version in the file, and the download link for it. For example:
 
     "Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
 
-4.	Download the latest version of an outdated service, with the download link in the file.
+4.	Download the latest version of an outdated service, using the download link in the file.
 5. After downloading, run the following command in an administrator command window, to verify the integrity of the downloaded MSI.
 
     ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```
     For example:
     C:\>CertUtil -HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
 
-5. Check that the outcome of the command matches the has value entry for the service in the file (for example, the MD5 hash value above).
+5. Check that the outcome of the command matches the hash value entry for the service in the file (for example, the MD5 hash value above).
 6. Now, run the MSI to install the service. It's a silent install, and the installation window closes after it's done.
-7. After installation is complete, check the version of the service in the **Control panel** > **Programs and Features**. The service version should be upgraded to the latest as shown in the json file.
+7. After installation is complete, check the version of the service in the **Control panel** > **Programs and Features**. The service version should be upgraded to the latest shown in the json file.
 
 
 
