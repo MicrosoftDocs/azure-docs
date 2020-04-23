@@ -23,7 +23,7 @@ Sign in to the [Azure portal](https://rc.portal.azure.com).
 
 ## Create a virtual network
 
-Navigate to the resource group you created in the [previous tutorial](tutorial-create-prviate-cloud.md), and select **+ Add** to define a new resource.
+Navigate to the resource group you created in the [previous tutorial](tutorial-create-private-cloud.md), and select **+ Add** to define a new resource.
 
 In the **Search the Marketplace** text box type, **Virtual Network**. Find the Virtual Network resource and select it.
 
