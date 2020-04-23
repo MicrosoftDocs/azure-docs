@@ -101,7 +101,7 @@ The function then calculates how much a repair will cost, and how much revenue t
 
     This function code returns a message of `Yes` or `No` to indicate whether an emergency repair is cost-effective. It also returns the revenue opportunity that the turbine represents and the cost to fix the turbine.
 
-1. To test the function, select **Test**, select **Input**, enter the following input for the **Body**, and then select **Run**:
+1. To test the function, select **Test**, select the **Input** tab, enter the following input for the **Body**, and then select **Run**:
 
     ```json
     {
@@ -112,7 +112,7 @@ The function then calculates how much a repair will cost, and how much revenue t
 
     ![Test the function in the Azure portal](media/functions-openapi-definition/test-function.png)
 
-    The following value is returned in the **Output**.
+    The following value is returned in the **Output** tab.
 
     ```json
     {"message":"Yes","revenueOpportunity":"$7200","costToFix":"$1600"}
@@ -129,9 +129,7 @@ Now you're ready to generate the OpenAPI definition.
     :::image type="content" source="media/functions-openapi-definition/select-all-settings-openapi.png" alt-text="Choose API Management":::
 
 
-1. Use the API Management settings as specified in the table below the image.
-
-    ![Create new API Management service](media/functions-openapi-definition/new-apim-service-openapi.png)
+1. Use the API Management settings as specified in the following table:
 
     | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -143,9 +141,11 @@ Now you're ready to generate the OpenAPI definition.
     | **Administrator email** | your email | Email that received system notifications from API Management. |
     | **Pricing tier** | Consumption | Consumption tier isn't available in all regions. For complete pricing details, see the [API Management pricing page](https://azure.microsoft.com/pricing/details/api-management/) |
 
+    ![Create new API Management service](media/functions-openapi-definition/new-apim-service-openapi.png)
+
 1. Choose **Create** to create the API Management instance, which may take several minutes.
 
-1. After Azure creates the instance, the **Enable Application Insights** option appears on the page. Select it to send logs to the same place as the function application, and then select **Link API**.
+1. After Azure creates the instance, it enables the **Enable Application Insights** option on the page. Select it to send logs to the same place as the function application, and then select **Link API**.
 
 1. The **Import Azure Functions** opens with the **TurbineRepair** function highlighted. Choose **Select** to continue.
 
@@ -155,7 +155,7 @@ Now you're ready to generate the OpenAPI definition.
 
     :::image type="content" source="media/functions-openapi-definition/create-function-openapi.png" alt-text="Create from Function App":::
 
-The API is now created for the function.
+    Azure creates the API for the function.
 
 ## Test the API
 
