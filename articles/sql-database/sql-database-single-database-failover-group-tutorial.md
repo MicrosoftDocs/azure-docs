@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Add a single database to a failover group"
-description: Add an Azure SQL Database single database to a failover group using the Azure portal, PowerShell, or Azure CLI.  
+title: "Tutorial: Add a database to a failover group"
+description: Add an Azure SQL Database to an auto-failover group using the Azure portal, PowerShell, or Azure CLI.  
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: MashaMSFT
@@ -12,13 +12,13 @@ ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
 ---
-# Tutorial: Add an Azure SQL Database single database to a failover group
+# Tutorial: Add an Azure SQL Database to an auto-failover group
 
-A [failover group](sql-database-auto-failover-group.md) is a declarative abstraction layer that allows you to group mulitple geo-replicated databases. Learn to configure a failover group for an Azure SQL Database single database and test failover using either the Azure portal, PowerShell, or Azure CLI.  In this tutorial, you will learn how to:
+A [failover group](sql-database-auto-failover-group.md) is a declarative abstraction layer that allows you to group mulitple geo-replicated databases. Learn to configure a failover group for an Azure SQL Database and test failover using either the Azure portal, PowerShell, or Azure CLI.  In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
-> - Create an Azure SQL Database single database.
-> - Create a failover group for a single database between two logical SQL servers.
+> - Create an Azure SQL Database
+> - Create a failover group for a database between two logical SQL servers.
 > - Test failover.
 
 ## Prerequisites
@@ -44,21 +44,21 @@ To complete the tutorial, make sure you have the following items:
 
 ---
 
-## 1 - Create a single database 
+## 1 - Create a database 
 
 [!INCLUDE [sql-database-create-single-database](includes/sql-database-create-single-database.md)]
 
 ## 2 - Create the failover group 
-In this step, you will create a [failover group](sql-database-auto-failover-group.md) between an existing Azure SQL server and a new Azure SQL server in another region. Then add the sample database to the failover group. 
+In this step, you will create a [failover group](sql-database-auto-failover-group.md) between an existing Azure SQL Database server and a new Azure SQL Database server in another region. Then add the sample database to the failover group. 
 
 # [Portal](#tab/azure-portal)
-Create your failover group and add your single database to it using the Azure portal. 
+Create your failover group and add your database to it using the Azure portal. 
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
-1. Select the single database created in section 1, such as `mySampleDatabase`. 
-1. Failover groups can be configurd at the server level. Select the name of the server under **Server name** to open the settings for the server.
+1. Select the database created in section 1, such as `mySampleDatabase`. 
+1. Failover groups can be configured at the server level. Select the name of the server under **Server name** to open the settings for the server.
 
-   ![Open server for single db](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+   ![Open server for database](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
 
 1. Select **Failover groups** under the **Settings** pane, and then select **Add group** to create a new failover group. 
 
@@ -83,7 +83,7 @@ Create your failover group and add your single database to it using the Azure po
         
 
 # [PowerShell](#tab/azure-powershell)
-Create your failover group and add your single database to it using PowerShell. 
+Create your failover group and add your database to it using PowerShell. 
 
    > [!NOTE]
    > The server login and firewall settings must match that of your primary server. 
@@ -161,7 +161,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 | [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Adds one or more Azure SQL Databases to a failover group. |
 
 # [Azure CLI](#tab/azure-cli)
-Create your failover group and add your single database to it using AZ CLI. 
+Create your failover group and add your database to it using AZ CLI. 
 
    > [!NOTE]
    > The server login and firewall settings must match that of your primary server. 
@@ -197,17 +197,17 @@ In this step, you will fail your failover group over to the secondary server, an
 Test failover using the Azure portal. 
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
-1. Select the single database created in the section 2, such as `mySampleDatbase`. 
+1. Select the database created in the section 2, such as `mySampleDatbase`. 
 1. Select the name of the server under **Server name** to open the settings for the server.
 
-   ![Open server for single db](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+   ![Open server for database](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
 
 1. Select **Failover groups** under the **Settings** pane and then choose the failover group you created in section 2. 
   
    ![Select the failover group from the portal](media/sql-database-single-database-failover-group-tutorial/select-failover-group.png)
 
 1. Review which server is primary and which server is secondary. 
-1. Select **Failover** from the task pane to failover your failover group containing your sample single database. 
+1. Select **Failover** from the task pane to failover your failover group containing your sample database. 
 1. Select **Yes** on the warning that notifies you that TDS sessions will be disconnected. 
 
    ![Fail over your failover group containing your SQL database](media/sql-database-single-database-failover-group-tutorial/failover-sql-db.png)
@@ -372,16 +372,16 @@ This portion of the tutorial uses the following Az CLI cmdlets:
 
 # [PowerShell](#tab/azure-powershell)
 
-[!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add single database to a failover group")]
+[!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add database to a failover group")]
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts single databases and elastic pools. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a logical Azure SQL Database server that hosts single databases and elastic pools. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a firewall rule for a logical server. | 
-| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a new Azure SQL Database single database. | 
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a new Azure SQL Database. | 
 | [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Creates a new failover group. |
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Gets one or more SQL databases. |
 | [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Adds one or more Azure SQL Databases to a failover group. |
@@ -391,7 +391,7 @@ This script uses the following commands. Each command in the table links to comm
 
 # [Azure CLI](#tab/azure-cli)
 
-[!code-azurecli-interactive[main](../../cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh "Add single database to a failover group")]
+[!code-azurecli-interactive[main](../../cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh "Add database to a failover group")]
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
@@ -399,7 +399,7 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) | Sets a subscription to be the current active subscription. | 
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Creates a SQL Database server that hosts single databases and elastic pools. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Creates a Azure SQL Database server that hosts single databases and elastic pools. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Creates a server's firewall rules. | 
 | [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Creates a database. | 
 | [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Creates a failover group. | 
@@ -416,11 +416,11 @@ You can find other Azure SQL Database scripts here: [Azure PowerShell](sql-datab
 
 ## Next steps
 
-In this tutorial, you added an Azure SQL Database single database to a failover group, and tested failover. You learned how to: 
+In this tutorial, you added an Azure SQL Database to a failover group, and tested failover. You learned how to: 
 
 > [!div class="checklist"]
-> - Create an Azure SQL Database single database. 
-> - Create a [failover group](sql-database-auto-failover-group.md) for a single database between two logical SQL servers.
+> - Create an Azure SQL Database
+> - Create a [failover group](sql-database-auto-failover-group.md) for a database between two logical SQL servers.
 > - Test failover.
 
 Advance to the next tutorial on how to add your elastic pool to a failover group. 

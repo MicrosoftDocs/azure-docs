@@ -1,6 +1,6 @@
 ---
 title: SQL Server replication to Azure SQL Database
-description: You can configure an Azure SQL Database as the push subscriber in a [SQL server](sql-database-servers.md) one-way transactional or snapshot replication topology. 
+description: You can configure an Azure SQL Database as the push subscriber in a one-way transactional or snapshot replication topology. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -14,14 +14,14 @@ ms.date: 01/25/2019
 ---
 # Replication to Azure SQL Database 
 
-You can configure an Azure SQL Database as the push subscriber in a SQL server one-way transactional or snapshot replication topology. 
+You can configure an Azure SQL Database as the push subscriber in a one-way transactional or snapshot replication topology.
 
 ## Supported Configurations
   
 - The Azure SQL database can only be the push subscriber of a SQL Server publisher and distributor.  
-- The SQL Server acting as publisher and/or distributor can be an instance of [SQL Server running on-premises](https://www.microsoft.com/en-us/sql-server/sql-server-downloads), an [Azure SQL Managed Instance](sql-database-managed-instance-get-started.md), or an instance of [SQL Server running on an Azure virtual machine in the cloud](/virtual-machines/windows/quickstart-sql-vm-create-portal.md). 
+- The SQL Server acting as publisher and/or distributor can be an instance of [SQL Server running on-premises](https://www.microsoft.com/sql-server/sql-server-downloads), an [Azure SQL Managed Instance](sql-database-managed-instance-get-started.md), or an instance of [SQL Server running on an Azure virtual machine in the cloud](/virtual-machines/windows/quickstart-sql-vm-create-portal.md). 
 - The distribution database and the replication agents cannot be placed on an Azure SQL database.  
-- [Snapshot](/relational-databases/replication/snapshot-replication) and [one-way transactional](/sql/relational-databases/replication/transactional/transactional-replication) replication are supported. Peer-to-peer transactional replication and merge replication are not supported.
+- [Snapshot](/sql/relational-databases/replication/snapshot-replication) and [one-way transactional](/sql/relational-databases/replication/transactional/transactional-replication) replication are supported. Peer-to-peer transactional replication and merge replication are not supported.
 
 
 ### Versions  

@@ -1,10 +1,11 @@
 ---
 title: Configure a failover group
-description: Learn how to configure an auto-failover group for an Azure SQL Database single database, elastic pool, and managed instance using the Azure portal, the Az CLI, and PowerShell. 
+titleSuffix: Azure SQL Database & SQL Managed Instance 
+description: Learn how to configure an auto-failover group for an Azure SQL Database (both single and pooled) and SQL Managed Instance, using the Azure portal, the Az CLI, and PowerShell. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom:
+ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 author: MashaMSFT
@@ -14,10 +15,10 @@ ms.date: 08/14/2019
 ---
 # Configure a failover group for Azure SQL Database
 
-This topic teaches you how to configure an [auto-failover group](sql-database-auto-failover-group.md) for an Azure SQL Database single database, elastic pool, and managed instance using the Azure portal, or PowerShell. 
+This topic teaches you how to configure an [auto-failover group](sql-database-auto-failover-group.md) for an Azure SQL Database (single or pooled), and Azure SQL Managed Instance. 
 
-## Single database
-Create the failover group and add a single database to it using the Azure portal, or PowerShell.
+## Single SQL Database
+Create the failover group and add a single SQL Database to it using the Azure portal, or PowerShell.
 
 ### Prerequisites
 
@@ -32,7 +33,7 @@ Create your failover group and add your single database to it using the Azure po
 
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
-1. Select the single database you want to add to the failover group. 
+1. Select the SQL Database you want to add to the failover group. 
 1. Select the name of the server under **Server name** to open the settings for the server.
 
    ![Open server for single db](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
@@ -43,12 +44,12 @@ Create your failover group and add your single database to it using the Azure po
 
 1. On the **Failover Group** page, enter or select the required values, and then select **Create**.
 
-   - **Databases within the group**: Choose the database you want to add to  your failover group. Adding the database to the failover group will automatically start the geo-replication process. 
+   - **Databases within the group**: Choose the database you want to add to your failover group. Adding the database to the failover group will automatically start the geo-replication process. 
         
     ![Add SQL DB to failover group](media/sql-database-single-database-failover-group-tutorial/add-sqldb-to-failover-group.png)
 
 # [PowerShell](#tab/azure-powershell)
-Create your failover group and add your single database to it using PowerShell. 
+Create your failover group and add your SQL database to it using PowerShell. 
 
    ```powershell-interactive
    $subscriptionId = "<SubscriptionID>"
@@ -106,7 +107,7 @@ Test failover of your failover group using the Azure portal, or PowerShell.
 Test failover of your failover group using the Azure portal. 
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
-1. Select the single database you want to add to the failover group. 
+1. Select the SQL Database you want to add to the failover group. 
 
    ![Open server for single db](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
 
@@ -181,7 +182,7 @@ Revert failover group back to the primary server:
 > [!IMPORTANT]
 > If you need to delete the secondary database, remove it from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
 
-## Elastic pool
+## Pooled SQL Database
 Create the failover group and add an elastic pool to it using the Azure portal, or PowerShell.  
 
 ### Prerequisites
@@ -329,18 +330,18 @@ Fail over to the secondary server:
 > [!IMPORTANT]
 > If you need to delete the secondary database, remove it from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior. 
 
-## Managed instance
+## SQL Managed Instance
 
-Create a failover group between two managed instances using the Azure portal, or PowerShell. 
+Create a failover group between two SQL Managed Instances using the Azure portal, or PowerShell. 
 
-You will either need to configure [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) or to create a gateway for the virtual network of each managed instance, connect the two gateways, and then create the failover group. 
+You will either need to configure [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) or to create a gateway for the virtual network of each SQL Managed Instance, connect the two gateways, and then create the failover group. 
 
 ### Prerequisites
 Consider the following prerequisites:
 
-- The secondary managed instance must be empty.
+- The secondary SQL Managed Instance must be empty.
 - The subnet range for the secondary virtual network must not overlap the subnet range of the primary virtual network. 
-- The collation and timezone of the secondary instance must match that of the primary instance. 
+- The collation and timezone of the secondary SQL Managed Instance must match that of the primary SQL Managed Instance. 
 - When connecting the two gateways, the **Shared Key** should be the same for both connections. 
 
 ### Create primary virtual network gateway 
@@ -351,29 +352,29 @@ If you have not configured [ExpressRoute](../expressroute/expressroute-howto-cir
 
 Create the primary virtual network gateway using the Azure portal. 
 
-1. In the [Azure portal](https://portal.azure.com), go to your resource group and select the **Virtual network** resource for your primary managed instance. 
+1. In the [Azure portal](https://portal.azure.com), go to your resource group and select the **Virtual network** resource for your primary SQL Managed Instance. 
 1. Select **Subnets** under **Settings** and then select to add a new **Gateway subnet**. Leave the default values. 
 
-   ![Add gateway for primary managed instance](media/sql-database-managed-instance-failover-group-tutorial/add-subnet-gateway-primary-vnet.png)
+   ![Add gateway for primary SQL Managed Instance](media/sql-database-managed-instance-failover-group-tutorial/add-subnet-gateway-primary-vnet.png)
 
 1. Once the subnet gateway is created, select **Create a resource** from the left navigation pane and then type `Virtual network gateway` in the search box. Select the **Virtual network gateway** resource published by **Microsoft**. 
 
    ![Create a new virtual network gateway](media/sql-database-managed-instance-failover-group-tutorial/create-virtual-network-gateway.png)
 
-1. Fill out the required fields to configure the gateway your primary managed instance. 
+1. Fill out the required fields to configure the gateway your primary SQL Managed Instance. 
 
-   The following table shows the values necessary for the gateway for the primary managed instance:
+   The following table shows the values necessary for the gateway for the primary SQL Managed Instance:
  
     | **Field** | Value |
     | --- | --- |
-    | **Subscription** |  The subscription where your primary managed instance is. |
+    | **Subscription** |  The subscription where your primary SQL Managed Instance is. |
     | **Name** | The name for your virtual network gateway. | 
-    | **Region** | The region where your secondary managed instance is. |
+    | **Region** | The region where your primary SQL Managed Instance is. |
     | **Gateway type** | Select **VPN**. |
     | **VPN Type** | Select **Route-based** |
     | **SKU**| Leave default of `VpnGw1`. |
-    | **Location**| The location where your secondary managed instance and secondary virtual network is.   |
-    | **Virtual network**| Select the virtual network for your secondary managed instance. |
+    | **Location**| The location where your secondary SQL Managed Instance and secondary virtual network is.   |
+    | **Virtual network**| Select the virtual network for your secondary SQL Managed Instance. |
     | **Public IP address**| Select **Create new**. |
     | **Public IP address name**| Enter a name for your IP address. |
     | &nbsp; | &nbsp; |
@@ -421,19 +422,19 @@ Create the primary virtual network gateway using PowerShell.
 Create the secondary virtual network gateway using the Azure portal, or PowerShell. 
 
 # [Portal](#tab/azure-portal)
-Repeat the steps in the previous section to create the virtual network subnet and gateway for the secondary managed instance. Fill out the required fields to configure the gateway for your secondary managed instance. 
+Repeat the steps in the previous section to create the virtual network subnet and gateway for the secondary SQL Managed Instance. Fill out the required fields to configure the gateway for your secondary SQL Managed Instance. 
 
-   The following table shows the values necessary for the gateway for the secondary managed instance:
+   The following table shows the values necessary for the gateway for the secondary SQL Managed Instance:
 
    | **Field** | Value |
    | --- | --- |
-   | **Subscription** |  The subscription where your secondary managed instance is. |
+   | **Subscription** |  The subscription where your secondary SQL Managed Instance is. |
    | **Name** | The name for your virtual network gateway, such as `secondary-mi-gateway`. | 
-   | **Region** | The region where your secondary managed instance is. |
+   | **Region** | The region where your secondary SQL Managed Instance is. |
    | **Gateway type** | Select **VPN**. |
    | **VPN Type** | Select **Route-based** |
    | **SKU**| Leave default of `VpnGw1`. |
-   | **Location**| The location where your secondary managed instance and secondary virtual network is.   |
+   | **Location**| The location where your secondary SQL Managed Instance and secondary virtual network is.   |
    | **Virtual network**| Select the virtual network that was created in section 2, such as `vnet-sql-mi-secondary`. |
    | **Public IP address**| Select **Create new**. |
    | **Public IP address name**| Enter a name for your IP address, such as `secondary-gateway-IP`. |
@@ -491,8 +492,8 @@ Create connections between the two gateways using the Azure portal.
 1. On the **Basics** tab, select the following values and then select **OK**. 
     1. Select `VNet-to-VNet` for the **Connection type**. 
     1. Select your subscription from the drop-down. 
-    1. Select the resource group for your managed instance in the drop-down. 
-    1. Select the location of your primary managed instance from the drop-down 
+    1. Select the resource group for your SQL Managed Instance in the drop-down. 
+    1. Select the location of your primary SQL Managed Instance from the drop-down 
 1. On the **Settings** tab, select or enter the following values and then select **OK**:
     1. Choose the primary network gateway for the **First virtual network gateway**, such as `Primary-Gateway`.  
     1. Choose the secondary network gateway for the **Second virtual network gateway**, such as `Secondary-Gateway`. 
@@ -538,19 +539,19 @@ Create connections between the two gateways using PowerShell.
 ---
 
 ### Create the failover group 
-Create the failover group for your managed instances using the Azure portal, or PowerShell. 
+Create the failover group for your SQL Managed Instances using the Azure portal, or PowerShell. 
 
 # [Portal](#tab/azure-portal)
 
-Create the failover group for your managed instances using Azure portal. 
+Create the failover group for your SQL Managed Instances using Azure portal. 
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
-1. Select the primary managed instance you want to add to the failover group.  
+1. Select the primary SQL Managed Instance you want to add to the failover group.  
 1. Under **Settings**, navigate to **Instance Failover Groups** and then choose to **Add group** to open the **Instance Failover Group** page. 
 
    ![Add a failover group](media/sql-database-managed-instance-failover-group-tutorial/add-failover-group.png)
 
-1. On the **Instance Failover Group** page, type the name of your failover group and then choose the secondary managed instance from the drop-down. Select **Create** to create your failover group. 
+1. On the **Instance Failover Group** page, type the name of your failover group and then choose the secondary SQL Managed Instance from the drop-down. Select **Create** to create your failover group. 
 
    ![Create failover group](media/sql-database-managed-instance-failover-group-tutorial/create-failover-group.png)
 
@@ -558,7 +559,7 @@ Create the failover group for your managed instances using Azure portal.
 
 # [PowerShell](#tab/azure-powershell)
 
-Create the failover group for your managed instances using PowerShell. 
+Create the failover group for your SQL Managed Instances using PowerShell. 
 
    ```powershell-interactive
    $primaryResourceGroupName = "<Primary-Resource-Group>"
@@ -586,17 +587,17 @@ Test failover of your failover group using the Azure portal, or PowerShell.
 
 Test failover of your failover group using the Azure portal. 
 
-1. Navigate to your _secondary_ managed instance within the [Azure portal](https://portal.azure.com) and select **Instance Failover Groups** under settings. 
-1. Review which managed instance is the primary, and which managed instance is the secondary. 
+1. Navigate to your _secondary_ SQL Managed Instance within the [Azure portal](https://portal.azure.com) and select **Instance Failover Groups** under settings. 
+1. Review which SQL Managed Instance is the primary, and which SQL Managed Instance is the secondary. 
 1. Select **Failover** and then select **Yes** on the warning about TDS sessions being disconnected. 
 
    ![Fail over the failover group](media/sql-database-managed-instance-failover-group-tutorial/failover-mi-failover-group.png)
 
 1. Review which manged instance is the primary and which instance is the secondary. If failover succeeded, the two instances should have switched roles. 
 
-   ![Managed instances have switched roles after failover](media/sql-database-managed-instance-failover-group-tutorial/mi-switched-after-failover.png)
+   ![SQL Managed Instances have switched roles after failover](media/sql-database-managed-instance-failover-group-tutorial/mi-switched-after-failover.png)
 
-1. Go to the new _secondary_ managed instance and select **Failover** once again to fail the primary instance back to the primary role. 
+1. Go to the new _secondary_ SQL Managed Instance and select **Failover** once again to fail the primary instance back to the primary role. 
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -615,7 +616,7 @@ Test failover of your failover group using PowerShell.
    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
        -Location $secondaryLocation -Name $failoverGroupName
    
-   # Failover the primary managed instance to the secondary role
+   # Failover the primary SQL Managed Instance to the secondary role
    Write-host "Failing primary over to the secondary location"
    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $secondaryResourceGroupName `
        -Location $secondaryLocation -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
@@ -625,7 +626,7 @@ Test failover of your failover group using PowerShell.
    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
        -Location $secondaryLocation -Name $failoverGroupName
    
-   # Fail primary managed instance back to primary role
+   # Fail primary SQL Managed Instance back to primary role
    Write-host "Failing primary back to primary role"
    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
        -Location $primaryLocation -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
@@ -640,7 +641,7 @@ Test failover of your failover group using PowerShell.
 
 ## Locate listener endpoint
 
-Once your failover group is configured, update the connection string for your application to the listener endpoint. This will keep your application connected to the failover group listener, rather than the primary database, elastic pool, or managed instance. That way, you don't have to manually update the connection string every time your Azure SQL database entity fails over, and traffic is routed to whichever entity is currently primary. 
+Once your failover group is configured, update the connection string for your application to the listener endpoint. This will keep your application connected to the failover group listener, rather than the primary database, elastic pool, or SQL Managed Instance. That way, you don't have to manually update the connection string every time your Azure SQL database entity fails over, and traffic is routed to whichever entity is currently primary. 
 
 The listener endpoint is in the form of `fog-name.database.windows.net`, and is visible in the Azure portal, when viewing the failover group:
 
@@ -648,7 +649,7 @@ The listener endpoint is in the form of `fog-name.database.windows.net`, and is 
 
 ## Remarks
 
-- Removing a failover group for a single or pooled database does not stop replication, and it does not delete the replicated database. You will need to manually stop geo-replication and delete the database from the secondary server if you want to add a single or pooled database back to a failover group after it's been removed. Failing to do either thing may result in an error similar to `The operation cannot be performed due to multiple errors` when attempting to add the database to the failover group. 
+- Removing a failover group for a single or pooled database does not stop replication, and it does not delete the replicated database. You will need to manually stop geo-replication and delete the database from the secondary server if you want to add a single or pooled database back to a failover group after it's been removed. Failing to do either may result in an error similar to `The operation cannot be performed due to multiple errors` when attempting to add the database to the failover group. 
 
 
 ## Next steps
@@ -656,6 +657,6 @@ The listener endpoint is in the form of `fog-name.database.windows.net`, and is 
 For detailed steps configuring a failover group, see the following tutorials:
 - [Add a single database to a failover group](sql-database-single-database-failover-group-tutorial.md)
 - [Add an elastic pool to a failover group](sql-database-elastic-pool-failover-group-tutorial.md)
-- [Add managed instances to a failover group](sql-database-managed-instance-failover-group-tutorial.md)
+- [Add SQL Managed Instances to a failover group](sql-database-managed-instance-failover-group-tutorial.md)
  
 For an overview of Azure SQL Database high availability options, see [geo-replication](sql-database-active-geo-replication.md) and [auto-failover groups](sql-database-auto-failover-group.md). 
