@@ -13,10 +13,10 @@ ms.author: dsindona
 # Consulting services for Azure Marketplace and AppSource
 Azure Marketplace and AppSource consulting services offer Microsoft system-integrator partners the benefit of connecting their customers with services that support and extend their use of Azure. These consulting services help customers assess, evaluate, and deploy the business solutions that further their business objectives and goals.  
 
-The consulting-service offerings are customer-specific engagements. Publishers have the option to determine the listing type, scope and duration, and pricing structure (fixed-price or free), and they have a defined agenda with deliverables to the customer. Leads are received through a notification in partners' CRM systems, and they aim to respond to customers within 48 hours. 
+The consulting-service offerings are customer-specific engagements. Publishers have the option to determine the listing type, scope, duration, and pricing structure (fixed-price or free). The offerings have a defined agenda for deliverables to the customer. Leads are received through a notification in partners' CRM systems, and partners aim to respond to customers within 48 hours. 
 
 ## Compare consulting services in Azure Marketplace and AppSource storefronts
-The marketplace storefronts are aligned with audiences and Microsoft cloud products to help customers find what they need. Each storefront offers specialized publishing options to help you maximize your publishing investment. The following table summarizes these options:
+The marketplace storefronts are aligned with audiences and cloud products to help customers find what they need. Each storefront offers specialized publishing options to help you maximize your publishing investment. The following table summarizes these options:
 
 |         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
@@ -26,12 +26,12 @@ The marketplace storefronts are aligned with audiences and Microsoft cloud produ
 |In-product experience      |Azure Management Portal|Dynamics 365, Office 365, Office client apps| 
 |Other      |On-premises publishing via Azure Stack, consulting services for Azure, managed services for Azure|Consulting services for Dynamics 365 and Power BI|
 
-Consulting services offers that are based on Dynamics 365, Power Apps, and Power BI are eligible to be listed on Microsoft AppSource. For more information, see [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409).
+Consulting services offers that are based on Dynamics 365, Power Apps, and Power BI are eligible to be listed on AppSource. For more information, download the [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) PDF file.
 
 Consulting services and managed services offers that are based on Microsoft Azure are eligible to be listed on Azure Marketplace. For more information, see [Publish an Azure consulting service offer](./partner-center-portal/create-consulting-service-offer.md) and [Publish a managed services offer to Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
 
 > [!Note]
-> Consulting services in Azure Marketplace should focus on offerings for a *technical audience* and emphasize *Azure technical solutions and services*.
+> Consulting services in Azure Marketplace should focus on offerings for a technical audience and emphasize Azure technical solutions and services.
 >
 > Consulting services in AppSource should focus on offerings for users with expertise in delivering quality solutions for Dynamics 365, Power BI, or Power Apps.
  
@@ -42,7 +42,7 @@ Consulting services and managed services offers that are based on Microsoft Azur
 
 ## Eligible partners and supported countries/regions
 
-Partners are required to have a *Silver* or *Gold* competency in the relevant area for their service. 
+Partners are required to have a *Gold* or *Silver* competency in the relevant area for their service. 
 
 For Azure Marketplace, the eligible competencies are listed in the following table:
 
@@ -57,17 +57,17 @@ For AppSource, the eligible competencies are listed in the following table:
 
 |Primary product |Eligibility requirement |
 |---------|---------|
-| Dynamics 365 Sales <br> Dynamics 365 Marketing <br> Dynamics 365 Customer Service <br> Dynamics 365 Field Service <br> Dynamics 365 Human Resources |   Must be Gold or Silver certified in [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Customer Engagement option.    | 
-| Dynamics 365 Finance <br> Dynamics 365 Supply Chain Management <br> Dynamics 365 Commerce <br> Dynamics 365 Human Resources <br> Dynamics 365 Project Service Automation |  Must be Gold or Silver certified in [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for Unified Operations option.       |
+| Dynamics 365 Sales <br> Dynamics 365 Marketing <br> Dynamics 365 Customer Service <br> Dynamics 365 Field Service <br> Dynamics 365 Human Resources |   Must be Gold or Silver certified in the [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for the Customer Engagement option.    | 
+| Dynamics 365 Finance <br> Dynamics 365 Supply Chain Management <br> Dynamics 365 Commerce <br> Dynamics 365 Human Resources <br> Dynamics 365 Project Service Automation |  Must be Gold or Silver certified in the [Cloud Business Applications competency](https://partner.microsoft.com/membership/cloud-business-applications-competency) for the Unified Operations option.       |
 | Dynamics 365 Customer Insights | Must have at least one successful in-production implementation of [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/), with at least five measures and five segments. |
-| Dynamics 365 Business Central | Must be Gold or Silver certified in [Enterprise Resource Planning competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency), and must be the cloud solution provider for at least three Business Central customers. <br> <br> OR <br> <br> Must have published a [Business Central application in AppSource](https://appsource.microsoft.com/). |
+| Dynamics 365 Business Central | Must be Gold or Silver certified in the [Enterprise Resource Planning competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency), and must be the Cloud Solution Provider for at least three Business Central customers. <br> <br> Or <br> <br> Must have published a [Business Central application in AppSource](https://appsource.microsoft.com/). |
 | Power BI | Must be listed on the [Power BI partner showcase](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=).|
 |Power Apps | Must be eligible for Advanced Benefits in the [Power Apps Partnership Program](https://aka.ms/PowerAppsPartner). |
 
 Additional resources and support:
 
-* [Microsoft cloud enablement desk](https://aka.ms/CEDnominate) <br> Complete the partner nomination form for the cloud enablement desk guided experience to connect to a cloud program specialist who can articulate Microsoft Partner Network benefits and serve as guide to competency attainment.  
-* [Become a Power BI partner](https://powerbi.microsoft.com/become-a-partner/)<br>Submit a request to get listed on Power BI showcase.
+* [Microsoft cloud enablement desk](https://aka.ms/CEDnominate): Complete the partner nomination form for the cloud enablement desk guided experience to connect to a cloud program specialist who can articulate Microsoft Partner Network benefits and serve as guide to competency attainment.  
+* [Become a Power BI partner](https://powerbi.microsoft.com/become-a-partner/): Submit a request to get listed on Power BI showcase.
 
 For more information about competencies, go to the [Microsoft Partner Network Competencies](https://partner.microsoft.com/membership/competencies) page. 
 
@@ -103,12 +103,12 @@ Before you register, you can start collecting and preparing the content that wil
 |---------|
 |MPN ID     |
 |Company logos (48 &#215; 48, 216 &#215; 216)     |
-|Lead Destination     |
+|Lead destination     |
 
 
 |Setup for new offers  |
 |---------|
-|Offer name (200 characters) and description (2000 characters)    |
+|Offer name (200 characters) and description (2,000 characters)    |
 |Competencies     |
 |Country/region availability     |
 |Duration of engagement     |
@@ -147,7 +147,7 @@ After you've configured the previously listed required elements, the content rev
 
 #### The listing title
 
-The title field has a 50-character limit and must transmit the duration and service type of the offer to maximize search engine optimization (SEO). The required format is as follows: *Name: Duration type*
+The title field has a 50-character limit and must transmit the duration and service type of the offer to maximize search engine optimization (SEO). The required format is *Name: Duration type*.
 
 Examples:
 
@@ -160,7 +160,7 @@ Examples:
 
 #### The listing summary and description
 
-When the content review team reviews offer descriptions and offer summaries, they will apply the following criteria:
+After the content review team reviews your offer descriptions and offer summaries, they'll apply the following criteria:
 
 |Offer type  |Required |Recommended  |
 |---------|---------|---------|
@@ -168,18 +168,18 @@ When the content review team reviews offer descriptions and offer summaries, the
 |**Briefing**    |   Articulate what deliverable the customer can expect. Remember, *Briefing* must be offered in person. If you're providing a virtual service, choose a different offer type.    |  Optimize your offer summary with your top SEO keywords.       |
 |**Implementation**    |  Include a detailed agenda for multi-day or multi-week implementations, and articulate what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement.       |    Optimize your offer summary with your top SEO keywords.     |
 |**Proof of concept**    |    Articulate what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement.     | Optimize your offer summary with your top SEO keywords.        |
-|**Workshop**    |   Include a detailed agenda daily, weekly, or monthly, depending on the duration of your offering. Articulate the learning goals or other deliverables of your workshop.     |   Optimize your offer summary with your top Search Engine optimization keywords.      |
+|**Workshop**    |   Include a detailed agenda daily, weekly, or monthly, depending on the duration of your offering. Articulate the learning goals or other deliverables of your workshop.     |   Optimize your offer summary with your top SEO keywords.      |
 
-Within Partner Center, you can add formatting to your listing by using [Markdown](/contribute/markdown-reference), a lightweight design language that will help add polish to your listing. 
+Within Partner Center, you can add formatting to your listing by using [Markdown](/contribute/markdown-reference), a lightweight design language that helps add polish to your listing. 
 
 > [!TIP]
 > Here some sample Markdown tips:
-> * For *italic* formatting, add an asterisk (\*), without a space, at the beginning and end of a word or series of words (for example, type \*content* to format it as *content*).
+> * For *italic* formatting, add an asterisk (\*), without a space, at the beginning and end of a word or series of words (for example, type \*content* to format a word as *content*).
 > * Insert a line break after a colon (:) to introduce a bulleted or numbered list.
-> * To create a bulleted list, type an asterisk (\*), followed by a space for each bulleted item (for example, \*[space]First word of content).
-> * To create headings, type pound signs (\###) followed by a space (for example, ###[space]Agenda/Deliverables).
+> * To create a bulleted list, type an asterisk (\*), followed by a space, for each bulleted item (for example, \*[space]First word of content).
+> * To create headings, type one or more pound signs (\#), followed by a space (for example, ###[space]Agenda/Deliverables).
 > * Add a line break after each heading.
-> * For **bold** formatting, add a double asterisk (\*\*), without a space, at the beginning and end of a word or series of words (for example, type \*\*content\*\* to format it as **content**). 
+> * For **bold** formatting, add a double asterisk (\*\*), without a space, at the beginning and end of a word or series of words (for example, type \*\*content\*\* to format a word as **content**). 
 > * Format your *Offer Summary* in italic.
 
 
