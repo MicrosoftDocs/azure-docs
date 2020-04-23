@@ -310,31 +310,42 @@ The appliance is upgraded as the Azure Migrate agents running on the appliance a
 
 ### Turn on auto-update
 
-If you want to turn auto-update back on after turning it off:
+You can turn on auto-update using either of these methods:
+
+•	By deleting the AutoUpdate registry key from HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+•	After discovery is complete, in the Appliance Configuration Manager in the appliance web application.
+
+To delete the registry key:
+
+1. On the machine running the appliance, open the registry editor.
+2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
+3. Delete the registry key **AutoUpdate** that was previously created to turn off auto-update.
+
+To turn on from Appliance Configuration Manager:
 
 1. On the appliance machine, open the Appliance Configuration Manager.
 2. In **Appliance services** > **Automatic update of Azure Migrate components is turned off**, click to turn on auto-update.
 
     ![Turn on auto updates](./media/migrate-appliance/turn-on.png)
 
-### Check the appliance version
+### Check the appliance services version
 
-You can check the appliance version using either of these methods:
+You can check the appliance services version using either of these methods:
 
-- After discovery, in the Appliance Configuration Manager.
+- In Appliance Configuration Manager, after discovery is complete.
 - On the appliance machine, in the **Control Panel** > **Programs and Features**.
 
-To check in the Appliance Configuration Manager, after discovery:
+To check in the Appliance Configuration Manager:
 
-1. On the appliance machine, open the Appliance Configuration Manager.
-2. In **Appliance services** > verify the version.
+1. After discovery is complete, open Appliance Configuration Manager in the appliance web application.
+2. In **Appliance services** > verify Appliance services versions.
 
     ![Check version](./media/migrate-appliance/version.png)
 
 To check in the Control Panel:
 
 1. On the appliance, click **Start** > **Control Panel** > **Programs and Features**
-2. Check the appliance versions in the list.
+2. Check the appliance services versions in the list.
 
     ![Check version in Control Panel](./media/migrate-appliance/programs-features.png)
 
@@ -344,22 +355,20 @@ If you are running an older version for any of the components, you must uninstal
 
 1. To check for the latest versions,  [download](https://aka.ms/latestapplianceservices) the LatestComponents.json file.
 2.	After downloading, open the LatestComponents.json file in Notepad.
-3. Find the latest version in the file, and use the download link to download the MSI. For example:
+3. Find the latest version in the file, and the download link for each of the appliance services. For example:
 
-    "Name": "ASRMigrationWebApp",
-    "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi",
-    "Version": "6.0.211.2",
-    "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
+    "Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
 
-4.	After downloading, in an administrator command window, run this command, to verify the integrity of the downloaded MSI.
+4.	Download the latest version of an outdated service, with the download link in the file.
+5. After downloading,run the command in an administrator command window, to verify the integrity of the downloaded MSI.
 
     ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```
     For example:
     C:\>CertUtil -HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
 
-5. Check that the outcome of the command should matches with the entry (the MD5 hash value in our example) for the component in the json file.
-6. Now run the MSI to install the component. It's a silent install, and the installation window closes after it's done.
-7. After the installation is complete, check the version of the service in the **Control panel** > **Programs and Features**. The component version should be upgraded to the latest as shows in the json file. s
+5. Check that the outcome of the command matches the has value entry for the service in the file (for example, the MD5 hash value above).
+6. Now, run the MSI to install the service. It's a silent install, and the installation window closes after it's done.
+7. After installation is complete, check the version of the service in the **Control panel** > **Programs and Features**. The service version should be upgraded to the latest as shown in the json file.
 
 
 
