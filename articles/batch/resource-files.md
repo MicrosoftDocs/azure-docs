@@ -2,6 +2,7 @@
 title: Creating and using resource files 
 description: Learn how to create Batch resource files from various input sources. This article covers a few common methods on how to create and place them on a VM.
 ms.date: 03/18/2020
+ms.topic: article
 ---
 
 # Creating and using resource files
