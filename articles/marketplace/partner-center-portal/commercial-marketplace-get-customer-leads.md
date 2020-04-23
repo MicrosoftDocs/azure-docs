@@ -53,7 +53,7 @@ Possible values are:
 
 - **"INS"**: Stands for *installation*. This action is in Azure Marketplace or AppSource when a customer buys your product.
 - **"PLT"**: Stands for *partner-led trial*. This action is in AppSource when a customer selects the **Contact me** option.
-- **"DNC"**: Stands for *do not contact*. This action is in AppSource when a partner who was cross listed on your app page gets requested to be contacted. We share a notification that this customer was cross listed on your app, but they don't need to be contacted.
+- **"DNC"**: Stands for *do not contact*. This action is in AppSource when a partner who was cross-listed on your app page gets requested to be contacted. We share a notification that this customer was cross-listed on your app, but they don't need to be contacted.
 - **"Create"**: This action is only inside the Azure portal and is generated when a customer purchases your offer to their account.
 - **"StartTestDrive"**: This action is only for the **Test Drive** option and is generated when a customer starts their test drive.
 
