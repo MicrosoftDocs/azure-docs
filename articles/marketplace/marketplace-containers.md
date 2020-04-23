@@ -40,4 +40,4 @@ If you haven't already done so, learn how to [Grow your cloud business with Azur
 To register for and start working in Partner Center:
 
 - [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
-- See [Create a consulting service offer](./partner-center-portal/create-consulting-service-offer.md) for more information.
+- See [create an Azure container offer](./partner-center-portal/create-azure-container-offer.md) for more information.
