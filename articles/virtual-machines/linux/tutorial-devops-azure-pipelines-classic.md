@@ -63,7 +63,7 @@ Here is the step-by-step walkthrough.
 14. From the configuration pane on the right, you can specify the number of machines that you want to deploy in parallel in each iteration. In case you want to deploy to multiple machines at a time, you can specify it in terms of percentage by using the slider.  
 
 15. The Execute Deploy Script task will by default execute the deployment script _deploy.ps1_ or _deploy.sh_ in 'deployscripts' folder at the root directory of published package.  
-![AzDevOps_publish_package](media/tutorial-devops-azure-pipelines-classic/azure-devops-published-package.png)
+![AzDevOps_publish_package](media/tutorial-deployment-strategy/package.png)
 
 ## Other deployment strategies
 

@@ -57,8 +57,7 @@ Here is the step-by-step walkthrough.
 
 
 10. The Execute Deploy Script task will by default execute the deployment script _deploy.ps1_ or _deploy.sh_ in the `deployscripts` folder at the root directory of published package. Make sure that the selected build pipeline publishes this in the root folder of package.
-
-![AzDevOps_publish_package](media/tutorial-devops-azure-pipelines-classic/azure-devops-published-package.png)
+![AzDevOps_publish_package](media/tutorial-deployment-strategy/package.png)
 
 
 
