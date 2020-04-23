@@ -28,13 +28,13 @@ Use Data Box Disk to transfer TBs of data in scenarios with no to limited networ
 
 ### Ingestion of data from Data Box
 
-Azure providers and non-Azure providers can be used for data ingestion from Azure Data Box. The Azure services that provide data ingestion from Azure Data Box include:
+Azure providers and non-Azure providers can ingest data from Azure Data Box. The Azure services that provide data ingestion from Azure Data Box include:
 
-- **SharePoint Online** - you can migrate your file share content to Sharepoint Online. For more information, see [Use the Azure Data Box Heavy to migrate your file share content to SharePoint Online](data-box-heavy-migrate-spo.md).
+- **SharePoint Online** - use Azure Data Box to migrate your file share content to Sharepoint Online. For more information, see [Use the Azure Data Box Heavy to migrate your file share content to SharePoint Online](data-box-heavy-migrate-spo.md).
 
-- **Azure File Sync** -  replicates files from your Data Box to an Azure file share, enabling you to centralize your file services in Azure while maintaining local access to your data. For more information, see [Deploy Azure File Sync](../storage/files/storage-sync-files-deployment-guide.md)
+- **Azure File Sync** -  replicates files from your Data Box to an Azure file share, enabling you to centralize your file services in Azure while maintaining local access to your data. For more information, see [Deploy Azure File Sync](../storage/files/storage-sync-files-deployment-guide.md).
 
-- **HDFS stores** - migrate data from an on-premises Hadoop Distributed File System (HDFS) store of your Hadoop cluster into Azure Storage. For more information, see [Migrate from on-prem HDFS store to Azure Storage with Azure Data Box](../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
+- **HDFS stores** - migrate data from an on-premises Hadoop Distributed File System (HDFS) store of your Hadoop cluster into Azure Storage using Data Box. For more information, see [Migrate from on-prem HDFS store to Azure Storage with Azure Data Box](../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 
 - **Azure Backup** - allows you to back up your data and recover it from Microsoft Azure. For more information, see [Azure Backup overview](../backup/backup-overview.md).
 
@@ -61,28 +61,27 @@ A typical flow includes the following steps:
 
 Throughout this process, you are notified via email on all status changes. For more information about the detailed flow, go to [Deploy Data Box Disks in Azure portal](data-box-disk-quickstart-portal.md).
 
-
 ## Benefits
 
 Data Box Disk is designed to move large amounts of data to Azure with no impact to network. The solution has the following benefits:
 
-- **Speed** - Data Box Disk uses a USB 3.0 connection to move up to 35 TB of data into Azure in less than a week.   
+- **Speed** - Data Box Disk uses a USB 3.0 connection to move up to 35 TB of data into Azure in less than a week.
 
 - **Easy to use** - Data Box is an easy to use solution.
 
-    - The disks use USB connectivity with almost no setup time.
-    - The disks have a small form factor that makes them easy to handle.
-    - The disks have no external power requirements.
-    - The disks can be used with a datacenter server, desktop, or a laptop.
-    - The solution provides end-to-end tracking via the Azure portal.    
+  - The disks use USB connectivity with almost no setup time.
+  - The disks have a small form factor that makes them easy to handle.
+  - The disks have no external power requirements.
+  - The disks can be used with a datacenter server, desktop, or a laptop.
+  - The solution provides end-to-end tracking via the Azure portal.
 
-- **Secure** - Data Box Disk has built-in security protections for the disks, data, and the service. 
-    - The disks are tamper-resistant and support secure update capability. 
-    - The data on the disks is secured with an AES 128-bit encryption at all times. 
-    - The disks can only be unlocked with a key provided in the Azure portal. 
-    - The service is protected by the Azure security features. 
-    - Once your data is uploaded to Azure, the disks are wiped clean, in accordance with NIST 800-88r1 standards.  
-    
+- **Secure** - Data Box Disk has built-in security protections for the disks, data, and the service.
+  - The disks are tamper-resistant and support secure update capability.
+  - The data on the disks is secured with an AES 128-bit encryption at all times.
+  - The disks can only be unlocked with a key provided in the Azure portal.
+  - The service is protected by the Azure security features. 
+  - Once your data is uploaded to Azure, the disks are wiped clean, in accordance with NIST 800-88r1 standards.  
+
 For more information, go to [Azure Data Box Disk security and data protection](data-box-disk-security.md).
 
 
@@ -92,7 +91,7 @@ For more information, go to [Azure Data Box Disk security and data protection](d
 | Specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Weight                                                  | < 2 lbs. per box. Up to 5 disks in the box                |
-| Dimensions                                              | Disk - 2.5" SSD |            
+| Dimensions                                              | Disk - 2.5" SSD |
 | Cables                                                  | 1 USB 3.1 cable per disk|
 | Storage capacity per order                              | 40 TB (usable ~ 35 TB)|
 | Disk storage capacity                                   | 8 TB (usable ~ 7 TB)|
@@ -101,11 +100,9 @@ For more information, go to [Azure Data Box Disk security and data protection](d
 | Data transfer rate                                      | up to 430 MBps depending on the file size      |
 |Management                                               | Azure portal |
 
-
 ## Region availability
 
 For information on region availability, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box Disk can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
-
 
 ## Pricing
 
