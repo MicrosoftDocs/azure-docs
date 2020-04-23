@@ -5,7 +5,7 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/225/2020
+ms.date: 04/25/2020
 ms.author: robinsh
 ---
 
@@ -60,7 +60,7 @@ See the article [Set up and use metrics and diagnostic logs with an IoT Hub](tut
 
 ## List of last known errors for IoT Hub
 
-[!INCLUDE [iot-hub-include-last-known-error](iot-hub-include-last-known-error.md)]
+[!INCLUDE [iot-hub-last-known-error](../../includes/iot-hub-include-last-known-error.md)]
 
 ## Endpoint Status
 
