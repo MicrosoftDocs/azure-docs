@@ -129,9 +129,10 @@ The **Retrieved Document Count** (60,951) is significantly higher than the **Out
 
 ### Include necessary paths in the indexing policy
 
-Your indexing policy should cover any properties included in `WHERE` clauses, `ORDER BY` clauses, `JOIN`, and most system functions. The path specified in the index policy the property in the JSON documents.
+Your indexing policy should cover any properties included in `WHERE` clauses, `ORDER BY` clauses, `JOIN`, and most system functions. The desired paths specified in the index policy should match the properties in the JSON documents.
 
-> [!NOTE] Properties in Azure Cosmos DB indexing policy are case-sensitive
+> [!NOTE]
+> Properties in Azure Cosmos DB indexing policy are case-sensitive
 
 If you run the following simple query on the [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) dataset, you will observe a much lower RU charge when the property in the `WHERE` clause is indexed:
 
