@@ -12,9 +12,9 @@ ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 06/26/2019
 ---
-# Getting Started with Temporal Tables in Azure SQL Database and Azure SQL Managed Instance
+# Getting Started with temporal tables in Azure SQL Database and Azure SQL Managed Instance
 
-Temporal tables are a programmability feature of Azure SQL Database and Azure SQL Managed Instance that allows you to track and analyze the full history of changes in your data, without the need for custom coding. Temporal tables keep data closely related to time context so that stored facts can be interpreted as valid only within the specific period. This property of Temporal Tables allows for efficient time-based analysis and getting insights from data evolution.
+Temporal tables are a programmability feature of Azure SQL Database and Azure SQL Managed Instance that allows you to track and analyze the full history of changes in your data, without the need for custom coding. Temporal tables keep data closely related to time context so that stored facts can be interpreted as valid only within the specific period. This property of temporal tables allows for efficient time-based analysis and getting insights from data evolution.
 
 ## Temporal Scenario
 
@@ -24,7 +24,7 @@ The database model for this scenario is very simple - user activity metric is re
 
 ![Schema](./media/sql-database-temporal-tables/AzureTemporal1.png)
 
-Fortunately, you do not need to put any effort in your app to maintain this activity information. With Temporal Tables, this process is automated - giving you full flexibility during website design and more time to focus on the data analysis itself. The only thing you have to do is to ensure that **WebSiteInfo** table is configured as [temporal system-versioned](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0). The exact steps to utilize Temporal Tables in this scenario are described below.
+Fortunately, you do not need to put any effort in your app to maintain this activity information. With temporal tables, this process is automated - giving you full flexibility during website design and more time to focus on the data analysis itself. The only thing you have to do is to ensure that **WebSiteInfo** table is configured as [temporal system-versioned](/sql/relational-databases/tables/temporal-tables#what-is-a-system-versioned-temporal-table). The exact steps to utilize temporal tables in this scenario are described below.
 
 ## Step 1: Configure tables as temporal
 
@@ -58,9 +58,9 @@ CREATE TABLE WebsiteUserInfo
  WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.WebsiteUserInfoHistory));
 ```
 
-When you create system-versioned temporal table, the accompanying history table with the default configuration is automatically created. The default history table contains a clustered B-tree index on the period columns (end, start) with page compression enabled. This configuration is optimal for the majority of scenarios in which temporal tables are used, especially for [data auditing](https://msdn.microsoft.com/library/mt631669.aspx#Anchor_0).
+When you create system-versioned temporal table, the accompanying history table with the default configuration is automatically created. The default history table contains a clustered B-tree index on the period columns (end, start) with page compression enabled. This configuration is optimal for the majority of scenarios in which temporal tables are used, especially for [data auditing](/sql/relational-databases/tables/temporal-table-usage-scenarios#enabling-system-versioning-on-a-new-table-for-data-audit).
 
-In this particular case, we aim to perform time-based trend analysis over a longer data history and with bigger data sets, so the storage choice for the history table is a clustered columnstore index. A clustered columnstore provides very good compression and performance for analytical queries. Temporal Tables give you the flexibility to configure indexes on the current and temporal tables completely independently.
+In this particular case, we aim to perform time-based trend analysis over a longer data history and with bigger data sets, so the storage choice for the history table is a clustered columnstore index. A clustered columnstore provides very good compression and performance for analytical queries. Temporal tables give you the flexibility to configure indexes on the current and temporal tables completely independently.
 
 > [!NOTE]
 > Columnstore indexes are available in the Premium tier and in the Standard tier, S3 and above.
@@ -73,7 +73,7 @@ ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON);
 ```
 
-Temporal Tables are represented in the Object Explorer with the specific icon for easier identification, while its history table is displayed as a child node.
+Temporal tables are represented in the Object Explorer with the specific icon for easier identification, while its history table is displayed as a child node.
 
 ![AlterTable](./media/sql-database-temporal-tables/AzureTemporal4.png)
 
@@ -101,7 +101,7 @@ WITH (DROP_EXISTING = ON);
 
 ## Step 2: Run your workload regularly
 
-The main advantage of Temporal Tables is that you do not need to change or adjust your website in any way to perform change tracking. Once created, Temporal Tables transparently persist previous row versions every time you perform modifications on your data.
+The main advantage of temporal tables is that you do not need to change or adjust your website in any way to perform change tracking. Once created, temporal tables transparently persist previous row versions every time you perform modifications on your data.
 
 In order to leverage automatic change tracking for this particular scenario, let’s just update column **PagesVisited** every time a user ends their session on the website:
 
@@ -188,10 +188,10 @@ Alternatively, use latest [SSDT](/sql/ssdt/download-sql-server-data-tools-ssdt) 
 
 With system-versioned temporal tables, the history table may increase the database size more than regular tables. A large and ever-growing history table can become an issue both due to pure storage costs as well as imposing a performance tax on temporal querying. Hence, developing a data retention policy for managing data in the history table is an important aspect of planning and managing the lifecycle of every temporal table. With Azure SQL Database and Azure SQL Managed Instance, you have the following approaches for managing historical data in the temporal table:
 
-- [Table Partitioning](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_2)
-- [Custom Cleanup Script](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
+- [Table Partitioning](/sql/relational-databases/tables/manage-retention-of-historical-data-in-system-versioned-temporal-tables#using-table-partitioning-approach)
+- [Custom Cleanup Script](/sql/relational-databases/tables/manage-retention-of-historical-data-in-system-versioned-temporal-tables#using-custom-cleanup-script-approach)
 
 ## Next steps
 
-- For more information on Temporal Tables, see check out [Temporal Tables](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables).
-- Visit Channel 9 to hear a [real customer temporal implementation success story](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) and watch a [live temporal demonstration](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
+- For more information on temporal tables, see check out [Temporal Tables](/sql/relational-databases/tables/temporal-tables).
+- Visit Channel 9 to hear a [customer temporal implementation success story](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) and watch a [live temporal demonstration](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
