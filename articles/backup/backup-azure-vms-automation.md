@@ -476,8 +476,8 @@ $restorejob
 
 Provide an additional parameter **TargetResourceGroupName** to specify the RG to which managed disks will be restored.
 
-> [!NOTE]
-> It is strongly recommended to use the **TargetResourceGroupName** parameter for restoring managed disks since it results in significant performance improvements. Also, from Azure Powershell Az module 1.0 onwards, this parameter is mandatory in case of a restore with managed disks
+> [!IMPORTANT]
+> It is strongly recommended to use the **TargetResourceGroupName** parameter for restoring managed disks since it results in significant performance improvements. If this parameter is not given, then customers cannot benefit from the instant restore functionality and the restore operation will be slower in comparison. If the purpose is to restore managed disks as unmanaged disks, then do not provide this parameter and make the intention clear by providing the -RestoreAsUnmanagedDisks parameter. The -RestoreAsUnmanagedDisks parameter is available from Az PS 3.7.0 onwards. In future versions, it will be mandatory to provide either of these parameters for the right restore experience
 >
 >
 
