@@ -3,7 +3,7 @@ title: Use the Azure Maps Indoor Maps module | Microsoft Azure Maps
 description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embedding the module's JavaScript libraries.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/20/2020
+ms.date: 04/22/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,51 +12,74 @@ manager: philmea
 
 # Use the Azure Maps Indoor Maps module
 
-The Azure Maps Web SDK provides the *Indoor Maps* module. This module offers extended functionalities to the Azure Maps *Map Control* library. It conveniently renders indoor maps created in Creator, and it integrates the indoor map data into a web application.
+The Azure Maps Web SDK includes the *Indoor Maps* module. The  *Indoor Maps* module allows you to render indoor maps created in Azure Maps Creator.
 
 ## Prerequisites
 
-To calls Azure Maps APIs, [make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). This key may also be referred to as the primary key or the subscription key.
-
-Obtain an Azure Maps account with Creator enabled and an indoor map created using Creator. The necessary steps are described in [make a Creator account](how-to-manage-creator.md) and [create an indoor map using Creator](tutorial-creator-indoor-maps.md). When you complete these steps, note your tile set identifier and feature state set identifier. You'll need to use these identifiers to render indoor maps with the Azure Maps Indoor Maps module.
+1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps)
+2. [Enable Creator](how-to-manage-creator.md)
+3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
+4. Get a `tilesetId` and a `featurestatesetId` by completing the [tutorial for creating Indoor maps](tutorial-creator-indoor-maps.md).
+ You'll need to use these identifiers to render indoor maps with the Azure Maps Indoor Maps module.
 
 ## Embed the Indoor Maps module
 
-You can load the Azure Maps Indoor Maps module in one of two ways.
+You can install and embed the Azure Maps *Indoor Maps* module in one of two ways.
 
-- Use the globally hosted Azure Content Delivery Network version of the Azure Maps Indoor Maps module. Reference the Indoor Module JavaScript and Style Sheet in the `<head>` element of the HTML file:
+To use the globally hosted Azure Content Delivery Network version of the Azure Maps *Indoor Maps* module, reference the Indoor Module JavaScript and Style Sheet in the `<head>` element of the HTML file:
 
-    ```html
-    <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css">
-    ```
+  ```html
+  <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
+  <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css">
+  ```
 
-- Or, you can load the Indoor Maps module for the Azure Maps Web SDK locally by using the [azure-maps-rest](https://www.npmjs.com/package/azure-maps-rest) npm package, and then host it with your app. This package also includes TypeScript definitions. Use this command:
+ Alternatively, you can download the *Azure Maps Services* module. The *Azure Maps Services* module contains a client library for accessing Azure Maps services. Follow the steps below to install and load the *Indoor Maps* module into your web application.  
+  
+  1. Download the [azure-maps-rest](https://www.npmjs.com/package/azure-maps-rest) NPM package. This package also includes TypeScript definitions.
 
-    > **npm install azure-maps-rest**
+  2. Install the NPM package:
 
-    Then, reference the Indoor Module JavaScript and Style Sheet in the `<head>` element of the HTML file:
+        > **npm install azure-maps-rest**
 
-     ```html
-    <script src="node_modules/azure-maps-rest/dist/atlas-indoor.min.js"></script>
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css">
-     ```
+  3. Reference the *Indoor Maps* module JavaScript and Style Sheet in the `<head>` element of the HTML file:
 
-## Indoor Manager
+      ```html
+      <script src="node_modules/azure-maps-rest/dist/atlas-indoor.min.js"></script>
+      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css">
+        ```
 
-To load the indoor tile sets and the map style of the tiles, you must instantiate the Indoor Manager. Instantiate the manager by providing the map object and the corresponding tileset ID. You may optionally include the `statesetId`, if you're using [dynamic map styling](). The code below shows you how to instantiate the indoor manager:
+## Instantiate the Map object
+
+The first thing you must do is create a *map object*. The *map object* will be used in the next step to instantiate the *Indoor Manager* object.  The code below shows you how to instantiate the *map object*:
+
+```javascript
+  const subscriptionKey = "<your Azure Maps Primary Subscription Key>";
+
+  const map = new atlas.Map("map-id", {
+    //use your facility's location
+    center: [-122.13315, 47.63637],
+    //or, you can use bounds: [ # , # , # , # ] and replace # with your map's bounds
+    style: "blank",
+    subscriptionKey,
+    zoom: 19,
+  });
+```
+
+## Instantiate the Indoor Manager
+
+To load the indoor tilesets and map style of the tiles, you must instantiate the *Indoor Manager*. Instantiate the *Indoor Manager* by providing the *map object* and the corresponding tilesetID. You may optionally include the `statesetId`, if you're using [dynamic map styling](indoor-map-dynamic-style.md). The code below shows you how to instantiate the indoor manager:
 
 ```javascript
 const tilesetId = "";
 const statesetId = "";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
-    tilesetId: "YOUR TILE SET ID HERE",
-    statesetId: "YOUR STATE SET ID HERE" // Optional
+    tilesetId: "<tilesetId>",
+    statesetId: "<statesetId>" // Optional
 });
 ```
 
-If you provide a `statesetId`, you must call `indoorManager.setDynamicStyling(true)` to enable polling of the state data. Polling state data lets you dynamically update the state of the features. Recall, that we refer to feature properties as states, if the properties can be dynamically modified. For example, the color of a feature within a tile can be a state. The code below shows you how to enable state polling:
+To enable polling of state data you provide, you must provide the `statesetId` and call `indoorManager.setDynamicStyling(true)`. Polling state data lets you dynamically update the state of dynamic properties or *states*. For example, a feature, such as room, within a tile can have a dynamic property (*state*) called `occupancy`. Your application may wish to poll for any *state* changes in order to reflect the change inside the visual map. The code below shows you how to enable state polling:
 
 ```javascript
 
@@ -64,8 +87,8 @@ const tilesetId = "";
 const statesetId = "";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
-    tilesetId: "YOUR TILE SET ID HERE",
-    statesetId: "YOUR STATE SET ID HERE" // Optional
+    tilesetId: "<tilesetId>",
+    statesetId: "<statesetId>" // Optional
 });
 
 if (statesetId.length > 0) {
@@ -76,7 +99,7 @@ if (statesetId.length > 0) {
 
 ## Indoor Level Picker Control
 
-You can optionally initialize the level control picker via the Indoor Manager. This option allows you to change the level of the rendered map. Here's the code to initialize the level control picker:
+ The *Indoor Level Picker* control allows you to change the level of the rendered map. You can optionally initialize the *Indoor Level Picker* control via the *Indoor Manager*. Here's the code to initialize the level control picker:
 
 ```javascript
 const levelControl = new atlas.control.LevelControl({ position: "top-right" });
@@ -85,7 +108,7 @@ indoorManager.setOptions({ levelControl });
 
 ## Indoor Events
 
-The Map Control events are supported for the Indoor Maps module. Additionally, this module provides event listeners that are invoked when a level or when a facility change. The event listeners can be added to the map object, as shown in the code below. If you want to run some code, only after a level or a facility have changed, then place your code inside the event listener.
+ The *Indoor Maps* module supports *map object* events. The *map object* event listeners are invoked when a level or facility has changed. If you want to run code when a level or a facility have changed, place your code inside the event listener. The code below shows how event listeners can be added to the *map object*.
 
 ```javascript
 map.events.add("levelchanged", indoorManager, (eventData) => {
@@ -101,154 +124,116 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
 });
 ```
 
-The `eventData` variable will hold information about the level or the facility that invoked the `levelchanged` or `facilitychanged` event, respectively. When a level changes, the `eventData` object will contain: the `facilityId`, the new `levelNumber`, and other metadata. When a facility changes, the `eventData` object will contain the: the new `facilityId`, the new `levelNumber`, and other metadata. And you can incorporate this data in your web application. For example, you can keep a log of the facilities the user visited, and at the end of the session, you can ask the user to rate their experience at each facility. You can also visualize your facility's IoT devices at each level. Use the event handlers to reset and redraw the IoT devices every time the level of the facility changes.
+The `eventData` variable holds information about the level or facility that invoked the `levelchanged` or `facilitychanged` event, respectively. When a level changes, the `eventData` object will contain the `facilityId`, the new `levelNumber`, and other metadata. When a facility changes, the `eventData` object will contain thw new `facilityId`, the new `levelNumber`, and other metadata.
 
-## Use the Indoor Maps Module
+You can incorporate this data in your web application. For example, you can keep a log of the facilities the user has visited. At the end of a session, you can ask the user to rate their experience at each facility. You can also visualize your facility's IoT devices at each level. Use the event handlers to reset and redraw the IoT devices whenever the level of the facility changes.
 
-This exercise demonstrates how to integrate the Indoor Maps module with the Azure Maps Web SDK. Although the exercise is limited in scope, it covers the foundational knowledge to start using the Indoor Maps module.
+## Example: Use the Indoor Maps Module
 
-1. Create a new HTML file
+This example shows you how to use the *Indoor Maps* module in your web application. Although the example is limited in scope, it covers the basics of what you need to get started using the *Indoor Maps* module. The complete HTML code is below these steps.
 
-2. Load the Indoor Maps module and use the CDN option.
+1. Use the Azure Content Delivery Network [option](#embed-the-indoor=maps-module) to install the *Indoor Maps* module.
 
-    ```html
-    <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css"
-    ```
+2. Create a new HTML file
 
-3. Initialize a map object, add style rules, and authenticate to your Azure Maps account. The HTML file should look similar to the code below. Use your primary key in the `<your Azure Maps Primary Subscription Key>` place holder. Alter the `center` option to use a latitude and longitude for your indoor map center location. Instead, if you want to use the `bounds` option, you can retrieve your map bounds by calling the [Tileset List API](). The API response returns the `bbox`, which you can parse and assign for your bounding box values. Recall, that the `bbox` is the smallest rectangular shape that encloses all the map data. You may also change the map `style` option, the code below uses the `blank` value to show the indoor map on a white background.
+3. In the HTML header, reference the *Indoor Maps* module javascript and style sheet styles.
 
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, user-scalable=no" />
-        <title>Indoor Maps App</title>
+4. Initialize a *map object*. The *map object* supports the following options:
+    - `Subscription key` is your Azure Maps primary subscription key.
+    - `center`  defines a latitude and longitude for your indoor map center location.
+    - `bounds` (optional). You can retrieve your map bounds by calling the [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). The Tileset List API returns the `bbox` which you can parse and assign for your bounding box values. The `bbox` is the smallest rectangular shape that encloses the tileset map data. You may also change the map 
+    - `style` allows you to set the color of the background. To display a white background, define `style` as "blank".
+    - `zoom` allows you to specify the min and max zoom levels for your map.
 
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css" />
+5. Next, create the *Indoor Manager* module. Assign the *Indoor Maps* `tilesetId`, and optionally add the `statesetId`.
 
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-        <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
-        <style>
-          html,
-          body {
-            width: 100%;
-            height: 100%;
-            padding: 0;
-            margin: 0;
-          }
+6. Instantiate the *Indoor Level Picker* control.
 
-          #map-id {
-            width: 100%;
-            height: 100%;
-          }
-        </style>
-      </head>
+7. Add *map object* event listeners.  
 
-      <body>
-        <div id="map-id"></div>
-        <script>
-          const subscriptionKey = "<your Azure Maps Primary Subscription Key>";
+Your file should now look similar to the HTML below.
 
-          const map = new atlas.Map("map-id", {
-            //use your facility's location
-            center: [-122.13315, 47.63637],
-            //or, you can use bounds: [ # , # , # , # ] and replace # with your map's bounds
-            style: "blank",
-            subscriptionKey,
-            zoom: 19,
-          });
+  ```html
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, user-scalable=no" />
+      <title>Indoor Maps App</title>
 
-        </script>
-      </body>
-    </html>
-    ```
+      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
+      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css" />
 
-4. Assign the Indoor Maps `tilesetId`, and optionally add the `statesetId`. Enable polling, if you provide a state set ID. Instantiate the Indoor Manager, Indoor Level Picker Control, and add the Indoor Maps event listeners. The level control is helpful to pick and view a specific level when the map renders, if the tiles contain multiple levels. The code below is how the HTML file would look like after completing the described steps:
+      <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+      <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
+      <style>
+        html,
+        body {
+          width: 100%;
+          height: 100%;
+          padding: 0;
+          margin: 0;
+        }
 
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, user-scalable=no" />
-        <title>Indoor Maps App</title>
+        #map-id {
+          width: 100%;
+          height: 100%;
+        }
+      </style>
+    </head>
 
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css" />
+    <body>
+      <div id="map-id"></div>
+      <script>
+        const subscriptionKey = "<your Azure Maps Primary Subscription Key>";
+        const tilesetId = "<your tile set id>";
+        const statesetId = "<your state set id>";
 
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-        <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
-        <style>
-          html,
-          body {
-            width: 100%;
-            height: 100%;
-            padding: 0;
-            margin: 0;
-          }
+        const map = new atlas.Map("map-id", {
+          //use your facility's location
+          center: [-122.13315, 47.63637],
+          //or, you can use bounds: [ # , # , # , # ] and replace # with your Map bounds
+          style: "blank",
+          subscriptionKey,
+          zoom: 19,
+        });
 
-          #map-id {
-            width: 100%;
-            height: 100%;
-          }
-        </style>
-      </head>
+        const levelControl = new atlas.control.LevelControl({
+          position: "top-right",
+        });
 
-      <body>
-        <div id="map-id"></div>
-        <script>
-          const subscriptionKey = "<your Azure Maps Primary Subscription Key>";
-          const tilesetId = "<your tile set id>";
-          const statesetId = "<your state set id>";
+        const indoorManager = new atlas.indoor.IndoorManager(map, {
+          levelControl, //level picker
+          tilesetId,
+          statesetId, //optional
+        });
 
-          const map = new atlas.Map("map-id", {
-            //use your facility's location
-            center: [-122.13315, 47.63637],
-            //or, you can use bounds: [ # , # , # , # ] and replace # with your Map bounds
-            style: "blank",
-            subscriptionKey,
-            zoom: 19,
-          });
+        if (statesetId.length > 0) {
+          indoorManager.setDynamicStyling(true);
+        }
 
-          const levelControl = new atlas.control.LevelControl({
-            position: "top-right",
-          });
+        map.events.add("levelchanged", indoorManager, (eventData) => {
+          //put code that runs after a level has been changed
+          console.log("The level has changed:", eventData);
+        });
 
-          const indoorManager = new atlas.indoor.IndoorManager(map, {
-            levelControl, //level picker
-            tilesetId,
-            statesetId, //optional
-          });
+        map.events.add("facilitychanged", indoorManager, (eventData) => {
+          //put code that runs after a facility has been changed
+          console.log("The facility has changed:", eventData);
+        });
+      </script>
+    </body>
+  </html>
+  ```
 
-          if (statesetId.length > 0) {
-            indoorManager.setDynamicStyling(true);
-          }
+To see your indoor map, load it into a web browser. It should look appear like the image below.
 
-          map.events.add("levelchanged", indoorManager, (eventData) => {
-            //put code that runs after a level has been changed
-            console.log("The level has changed:", eventData);
-          });
+  ![indoor map image](media/how-to-use-indoor-module/indoor-map-image.png)
 
-          map.events.add("facilitychanged", indoorManager, (eventData) => {
-            //put code that runs after a facility has been changed
-            console.log("The facility has changed:", eventData);
-          });
-        </script>
-      </body>
-    </html>
-    ```
-
-5. Remember to provide your primary subscription key, tile set ID, and optionally the state set ID. Then, open your HTML file to see the indoor map rendered in the web browser. The image below shows the indoor map for a  single facility, rendered on a white background. 
-     ![indoor map image](media/how-to-use-indoor-module/indoor-map-image.png)
-
- 
 
 ## Next steps
 
-Read about the APIs that are related to the Indoor Maps module:
+Read about the APIs that are related to the *Indoor Maps* module:
 
 > [!div class="nextstepaction"]
 > [Drawing package requirements](drawing-requirements.md)

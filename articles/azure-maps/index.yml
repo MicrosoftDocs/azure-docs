@@ -225,5 +225,11 @@ landingContent:
             url: how-to-use-indoor-module.md
       - linkListType: reference
         links:
-          - text: Creator Service
-            url: https://docs.microsoft.com/rest/api/maps/data
+          - text: Conversion service
+            url: https://docs.microsoft.com/rest/api/maps/conversion
+          - text: Dataset service
+            url: https://docs.microsoft.com/rest/api/maps/dataset
+          - text: Tileset service
+            url: https://docs.microsoft.com/rest/api/maps/tileset
+          - text: Feature stateset service
+            url: https://docs.microsoft.com/rest/api/maps/featurestate
