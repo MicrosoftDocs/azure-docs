@@ -33,6 +33,8 @@ Instance(**Type I and Type II**)
 |   Type II                   |  SuSE        |   SLES 12 SP4         |  S96        |
 |   Type II                   |  SuSE        |   SLES 12 SP3         |  S384       |
 |   Type II                   |  SuSE        |   SLES 12 SP3         |  S576m      |
+|   Type II                   |  SuSE        |   SLES 12 SP3         |  S384xm     |
+|   Type II                   |  SuSE        |   SLES 12 SP4         |  S384xm     |
 
 ## Pre-requisites
 - Kdump service uses `/var/crash` directory to write dumps, make sure the partition corresponds to this directory has sufficient
