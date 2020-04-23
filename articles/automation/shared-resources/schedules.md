@@ -171,6 +171,26 @@ Set-AzAutomationSchedule –AutomationAccountName $automationAccountName `
 –Name $scheduleName –IsEnabled $false -ResourceGroupName "ResourceGroup01"
 ```
 
+## Removing a schedule
+
+When you're ready to remove your schedules, you can either use the Azure portal or the `Remove-AzureRmAutomationSchedule` cmdlet. Remember that you can only remove a schedule that has been disabled as described in the previous section.
+
+### Remove a schedule using the Azure portal
+
+1. In your Automation account, select **Schedules** under **Shared Resources**.
+2. Click the name of a schedule to open the details pane.
+3. Click **Delete**.
+
+### Remove a schedule with PowerShell
+
+You can use the [Remove-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) cmdlet to delete an existing schedule. 
+
+```azurepowershell-interactive
+$automationAccountName = "MyAutomationAccount"
+$scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
+Remove-AzureRmAutomationSchedule -AutomationAccountName $automationAccountName ` -Name $scheduleName -ResourceGroupName "ResourceGroup01"
+```
+
 ## Next steps
 
 * To get started with runbooks in Azure Automation, see [Starting a Runbook in Azure Automation](../automation-starting-a-runbook.md).
