@@ -255,7 +255,7 @@ The port in use is displayed during Azurite startup.
 azurite --location c:\azurite
 ```
 
-The `-l` switch is a shortcut for `--location`.
+The `-l` switch is a shortcut for `--location`. Note the lowercase 'l':
 
 ```console
 azurite -l c:\azurite
@@ -295,7 +295,7 @@ azurite -d path/debug.log
 azurite --loose
 ```
 
-Note the capital 'L' shortcut switch:
+The `-L` switch is a shortcut for `--loose`. Note the capital 'L':
 
 ```console
 azurite -L
