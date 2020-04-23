@@ -512,7 +512,7 @@ WHERE c.session_id = @@SPID;
 
 ## Monitor resource use
 
-You can monitor Azure SQL Database resource usage using [SQL Database Query Performance Insight](sql-database-query-performance.md). For Azure SQL Database and Azure SQL Managed Instace, you can monitor using [Query Store](https://msdn.microsoft.com/library/dn817826.aspx).
+You can monitor Azure SQL Database resource usage using [SQL Database Query Performance Insight](sql-database-query-performance.md). For Azure SQL Database and Azure SQL Managed Instance, you can monitor using [Query Store](https://msdn.microsoft.com/library/dn817826.aspx).
 
 You can also monitor usage using these two views:
 

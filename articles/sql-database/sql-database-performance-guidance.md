@@ -47,7 +47,7 @@ Although Azure SQL Database and Azure SQL Managed Instance service tiers are des
 
 ## Tune your database
 
-In this section, we look at some techniques that you can use to tune database to gain the best performance for your application and run it at the lowest possible compute size. Some of these techniques match traditional SQL Server tuning best practices, but others are specific to Azure SQL Database and Azure SQL Managed Instance. In some cases, you can examine the consumed resources for a database to find areas to further tune and extend traditional SQL Server techniques to work in Azure SQL Database and Azure SQL Managed Instancee.
+In this section, we look at some techniques that you can use to tune database to gain the best performance for your application and run it at the lowest possible compute size. Some of these techniques match traditional SQL Server tuning best practices, but others are specific to Azure SQL Database and Azure SQL Managed Instance. In some cases, you can examine the consumed resources for a database to find areas to further tune and extend traditional SQL Server techniques to work in Azure SQL Database and Azure SQL Managed Instance.
 
 ### Identifying and adding missing indexes
 
