@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.custom: hdinsightactive
+ms.date: 04/17/2020
 ---
 
 # Optimize Apache Spark jobs in HDInsight
 
-Learn how to optimize [Apache Spark](https://spark.apache.org/) cluster configuration for your particular workload.  The most common challenge is memory pressure, because of improper configurations (particularly wrong-sized executors), long-running operations, and tasks that result in Cartesian operations. You can speed up jobs with appropriate caching, and by allowing for [data skew](#optimize-joins-and-shuffles). For the best performance, monitor and review long-running and resource-consuming Spark job executions. For information on getting started with Apache Spark on HDInsight, see [Create Apache Spark cluster using Azure portal](apache-spark-jupyter-spark-sql-use-portal.md).
+Learn how to optimize Apache Spark cluster configuration for your particular workload.  The most common challenge is memory pressure, because of improper configurations (such as wrong-sized executors). Also, long-running operations, and tasks that result in Cartesian operations. You can speed up jobs with appropriate caching, and by allowing for [data skew](#optimize-joins-and-shuffles). For best performance, monitor and review long-running and resource-consuming Spark job executions. For information on getting started with Apache Spark on HDInsight, see [Create Apache Spark cluster using Azure portal](apache-spark-jupyter-spark-sql-use-portal.md).
 
 The following sections describe common Spark job optimizations and recommendations.
 
@@ -50,7 +50,7 @@ The best format for performance is parquet with *snappy compression*, which is t
 
 ## Select default storage
 
-When you create a new Spark cluster, you can select Azure Blob Storage or Azure Data Lake Storage as your cluster's default storage. Both options give you the benefit of long-term storage for transient clusters, so your data doesn't get automatically deleted when you delete your cluster. You can recreate a transient cluster and still access your data.
+When you create a new Spark cluster, you can select Azure Blob Storage or Azure Data Lake Storage as your cluster's default storage. Both options give you the benefit of long-term storage for transient clusters. So your data doesn't get automatically deleted when you delete your cluster. You can recreate a transient cluster and still access your data.
 
 | Store Type | File System | Speed | Transient | Use Cases |
 | --- | --- | --- | --- | --- |
@@ -60,11 +60,11 @@ When you create a new Spark cluster, you can select Azure Blob Storage or Azure 
 | Azure Data Lake Storage Gen 1| **adl:**//url/ | **Faster** | Yes | Transient cluster |
 | Local HDFS | **hdfs:**//url/ | **Fastest** | No | Interactive 24/7 cluster |
 
-For a full description of the storage options available for HDInsight clusters, see [Compare storage options for use with Azure HDInsight clusters](../hdinsight-hadoop-compare-storage-options.md).
+For a full description of storage options, see [Compare storage options for use with Azure HDInsight clusters](../hdinsight-hadoop-compare-storage-options.md).
 
 ## Use the cache
 
-Spark provides its own native caching mechanisms, which can be used through different methods such as `.persist()`, `.cache()`, and `CACHE TABLE`. This native caching is effective with small data sets as well as in ETL pipelines where you need to cache intermediate results. However, Spark native caching currently doesn't work well with partitioning, since a cached table doesn't keep the partitioning data. A more generic and reliable caching technique is *storage layer caching*.
+Spark provides its own native caching mechanisms, which can be used through different methods such as `.persist()`, `.cache()`, and `CACHE TABLE`. This native caching is effective with small data sets and in ETL pipelines where you need to cache intermediate results. However, Spark native caching currently doesn't work well with partitioning, since a cached table doesn't keep the partitioning data. A more generic and reliable caching technique is *storage layer caching*.
 
 * Native Spark caching (not recommended)
     * Good for small datasets.
@@ -81,10 +81,10 @@ Spark provides its own native caching mechanisms, which can be used through diff
 
 ## Use memory efficiently
 
-Spark operates by placing data in memory, so managing memory resources is a key aspect of optimizing the execution of Spark jobs.  There are several techniques you can apply to use your cluster's memory efficiently.
+Spark operates by placing data in memory. So managing memory resources is a key aspect of optimizing the execution of Spark jobs.  There are several techniques you can apply to use your cluster's memory efficiently.
 
 * Prefer smaller data partitions and account for data size, types, and distribution in your partitioning strategy.
-* Consider the newer, more efficient [Kryo data serialization](https://github.com/EsotericSoftware/kryo), rather than the default Java serialization.
+* Consider the newer, more efficient [`Kryo data serialization`](https://github.com/EsotericSoftware/kryo), rather than the default Java serialization.
 * Prefer using YARN, as it separates `spark-submit` by batch.
 * Monitor and tune Spark configuration settings.
 
@@ -92,7 +92,7 @@ For your reference, the Spark memory structure and some key executor memory para
 
 ### Spark memory considerations
 
-If you're using [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), then YARN controls the maximum sum of memory used by all containers on each Spark node.  The following diagram shows the key objects and their relationships.
+If you're using Apache Hadoop YARN, then YARN controls the memory used by all containers on each Spark node.  The following diagram shows the key objects and their relationships.
 
 ![YARN Spark Memory Management](./media/apache-spark-perf/apache-yarn-spark-memory.png)
 
@@ -101,7 +101,7 @@ To address 'out of memory' messages, try:
 * Review DAG Management Shuffles. Reduce by map-side reducting, pre-partition (or bucketize) source data, maximize single shuffles, and reduce the amount of data sent.
 * Prefer `ReduceByKey` with its fixed memory limit to `GroupByKey`, which provides aggregations, windowing, and other functions but it has ann unbounded memory limit.
 * Prefer `TreeReduce`, which does more work on the executors or partitions, to `Reduce`, which does all work on the driver.
-* Leverage DataFrames rather than the lower-level RDD objects.
+* Use DataFrames rather than the lower-level RDD objects.
 * Create ComplexTypes that encapsulate actions, such as "Top N", various aggregations, or windowing operations.
 
 For additional troubleshooting steps, see [OutOfMemoryError exceptions for Apache Spark in Azure HDInsight](apache-spark-troubleshoot-outofmemory.md).
@@ -111,11 +111,11 @@ For additional troubleshooting steps, see [OutOfMemoryError exceptions for Apach
 Spark jobs are distributed, so appropriate data serialization is important for the best performance.  There are two serialization options for Spark:
 
 * Java serialization is the default.
-* Kryo serialization is a newer format and can result in faster and more compact serialization than Java.  Kryo requires that you register the classes in your program, and it doesn't yet support all Serializable types.
+* `Kryo` serialization is a newer format and can result in faster and more compact serialization than Java.  `Kryo` requires that you register the classes in your program, and it doesn't yet support all Serializable types.
 
 ## Use bucketing
 
-Bucketing is similar to data partitioning, but each bucket can hold a set of column values rather than just one. Bucketing works well for partitioning on large (in the millions or more) numbers of values, such as product identifiers. A bucket is determined by hashing the bucket key of the row. Bucketed tables offer unique optimizations because they store metadata about how they were bucketed and sorted.
+Bucketing is similar to data partitioning. But each bucket can hold a set of column values rather than just one. This method works well for partitioning on large (in the millions or more) numbers of values, such as product identifiers. A bucket is determined by hashing the bucket key of the row. Bucketed tables offer unique optimizations because they store metadata about how they were bucketed and sorted.
 
 Some advanced bucketing features are:
 
@@ -127,9 +127,9 @@ You can use partitioning and bucketing at the same time.
 
 ## Optimize joins and shuffles
 
-If you have slow jobs on a Join or Shuffle, the cause is probably *data skew*, which is asymmetry in your job data. For example, a map job may take 20 seconds, but running a job where the data is joined or shuffled takes hours. To fix data skew, you should salt the entire key, or use an *isolated salt* for  only some subset of keys. If you're using an isolated salt, you should further filter to isolate your subset of salted keys in map joins. Another option is to introduce a bucket column and pre-aggregate in buckets first.
+If you have slow jobs on a Join or Shuffle, the cause is probably *data skew*. Data skew  is asymmetry in your job data. For example, a map job may take 20 seconds. But running a job where the data is joined or shuffled takes hours. To fix data skew, you should salt the entire key, or use an *isolated salt* for  only some subset of keys. If you're using an isolated salt, you should further filter to isolate your subset of salted keys in map joins. Another option is to introduce a bucket column and pre-aggregate in buckets first.
 
-Another factor causing slow joins could be the join type. By default, Spark uses the `SortMerge` join type. This type of join is best suited for large data sets, but is otherwise computationally expensive because it must first sort the left and right sides of data before merging them.
+Another factor causing slow joins could be the join type. By default, Spark uses the `SortMerge` join type. This type of join is best suited for large data sets. But is otherwise computationally expensive because it must first sort the left and right sides of data before merging them.
 
 A `Broadcast` join is best suited for smaller data sets, or where one side of the join is much smaller than the other side. This type of join broadcasts one side to all executors, and so requires more memory for broadcasts in general.
 
@@ -156,13 +156,15 @@ To manage parallelism for Cartesian joins, you can add nested structures, window
 
 ## Customize cluster configuration
 
-Depending on your Spark cluster workload, you may determine that a non-default Spark configuration would result in more optimized Spark job execution.  Perform benchmark testing with sample workloads to validate any non-default cluster configurations.
+Depending on your Spark cluster workload, you may determine  a non-default Spark configuration would result in more optimized Spark job execution.  Do benchmark testing with sample workloads to validate any non-default cluster configurations.
 
 Here are some common parameters you can adjust:
 
-* `--num-executors` sets the appropriate number of executors.
-* `--executor-cores` sets the number of cores for each executor. Typically you should have middle-sized executors, as other processes consume some of the available memory.
-* `--executor-memory` sets the memory size for each executor, which controls the heap size on YARN. You should leave some memory for execution overhead.
+|Parameter |Description |
+|---|---|
+|--num-executors|Sets the appropriate number of executors.|
+|--executor-cores|Sets the number of cores for each executor. Typically you should have middle-sized executors, as other processes consume some of the available memory.|
+|--executor-memory|Sets the memory size for each executor, which controls the heap size on YARN. Leave some memory for execution overhead.|
 
 ### Select the correct executor size
 
@@ -177,15 +179,15 @@ When deciding your executor configuration, consider the Java garbage collection 
     2. Reduce the number of open connections between executors (N2) on larger clusters (>100 executors).
     3. Increase heap size to accommodate for memory-intensive tasks.
     4. Optional: Reduce per-executor memory overhead.
-    5. Optional: Increase utilization and concurrency by oversubscribing CPU.
+    5. Optional: Increase usage and concurrency by oversubscribing CPU.
 
-As a general rule of thumb when selecting the executor size:
+As a general rule, when selecting the executor size:
 
 1. Start with 30 GB per executor and distribute available machine cores.
 2. Increase the number of executor cores for larger clusters (> 100 executors).
 3. Modify size based both on trial runs and on the preceding factors such as GC overhead.
 
-When running concurrent queries, consider the following:
+When running concurrent queries, consider:
 
 1. Start with 30 GB per executor and all machine cores.
 2. Create multiple parallel Spark applications by oversubscribing CPU (around 30% latency improvement).
@@ -194,9 +196,9 @@ When running concurrent queries, consider the following:
 
 For more information on using Ambari to configure executors, see [Apache Spark settings - Spark executors](apache-spark-settings.md#configuring-spark-executors).
 
-Monitor your query performance for outliers or other performance issues, by looking at the timeline view, SQL graph, job statistics, and so forth. For information on debugging Spark jobs using YARN and the Spark History server, see [Debug Apache Spark jobs running on Azure HDInsight](apache-spark-job-debugging.md). For tips on using YARN Timeline Server, see [Access Apache Hadoop YARN application logs](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+Monitor query performance for outliers or other performance issues, by looking at the timeline view. Also SQL graph, job statistics, and so forth. For information on debugging Spark jobs using YARN and the Spark History server, see [Debug Apache Spark jobs running on Azure HDInsight](apache-spark-job-debugging.md). For tips on using YARN Timeline Server, see [Access Apache Hadoop YARN application logs](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-Sometimes one or a few of the executors are slower than the others, and tasks take much longer to execute. This frequently happens on larger clusters (> 30 nodes). In this case, divide the work into a larger number of tasks so the scheduler can compensate for slow tasks. For example, have at least twice as many tasks as the number of executor cores in the application. You can also enable speculative execution of tasks with `conf: spark.speculation = true`.
+Sometimes one or a few of the executors are slower than the others, and tasks take much longer to execute. This slowness frequently happens on larger clusters (> 30 nodes). In this case, divide the work into a larger number of tasks so the scheduler can compensate for slow tasks. For example, have at least twice as many tasks as the number of executor cores in the application. You can also enable speculative execution of tasks with `conf: spark.speculation = true`.
 
 ## Optimize job execution
 
@@ -206,7 +208,7 @@ Sometimes one or a few of the executors are slower than the others, and tasks ta
 
 Monitor your running jobs regularly for performance issues. If you need more insight into certain issues, consider one of the following performance profiling tools:
 
-* [Intel PAL Tool](https://github.com/intel-hadoop/PAT) monitors CPU, storage, and network bandwidth utilization.
+* [Intel PAL Tool](https://github.com/intel-hadoop/PAT) monitors CPU, storage, and network bandwidth usage.
 * [Oracle Java 8 Mission Control](https://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) profiles Spark and executor code.
 
 Key to Spark 2.x query performance is the Tungsten engine, which depends on whole-stage code generation. In some cases, whole-stage code generation may be disabled. For example, if you use a non-mutable type (`string`) in the aggregation expression, `SortAggregate` appears instead of `HashAggregate`. For example, for better performance, try the following and then re-enable code generation:
@@ -219,7 +221,7 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 * [Debug Apache Spark jobs running on Azure HDInsight](apache-spark-job-debugging.md)
 * [Manage resources for an Apache Spark cluster on HDInsight](apache-spark-resource-manager.md)
-* [Use the Apache Spark REST API to submit remote jobs to an Apache Spark cluster](apache-spark-livy-rest-interface.md)
+* [Configure Apache Spark settings](apache-spark-settings.md)
 * [Tuning Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
 * [How to Actually Tune Your Apache Spark Jobs So They Work](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
-* [Kryo Serialization](https://github.com/EsotericSoftware/kryo)
+* [`Kryo Serialization`](https://github.com/EsotericSoftware/kryo)

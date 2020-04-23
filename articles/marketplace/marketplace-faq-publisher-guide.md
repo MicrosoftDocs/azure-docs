@@ -5,7 +5,7 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/4/2019
+ms.date: 04/16/2020
 ms.author: dsindona
 ---
 
@@ -52,7 +52,8 @@ With Azure Marketplace, customers can discover technical applications built for 
 Azure Marketplace offers can be purchased through:
 
 * [The web-based storefront](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [The Azure portal][Azure portal]
+* [Azure portal](https://portal.azure.com) <br>
+[!Note] Requires an Azure account. If you don't have one, you're redirected to the **Welcome to Azure** page, to create one.  
 * [The Azure Command Line Interface (CLI)](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
@@ -237,7 +238,7 @@ Licenses added to an existing subscription are pro-rated for the remainder of th
 
 **How are license removals handled when mid-term?**
 
-Licenses that are cancelled will be subject to the refund policy found in this FAQ.  All licenses that are cancelled are immediately removed from your account and will no longer be available for use.
+Licenses that are canceled will be subject to the refund policy found in this FAQ.  All licenses that are canceled are immediately removed from your account and will no longer be available for use.
 
 **Are refunds supported for consumption-based offers?**
 
@@ -302,7 +303,7 @@ There are no publishing fees when uploading a List, Trial, or BYOL (Bring Your O
 
 **Are there any transaction fees for purchases through Azure Marketplace?**
 
-When the solution license is purchased via Azure Marketplace, revenues for the software license are split between the publisher and Microsoft.  This is done in accordance to the terms and conditions in the [Marketplace Publisher Agreement](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf). Additionally, solutions with BYOL (Bring Your Own License) publishers do not incur transaction fees.
+When the solution license is purchased via Azure Marketplace, revenues for the software license are split between the publisher and Microsoft.  This is done in accordance to the terms and conditions in the [Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt). Additionally, solutions with BYOL (Bring Your Own License) publishers do not incur transaction fees.
 
 **What is a Standard Contract?**
 
@@ -330,7 +331,7 @@ Leads are customers who are deploying your products from the Marketplace. Whethe
 
 **Where can I get help in setting up my lead destination?**
 
-Learn more in [Partner Center-Get Customer Leads](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) documentation, or submit a support ticket through [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) by selecting your offer type and lead management.
+Learn more in [Partner Center-Get Customer Leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) documentation, or submit a support ticket through [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) by selecting your offer type and lead management.
 
 **Am I required to configure a lead destination to publish an offer on Marketplace?**
 
@@ -338,7 +339,7 @@ Yes, if publishing a **Contact Me**, **SaaS app**, or **consulting services** of
 
 **How can I confirm that the lead configuration is correct?**
 
-After completing the offer and setting up a lead destination, the listing can properly be published in  [Partner Center](https://cloudpartner.azure.com/). Before the listing goes live, you can validate if the lead configuration set-up is working correctly.  Send a test-lead to the lead destination configured in the offer.
+After completing the offer and setting up a lead destination, the listing can properly be published in  [Partner Center](https://partner.microsoft.com/). Before the listing goes live, you can validate if the lead configuration set-up is working correctly.  Send a test-lead to the lead destination configured in the offer.
 
 **What countries/regions are Azure Marketplace available for publishers to sell from?**
 
@@ -348,13 +349,13 @@ Publishers based in the following countries/regions can currently sell in the Az
 
 *Virtual Machine & Azure Apps:*
 
-1. Sign in to [Partner Center](https://cloudpartner.azure.com/).
+1. Sign in to [Partner Center](https://partner.microsoft.com/).
 1. Select the offer from the **All Offers** tab.
 1. In the pane on the left side of the screen, select the **SKUs** tab.
 1. Select the SKU for deletion and click the **delete** button for that SKU.
-1. [Republish](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) the offer to Azure Marketplace.
+1. [Republish](./partner-center-portal/update-existing-offer.md#review-and-publish-an-updated-offer) the offer to Azure Marketplace.
 
-For more information, see [Deleting an offer](./cloud-partner-portal/manage-offers/cpp-delete-offer.md).
+For more information, see [updating an offer](./partner-center-portal/update-existing-offer.md).
 
 *Web Apps (SaaS apps, Add-ons) & Consulting Services:*
 
@@ -469,6 +470,3 @@ Yes, upon your request via support ticket, Microsoft will process credits to you
 ## Next steps
 
 Visit the [commercial marketplace publisher guide](/azure/marketplace/marketplace-publishers-guide) page.
-
-
-[Azure portal]: https://portal.azure.com
