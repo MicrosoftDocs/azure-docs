@@ -23,9 +23,11 @@ Using Azure Digital Twins' flexible model definitions, you can make Azure Digita
 
 Here are some more uses of Azure Digital Twins:
 
-![Uses for Azure Digital Twins: Design and build, building management, space occupancy and usage, occupant experience, energy management, factory line management](./media/overview/use-cases.png)
+:::image type="content" source="media/overview/use-cases.png" alt-text="Uses for Azure Digital Twins: Design and build, building management, space occupancy and usage, occupant experience, energy management, factory line management" border="false":::
  
 Azure Digital Twins does the hard work of translating a device-centric view of the world into always-up-to-date, business-focused insights, allowing you to concentrate on your business problems instead of complex distributed systems infrastructure.
+
+Your Azure Digital Twins instance is either managed within the [Azure portal](https://portal.azure.com), or via custom [Azure Digital Twins CLI](how-to-use-cli.md) commands.
 
 ## Azure Digital Twins key capabilities
 
@@ -39,7 +41,7 @@ Once you have defined the vocabulary for your business, you can represent your c
 
 The arrows in the illustration below show different semantic relationships between the digital twins in the representation. For example, the building *contains* three floors, and each floor *contains* several rooms. The building also *is-equipped-with* an HVAC system and an elevator. The HVAC system *cools* specific floors. 
 
-![An example twin graph built out of digital twins and relationships](./media/overview/graph-example.png)
+:::image type="content" source="media/overview/graph-example.png" alt-text="An example twin graph built out of digital twins and relationships" border="false":::
 
 You can think of the models as nouns in a description of your world, and the relationships as verbs.
 
@@ -80,14 +82,15 @@ Azure Digital Twins is commonly used in combination with other Azure services as
 * Downstream services to handle tasks such as workflow integration (like [MS Flow](https://flow.microsoft.com/)), cold storage, time series integration, or analytics. 
 
 The following diagram shows where Azure Digital Twins lies in the context of a larger Azure IoT solution.
-![Azure Digital Twins shown connecting to other services in a solution context. Devices connect through IoT Hub to Azure Digital Twins; client apps connect to Azure Digital Twins directly; and Azure Digital Twins exchanges data with other Azure services like compute resources and cold storage.](./media/overview/solution-context.png)
+
+:::image type="content" source="media/overview/solution-context.png" alt-text="Azure Digital Twins shown connecting to other services in a solution context. Devices connect through IoT Hub to Azure Digital Twins; client apps connect to Azure Digital Twins directly; and Azure Digital Twins exchanges data with other Azure services like compute resources and cold storage." border="false":::
 
 ## Next steps
 
 To start learning about the key elements of Azure Digital Twins, visit:
-* [Create a twin model](concepts-models.md)
-* [Create digital twins and the twin graph](concepts-twins-graph.md)
-* [Azure Digital Twins query language](concepts-query-language.md)
+* [Concepts: Twin models](concepts-models.md)
+* [Concepts: Digital twins and the twin graph](concepts-twins-graph.md)
+* [Concepts: Azure Digital Twins query language](concepts-query-language.md)
 
 If you have worked with the previous preview release of Azure Digital Twins, learn what has changed:
-* [Differences from Public Preview 1](overview-differences.md)
+* [Overview: Differences from Public Preview 1](overview-differences.md)

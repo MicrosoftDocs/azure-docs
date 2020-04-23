@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Create a twin model
+title: Twin models
 titleSuffix: Azure Digital Twins
 description: Understand how Azure Digital Twins uses user-defined models to describe entities in your environment.
 author: baanders
@@ -173,11 +173,11 @@ The extending interface cannot change any of the definitions of the parent inter
 
 ## Next steps
 
-Read more detail about DTDL:
-* [Digital Twins Definition Language (DTDL)](concepts-dtdl.md)
+Learn about how digital twins are created based on models:
+* [Concepts: Digital twins and the twin graph](concepts-twins-graph.md)
 
-Learn about creating digital twins based on models:
-* [Create digital twins and the twin graph](concepts-twins-graph.md)
+See how to manage models with the DigitalTwinsModels APIs:
+* [How-to: Manage a twin model](how-to-manage-model.md)
 
-Or, see how a model is managed with the DigitalTwinsModels APIs:
-* [Manage a twin model](how-to-manage-model.md)
+Or, dive more in-depth into DTDL:
+* [Concepts: Digital Twins Definition Language (DTDL)](concepts-dtdl.md)

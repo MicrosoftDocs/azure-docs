@@ -18,7 +18,7 @@ ms.service: digital-twins
 # Authenticate against Azure Digital Twins
 
 > [!TIP]
-> To learn how to create an Azure Digital Twins instance, please see [Create an Azure Digital Twins instance](how-to-set-up-instance.md).
+> To learn how to create an Azure Digital Twins instance, see [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md).
 
 Before you can issue API calls against your Azure Digital Twins instance, you will need to authenticate. This is a two-step process:
 1. Create an app registration
@@ -75,7 +75,7 @@ This section describes the code you will need to include in your client applicat
 
 ### Prerequisites
 
-To follow the example in this section, you will first need to build the SDK library that is described in [Use the Azure Digital Twins APIs](how-to-use-apis.md).
+To follow the example in this section, you will first need to build the SDK library that is described in [How-to: Use the Azure Digital Twins APIs](how-to-use-apis.md).
 
 You will need to add references in your project to the following libraries, which you can find on [NuGet](https://www.nuget.org/):
 * Microsoft.Identity.Client (this is the [MSAL](../active-directory/develop/msal-overview.md) client library)
@@ -117,7 +117,7 @@ You will need to have references to the following libraries, which you can find 
 using Microsoft.Identity.Client;
 using Microsoft.Rest;
 using Microsoft.Rest.Azure;
-using Azure Digital TwinsApi; // The SDK library, as built in the "Use the Azure Digital Twins APIs" how-to article
+using ADTApi; // The SDK library, as built in the "Use the Azure Digital Twins APIs" how-to article
 ...
 ...
 
@@ -163,4 +163,4 @@ namespace Azure Digital TwinsGettingStarted
 ## Next steps
 
 See how to make API calls to your Azure Digital Twin instance:
-* [Manage a digital twin](how-to-manage-twin.md)
+* [How-to: Manage a digital twin](how-to-manage-twin.md)

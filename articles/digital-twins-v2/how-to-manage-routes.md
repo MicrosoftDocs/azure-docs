@@ -39,7 +39,7 @@ az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name>
 Once you have created the topic, you can link it to Azure Digital Twins with the following command:
 
 ```azurecli
-az dt endpoints add eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
+az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
 This makes the Event Grid topic available inside of Azure Digital Twins, under the name specified with the `--endpoint-name` argument. You will typically use that name as the target of an **event route**, which you'll create in the next section using the Azure Digital Twins service API.
@@ -48,17 +48,17 @@ Equivalent commands exist for Event Hub and Service Bus endpoints:
 
 * Add Service Bus Topic endpoint (requires a pre-created Service Bus resource)
 ```azurecli 
-az dt endpoints add servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> -n <your-Azure-Digital-Twins-instance-name>
+az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
 * Add Event Hub endpoint (requires pre-created Event Hub resource)
 ```azurecli
-az dt endpoints add eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
+az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
 ## Manage event routes with APIs
 
-To actually send data from Azure Digital Twins to an endpoint, you need to define an event route. Azure Digital Twins **EventRoutes APIs** let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [Route Azure Digital Twins events to external services](concepts-route-events.md).
+To actually send data from Azure Digital Twins to an endpoint, you need to define an event route. Azure Digital Twins **EventRoutes APIs** let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [Concepts: Routing Azure Digital Twins events](concepts-route-events.md).
 
 [!INCLUDE [digital-twins-generate-sdk.md](../../includes/digital-twins-generate-sdk.md)]
 
@@ -186,9 +186,19 @@ When you implement or update a filter, the change may take a few minutes to be r
 
 ## Manage endpoints and routes with CLI
 
-Endpoints and routes can also be managed using the Azure Digital Twins CLI. The commands for this can be found in [Use the Azure Digital Twins CLI](how-to-use-cli.md).
+Endpoints and routes can also be managed using the Azure Digital Twins CLI. The commands for this can be found in [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md).
+
+## Monitor event routes
+
+Routing metrics such as count, latency and failure rate can be viewed in the [Azure portal](https://portal.azure.com/). 
+
+From the portal homepage, search for your Azure Digital Twins instance to pull up its details. Select the **Metrics** option from the Azure Digital Twins instance's menu to bring up the *Metrics* page.
+
+:::image type="content" source="media/how-to-manage-routes/metrics.png" alt-text="Metrics page of an Azure Digital Twins instance in the Azure portal":::
+
+From here, you can view the metrics for your instance and create custom views.
 
 ## Next steps
 
 Read about the different types of event messages you can receive:
-* [Understand event data](how-to-interpret-event-data.md)
+* [How-to: Interpret event data](how-to-interpret-event-data.md)

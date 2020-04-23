@@ -36,19 +36,15 @@ The remainder of this article walks through the Azure function setup steps, one 
 
 In Visual Studio 2019, select *File > New Project*. Search for the *Azure Functions* template, select it, and press "Next".
 
-[!div class="mx-imgBorder"]
-![Visual Studio: new project dialog](media/how-to-create-azure-function/visual-studio-new-project.png)
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-new-project.png" alt-text="Visual Studio: new project dialog":::
 
 Specify a name for the function app and press "Create".
 
-[!div class="mx-imgBorder"]
-![Visual Studio: configure project dialog](media/how-to-create-azure-function/visual-studio-project-config.png)
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-project-config.png" alt-text="Visual Studio: configure project dialog":::
 
 Select the *Event Grid trigger* and press "Create".
 
-[!div class="mx-imgBorder"]
-![Visual Studio: Azure Function project trigger dialog](media/how-to-create-azure-function/visual-studio-project-trigger.png)
-
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-project-trigger.png" alt-text="Visual Studio: Azure Function project trigger dialog":::
 
 ## Write an Azure function with an Event Grid trigger
 
@@ -87,7 +83,7 @@ For more information about this, see [Debug Event Grid trigger locally](../azure
 
 ### Add the Azure Digital Twins SDK to your function app
 
-Visit [Use the Azure Digital Twins APIs](how-to-use-apis.md) to see how to generate the Azure Digital Twins SDK using AutoRest, and compile it as a reusable project.
+Visit [How-to: Use the Azure Digital Twins APIs](how-to-use-apis.md) to see how to generate the Azure Digital Twins SDK using AutoRest, and compile it as a reusable project.
 
 To access Azure Digital Twins from your Azure function, add the Azure Digital Twins SDK project to the function app. You can do that by right-selecting *Dependencies* in the Solution Explorer and choosing *Add Reference...*.
 
@@ -96,7 +92,7 @@ Alternatively, you can also add the generated code from AutoRest directly to the
 Once you have added a reference to the project or added the classes, add the following line to your project to enable you to access the Azure Digital Twins API.
 
 ```csharp
-using Azure Digital TwinsApi;
+using ADTApi;
 ```
 
 ## Add authentication code to the function
@@ -168,7 +164,7 @@ using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Azure.EventGrid.Models;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Extensions.Logging;
-using Azure Digital TwinsApi;
+using ADTApi;
 using System.Threading.Tasks;
 using Microsoft.Azure.Services.AppAuthentication;
 using System.Net.Http.Headers;
@@ -227,16 +223,14 @@ To publish the function app to Azure, right-select the function project (not the
 
 The following tab will appear:
 
-[!div class="mx-imgBorder"]
-![Visual Studio: publish function dialog, page 1](media/how-to-create-azure-function/visual-studio-publish-1.png)
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-publish-1.png" alt-text="Visual Studio: publish function dialog, page 1":::
 
 Select or create an App Service plan to use with Azure Functions. If unsure, start out using the default consumption plan.
 
 > [!IMPORTANT] 
 > Publishing an Azure function will incur additional charges on your subscription, independent of Azure Digital Twins.
 
-[!div class="mx-imgBorder"]
-![Visual Studio: publish function dialog, page 2](media/how-to-create-azure-function/visual-studio-publish-2.png)
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-publish-2.png" alt-text="Visual Studio: publish function dialog, page 2":::
 
 On the following page, enter the desired name for the new function app, a resource group, and other details.
 
@@ -248,19 +242,17 @@ To set this up, go to the [Azure portal](https://portal.azure.com/) and navigate
 
 In the *Platform features* tab, select *Identity*:
 
-[!div class="mx-imgBorder"]
-![Azure portal: Selecting Identity for an Azure Function](media/how-to-create-azure-function/visual-studio-msi-1.png)
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-msi-1.png" alt-text="Azure portal: Selecting Identity for an Azure Function":::
 
 On the identity page, set the *Status* toggle to *On*. 
 
-[!div class="mx-imgBorder"]
-![Azure portal: Turning on identity status](media/how-to-create-azure-function/visual-studio-msi-2.png)
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-msi-2.png" alt-text="Azure portal: Turning on identity status":::
 
 Also note the **object ID** shown on this page, as it will be used in the next section.
 
 ### Access roles
 
-Because Azure Digital Twins uses role-based access control to manage access (see [Secure Azure Digital Twins solutions](concepts-security.md) for more information on this), you also need to add a role for each function app that you want to allow to access Azure Digital Twins.
+Because Azure Digital Twins uses role-based access control to manage access (see [Concepts: Securing Azure Digital Twins solutions](concepts-security.md) for more information on this), you also need to add a role for each function app that you want to allow to access Azure Digital Twins.
 
 [!INCLUDE [digital-twins-resource-id.md](../../includes/digital-twins-resource-id.md)]
 
@@ -273,7 +265,7 @@ az role assignment create --role "Azure Digital Twins Owner (Preview)" --assigne
 ## Next steps
 
 Read more about roles and security in Azure Digital Twins:
-* [Secure Azure Digital Twins solutions](concepts-security.md)
+* [Concepts: Securing Azure Digital Twins solutions](concepts-security.md)
 
 See how to use an Azure function to ingest IoT Hub data into Azure Digital Twins:
-* [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)
+* [How-to: Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)

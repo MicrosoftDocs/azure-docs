@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 Entities in your environment are represented by [digital twins](concepts-twins-graph.md).
 
-Once you have a working [Azure Digital Twins instance](how-to-set-up-instance.md) and have set up [authentication](how-to-authenticate.md) for your client app, you can use the **DigitalTwins APIs** to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. This article focuses on managing digital twins; to work with relationships and the graph as a whole, see [Manage a twin graph with relationships](how-to-manage-graph.md).
+Once you have a working [Azure Digital Twins instance](how-to-set-up-instance.md) and have set up [authentication](how-to-authenticate.md) for your client app, you can use the **DigitalTwins APIs** to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. This article focuses on managing digital twins; to work with relationships and the graph as a whole, see [How-to: Manage a twin graph with relationships](how-to-manage-graph.md).
 
 [!INCLUDE [digital-twins-generate-sdk.md](../../includes/digital-twins-generate-sdk.md)]
 
@@ -48,7 +48,7 @@ All non-optional properties and components of digital twins must be initialized 
 > [!NOTE]
 > Relationships may be initialized, but do not need to be. 
 
-The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [Create digital twins and the twin graph](concepts-twins-graph.md) for a description of the JSON format for a twin.
+The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [Concepts: Digital twins and the twin graph](concepts-twins-graph.md) for a description of the JSON format for a twin.
 
 You can create a serializable parameter object with the following example code, which sets up some twin properties:
 
@@ -422,5 +422,5 @@ static async Task<List<object>> ListTwins()
 ## Next steps
 
 Learn about managing the other key elements of an Azure Digital Twins solution:
-* [Manage a twin model](how-to-manage-model.md)
-* [Manage a twin graph with relationships](how-to-manage-graph.md)
+* [How-to: Manage a twin model](how-to-manage-model.md)
+* [How-to: Manage a twin graph with relationships](how-to-manage-graph.md)

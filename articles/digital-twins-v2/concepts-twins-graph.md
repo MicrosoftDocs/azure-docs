@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Create digital twins and the twin graph
+title: Digital twins and the twin graph
 titleSuffix: Azure Digital Twins
 description: Understand the concept of a digital twin, and how their relationships make a graph.
 author: baanders
@@ -24,7 +24,7 @@ In an Azure Digital Twins solution, the entities in your environment are represe
 
 ## Creating digital twins
 
-Before you can create a digital twin in your Azure Digital Twins instance, you need to have a *model* uploaded to the service. A model describes the set of properties, telemetry messages, and relationships that a particular twin can have, among other things. For the types of information that are defined in a model, see [Create a twin model](concepts-models.md).
+Before you can create a digital twin in your Azure Digital Twins instance, you need to have a *model* uploaded to the service. A model describes the set of properties, telemetry messages, and relationships that a particular twin can have, among other things. For the types of information that are defined in a model, see [Concepts: Twin models](concepts-models.md).
 
 After creating and uploading a model, your client app can create an instance of the type; this is a digital twin. For example, after creating a model of *Floor*, you may create one or several digital twins that use this type (like a *Floor*-type twin called *GroundFloor*, another called *Floor2*, etc.). 
 
@@ -185,9 +185,9 @@ Here is an example of a relationship formatted as a JSON object:
 ## Next steps
 
 See how to manage graph elements with Azure Digital Twin APIs:
-* [Manage a digital twin](how-to-manage-twin.md)
-* [Manage a twin graph with relationships](how-to-manage-graph.md)
+* [How-to: Manage a digital twin](how-to-manage-twin.md)
+* [How-to: Manage a twin graph with relationships](how-to-manage-graph.md)
 
 Or, learn about querying the Azure Digital Twins twin graph for information:
-* [Azure Digital Twins query language](concepts-query-language.md)
-* [Query the twin graph](how-to-query-graph.md)
+* [Concepts: Azure Digital Twins query language](concepts-query-language.md)
+* [How-to: Query the twin graph](how-to-query-graph.md)
