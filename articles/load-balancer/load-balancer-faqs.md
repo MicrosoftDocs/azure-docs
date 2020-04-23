@@ -2,11 +2,11 @@
 title: Frequently asked questions
 description: Answers to frequently asked questions about the Azure Load Balancer. 
 services: load-balancer
-author: errobin
+author: erichrt
 ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
-ms.author: errobin
+ms.author: erichrt
 ---
 # Frequently Asked Questions
 
