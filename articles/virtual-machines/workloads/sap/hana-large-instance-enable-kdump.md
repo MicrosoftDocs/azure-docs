@@ -20,9 +20,9 @@ ms.custom: H1Hack27Feb2017
 
 # Enable Kdump service
 This document describes the details on how to enable Kdump service on Azure HANA Large
-Instance(**Type I and Type II**)
+Instance(**Type 1 and Type 2**)
 
-## Supported SKU
+## Supported SKUs
 |  Hana Large Instance Type   |  OS Vendor   |  OS Package Version   |  SKU	       |
 |-----------------------------|--------------|-----------------------|-------------|
 |   Type 1                    |  SuSE        |   SLES 12 SP3         |  S224m      |
