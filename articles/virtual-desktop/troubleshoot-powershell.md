@@ -68,9 +68,9 @@ Fix: In the error message, a list of supported regions will be published. Use on
 New-AzWvdApplicationGroup_CreateExpanded: ActivityId: e5fe6c1d-5f2c-4db9-817d-e423b8b7d168 Error: ApplicationGroup must be in same location as associated HostPool
 ```
 
-**Cause:** All host pools, application groups, and workspaces that you select a location to store service metadata for must be in the same location. Any objects you create that are associated with each other must be in the same location as well. For example, if a host pool is in `eastus`, then you also need to create the application groups in `eastus`. If you create a workspace to register these application groups to, that workspace needs to be in `eastus` as well.
+**Cause:** There's a location mismatch. All host pools, application groups, and workspaces have a location to store service metadata. Any objects you create that are associated with each other must be in the same location. For example, if a host pool is in `eastus`, then you also need to create the application groups in `eastus`. If you create a workspace to register these application groups to, that workspace needs to be in `eastus` as well.
 
-**Fix:** Retrieve the location the host pool is created in, then assign the application group you're creating to that same location.
+**Fix:** Retrieve the location the host pool was created in, then assign the application group you're creating to that same location.
 
 ## Next steps
 
