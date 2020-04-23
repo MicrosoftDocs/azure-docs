@@ -36,7 +36,7 @@ The **Player** widget has a new `locale` parameter. Both `locale` and `language`
 
 For more information, see the [widget types](video-indexer-embed-widgets.md#widget-types) section. 
 
-## New player skin
+### New player skin
 
 A new player skin launched with updated design.
 
