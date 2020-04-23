@@ -26,7 +26,7 @@ Azure Pipelines provides a complete, fully featured set of CI/CD automation tool
  
  **Configure CI/CD on Virtual Machines**
 
-Virtual machines can be added as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) and can be targeted for multi-machine updates. Once deployed, Deployment History views within Deployment Group provides traceability from VM to the pipeline and then to the commit. 
+Virtual machines can be added as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) and can be targeted for multi-machine updates. Once deployed, viewing **Deployment History** within a deployment group provides traceability from VM to the pipeline and then to the commit. 
  
   
 **Blue-Green Deployments**: A Blue-Green deployment reduces downtime by having an identical standby environment. At any time one of the environments is live. As you prepare for a new release, you complete final stage of testing in the green environment. Once the software is working in the green environment, switch the traffic so that all incoming requests go to the green environment - the blue environment is now idle.
