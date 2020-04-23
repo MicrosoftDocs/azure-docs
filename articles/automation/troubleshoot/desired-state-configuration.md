@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Azure Automation State Configuration
-description: This article provides information on troubleshooting Azure Automation Desired State Configuration (DSC).
+description: This article provides information on troubleshooting Azure Automation State Configuration.
 services: automation
 ms.service: automation
 ms.subservice:
@@ -15,7 +15,7 @@ manager: carmonm
 This article provides information on troubleshooting issues that arise while you compile or deploy configurations in Azure Automation State Configuration.
 
 >[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
+>This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version by following the steps in [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
 
 ## Diagnose an issue
 
@@ -27,9 +27,9 @@ Azure Automation State Configuration is built on PowerShell Desired State Config
 
 By compiling a DSC configuration on your local machine, you can discover and resolve common errors, such as:
 
-   - Missing modules
-   - Syntax errors
-   - Logic errors
+   - Missing modules.
+   - Syntax errors.
+   - Logic errors.
 
 ### 2. View DSC logs on your node.
 
@@ -37,15 +37,15 @@ If your configuration compiles successfully, but fails when applied to a node, y
 
 The [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) module can assist you in parsing detailed information from the DSC logs. If you contact support, they require these logs to diagnose your issue.
 
-You can install the `xDscDiagnostics` module on your local machine using the instructions found in [Install the stable version module](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
+You can install the `xDscDiagnostics` module on your local machine by following the instructions in [Install the stable version module](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
 
-To install the `xDscDiagnostics` module on your Azure machine, use [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0). You can also use the **Run command** option in the Azure portal by following the steps found in [Run PowerShell scripts in your Windows VM with Run Command](../../virtual-machines/windows/run-command.md).
+To install the `xDscDiagnostics` module on your Azure machine, use [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0). You can also use the **Run command** option in the Azure portal by following the steps in [Run PowerShell scripts in your Windows VM with Run Command](../../virtual-machines/windows/run-command.md).
 
 For information on using **xDscDiagnostics**, see [Using xDscDiagnostics to analyze DSC logs](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs). See also [xDscDiagnostics Cmdlets](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
 
 ### 3. Ensure that nodes and the Automation workspace have required modules.
 
-DSC depends on modules installed on the node. When using Azure Automation State Configuration, import any required modules into your Automation account using the steps in [Import Modules](../shared-resources/modules.md#importing-modules). Configurations can also have a dependency on specific versions of modules. For more information, see [Troubleshoot modules](shared-resources.md#modules).
+DSC depends on modules installed on the node. When you use Azure Automation State Configuration, import any required modules into your Automation account by following the steps in [Import Modules](../shared-resources/modules.md#importing-modules). Configurations can also have a dependency on specific versions of modules. For more information, see [Troubleshoot modules](shared-resources.md#modules).
 
 ## <a name="unsupported-characters"></a>Scenario: A configuration with special characters can't be deleted from the portal
 
@@ -88,7 +88,7 @@ This error is normally caused by a firewall, the machine being behind a proxy se
 
 ### Resolution
 
-Verify that your machine has access to the proper endpoints for DSC and try again. For a list of ports and addresses needed, see [network planning](../automation-dsc-overview.md#network-planning)
+Verify that your machine has access to the proper endpoints for DSC and try again. For a list of ports and addresses needed, see [Network planning](../automation-dsc-overview.md#network-planning).
 
 ## <a name="unauthorized"><a/>Scenario: Status reports return response code Unauthorized
 
@@ -112,21 +112,21 @@ This issue might also be caused by a proxy configuration not allowing access to 
 
 ### Resolution
 
-Use the following steps to re-register the failing DSC node.
+Use the following steps to reregister the failing DSC node.
 
-Step 1: Unregister the node.
+#### Step 1: Unregister the node.
 
-1. In Azure portal, go to **Home** > **Automation Accounts** > (your Automation account) > **State configuration (DSC)**.
+1. In the Azure portal, go to **Home** > **Automation Accounts** > (your Automation account) > **State configuration (DSC)**.
 1. Select **Nodes**, and select the node having trouble.
 1. Select **Unregister** to unregister the node.
 
-Step 2: Uninstall the DSC extension from the node.
+#### Step 2: Uninstall the DSC extension from the node.
 
-1. In Azure portal, go to **Home** > **Virtual Machine** > (failing node) > **Extensions**.
+1. In the Azure portal, go to **Home** > **Virtual Machine** > (failing node) > **Extensions**.
 1. Select **Microsoft.Powershell.DSC**, the PowerShell DSC extension.
 1. Select **Uninstall** to uninstall the extension.
 
-Step 3: Remove all bad or expired certificates from the node.
+#### Step 3: Remove all bad or expired certificates from the node.
 
 On the failing node from an elevated PowerShell prompt, run these commands:
 
@@ -146,7 +146,7 @@ If (($certs.Count) -gt 0)
 }
 ```
 
-Step 4: Re-register the failing node.
+#### Step 4: Reregister the failing node.
 
 1. In the Azure portal, go to **Home** > **Automation Accounts** > (your Automation account) > **State configuration (DSC)**.
 1. Select **Nodes**.
@@ -198,7 +198,7 @@ Use one of the following solutions to fix the problem:
 * Make sure that the expression next to the `Node` keyword in the configuration definition isn't evaluating to Null.
 * If you're passing [ConfigurationData](../automation-dsc-compile.md) when you compile the configuration, make sure that you're passing the values that the configuration expects from the configuration data.
 
-### <a name="dsc-in-progress"></a>Scenario: The DSC node report becomes stuck in the In Progress state
+## <a name="dsc-in-progress"></a>Scenario: The DSC node report becomes stuck in the In Progress state
 
 ### Issue
 
@@ -214,7 +214,7 @@ You've upgraded your Windows Management Framework (WMF) version and have corrupt
 
 ### Resolution
 
-Follow instructions in [DSC known issues and limitations](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc).
+Follow the instructions in [DSC known issues and limitations](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc).
 
 ## <a name="issue-using-credential"></a>Scenario: Unable to use a credential in a DSC configuration
 
@@ -232,9 +232,9 @@ You've used a credential in a configuration but didn't provide proper `Configura
 
 ### Resolution
 
-Make sure to pass in the proper `ConfigurationData` to set `PSDscAllowPlainTextPassword` to true for each node configuration that is mentioned in the configuration. See [Compiling DSC configurations in Azure Automation State Configuration](../automation-dsc-compile.md).
+Make sure to pass in the proper `ConfigurationData` to set `PSDscAllowPlainTextPassword` to true for each node configuration that's mentioned in the configuration. See [Compiling DSC configurations in Azure Automation State Configuration](../automation-dsc-compile.md).
 
-## <a name="failure-processing-extension"></a>Scenario: "Failure processing extension" error when onboarding from DSC extension
+## <a name="failure-processing-extension"></a>Scenario: "Failure processing extension" error when onboarding from a DSC extension
 
 ### Issue
 
@@ -253,7 +253,7 @@ This error typically occurs when the node is assigned a node configuration name 
 * Make sure that you're assigning the node with a name that exactly matches the name in the service.
 * You can choose to not include the node configuration name, which results in onboarding the node but not assigning a node configuration.
 
-## <a name="cross-subscription"></a>Scenario: "One or more errors occurred" error when registering a node using PowerShell
+## <a name="cross-subscription"></a>Scenario: "One or more errors occurred" error when registering a node by using PowerShell
 
 ### Issue
 
@@ -310,7 +310,7 @@ If the **/tmp** location is set to `noexec`, the current version of DSC fails to
 
 Remove the `noexec` option from the **/tmp** location.
 
-## <a name="compilation-node-name-overlap"></a>Scenario: Node configuration names that overlap can result in bad release
+## <a name="compilation-node-name-overlap"></a>Scenario: Node configuration names that overlap can result in a bad release
 
 ### Issue
 
