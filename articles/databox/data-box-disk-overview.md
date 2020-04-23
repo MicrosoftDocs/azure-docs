@@ -16,14 +16,14 @@ Customer intent: As an IT admin, I need to understand what Data Box Disk is and 
 
 The Microsoft Azure Data Box Disk solution lets you send terabytes of on-premises data to Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you 1 to 5 solid-state disks (SSDs). These 8-TB encrypted disks are sent to your datacenter through a regional carrier.
 
-You can quickly configure, connect, and unlock the disks via the Data Box service in Azure portal. Copy your data to disks and ship the disks back to Azure. In the Azure datacenter, your data is automatically uploaded from drives to the cloud using a fast, private network upload link.
+You can quickly configure, connect, and unlock the disks through the Data Box service in Azure portal. Copy your data to disks and ship the disks back to Azure. In the Azure datacenter, your data is automatically uploaded from drives to the cloud using a fast, private network upload link.
 
 ## Use cases
 
 Use Data Box Disk to transfer TBs of data in scenarios with no to limited network connectivity. The data movement can be one-time, periodic, or an initial bulk data transfer followed by periodic transfers.
 
 - **One time migration** - when large amount of on-premises data is moved to Azure. For example, moving data from offline tapes to archival data in Azure cool storage.
-- **Incremental transfer** - when an initial bulk transfer is done using Data Box Disk (seed) followed by incremental transfers over the network. For example, Commvault and Data Box Disk are used to move backup copies to Azure. This migration is followed by copying incremental data via network to Azure Storage.
+- **Incremental transfer** - when an initial bulk transfer is done using Data Box Disk (seed) followed by incremental transfers over the network. For example, Commvault and Data Box Disk are used to move backup copies to Azure. This migration is followed by copying incremental data using network to Azure Storage.
 - **Periodic uploads** - when large amount of data is generated periodically and needs to be moved to Azure. For example in energy exploration, where video content is generated on oil rigs and windmill farms.
 
 ### Ingestion of data from Data Box
@@ -59,7 +59,7 @@ A typical flow includes the following steps:
 
 5. **Upload** - Data is automatically copied from the disks to Azure. The disks are securely erased as per the National Institute of Standards and Technology (NIST) guidelines.
 
-Throughout this process, you are notified via email on all status changes. For more information about the detailed flow, go to [Deploy Data Box Disks in Azure portal](data-box-disk-quickstart-portal.md).
+Throughout this process, you are notified through email on all status changes. For more information about the detailed flow, go to [Deploy Data Box Disks in Azure portal](data-box-disk-quickstart-portal.md).
 
 ## Benefits
 
@@ -73,13 +73,13 @@ Data Box Disk is designed to move large amounts of data to Azure with no impact 
   - The disks have a small form factor that makes them easy to handle.
   - The disks have no external power requirements.
   - The disks can be used with a datacenter server, desktop, or a laptop.
-  - The solution provides end-to-end tracking via the Azure portal.
+  - The solution provides end-to-end tracking using the Azure portal.
 
 - **Secure** - Data Box Disk has built-in security protections for the disks, data, and the service.
   - The disks are tamper-resistant and support secure update capability.
   - The data on the disks is secured with an AES 128-bit encryption at all times.
   - The disks can only be unlocked with a key provided in the Azure portal.
-  - The service is protected by the Azure security features. 
+  - The service is protected by the Azure security features.
   - Once your data is uploaded to Azure, the disks are wiped clean, in accordance with NIST 800-88r1 standards.  
 
 For more information, go to [Azure Data Box Disk security and data protection](data-box-disk-security.md).
