@@ -1,6 +1,6 @@
 ---
-title: Run task using template
-description: Run an ACR quick task using an Azure Resource Manager template
+title: Quick task run with template
+description: Queue an ACR task run to build an image using an Azure Resource Manager template
 ms.topic: article
 ms.date: 04/22/2020
 ---
@@ -11,14 +11,14 @@ ms.date: 04/22/2020
 
 This article shows Azure Resource Manager template examples to queue a [quick task](container-registry-tasks-overview.md#quick-task), similar to one you can create manually using the [az acr build][az-acr-build] command.
 
-A Resource Manager template to queue a task is useful in automation scenarios and extends the functionality of `az acr build`. For example:
+A Resource Manager template to queue a task run is useful in automation scenarios and extends the functionality of `az acr build`. For example:
 
-* Use a template to create a container registry and immediately queue an ACR task to build and push a container image
-* Create or enable additional resources you can use in a quick task, such as a managed identity for Azure resources
+* Use a template to create a container registry and immediately queue a task run to build and push a container image
+* Create or enable additional resources you can use in a quick task run, such as a managed identity for Azure resources
 
 ## Limitations
 
-* You must specify a remote context such as a GitHub repo as the [source location](container-registry-tasks-overview.md#context-locations) for your task. You can't use a local source context.
+* You must specify a remote context such as a GitHub repo as the [source location](container-registry-tasks-overview.md#context-locations) for your task run. You can't use a local source context.
 * For task runs using a managed identity, only a *user-assigned* managed identity is permitted.
 
 ## Prerequisites
@@ -26,9 +26,9 @@ A Resource Manager template to queue a task is useful in automation scenarios an
 * **GitHub account** - Create an account on https://github.com if you don't already have one. 
 * **Fork sample repository** - For the task examples shown here, use the GitHub UI to fork the following sample repository into your GitHub account: https://github.com/Azure-Samples/acr-build-helloworld-node. This repo contains sample Dockerfiles and source code to build small container images.
 
-## Example: Create registry and queue build task
+## Example: Create registry and queue task run
 
-This example uses a [sample template](https://github.com/Azure/acr/tree/master/docs/tasks/run-as-deployment/quickdockerbuild) to create a container registry and queue a task that builds and pushes an image. 
+This example uses a [sample template](https://github.com/Azure/acr/tree/master/docs/tasks/run-as-deployment/quickdockerbuild) to create a container registry and queue a task run that builds and pushes an image. 
 
 ### Template parameters
 
@@ -102,7 +102,7 @@ az acr task logs \
   --run-id ca1
 ```
 
-The output shows the task log.
+The output shows the task run log.
 
 You can also view the task run log in the Azure portal. 
 
@@ -110,11 +110,13 @@ You can also view the task run log in the Azure portal.
 2. Under **Services**, select **Tasks** > **Runs**.
 3. Select the run ID, in this case *ca1*. 
 
-The portal shows the task log.
+The portal shows the task run log.
 
-## Example: Queue task with managed identity
+## Example: Task run with managed identity
 
-Use a [sample template](https://github.com/Azure/acr/tree/master/docs/tasks/run-as-deployment/quickdockerbuildwithidentity) to queue a task that enables a user-assigned managed identity. During the task run, the identity authenticates to pull an image from another Azure container registry. This scenario is similar to [Cross-registry authentication in an ACR task using an Azure-managed identity](container-registry-tasks-cross-registry-authentication.md). For example, an organization might maintain a centralized registry with base images accessed by multiple development teams.
+Use a [sample template](https://github.com/Azure/acr/tree/master/docs/tasks/run-as-deployment/quickdockerbuildwithidentity) to queue a task that enables a user-assigned managed identity. During the task run, the identity authenticates to pull an image from another Azure container registry. 
+
+This scenario is similar to [Cross-registry authentication in an ACR task using an Azure-managed identity](container-registry-tasks-cross-registry-authentication.md). For example, an organization might maintain a centralized registry with base images accessed by multiple development teams.
 
 ### Prepare base registry
 
@@ -229,7 +231,7 @@ To view the run log, see steps in the [preceding section](#view-run-log).
 ## Next steps
 
  * See more template examples in the [ACR GitHub repo](https://github.com/Azure/acr/tree/master/docs/tasks/run-as-deployment).
- * For details about template properties, see the template reference for [Tasks](/azure/templates/microsoft.containerregistry/2019-06-01-preview/registries/tasks) and [Task runs](/azure/templates/microsoft.containerregistry/2019-06-01-preview/registries/taskruns).
+ * For details about template properties, see the template reference for [Task runs](/azure/templates/microsoft.containerregistry/2019-06-01-preview/registries/taskruns) and [Tasks](/azure/templates/microsoft.containerregistry/2019-06-01-preview/registries/tasks).
 
 
 <!-- LINKS - Internal -->
