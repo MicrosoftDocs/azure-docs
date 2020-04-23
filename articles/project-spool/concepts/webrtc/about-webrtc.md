@@ -16,7 +16,7 @@ ms.service: azure-project-spool
 
 WebRTC is a free, open-source project that gives browsers and mobile applications real-time communications capabilities. To read more about this project, visit [WebRTC.org](https://webrtc.org/).
 
-Many of Project Spool's components are built on top of WebRTC. Programmable Video and Programmable Voice utilize WebRTC protocols to connect your users' devices to one another over the internet.
+Many of Project Spool's components are built on top of WebRTC. Video and Voice utilize WebRTC protocols to connect your users' devices to one another.
 
 
 ## WebRTC and Video
@@ -27,7 +27,7 @@ TODO
 
 ## WebRTC and Voice
 
-Voice is built on WebRTC and other technologies that support advanced telephony scenarios?
+Voice is built on WebRTC, VOIP, and PSTN.
 
 TODO
 
