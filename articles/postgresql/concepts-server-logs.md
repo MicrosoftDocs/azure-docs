@@ -9,6 +9,7 @@ ms.date: 10/25/2019
 ---
 
 # Logs in Azure Database for PostgreSQL - Single Server
+
 Azure Database for PostgreSQL allows you to configure and access Postgres's standard logs. The logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance. Logging information you can configure and access includes errors, query information, autovacuum records, connections, and checkpoints. (Access to transaction logs is not available).
 
 Audit logging is made available through a Postgres extension, pgaudit. To learn more, visit the [auditing concepts](concepts-audit.md) article.
@@ -50,6 +51,7 @@ Azure Database for PostgreSQL is integrated with Azure Monitor diagnostic settin
 
 
 ### Configure diagnostic settings
+
 You can enable diagnostic settings for your Postgres server using the Azure portal, CLI, REST API, and Powershell. The log category to select is **PostgreSQLLogs**. (There are other logs you can configure if you are using [Query Store](concepts-query-store.md).)
 
 To enable resource logs using the Azure portal:
