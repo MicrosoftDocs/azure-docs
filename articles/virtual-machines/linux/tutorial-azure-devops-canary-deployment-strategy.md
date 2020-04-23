@@ -33,7 +33,7 @@ Virtual machines can be added as targets to a [deployment group](https://docs.mi
 You can configure canary deployments to your virtual machines with the Azure portal using continuous delivery option. 
 Here is the step-by-step walkthrough. 
 1. Sign in to your Azure portal and navigate to a virtual machine 
-2. In the VM left pane, navigate to the **continuous delivery** menu. Then click on **Configure**. 
+2. In the VM left pane, navigate to the **Continuous delivery** menu. Click **Configure**. 
 
    ![AzDevOps_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png) 
 3. In the configuration panel, click on “Azure DevOps Organization” to select an existing account or create one. Then select the project under which you would like to configure the pipeline.  
