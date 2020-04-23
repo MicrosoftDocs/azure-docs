@@ -26,6 +26,8 @@
       href: learn/automation-tutorial-runbook-textual-python2.md
 - name: Concepts
   items:
+    - name: Automation account authentication overview
+      href: automation-security-overview.md
     - name: Runbook execution overview
       href: automation-runbook-execution.md
     - name: Hybrid Runbook Worker overview
@@ -48,6 +50,8 @@
           href: automation-create-standalone-account.md
         - name: Create Automation account with Resource Manager template
           href: automation-create-account-template.md
+        - name: Configure authentication with Amazon Web Services
+          href: automation-config-aws-account.md
         - name: Manage an Automation Run As account
           href: manage-runas-account.md
         - name: Manage role permissions and security
@@ -134,7 +138,7 @@
           href: source-control-integration.md
     - name: Configuration Management
       items:
-        - name: Manage State Configuration (DSC)
+        - name: State Configuration (DSC)
           items:
             - name: Overview
               href: automation-dsc-overview.md
@@ -156,7 +160,7 @@
               href: automation-dsc-diagnostics.md
             - name: Troubleshoot issues with DSC
               href: troubleshoot/desired-state-configuration.md
-        - name: Manage Change Tracking and Inventory
+        - name: Change Tracking and Inventory
           items:
             - name: Overview
               href: change-tracking.md
@@ -182,7 +186,7 @@
                   href: troubleshoot/onboarding.md
                 - name: Using Change Tracking and Inventory 
                   href: troubleshoot/change-tracking.md
-    - name: Start/Stop VMs during off hours
+    - name: Start/Stop VMs during off-hours
       items:
         - name: Overview
           href: automation-solution-vm-management.md
@@ -248,8 +252,6 @@
           href: automation-create-alert-triggered-runbook.md
         - name: Manage Office 365 services
           href: manage-office-365.md
-        - name: Authenticate runbooks with Amazon Web Services
-          href: automation-config-aws-account.md
         - name: Deploy AWS VM with Automation runbook
           href: automation-scenario-aws-deployment.md
         - name: Deploy Resource Manager template with runbook
