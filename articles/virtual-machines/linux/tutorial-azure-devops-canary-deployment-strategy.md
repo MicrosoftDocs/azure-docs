@@ -46,7 +46,7 @@ Here is the step-by-step walkthrough.
 7. Add a 'canary' tag to the VMs that are to be part of canary deployments and a 'prod' tag to the VMs that are part of deployments after canary deployment in successful. Tags help you target VMs that have specific role only.
 ![AzDevOps_configure_canary](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure-canary.png)
 
-8. Once done Click **OK** on the dialog to configure the continuous delivery pipeline, you will now have a continuous delivery pipeline configured to deploy to the virtual machine.
+8. Click **OK** on the dialog to configure the continuous delivery pipeline. You will now have a continuous delivery pipeline configured to deploy to the virtual machine.
 ![AzDevOps_canary_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-pipeline.png)
 
 
