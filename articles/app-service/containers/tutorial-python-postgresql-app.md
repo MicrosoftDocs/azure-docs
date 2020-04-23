@@ -157,12 +157,12 @@ Once the deployment finishes, you see a JSON output like the following:
 
 <pre>
 {
-  "URL": "http://<app-name>.azurewebsites.net",
+  "URL": "http://&lt;app-name&gt;.azurewebsites.net",
   "appserviceplan": "myAppServicePlan",
   "location": "westus",
-  "name": "<app-name>",
+  "name": "&lt;app-name&gt;",
   "os": "Linux",
-  "resourcegroup": "<app-resource-group>",
+  "resourcegroup": "&lt;app-resource-group&gt;",
   "runtime_version": "python|3.7",
   "runtime_version_detected": "-",
   "sku": "BASIC",
@@ -360,8 +360,8 @@ Because you made changes to the data model, you need to rerun database migration
 ```
 cd site/wwwroot
 
-# Activate the virtual environment
-source venv/bin/activate
+# Activate default virtual environment in App Service container
+source /antenv/bin/activate
 # Run database migrations
 python manage.py migrate
 ```
