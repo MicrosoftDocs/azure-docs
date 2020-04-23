@@ -56,7 +56,7 @@ The first thing we need to do is set up our project in Visual Studio.
 
 1. Open Visual Studio. Select **Create a new project**.
 1. In **Create a new project**, locate and select **WPF App (.NET Framework)**. You can select C# from **Language** to narrow the options.
-1. Select **Next**, and then name your project `MSTranslatorTextDemo`.
+1. Select **Next**, and then name your project `MSTranslatorDemo`.
 1. Set the framework version to **.NET Framework 4.7.2** or later, and select **Create**.
    ![Enter the name and framework version in Visual Studio](media/name-wpf-project-visual-studio.png)
 
@@ -126,12 +126,12 @@ Let's add the code to our project.
 1. In Visual Studio, select the tab for `MainWindow.xaml`.
 1. Copy this code into your project, and then select **File > Save MainWindow.xaml** to save your changes.
    ```xaml
-   <Window x:Class="MSTranslatorTextDemo.MainWindow"
+   <Window x:Class="MSTranslatorDemo.MainWindow"
            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-           xmlns:local="clr-namespace:MSTranslatorTextDemo"
+           xmlns:local="clr-namespace:MSTranslatorDemo"
            mc:Ignorable="d"
            Title="Microsoft Translator" Height="400" Width="700" BorderThickness="0">
        <Grid>
