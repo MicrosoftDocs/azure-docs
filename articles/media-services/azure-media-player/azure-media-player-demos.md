@@ -4,7 +4,7 @@ description: This page contains a listing of links to demos of the Azure Media P
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
-ms.topic: samples
+ms.topic: article
 ms.date: 04/23/2020
 ---
 
