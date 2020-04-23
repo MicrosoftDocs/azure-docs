@@ -136,7 +136,7 @@ Save these values because you'll need to provide the **Username** and **Password
 The final step is to enable the user you created to write the leads.
 
 1. Open Dynamics 365 Customer Engagement by going to the URL for your Dynamics instance, such as `https://tenant.crm.dynamics.com`.
-1. Select the gear iconon the top bar, and then select **Advanced Settings**.
+1. Select the gear icon on the top bar, and then select **Advanced Settings**.
 1. On the Settings page, open the **Settings** menu on the top bar and select **Security**.
 1. On the Security page, select **Users** and select the user that you created in the "Configure user permissions" section of this document. Then select **Manage Roles**. 
 
