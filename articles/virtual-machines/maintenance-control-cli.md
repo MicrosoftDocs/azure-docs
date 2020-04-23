@@ -26,7 +26,7 @@ az maintenance configuration create \
    -g myMaintenanceRG \
    --name myConfig \
    --maintenanceScope host\
-   --location  eastus
+   --location eastus
 ```
 
 Copy the configuration ID from the output to use later.
