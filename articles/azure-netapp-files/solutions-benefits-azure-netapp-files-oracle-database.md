@@ -22,7 +22,7 @@ Oracle Direct NFS (dNFS) makes it possible to drive higher performance than the 
 
 ## How Oracle Direct NFS works
 
-The following summarizes how Oracle Direct NFS works at a high level:
+The following summary explains how Oracle Direct NFS works at a high level:
 
 * Oracle Direct NFS bypasses the operating system buffer cache. Data is cached only once in the user space, eliminating the overhead of memory copies.  
 
