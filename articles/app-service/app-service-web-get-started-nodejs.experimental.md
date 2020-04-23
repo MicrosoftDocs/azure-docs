@@ -72,7 +72,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
 
-```json
+<pre>
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -80,11 +80,11 @@ When the web app has been created, the Azure CLI shows output similar to the fol
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
+  "defaultHostName": "&lt;app_name&gt;.azurewebsites.net",
   "enabled": true,
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
 }
-```
+</pre>
 
 ### Set Node.js runtime
 
