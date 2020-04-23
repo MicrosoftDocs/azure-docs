@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 04/24/2020
 
 ---
 
@@ -27,11 +27,11 @@ Azure Cosmos DB uses hash-based partitioning to spread logical partitions across
 
 Transactions (in stored procedures or triggers) are allowed only against items in a single logical partition.
 
-To learn more about [how Azure Cosmos DB manages partitions](partition-data.md). (It's not necessary to understand the internal details to build or run your applications, but added here for a curious reader.)
+You can learn more about [how Azure Cosmos DB manages partitions](partition-data.md). (It's not necessary to understand the internal details to build or run your applications, but added here for a curious reader.)
 
 ## <a id="choose-partitionkey"></a>Choosing a partition key
 
-Selecting your partition key is a simple but important design choice in Azure Cosmos DB. Once you select your partition key, it is not possible to change it in-place. If you need change your partition key, you should move your data to a new container with your new desired partition key.
+Selecting your partition key is a simple but important design choice in Azure Cosmos DB. Once you select your partition key, it is not possible to change it in-place. If you need to change your partition key, you should move your data to a new container with your new desired partition key.
 
 For **all** containers, your partition key should:
 
@@ -43,9 +43,9 @@ If you need [multi-item ACID transactions](database-transactions-optimistic-conc
 
 ## Partition keys for read-heavy containers
 
-For most containers, the above criteria is all you need to consider when picking a partition key. For large read-heavy containers, however, you might want to choose a partition key that is a property that appears frequently as a filter in your queries. Queries can be [efficiently routed to only the relevant physical partitions](how-to-query-container.md#in-partition-query) by including the partition key in the filter predicate.
+For most containers, the above criteria is all you need to consider when picking a partition key. For large read-heavy containers, however, you might want to choose a partition key that appears frequently as a filter in your queries. Queries can be [efficiently routed to only the relevant physical partitions](how-to-query-container.md#in-partition-query) by including the partition key in the filter predicate.
 
-If most of your workload's requests are queries and most of your queries have an equality filter on the same property, this property can be a good partition key choice. For example, if you frequently run a query that filters on `UserID`, then selecting `UserID` as the partition key would reduce the number of [cross-partition queries](how-to-query-container#avoiding-cross-partition-queries).
+If most of your workload's requests are queries and most of your queries have an equality filter on the same property, this property can be a good partition key choice. For example, if you frequently run a query that filters on `UserID`, then selecting `UserID` as the partition key would reduce the number of [cross-partition queries](how-to-query-container.md#avoiding-cross-partition-queries).
 
 However, if your container is small, you probably don't have enough physical partitions to need to worry about the performance impact of cross-partition queries. Most small containers in Azure Cosmos DB only require one or two physical partitions.
 
@@ -58,16 +58,16 @@ If your container could grow to more than a few physical partitions, then you sh
 
 If your container has a property that has a wide range of possible values, it is likely a great partition key choice. One possible example of such a property is the *item ID*. For small read-heavy containers or write-heavy containers of any size, the *item ID* is naturally a great choice for the partition key.
 
-The *item ID* is a great partition key choice because:
+The *item ID* is a great partition key choice for the following reasons:
 
 * There are a wide range of possible values (one unique *item ID* per item).
 * Because there is a unique *item ID* per item, the *item ID* does a great job at evenly balancing RU consumption and data storage.
-* It allows you to easily do efficient point reads since you'll always know an item's partition key if you know its *item ID*.
+* You can easily do efficient point reads since you'll always know an item's partition key if you know its *item ID*.
 
-Some things to consider when selecting the *item ID* include:
+Some things to consider when selecting the *item ID* as the partition key include:
 
-* If the *item ID* is the partition key, it will become a unique identifier throughout your entire container. You won't be able to have items that have a duplicate *item ID*
-* If you have a read-heavy container that has a lot of [physical partitions].(partition-data.md#physical-partitions), all of your queries will be cross-partition
+* If the *item ID* is the partition key, it will become a unique identifier throughout your entire container. You won't be able to have items that have a duplicate *item ID*.
+* If you have a read-heavy container that has a lot of [physical partitions](partition-data.md#physical-partitions), all of your queries will be cross-partition
 * You can't run stored procedures or triggers across multiple logical partitions.
 
 ## Next steps

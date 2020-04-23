@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 04/24/2020
 
 ---
 
 # Partitioning and horizontal scaling in Azure Cosmos DB
 
-This article explains physical and logical partitions in Azure Cosmos DB. It also discusses best practices for scaling and partitioning.
+This article explains the difference between logical and physical partitions. It also discusses best practices for partitioning and gives an in-depth view at how horizontal scaling works in Azure Cosmos DB. It's not necessary to understand these internal details to [select your partition key](partitioning-overview.md#choose-partitionkey) but we have covered them so you have clarity for how Azure Cosmos DB works.
 
 ## Logical partitions
 
@@ -28,14 +28,15 @@ There is no limit to the number of logical partitions in your container. Each lo
 An Azure Cosmos container is scaled by distributing data and throughput across physical partitions. Internally, one or more logical partitions are mapped to a single physical partition. Most small Cosmos containers have many logical partitions but only require a single physical partition. Unlike logical partitions, physical partitions are an internal implementation of the system.
 
 The number of physical partitions in your Cosmos container depends on the following:
-    - Amount of provisioned throughput (each individual physical partition can provide a throughput up to 10,000 request units per second)
-    - Total data storage (each individual physical partition can store up to 50GB)
+
+- Amount of provisioned throughput (each individual physical partition can provide a throughput of up to 10,000 request units per second)
+- Total data storage (each individual physical partition can store up to 50GB)
 
 There is no limit to the total number of physical partitions in your container. As your provisioned throughput or data size grows, Azure Cosmos DB will automatically create new physical partitions by splitting existing ones. Physical partition splits do not impact your application's availability. After the physical partition split, all data within a single logical partition will still be stored on the same physical partition. A physical partition split simply creates a new mapping of logical partitions to physical partitions.
 
 Throughput provisioned for a container is divided evenly among physical partitions. A partition key design that doesn't distribute the throughput requests evenly might create "hot" partitions. Hot partitions might result in rate-limiting and in inefficient use of the provisioned throughput, and higher costs.
 
-You can see how many physical partitions in your container the **Storage** section of the **Metrics blade** of the Azure Portal:
+You can see your container's physical partitions in the **Storage** section of the **Metrics blade** of the Azure Portal:
 
 [![Viewing number of physical partitions](./media/partition-data/view-partitions-zoomed-out.png) ](./media/partition-data/view-partitions-zoomed-in.png#lightbox)
 
