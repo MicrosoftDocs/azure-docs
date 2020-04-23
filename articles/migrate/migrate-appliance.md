@@ -312,8 +312,8 @@ The appliance is upgraded as the Azure Migrate agents running on the appliance a
 
 You can turn on auto-update using either of these methods:
 
-- By deleting the AutoUpdate registry key from HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
-- After discovery is complete, in the Appliance Configuration Manager in the appliance web application.
+- By leting the AutoUpdate registry key from HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+- After discovery is complete, in the Appliance Configuration Manager in the appliance web application
 
 To delete the registry key:
 
@@ -338,7 +338,7 @@ You can check the appliance services version using either of these methods:
 To check in the Appliance Configuration Manager:
 
 1. After discovery is complete, open Appliance Configuration Manager in the appliance web application.
-2. In **Appliance services** > verify Appliance services versions.
+2. In **Appliance services** > verify the appliance services versions.
 
     ![Check version](./media/migrate-appliance/version.png)
 
@@ -360,7 +360,7 @@ If you are running an older version for any of the components, you must uninstal
     "Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
 
 4.	Download the latest version of an outdated service, with the download link in the file.
-5. After downloading,run the command in an administrator command window, to verify the integrity of the downloaded MSI.
+5. After downloading, run the following command in an administrator command window, to verify the integrity of the downloaded MSI.
 
     ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```
     For example:
