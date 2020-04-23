@@ -24,11 +24,8 @@ Many industries use confidential computing to protect their data. These workload
 
 ## <a id="overview"></a> Overview
 <p><p>
-<!-- markdownlint-disable MD034 -->
 
-> [!VIDEO https://youtu.be/Qu6sP0XDMU8]
-
-<!-- markdownlint-enable MD034 -->
+> [!VIDEO https://www.youtube.com/embed/Qu6sP0XDMU8]
 
 We know that securing your cloud data is important. We hear your concerns. Here's just a few questions that our customers may have when moving sensitive workloads to the cloud: 
 - How do I make sure Microsoft can't access data that isn't encrypted?
@@ -37,7 +34,7 @@ We know that securing your cloud data is important. We hear your concerns. Here'
 
 - What are more ways that I can prevent third-parties from accessing sensitive customer data?
 
-Microsoft Azure helps you minimize your attack surface to gain stronger data protection. Azure already offers many tools to safeguard [**data at rest**](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) through models such as client-side encryption and server-side encryption. Additionally, Azure offers mechanisms to encrypt [**data in transit**](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) through secure protocols like TLS and HTTPS. This page introduces  a third leg of data encryption - the encryption of **data in use**.
+Microsoft Azure helps you minimize your attack surface to gain stronger data protection. Azure already offers many tools to safeguard [**data at rest**](../security/fundamentals/encryption-atrest) through models such as client-side encryption and server-side encryption. Additionally, Azure offers mechanisms to encrypt [**data in transit**](../security/fundamentals/data-encryption-best-practices#protect-data-in-transit) through secure protocols like TLS and HTTPS. This page introduces  a third leg of data encryption - the encryption of **data in use**.
 
 
 ## <a id="intro to acc"></a> Introduction to confidential computing
@@ -59,7 +56,7 @@ You'll want to get verification and validation that your trusted environment is 
 
 Attestation allows a relying party to have increased confidence that their software is running (1) in an enclave and (2) that the enclave is up to date and secure. For example, an enclave asks the underlying hardware to generate a credential that includes proof that the enclave exists on the platform. The report can then be given to a second enclave that verifies the report was generated on the same platform.
 
-Attestation must be implemented using a secure attestation service that is compatible with the system software and silicon. 
+Attestation must be implemented using a secure attestation service that is compatible with the system software and silicon. [Intel's attestation and provisioning services](https://software.intel.com/sgx/attestation-services) are compatible with Azure confidential computing virtual machines.
 
 ## <a id="cc-on-azure"></a> Using Azure for cloud-based confidential computing
 Azure confidential computing allows you to leverage confidential computing capabilities in a virtualized environment. You can now use tools, software, and cloud infrastructure to build on top of secure hardware. 
