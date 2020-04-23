@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/21/2020
+ms.date: 04/23/2020
 ms.author: curtand
 ms.custom: pim  
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 This article describes how to enable Privileged Identity Management (PIM) and get started using it.
 
-Use Privileged Identity Management (PIM) to manage, control, and monitor access within your Azure Active Directory (Azure AD) organization. With PIM you can provide as-needed and just-in-time access to Azure resources, Azure AD, and other Microsoft online services like Office 365 or Microsoft Intune.
+Use Privileged Identity Management (PIM) to manage, control, and monitor access within your Azure Active Directory (Azure AD) organization. With PIM you can provide as-needed and just-in-time access to Azure resources, Azure AD resources, and other Microsoft online services like Office 365 or Microsoft Intune.
 
 ## Prerequisites
 
@@ -35,30 +35,22 @@ For more information, see [License requirements to use Privileged Identity Manag
 
 Once you have enabled Privileged Identity Management for your directory, you can prepare Privileged Identity Management to manage Azure AD roles.
 
-You should get started with Azure AD roles in the following order:
+Here are the tasks we recommend for you to prepare for Azure AD roles, in order:
 
-1. [Configure role settings](pim-how-to-change-default-settings.md).
+1. [Configure Azure AD role settings](pim-how-to-change-default-settings.md).
 1. [Give eligible assignments](pim-how-to-add-role-to-user.md).
-1. [Allow eligible users to activate their role just-in-time](pim-how-to-activate-role.md).
+1. [Allow eligible users to activate their Azure AD role just-in-time](pim-how-to-activate-role.md).
 
 ## Prepare PIM for Azure roles
 
 Once you have enabled Privileged Identity Management for your directory, you can prepare Privileged Identity Management to manage Azure roles for Azure resource access on a subscription.
 
-You should get started with Azure roles in the following order:
+Here are the tasks we recommend for you to prepare for Azure roles, in order:
 
 1. [Discover Azure resources](pim-resource-roles-discover-resources.md)
-1. [Configure role settings](pim-resource-roles-configure-role-settings.md).
+1. [Configure Azure role settings](pim-resource-roles-configure-role-settings.md).
 1. [Give eligible assignments](pim-resource-roles-assign-roles.md).
-1. [Allow eligible users to activate their roles just-in-time](pim-resource-roles-activate-your-roles.md).
-
-I think this is good, can we also add a section for Azure Resource roles. You can add the same three though they will link to the Azure Resource doc. And before these 3 points, Azure Resource will require customers to discover resources
- 
-
-https://review.docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-resource-roles-discover-resources?branch=pr-en-us-111400
-
-
-
+1. [Allow eligible users to activate their Azure roles just-in-time](pim-resource-roles-activate-your-roles.md).
 
 ## Navigate to your tasks
 

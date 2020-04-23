@@ -40,6 +40,21 @@ For more information, see the [widget types](video-indexer-embed-widgets.md#widg
 
 A new player skin launched with updated design.
 
+### Prepare for upcoming changes
+
+* Today, the following APIs return an account object:
+
+    * [Create-Paid-Account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account)
+    * [Get-Account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account)
+    * [Get-Accounts-Authorization](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-Authorization)
+    * [Get-Accounts-With-Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-With-Token)
+ 
+    The Account object has a `Url` field pointing to the location of [Video Indexer web site](https://www.videoindexer.ai/).
+For paid accounts the Url field is currently pointing to an internal url instead of the public web site.
+In the coming weeks we will change it and return VideoIndexer’s web site (`https://www.videoindexer.ai/`) for all accounts, trial and paid.
+
+    Do not use the internal URLs, you should be using the [Video Indexer public APIs](https://api-portal.videoindexer.ai/).
+
 ## January 2020
  
 ### Custom language support for additional languages
