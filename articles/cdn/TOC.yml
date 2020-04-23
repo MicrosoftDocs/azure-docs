@@ -28,8 +28,6 @@
     href: cdn-caching-rules-tutorial.md
   - name: Enforce HTTPS by using the Standard rules engine
     href: cdn-standard-rules-engine.md
-  - name: Endpoint multi-origin
-    href: endpoint-multiorigin.md
 - name: Samples
   items:
   - name: Code samples
@@ -69,6 +67,8 @@
       href: cdn-restrict-access-by-country.md
     - name: Improve performance by compressing files
       href: cdn-improve-performance.md
+    - name: Endpoint multi-origin
+      href: endpoint-multiorigin.md
     - name: Control caching behavior
       items:
       - name: Control caching behavior by using caching rules
