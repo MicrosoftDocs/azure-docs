@@ -84,9 +84,7 @@ Data Box Disk is designed to move large amounts of data to Azure with no impact 
 
 For more information, go to [Azure Data Box Disk security and data protection](data-box-disk-security.md).
 
-
 ## Features and specifications
-
 
 | Specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
