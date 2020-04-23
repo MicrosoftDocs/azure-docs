@@ -27,6 +27,8 @@ Instance(**Type I and Type II**)
 |-----------------------------|--------------|-----------------------|-------------|
 |   Type 1                    |  SuSE        |   SLES 12 SP3         |  S224m      |
 |   Type 1                    |  SuSE        |   SLES 12 SP4         |  S224m      |
+|   Type 1                    |  SuSE        |   SLES 12 SP2         |  S72m       |
+|   Type 1                    |  SuSE        |   SLES 12 SP3         |  S72m       |
 |   Type 1                    |  SuSE        |   SLES 12 SP3         |  S96        |
 |   Type 1                    |  SuSE        |   SLES 12 SP4         |  S96        |
 |   Type 2                    |  SuSE        |   SLES 12 SP3         |  S384       |
