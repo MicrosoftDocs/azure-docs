@@ -11,7 +11,7 @@ ms.author: dsindona
 ---
 
 # Consulting Services for Azure Marketplace and AppSource
-Consulting Services in Azure Marketplace and AppSource provides Microsoft partners the goal of connecting customers with services to support and extend their use of Azure and business goals. 
+Consulting Services in Azure Marketplace and AppSource provides Microsoft partners the goal of connecting customers with services to support and extend their use of Azure and business goals.
 
 Azure Marketplace and AppSource support the listing of consulting service offerings from System Integrator (SI) partners of Microsoft - the goal being to offer quality consulting services to enable customers to connect with the expert services they need. Helping customers assess, evaluate, and deploy the right solutions and implementation that will help with their business objectives and goals.  
 
@@ -67,7 +67,7 @@ Partners are required to have a **silver or gold competency** in the relevant ar
 
 Additional resources and support:
 
-1. [Microsoft Cloud Enablement Desk](https://aka.ms/CEDnominate) <br> The Cloud Enablement Desk Guided Experience Partner Nomination Form is to help provide a Cloud Program Specialist to articulate MPN benefits, and serve as guide to competency attainment.  
+1. [Cloud Enablement Desk](https://partner.microsoft.com/campaigns/ced-nomination-form/) <br> The Cloud Enablement Desk Guided Experience Partner Nomination Form is to help provide a Cloud Program Specialist to articulate MPN benefits, and serve as guide to competency attainment.  
 2. How to get listed on Power BI showcase? <br> Begin by submitting a request to get listed, see [become a partner](https://powerbi.microsoft.com/become-a-partner/).
 
 <b> For more information, see [competencies through Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>

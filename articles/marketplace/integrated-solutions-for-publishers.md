@@ -15,7 +15,7 @@ In a single bundled offer, an integrated solution combines point-solution techno
 
 Integrated solutions aim to address a specific customer need or scenario. Providers begin by understanding the industry challenge or pain points. They then integrate two or more best-of-breed technologies to create a unified and repeatable deployment experience for customers. Providers get customers up and running rapidly. They offer a single point of contact to the customer, providing relevant customization, consulting, and solution support. The outcome is an integrated solution, including technology and services.
 
-For an overview of the Integrated Solutions program, watch [this video](https://aka.ms/AA5qos4).
+For an overview of the Integrated Solutions program, watch the [Overview video for partners](https://partner.microsoft.com/asset/detail/integrated-solutions-program-overview-for-partners-mp4).
 
 ## Benefits of integrated solutions in the marketplace
 
@@ -81,7 +81,7 @@ After your nomination is approved, use the linked program resources to develop y
 
     * [Business decision workshop discussion guide](https://aka.ms/AA5qicx)
     * [Technical decision workshop discussion guide](https://aka.ms/AA5qid1)
-    * [Quickstart video: Business and technical workshops](https://aka.ms/AA5qos9)
+    * [Quickstart video: Integrated Solutions workshops](https://partner.microsoft.com/asset/detail/integrated-solutions-workshop-quickstart-guide-mp4)
 
 1. Identify a cross-partner project manager to drive the project plan and timeline that you developed in the business and technical workshops.
 
