@@ -173,8 +173,6 @@ To establish connectivity from an on-premises environment to the SQL Database, c
 
 PolyBase is commonly used to load data into Azure Synapse Analytics from Azure Storage accounts. If the Azure Storage account that you are loading data from limits access only to a set of VNet-subnets via Private Endpoints, Service Endpoints, or IP-based firewalls, the connectivity from PolyBase to the account will break. For enabling both PolyBase import and export scenarios with Azure Synapse Analytics connecting to Azure Storage that's secured to a VNet, follow the steps provided [here](sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
-
-
 ## Next steps
 
 - For an overview of Azure SQL Database security, see [Securing your database](sql-database-security-overview.md)
