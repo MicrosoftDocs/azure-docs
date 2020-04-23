@@ -27,8 +27,6 @@ You can think of the models as nouns in a description of your world.
 
 Models for Azure Digital Twins are defined using the Digital Twins Definition language (DTDL). DTDL is based on JSON-LD and is programming-language independent.
 
-DTDL is also used as part of [Azure IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md). Developers of PnP devices use a subset of the same description language used for Azure Digital Twins. The DTDL version used for PnP is, semantically, a subset of DTDL for Azure Digital Twins: every *capability model* as defined by PnP is also a valid model for use in Azure Digital Twins. 
-
 For more information about DTDL, see the concept documentation on [Digital Twins Definition language (DTDL)](concepts-dtdl.md) for Azure Digital Twins, or view its [reference documentation](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
 ## Elements of a model
@@ -52,11 +50,9 @@ DTDL and models have several constraints while in preview:
 * Azure Digital Twins does not currently support the execution of commands on digital twins.
 * Azure Digital Twins does not support standalone relationships (that is, relationships defined as independent graph elements). All relationships must be defined inline as part of a model.
 
-## Create a model
+## Example model code
 
 Twin type models can be written in any text editor. The DTDL language follows JSON syntax, so you should store models with the extension *.json*. Using the JSON extension will enable many programming text editors to provide basic syntax checking and highlighting for your DTDL documents.
-
-### Example model code
 
 Here is an example of a typical model, written as a DTDL interface: 
 
@@ -96,7 +92,7 @@ Here is an example of a typical model, written as a DTDL interface:
 }
 ```
 
-The fields of the DTDL document are:
+The fields of the model are:
 
 | Field | Description |
 | --- | --- |
@@ -177,11 +173,11 @@ The extending interface cannot change any of the definitions of the parent inter
 
 ## Next steps
 
-Learn about creating digital twins based on models:
-* [Create digital twins and the twin graph](concepts-twins-graph.md)
-
 Read more detail about DTDL:
 * [Digital Twins Definition Language (DTDL)](concepts-dtdl.md)
+
+Learn about creating digital twins based on models:
+* [Create digital twins and the twin graph](concepts-twins-graph.md)
 
 Or, see how a model is managed with the DigitalTwinsModels APIs:
 * [Manage a twin model](how-to-manage-model.md)
