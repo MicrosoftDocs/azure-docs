@@ -26,6 +26,20 @@ This feature is helpful in scenarios in which Azure Service Bus should be only a
 ## IP firewall rules
 The IP firewall rules are applied at the Service Bus namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Service Bus namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
+>[!WARNING]
+> Implementing Firewall rules can prevent other Azure services from interacting with Service Bus.
+>
+> Trusted Microsoft services are not supported when IP Filtering (Firewall rules) are implemented, and will be made available soon.
+>
+> Common Azure scenarios that don't work with IP Filtering (note that the list is **NOT** exhaustive) -
+> - Integration with Azure Event Grid
+> - Azure IoT Hub Routes
+> - Azure IoT Device Explorer
+>
+> The following Microsoft services are required to be on a virtual network
+> - Azure App Service
+> - Azure Functions
+
 ## Use Azure portal
 This section shows you how to use the Azure portal to create IP firewall rules for a Service Bus namespace. 
 
