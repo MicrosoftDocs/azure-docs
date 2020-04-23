@@ -68,7 +68,7 @@ When you're ready to configure the lead management information for your offer in
 
     ![Lead management section Connect button](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
 
-1. On the Connection details pop-up window, select **Marketo** for the **Lead destination**.
+1. On the **Connection details** pop-up window, select **Marketo** for the **Lead destination**.
 
     ![Choose a lead destination](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
 
