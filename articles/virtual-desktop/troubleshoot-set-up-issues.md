@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop tenant host pool creation - Azure
-description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop tenant environment.
+title: Windows Virtual Desktop environment host pool creation - Azure
+description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop environment.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,7 +10,7 @@ ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
 ---
-# Tenant and host pool creation
+# Environment and host pool creation
 
 >[!IMPORTANT]
 >This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-set-up-issues-2019.md).
@@ -146,7 +146,7 @@ Example of raw error:
 
 To fix this, do the following things:
 
-1. Open the Azure Portal and go to the **Virtual networks** tab.
+1. Open the Azure portal and go to the **Virtual networks** tab.
 2. Find your VNET, then select **DNS servers**.
 3. The DNS servers menu should appear on the right side of your screen. On that menu, select **Custom**.
 4. Make sure the DNS servers listed under Custom match your domain controller or Active Directory domain. If you don't see your DNS server, you can add it by entering its value into the **Add DNS server** field.
