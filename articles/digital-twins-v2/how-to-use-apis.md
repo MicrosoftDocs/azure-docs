@@ -192,6 +192,15 @@ try
     Console.WriteLine($"*** Error in twin query: ${e.Response.StatusCode}");
 }
 ```
+## Monitor APIs
+
+API metrics such as requests, latency and failure rate can be viewed in the [Azure portal](https://portal.azure.com/). 
+
+From the portal homepage, search for your Azure Digital Twins instance to pull up its details. Select the **Metrics** option from the Azure Digital Twins instance's menu to bring up the *Metrics* page.
+
+:::image type="content" source="media/how-to-use-apis/metrics.png" alt-text="Metrics page of an Azure Digital Twins instance in the Azure portal":::
+
+From here, you can view the metrics for your instance and create custom views.
 
 ## Next steps
 

@@ -27,6 +27,8 @@ Here are some more uses of Azure Digital Twins:
  
 Azure Digital Twins does the hard work of translating a device-centric view of the world into always-up-to-date, business-focused insights, allowing you to concentrate on your business problems instead of complex distributed systems infrastructure.
 
+Your Azure Digital Twins instance is either managed within the [Azure portal](https://portal.azure.com), or via custom [Azure Digital Twins CLI](how-to-use-cli.md) commands.
+
 ## Azure Digital Twins key capabilities
 
 Here is a summary of what you can do with Azure Digital Twins.
