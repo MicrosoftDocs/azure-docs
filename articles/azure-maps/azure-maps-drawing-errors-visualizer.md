@@ -26,16 +26,16 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 ## Download
 
- 1. Upload your Drawing package to the Azure Maps Creator service to obtain a `udid` for the uploaded package. For steps on how to upload a package, see [Upload a drawing package](tutorial-creator-indoor-maps.md#upload-a-drawing-package).
+1. Upload your Drawing package to the Azure Maps Creator service to obtain a `udid` for the uploaded package. For steps on how to upload a package, see [Upload a drawing package](tutorial-creator-indoor-maps.md#upload-a-drawing-package).
 
- 2. Now that the Drawing package is uploaded, we'll use `udid` for the uploaded package to convert the package into map data. For steps on how to convert a package, see [Convert a drawing package](tutorial-creator-indoor-maps.md#convert-a-drawing-package).
+2. Now that the Drawing package is uploaded, we'll use `udid` for the uploaded package to convert the package into map data. For steps on how to convert a package, see [Convert a drawing package](tutorial-creator-indoor-maps.md#convert-a-drawing-package).
 
-     >[!NOTE]
-     >If your conversion process succeeds, you will not receive a link to the Error Visualizer tool.
+    >[!NOTE]
+    >If your conversion process succeeds, you will not receive a link to the Error Visualizer tool.
 
- 3. Under the response **Headers** tab in the Postman application, look for the `diagnosticPackageLocation` property, returned by the Conversion API. The response should look something like the following:
+3. Under the response **Headers** tab in the Postman application, look for the `diagnosticPackageLocation` property, returned by the Conversion API. The response should look something like the following:
 
-     ```json
+    ```json
     {
         "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
         "created": "2020-04-22T19:39:54.9518496+00:00",
@@ -47,7 +47,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
     }
     ```
 
-4. Download the Drawing Package Error Visualizer by performing a `HTTP-GET` request on the `diagnosticPackageLocation` URL.  For more information on how to download, see the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion).
+4. Download the Drawing Package Error Visualizer by performing a `HTTP-GET` request on the `diagnosticPackageLocation` URL.
 
 ## Setup
 

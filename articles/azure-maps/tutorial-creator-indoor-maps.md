@@ -54,7 +54,7 @@ Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpr
 
      ![data-management](./media/tutorial-creator-indoor-maps/specify-content-type.png)
 
-5. Click the blue **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response. Copy the value of the **Location** key. This is the `status URL`.
+5. Click the blue **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response. Copy the value of the **Location** key, which is the `status URL`.
 
 6. To check the status of the API call, create a GET HTTP request on the `status URL`. You'll need to append your primary subscription key to the URL for authentication.
 
@@ -97,7 +97,7 @@ Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpr
     https://atlas.microsoft.com/conversion/convert?subscription-key=<Azure-Maps-Primary-Subscription-key>&api-version=1.0&udid=<upload-udid>&inputType=DWG
     ```
 
-3. Click the **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response, and look for the **Location** key. Copy the value of the **Location** key. This is the `status URL` for the conversion request.
+3. Click the **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response, and look for the **Location** key. Copy the value of the **Location** key, which is the `status URL` for the conversion request.
 
 4. Start a new **GET** HTTP method in the builder tab. Append your Azure Maps primary subscription key to the `status URL`. Make a **GET** request at the `status URL` from the previous step. If the conversion process has not yet completed, you may see something like the following:
     
@@ -144,7 +144,7 @@ The dataset is a collection of map features, such as buildings, levels, and room
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
-2. Make a **POST** request to the [Dataset Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview) to create a new dataset. Before submitting the request, append both your subscription key and the `conversionId` with the `conversionId` obtained during the Conversion process in step 5.  The request URL should look like the following:
+2. Make a **POST** request to the [Dataset Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview) to create a new dataset. Before submitting the request, append both your subscription key and the `conversionId` with the `conversionId` obtained during the Conversion process in step 5.  The request should look like the following URL:
 
     ```http
     https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionID=<conversionId>&type=facility&subscription-key=<Azure-Maps-Primary-Subscription-key>
@@ -152,7 +152,7 @@ The dataset is a collection of map features, such as buildings, levels, and room
 
 3. Obtain the `statusURL` in the **Location** key of the response **Headers**.
 
-4. Make a **GET** request at the `statusURL` to obtain the `datasetId`. Append your Azure Maps primary subscription key for authentication. The request URL should look like the following:
+4. Make a **GET** request at the `statusURL` to obtain the `datasetId`. Append your Azure Maps primary subscription key for authentication. The request should look like the following URL:
 
     ```http
     https://atlas.microsoft.com/dataset/operations/<operationsId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
@@ -171,7 +171,7 @@ The dataset is a collection of map features, such as buildings, levels, and room
 
 ## Create a tileset
 
-A tileset is a set of vector tiles that render on the map. Tilesets are created from existing datasets, yet still remain independent from the dataset from which they were sourced. If the dataset is deleted, the tileset will continue to exist. To create a tileset, follow the steps below:
+A tileset is a set of vector tiles that render on the map. Tilesets are created from existing datasets. However, a tileset is independent from the dataset from which it was sourced. If the dataset is deleted, the tileset will continue to exist. To create a tileset, follow the steps below:
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
@@ -181,7 +181,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
     https://atlas.microsoft.com/tileset/create/vector?api-version=1.0&datasetID={datasetId}&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
-3. Make a **GET** request at the `statusURL` for the tileset. Append your Azure Maps primary subscription key for authentication. The request URL should look like the following:
+3. Make a **GET** request at the `statusURL` for the tileset. Append your Azure Maps primary subscription key for authentication. The request should look like the following URL:
 
    ```http
     https://atlas.microsoft.com/tileset/operations/<operationsId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
@@ -200,11 +200,11 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
 ## Query datasets with WFS API
 
- Datasets can be queried using  [WFS API](https://docs.microsoft.com/rest/api/maps/wfs). The steps below show you how retrieve all feature collections in a dataset, a specific collection, and a specific feature and feature **ID** in a collection. The feature **ID** uniquely identifies the feature within the dataset. It is used, for example, to identify which feature state should be updated in a given stateset as illustrated in the next section of this tutorial.
+ Datasets can be queried using  [WFS API](https://docs.microsoft.com/rest/api/maps/wfs). The steps below show you how to retrieve all feature collections in a dataset, a specific collection, and a specific feature and feature **ID** in a collection. The feature **ID** uniquely identifies the feature within the dataset. It is used, for example, to identify which feature state should be updated in a given stateset.
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
-2. Make a **GET** request to view a list of the collections in your dataset. Replace `<dataset-id>` with your `datasetId`. Use your Azure Maps primary key instead of the placeholder. The request URL should look like the following:
+2. Make a **GET** request to view a list of the collections in your dataset. Replace `<dataset-id>` with your `datasetId`. Use your Azure Maps primary key instead of the placeholder. The request should look like the following URL:
 
     ```http
     https://atlas.microsoft.com/wfs/datasets/<dataset-id>/collections?subscription-key=<Azure-Maps-Primary-Subscription-key>&api-version=1.0
@@ -233,13 +233,13 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
         },
     ```
 
-4. Make a **GET** request for the `unit` feature collections.  Replace `<dataset-id>` with your `datasetID`. Use your Azure Maps primary key instead of the placeholder. The response body will contain all the features of the `unit` collection. The request URL should look like the following:
+4. Make a **GET** request for the `unit` feature collections.  Replace `<dataset-id>` with your `datasetID`. Use your Azure Maps primary key instead of the placeholder. The response body will contain all the features of the `unit` collection. The request should look like the following URL:
 
     ```http
     https://atlas.microsoft.com/wfs/dataset/<dataset-id>/collections/unit/items?subscription-key=<Azure-Maps-Primary-Subscription-key>&api-version=1.0
     ```
 
-5. Copy the feature **ID** for a unit feature that has style properties that can be dynamically modified.  Because the unit occupancy status and temperature can be dynamically updated, we will use this feature **ID** in the next section in order to make a feature stateset.
+5. Copy the feature **ID** for a unit feature that has style properties that can be dynamically modified.  Because the unit occupancy status and temperature can be dynamically updated, we will use this feature **ID** in the next section.
   
     ![data-management](./media/tutorial-creator-indoor-maps/feature-id.png)
 
@@ -249,7 +249,7 @@ We will refer to the style properties of this feature as states, and we will use
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
-2. Make a **POST** request to the [Create Stateset API](https://docs.microsoft.com/rest/api/maps/featurestate/createstatepreview). Use the `datasetId` of the dataset that contains the state you want to modify. The request URL should look like the following:
+2. Make a **POST** request to the [Create Stateset API](https://docs.microsoft.com/rest/api/maps/featurestate/createstatepreview). Use the `datasetId` of the dataset that contains the state you want to modify. The request should look like the following URL:
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetID=<dataset-udid>&subscription-key=<Azure-Maps-Primary-Subscription-key>
@@ -321,13 +321,13 @@ We will refer to the style properties of this feature as states, and we will use
     ```
 
 4. Copy the `statesetID` from the response body
-5. Create a **POST** request to update the state: Pass the stateset ID, datasetID, and featureID with your Azure Maps subscription key. The request URL should look like the following:
+5. Create a **POST** request to update the state: Pass the stateset ID, datasetID, and featureID with your Azure Maps subscription key. The request should look like the following URL:
 
     ```http
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID=<stateset-udid>&datasetID=<dataset-udid>&featureID=<feature-ID>&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
-6. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **body** of the **POST** request copy and paste the JSON in the sample below.
+6. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **body** of the **POST** request, copy and paste the JSON in the sample below.
 
     ```json
     {

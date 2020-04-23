@@ -67,7 +67,7 @@ The first thing you must do is create a *map object*. The *map object* will be u
 
 ## Instantiate the Indoor Manager
 
-To load the indoor tilesets and map style of the tiles, you must instantiate the *Indoor Manager*. Instantiate the *Indoor Manager* by providing the *map object* and the corresponding tilesetID. You may optionally include the `statesetId`, if you're using [dynamic map styling](indoor-map-dynamic-styleing.md). The code below shows you how to instantiate the indoor manager:
+To load the indoor tilesets and map style of the tiles, you must instantiate the *Indoor Manager*. Instantiate the *Indoor Manager* by providing the *map object* and the corresponding tilesetID. You may optionally include the `statesetId`, if you're using [dynamic map styling](indoor-map-dynamic-styling.md). The code below shows you how to instantiate the indoor manager:
 
 ```javascript
 const tilesetId = "";

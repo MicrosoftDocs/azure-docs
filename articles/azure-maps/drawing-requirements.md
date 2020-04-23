@@ -12,15 +12,15 @@ manager: philMea
 
 # Drawing package requirements
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) allows you to convert a Drawing package, for a single facility, into an indoor map [datasets](creator-for-indoor-maps.md#datasets). This article describes the Drawing package requirements for the Conversion API. Optionally, you can download and use a [Sample Drawing package](https://github.com/Azure-Samples/Azure-Maps-DWG-Package-Samples).
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) lets you convert a Drawing package for a single facility into indoor map [datasets](creator-for-indoor-maps.md#datasets). This article describes the Drawing package requirements for the Conversion API. To view a sample package, you can download the [Sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ## Prerequisites
 
-The drawing package includes drawings saved in DWG format, the native file format for Autodesk’s AutoCAD® software and is a trademark of Autodesk, Inc.
+The drawing package includes drawings saved in DWG format, the native file format for Autodesk’s AutoCAD® software, a trademark of Autodesk, Inc.
 
-You may choose any CAD software to produce the drawings required in the drawing package.  
+You may choose any CAD software to produce the drawings in the drawing package.  
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion), which consumes the drawing package, has been developed and tested using AutoCAD DWG file format, with AC1032 as the internal format version for the DWG files. You are encouraged to select AC1032 for the internal DWG file format version.  
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion), which converts the drawing package, has been developed and tested using AutoCAD DWG file format, with AC1032 as the internal format version for the DWG files. You are encouraged to select AC1032 for the internal DWG file format version.  
 
 Glossary of terms used within this document.
 
