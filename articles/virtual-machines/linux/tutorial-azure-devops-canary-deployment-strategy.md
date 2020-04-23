@@ -50,7 +50,7 @@ Here is the step-by-step walkthrough.
 ![AzDevOps_canary_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-pipeline.png)
 
 
-9. Click on  **Edit** release pipeline in Azure DevOps to see the pipeline configuration. The pipeline consists of three phases - first phase is a DG phase and deploys to VMs that are tagged as _canary_. The second phase, pauses the pipeline and waits for manual intervention to resume the run. Once a user is satisfied that canary deployment is stable, he can resume the pipeline run which will then run the third phase that deploys to VMs tagged as _prod_.
+9. Click on  **Edit** release pipeline in Azure DevOps to see the pipeline configuration. The pipeline consists of three phases. The first phase is a deployment group phase and deploys to VMs that are tagged as _canary_. The second phase, pauses the pipeline and waits for manual intervention to resume the run. Once a user is satisfied that canary deployment is stable, they can resume the pipeline run which will then run the third phase that deploys to VMs tagged as _prod_.
 ![AzDevOps_canary_task](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-task.png)
 
 10. Before resuming the pipeline run, make sure that at least one VM is tagged as _prod_. In the third phase of the pipeline, the application will be deployed to only those VMs that have _prod_ tag.
