@@ -653,7 +653,7 @@ The following list provides a summary of the batching recommendations discussed 
 * For update and delete operations, use table-valued parameters with stored procedure logic that determines the correct operation on each row in the table parameter.
 * Batch size guidelines:
   * Use the largest batch sizes that make sense for your application and business requirements.
-  * Balance the performance gain of large batches with the risks of temporary or catastrophic failures. What is the consequence of retries or loss of the data in the batch? 
+  * Balance the performance gain of large batches with the risks of temporary or catastrophic failures. What is the consequence of retries or loss of the data in the batch?
   * Test the largest batch size to verify that Azure SQL Database or Azure SQL Managed Instance does not reject it.
   * Create configuration settings that control batching, such as the batch size or the buffering time window. These settings provide flexibility. You can change the batching behavior in production without redeploying the cloud service.
 * Avoid parallel execution of batches that operate on a single table in one database. If you do choose to divide a single batch across multiple worker threads, run tests to determine the ideal number of threads. After an unspecified threshold, more threads will decrease performance rather than increase it.
