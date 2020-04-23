@@ -304,34 +304,45 @@ The **Default** row shows the validation rules that are used for an EDI message 
 
 <a name="hipaa-schemas"></a>
 
-## HIPAA schemas
+## HIPAA message types 277 and 837
 
-When you work with HIPAA schemas and set up the validation rules for messages, you can select from these message types:
+When you work with HIPAA schemas and the 277 and 837 message types, you might have to take a few extra steps, based on the [schema document version number (GS8)](#outbound-control-version-number) that you want to use. Otherwise, you get this error message:
+
+`"The message has an unknown document type and did not resolve to any of the existing schemas configured in the agreement."`
 
 | Message type | Description |
 |--------------|-------------|
-| 274 | Healthcare Provider Information |
-| 275 | Patient Information |
-| 276 | Health Care Claim Status Request |
 | 277 | Health Care Information Status Notification |
-| 278 | Health Care Services Review Information |
-| 835 | Health Care Claim Payment/Advice |
 | 837 | Health Care Claim |
-| 837_P | Health Care Claim Professional |
 | 837_D | Health Care Claim Dental |
 | 837_I | Health Care Claim Institutional |
+| 837_P | Health Care Claim Professional |
 |||
 
-If you want to use a [schema document version number (GS8)](#outbound-control-version-number) that has more than 9 characters, add another element to your schema in the `schemaReferences` section:
+If the schema document version number (GS8) that you want to use has more than 9 characters, for example, "005010X222A1", your schema needs to specify the message type that matches the schema document version number.
 
-you have to change your schema as described.
+| Message type | Schema document version number (GS8) |
+|--------------|--------------------------------------|
+| 277 | 005010X212 |
+| 277_A | 005010X214 |
+| 837_I | 004010X096A1 |
+| 837_I | 005010X223A1 |
+| 837_I | 005010X223A2 |
+| 837_D | 004010X097A1 |
+| 837_D | 005010X224A1 |
+| 837_D | 005010X224A2 |
+| 837_P | 004010X098A1 |
+| 837_P | 005010X222 |
+| 837_P | 005010X222A1 |
+|||
 
-For example, suppose you want to use these schema versions for the 837 and 277 message types:
+You also have to disable EDI validation because having a document version number that's more than 9 characters is not valid and results in an error that the length is invalid. You can disable validation for each message type or disable validation for all the message types by using the **Default** values.
 
-* 837 005010X223A1 & 005010X223A2
-* 277 005010X214
+![Validation properties](./media/logic-apps-enterprise-integration-x12/x12-send-settings-validation.png) 
 
-And your schema specifies the following property values:
+*Example*
+
+Suppose you want to use "005010X222A1" as the schema document version number for the 837 message type, and your schema has a `schemaReferences` section with these properties and values:
 
 ```json
 "schemaReferences": [
@@ -343,7 +354,7 @@ And your schema specifies the following property values:
 ]
 ```
 
-You want to use schemas that has these document version numbers "005010X222A1"
+To use "005010X222A1" as the schema document version number, your schema needs to specify "837_P" as the message type by including another element in the `schemaReferences` section:
 
 ```json
 "schemaReferences": [
@@ -360,34 +371,13 @@ You want to use schemas that has these document version numbers "005010X222A1"
 ]
 ```
 
-You also have to disable EDI validation because having a document version number that's more than 9 characters is not valid and results in an error that the length is invalid. You can disable validation for all the message types by using the **Default** values, or you can disable validation for each message type.
-
-![Validation properties](./media/logic-apps-enterprise-integration-x12/x12-send-settings-validation.png) 
-
-Here are the variants for message types 227 and 837:
-
-| Message type | Variant |
-|--------------|---------|
-| 277 | 277+005010X212 |
-| 277_A | 277+005010X214 |
-| 837_D | 837+004010X097A1 |
-| 837_D | 837+005010X224A1 |
-| 837_D | 837+005010X224A2 |
-| 837_I | 837+004010X096A1 |
-| 837_I | 837+005010X223A1 |
-| 837_I | 837+005010X223A2 |
-| 837_P | 837+004010X098A1 |
-| 837_P | 837+005010X222 |
-| 837_P | 837+005010X222A1 |
-|||
-
 ## Connector reference
 
 For additional technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/x12/).
 
 > [!NOTE]
 > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
+> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits) instead.
 
 ## Next steps
 
