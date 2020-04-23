@@ -11,9 +11,10 @@ ms.author: cshoe
 
 # Routes in Azure Static Web Apps
 
-Routing in Azure Static Web Apps enforces back-end routing rules and authorization behavior for both static content and APIs. The rules are defined and controlled by the _routes.json_ file. Routing rules are defined as an array of rules that are enforced in the same order as they appear in the array.
+Routing in Azure Static Web Apps defines back-end routing rules and authorization behavior for both static content and APIs. The rules are defined as an array of rules in the _routes.json_ file.
 
 - The _routes.json_ file must exist at the root of the static app.
+- Rules are executed in the same order as they appear in the `routes` array.
 - Roles are defined in the _routes.json_ file and users are associated to roles via [invitations](authentication-authorization.md).
 - You have full control over role names. There is no system-wide master list you must use.
 
@@ -29,20 +30,20 @@ Routes are defined the _routes.json_ file as an array of route rules on the `rou
 }
 ```
 
-Each rule is composed of a route to match the incoming request, along with one or more of the optional rule properties.
+Each rule is composed of a route pattern, along with one or more of the optional rule properties.
 
 | Rule property  | Required | Default value | Comment                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Yes      | none          | The route requested by the caller. [Wildcards](#wildcards) are supported at the end of route paths. For instance, the route _admin/\*_ matches any route under the _admin_ path. |
+| `route`        | Yes      | none          | The route pattern requested by the caller. [Wildcards](#wildcards) are supported at the end of route paths. For instance, the route _admin/\*_ matches any route under the _admin_ path. |
 | `serve`        | No       | none          | Defines the file returned from the request. The file path and name can be different from the requested path. If no path or file is defined, then the requested path is used. |
-| `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role `anonymous` applies to all unauthenticated users.<li>The built-in role `authenticated` applies any logged-in user.<li>Users must belong to at least one role<li>Roles are matched on an _OR_ basis. If a user is in at any of the listed roles, then access is granted.</ul> |
-| `statusCode`   | No       | 200           | The [HTTP status](https://wikipedia.org/wiki/List_of_HTTP_status_codes) server response for the request. |
+| `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role `anonymous` applies to all unauthenticated users.<li>The built-in role `authenticated` applies any logged-in user.<li>Users must belong to at least one role.<li>Roles are matched on an _OR_ basis. If a user is in any of the listed roles, then access is granted.<li>Individual users are associated to roles by through [invitations](authentication-authorization.md).</ul> |
+| `statusCode`   | No       | 200           | The [HTTP status code](https://wikipedia.org/wiki/List_of_HTTP_status_codes) response for the request. |
 
-## Security
+## Securing routes with roles
 
 By default, every user belongs to the built-in `anonymous` role and all logged-in users are members of the `authenticated` role.
 
-Routes are secured by listing one or more _roles_ in a routing rule. For instance, to require that only logged-in users have access to a route, add the built-in `authenticated` role to the `allowedRoles` array.
+Routes are secured by listing one or more roles in a routing rule. For instance, to require that only logged-in users have access to a route, add the built-in `authenticated` role to the `allowedRoles` array.
 
 ```json
 {
@@ -51,7 +52,7 @@ Routes are secured by listing one or more _roles_ in a routing rule. For instanc
 }
 ```
 
-To customize your security rules, you can create new roles as needed in the roles array. If you wanted to secure a route to only administrators, you could define an `administrator` role in the `allowedRoles` array.
+You can create new roles as needed in the `allowedRoles` array. To restrict a route to only administrators, you could define an `administrator` role in the `allowedRoles` array.
 
 ```json
 {
@@ -62,9 +63,11 @@ To customize your security rules, you can create new roles as needed in the role
 
 You have full control over role names; there's no master list to which your roles must adhere.
 
+Individual users are associated to roles through [invitations](authentication-authorization.md).
+
 ## Wildcards
 
-Wildcards rules match all requests under a given route. If you define a `serve` value in your rule, the named file is served in response to requests for any matching routes.
+Wildcard rules match all requests under a given route pattern. If you define a `serve` value in your rule, the named file or path is served as the response.
 
 For instance, to implement a site that handles a series of routes for a calendar application, you can map all URLs that fall under the _calendar_ route to serve a single HTML file.
 
@@ -77,7 +80,7 @@ For instance, to implement a site that handles a series of routes for a calendar
 
 The _calendar.html_ file can then use client-side routing to serve a different view for URL variations like `/calendar/january/1`, `/calendar/august/18`, and `/calendar/december/25`.
 
-You can also use wildcards to secure an entire path tree. In the following example, any file requested under the _admin_ path requires an authenticated user who is a member of the _administrator_ role.
+You can also secure routes with wildcards. In the following example, any file requested under the _admin_ path requires an authenticated user who is a member of the _administrator_ role.
 
 ```json
 {
@@ -87,7 +90,7 @@ You can also use wildcards to secure an entire path tree. In the following examp
 ```
 
 > [!NOTE]
-> Requests for files referenced by a served file are only evaluated for authentication checks. For instance, if a served file references a CSS file under a wild card path, the CSS file is served to the browser if the user meets the required authentication requirements.
+> Requests for files referenced by a served file are only evaluated for authentication checks. For instance, requests to a CSS file under a wild card path are served to the browser as long as the user meets the required authentication requirements.
 
 ## Redirects
 
@@ -103,7 +106,7 @@ For instance, the following rule creates a 301 redirect from one page to another
 }
 ```
 
-Redirects also work with paths that don't list distinct files.
+Redirects also work with paths that don't define distinct files.
 
 ```json
 {
@@ -115,19 +118,19 @@ Redirects also work with paths that don't list distinct files.
 
 ## Custom error pages
 
-Ranging from requesting files not found (404) to a host of authorization-related errors, users may encounter situations which can result in an error. Using the `platformErrorOverrides` array, you can provide a custom experience in response to these errors.
+Ranging from requesting files not found (404) to a host of authorization-related errors, users may encounter situations which can result in an error. Using the `platformErrorOverrides` array, you can provide a custom experience in response to these errors. Refer to the [example route file](#example-route-file) for placement of the array in the _routes.json_ file.
 
 The following table lists the available platform error overrides:
 
 | Error type  | HTTP status code | Description |
 |---------|---------|---------|
-| `NotFound` | 401  | The page is not found |
-| `Unauthenticated` | 401 | You haven't logged in |
-| `Unauthorized_InsufficientUserInformation` | 401 | You haven't configured the auth provider to publicize the data |
-| `Unauthorized_InvalidInvitationLink` | 401 | Expired or "not for you" link |
-| `Unauthorized_MissingRoles` | 401 | You don't have the required role |
-| `Unauthorized_TooManyUsers` | 401 | Throttling number of invited users |
-| `Unauthorized_Unknown` | 401 | Identity provider doesn't recognize you. You tell provider not to allow consent |
+| `NotFound` | 404  | A page is not found on the server. |
+| `Unauthenticated` | 401 | The user is not logged in with an [authentication provider](authentication-authorization.md). |
+| `Unauthorized_InsufficientUserInformation` | 401 | The user's profile on the authentication provider is not configured to expose required data. This error can happen when an authentication provider needs to expose the user's email address, but their profile has it restricted. |
+| `Unauthorized_InvalidInvitationLink` | 401 | An invitation has either expired, or the user followed a link generated for another recipient.  |
+| `Unauthorized_MissingRoles` | 401 | The user is not a member of a required role. |
+| `Unauthorized_TooManyUsers` | 401 | The site has reached the maximum number of users, and the server is limiting further additions. This error is exposed to the client because there is no limit to the number of [invitations](authentication-authorization.md) you can generate, and some users may never accept their invitation.|
+| `Unauthorized_Unknown` | 401 | The authentication provider doesn't recognize the user, they didn't grant consent to the application.|
 
 ## Example route file
 
@@ -138,15 +141,23 @@ The following example shows how to build route rules in a _routes.json_ file.
   "routes": [
     {
       "route": "/profile",
-      "roles": ["authenticated"]
+      "allowedRoles": ["authenticated"]
     },
     {
       "route": "/admin/*",
-      "allowedRoles": ["admin"]
+      "allowedRoles": ["administrator"]
+    },
+    {
+      "route": "/customers/contoso",
+      "allowedRoles": ["administrator", "customers_contoso"]
     },
     {
       "route": "/login",
       "serve": "/.auth/login/github"
+    },
+    {
+      "route": "/.auth/login/twitter",
+      "statusCode": "404"
     },
     {
       "route": "/logout",
@@ -171,17 +182,18 @@ The following example shows how to build route rules in a _routes.json_ file.
 }
 ```
 
-The following explanation describes what happens when a request matches a rule.
+The following examples describe what happens when a request matches a rule.
 
 |Requests to...  | Result in... |
-|---------|---------|
+|---------|---------|---------|
 | _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users are challenged to authenticate. |
 | _/admin/reports_ | Authenticated users are served the _/admin/reports/index.html_ file. Unauthenticated users are challenged to authenticate. |
+| _/customers/contoso_ | Authenticated users who belong to the _customers\_contoso_ role are served the _/customers/contoso/index.html_ file. Authenticated users not in the _customers\_contoso_ role are served a 401 error. You can provide a custom error page by defining a `Unauthorized_MissingRoles` rule in the `platformErrorOverrides` array. Unauthenticated users are challenged to authenticate. |
 | _/login_     | Unauthenticated users are challenged to authenticate with GitHub. |
 | _/logout_     | Users are logged out of any authentication provider. |
 | _/calendar/2020/01_ | The browser is served the _/calendar.html_ file. |
-| _/specials_ | TODO |
-| _/foo_     | The _/custom-404.html_ file is served, with a 404 HTTP status code. |
+| _/specials_ | The browser is redirected to _/deals_ |
+| _/foo_     | The _/custom-404.html_ file is served. |
 
 ## Restrictions
 
