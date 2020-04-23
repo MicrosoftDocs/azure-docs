@@ -2345,7 +2345,7 @@
     {
       "source_path": "articles/cosmos-db/multi-master-benefits.md",
       "redirect_url": "/azure/cosmos-db/conflict-resolution-policies",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/sql-api-python-application.md",
