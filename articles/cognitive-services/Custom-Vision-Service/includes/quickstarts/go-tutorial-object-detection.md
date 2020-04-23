@@ -1,25 +1,16 @@
 ---
-title: "Quickstart: Create an object detection project with the SDK for Go - Custom Vision"
-titleSuffix: Azure Cognitive Services
-description: Create a project, add tags, upload images, train your project, and detect objects using the Go SDK.
-services: cognitive-services
 author: areddish
 ms.author: areddish
-manager: nitinme
 ms.service: cognitive-services
-ms.subservice: custom-vision
-ms.topic: quickstart
 ms.date: 04/14/2020
 ---
-
-# Quickstart: Create an object detection project with the Custom Vision Go SDK
 
 This article provides information and sample code to help you get started using the Custom Vision SDK with Go to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Go application.
 
 ## Prerequisites
 
 - [Go 1.8+](https://golang.org/doc/install)
-- [!INCLUDE [create-resources](includes/create-resources.md)]
+- [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
 ## Install the Custom Vision SDK
 
@@ -34,9 +25,9 @@ or if you use `dep`, within your repo run:
 dep ensure -add github.com/Azure/azure-sdk-for-go
 ```
 
-[!INCLUDE [get-keys](includes/get-keys.md)]
+[!INCLUDE [get-keys](../../includes/get-keys.md)]
 
-[!INCLUDE [python-get-images](includes/python-get-images.md)]
+[!INCLUDE [python-get-images](../../includes/python-get-images.md)]
 
 ## Add the code
 
@@ -46,7 +37,7 @@ Create a new file called *sample.go* in your preferred project directory.
 
 Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. Also, get your Endpoint URL from the Settings page of the Custom Vision website.
 
-See the [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) method to specify other options when you create your project (explained in the [Build a detector](get-started-build-detector.md) web portal guide).
+See the [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) method to specify other options when you create your project (explained in the [Build a detector](../../get-started-build-detector.md) web portal guide).
 
 ```go
 import(
@@ -276,11 +267,11 @@ go run sample.go
 
 The output of the application should appear in the console. You can then verify that the test image (found in **samples/vision/images/Test**) is tagged appropriately and that the region of detection is correct.
 
-[!INCLUDE [clean-od-project](includes/clean-od-project.md)]
+[!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 
 ## Next steps
 
 Now you've seen how every step of the object detection process can be done in code. This sample executes a single training iteration, but often you'll need to train and test your model multiple times in order to make it more accurate. The following training guide deals with image classification, but its principles are similar to object detection.
 
 > [!div class="nextstepaction"]
-> [Test and retrain a model](test-your-model.md)
+> [Test and retrain a model](../../test-your-model.md)
