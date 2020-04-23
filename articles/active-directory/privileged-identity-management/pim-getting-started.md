@@ -52,14 +52,6 @@ You should get started with Azure roles in the following order:
 1. [Give eligible assignments](pim-resource-roles-assign-roles.md).
 1. [Allow eligible users to activate their roles just-in-time](pim-resource-roles-activate-your-roles.md).
 
-I think this is good, can we also add a section for Azure Resource roles. You can add the same three though they will link to the Azure Resource doc. And before these 3 points, Azure Resource will require customers to discover resources
- 
-
-https://review.docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-resource-roles-discover-resources?branch=pr-en-us-111400
-
-
-
-
 ## Navigate to your tasks
 
 Once Privileged Identity Management is set up, you can learn your way around.
