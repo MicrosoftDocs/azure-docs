@@ -194,7 +194,7 @@ To make access reviews easier and faster for you, we also provide recommendation
 
 1. Click **Submit** to accept the recommendations.
 
-To accept recommendations for all user make sure that no one is selected and click on the **Accept recommendations** button on the top bar.
+To accept recommendations for all user make sure that no one is selected and click on the **Accept recommendations** button on the top bar. When you accept recommendations previous decisions will not be changed.
 
 ## Next steps
 
