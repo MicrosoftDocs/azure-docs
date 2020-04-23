@@ -82,7 +82,7 @@ There are two ways that you can approve or deny access:
 1. Once you have specified the action to take, click **Save**.
 
     >[!NOTE]
-    > You can change your response at any time until the access review has ended. If you want to change your response, select the row and update the response. For example, you can approve a previously denied user or deny a previously approved user.
+    > You can change your response at any time before the access review has ends. If you want to change your response, select the row and update the response. For example, you can approve a previously denied user or deny a previously approved user.
 
     >[!IMPORTANT]
     > - If a user is denied access, they aren't removed immediately. They are removed when the review period has ended or when an administrator stops the review. 
@@ -132,16 +132,11 @@ You can preview the reviewer experience with the updated user interface in My Ac
 
    2. Click the **Start review** link to open the access review.
 
-
-
 ### If you don't have an email
 
 You can also view your pending access reviews by using your browser to open My Access.
 
-1. Sign  in to the My Access at ht<span>tps://<span>myacces<span>s.m<span>icrosof<span>t.<span>com/@**Castelia<span>.<span>onmicrosoft<span>.<span>com**?enableReviews=true#/access-reviews
-
-  >[!IMPORTANT]
-  >Replace `Castelia.onmicrosoft.com` with your domain URL between the **@** and **?**.
+1. Sign  in to the My Access at https://myaccess.microsoft.com/#/access-reviews
 
 2. Select **Access reviews** from the menu on the left side bar to see a list of pending access reviews assigned to you.
 
@@ -194,7 +189,10 @@ To make access reviews easier and faster for you, we also provide recommendation
 
 1. Click **Submit** to accept the recommendations.
 
-To accept recommendations for all user make sure that no one is selected and click on the **Accept recommendations** button on the top bar. When you accept recommendations previous decisions will not be changed.
+To accept recommendations for all user make sure that no one is selected and click on the **Accept recommendations** button on the top bar.
+
+>[!NOTE]
+>When you accept recommendations previous decisions will not be changed.
 
 ## Next steps
 

@@ -79,25 +79,18 @@ Once you have opened the access review, you can see your access.
 
 ## Review your own access to groups and apps using My Access (Preview)
 
-### Open the access review
-
 The first step to perform an access review is to find and open the access review.
+
+### Email
 
   >[!IMPORTANT]
 > There could be delays in receiving email and it some cases it could take up to 24 hours. Whitelist azure-noreply@microsoft.com to make sure that you are receiving all emails.
 
-   1. Look for an email from Microsoft asking you to review access. You can see an example email message below:
+1. Look for an email from Microsoft asking you to review access. You can see an example email message below:
 
    ![Example email from Microsoft to review access to a group](./media/review-your-access/access-review-email-preview.png)
 
    2. Click the **Review access** link to open the access review.
-
-If you don't have the email, you can also view your pending access reviews by using your browser to open My Access.
-
-1. Sign  in to the My Access at ht<span>tps://<span>myacces<span>s.m<span>icrosof<span>t.<span>com/@**Castelia<span>.<span>onmicrosoft<span>.<span>com**?enableReviews=true#/access-reviews
-
-  >[!IMPORTANT]
-  >Replace `Castelia.onmicrosoft.com` with your domain URL between the **@** and **?**.
 
 2. Select **Access reviews** from the menu on the left side bar to see a list of pending access reviews assigned to you.
 
@@ -113,7 +106,33 @@ If you don't have the email, you can also view your pending access reviews by us
  
    ![Pending access reviews list for apps and groups](./media/review-your-access/access-reviews-list-preview.png)
 
-### Perform the access review
+### MyApps portal
+
+1. Sign in to the MyApps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
+
+    ![MyApps portal listing apps you have permissions to](./media/review-your-access/myapps-access-panel.png)
+
+2. Click the **Access reviews** tile to see a list of pending access reviews.
+
+    > [!NOTE]
+    > If the **Access reviews** tile isn't visible, there are no access reviews to perform for that organization and no action is needed at this time.
+
+3. Click on **Try it!** in the banner at the top of the page. This will take you to the new My Access experience.
+
+![Pending access reviews list for apps and groups with the new experience available banner displayed during the preview](./media/perform-access-review/banner.png)
+
+
+### Directly at My Access
+
+You can also view your pending access reviews by using your browser to open My Access.
+
+1. Sign  in to the My Access at https://myaccess.microsoft.com/#/access-reviews
+
+2. Select **Access reviews** from the menu on the left side bar to see a list of pending access reviews assigned to you.
+
+   ![access reviews in the menu](./media/review-your-access/access-review-menu.png)
+
+### Perform the access review (Preview)
 
 Once you have opened the access review, you can see your access.
 
