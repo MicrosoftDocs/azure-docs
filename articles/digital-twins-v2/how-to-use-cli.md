@@ -61,7 +61,7 @@ Next, in your chosen shell window, get the **Azure IoT CLI Extension** by follow
 
 You can now use the Azure Digital Twins CLI commands. Here are some helpful tips that you can use with them going forward:
 * Use `az dt -h` to review the top-level commands.
-* *All commands have help descriptions and examples. Append `--help` or `-h` to the end of a command or command group to expand these details.
+* All commands have help descriptions and examples. Append `--help` or `-h` to the end of a command or command group to expand these details.
 
 ## Azure Digital Twins CLI Command Guide
 
