@@ -59,7 +59,7 @@ Before you enable AD DS authentication for Azure file shares, make sure you have
 
 - Verify connectivity by mounting Azure file shares using your storage account key. 
 
-    To verify that your device and file share are properly configured, try mounting the file share using your storage account key. For more information, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
+    To verify that your device and file share are properly configured, try [mounting the file share](storage-how-to-use-files-windows.md) using your storage account key. If you experience issues in connecting to Azure Files, please refer to [the troubleshooting tool we published for Azure Files mounting errors on Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). We also provide [guidance](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) to work around scenarios when port 445 is blocked. 
 
 ## Regional availability
 
