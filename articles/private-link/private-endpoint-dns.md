@@ -93,9 +93,7 @@ To configure properly you would need the following resources :
 
 The following diagram illustrates the DNS resolution sequence from virtual network workloads using private dns zone
 
-[!div class="mx-imgBorder"]
-![single virtual network and azure provided dns](media/private-endpoint-dns/single-vnet-azure-dns.png)
-
+    :::image type="content" source="media/private-endpoint-dns/single-vnet-azure-dns.png" alt-text="single virtual network and azure provided dns" :::
 
 This model can be extended to multiple peered virtual networks that are associated to the same private endpoint. This can be done by [adding new virtual network links](../dns/private-dns-virtual-network-links.md) to the private DNS zone for all peered virtual networks.
 
@@ -104,8 +102,8 @@ This model can be extended to multiple peered virtual networks that are associat
 
 In this scenario there's a [hub & spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) networking topology with the spoke networks sharing a common private endpoint and all the spoke virtual network are linked to the same private dns zone. 
 
-[!div class="mx-imgBorder"]
-![hub & spoke with azure provided dns](media/private-endpoint-dns/hub-and-spoke-azure-dns.png)
+    :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="hub and spoke with azure provided dns" :::
+
 
 ## Next steps
 - [Learn about Private Endpoints](private-endpoint-overview.md)
