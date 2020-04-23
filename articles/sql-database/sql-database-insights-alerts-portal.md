@@ -12,11 +12,11 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ---
-# Create alerts for Azure SQL Database and Azure Synapse Analytics databases using Azure portal
+# Create alerts for Azure SQL Database and Azure Synapse using Azure portal
 
 ## Overview
 
-This article shows you how to set up alerts for databases in Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL Data Warehouse) using the Azure portal. Alerts can send you an email or call a web hook when some metric (for example database size or CPU usage) reaches the threshold. This article also provides best practices for setting alert periods.
+This article shows you how to set up alerts for databases in Azure SQL Database and Azure Synapse (formerly Azure SQL Data Warehouse) using the Azure portal. Alerts can send you an email or call a web hook when some metric (for example database size or CPU usage) reaches the threshold. This article also provides best practices for setting alert periods.
 
 > [!IMPORTANT]
 > This feature is not yet available in Azure SQL Managed Instance. As an alternative, you can use SQL Agent to send email alerts for some metrics based on [Dynamic Management Views](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
