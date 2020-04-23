@@ -30,11 +30,11 @@ You can start the Access Review process from the notification email or by going 
 >[!IMPORTANT]
 > There could be delays in receiving email and it some cases it could take up to 24 hours. Whitelist azure-noreply@microsoft.com to make sure that you are receiving all emails.
 
-    1. Look for an email from Microsoft asking you to review access. Here is an example email to review the access for a group.
+1. Look for an email from Microsoft asking you to review access. Here is an example email to review the access for a group.
 
-        ![Example email from Microsoft to review access to a group](./media/perform-access-review/access-review-email.png)
+    ![Example email from Microsoft to review access to a group](./media/perform-access-review/access-review-email.png)
 
-    1. Click the **Start review** link to open the access review.
+1. Click the **Start review** link to open the access review.
 
 - **If you don't have the email**, you can find your pending access reviews by following these steps.
 
@@ -83,12 +83,12 @@ There are two ways that you can approve or deny access:
 
     >[!NOTE]
     > You can change your response at any time until the access review has ended. If you want to change your response, select the row and update the response. For example, you can approve a previously denied user or deny a previously approved user.
-    
+
     >[!IMPORTANT]
     > - If a user is denied access, they aren't removed immediately. They are removed when the review period has ended or when an administrator stops the review. 
     > - If there are multiple reviewers, the last submitted response is recorded. Consider an example where an administrator designates two reviewers – Alice and Bob. Alice opens the access review first and approves a user's access request. Before the review period ends, Bob opens the access review and denies access on the same request previously approved by Alice. The last decision denying the access is the response that gets recorded.
 
-### Approve or deny access based on recommendations 
+### Approve or deny access based on recommendations
 
 To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single click. The recommendations are generated based on the user's sign-in activity.
 
@@ -169,8 +169,8 @@ There are two ways that you can approve or deny access:
 #### Manually approve or deny access for one or more users
 
 1. Review the list of users and decide whether to approve or deny their continued access.
-2. Select one or more users by adding check marks next to their names.
-3. Select **Approve** or **Deny** on the bar above their names.
+2. Select one or more users by clicking the circle next to their names.
+3. Select **Approve** or **Deny** on the bar above.
     - If you are unsure, you can click **Don't know**.The user gets to keep their access and your choice is recorded in the audit logs. It is important that you keep in mind that any information you provide will be available to other reviewers. They can read your comments and take them into account when they review the request.
 
 ![Open access review listing the users who need review](./media/perform-access-review/user-list-preview.png)
@@ -188,7 +188,7 @@ There are two ways that you can approve or deny access:
 
 To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single click. The recommendations are generated based on the user's sign-in activity.
 
-1. Select one or more users and then choose **Accept recommendations**.
+1. Select one or more users and then Click **Accept recommendations**.
 
     ![Open access review listing showing the Accept recommendations button](./media/perform-access-review/accept-recommendations-preview.png)
 
