@@ -144,7 +144,8 @@ Here is a sample template using the three alternate image constructs for the nod
 
 Attribute | Type | Definition
 ------ | ----- | ----------
-IsReturnProxy | boolean | Establish reverse channel proxy to this node. Only one node per cluster may have this setting as true.
+Zone | String (list) | Availability Zone for VM or VMSS. Can be a list for VMSS. E.g. `Zone = 1,3`
+IsReturnProxy | Boolean | Establish reverse channel proxy to this node. Only one node per cluster may have this setting as true.
 KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
 ReturnPath.Hostname | Hostname | Hostname where node can reach CycleCloud.
 ReturnPath.WebserverPort | Integer | Webserver port where node can reach CycleCloud.
