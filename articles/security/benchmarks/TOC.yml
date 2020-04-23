@@ -34,8 +34,6 @@
     href: security-baselines-overview.md
   - name: Azure Cache for Redis security baseline
     href: ../../azure-cache-for-redis/security-baseline.md
-  - name: Azure Functions security baseline
-    href: ../../azure-functions/security-baseline.md
   - name: Backup security baseline
     href: ../../backup/security-baseline.md
   - name: Batch security baseline
