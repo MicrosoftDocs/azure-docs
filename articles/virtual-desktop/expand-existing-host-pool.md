@@ -65,14 +65,14 @@ Here's how to redeploy the Azure Resource Manager template to expand a host pool
      >If you see an error that tells you to select a different resource group even though the one you entered is correct, select another resource group, then select the original resource group.
 
 8. Enter the following URL for the *_artifactsLocation*: `https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/`
-9. Enter the new total number of session hosts you want into *Rdsh Number Of Instances*. For example, if you're expanding your host pool from five session hosts to eight, enter **8**.
+9. Enter the new total number of session hosts you want into *RDSH Number Of Instances*. For example, if you're expanding your host pool from five session hosts to eight, enter **8**.
 10. Enter the same existing domain password that you used for the existing domain UPN. Don't change the username, because that will cause an error when you run the template.
-11. Enter the same tenant admin password you used for the user or application ID you entered for *Tenant Admin Upn Or Application Id*. Once again, don't change the username.
+11. Enter the same tenant admin password you used for the user or application ID you entered for *Tenant Admin UPN or Application ID*. Once again, don't change the username.
 12. Complete the submission to expand your host pool.
 
 ## Run the Azure Marketplace offering
 
-Follow the instructions in [Create a host pool by using the Azure Marketplace](./create-host-pools-azure-marketplace.md) until you reach [Run the Azure Marketplace offering to provision a new host pool](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). When you get to that point, you'll need to enter the following information for each tab:
+Follow the instructions in [Create a host pool by using the Azure Marketplace](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md) until you reach [Run the Azure Marketplace offering to provision a new host pool](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). When you get to that point, you'll need to enter the following information for each tab:
 
 ### Basics
 
@@ -81,7 +81,7 @@ All values in this section should match what you provided when you first created
 1.    For *Subscription*, select the subscription where you first created the host pool.
 2.    For *Resource group*, select the same resource group where the existing host pool session host VMs are located.
 3.    For *Region*, select the same region where the existing host pool session host VMs are located.
-4.    For *Hostpool name*, enter the name of the existing host pool.
+4.    For *Host pool name*, enter the name of the existing host pool.
 5.    For *Desktop type*, select the desktop type that matches the existing host pool.
 6.    For *Default desktop users*, enter a comma-separated list of any additional users who you want to sign in to the Windows Virtual Desktop clients and access a desktop after the Azure Marketplace offering finishes. For example, if you want to assign user3@contoso.com and user4@contoso.com access, enter user3@contoso.com,user4@contoso.com.
 7.    Select **Next : Configure virtual machine**.
@@ -122,7 +122,7 @@ All parameter values in this section should match what you provided when you fir
 
 ## Run the GitHub Azure Resource Manager template
 
-Follow the instructions in [Run the Azure Resource Manager template for provisioning a new host pool](./virtual-desktop-fall-2019/create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) and provide all of the same parameter values except for the *Rdsh Number Of Instances*. Enter the number of session host VMs you want in the host pool after running the template. For example, if you're expanding your host pool from five session hosts to eight, enter **8**.
+Follow the instructions in [Run the Azure Resource Manager template for provisioning a new host pool](./virtual-desktop-fall-2019/create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) and provide all of the same parameter values except for the *RDSH Number Of Instances*. Enter the number of session host VMs you want in the host pool after running the template. For example, if you're expanding your host pool from five session hosts to eight, enter **8**.
 
 ## Next steps
 
