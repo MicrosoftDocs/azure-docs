@@ -58,4 +58,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional CLI script samples can be found in the [Azure CLI sample scripts](../sql-database-cli-samples.md).
+Additional CLI script samples can be found in [Azure CLI sample scripts](../sql-database-cli-samples.md).

@@ -4,7 +4,7 @@ description: An overview of monitoring and performance tuning capabilities and m
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: 
+ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 author: jovanpop-msft
