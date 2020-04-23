@@ -9,7 +9,7 @@ ms.custom: mvc, devcenter, cc996988-fb4f-47
 
 # Create your first function in the Azure portal
 
-Azure Functions lets you run your code in a serverless environment without having to first create a virtual machine (VM) or publish a web application. In this article, you learn how to use Azure Functions to create a "hello world" HTTP triggered function in the Azure portal.
+Azure Functions lets you run your code in a serverless environment without having to first create a virtual machine (VM) or publish a web application. In this article, you learn how to use Azure Functions to create a "hello world" HTTP trigger function in the Azure portal.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -27,29 +27,31 @@ You must have a function app to host the execution of your functions. A function
 
 Next, create a function in the new function app.
 
-## <a name="create-function"></a>Create an HTTP triggered function
+## <a name="create-function"></a>Create an HTTP trigger function
 
-1. Expand your new function app, select the **+** button next to **Functions**, choose **In-portal**, and then select **Continue**.
+1. From the left menu of the **Functions** window, select **Functions**, then select **Add** from the top menu. 
+ 
+1. From the **New Function** window, select **Http trigger**.
 
-    ![Functions quickstart for choosing a platform.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+    ![Choose HTTP trigger function](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-1. Choose **WebHook + API**, and then select **Create**.
+1. In the **New Function** window, accept the default name for **New Function**, or enter a new name. 
 
-    ![Functions quickstart in the Azure portal.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
+1. Choose **Anonymous** from the **Authorization level** drop-down list, and then select **Create Function**.
 
-   A function is created using a language-specific template for an HTTP triggered function.
-
-Now, you can run the new function by sending an HTTP request.
+    Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
 
 ## Test the function
 
-1. In your new function, select **</> Get function URL** at the top right. 
+1. In your new HTTP trigger function, select **Code + Test** from the left menu, then select **Get function URL** from the top menu.
 
-1. In the **Get function URL** dialog box, select **default (Function key)** from the drop-down list, and then select **Copy**. 
+    ![Select Get function URL](./media/functions-create-first-azure-function/function-app-select-get-function-url.png)
+
+1. In the **Get function URL** dialog box, select **default** from the drop-down list, and then select the **Copy to clipboard** icon. 
 
     ![Copy the function URL from the Azure portal](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. Paste the function URL into your browser's address bar. Add the query string value `&name=<your_name>` to the end of this URL and press Enter to run the request. 
+1. Paste the function URL into your browser's address bar. Add the query string value `?name=<your_name>` to the end of this URL and press Enter to run the request. 
 
     The following example shows the response in the browser:
 
@@ -57,7 +59,7 @@ Now, you can run the new function by sending an HTTP request.
 
     The request URL includes a key that is required, by default, to access your function over HTTP.
 
-1. When your function runs, trace information is written to the logs. To see the trace output from the previous execution, return to your function in the portal and select the arrow at the bottom of the screen to expand the **Logs**.
+1. When your function runs, trace information is written to the logs. To see the trace output, return to the **Code + Test** page in the portal and expand the **Logs** arrow at the bottom of the page.
 
    ![Functions log viewer in the Azure portal.](./media/functions-create-first-azure-function/function-view-logs.png)
 
