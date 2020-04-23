@@ -26,7 +26,7 @@ Azure Pipelines provides a complete, fully featured set of CI/CD automation tool
 
 **Configure CI/CD on Virtual Machines**
 
-Virtual machines can be added as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) and can be targeted for multi-machine updates. Once deployed, Deployment History views within Deployment Group provides traceability from VM to the pipeline and then to the commit. 
+Virtual machines can be added as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) and can be targeted for multi-machine updates. Once deployed, the **Deployment History** within your deployment group provides traceability from VM to the pipeline and then to the commit. 
  
   
 **Canary Deployments**: A canary deployment reduces risk by slowly rolling out the change to a small subset of users. As you gain more confidence in the new version, you can start releasing it to more servers in your infrastructure and routing more users to it. 
