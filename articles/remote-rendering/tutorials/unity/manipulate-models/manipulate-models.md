@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 The Mixed Reality Toolkit (MRTK) is a cross-platform toolkit for building Mixed Reality experiences for Virtual Reality (VR) and Augmented Reality (AR). We'll utilize MRTK for it's input and interaction scripts.
 
-To add MRTK, follow the steps defined in [Getting started with MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/GettingStartedWithTheMRTK.html), specifically the [Required steps](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/GettingStartedWithTheMRTK.html#required).
+To add MRTK, follow the the [Required steps](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/GettingStartedWithTheMRTK.html#required) defined in [Getting started with MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/GettingStartedWithTheMRTK.html).
 
 ## Include the View Controller used by this tutorial
 
@@ -38,7 +38,13 @@ This tutorial provides a few scripts, assets and Unity prefabs to get you starte
 1. In the file explorer, select the asset package you downloaded in step 1.
 1. Select the **Import** button to import the contents of the package into your project.
 
-/## Getting remote object bounds and adding a local bounding box
+If using the Universal Render Pipeline:
+
+5. In the Unity Editor, select **Mixed Reality Toolkit** > **Utilities** > **Upgrade MRTK Standard Shader for Lightweight Render Pipeline** from the top menu bar, and follow the prompts to upgrade the shader.
+
+## Getting remote object bounds and adding a local bounding box
+
+The objects bounds are useful for quick manipulation of a remote object. We can query the bounds of a remotely rendered model from the current session, using the entity object created when loading a remotely rendered model.
 
 /## Move, rotate, and scale  
 

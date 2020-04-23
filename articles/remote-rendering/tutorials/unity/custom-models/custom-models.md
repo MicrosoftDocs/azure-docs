@@ -29,6 +29,8 @@ Follow the steps specified in the [Quickstart: Convert a model for rendering](..
 1. Create a new GameObject in the scene and name it appropriately.
 1. Add the *RemoteRenderedModel* script to the newly created GameObject.\
  ![Add RemoteRenderedModel component](./media/add-remote-rendered-model-script.png)
+1. Fill in the `Model Display Name` with an appropriate name for your model.
+1. Fill in the `Model Path` with the model's *Shared Access Signature (SAS)* URI you created in the ingestion steps above.
 1. Position the GameObject in front of the camera
 1. Ensure **AutomaticallyLoad** is turned on.
 1. Press **Play** in the Unity Editor to test the application.
