@@ -11,9 +11,9 @@ ms.topic: troubleshooting
 
 ## Open a tech support ticket
 
-To open a technical support ticket within the Azure Portal for Azure Remote Rendering:
+To open a technical support ticket within the Azure portal for Azure Remote Rendering:
 
-1. Open [Azure Portal](https://ms.portal.azure.com)
+1. Open [Azure portal](https://ms.portal.azure.com)
 
 1. Select the question mark icon from the menu bar, then click **Help + support**.
 
