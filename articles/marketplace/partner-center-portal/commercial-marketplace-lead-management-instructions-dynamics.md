@@ -36,14 +36,14 @@ The following user permissions are needed to complete the steps in this article.
  
     ![Dynamics 365 Advanced Settings menu item](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-advanced-settings.png)
 
-1. On the Settings page, open the **Settings** menu on the top bar and select **Solutions**.
+1. On the **Settings** page, open the **Settings** menu on the top bar and select **Solutions**.
 
     >[!NOTE]
     >If you don't see the options in the following screen, you don't have the permissions you need to proceed. Contact an admin on your Dynamics 365 Customer Engagement instance.
 
     ![Dynamics 365 Solutions option](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-solutions.png)
 
-1. On the Solutions page, select **Import** and go to where you saved the **Microsoft Marketplace Lead Writer** solution that you downloaded in step 1.
+1. On the **Solutions** page, select **Import** and go to where you saved the **Microsoft Marketplace Lead Writer** solution that you downloaded in step 1.
 
     ![Import button](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-crm-import.png)
 
@@ -66,7 +66,7 @@ To configure Azure Active Directory for Dynamics 365 Customer Engagement:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**.
 
-1. Select **Properties**, and copy the **Directory ID** value on the Directory properties page. Save this value because you'll need to provide it in the publishing portal to receive leads for your marketplace offer.
+1. Select **Properties**, and copy the **Directory ID** value on the **Directory properties** page. Save this value because you'll need to provide it in the publishing portal to receive leads for your marketplace offer.
 
     ![Azure Active Directory Properties menu item](./media/commercial-marketplace-lead-management-instructions-dynamics/aad-properties.png)
 
@@ -96,8 +96,8 @@ To configure Azure Active Directory for Dynamics 365 Customer Engagement:
 
 1. After you complete steps 1 through 14 in the Azure portal, go to your Dynamics 365 Customer Engagement instance by going to the URL, such as `https://tenant.crm.dynamics.com`.
 1. Select the gear icon on the top bar, and then select **Advanced Settings**.
-1. On the Settings page, open the **Settings** menu on the top bar and select **Security**.
-1. On the Security page, select **Users**. On the Users page, select the **Enabled Users** drop-down and then select **Application Users**.
+1. On the **Settings** page, open the **Settings** menu on the top bar and select **Security**.
+1. On the **Security** page, select **Users**. On the **Users** page, select the **Enabled Users** drop-down and then select **Application Users**.
 1. Select **New** to create a new user. 
 
     ![Create a new user](./media/commercial-marketplace-lead-management-instructions-dynamics/application-users.png)
@@ -137,8 +137,8 @@ The final step is to enable the user you created to write the leads.
 
 1. Open Dynamics 365 Customer Engagement by going to the URL for your Dynamics instance, such as `https://tenant.crm.dynamics.com`.
 1. Select the gear icon on the top bar, and then select **Advanced Settings**.
-1. On the Settings page, open the **Settings** menu on the top bar and select **Security**.
-1. On the Security page, select **Users** and select the user that you created in the "Configure user permissions" section of this document. Then select **Manage Roles**. 
+1. On the **Settings** page, open the **Settings** menu on the top bar and select **Security**.
+1. On the **Security** page, select **Users** and select the user that you created in the "Configure user permissions" section of this document. Then select **Manage Roles**. 
 
     ![Manage Roles tab](./media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-roles.png)
 
@@ -149,7 +149,7 @@ The final step is to enable the user you created to write the leads.
     >[!NOTE]
     >This role is created by the solution that you imported and only has permissions to write the leads and to track the solution version to ensure compatibility.
 
-1. Go back to the Security page, and select **Security Roles**. Search for the role **Microsoft Marketplace Lead Writer**, and select it.
+1. Go back to the **Security** page, and select **Security Roles**. Search for the role **Microsoft Marketplace Lead Writer**, and select it.
 
     ![Security Roles pane](./media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
