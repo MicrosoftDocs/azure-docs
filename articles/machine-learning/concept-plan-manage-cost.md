@@ -20,7 +20,7 @@ After you've started using Azure Machine Learning resources, use the cost manage
 
 Understand that the costs for Azure Machine Learning are only a portion of the monthly costs in your Azure bill. If you are using other Azure services, you're billed for all the Azure services and resources used in your Azure subscription, including the third-party services. This article explains how to plan for and manage costs for Azure Machine Learning. After you're familiar with managing costs for Azure Machine Learning, apply similar methods to manage costs for all the Azure services used in your subscription.
 
-Train your model with managed Azure Machine Learning compute clusters to take advantage of more cost-saving tips:
+When you train your machine learning models, use managed Azure Machine Learning compute clusters to take advantage of more cost-saving tips:
 
 * Configure your training clusters for autoscaling
 * Set quotas on your subscription and workspaces
