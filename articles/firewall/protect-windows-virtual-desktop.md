@@ -29,7 +29,7 @@ To learn more about WVD environments see [Windows Virtual Desktop environment](.
 The Azure virtual machines you create for Windows Virtual Desktop must have access to several Fully Qualified Domain Names (FQDNs) to function properly. Azure Firewall provides a Windows Virtual Desktop FQDN Tag to simplify this configuration. Use the following steps to allow outbound WVD platform traffic:
 
 - Deploy Azure Firewall and configure your WVD host pool subnet User Defined Route (UDR) to route all traffic via the Azure Firewall. Your default route now points to the firewall.
-- Create an application rule collection and add a rule to enable *WindowsVirtualDesktop* FQDN tags. The source IP address range is the host pool virtual network, the protocol is http/s, and the destination is **WindowsVirtualDesktop**.
+- Create an application rule collection and add a rule to enable *WindowsVirtualDesktop* FQDN tags. The source IP address range is the host pool virtual network, the protocol is **https**, and the destination is **WindowsVirtualDesktop**.
 - Enable Storage and Service Bus Service Endpoints on your WVD host pool subnet.
 - Create a network rule collection add the following rules:
 
