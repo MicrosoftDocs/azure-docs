@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Query the twin graph
 titleSuffix: Azure Digital Twins
-description: Understand how to query the Azure Digital Twins twin graph for information.
+description: See how to query the Azure Digital Twins twin graph for information.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 3/26/2020

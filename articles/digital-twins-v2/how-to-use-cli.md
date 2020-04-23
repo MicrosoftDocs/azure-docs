@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Use the Azure Digital Twins CLI
 titleSuffix: Azure Digital Twins
-description: Learn how to get started with and use the Azure Digital Twins CLI
+description: See how to get started with and use the Azure Digital Twins CLI.
 author: alinamstanciu
 ms.author: alinast # Microsoft employees only
 ms.date: 3/30/2020

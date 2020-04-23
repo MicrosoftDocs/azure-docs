@@ -48,7 +48,7 @@ All non-optional properties and components of digital twins must be initialized 
 > [!NOTE]
 > Relationships may be initialized, but do not need to be. 
 
-The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [Create digital twins and the twin graph](concepts-twins-graph.md) for a description of the JSON format for a twin.
+The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [Digital twins and the twin graph](concepts-twins-graph.md) for a description of the JSON format for a twin.
 
 You can create a serializable parameter object with the following example code, which sets up some twin properties:
 

@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Understand event data
 titleSuffix: Azure Digital Twins
-description: See details of different event types and their different notification messages.
+description: See how to interpret different event types and their different notification messages.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020

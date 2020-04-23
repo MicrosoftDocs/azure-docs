@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Route Azure Digital Twins events to external services
+title: Routing Azure Digital Twins events
 titleSuffix: Azure Digital Twins
-description: Understand how to route events from Azure Digital Twins to other Azure Services.
+description: Understand how to route events within Azure Digital Twins and to other Azure Services.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020

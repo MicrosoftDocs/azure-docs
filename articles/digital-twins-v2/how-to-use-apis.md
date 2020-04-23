@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Use the Azure Digital Twins APIs
 titleSuffix: Azure Digital Twins
-description: Understand details of the Azure Digital Twins API surface.
+description: See how to work with the Azure Digital Twins API surface.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
