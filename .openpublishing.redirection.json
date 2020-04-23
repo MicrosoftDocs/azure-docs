@@ -51241,11 +51241,6 @@
       "source_path": "articles/aks/kubernetes-draft.md",
       "redirect_url": "/azure/aks/quickstart-helm",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/sre/index.yml",
-      "redirect_url": "/azure/site-reliability-engineering/",
-      "redirect_document_id": false
     }
   ]
 }
