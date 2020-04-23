@@ -58,7 +58,7 @@ View costs in graphs and tables for different time intervals. Some examples are 
 
 You won't see a separate service area for Machine Learning.  Instead you'll see the various resources you've added to your Machine Learning workspaces.
 
-## Control the cost of continuous ML model training
+## Use AmlCompute
 
 With constantly changing data, you need fast and streamlined model training and retraining to maintain accurate models. However, continuous training comes at a cost, especially for deep learning models on GPUs. 
 
