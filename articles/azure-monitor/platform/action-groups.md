@@ -190,9 +190,13 @@ Write-Host $myApp.AppRoles
 ```
 
 ### SMS
-See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) and [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md) for additional important information. If the Azure portal action group user interface does not let you select your country code, then SMS is not supported for your country. Pricing for supported countries is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). If your country code is not available, you can vote to have your country added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  
+See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) and [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md) for additional important information. 
 
-You may have a limited number of SMS actions in an Action Group.  
+You may have a limited number of SMS actions in an Action Group.
+
+If the Azure portal action group user interface does not let you select your country code, then SMS is not supported for your country. Pricing for supported countries is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). If your country code is not available, you can vote to have your country added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  
+
+  
 
 ### Voice
 See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
