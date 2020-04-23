@@ -297,11 +297,11 @@ Hyper-V Virtual Network Adapter | Bytes Sent/Second | Calculation for VM size
 
 ## Appliance upgrades
 
-The appliance is upgraded as the Azure Migrate agents running on the appliance are updated. This happens automatically because auto-update is enabled on the appliance by default. You can change this default setting to update the agents manually.
+The appliance is upgraded as the Azure Migrate agents running on the appliance are updated. This happens automatically, because auto-update is enabled on the appliance by default. You can change this default setting, to update the appliance services manually.
 
 ### Turn off auto-update
 
-1. On the machine running the appliance, open the registry editor.
+1. On the machine running the appliance, open the Registry Editor.
 2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
 3. To turn off auto-update, create a registry key **AutoUpdate** key with DWORD value of 0.
 
@@ -313,13 +313,13 @@ The appliance is upgraded as the Azure Migrate agents running on the appliance a
 You can turn on auto-update using either of these methods:
 
 - By deleting the AutoUpdate registry key from HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
-- After discovery is complete, in the Appliance Configuration Manager in the appliance web application
+- After discovery is complete, in the Appliance Configuration Manager.
 
 To delete the registry key:
 
-1. On the machine running the appliance, open the registry editor.
+1. On the machine running the appliance, open the Registry Editor.
 2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
-3. Delete the registry key **AutoUpdate** that was previously created to turn off auto-update.
+3. Delete the registry key **AutoUpdate**, that was previously created to turn off auto-update.
 
 To turn on from Appliance Configuration Manager, after discovery is complete:
 
@@ -337,8 +337,8 @@ You can check the appliance services version using either of these methods:
 
 To check in the Appliance Configuration Manager:
 
-1. After discovery is complete, open Appliance Configuration Manager, in the appliance web application.
-2. In **Appliance services** > verify the appliance services versions.
+1. After discovery is complete, open Appliance Configuration Manager (in the appliance web app).
+2. In **Appliance services**, verify the appliance services versions.
 
     ![Check version](./media/migrate-appliance/version.png)
 
@@ -353,7 +353,7 @@ To check in the Control Panel:
 
 If you are running an older version for any of the components, you must uninstall the service, and manually update to the latest version.
 
-1. To check for the latest versions,  [download](https://aka.ms/latestapplianceservices) the LatestComponents.json file.
+1. To check for the latest appliance service versions, [download](https://aka.ms/latestapplianceservices) the LatestComponents.json file.
 2.	After downloading, open the LatestComponents.json file in Notepad.
 3. Find the latest service version in the file, and the download link for it. For example:
 
@@ -366,9 +366,9 @@ If you are running an older version for any of the components, you must uninstal
     For example:
     C:\>CertUtil -HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
 
-5. Check that the outcome of the command matches the hash value entry for the service in the file (for example, the MD5 hash value above).
+5. Check that the command output matches the hash value entry for the service in the file (for example, the MD5 hash value above).
 6. Now, run the MSI to install the service. It's a silent install, and the installation window closes after it's done.
-7. After installation is complete, check the version of the service in the **Control panel** > **Programs and Features**. The service version should be upgraded to the latest shown in the json file.
+7. After installation is complete, check the version of the service in **Control panel** > **Programs and Features**. The service version should now be upgraded to the latest shown in the json file.
 
 
 
