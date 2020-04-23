@@ -69,9 +69,9 @@ A connector in Power Apps is a data source connection. In this step, you'll crea
 
     * Select the verb `GET`
 
-    * For the URL enter a sample query for your search index (`search=*` returns all documents). The API version is required. Fully specified, a URL might look like this: `https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&api-version=2019-05-06`
+    * For the URL enter a sample query for your search index (`search=*` returns all documents, `$select=` lets you choose fields). The API version is required. Fully specified, a URL might look like this: `https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2019-05-06`
 
-    * For Headers, type `Content-Type application/JSON` and `api-key`. 
+    * For Headers, type `Content-Type`. 
 
     **Power Apps** will use the syntax to extract parameters from the query. Notice we explicitly defined the search field. 
 
@@ -81,52 +81,67 @@ A connector in Power Apps is a data source connection. In this step, you'll crea
 
     :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Import from sample dialogue" border="false":::
 
-1. For *api-version*: Set `2019-05-06` as the **default value**, set **required** to *True*, and set **visibility** as *internal*.  
-
-    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Version parameter metadata" border="true":::
-
 1. For *search*: Set `*` as the **default value**, set **required** as *False* and set **visibility** to *none*. 
 
     :::image type="content" source="./media/search-howto-powerapps/1-10-1-parameter-metadata-search.png" alt-text="Search parameter metadata" border="true":::
 
-1. For *api-key*: Set a valid query API key as the **default value**, set **required** to *True*, and set **visibility** as *internal*. You can get a query API key from the Azure portal. For more information, see [Find existing keys](search-security-api-keys.md#find-existing-keys).
+1. For *select*: Set `HotelName,Description,Address/City` as the **default value**, set **required** to *False*, and set **visibility** to *none*.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-3-parameter-metadata-version.png" alt-text="Version parameter metadata" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Version parameter metadata" border="true":::
+
+1. For *api-version*: Set `2019-05-06` as the **default value**, set **required** to *True*, and set **visibility** as *internal*.  
+
+    :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Version parameter metadata" border="true":::
+
+1. For *Content-Type*: Set to `application/json`.
 
 1. After making these changes, toggle to the **Swagger Editor** view. In the parameters section you should see the following configuration:
 
     ```JSON
     parameters:
-    - {name: search, in: query, required: false, type: string, default: '*'}
-    - {name: api-version, in: query, required: true, type: string, default: 2019-05-06, x-ms-visibility: internal}
-    - {name: api-key, in: header, required: true, type: string, default: YOURKEYGOESHERE, x-ms-visibility: internal}
+      - {name: search, in: query, required: false, type: string, default: '*'}
+      - {name: $select, in: query, required: false, type: string, default: 'HotelName,Description,Address/City'}
+      - {name: api-version, in: query, required: true, type: string, default: '2019-05-06',
+        x-ms-visibility: internal}
+      - {name: Content-Type, in: header, required: false, type: string}
     ```
 
-1. Return to the **3. Request** step and scroll down to the Response section. Click **"Add default response"**. This is critical because it will help **Power Apps** understand the schema of the response. 
+1. Return to the **3. Request** step and scroll down to the Response section. Click **"Add default response"**. This is critical because it will help Power Apps understand the schema of the response. 
 
-1. Paste a sample response. The hotels-sample-index has numerous fields. For brevity, use just the search.score, HotelID, HotelName, Description, Category, and Address/City. Below is a sample response that contains these fields.
+1. Paste a sample response. An easy way to capture a sample response is through Search Explorer in the Azure portal. In Search Explorer, you should enter the same query as you did for the request, but add **$top=2** to constrain results to just two documents. Power Apps only needs to sample a few results to detect the schema: `search=*&$select=HotelName,Description,Address/City&$top=2`
 
-   ```JSON
+    ```JSON
     {
-        "@search.score": 1,
-        "HotelId": "13",
-        "HotelName": "Historic Lion Resort",
-        "Description": "Unmatched Luxury. Visit our downtown hotel to indulge in luxury accommodations. Moments from the stadium, we feature the best in comfort.",
-        "Category": "Luxury",
-        "Address": {
-            "City": "St. Louis"
+        "@odata.context": "https://mydemo.search.windows.net/indexes('hotels-sample-index')/$metadata#docs(*)",
+        "value": [
+            {
+                "@search.score": 1,
+                "HotelName": "Arcadia Resort & Restaurant",
+                "Description": "The largest year-round resort in the area offering more of everything for your vacation – at the best value!  What can you enjoy while at the resort, aside from the mile-long sandy beaches of the lake? Check out our activities sure to excite both young and young-at-heart guests. We have it all, including being named “Property of the Year” and a “Top Ten Resort” by top publications.",
+                "Address": {
+                    "City": "Seattle"
+                }
+            },
+            {
+                "@search.score": 1,
+                "HotelName": "Travel Resort",
+                "Description": "The Best Gaming Resort in the area.  With elegant rooms & suites, pool, cabanas, spa, brewery & world-class gaming.  This is the best place to play, stay & dine.",
+                "Address": {
+                    "City": "Albuquerque"
+                }
             }
-        }
-   ```
+        ]
+    }
+    ```
 
     > [!TIP] 
-    > There is a character limit to the JSON response you can enter, so you may want to simplify the JSON before pasting it. The schema and format of the response is more important than the values. For example, the Description field could be simplified to just the first sentence.
+    > There is a character limit to the JSON response you can enter, so you may want to simplify the JSON before pasting it. The schema and format of the response is more important than the values themselves. For example, the Description field could be simplified to just the first sentence.
 
 1. Click **Create connector** on the top right.
 
 ## 2 - Test the connection
 
-When the connector is first created, you need to reopen it from the Custom Connectors list in order to test it. Later, if you make additional updates, you can open the test page from within the wizard.
+When the connector is first created, you need to reopen it from the Custom Connectors list in order to test it. Later, if you make additional updates, you can test from within the wizard.
 
 1. On the far left, click **Custom Connectors**.
 
@@ -140,7 +155,11 @@ When the connector is first created, you need to reopen it from the Custom Conne
 
 1. Select **4. Test** to open the test page.
 
-1. Click **Test operation**. If you are successful you should see a 200 status, and in the body of the response you should see JSON that describes the search results.
+1. In Test Operation, click **+ New Connection**.
+
+1. Enter a query API key. This is an Azure Cognitive Search query for read-only access to an index. You can [find the key](search-security-api-keys.md#find-existing-keys) in the Azure portal. 
+
+1. In Operations, click the **Test operation** button. If you are successful you should see a 200 status, and in the body of the response you should see JSON that describes the search results.
 
     :::image type="content" source="./media/search-howto-powerapps/1-11-2-test-connector.png" alt-text="JSON response" border="true":::
 
@@ -156,11 +175,13 @@ In this step, create a Power App with a search box, a search button, and a displ
 
 1. Once in the studio, select the **Data Sources** tab, and click on the new Connector you have just created. In our case, it is called *AzureSearchQuery*. Click **Add a connection**.
 
+   Enter the query API key.
+
     :::image type="content" source="./media/search-howto-powerapps/2-3-connect-connector.png" alt-text="connect connector" border="true":::
 
     Now *AzureSearchQuery* is a data source that is available to be used from your application.
 
-1. Navigate to the **Insert tab**, so that we can add a few controls to our form.
+1. On the **Insert tab**, add a few controls to the canvas.
 
     :::image type="content" source="./media/search-howto-powerapps/2-4-add-controls.png" alt-text="Insert controls" border="true":::
 
@@ -171,22 +192,35 @@ In this step, create a Power App with a search box, a search button, and a displ
    * A button with the text "Search" 
    * A Vertical Gallery called (call it *galleryResults*)
 
-    Your form should look something like this:
+    The canvas should look something like this:
 
     :::image type="content" source="./media/search-howto-powerapps/2-5-controls-layout.png" alt-text="Controls layout" border="true":::
 
-1. To make the **Search button** issue a query, select the button, and paste the following action into **OnSelect**:
+1. To make the **Search button** issue a query, paste the following action into **OnSelect**:
 
     ```
     If(!IsBlank(txtQuery.Text),
-        ClearCollect(azResult, AzureSearchQuery.Get({search: txtQuery.Text}).value))
+        ClearCollect(azResult, AzureSearchQuery.Query({search: txtQuery.Text}).value))
     ```
 
-    :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Button OnSelect" border="true":::
+   The following screenshot shows the formula bar for the **OnSelect** action.
 
-  This action will cause the button to update a new collection called *azResult* with the result of the search query, using the text in the *txtQuery* text box as the query term.
+       :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Button OnSelect" border="true":::
 
-1. As a next step, we will link the vertical gallery we created to the *azResult* collection. Select the gallery control, and perform the following actions in the properties pane.
+   This action will cause the button to update a new collection called *azResult* with the result of the search query, using the text in the *txtQuery* text box as the query term.
+
+   > [!NOTE]
+   > If you get a formula syntax error "The function 'ClearCollect' has some invalid functions":
+   > 
+   > * First, make sure the connector reference is correct. Clear the connector name and begin typing the name of your connector. Intellisense should suggest the right connector and verb.
+   > 
+   > * If the error persists, delete and recreate the connector. If there are multiple instances of a connector, the app might be using the wrong one.
+   > 
+
+
+1. Link the Vertical Gallery control to the *azResult* collection that was created when you completed the previous step. 
+
+   Select the gallery control, and perform the following actions in the properties pane.
 
    * Set **DataSource** to *azResult*.
    * Select a **Layout** that works for you based on the type of data in your index. In this case, we used the *Title, subtitle and body* layout.
@@ -198,11 +232,13 @@ In this step, create a Power App with a search box, a search button, and a displ
  
 1. Press **F5** to preview the app.  
 
-    Remember that the fields can be set to calculated values.
+    :::image type="content" source="./media/search-howto-powerapps/2-8-3-final.png" alt-text="Final app" border="true":::    
+
+<!--     Remember that the fields can be set to calculated values.
 
     For the example, setting using the *"Image, Title and Subtitle"* layout and specifying the *Image* function as the concatenation of the root path for the data and the file name (for instance, `"https://mystore.blob.core.windows.net/multilang/" & ThisItem.metadata_storage_name`) will produce the result below.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Final app" border="true":::        
+    :::image type="content" source="./media/search-howto-powerapps/2-8-2-final.png" alt-text="Final app" border="true":::         -->
 
 ## Clean up resources
 
