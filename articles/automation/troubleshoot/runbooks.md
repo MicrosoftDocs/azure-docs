@@ -363,6 +363,20 @@ To determine what's wrong, take the following steps:
    }
    ```
 
+## <a name="object-reference-not-set"></a>Scenario: Incorrect object reference on call to Add-AzAccount
+
+### Issue
+
+You receive this error when working with `Add-AzAccount`, which is an alias for the `Connect-AzAccount` cmdlet:
+
+```error
+Add-AzAccount : Object reference not set to an instance of an object
+```
+
+### Cause
+
+This error can occur if the runbook doesn't do the proper steps before calling `Add-AzAccount` to add the Automation account. An example of one of the necessary steps is signing in with a Run As account. For the correct operations to use in your runbook, see [Runbook execution in Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution).
+
 ## <a name="child-runbook-object"></a>Scenario: Object reference not set to an instance of an object
 
 ### Issue
