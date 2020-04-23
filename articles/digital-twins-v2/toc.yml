@@ -4,7 +4,7 @@
   items:
   - name: About Azure Digital Twins
     href: overview.md
-  - name: Differences from Public Preview 1
+  - name: Differences from previous release
     href: overview-differences.md
 - name: Concepts
   items:
