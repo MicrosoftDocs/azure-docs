@@ -45,7 +45,7 @@ Events sent via routes come without context. As a result, a compute resource tha
 
 The compute resource also needs to establish security and access permissions independently.
 
-## Create a route endpoint
+## Create an endpoint
 
 To define an event route, developers first must define endpoints. An **endpoint** is a destination outside of Azure Digital Twins that supports a route connection. Supported destinations in the current preview release are:
 * Event Grid custom topics
