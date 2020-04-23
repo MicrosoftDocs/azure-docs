@@ -44,7 +44,7 @@ This guide uses the following NuGet package:
 
 ## Set up your project
 
-This section provides step-by-step instructions to integrate a Windows Desktop .NET application (XAML) with Sign-In with Microsoft. Then the application can query Web APIs that require a token, such as Microsoft Graph API.
+This section provides step-by-step instructions to integrate a Windows Desktop .NET application (XAML) with Sign-In with Microsoft. Then the application can query web APIs that require a token, such as Microsoft Graph API.
 
 This guide creates an application that displays a button that queries Graph API and a button to sign out. It also displays text boxes that contain the results of the calls.
 
@@ -114,7 +114,7 @@ This section shows how to use MSAL to get a token for Microsoft Graph API. Make 
         //Set the scope for API call to user.read
         string[] scopes = new string[] { "user.read" };
 
-        // Below are the clientId (Application Id) of your app registration and the tenant information. 
+        // Below are the clientId (Application Id) of your app registration and the tenant information.
         // You have to replace:
         // - the content of ClientID with the Application Id for your app registration
         // - the content of Tenant with the information about the accounts allowed to sign in in your application:
@@ -122,9 +122,9 @@ This section shows how to use MSAL to get a token for Microsoft Graph API. Make 
         //   - for any Work or School accounts, use organizations
         //   - for any Work or School accounts, or Microsoft personal account, use common
         //   - for Microsoft Personal account, use consumers
-        private const string ClientId = "0b8b0665-bc13-4fdc-bd72-e0227b9fc011";        
+        private const string ClientId = "0b8b0665-bc13-4fdc-bd72-e0227b9fc011";
 
-        public IPublicClientApplication PublicClientApp { get; } 
+        public IPublicClientApplication PublicClientApp { get; }
 
         public MainPage()
         {
@@ -149,8 +149,8 @@ This section shows how to use MSAL to get a token for Microsoft Graph API. Make 
          ResultText.Text = string.Empty;
          TokenInfoText.Text = string.Empty;
 
-         // It's good practice to not do work on the UI thread, so use ConfigureAwait(false) whenever possible.            
-         IEnumerable<IAccount> accounts = await PublicClientApp.GetAccountsAsync().ConfigureAwait(false); 
+         // It's good practice to not do work on the UI thread, so use ConfigureAwait(false) whenever possible.
+         IEnumerable<IAccount> accounts = await PublicClientApp.GetAccountsAsync().ConfigureAwait(false);
          IAccount firstAccount = accounts.FirstOrDefault();
 
          try
@@ -235,7 +235,7 @@ Add the following new method to *MainPage.xaml.cs*:
        {
            var request = new System.Net.Http.HttpRequestMessage(System.Net.Http.HttpMethod.Get, url);
            // Add the token in Authorization header
-           request.Headers.Authorization = 
+           request.Headers.Authorization =
              new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
            response = await httpClient.SendAsync(request);
            var content = await response.Content.ReadAsStringAsync();

@@ -2499,8 +2499,7 @@ items('myForEachLoopName')
 
 ### iterationIndexes
 
-Return the index value for the current iteration inside an Until loop. 
-You can use this function inside nested Until loops. 
+Return the index value for the current iteration inside an Until loop. You can use this function inside nested Until loops. 
 
 ```
 iterationIndexes('<loopName>')
@@ -2518,17 +2517,11 @@ iterationIndexes('<loopName>')
 
 *Example* 
 
-This example creates a counter variable and increments that 
-variable by one during each iteration in an Until loop until 
-the counter value reaches five. The example also creates a 
-variable that tracks the current index for each iteration. 
-In the Until loop, during each iteration, the example increments 
-the counter and then assigns the counter value to the current 
-index value and then increments the counter. At any time, 
-you can determine the current iteration number by 
-retrieving the current index value.
+This example creates a counter variable and increments that variable by one during each iteration in an Until loop until the counter value reaches five. The example also creates a variable that tracks the current index for each iteration. In the Until loop, during each iteration, the example increments the counter and then assigns the counter value to the current index value and then increments the counter. While in the loop, this example references the current iteration index by using the `iterationIndexes` function:
 
-```
+`iterationIndexes('Until_Max_Increment')`
+
+```json
 {
    "actions": {
       "Create_counter_variable": {
@@ -2559,7 +2552,7 @@ retrieving the current index value.
             "Create_counter_variable": [ "Succeeded" ]
          }
       },
-      "Until": {
+      "Until_Max_Increment": {
          "type": "Until",
          "actions": {
             "Assign_current_index_to_counter": {
@@ -2572,6 +2565,15 @@ retrieving the current index value.
                   "Increment_variable": [ "Succeeded" ]
                }
             },
+            "Compose": {
+               "inputs": "'Current index: ' @{iterationIndexes('Until_Max_Increment')}",
+               "runAfter": {
+                  "Assign_current_index_to_counter": [
+                     "Succeeded"
+                    ]
+                },
+                "type": "Compose"
+            },           
             "Increment_variable": {
                "type": "IncrementVariable",
                "inputs": {
@@ -2581,7 +2583,7 @@ retrieving the current index value.
                "runAfter": {}
             }
          },
-         "expression": "@equals(variables('myCounter'), 5),
+         "expression": "@equals(variables('myCounter'), 5)",
          "limit": {
             "count": 60,
             "timeout": "PT1H"

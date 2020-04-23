@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 04/15/2020
 ms.custom: seodec18
 ---
 
@@ -23,7 +23,7 @@ This article discusses the two types of Azure Time Series Insights Preview acces
 ## Sign in to Time Series Insights
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Locate your Time Series Insights environment. Enter `Time Series` in the **Search** box. Select **Time Series Environment** in the search results.
+1. Locate your Time Series Insights environment. Enter `Time Series` in the **Search** box. Select **Time Series Environments** in the search results.
 1. Select your Time Series Insights environment from the list.
 
 ## Grant data access

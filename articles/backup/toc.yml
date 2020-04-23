@@ -60,7 +60,9 @@
       href: sql-support-matrix.md
     - name: SAP HANA Backup support matrix
       href: sap-hana-backup-support-matrix.md
-    - name: Supported VM SKUs for Azure Policy
+    - name: Azure file share backup support matrix
+      href: azure-file-share-support-matrix.md
+    - name: Supported VM SKUs for Azure Policy  
       href: backup-azure-policy-supported-skus.md
   - name: Frequently asked questions (FAQ)
     items:
