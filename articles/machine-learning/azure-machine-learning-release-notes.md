@@ -42,6 +42,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Added upper bound to file size for the visualization data on uploaded explanations.
   + **azureml-train-automl-client**
     + Explicitly checking for label_column_name & weight_column_name parameters for AutoMLConfig to be of type string.
+  + **azureml-contrib-pipeline-steps**
+    + Dataset can be passed as pipeline parameter now. User can construct pipeline with sample dataset and can change input dataset of same type (file or tabular) for new pipeline run.
 
   
 ## 2020-04-13
