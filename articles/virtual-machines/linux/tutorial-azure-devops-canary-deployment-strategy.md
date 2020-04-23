@@ -41,7 +41,7 @@ Here is the step-by-step walkthrough.
 
    ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png) 
 4. A deployment group is a logical set of deployment target machines that represent the physical environments; for example, "Dev", "Test", "UAT", and "Production". You can create a new deployment group or select an existing deployment group. 
-5. Select the build pipeline that publishes the package to be deployed to the virtual machine. Note that the published package should have a deployment script _deploy.ps1_ or _deploy.sh_ in 'deployscripts' folder at package root. This deployment script will be executed by Azure DevOps pipeline at run time.
+5. Select the build pipeline that publishes the package to be deployed to the virtual machine. Note that the published package should have a deployment script _deploy.ps1_ or _deploy.sh_ in the `deployscripts` folder at the package root. This deployment script will be executed by the Azure DevOps pipeline at run time.
 6. Select the deployment strategy of your choice. In this case, lets select 'Canary'.
 7. Add a 'canary' tag to the VMs that are to be part of canary deployments and a 'prod' tag to the VMs that are part of deployments after canary deployment in successful. Tags help you target VMs that have specific role only.
 ![AzDevOps_configure_canary](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure-canary.png)
