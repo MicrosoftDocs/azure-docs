@@ -515,7 +515,8 @@ Conditions that count how many members of an array in the resource payload satis
 expression can be formed using **count** expression. Common scenarios are checking whether 'at least
 one of', 'exactly one of', 'all of', or 'none of' the array members satisfy the condition. **count**
 evaluates each [\[\*\] alias](#understanding-the--alias) array member for a condition expression and
-sums the _true_ results, which is then compared to the expression operator.
+sums the _true_ results, which is then compared to the expression operator. **Count** expressions
+may be added up to 3 times to a single **policyRule** definition.
 
 The structure of the **count** expression is:
 
