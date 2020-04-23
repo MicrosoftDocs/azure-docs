@@ -39,6 +39,8 @@
     items: 
     - name: Apache Hadoop components on HDInsight
       href: ./hdinsight-component-versioning.md
+    - name: Hortonworks release notes
+      href: ./hortonworks-release-notes.md
     - name: High availability components
       href: ./hdinsight-high-availability-components.md   
     - name: Apache Ambari in Azure HDInsight
@@ -129,6 +131,8 @@
         href: hdinsight-hadoop-linux-use-ssh-unix.md
       - name: Use SSH tunneling
         href: hdinsight-linux-ambari-ssh-tunnel.md
+      - name: Use SCP with HDInsight
+        href: ./use-scp.md
       - name: Restrict access to data
         href: hdinsight-storage-sharedaccesssignature-permissions.md
       - name: Authorize users for Apache Ambari Views
@@ -223,6 +227,8 @@
       items:
       - name: Troubleshoot script actions
         href: ./troubleshoot-script-action.md
+      - name: Resource creation failures
+        href: ./troubleshoot-resource-creation-fails.md
   - name: Reference
     items:
     - name: Azure PowerShell
