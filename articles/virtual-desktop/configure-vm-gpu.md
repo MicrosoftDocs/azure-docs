@@ -28,7 +28,7 @@ Azure offers a number of [GPU optimized virtual machine sizes](/azure/virtual-ma
 
 ## Create a host pool, provision your virtual machine, and configure an app group
 
-Create a new host pool using a VM of the size you selected. For instructions, see [Tutorial: Create a host pool with Azure Marketplace](/azure/virtual-desktop/create-host-pools-azure-marketplace).
+Create a new host pool using a VM of the size you selected. For instructions, see [Tutorial: Create a host pool with the Azure portal](/azure/virtual-desktop/create-host-pools-azure-marketplace).
 
 Windows Virtual Desktop supports GPU-accelerated rendering and encoding in the following operating systems:
 
