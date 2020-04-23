@@ -134,7 +134,7 @@
           href: source-control-integration.md
     - name: Configuration Management
       items:
-        - name: Manage State Configuration (DSC)
+        - name: State Configuration (DSC)
           items:
             - name: Overview
               href: automation-dsc-overview.md
@@ -156,7 +156,7 @@
               href: automation-dsc-diagnostics.md
             - name: Troubleshoot issues with DSC
               href: troubleshoot/desired-state-configuration.md
-        - name: Manage Change Tracking and Inventory
+        - name: Change Tracking and Inventory
           items:
             - name: Overview
               href: change-tracking.md
@@ -182,7 +182,7 @@
                   href: troubleshoot/onboarding.md
                 - name: Using Change Tracking and Inventory 
                   href: troubleshoot/change-tracking.md
-    - name: Start/Stop VMs during off hours
+    - name: Start/Stop VMs during off-hours
       items:
         - name: Overview
           href: automation-solution-vm-management.md
