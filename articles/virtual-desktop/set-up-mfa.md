@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -31,7 +31,7 @@ Here's what you'll need to get started:
 - Enable Azure MFA for all your users. For more information about how to do that, see [How to require two-step verification for a user](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
 
 >[!NOTE]
->The following setting also applies to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient/index.html).
+>The following setting also applies to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/arm/webclient).
 
 ## Opt in to the Conditional Access policy
 

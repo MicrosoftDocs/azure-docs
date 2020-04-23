@@ -205,7 +205,7 @@ This section is based on [Create a profile container for a host pool using a fil
 
 ## Make sure users can access the Azure NetApp File share
 
-1. Open your internet browser and go to <https://rdweb.wvd.microsoft.com/webclient/index.html>.
+1. Open your internet browser and go to <https://rdweb.wvd.microsoft.com/arm/webclient>.
 
 2. Sign in with the credentials of a user assigned to the Remote Desktop group.
 

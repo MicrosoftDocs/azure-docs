@@ -26,20 +26,17 @@ This article will tell you how you can expand an existing host pool with new ses
 
 Before you start, make sure you've created a host pool and session host virtual machines (VMs) using one of the following methods:
 
-- [Azure Marketplace offering](./create-host-pools-azure-marketplace.md)
-- [GitHub Azure Resource Manager template](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)
+- [Azure portal](./create-host-pools-azure-marketplace.md)
 - [Create a host pool with PowerShell](./create-host-pools-powershell.md)
 
 You'll also need the following information from when you first created the host pool and session host VMs:
 
-- VM size, image, and name prefix
-- Domain join and Windows Virtual Desktop tenant administrator credentials
+- VM location
+- Number of VMs
+- Domain join administrator credentials
 - Virtual network name and subnet name
 
 The next three sections are three methods you can use to expand the host pool. You can do either with whichever deployment tool you're comfortable with.
-
->[!NOTE]
->During the deployment phase, you'll see error messages for the previous session host VM resources if they're currently shut down. These errors happen because Azure can't run the PowerShell DSC extension to validate that the session host VMs are correctly registered to your existing host pool. You can safely ignore these errors, or you can avoid the errors by starting all session host VMs in the existing host pool before starting the deployment process.
 
 ## Redeploy from Azure
 
