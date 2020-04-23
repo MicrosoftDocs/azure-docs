@@ -33,7 +33,7 @@ This section describes the code you will need to include in your client applicat
 
 ### Prerequisites
 
-To follow the example in this section, you will first need to build the SDK library that is described in [Use the Azure Digital Twins APIs](how-to-use-apis.md).
+To follow the example in this section, you will first need to build the SDK library that is described in [How-to: Use the Azure Digital Twins APIs](how-to-use-apis.md).
 
 You will need to add references in your project to the following libraries, which you can find on [NuGet](https://www.nuget.org/):
 * Microsoft.Identity.Client (this is the [MSAL](../active-directory/develop/msal-overview.md) client library)
@@ -130,4 +130,4 @@ namespace Azure Digital TwinsGettingStarted
 ## Next steps
 
 See how to make API calls to your Azure Digital Twin instance:
-* [Manage a digital twin](how-to-manage-twin.md)
+* [How-to: Manage a digital twin](how-to-manage-twin.md)

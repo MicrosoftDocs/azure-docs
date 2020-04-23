@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Use the Azure Digital Twins CLI
 titleSuffix: Azure Digital Twins
-description: Learn how to get started with and use the Azure Digital Twins CLI
+description: See how to get started with and use the Azure Digital Twins CLI.
 author: alinamstanciu
 ms.author: alinast # Microsoft employees only
 ms.date: 3/30/2020
@@ -61,7 +61,7 @@ Next, in your chosen shell window, get the **Azure IoT CLI Extension** by follow
 
 You can now use the Azure Digital Twins CLI commands. Here are some helpful tips that you can use with them going forward:
 * Use `az dt -h` to review the top-level commands.
-* *All commands have help descriptions and examples. Append `--help` or `-h` to the end of a command or command group to expand these details.
+* All commands have help descriptions and examples. Append `--help` or `-h` to the end of a command or command group to expand these details.
 
 ## Azure Digital Twins CLI Command Guide
 
@@ -253,4 +253,4 @@ Uses:
 ## Next steps
 
 See how to manage an Azure Digital Twins instance using APIs:
-* [Use the Azure Digital Twins APIs](how-to-use-apis.md)
+* [How-to: Use the Azure Digital Twins APIs](how-to-use-apis.md)

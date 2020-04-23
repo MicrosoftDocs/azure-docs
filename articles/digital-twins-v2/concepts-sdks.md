@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Understand the Azure Digital Twins SDKs
+title: The Azure Digital Twins SDKs
 titleSuffix: Azure Digital Twins
 description: Understand the SDKs available for working with Azure Digital Twins.
 author: baanders

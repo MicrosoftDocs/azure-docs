@@ -88,7 +88,7 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 ## Next steps
 
 If you have worked with the previous preview release of Azure Digital Twins, learn what has changed:
-* [Differences from Public Preview 1](overview-differences.md)
+* [Overview: Differences from previous release](overview-differences.md)
 
 Or, go ahead and dive into working with Azure Digital Twins in the quickstart:
 

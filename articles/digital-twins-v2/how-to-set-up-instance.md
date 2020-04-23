@@ -26,7 +26,7 @@ You now have an Azure Digital Twins instance ready to go.
 ## Next steps
 
 See how to authenticate a client app and write client app code:
-* [Authenticate a client application](how-to-authenticate-client.md)
+* [How-to: Authenticate a client application](how-to-authenticate-client.md)
 
 Or, see how to set up Azure Digital Twins to ingest data from IoT Hub:
-* [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)
+* [How-to: Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)
