@@ -34,7 +34,7 @@ If your app exceeds the LUIS model limits, consider using a [LUIS dispatch](luis
 | [Utterance][utterances] | 500 characters|
 | [Utterances][utterances] | 15,000 per application - there is no limit on the number of utterances per intent|
 | [Versions](luis-concept-version.md)| 100 versions per application |
-| [Version name][luis-how-to-manage-versions] | 10 characters restricted to alphanumeric and period (.) |
+| [Version name][luis-how-to-manage-versions] | 128 characters |
 
 *Default character max is 50 characters.
 
