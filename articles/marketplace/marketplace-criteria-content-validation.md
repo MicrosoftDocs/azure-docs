@@ -102,5 +102,5 @@ Additional requirements and checklists are provided for specific listing types, 
   * [Containers](https://docs.microsoft.com/azure/marketplace/marketplace-containers)
   * [Consulting services](https://docs.microsoft.com/azure/marketplace/consulting-services)
 
-* [Determine the listing type for your solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+* [Determine your publishing option](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
 
