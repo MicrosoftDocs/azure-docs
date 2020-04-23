@@ -3,8 +3,8 @@ title: Custom Keywords - Speech service
 titleSuffix: Azure Cognitive Services
 description: An overview of the features, capabilities, and restrictions for custom keywords using the Speech Software Development Kit (SDK).
 services: cognitive-services
-author: hasshah
-manager: ?
+author: hasyashah
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -24,7 +24,7 @@ With Custom Keyword's customization, performance, and integration features, you 
 |----------|----------|
 | Keyword customization | As an extension of your brand, a keyword reinforces the equity you've built with your customers. The Custom Keyword portal on Speech Studio allows you to specify any word or short phrase that best represents your brand. You can further personalize your keyword by choosing the right pronunciations, which will be honored by the keyword model generated.
 | Keyword verification | When there's high confidence in the keyword being detected locally, audio is sent to the cloud for further verification that a user said the keyword. Keyword verification provides an additional layer of security by reducing the impact of an incorrect local detection and protecting user privacy.
-| Voice assistant & Speech SDK integration | Keywords generated from the Custom Keyword on Speech Studio can be easily integrated within your device or application via the Speech SDK. Simply point the SDK to the keyword model provided by Speech Studio and your product will be voice activated, backed by keyword verification. You can complete your product's voice experiences by building your own [voice assistant](voice-assistant.md).
+| Voice assistant & Speech SDK integration | Keywords generated from the Custom Keyword on Speech Studio can be easily integrated within your device or application via the Speech SDK. Simply point the SDK to the keyword model provided by Speech Studio and your product will be voice activated, backed by keyword verification. You can complete your product's voice experiences by building your own [voice assistant](voice-assistants.md).
 
 ## Getting started with custom keywords
 
@@ -45,17 +45,17 @@ Sample code for integrating a keyword model is available on GitHub. These sample
 
 ## Tutorial
 
-* How to [create a custom keyword using Speech Studio](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws).
+* How to [create a custom keyword using Speech Studio](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws).
 * How to [voice-activate your product using the Speech SDK](tutorial-voice-enable-your-bot-speech-sdk.md).
 
 ## Reference docs
 
-* [Custom Keyword naming guidelines](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-devices-sdk-kws-guidelines)
+* [Custom Keyword naming guidelines](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-kws-guidelines)
 * [Speech SDK](speech-sdk-reference.md)
 
 ## Next steps
 
 * [Get a Speech service subscription key for free](get-started.md)
-* [Create a custom keyword](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
+* [Create a custom keyword](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
 * [Get the Speech SDK](speech-sdk.md)
 * [Learn more about Voice Assistants](voice-assistants.md)
