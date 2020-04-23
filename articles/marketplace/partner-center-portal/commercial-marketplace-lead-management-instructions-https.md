@@ -26,7 +26,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     ![My flows + Automated--from blank](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-1. In the Build an automated flow window, select **Skip**. 
+1. In the **Build an automated flow** window, select **Skip**. 
 
     ![Build an automated flow window Skip button](./media/commercial-marketplace-lead-management-instructions-https/build-automated-flow.png)
 
@@ -35,7 +35,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     ![Triggers menu](./media/commercial-marketplace-lead-management-instructions-https/request-connector.png)
 
-1. In the When a HTTP request is received window, copy and paste the following JSON schema into the **Request Body JSON Schema** text box. This schema is used by Microsoft to contain your lead data.
+1. In the **When a HTTP request is received** window, copy and paste the following JSON schema into the **Request Body JSON Schema** text box. This schema is used by Microsoft to contain your lead data.
 
     ![Request Body JSON Schema text box](./media/commercial-marketplace-lead-management-instructions-https/https-request-received.png)
 
@@ -116,7 +116,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     ![Add dynamic content](./media/commercial-marketplace-lead-management-instructions-https/add-dynamic-content.png)
 
-1. Map the fields you want, and then select **Save** to save your flow. An HTTP POST URL is created and is accessible in the When an HTTP request is received window. Copy this URL by using the copy control, which is located to the right of the HTTP POST URL. Using the copy control is important so that you don't miss any part of the entire URL. Save this URL because you'll need it when you configure lead management in the publishing portal.
+1. Map the fields you want, and then select **Save** to save your flow. An HTTP POST URL is created and is accessible in the **When an HTTP request is received** window. Copy this URL by using the copy control, which is located to the right of the HTTP POST URL. Using the copy control is important so that you don't miss any part of the entire URL. Save this URL because you'll need it when you configure lead management in the publishing portal.
 
     ![When an HTTP request is received](./media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png)
 
@@ -131,7 +131,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     ![Add an email action](./media/commercial-marketplace-lead-management-instructions-https/https-request-received-send-email.png)
 
-1. In the Send an email window, configure the following required fields:
+1. In the **Send an email** window, configure the following required fields:
 
    - **To**: Enter at least one valid email address where the leads will be sent.
    - **Subject**: Power Automate gives you the option of adding dynamic content, like **LeadSource** shown in the following screen. Start by entering a field name. Then select the dynamic content pick list from the pop-up window. 
@@ -146,7 +146,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
        ![Email notification example](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
 
-1. Select **Save** to finish your flow. An HTTP POST URL is created and is accessible in the When an HTTP request is received window. Copy this URL by using the copy control, which is located to the right of the HTTP POST URL. Using this control is important so that you don't miss any part of the entire URL. Save this URL because you'll need it when you configure lead management in the publishing portal.
+1. Select **Save** to finish your flow. An HTTP POST URL is created and is accessible in the **When an HTTP request is received** window. Copy this URL by using the copy control, which is located to the right of the HTTP POST URL. Using this control is important so that you don't miss any part of the entire URL. Save this URL because you'll need it when you configure lead management in the publishing portal.
 
    ![HTTP POST URL](./media/commercial-marketplace-lead-management-instructions-https/http-post-url.png)
 
@@ -198,7 +198,7 @@ When you're ready to configure the lead management information for your offer in
 
 1. Go to the **Offer setup** page for your offer.
 1. Select **Connect** under the **Lead Management** section.
-1. In the Connection details pop-up window, select **HTTPS Endpoint** for the **Lead Destination**. Paste the HTTP POST URL from the flow you created by following earlier steps into the **HTTPS endpoint URL** field.
+1. In the **Connection details** pop-up window, select **HTTPS Endpoint** for the **Lead Destination**. Paste the HTTP POST URL from the flow you created by following earlier steps into the **HTTPS endpoint URL** field.
 1. Under **Contact email**, enter email addresses for people in your company who should receive email notifications when a new lead is received. You can provide multiple emails by separating them with a semicolon.
 1. Select **OK**.
 
