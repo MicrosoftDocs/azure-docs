@@ -106,9 +106,19 @@ test_labels = test_data.pop(label).values
 You can specify separate train and validation sets directly in the `AutoMLConfig` constructor.
 
 ### Rolling Origin Cross Validation
-For time series forecasting Rolling Origin Cross Validation (ROCV) is used to split time series in a temporally consistent way. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. This strategy will preserve the time series data integrity and eliminate the risk of data leakage. ROCV is automatically used for forecasting tasks by passing the training and validation data together and setting the number of cross validation folds using `n_cross_validations`. 
+For time series forecasting Rolling Origin Cross Validation (ROCV) is used to split time series in a temporally consistent way. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds.  
 
 ![alt text](./media/how-to-auto-train-forecast/ROCV.svg)
+
+This strategy will preserve the time series data integrity and eliminate the risk of data leakage. ROCV is automatically used for forecasting tasks by passing the training and validation data together and setting the number of cross validation folds using `n_cross_validations`. 
+
+```python
+automl_config = AutoMLConfig(task='forecasting',
+                             n_cross_validations=3,
+                             ...
+                             **time_series_settings)
+```
+Learn more about the [AutoMLConfig](#configure-and-run-experiment).
 
 ## Configure and run experiment
 
