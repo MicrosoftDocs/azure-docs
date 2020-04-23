@@ -29,8 +29,23 @@ To learn more about WVD environments see [Windows Virtual Desktop environment](.
 The Azure virtual machines you create for Windows Virtual Desktop must have access to several Fully Qualified Domain Names (FQDNs) to function properly. Azure Firewall provides a Windows Virtual Desktop FQDN Tag to simplify this configuration. Use the following steps to allow outbound WVD platform traffic:
 
 - Deploy Azure Firewall and configure your WVD host pool subnet User Defined Route (UDR) to route all traffic via the Azure Firewall. Your default route now points to the firewall.
-- Create an application rule collection and add a rule to enable *WindowsVirtualDesktop* FQDN tags. The source IP address range is the host pool virtual network, the protocol is **https**, and the destination is **WindowsVirtualDesktop**.
+- Create an application rule collection and add a rule to enable the *WindowsVirtualDesktop* FQDN tag. The source IP address range is the host pool virtual network, the protocol is **https**, and the destination is **WindowsVirtualDesktop**.
 - Enable Storage and Service Bus Service Endpoints on your WVD host pool subnet.
+
+   The set of required storage and service bus accounts for your WVD host pool is deployment specific, so it is not yet captured in the WindowsVirtualDesktop FQDN tag. This can be addressed in one of the following ways:
+
+   - Enable Storage and Service Bus Service Endpoints on your WVD host pool subnet to bypass the firewall for these service dependencies.
+
+   Or
+
+   - Add the following application rules to your firewall configuration:
+     - *gsm.blob.core.windows.net 
+     - *gsm.servicebus.windows.net
+
+   - Alternatively, search your firewall application rule logs for denied access to *gsm.blob.core.windows.net and *gsm.servicebus.windows.net and add the exact storage and service bus accounts to your firewall rule configuration.
+
+
+
 - Create a network rule collection add the following rules:
 
    - Allow DNS – allow traffic from your ADDS private IP address to * for UDP port 53.
