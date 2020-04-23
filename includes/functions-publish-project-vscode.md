@@ -20,6 +20,8 @@ In this section, you create a function app and related resources in your Azure s
 
 1. Provide the following information at the prompts:
 
+    + **Select folder**: Choose a folder from your workspace or browse to one that contains your function app. You won't see this if you already have a valid function app opened.
+
     + **Select subscription**: Choose the subscription to use. You won't see this if you only have one subscription.
 
     + **Select Function App in Azure**: Choose `+ Create new Function App`. (Don't choose the `Advanced` option, which isn't covered in this article.)
