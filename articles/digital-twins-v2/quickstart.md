@@ -55,7 +55,7 @@ In the sample project folder, navigate to the *DigitalTwinsMetadata/DigitalTwins
 Open *Room.json*, and change it in the following ways:
 
 * **Update the version number**, to indicate that you are providing a more-updated version of this model. Do this by changing the *1* at the end of the `@id` value to a *2*. Any number greater than the current version number will also work.
-* **Edit a property**. Change the name of the `Humidity` property to *HumidityLevel* (or something different if you'd like. If you use something different than *HumidityLevel*, remember what you used and continue using that instead of *HumidityLevel* throughout this tutorial).
+* **Edit a property**. Change the name of the `Humidity` property to *HumidityLevel* (or something different if you'd like. If you use something different than *HumidityLevel*, remember what you used and continue using that instead of *HumidityLevel* throughout this quickstart).
 * **Add a property**. After the `HumidityLevel` property that ends on line 15, paste the following code to add a `DisplayName` property to the room:
 
     ```json
@@ -163,7 +163,7 @@ To verify the relationships were created successfully, use either of the followi
     getEdgeById floor1 contains relationship1
     ```
 
-The twins and relationships you have set up in this tutorial form the following conceptual graph:
+The twins and relationships you have set up in this quickstart form the following conceptual graph:
 
 :::image type="content" source="media/quickstart/sample-graph.png" alt-text="A graph showing floor0 connected via relationship0 to room0, and floor1 connected via relationship1 to room1" border="false":::
 
@@ -226,7 +226,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
 ## Clean up resources
 
-If you no longer need the resources created in this quickstart, follow these steps to delete them. If you plan to continue to the Azure Digital Twins tutorials, you can keep the resources you set up here to continue using this instance and client app configuration. 
+If you no longer need the resources created in this quickstart, follow these steps to delete them. If you plan to continue to the Azure Digital Twins tutorial, you can keep the resources you set up here to continue using this instance and client app configuration. 
 
 Using the Azure Cloud Shell, you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command. This removes the resource group and the Azure Digital Twins instance.
 

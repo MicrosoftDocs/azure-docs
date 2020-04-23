@@ -68,7 +68,7 @@ First, you'll use the *BuildingScenario* solution from the sample project to bui
 
 From the downloaded solution folder, open _DigitalTwinsMetadata/**DigitalTwinsSample.sln**_ in Visual Studio. Run the project with this button in the toolbar:
 
-:::image type="content" source="media/quickstart/start-button-sample.png" alt-text="The Visual Studio start button (DigitalTwinsSample project)":::
+:::image type="content" source="media/tutorial/start-button-sample.png" alt-text="The Visual Studio start button (DigitalTwinsSample project)":::
 
 A console window will open, carry out authentication, and wait for a command. In this console, run the next command to instantiate the sample Azure Digital Twins solution.
 
