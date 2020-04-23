@@ -24,7 +24,7 @@ To work with X12 messages in Azure Logic Apps, you can use the X12 connector, wh
 
 * At least two [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md) that you've already defined in your integration account by using the X12 identity qualifier.
 
-* The [schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md) to use for XML validation that you've already added to your integration account. If you're working with Health Insurance Portability and Accountability Act (HIPAA) schemas, see [Settings for HIPAA schemas](#hipaa-schemas).
+* The [schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md) to use for XML validation that you've already added to your integration account. If you're working with Health Insurance Portability and Accountability Act (HIPAA) schemas, see [HIPAA schemas](#hipaa-schemas).
 
 * Before you can use the X12 connector, you must create an X12 [agreement](../logic-apps/logic-apps-enterprise-integration-agreements.md) between your trading partners and store that agreement in your integration account.
 
@@ -244,7 +244,7 @@ For this section, select a [schema](../logic-apps/logic-apps-enterprise-integrat
 | **GS4** | Optional, select **CCYYMMDD** or **YYMMDD**. |
 | **GS5** | Optional, select **HHMM**, **HHMMSS**, or **HHMMSSdd**. |
 | **GS7** | Optional, select a value for the responsible agency. |
-| **GS8** | Optional, specify the version of the document. |
+| **GS8** | Optional, specify the schema document version. |
 |||
 
 <a name="outbound-control-numbers"></a>
@@ -300,6 +300,85 @@ The **Default** row shows the validation rules that are used for an EDI message 
 | **Allow Leading/Trailing Zeroes** | Keep any additional leading or trailing zero and space characters. Don't remove these characters. |
 | **Trim Leading/Trailing Zeroes** | Remove any leading or trailing zero and space characters. |
 | **Trailing Separator Policy** | Generate trailing separators. <p>- **Not Allowed**: Prohibit trailing delimiters and separators in the outbound interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>- **Optional**: Send interchanges with or without trailing delimiters and separators. <p>- **Mandatory**: The outbound interchange must have trailing delimiters and separators. |
+|||
+
+<a name="hipaa-schemas"></a>
+
+## HIPAA schemas
+
+When you work with HIPAA schemas and set up the validation rules for messages, you can select from these message types:
+
+| Message type | Description |
+|--------------|-------------|
+| 274 | Healthcare Provider Information |
+| 275 | Patient Information |
+| 276 | Health Care Claim Status Request |
+| 277 | Health Care Information Status Notification |
+| 278 | Health Care Services Review Information |
+| 835 | Health Care Claim Payment/Advice |
+| 837 | Health Care Claim |
+| 837_P | Health Care Claim Professional |
+| 837_D | Health Care Claim Dental |
+| 837_I | Health Care Claim Institutional |
+|||
+
+If you want to use a [schema document version number (GS8)](#outbound-control-version-number) that has more than 9 characters, add another element to your schema in the `schemaReferences` section:
+
+you have to change your schema as described.
+
+For example, suppose you want to use these schema versions for the 837 and 277 message types:
+
+* 837 005010X223A1 & 005010X223A2
+* 277 005010X214
+
+And your schema specifies the following property values:
+
+```json
+"schemaReferences": [
+   {
+      "messageId": "837",
+      "schemaVersion": "00501",
+      "schemaName": "X12_00501_837"
+   }
+]
+```
+
+You want to use schemas that has these document version numbers "005010X222A1"
+
+```json
+"schemaReferences": [
+   {
+      "messageId": "837",
+      "schemaVersion": "00501",
+      "schemaName": "X12_00501_837"
+   },
+   {
+      "messageId": "837_P",
+      "schemaVersion": "00501",
+      "schemaName": "X12_00501_837_P"
+   }
+]
+```
+
+You also have to disable EDI validation because having a document version number that's more than 9 characters is not valid and results in an error that the length is invalid. You can disable validation for all the message types by using the **Default** values, or you can disable validation for each message type.
+
+![Validation properties](./media/logic-apps-enterprise-integration-x12/x12-send-settings-validation.png) 
+
+Here are the variants for message types 227 and 837:
+
+| Message type | Variant |
+|--------------|---------|
+| 277 | 277+005010X212 |
+| 277_A | 277+005010X214 |
+| 837_D | 837+004010X097A1 |
+| 837_D | 837+005010X224A1 |
+| 837_D | 837+005010X224A2 |
+| 837_I | 837+004010X096A1 |
+| 837_I | 837+005010X223A1 |
+| 837_I | 837+005010X223A2 |
+| 837_P | 837+004010X098A1 |
+| 837_P | 837+005010X222 |
+| 837_P | 837+005010X222A1 |
 |||
 
 ## Connector reference
