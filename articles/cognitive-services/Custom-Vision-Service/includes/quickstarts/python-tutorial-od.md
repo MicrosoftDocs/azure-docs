@@ -1,19 +1,9 @@
 ---
-title: "Quickstart: Create an object detection project with the Custom Vision SDK for Python"
-titleSuffix: Azure Cognitive Services
-description: Create a project, add tags, upload images, train your project, and detect objects using the Python SDK.
-services: cognitive-services
 author: areddish
-manager: nitinme
-
-ms.service: cognitive-services
-ms.subservice: custom-vision
-ms.topic: quickstart
-ms.date: 04/14/2020
 ms.author: areddish
+ms.service: cognitive-services
+ms.date: 04/14/2020
 ---
-
-# Quickstart: Create an object detection project with the Custom Vision Python SDK
 
 This article shows you how to get started using the Custom Vision SDK with Python to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Python application.
 
@@ -21,7 +11,7 @@ This article shows you how to get started using the Custom Vision SDK with Pytho
 
 - [Python 2.7+ or 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/) tool
-- [!INCLUDE [create-resources](includes/create-resources.md)]
+- [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
 ## Install the Custom Vision SDK
 
@@ -33,9 +23,9 @@ pip install azure-cognitiveservices-vision-customvision
 
 You can download the images with the [Python Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples).
 
-[!INCLUDE [get-keys](includes/get-keys.md)]
+[!INCLUDE [get-keys](../../includes/get-keys.md)]
 
-[!INCLUDE [python-get-images](includes/python-get-images.md)]
+[!INCLUDE [python-get-images](../../includes/python-get-images.md)]
 
 ## Add the code
 
@@ -45,7 +35,7 @@ Create a new file called *sample.py* in your preferred project directory.
 
 Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. Also, get your Endpoint URL from the Settings page of the Custom Vision website.
 
-See the [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.custom_vision_training_client.customvisiontrainingclient?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config- ) method to specify other options when you create your project (explained in the [Build a detector](get-started-build-detector.md) web portal guide).  
+See the [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.custom_vision_training_client.customvisiontrainingclient?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config- ) method to specify other options when you create your project (explained in the [Build a detector](../../get-started-build-detector.md) web portal guide).  
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
@@ -222,11 +212,11 @@ python sample.py
 
 The output of the application should appear in the console. You can then verify that the test image (found in **samples/vision/images/Test**) is tagged appropriately and that the region of detection is correct.
 
-[!INCLUDE [clean-od-project](includes/clean-od-project.md)]
+[!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 
 ## Next steps
 
 Now you've seen how every step of the object detection process can be done in code. This sample executes a single training iteration, but often you'll need to train and test your model multiple times in order to make it more accurate. The following training guide deals with image classification, but its principles are similar to object detection.
 
 > [!div class="nextstepaction"]
-> [Test and retrain a model](test-your-model.md)
+> [Test and retrain a model](../../test-your-model.md)
