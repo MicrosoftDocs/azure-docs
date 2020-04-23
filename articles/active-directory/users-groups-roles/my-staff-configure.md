@@ -36,6 +36,30 @@ Once you have configured AUs, you can apply this scope to your users who access 
 > [!Note]
 > Only users who've been assigned an admin role can access My Staff. If you enable My Staff for a user who is not assigned an admin role, they won't be able to access My Staff.
 
+## Conditional access
+
+You can protect the My Staff portal using Azure AD Conditional Access policy. Use it for tasks like requiring multi-factor authentication before accessing My Staff.
+
+We recommend that you protect My Staff using Azure AD Conditional Access policies (../active-directory/conditional-access/concept-conditional-access-policy-common,md). To apply a Conditional Access policy to My Staff, you must manually create the My Staff service principal using PowerShell.
+
+> [!Important]
+> Microsoft strongly recommends that customers protect the My Staff portal with a conditional access policy.
+
+### Manually deploy the My Staff service principal
+
+1. If you have never installed the Microsoft Graph beta PowerShell before, run the following commands:
+
+    Install-module Microsoft.Graph
+    Install-Module Microsoft.Graph.Authentication -Repository PSGallery -force
+    Connect-Graph -Scopes "Directory.AccessAsUser.All"
+    New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
+
+1. Install the [MS Graph beta PowerShell cmdlets](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1).
+
+1. Create a Conditional Access policy that applies to the My Staff cloud application.
+
+    ![Create a conditional access policy for the My STaff app](media/my-staff-configure/reset-password.png)
+
 ## Using My Staff
 
 When a user goes to My Staff, they are shown the names of the [administrative units](directory-administrative-units.md) over which they have administrative permissions. In the [My Staff user documentation](../user-help/my-staff-team-manager.md), we use the term "location" to refer to administrative units. If an administrator's permissions do not have an AU scope, the permissions apply across the organization. After My Staff has been enabled, the users who are enabled and have been assigned an administrative role can access it through [https://mystaff.microsoft.com](https://mystaff.microsoft.com). They can select an AU to view the users in that AU, and select a user to open their profile.
@@ -82,30 +106,6 @@ To manage a user's phone number, you must be assigned one of the following roles
 - [Authentication administrator](directory-assign-admin-roles.md#authentication-administrator)
 - [Privileged authentication administrator](directory-assign-admin-roles.md#privileged-authentication-administrator)
 - [Global administrator](directory-assign-admin-roles.md#global-administrator--company-administrator)
-
-## Conditional Access
-
-You can protect the My Staff portal using Azure AD Conditional Access policy. Use it for tasks like requiring multi-factor authentication before accessing My Staff.
-
-Until the default My Staff service principal is enabled in all Azure AD organizations, you can can manually create the My Staff service principal by running a couple of PowerShell commands.
-
-> [!Important]
-> Microsoft strongly recommends that customers protect the My Staff portal with a conditional access policy.
-
-### Manually deploy the My Staff service principal
-
-1. If you have never installed the Microsoft Graph beta PowerShell before, run the following commands:
-
-    Install-module Microsoft.Graph
-    Install-Module Microsoft.Graph.Authentication -Repository PSGallery -force
-    Connect-Graph -Scopes "Directory.AccessAsUser.All"
-    New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
-
-1. Install the [MS Graph beta PowerShell cmdlets](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1).
-
-1. Create a Conditional Access policy that applies to the My Staff cloud application.
-
-    ![Create a conditional access policy for the My STaff app](media/my-staff-configure/reset-password.png)
 
 ## Search
 
