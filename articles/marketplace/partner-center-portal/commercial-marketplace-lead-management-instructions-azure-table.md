@@ -62,7 +62,7 @@ Use this example as a guide to create a simple flow that automatically sends an 
 
    ![My flows + Scheduled--from blank](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
-1. In the Build a scheduled flow window, for **Repeat every**, select **1** for the interval and **Hour** for the frequency. Also, give the flow a name if you want. Select **Create**.
+1. In the **Build a scheduled flow** window, for **Repeat every**, select **1** for the interval and **Hour** for the frequency. Also, give the flow a name if you want. Select **Create**.
 
    >[!NOTE]
    >Although this example uses a one-hour interval, you can select the interval and frequency that's best for your business needs.
@@ -70,11 +70,11 @@ Use this example as a guide to create a simple flow that automatically sends an 
    ![Build a scheduled flow](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
 1. Select **+ New step**.
-1. In the Choose an action window, search for **get past time**. Then under **Actions**, select **Get past time**.
+1. In the **Choose an action** window, search for **get past time**. Then under **Actions**, select **Get past time**.
 
    ![Choose an action](./media/commercial-marketplace-lead-management-instructions-azure-table/choose-an-action.png)
 
-1. In the Get past time window, set **Interval** to **1**. From the **Time unit** drop-down list, select **Hour**.
+1. In the **Get past time** window, set **Interval** to **1**. From the **Time unit** drop-down list, select **Hour**.
 
     >[!IMPORTANT]
     >Make sure that the interval and time unit you sent in step 8 match the interval and frequency that you configured for recurrence in step 5.
@@ -86,9 +86,9 @@ Use this example as a guide to create a simple flow that automatically sends an 
 
    In the next set of steps, you'll connect to your Azure table and set up the processing logic to handle new leads.
 
-1. After step 8, select **+ New step**. Then search for **Get entities** In the Choose an action window.
+1. After step 8, select **+ New step**. Then search for **Get entities** In the **Choose an action** window.
 1. Under **Actions**, select **Get entities (Azure Table Storage)**.
-1. In the Azure Table Storage window, provide information for the following boxes and select **Create**:
+1. In the **Azure Table Storage** window, provide information for the following boxes and select **Create**:
 
     * **Connection Name**: Provide a meaningful name for the connection you're establishing between this flow and the Azure table.
     * **Storage Account Name**: Provide the name of the storage account for your Azure table. You can find this name on the storage account's **Access keys** page.
@@ -96,7 +96,7 @@ Use this example as a guide to create a simple flow that automatically sends an 
 
       ![Azure Table Storage window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
-   After you select **Create**, the Get entities window appears. Here, select **Show advanced options**, and provide information for the following boxes:
+   After you select **Create**, the **Get entities** window appears. Here, select **Show advanced options**, and provide information for the following boxes:
 
    * **Table**: Select the name of your Azure table storage (from step 6 of the instructions in the "Configure an Azure table" section). The following image shows the prompt when "marketplaceleads" table is selected for this example.
 
@@ -108,11 +108,11 @@ Use this example as a guide to create a simple flow that automatically sends an 
 
 1. Now that you've completed setting up the connection to the Azure table, select **New step** to add a condition to scan the Azure table for new leads.
 
-1. In the Choose an action window, select **Actions**. Then select **Condition Control**.
+1. In the **Choose an action** window, select **Actions**. Then select **Condition Control**.
 
     ![Choose an action window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-choose-an-action.png)
 
-1. In the Condition window, select **Choose a value**. Then select **Expression** in the pop-up window.
+1. In the **Condition** window, select **Choose a value**. Then select **Expression** in the pop-up window.
 
 1. Paste `length(body('Get_entities')?['value'])` into the **fx** box. Select **OK** to add this function. 
 
@@ -141,7 +141,7 @@ Use this example as a guide to create a simple flow that automatically sends an 
 1. In the Office 365 Outlook window, provide information for the following boxes:
 
     1. **To**: Enter an email address for everyone who will get this notification.
-    1. **Subject**: Provide a subject for the email. An example is New leads!
+    1. **Subject**: Provide a subject for the email. An example is **New leads!**
     1. **Body**: Add the text that you want to include in each email (optional), and then paste in `body('Get_entities')?['value']`.
 
     >[!NOTE]
