@@ -1199,6 +1199,8 @@
       href: platform/diagnostic-logs-schema.md
     - name: Activity log schema
       href: platform/activity-log-schema.md
+  - name: Azure Monitor Logs table reference
+    href: https://docs.microsoft.com/azure/azure-monitor/reference/
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure CLI - Application Insights (Preview)
