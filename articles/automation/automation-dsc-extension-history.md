@@ -19,7 +19,7 @@ Framework (WMF) that includes Windows PowerShell.
 This article will provide information about each version of the Azure DSC VM Extension, what
 environments it supports, and comments and remarks on new features or changes.
 
-## Latest Version
+## Latest version
 
 ### Version 2.76
 
@@ -48,7 +48,7 @@ environments it supports, and comments and remarks on new features or changes.
 - **New features:**
   - Improvement in extension metadata for substatus and other minor bug fixes.
 
-## Supported Versions
+## Supported versions
 
 > [!WARNING]
 > Versions 2.4 through 2.13 use WMF 5.0 Public Preview whose signing certificates expired in August
