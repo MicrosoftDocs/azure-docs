@@ -24,14 +24,14 @@ ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
 > ![NOTE]
 > Microsoft encourages users to adopt **Python 3.x** in their systems unless your workload requires **Python 2.x** support. Examples of this requirement might include legacy administration scripts, or extensions such as **Azure Disk Encryption** and **Azure Monitor**.
 >
-> Before installing **Python 2.x** in production, consider the question of long-term support of Python 2.x, particularly their ability to receive security updates. As products, including Microsoft products, update with **Python 3.8** support, you should discontinue use of Python 2.x.
+> Before installing **Python 2.x** in production, consider the question of long-term support of Python 2.x, particularly their ability to receive security updates. As products, including some of the extension mentioned, update with **Python 3.8** support, you should discontinue use of Python 2.x.
 
 Some Linux distributions have transitioned to Python 3.8 and removed the legacy `/usr/bin/python` entrypoint for Python altogether. This transition impacts the out-of-the-box, automated deployment of certain virtual machine (VM) extensions with the following conditions:
 
-- You are still working on Python 3.x support in their roadmap
-- You use the legacy `/usr/bin/python` entrypoint
+- Extensions that are still transitioning to Python 3.x support
+- Extensions that use the legacy `/usr/bin/python` entrypoint
 
-Linux distribution users who have transitioned to **Python 3.x** must remove the legacy `/usr/bin/python` entrypoint before attempting to deploy those extensions to their VMs. Otherwise, the extension deployment might fail. 
+Linux distribution users who have transitioned to **Python 3.x** must ensure the legacy `/usr/bin/python` entrypoint exists before attempting to deploy those extensions to their VMs. Otherwise, the extension deployment might fail. 
 
 - Endorsed Linux distributions that are affected include **Ubuntu Server 20.04 LTS** and **Ubuntu Pro 20.04 LTS**.
 
@@ -43,11 +43,11 @@ In-place upgrades, such as upgrading from **Ubuntu 18.04 LTS** to **Ubuntu 20.04
 
 Consider the following general recommendations before deploying extensions in the known-affected scenarios described previously in the Summary:
 
-1.	Before deploying the extension, reinstate the `/usr/bin/python` symlink by installing vendor-provided packages.
+1.	Before deploying the extension, reinstate the `/usr/bin/python` symlink by using the Linux distribution vendor-provided method.
 
     - For example, for **Python 2.7**, use: `sudo apt update && sudo apt install python-is-python2`
 
-2.	If you’ve already deployed an instance with this problem, use the **Run command** functionality in the **VM blade** to run the commands mentioned above. The Run command extension itself is not affected by the transition to Python 3.8.
+2.	If you’ve already deployed an instance that exhibits this problem, use the **Run command** functionality in the **VM blade** to run the commands mentioned above. The Run command extension itself is not affected by the transition to Python 3.8.
 
 3.	If you are deploying a new instance, and need to set an extension at provisioning time, use **cloud-init** user data to install the packages mentioned above.
 
@@ -85,8 +85,6 @@ Consider the following general recommendations before deploying extensions in th
           "allowExtensionOperations": false
         },
       ```
-
-      See [VMs without WALinuxAgent](https://github.com/Azure/WALinuxAgent/wiki/VMs-without-WALinuxAgent#disable-extension-operations) for additional details.
 
 ## More Information
 
