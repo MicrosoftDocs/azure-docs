@@ -319,7 +319,11 @@ When you work with HIPAA schemas and the 277 and 837 message types, you might ha
 | 837_P | Health Care Claim Professional |
 |||
 
-If the schema document version number (GS8) that you want to use has more than 9 characters, for example, "005010X222A1", your schema needs to specify the message type that matches the schema document version number.
+If the schema document version number (GS8) that you want to use has more than 9 characters, for example, "005010X222A1", your schema needs to specify the message type that matches this special schema document version number. For more information, see [Example - Specify special schemas](#example-special-schema-version-number).
+
+> [!NOTE]
+> If you have to edit your existing schema, save the schema under a different name, 
+> upload the edited schema to your integration account, and select the schema in your message settings.
 
 | Message type | Schema document version number (GS8) |
 |--------------|--------------------------------------|
@@ -336,11 +340,13 @@ If the schema document version number (GS8) that you want to use has more than 9
 | 837_P | 005010X222A1 |
 |||
 
-You also have to disable EDI validation because having a document version number that's more than 9 characters is not valid and results in an error that the length is invalid. You can disable validation for each message type or disable validation for all the message types by using the **Default** values.
+You also have to disable EDI validation because having a document version number that's more than 9 characters is not valid and results in an error that the number length is invalid. You can disable validation for each message type or disable validation for all the message types by using the **Default** values.
 
 ![Validation properties](./media/logic-apps-enterprise-integration-x12/x12-send-settings-validation.png) 
 
-*Example*
+<a name="example-special-schema-version-number"></a>
+
+### Example - Specify special schemas
 
 Suppose you want to use "005010X222A1" as the schema document version number for the 837 message type, and your schema has a `schemaReferences` section with these properties and values:
 
