@@ -68,7 +68,7 @@ const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsig
 
 For more information, check out this [Node.js B2C web API sample](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
 
----
+
 
 ## JavaScript SPA
 
@@ -131,7 +131,73 @@ There are two points of interest in configuring your application:
 
 For more information, check out this [JavaScript B2C single-page application sample](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp).
 
----
+
+## User Flows and Custom Policies
+
+> [!NOTE]
+> At this moment, MSAL.js has no native support for multiple user flows and/or custom policies. Nevertheless, developers are still able to utilize the library to deal with common use cases. Below, we demonstrate one such use case: password reset.
+
+The following steps assumes you have already followed the "JavaScript SPA" section above. Here, you can extend your single-page application to use Azure B2C password reset user flow.
+
+### Step 1: Define the authority string for password reset user flow
+
+1. First, create an object where you store your authority URIs:
+
+```javascript
+const b2cPolicies = {
+    signInSignUp: {
+        authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/B2C_1_signupsignin1",
+    },
+    resetPassword: {
+        authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_resetpassword1",
+    },
+    // ...
+}
+```
+
+2. Initialize your msal object with the `signInSignUp` policy as default. When a user tries to login, this will show the following screen:
+
+[Screenshot: EVO sign in screen]
+
+3. When a user clicks on the "forgot password" link, your application will throw an error. You can now catch this error and handle with the appropriate user flow; in this case, `password reset`.
+
+### Step 2: Catch and handle authentication errors in your login method
+
+1. Extend your sign-in method as follows:
+
+```javascript
+function signIn() {
+  myMSALObj.loginPopup(loginRequest)
+    .then(loginResponse => {
+        console.log("id_token acquired at: " + new Date().toString());
+
+        if (myMSALObj.getAccount()) {
+          updateUI();
+        }
+        
+    }).catch(function (error) {
+      console.log(error);
+
+      // error handling
+      if (error.errorMessage) {
+        // check for forgot password error
+        if (error.errorMessage.indexOf("AADB2C90118") > -1) {
+
+          //call login method again with the password reset user flow
+          myMSALObj.loginPopup(b2cPolicies.resetPassword)
+            .then(loginResponse => {
+              console.log(loginResponse);
+              window.alert("Password has been reset successfully. \nPlease sign-in with your new password.");
+            })
+        }
+      }
+    });
+}
+```
+
+2. With the changes above, you are now able to show the password reset screen after catching the error with the code `AADB2C90118`. Learn more about [MSAL error and exception codes](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-handling-exceptions?tabs=javascript#javascript-1).
+
+[Screenshot: EVO password reset screen]
 
 ## Next steps
 
