@@ -89,6 +89,9 @@ Next, you'll create an Azure resource group and your ACR using the following ste
 
 Finally, you'll update your project configuration and use the command prompt to build and deploy your image.
 
+> [!NOTE]
+> To log in the Azure container registry that you just created, you will need to have the Docker daemon running. To install Docker on your machine, [here is the official Docker documentation](https://docs.docker.com/install/).
+
 1. Log in to your Azure Container Registry from the Azure CLI using the following command. Be sure to replace the placeholder with your own registry name.
 
    ```azurecli
