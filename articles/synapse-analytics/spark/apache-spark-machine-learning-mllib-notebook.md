@@ -42,7 +42,7 @@ In the following steps, you develop a model to predict whether a particular trip
 
 ## Create an Apache Spark MLlib machine learning app
 
-1. Create a notebook using the PySpark kernel. For the instructions, see [Create a notebook](./apache-spark-notebook-create-spark-use-sql.md#create-a-notebook).
+1. Create a notebook using the PySpark kernel. For the instructions, see [Create a notebook](../quickstart-apache-spark-notebook.md#create-a-notebook).
 2. Import the types required for this application. Copy and paste the following code into an empty cell, and then press **SHIFT + ENTER**, or run the cell by using the blue play icon to the left of the code.
 
     ```python
@@ -296,4 +296,4 @@ After you have finished running the application, shut down the notebook to relea
 - [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
 
 >[!NOTE]
-> Some of the official Apache Spark documentation relies on using the Spark console, which is not available on Azure Synapse Spark. Use the [notebook](../spark/apache-spark-notebook-create-spark-use-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) or [IntelliJ](../spark/intellij-tool-synapse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) experiences instead.
+> Some of the official Apache Spark documentation relies on using the Spark console, which is not available on Azure Synapse Spark. Use the [notebook](../quickstart-apache-spark-notebook.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) or [IntelliJ](../spark/intellij-tool-synapse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) experiences instead.

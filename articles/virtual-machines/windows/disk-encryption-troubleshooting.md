@@ -2,7 +2,8 @@
 title: Azure Disk Encryption troubleshooting guide
 description: This article provides troubleshooting tips for Microsoft Azure Disk Encryption for Windows VMs.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-windows
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
