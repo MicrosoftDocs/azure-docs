@@ -16,7 +16,7 @@ ms.author: juliako
 
 This article shows how you can embed Video Indexer widgets in your apps. Video Indexer supports embedding three types of widgets into your apps: *Cognitive Insights*, *Player*, and *Editor*.
 
-Starting with version 2, the widget base URL includes the region of the specified account. For example, an account in the West US region generates: `https://wus2.videoindexer.ai/embed/insights/...`.
+Starting with version 2, the widget base URL includes the region of the specified account. For example, an account in the West US region generates: `https://www.videoindexer.ai/embed/insights/.../?location=westus2`.
 
 ## Widget types
 
@@ -31,6 +31,7 @@ A Cognitive Insights widget includes all visual insights that were extracted fro
 |`language`|A short language code (language name)|Controls insights language.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>or `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | A short language code | Controls the language of the UI. The default value is `en`. <br/>Example: `locale=de`.|
 |`tab` | The default selected tab | Controls the **Insights** tab that's rendered by default. <br/>Example: `tab=timeline` renders the insights with the **Timeline** tab selected.|
+| `location` |The `location` param determines the resource region and must be included in the URL, unless region of the resource is **trial**. 
 
 ### Player widget
 
@@ -44,6 +45,7 @@ You can use the Player widget to stream video by using adaptive bit rate. The Pl
 |`type`| | Activates an audio player skin (the video part is removed).<br/> Example: `type=audio`. |
 |`autoplay` | A Boolean value | Indicates if the player should start playing the video when loaded. The default value is `true`.<br/> Example: `autoplay=false`. |
 |`language`/`locale` | A language code | Controls the player language. The default value is `en-US`.<br/>Example: `language=de-DE`.|
+| `location` |The `location` param determines the resource region and must be included in the URL, unless region of the resource is **trial**. 
 
 ### Editor widget
 
@@ -54,6 +56,7 @@ You can use the Editor widget to create new projects and manage a video's insigh
 |`accessToken`<sup>*</sup> | String | Provides access to videos that are only in the account that's used to embed the widget.<br> The Editor widget requires the `accessToken` parameter. |
 |`language` | A language code | Controls the player language. The default value is `en-US`.<br/>Example: `language=de-DE`. |
 |`locale` | A short language code | Controls the insights language. The default value is `en`.<br/>Example: `language=de`. |
+| `location` |The `location` param determines the resource region and must be included in the URL, unless region of the resource is **trial**. 
 
 <sup>*</sup>The owner should provide `accessToken` with caution.
 
