@@ -727,7 +727,10 @@
       "redirect_url": "/azure/cognitive-services/personalizer/how-to-manage-model",
       "redirect_document_id": false
     },
-
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-boundaries.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-limits"
+    },
       {
         "source_path": "articles/cognitive-services/LUIS/luis-migration-api-authoring.md",
         "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-authoring-entities",
@@ -2337,6 +2340,11 @@
     {
       "source_path": "articles/cosmos-db/spark-api-introduction.md",
       "redirect_url": "/azure/cosmos-db/analytics-usecases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/multi-master-benefits.md",
+      "redirect_url": "/azure/cosmos-db/conflict-resolution-policies",
       "redirect_document_id": false
     },
     {
@@ -7548,6 +7556,12 @@
       "redirect_url": "/azure/application-gateway/resource-manager-template-samples",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/application-gateway/application-gateway-create-gateway-cli-nodejs.md",
+      "redirect_url": "/azure/application-gateway/quick-create-cli",
+      "redirect_document_id": false
+    },
+
     {
       "source_path": "articles/application-insights/app-insights-azure-diagnostics.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-to-application-insights",
@@ -14099,6 +14113,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-api-overview.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-samples",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/event-hubs/event-hubs-archive-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-capture-overview",
       "redirect_document_id": false
@@ -14159,10 +14178,20 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-dotnet-framework-api-overview.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/event-hubs/event-hubs-dotnet-standard-api-overview.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
@@ -14228,6 +14257,11 @@
       "redirect_url": "/azure/event-hubs/authorize-access-azure-active-directory",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/event-hubs/event-hubs-spark-connector.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-kafka-spark-tutorial",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/event-hubs/event-hubs-tutorial-virtual-networks-firewalls.md",
       "redirect_url": "/azure/event-hubs/event-hubs-service-endpoints",
@@ -17826,6 +17860,11 @@
     {
       "source_path": "articles/sql-data-warehouse/performance-tuning-ordered-cci.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/performance-tuning-ordered-cci",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/synapse-analytics/apache-spark-notebook-create-spark-use-sql.md",
+      "redirect_url": "/azure/synapse-analytics/quickstart-apache-spark-notebook",
       "redirect_document_id": true
     },
     {
