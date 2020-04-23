@@ -90,6 +90,9 @@ Use the Windows **net use** command to mount the Azure file share. Remember to r
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
 ```
 
+If you experience issues in connecting to Azure Files, please refer to [the troubleshooting tool we published for Azure Files mounting errors on Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). We also provide [guidance](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) to work around scenarios when port 445 is blocked. 
+
+
 ### Configure NTFS permissions with Windows File Explorer
 Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory.
 
