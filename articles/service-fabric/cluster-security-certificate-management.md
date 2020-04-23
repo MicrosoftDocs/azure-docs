@@ -30,7 +30,7 @@ Specifically, the topics in scope are:
   - certificate rotation - why, how and when
   - what could possibly go wrong?
 
-Aspect such as securing/managing domain names, enrolling into certificates, or setting up authorization controls to enforce certificate issuance are out of the scope of this article. Refer to the Registration Authority (RA) of your favorite Public Key Infrastructure (PKI) service. For Microsoft-internal services, the starting point would be OneCert.
+Aspect such as securing/managing domain names, enrolling into certificates, or setting up authorization controls to enforce certificate issuance are out of the scope of this article. Refer to the Registration Authority (RA) of your favorite Public Key Infrastructure (PKI) service. Microsoft-internal consumers: please reach out to Azure Security.
 
 ## Roles and entities involved in certificate management
 The security approach in a Service Fabric cluster is a case of "cluster owner declares it, Service Fabric runtime enforces it". By that we mean that almost none of the certificates, keys, or other credentials of identities participating in a cluster's functioning come from the service itself; they are all declared by the cluster owner. Furthermore, the cluster owner is also responsible for provisioning the certificates into the cluster, renewing them as needed, and ensuring the security of the certificates at all times. More specifically, the cluster owner must ensure that:
@@ -77,7 +77,7 @@ Issuance and provisioning flow of certificates declared by subject common name.
 
 ### Certificate enrollment
 This topic is covered in detail in the Key Vault [documentation](../key-vault/create-certificate.md); we're including a synopsis here for continuity and easier reference. Continuing with Azure as the context, and using Azure Key Vault as the secret management service, an authorized certificate requester must have at least certificate management permissions on the vault, granted by the vault owner; the requester would then enroll into a certificate as follows:
-    - creates a certificate policy in Azure Key Vault (AKV), which specifies the domain/subject of the certificate, the desired issuer, key type and length, intended key usage and more; see [Certificates in Azure Key Vault](../key-vault/certificate-scenarios.md) for details. For Microsoft-internal services, the list of supported issuers includes OneCert and SslAdmin.
+    - creates a certificate policy in Azure Key Vault (AKV), which specifies the domain/subject of the certificate, the desired issuer, key type and length, intended key usage and more; see [Certificates in Azure Key Vault](../key-vault/certificate-scenarios.md) for details. 
     - creates a certificate in the same vault with the policy specified above; this, in turn, generates a key pair as vault objects, a certificate signing request signed with the private key, and which is then forwarded to the designated issuer for signing
     - once the issuer (Certificate Authority) replies with the signed certificate, the result is merged into the vault, and the certificate is available for the following operations:
       - under {vaultUri}/certificates/{name}: the certificate including the public key and metadata
@@ -457,16 +457,17 @@ From a security standpoint, recall that the virtual machine (scale set) is consi
 
 ## Troubleshooting and frequently asked questions
 
-Q: How to programmatically enroll into a KeyVault-managed certificate?
-A: For Microsoft-internal clients:
+*Q*: How to programmatically enroll into a KeyVault-managed certificate?
+*A*: Find out the name of the issuer from the KeyVault documentation, then replace it in the script below.  
 ```PowerShell
+  $issuerName=<depends on your PKI of choice>
 	$clusterVault="sftestcus"
 	$clusterCertVaultName="sftstcncluster"
 	$clusterCertCN="cus.cluster.sftstcn.system.servicefabric.azure-int"
-	Set-AzKeyVaultCertificateIssuer -VaultName $clusterVault -Name 'OneCert' -IssuerProvider 'OneCert'
+	Set-AzKeyVaultCertificateIssuer -VaultName $clusterVault -Name $issuerName -IssuerProvider $issuerName
 	$distinguishedName="CN=" + $clusterCertCN
 	$policy = New-AzKeyVaultCertificatePolicy `
-	    -IssuerName 'OneCert' `
+	    -IssuerName $issuerName `
 	    -SubjectName $distinguishedName `
 	    -SecretContentType 'application/x-pkcs12' `
 	    -Ekus "1.3.6.1.5.5.7.3.1", "1.3.6.1.5.5.7.3.2" `
@@ -484,7 +485,7 @@ A: For Microsoft-internal clients:
 
 In general, a PKI will publish and maintain a certification practice statement, in accordance with IETF [RFC 7382](https://tools.ietf.org/html/rfc7382). Among other information, it will include all active issuers. Retrieving this list programmatically may differ from a PKI to another.   
 
-For Microsoft-internal PKIs, the authority on, well, authorized issuers is the dSMS GetIssuers v2 SDK/endpoint (inquire internally); it is the cluster owner's responsibility to probe this list periodically, and ensure their cluster definition includes *all* expected issuers.
+For Microsoft-internal PKIs, please consult the internal documentation on the endpoints/SDKs used to retrieve the authorized issuers; it is the cluster owner's responsibility to probe this list periodically, and ensure their cluster definition includes *all* expected issuers.
 
 *Q*: Are multiple PKIs supported? 
 *A*: Yes; you may not declare multiple CN entries in the cluster manifest with the same value, but can list issuers from multiple PKIs corresponding to the same CN. It is not a recommended practice, and certificate transparency practices may prevent such certificates from being issued. However, as means to migrate from one PKI to another, this is an acceptable mechanism.
