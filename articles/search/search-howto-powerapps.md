@@ -145,6 +145,8 @@ A connector in Power Apps is a data source connection. In this step, you'll crea
 
 When the connector is first created, you need to reopen it from the Custom Connectors list in order to test it. Later, if you make additional updates, you can test from within the wizard.
 
+You will need a [query API key](search-security-api-keys.md#find-existing-keys) for this task. Each time a connection is created, whether for a test run or inclusion in an app, the connector needs the query API key used for connecting to Azure Cognitive Search.
+
 1. On the far left, click **Custom Connectors**.
 
 1. Search for the connector by name (in this tutorial, is "AzureSearchQuery").
