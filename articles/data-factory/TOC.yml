@@ -589,6 +589,8 @@
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
     - name: Schedule Azure-SSIS integration runtime
       href: how-to-schedule-azure-ssis-integration-runtime.md
+    - name: Host SSISDB by Azure SQL managed instance
+      href: how-to-host-ssisdb-sql-managed-instance.md
     - name: Join Azure-SSIS IR to a virtual network
       href: join-azure-ssis-integration-runtime-virtual-network.md
     - name: Configure Self-Hosted IR as a proxy for Azure-SSIS IR
