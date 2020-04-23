@@ -4,7 +4,7 @@ description: "include file"
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: "include"
-ms.date: 03/25/2020
+ms.date: 04/23/2020
 ms.author: dacoulte
 ---
 
@@ -22,4 +22,4 @@ the subscription or the [management group](../articles/governance/management-gro
 | Initiative definition | Parameters | 100 |
 | Policy or initiative assignments | Exclusions (notScopes) | 400 |
 | Policy rule | Nested conditionals | 512 |
-| Remediation task | Resources | 1000 |
+| Remediation task | Resources | 500 |
