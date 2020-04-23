@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 04/10/2020
+ms.date: 04/23/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
@@ -50,19 +50,19 @@ The following table compares key management options for Azure Storage encryption
 
 ## Encryption scopes for Blob storage (preview)
 
-By default, a storage account is encrypted with a key that is scoped to the storage account. The key may be either a Microsoft-managed key or a customer-managed key stored in Azure Key Vault. All data in the storage account is encrypted with that key.
+By default, a storage account is encrypted with a key that is scoped to the storage account. You can choose to use either Microsoft-managed keys or  customer-managed keys stored in Azure Key Vault to protect and control access to the key that encrypts your data.
 
-Encryption scopes enable you to manage encryption at the level of the container or blob with a key that is scoped to that object. An encryption scope isolates blob data in a secure enclave within a storage account. You can use encryption scopes to create secure boundaries between data belonging to different customers that resides in the same storage account.
+Encryption scopes enable you to optionally manage encryption at the level of the container or an individual blob. An encryption scope isolates blob data in a secure enclave within a storage account. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers.
 
-You can create one or more encryption scopes for a storage account using the Azure Storage resource provider. When you create the scope, you specify what type of key you want to use for that scope. The key may be either a Microsoft-managed key or a customer-managed key that is stored in Azure Key Vault. Encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys.
+You can create one or more encryption scopes for a storage account using the Azure Storage resource provider. When you create an encryption scope, you specify whether the scope is protected with a Microsoft-managed key or with a customer-managed key that is stored in Azure Key Vault. Different encryption scopes on the same storage account can use either Microsoft-managed or customer-managed keys.
 
 After you have created an encryption scope, you can specify that encryption scope on a request to create a container or a blob. For more information about how to create an encryption scope, see [Create and manage encryption scopes (preview)](../blobs/encryption-scope-create.md).
 
 ### Create a container or blob with an encryption scope
 
-When you create a container and specify an encryption scope for that container, all blobs subsequently created in that container belong to that encryption scope by default. You can also specify an encryption scope when you create an individual blob.
+Blobs that are created under an encryption scope are encrypted with the key specified for that scope. You can specify an encryption scope for an individual blob when you create the blob, or you can specify a default encryption scope when you create a container. When a default encryption scope is specified at the level of a container, all blobs in that container are encrypted with the key associated with the default scope.
 
-When you create a blob, you can specify an encryption scope that overrides the encryption scope specified for the container, unless the container was created with the Deny Override flag (???figure out what to call this).
+When you create a blob in a container that has a default encryption scope, you can specify an encryption scope that overrides the default encryption scope if the container is configured to allow overrides of the default encryption scope. To prevent overrides of the default encryption scope, configure the container to deny overrides for an individual blob.
 
 Read operations on a blob that belongs to an encryption scope happen transparently, so long as the encryption scope is not disabled.
 
