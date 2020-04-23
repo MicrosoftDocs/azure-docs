@@ -26,7 +26,7 @@ The service principal for a Run as Account does not have permissions to read Azu
 
 Role-based access control is available with Azure Resource Manager to grant permitted actions to an Azure AD user account and Run As account, and authenticate that service principal. Read [Role-based access control in Azure Automation article](automation-role-based-access-control.md) for further information to help develop your model for managing Automation permissions.  
 
-Runbooks running on a Hybrid Runbook Worker in your data center or against computing services in other cloud environments like AWS, cannot use the same method that is typically used for runbooks authenticating to Azure resources. This is because those resources are running outside of Azure and therefore, requires their own security credentials defined in Automation to authenticate to resources that they access locally. For more information about runbook authentication with runbook workers, see [Authenticate runbooks for Hybrid Runbook Workers](automation-hrw-run-runbooks.md).
+Runbooks running on a Hybrid Runbook Worker in your data center or against computing services in other cloud environments like AWS, cannot use the same method that is typically used for runbooks authenticating to Azure resources. This is because those resources are running outside of Azure and therefore, requires their own security credentials defined in Automation to authenticate to resources that they access locally. For more information about runbook authentication with runbook workers, see [Authenticate runbooks for Hybrid Runbook Workers](automation-hrw-run-runbooks.md). 
 
 ## Next steps
 
@@ -34,4 +34,4 @@ Runbooks running on a Hybrid Runbook Worker in your data center or against compu
 
 * [Create an Automation account using Azure Resource Manager template](automation-create-account-template.md).
 
-* [Authenticate runbooks with Amazon Web Services (AWS)](automation-config-aws-account.md).
+* [Authenticate with Amazon Web Services (AWS)](automation-config-aws-account.md).

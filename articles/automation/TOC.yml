@@ -50,6 +50,8 @@
           href: automation-create-standalone-account.md
         - name: Create Automation account with Resource Manager template
           href: automation-create-account-template.md
+        - name: Configure authentication with Amazon Web Services
+          href: automation-config-aws-account.md
         - name: Manage an Automation Run As account
           href: manage-runas-account.md
         - name: Manage role permissions and security
@@ -250,8 +252,6 @@
           href: automation-create-alert-triggered-runbook.md
         - name: Manage Office 365 services
           href: manage-office-365.md
-        - name: Authenticate runbooks with Amazon Web Services
-          href: automation-config-aws-account.md
         - name: Deploy AWS VM with Automation runbook
           href: automation-scenario-aws-deployment.md
         - name: Deploy Resource Manager template with runbook
