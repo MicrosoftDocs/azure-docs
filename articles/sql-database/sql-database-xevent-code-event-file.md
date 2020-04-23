@@ -131,7 +131,7 @@ if ($storageAccountName) {
 [System.DateTime]::Now.ToString();
 
 '
-Create a storage account. 
+Create a storage account.
 This might take several minutes, will beep when ready.
   ...PLEASE WAIT...';
 

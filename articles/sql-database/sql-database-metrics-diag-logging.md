@@ -455,7 +455,7 @@ Refer to the following table for details about advanced metrics.
 |tempdb_log_size<sup>2</sup>| Tempdb Log File Size Kilobytes |Tempdb Log File Size Kilobytes.|
 |tempdb_log_used_percent<sup>2</sup>| Tempdb Percent Log Used |Tempdb Percent Log Used.|
 
-<sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. 
+<sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models.
 
 <sup>2</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases or data warehouses.
 
