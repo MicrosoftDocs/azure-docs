@@ -124,7 +124,7 @@ landingContent:
           - text: Scaling elastic pool resources
             url: sql-database-elastic-pool-scale.md
           - text: Scaling managed instance resources
-            url: sql-database-managed-instance.md#managed-instance-management-operations
+            url: sql-database-managed-instance.md#management-operations
           - text: Read scale-out
             url: sql-database-read-scale-out.md
       - linkListType: video

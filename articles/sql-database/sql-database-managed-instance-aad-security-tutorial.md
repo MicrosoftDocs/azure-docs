@@ -63,7 +63,7 @@ See the following articles for examples of connecting to your managed instance:
 - [Quickstart: Configure Azure VM to connect to a managed instance](sql-database-managed-instance-configure-vm.md)
 - [Quickstart: Configure a point-to-site connection to a managed instance from on-premises](sql-database-managed-instance-configure-p2s.md)
 
-1. Log into your managed instance using a standard SQL Server account (non-azure AD) that is a `sysadmin` or an Azure AD admin for MI, using [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
+1. Log into your managed instance using a standard SQL Server account (non-azure AD) that is a `sysadmin` or an Azure AD admin for MI, using [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#connect-with-ssms).
 
 2. In **Object Explorer**, right-click the server and choose **New Query**.
 
@@ -431,7 +431,7 @@ Cross-database queries are supported for Azure AD accounts with Azure AD server 
 
 ### Enable security features
 
-See the following [managed instance capabilities security features](sql-database-managed-instance.md#azure-sql-database-security-features) article for a comprehensive list of ways to secure your database. The following security features are discussed:
+See the following [managed instance capabilities security features](sql-database-managed-instance.md#security-features) article for a comprehensive list of ways to secure your database. The following security features are discussed:
 
 - [Managed instance auditing](sql-database-managed-instance-auditing.md) 
 - [Always encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)

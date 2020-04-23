@@ -4,7 +4,7 @@ description: Azure SQL Database provides recommendations for databases that can 
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: sqldbrb=1
+ms.custom: fasttrack-edit, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: danimir
