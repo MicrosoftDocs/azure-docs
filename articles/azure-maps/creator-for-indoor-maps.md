@@ -33,7 +33,7 @@ Use the [Azure Maps Data Upload API](https://docs.microsoft.com/rest/api/maps/da
 
 The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) converts an uploaded Drawing package into indoor map data. The Conversion service also validates the package. Validation issues are classified into two types: errors and warnings. If any errors are detected, the conversion process fails. If warnings are detected, the conversion will succeed. If the Drawing package fails to convert due to validation errors, you must fix the errors and upload the Drawing package again. To troubleshoot conversion errors and warnings, see [Drawing package warnings and errors](drawing-conversion-error-codes.md).
 
-The Conversion service provides a standalone web application to visualize and inspect Drawing package conversion errors and warnings. For more information, see [Azure Maps Drawing Error Visualizer](azure-maps-drawing-errors-visualizer.md).
+When an error occurs, the Conversion service provides a link to the [Azure Maps Drawing Error Visualizer](azure-maps-drawing-errors-visualizer.md) stand-alone web application. You can use the Drawing ERror Visualizer to inspect errors and warnings that occurred during the conversion process.
 
 ## Create indoor map data
 
@@ -63,14 +63,14 @@ In addition to the vector data, the tileset provides metadata for map rendering 
 
 Once a tileset has been created, it can be retrieved by the [Render V2 service](#render-v2-service).
 
-If a tileset becomes outdated and is no longer useful, you can delete the tileset. For more details on how to delete tilesets, see  [Data Maintenance](#data-maintenance).
+If a tileset becomes outdated and is no longer useful, you can delete the tileset. For more information on how to delete tilesets, see  [Data Maintenance](#data-maintenance).
 
 >[!NOTE]
 >A tileset is independent of the dataset from which it was created. If you create tilesets from a dataset, and then subsequently update that dataset, the tilesets will not be updated. To reflect changes in a dataset, you must create new tilesets. Similarly, if you delete a tileset, the dataset will not be affected.
 
 ### Alias service
 
-The [Alias service]() allows for the efficient governance and distribution of tilesets and respective metadata. It's often the case that an application expects to reference and use the most appropriate (*e.g.* most recent) tileset. To replace a tileset without any application code change, you can use the Alias Assign API to configure an alias for a tileset. For more information on how to use the [Alias service](), see [How to use the Alias API]().
+The [Alias service]() allows for the efficient governance and distribution of tilesets and respective metadata. It's often the case that an application expects to reference and use the most appropriate (for example, most recent) tileset. To replace a tileset without any application code change, you can use the Alias Assign API to configure an alias for a tileset. For more information on how to use the [Alias service](), see [How to use the Alias API]().
 
 ### Feature statesets
 
@@ -91,7 +91,7 @@ An application can use a feature stateset to dynamically render features in a fa
 
 The Azure Maps [Render V2 service-Get Map Tile API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) has been extended to support Creator tilesets.
 
-[Render V2 service-Get Map State Tile API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) allows applications to request tilesets. These tilesets can then be integrated into a map control or SDK. For an example of a map control that uses the Render V2 service, see [Indoor Maps Module](#indoor-maps-module).
+[Render V2 service-Get Map State Tile API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) allows applications to request tilesets. The tilesets can then be integrated into a map control or SDK. For an example of a map control that uses the Render V2 service, see [Indoor Maps Module](#indoor-maps-module).
 
 ### Web Feature Service API
 

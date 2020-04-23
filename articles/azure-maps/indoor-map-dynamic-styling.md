@@ -22,7 +22,7 @@ When a web application uses the [Indoor Web Module](how-to-use-indoor-module.md)
 
 2. Create Creator, and use it to create an indoor map. The necessary steps are described in [How to make a Creator account](how-to-manage-creator.md) and [How to create an indoor map using Creator](tutorial-creator-indoor-maps.md). When you complete these steps, note your tile set identifier and feature state set identifier. In this article, we will assume the sample data provided in the [How to create an indoor map using Creator](tutorial-creator-indoor-maps.md) tutorial.
 
-3. Build a web application by using the sample code as defined in the [How to use the indoor module](how-to-use-indoor-module.md#use-the-indoor-maps-module) article.
+3. Build a web application by using the sample code as defined in the [How to use the indoor module](how-to-use-indoor-module.md#example:-use-the-indoor-maps-module) article.
 
 4. Make Feature State API calls in any API development environment. In this article, we use the [Postman](https://www.postman.com/) application.
 

@@ -33,7 +33,7 @@ To use the globally hosted Azure Content Delivery Network version of the Azure M
   <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css">
   ```
 
- Alternatively, you can download the *Azure Maps Services* module. The *Azure Maps Services* module contains a client library for accessing Azure Maps services. Follow the steps below to install and load the *Indoor Maps* module into your web application.  
+ Or, you can download the *Azure Maps Services* module. The *Azure Maps Services* module contains a client library for accessing Azure Maps services. Follow the steps below to install and load the *Indoor Maps* module into your web application.  
   
   1. Download the [azure-maps-rest](https://www.npmjs.com/package/azure-maps-rest) NPM package. This package also includes TypeScript definitions.
 
@@ -67,7 +67,7 @@ The first thing you must do is create a *map object*. The *map object* will be u
 
 ## Instantiate the Indoor Manager
 
-To load the indoor tilesets and map style of the tiles, you must instantiate the *Indoor Manager*. Instantiate the *Indoor Manager* by providing the *map object* and the corresponding tilesetID. You may optionally include the `statesetId`, if you're using [dynamic map styling](indoor-map-dynamic-style.md). The code below shows you how to instantiate the indoor manager:
+To load the indoor tilesets and map style of the tiles, you must instantiate the *Indoor Manager*. Instantiate the *Indoor Manager* by providing the *map object* and the corresponding tilesetID. You may optionally include the `statesetId`, if you're using [dynamic map styling](indoor-map-dynamic-styleing.md). The code below shows you how to instantiate the indoor manager:
 
 ```javascript
 const tilesetId = "";
@@ -79,7 +79,7 @@ const indoorManager = new atlas.indoor.IndoorManager(map, {
 });
 ```
 
-To enable polling of state data you provide, you must provide the `statesetId` and call `indoorManager.setDynamicStyling(true)`. Polling state data lets you dynamically update the state of dynamic properties or *states*. For example, a feature, such as room, within a tile can have a dynamic property (*state*) called `occupancy`. Your application may wish to poll for any *state* changes in order to reflect the change inside the visual map. The code below shows you how to enable state polling:
+To enable polling of state data you provide, you must provide the `statesetId` and call `indoorManager.setDynamicStyling(true)`. Polling state data lets you dynamically update the state of dynamic properties or *states*. For example, a feature, such as room, within a tile can have a dynamic property (*state*) called `occupancy`. Your application may wish to poll for any *state* changes to reflect the change inside the visual map. The code below shows you how to enable state polling:
 
 ```javascript
 
@@ -124,7 +124,7 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
 });
 ```
 
-The `eventData` variable holds information about the level or facility that invoked the `levelchanged` or `facilitychanged` event, respectively. When a level changes, the `eventData` object will contain the `facilityId`, the new `levelNumber`, and other metadata. When a facility changes, the `eventData` object will contain thw new `facilityId`, the new `levelNumber`, and other metadata.
+The `eventData` variable holds information about the level or facility that invoked the `levelchanged` or `facilitychanged` event, respectively. When a level changes, the `eventData` object will contain the `facilityId`, the new `levelNumber`, and other metadata. When a facility changes, the `eventData` object will contain the new `facilityId`, the new `levelNumber`, and other metadata.
 
 You can incorporate this data in your web application. For example, you can keep a log of the facilities the user has visited. At the end of a session, you can ask the user to rate their experience at each facility. You can also visualize your facility's IoT devices at each level. Use the event handlers to reset and redraw the IoT devices whenever the level of the facility changes.
 
@@ -132,16 +132,16 @@ You can incorporate this data in your web application. For example, you can keep
 
 This example shows you how to use the *Indoor Maps* module in your web application. Although the example is limited in scope, it covers the basics of what you need to get started using the *Indoor Maps* module. The complete HTML code is below these steps.
 
-1. Use the Azure Content Delivery Network [option](#embed-the-indoor=maps-module) to install the *Indoor Maps* module.
+1. Use the Azure Content Delivery Network [option](#embed-the-indoor-maps-module) to install the *Indoor Maps* module.
 
 2. Create a new HTML file
 
-3. In the HTML header, reference the *Indoor Maps* module javascript and style sheet styles.
+3. In the HTML header, reference the *Indoor Maps* module JavaScript and style sheet styles.
 
 4. Initialize a *map object*. The *map object* supports the following options:
     - `Subscription key` is your Azure Maps primary subscription key.
     - `center`  defines a latitude and longitude for your indoor map center location.
-    - `bounds` (optional). You can retrieve your map bounds by calling the [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). The Tileset List API returns the `bbox` which you can parse and assign for your bounding box values. The `bbox` is the smallest rectangular shape that encloses the tileset map data. You may also change the map 
+    - `bounds` (optional). You can retrieve your map bounds by calling the [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). The Tileset List API returns the `bbox`, which you can parse and assign for your bounding box values. The `bbox` is the smallest rectangular shape that encloses the tileset map data. You may also change the map 
     - `style` allows you to set the color of the background. To display a white background, define `style` as "blank".
     - `zoom` allows you to specify the min and max zoom levels for your map.
 
@@ -226,7 +226,7 @@ Your file should now look similar to the HTML below.
   </html>
   ```
 
-To see your indoor map, load it into a web browser. It should look appear like the image below.
+To see your indoor map, load it into a web browser. It should appear like the image below.
 
   ![indoor map image](media/how-to-use-indoor-module/indoor-map-image.png)
 

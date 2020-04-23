@@ -3,7 +3,7 @@ title: Use Azure Maps Drawing Error Visualizer | Microsoft Azure Maps
 description: In this article, you'll learn about how to visualize warnings and errors returned by the Creator Conversion API.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/20/2020
+ms.date: 04/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,27 +12,46 @@ manager: philmea
 
 # Using the Azure Maps Drawing Error Visualizer
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) lets you download a stand-alone web application to visualize [Drawing package warnings and errors](drawing-conversion-error-codes.md). The web application has a static page that you can use without connecting to an internet network. It is a convenient visual tool to inspect warnings and errors in your Drawing package that are detected by the Conversion service.  The goal is to fix them to meet the [Drawing package requirements](drawing-requirements.md) in order to successfully convert your package into map data. For more information on the Drawing conversion process see the [Creator for indoor maps concept article](creator-for-indoor-maps.md).
+When an API development environment makes a request to the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion), the API will return a response to indicate success or failure. If the request fails, the API will return a link to the Drawing Error Visualizer, a stand-alone web application that displays [Drawing package warnings and errors](drawing-conversion-error-codes.md) detected during the conversion process. The Error Visualizer web application consists of a static page that you can use without connecting to the internet.  You can use the Error Visualizer to fix errors and warnings in accordance with [Drawing package requirements](drawing-requirements.md).
 
 ## Prerequisites
 
-Before you can download the Drawing Error Visualizer, you will need to:
+Before you can download the Drawing Error Visualizer, you'll need to:
 
-1. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account) by [making an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps)
+2. [Enable Creator](how-to-manage-creator.md)
+3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 
-2. [Enable the Creator resource](tutorial-creator-indoor-maps.md) in your Azure Maps account
-
-3. Upload your Drawing package to the Azure Maps service, and obtain a `udid` for the uploaded package. For more details on uploading a Drawing package, see [Uploading a Drawing package](creator-for-indoor-maps.md#upload-a-drawing-package).
+This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
 
 ## Download
 
-Now that you have the `udid` for the uploaded package, make a request to the Azure Maps Conversion service.
+ 1. Upload your Drawing package to the Azure Maps Creator service to obtain a `udid` for the uploaded package. For steps on how to upload a package, see [Upload a drawing package](tutorial-creator-indoor-maps.md#upload-a-drawing-package).
 
-Under the response **Headers** tab, look for the `diagnosticPackageLocation` property, returned by [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion). The Drawing Error Visualizer can be downloaded by executing a `HTTP-GET` request on the `diagnosticPackageLocation`. For more details on how to to download, see the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion).
+ 2. Now that the Drawing package is uploaded, we'll use `udid` for the uploaded package to convert the package into map data. For steps on how to convert a package, see [Convert a drawing package](tutorial-creator-indoor-maps.md#convert-a-drawing-package).
+
+     >[!NOTE]
+     >If your conversion process succeeds, you will not receive a link to the Error Visualizer tool.
+
+ 3. Under the response **Headers** tab in the Postman application, look for the `diagnosticPackageLocation` property, returned by the Conversion API. The response should look something like the following:
+
+     ```json
+    {
+        "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+        "created": "2020-04-22T19:39:54.9518496+00:00",
+        "status": "Failed",
+        "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
+        "properties": {
+            "diagnosticPackageLocation": "https://atlas.microsoft.com/mapData/ce61c3c1-faa8-75b7-349f-d863f6523748?api-version=1.0"
+        }
+    }
+    ```
+
+4. Download the Drawing Package Error Visualizer by performing a `HTTP-GET` request on the `diagnosticPackageLocation` URL.  For more information on how to download, see the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion).
 
 ## Setup
 
-Inside the downloaded zipped package from the `diagnosticPackageLocation` link, you'll find two files. The _ConversionWarningsAndErrors.json_ containing a formatted list of warnings, errors, and additional details that is used by the _VisualizationTool.zip_. The _VisualizationTool.zip_ is the standalone web application for Drawing Error Visualizer.
+Inside the downloaded zipped package from the `diagnosticPackageLocation` link, you'll find two files. The _VisualizationTool.zip_ is the standalone web application for Drawing Error Visualizer. The _ConversionWarningsAndErrors.json_ file contains a formatted list of warnings, errors, and additional details that are used by the _VisualizationTool.zip_.
 
 ![Content of zipped package returned by the Azure Maps Conversion API](./media/azure-maps-dwg-errors-visualizer/content-of-the-zipped-package.png)
 
@@ -57,13 +76,13 @@ The  _ConversionWarningsAndErrors.json_ file has been placed at the root of the 
 
 ![Drawing Error Visualizer App - Drag and drop to load data](./media/azure-maps-dwg-errors-visualizer/loading-data.gif)
 
-Once the _ConversionWarningsAndErrors.json_ file loads, you'll see a list of your Drawing package errors and warnings. Each error or warning is specified by the layer, level, and a detailed message. You may now navigate to each error to learn more details in order to resolve the error.  
+Once the _ConversionWarningsAndErrors.json_ file loads, you'll see a list of your Drawing package errors and warnings. Each error or warning is specified by the layer, level, and a detailed message. You may now navigate to each error to learn more details on how to resolve the error.  
 
 ![Drawing Error Visualizer App - Errors and Warnings](./media/azure-maps-dwg-errors-visualizer/errors.png)
 
 ## Next steps
 
-Once your [Drawing package meets the requirements](drawing-requirements.md), you may use the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) to convert the Drawing package to a map data set. Then, you can use the Indoor Maps web module to develop your application. Learn more  by reading the following articles:
+Once your [Drawing package meets the requirements](drawing-requirements.md), you can use the [Azure Maps Dataset service](https://docs.microsoft.com/rest/api/maps/data/conversion) to convert the Drawing package to a dataset. Then, you can use the Indoor Maps web module to develop your application. Learn more by reading the following articles:
 
 > [!div class="nextstepaction"]
 > [Drawing Conversion error codes](drawing-conversion-error-codes.md)

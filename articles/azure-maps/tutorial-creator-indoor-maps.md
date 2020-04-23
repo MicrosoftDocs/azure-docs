@@ -87,7 +87,7 @@ Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpr
 
 ## Convert a Drawing package
 
- Now that the Drawing package is uploaded, we will use `udid` for the uploaded package to convert the package into map data. The Convert API is a long running transaction that implements the pattern defined [here](creator-long-running-operation.md). Once the operation completes, we will use the `conversionId` to access the converted data. Follow the steps below to obtain the `conversionId`.
+ Now that the Drawing package is uploaded, we'll use `udid` for the uploaded package to convert the package into map data. The Conversion API uses a long running transaction that implements the pattern defined [here](creator-long-running-operation.md). Once the operation completes, we'll use the `conversionId` to access the converted data. Follow the steps below to obtain the `conversionId`.
 
 1. Select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**.
 
@@ -109,7 +109,7 @@ Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpr
     }
     ```
 
-5. Once the request completes successfully, you will see a success status message in the response body. Copy the `conversionId` from the `resourceLocation` URL for the converted package. The `conversionId` is used by other API to access the converted map data.
+5. Once the request completes successfully, you will see a success status message in the response body.  Copy the `conversionId` from the `resourceLocation` URL for the converted package. The `conversionId` is used by other API to access the converted map data.
 
     ```json
    {
@@ -124,7 +124,19 @@ Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpr
     > [!NOTE]
     > The Postman application does not natively support HTTP Long Running Requests. As a result, you may notice a long delay while making a **GET** request at the status URL.  Wait about thirty seconds and try clicking the **Send** button again until the response shows success or fail.
 
-The sample Drawing package should be successfully converted without errors.  However,  if you receive errors when attempting to convert your own Drawing package, see the [Drawing conversion errors and warnings](drawing-conversion-error-codes.md). It provides recommendations on how to resolve conversion issues, with some examples. You may also use the [Drawing error visualizer](azure-maps-drawing-errors-visualizer.md) to conveniently see the errors and warnings on your indoor map.
+The sample Drawing package should be successfully converted without errors.  However, if you do receive errors, the response, as shown below, will give you a link to the [Drawing error visualizer](azure-maps-drawing-errors-visualizer.md). To receive recommendations on how to resolve conversion errors and warnings, see the [Drawing conversion errors and warnings](drawing-conversion-error-codes.md).
+
+```json
+{
+    "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+    "created": "2020-04-22T19:39:54.9518496+00:00",
+    "status": "Failed",
+    "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
+    "properties": {
+        "diagnosticPackageLocation": "https://atlas.microsoft.com/mapData ce61c3c1-faa8-75b7-349f-d863f6523748?api-version=1.0"
+    }
+}
+```
 
 ## Create a dataset
 
