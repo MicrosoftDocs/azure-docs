@@ -69,7 +69,7 @@ Yes. Refer to the detailed documentation [here](backup-azure-afs-automation.md).
 
 ### Can I access the snapshots taken by Azure Backups and mount them?
 
-All snapshots taken by Azure Backup can be accessed by viewing snapshots in the portal, PowerShell, or CLI. To learn more about Azure Files share snapshots, see [Overview of share snapshots for Azure Files (preview)](../storage/files/storage-snapshots-files.md).
+All snapshots taken by Azure Backup can be accessed by viewing snapshots in the portal, PowerShell, or CLI. To learn more about Azure Files share snapshots, see [Overview of share snapshots for Azure Files](../storage/files/storage-snapshots-files.md).
 
 ### What is the maximum retention I can configure for backups?
 
