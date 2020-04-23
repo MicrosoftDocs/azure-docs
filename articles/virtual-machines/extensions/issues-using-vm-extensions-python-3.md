@@ -41,7 +41,7 @@ In-place upgrades, such as upgrading from **Ubuntu 18.04 LTS** to **Ubuntu 20.04
 
 ## Resolution
 
-These are general recommendations to consider before deploying extensions in the known-affected scenarios described previously in the Summary:
+Consider the following general recommendations before deploying extensions in the known-affected scenarios described previously in the Summary:
 
 1.	Before deploying the extension, reinstate the `/usr/bin/python` symlink by installing vendor-provided packages.
 
