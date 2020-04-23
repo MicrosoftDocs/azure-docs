@@ -149,18 +149,23 @@ azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 
 This command tells Azurite to store all data in a particular directory, *c:\azurite*. If the `--location` option is omitted, it will use the current working directory.
 
-## Command-line options
+## Command line options
 
 This section details the command line switches available when launching Azurite. All command line switches are optional.
 
+### Help
+
+**Optional** Get command line help by using the `--help` switch.
+
 ```console
-C:\Azurite> azurite [--blobHost <IP address>] [--blobPort <port address>] 
-    [-d | --debug <log file path>] [-l | --location <workspace path>]
-    [--queueHost <IP address>] [--queuePort <port address>]
-    [-s | --silent] [-h | --help]
+azurite --help
 ```
 
-The `-d` is a shortcut for `--debug`, `-l` switch is a shortcut for `--location` , `-s` is a shortcut for `--silent` , and `-h` is a shortcut for `--help`.
+The `-h` switch is a shortcut for `--help`.
+
+```console
+azurite -h
+```
 
 ### Blob listening host
 
@@ -250,6 +255,8 @@ The port in use is displayed during Azurite startup.
 azurite --location c:\azurite
 ```
 
+The `-l` switch is a shortcut for `--location`.
+
 ```console
 azurite -l c:\azurite
 ```
@@ -261,6 +268,7 @@ azurite -l c:\azurite
 ```console
 azurite --silent
 ```
+The `-s` switch is a shortcut for `--silent`.
 
 ```console
 azurite -s
@@ -273,6 +281,7 @@ azurite -s
 ```console
 azurite --debug path/debug.log
 ```
+The `-d` switch is a shortcut for `--debug`.
 
 ```console
 azurite -d path/debug.log
