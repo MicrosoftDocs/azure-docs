@@ -190,6 +190,7 @@ The following examples describe what happens when a request matches a rule.
 | _/admin/reports_ | Authenticated users are served the _/admin/reports/index.html_ file. Unauthenticated users are challenged to authenticate. |
 | _/customers/contoso_ | Authenticated users who belong to either the _administrators_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file. Authenticated users not in the _administrators_ or _customers\_contoso_ roles are served a 401 error. You can provide a custom error page by defining a `Unauthorized_MissingRoles` rule in the `platformErrorOverrides` array. Unauthenticated users are challenged to authenticate. |
 | _/login_     | Unauthenticated users are challenged to authenticate with GitHub. |
+| _/.auth/login/twitter_     | Authorization with Twitter is disabled. The server responds with a 404 error. |
 | _/logout_     | Users are logged out of any authentication provider. |
 | _/calendar/2020/01_ | The browser is served the _/calendar.html_ file. |
 | _/specials_ | The browser is redirected to _/deals_ |
