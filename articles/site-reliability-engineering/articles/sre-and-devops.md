@@ -9,18 +9,18 @@ ms.date: 04/22/2020
 ms.author: dnb
 
 ---
-# Frequently asked questions: What's the relationship between site reliability engineering (SREs) and DevOps?
+# Frequently asked questions: What's the relationship between SRE and DevOps?
 
-There is a set of common questions that come up around the relationship between SRE and DevOps including "How are they same? How are they different? Can we have both in our organization?". This article attempts to share some of the answers that have been offered by the SRE and DevOps communities that get us closer to an understanding of this relationship.
+There is a set of common questions that come up around the relationship between site reliability engineering and DevOps including "How are they same? How are they different? Can we have both in our organization?". This article attempts to share some of the answers that have been offered by the SRE and DevOps communities that get us closer to an understanding of this relationship.
 
 ## How are they the same?
 
 SRE and DevOps are both modern operations practices that were created and developed in response to challenges that included:
 
-    - a growing complexity of our production environments and development processes
-    - increasing business dependency on the continuous functioning of those environments
-    - the inability to scale the workforce linearly with the size of these environments
-    - the need to move faster while still retaining operational stability
+- a growing complexity of our production environments and development processes
+- increasing business dependency on the continuous functioning of those environments
+- the inability to scale the workforce linearly with the size of these environments
+- the need to move faster while still retaining operational stability
 
 Both operations practices value attention to subjects that are crucial to dealing with these challenges like monitoring/ observability, automation, documentation, and collaborative software development tools.
 
@@ -58,7 +58,7 @@ This answer is quoted or slightly paraphrased from a contribution by Thomas Limo
 
 But more importantly, he also draws a diagram that starts with the software development process on one side and the production operations work on the other. The two are connected by the usual pipeline that is built to take the code from a developer, shepherd it through the desired number of tests and stage and then move that code into production.
 
-Limoncelli notes that DevOps engineers start at the development environment and automate steps towards production. Once complete, they go back to optimize bottlenecks. 
+Limoncelli notes that DevOps engineers start at the development environment and automate steps towards production. Once complete, they go back to optimize bottlenecks.
 
 SREs, on the other hand, focus on production operations, and reach deep into the pipeline as a means of improving the end result (basically working in the opposite direction).
 
