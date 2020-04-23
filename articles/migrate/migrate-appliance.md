@@ -2,7 +2,7 @@
 title: Azure Migrate appliance 
 description: Provides an overview of the Azure Migrate appliance used in server assessment and migration.
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 04/23/2020
 ---
 
 
@@ -299,10 +299,69 @@ Hyper-V Virtual Network Adapter | Bytes Sent/Second | Calculation for VM size
 
 The appliance is upgraded as the Azure Migrate agents running on the appliance are updated. This happens automatically because auto-update is enabled on the appliance by default. You can change this default setting to update the agents manually.
 
-- **Turn off auto-update**: You turn off auto-update in the registry by setting HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance "AutoUpdate" key to 0 (DWORD). If you decide to use manual updates, it's important to update all agents on the appliance at the same time, using the  **Update** button for each outdated agent on the appliance.
-- **Update manually**: For manual updates, make sure that you update all the agents on the appliance, using the **Update** button for each outdated agent on the appliance. You can switch the update setting back to automatic updates at any time.
+### Turn off auto-update
 
-![Automatically update appliance](./media/migrate-appliance/autoupdate.png)
+1. On the machine running the appliance, open the registry editor.
+2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
+3. To turn off auto-update, create a registry key **AutoUpdate** key with DWORD value of 0.
+
+    ![Set registry key](./media/migrate-appliance/registry-key.png)
+
+
+### Turn on auto-update
+
+If you want to turn auto-update back on after turning it off:
+
+1. On the appliance machine, open the Appliance Configuration Manager.
+2. In **Appliance services** > **Automatic update of Azure Migrate components is turned off**, click to turn on auto-update.
+
+    ![Turn on auto updates](./media/migrate-appliance/turn-on.png)
+
+### Check the appliance version
+
+You can check the appliance version using either of these methods:
+
+- After discovery, in the Appliance Configuration Manager.
+- On the appliance machine, in the **Control Panel** > **Programs and Features**.
+
+To check in the Appliance Configuration Manager, after discovery:
+
+1. On the appliance machine, open the Appliance Configuration Manager.
+2. In **Appliance services** > verify the version.
+
+    ![Check version](./media/migrate-appliance/version.png)
+
+To check in the Control Panel:
+
+1. On the appliance, click **Start** > **Control Panel** > **Programs and Features**
+2. Check the appliance versions in the list.
+
+    ![Check version in Control Panel](./media/migrate-appliance/programs-features.png)
+
+## Manually update an older version
+
+If you are running an older version for any of the components, you must uninstall the service, and manually update to the latest version.
+
+1. To check for the latest versions,  [download](https://aka.ms/latestapplianceservices) the LatestComponents.json file.
+2.	After downloading, open the LatestComponents.json file in Notepad.
+3. Find the latest version in the file, and use the download link to download the MSI. For example:
+
+    "Name": "ASRMigrationWebApp",
+    "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi",
+    "Version": "6.0.211.2",
+    "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
+
+4.	After downloading, in an administrator command window, run this command, to verify the integrity of the downloaded MSI.
+
+    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```
+    For example:
+    C:\>CertUtil -HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
+
+5. Check that the outcome of the command should matches with the entry (the MD5 hash value in our example) for the component in the json file.
+6. Now run the MSI to install the component. It's a silent install, and the installation window closes after it's done.
+7. After the installation is complete, check the version of the service in the **Control panel** > **Programs and Features**. The component version should be upgraded to the latest as shows in the json file. s
+
+
 
 ## Next steps
 
