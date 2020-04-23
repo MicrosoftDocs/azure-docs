@@ -721,11 +721,23 @@ It may take a few minutes to update your AKS cluster depending on the node pool 
 ## Assign a public IP per node for a node pool (preview)
 
 > [!WARNING]
-> During the preview of assigning a public IP per node, it cannot be used with the *Standard Load Balancer SKU in AKS* due to possible load balancer rules conflicting with VM provisioning. As a result of this limitation, Windows agent pools are not supported with this preview feature. While in preview you must use the *Basic Load Balancer SKU* if you need to assign a public IP per node.
+> You must install the CLI preview extension 0.4.43 to use the *Standard Load Balancer SKU in AKS*. The Standard Load Balancer also provides support for Windows node pools and using a public IP per node pool.
 
 AKS nodes do not require their own public IP addresses for communication. However, scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. An common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This scenario can be achieved on AKS by registering for a preview feature, Node Public IP (preview).
 
 Register for the Node Public IP feature by issuing the following Azure CLI command.
+
+To install and update the latest aks-preview extension, use the following Azure CLI commands:
+
+```azurecli
+az extension add --name aks-preview
+az extension list
+```
+
+```azurecli
+az extension update --name aks-preview
+az extension list
+```
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
