@@ -29,7 +29,7 @@ For this imported pizza application, create a list entity for the different type
 A list entity is a good choice for this type of data when:
 
 * The data values are a known set.
-* The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
+* The set doesn't exceed the maximum LUIS [boundaries](luis-limits.md) for this entity type.
 * The text in the utterance is a case-insensitive match with a synonym or the canonical name. LUIS doesn't use the list beyond the match. Stemming, plurals, and other variations are not resolved with just a list entity. To manage variations, consider using a [pattern](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax.
 
 > [!CAUTION]

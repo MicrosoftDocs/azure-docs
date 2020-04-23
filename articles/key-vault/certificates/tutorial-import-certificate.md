@@ -10,7 +10,7 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/03/2020
+ms.date: 04/16/2020
 ms.author: sebansal
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure
 ---
@@ -72,18 +72,21 @@ To import a certificate to the vault, you need to have a PEM or PFX certificate 
     - **Method of Certificate Creation**: Import.
     - **Certificate Name**: ExampleCertificate.
     - **Upload Certificate File**: select the certificate file from disk
-    - Leave the other values to their defaults. Click **Create**.
+    - **Password** : If you are uploading a password protected certificate file, provide that password here. Otherwise, leave it blank. Once the certificate file is successfully imported, key vault will remove that password.
+4. Click **Create**.
 
 ![Certificate properties](../media/certificates/tutorial-import-cert/cert-import.png)
 
-Once that you receive the message that the certificate has been successfully imported, you may click on it on the list. You can then see some of its properties. 
+By adding a certificate using **Import** method, Azure Key vault will automatically populate certificate parameters (i.e. validity period, Issuer name, activation date etc.).
+
+Once you receive the message that the certificate has been successfully imported, you may click on it on the list to view its properties. 
 
 ![Certificate properties](../media/certificates/tutorial-import-cert/current-version-hidden.png)
 
 ## Import a certificate using Azure CLI
 
 Import a certificate into a specified key vault. To 
-import an existing valid certificate, containing a private key, into Azure Key Vault, the file to be imported can be in either PFX or PEM format. If the certificate is in PEM format the PEM file must contain the key as well as x509 certificates. This operation requires the certificates/import permission.
+import an existing valid certificate, containing a private key, into Azure Key Vault, the file to be imported can be in either PFX or PEM format. If the certificate is in PEM format, the PEM file must contain the key as well as x509 certificates. This operation requires the certificates/import permission.
 
 ```azurecli
 az keyvault certificate import --file
@@ -97,6 +100,22 @@ az keyvault certificate import --file
                                [--tags]
 ```
 Learn more about the parameters [here](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)
+
+After importing the certificate, you can view the certificate using [Certificate show](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)
+
+
+```azurecli
+az keyvault certificate show [--id]
+                             [--name]
+                             [--only-show-errors]
+                             [--subscription]
+                             [--vault-name]
+                             [--version]
+```
+
+
+
+Now, you have created a Key vault, imported a certificate and viewed Certificate's properties.
 
 ## Clean up resources
 
@@ -112,6 +131,6 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 
 In this tutorial, you created a Key Vault and imported a certificate in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
-- Read more about [Managing certificates in Azure Key Vault](/archive/blogs/kv/manage-certificates-via-azure-key-vault)
+- Read more about [Managing certificate creation in Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios)
 - See examples of [Importing Certificates Using REST APIs](/rest/api/keyvault/importcertificate/importcertificate)
 - Review [Azure Key Vault best practices](../general/best-practices.md)
