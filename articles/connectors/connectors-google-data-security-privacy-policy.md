@@ -29,7 +29,7 @@ If you have logic apps that use the Gmail connector, you'll receive an email abo
 
 Under this policy, when you use a Gmail consumer account, you can use the Gmail connector with only specific Google-approved services, which are subject to change. Our engineering teams continue working with Google to add more services to this list. For now, here are the Google-approved triggers, actions, and connectors that you can use in the same logic app workflow with the Gmail connector when you use a Gmail consumer account:
 
-* Logic Apps built-in triggers and actions: Control, Data Operations, Date Time, Liquid, Request, Schedule, Variables, and XML
+* Logic Apps built-in triggers and actions: Batch, Control, Data Operations, Date Time, Flat File, Liquid, Request, Schedule, Variables, and XML
 
 * Google services: Gmail, Google Calendar, Google Contacts, Google Drive, Google Sheets, and Google Tasks
 
@@ -37,7 +37,7 @@ Under this policy, when you use a Gmail consumer account, you can use the Gmail 
 
 * Connectors for customer-managed data sources: FTP, HTTP, RSS, SFTP, SMTP, and SQL Server
 
-For detailed and the most recent information, see the [Gmail connector's technical reference documentation](https://docs.microsoft.com/connectors/gmail/).
+For the most recent information, see the [Gmail connector's technical reference documentation](https://docs.microsoft.com/connectors/gmail/).
 
 <a name="update-affected-workflows"></a>
 
@@ -49,19 +49,15 @@ If you have to use the Gmail connector with a Gmail consumer account and Google 
 
 1. In your Gmail connector, use the client ID and client secret values from your Google client app.
 
+For more information, see the [Gmail connector's technical reference documentation](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application).
+
 ### Create Google client app
 
-1. To create this app, use the [Google API Console wizard](https://console.developers.google.com/start/api?id=gmail&credential=client_key) and follow the instructions. For detailed steps, review the instructions in the [Gmail connector's technical reference documentation](https://docs.microsoft.com/connectors/gmail/).
+To set up a project for your client app, use the [Google API Console wizard](https://console.developers.google.com/start/api?id=gmail&credential=client_key) and follow the instructions. Or, for detailed steps, review the instructions in the [Gmail connector's technical reference documentation](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application).
 
-1. Provide these values when required:
+When you're done, your screen looks like this example except you'll have your own **Client ID** and **Client secret** values, which you later use in your logic app.
 
-   * Gmail scope: `https://mail.google.com`
-   * Authorized domain: `azure-apim.net`
-   * Redirect URI: `https://global.consent.azure-apim.net/consent`
-
-   When you're done, your screen looks like this example except you'll have your own **Client ID** and **Client secret** values, which you later use in your logic app.
-
-   ![Client ID and client secret for your Google client app](./media/connectors-google-data-security-privacy-policy/google-api-console.png)
+![Client ID and client secret for your Google client app](./media/connectors-google-data-security-privacy-policy/google-api-console.png)
 
 ### Use client app settings in logic app
 
