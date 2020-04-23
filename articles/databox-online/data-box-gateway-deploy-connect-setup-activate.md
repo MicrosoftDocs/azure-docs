@@ -61,7 +61,7 @@ Your dashboard displays the various settings that are required to configure and 
    
 ![Local web UI "Dashboard" page](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
-1. In the left-pane, select **Device name**, and then enter a friendly name for your device. The friendly name must contain from 1 to 15 characters long and have letter, numbers, and hyphens.
+1. In the left-pane, select **Device name**, and then enter a friendly name for your device. The friendly name must contain from 1 to 15 characters long and have letter, numbers, and hyphens. 
 
     ![Local web UI "Device name" page](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 
