@@ -155,7 +155,7 @@ const b2cPolicies = {
 }
 ```
 
-2. Initialize your msal object with the `signInSignUp` policy as default. When a user tries to login, this will show the following screen:
+2. Initialize your MSAL object with the `signInSignUp` policy as default (see the sample above). When a user tries to login, they will see the following screen:
 
 [Screenshot: EVO sign in screen]
 
@@ -195,7 +195,7 @@ function signIn() {
 }
 ```
 
-2. With the changes above, you are now able to show the password reset screen after catching the error with the code `AADB2C90118`. Learn more about [MSAL error and exception codes](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-handling-exceptions?tabs=javascript#javascript-1).
+2. With the changes above, you are now able to show the password reset screen after catching the error with the code `AADB2C90118`. Learn more about [MSAL error and exception codes](https://docs.microsoft.com/azure/active-directory/develop/msal-handling-exceptions).
 
 [Screenshot: EVO password reset screen]
 
