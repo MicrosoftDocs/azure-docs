@@ -3,7 +3,6 @@ title: Configure streaming export of metrics and resource logs
 description: Learn how to configure streaming export of metrics and resource logs, including intelligent diagnostic analysis from Azure SQL Database and Azure SQL Managed Instance to the destination of your choice to store information about resource utilization and query execution statistics.
 services: sql-database
 ms.service: sql-database
-ms.custom: sqldbrb=2
 ms.subservice: performance
 ms.custom: seoapril2019
 ms.devlang: sqldbrb=2
@@ -24,7 +23,7 @@ You will also learn about the destinations to which you can stream this diagnost
 - [Event Hubs](#stream-into-event-hubs)
 - [Azure Storage](#stream-into-azure-storage)
 
-## Diagnostic telemetry for export for Azure SQL Database and Azure SQL Managed Instance
+## Diagnostic telemetry for export
 
 Most important among the diagnostic telemetry that you can export is the Intelligent Insights (SQLInsights) log. [Intelligent Insights](sql-database-intelligent-insights.md) uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Once detected, a detailed analysis is performed that generates a Intelligent Insights log with an intelligent assessment of the issue. This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements. You need to configure the streaming export of this log to view its contents.
 
@@ -462,7 +461,7 @@ Refer to the following table for details about advanced metrics.
 
 ### Basic logs
 
-Details of telemetry available for all logs are documented in the following tables. See [supported diagnostic telemetry](#diagnostic-telemetry-for-export-for-azure-sql-database) to understand which logs are supported for a particular database flavor - Azure SQL single, pooled, or instance database.
+Details of telemetry available for all logs are documented in the following tables. See [supported diagnostic telemetry](#diagnostic-telemetry-for-export) to understand which logs are supported for a particular database flavor - Azure SQL single, pooled, or instance database.
 
 #### Resource usage stats for managed instances
 
