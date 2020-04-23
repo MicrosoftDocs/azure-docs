@@ -35,22 +35,22 @@ For more information, see [License requirements to use Privileged Identity Manag
 
 Once you have enabled Privileged Identity Management for your directory, you can prepare Privileged Identity Management to manage Azure AD roles.
 
-You should get started with Azure AD roles in the following order:
+Here are the tasks we recommend for you to prepare for Azure AD roles, in order:
 
-1. [Configure role settings](pim-how-to-change-default-settings.md).
+1. [Configure Azure AD role settings](pim-how-to-change-default-settings.md).
 1. [Give eligible assignments](pim-how-to-add-role-to-user.md).
-1. [Allow eligible users to activate their role just-in-time](pim-how-to-activate-role.md).
+1. [Allow eligible users to activate their Azure AD role just-in-time](pim-how-to-activate-role.md).
 
 ## Prepare PIM for Azure roles
 
 Once you have enabled Privileged Identity Management for your directory, you can prepare Privileged Identity Management to manage Azure roles for Azure resource access on a subscription.
 
-You should get started with Azure roles in the following order:
+Here are the tasks we recommend for you to prepare for Azure roles, in order:
 
 1. [Discover Azure resources](pim-resource-roles-discover-resources.md)
-1. [Configure role settings](pim-resource-roles-configure-role-settings.md).
+1. [Configure Azure role settings](pim-resource-roles-configure-role-settings.md).
 1. [Give eligible assignments](pim-resource-roles-assign-roles.md).
-1. [Allow eligible users to activate their roles just-in-time](pim-resource-roles-activate-your-roles.md).
+1. [Allow eligible users to activate their Azure roles just-in-time](pim-resource-roles-activate-your-roles.md).
 
 ## Navigate to your tasks
 
