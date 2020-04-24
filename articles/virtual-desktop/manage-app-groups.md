@@ -38,99 +38,100 @@ the following process:
 
 3.  Select **Application Groups** in the menu on the left side of the page, then select **+ Add**.
 
-4.  Select the subscription group and resource group you want to create the app group for. You can also choose to create a new resource group instead of selecting an existing one.
+4. On the **Basics** tab, select the subscription group and resource group you want to create the app group for. You can also choose to create a new resource group instead of selecting an existing one.
 
-5.  Select the host pool that will be associated with the application group.
+5. Select the host pool that will be associated with the application group from the drop-down menu next to **Host pool**.
 
     >[!NOTE]
-    >You must select the host pool associated with the application group. App groups have apps or desktops that are served from a session host and session hosts are part of host pools. So, an app group needs to be associated with a host pool during creation.
+    >You must select the host pool associated with the application group. App groups have apps or desktops that are served from a session host and session hosts are part of host pools. The app group needs to be associated with a host pool during creation.
 
-     ![](media/fa2a6efddb0d220c6bfdbf2c86194406.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Basics tab in the Azure portal.](media/basics-tab.png)
 
-6. If you want to add virtual machines to your host pool, select **Host pools** in the menu on the left side of the screen. Next, select the name of the host pool you want to add virtual machines to.
+6. If you want to add virtual machines to your host pool, select **Host pools** in the menu on the left side of the screen.
    
-   After that, select **Application groups** from the menu on the left side of the screen, then select **+ Add**.
+    Next, select the name of the host pool you want to add virtual machines to.
+   
+    After that, select **Application groups** from the menu on the left side of the screen, then select **+Add**.
 
-    ![](media/bd0b037abe969ff33b219949432ab341.png)
+    Finally, select the subscription group and resource group you want to create the app group in. You can either select the name of an existing resource group from the drop-down menu or select **Create new** to make a new one.
 
-   Finally, select the subscription group and resource group you want to create the app group in. You can choose to create a new resource group instead of selecting an existing one.
+      >[!NOTE]
+      >When you add virtual machines to your host pool, the host pool that's related to the application group is already selected because you navigated from it.
+      > 
+      > [!div class="mx-imgBorder"]
+      >![A screenshot of the Basics tab with the host pool preselected.](media/host-pool-selected.png)
 
-     >[!NOTE]
-     >With this approach, the host pool that is related to the application group is already selected since you navigated from the host pool context.
+7. Select **RemoteApp** under Application group type, then enter a name for your RemoteApp.
 
-![](media/522f3865c86b16d51c570621b4353386.png)
+      > [!div class="mx-imgBorder"]
+      > ![A screenshot of the Application group type fields. "RemoteApp" is highlighted.](media/remoteapp-button.png)
 
-7. Select **RemoteApp** under **Application group type** and provide a name.
+8.  Select the **Assignments** tab.
 
-![](media/dacceac6fc2408bdb2fbe521d530a092.png)
+9.  To publish individual users or user groups to the app group, select **+Add Azure AD users or user groups**.
 
-1.  Select **Assignments**.
+10.  Select the number of users you want to add the apps to. You can select single or multiple users.
 
-![](media/35e982bc311922d99943d955441908f5.png)
+     > [!div class="mx-imgBorder"]
+     > ![A screenshot of the user selection menu.](media/select-users.png)
 
-1.  To publish individual users or user groups to the app group, select **+Add Azure AD users or user groups**.
+11.  Select **Select**.
 
-2.  When the Azure Active Directory user selector opens, select single or multiple users and user groups.
+12.  Select the **Applications** tab, then select **+Add applications**.
 
-![](media/ad4dcb32deebf98ea07e6b2d29deb934.png)
+13.  To add an application from the start menu:
 
-1.  Select **Select**.
+      - Go to **Application source**and select **Start menu** from the drop-down menu. Next, go to **Application** and choose the application from the drop-down menu.
 
-2.  Select **Applications**, then select **+Add applications**.
+     > [!div class="mx-imgBorder"]
+     > ![A screenshot of the add application screen with the Start menu selected.](media/add-app-start.png)
 
-3.  To add an application from the start menu:
+      - In **Display name**, enter the name for the application that will be shown to the user on their client.
 
-- For *Application source*, choose Start menu and then choose the application from the list under *Application*.
+      - Leave the other options as-is and select **Save**.
 
-![](media/ae82f483a6bf5c6abfc80fae3e9ceafd.png)
+14. To add an application from specific file path:
 
-- Add a *Display name*. This will be the name shown to the user on their client.
+      - Go to **Application source**and select **File path** from the drop-down menu.
 
-- Leave the other options as is and click on **Save**.
+      - Enter the path to the application on the session host, registered with the associated host pool.
 
-4. To add an application from specific file path:
+      - Enter the application's details in the **Application name**, **Display name**, **Icon path**, and **Icon index** fields.
 
-1. For *Application source*, choose File path.
+      - Select **Save**.
 
-2. Enter the path to the application on the session host, registered with the associated host pool.
+     > [!div class="mx-imgBorder"]
+     > ![A screenshot of the add application page with file path selected.](media/add-app-file.png)
 
-3. Enter all other details of the application like *Application name, Display name, Icon path and Icon index*.
+     Repeat this process for every application you want to add to the application group.
 
-4.  Click on **Save**.
+15.  Next, select the **Workspace** tab.
 
-![](media/3f5d93ee4c09d2681ea7dd540b8e71d5.png)
+16.  If you want to register the app group to a workspace, go to **Register application group** and select **Yes**. If you'd rather register the app group at a later time, select **No**.
 
-Repeat this for every application you want added to the application group.
+17.  If you select **Yes**, you can either create a new workspace or select an existing workspace to register your app group to.
+       
+       >[!NOTE]
+       >You can only register the app group to workspaces created in the same location as the host pool. Also. if you've previously registered another app group from the same host pool as your new app group to a workspace, it will be selected and you can't edit it. All app groups from a host pool must be registered to the same workspace.
 
-1.  Click on Workspace. As part of the application group creation wizard, you can hoose to register the app group to a workspace.
+     > [!div class="mx-imgBorder"]
+     > ![A screenshot of the register application group page for an already existing workspace. The host pool is preselected.](media/register-existing.png)
 
-2.  If you want to register the app group to a workspace, choose Yes. If you want to register the app group at a later time, choose No.
+18. Optionally, if you want to create tags to make your workspace easy to organize, select the **Tags** tab and enter your tag names.
 
-![](media/35ad245ea9f0c7ad0672d4990ef72464.png)
+19. When you're done, select the **Review + create** tab.
 
-1.  If yes, you can then create a new workspace or select from existing workspaces. Only workspaces created in the same location as the host pool will be allowed to register the app group to. Also if you have previously registered another app group (from the same host pool) to a workspace, it will be selected and you cannot edit it. All app groups from a host pool must be registered to the same workspace.
+20. Wait a bit for the validation process to complete. When it's done, select **Create** to deploy your app group.
 
-![](media/1b64e643f42d458b1245087ccc4ada9f.png)
+The deployment process will do the following things for you:
 
-Then click on **Tags**. This can be skipped and you can choose to select **Review + create.**
-
-Then select **Review + create** 
-
-validate all your input.
-
-Once validation is completed click **Create**. Optionally you can download the ARM template used by the wizard.
-
- When the deployment completes, these are the following will be completed:
-
--   The RemoteApp app group
-
--   Applications added to the app group
-
--   App group published to the selected users and user groups.
-
--   If you chose to create a workspace, workspace will be created
-
--   If you chose to register the app group, the registration will be complete
+- Create the RemoteApp app group.
+- Add your selected apps to the app group.
+- Publish the app group published to users and user groups you selected.
+- Create a workspace, if you chose to make one.
+- Register the app group, if you chose to do so.
+- Create a link to an Azure Resource Manager template based on your configuration that you can download and save for later.
 
 ## Next steps
 
