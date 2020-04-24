@@ -123,8 +123,8 @@ Most tasks and services can be performed on delegated resources across managed t
 - Use virtual machine extensions to provide post-deployment configuration and automation tasks on Azure VMs in customer tenants
 - Use boot diagnostics to troubleshoot Azure VMs in customer tenants
 - Access VMs with serial console in customer tenants
-- Integrate VMs with Azure KeyVault for passwords, secrets, or cryptographic keys for disk encryption by using [managed identity through policy](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret), ensuring that secrets are stored in a Key Vault in the customer tenant
-- Note that you can't use Azure Active Directory for remote login to VMs in the customer tenant
+- Integrate VMs with Azure KeyVault for passwords, secrets, or cryptographic keys for disk encryption by using [managed identity through policy](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret), ensuring that secrets are stored in a Key Vault in customer tenants
+- Note that you can't use Azure Active Directory for remote login to VMs in customer tenants
 
 Support requests:
 
