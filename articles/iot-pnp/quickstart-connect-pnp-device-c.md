@@ -54,6 +54,10 @@ To complete this quickstart on Windows, install the following software on your l
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 
+### Azure IoT explorer
+
+To interact with the sample device in the second part of this quickstart, you use the **Azure IoT explorer** tool. Download and install the latest release of **Azure IoT explorer** for your operating system from the [repository releases](https://github.com/Azure/azure-iot-explorer/releases) page.
+
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
 Run the following command to get the _IoT hub connection string_ for your hub. Make a note of this connection string, you use it later in this quickstart:
@@ -119,21 +123,19 @@ Debug\digitaltwin_sample_device.exe "<YourDeviceConnectionString>"
 
 The device is now ready to receive commands and property updates, and has started sending telemetry data to the hub. Keep the sample running as you complete the next steps.
 
-### Use the Azure IoT CLI to validate the code
+### Use the Azure IoT explorer to validate the code
 
-After the device client sample starts, use the Azure CLI to verify it's working.
+After the device client sample starts, use the Azure IoT explorer tool to verify it's working.
 
-Use the following command to view the telemetry the sample device is sending. You may need to wait a minute or two before you see any telemetry in the output:
+[!INCLUDE [iot-pnp-iot-explorer-1.md](../../includes/iot-pnp-iot-explorer-1.md)]
 
-```azurecli-interactive
-az iot dt monitor-events --hub-name <YourIoTHubName> --device-id <YourDeviceID>
-```
+1. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the Plug and Play configurations; if it does not, select **+ Add module definition source** and then **On the connected device** to add it.
 
-Use the following command to view the properties sent by the device:
+1. Back on the **Devices** overview page, find the device identity you created previously. With the sample device application still running in the command prompt, check that the device **Connection state** in Azure IoT explorer is **Connected**. If the connection state is **Disconnected**, select **Refresh** until it is. Click on the device ID to view more details about the device.
 
-```azurecli-interactive
-az iot dt list-properties --hub-name <YourIoTHubName> --device-id <YourDeviceID> --interface sensor --source private --repo-login "<YourCompanyModelRepositoryConnectionString>"
-```
+1. Expand the interface with ID **urn:YOUR_COMPANY_NAME_HERE:EnvironmentalSensor:1** to reveal the interface and IoT Plug and Play primitives—properties, commands, and telemetry.
+
+[!INCLUDE [iot-pnp-iot-explorer-2.md](../../includes/iot-pnp-iot-explorer-2.md)]
 
 ## Review the code
 
