@@ -7,6 +7,7 @@ ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom:  amqp
 ---
 
 # Configure an IoT Edge device to communicate through a proxy server

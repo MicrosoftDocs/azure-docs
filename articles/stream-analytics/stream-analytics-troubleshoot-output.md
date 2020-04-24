@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 # Troubleshoot Azure Stream Analytics outputs
 
-This article describes common issues with Azure Stream Analytics output connections and how to troubleshoot them. Many troubleshooting steps require diagnostic logs be enabled for your Stream Analytics job. If you don't have diagnostic logs enabled, see [Troubleshoot Stream Analytics by using diagnostics logs](stream-analytics-job-diagnostic-logs.md).
+This article describes common issues with Azure Stream Analytics output connections and how to troubleshoot output issues. Many troubleshooting steps require resource and other diagnostic logs be enabled for your Stream Analytics job. If you don't have resource logs enabled, see [Troubleshoot Azure Stream Analytics by using resource logs](stream-analytics-job-diagnostic-logs.md).
 
 ## The job doesn't produce output
 

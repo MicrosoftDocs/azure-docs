@@ -1,5 +1,5 @@
 ---
-title: Schedules in Azure Automation
+title: Manage schedules in Azure Automation
 description: Automation schedules are used to schedule runbooks in Azure Automation to start automatically. Describes how to create and manage a schedule in so that you can automatically start a runbook at a particular time or on a recurring schedule.
 services: automation
 ms.service: automation
@@ -10,7 +10,7 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Scheduling a runbook in Azure Automation
+# Manage schedules in Azure Automation
 
 To schedule a runbook in Azure Automation to start at a specified time, you link it to one or more schedules. A schedule can be configured to either run once or on a reoccurring hourly or daily schedule for runbooks in the Azure  portal. You can also schedule them for weekly, monthly, specific days of the week or days of the month, or a particular day of the month. A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it.
 
@@ -169,6 +169,27 @@ $automationAccountName = "MyAutomationAccount"
 $scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
 Set-AzAutomationSchedule –AutomationAccountName $automationAccountName `
 –Name $scheduleName –IsEnabled $false -ResourceGroupName "ResourceGroup01"
+```
+
+## Removing a schedule
+
+When you're ready to remove your schedules, you can either use the Azure portal or the `Remove-AzureRmAutomationSchedule` cmdlet. Remember that you can only remove a schedule that has been disabled as described in the previous section.
+
+### Remove a schedule using the Azure portal
+
+1. In your Automation account, select **Schedules** under **Shared Resources**.
+2. Click the name of a schedule to open the details pane.
+3. Click **Delete**.
+
+### Remove a schedule with PowerShell
+
+You can use the [Remove-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) cmdlet to delete an existing schedule. 
+
+```azurepowershell-interactive
+$automationAccountName = "MyAutomationAccount"
+$scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
+Remove-AzAutomationSchedule -AutomationAccountName $automationAccountName `
+-Name $scheduleName -ResourceGroupName "ResourceGroup01"
 ```
 
 ## Next steps

@@ -106,7 +106,7 @@ Following is a list of common misconfiguration issues that can occur while deplo
 <a name="required-ports"> </a>
 When an API Management service instance is hosted in a VNET, the ports in the following table are used.
 
-| Source / Destination Port(s) | Direction          | Transport protocol |   [Service Tags](../virtual-network/security-overview.md#service-tags) <br> Source / Destination   | Purpose (*)                                                 | Virtual Network type |
+| Source / Destination Port(s) | Direction          | Transport protocol |   [Service Tags](../virtual-network/security-overview.md#service-tags) <br> Source / Destination   | Purpose (\*)                                                 | Virtual Network type |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management                      | External             |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Management endpoint for Azure portal and Powershell         | External & Internal  |
@@ -130,9 +130,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 + **DNS Access**: Outbound access on port 53 is required for communication with DNS servers. If a custom DNS server exists on the other end of a VPN gateway, the DNS server must be reachable from the subnet hosting API Management.
 
-+ **Metrics and Health Monitoring**: Outbound network connectivity to Azure Monitoring endpoints, which resolve under the following domains:
-
-+ **Regional Service Tags**": NSG rules allowing outbound connectivity to Storage, SQL, and EventHubs service tags may use the regional versions of those tags corresponding to the region containing the API Management instance (for example, Storage.WestUS for an API Management instance in the West US region). In multi-region deployments, the NSG in each region should allow traffic to the service tags for that region.
++ **Metrics and Health Monitoring**: Outbound network connectivity to Azure Monitoring endpoints, which resolve under the following domains. As shown in the table, these URLs are represented under the AzureMonitor service tag for use with Network Security Groups.
 
     | Azure Environment | Endpoints                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -140,8 +138,10 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com(**new**)</li><li>shoebox2.metrics.nsatc.net(**to be deprecated**)</li><li>prod3.metrics.microsoftmetrics.com(**new**)</li><li>prod3.metrics.nsatc.net(**to be deprecated**)</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
     | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com(**new**)</li><li>shoebox2.metrics.nsatc.net(**to be deprecated**)</li><li>prod3.metrics.microsoftmetrics.com(**new**)</li><li>prod3.metrics.nsatc.net(**to be deprecated**)</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
 
->[!IMPORTANT]
-> The change of clusters above with dns zone **.nsatc.net** to **.microsoftmetrics.com** is mostly a DNS Change. IP Address of cluster will not change.
+  >[!IMPORTANT]
+  > The change of clusters above with dns zone **.nsatc.net** to **.microsoftmetrics.com** is mostly a DNS Change. IP Address of cluster will not change.
+
++ **Regional Service Tags**: NSG rules allowing outbound connectivity to Storage, SQL, and Event Hubs service tags may use the regional versions of those tags corresponding to the region containing the API Management instance (for example, Storage.WestUS for an API Management instance in the West US region). In multi-region deployments, the NSG in each region should allow traffic to the service tags for that region and the primary region.
 
 + **SMTP Relay**: Outbound network connectivity for the SMTP Relay, which resolves under the host `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` and `ies.global.microsoft.com`
 
@@ -149,7 +149,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 + **Azure portal Diagnostics**: To enable the flow of diagnostic logs from Azure portal when using the API Management extension from inside a Virtual Network, outbound access to `dc.services.visualstudio.com` on port 443 is required. This helps in troubleshooting issues you might face when using extension.
 
-+ **Force Tunneling Traffic to On-prem Firewall Using Express Route or Network Virtual Appliance**: A common customer configuration is to define their own default route (0.0.0.0/0) which forces all traffic from the API Management delegated subnet to flow through an on-premises firewall or to an Network virtual appliance. This traffic flow invariably breaks connectivity with Azure API Management because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints. The solution requires you to do a couple of things:
++ **Force Tunneling Traffic to On-premises Firewall Using Express Route or Network Virtual Appliance**: A common customer configuration is to define their own default route (0.0.0.0/0) which forces all traffic from the API Management delegated subnet to flow through an on-premises firewall or to an Network virtual appliance. This traffic flow invariably breaks connectivity with Azure API Management because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints. The solution requires you to do a couple of things:
 
   * Enable service endpoints on the subnet in which the API Management service is deployed. [Service Endpoints][ServiceEndpoints] need to be enabled for Azure Sql, Azure Storage, Azure EventHub and Azure ServiceBus. Enabling endpoints directly from API Management delegated subnet to these services allows them to use the Microsoft Azure backbone network providing optimal routing for service traffic. If you use Service Endpoints with a forced tunneled Api Management, the above Azure services traffic isn't forced tunneled. The other API Management service dependency traffic is forced tunneled and can't be lost or the API Management service would not function properly.
     

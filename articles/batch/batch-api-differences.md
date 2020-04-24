@@ -1,14 +1,8 @@
 ---
-title: Differences between management APIs and service APIs - Azure Batch | Microsoft Docs
+title: Differences between management APIs and service APIs
 description: APIs work on the different layers of the Azure Batch service.
-services: batch
-author: LauraBrenner
-manager: evansma
-
-ms.service: batch
 ms.topic: conceptual
 ms.date: 02/26/2020 
-ms.author: labrenne
 ms.custom: seodec18
 ---
 
