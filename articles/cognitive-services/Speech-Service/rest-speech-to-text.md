@@ -84,13 +84,13 @@ This table lists required and optional parameters for pronunciation assessment.
 | Parameter | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | ReferenceText | The text that the pronunciation will be evaluated against. | Required |
-| GradingSystem | The point system for score calibration. Accepted values are `FivePoint` and `HundredMark`. The default settting is `FivePoint`. | Optional |
-| Granularity | The evaluation granularity. Accepted values are `Phoneme`, which shows the score on the full text, word and phoneme level, `Word`, which shows the score on the full text and word level, `FullText`, which shows the score on the full text level only. The default settting is `Phoneme`. | Optional |
+| GradingSystem | The point system for score calibration. Accepted values are `FivePoint` and `HundredMark`. The default setting is `FivePoint`. | Optional |
+| Granularity | The evaluation granularity. Accepted values are `Phoneme`, which shows the score on the full text, word and phoneme level, `Word`, which shows the score on the full text and word level, `FullText`, which shows the score on the full text level only. The default setting is `Phoneme`. | Optional |
 | Dimension | Defines the output criteria. Accepted values are `Basic`, which shows the accuracy score only, `Comprehensive` shows scores on more dimensions (e.g. fluency score and completeness score on the full text level, error type on word level). Check [Response parameters](#response-parameters) to see definitions of different score dimensions and word error types. The default setting is `Basic`. | Optional |
 | EnableMiscue | Enables miscue calculation. With this enabled, the pronounced words will be compared to the reference text, and will be marked with omission/insertion based on the comparison. Accepted values are `False` and `True`. The default setting is `False`. | Optional |
 | ScenarioId | A GUID indicating a customized point system. | Optional |
 
-Below is an example JSON containing the pronuncition assessment parameters:
+Below is an example JSON containing the pronunciation assessment parameters:
 
 ```json
 {
