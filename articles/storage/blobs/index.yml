@@ -103,8 +103,10 @@ landingContent:
             url: storage-quickstart-blobs-java.md
           - text: Azure Blob storage for Python
             url: storage-quickstart-blobs-python.md
-          - text: Azure Blob storage for JavaScript
+          - text: Azure Blob storage for JavaScript using Node.js
             url: storage-quickstart-blobs-nodejs.md
+          - text: Azure Blob storage for JavaScript in a browser
+            url: quickstart-blobs-javascript-browser.md
           - text: Route events to a web endpoint
             url: ../../event-grid/blob-event-quickstart-portal.md
           - text: Host a static website
