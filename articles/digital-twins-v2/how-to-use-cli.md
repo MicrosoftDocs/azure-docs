@@ -253,4 +253,4 @@ Uses:
 ## Next steps
 
 See how to manage an Azure Digital Twins instance using APIs:
-* [How-to: Use the Azure Digital Twins APIs](how-to-use-apis.md)
+* [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md)

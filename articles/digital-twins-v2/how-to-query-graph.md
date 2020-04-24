@@ -181,4 +181,4 @@ Below are some tips for querying with Azure Digital Twins.
 
 ## Next steps
 
-Learn more about the [Azure Digital Twins APIs](how-to-use-apis.md), including the Query API which is used to run the queries from this article.
+Learn more about the [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), including the Query API which is used to run the queries from this article.

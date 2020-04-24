@@ -30,7 +30,7 @@ This article will walk you through how to do both.
 
 To authenticate against Azure Digital Twins from a client application, you need to set up an **app registration** in [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
 
-This app registration is where you configure access permissions to the [Azure Digital Twins APIs](how-to-use-apis.md). Your client app authenticates against the app registration, and as a result is granted the configured access permissions to the APIs.
+This app registration is where you configure access permissions to the [Azure Digital Twins APIs](how-to-use-apis-sdks.md). Your client app authenticates against the app registration, and as a result is granted the configured access permissions to the APIs.
 
 To create an app registration, you need to provide the resource IDs for the Azure Digital Twins APIs, and the baseline permissions to the API. In your working directory, open a new file and enter the following JSON snippet to configure these details: 
 
@@ -75,7 +75,7 @@ This section describes the code you will need to include in your client applicat
 
 ### Prerequisites
 
-To follow the example in this section, you will first need to build the SDK library that is described in [How-to: Use the Azure Digital Twins APIs](how-to-use-apis.md).
+To follow the example in this section, you will first need to build the SDK library that is described in [How-to: Use the Azure Digital Twins APIs](how-to-use-apis-sdks.md).
 
 You will need to add references in your project to the following libraries, which you can find on [NuGet](https://www.nuget.org/):
 * Microsoft.Identity.Client (this is the [MSAL](../active-directory/develop/msal-overview.md) client library)

@@ -32,8 +32,8 @@
     href: how-to-ingest-iot-hub-data.md
   - name: Set up an Azure Function
     href: how-to-create-azure-function.md
-  - name: Use the APIs
-    href: how-to-use-apis.md
+  - name: Use the APIs and SDKs
+    href: how-to-use-apis-sdks.md
   - name: Manage a twin model
     href: how-to-manage-model.md
   - name: Manage a digital twin
