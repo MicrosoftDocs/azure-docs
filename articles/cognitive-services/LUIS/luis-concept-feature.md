@@ -36,14 +36,14 @@ Steps to use a phrase list:
 
 ### A typical scenario for a phrase list
 
-A typical scenario for a phrase list is to boost words of a specific or central idea, for example, names. A name can be any type of word such as a noun, verb, adjective, slang, or made-up words.
+A typical scenario for a phrase list is to boost words related to a specific idea.
 
-An example of names that may need a phrase list to boost their significance are medical terms. The terms can have specific physical, chemical, therapeutic, or abstract meaning. LUIS won't know the words are important to your subject domain without a phrase list.
+An example of words that may need a phrase list to boost their significance are medical terms. The terms can have specific physical, chemical, therapeutic, or abstract meaning. LUIS won't know the terms are important to your subject domain without a phrase list.
 
-If you want to have names that are unique to your subject domain extracted:
-* First create example utterances and label names within those utterances.
-* Then create a phrase list with examples of the names within the subject domain.
-* Add the phrase list to the entity model that extracts the concept used in the phrase list. The most common scenario is a component (child) of a machine-learned entity. If the phrase list should be applied across all intents or entities, mark the phrase list as a global phrase list. The `enabledForAllModels` flag controls this model scope in the API.
+If you want to extract the medical terms:
+* First create example utterances and label medical terms within those utterances.
+* Then create a phrase list with examples of the terms within the subject domain. This phrase list should include the actual term you labeled and other terms that describe the same concept.
+* Add the phrase list to the entity or sub-entity that extracts the concept used in the phrase list. The most common scenario is a component (child) of a machine-learned entity. If the phrase list should be applied across all intents or entities, mark the phrase list as a global phrase list. The `enabledForAllModels` flag controls this model scope in the API.
 
 <a name="how-to-use-phrase-lists"></a>
 <a name="how-to-use-a-phrase-lists"></a>
@@ -63,9 +63,9 @@ For example, if the street address entity (A) is detected, then finding the stre
 
 ## Global features
 
-While the most common use is to apply a feature to a specific model, configure the feature as a **global** feature to boost the concept for your entire schema.
+While the most common use is to apply a feature to a specific model, configure the feature as a **global feature** to apply it to your entire application.
 
-An example is to add an additional vocabulary, such as words from another language, to the app. If your customers use a primary language, but expect to be able to use another language within the same utterance, add examples of those expected tokens to a phrase list.
+The most common use for a global feature is to add an additional vocabulary, such as words from another language, to the app. If your customers use a primary language, but expect to be able to use another language within the same utterance, you can add a feature that includes words from the secondary language.
 
 Because the user expected to use the second language across any intent or entity, it should be added in a phrase list with the phrase list configured as a global feature.
 
