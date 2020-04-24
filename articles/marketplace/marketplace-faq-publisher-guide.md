@@ -52,8 +52,9 @@ With Azure Marketplace, customers can discover technical applications built for 
 Azure Marketplace offers can be purchased through:
 
 * [The web-based storefront](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [Azure portal](https://portal.azure.com) <br>
-[!Note] Requires an Azure account. If you don't have one, you're redirected to the **Welcome to Azure** page, to create one.  
+* [Azure portal](https://portal.azure.com) <br> 
+>[!Note]
+>Requires an Azure account. If you don't have one, you're redirected to the **Welcome to Azure** page, to create one.  
 * [The Azure Command Line Interface (CLI)](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
