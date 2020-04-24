@@ -15,12 +15,11 @@ ms.date: 04/24/2020
 ms.author: barclayn
 ---
 
-
 # Use Access Reviews to review and clean up collaboration partners from external organizations
 
 The cloud makes it easier than ever to collaborate people inside your organization or external users. Embracing Office 365, organizations start to see a proliferation of external identities (“Guests”), as users use capabilities to jointly work on data, documents or digital workspaces such as Teams. Organizations need to balance between user-initiated collaboration for greatest possible flexibility and processes and guardrails, to allow security and governance requirements to be fulfilled. Part of these efforts should be evaluating and cleaning out no longer needed external partners and identities from resources and the Azure AD tenant.
 
->[!Note]
+>[!NOTE]
 >A valid Azure AD Premium P2, Enterprise Mobility + Security E5 paid, or trial license is required to use Azure AD access reviews. For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
 
 ## Why should you review partners from external organizations that collaborate with you in your tenant?
@@ -32,7 +31,7 @@ This article describes features and methods that allow you to find and review ex
 
 ## Use PowerShell to find partners from a domain
 
-```powershell
+```PowerShell
 Get-AzureADUser -Filter "usertype eq 'Guest'" -All $true | ?{ $_.mail -like
 "@microsoft.com" }
 
@@ -62,7 +61,11 @@ Administrators create a new dynamic group that contains external identities in A
   (user.userPrincipalName -contains "#EXT#") and (user.mail -contains "@microsoft.com") and (user.accountEnabled -eq true)
 ```
 
- For other domains, replace “microsoft.com” in this sample with the target domains that you look for. ![A screenshot of a video game Description automatically generated](media\access-reviews-external-domains\461d614073eaed08001d1ddd68941411.png)
+>[!NOTE]
+> For other domains, replace “microsoft.com” in this sample with the target domains that you look for. 
+
+![Dynamic membership rules](media\access-reviews-external-domains\dynamic-membership-rules.png)
+
 7. Click Save. Click Create.
 
 The query above is looking for external identities that were invited through Azure AD or Office 365, that are still enabled and can work in your tenant.
@@ -87,7 +90,7 @@ In the “Create an access review” setup page, you define the settings of a ne
 7. In “Upon completion settings”, specify that you do not want to take any actions once the review is completed. This will allow to review the results and take manual actions.
 8. Click “Start” to create the Access Review. The review will automatically start at the specified start date – and notify reviewers.
 
-![A screenshot of a cell phone Description automatically generated](media\access-reviews-external-domains\41af935e14610985740dc4c2852b6625.png)
+![Create an access review](media\access-reviews-external-domains\create-access-review.png)
 
 Once the review is completed, the “Results” page will include an overview of the decisions made by every reviewer on every external partner and whether continued access through these external partners is desired. External partners that are no longer needed, as attested by the reviewers, can be removed through the Azure AD Portal or a PowerShell script.
 
