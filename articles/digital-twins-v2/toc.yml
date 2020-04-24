@@ -22,8 +22,6 @@
     href: concepts-security.md
   - name: The Azure Digital Twins SDKs
     href: concepts-sdks.md
-  - name: Digital Twins Definition Language (DTDL)
-    href: concepts-dtdl.md
 - name: How-to guides
   items:
   - name: Create an Azure Digital Twins instance

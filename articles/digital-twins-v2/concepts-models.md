@@ -27,7 +27,7 @@ You can think of the models as nouns in a description of your world.
 
 Models for Azure Digital Twins are defined using the Digital Twins Definition language (DTDL). DTDL is based on JSON-LD and is programming-language independent.
 
-For more information about DTDL, see [Concepts: Digital Twins Definition language (DTDL)](concepts-dtdl.md), or view its [reference documentation](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+For more information about DTDL, see its [spec document (DTDL version 2)](https://github.com/Azure/azure-digital-twins/blob/public-preview/DTDL/DTDL-spec.md), or its [reference documentation](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
 ## Elements of a model
 
@@ -178,6 +178,3 @@ Learn about how digital twins are created based on models:
 
 See how to manage models with the DigitalTwinsModels APIs:
 * [How-to: Manage a twin model](how-to-manage-model.md)
-
-Or, dive more in-depth into DTDL:
-* [Concepts: Digital Twins Definition Language (DTDL)](concepts-dtdl.md)
