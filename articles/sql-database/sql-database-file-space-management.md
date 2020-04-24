@@ -1,10 +1,10 @@
 ---
-title: Single/pooled databases file space management
+title: Azure SQL Database file space management
 description: This page describes how to manage file space with single and pooled databases in Azure SQL Database, and provides code samples for how to determine if you need to shrink a single or a pooled database as well as how to perform a database shrink operation.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: oslake
@@ -12,16 +12,16 @@ ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
 ---
-# Manage file space for single and pooled databases in Azure SQL Database
+# Manage file space for databases in Azure SQL Database
 
-This article describes different types of storage space for single and pooled databases in Azure SQL Database, and steps that can be taken when the file space allocated for databases and elastic pools needs to be explicitly managed.
+This article describes different types of storage space for databases in Azure SQL Database, and steps that can be taken when the file space allocated needs to be explicitly managed.
 
 > [!NOTE]
-> This article does not apply to the managed instance deployment option in Azure SQL Database.
+> This article does not apply to Azure SQL Database Managed Instance.
 
 ## Overview
 
-With single and pooled databases in Azure SQL Database, there are workload patterns where the allocation of underlying data files for databases can become larger than the amount of used data pages. This condition can occur when space used increases and data is subsequently deleted. The reason is because file space allocated is not automatically reclaimed when data is deleted.
+With Azure SQL Database, there are workload patterns where the allocation of underlying data files for databases can become larger than the amount of used data pages. This condition can occur when space used increases and data is subsequently deleted. The reason is because file space allocated is not automatically reclaimed when data is deleted.
 
 Monitoring file space usage and shrinking data files may be necessary in the following scenarios:
 
@@ -43,10 +43,10 @@ However, the following APIs also measure the size of space allocated for databas
 
 ### Shrinking data files
 
-The SQL Database service does not automatically shrink data files to reclaim unused allocated space due to the potential impact to database performance.  However, customers may shrink data files via self-service at a time of their choosing by following the steps described in [reclaim unused allocated space](#reclaim-unused-allocated-space).
+Azure SQL Database does not automatically shrink data files to reclaim unused allocated space due to the potential impact to database performance.  However, customers may shrink data files via self-service at a time of their choosing by following the steps described in [reclaim unused allocated space](#reclaim-unused-allocated-space).
 
 > [!NOTE]
-> Unlike data files, the SQL Database service automatically shrinks log files since that operation does not impact database performance.
+> Unlike data files, Azure SQL Database automatically shrinks log files since that operation does not impact database performance.
 
 ## Understanding types of storage space for a database
 
@@ -232,5 +232,5 @@ After database data files are shrunk, indexes may become fragmented and lose the
   - [Resource limits for single databases using the DTU-based purchasing model](sql-database-dtu-resource-limits-single-databases.md)
   - [Azure SQL Database vCore-based purchasing model limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md)
   - [Resources limits for elastic pools using the DTU-based purchasing model](sql-database-dtu-resource-limits-elastic-pools.md)
-- For more information about the `SHRINKDATABASE` command, see [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
-- For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+- For more information about the `SHRINKDATABASE` command, see [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+- For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

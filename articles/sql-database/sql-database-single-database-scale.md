@@ -4,7 +4,7 @@ description: This article describes how to scale the compute and storage resourc
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom:
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -40,7 +40,7 @@ Changing the service tier or compute size of mainly involves the service perform
 > [!IMPORTANT]
 > No data is lost during any step in the workflow. Make sure that you have implemented some [retry logic](sql-database-connectivity-issues.md) in the applications and components that are using Azure SQL Database while the service tier is changed.
 
-## Latency 
+## Latency
 
 The estimated latency to change the service tier or rescale the compute size of a single database or elastic pool is parameterized as follows:
 
@@ -57,7 +57,7 @@ The estimated latency to change the service tier or rescale the compute size of 
 
 A service tier change or compute rescaling operation can be canceled.
 
-#### Azure portal
+### Azure portal
 
 In the database overview blade, navigate to **Notifications** and click on the tile indicating there is an ongoing operation:
 
@@ -67,7 +67,7 @@ Next, click on the button labeled **Cancel this operation**.
 
 ![Cancel ongoing operation](media/sql-database-single-database-scale/cancel-ongoing-operation.png)
 
-#### PowerShell
+### PowerShell
 
 From a PowerShell command prompt, set the `$resourceGroupName`, `$serverName`, and `$databaseName`, and then run the following command:
 
@@ -86,13 +86,13 @@ else {
 
 - If you are upgrading to a higher service tier or compute size, the database max size does not increase unless you explicitly specify a larger size (maxsize).
 - To downgrade a database, the database used space must be smaller than the maximum allowed size of the target service tier and compute size.
-- When downgrading from **Premium** to the **Standard** tier, an extra storage cost applies if both (1) the max size of the database is supported in the target compute size, and (2) the max size exceeds the included storage amount of the target compute size. For example, if a P1 database with a max size of 500 GB is downsized to S3, then an extra storage cost applies since S3 supports a max size of 1 TB and its included storage amount is only 250 GB. So, the extra storage amount is 500 GB – 250 GB = 250 GB. For pricing of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of space used is less than the included storage amount, then this extra cost can be avoided by reducing the database max size to the included amount.
+- When downgrading from **Premium** to the **Standard** tier, an extra storage cost applies if both (1) the max size of the database is supported in the target compute size, and (2) the max size exceeds the included storage amount of the target compute size. For example, if a P1 database with a max size of 500 GB is downsized to S3, then an extra storage cost applies since S3 supports a max size of 1 TB and its included storage amount is only 250 GB. So, the extra storage amount is 500 GB – 250 GB = 250 GB. For pricing of extra storage, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of space used is less than the included storage amount, then this extra cost can be avoided by reducing the database max size to the included amount.
 - When upgrading a database with [geo-replication](sql-database-geo-replication-portal.md) enabled, upgrade its secondary databases to the desired service tier and compute size before upgrading the primary database (general guidance for best performance). When upgrading to a different edition, it is a requirement that the secondary database is upgraded first.
 - When downgrading a database with [geo-replication](sql-database-geo-replication-portal.md) enabled, downgrade its primary databases to the desired service tier and compute size before downgrading the secondary database (general guidance for best performance). When downgrading to a different edition, it is a requirement that the primary database is downgraded first.
 - The restore service offerings are different for the various service tiers. If you are downgrading to the **Basic** tier, there is a lower backup retention period. See [Azure SQL Database Backups](sql-database-automated-backups.md).
 - The new properties for the database are not applied until the changes are complete.
 
-## Billing 
+## Billing
 
 You are billed for each hour a database exists using the highest service tier + compute size that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a single database and delete it five minutes later your bill reflects a charge for one database hour.
 
@@ -102,9 +102,9 @@ You are billed for each hour a database exists using the highest service tier + 
 
 - Storage can be provisioned up to the data storage max size limit using 1 GB increments. The minimum configurable data storage is 1 GB. See resource limit documentation pages for [single databases](sql-database-vcore-resource-limits-single-databases.md) and [elastic pools](sql-database-vcore-resource-limits-elastic-pools.md) for data storage max size limits in each service objective.
 - Data storage for a single database can be provisioned by increasing or decreasing its max size using the [Azure portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or [REST API](https://docs.microsoft.com/rest/api/sql/databases/update). If the max size value is specified in bytes, it must be a multiple of 1 GB (1073741824 bytes).
-- The amount of data that can be stored in the data files of a database is limited by the configured data storage max size. In addition to that storage, SQL Database automatically allocates 30% more storage to be used for the transaction log.
-- SQL Database automatically allocates 32 GB per vCore for the `tempdb` database. `tempdb` is located on the local SSD storage in all service tiers.
-- The price of storage for a single database or an elastic pool is the sum of data storage and transaction log storage amounts multiplied by the storage unit price of the service tier. The cost of `tempdb` is included in the price. For details on storage price, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
+- The amount of data that can be stored in the data files of a database is limited by the configured data storage max size. In addition to that storage, Azure SQL Database automatically allocates 30% more storage to be used for the transaction log.
+- Azure SQL Database automatically allocates 32 GB per vCore for the `tempdb` database. `tempdb` is located on the local SSD storage in all service tiers.
+- The price of storage for a single database or an elastic pool is the sum of data storage and transaction log storage amounts multiplied by the storage unit price of the service tier. The cost of `tempdb` is included in the price. For details on storage price, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
@@ -113,14 +113,14 @@ You are billed for each hour a database exists using the highest service tier + 
 
 - The DTU price for a single database includes a certain amount of storage at no additional cost. Extra storage beyond the included amount can be provisioned for an additional cost up to the max size limit in increments of 250 GB up to 1 TB, and then in increments of 256 GB beyond 1 TB. For included storage amounts and max size limits, see [Single database: Storage sizes and compute sizes](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
 - Extra storage for a single database can be provisioned by increasing its max size using the Azure portal, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
-- The price of extra storage for a single database is the extra storage amount multiplied by the extra storage unit price of the service tier. For details on the price of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
+- The price of extra storage for a single database is the extra storage amount multiplied by the extra storage unit price of the service tier. For details on the price of extra storage, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
 ### Geo-replicated database
 
-To change the database size of a replicated secondary database, change the size of the primary database. This change will then be replicated and implemented on the secondary database as well. 
+To change the database size of a replicated secondary database, change the size of the primary database. This change will then be replicated and implemented on the secondary database as well.
 
 ## P11 and P15 constraints when max size greater than 1 TB
 
@@ -134,4 +134,4 @@ More than 1 TB of storage in the Premium tier is currently available in all regi
 
 ## Next steps
 
-For overall resource limits, see [SQL Database vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [SQL Database DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-single-databases.md).
+For overall resource limits, see [Azure SQL Database vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [Azure SQL Database DTU-based resource limits - single databases](sql-database-dtu-resource-limits-single-databases.md).

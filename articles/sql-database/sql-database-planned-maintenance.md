@@ -4,7 +4,7 @@ description: Learn how to prepare for planned maintenance events to your Azure S
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: aamalvea
@@ -15,11 +15,11 @@ ms.date: 01/30/2019
 
 # Planning for Azure maintenance events in Azure SQL Database
 
-Learn how to prepare for planned maintenance events on your Azure SQL database.
+Learn how to prepare for planned maintenance events on your database in Azure SQL Database.
 
 ## What is a planned maintenance event
 
-For each database, Azure SQL DB maintains a quorum of database replicas where one replica is the primary. At all times a primary replica must be online servicing, and at least one secondary replica must be healthy. During planned maintenance, members of the database quorum will go offline one at a time, with the intent that there is one responding primary replica and at least one secondary replica online to ensure no client downtime. When the primary replica needs to be brought offline, a reconfiguration/failover process will occur in which one secondary replica will become the new primary.  
+For each database, Azure SQL Database maintains a quorum of database replicas where one replica is the primary. At all times a primary replica must be online servicing, and at least one secondary replica must be healthy. During planned maintenance, members of the database quorum will go offline one at a time, with the intent that there is one responding primary replica and at least one secondary replica online to ensure no client downtime. When the primary replica needs to be brought offline, a reconfiguration/failover process will occur in which one secondary replica will become the new primary.  
 
 ## What to expect during a planned maintenance event
 
@@ -35,10 +35,9 @@ On average, 1.7 planned maintenance events occur each month.
 
 ## Resource Health
 
-If your SQL database is experiencing login failures, check the [Resource Health](../service-health/resource-health-overview.md#get-started) window in the [Azure portal](https://portal.azure.com) for the current status. The Health History section contains the downtime reason for each event (when available).
-
+If your database is experiencing login failures, check the [Resource Health](../service-health/resource-health-overview.md#get-started) window in the [Azure portal](https://portal.azure.com) for the current status. The Health History section contains the downtime reason for each event (when available).
 
 ## Next steps
 
-- Learn more about [Resource Health](sql-database-resource-health.md) for SQL Database
-- For more information about retry logic, see [Retry logic for transient errors](sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
+- Learn more about [Resource Health](sql-database-resource-health.md) for Azure SQL Database
+- For more information about retry logic, see [Retry logic for transient errors](sql-database-connectivity-issues.md#retry-logic-for-transient-errors).

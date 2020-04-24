@@ -143,14 +143,13 @@ A recompilation (or fresh compilation after cache eviction) can still result in 
 
 Slow query performance not related to suboptimal query plans and missing indexes are generally related to insufficient or overused resources. If the query plan is optimal, the query (and the database) might be hitting the resource limits for the database, elastic pool, or managed instance. An example might be excess log write throughput for the service level.
 
-- Detecting resource issues using the Azure portal: To see if resource limits are the problem, see [SQL Database resource monitoring](sql-database-monitor-tune-overview.md#sql-database-resource-monitoring). For single databases and elastic pools, see [Database Advisor performance recommendations](sql-database-advisor.md) and [Query Performance Insights](sql-database-query-performance.md).
+- Detecting resource issues using the Azure portal: To see if resource limits are the problem, see [SQL Database resource monitoring](sql-database-monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring). For single databases and elastic pools, see [Database Advisor performance recommendations](sql-database-advisor.md) and [Query Performance Insights](sql-database-query-performance.md).
 - Detecting resource limits using [Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits)
 - Detecting resource issues using [DMVs](sql-database-monitoring-with-dmvs.md):
 
   - The [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) DMV returns CPU, I/O, and memory consumption for an SQL database. One row exists for every 15-second interval, even if there's no activity in the database. Historical data is maintained for one hour.
   - The [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) DMV returns CPU usage and storage data for Azure SQL Database. The data is collected and aggregated in five-minute intervals.
   - [Many individual queries that cumulatively consume high CPU](sql-database-monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
-  - 
 
 If you identify the problem as insufficient resource, you can upgrade resources to increase the capacity of your SQL database to absorb the CPU requirements. For more information, see [Scale single database resources in Azure SQL Database](sql-database-single-database-scale.md) and [Scale elastic pool resources in Azure SQL Database](sql-database-elastic-pool-scale.md). For information about scaling a managed instance, see [Service-tier resource limits](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 

@@ -1,15 +1,8 @@
 ---
 title: Use Python API to run an Azure Batch job
 description: Quickly run an Azure Batch sample job and tasks using the Batch Python client library. Learn the key concepts of the Batch service.
-services: batch
-author: LauraBrenner
-manager: evansma 
-
-ms.service: batch
-ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/27/2018
-ms.author: labrenne
 ms.custom: [seo-python-october2019, mvc]
 ---
 
