@@ -21,7 +21,7 @@ Azure Cosmos DB uses two types of keys to authenticate users and provide access 
 
 <a id="master-keys"></a>
 
-## Master keys
+## Master keys 
 
 Master keys provide access to all the administrative resources for the database account. Master keys:
 
@@ -38,7 +38,15 @@ Primary, secondary, read only, and read-write master keys can be retrieved and r
 
 ![Access control (IAM) in the Azure portal - demonstrating NoSQL database security](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
-The process of rotating your master key is simple. Navigate to the Azure portal to retrieve your secondary key, then replace your primary key with your secondary key in your application, then rotate the primary key in the Azure portal.
+### Key rotation<a id="key-rotation"></a>
+
+The process of rotating your master key is simple. 
+
+1. Navigate to the Azure portal to retrieve your secondary key.
+2. Replace your primary key with your secondary key in your application.
+3. Rotate the primary key in the Azure portal.
+4. Validate the new primary key works against all resource. Key rotation process can take any where from less than a minute to hours depending on the size of the Cosmos DB account.
+5. Replace the secondary key with the new primary key.
 
 ![Master key rotation in the Azure portal - demonstrating NoSQL database security](./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
 
