@@ -83,7 +83,10 @@ In this guide we will also expose the **developer portal** to external audiences
 > If you use Azure AD or third party authentication, please enable [cookie-based session affinity](../application-gateway/features.md#session-affinity) feature in Application Gateway.
 
 > [!WARNING]
-> To prevent Application Gateway WAF from breaking the download of OpenAPI specification in the developer portal, you need to disable the firewall rule `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`.
+> To prevent Application Gateway WAF from breaking the download of OpenAPI specification in the developer portal, you need to disable the following firewall rules 
+`942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`
+`942100 - "SQL Injection Attack Detected via libinjection"`
+`942110 - "SQL Injection Attack: Common Injection Testing Detected"`.
 
 ## Create a resource group for Resource Manager
 
