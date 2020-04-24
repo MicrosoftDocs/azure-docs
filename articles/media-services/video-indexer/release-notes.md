@@ -61,7 +61,7 @@ In the coming weeks we will change it and return the [Video Indexer website](htt
     * Replacing the URL with a URL pointing to the Video Indexer widget APIs (for example, the [insights widget](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
     * Using the Video Indexer website to generate a new embedded URL:
          
-         Press **Play** to get to your video's page -> click **&lt;Embed&gt;** -> copy the URL into your application:
+         Press **Play** to get to your video's page -> click the **&lt;/&gt; Embed** button -> copy the URL into your application:
    
     The regional URLs are not supported and will be blocked in the coming weeks.
 
