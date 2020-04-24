@@ -73,7 +73,7 @@ An Azure Cosmos container is specialized into API-specific entities as shown in 
 |Azure Cosmos container | Container | Table | Collection | Graph | Table |
 
 > [!NOTE]
-> When creating containers, make sure you don’t create a two containers with the same name but different casing. That’s because some parts of the Azure platform are not case sensitive and this can result confusion/collision of telemetry and actions on containers with such names.
+> When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
 
 ### Properties of an Azure Cosmos container
 
