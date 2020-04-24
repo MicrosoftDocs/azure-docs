@@ -1,16 +1,9 @@
 ---
-title: Count states for tasks and nodes - Azure Batch | Microsoft Docs
+title: Count states for tasks and nodes
 description: Count the state of Azure Batch tasks and compute nodes to help manage and monitor Batch solutions.
-services: batch
-author: LauraBrenner
-manager: evansma
-
-ms.service: batch
-ms.topic: article
 ms.date: 09/07/2018
-ms.author: labrenne
+ms.topic: article
 ms.custom: seodec18
-
 ---
 # Monitor Batch solutions by counting tasks and nodes by state
 

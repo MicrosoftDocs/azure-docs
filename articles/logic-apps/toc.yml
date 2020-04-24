@@ -227,6 +227,8 @@
         href: ../connectors/connectors-create-api-ftp.md
       - name: GitHub
         href: ../connectors/connectors-create-api-github.md
+      - name: Gmail - Google data security & privacy policies
+        href: ../connectors/connectors-google-data-security-privacy-policy.md
       - name: HTTP
         href: ../connectors/connectors-native-http.md
       - name: HTTP + Swagger
