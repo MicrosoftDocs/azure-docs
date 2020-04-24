@@ -13,16 +13,20 @@ ms.author: cshoe
 
 Routing in Azure Static Web Apps defines back-end routing rules and authorization behavior for both static content and APIs. The rules are defined as an array of rules in the _routes.json_ file.
 
-- The _routes.json_ file must exist at the root of the static app.
+- The _routes.json_ file must exist at the root of built app.
 - Rules are executed in the same order as they appear in the `routes` array.
 - Roles are defined in the _routes.json_ file and users are associated to roles via [invitations](authentication-authorization.md).
 - You have full control over role names; there's no master list to which your roles must adhere.
 
 The topic of routing significantly overlaps with authentication and authorization concepts. Make sure to read the [authentication and authorization](authentication-authorization.md) guide along with this article.
 
+## Placement
+
+The _routes.json_ file must exist at the root of built app. If your web app includes a build step that copies built files to a specific folder, then the _routes.json_ file needs to exist in this folder. For instance, React apps often build files to a _public_ folder. The _routes.json_ file would need to be placed in this folder.
+
 ## Defining routes
 
-Routes are defined the _routes.json_ file as an array of route rules on the `routes` property.
+Routes are defined in the _routes.json_ file as an array of route rules on the `routes` property.
 
 ```json
 {
@@ -36,7 +40,7 @@ Each rule is composed of a route pattern, along with one or more of the optional
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
 | `route`        | Yes      | n/a          | The route pattern requested by the caller. [Wildcards](#wildcards) are supported at the end of route paths. For instance, the route _admin/\*_ matches any route under the _admin_ path. |
 | `serve`        | No       | n/a          | Defines the file or path returned from the request. The file path and name can be different from the requested path. If `serve` value is defined, then the requested path is used. |
-| `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role `anonymous` applies to all unauthenticated users.<li>The built-in role `authenticated` applies any logged-in user.<li>Users must belong to at least one role.<li>Roles are matched on an _OR_ basis. If a user is in any of the listed roles, then access is granted.<li>Individual users are associated to roles by through [invitations](authentication-authorization.md).</ul> |
+| `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role `anonymous` applies to all unauthenticated users.<li>The built-in role `authenticated` applies to any logged-in user.<li>Users must belong to at least one role.<li>Roles are matched on an _OR_ basis. If a user is in any of the listed roles, then access is granted.<li>Individual users are associated to roles by through [invitations](authentication-authorization.md).</ul> |
 | `statusCode`   | No       | 200           | The [HTTP status code](https://wikipedia.org/wiki/List_of_HTTP_status_codes) response for the request. |
 
 ## Securing routes with roles
@@ -93,7 +97,7 @@ You can also secure routes with wildcards. In the following example, any file re
 
 ## Redirects
 
-You can use [300 series HTTP status codes](https://www.wikipedia.org/wiki/URL_redirection#HTTP_status_codes_3xx) to redirect requests from one route to another.
+You can use [301](https://en.wikipedia.org/wiki/HTTP_301) and [302](https://en.wikipedia.org/wiki/HTTP_302) HTTP status codes to redirect requests from one route to another.
 
 For instance, the following rule creates a 301 redirect from one page to another.
 
@@ -125,11 +129,11 @@ The following table lists the available platform error overrides:
 |---------|---------|---------|
 | `NotFound` | 404  | A page is not found on the server. |
 | `Unauthenticated` | 401 | The user is not logged in with an [authentication provider](authentication-authorization.md). |
-| `Unauthorized_InsufficientUserInformation` | 401 | The user's profile on the authentication provider is not configured to expose required data. This error happens in situations like when an authentication provider needs to expose the user's email address, but their profile has it restricted. |
+| `Unauthorized_InsufficientUserInformation` | 401 | The user's account on the authentication provider is not configured to expose required data. This error happens in situations like when an authentication provider is asked for the user's email address, but the user has chosen to restricted it. |
 | `Unauthorized_InvalidInvitationLink` | 401 | An invitation has either expired, or the user followed an invitation link generated for another recipient.  |
 | `Unauthorized_MissingRoles` | 401 | The user is not a member of a required role. |
 | `Unauthorized_TooManyUsers` | 401 | The site has reached the maximum number of users, and the server is limiting further additions. This error is exposed to the client because there's no limit to the number of [invitations](authentication-authorization.md) you can generate, and some users may never accept their invitation.|
-| `Unauthorized_Unknown` | 401 | The authentication provider doesn't recognize the user, because they didn't grant consent to the application.|
+| `Unauthorized_Unknown` | 401 | There is an unknown problem while trying to authenticate the user. One cause for this error may be that the user isn't recognized because they didn't grant consent to the application.|
 
 ## Example route file
 
@@ -176,6 +180,10 @@ The following example shows how to build route rules in a _routes.json_ file.
     {
       "errorType": "NotFound",
       "serve": "/custom-404.html"
+    },
+    {
+      "errorType": "Unauthenticated",
+      "serve": "/login"
     }
   ]
 }
@@ -185,9 +193,9 @@ The following examples describe what happens when a request matches a rule.
 
 |Requests to...  | Result in... |
 |---------|---------|---------|
-| _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users are challenged to authenticate. |
-| _/admin/reports_ | Authenticated users in the _administrators_ role are served the _/admin/reports/index.html_ file. Authenticated users not in the _administrators_ role are served a 401 error<sup>1</sup>. Unauthenticated users are challenged to authenticate. |
-| _/customers/contoso_ | Authenticated users who belong to either the _administrators_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file<sup>1</sup>. Authenticated users not in the _administrators_ or _customers\_contoso_ roles are served a 401 error. Unauthenticated users are challenged to authenticate. |
+| _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users redirected to _/login_. |
+| _/admin/reports_ | Authenticated users in the _administrators_ role are served the _/admin/reports/index.html_ file. Authenticated users not in the _administrators_ role are served a 401 error<sup>1</sup>. Unauthenticated users redirected to _/login_. |
+| _/customers/contoso_ | Authenticated users who belong to either the _administrators_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file<sup>1</sup>. Authenticated users not in the _administrators_ or _customers\_contoso_ roles are served a 401 error. Unauthenticated users redirected to _/login_. |
 | _/login_     | Unauthenticated users are challenged to authenticate with GitHub. |
 | _/.auth/login/twitter_     | Authorization with Twitter is disabled. The server responds with a 404 error. |
 | _/logout_     | Users are logged out of any authentication provider. |
