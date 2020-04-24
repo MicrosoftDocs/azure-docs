@@ -6,15 +6,15 @@ ms.service: service-fabric
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
-ms.date: 04/27/2020
+ms.date: 04/24/2020
 ---
 # Quickstart: Create a Service Fabric cluster using Resource Manager template
 
-Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and containers. An Service Fabric *cluster* is a network-connected set of virtual machines into which your microservices are deployed and managed.
+Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and containers. A Service Fabric *cluster* is a network-connected set of virtual machines into which your microservices are deployed and managed.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-This article describes how to deploy a Service Fabric test cluster in Azure using the Resource Manager. This 5-node Windows cluster is secured with a self-signed certificate and thus only intended for instructional purposes (rather than production workloads).
+This article describes how to deploy a Service Fabric test cluster in Azure using the Resource Manager. This five-node Windows cluster is secured with a self-signed certificate and thus only intended for instructional purposes (rather than production workloads).
 
 We'll use Azure PowerShell to deploy the template. In addition to Azure PowerShell, you can also use the Azure portal, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
 
@@ -28,11 +28,11 @@ To complete this quickstart, you'll need to:
 
 * Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
 
-* Install [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* Install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 ### Download the sample template and certificate helper script
 
-Clone or download the [Azure Resource Manager QuickStart Templates](https://github.com/Azure/azure-quickstart-templates) repo. Alternatively, simply copy down locally the following files we'll be using from the *service-fabric-secure-cluster-5-node-1-nodetype* folder:
+Clone or download the [Azure Resource Manager quickstart Templates](https://github.com/Azure/azure-quickstart-templates) repo. Alternatively, copy down locally the following files we'll be using from the *service-fabric-secure-cluster-5-node-1-nodetype* folder:
 
 * [New-ServiceFabricClusterCertificate.ps1](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/New-ServiceFabricClusterCertificate.ps1)
 * [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json)
@@ -85,7 +85,7 @@ $certThumbprint = "<Certificate Thumbprint>"
 
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype). The template for this article is too long to show here. To view the template, see https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json.
+The template used in this quickstart is from [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype). The template for this article is too long to show here. To view the template, see https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json.
 
 Multiple Azure resources have been defined in the template:
 
@@ -97,7 +97,7 @@ Multiple Azure resources have been defined in the template:
 * [Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters)
 
 To find more templates that are related to Azure Service Fabric, see
-[Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?sort=Popular&term=service+fabric).
+[Azure quickstart Templates](https://azure.microsoft.com/resources/templates/?sort=Popular&term=service+fabric).
 
 ### Customize the parameters file
 
@@ -139,7 +139,7 @@ For example:
 
 ## Deploy the template
 
-Store the paths of your resource manager template and parameter files in variables, then deploy the template.
+Store the paths of your Resource Manager template and parameter files in variables, then deploy the template.
 
 ```powershell
 $templateFilePath = "<full path to azuredeploy.json>"
