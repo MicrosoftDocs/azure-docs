@@ -28,7 +28,7 @@ Model decomposition has the following parts:
 * [intents](#intents-classify-utterances)
     * [features](#features)
 * [machine-learned entities](#machine-learned-entities)
-    * [components](#machine-learned-entity-components-help-extract-data) (also machine-learned entities)
+    * [subentities](#machine-learned-entity-components-help-extract-data) (also machine-learned entities)
         * [features](#features)
         * [constraints](#constraints-are-text-rules) provided by non-machine-learned entities such as regular expressions, lists, and prebuilt entities (such as number and date)
 
@@ -50,34 +50,34 @@ An entity represents a unit of data you want extracted from the utterance.
 
 ## Machine-learned entities
 
-A machine-learned entity is a top-level entity containing components, which are also machine-learned entities.
+A machine-learned entity is a top-level entity containing subentities, which are also machine-learned entities.
 
-Each component can have:
+Each subentity can have:
 
-* components
-* features (features such as a phrase list)
-* constraints (regular expression entity, list entity, prebuilt entity)
+* child subentities - total length of 5 entities from parent to last child
+    * machine-learned features - such as a phrase list
+    * constraints (regular expression entity, list entity, prebuilt entity)
 
 An example of a machine-learned entity is an order for a plane ticket. Conceptually this is a single transaction with many smaller units of data such as date, time, quantity of seats, type of seat such as first class or coach, origin location, destination location, and meal choice.
 
-### Machine-learned entity components help extract data
+### Machine-learned subentity help extract data
 
-A component is a machine-learned child entity within a machine-learned parent entity.
+A subentity is a machine-learned child entity within a machine-learned parent entity.
 
-**Use the component to**:
+**Use the subentity to**:
 
 * decompose the parts of the machine-learned entity (parent entity).
 
 The following represents a machine-learned entity with all these separate pieces of data:
 
 * TravelOrder (machine-learned entity)
-    * DateTime (component with prebuilt datetimeV2 constraint)
-    * Location To (component with prebuilt geographyV2 constraint)
-    * Location From (component with prebuilt geographyV2 constraint)
-    * Seating (component)
-        * Quantity (component with prebuilt number constraint)
-        * Quality (component with feature of phrase list such as `first`, `business`, and `couch`)
-    * Meals (component with constraint of list entity as food choices)
+    * DateTime (subentity with prebuilt datetimeV2 constraint)
+    * Location To (subentity with prebuilt geographyV2 constraint)
+    * Location From (subentity with prebuilt geographyV2 constraint)
+    * Seating (subentity)
+        * Quantity (subentity with prebuilt number constraint)
+        * Quality (subentitywith feature of phrase list such as `first`, `business`, and `couch`)
+    * Meals (subentity with constraint of list entity as food choices)
 
 Some of this data, such as the origin location and destination location, should be learned from the context of the utterance, perhaps with such wording as `from` and `to`. Other parts of data can be extracted with exact string matches (`Vegan`) or prebuilt entities (geographyV2 of `Seattle` and `Cairo`).
 
@@ -85,7 +85,7 @@ You design how the data is matched and extracted by which models you choose and 
 
 ### Constraints are text rules
 
-A constraint is a text-matching rule, provided by a non-machine-learned entity. The constraint is applied at prediction time to limit the prediction and provide entity resolution needed by the client application. You define these rules while authoring the component.
+A constraint is a text-matching rule, provided by a non-machine-learned entity. The constraint is applied at prediction time to limit the prediction and provide entity resolution needed by the client application. You define these rules while authoring the subentity.
 
 Use a constraint when you know the exact text to extract.
 
