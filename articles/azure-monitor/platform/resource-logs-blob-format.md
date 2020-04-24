@@ -1,19 +1,20 @@
 ---
-title: Prepare for format change to Azure Monitor resource logs
-description: Azure resource logs moved to use append blobs on November 1, 2018.
+title: Azure Monitor resource logs change to json format Azure storage
+description: Azure resource logs moved to use append blobs in Azure Storage on November 1, 2018.
 author: johnkemnetz
 services: monitoring
 
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 04/24/2020
 ms.author: johnkem
 ms.subservice: logs
 ---
-# Prepare for format change to Azure Monitor platform logs archived to a storage account
+# Azure Monitor resource logs change to json format Azure storage
 
-> [!WARNING]
-> If you are sending [Azure resource logs or metrics to a storage account using diagnostic settings](resource-logs-collect-storage.md) or [activity logs to a storage account using log profiles](resource-logs-collect-storage.md), the format of the data in the storage account changed to JSON Lines on Nov. 1, 2018. The instructions below describe the impact and how to update your tooling to handle the new format.
->
+This article applies to [Azure resource logs or metrics sent to an Azure storage account using diagnostic settings](resource-logs-collect-storage.md). It also applies to sending the Activity log to storage using the [newer diagnostic settings](activity-log-collect.md) and the older [export method](activity-log-export.md). 
+
+The instructions below describe the impact and how to update your tooling to handle the new format in Azure storage..
+
 
 ## What changed
 
