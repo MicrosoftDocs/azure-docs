@@ -85,7 +85,13 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. If no VMs are found, select **+ Add** to create the compute instance VM. 
 
-    1. When you create a VM, provide a name.  The name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character, and must also be unique across your Azure subscription.
+    1. When you create a VM, follow these rules:  
+        + Name is required and can't be empty.
+        + Name needs to be unique (in a case insensitive fashion) across all existing compute instances in the Azure region of the workspace/compute instance. You'll get an alert if the name you choose is not unique.
+        + Valid characters are upper and lower case letters, numbers (0 to 9), and dash character (-).
+        + Name must be between 3 and 24 characters long.
+        + Name should start with a letter (not a number or a dash character).
+        + If dash character is used, then it needs to be followed by at least one letter after the dash. Example: Test-, test-0, test-01 are invalid, while test-a0, test-0a are valid instances.
 
     1.  Select the Virtual Machine size from the available choices.
 
