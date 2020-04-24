@@ -14,8 +14,8 @@ Azure Cosmos DB has now become an obvious choice because of:
 - Five levels of Consistency 
 - Throughput 
 - Latency (reads/writes guarantee)
-- Multi-geo distribution with read/write capabilities in all nodes (span across the world with 52+ Azure Regions), [refer here.](distribute-data-globally)
-- Wide SLA, which covers Availability, Consistency, Throughput & Latency, [refer here.](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_3/)
+- Multi-geo distribution with read/write capabilities in all nodes (span across the world with 52+ Azure Regions), [refer here.](/distribute-data-globally)
+- Wide SLA, which covers Availability, Consistency, Throughput & Latency, [refer here.](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)
 - Cost Flexibility:
     - Uniform pricing strategy across APIs, so no need to separately purchase individual service for specialized data model (Document, Graph, Columnar, so on)
     - No separate meter for read compute cost or write compute cost.
@@ -85,7 +85,7 @@ client_documentDB = new CosmosClient("your connectionstring from the Azure porta
 ```
 *****Azure Cosmos DB (Optimized)*****
 <br>With Azure Cosmos DB, you can use the following options to optimize your connection as:
-- ConnectionMode - Direct, it uses direct connectivity to connect to the data nodes in the Azure Cosmos DB service. Use gateway only to initialize and cache logical addresses and refresh on updates, refer [here](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.documents.client.connectionmode?view=azure-dotnet) for more details.
+- ConnectionMode - Direct, it uses direct connectivity to connect to the data nodes in the Azure Cosmos DB service. Use gateway only to initialize and cache logical addresses and refresh on updates, refer [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionmode?view=azure-dotnet) for more details.
 - ApplicationRegion - preferred geo-replicated region to be used for Azure Cosmos DB service interaction. For global-distribution in Azure Cosmos DB, refer [here](/distribute-data-globally)
 - ConsistencyLevel - you can override default consistency. For consistency, refer [here](/consistency-levels) for more details.
 - BulkExecutionMode - To execute bulk operations, by enabling this option, refer [here](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk/) for more details.
