@@ -136,7 +136,10 @@ Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.mic
 
 After you've verified that the function runs correctly on your local computer, it's time to call the API from the Vanilla JavaScript application.
 
-### Call the function from the application
+### Call the API from the application
+
+<!-- include proxy config docs -->
+[!INCLUDE [](./static-web-apps-local-proxy.md)]
 
 1. Update the content of the `index.html` with the following code that will fetch the text from the API function and how it on the screen:
 
