@@ -56,6 +56,7 @@ There are some cases where the invitation email is recommended over a direct lin
 When a user clicks the **Accept invitation** link in an [invitation email](invitation-email-elements.md), Azure AD automatically redeems the invitation based on the redemption flow as shown below:
 
 ![Screenshot showing the redemption flow diagram](media/redemption-experience/invitation-redemption-flow.png)
+
 **If the user’s User principle name (UPN) matches with both an existing Azure AD and personal MSA account, the user will be prompted to choose which account they want to redeem with.*
 
 1. Azure AD performs user-based discovery to determine if the user exists in an [existing Azure AD tenant](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b#easily-add-guest-users-in-the-azure-ad-portal).
