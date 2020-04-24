@@ -105,6 +105,18 @@ If you received the following error message: "The MAC signature found in the HTT
 3. There is a race condition with container creation. An application instance is trying to access the container before container creation is complete. The most common scenario for this if the application is running, and the container is deleted and recreated with the same name while the application is running. The SDK will attempt to use the new container, but the container creation is still in progress so it does not have the keys.
    1. 401 MAC signature issue is seen shortly after a container creation, and only occur until the container creation is completed.
  
+ ### HTTP Error 400. The size of the request headers is too long.
+ The size of the header has grown to large and is exceeding the maximum allowed size. It's always recommended to use the latest SDK. Make sure to use at least version [2.9.3](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md#-293) or [3.5.1](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md#-351---2019-12-11) which adds header size tracing to the exception message.
+
+Causes:
+ 1. The session token has grown to large. The session token grows as the number of partitions increase in the container.
+ 2. The continuation token has grown to large. Different queries will have different continuation token sizes.
+ 3. It's caused by a combination of the session token and continuation token.
+
+Solution:
+   1. Follow the [performance tips](performance-tips.md) and convert the application to Direct + TCP connection mode. Direct + TCP does not have the header size restriction like HTTP does which avoids this issues.
+   2. If the session token is the cause then a temporary mitgiation is to restart the application. This will resest the session token, but it will eventually grow back to the size that causes the issue. This will also confirm it is the session token.
+   3. If the application can not be converted to Direct + TCP and the continuation token is the cause try setting the ResponseContinuationTokenLimitInKb in the FeedOptions for v2 or the QueryRequestOptions in v3.
 
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
