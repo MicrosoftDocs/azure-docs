@@ -32,7 +32,7 @@ The similarities between SRE and DevOps are clear. Where it gets really interest
 
 ### "class SRE implements interface DevOps"
 
-_The Site Reliability Workbook_ (mentioned in our [resource book list](../resources/books.md)) discusses SRE and DevOps in its first chapter. That chapter uses the phrase "class SRE implements interface DevOps" as its subtitle. This is meant to suggest (using a phrase aimed at developers) that SRE could be considered a specific implementation of the DevOps philosophy. As the chapter points out, "DevOps is relatively silent on how to run operations at a detailed level" while SRE is considerably more proscriptive in its practices. So one possible answer to the question of how the two relate is SRE could be considered one of many possible implementations of DevOps.
+_The Site Reliability Workbook_ (mentioned in our [resource book list](../resources/books.md)) discusses SRE and DevOps in its first chapter. That chapter uses the phrase "class SRE implements interface DevOps" as its subtitle. This is meant to suggest (using a             phrase aimed at developers) that SRE could be considered a specific implementation of the DevOps philosophy. As the chapter points out, "DevOps is relatively silent on how to run operations at a detailed level" while SRE is considerably more proscriptive in its practices. So one possible answer to the question of how the two relate is SRE could be considered one of many possible implementations of DevOps.
 
 ### SRE is to reliability as DevOps is to delivery
 
@@ -71,3 +71,7 @@ The final question we'd like to address is "Can you have both SRE and DevOps in 
 The answer to this question is an emphatic "yes!".
 
 We hope that the previous answers offer some idea how the two operations practices overlap and, when not overlapping, how they can be complementary in focus. Organizations with an established DevOps practice can experiment with SRE practices on a small scale (for example, trying SLIs and SLOs) without having to commit to creating SRE positions or teams. This is a fairly common SRE adoption pattern.
+
+## Next Steps
+
+Interested in learning more about site reliability engineering or DevOps? Check out our [site reliability engineering hub](../index.yml) and [Azure DevOps Resource center](https://docs.microsoft.com/azure/devops/learn/).
