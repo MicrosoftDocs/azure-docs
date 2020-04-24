@@ -61,7 +61,7 @@ Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Se
 
 ## My drivers are missing for my Linux N-Series VM
 
-Instructions to install drivers for Windows-based VMs are located [here](../sizes-gpu.md#supported-operating-systems-and-drivers).
+Instructions to install drivers for Linux-based VMs are located [here](../sizes-gpu.md#supported-operating-systems-and-drivers).
 
 ## I can’t find a GPU instance within my N-Series VM
 
