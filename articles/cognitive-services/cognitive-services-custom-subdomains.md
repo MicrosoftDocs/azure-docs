@@ -61,7 +61,7 @@ Each custom subdomain name is unique, so in order to reuse a custom subdomain na
 Yes. This is a list of regional endpoints that you can use with Azure Cognitive Services resources.
 
 > [!NOTE]
-> The Translator API and Bing Search APIs use global endpoints.
+> The Translator service and Bing Search APIs use global endpoints.
 
 | Endpoint type | Region | Endpoint |
 |---------------|--------|----------|

@@ -1,10 +1,10 @@
-- name: Translator API Documentation
+- name: Translator Documentation
   href: index.yml
-- name: Translator API
+- name: Translator
   items:
   - name: Overview
     items:
-    - name: What is the Translator API?
+    - name: What is Translator?
       href: translator-info-overview.md
   - name: Quickstarts
     items:
@@ -34,7 +34,7 @@
       href: character-counts.md
   - name: How-to guides
     items:
-    - name: Sign-up for Translator API
+    - name: Sign-up for Translator
       href: translator-text-how-to-signup.md
     - name: Migrate to V3 Text API
       href: migrate-to-v3.md
@@ -66,7 +66,7 @@
       href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby
   - name: Reference
     items:
-    - name: v3 Translator API reference
+    - name: v3 Translator reference
       href: reference/v3-0-reference.md
       items:
       - name: Languages
@@ -83,7 +83,7 @@
         href: reference/v3-0-dictionary-lookup.md
       - name: Dictionary Examples
         href: reference/v3-0-dictionary-examples.md
-    - name: v2 Translator API reference (Deprecated)
+    - name: v2 Translator reference (Deprecated)
       href: reference/v2-0-reference.md
       items:
       - name: Transform text

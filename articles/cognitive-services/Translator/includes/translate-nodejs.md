@@ -48,7 +48,7 @@ var endpoint = process.env[endpoint_var];
 The `request()` method, made available through the request module, allows us to pass the HTTP method, URL, request params, headers, and the JSON body as an `options` object. In this code snippet, we'll configure the request:
 
 >[!NOTE]
-> For more information about endpoints, routes, and request parameters, see [Translator API 3.0: Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
+> For more information about endpoints, routes, and request parameters, see [Translator 3.0: Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ```javascript
 let options = {
@@ -93,7 +93,7 @@ request(options, function(err, res, body){
 
 ## Put it all together
 
-That's it, you've put together a simple program that will call the Translator API and return a JSON response. Now it's time to run your program:
+That's it, you've put together a simple program that will call the Translator and return a JSON response. Now it's time to run your program:
 
 ```console
 node translate-text.js
@@ -130,7 +130,7 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
