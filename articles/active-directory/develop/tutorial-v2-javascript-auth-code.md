@@ -119,7 +119,7 @@ Make sure you have [Node.js](https://nodejs.org/en/download/) installed, and the
    // Start the server.
    app.listen(port);
    console.log(`Listening on port ${port}...`);
-```
+    ```
 
 You now have a simple server to serve your SPA. The intended folder structure at the end of this tutorial is as follows:
 
