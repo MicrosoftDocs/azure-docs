@@ -504,7 +504,7 @@ Cognitive Services resource owners can manage consent requests and the private e
 
 ### Private endpoints
 
-When creating the private endpoint, you must specify the Cognitive Services resource to which it connects. For more detailed information on creating a private endpoint, refer to the following articles:
+When creating the private endpoint, you must specify the Cognitive Services resource it connects to. For more information on creating a private endpoint, refer to the following articles:
 
 - [Create a private endpoint using the Private Link Center in the Azure portal](../private-link/create-private-endpoint-portal.md)
 - [Create a private endpoint using Azure CLI](../private-link/create-private-endpoint-cli.md)
