@@ -11,7 +11,7 @@ ms.date: 04/13/2020
 
 # Marketplace metering service APIs - FAQ
 
-Once an Azure user subscribes to a SaaS service that includes metered billing, you will track consumption for each billing dimension being used by the customer. If the consumption exceeds the included quantities set for the term selected by the customer, your service will emit usage events to Microsoft.
+When an Azure user subscribes to a SaaS service that includes metered billing, you will track consumption for each billing dimension being used by the customer. If the consumption exceeds the included quantities set for the term selected by the customer, your service will emit usage events to Microsoft.
 
 ## Emit usage events
 
@@ -30,7 +30,7 @@ Ideally, you are expected to emit usage every hour for the past hour, only if th
 
 Ideally, usage event is emitted every hour for events that occurred in the past hour. However, delays are expected. The maximum delay allowed is 24 hours, after which usage events will not be accepted.
 
-For example, if a usage event occurs at 1 PM on a day, you have until 1 PM on the next day to emit a usage event associated with this event. This means in the case of the system emitting usage has a down time, it can recover and then send the usage event for the hour interval in which the usage happened, without loss of fidelity.
+For example, if a usage event occurs at 1 PM on a day, you have until 1 PM on the next day to emit a usage event associated with this event. When the system emitting usage has a down time, it will recover and then send the usage event for the hour interval in which the usage happened, without loss of fidelity.
 
 ### What happens when you send more than one usage event on the same hour?
 
@@ -52,4 +52,4 @@ If the error persists, then resubmit that custom meter the next hour (accumulate
 
 ## Next steps
 
-- See [Marketplace metering service APIs](./marketplace-metering-service-apis.md) for more information.
+- For more information, see [Marketplace metering service APIs](./marketplace-metering-service-apis.md).
