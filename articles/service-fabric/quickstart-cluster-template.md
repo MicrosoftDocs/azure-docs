@@ -6,7 +6,7 @@ ms.service: service-fabric
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
-ms.date: 04/24/20
+ms.date: 04/27/2020
 ---
 # Quickstart: Create a Service Fabric cluster using Resource Manager template
 
@@ -49,7 +49,7 @@ Login-AzAccount -SubscriptionId "<subscription ID>"
 
 ### Create a self-signed certificate stored in Key Vault
 
-Service Fabric uses X.509 certificates to [secure a cluster](./service-fabric-cluster-security.md) and provide application security features, and [Key Vault](../key-vault/general/overview) to manage those certificates. Successful cluster creation requires a cluster certificate to enable node-to-node communication. For the purpose of creating this quickstart test cluster, we'll create a self-signed certificate for cluster authentication. Production workloads require certificates created using a correctly configured Windows Server certificate service or one from an approved certificate authority (CA).
+Service Fabric uses X.509 certificates to [secure a cluster](./service-fabric-cluster-security.md) and provide application security features, and [Key Vault](../key-vault/general/overview.md) to manage those certificates. Successful cluster creation requires a cluster certificate to enable node-to-node communication. For the purpose of creating this quickstart test cluster, we'll create a self-signed certificate for cluster authentication. Production workloads require certificates created using a correctly configured Windows Server certificate service or one from an approved certificate authority (CA).
 
 ```powershell
 # Designate unique (within cloudapp.azure.com) names for your resources
@@ -98,7 +98,7 @@ Multiple Azure resources have been defined in the template:
 * [Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters)
 
 To find more templates that are related to Azure Service Fabric, see
-[Azure Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/?sort=Popular&term=service+fabric).
+[Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?sort=Popular&term=service+fabric).
 
 ### Customize the parameters file
 
@@ -158,7 +158,9 @@ New-AzResourceGroupDeployment `
 
 ## Review deployed resources
 
+Once the deployment completes, find the `managementEndpoint` value in the output and open the address in a web browser to view your cluster in [Service Fabric Explorer](./service-fabric-visualizing-your-cluster.md).
 
+You can also find the Service Fabric Explorer endpoint from your Service Explorer resource blade in Azure portal.
 
 ## Clean up resources
 
@@ -172,9 +174,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-<!-- You can either make the next steps similar to the next steps in your other quickstarts, or point users to the following tutorial.-->
-
-For a step-by-step tutorial that guides you through the process of creating a template, see:
+To learn about creating a custom Azure Service Fabric cluster template, see:
 
 > [!div class="nextstepaction"]
-> [ Tutorial: Create and deploy your first Azure Resource Manager template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Create a Service Fabric cluster Resource Manager template](service-fabric-cluster-creation-create-template.md)
