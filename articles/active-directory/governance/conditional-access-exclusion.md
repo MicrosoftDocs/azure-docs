@@ -91,8 +91,8 @@ Now you can create a Conditional Access policy that uses this exclusion group.
 
 7. Select the exclusion group you created.
 
->  [!NOTE] 
->  As a best practice, it is recommended to exclude at least one administrator account from the policy when testing to make sure you are not locked out of your tenant.
+   > [!NOTE] 
+   > As a best practice, it is recommended to exclude at least one administrator account from the policy when testing to make sure you are not locked out of your tenant.
 
 8. Continue with setting up the Conditional Access policy based on your organizational requirements.
 
@@ -105,8 +105,8 @@ Let's cover two examples where you can use access reviews to manage exclusions i
 Let's say you have a Conditional Access policy that blocks access from certain countries/regions. It includes a group that is excluded from the policy. Here is
 a recommended access review where members of the group are reviewed.
 
->[!NOTE] 
->A Global administrator or User administrator role is required to create access reviews.
+> [!NOTE] 
+> A Global administrator or User administrator role is required to create access reviews.
 
 1. The review will happen every week.
 
