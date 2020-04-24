@@ -56,7 +56,7 @@ The following table lists some runbook execution tasks with the recommended exec
 
 ## Using modules in your runbooks
 
-Azure Automation supports a number of default modules, including the AzureRM modules (AzureRM.Automation) and a module containing several internal cmdlets. Also supported are installable modules, including the Az modules (Az.Automation), currently being used in preference to AzureRM modules. For details of the modules that are available for your runbooks and DSC configurations, see [Manage modules in Azure Automation](../shared-resources/modules.md).
+Azure Automation supports a number of default modules, including the AzureRM modules (AzureRM.Automation) and a module containing several internal cmdlets. Also supported are installable modules, including the Az modules (Az.Automation), currently being used in preference to AzureRM modules. For details of the modules that are available for your runbooks and DSC configurations, see [Manage modules in Azure Automation](shared-resources/modules.md).
 
 ## Creating resources
 

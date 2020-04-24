@@ -576,7 +576,7 @@ There are two ways to resolve this error.
 * Instead of using [Start-Job](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/start-job?view=powershell-7), use [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) to start the runbook.
 * Try running the runbook on a Hybrid Runbook Worker.
 
-To learn more about this behavior and other behaviors of Azure Automation runbooks, see [Runbook behavior](../automation-runbook-execution.md#runbook-behavior).
+To learn more about this behavior and other behaviors of Azure Automation runbooks, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
 
 ## Scenario: Linux Hybrid Runbook Worker receives a prompt for a password when signing a runbook
 
@@ -664,7 +664,7 @@ For help with passing parameters into webhooks, see [Start a runbook from a webh
 
 ### Issues using Az modules
 
-Using an incomplete migration of your runbook modules from AzureRM to Az can cause sandbox crashes and runbook failures. See [Using Az modules](../automation-runbook-execution#using-az-modules).
+Using an incomplete migration of your runbook modules from AzureRM to Az can cause sandbox crashes and runbook failures. See [Using modules in your runbooks](../automation-runbook-execution.md#using-modules-in-your-runbooks).
 
 ### Inconsistent behavior in runbooks
 
@@ -693,7 +693,7 @@ The Azure sandbox prevents access to all out-of-process COM servers. For example
 
 ## Recommended documents
 
-* [Runbook execution in Azure Automation](../automation-runbook-execution)
+* [Runbook execution in Azure Automation](../automation-runbook-execution.md)
 * [Starting a runbook in Azure Automation](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
 * [Runbook execution in Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution)
 
