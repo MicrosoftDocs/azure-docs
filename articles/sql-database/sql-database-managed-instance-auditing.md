@@ -158,7 +158,7 @@ For additional information:
 
 Audit logs from a managed instance can be  sent to Even Hubs or Azure Monitor logs. This section describes how to configure this:
 
-1. Navigate in the [Azure Portal](https://portal.azure.com/) to the managed instance.
+1. Navigate in the [Azure portal](https://portal.azure.com/) to the managed instance.
 
 2. Click on **Diagnostic settings**.
 
