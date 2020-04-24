@@ -18,7 +18,7 @@ This article covers information about deploying Azure confidential computing vir
 
 Azure confidential computing virtual machines are designed to protect the confidentially and integrity of your data and code while it's processed in the cloud 
 
-[DCsv2-Series](../virtual-machines/dcv2-series.md) VMs are the latest and most recent confidential computing size family. These VMs support a larger range of deployment capabilities, have 2x the Enclave Page Cache (EPC) and a larger selection of sizes to compared to our DC-Series VMs. The [DC-Series](../virtual-machines/sizes-previous-gen#preview-dc-series.md) VMs are currently in preview and will be deprecated and not included in general availability.
+[DCsv2-Series](../virtual-machines/dcv2-series.md) VMs are the latest and most recent confidential computing size family. These VMs support a larger range of deployment capabilities, have 2x the Enclave Page Cache (EPC) and a larger selection of sizes to compared to our DC-Series VMs. The [DC-Series](../virtual-machines/sizes-previous-gen.md#preview-dc-series) VMs are currently in preview and will be deprecated and not included in general availability.
 
 Start deploying a DCsv2-Series VM via the Microsoft commercial marketplace by following the [quickstart tutorial](quick-create-marketplace.md).
 
