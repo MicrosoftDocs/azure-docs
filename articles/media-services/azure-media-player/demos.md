@@ -1,28 +1,28 @@
 ---
-title: Azure Media Player Demos 
+title: Azure Media Player demos 
 description: This page contains a listing of links to demos of the Azure Media Player.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: article
-ms.date: 04/23/2020
+ms.date: 04/24/2020
 ---
 
 
-# Azure Media Player Demos #
+# Azure Media Player demos
 
 The following is a list of links to demos of the Azure Media Player. You can download all of the [Azure Media Player samples](https://github.com/Azure-Samples/azure-media-player-samples) from GitHub.
 
-## Demo Listing ##
+## Demo listing
 
-| Sample Name | Programmatic via JavaScript | Static via HTML5 video element | Description |
+| Sample name | Programmatic via JavaScript | Static via HTML5 video element | Description |
 | ------------|----------------------------|-------------------------------------|--------------|
 | Basic |
 | Set Source | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_setsource.html) | [Static](https://amp.azure.net/libs/amp/latest/samples/videotag_setsource.html) |Playback unprotected content.|
 | Features |
 | VOD Ad insertion - VAST | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_vast_ads_vod.html) | N/A | Insert pre- mid- and post- roll VAST ads into a VOD asset. |
 | Playback Speed | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_playback_speed.html)| N/A | Enables viewers to control what speed they're watching their video at. |
-| AMP Flush Skin | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_flush_skin.html) | [Static](https://amp.azure.net/libs/amp/latest/samples/videotag_flush_skin.html) | Enables new AMP skin. **Note: AMP flush is only supported in AMP versions 2.1.0+** |
+| AMP Flush Skin | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_flush_skin.html) | [Static](https://amp.azure.net/libs/amp/latest/samples/videotag_flush_skin.html) | Enables new AMP skin. **Note:** AMP flush is only supported in AMP versions 2.1.0+ |
 | Captions and Subtitles | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_webvtt.html) | [Static](https://amp.azure.net/libs/amp/latest/samples/videotag_webvtt.html) | Playback with WebVTT subtitles.
 | Live CEA 708 Captions | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_live_captions.html) | N/A | Playback with live CEA 708 inbound captions with the captions left-aligned. |
 | Streaming with Progressive Fallback | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_progressiveFallback.html) | [Static](https://amp.azure.net/libs/amp/latest/samples/videotag_progressiveFallback.html) | Basic setup of adaptive playback with fallback for progressive if streaming not supported on platform. |
@@ -61,7 +61,7 @@ Options to show how to display audio tracks menu on the default skin. |
 | Select bitrate | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_selectBitrate.html) | N/A | Selecting a bitrate from the list of bitrates. This sample only works on some techs. |
 | Select audio stream | [Dynamic](https://amp.azure.net/libs/amp/latest/samples/dynamic_selectAudioStream.html) | N/A | Selecting an Audio Stream from the list of available audio streams. This sample only works on some techs. |
 
-## Next steps ##
+## Next steps
 
 <!---Some context for the following links goes here--->
 - [Azure Media Player Quickstart](azure-media-player-quickstart.md)
