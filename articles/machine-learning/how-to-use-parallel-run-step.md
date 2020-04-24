@@ -7,19 +7,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 
-ms.reviewer: trbye, jmartens, larryfr, vaidyas
-ms.author: vaidyas
-author: vaidya-s
-ms.date: 01/15/2020
-ms.custom: Ignite2019
+ms.reviewer: trbye, jmartens, larryfr
+ms.author: tracych
+author: tracychms
+ms.date: 04/15/2020
+ms.custom: Build2019
 ---
 
 # Run batch inference on large amounts of data by using Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Learn how to process large amounts of data asynchronously and in parallel by using Azure Machine Learning. The ParallelRunStep capability described here is in public preview. It's a high-performance and high-throughput way to generate inferences and processing data. It provides asynchronous capabilities out of the box.
+Learn how to process large amounts of data asynchronously and in parallel by using Azure Machine Learning. The ParallelRunStep is a high-performance and high-throughput way to generate inferences and processing data. It provides asynchronous capabilities out of the box.
 
-With ParallelRunStep, it's straightforward to scale offline inferences to large clusters of machines on terabytes of production data resulting in improved productivity and optimized cost.
+With ParallelRunStep, it's straightforward to scale offline inferences to large clusters of machines on terabytes of structured or unstructured data resulting in improved productivity and optimized cost.
 
 In this article, you learn the following tasks:
 
@@ -34,7 +34,7 @@ In this article, you learn the following tasks:
 
 * For a guided quickstart, complete the [setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace or notebook virtual machine. 
 
-* To manage your own environment and dependencies, see the [how-to guide](how-to-configure-environment.md) on configuring your own environment. Run `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps` in your environment to download the necessary dependencies.
+* To manage your own environment and dependencies, see the [how-to guide](how-to-configure-environment.md) on configuring your own environment.
 
 ## Set up machine learning resources
 
@@ -82,9 +82,6 @@ Now you need to configure data inputs and outputs, including:
 - The directory for output.
 
 [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) is a class for exploring, transforming, and managing data in Azure Machine Learning. This class has two types: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) and [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py). In this example, you'll use `FileDataset` as the inputs to the batch inference pipeline step. 
-
-> [!NOTE] 
-> `FileDataset` support in batch inference is restricted to Azure Blob storage for now. 
 
 You can also reference other datasets in your custom inference script. For example, you can use it to access labels in your script for labeling images by using `Dataset.register` and `Dataset.get_by_name`.
 
@@ -274,7 +271,8 @@ batch_env.spark.precache_packages = False
 - `error_threshold`: The number of record failures for `TabularDataset` and file failures for `FileDataset` that should be ignored during processing. If the error count for the entire input goes above this value, the job will be aborted. The error threshold is for the entire input and not for individual mini-batches sent to the `run()` method. The range is `[-1, int.max]`. The `-1` part indicates ignoring all failures during processing.
 - `output_action`: One of the following values indicates how the output will be organized:
     - `summary_only`: The user script will store the output. `ParallelRunStep` will use the output only for the error threshold calculation.
-    - `append_row`: For all input files, only one file will be created in the output folder to append all outputs separated by line. The file name will be `parallel_run_step.txt`.
+    - `append_row`: For all input files, only one file will be created in the output folder to append all outputs separated by line. The file name is configurable, default will be `parallel_run_step.txt`.
+- `append_row_file_name`: To customize the output file name for append_row output_action (optional).
 - `source_directory`: Paths to folders that contain all files to execute on the compute target (optional).
 - `compute_target`: Only `AmlCompute` is supported.
 - `node_count`: The number of compute nodes to be used for running the user script.
@@ -282,6 +280,7 @@ batch_env.spark.precache_packages = False
 - `environment`: The Python environment definition. You can configure it to use an existing Python environment or to set up a temporary environment for the experiment. The definition is also responsible for setting the required application dependencies (optional).
 - `logging_level`: Log verbosity. Values in increasing verbosity are: `WARNING`, `INFO`, and `DEBUG`. (optional; the default value is `INFO`)
 - `run_invocation_timeout`: The `run()` method invocation timeout in seconds. (optional; default value is `60`)
+- `run_max_try`: Max call count for `run()` method against a mini batch in case of failure. A `run()` is failed if there's any system error, an exception, or timed out. (optional; default value is `3`) 
 
 ```python
 from azureml.contrib.pipeline.steps import ParallelRunConfig
@@ -301,9 +300,9 @@ parallel_run_config = ParallelRunConfig(
 
 Create the pipeline step by using the script, environment configuration, and parameters. Specify the compute target that you already attached to your workspace as the target of execution for the script. Use `ParallelRunStep` to create the batch inference pipeline step, which takes all the following parameters:
 - `name`: The name of the step, with the following naming restrictions: unique, 3-32 characters, and regex ^\[a-z\]([-a-z0-9]*[a-z0-9])?$.
-- `models`: Zero or more model names already registered in the Azure Machine Learning model registry.
 - `parallel_run_config`: A `ParallelRunConfig` object, as defined earlier.
 - `inputs`: One or more single-typed Azure Machine Learning datasets.
+- `side_inputs`: One or more reference data used as side inputs.
 - `output`: A `PipelineData` object that corresponds to the output directory.
 - `arguments`: A list of arguments passed to the user script (optional).
 - `allow_reuse`: Whether the step should reuse previous results when run with the same settings/inputs. If this parameter is `False`, a new run will always be generated for this step during pipeline execution. (optional; the default value is `True`.)
@@ -313,7 +312,6 @@ from azureml.contrib.pipeline.steps import ParallelRunStep
 
 parallelrun_step = ParallelRunStep(
     name="batch-mnist",
-    models=[model],
     parallel_run_config=parallel_run_config,
     inputs=[named_mnist_ds],
     output=output_dir,
@@ -323,7 +321,7 @@ parallelrun_step = ParallelRunStep(
 ```
 
 >[!Note]
-> The above step depends on `azureml-contrib-pipeline-steps`, as described in [Prerequisites](#prerequisites). 
+> `models`, `tags` and `properties` are removed from `ParallelRunStep`. You can directly load the models in your python script. 
 
 ### Submit the pipeline
 
