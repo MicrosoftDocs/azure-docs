@@ -1,23 +1,27 @@
 ---
 title: Remove access to a delegation
-description: Learn how to onboard a customer to Azure delegated resource management, allowing their resources to be accessed and managed through your own tenant.
-ms.date: 04/23/2020
+description: Learn how to remove access to resources that had been delegated to a service provider for Azure delegated resource management.
+ms.date: 04/24/2020
 ms.topic: conceptual
 ---
 
 # Remove access to a delegation
 
-This article explains how to remove access to a subscription or resource group that was previously delegated to Azure delegated resource management.
+After a customer's subscription or resource group has been delegated to a service provider for [Azure delegated resource management](../concepts/azure-delegated-resource-management.md), the delegation can be removed if needed. When a delegation is removed, all of the permissions previously granted to users in the service provider tenant will no longer apply.
+
+Removing a delegation can be done by a user in either the customer tenant or the service provider tenant, as long as the user has the appropriate permissions.
 
 ## Customers
 
-By default, users in the customer's tenant who have the appropriate permissions can remove service provider access to delegated resources. To do so, a customer can go to the [Service providers page](view-manage-service-providers.md#add-or-remove-service-provider-offers) of the Azure portal, find the offer on the **Provider offers** screen, and select the trash can icon in the row for that offer. After confirming the deletion, no users in the service provider's tenant will be able to access the resources that had been previously delegated.
+Users in the customer's tenant who have the [Owner built-in role](../../role-based-access-control/built-in-roles.md#owner) for a subscription can remove service provider access to that subscription (or to resource groups in that subscription). To do so, a user in the customer's tenant can go to the [Service providers page](view-manage-service-providers.md#add-or-remove-service-provider-offers) of the Azure portal, find the offer on the **Service provider offers** screen, and select the trash can icon in the row for that offer.
+
+After confirming the deletion, no users in the service provider's tenant will be able to access the resources that had been previously delegated.
 
 ## Service providers
 
-Users in a management tenant can remove access to delegated resources only if they were granted the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) when the customer's resources were onboarded for Azure delegated resource management. If this role was not assigned, the delegation can only be removed by a user in the customer's tenant.
+Users in a management tenant can remove access to delegated resources if they were granted the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) when the customer's resources were onboarded for Azure delegated resource management. If this role was not assigned, the delegation can only be removed by a user in the customer's tenant.
 
-The example below shows an assignment granting the **Managed Services Registration Assignment Delete Role** that can be included in a parameter file:
+The example below shows an assignment granting the **Managed Services Registration Assignment Delete Role** that can be included in a parameter file during the [onboarding process](onboard-customer.md):
 
 ```json
     "authorizations": [ 
