@@ -50,9 +50,9 @@ Automated ML provides users with both native time-series and deep learning model
 
 Models| Description | Benefits
 ----|----|---
-Prophet (Preview)|Prophet works best with time series that have strong seasonal effects and several seasons of historical data. | Accurate & fast, robust to outliers, missing data, and dramatic changes in your time series
-Auto-ARIMA (Preview)|AutoRegressive Integrated Moving Average (ARIMA) is a popular statistical method for time series forecasting. This technique of forecasting is commonly used in short term forecasting scenarios where data shows evidence of trends such as cycles, which can be unpredictable and difficult to model or forecast.| Transforms data into stationary data to receive consistent, reliable results.
-ForecastTCN (Preview)|
+Prophet (Preview)|Prophet works best with time series that have strong seasonal effects and several seasons of historical data. | Accurate & fast, robust to outliers, missing data, and dramatic changes in your time series.
+Auto-ARIMA (Preview)|AutoRegressive Integrated Moving Average (ARIMA) performs best, when the data is stationary. This means that its statistical properties like the mean and variance are constant over the entire set. For example, if you flip a coin, then the probability of you getting heads is 50%, regardless if you flip today, tomorrow or next year.| Great for univariate series, since the past values are used to predict the future values.
+ForecastTCN (Preview)| ForecastTCN is a neural network model designed to tackle the most demanding forecasting tasks, capturing nonlinear local and global trends in your data as well as relationships between time series.|Capable of leveraging complex trends in your data and readily scales to the largest of datasets.
 
 ## Prerequisites
 
