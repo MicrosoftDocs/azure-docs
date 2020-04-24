@@ -575,7 +575,7 @@
       href: create-azure-ssis-integration-runtime.md
     - name: Shared self-hosted integration runtime
       href: create-shared-self-hosted-integration-runtime-powershell.md
-    - name: Automating self-hosted integration runtime installation
+    - name: Automation scripts: Self-hosted integration runtime
       href: self-hosted-integration-runtime-automation-scripts.md
   - name: Run SSIS packages in Azure
     items:
@@ -597,10 +597,6 @@
       href: self-hosted-integration-runtime-proxy-ssis.md
     - name: Enable Azure AD authentication for Azure-SSIS IR
       href: enable-aad-authentication-azure-ssis-ir.md
-    - name: Connect to data with Windows Authentication
-      href: ssis-azure-connect-with-windows-auth.md
-    - name: Save files and connect to file shares
-      href: ssis-azure-files-file-shares.md
     - name: Provision Enterprise Edition for Azure-SSIS IR
       href: how-to-configure-azure-ssis-ir-enterprise-edition.md
     - name: Customize setup for Azure-SSIS IR
