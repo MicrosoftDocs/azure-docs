@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > - Create logins for SQL Server
 > - Create a test database for migration
 > - Create logins, users, and roles
-> - Backup and restore your database to SQL Managed Instance (MI)
+> - Backup and restore your database to SQL Managed Instance (MI) 
 > - Manually migrate users to MI using ALTER USER syntax
 > - Testing authentication with the new mapped users
 
