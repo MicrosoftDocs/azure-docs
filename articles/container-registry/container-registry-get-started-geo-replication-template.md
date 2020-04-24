@@ -30,7 +30,7 @@ None.
 
 The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
 
-:::code language="json" source="~/quickstart-templates/101-container-registry-geo-replication/azuredeploy.json" range="000-000" highlight="000-000":::
+[!code-json[<Azure Resource Manager template create geo-replicated registry>](~/quickstart-templates/101-container-registry-geo-replication/azuredeploy.json)]
 
 The following resources are defined in the template:
 
