@@ -43,9 +43,9 @@ Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter w
      ```
        pip install azure-ml-datadrift, azureml-train-automl
      ```
-   For this example, let's say `azure-ml-datadrift` requires version > 1.0 and `azureml-train-automl` requires version < 1.2. If the latest version of `azure-ml-datadrift` is 1.3,  then both packages get upgraded to 1.3, regardless of the azureml-train-automl package requirement for an older version. 
+   For this example, let's say `azure-ml-datadrift` requires version > 1.0 and `azureml-train-automl` requires version < 1.2. If the latest version of `azure-ml-datadrift` is 1.3,  then both packages get upgraded to 1.3, regardless of the `azureml-train-automl` package requirement for an older version. 
 
-   To ensure the appropriate versions are installed for your packages, install using multiple lines like in the following code. Order doesn't matter here. Since pip will explicitly downgrade as part of the next line call, the appropriate version dependencies will be installed.
+   To ensure the appropriate versions are installed for your packages, install using multiple lines like in the following code. Order isn't an issue here, since pip explicitly downgrades as part of the next line call. And so, the appropriate version dependencies are applied.
     
      ```
         pip install azure-ml-datadrift
