@@ -90,7 +90,7 @@ An utterance may contain two or more occurrences of an entity where the meaning 
 
 `Book a flight from Seattle to Cairo`
 
-The two location need to be extracted in a way that the client-application knows the type of each location in order to complete the ticket purchase.
+The two locations need to be extracted in a way that the client-application knows the type of each location in order to complete the ticket purchase.
 
 To extract the origin and destination, create two subentities as part of the ticket order machine-learned entity. For each of the subentities, create a required feature that uses geographyV2.
 
