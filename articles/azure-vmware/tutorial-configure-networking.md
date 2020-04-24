@@ -7,7 +7,7 @@ ms.date: 05/04/2020
 
 # Tutorial: Configure networking for your VMWare private cloud in Azure
 
-An Azure VMware Solution (AVS) private cloud requires a virtual network. Because AVS will not support your on-premises vCenter during preview, additional steps for integration with your on-premises environment are needed. Setting up an ExpressRoute circuit and a Virtual Network Gateway are also required and will be addressed in this tutorial.
+An Azure VMware Solution (AVS) private cloud requires a virtual network. Because AVS won't support your on-premises vCenter during preview, additional steps for integration with your on-premises environment are needed. Setting up an ExpressRoute circuit and a Virtual Network Gateway are also required and will be addressed in this tutorial.
 
 In this tutorial, you learn how to:
 
@@ -27,7 +27,7 @@ Navigate to the resource group you created in the [previous tutorial](tutorial-c
 
 In the **Search the Marketplace** text box type, **Virtual Network**. Find the Virtual Network resource and select it.
 
-On the Virtual Network page, select **Create** to setup your virtual network for your private cloud.
+On the Virtual Network page, select **Create** to set up your virtual network for your private cloud.
 
 On the **Create Virtual Network** page, enter the relevant details for your virtual network, a description of the properties is shown in the following table:
 
@@ -36,27 +36,27 @@ On the **Create Virtual Network** page, enter the relevant details for your virt
 
 On the **Basics** tab, enter a name for the virtual network and select the appropriate region and select **Next : IP Addresses**
 
-On the **IP Addresses** tab, under **IPv4 address space** enter the address space you created in the previous tutorial.
+On the **IP Addresses** tab, under **IPv4 address space**, enter the address space you created in the previous tutorial.
 
 Select **+ Add subnet**, and on the **Add subnet** page, give the subnet a name and appropriate address range. When complete, select **Add**.
 
 Select **Review + Create**
 
-:::image type="content" source="./media/tutorial-configure-networking/image14.jpg" alt-text="Alt text here." border="true":::
+:::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.jpg" alt-text="create a virtual network" border="true":::
 
-Verify the information and select **Create**. Once the deployment is complete you'll see your virtual network in the resource group.
+Verify the information and select **Create**. Once the deployment is complete, you'll see your virtual network in the resource group.
 
 ## Create a Virtual Network Gateway
 
 You have created a virtual network in the preceding section, now you'll create a Virtual Network Gateway.
 
-In your resource group, select **+ Add** to add a new new resource.
+In your resource group, select **+ Add** to add a new resource.
 
 In the **Search the Marketplace** text box type, **Virtual network gateway**. Find the Virtual Network resource and select it.
 
 On the **Virtual Network gateway** page, select **Create**.
 
-On the Basics tab of the **Create virtual network gateway** page provide values for the fields. A description of the fields are shown in the following table:
+On the Basics tab of the **Create virtual network gateway** page, provide values for the fields. descriptions of the fields are shown in the following table:
 
 | Field | Value |
 | --- | --- |
@@ -68,12 +68,12 @@ On the Basics tab of the **Create virtual network gateway** page provide values 
 | **VPN type** | Select **Route-based**. |
 | **SKU** | Leave the default value: **standard**. |
 | **Virtual network** | Select the virtual network you created previously. If you do not see the virtual network, make sure the region of the gateway matches the region of your virtual network. |
-| **Gateway subnet address range** | This value is populated when you select the virtual network. Do not change the default value. |
+| **Gateway subnet address range** | This value is populated when you select the virtual network. Don't change the default value. |
 | **Public IP address** | Select **Create new**. |
 
-:::image type="content" source="./media/tutorial-configure-networking/image22.jpg" alt-text="Alt text here." border="true":::
+:::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.jpg" alt-text="create a gateway" border="true":::
 
-Select **Review + create**, on the next page verify the details are correct and select **Create** to start deployment of your virtual network gateway. Once the deployment completes, move to the next section in this tutorial to connect your ExpressRoute connection to the virtual network containing your private cloud.
+Select **Review + create**, on the next page verify the details are correct, and select **Create** to start deployment of your virtual network gateway. Once the deployment completes, move to the next section in this tutorial to connect your ExpressRoute connection to the virtual network containing your private cloud.
 
 ## Connect ExpressRoute to the Virtual Network Gateway
 
@@ -83,33 +83,33 @@ Navigate to the private cloud you created in the previous tutorial and select **
 
 Copy the authorization key. If there is not an authorization key, you need to create one, to do that select **+ Request an authorization key**
 
-:::image type="content" source="./media/tutorial-configure-networking/image25.jpg" alt-text="Alt text here." border="true":::
+:::image type="content" source="./media/tutorial-configure-networking/request-auth-key.jpg" alt-text="request an authorization key" border="true":::
 
 Navigate to the Virtual Network Gateway you created
-in the previous step and under **Settings**, select **Connections**. On the **Connections** page select **+ Add**.
+in the previous step and under **Settings**, select **Connections**. On the **Connections** page, select **+ Add**.
 
-On the **Add connection** page provide values for the fields. A description of the fields are shown in the following table:
+On the **Add connection** page, provide values for the fields. Descriptions of the fields are shown in the following table:
 
 | Field | Value |
 | --- | --- |
 | **Name**  | Enter a name for the connection.  |
 | **Connection type**  | Select **ExpressRoute**.  |
 | **Redeem authorization**  | Ensure this box is selected.  |
-| **Virtual network gateway** | The VNET gateway you created previously  |
+| **Virtual network gateway** | The virtual network gateway you created previously  |
 | **Authorization key**  | Copy and paste the authorization key from the ExpressRoute tab for your Resource Group. |
 | **Peer circuit URI**  | Copy and paste the ExpressRoute ID from the ExpressRoute tab for your Resource Group.  |
 
-:::image type="content" source="./media/tutorial-configure-networking/image28.jpg" alt-text="Alt text here." border="true":::
-
 Select **OK**. This creates the connection between your ExpressRoute circuit and your virtual network.
+
+:::image type="content" source="./media/tutorial-configure-networking/add-connection.jpg" alt-text="add a connection" border="true":::
 
 ## Locate the URLs for vCenter and NSX Manager
 
-In order to sign in to vVenter and NSX manager you'll need the urls to the vCenter web client and the NSX-T manager site. To find the urls:
+To sign in to vVenter and NSX manager you'll need the urls to the vCenter web client and the NSX-T manager site. To find the urls:
 
 Navigate to your AVS private cloud, under **Manage**, select **Identity**, here you'll find the information needed.
 
-:::image type="content" source="./media/tutorial-configure-networking/image31.png" alt-text="Alt text here." border="true":::
+:::image type="content" source="./media/tutorial-configure-networking/locate-urls.png" alt-text="locate the vCenter urls" border="true":::
 
 In this tutorial you learned how to:
 

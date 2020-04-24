@@ -1,5 +1,5 @@
 ---
-title: Concepts - private clouds and clusters in Azure VMware Solution (AVS) Preview
+title: Concepts - Private clouds and clusters
 description: Learn about the key capabilities of Azure VMware software-defined data centers and vSphere clusters in VMware Solution on Azure by VMware. 
 ms.topic: conceptual
 ms.date: 05/04/2020
