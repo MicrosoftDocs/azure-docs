@@ -81,4 +81,3 @@ In conclusion, you can pair Azure compute with Azure NetApp files for EDA design
 ## Next steps
 
 - [Solution architectures using Azure NetApp Files](azure-netapp-files-solution-architectures.md)
-- [Overview of Oracle Applications and solutions on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-overview)
