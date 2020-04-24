@@ -12,7 +12,7 @@ ms.author: dsindona
 # Create technical assets for a virtual machine offer
 
 > [!IMPORTANT]
-> Starting April 13, 2020, we'll begin the moving management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create your Azure Virtual Machine technical assets](https://aka.ms/AzureVMTechAsset) to manage your migrated offers.
+> Starting April 13, 2020, we'll begin the moving management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create your Azure Virtual Machine technical assets](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) to manage your migrated offers.
 
 This section walks you through creating and configuring the technical assets for a virtual machine (VM) offer for the Azure Marketplace.  A VM contains two components: the solution virtual hard disk (VHD) and optional associated data disks.  
 
