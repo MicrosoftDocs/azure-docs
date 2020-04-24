@@ -162,7 +162,7 @@ To add a filter, you can use a PUT request to *https://{YourHost}/ EventRoutes/m
 }
 ``` 
 
-Here are the types of filter that you can use:
+## Supported Route Filters
 
 | Filter name | Description | Filter Schema | Supported Values | 
 | --- | --- | --- | --- |
