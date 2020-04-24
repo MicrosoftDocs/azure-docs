@@ -95,6 +95,17 @@ The [query metrics](sql-api-query-metrics.md) will help determine where the quer
 * If the back-end query returns quickly, and spends a large time on the client check the load on the machine. It's likely that there are not enough resource and the SDK is waiting for resources to be available to handle the response.
 * If the back-end query is slow try [optimizing the query](optimize-cost-queries.md) and looking at the current [indexing policy](index-overview.md) 
 
+### The MAC signature found in the HTTP request is not the same as the computed signature
+If you received the following error message: "The MAC signature found in the HTTP request is not the same as the computed signature." it can be caused by the following scenarios.
+
+1. The key was rotated and did not follow the [best practices](secure-access-to-data#master-keys). This is usually the case. Comos DB account key rotation can take anywhere from a few seconds to possibly days depending on the Cosmos DB account size.
+   1. 401 MAC signature is seen shortly after a key rotation and eventually stops without any changes. 
+2. The key is misconfigured on the application so the key does not match the account. For instance cases where the key is read from a file and localization is not taken in consideration.
+   1. 401 MAC signature issue will be consistant and happens for all calls
+3. There is a race condition with container creation. An application instance is trying to access the container before container creation is complete. The most common scenario for this if the application is running, and the container is deleted and recreated with the same name while the application is running. The SDK will attempt to use the new container, but the container creation is still in progress so it does not have the keys.
+   1. 401 MAC signature issue is seen shortly after a container creation, and only occur until the container creation is completed.
+ 
+
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #logging
