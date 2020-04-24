@@ -66,7 +66,7 @@ productDirectory:
            text: Books
          - url: resources/events.md
            text: Events
-         - url: articles/sre-devops.md
+         - url: articles/devops.md
            text: "FAQ: SRE and DevOps"
          - url: resources/links.md
            text: Links and digests
