@@ -202,3 +202,8 @@ The following are the Grid Engine specific configuration options you can toggle 
 | gridengine.root                    | Default: '/sched/sge/sge-2011.11' This is where the Grid Engine will be installed and mounted on every node in the system. It is recommended this value not be changed, but if it is it should be set to the same value on **every** node in the cluster.   |
 
 [!INCLUDE [scheduler-integration](~/includes/scheduler-integration.md)]
+
+## Known Issues
+
+* `qsh` command for interactive session does not work. Use `qrsh` as an alternative.
+* The `exclusive=1` complex is not respected by autoscale. Fewer nodes than expected may start as a result.
