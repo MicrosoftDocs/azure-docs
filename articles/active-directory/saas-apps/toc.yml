@@ -554,8 +554,6 @@
         href: five9-tutorial.md
       - name: Flatter Files
         href: flatter-files-tutorial.md
-      - name: Float
-        href: float-tutorial.md
       - name: Flock
         href: flock-tutorial.md
       - name: FloQast
@@ -1833,8 +1831,8 @@
       items:
       - name: Netskope Administrator Console
         href: netskope-administrator-console-provisioning-tutorial.md
-      - name: New Relic(Limited Release)
-        href: new-relic-limited-release-provisioning-tutorial.md
+      - name: New Relic by Organization
+        href: new-relic-by-organization-provisioning-tutorial.md
       - name: Netsuite
         href: netsuite-provisioning-tutorial.md
       - name: OfficeSpace Software
