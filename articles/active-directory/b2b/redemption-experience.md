@@ -32,7 +32,7 @@ When you add a guest user to your directory by [using the Azure portal](https://
 
 1. The guest receives an [invitation email](https://docs.microsoft.com/azure/active-directory/b2b/invitation-email-elements) that's sent from **Microsoft Invitations**.
 2. The guest selects **Accept invitation** in the email.
-3. The guest will use their own credentials to sign-in to your directory. If the guest does not have an account that can be federated to your directory and the [email one-time passcode (OTP)](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) feature is not enabled; the guest is prompted to create a personal [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) or an [Azure AD self-service account](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup). Refer to the [invitation redemption flow](#invitation-redemption-flow) for details.
+3. The guest will use their own credentials to sign in to your directory. If the guest does not have an account that can be federated to your directory and the [email one-time passcode (OTP)](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) feature is not enabled; the guest is prompted to create a personal [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) or an [Azure AD self-service account](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup). Refer to the [invitation redemption flow](#invitation-redemption-flow) for details.
 4. The guest is guided through the [consent experience](#consent-experience-for-the-guest) described below.
 
 ## Redemption through a direct link
@@ -68,19 +68,19 @@ When a user clicks the **Accept invitation** link in an [invitation email](invit
 
 5. Once the user’s **home directory** is identified, the user is sent to the corresponding identity provider to sign in.  
 
-6. If steps 1 to 4 fail to find a home directory for the invited user, Azure AD determines whether the inviting tenant has enabled the [email one-time passcode (OTP)](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) feature for guests.
+6. If steps 1 to 4 fail to find a home directory for the invited user, then Azure AD determines whether the inviting tenant has enabled the [email one-time passcode (OTP)](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) feature for guests.
 
 7. If [email one-time passcode for guests is enabled](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode#when-does-a-guest-user-get-a-one-time-passcode), a passcode is sent to the user through the invited email. The user will retrieve and enter this passcode in the Azure AD sign-in page.
 
 8. If email one-time passcode for guests is disabled, Azure AD checks the domain suffix to determine if it belongs to a consumer account. If so, the user is prompted to create a personal [Microsoft account](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create). If not, the user is prompted to create an [Azure AD self-service account](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup).
 
-9. Azure AD attempts to create an [Azure AD self-service account](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup) by verifying access to the email. Verifying the account is done by sending a code to the email, and having the user retrieve and submit it to Azure AD. However, if the invited user’s tenant is federated or if the AllowEmailVerifiedUsers field is set to false in the invited user’s tenant, the user is unable to complete the redemption and the flow results in an error. For more information, refer to [Troubleshooting Azure Active Directory B2B collaboration](https://docs.microsoft.com/azure/active-directory/b2b/troubleshoot#the-user-that-i-invited-is-receiving-an-error-during-redemption).
+9. Azure AD attempts to create an [Azure AD self-service account](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup) by verifying access to the email. Verifying the account is done by sending a code to the email, and having the user retrieve and submit it to Azure AD. However, if the invited user’s tenant is federated or if the AllowEmailVerifiedUsers field is set to false in the invited user’s tenant, the user is unable to complete the redemption and the flow results in an error. For more information, see [Troubleshooting Azure Active Directory B2B collaboration](https://docs.microsoft.com/azure/active-directory/b2b/troubleshoot#the-user-that-i-invited-is-receiving-an-error-during-redemption).
 
 10. The user is prompted to create a personal [Microsoft account (MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create).
 
 11. After authenticating to the right identity provider, the user is redirected to Azure AD to complete the [consent experience](https://docs.microsoft.com/azure/active-directory/b2b/redemption-experience#consent-experience-for-the-guest).  
 
-For just-in-time (JIT) redemptions, where redemption is through a tenanted application link, steps 8 through 10 are not available. If a user reaches step 6 and the Email one-time passcode feature is not enabled, the user receives an error message and is unable to redeem the invitation. To prevent this, admins should either [enable email one-time passcode](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode#when-does-a-guest-user-get-a-one-time-passcode) or ensure the user clicks an invitation link.
+For just-in-time (JIT) redemptions, where redemption is through a tenanted application link, steps 8 through 10 are not available. If a user reaches step 6 and the Email one-time passcode feature is not enabled, the user receives an error message and is unable to redeem the invitation. To prevent this error, admins should either [enable email one-time passcode](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode#when-does-a-guest-user-get-a-one-time-passcode) or ensure the user clicks an invitation link.
 
 ## Consent experience for the guest
 
