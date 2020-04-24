@@ -487,7 +487,7 @@ You can use [private endpoints](../private-link/private-endpoint-overview.md) fo
 Private endpoints for Cognitive Services resources let you:
 
 - Secure your Cognitive Services resource by configuring the firewall to block all connections on the public endpoint for the Cognitive Services service.
-- Increase security for the virtual network (VNet), by enabling you to block exfiltration of data from the VNet.
+- Increase security for the VNet, by enabling you to block exfiltration of data from the VNet.
 - Securely connect to Cognitive Services resources from on-premises networks that connect to the VNet using [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../expressroute/expressroute-locations.md) with private-peering.
 
 ### Conceptual overview
