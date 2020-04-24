@@ -23,7 +23,7 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 
 ## Prerequisites
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.js](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download) (to edit project files)
 
@@ -163,7 +163,7 @@ After the browser loads the application, select **Sign In**. The first time that
 
 ### How the sample works
 
-![How the sample app in this quickstart works](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+![How the sample JavaScript SPA works: 1. The SPA initiates sign in. 2. The SPA acquires an ID token from the Microsoft identity platform. 3. The SPA calls acquire token. 4. The Microsoft identity platform returns an Access token to the SPA. 5. The SPA makes and HTTP GET request with the Acess Token to the Microsoft Graph API. 6. The Graph API returns an HTTP response to the SPA.](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
 ### msal.js
 
