@@ -260,6 +260,7 @@ In ASP.NET, selecting the **Sign out** button in the web app triggers the `SignO
     </li>
   }
 </ul>
+```
 
 # [ASP.NET](#tab/aspnet)
 
