@@ -40,7 +40,7 @@ If you do not have one of the mentioned above support agreements, you can purcha
 
 **Next Steps:**
 
-If you meet the above qualifications, contact a partner from the below list to purchase the Microsoft Security Code Analysis extension. Otherwise, contact [mscahelp@microsoft.com](mscahelp@microsoft.com).
+If you meet the above qualifications, contact a partner from the below list to purchase the Microsoft Security Code Analysis extension. Otherwise, contact [Microsoft Security Code Analysis Support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
 
 >**Partners:**
 
