@@ -91,10 +91,10 @@ Now you can create a Conditional Access policy that uses this exclusion group.
 
 7. Select the exclusion group you created.
 
->[!NOTE] 
-> As a best practice, it is recommended to exclude at least one administrator account from the policy when testing to make sure you are not locked out of your tenant.
+>  [!NOTE] 
+>  As a best practice, it is recommended to exclude at least one administrator account from the policy when testing to make sure you are not locked out of your tenant.
 
-1. Continue with setting up the Conditional Access policy based on your organizational requirements.
+8. Continue with setting up the Conditional Access policy based on your organizational requirements.
 
 ![Select excluded users pane in Conditional Access](./media/conditional-access-exclusion/select-excluded-users.png)
   
@@ -117,7 +117,7 @@ a recommended access review where members of the group are reviewed.
 4. Each user will need to self-attest that they still need access from these blocked countries/regions, therefore they still need to be a member of the
     group.
 
-5. If the user doesn't respond to the review request, they will be automatically removed from the group, and they will no longer have access the tenant while traveling to these countries/regions.
+5. If the user doesn't respond to the review request, they will be automatically removed from the group, and they will no longer have access to the tenant while traveling to these countries/regions.
 
 6. Enable email notifications to let users know about the start and completion of the access review.
 
