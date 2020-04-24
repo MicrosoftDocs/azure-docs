@@ -39,7 +39,7 @@ Define your application and service architecture, inventory current systems, and
 | Create a migration plan |Planning ahead can make migration go more smoothly. Learn more about [user migration](user-migration.md).|
 | Usability vs. security | Your solution must strike the right balance between application usability and your organization's acceptable level of risk. |
 | Move on-premises dependencies to the cloud | To help ensure a resilient solution, consider moving existing application dependencies to the cloud. |
-| Migrate existing apps to b2clogin.com | The deprecation of login.microsoftonline.com went into effect for all Azure AD B2C tenants on 04 December 2020. [Learn more](b2clogin.md). |
+| Migrate existing apps to b2clogin.com | The deprecation of login.microsoftonline.com will go into effect for all Azure AD B2C tenants on 04 December 2020. [Learn more](b2clogin.md). |
 
 ## Implementation
 
