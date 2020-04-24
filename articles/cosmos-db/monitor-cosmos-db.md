@@ -5,7 +5,7 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 04/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring 
 ---

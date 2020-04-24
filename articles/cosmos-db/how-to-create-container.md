@@ -4,7 +4,7 @@ description: Learn how to create a container in Azure Cosmos DB by using Azure p
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 04/24/2020
 ms.author: mjbrown
 ---
 
