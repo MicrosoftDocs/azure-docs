@@ -2401,7 +2401,7 @@ The metrics are organized by namespace. For a list of services and the namespace
 |Http5xx|Http Server Errors|Count|Total|Http Server Errors|Instance|
 |MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|Instance|
 |AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|Instance|
-|ResponseTime|Response Time|Seconds|Total|Response Time|Instance|
+|HttpResponseTime|Response Time|Seconds|Total|Response Time|Instance|
 |AverageResponseTime|Average Response Time (deprecated)|Seconds|Average|Average Response Time|Instance|
 |AppConnections|Connections|Count|Average|Connections|Instance|
 |Handles|Handle Count|Count|Average|Handle Count|Instance|
