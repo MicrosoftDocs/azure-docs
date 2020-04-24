@@ -187,7 +187,6 @@ NSString* value =
     [[[NSProcessInfo processInfo]environment]objectForKey:@"ENVIRONMENT_VARIABLE_KEY"];
 ```
 
----
 
 ## Customer Lockbox
 
