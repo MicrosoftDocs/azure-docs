@@ -1,18 +1,18 @@
 ---
 title: Entity types - LUIS
-description: An entity extracts data from a user utterance at prediction runtime. An _optional_, secondary purpose is to boost the prediction of the intent or other entities as a feature to those models.
+description: An entity extracts data from a user utterance at prediction runtime. An _optional_, secondary purpose is to boost the prediction of the intent or other entities by using the entity as a feature.
 ms.topic: conceptual
 ms.date: 04/17/2020
 ---
 
 # Extract data with entities
 
-An entity extracts data from a user utterance at prediction runtime. An _optional_, secondary purpose is to boost the prediction of the intent or other entities as a feature to those models.
+An entity extracts data from a user utterance at prediction runtime. An _optional_, secondary purpose is to boost the prediction of the intent or other entities by using the entity as a feature.
 
 There are several types of entities:
 
 * Machine-learned entity
-* Non-machine-learned - for exact text matches, pattern matches, or detection by prebuilt entities
+* Non-machine-learned used as a required feature - for exact text matches, pattern matches, or detection by prebuilt entities
 * [Pattern.any](#patternany-entity) - to extract free-form text such as book titles
 
 Machine-learned entities provide the widest range of data extraction choices. Non-machine-learned entities work by text matching and are used as a feature with a [constraint](#design-entities-for-decomposition) for a machine-learned entity or intent.
@@ -45,27 +45,25 @@ Consider the following 4 utterances:
 |Utterance|Intent predicted|Entities extracted|Explanation|
 |--|--|--|--|
 |Help|help|-|Nothing to extract.|
-|Send something|sendSomething|-|Nothing to extract. The model has not been trained to extract `something` in this context, and there is no recipient either.|
-|Send Bob a present|sendSomething|`Bob`, `present`|The model has been constrained with the [personName](luis-reference-prebuilt-person.md) prebuilt entity, which has extracted the name `Bob`. A machine-learned entity has been used to extract `present`.|
+|Send something|sendSomething|-|Nothing to extract. The model has not been constrained by adding a required feature to extract `something` in this context, and there is no recipient either.|
+|Send Bob a present|sendSomething|`Bob`, `present`|The model has been constrained with the [personName](luis-reference-prebuilt-person.md) prebuilt entity by adding a required feature, which has extracted the name `Bob`. A machine-learned entity has been used to extract `present`.|
 |Send Bob a box of chocolates|sendSomething|`Bob`, `box of chocolates`|The two important pieces of data, `Bob` and the `box of chocolates`, have been extracted by entities.|
 
 ## Design entities for decomposition
 
-Machine-learned entities allow you to design your app schema for decomposition, breaking a large concept into smaller components.
+Machine-learned entities allow you to design your app schema for decomposition, breaking a large concept into subentities.
 
 Designing for decomposition allows LUIS to return a deep degree of entity resolution to your client application. This allows your client application to focus on business rules and leave data resolution to LUIS.
 
 ### Machine-learned entities are primary data collections
 
-[**Machine-learned entities**](tutorial-machine-learned-entity.md) are the top-level data unit. Components are child entities of machine-learned entities.
+[**Machine-learned entities**](tutorial-machine-learned-entity.md) are the top-level data unit. Subentities are child entities of machine-learned entities. A machine-learned entity triggers based on the context learned through example utterances.
 
-A machine-learned entity triggers based on the context learned through example utterances. **Constraints** are optional rules applied to a machine-learned entity that further constrains triggering based on the exact-text matching definition of a non-machine-learned entity such as a [List](reference-entity-list.md) or [Regex](reference-entity-regular-expression.md), or [prebuilt entity](luis-reference-prebuilt-entities.md).
+[**Features**](luis-concept-feature.md) are applied to boost the relevance of the words or phrases for the prediction by identifying concepts through distinguishing traits or attributes. When you create a feature in your LUIS app, it should be applied as closely to the concept it helps identify.
 
-For example, a `size` machine-learned entity can have a constraint of a `sizeList` list entity that constrains the `size` entity to trigger only when values contained within the `sizeList` entity are encountered.
+**Required features** constrain triggering based on the exact-text matching definition of a non-machine-learned entity such as a [List](reference-entity-list.md) or [Regex](reference-entity-regular-expression.md), or [prebuilt entity](luis-reference-prebuilt-entities.md).
 
-[**Features**](luis-concept-feature.md) are applied to boost the relevance of the words or phrases for the prediction by identifying concepts through distinguishing traits or attributes.
-
-When you create a feature in your LUIS app, it should be applied as closely to the concept it helps identify.
+For example, a `size` machine-learned entity can have a required feature of a `sizeList` list entity that constrains the `size` entity to trigger only when values contained within the `sizeList` entity are encountered such as `small`, `large`, and `XL`.
 
 <a name="composite-entity"></a>
 <a name="list-entity"></a>
@@ -88,19 +86,22 @@ Choose the entity based on how the data should be extracted and how it should be
 
 ## Extracting contextually related data
 
-An utterance may contain two or more occurrences of an entity where the meaning of the data is based on context within the utterance. An example is an utterance for booking a flight that has two locations, origin and destination.
+An utterance may contain two or more occurrences of an entity where the meaning of the data is based on context within the utterance. An example is an utterance for booking a flight that has two geographical locations, origin and destination.
 
 `Book a flight from Seattle to Cairo`
 
-The two examples of a `location` entity need to be extracted. The client-application needs to know the type of location for each in order to complete the ticket purchase.
+The two location need to be extracted in a way that the client-application knows the type of each location in order to complete the ticket purchase.
 
-To extract location, create a `location` entity is a machine-learned entity and uses two child component entities to capture the  `origin` and `destination`.
+To extract the origin and destination, create two subentities as part of the ticket order machine-learned entity. For each of the subentities, create a required feature that uses geographyV2.
 
-### Using component constraints to help define entity
+<a name="using-component-constraints-to-help-define-entity"></a>
+<a name="using-subentity-constraints-to-help-define-entity"></a>
+
+### Using required features to constrain entities
 
 You can use a [**machine-learned entity**](tutorial-machine-learned-entity.md) to extract the data that describes the action of booking a flight and then to decompose the top-level entity into the separate parts.
 
-In this example, `Book a flight from Seattle to Cairo`, the top-level entity could be `travelAction` and labeled to extract `flight from Seattle to Cairo`. Then two component entities are created, called `origin` and `destination`, both with a constraint applied of the prebuilt `geographyV2` entity. In the training utterances, you need to label the `origin` and `destination` appropriately.
+In this example, `Book a flight from Seattle to Cairo`, the top-level entity could be `travelAction` and labeled to extract `flight from Seattle to Cairo`. Then two subentities are created, called `origin` and `destination`, both with a required feature applied of the prebuilt `geographyV2` entity. In the training utterances, you need to label the `origin` and `destination` appropriately.
 
 ## Pattern.any entity
 
