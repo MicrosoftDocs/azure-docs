@@ -6,24 +6,12 @@
       href: intro-openshift.md
 - name: Tutorials
   items:
-    - name: Create and manage an Azure Red Hat OpenShift cluster
-      items:
-        - name: 1 - Create an Azure Red Hat OpenShift cluster
-          href: tutorial-create-cluster.md
-        - name: 2 - Scale an Azure Red Hat OpenShift cluster
-          href: tutorial-scale-cluster.md
-        - name: 3 - Delete an Azure Red Hat OpenShift cluster
-          href: tutorial-delete-cluster.md
-
-- name: Cluster administration
-  items:
-    - name: Azure Red Hat OpenShift cluster administration
-      items:
-        - name: 1 - Azure Red Hat OpenShift cluster administrator role
-          href: cluster-administration-cluster-admin-role.md
-        - name: 2 - Managing security context constraints
-          href: cluster-administration-security-context-constraints.md
-
+    - name: 1 - Create an Azure Red Hat OpenShift cluster
+      href: tutorial-create-cluster.md
+    - name: 2 - Scale an Azure Red Hat OpenShift cluster
+      href: tutorial-scale-cluster.md
+    - name: 3 - Delete an Azure Red Hat OpenShift cluster
+      href: tutorial-delete-cluster.md
 - name: How-to guides
   expanded: true
   items:
@@ -59,6 +47,16 @@
               maintainContext: true
     - name: Run privileged containers in an Azure Red Hat OpenShift cluster
       href: howto-run-privileged-containers.md
+- name: Concepts
+  items: 
+  - name: Cluster administration
+    items:
+      - name: Azure Red Hat OpenShift cluster administration
+        items:
+          - name: 1 - Azure Red Hat OpenShift cluster administrator role
+            href: cluster-administration-cluster-admin-role.md
+          - name: 2 - Managing security context constraints
+            href: cluster-administration-security-context-constraints.md
 - name: Reference
   items:
     - name: Azure Red Hat OpenShift CLI
