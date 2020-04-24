@@ -13,7 +13,7 @@ ms.author: mjbrown
 This article explains the different ways to create an Azure Cosmos container (collection, table, or graph). You can use Azure portal, Azure CLI, or supported SDKs for this. This article demonstrates how to create a container, specify the partition key, and provision throughput.
 
 > [!NOTE]
-> When creating containers, make sure you don’t create a two containers with the same name but different casing. That’s because some parts of the Azure platform are not case sensitive and this can result confusion/collision of telemetry and actions on containers with such names.
+> When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
 
 ## Create a container using Azure portal
 
