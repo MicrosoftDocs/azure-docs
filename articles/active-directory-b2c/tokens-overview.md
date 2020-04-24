@@ -33,8 +33,8 @@ The following tokens are used in communication with Azure AD B2C:
 
 A [registered application](tutorial-register-applications.md) receives tokens and communicates with Azure AD B2C by sending requests to these endpoints:
 
-- `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize`
-- `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token`
 
 Security tokens that your application receives from Azure AD B2C can come from the `/authorize` or `/token` endpoints. When ID tokens are acquired from the `/authorize` endpoint, it's done using the [implicit flow](implicit-flow-single-page-application.md), which is often used for users signing in to JavaScript-based web applications. When ID tokens are acquired from the `/token` endpoint, it's done using the [authorization code flow](openid-connect.md#get-a-token), which keeps the token hidden from the browser.
 
@@ -49,7 +49,7 @@ The following table lists the claims that you can expect in ID tokens and access
 | Name | Claim | Example value | Description |
 | ---- | ----- | ------------- | ----------- |
 | Audience | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifies the intended recipient of the token. For Azure AD B2C, the audience is the application ID. Your application should validate this value and reject the token if it doesn't match. Audience is synonymous with resource. |
-| Issuer | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifies the security token service (STS) that constructs and returns the token. It also identifies the directory in which the user was authenticated. Your application should validate the issuer claim to make sure that the token came from the appropriate endpoint. |
+| Issuer | `iss` |`https://<tenant-name>.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifies the security token service (STS) that constructs and returns the token. It also identifies the directory in which the user was authenticated. Your application should validate the issuer claim to make sure that the token came from the appropriate endpoint. |
 | Issued at | `iat` | `1438535543` | The time at which the token was issued, represented in epoch time. |
 | Expiration time | `exp` | `1438539443` | The time at which the token becomes invalid, represented in epoch time. Your application should use this claim to verify the validity of the token lifetime. |
 | Not before | `nbf` | `1438535543` | The time at which the token becomes valid, represented in epoch time. This time is usually the same as the time the token was issued. Your application should use this claim to verify the validity of the token lifetime. |
