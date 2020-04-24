@@ -81,7 +81,7 @@ If you already have an existing namespace, you can create a private endpoint by 
         
             ![Create Private Endpoint - Resource page](./media/private-link-service/create-private-endpoint-resource-page.png)
     2. If you select **Connect to an Azure resource by resource ID or alias**, follow these steps:
-        1. Enter the **resource ID** or **alias**. It can be the resource ID or alias that some has shared with you.
+        1. Enter the **resource ID** or **alias**. It can be the resource ID or alias that someone has shared with you. The easiest way to get the resource ID is to navigate to the Event Hubs namespace in the Azure portal and copy the portion of URI starting from `/subscriptions/`. See the following image for an example. 
         2. For **Target sub-resource**, enter **namespace**. It's the type of the sub-resource that your private endpoint can access. 
         3. (optional) Enter a **request message**. The resource owner sees this message while managing private endpoint connection. 
         4. Then, select **Next: Configuration >** button at the bottom of the page. 
