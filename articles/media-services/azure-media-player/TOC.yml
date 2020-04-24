@@ -34,8 +34,10 @@
     href: azure-media-player-localization.md
 - name: Samples
   items:
-  - name: Azure Media Player Samples
-    href: https://github.com/Azure-Samples/azure-media-player-samples
+    - name: Azure Media Player demos
+      href: demos.md
+    - name: Azure Media Player samples
+      href: https://github.com/Azure-Samples/azure-media-player-samples
 - name: Reference
   items:
   - name: API
