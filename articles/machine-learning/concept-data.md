@@ -1,7 +1,7 @@
 ---
 title: Secure data access in the cloud
 titleSuffix: Azure Machine Learning
-description: Learn how to securely connect to your data from Azure Machine Learning, and how to use datasets and datastores for ML tasks. Datastores can store data from an Azure Blob, Azure Data Lakes, SQL db, Databricks,...
+description: Learn how to securely connect to your data from Azure Machine Learning, and how to use datasets and datastores for ML tasks. Datastores can store data from an Azure Blob, Azure Data Lake Gen 1 & 2, SQL db, Databricks,...
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
