@@ -31,9 +31,9 @@ Once your project is created, you can use Visual Studio Code to clone a Git repo
 
 ![Clone a GitHub project using Visual Studio Code](media/vscode-git-0.png)
 
-To get the GitHub project's URL, click on **Clone or download** green button, then copy the HTTPS URL.
+To get the GitHub project's URL, navigate to https://github.com/<YOUR_GITHUB_ACCOUNT>/vanilla-basic and click on the **Clone or download** green button, then copy the HTTPS URL.
 
-![Clone a GitHub project using Visual Studio Code](media/vscode-git-2.png)
+![Clone a GitHub project using Visual Studio Code](media/github-clone-url.png)
 
 
 ## Create your local project
@@ -42,7 +42,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. Inside the **myquickstart-vanilla** project create, a sub-folder called **api**.
 
-> You can give this folder any name.
+> You can give this folder any name. We are using `api` as an example.
 
 2. Choose the Azure icon in the Activity bar, then in the **Functions** area, select the **Create new project**... icon.
 
@@ -50,7 +50,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 3. Choose **Browse**, then select the **api** folder as the directory location for your project workspace and choose **Select**.
 
-![Create a new Azure Functions using Visual Studio Code](media/create-azure-functions-vscode-2b.png)
+![Create a new Azure Functions using Visual Studio Code](media/create-azure-functions-vscode-1.png)
 
 4. Provide the following information at the prompts:
 
@@ -124,7 +124,7 @@ Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.mic
 
 2. If you haven't already installed Azure Functions Core Tools, select **Install** at the prompt. When the Core Tools are installed, your app starts in the **Terminal** panel. You can see the URL endpoint of your HTTP-triggered function running locally.
 
-![Create a new Azure Functions using Visual Studio Code](media/create-azure-functions-vscode-8.png)
+![Create a new Azure Functions using Visual Studio Code](media/create-azure-functions-vscode-2.png)
 
 3. With Core Tools running, navigate to the following URL to execute a GET request.
 
@@ -132,14 +132,17 @@ Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.mic
 
 4. A response is returned, which looks like the following in a browser:
 
-![Create a new Azure Functions using Visual Studio Code](media/create-azure-functions-vscode-9.png)
+![Create a new Azure Functions using Visual Studio Code](media/create-azure-functions-vscode-3.png)
 
 After you've verified that the function runs correctly on your local computer, it's time to call the API from the Vanilla JavaScript application.
 
 ### Call the API from the application
 
-<!-- include proxy config docs -->
+1. TODO: include local proxy config docs once they are ready
+
+```
 [!INCLUDE [](./static-web-apps-local-proxy.md)]
+```
 
 1. Update the content of the `index.html` with the following code that will fetch the text from the API function and how it on the screen:
 
@@ -173,7 +176,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 2. With Core Tools running, use the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) Visual Studio Code extension to serve the `index.html` and open it a in browser.
 
-![Create a new Azure Functions using Visual Studio Code](media/create-azure-functions-vscode-10.png)
+![Create a new Azure Functions using Visual Studio Code](media/create-azure-functions-vscode-4.png)
 
 > You can use other HTTP servers or proxies to serve the `index.html` file. Accessing the `index.html` from `file:///` will not work.
 
@@ -218,7 +221,7 @@ On the build details screen:
 1. Navigate to `https://github.com/<YOUR_GITHUB_ACCOUNT>/myquickstart-vanilla/actions?query=workflow%3A"Azure+Pages+CI%2FCD"`
 1. Make sure the build is successful
 
-![GitHub Workflow](media/github-workflow.png)
+![GitHub Workflow](media/github-workflow-0.png)
 
 The deployed API will be available at `https://<STATIC_APP_NAME>.staticsitescanary.net/api/<FUNCTION_OR_ROUTE_NAME>`.
 
@@ -236,16 +239,17 @@ Or you can directly access your Azure Static Web App at https://thankful-water-0
 
 ## Clean up resources
 
-In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group.
+When you continue to the next step, you'll need to keep all your resources in place. Otherwise, you can use the following steps to delete the Azure Static Web App and its related resources to avoid incurring any further costs.
 
-From the Azure portal menu or **Home** page, select **Resource groups**, and on the **Resource groups** page, select **myResourceGroup**.
+1. From the Azure portal menu or **Home** page, select **Resource groups**, and on the **Resource groups** page, select **myResourceGroup**.
+1. On the **myResourceGroup** page, make sure that the listed resources are the ones you want to delete.
+1. Select **Delete**, type **myResourceGroup** in the text box, and then select **Delete**.
 
-On the **myResourceGroup** page, make sure that the listed resources are the ones you want to delete.
-
-Select **Delete**, type **myResourceGroup** in the text box, and then select **Delete**.
+To learn more about Azure Static Web Apps costs, see [Estimating costs](https://docs.microsoft.com/azure/?product=featured).
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+Advance to the next article to learn how to configure environment variables for App Service Static Apps.
+
 > [!div class="nextstepaction"]
-> [Next steps button](./)
+> [Next steps button](./environment-variables.md)
