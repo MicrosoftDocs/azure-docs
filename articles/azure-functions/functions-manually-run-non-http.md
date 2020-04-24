@@ -4,7 +4,7 @@ description: Use an HTTP request to run a non-HTTP triggered Azure Functions
 author: craigshoemaker
 
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 04/23/2020
 ms.author: cshoe
 ---
 
@@ -35,9 +35,9 @@ You use this request location in Postman along with the function's master key in
 
 Navigate to your function in the Azure portal and click on **Manage** and find the **Host Keys** section. Click on the **Copy** button in the *_master* row to copy the master key to your clipboard.
 
-![Copy master key from Function Management screen](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
+:::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="Copy master key from Function Management screen" border="true":::
 
-After copying the master key, click on the function name to return to the code file window. Next, click on the **Logs** tab. You'll see messages from the function logged here when you manually run the function from Postman.
+After copying the *_master* key, click on the function name to return to the code file window. Next, click on the **Logs** tab. You'll see messages from the function logged here when you manually run the function from Postman.
 
 > [!CAUTION]  
 > Due to the elevated permissions in your function app granted by the master key, you should not share this key with third parties or distribute it in an application.
