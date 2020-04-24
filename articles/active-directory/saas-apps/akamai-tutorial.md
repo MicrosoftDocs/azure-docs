@@ -12,7 +12,6 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
@@ -146,10 +145,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<Yourapp>.login.go.akamai-access.com/sp/response`
+    `https://<Yourapp>.login.go.akamai-access.com/saml/sp/response`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https:// <Yourapp>.login.go.akamai-access.com/sp/response`
+    `https:// <Yourapp>.login.go.akamai-access.com/saml/sp/response`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Akamai Client support team](https://www.akamai.com/us/en/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -586,7 +585,7 @@ Assign the Identity Provider
 
 ### Create Akamai test user
 
-In this section, you create a user called B.Simon in Akamai. Work with [Akamai Client support team](https://www.akamai.com/us/en/contact-us/) to add the users in the Akamai platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called B.Simon in Akamai. Work with [Akamai Client support team](https://www.akamai.com/us/en/contact-us/) to add the users in the Akamai platform. Users must be created and activated before you use single sign-on. 
 
 ## Test SSO
 
