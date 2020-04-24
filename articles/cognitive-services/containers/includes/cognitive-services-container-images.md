@@ -20,7 +20,7 @@ The Microsoft Container Registry (MCR) syndicates all of the generally available
 
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|
-| [LUIS](../../LUIS/luis-container-howto.md) | LUIS | `mcr.microsoft.com/azure-cogni'ive-services/luis` |
+| [LUIS](../../LUIS/luis-container-howto.md) | LUIS | `mcr.microsoft.com/azure-cognitive-services/luis` |
 | [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Sentiment Analysis | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
 #### Public "Ungated" preview (container registry: `mcr.microsoft.com`)
@@ -34,7 +34,7 @@ The following preview containers are available publicly. The Microsoft Container
 
 #### Public "Gated" preview (container registry: `containerpreview.azurecr.io`)
 
-The following gated preview containers are hosted on the Container Preview registry, and require an [application](../../cognitive-services-gating-process.md) to access.
+The following gated preview containers are hosted on the Container Preview registry, and require an application to access. See [Cognitive Services gating process](../../cognitive-services-gating-process.md) for more information.
 
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|
