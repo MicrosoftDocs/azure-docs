@@ -44,15 +44,6 @@ Connectors are available as built-in triggers and actions or as managed connecto
 
   Connectors are classified as either Standard or Enterprise. [Enterprise connectors](#enterprise-connectors) provide access to enterprise systems such as SAP, IBM MQ, and IBM 3270 for an additional cost. To determine whether a connector is Standard or Enterprise, see the technical details in each connector's reference page under [Connectors overview](https://docs.microsoft.com/connectors).
 
-  > [!IMPORTANT]
-  > Starting **May 1, 2020**, changes by Google to their 
-  > [data security and privacy policies](https://www.blog.google/technology/safety-security/project-strobe/) 
-  > might affect logic apps that use the [Gmail connector](https://docs.microsoft.com/connectors/gmail/). 
-  > If your logic apps use the Gmail connector with a Gmail consumer account (email address that ends with 
-  > @gmail.com or @googlemail.com), your logic apps can use only Google-approved triggers, actions, and connectors. 
-  > Starting **June 15, 2020**, any non-compliant workflows will be disabled. For more information, see 
-  > [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
-
   You can also identify connectors by using these categories, although some connectors can cross multiple categories. For example, SAP is an Enterprise connector and an on-premises connector:
 
   |   |   |
@@ -61,6 +52,12 @@ Connectors are available as built-in triggers and actions or as managed connecto
   | [**On-premises connectors**](#on-premises-connectors) | After you install and set up the [on-premises data gateway][gateway-doc], these connectors help your logic apps access on-premises systems such as SQL Server, SharePoint Server, Oracle DB, file shares, and others. |
   | [**Integration account connectors**](#integration-account-connectors) | Available when you create and pay for an integration account, these connectors transform and validate XML, encode and decode flat files, and process business-to-business (B2B) messages with AS2, EDIFACT, and X12 protocols. |
   |||
+
+  > [!IMPORTANT]
+  > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
+  > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
+  > [create a Google client app to use for authentication with your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+  > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 <a name="integration-service-environment"></a>
 
