@@ -1,11 +1,11 @@
 ---
-title: Go-To-Market Services - Marketing best practices | Azure
+title: Go-To-Market Services - Marketing best practices | Azure Marketplace
 description: Go-To-Market Services - this section describes marketing best practices for publishers of Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 6/24/2018
+ms.date: 04/16/2020
 ms.author: dsindona
 ---
 
@@ -17,6 +17,6 @@ An optimized marketplace listing and go-to-market campaigns can help you acceler
 
 To learn more about marketplace GTM services, go to [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
 
-Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com) to create and configure your offer.
+Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create and configure your offer.
 
 ---

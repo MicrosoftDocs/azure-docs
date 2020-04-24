@@ -6,12 +6,12 @@ metadata:
   title: Speech translation documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 04/13/2020
-  ms.author: dapine
+  ms.author: trbye
 
 landingContent:
 - title: About speech translation

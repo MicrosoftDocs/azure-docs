@@ -149,12 +149,12 @@ For the full Azure CLI documentation for this command, and to learn how to retri
 
 ## Next steps
 * [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
-* [Explore metrics](../../azure-monitor/app/metrics-explorer.md)
+* [Explore metrics](../../azure-monitor/platform/metrics-charts.md)
 * [Write Analytics queries](../../azure-monitor/app/analytics.md)
 
 <!--Link references-->
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md
 [start]: ../../azure-monitor/app/app-insights-overview.md
