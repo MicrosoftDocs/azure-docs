@@ -533,7 +533,7 @@ Can create and manage all aspects of app registrations and enterprise apps.
 | microsoft.directory/servicePrincipals/permissions/update | Update servicePrincipals.permissions property in Azure Active Directory. |
 | microsoft.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
-| microsoft.azure.serviceHealth/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
