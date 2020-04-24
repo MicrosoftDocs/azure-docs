@@ -4,7 +4,7 @@ description: Create an Azure SQL Database server-level firewall rule
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: quickstart
 author: sachinpMSFT
