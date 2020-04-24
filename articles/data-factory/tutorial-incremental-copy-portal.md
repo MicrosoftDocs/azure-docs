@@ -191,7 +191,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 8. For **Linked Service**, select **New**, and then do the following steps:
 
     1. Enter **AzureSqlDatabaseLinkedService** for **Name**.
-    2. Select your Azure SQL server for **Server name**.
+    2. Select your logical SQL server for **Server name**.
     3. Select your **Database name** from the dropdown list.
     4. Enter your **User name** & **Password**.
     5. To test connection to the Azure SQL database, click **Test connection**.

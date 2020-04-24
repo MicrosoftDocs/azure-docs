@@ -1,6 +1,6 @@
 ---
-title: Execute SSIS packages by Azure SQL Managed Instance Agent
-description: Learn how to execute SSIS packages by Azure SQL Managed Instance Agent. 
+title: Execute SSIS packages by Azure SQL Managed instance Agent
+description: Learn how to execute SSIS packages by Azure SQL Managed instance Agent. 
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,19 +11,19 @@ author: lle
 ms.date: 04/14/2020
 ---
 
-# Execute SSIS packages by Azure SQL Managed Instance Agent
-This article describes how to run a SQL Server Integration Services (SSIS) package by using Azure SQL Managed Instance Agent. This feature provides similar behaviors just like when you schedule SSIS packages by SQL Server Agent in your on-prem environment.
+# Execute SSIS packages by Azure SQL Managed instance Agent
+This article describes how to run a SQL Server Integration Services (SSIS) package by using Azure SQL Managed instance Agent. This feature provides similar behaviors just like when you schedule SSIS packages by SQL Server Agent in your on-prem environment.
 
-With this feature, you can run SSIS packages that are stored in SSISDB of Azure SQL Managed Instance or File System such as Azure Files.
+With this feature, you can run SSIS packages that are stored in SSISDB of Azure SQL Managed instance or File System such as Azure Files.
 
 ## Prerequisites
 To use this feature, download and install the latest version of SSMS, which is version 18.5 or later. Download it from [this website](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
-And you need to provision an Azure-SSIS Integration Runtime in Azure Data Factory, which uses Azure SQL Managed Instance as endpoint server. If you have not provisioned it already, provision it by following instructions in the [tutorial](tutorial-create-azure-ssis-runtime-portal.md). 
+And you need to provision an Azure-SSIS Integration Runtime in Azure Data Factory, which uses Azure SQL Managed instance as endpoint server. If you have not provisioned it already, provision it by following instructions in the [tutorial](tutorial-create-azure-ssis-runtime-portal.md). 
 
-## Run SSIS packages in SSISDB by Azure SQL Managed Instance Agent
-In this step, you use Azure SQL Managed Instance Agent to invoke SSIS packages that is stored in SSISDB in Azure SQL Managed Instance.
-1. In the latest version of SSMS, connect to Azure SQL Managed Instance.
+## Run SSIS packages in SSISDB by Azure SQL Managed instance Agent
+In this step, you use Azure SQL Managed instance Agent to invoke SSIS packages that is stored in SSISDB in Azure SQL Managed instance.
+1. In the latest version of SSMS, connect to Azure SQL Managed instance.
 2. Create a new Agent Job and a new Job step.
 
 ![New Agent Job](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
@@ -33,7 +33,7 @@ In this step, you use Azure SQL Managed Instance Agent to invoke SSIS packages t
 ![New SSIS Job step](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
 
 4. In the **Package** tab, choose **SSIS Catalog** as package source type.
-5. Because the SSISDB is in the same Azure SQL Managed Instance, you don't need to specify authentication.
+5. Because the SSISDB is in the same Azure SQL Managed instance, you don't need to specify authentication.
 6. Specify an SSIS package from your SSISDB.
 
 ![Package Source Type - SSIS Catalog](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb.png)
@@ -46,9 +46,9 @@ In this step, you use Azure SQL Managed Instance Agent to invoke SSIS packages t
 9. Start the Agent Job to execute the SSIS package.
 
 
-## Run SSIS packages in file system by Azure SQL managed instance agent
-In this step, you use Azure SQL Managed Instance Agent to invoke SSIS packages that is stored in File System to run.
-1. In the latest version of SSMS, connect to Azure SQL Managed Instance.
+## Run SSIS packages in file system by Azure SQL Managed instance agent
+In this step, you use Azure SQL Managed instance Agent to invoke SSIS packages that is stored in File System to run.
+1. In the latest version of SSMS, connect to Azure SQL Managed instance.
 2. Create a new Agent Job and a new Job step.
 
    ![New Agent Job](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)

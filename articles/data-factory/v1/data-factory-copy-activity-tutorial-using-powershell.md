@@ -185,7 +185,7 @@ In this step, you link your Azure SQL database to your data factory.
 1. Create a JSON file named AzureSqlLinkedService.json in C:\ADFGetStartedPSH folder with the following content:
 
 	> [!IMPORTANT]
-	> Replace &lt;servername&gt;, &lt;databasename&gt;, &lt;username@servername&gt;, and &lt;password&gt; with names of your Azure SQL server, database, user account, and password.
+	> Replace &lt;servername&gt;, &lt;databasename&gt;, &lt;username@servername&gt;, and &lt;password&gt; with names of your logical SQL server, database, user account, and password.
 	
 	```json
 	{

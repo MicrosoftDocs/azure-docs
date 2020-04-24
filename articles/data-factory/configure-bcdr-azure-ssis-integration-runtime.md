@@ -50,11 +50,11 @@ This section applies when one of the following conditions is true:
 
   OR
 
-- The Azure SQL Database server is configured with the virtual network service endpoint rule.
+- The logical SQL server is configured with the virtual network service endpoint rule.
 
   OR
 
-- The database server is a SQL Database Managed Instance configured with a virtual network.
+- The database server is a SQL Database SQL Managed instance configured with a virtual network.
 
 ### Solution
 
@@ -70,7 +70,7 @@ The following sections describe these steps in more detail.
 
 ### Prerequisites
 
-- Make sure that you have enabled disaster recovery for your Azure SQL Database server in case the server has an outage at the same time. For more info, see [Overview of business continuity with Azure SQL Database](../sql-database/sql-database-business-continuity.md).
+- Make sure that you have enabled disaster recovery for your logical SQL server in case the server has an outage at the same time. For more info, see [Overview of business continuity with Azure SQL Database](../sql-database/sql-database-business-continuity.md).
 
 - If you are using a virtual network in the current region, you need to use another virtual network in the new region to connect your Azure-SSIS integration runtime. For more info, see [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md).
 
@@ -86,8 +86,8 @@ Follow these steps to stop your Azure-SSIS IR, switch the IR to a new region, an
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                    -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-                    -CatalogAdminCredential "Azure SQL Database server admin credentials" `
+                    -CatalogServerEndpoint "logical SQL server endpoint" `
+                    -CatalogAdminCredential "logical SQL server admin credentials" `
                     -VNetId "new VNet" `
                     -Subnet "new subnet" `
                     -SetupScriptContainerSasUri "new custom setup SAS URI"

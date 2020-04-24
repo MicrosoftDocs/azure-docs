@@ -63,9 +63,9 @@ Create an Azure SQL Database with Adventure Works LT sample data following [Crea
 
 ## Azure services to access SQL server
 
-For both SQL Database and Azure Synapse Analytics (formerly SQL DW), allow Azure services to access SQL server. Ensure that **Allow Azure services and resources to access this server** setting is turned **ON** for your Azure SQL server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure Synapse Analytics (formerly SQL DW). 
+For both SQL Database and Azure Synapse Analytics (formerly SQL DW), allow Azure services to access SQL server. Ensure that **Allow Azure services and resources to access this server** setting is turned **ON** for your logical SQL server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure Synapse Analytics (formerly SQL DW). 
 
-To verify and turn on this setting, go to your Azure SQL server > Security > Firewalls and virtual networks > set the **Allow Azure services and resources to access this server** to **ON**.
+To verify and turn on this setting, go to your logical SQL server > Security > Firewalls and virtual networks > set the **Allow Azure services and resources to access this server** to **ON**.
 
 ## Create a data factory
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
@@ -110,7 +110,7 @@ at the bottom of the left column under **Factory Resources**).
 
     a. Enter **AzureSqlDatabaseLinkedService** for **Name**.
     
-    b. Select your Azure SQL server for **Server name**
+    b. Select your logical SQL server for **Server name**
     
     c. Select your Azure SQL database for **Database name**. 
     
@@ -131,7 +131,7 @@ at the bottom of the left column under **Factory Resources**).
    
     a. Enter **AzureSqlDWLinkedService** for **Name**.
      
-    b. Select your Azure SQL server for **Server name**
+    b. Select your logical SQL server for **Server name**
      
     c. Select your Azure SQL database for **Database name**. 
      
