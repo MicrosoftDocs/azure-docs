@@ -5,23 +5,23 @@ keywords: data encryption, encryption key, cloud encryption
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer:
-ms.date: 03/12/2019
+ms.date: 04/23/2020
 ---
 # Always Encrypted: Protect sensitive data and store encryption keys in Azure Key Vault
 
-This article shows you how to secure sensitive data in a SQL database with data encryption using the [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also includes instructions that will show you how to store each encryption key in Azure Key Vault.
+This article shows you how to secure sensitive data in Azure SQL Database with data encryption using the [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also includes instructions that will show you how to store each encryption key in Azure Key Vault.
 
 Always Encrypted is a new data encryption technology in Azure SQL Database and SQL Server that helps protect sensitive data at rest on the server, during movement between client and server, and while the data is in use. Always Encrypted ensures that sensitive data never appears as plaintext inside the database system. After you configure data encryption, only client applications or app servers that have access to the keys can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
 
 After you configure the database to use Always Encrypted, you will create a client application in C# with Visual Studio to work with the encrypted data.
 
-Follow the steps in this article and learn how to set up Always Encrypted for an Azure SQL database. In this article you will learn how to perform the following tasks:
+Follow the steps in this article and learn how to set up Always Encrypted for Azure SQL Database. In this article you will learn how to perform the following tasks:
 
 - Use the Always Encrypted wizard in SSMS to create [Always Encrypted keys](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3).
   - Create a [column master key (CMK)](https://msdn.microsoft.com/library/mt146393.aspx).
@@ -102,7 +102,7 @@ az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwr
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Go to **Create a resource** > **Databases** > **SQL Database**.
-3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed directions about how to create a database in the Azure portal, see [Your first Azure SQL database](sql-database-single-database-get-started.md).
+3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed directions about how to create a database in the Azure portal, see [Your first Azure SQL Database](sql-database-single-database-get-started.md).
 
     ![Create a blank database](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 
