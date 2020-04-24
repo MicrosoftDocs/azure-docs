@@ -1,23 +1,24 @@
 ---
 title: Configure public endpoint - managed instance
-description: "Learn how to configure a public endpoint for managed instance"
+description: "Learn how to configure a public endpoint for Azure SQL Managed Instance"
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
 ---
-# Configure public endpoint in Azure SQL Database managed instance
+# Configure public endpoint in Azure SQL Managed Instance
 
 Public endpoint for a [managed instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) enables data access to your managed instance from outside the [virtual network](../virtual-network/virtual-networks-overview.md). You are able to access your managed instance from multi-tenant Azure services like Power BI, Azure App Service, or an on-premises network. By using the public endpoint on a managed instance, you do not need to use a VPN, which can help avoid VPN throughput issues.
 
 In this article, you'll learn how to:
 
 > [!div class="checklist"]
+>
 > - Enable public endpoint for your managed instance in the Azure portal
 > - Enable public endpoint for your managed instance using PowerShell
 > - Configure your managed instance network security group to allow traffic to the managed instance public endpoint
@@ -89,7 +90,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |Setting  |Suggested value  |Description  |
     |---------|---------|---------|
     |**Source**     |Any IP address or Service tag         |<ul><li>For Azure services like Power BI, select the Azure Cloud Service Tag</li> <li>For your computer or Azure VM, use NAT IP address</li></ul> |
-    |**Source port ranges**     |*         |Leave this to * (any) as source ports are usually dynamically allocated and as such, unpredictable |
+    |**Source port ranges**     |* |Leave this to * (any) as source ports are usually dynamically allocated and as such, unpredictable |
     |**Destination**     |Any         |Leaving destination as Any to allow traffic into the managed instance subnet |
     |**Destination port ranges**     |3342         |Scope destination port to 3342, which is the managed instance public TDS endpoint |
     |**Protocol**     |TCP         |Managed instance uses TCP protocol for TDS |
@@ -110,4 +111,4 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 ## Next steps
 
-- Learn about [using Azure SQL Database managed instance securely with public endpoint](sql-database-managed-instance-public-endpoint-securely.md).
+Learn about using [Azure SQL Managed Instance securely with public endpoint](sql-database-managed-instance-public-endpoint-securely.md).

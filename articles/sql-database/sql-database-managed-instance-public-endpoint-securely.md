@@ -1,23 +1,23 @@
 ---
 title: Secure managed instance public endpoints
-description: "Securely use public endpoints in Azure with a managed instance"
+description: "Securely use public endpoints in Azure SQL Managed Instance"
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
 ---
-# Use an Azure SQL Database managed instance securely with public endpoints
+# Use  Azure SQL Managed Instance securely with public endpoints
 
-Azure SQL Database managed instances can provide user connectivity over [public endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). This article explains how to make this configuration more secure.
+Azure SQL Managed Instance can provide user connectivity over [public endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). This article explains how to make this configuration more secure.
 
 ## Scenarios
 
-A SQL Database managed instance provides a private endpoint to allow connectivity from inside its virtual network. The default option is to provide maximum isolation. However, there are scenarios where you need to provide a public endpoint connection:
+Azure SQL Managed Instance provides a private endpoint to allow connectivity from inside its virtual network. The default option is to provide maximum isolation. However, there are scenarios where you need to provide a public endpoint connection:
 
 - The managed instance must integrate with multi-tenant-only platform-as-a-service (PaaS) offerings.
 - You need higher throughput of data exchange than is possible when you're using a VPN.
