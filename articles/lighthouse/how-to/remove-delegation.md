@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Remove access to a delegation
 
-After a customer's subscription or resource group has been delegated to a service provider for [Azure delegated resource management](../concepts/azure-delegated-resource-management.md), the delegation can be removed if needed. When a delegation is removed, all of the permissions previously granted to users in the service provider tenant will no longer apply.
+After a customer's subscription or resource group has been delegated to a service provider for [Azure delegated resource management](../concepts/azure-delegated-resource-management.md), the delegation can be removed if needed. Once a delegation is removed, access previously granted to users in the service provider tenant will no longer apply.
 
 Removing a delegation can be done by a user in either the customer tenant or the service provider tenant, as long as the user has the appropriate permissions.
 
@@ -19,7 +19,7 @@ After confirming the deletion, no users in the service provider's tenant will be
 
 ## Service providers
 
-Users in a management tenant can remove access to delegated resources if they were granted the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) when the customer's resources were onboarded for Azure delegated resource management. If this role was not assigned, the delegation can only be removed by a user in the customer's tenant.
+Users in a managing tenant can remove access to delegated resources if they were granted the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) for the customer's resources. If this role was not assigned to any service provider users, the delegation can only be removed by a user in the customer's tenant.
 
 The example below shows an assignment granting the **Managed Services Registration Assignment Delete Role** that can be included in a parameter file during the [onboarding process](onboard-customer.md):
 
@@ -33,7 +33,7 @@ The example below shows an assignment granting the **Managed Services Registrati
     ] 
 ```
 
-This role can also be selected for an **Authorization** when [creating a Managed Service offer](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#authorization) to publish to Azure Marketplace.
+This role can also be selected in an **Authorization** when [creating a Managed Service offer](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#authorization) to publish to Azure Marketplace.
 
 A user with this permission can remove a delegation in one of the following ways.
 

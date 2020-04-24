@@ -17,7 +17,7 @@ To access the **Service providers** page in the Azure portal, the customer can s
 
 Keep in mind that the **Service providers** page only shows info about the service providers that have access to the customer's subscriptions or resource groups through Azure delegated resource management. If a customer works with additional service providers who don't use Azure delegated resource management to access the customer's resources, info about those service providers is not shown here.
 
-> [!NOTE]
+> [!TIP]
 > Service providers can view info about their customers by navigating to **My customers** in the Azure portal. For more info, see [View and manage customers and delegated resources](view-manage-customers.md).
 
 ## View service provider details
@@ -74,4 +74,4 @@ For more info about how to assign a policy and view compliance state results, se
 ## Next steps
 
 - Learn more about [Azure Lighthouse](../overview.md).
-- Learn how service providers can [view and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.
+- Learn how service providers can [view and manage customers](view-manage-customers.md) on the **My customers** page in the Azure portal.
