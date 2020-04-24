@@ -225,7 +225,7 @@ While the scenario will appear to work, its health model and failure mode is und
 
 ## Performance
 
-Each NAT gateway resource can provide up to 50 Gbps of throughput. You can break your deployments out into multiple subnets and assign each or groups of subnets a NAT gateway to scale up.
+Each NAT gateway resource can provide up to 50 Gbps of throughput. You can split your deployments into multiple subnets and assign each subnet or groups of subnets a NAT gateway to scale out.
 
 Each NAT gateway can support 64,000 connections per assigned outbound IP address.  Review the following section on Source Network Address Translation (SNAT) for details as well as the [troubleshooting article](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) for specific problem resolution guidance.
 
