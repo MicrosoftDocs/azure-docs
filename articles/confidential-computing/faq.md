@@ -1,6 +1,6 @@
 ---
 title: Azure Confidential Computing FAQ
-description: This article provides answers to frequently asked questions about confidential computing.
+description: Answers to frequently asked questions about Azure confidential computing.
 author: JBCook
 ms.topic: troubleshooting
 ms.workload: infrastructure
@@ -9,13 +9,14 @@ ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
 ---
+
 # Frequently asked questions for Azure Confidential Computing
 
 This article provides answers to some of the most common questions about running [confidential computing workloads on Azure](overview.md).
 
-If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You also can submit an Azure support request. To submit a support request, on the [Azure support page](https://azure.microsoft.com/support/options/), select Get support.
+If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You can also submit an Azure support request. To submit a support request, on the [Azure support page](https://azure.microsoft.com/support/options/), select Get support.
 
-## <a id="vm-faq"></a> Confidential Computing Virtual Machines
+## Confidential Computing Virtual Machines <a id="vm-faq"></a>
 
 1. **How can you start deploying DCsv2 series VMs?**
 
@@ -30,7 +31,7 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 
 1. **DCsv2 virtual machines are grayed out in the portal and I can't select one**
 
-    Based on the information bubble next to the VM, there are different actions to take:
+   Based on the information bubble next to the VM, there are different actions to take:
     -	**UnsupportedGeneration**: Change the generation of the virtual machine image to “Gen2”.
     -	**NotAvailableForSubscription** : The region isn't yet available for your subscription. Select an available region.
     -	**InsufficientQuota**: [Create a support request to increase your quota](../azure-portal/supportability/per-vm-quota-requests). Free trial subscriptions don't have quota for confidential computing VMs. 
@@ -48,9 +49,10 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
    No, these virtual machines are only available in select regions. Check the [products by regions page](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) for the latest available regions. 
 
 1. **How do I install the Open Enclave SDK?**
-     For instruction on how to install the OE SDK on a machine whether in Azure or on-premise, follow the instructions on the [Open Enclave SDK GitHub](https://github.com/openenclave/openenclave).
+   
+   For instruction on how to install the OE SDK on a machine whether in Azure or on-premise, follow the instructions on the [Open Enclave SDK GitHub](https://github.com/openenclave/openenclave).
      
-     You can also head to the Open Enclave SDK GitHub for OS-specific installation instructions:
+   You can also head to the Open Enclave SDK GitHub for OS-specific installation instructions:
      - [Install the OE SDK on Windows](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Windows.md)
      - [Install the OE SDK on Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md)
      - [Install the OE SDK on Ubuntu 16.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md)

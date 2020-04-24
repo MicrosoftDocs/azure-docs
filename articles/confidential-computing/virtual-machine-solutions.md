@@ -14,18 +14,17 @@ ms.author: JenCook
 
 This article covers information about deploying Azure confidential computing virtual machines (VMs) running Intel processors backed by [Intel Software Extension Guard](https://software.intel.com/sgx) (Intel SGX). 
 
-
 ## Azure confidential computing VM Sizes
 
 Azure confidential computing virtual machines are designed to protect the confidentially and integrity of your data and code while it's processed in the cloud 
 
-[DCsv2-Series](../virtual-machines/dcv2-series) VMs are the latest and most recent confidential computing size family. These VMs support a larger range of deployment capabilities, have 2x the Enclave Page Cache (EPC) and a larger selection of sizes to compared to our DC-Series VMs. The [DC-Series](../virtual-machines/sizes-previous-gen#preview-dc-series) VMs are currently in preview and will be deprecated before becoming generally available.
+[DCsv2-Series](../virtual-machines/dcv2-series) VMs are the latest and most recent confidential computing size family. These VMs support a larger range of deployment capabilities, have 2x the Enclave Page Cache (EPC) and a larger selection of sizes to compared to our DC-Series VMs. The [DC-Series](../virtual-machines/sizes-previous-gen#preview-dc-series) VMs are currently in preview and will be deprecated and not included in general availability.
 
-Start deploying a DCsv2-Series VM via the Microsoft commerical marketplace by following the [quickstart tutorial](quick-create-marketplace.md).
+Start deploying a DCsv2-Series VM via the Microsoft commercial marketplace by following the [quickstart tutorial](quick-create-marketplace.md).
 
 ### Current available sizes and regions
-To get a list of all generally available confidential compute VM sizes in available regions, and availability zones, run the following command in the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
 
+To get a list of all generally available confidential compute VM sizes in available regions and availability zones, run the following command in the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
 
 ```azurecli-interactive
 az vm list-skus 
@@ -58,7 +57,8 @@ Standard_DC2s_v2  CentralUSEUAP
 Standard_DC4s_v2  CentralUSEUAP
 ```
 
-For a more detailed view of the above sizes, run the following command 
+For a more detailed view of the above sizes, run the following command:
+
 ```azurecli-interactive
 az vm list-skus 
     --size dc 
@@ -66,6 +66,7 @@ az vm list-skus
 ```
 
 ## Deployment considerations
+
 Follow a quickstart tutorial to deploy a DCsv2-Series virtual machine in less than 10 minutes. 
 
 - **Azure subscription** – To deploy a confidential computing VM instance, consider a pay-as-you-go subscription or other purchase option. If you're using an [Azure free account](https://azure.microsoft.com/free/), you won't have quota for the appropriate amount of Azure compute cores.
@@ -73,13 +74,11 @@ Follow a quickstart tutorial to deploy a DCsv2-Series virtual machine in less th
 - **Pricing and regional availability** - Find the pricing for DCsv2-Series VMs on [Virtual Machine Pricing Page](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). Check [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) for availability in Azure regions.
 
 
-- **Cores quota** – You might need to increase the cores quota in your Azure subscription from the default value. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the DCsv2-Series. To request a quota increase, [open an online customer support request](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) at no charge. (Default limits may vary depending on your subscription category.)
-
+- **Cores quota** – You might need to increase the cores quota in your Azure subscription from the default value. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the DCsv2-Series. To request a quota increase, [open an online customer support request](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) at no charge. Note, default limits may vary depending on your subscription category.
 
   > [!NOTE]
   > Contact Azure Support if you have large-scale capacity needs. Azure quotas are credit limits, not capacity guarantees. Regardless of your quota, you are only charged for cores that you use.
   
-
 - **Resizing** – Because of their specialized hardware, you can only resize confidential computing instances within the same size family. For example, you can only resize a DCsv2-series VM from one DCsv2-series size to another. Resizing from a non-confidential computing size to a confidential computing size isn't supported.  
 
 - **Image** – To provide Intel Software Guard Extension (Intel SGX) support on confidential compute instances, all deployments need to be run on Generation 2 images. Azure confidential computing supports workloads running on Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, and Windows Server 2016 Gen 2. Read about [support for generation 2 VMs on Azure](../virtual-machines/linux/generation-2) to learn more about supported and unsupported scenarios. 
@@ -89,6 +88,7 @@ Follow a quickstart tutorial to deploy a DCsv2-Series virtual machine in less th
 - **Disk encryption** – Confidential compute instances don't support Disk encryption at this time. 
 
 ## High availability and disaster recovery considerations
+
 When using virtual machines in Azure, you're responsible for implementing a high availability and disaster recovery solution to avoid any downtime. 
 
 Azure confidential computing doesn't support zone-redundancy via Availability Zones at this time. For the highest availability and redundancy for confidential computing, use [Availability Sets](../virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Because of hardware restrictions, Availability Sets for confidential computing instances can only have a maximum of 10 update domains. 
@@ -102,7 +102,9 @@ To learn about Azure Resource Manager templates, see [Template deployment overvi
 To deploy a DCsv2-Series VM in an ARM template you will utilize the [Virtual Machine resource](../virtual-machines/windows/template-description). You need to ensure you specify the correct properties for **vmSize** and for your **imageReference**.
 
 ### VM Size
+
 Specify one of the following sizes in your ARM template in the Virtual Machine resource. This string is put as **vmSize** in **properties**.
+
 ```json
   [
         "Standard_DC1s_v2",
@@ -113,7 +115,8 @@ Specify one of the following sizes in your ARM template in the Virtual Machine r
 ```
 
 ### Gen2 OS Image
-Under **properies** you will also have to reference and image under **storageProfile**. Use **one** of the following images for your **imageReference**.
+
+Under **properies**, you will also have to reference an image under **storageProfile**. Use *only one* of the following images for your **imageReference**.
 
 ```json
       "2016-datacenter-gensecond": {
@@ -134,5 +137,4 @@ Under **properies** you will also have to reference and image under **storagePro
         "sku": "16_04-lts-gen2",
         "version": "latest"
       }
-    },
 ```
