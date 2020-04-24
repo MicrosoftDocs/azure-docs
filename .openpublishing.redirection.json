@@ -28468,8 +28468,8 @@
     },
     {
       "source_path": "articles/storage/common/storage-powershell-guide-full.md",
-      "redirect_url": "/powershell/module/az.storage/",
-      "redirect_document_id": true
+      "redirect_url": "https://docs.microsoft.com/powershell/module/az.storage",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/storage/storage-premium-storage-performance.md",
