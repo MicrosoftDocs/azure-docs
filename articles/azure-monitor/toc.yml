@@ -64,6 +64,8 @@
     items:
     - name: Log Analytics workspace
       href: samples/arm-workspace.md
+    - name: Log queries
+      href: samples/arm-log-queries.md
     - name: Diagnostic settings
       href: samples/arm-diagnostics-settings.md
     - name: Log Analytics agent

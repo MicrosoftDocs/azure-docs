@@ -12,7 +12,7 @@ ms.date: 04/22/2020
 # Resource Manager template samples for Azure Monitor workspaces
 This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create and configure log queries in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
-- For more information on log queries, see [Overview of log queries in Azure Monitor](../log-query/log-query-overview.md).
+For more information on log queries, see [Overview of log queries in Azure Monitor](../log-query/log-query-overview.md).
 
 ## Add a log query to an existing Log Analytics workspace
 The following sample adds two log queries to an existing Log Analytics workspace.
