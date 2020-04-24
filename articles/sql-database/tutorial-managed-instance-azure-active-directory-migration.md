@@ -4,8 +4,7 @@ description: Learn about how to migrate SQL Server on-premises Windows users and
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sqldbrb=1
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.topic: tutorial
 author: GitHubMirek
 ms.author: mireks
