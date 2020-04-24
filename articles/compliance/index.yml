@@ -155,6 +155,191 @@ conceptualContent:
           itemType: concept
           text: GLBA (US)
 
+    # Card
+    - title: Financial services
+      links:
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-knf-poland
+          itemType: concept
+          text: KNF (Poland)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-mas-abs-singapore
+          itemType: concept
+          text: MAS and ABS (Singapore)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-nbb-fsma-belgium
+          itemType: concept
+          text: NBB and FSMA (Belgium)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-nen-7510-netherlands
+          itemType: concept
+          text: NEN 7510 (Netherlands)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-osfi-canada
+          itemType: concept
+          text: OSFI (Canada)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-pci-dss
+          itemType: concept
+          text: PCI DSS
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-rbi-irdai-india
+          itemType: concept
+          text: RBI and IRDAI (India)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-sec-17a-4
+          itemType: concept
+          text: SEC 17a-4 (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-sec-reg-sci
+          itemType: concept
+          text: SEC Regulation SCI (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-shared-assessments
+          itemType: concept
+          text: Shared assessments
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-sox
+          itemType: concept
+          text: SOX (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-trusight
+          itemType: concept
+          text: TruSight
+
+    # Card
+    - title: Health
+      links:
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-hds-france
+          itemType: concept
+          text: HDS (France)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-hipaa-hitech
+          itemType: concept
+          text: HIPAA & HITECH (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-hitrust
+          itemType: concept
+          text: HITRUST (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-mars-e
+          itemType: concept
+          text: MARS-E (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-nen-7510-netherlands
+          itemType: concept
+          text: NEN 7510 (Netherlands)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-nhs-ig-toolkit-uk
+          itemType: concept
+          text: NHS IG Toolkit (UK)
+
+    # Card
+    - title: Media and manufacturing
+      links:
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-cdsa
+          itemType: concept
+          text: CDSA
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-dpp-uk
+          itemType: concept
+          text: DPP (UK)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-fact-uk
+          itemType: concept
+          text: FACT (UK)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-fda-cfr-title-21-part-11
+          itemType: concept
+          text: FDA CFR
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-ferpa
+          itemType: concept
+          text: FERPA (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-gxp
+          itemType: concept
+          text: GxP
+        - url: https://docs.microsoft.com/en-us/microsoft-365/compliance/offering-mpaa
+          itemType: concept
+          text: MPAA
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-nerc-cip
+          itemType: concept
+          text: NERC (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-tisax-germany
+          itemType: concept
+          text: TISAX (Germany)
+
+    # Card
+    - title: Regional
+      links:
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-bir-2012-netherlands
+          itemType: concept
+          BIR 2012 (Netherlands)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-c5-germany
+          itemType: concept
+          text: C5 (Germany)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-ccpa
+          itemType: concept
+          text: CCPA (US California)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-ccsl-irap-australia
+          itemType: concept
+          text: IRAP and CCSL (Australia)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-cs-mark-gold-japan
+          itemType: concept
+          text: CS Gold Mark (Japan)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-cyber-essentials-plus-uk
+          itemType: concept
+          text: Cyber Essentials PLUS (UK)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-canadian-privacy-laws
+          itemType: concept
+          text: Canadian Privacy Laws
+        - url: https://www.trustcenter.cn/default.html
+          itemType: concept
+          text: DJCP (China)
+
+    # Card
+    - title: Regional
+      links:
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-en-301-549-eu
+          itemType: concept
+          text: EN 301 549 (EU)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-ens-spain
+          itemType: concept
+          text: ENS (Spain)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-enisa
+          itemType: concept
+          text: ENISA IAF (EU)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-eu-model-clauses
+          itemType: concept
+          text: EU Model Clauses
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-eu-us-privacy-shield
+          itemType: concept
+          text: EU-US Privacy Shield
+        - url: https://www.trustcenter.cn/default.html
+          itemType: concept
+          text: GB 18030 (China) 
+        - url: https://docs.microsoft.com/microsoft-365/compliance/gdpr
+          itemType: concept
+          text: GDPR (EU)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-g-cloud-uk
+          itemType: concept
+          text: G-Cloud (UK)
+        - url: https://www.idw.de/the-idw/about-the-idw
+          itemType: concept
+          text: IDW PS 951 (Germany)
+
+    # Card
+    - title: Regional
+      links:
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-isms-korea
+          itemType: concept
+          text: ISMS (Korea)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-it-grundschutz-workbook-germany
+          itemType: concept
+          text: IT-Grundschutz (Germany)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-lopd-spain
+          itemType: concept
+          text: LOPD (Spain)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-meity-india
+          itemType: concept
+          text: MeitY (India)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-mtcs-singapore
+          itemType: concept
+          text: MTCS (Singapore)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-my-number-act-japan
+          itemType: concept
+          text: My Number (Japan)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-nz-cc-framework-nz
+          itemType: concept
+          text: NZ CC (New Zealand)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-pasf-uk
+          itemType: concept
+          text: PASF (UK)
+        - url: https://www.trustcenter.cn/compliance/default.html#TCS
+          itemType: concept
+          text: TRUCS (China)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-pdpa-argentina
+          itemType: concept
+          text: PDPA (Argentina)
 
 
 additionalContent:
