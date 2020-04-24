@@ -7597,6 +7597,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/application-gateway-create-url-route-cli.md",
+      "redirect_url": "/azure/application-gateway/tutorial-url-route-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-create-url-route-arm-ps.md",
+      "redirect_url": "/azure/application-gateway/tutorial-url-route-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-create-multisite-azureresourcemanager-powershell.md",
+      "redirect_url": "/azure/application-gateway/tutorial-multiple-sites-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-ssl.md",
+      "redirect_url": "/azure/application-gateway/tutorial-ssl-powershell",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-insights/app-insights-azure-diagnostics.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-to-application-insights",
       "redirect_document_id": false
@@ -51563,6 +51583,11 @@
     {
       "source_path": "articles/cognitive-services/Custom-Vision-Service/python-tutorial-od.md",
       "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/active-directory-graph-api-quickstart.md",
+      "redirect_url": "/azure/active-directory/develop/microsoft-graph-intro",
       "redirect_document_id": false
     }
   ]
