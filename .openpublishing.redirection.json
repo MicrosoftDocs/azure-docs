@@ -17653,6 +17653,11 @@
     },
     {
       "source_path": "articles/storage/common/storage-migration-to-premium-storage.md",
+      "redirect_url": "/azure/virtual-machines/windows/migrate-to-managed-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-troubleshoot-vhds.md",
       "redirect_url": "/azure/virtual-machines/troubleshooting",
       "redirect_document_id": false
     },
