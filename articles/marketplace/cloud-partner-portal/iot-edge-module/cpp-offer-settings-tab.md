@@ -12,9 +12,9 @@ ms.author: dsindona
 # IoT Edge module Offer Settings tab
 
 >[!Important]
->Starting April 13, 2020, we'll begin moving management of your IoT Edge module offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an IoT Edge module offer](https://aka.ms/AzureCreateIoT) to manage your migrated offers.
+>Starting April 13, 2020, we'll begin moving management of your IoT Edge module offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an IoT Edge module offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation) to manage your migrated offers.
 
-The **IoT Edge Modules > New Offer** page opens with the focus on the **Offer Settings** tab. 
+The **IoT Edge Modules > New Offer** page opens with the focus on the **Offer Settings** tab.
 
 ![New Offer page for IoT Edge modules](./media/iot-edge-module-offer-settings-tab.png)
 
