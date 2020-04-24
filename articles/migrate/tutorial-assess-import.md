@@ -244,6 +244,8 @@ This view shows the estimated compute and storage cost of running VMs in Azure. 
 
 ## Supported operating system names
 
+Operating system names provided in the CSV must match or contain the names in this list. This is necessary for the names specified to be recognized as valid by the assessment.
+
 <!-- BEGIN A - H -->
 
 :::row:::

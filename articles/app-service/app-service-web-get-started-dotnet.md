@@ -3,7 +3,7 @@ title: "Quickstart: Create a C# ASP.NET Core app"
 description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET Core web app template from Visual Studio.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 03/17/2020
+ms.date: 04/22/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
 ---
 
@@ -102,7 +102,7 @@ Follow these steps to update and redeploy your web app:
 
 1. In **Solution Explorer**, under your project, open **Pages** > **Index.cshtml**.
 
-1. Replace the two `<div>` tags with the following code:
+1. Replace the entire `<div>` tag with the following code:
 
    ```HTML
    <div class="jumbotron">
