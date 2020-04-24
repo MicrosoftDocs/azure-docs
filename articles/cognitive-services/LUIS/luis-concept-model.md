@@ -44,19 +44,19 @@ The following utterance is a **positive example** for the `OrderBook` intent and
 
 The result of well-designed intents, with their example utterances, is a high intent prediction.
 
-## Entities extract data
 
-An entity represents a unit of data you want extracted from the utterance.
+<a name="entities-extract-data"></a>
+<a name="machine-learned-entities"></a>
 
-## Machine-learned entities
+## Machine-learned entities extract data
 
-A machine-learned entity is a top-level entity containing subentities, which are also machine-learned entities.
+An entity represents a unit of data you want extracted from the utterance. A machine-learned entity is a top-level entity containing subentities, which are also machine-learned entities.
 
 Each subentity can have:
 
 * child subentities - total length of 5 entities from parent to last child
-    * machine-learned features - such as a phrase list
-    * constraints (regular expression entity, list entity, prebuilt entity)
+* machine-learned features - such as a phrase list
+* constraints (regular expression entity, list entity, prebuilt entity)
 
 An example of a machine-learned entity is an order for a plane ticket. Conceptually this is a single transaction with many smaller units of data such as date, time, quantity of seats, type of seat such as first class or coach, origin location, destination location, and meal choice.
 
