@@ -63,23 +63,25 @@ More Azure Database for MySQL template samples can be found in [Azure quickstart
 
 ::: zone pivot="user-interface-azure-cli"
 
-Use the following code to create a new Azure Database for MySQL server using the template. Before you run the code, change the first few lines of code. You'll need to enter the new server name, the name and location of a new resource group, and an administrator account name and password.
+Use the following interactive code to create a new Azure Database for MySQL server using the template. The code prompts you for the new server name, the name and location of a new resource group, and an administrator account name and password.
 
 To run the code in Azure Cloud Shell, select **Try it** at the upper corner of any code block.
 
 ```azurecli-interactive
-# Fill in the server name, resource group name, location, admin user name, and password
-serverName=
-resourceGroupName=
-location=
-adminUser=
-adminPassword=
-
-params='serverName='$serverName' administratorLogin='$adminUser' administratorLoginPassword='$adminPassword
-
-# Create the resource group, then deploy the template to create the server
-az group create --name $resourceGroupName --location $location
-az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-managed-mysql-with-vnet/azuredeploy.json
+echo "Enter a name for the new Azure Database for MySQL server:" &&
+read serverName &&
+echo "Enter a name for the new resource group where the server will exist:" &&
+read resourceGroupName &&
+echo "Enter an Azure region (for example, centralus) for the resource group:" &&
+read location &&
+echo "Enter the Azure Database for MySQL server's administrator account name:" &&
+read adminUser &&
+echo "Enter the administrator password:" &&
+read adminPassword &&
+params='serverName='$serverName' administratorLogin='$adminUser' administratorLoginPassword='$adminPassword &&
+az group create --name $resourceGroupName --location $location &&
+az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-managed-mysql-with-vnet/azuredeploy.json &&
+echo "Press [ENTER] to continue ..."
 ```
 
 ::: zone-end
