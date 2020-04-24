@@ -129,8 +129,8 @@ When moving from test scenarios to production scenarios, remember to remove debu
 * **Important**
   * Manage access to your container registry
   * Use tags to manage versions
-* **Tip**
-  * 
+* **Helpful**
+  * Store runtime containers in your private registry
 
 ### Manage access to your container registry
 
@@ -163,13 +163,13 @@ Tags also help you to enforce updates on your IoT Edge devices. When you push an
 
 For an example of a tag convention, see [Update the IoT Edge runtime](how-to-update-iot-edge.md#understand-iot-edge-tags) to learn how IoT Edge uses rolling tags and specific tags to track versions.
 
-### Store runtime modules in your private registry
+### Store runtime containers in your private registry
 
-You know about storing your custom code modules in your private Azure registry, but you can also store the edgeAgent and edgHub runtime modules in a private registry as well. Doing so may be required if you have very tight firewall restrictions as these runtime modules are stored in the Microsoft Container Registry (MCR).
+You know about storing your container images for custom code modules in your private Azure registry, but you can also use it to store public container images such as for the edgeAgent and edgHub runtime modules. Doing so may be required if you have very tight firewall restrictions as these runtime containers are stored in the Microsoft Container Registry (MCR).
 
 Obtain the images with the Docker pull command to place in your registry. Be aware that you will need to update the images with each new release of IoT Edge runtime.
 
-| IoT Edge runtime module | Docker pull command |
+| IoT Edge runtime container | Docker pull command |
 | --- | --- |
 | [Azure IoT Edge Agent](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
 | [Azure IoT Edge HUb](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
@@ -210,7 +210,7 @@ This checklist is a starting point for firewall rules:
 
 Some of these firewall rules are inherited from Azure Container Registry. For more information, see [Configure rules to access an Azure container registry behind a firewall](../container-registry/container-registry-firewall-access-rules.md).
 
-If you don't want to configure your firewall to allow access to public container registries, you can store images in your private container registry, as described in [Store runtime modules in your private registry](production-checklist.md#store-runtime-modules-in-your-public-registry).
+If you don't want to configure your firewall to allow access to public container registries, you can store images in your private container registry, as described in [Store runtime containers in your private registry](#store-runtime-containers-in-your-private-registry).
 
 ### Configure communication through a proxy
 
