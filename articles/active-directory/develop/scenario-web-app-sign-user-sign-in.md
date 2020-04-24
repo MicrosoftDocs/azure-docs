@@ -50,7 +50,7 @@ In ASP.NET Core, for Microsoft identity platform applications, the **Sign in** b
     </li>
   }
 </ul>
-    ```
+```
 
 # [ASP.NET](#tab/aspnet)
 
