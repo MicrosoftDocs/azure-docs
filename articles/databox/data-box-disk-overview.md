@@ -30,18 +30,18 @@ Use Data Box Disk to transfer TBs of data in scenarios with no to limited networ
 
 Azure providers and non-Azure providers can ingest data from Azure Data Box. The Azure services that provide data ingestion from Azure Data Box include:
 
-- **SharePoint Online** - use Azure Data Box to migrate your file share content to Sharepoint Online. For more information, see [Use the Azure Data Box Heavy to migrate your file share content to SharePoint Online](data-box-heavy-migrate-spo.md).
+- **SharePoint Online** - use Azure Data Box and the SharePoint Migration Tool (SPMT) to migrate your file share content to SharePoint Online. Using Data Box, you remove the dependency on your WAN link to transfer the data. For more information, see [Use the Azure Data Box Heavy to migrate your file share content to SharePoint Online](data-box-heavy-migrate-spo.md).
 
 - **Azure File Sync** -  replicates files from your Data Box to an Azure file share, enabling you to centralize your file services in Azure while maintaining local access to your data. For more information, see [Deploy Azure File Sync](../storage/files/storage-sync-files-deployment-guide.md).
 
 - **HDFS stores** - migrate data from an on-premises Hadoop Distributed File System (HDFS) store of your Hadoop cluster into Azure Storage using Data Box. For more information, see [Migrate from on-prem HDFS store to Azure Storage with Azure Data Box](../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 
-- **Azure Backup** - allows you to back up your data and recover it from Microsoft Azure. For more information, see [Azure Backup overview](../backup/backup-overview.md).
+- **Azure Backup** - allows you to move large backups of critical enterprise data through offline mechanisms to an Azure Recovery Services Vault. For more information, see [Azure Backup overview](../backup/backup-overview.md).
 
 You can use your Data Box data with many non-Azure service providers. For instance:
 
-- [Commvault](http://documentation.commvault.com/commvault/v11/article?p=97276.htm)
-- [Veem](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=100)
+- **[Commvault](http://documentation.commvault.com/commvault/v11/article?p=97276.htm)** - allows you to migrate large volumes of data to Microsoft Azure using the Azure Data Box.
+- **[Veeam](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=100)** - allows you to backup and replicated large amounts of data from your Hyper-V machine to your Data Box.
 
 For a list of other non-Azure service providers that integrate with Data Box, see [Azure Data Box Partners](https://cloudchampions.blob.core.windows.net/db-partners/PartnersTable.pdf).
 
