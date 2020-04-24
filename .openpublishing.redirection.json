@@ -7571,7 +7571,11 @@
       "redirect_url": "/azure/application-gateway/quick-create-cli",
       "redirect_document_id": false
     },
-
+    {
+      "source_path": "articles/application-gateway/tutorial-create-vmss-cli.md",
+      "redirect_url": "/azure/application-gateway/tutorial-url-redirect-cli",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/application-insights/app-insights-azure-diagnostics.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-to-application-insights",
@@ -51489,6 +51493,56 @@
     {
       "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started.md",
       "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-ios-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/csharp-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/go-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/java-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/node-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/python-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/csharp-tutorial-od.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/go-tutorial-object-detection.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/java-tutorial-od.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/node-tutorial-object-detection.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/python-tutorial-od.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
       "redirect_document_id": false
     }
   ]
