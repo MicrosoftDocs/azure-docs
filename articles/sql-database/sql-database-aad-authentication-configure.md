@@ -495,7 +495,7 @@ Learn more about Azure AD authentication methods using the demo code samples ava
 
 ## Azure AD token
 
-This authentication method allows middle-tier services to obtain [JSON Web Tokens (JWT)](../active-directory/develop/id-tokens.md) to connect to SQL Database, SQL Managed Instsance or Azure Synapse by obtaining a token from Azure Active Directory (AAD). This method enables various application scenarios including service identities, service principals, and applications using certificate-based authentication. You must complete four basic steps to use Azure AD token authentication:
+This authentication method allows middle-tier services to obtain [JSON Web Tokens (JWT)](../active-directory/develop/id-tokens.md) to connect to SQL Database, SQL Managed Instance, or Azure Synapse by obtaining a token from Azure Active Directory (AAD). This method enables various application scenarios including service identities, service principals, and applications using certificate-based authentication. You must complete four basic steps to use Azure AD token authentication:
 
 1. Register your application with Azure Active Directory and get the client ID for your code.
 2. Create a database user representing the application. (Completed earlier in step 6.)
