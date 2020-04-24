@@ -5,7 +5,7 @@ description: The Face API offers client libraries that makes it easy to detect, 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-zone_pivot_groups: programming-languages-set-eightteen
+zone_pivot_groups: programming-languages-set-eighteen
 
 ms.service: cognitive-services
 ms.subservice: face-api
