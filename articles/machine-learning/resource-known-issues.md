@@ -37,18 +37,17 @@ Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter w
 
 * **Pip Installation: Dependencies are not guaranteed to be consistent with single line installation**: 
 
-This is a known limitation of pip, as it does not have a functioning dependency resolver when you install as a single line. The first unique dependency is the only one it looks at. 
+   This is a known limitation of pip, as it does not have a functioning dependency resolver when you install as a single line. The first  unique dependency is the only one it looks at. 
 
-For example, azure-ml-datadrift requires version > 1.0 and azureml-train-automl requires version < 1.2. If the latest version of azure-ml-datadrift is 1.3, when the user installs the packages in a single line as shown in the following code, everything gets upgraded to 1.3, regardless of the azureml-train-automl package requirement for an older version. 
-
-    * You will see inconsistent dependencies with single line installation.
-    ```python
+   In the following code `azure-ml-datadrift` and `azureml-train-automl` are both installed using a single line pip install. 
+     ```
        pip install azure-ml-datadrift, azureml-train-automl
      ```
-   
-    * To ensure the appropriate versions are installed for your packages, install using multiple lines like in the following code. Order doesn't matter here.
+   For this example, let's say `azure-ml-datadrift` requires version > 1.0 and `azureml-train-automl` requires version < 1.2. If the latest version of `azure-ml-datadrift` is 1.3,  then both packages get upgraded to 1.3, regardless of the azureml-train-automl package requirement for an older version. 
+
+   To ensure the appropriate versions are installed for your packages, install using multiple lines like in the following code. Order doesn't matter here. Since pip will explicitly downgrade as part of the next line call, the appropriate version dependencies will be installed.
     
-     ```python
+     ```
         pip install azure-ml-datadrift
         pip install azureml-train-automl 
      ```
