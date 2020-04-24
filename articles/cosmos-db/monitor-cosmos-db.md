@@ -32,7 +32,7 @@ The following sections build on this article by describing the specific data gat
 ![Azure Monitor for Cosmos DB](media/monitor-cosmos-db/azure-monitor-cosmos-db.png)
 
 > [!NOTE]
-> When creating containers, make sure you don’t create a two containers with the same name but different casing. That’s because some parts of the Azure platform are not case sensitive and this can result confusion/collision of telemetry and actions on containers with such names.
+> When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
 
 ## View operation level metrics for Azure Cosmos DB
 
