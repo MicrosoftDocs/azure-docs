@@ -114,9 +114,9 @@ Causes:
  3. It's caused by a combination of the session token and continuation token.
 
 Solution:
-   1. Follow the [performance tips](performance-tips.md) and convert the application to Direct + TCP connection mode. Direct + TCP does not have the header size restriction like HTTP does which avoids this issues.
-   2. If the session token is the cause then a temporary mitgiation is to restart the application. This will resest the session token, but it will eventually grow back to the size that causes the issue. This will also confirm it is the session token.
-   3. If the application can not be converted to Direct + TCP and the continuation token is the cause try setting the ResponseContinuationTokenLimitInKb in the FeedOptions for v2 or the QueryRequestOptions in v3.
+   1. Follow the [performance tips](performance-tips.md) and convert the application to Direct + TCP connection mode. Direct + TCP does not have the header size restriction like HTTP does which avoids this issue.
+   2. If the session token is the cause, then a temporary mitgiation is to restart the application. Restarting the application instance will reset the session token. If the exceptions stop after the restart then it confirms the session token is the cause. It will eventually grow back to the size that will cause the exception.
+   3. If the application cannot be converted to Direct + TCP and the continuation token is the cause then try setting the ResponseContinuationTokenLimitInKb option. The option can be found in the FeedOptions for v2 or the QueryRequestOptions in v3.
 
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
