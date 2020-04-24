@@ -25,7 +25,7 @@ Typical use case scenarios for Edge Zones include:
 - Media streaming and content delivery.
 - Surveillance and security.
 
-Azure Edge Zones are available as three discrete offerings:
+There are three types of Azure Edge Zones:
 
 - Azure Edge Zones
 - Azure Edge Zones with Carrier
