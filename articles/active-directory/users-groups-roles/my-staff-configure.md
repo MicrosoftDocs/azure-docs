@@ -42,7 +42,7 @@ You can protect the My Staff portal using Azure AD Conditional Access policy. Us
 
 We recommend that you protect My Staff using Azure AD Conditional Access policies (link to the CA doc). To apply a Conditional Access policy to My Staff, you must manually create the My Staff service principle using PowerShell.
 
-We recommend that you protect My Staff using [Azure AD Conditional Access policies](../active-directory/conditional-access/concept-conditional-access-policy-common,md). To apply a Conditional Access policy to My Staff, you must manually create the My Staff service principal using PowerShell.
+We recommend that you protect My Staff using [Azure AD Conditional Access policies](../active-directory/conditional-access/concept-conditional-access-policy-common.md). To apply a Conditional Access policy to My Staff, you must manually create the My Staff service principal using PowerShell.
 
 > [!Important]
 > Microsoft strongly recommends that customers protect the My Staff portal with a conditional access policy.
