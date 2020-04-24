@@ -16,6 +16,7 @@ To get VMs as close as possible, achieving the lowest possible latency, you shou
 
 A proximity placement group is a logical grouping used to make sure that Azure compute resources are physically located close to each other. Proximity placement groups are useful for workloads where low latency is a requirement.
 
+Proximity placement groups cannot be used with dedicated hosts.
 
 ## Create the proximity placement group
 
@@ -43,19 +44,24 @@ A proximity placement group is a logical grouping used to make sure that Azure c
 1. After it passes validation, select **Create** to deploy the VM in the placement group.
 
 
-# Add an Existing VM to Proximity Placement Group
-### Prerequisites
+## Add an existing VM to a proximity placement group
+
+You can also add an existing VM to a proximity placement group. 
+
+
 1. If the VM is part of the Availability set, then we need to add the Availability set into the placement group 
 
 1. If there exists a VM already part of an Availability Zone in the placement group, then while adding a VM we need to ensure that the VM to be added is part of the same Availability Zone
 E.g. VM1 is in AVzone 1 and is a part of placement group, then if we’re planning to add vm2, then vm2 should be part of the same AV zone 
 
-1. Proximity placement groups cannot be used with dedicated hosts.
 
-#### Once this prerequisites are met 
 
-## Add VMs existing in an AV set into Placement group can be achieved by 
-1. Stop (Deallocate) all the VMs in the Availability set 
+
+## Add VMs existing in an AV set into a proximity placement group
+
+If the VM is part of the Availability set, you need to add the availability set into the the placement group, before adding the VMs.
+
+1. Stop\deallocate all the VMs in the availability set.
 1. Go to Availability set configuration 
 1. Select the Placement group and click save 
 1. Start the VMs 
