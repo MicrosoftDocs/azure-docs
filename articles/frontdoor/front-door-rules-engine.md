@@ -44,8 +44,8 @@ With AFD Rules Engine, you can create a series of Rules Engine configurations, e
 
 - *Rules Engine Configuration*: A set of rules that are applied to single Route Rule. Each configuration is limited to 5 rules. You can create up to 10 configurations. 
 - *Rules Engine Rule*: A rule composed of up to 10 match conditions and 5 actions.
-- *Match Condition*: There are numerous match conditions that can be utilized to parse your incoming requests. A rule can contain up to 10 match conditions. A full list of match conditions can  be found [here](front-door-match-conditions.md). 
-- *Action*: Actions dictate what happens to your incoming requests - request/ response header actions, forwarding, redirects, and rewrites are all available today. A rule can contain up to 5 actions; however, a rule may only contain 1 route configuration override.  A full list of actions can be found [here](front-door-actions.md).
+- *Match Condition*: There are numerous match conditions that can be utilized to parse your incoming requests. A rule can contain up to 10 match conditions. A full list of match conditions can  be found [here](front-door-rules-engine-match-conditions.md). 
+- *Action*: Actions dictate what happens to your incoming requests - request/ response header actions, forwarding, redirects, and rewrites are all available today. A rule can contain up to 5 actions; however, a rule may only contain 1 route configuration override.  A full list of actions can be found [here](front-door-rules-engine-actions.md).
 
 
 ## Next steps
