@@ -482,7 +482,7 @@ You can manage IP network rules for Cognitive Services resources through the Azu
 
 ## Use private endpoints
 
-You can use [private endpoints](../private-link/private-endpoint-overview.md) for your Cognitive Services resources to allow clients on a virtual network to securely access data over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your Cognitive Services resource. Network traffic between the clients on the VNet and the resource traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
+You can use [private endpoints](../private-link/private-endpoint-overview.md) for your Cognitive Services resources to allow clients on a virtual network (VNet) to securely access data over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your Cognitive Services resource. Network traffic between the clients on the VNet and the resource traverses the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
 Using private endpoints for your Cognitive Services resource enables you to:
 
