@@ -106,7 +106,7 @@ This section has the following subsections: **Logos**, **Screenshot**, and **Vid
 All the logos uploaded to the Cloud Partner Portal should follow the guidelines:
 
 *  The Azure design has a simple color palette. Keep the number of primary and secondary colors on your logo low.
-*  The theme colors of the Azure Portal are white and black. Avoid using these colors as the background color for your logos. Use a color that will make your logos prominent in the Azure portal. We recommend simple primary colors. If you're using a transparent background, make sure that the logos/text aren't white, black, or blue.
+*  The theme colors of the Azure portal are white and black. Avoid using these colors as the background color for your logos. Use a color that will make your logos prominent in the Azure portal. We recommend simple primary colors. If you're using a transparent background, make sure that the logos/text aren't white, black, or blue.
 *  Don't use a gradient background on your logo.
 *  Avoid placing text—even your company or brand name—on the logo. The look and feel of your logo should be "flat" and should avoid gradients.
 *  Don't stretch the logo.
