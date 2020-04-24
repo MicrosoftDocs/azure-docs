@@ -240,7 +240,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 In ASP.NET Core, you can use this named connection string (`MyDbConnection`) using the standard pattern, like any connection string specified in *appsettings.json*. In this case, `MyDbConnection` is also defined in your *appsettings.json*. When running in App Service, the connection string defined in App Service takes precedence over the connection string defined in your *appsettings.json*. The code uses the *appsettings.json* value during local development, and the same code uses the App Service value when deployed.
 
-To see how the connection string is referenced in your code, see [Connect to SQL Database in production](#connect-to-sql-database-in-production).
+To see how the connection string is referenced in your code, see [Configure app to connect to production database](#configure-app-to-connect-to-production-database).
 
 ### Push to Azure from Git
 
