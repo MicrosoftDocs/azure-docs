@@ -116,7 +116,7 @@ Causes:
 Solution:
    1. Follow the [performance tips](performance-tips.md) and convert the application to Direct + TCP connection mode. Direct + TCP does not have the header size restriction like HTTP does which avoids this issue.
    2. If the session token is the cause, then a temporary mitigation is to restart the application. Restarting the application instance will reset the session token. If the exceptions stop after the restart, then it confirms the session token is the cause. It will eventually grow back to the size that will cause the exception.
-   3. If the application cannot be converted to Direct + TCP and the session token is the cause then mitigation can be done by changing the client [consistency level](consistency-levels.md). The session token is only used for session consistency which is the default for Cosmos DB. Any other consistency level will not use the session token. 
+   3. If the application cannot be converted to Direct + TCP and the session token is the cause, then mitigation can be done by changing the client [consistency level](consistency-levels.md). The session token is only used for session consistency which is the default for Cosmos DB. Any other consistency level will not use the session token. 
    4. If the application cannot be converted to Direct + TCP and the continuation token is the cause, then try setting the ResponseContinuationTokenLimitInKb option. The option can be found in the FeedOptions for v2 or the QueryRequestOptions in v3.
 
  <!--Anchors-->
