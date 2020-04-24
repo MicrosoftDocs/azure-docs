@@ -32,7 +32,7 @@ If you're not running Samba on your Linux server and rather want to migrate fold
 ## Phase 2: Provision a suitable Windows Server instance on-premises
 
 * Create a Windows Server 2019 instance as a virtual machine or physical server. Windows Server 2012 R2 is the minimum requirement. A Windows Server failover cluster is also supported.
-* Provision or add DAS. Network attached storage (NAS) is not supported.
+* Provision or add direct attached storage (DAS). Network attached storage (NAS) is not supported.
 
   The amount of storage that you provision can be smaller than what you're currently using on your Linux Samba server, if you use the Azure File Sync [cloud tiering](storage-sync-cloud-tiering.md) feature. However, when you copy your files from the larger Linux Samba server space to the smaller Windows Server volume in a later phase, you'll need to work in batches:
 
@@ -63,7 +63,7 @@ In this phase, consult the mapping table from Phase 1 and use it to provision th
 
 [!INCLUDE [storage-files-migration-deploy-afs-agent](../../../includes/storage-files-migration-deploy-azure-file-sync-agent.md)]
 
-## Phase 6: Configure Azure File Sync on Windows Server
+## Phase 6: Configure Azure File Sync on the Windows Server deployment
 
 Your registered on-premises Windows Server instance must be ready and connected to the internet for this process.
 
