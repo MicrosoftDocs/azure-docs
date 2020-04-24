@@ -214,13 +214,13 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 
        ![View SAML 2.0 Endpoints][60]
        
-       * Copy the **Service Provider Issuer URL**, and then paste it into the **Identifier** box in **Basic SAML Configuration** section in the Azure portal.
+       1. Copy the **Service Provider Issuer URL**, and then paste it into the **Identifier** box in **Basic SAML Configuration** section in the Azure portal.
        
-       * Copy the **Service Provider Assertion Consumer Service URL**, and then paste it into the **Reply URL** box in **Basic SAML Configuration** section in the Azure portal.
+       1. Copy the **Service Provider Assertion Consumer Service URL**, and then paste it into the **Reply URL** box in **Basic SAML Configuration** section in the Azure portal.
        
-       * Copy the **Service Provider Login URL**, and then paste it into the **Sign On URL** box in **Basic SAML Configuration** section in the Azure portal.
+       1. Copy the **Service Provider Login URL**, and then paste it into the **Sign On URL** box in **Basic SAML Configuration** section in the Azure portal.
 
-       * Select **Close**.
+       1. Select **Close**.
 
 ### Create DocuSign test user
 
