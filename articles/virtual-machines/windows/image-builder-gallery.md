@@ -4,9 +4,9 @@ description: Create Azure Shared Gallery image versions using Azure Image Builde
 author: cynthn
 ms.author: cynthn
 ms.date: 01/14/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: virtual-machines-windows
-manager: gwallace
+ms.subservice: imaging
 ---
 # Preview: Create a Windows image and distribute it to a Shared Image Gallery 
 
