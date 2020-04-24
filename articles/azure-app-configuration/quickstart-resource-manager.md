@@ -120,7 +120,7 @@ Before you can apply key-values to the VM, you must have an existing Azure App C
 
    ```azurepowershell
    New-AzResourceGroupDeployment `
-       -ResourceGroupName "<your resource group>" 
+       -ResourceGroupName "<your resource group>" `
        -TemplateFile "<path to prereq.azuredeploy.json>" `
        -TemplateParameterFile "<path to prereq.azuredeploy.parameters.json>"
    ```
