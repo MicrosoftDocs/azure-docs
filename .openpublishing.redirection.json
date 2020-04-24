@@ -7572,6 +7572,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/tutorial-multisite-cli.md",
+      "redirect_url": "/azure/application-gateway/tutorial-multiple-sites-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/tutorial-create-vmss-cli.md",
       "redirect_url": "/azure/application-gateway/tutorial-url-redirect-cli",
       "redirect_document_id": false
