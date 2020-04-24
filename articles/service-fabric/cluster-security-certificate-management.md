@@ -64,17 +64,10 @@ For our purposes, the first two steps in the sequence above are largely unrelate
 These steps are illustrated below; note the differences in provisioning between certificates declared by thumbprint and common name, respectively.
 
 *Fig. 1.* Issuance and provisioning flow of certificates declared by thumbprint.
-<center>
-
 ![Provisioning certificates declared by thumbprint][Image1]
-</center>
 
 *Fig. 2.* Issuance and provisioning flow of certificates declared by subject common name.
-<center>
-
 ![Provisioning certificates declared by subject common name][Image2]
-</center>
-
 
 ### Certificate enrollment
 This topic is covered in detail in the Key Vault [documentation](../key-vault/create-certificate.md); we're including a synopsis here for continuity and easier reference. Continuing with Azure as the context, and using Azure Key Vault as the secret management service, an authorized certificate requester must have at least certificate management permissions on the vault, granted by the vault owner; the requester would then enroll into a certificate as follows:
