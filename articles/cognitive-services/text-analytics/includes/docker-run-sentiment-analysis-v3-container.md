@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/24/2020
+ms.date: 04/25/2020
 ms.author: aahi
 ---
 
