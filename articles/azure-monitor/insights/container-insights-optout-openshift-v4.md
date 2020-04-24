@@ -8,15 +8,15 @@ ms.date: 04/24/2020
 
 # How to stop monitoring your Azure and Red Hat OpenShift v4 cluster
 
-After you enable monitoring of your Azure Red Hat OpenShift version 4.x cluster, you can stop monitoring the cluster with Azure Monitor for containers if you decide you no longer want to monitor it. This article shows how to accomplish this.  
+After you enable monitoring of your Azure Red Hat OpenShift and Red Hat OpenShift version 4.x cluster, you can stop monitoring the cluster with Azure Monitor for containers if you decide you no longer want to monitor it. This article shows how to accomplish this.  
 
 ## How to stop monitoring using Helm
 
-To stop monitoring your Azure Red Hat OpenShift v4.x cluster, you use the `Helm delete` command.
+To stop monitoring your Azure Red Hat OpenShift and Red Hat OpenShift version 4.x cluster, you use the `Helm delete` command.
 
 `helm delete <release name of azure monitor for containers>`
 
-The configuration change can take a few minutes to complete.  Because Helm tracks your releases even after you’ve deleted them, you can audit a cluster’s history, and even undelete a release with `helm rollback`.
+The configuration change can take a few minutes to complete. Because Helm tracks your releases even after you’ve deleted them, you can audit a cluster’s history, and even undelete a release with `helm rollback`.
 
 ## Next steps
 

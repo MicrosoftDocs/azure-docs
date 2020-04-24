@@ -16,7 +16,7 @@ To stop monitoring your hybrid Kubernetes cluster, you use the `Helm delete` com
 
 `helm delete <release name of azure monitor for containers>`
 
-The configuration change can take a few minutes to complete.  Because Helm tracks your releases even after you’ve deleted them, you can audit a cluster’s history, and even undelete a release with `helm rollback`.
+The configuration change can take a few minutes to complete. Because Helm tracks your releases even after you’ve deleted them, you can audit a cluster’s history, and even undelete a release with `helm rollback`.
 
 ## Next steps
 
