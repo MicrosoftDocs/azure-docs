@@ -73,14 +73,14 @@ To configure the code sample before you execute it, skip to the [configuration s
 Make sure you have [Node.js](https://nodejs.org/en/download/) installed, and then create a folder to host your application. Next, implement a small [Express](https://expressjs.com/) web server to serve your `index.html` file.
 
 1. First, navigate to your project folder in your terminal and then run the following NPM commands.
-```console
+    ```console
     npm init -y
     npm install @azure/msal-Browser
     npm install express
-```
+    ```
 2. Next, create a .js file named *server.js*, and then add the following code:
 
-```JavaScript
+   ```JavaScript
    const express = require('express');
    const morgan = require('morgan');
    const path = require('path');
@@ -204,7 +204,7 @@ You now have a simple server to serve your SPA. The intended folder structure at
          <script type="text/javascript" src="./graph.js"></script>
       </body>
      </html>
-   ```
+     ```
 
    > [!TIP]
    > You can replace the version of MSAL.js in the preceding script with the latest released version under [MSAL.js releases](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
