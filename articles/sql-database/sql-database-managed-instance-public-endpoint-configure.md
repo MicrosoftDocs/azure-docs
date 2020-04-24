@@ -4,7 +4,7 @@ description: "Learn how to configure a public endpoint for Azure SQL Managed Ins
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
