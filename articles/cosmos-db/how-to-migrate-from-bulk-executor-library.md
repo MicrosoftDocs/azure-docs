@@ -42,7 +42,7 @@ And if you want to do bulk *delete* (similar to using [BulkExecutor.BulkDeleteAs
 
 ## Capture task result state
 
-In the previous code examples, you have created a concurrent list of tasks, and called the `CaptureOperationResponse` method on each of those tasks. This method is an extension that lets us maintain a *similar response schema* as BulkExecutor, by capturing any errors and tracking the [request units usage](request-units.md).
+In the previous code examples, we have created a concurrent list of tasks, and called the `CaptureOperationResponse` method on each of those tasks. This method is an extension that lets us maintain a *similar response schema* as BulkExecutor, by capturing any errors and tracking the [request units usage](request-units.md).
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="CaptureOperationResult":::
 
@@ -52,7 +52,7 @@ Where the `OperationResponse` is declared as:
 
 ## Execute operations concurrently
 
-After the list of tasks are defined, wait until they are all complete. To track the scope of the entire list of Tasks, we use this helper class:
+To track the scope of the entire list of Tasks, we use this helper class:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Operation":::
 
