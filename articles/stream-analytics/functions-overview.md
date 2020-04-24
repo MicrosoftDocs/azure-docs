@@ -38,9 +38,9 @@ User-defined functions are stateless, and the return value can only be a scalar 
 
 Azure Stream Analytics does not keep a record of all functions invocations and returned results. To guarantee repeatability - for example, re-running your job from older timestamp produces the same results again - do not to use functions such as `Date.GetData()` or `Math.random()`, as these functions do not return the same result for each invocation.  
 
-## Diagnostic logs
+## Resource logs
 
-Any runtime errors are considered fatal and are surfaced through activity and diagnostic logs. It is recommended that your function handles all exceptions and errors and return a valid result to your query. This will prevent your job from going to a [Failed state](job-states.md).  
+Any runtime errors are considered fatal and are surfaced through activity and resource logs. It is recommended that your function handles all exceptions and errors and return a valid result to your query. This will prevent your job from going to a [Failed state](job-states.md).  
 
 
 ## Next steps
