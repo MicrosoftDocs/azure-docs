@@ -22,7 +22,7 @@ Get started with Azure App Service by creating a Node.js/Express app locally usi
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - [Node.js and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
 - [Visual Studio Code](https://code.visualstudio.com/).
-- The [Azure App Service extension](vscode:extension/ms-azuretools.vscode-azureappservice) for Visual Studio Code.
+- The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code.
 
 ## Clone and run a local Node.js application
 
