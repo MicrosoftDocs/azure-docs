@@ -275,8 +275,6 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 - [Azure virtual network service endpoints][vm-virtual-network-service-endpoints-overview-649d]
 - [Azure SQL Database server-level and database-level firewall rules][sql-db-firewall-rules-config-715d]
 
-The virtual network rule feature for Azure SQL Database became available in late September 2017.
-
 ## Next steps
 
 - [Use PowerShell to create a virtual network service endpoint, and then a virtual network rule for Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
