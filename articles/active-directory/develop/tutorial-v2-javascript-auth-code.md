@@ -593,9 +593,8 @@ If a back-end API doesn't require a scope (not recommended), you can use *client
 
 <!--end-collapse-->
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
 
 The [MSAL.js GitHub repo](https://github.com/AzureAD/microsoft-authentication-library-for-js) contains additional library documentation, a FAQ, and provides issue support.
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
