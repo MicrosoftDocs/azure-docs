@@ -15,48 +15,46 @@
 - name: How-to guides
   expanded: true
   items:
-    - name: Set up your Azure Red Hat OpenShift dev environment
-      href: howto-setup-environment.md
-      expanded: true
-      items:
-        - name: Create an Azure AD tenant
-          href: howto-create-tenant.md
-        - name: Create an Azure AD app object and user
-          href: howto-aad-app-configuration.md
+    - name: Create a private Azure Red Hat OpenShift 4 cluster 
+      href: howto-create-private-cluster.md
+    - name: Configure a custom Certificate Authority (CA)
+      href: custom-ca.md 
+    - name: Configure DNS Forwarding
+      href: dns-forwarding.md
     - name: Azure Red Hat OpenShift 3.11
       items:
-        - name: Create an Azure Red Hat OpenShift 4.3 cluster
-          href: howto-using-azure-redhat-openshift.md
-        - name: Set up Azure Monitor for Azure Red Hat OpenShift 4.3
-          href: howto-azure-monitor-v4.md
-    - name: Deploy a standalone prometheus in an Azure Red Hat OpenShift cluster
-      href: howto-deploy-prometheus.md
-    - name: Manage projects in an Azure Red Hat OpenShift cluster
-      href: howto-manage-projects.md
-    - name: Create a private Azure Red Hat OpenShift cluster
-      href: howto-create-private-cluster.md
-    - name: Monitoring and logging
-      items:
-        - name: Azure Monitor for containers (preview)
+        - name: Set up your Azure Red Hat OpenShift dev environment
+          href: howto-setup-environment.md
+          expanded: true
           items:
-            - name: Configure Azure Monitor for containers
-              href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
-              maintainContext: true
-            - name: Disable Azure Monitor for containers
-              href: ../azure-monitor/insights/container-insights-optout-openshift.md
-              maintainContext: true
-    - name: Run privileged containers in an Azure Red Hat OpenShift cluster
-      href: howto-run-privileged-containers.md
-- name: Concepts
-  items: 
-  - name: Cluster administration
-    items:
-      - name: Azure Red Hat OpenShift cluster administration
-        items:
-          - name: 1 - Azure Red Hat OpenShift cluster administrator role
-            href: cluster-administration-cluster-admin-role.md
-          - name: 2 - Managing security context constraints
-            href: cluster-administration-security-context-constraints.md
+            - name: Create an Azure AD tenant
+              href: howto-create-tenant.md
+            - name: Create an Azure AD app object and user
+              href: howto-aad-app-configuration.md
+        - name: Deploy a standalone prometheus in an Azure Red Hat OpenShift cluster
+          href: howto-deploy-prometheus.md
+        - name: Manage projects in an Azure Red Hat OpenShift cluster
+          href: howto-manage-projects.md
+        - name: Create a private Azure Red Hat OpenShift 3.11 cluster
+          href: howto-create-private-cluster.md
+        - name: Monitoring and logging
+          items:
+            - name: Azure Monitor for containers (preview)
+              items:
+                - name: Configure Azure Monitor for containers
+                  href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
+                  maintainContext: true
+                - name: Disable Azure Monitor for containers
+                  href: ../azure-monitor/insights/container-insights-optout-openshift.md
+                  maintainContext: true
+        - name: Run privileged containers
+          href: howto-run-privileged-containers.md
+        - name: Cluster administration
+          items:
+            - name: 1 - Azure Red Hat OpenShift cluster administrator role
+              href: cluster-administration-cluster-admin-role.md
+            - name: 2 - Managing security context constraints
+              href: cluster-administration-security-context-constraints.md
 - name: Reference
   items:
     - name: Azure Red Hat OpenShift CLI
