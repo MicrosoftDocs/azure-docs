@@ -37,7 +37,8 @@ Unfortunately, some users may still have a valid reason to sign in from these bl
 
 Another example might be that you have a Conditional Access policy [blocking legacy authentication for the vast majority of your users](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). However, if you have some users that need to use legacy authentication methods to access your resources via Office 2010 or IMAP/SMTP/POP based clients, then you can exclude these users from the policy that blocks legacy authentication methods.
 
->[!NOTE] Microsoft strongly recommends that you block the use of legacy protocols in your tenant to improve your security posture.
+>[!NOTE]
+>Microsoft strongly recommends that you block the use of legacy protocols in your tenant to improve your security posture.
 
 ## Why are exclusions challenging?
 
@@ -90,7 +91,8 @@ Now you can create a Conditional Access policy that uses this exclusion group.
 
 7. Select the exclusion group you created.
 
->[!NOTE] As a best practice, it is recommended to exclude at least one administrator account from the policy when testing to make sure you are not locked out of your tenant.
+>[!NOTE] 
+> As a best practice, it is recommended to exclude at least one administrator account from the policy when testing to make sure you are not locked out of your tenant.
 
 1. Continue with setting up the Conditional Access policy based on your organizational requirements.
 
@@ -103,7 +105,8 @@ Let's cover two examples where you can use access reviews to manage exclusions i
 Let's say you have a Conditional Access policy that blocks access from certain countries/regions. It includes a group that is excluded from the policy. Here is
 a recommended access review where members of the group are reviewed.
 
->[!NOTE] A Global administrator or User administrator role is required to create access reviews.
+>[!NOTE] 
+>A Global administrator or User administrator role is required to create access reviews.
 
 1. The review will happen every week.
 
@@ -139,7 +142,8 @@ that is excluded from the policy. Here is a recommended access review where memb
 
     ![Create an access review pane for example 2](./media/conditional-access-exclusion/create-access-review-2.png)
 
->[!IMPORTANT] If you have many exclusion groups and therefore need to create multiple access reviews, we now have an API in the Microsoft Graph beta   endpoint that allows you to create and manage them programmatically. To get started, see the [Azure AD access reviews API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) and [Example of retrieving Azure AD access reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
+>[!IMPORTANT] 
+>If you have many exclusion groups and therefore need to create multiple access reviews, we now have an API in the Microsoft Graph beta   endpoint that allows you to create and manage them programmatically. To get started, see the [Azure AD access reviews API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) and [Example of retrieving Azure AD access reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
 
 ## Access review results and audit logs
 
