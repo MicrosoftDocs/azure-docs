@@ -93,7 +93,7 @@ When you create a new Azure Cosmos DB account with PowerShell:
 - Use **2019-12-12** as the API version.
 
 > [!IMPORTANT]
-> You must set the `Location` parameter explicitly for the account to be successfully created with customer-managed keys.
+> You must set the `locations` property explicitly for the account to be successfully created with customer-managed keys.
 
 ```powershell
 $resourceGroupName = "myResourceGroup"
@@ -124,7 +124,7 @@ When you create a new Azure Cosmos account through an Azure Resource Manager tem
 - Use **2019-12-12** as the API version.
 
 > [!IMPORTANT]
-> You must set the `Location` parameter explicitly for the account to be successfully created with customer-managed keys.
+> You must set the `locations` property explicitly for the account to be successfully created with customer-managed keys.
 
 ```json
 {
@@ -202,7 +202,7 @@ az cosmosdb create \
 
 ### Is there an additional charge to enable customer-managed keys?
 
-No, there's no charge to enable this feature
+No, there's no charge to enable this feature.
 
 ### How do customer-managed keys impact capacity planning?
 
