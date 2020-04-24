@@ -76,7 +76,7 @@ In addition, some containers are supported in Cognitive Services [**All-In-One o
 Azure Cognitive Services containers are publicly available through your Azure subscription, and Docker container images can be pulled from either the Microsoft Container Registry or Docker Hub. You can use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the appropriate registry.
 
 > [!IMPORTANT]
-> There are several Cognitive Services containers that are available through a gated process, in which you submit a questionnaire about you, your company, and the use case for which you want to implement the containers. For more information on the acceptance criteria, see [Cognitive Services - Gating process](cognitive-services-gating-process.md)
+> There are several Cognitive Services containers that are available through a gated preview process, in which you submit a questionnaire about you, your company, and the use case for which you want to implement the containers. For more information on the acceptance criteria, see [Cognitive Services gating process](cognitive-services-gating-process.md).
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
