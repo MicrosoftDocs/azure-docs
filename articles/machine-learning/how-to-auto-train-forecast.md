@@ -101,6 +101,25 @@ test_labels = test_data.pop(label).values
 > points, and model accuracy could suffer.
 
 <a name="config"></a>
+
+## Train and validation data
+You can specify separate train and validation sets directly in the `AutoMLConfig` constructor.
+
+### Rolling Origin Cross Validation
+For time series forecasting Rolling Origin Cross Validation (ROCV) is used to split time series in a temporally consistent way. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds.  
+
+![alt text](./media/how-to-auto-train-forecast/ROCV.svg)
+
+This strategy will preserve the time series data integrity and eliminate the risk of data leakage. ROCV is automatically used for forecasting tasks by passing the training and validation data together and setting the number of cross validation folds using `n_cross_validations`. 
+
+```python
+automl_config = AutoMLConfig(task='forecasting',
+                             n_cross_validations=3,
+                             ...
+                             **time_series_settings)
+```
+Learn more about the [AutoMLConfig](#configure-and-run-experiment).
+
 ## Configure and run experiment
 
 For forecasting tasks, automated machine learning uses pre-processing and estimation steps that are specific to time-series data. The following pre-processing steps will be executed:
@@ -200,6 +219,17 @@ We recommend using an AML Compute cluster with GPU SKUs and at least two nodes a
 For more information on AML compute and VM sizes that include GPU's, see the [AML Compute documentation](how-to-set-up-training-targets.md#amlcompute) and [GPU optimized virtual machine sizes documentation](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
 
 View the [Beverage Production Forecasting notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) for a detailed code example leveraging DNNs.
+
+### Target Rolling Window Aggregation
+Often the best information a forecaster can have is the recent value of the target. Creating cumulative statistics of the target may increase the accuracy of your predictions. Target rolling window aggregations allows you to add a rolling aggregation of data values as features. To enable target rolling windows set the `target_rolling_window_size` to your desired integer window size. 
+
+An example of this can be seen when predicting energy demand. You might add a rolling window feature of three days to account for thermal changes of heated spaces. In the example below, we've created this window of size three by setting `target_rolling_window_size=3` in the `AutoMLConfig` constructor. The table shows feature engineering that occurs when window aggregation is applied. Columns for minimum, maximum, and sum are generated on a sliding window of three based on the defined settings. Each row has a new calculated feature, in the case of the time-stamp for September 8, 2017 4:00am the maximum, minimum, and sum values are calculated using the demand values for September 8, 2017 1:00AM - 3:00AM. This window of three shifts along to populate data for the remaining rows.
+
+![alt text](./media/how-to-auto-train-forecast/target-roll.svg)
+
+Generating and using these additional features as extra contextual data helps with the accuracy of the train model.
+
+View a Python code example leveraging the [target rolling window aggregate feature](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
 
 ### View feature engineering summary
 
