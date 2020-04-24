@@ -12,6 +12,8 @@ The host is a x64-based computer that runs the Docker container. It can be a com
 * [Azure Container Instances](../articles/container-instances/index.yml).
 * A [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure-stack/operator). For more information, see [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
+### requirements and recommendations
+
 The following table describes the minimum and recommended specifications for the Text Analytics containers. At least 2 gigabytes (GB) of memory are required, and each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Section (TPS) are also listed.
 
 | Minimum host specs | Recommended host specs | Minimum TPS | Maximum TPS|

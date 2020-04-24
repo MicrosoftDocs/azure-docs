@@ -56,7 +56,11 @@ Container images for Text Analytics are available on the Microsoft Container Reg
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
-# [Sentiment Analysis](#tab/sentiment)
+# [Sentiment Analysis v2](#tab/sentiment-v2)
+
+[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
+
+# [Sentiment Analysis v3](#tab/sentiment-v3)
 
 [!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
@@ -66,7 +70,7 @@ Container images for Text Analytics are available on the Microsoft Container Reg
 
 Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
-1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. See the [container configuration ](../text-analytics-resource-container-config.md#example-docker-run-commands) article for more examples.
+1. [Run the container](#run-the-container-with-docker-run), with the required billing settings.
 1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint).
 
 ## Run the container with `docker run`
@@ -92,7 +96,7 @@ Replace the placeholders below with your own values:
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
-# [Sentiment Analysis v2](#tab/sentiment)
+# [Sentiment Analysis v2](#tab/sentiment-v2)
 
 [!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
 
