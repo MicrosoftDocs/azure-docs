@@ -22,13 +22,13 @@ Enable bulk support on the `CosmosClient` instance through the [AllowBulkExecuti
 
 Bulk support in the .NET SDK works by leveraging the [Task Parallel Library](https://docs.microsoft.com/dotnet/standard/parallel-programming/task-parallel-library-tpl) and grouping operations that occur concurrently. 
 
-There is no single method that will take your list of documents or operations as an input parameter, but rather, you need to create a Task for each operation you want to execute in bulk.
+There is no single method in the SDK that will take your list of documents or operations as an input parameter, but rather, you need to create a Task for each operation you want to execute in bulk, and then simply wait for them to complete.
 
 For example, if your initial input is a list of items where each item has the following schema:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Model":::
 
-If you want to do bulk import (similar to using BulkExecutor.BulkImportAsync), you need to have concurrent calls to `CreateItemAsync` with each item value. For example:
+If you want to do bulk import (similar to using BulkExecutor.BulkImportAsync), you need to have concurrent calls to `CreateItemAsync`. For example:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
@@ -52,7 +52,11 @@ Where the `OperationResponse` is declared as:
 
 ## Execute operations concurrently
 
-After the list of tasks are defined, wait until they are all complete. You can track the completion of the tasks by defining the scope of your bulk operation as shown in the following code snippet:
+After the list of tasks are defined, wait until they are all complete. To track the scope of the entire list of Tasks, we use this helper class:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Operation":::
+
+The `ExecuteAsync` method will wait until all operations are completed and you can use it like so:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="WhenAll":::
 
