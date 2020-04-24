@@ -17,7 +17,7 @@ ms.custom: aaddev, identityplatformtop40
 
 # Sign in users and call the Microsoft Graph API from a JavaScript single-page application (SPA) - MSAL.js 2.0
 
-This tutorial uses a version of MSAL.js that uses the OAuth 2.0 Authorization Code Flow with PKCE. To read more about this protocol, as well as the differences between implicit flow and authorization code flow, see the [documentation](link TODO). If you are looking for a tutorial that uses the implicit flow, please see the [MSAL.js v1 tutorial](link todo).
+This tutorial uses a version of MSAL.js that uses the OAuth 2.0 Authorization Code Flow with PKCE. To read more about this protocol, as well as the differences between implicit flow and authorization code flow, see the [documentation](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow). If you are looking for a tutorial that uses the implicit flow, please see the [MSAL.js v1 tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-spa).
 
 This version of MSAL.js improves on the current msal-core library, and uses the authorization code flow in the browser. Most features available in the old library are available in this version, but there are nuances to the authentication flow in both. This version does **NOT** support the implicit flow.
 
