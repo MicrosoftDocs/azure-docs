@@ -1,16 +1,16 @@
 ---
-title: 'Quickstart: Connect a Go MongoDB app to Azure Cosmos DB' 
-description: This quickstart demonstrates how to connect an existing MongoDB app written in Go to Azure Cosmos DB.
+title: 'Quickstart: Connect a Go application to Azure Cosmos DB's API for MongoDB' 
+description: This quickstart demonstrates how to connect an existing Go application to Azure Cosmos DB's API for MongoDB.
 author: abhishekgupta
 ms.author: abhishgu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 04/24/2020
 
 ---
-# Quickstart: Migrate an existing MongoDB Go app to Azure Cosmos DB 
+# Quickstart: Connect a Go application to Azure Cosmos DB's API for MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -21,7 +21,7 @@ ms.date: 05/21/2019
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. In this quickstart, you create and manage an Azure Cosmos DB for Mongo DB API account by using the Azure Cloud Shell, clone an existing sample application from GitHub and configure it to work with Azure Cosmos DB. 
+Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. In this quickstart, you create and manage an Azure Cosmos DB account by using the Azure Cloud Shell, clone an existing sample application from GitHub and configure it to work with Azure Cosmos DB. 
 
 The sample application is a command-line based `todo` management tool written in Go. Azure Cosmos DB's API for MongoDB is [compatible with the MongoDB wire protocol](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction#wire-protocol-compatibility), making it possible for any MongoDB client driver to connect to it. This application uses the [Go driver for MongoDB](https://github.com/mongodb/mongo-go-driver) in a way that is transparent to the application that the data is stored in an Azure Cosmos DB database.
 
@@ -70,7 +70,7 @@ The following snippets are all taken from the `todo.go` file.
 
 ### Connecting the Go app to Cosmos DB
 
-[`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions) encapsulates the connection string for the Azure Cosmos DB MongoDB API, which is passed in using an environment variable (details in the upcoming section). The connection is initialized using [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) to which the `clientOptions` instance is passed. [`Ping` function](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping) is invoked to confirm successful connectivity (it is a fail-fast strategy)
+[`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions) encapsulates the connection string for Azure Cosmos DB, which is passed in using an environment variable (details in the upcoming section). The connection is initialized using [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) to which the `clientOptions` instance is passed. [`Ping` function](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping) is invoked to confirm successful connectivity (it is a fail-fast strategy)
 
 ```go
     ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
@@ -229,7 +229,7 @@ To confirm that the application was built properly.
 ./todo --help
 ```
 
-## Setup Azure Cosmos DB with MongoDB API support
+## Setup Azure Cosmos DB
 
 ### Sign in to Azure
 
