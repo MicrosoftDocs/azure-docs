@@ -1,10 +1,10 @@
 ---
-title: PowerShell example-monitor-scale-single Azure SQL database 
-description: Azure PowerShell example script to monitor and scale a single Azure SQL database
+title: PowerShell example-monitor-scale-single database in Azure SQL Database 
+description: Azure PowerShell example script to monitor and scale a single database in Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom:
+ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
 author: juliemsft
@@ -12,7 +12,7 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ---
-# Use PowerShell to monitor and scale a single SQL database
+# Use PowerShell to monitor and scale a single database in Azure SQL Database
 
 This PowerShell script example monitors the performance metrics of a database, scales it to a higher compute size, and creates an alert rule on one of the performance metrics.
 
@@ -46,10 +46,10 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
  [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts a single database or elastic pool. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates an Azure SQL Database logical server that hosts a single database or elastic pool. |
 | [Get-AzMetric](/powershell/module/az.monitor/get-azmetric) | Shows the size usage information for the database.|
 | [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Updates database properties or moves a database into, out of, or between elastic pools. |
-| [Add-AzMetricAlertRule](/powershell/module/az.monitor/add-azmetricalertrule) | Sets an alert rule to automatically monitor DTUs in the future. |
+| [Add-AzMetricAlertRule](/powershell/module/az.monitor/add-azmetricalertrule) | Sets an alert rule to automatically monitor metrics in the future. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
@@ -57,4 +57,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
 
-Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).
+Additional PowerShell script samples can be found in [Azure PowerShell scripts](../sql-database-powershell-samples.md).
