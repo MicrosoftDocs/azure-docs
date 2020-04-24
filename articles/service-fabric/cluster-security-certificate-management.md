@@ -1,13 +1,13 @@
 ---
-title: Certificate management in a Service Fabric Cluster 
+title: Certificate management in a Service Fabric cluster 
 description: Learn about managing certificates in a Service Fabric cluster secured with X.509 certificates.
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
 ---
-# X.509 Certificate-based authentication in Service Fabric clusters
+# Certificate management in Service Fabric clusters
 
-This article addresses the management aspects of certificates used to secure communication in Service Fabric clusters, and complements the introduction to [Service Fabric cluster security](service-fabric-cluster-security.md) as well as the explainer on [X.509 certificate-based authentication in Service Fabric](cluster-security-certificates.md). We assume the reader is familiar with fundamental security concepts, and also with the controls that Service Fabric exposes to configure the security of a cluster.  
+This article addresses the management aspects of certificates used to secure communication in Azure Service Fabric clusters, and complements the introduction to [Service Fabric cluster security](service-fabric-cluster-security.md) as well as the explainer on [X.509 certificate-based authentication in Service Fabric](cluster-security-certificates.md). We assume the reader is familiar with fundamental security concepts, and also with the controls that Service Fabric exposes to configure the security of a cluster.  
 
 Aspects covered under this title:
 
@@ -50,30 +50,28 @@ It follows that the certificate management burden (as active operations) falls s
 ## The journey of a certificate
 Let us quickly revisit the progression of a certificate from issuance to consumption in the context of a Service Fabric cluster:
 
-  - a domain owner registers with the RA of a PKI a domain or subject that they'd like to associate with ensuing certificates; the certificates will, in turn, constitute proofs of ownership of said domain or subject
-  - the domain owner also designates in the RA the identities of authorized requesters - entities that are entitled to request the enrollment of certificates with the specified domain or subject; in Microsoft Azure, the default identity provider is Azure Active Directory, and authorized requesters are designated by their corresponding AAD identity (or via security groups)
-  - an authorized requester then enrolls into a certificate via a Secret Management Service; in Microsoft Azure, the SMS of choice is Azure Key Vault (AKV), which securely stores and allows the retrieval of secrets/certificates by authorized entities. AKV also renews/re-keys the certificate as configured in the associated certificate policy. (AKV uses AAD as the identity provider.)
-  - an authorized retriever - which we'll refer to as a 'provisioning agent' - retrieves the certificate, inclusive of its private key, from the vault, and installs it on the machines hosting the cluster
-  - the Service Fabric service (running elevated on each node) grants access to the certificate to allowed Service Fabric entities; these are designated by local groups, and split between ServiceFabricAdministrators and ServiceFabricAllowedUsers
-  - the Service Fabric runtime accesses and uses the certificate to establish federation, or to authenticate to inbound requests from authorized clients
-  - the provisioning agent monitors the vault certificate, and triggers the provisioning flow upon detecting renewal; subsequently, the cluster owner updates the cluster definition, if needed, to indicate the intent to roll over the certificate.
-  - the provisioning agent or the cluster owner is also responsible for cleaning up/deleting unused certificates
+  1. A domain owner registers with the RA of a PKI a domain or subject that they'd like to associate with ensuing certificates; the certificates will, in turn, constitute proofs of ownership of said domain or subject
+  2. The domain owner also designates in the RA the identities of authorized requesters - entities that are entitled to request the enrollment of certificates with the specified domain or subject; in Microsoft Azure, the default identity provider is Azure Active Directory, and authorized requesters are designated by their corresponding AAD identity (or via security groups)
+  3. An authorized requester then enrolls into a certificate via a Secret Management Service; in Microsoft Azure, the SMS of choice is Azure Key Vault (AKV), which securely stores and allows the retrieval of secrets/certificates by authorized entities. AKV also renews/re-keys the certificate as configured in the associated certificate policy. (AKV uses AAD as the identity provider.)
+  4. An authorized retriever - which we'll refer to as a 'provisioning agent' - retrieves the certificate, inclusive of its private key, from the vault, and installs it on the machines hosting the cluster
+  5. The Service Fabric service (running elevated on each node) grants access to the certificate to allowed Service Fabric entities; these are designated by local groups, and split between ServiceFabricAdministrators and ServiceFabricAllowedUsers
+  6. The Service Fabric runtime accesses and uses the certificate to establish federation, or to authenticate to inbound requests from authorized clients
+  7. The provisioning agent monitors the vault certificate, and triggers the provisioning flow upon detecting renewal; subsequently, the cluster owner updates the cluster definition, if needed, to indicate the intent to roll over the certificate.
+  8. The provisioning agent or the cluster owner is also responsible for cleaning up/deleting unused certificates
   
 For our purposes, the first two steps in the sequence above are largely unrelated; the only connection is that the subject common name of the certificate is the DNS name declared in the cluster definition.
 
 These steps are illustrated below; note the differences in provisioning between certificates declared by thumbprint and common name, respectively.
 
-Issuance and provisioning flow of certificates declared by thumbprint.
+*Fig. 1.* Issuance and provisioning flow of certificates declared by thumbprint.
 <center>
-
 ![Provisioning certificates declared by thumbprint][Image1]
-<center>
+</center>
 
-Issuance and provisioning flow of certificates declared by subject common name.
+*Fig. 2.* Issuance and provisioning flow of certificates declared by subject common name.
 <center>
-
 ![Provisioning certificates declared by subject common name][Image2]
-<center>
+</center>
 
 ### Certificate enrollment
 This topic is covered in detail in the Key Vault [documentation](../key-vault/create-certificate.md); we're including a synopsis here for continuity and easier reference. Continuing with Azure as the context, and using Azure Key Vault as the secret management service, an authorized certificate requester must have at least certificate management permissions on the vault, granted by the vault owner; the requester would then enroll into a certificate as follows:
