@@ -44,48 +44,22 @@ You must meet the following prerequisites before using Text Analytics containers
 
 ### Container requirements and recommendations
 
-The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Text Analytics container.
+The following table describes the minimum and recommended runtime requirements for each Text Analytics container. At least 2 gigabytes (GB) of memory are required, and each core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Section (TPS) are also listed.
 
-# [Key Phrase Extraction](#tab/keyphrase)
-
-[!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
-
-# [Language Detection](#tab/language)
-
-[!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
-
-# [Sentiment Analysis](#tab/sentiment)
-
-[!INCLUDE [sentiment-analysis-container-requirements](../includes/sentiment-analysis-container-requirements.md)]
-
-***
-
-* Each core must be at least 2.6 gigahertz (GHz) or faster.
-* TPS - transactions per second
+| Container | Minimum | Recommended | Minimum TPS | Maximum TPS|
+|-----------|---------|-------------|--|
+|Key Phrase Extraction | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30|
+| Language Detection | 1 core, 2GB memory | 1 core, 4GB memory | 15 | 30 |
+| Sentiment Analysis v2 | 1 core, 2GB memory | 1 core, 4GB memory | 15 | 30 |
+| Sentiment Analysis v3 | 1 core, 2GB memory | 1 core, 4GB memory | 15 | 30 |
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
 
-Container images for Text Analytics are available on the Microsoft Container Registry.
-
-# [Key Phrase Extraction](#tab/keyphrase)
-
-[!INCLUDE [key-phrase-extraction-container-repository](../includes/key-phrase-extraction-container-repository.md)]
-
-# [Language Detection](#tab/language)
-
-[!INCLUDE [language-detection-container-repository](../includes/language-detection-container-repository.md)]
-
-# [Sentiment Analysis](#tab/sentiment)
-
-[!INCLUDE [sentiment-analysis-container-repository](../includes/sentiment-analysis-container-repository.md)]
-
-***
-
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### Docker pull for the Text Analytics containers
+Container images for Text Analytics are available on the Microsoft Container Registry.
 
 # [Key Phrase Extraction](#tab/keyphrase)
 
@@ -132,10 +106,11 @@ Replace the placeholders below with your own values:
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
-# [Sentiment Analysis](#tab/sentiment)
+# [Sentiment Analysis v2](#tab/sentiment)
 
 [!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
 
+# [sentiment Analysis v3](#tab/sentiment-v3)
 ***
 
 [!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
