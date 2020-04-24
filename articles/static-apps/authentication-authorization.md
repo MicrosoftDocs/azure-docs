@@ -41,8 +41,8 @@ To add users to your site, you generate invitations which allow you to associate
 - Click on the **Invite** button
 - Select an _Authorization provider_ from the list of options
 - Add either the user account name or email address of the recipient in the _Invitee details_ box
-  - For GitHub and Twitter you enter the user account name. For all others, enter the recipients email address.
-- Select the domain of your static site from the _Domain_ drop down
+  - For GitHub and Twitter you enter the user account name. For all others, enter the recipient's email address.
+- Select the domain of your static site from the _Domain_ drop-down
 - Add a comma separated list of role names in the _Role_ box
 - Enter the maximum number of hours you want the invitation to remain valid.
   - The maximum possible limit is 7 days, or 168 hours.
@@ -72,15 +72,19 @@ Removing a user also invalidates the permissions for the user. This action may t
 
 ## Login
 
-An authorization provider is selected when invitations are created while granting user access to the site. Users need to follow a route that matches the provider they used to login.
+An authorization provider is selected when invitations are created while granting user access to the site.
 
-| Authorization provider | Login route             |
-| ---------------------- | ----------------------- |
-| Azure Active Directory | `/.auth/login/aad`      |
-| Facebook               | `/.auth/login/facebook` |
-| GitHub                 | `/.auth/login/github`   |
-| Google                 | `/.auth/login/google`   |
-| Twitter                | `/.auth/login/twitter`  |
+Consider the needs of your app as you select which authentication providers to support. Some providers expose a user's email address, while others only provide the site's username.
+
+Use the following routes to enable logins for a specific authentication provider.
+
+| Authorization provider | Login route             | User details  |
+| ---------------------- | ----------------------- | ------------- |
+| Azure Active Directory | `/.auth/login/aad`      | Email address |
+| Facebook               | `/.auth/login/facebook` | Email address |
+| GitHub                 | `/.auth/login/github`   | Username      |
+| Google                 | `/.auth/login/google`   | Email address |
+| Twitter                | `/.auth/login/twitter`  | Username      |
 
 For example, to login with GitHub you could include a login link like the following snippet:
 
@@ -90,12 +94,30 @@ For example, to login with GitHub you could include a login link like the follow
 
 If you chose to support more than one provider, then you need to to provide a provider-specific link for each provider on your website.
 
+You can use a [route rule](routes.md) to map a default provider to a friendly route like _/login_.
+
+```json
+{
+  "route": "/login",
+  "serve": "/.auth/login/github"
+}
+```
+
 ## Logout
 
 The `/.auth/logout` route logs a user out of the website. You can add a link to your site navigation to allow the user to log out as shown the the following example:
 
 ```html
 <a href="/.auth/logout">Log out</a>
+```
+
+You can use a [route rule](routes.md) to map a friendly route like _/logout_.
+
+```json
+{
+  "route": "/login",
+  "serve": "/.auth/logout"
+}
 ```
 
 ## Block an authorization provider
@@ -114,4 +136,4 @@ To block providers, a route rules are used to return a 404 when requesting the p
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Review pull requests in preproduction environments](review-publish-pull-requests.md)
+> [Review pull requests in pre-production environments](review-publish-pull-requests.md)
