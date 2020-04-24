@@ -49,40 +49,8 @@ These parameters may be included in the query string of the REST request.
 | `language` | Identifies the spoken language that is being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
 | `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include multiple results with confidence values and four different representations. The default setting is `simple`. | Optional |
 | `profanity` | Specifies how to handle profanity in recognition results. Accepted values are `masked`, which replaces profanity with asterisks, `removed`, which removes all profanity from the result, or `raw`, which includes the profanity in the result. The default setting is `masked`. | Optional |
-| `cid` | When using the [Custom Speech portal](how-to-custom-speech.md) to create custom models, you can use custom models via their **Endpoint ID** found on the **Deployment** page. Use the **Endpoint ID** as the argument to the `cid` query string parameter. | Optional |
 | `pronunciationScoreParams` | Specifies the parameters for showing pronunciation scores in recognition results, which assess the pronunciation quality of speech input, with indicators of accuracy, fluency, completeness, etc. This parameter is a base64 encoded json containing multiple detailed parameters. See [Pronunciation assessment parameters](#pronunciation-assessment-parameters) for how to build this parameter. | Optional |
-
-## Pronunciation assessment parameters
-
-This table lists required and optional parameters for pronunciation assessment.
-
-| Parameter | Description | Required / Optional |
-|-----------|-------------|---------------------|
-| ReferenceText | The text that the speech audio is following. | Required |
-| GradingSystem | The point system for score calibration. Accepted values are `FivePoint` and `HundredMark`. The default settting is `FivePoint`. | Optional |
-| Granularity | The evaluation granularity. Accepted values are `Phoneme`, which shows the score on full text, word and phoneme level, `Word`, which shows the score on full text and word level, `FullText`, which shows the score on full text level only. The default settting is `Phoneme`. | Optional |
-| Dimension | Defines the output criteria. Accepted values are `Basic`, which shows the accuracy score only, `Comprehensive` shows scores on more dimensions (e.g. fluency score and completeness score on full text level, error type on word level). Check [Response parameters](#response-parameters) to see definitions of different score dimensions and word error types. The default setting is `Basic`. | Optional |
-| EnableMiscue | Enables miscue calculation. With this enabled, the pronounced words will be compared to reference text, and will be marked omission/insertion based on the comparison. Accepted values are `False` and `True`. The default setting is `False`. | Optional |
-| ScenarioId | A GUID indicating a customized point system. | Optional |
-
-Below is an example JSON containing the pronuncition assessment parameters:
-
-```json
-{
-  "ReferenceText": "Good morning.",
-  "GradingSystem": "HundredMark",
-  "Granularity": "FullText",
-  "Dimension": "Comprehensive"
-}
-```
-
-Below sample code shows how to build the pronunciation assessment parameters into the URL query parameter:
-
-```csharp
-var pronunciationScoreParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
-var pronunciationScoreParamsBytes = Encoding.UTF8.GetBytes(pronunciationScoreParamsJson);
-var pronunciationScoreParams = Convert.ToBase64String(pronunciationScoreParamsBytes);
-```
+| `cid` | When using the [Custom Speech portal](how-to-custom-speech.md) to create custom models, you can use custom models via their **Endpoint ID** found on the **Deployment** page. Use the **Endpoint ID** as the argument to the `cid` query string parameter. | Optional |
 
 ## Request headers
 
@@ -108,6 +76,38 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 
 >[!NOTE]
 >The above formats are supported through REST API and WebSocket in the Speech service. The [Speech SDK](speech-sdk.md) currently supports the WAV format with PCM codec as well as [other formats](how-to-use-codec-compressed-audio-input-streams.md).
+
+## Pronunciation assessment parameters
+
+This table lists required and optional parameters for pronunciation assessment.
+
+| Parameter | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| ReferenceText | The text that the pronunciation will be evaluated against. | Required |
+| GradingSystem | The point system for score calibration. Accepted values are `FivePoint` and `HundredMark`. The default settting is `FivePoint`. | Optional |
+| Granularity | The evaluation granularity. Accepted values are `Phoneme`, which shows the score on the full text, word and phoneme level, `Word`, which shows the score on the full text and word level, `FullText`, which shows the score on the full text level only. The default settting is `Phoneme`. | Optional |
+| Dimension | Defines the output criteria. Accepted values are `Basic`, which shows the accuracy score only, `Comprehensive` shows scores on more dimensions (e.g. fluency score and completeness score on the full text level, error type on word level). Check [Response parameters](#response-parameters) to see definitions of different score dimensions and word error types. The default setting is `Basic`. | Optional |
+| EnableMiscue | Enables miscue calculation. With this enabled, the pronounced words will be compared to the reference text, and will be marked with omission/insertion based on the comparison. Accepted values are `False` and `True`. The default setting is `False`. | Optional |
+| ScenarioId | A GUID indicating a customized point system. | Optional |
+
+Below is an example JSON containing the pronuncition assessment parameters:
+
+```json
+{
+  "ReferenceText": "Good morning.",
+  "GradingSystem": "HundredMark",
+  "Granularity": "FullText",
+  "Dimension": "Comprehensive"
+}
+```
+
+The following sample code shows how to build the pronunciation assessment parameters into the URL query parameter:
+
+```csharp
+var pronunciationScoreParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
+var pronunciationScoreParamsBytes = Encoding.UTF8.GetBytes(pronunciationScoreParamsJson);
+var pronunciationScoreParams = Convert.ToBase64String(pronunciationScoreParamsBytes);
+```
 
 ## Sample request
 
