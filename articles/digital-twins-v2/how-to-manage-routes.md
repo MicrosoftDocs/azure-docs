@@ -164,20 +164,22 @@ To add a filter, you can use a PUT request to *https://{YourHost}/ EventRoutes/m
 
 Here are the types of filter that you can use:
 
-| Filter name | Description | Filter text |
-| --- | --- | --- |
-| Type |  | "filter": "type = '…'" |
-| Source |  | "filter": " source = '…'" |
-| Subject |  | "filter": " subject = '…'" |
-| ID |  | "filter": "id = '…'" |
-| Schema |  | "filter": "dataschema = '…'" |
-| Content type |  | "filter": "datacontenttype = '…'" |
-| Spec version |  | "filter": "specversion = '…'" |
-| Type/subject combination |  | "filter": "type = '…' AND subject != '…'" |
-| Type/type combination |  | "filter": "type = '…' OR type = '…'" |
-| Type/subject/source/id combination |  | "filter": "(type = '…' AND subject = '…') OR (source = '…' AND id = '…')" |
-| True |  | "filter": "true" |
+| Filter name | Description | Filter Schema | Supported Values | 
+| --- | --- | --- | --- |
+| Type | The class of event flowing through your Twin instance | "filter": "type = <[eventType](./concepts-route-events.md#types-of-event-messages)>" | Microsoft.<Service RP>.Twin.Create <br> Microsoft.<Service RP>.Twin.Delete <br> Microsoft.<Service RP>.Twin.Update <br>  For telemetry, we will use “microsoft.iot.telemetry”  |
+| Source | Name of Digital Twins instance | "filter": " source = '…'" |  ```<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net``` |
+| Subject | This describes the subject of the event in the context of the event source above. These might be written in a URI format (/ delimited) for those subjects which are uniquely identified by multiple parts or ids.  | "filter": " subject = '…'" |```<twinid>``` or ```<twinid>/relationships/ <relationship>/<edged>``` |
+| ID | *** Not implemented for public preview *** | "filter": "id = '…'" | |
+| Schema | *** Not implemented for public preview ***  | "filter": "dataschema = '…'" | |
+| Content type |  | "filter": "datacontenttype = '…'" | application/json <br> application/json for Edge.Create or application/json-patch+json for Edge.Update|
+| Spec version |  | "filter": "specversion = '…'" | 1.0 *** Follow up - system generated, can the customer provide any custom version|
+| Type/subject combination |  | "filter": "type = '…' AND subject != '…'" | |
+| Type/type combination |  | "filter": "type = '…' OR type = '…'" | |
+| Type/subject/source/id combination |  | "filter": "(type = '…' AND subject = '…') OR (source = '…' AND id = '…')" | |
+| True |  | "filter": "true" | |
 | False |  | "filter": "false |
+
+```Microsoft.IoT.Telemetry```
 
 > [!NOTE]
 > During preview, only string equality is supported (=, !=).
