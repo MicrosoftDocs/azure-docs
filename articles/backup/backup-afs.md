@@ -18,19 +18,7 @@ In this article, you'll learn how to:
 ## Prerequisites
 
 * Identify or create a [Recovery Services vault](#create-a-recovery-services-vault) in the same region as the storage account that hosts the file share.
-* Ensure that the file share is present in one of the [supported storage account types](#limitations-for-azure-file-share-backup-during-preview).
-
-## Limitations for Azure file share backup during preview
-
-Backup for Azure file shares is in preview. Azure file shares in both general-purpose v1 and general-purpose v2 storage accounts are supported. Here are the limitations for backing up Azure file shares:
-
-* Support for backup of Azure file shares in storage accounts with [zone-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) (ZRS) replication is currently limited to [these regions](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#in-which-geos-can-i-back-up-azure-file-shares).
-* Azure Backup currently supports configuring scheduled once-daily backups of Azure file shares.
-* The maximum number of scheduled backups per day is one.
-* The maximum number of on-demand backups per day is four.
-* Use [resource locks](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) on the storage account to prevent accidental deletion of backups in your Recovery Services vault.
-* Don't delete snapshots created by Azure Backup. Deleting snapshots can result in loss of recovery points or restore failures.
-* Don't delete file shares that are protected by Azure Backup. The current solution deletes all snapshots taken by Azure Backup after the file share is deleted, so all restore points will be lost.
+* Ensure that the file share is present in one of the [supported storage account types](azure-file-share-support-matrix.md).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -75,19 +63,22 @@ To modify the storage replication type:
 
 1. After you select **Backup**, the **Backup** pane opens and prompts you to select a storage account from a list of discovered supported storage accounts. They're either associated with this vault or present in the same region as the vault, but not yet associated to any Recovery Services vault.
 
-   ![Select storage account](./media/backup-afs/select-storage-account.png)
-
 1. From the list of discovered storage accounts, select an account, and select **OK**. Azure searches the storage account for file shares that can be backed up. If you recently added your file shares and don't see them in the list, allow some time for the file shares to appear.
 
     ![Discovering file shares](./media/backup-afs/discovering-file-shares.png)
 
 1. From the **File Shares** list, select one or more of the file shares you want to back up. Select **OK**.
 
+   ![Select the file shares](./media/backup-afs/select-file-shares.png)
+
 1. After you choose your file shares, the **Backup** menu switches to **Backup policy**. From this menu, either select an existing backup policy or create a new one. Then select **Enable Backup**.
 
     ![Select Backup policy](./media/backup-afs/select-backup-policy.png)
 
 After you set a backup policy, a snapshot of the file shares is taken at the scheduled time. The recovery point is also retained for the chosen period.
+
+>[!NOTE]
+>Azure Backup now supports policies with daily/weekly/monthly/yearly retention for Azure file share backup.
 
 ## Create an on-demand backup
 
@@ -119,8 +110,18 @@ Occasionally, you might want to generate a backup snapshot, or recovery point, o
 
 1. Monitor the portal notifications to keep a track of backup job run completion. You can monitor the job progress in the vault dashboard. Select **Backup Jobs** > **In progress**.
 
+>[!NOTE]
+>Azure Backup locks the storage account when you configure protection for any file share in the corresponding account. This provides protection against accidental deletion of a storage account with backed up file shares.
+
+## Best practices
+
+* Don't delete snapshots created by Azure Backup. Deleting snapshots can result in loss of recovery points and/or restore failures.
+
+* Don't remove the lock taken on the storage account by Azure Backup. If you delete the lock, your storage account will be prone to accidental deletion and if it's deleted, you will lose your snapshots or backups.
+
 ## Next steps
 
 Learn how to:
+
 * [Restore Azure file shares](restore-afs.md)
 * [Manage Azure file share backups](manage-afs-backup.md)
