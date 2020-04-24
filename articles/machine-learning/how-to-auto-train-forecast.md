@@ -15,7 +15,13 @@ ms.date: 03/09/2020
 # Auto-train a time-series forecast model
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to train a time-series forecasting regression model using automated machine learning in Azure Machine Learning. Configuring a forecasting model is similar to setting up a standard regression model using automated machine learning, but certain configuration options and pre-processing steps exist for working with time-series data. The following examples show you how to:
+In this article, you learn how to configure and train a time-series forecasting regression model using automated machine learning in Azure Machine Learning. 
+
+Configuring a forecasting model is similar to setting up a standard regression model using automated machine learning, but certain configuration options and pre-processing steps exist for working with time-series data. 
+
+For example, you can [configure](#config) how far into the future the forecast should extend (the forecast horizon), as well as lags and more. Automated ML learns a single, but often internally branched model for all items in the dataset and prediction horizons. More data is thus available to estimate model parameters and generalization to unseen series becomes possible.
+
+The following examples show you how to:
 
 * Prepare data for time series modeling
 * Configure specific time-series parameters in an [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object
@@ -23,21 +29,12 @@ In this article, you learn how to train a time-series forecasting regression mod
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
 
-You can use automated ML to combine techniques and approaches and get a recommended, high-quality time-series forecast. An automated time-series experiment is treated as a multivariate regression problem. Past time-series values are "pivoted" to become additional dimensions for the regressor together with other predictors.
+Unlike classical time series methods, in automated ML past time-series values are "pivoted" to become additional dimensions for the regressor together with other predictors. This approach incorporates multiple contextual variables and their relationship to one another during training. Since multiple factors can influence a forecast, this method aligns itself well with real world forecasting scenarios. For example, when forecasting sales, interactions of historical trends, exchange rate and price all jointly drive the sales outcome. 
 
-This approach, unlike classical time series methods, has an advantage of naturally incorporating multiple contextual variables and their relationship to one another during training. In real-world forecasting applications, multiple factors can influence a forecast. For example, when forecasting sales, interactions of historical trends, exchange rate and price all jointly drive the sales outcome. A further benefit is that all recent innovations in regression models apply immediately to forecasting.
-
-You can [configure](#config) how far into the future the forecast should extend (the forecast horizon), as well as lags and more. Automated ML learns a single, but often internally branched model for all items in the dataset and prediction horizons. More data is thus available to estimate model parameters and generalization to unseen series becomes possible.
-
-Features extracted from the training data play a critical role. And, automated ML performs standard pre-processing steps and generates additional time-series features to capture seasonal effects and maximize predictive accuracy.
+Features extracted from the training data play a critical role. And, automated ML performs standard pre-processing steps and generates additional time-series features to capture seasonal effects and maximize predictive accuracy
 
 ## Time-series and deep learning models
 
-
-Automated ML provides users with both native time-series and deep learning models as part of the recommendation system. These learners include:
-+ Prophet (Preview)
-+ Auto-ARIMA (Preview)
-+ ForecastTCN (Preview)
 
 Automated ML's deep learning allows for forecasting univariate and multivariate time series data.
 
@@ -48,9 +45,14 @@ Deep learning models have three intrinsic capabilities:
 
 Given larger data, deep learning models, such as Microsoft's ForecastTCN, can improve the scores of the resulting model. Learn how to [configure your experiment for deep learning](#configure-a-dnn-enable-forecasting-experiment).
 
-Native time series learners are also provided as part of automated ML. Prophet works best with time series that have strong seasonal effects and several seasons of historical data. Prophet is accurate & fast, robust to outliers, missing data, and dramatic changes in your time series. 
+Automated ML provides users with both native time-series and deep learning models as part of the recommendation system. 
 
-AutoRegressive Integrated Moving Average (ARIMA) is a popular statistical method for time series forecasting. This technique of forecasting is commonly used in short term forecasting scenarios where data shows evidence of trends such as cycles, which can be unpredictable and difficult to model or forecast. Auto-ARIMA transforms your data into stationary data to receive consistent, reliable results.
+
+Models| Description | Benefits
+----|----|---
+Prophet (Preview)|Prophet works best with time series that have strong seasonal effects and several seasons of historical data. | Accurate & fast, robust to outliers, missing data, and dramatic changes in your time series.
+Auto-ARIMA (Preview)|AutoRegressive Integrated Moving Average (ARIMA) performs best, when the data is stationary. This means that its statistical properties like the mean and variance are constant over the entire set. For example, if you flip a coin, then the probability of you getting heads is 50%, regardless if you flip today, tomorrow or next year.| Great for univariate series, since the past values are used to predict the future values.
+ForecastTCN (Preview)| ForecastTCN is a neural network model designed to tackle the most demanding forecasting tasks, capturing nonlinear local and global trends in your data as well as relationships between time series.|Capable of leveraging complex trends in your data and readily scales to the largest of datasets.
 
 ## Prerequisites
 
