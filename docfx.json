@@ -673,6 +673,10 @@
         "articles/aks/**/*.md": "Azure Kubernetes Service",
         "articles/remote-rendering/**/*.md": "Azure Remote Rendering",
         "articles/remote-rendering/**/*.yml": "Azure Remote Rendering"
+        "articles/media-services/**/*.yml" : "Azure Media Services",
+        "articles/media-services/**/*.md" : "Azure Media Services",
+        "articles/media-services/*.yml" : "Azure Media Services",
+        "articles/media-services/*.md" : "Azure Media Services"     	      
       },
       "featureFlags": {
         "articles/**/*.md": [
