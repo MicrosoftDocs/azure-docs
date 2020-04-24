@@ -106,7 +106,7 @@ If you received the following error message: "The MAC signature found in the HTT
    1. 401 MAC signature issue is seen shortly after a container creation, and only occur until the container creation is completed.
  
  ### HTTP Error 400. The size of the request headers is too long.
- The size of the header has grown to large and is exceeding the maximum allowed size. It's always recommended to use the latest SDK. Make sure to use at least version [2.9.3](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md#-293) or [3.5.1](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md#-351---2019-12-11), which adds header size tracing to the exception message.
+ The size of the header has grown to large and is exceeding the maximum allowed size. It's always recommended to use the latest SDK. Make sure to use at least version [3.x](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) or [2.x](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md), which adds header size tracing to the exception message.
 
 Causes:
  1. The session token has grown to large. The session token grows as the number of partitions increase in the container.
