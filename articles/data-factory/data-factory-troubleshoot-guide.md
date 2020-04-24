@@ -668,11 +668,7 @@ The following table applies to Azure Batch.
     3. Connect to your active head node as Ambari Server sits on the active head node using SSH.  
     4. Reboot the active head node.
 
-    For more information: Look through Azure HDInsight troubleshooting documentation, for example:
-
-        - [Ambari UI 502 error](https://hdinsight.github.io/ambari/ambari-ui-502-error.html).
-        - [Scenario: RpcTimeoutException for Apache Spark thrift server in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception).
-        - [Troubleshooting bad gateway errors in Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502).
+        For more information: Look through Azure HDInsight troubleshooting documentation, for example: [Ambari UI 502 error](https://hdinsight.github.io/ambari/ambari-ui-502-error.html), [RpcTimeoutException for Apache Spark thrift server](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception), [Troubleshooting bad gateway errors in Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502).
 
 <br>
 
