@@ -18,7 +18,7 @@ This article covers information about deploying Azure confidential computing vir
 
 Azure confidential computing virtual machines are designed to protect the confidentially and integrity of your data and code while it's processed in the cloud 
 
-[DCsv2-Series](../virtual-machines/dcv2-series.md) VMs are the latest and most recent confidential computing size family. These VMs support a larger range of deployment capabilities, have 2x the Enclave Page Cache (EPC) and a larger selection of sizes to compared to our DC-Series VMs. The [DC-Series](../virtual-machines/sizes-previous-gen.md#preview-dc-series) VMs are currently in preview and will be deprecated and not included in general availability.
+[DCsv2-Series](../virtual-machines/dcv2-series.md) VMs are the latest and most recent confidential computing size family. These VMs support a larger range of deployment capabilities, have 2x the Enclave Page Cache (EPC) and a larger selection of sizes compared to our DC-Series VMs. The [DC-Series](../virtual-machines/sizes-previous-gen.md#preview-dc-series) VMs are currently in preview and will be deprecated and not included in general availability.
 
 Start deploying a DCsv2-Series VM via the Microsoft commercial marketplace by following the [quickstart tutorial](quick-create-marketplace.md).
 
@@ -116,7 +116,7 @@ Specify one of the following sizes in your ARM template in the Virtual Machine r
 
 ### Gen2 OS Image
 
-Under **properies**, you will also have to reference an image under **storageProfile**. Use *only one* of the following images for your **imageReference**.
+Under **properties**, you will also have to reference an image under **storageProfile**. Use *only one* of the following images for your **imageReference**.
 
 ```json
       "2016-datacenter-gensecond": {
@@ -138,3 +138,10 @@ Under **properies**, you will also have to reference an image under **storagePro
         "version": "latest"
       }
 ```
+
+## Next Steps 
+
+In this article you learned about the qualifications and configurations needed when creating confidential computing virtual machine. You can now head to the Azure Marketplace to deploy a DCsv2-Series VM.
+
+[!div class=”nextstepaction”]
+[Deploy a DCsv2-Series Virtual Machine in the Azure Marketplace](quick-create-marketplace.md)

@@ -36,7 +36,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
 1. Find and select **Virtual machine**.
 
-    ![Deploy a VM](media/quick-create-portal/compute-virtualmachine.png)
+    ![Deploy a VM](media/quick-create-portal/compute-virtual-machine.png)
 
 1. On the Virtual machine landing page, select **Create**.
 
@@ -61,16 +61,16 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
     * **Toggle the image for Gen 2**: Confidential compute virtual machines only run on [Generation 2](../virtual-machines/linux/generation-2.md) images. Ensure the image you select is a Gen 2 image. Click the **Advanced** tab above where you're configuring the virtual machine. Scroll down until you find the section labeled "VM Generation". Select Gen 2 and then go back to the **Basics** tab.
     
 
-        ![Advanced Tab](media/quick-create-portal/advancedtab-virtualmachine.png)
+        ![Advanced Tab](media/quick-create-portal/advanced-tab-virtual-machine.png)
 
 
-        ![VM Generation](media/quick-create-portal/gen2-virtualmachine.png)
+        ![VM Generation](media/quick-create-portal/gen2-virtual-machine.png)
 
     * **Return to basic configuration**: Go back to the **Basics** tab using the navigation at the top.
 
 1. Choose a virtual machine with confidential compute capabilities in the size selector by choosing **change size**. In the virtual machine size selector, click **Clear all filters**. Choose **Add filter**, select **Family** for the filter type, and then select only **Confidential compute**.
 
-    ![DCsv2-Series VMs](media/quick-create-portal/dcsv2-virtualmachines.png)
+    ![DCsv2-Series VMs](media/quick-create-portal/dcsv2-virtual-machines.png)
 
     > [!TIP]
     > You should see sizes **DC1s_v2**, **DC2s_v2**, **DC4s_V2**, and **DC8_v2**. These are the only virtual machine sizes that currently support confidential computing. [Learn more](virtual-machine-solutions.md).
@@ -90,7 +90,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
     * **Public inbound ports**: Choose **Allow selected ports** and select **SSH (22)** and **HTTP (80)** in the **Select public inbound ports** list. If you're deploying a Windows VM, select **HTTP (80)** and **RDP (3389)**. In this quickstart, this step is necessary to connect to the VM and complete the Open Enclave SDK configuration. 
 
-     ![Inbound ports](media/quick-create-portal/inboundport-virtualmachine.png)
+     ![Inbound ports](media/quick-create-portal/inbound-port-virtual-machine.png)
 
 
 1. Make changes in the **Disks** tab.
@@ -124,7 +124,7 @@ ssh azureadmin@40.55.55.555
 You can find the Public IP address of your VM in the Azure portal, under the Overview section of your virtual machine.
 
 [!div class="mx-imgBorder"]
-![IP address in Azure portal](media/quick-create-portal/publicip-virtualmachine.png)
+![IP address in Azure portal](media/quick-create-portal/public-ip-virtual-machine.png)
 
 If you're running on Windows and don't have a BASH shell, install an SSH client, such as PuTTY.
 
@@ -180,7 +180,7 @@ sudo apt -y install clang-7 libssl-dev gdb libsgx-enclave-common libsgx-enclave-
 ```
 
 > [!NOTE] 
-> This step also installs the [az-dcap-client](https://github.com/microsoft/azure-dcap-client) package which is necessary for performing remote attestation in Azure. A general implementation for using Intel DCAP outside the Azure environment is coming soon.
+> This step also installs the [az-dcap-client](https://github.com/microsoft/azure-dcap-client) package which is necessary for performing remote attestation in Azure.
 
 #### 4. **Verify the Open Enclave SDK install**
 
