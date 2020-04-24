@@ -1934,6 +1934,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Face/Quickstarts/csharp-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Face/Quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/Quickstarts/python-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Face/Quickstarts/client-libraries?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/Quickstarts/go-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Face/Quickstarts/client-libraries?pivots=programming-language-go",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/classic/rdma-cluster.md",
       "redirect_url": "/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances",
       "redirect_document_id": false
@@ -3451,6 +3466,21 @@
     {
       "source_path": "articles/iot-edge/how-to-install-production-certificates.md",
       "redirect_url": "/azure/iot-edge/how-to-manage-device-certificates",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-deploy-monitor.md",
+      "redirect_url": "/azure/iot-edge/how-to-deploy-at-scale",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-deploy-monitor-cli.md",
+      "redirect_url": "/azure/iot-edge/how-to-deploy-cli-at-scale",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-deploy-monitor-vscode.md",
+      "redirect_url": "/azure/iot-edge/how-to-deploy-vscode-at-scale",
       "redirect_document_id": true
     },
     {
@@ -7583,8 +7613,33 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/tutorial-multisite-cli.md",
+      "redirect_url": "/azure/application-gateway/tutorial-multiple-sites-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/tutorial-create-vmss-cli.md",
       "redirect_url": "/azure/application-gateway/tutorial-url-redirect-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-create-url-route-cli.md",
+      "redirect_url": "/azure/application-gateway/tutorial-url-route-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-create-url-route-arm-ps.md",
+      "redirect_url": "/azure/application-gateway/tutorial-url-route-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-create-multisite-azureresourcemanager-powershell.md",
+      "redirect_url": "/azure/application-gateway/tutorial-multiple-sites-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-ssl.md",
+      "redirect_url": "/azure/application-gateway/tutorial-ssl-powershell",
       "redirect_document_id": false
     },
     {
@@ -51552,6 +51607,11 @@
     {
       "source_path": "articles/cognitive-services/Custom-Vision-Service/python-tutorial-od.md",
       "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/active-directory-graph-api-quickstart.md",
+      "redirect_url": "/azure/active-directory/develop/microsoft-graph-intro",
       "redirect_document_id": false
     }
   ]
