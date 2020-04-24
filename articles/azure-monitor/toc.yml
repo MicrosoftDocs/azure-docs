@@ -67,7 +67,7 @@
     - name: Log queries
       href: samples/arm-log-queries.md
     - name: Diagnostic settings
-      href: samples/arm-diagnostics-settings.md
+      href: samples/arm-diagnostic-settings.md
     - name: Log Analytics agent
       href: samples/arm-agent.md
     - name: Diagnostics extension

@@ -16,7 +16,7 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 
 ## Number of results rule
-The following sample creates a [number of results alert rule](../platform/alerts-unified-log#metric-measurement-alert-rules.md).
+The following sample creates a [number of results alert rule](../platform/alerts-unified-log.md#metric-measurement-alert-rules).
 
 ### Notes
 
@@ -109,7 +109,7 @@ The following sample creates a [number of results alert rule](../platform/alerts
 ```
 
 ## Metric measurement alert
-The following sample creates a [metric measurement alert rule](../platform/alerts-unified-log#metric-measurement-alert-rules.md).
+The following sample creates a [metric measurement alert rule](../platform/alerts-unified-log.md#metric-measurement-alert-rules).
 
 ### Template file
 

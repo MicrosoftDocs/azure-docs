@@ -12,7 +12,7 @@ ms.date: 04/22/2020
 # Resource Manager template samples for Azure Monitor workspaces
 This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create and configure Log Analytics workspaces in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
-For more information on Log Analytics workspaces, see [Create a Log Analytics workspace in the Azure portal](../learn/quick-create-workspace.md). For more information on data sources in a Log Analytics workspace, see [Agent data sources in Azure Monitor](agent-data-sources.md).
+For more information on Log Analytics workspaces, see [Create a Log Analytics workspace in the Azure portal](../learn/quick-create-workspace.md). For more information on data sources in a Log Analytics workspace, see [Agent data sources in Azure Monitor](../platform/agent-data-sources.md).
 
 ## Create a Log Analytics workspace
 The following sample creates a new empty Log Analytics workspace.
@@ -144,7 +144,7 @@ The following sample creates a new empty Log Analytics workspace.
 ```
 
 ## Collect Windows events
-The following sample adds collection of [Windows events](data-sources-windows-events.md) to an existing workspace.
+The following sample adds collection of [Windows events](../platform/data-sources-windows-events.md) to an existing workspace.
 
 ### Notes
 
@@ -239,7 +239,7 @@ The following sample adds collection of [Windows events](data-sources-windows-ev
 ```
 
 ## Collect syslog
-The following sample adds collection of [syslog events](data-sources-syslog.md) to an existing workspace.
+The following sample adds collection of [syslog events](../platform/data-sources-syslog.md) to an existing workspace.
 
 ### Notes
 
@@ -377,7 +377,7 @@ The following sample adds collection of [syslog events](data-sources-syslog.md) 
 ```
 
 ## Collect Windows performance counters
-The following sample adds collection of [Windows performance counters](data-sources-performance-counters.md) to an existing workspace.
+The following sample adds collection of [Windows performance counters](../platform/data-sources-performance-counters.md) to an existing workspace.
 
 ### Notes
 
@@ -481,7 +481,7 @@ The following sample adds collection of [Windows performance counters](data-sour
 
 
 ## Collect Linux performance counters
-The following sample adds collection of [Linux performance counters](data-sources-performance-counters.md) to an existing workspace.
+The following sample adds collection of [Linux performance counters](../platform/data-sources-performance-counters.md) to an existing workspace.
 
 ### Notes
 
@@ -595,7 +595,7 @@ The following sample adds collection of [Linux performance counters](data-source
 
 
 ## Collect custom logs
-The following sample adds collection of [custom logs](data-sources-custom-logs.md) to an existing workspace.
+The following sample adds collection of [custom logs](../platform/data-sources-custom-logs.md) to an existing workspace.
 
 ### Notes
 
@@ -737,7 +737,7 @@ The following sample adds collection of [custom logs](data-sources-custom-logs.m
 
 
 ## Collect IIS log
-The following sample adds collection of [IIS logs](data-sources-iis-logs.md) to an existing workspace.
+The following sample adds collection of [IIS logs](../platform/data-sources-iis-logs.md) to an existing workspace.
 
 ### Template file
 
