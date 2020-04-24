@@ -60,7 +60,7 @@ This screenshot shows the **Connection Details** for **Windows Authentication**:
 
 ![Windows Authentication](./media/get-started-azure-data-studio/3-windows-auth.png)
 
-This screenshot shows the **Connection Details** using **SQL Login**:
+The following screenshot shows the **Connection Details** using **SQL Login**:
 
 ![SQL Login](./media/get-started-azure-data-studio/2-database-details.png)
 
@@ -69,7 +69,8 @@ After successful login, you should see a dashboard like this:
 
 ## Query
 
-Once connected, you can query Synapse SQL using supported [Transact-SQL (T-SQL)](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) statements against the instance. Select **New query** from the dashboard view to get started.
+Once connected, you can query Synapse SQL using supported [Transact-SQL (T-SQL)](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) statements against the instance. Select **New query** from the dashboard view to get star
+ted.
 
 ![New Query](./media/get-started-azure-data-studio/5-new-query.png)
 
