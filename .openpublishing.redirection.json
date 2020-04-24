@@ -51574,6 +51574,11 @@
       "source_path": "articles/cognitive-services/Custom-Vision-Service/python-tutorial-od.md",
       "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/active-directory-graph-api-quickstart.md",
+      "redirect_url": "/azure/active-directory/develop/microsoft-graph-intro",
+      "redirect_document_id": false
     }
   ]
 }
