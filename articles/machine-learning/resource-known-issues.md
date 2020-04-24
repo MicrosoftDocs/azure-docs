@@ -77,7 +77,21 @@ Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter w
     * Upgrade `azureml-sdk[automl]` package to the latest version.
     * Add `azureml-dataprep` version 1.1.8 or above.
     * Add `pyarrow` version 0.11 or above.
+    
+* **Pip Installation: Dependecies are not guaranteed to be consistent with single line installation**: This is a known limitation of pip as it does not have a functioning dependency resolver when you install as a single line. The first unique dependency is the only one it looks at. For example, if you are installing azure-ml-datadrift which requires version > 1.0 and azureml-train-automl which requires version < 1.2 and if the latest version is 1.3, when the user installs the packages in a single line as shown below, everything gets upgraded to 1.3 even though the azureml-train-automl package requires an older version. 
 
+    * You will see inconsistent dependecies with single line installation.
+    ```python
+       pip install azure-ml-datadrift, azureml-train-automl
+     ```
+   
+    * To ensure the appropriate versions are installed for your packages, install using multiple lines like in the following code. Order doesn't matter here.
+    
+     ```python
+        pip install azure-ml-datadrift
+        pip install azureml-train-automl 
+     ```
+     
 ## Create and manage workspaces
 
 > [!WARNING]

@@ -1,28 +1,18 @@
 ---
-title: "Quickstart: Create an image classification project with the Custom Vision SDK for Java"
-titleSuffix: Azure Cognitive Services
-description: Create a project, add tags, upload images, train your project, and make a prediction using the Java SDK.
-services: cognitive-services
 author: areddish
-manager: nitinme
-
-ms.service: cognitive-services
-ms.subservice: custom-vision
-ms.topic: quickstart
-ms.date: 04/14/2020
 ms.author: areddish
+ms.service: cognitive-services
+ms.date: 04/14/2020
 ---
 
-# Quickstart: Create an image classification project with the Custom Vision SDK for Java
-
-This article shows you how to get started using the Custom Vision Java SDK to build an image classification model. After it's created, you can add tags, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Java application. If you wish to go through the process of building and using a classification model _without_ code, see the [browser-based guidance](getting-started-build-a-classifier.md) instead.
+This article shows you how to get started using the Custom Vision Java SDK to build an image classification model. After it's created, you can add tags, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Java application. If you wish to go through the process of building and using a classification model _without_ code, see the [browser-based guidance](../../getting-started-build-a-classifier.md) instead.
 
 ## Prerequisites
 
 - A Java IDE of your choice
 - [JDK 7 or 8](https://aka.ms/azure-jdks) installed.
 - [Maven](https://maven.apache.org/) installed
-- [!INCLUDE [create-resources](includes/create-resources.md)]
+- [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
 ## Get the Custom Vision SDK and sample code
 
@@ -37,7 +27,7 @@ Clone or download the [Cognitive Services Java SDK Samples](https://github.com/A
 
 This Java project creates a new Custom Vision image classification project named __Sample Java Project__, which can be accessed through the [Custom Vision website](https://customvision.ai/). It then uploads images to train and test a classifier. In this project, the classifier is intended to determine whether a tree is a __Hemlock__ or a __Japanese Cherry__.
 
-[!INCLUDE [get-keys](includes/get-keys.md)]
+[!INCLUDE [get-keys](../../includes/get-keys.md)]
 
 The program is configured to reference your key data as environment variables. Navigate to the **Vision/CustomVision** folder and enter the following PowerShell commands to set the environment variables. 
 
@@ -55,7 +45,7 @@ Load the `Vision/CustomVision` project in your Java IDE and open the _CustomVisi
 
 ### Create a Custom Vision Service project
 
-This first bit of code creates an image classification project. The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. See the [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) method overloads to specify other options when you create your project (explained in the [Build a classifier](getting-started-build-a-classifier.md) web portal guide).
+This first bit of code creates an image classification project. The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. See the [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) method overloads to specify other options when you create your project (explained in the [Build a classifier](../../getting-started-build-a-classifier.md) web portal guide).
 
 [!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_create)]
 
@@ -129,11 +119,11 @@ Done!
 
 You can then verify that the test image prediction (the last few lines of output) is correct.
 
-[!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
+[!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]
 
 ## Next steps
 
 Now you've seen how every step of the object detection process can be done in code. This sample executes a single training iteration, but often you'll need to train and test your model multiple times in order to make it more accurate.
 
 > [!div class="nextstepaction"]
-> [Test and retrain a model](test-your-model.md)
+> [Test and retrain a model](../../test-your-model.md)
