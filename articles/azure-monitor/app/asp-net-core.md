@@ -452,11 +452,6 @@ This SDK requires `HttpContext`, and hence does not work in any non-HTTP applica
 
 [Read and contribute to the code](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
 
-## Video
-
-- Check out this external step-by-step video to [configure Application Insights with .NET Core and Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) from scratch.
-- Check out this external step-by-step video to [configure Application Insights with .NET Core and Visual Studio Code](https://youtu.be/ygGt84GDync) from scratch.
-
 ## Next steps
 
 * [Explore user flows](../../azure-monitor/app/usage-flows.md) to understand how users navigate through your app.
