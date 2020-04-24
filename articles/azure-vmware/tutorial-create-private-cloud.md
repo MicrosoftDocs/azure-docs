@@ -9,6 +9,8 @@ ms.date: 05/04/2020
 
 Azure VMware Solution (AVS) gives you the ability to deploy a vSphere cluster in Azure. The minimum initial deployment is three hosts. Additional hosts can be added one at a time, up to a maximum of 16 hosts per cluster. 
 
+Because AVS will not allow you to manage your private cloud with your on-premises vCenter at launch, you’ll need to perform additional configuration of and connection to a local vCenter instance, virtual network and more. These procedures and related prerequisites will be covered in this tutorial series.
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -23,7 +25,7 @@ In this tutorial, you learn how to:
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://rc.portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a Private Cloud
 
@@ -32,7 +34,7 @@ You can create an AVS private cloud by using the [Azure portal](#azure-portal) o
 ### Azure portal
 
 In the Azure portal, select **+ Create a new resource**. In the **Search the Marketplace**
-text box type `avs`, and select **AVS - Private Cloud** from the list. On the **AVS - Private Cloud** window, select **Create**
+text box type `vmcp`, and select **VMCP - Private Cloud** from the list. On the **VMCP - Private Cloud** window, select **Create**
 
 On the **Basics** tab, enter values for the fields. The following table shows a detailed list of the properties.
 
@@ -48,7 +50,7 @@ On the **Basics** tab, enter values for the fields. The following table shows a 
 | **NSX-T manager password** | Enter a NSX-T administrator password. |
 | **Address block** | Enter an IP address block for the CIDR network for the private cloud. An example is, 10.175.0.0/22. |
 
-![](./media/tutorial-create-private-cloud/image9.jpg)
+:::image type="content" source="./media/tutorial-create-private-cloud/image9.jpg" alt-text="Alt text here." border="true":::
 
 Once finished, select **Review + Create**. On the next screen verify the information entered. If the information is all correct, select **Create**.
 
@@ -100,10 +102,9 @@ az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --locati
 
 ## Verify deployment was successful
 
-The Azure Portal notification shows the
-deployment is successful. Navigate to the Azure portal to verify your private cloud is deployed.
+Navigate to the resource group you created and select your private cloud, when the deployment is completed you'll see the following screen and you'll see the status of **Succeeded**.
 
-![](./media/tutorial-create-private-cloud/image10.jpg)
+:::image type="content" source="./media/tutorial-create-private-cloud/image10.jpg" alt-text="Alt text here." border="true":::
 
 ## Delete a private cloud
 
@@ -122,7 +123,7 @@ In this tutorial you learned how to:
 > * Create an AVS private cloud
 > * Verified the Private Cloud deployed
 
-Continue to the next tutorial to learn how to create a virtual network for use with your Private Cloud.
+Continue to the next tutorial to learn how to create a virtual network for use with your private cloud as part of setting up local management for your private cloud clusters.
 
 > [!div class="nextstepaction"]
 > [Create a Virtual Network](tutorial-configure-networking.md)
