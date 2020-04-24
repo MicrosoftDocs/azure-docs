@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 04/22/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-
+ROBOTS: NOINDEX
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform endpoint so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
@@ -130,7 +130,7 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 
 > [!div renderon="docs"]
 >
-> Then, still in the same folder, edit *graphConfig.js* file to set the `graphMeEndpoint` and `graphMeEndpoint` for the `apiConfig` object.
+> Then, still in the same folder, edit *graphConfig.js* file to set the `graphMeEndpoint` and `graphMailEndpoint` for the `apiConfig` object.
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
 >   const graphConfig = {
@@ -147,8 +147,7 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 
 > [!div renderon="docs"]
 >
-> Where:
-> - *\<Enter_the_Graph_Endpoint_Here>* is the endpoint that API calls will be made against. For the main or global Microsoft Graph API service, enter `https://graph.microsoft.com`. For more information, see [National cloud deployment](https://docs.microsoft.com/graph/deployments).
+> *\<Enter_the_Graph_Endpoint_Here>* is the endpoint that API calls will be made against. For the main or global Microsoft Graph API service, enter `https://graph.microsoft.com`. For more information, see [National cloud deployment](https://docs.microsoft.com/graph/deployments).
 >
 > #### Step 4: Run the project
 
@@ -161,9 +160,9 @@ Run the project with a web server by using [Node.js](https://nodejs.org/en/downl
     ```
 1. Browse to `http://localhost:3000/`.
 
-1. Select **Sign In** to start the sign-in, and then call Microsoft Graph API.
+1. Select **Sign In** to start the sign-in process and then call Microsoft Graph API.
 
-After the browser loads the application, select **Sign In**. The first time you sign in, you're prompted to provide your consent to allow the application to access your profile and sign you in. After you're signed in successfully, your user profile information should be displayed on the page.
+    The first time you sign in, you're prompted to provide your consent to allow the application to access your profile and sign you in. After you're signed in successfully, your user profile information should be displayed on the page.
 
 ## More information
 
@@ -173,7 +172,7 @@ After the browser loads the application, select **Sign In**. The first time you 
 
 ### msal.js
 
-The MSAL library signs in users and requests the tokens that are used to access an API that's protected by Microsoft identity platform. The quickstart *index.html* file contains a reference to the library:
+The MSAL.js library signs in users and requests the tokens that are used to access an API that's protected by Microsoft identity platform. The sample's *index.html* file contains a reference to the library:
 
 ```html
 <script type="text/javascript" src="https://alcdn.msftauth.net/lib/1.2.1/js/msal.js" integrity="sha384-9TV1245fz+BaI+VvCjMYL0YDMElLBwNS84v3mY57pXNOt6xcUYch2QLImaTahcOP" crossorigin="anonymous"></script>

@@ -5,13 +5,10 @@ services: active-directory
 documentationcenter: dev-center-name
 author: hahamil
 manager: CelesteDG
-editor: ''
-
+ROBOTS: NOINDEX
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/22/2020
 ms.author: hahamil
@@ -22,7 +19,7 @@ ms.custom: aaddev, identityplatformtop40
 
 This tutorial uses a version of MSAL.js that uses the OAuth 2.0 Authorization Code Flow with PKCE. To read more about this protocol, as well as the differences between implicit flow and authorization code flow, see the [documentation](link TODO). If you are looking for a tutorial that uses the implicit flow, please see the [MSAL.js v1 tutorial](link todo).
 
-This MSAL.js version is an improvement upon the current msal-core library which will utilize the authorization code flow in the browser. Most features available in the old library will be available in this one, but there are nuances to the authentication flow in both. This version does **NOT** support the implicit flow.
+This version of MSAL.js improves on the current msal-core library, and uses the authorization code flow in the browser. Most features available in the old library are available in this version, but there are nuances to the authentication flow in both. This version does **NOT** support the implicit flow.
 
 This guide demonstrates how a JavaScript single-page application (SPA) can:
 - Sign in personal accounts, as well as work and school accounts
@@ -49,40 +46,37 @@ This guide uses the following library:
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)|Microsoft Authentication Library for JavaScript browser package|
 
-> [!NOTE]
-> *Msal.js* targets the Microsoft identity platform endpoint, which enables personal accounts and school and work accounts to sign in and acquire tokens. The Microsoft identity platform endpoint has [some limitations](../azuread-dev/azure-ad-endpoint-comparison.md#limitations).
-> To understand the differences between the v1.0 and v2.0 endpoints, see the [endpoint comparison guide](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->
 
 ## Set up your web server or project
 
-> Prefer to download this sample's project instead?
->
-> - To run the project by using a local web server, such as Node.js, clone the project files: https://github.com/Azure-Samples/ms-identity-javascript-v2
->
-> To configure the code sample before you execute it, skip to the [configuration step](#register-your-application).
+Prefer to download this sample's project instead? To run the project by using a local web server, such as Node.js, clone the project files:
+
+`git clone https://github.com/Azure-Samples/ms-identity-javascript-v2`
+
+To configure the code sample before you execute it, skip to the [configuration step](#register-your-application).
 
 ## Prerequisites
 
-* To run this tutorial, you need a local web server, such as [Node.js](https://nodejs.org/en/download/) or [.NET Core](https://www.microsoft.com/net/core)
+* To run this tutorial, you need a local web server, such as [Node.js](https://nodejs.org/en/download/) or [.NET Core](https://www.microsoft.com/net/core).
 
-* If you're using Node.js to run the project, install an integrated development environment (IDE), such as [Visual Studio Code](https://code.visualstudio.com/download), to edit the project files.
+* If you're using Node.js to run the project, install an integrated development environment (IDE) like [Visual Studio Code](https://code.visualstudio.com/download) to edit the project files.
 
-* Instructions in this tutorial are based on Node.js
+* Instructions in this tutorial are based on Node.js.
 
 ## Create your project
 
-Make sure you have [Node.js](https://nodejs.org/en/download/) installed, and then create a folder to host your application. There, we will implement a simple [Express](https://expressjs.com/) web server to serve your `index.html` file.
+Make sure you have [Node.js](https://nodejs.org/en/download/) installed, and then create a folder to host your application. Next, implement a small [Express](https://expressjs.com/) web server to serve your `index.html` file.
 
-1. First navigate to your project folder in your terminal and then run the following NPM commands.
+1. First, navigate to your project folder in your terminal and then run the following NPM commands.
 ```console
 npm init -y
 npm install @azure/msal-Browser
 npm install express
 ```
 
-1. Next, create a .js file named `server.js`, and then add the following code:
+1. Next, create a .js file named *server.js*, and then add the following code:
 
 ```JavaScript
    const express = require('express');
@@ -131,9 +125,9 @@ You now have a simple server to serve your SPA. The intended folder structure at
 
 ## Create the SPA UI
 
-1. Create an `index.html` file for your JavaScript SPA in the **app** folder. This file implements a UI built with **Bootstrap 4 Framework** and imports script files for configuration, authentication and API call.
+1. Create an *index.html* file for your JavaScript SPA in the *app* folder. This file implements a UI built with **Bootstrap 4 Framework** and imports script files for configuration, authentication, and API calls.
 
-   In the `index.html` file, add the following code:
+   In the *index.html* file, add the following code:
 
    ```html
    <!DOCTYPE html>
@@ -214,7 +208,7 @@ You now have a simple server to serve your SPA. The intended folder structure at
    > You can replace the version of MSAL.js in the preceding script with the latest released version under [MSAL.js releases](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
 
-2. Now, create a .js file named `ui.js`, which will access and update DOM elements, and add the following code:
+2. Now, create a .js file named *ui.js* that will access and update DOM elements, and add the following code:
 
    ```JavaScript
    // Select DOM elements to work with
@@ -288,19 +282,20 @@ You now have a simple server to serve your SPA. The intended folder structure at
 
 ## Register your application
 
-Follow the instructions to [register a new single page application](https://docs.microsoft.com/zure/active-directory/develop/scenario-spa-app-registration)
+Follow the instructions to [register a new single page application](https://docs.microsoft.com/zure/active-directory/develop/scenario-spa-app-registration).
 
-> #### Set a redirect URL for Node.js
-> For Node.js, you can set the web server port in the *server.js* file. This tutorial uses port 3000, but you can use any other available port.
->
-> To set up a redirect URL in the application registration information, switch back to the **Application Registration** pane and register a new **SPA** with either of the following:
->
-> - Set *`http://localhost:3000/`* as the **Redirect URL**.
-> - If you're using a custom TCP port, use *`http://localhost:<port>/`* (where *\<port>* is the custom TCP port number).
+#### Set a redirect URL for Node.js
+
+For Node.js, you can set the web server port in the *server.js* file. This tutorial uses port 3000, but you can use any other available port.
+
+To set up a redirect URL in the application registration information, switch back to the **Application Registration** pane and register a new **SPA** with either of the following:
+
+- Set *`http://localhost:3000/`* as the **Redirect URL**.
+- If you're using a custom TCP port, use *`http://localhost:<port>/`* (where *\<port>* is the custom TCP port number).
 
 ### Configure your JavaScript SPA
 
-Create a new .js file named `authConfig.js`, which will contain your configuration parameters for authentication, and add the following code:
+Create a new .js file named *authConfig.js* to contain your configuration parameters for authentication, and add the following code:
 
 ```javascript
   const msalConfig = {
@@ -488,37 +483,41 @@ function readMail() {
 <!--start-collapse-->
 ### More information
 
-After a user selects the **Sign In** button for the first time, the `signIn` method calls `loginPopup` to sign in the user. This method opens a pop-up window with the *Microsoft identity platform endpoint* to prompt and validate the user's credentials. After a successful sign-in, `msal.js` initiates the [authorization code flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow). At this point, a PKCE protected authorization code is sent to the CORS protected token endpoint and is exhanged for tokens. A ID token, Access token, and Refresh Token are received, processed by `msal.js`, and the information contained in the token is cached. The *ID token* and contains basic information about the user, such as the user display name. If you plan to use any data provided by this token for any purposes, you need to make sure this token is validated by your backend server to guarantee that the token was issued to a valid user for your application. The *Refresh Token* is limited lifetime and expires after 24 hours. This token can be used to silently acquire new *Access Tokens*. 
+After a user selects the **Sign In** button for the first time, the `signIn` method calls `loginPopup` to sign in the user. This method opens a pop-up window with the *Microsoft identity platform endpoint* to prompt and validate the user's credentials. After a successful sign-in, *msal.js* initiates the [authorization code flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow).
 
-The SPA generated by this guide calls `acquireTokenSilent` and/or `acquireTokenPopup` to acquire an *access token* used to query the Microsoft Graph API for user profile info. If you need a sample that validates the ID token, take a look at [this](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 sample") sample application in GitHub. The sample uses an ASP.NET Web API for token validation.
+At this point, a PKCE-protected authorization code is sent to the CORS-protected token endpoint and is exchanged for tokens. An ID token, access token, and refresh token are received, processed by *msal.js*, and the information contained in the token is cached.
+
+The ID token  contains basic information about the user, such as their display name. If you plan to use any data provided by this token, it must be validated by your back-end server to guarantee the token was issued to a valid user for your application. The refresh token has a limited lifetime and expires after 24 hours. The refresh token can be used to silently acquire new access tokens. 
+
+The SPA generated by this guide calls `acquireTokenSilent` and/or `acquireTokenPopup` to acquire an *access token* used to query the Microsoft Graph API for user profile info. If you need a sample that validates the ID token, see the [active-directory-javascript-singlepageapp-dotnet-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) sample application on GitHub. The sample uses an ASP.NET web API for token validation.
 
 #### Get a user token interactively
 
-After the initial sign-in, you do not want to ask users to reauthenticate every time they need to request a token to access a resource. So *acquireTokenSilent* should be used most of the time to acquire tokens. There are situations, however, where you need to force users to interact with Microsoft identity platform endpoint. Examples include:
+After initial sign-in, your users should not be asked to reauthenticate every time they need to request a token to access a resource. To prevent such reauthentication requests, use `acquireTokenSilent`. There are some situations, however, where you might need to force users to interact with the Microsoft identity platform endpoint. For example:
 
-- Users need to reenter their credentials because the password has expired.
-- Your application is requesting access to a resource, and you need the user's consent.
+- Users need to re-enter their credentials because the password has expired.
+- Your application is requesting access to a resource and you need the user's consent.
 - Two-factor authentication is required.
 
-Calling *acquireTokenPopup* opens a pop-up window (or *acquireTokenRedirect* redirects users to the Microsoft identity platform endpoint). In that window, users need to interact by confirming their credentials, giving consent to the required resource, or completing the two-factor authentication.
+Calling `acquireTokenPopup` opens a pop-up window (or `acquireTokenRedirect` redirects users to the Microsoft identity platform endpoint). In that window, users need to interact by confirming their credentials, giving consent to the required resource, or completing the two-factor authentication.
 
 #### Get a user token silently
 
 The `acquireTokenSilent` method handles token acquisition and renewal without any user interaction. After `loginPopup` (or `loginRedirect`) is executed for the first time, `acquireTokenSilent` is the method commonly used to obtain tokens used to access protected resources for subsequent calls. (Calls to request or renew tokens are made silently.)
 `acquireTokenSilent` may fail in some cases. For example, the user's password may have expired. Your application can handle this exception in two ways:
 
-1. Make a call to `acquireTokenPopup` immediately, which triggers a user sign-in prompt. This pattern is commonly used in online applications where there is no unauthenticated content in the application available to the user. The sample generated by this guided setup uses this pattern.
+1. Make a call to `acquireTokenPopup` immediately to trigger a user sign-in prompt. This pattern is commonly used in online applications where there is no unauthenticated content in the application available to the user. The sample generated by this guided setup uses this pattern.
 
-1. Applications can also make a visual indication to the user that an interactive sign-in is required, so the user can select the right time to sign in, or the application can retry `acquireTokenSilent` at a later time. This is commonly used when the user can use other functionality of the application without being disrupted. For example, there might be unauthenticated content available in the application. In this situation, the user can decide when they want to sign in to access the protected resource, or to refresh the outdated information.
+1. Visually indicate to the user that an interactive sign-in is required so the user can select the right time to sign in, or the application can retry `acquireTokenSilent` at a later time. This technique is commonly used when the user can use other functionality of the application without being disrupted. For example, there might be unauthenticated content available in the application. In this situation, the user can decide when they want to sign in to access the protected resource, or to refresh the outdated information.
 
 > [!NOTE]
-> This quickstart uses the `loginPopup` and `acquireTokenPopup` methods by default. If you are using Internet Explorer as your browser, it is recommended to use `loginRedirect` and `acquireTokenRedirect` methods, due to a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) related to the way Internet Explorer handles pop-up windows. If you would like to see how to achieve the same result using `Redirect methods`, please [see](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js).
+> This quickstart uses the `loginPopup` and `acquireTokenPopup` methods by default. If you are using Internet Explorer as your browser, it is recommended to use `loginRedirect` and `acquireTokenRedirect` methods, due to a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) related to the way Internet Explorer handles pop-up windows. If you would like to see how to achieve the same result using redirect methods, please see [*authRedirect.js*](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js).
 <!--end-collapse-->
 
 ## Call the Microsoft Graph API by using the token you just acquired
 
 
- Create a .js file named `graph.js`, which will make a REST call to Microsoft Graph API, and add the following code:
+ Create a .js file named *graph.js* that will make a REST call to Microsoft Graph API, and add the following code:
 
    ```javascript
  
@@ -554,13 +553,13 @@ In the sample application created by this guide, the `callMSGraph()` method is u
 
 ## Test your code
 
-1. Configure the server to listen to a TCP port that's based on the location of your *index.html* file. For Node.js, start the web server to listen to the port by running the following commands at a command-line prompt from the application folder:
+1. For Node.js, start the web server by running the following commands from within the application folder:
 
    ```bash
    npm install
    npm start
    ```
-1. In your browser, enter **http://localhost:3000** or **http://localhost:{port}**, where *port* is the port that your web server is listening to. You should see the contents of your *index.html* file and the **Sign In** button.
+1. In your browser, enter **http://localhost:3000** or **http://localhost:{port}**, where *port* is the port that your web server is listening on. You should see the contents of your *index.html* file and the **Sign In** button.
 
 ## Test your application
 
@@ -583,18 +582,13 @@ After you sign in, your user profile information is returned in the Microsoft Gr
 <!--start-collapse-->
 ### More information about scopes and delegated permissions
 
-The Microsoft Graph API requires the *user.read* scope to read a user's profile. By default, this scope is automatically added in every application that's registered on the registration portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. For example, the Microsoft Graph API requires the *Mail.Read* scope in order to list the user’s mails.
+The Microsoft Graph API requires the *user.read* scope to read a user's profile. By default, this scope is automatically added in every application that's registered in the Azure portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. For example, the Microsoft Graph API requires the *Mail.Read* scope in order to list the user's mails.
 
 > [!NOTE]
-> The user might be prompted for additional consents as you increase the number of scopes.
+> The user might be prompted for additional consent as you add scopes.
 
 If a back-end API doesn't require a scope (not recommended), you can use *clientId* as the scope in the calls to acquire tokens.
 
 <!--end-collapse-->
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
-
-Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
-
-> [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
