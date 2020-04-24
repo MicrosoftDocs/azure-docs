@@ -6,9 +6,9 @@ ms.date: 04/24/2020
 
 ---
 
-# How to stop monitoring your hybrid cluster with Azure Monitor for containers
+# How to stop monitoring your hybrid cluster
 
-After you enable monitoring of your Kubernetes cluster running on Azure Stack or on-premises, you can stop monitoring the cluster if you decide you no longer want to monitor it. This article shows how to accomplish this.  
+After you enable monitoring of your Kubernetes cluster running on Azure Stack or on-premises, you can stop monitoring the cluster with Azure Monitor for containers if you decide you no longer want to monitor it. This article shows how to accomplish this.  
 
 ## How to stop monitoring using Helm
 

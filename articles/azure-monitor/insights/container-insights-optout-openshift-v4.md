@@ -6,9 +6,9 @@ ms.date: 04/24/2020
 
 ---
 
-# How to stop monitoring your Azure and Red Hat OpenShift v4 cluster with Azure Monitor for containers
+# How to stop monitoring your Azure and Red Hat OpenShift v4 cluster
 
-After you enable monitoring of your Azure Red Hat OpenShift version 4.x cluster, you can stop monitoring the cluster if you decide you no longer want to monitor it. This article shows how to accomplish this.  
+After you enable monitoring of your Azure Red Hat OpenShift version 4.x cluster, you can stop monitoring the cluster with Azure Monitor for containers if you decide you no longer want to monitor it. This article shows how to accomplish this.  
 
 ## How to stop monitoring using Helm
 
