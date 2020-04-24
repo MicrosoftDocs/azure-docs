@@ -1,10 +1,10 @@
 ---
-title: Connect and Query quickstarts 
-description: Azure SQL Database quickstarts showing you how to connect to and query an Azure SQL database. 
+title: Connect and Query content reference 
+description: A reference of Azure SQL Database quickstarts showing you how to connect to and query an Azure SQL database. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: quickstart
 author: stevestein

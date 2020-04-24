@@ -421,7 +421,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 | [List Failover Groups By Server](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Lists the failover groups on a server. |
 | [Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Updates a failover group's configuration. |
 
-----
+---
 
 ### Manage SQL Managed Instance failover
 
@@ -458,7 +458,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 | [Get Failover Group](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | retrieves a failover group's configuration. |
 | [List Failover Groups - List By Location](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Lists the failover groups in a location. |
 
-----
+---
 
 
 

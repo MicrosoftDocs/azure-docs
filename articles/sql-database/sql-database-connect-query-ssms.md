@@ -1,11 +1,12 @@
 ---
 title: "SSMS: Connect and query data"
-description: Learn how to connect to SQL Database on Azure by using SQL Server Management Studio (SSMS). Then run Transact-SQL (T-SQL) statements to query and edit data.
+titleSuffix: Azure SQL Database & SQL Managed Instance 
+description: Learn how to connect to Azure SQL Database or SQL Managed Instance using SQL Server Management Studio (SSMS). Then run Transact-SQL (T-SQL) statements to query and edit data.
 keywords: connect to sql database,sql server management studio
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: 
+ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: quickstart
 author: stevestein
@@ -13,9 +14,9 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 03/10/2020
 ---
-# Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database
+# Quickstart: Use SSMS to connect and query an Azure SQL database
 
-In this quickstart, you'll learn how to use SQL Server Management Studio (SSMS) to connect to an Azure SQL database and run some queries.
+In this quickstart, you'll learn how to use SQL Server Management Studio (SSMS) to connect to an Azure SQL database or SQL Managed Instance and run some queries.
 
 ## Prerequisites
 
@@ -23,26 +24,26 @@ Completing this quickstart requires the following items:
 
 - [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms/).
 - The AdventureWorksLT sample database. If you need a working copy of the AdventureWorksLT database, create one by completing the [Create an Azure SQL database](sql-database-single-database-get-started.md) quickstart.
-    - The scripts in this article are written to use the AdventureWorksLT database. If you are using a managed instance, you must either import the AdventureWorks database into an instance database or modify the scripts in this article to use the Wide World Importers database.
+    - The scripts in this article are written to use the AdventureWorksLT database. If you are using a SQL Managed Instance, you must either import the AdventureWorks database into an instance database or modify the scripts in this article to use the Wide World Importers database.
 
 If you simply want to run some ad-hoc queries without installing SSMS, see [Quickstart: Use the Azure portal's query editor to query a SQL database](sql-database-connect-query-portal.md).
 
-## Get SQL server connection information
+## Get server connection information
 
-Get the connection information you need to connect to your database. You'll need the fully qualified server name or host name, database name, and login information to complete this quickstart.
+Get the connection information you need to connect to your database. You'll need the fully qualified [logical SQL server](sql-database-servers.md) name or host name, database name, and login information to complete this quickstart.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Navigate to the **SQL database** or **SQL managed instance** you want to query.
 
-3. On the **Overview** page, copy the fully qualified server name. It's next to **Server name** for a single database, or the fully qualified server name next to **Host** for a managed instance. The fully qualified name looks like: *servername.database.windows.net*, except it has your actual server name.
+3. On the **Overview** page, copy the fully qualified logical SQL server name. It's next to **Server name** for a single database, or the fully qualified server name next to **Host** for a SQL Managed Instance. The fully qualified name looks like: *servername.database.windows.net*, except it has your actual logical SQL server name.
 
 ## Connect to your database
 
-In SSMS, connect to your Azure SQL Database server.
+In SSMS, connect to your logical SQL server.
 
 > [!IMPORTANT]
-> An Azure SQL Database server listens on port 1433. To connect to a SQL Database server from behind a corporate firewall, the firewall must have this port open.
+> A logical SQL server listens on port 1433. To connect to a logical SQL server from behind a corporate firewall, the firewall must have this port open.
 
 1. Open SSMS.
 
@@ -51,7 +52,7 @@ In SSMS, connect to your Azure SQL Database server.
    | Setting      | Suggested value    | Description |
    | ------------ | ------------------ | ----------- |
    | **Server type** | Database engine | Required value. |
-   | **Server name** | The fully qualified server name | Something like: **servername.database.windows.net**. |
+   | **Server name** | The fully qualified logical SQL server name | Something like: **servername.database.windows.net**. |
    | **Authentication** | SQL Server Authentication | This tutorial uses SQL Authentication. |
    | **Login** | Server admin account user ID | The user ID from the server admin account used to create the server. |
    | **Password** | Server admin account password | The password from the server admin account used to create the server. |

@@ -63,7 +63,7 @@ The following diagram shows an instance pool and two individual instances deploy
 
 Every instance pool creates a separate virtual cluster underneath. Instances within a pool and single instances deployed in the same subnet do not share compute resources allocated to SQL Server processes and gateway components which ensures performance predictability.
 
-## Instance pools resource limitations
+## Resource limitations
 
 There are several resource limitations regarding instance pools and instances inside pools:
 
@@ -92,7 +92,7 @@ The public preview has the following limitations:
 - Instance pools cannot be scaled during the public preview so careful capacity planning before deployment is important.
 - Azure portal support for instance pool creation and configuration is not yet available. All operations on instance pools are supported through PowerShell only. Initial instance deployment in a pre-created pool is also supported through PowerShell only. Once deployed into a pool, SQL Managed Instances can be updated using the Azure portal.
 - SQL Managed Instances created outside of the pool cannot be moved into an existing pool and instances created inside a pool cannot be moved outside as a single instance or to another pool.
-- Reserved instance pricing (license included with Azure Hybrid Benefit) is not available.
+- [Reserve capacity](sql-database-reserved-capacity.md) instance pricing is not available.
 
 ## SQL features supported
 
