@@ -13,7 +13,7 @@ ms.author: dsindona
 
 Microsoft AppSource includes offers that build on or extend Office 365, Dynamics 365, Power Apps, and Power BI. Each of these products has specific documentation to guide you in the publishing process. 
 
-AppSource has paid, list, and trial offers, with the calls-to-action "Get It Now," "Contact Me," and "Try It Now."
+AppSource has paid, list, and trial offers, with the calls to action *Get It Now*, *Contact Me*, and *Try It Now*.
 
 ## Product-specific guides
 
