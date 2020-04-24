@@ -12,7 +12,7 @@ manager: philMea
 
 # Drawing package requirements
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) lets you convert a Drawing package for a single facility into indoor map [datasets](creator-for-indoor-maps.md#datasets). This article describes the Drawing package requirements for the Conversion API. To view a sample package, you can download the [Sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) lets you convert uploaded Drawing packages into map data. This article describes the Drawing package requirements for the Conversion API. To view a sample package, you can download the [Sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ## Prerequisites
 

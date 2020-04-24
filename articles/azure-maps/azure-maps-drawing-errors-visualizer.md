@@ -18,9 +18,9 @@ When an API development environment makes a request to the [Azure Maps Conversio
 
 Before you can download the Drawing Error Visualizer, you'll need to:
 
-1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps)
-2. [Enable Creator](how-to-manage-creator.md)
-3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
+1. [Create an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps)
+2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
+3. [Enable Creator](how-to-manage-creator.md)
 
 This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
 

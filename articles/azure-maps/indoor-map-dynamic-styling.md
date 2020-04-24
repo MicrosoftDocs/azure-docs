@@ -3,7 +3,7 @@ title: Implement dynamic styling for Creator Indoor Maps | Microsoft Azure Maps
 description: Learn how to Implement dynamic styling for Creator indoor maps 
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/20/2020
+ms.date: 04/24/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -12,33 +12,34 @@ manager: philmea
 
 # Implement dynamic styling for Creator indoor maps
 
-Creator lets you dynamically render certain parts of your indoor map data. For example, you may have indoor map data for a building with sensors collecting temperature information. You can render meeting rooms with styles based on the room temperature level. The [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) supports such scenarios in which the tileset features render according to their states. In this article, we'll discuss how to dynamically render indoor map features based on associated feature states using the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) and the [Indoor Web Module](how-to-use-indoor-module.md).
+Azure Maps Creator lets you dynamically render certain parts of your indoor map data. For example, you may have indoor map data for a building with sensors collecting temperature information. You can render meeting rooms with styles based on the room temperature level. The [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) supports such scenarios in which the tileset features render according to their states. In this article, we'll discuss how to dynamically render indoor map features based on associated feature states using the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) and the [Indoor Web Module](how-to-use-indoor-module.md).
 
 When a web application uses the [Indoor Web Module](how-to-use-indoor-module.md) to render indoor maps, you can further leverage the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) for dynamic styling. In particular, the [Get Map State Tile API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) allows for control over the tileset style at the level of individual feature. The map rendering engine will not reparse the underlying geometry and data, thus offering a significant boost in performance, especially in scenarios involving live data visualization.
 
 ## Prerequisites
 
-1. [Create an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). This key may also be referred to as the primary key or the subscription key. You will need this key to call the Azure Map API.
+1. [Create an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps)
+2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
+3. [Enable Creator](how-to-manage-creator.md)
+4. Download the [Sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+5. [Create an indoor map](tutorial-creator-indoor-maps.md) in order to obtain a `tilesetId` and `statesetId`.
+6. Build a web application by following the steps in [How to use the Indoor Map module](how-use-indoor-module.md).
 
-2. Create Creator, and use it to create an indoor map. The necessary steps are described in [How to make a Creator account](how-to-manage-creator.md) and [How to create an indoor map using Creator](tutorial-creator-indoor-maps.md). When you complete these steps, note your tile set identifier and feature state set identifier. In this article, we will assume the sample data provided in the [How to create an indoor map using Creator](tutorial-creator-indoor-maps.md) tutorial.
-
-3. Build a web application by using the sample code as defined in the [How to use the indoor module](how-to-use-indoor-module.md#example-use-the-indoor-maps-module) article.
-
-4. Make Feature State API calls in any API development environment. In this article, we use the [Postman](https://www.postman.com/) application.
+This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
 
 ## Implement dynamic styling
 
-Once you complete the prerequisites, you should have a simple web application configured with your tile set identifier, and state set identifier.
+Once you complete the prerequisites, you should have a simple web application configured with your subscription key, `tilesetId` and `statesetId`.
 
 ### Select features
 
-To implement dynamic styling, rendered features must be identified via the respective feature identifier. You'll use the feature identifier to update the state for your features in the feature state set. You can learn about your map features in different ways, for example: 
+To implement dynamic styling, a feature, such as a unit, must be identified by a feature  `ID`. You'll use the feature `ID` to update the dynamic property or *state* of a feature defined in the feature stateset. To view features defined in a dataset, you can use one of the following methods:
 
-* Using WFS API. It gives you access to data set features from all collections (for example, units and zones) which supports programmatic selection and management of feature identifiers.  
+* WFS API. Datasets can be queried using the Web Feature Service (WFS) API. WFS follows the Open Geospatial Consortium API Features. The WFS API is helpful when there is a need to query features within a dataset. For example, you can use WFS to find all mid-size meeting rooms of a given facility and floor level.
 
-* Writing customized code to visually select features on a map using your web application. For example, add code to get the feature ID for a point on the map. In this article, we'll make use of this option.  
+* Implement customized code that allows a user to select features on a map using your web application. In this article, we'll make use of this option.  
 
-The following script adds the ability to click on a point on the map and get the feature ID for the clicked point. This will help you visually select a feature, gather its identifier, and test the result of changing occupancy status for meeting rooms. In your application, you can insert the code below your Indoor Manager code block. Run your application and check the console to obtain the feature ID of the clicked point.
+The following script handles the mouse click event. It retrieves the feature `ID` based on the clicked point and tests the result of changing occupancy status for meeting rooms. In your application, you can insert the code below your Indoor Manager code block. Run your application and check the console to obtain the feature `ID` of the clicked point.
 
 ```javascript
 /* Upon a mouse click, log the feature properties to the browser's console. */
@@ -54,21 +55,21 @@ map.events.add("click", function(e){
 });
 ```
 
-For this exercise, choose two feature ID for two units, preferably units categorized as meeting rooms.
+For this exercise, choose two feature `ID` for two units, preferably units categorized as meeting rooms.
 
 ### Set occupancy status
 
-The feature state set in use in the application is configured to accept state updates about occupancy and temperature. To update the state of the features: 
+The feature stateset in use in the application is configured to accept state updates about occupancy and temperature. To update the state of the features:
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
-2. Use the [Feature Update States API](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview) to update the state. Pass the state set ID, data set ID, and feature ID for one of the two units. Append your Azure Maps subscription key. Here's the URL of a **POST** request to update the state:
+2. Use the [Feature Update States API](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview) to update the state. Pass the stateset ID, dataset ID, and feature `ID` for one of the two units. Append your Azure Maps subscription key. Here's the URL of a **POST** request to update the state:
 
     ```http
-    https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID=<stateset-udid>&datasetID=<dataset-udid>&featureID=<feature-ID>&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&datasetID={datasetId}&featureID={feature-ID}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **body** of the **POST** request, write the JSON with the feature updates. The update will only be saved, if the posted time stamp is after the time stamp used in previous feature state update request for the same feature id. Pass the "occupied" `keyName` to update its value. Use the following JSON:
+3. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **BODY** of the **POST** request, write the following JSON with the feature updates. The update will be saved only if the posted time stamp is after the time stamp used in previous feature state update requests for the same feature `ID`. Pass the "occupied" `keyName` to update its value.
 
     ```json
     {
@@ -82,8 +83,8 @@ The feature state set in use in the application is configured to accept state up
     }
     ```
 
-4. Redo step 2 and 3 using the other feature ID, with the following JSON.
-    
+4. Redo step 2 and 3 using the other feature `ID`, with the following JSON.
+
     ``` json
     {
         "states": [
@@ -98,7 +99,7 @@ The feature state set in use in the application is configured to accept state up
 
 ### Visualize dynamic styles on a map
 
-The web application you previously opened in a browser should now automatically reflect the state of updated feature states in the map. In particular, the feature state set in use in this article defines rendering in red occupied rooms and in green free rooms. You should see that the units you selected for which you updated the state are now rendered in red and green accordingly with their current state. The map now is indicating the occupancy status, like in the image below: `
+The web application you previously opened in a browser should now reflect the updated state of the map features. The feature stateset used in this tutorial defines red for occupied rooms and green for free rooms.
 
 ![Free room in green and Busy room in red](./media/indoor-map-dynamic-styling/free-room.png)
 
