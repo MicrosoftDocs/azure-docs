@@ -21,11 +21,9 @@ A connection string includes the authorization information required for your app
 * Access a storage account in Azure.
 * Access specified resources in Azure via a shared access signature (SAS).
 
-[!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
-
-## View and copy a connection string
-
 To learn how to view your account access keys and copy a connection string, see [Manage storage account access keys](storage-account-keys-manage.md).
+
+[!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
 ## Store a connection string
 

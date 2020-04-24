@@ -410,4 +410,4 @@ The following table shows how the cmdlets used for Data Lake Storage Gen1 map to
 ## See also
 
 * [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-* [Storage PowerShell cmdlets](/powershell/module/az.storage).
+* [Storage PowerShell cmdlets](/powershell/module/az.storage)
