@@ -3,7 +3,7 @@ title: Creator for indoor maps| Microsoft Azure Maps
 description: This article introduces concepts that apply to Azure Maps Creator services.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/20/2020
+ms.date: 04/24/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -21,7 +21,7 @@ You can use Creator to develop applications with map features based on indoor ma
 
 ## Create Azure Maps Creator
 
-To use Creator services, Azure Maps Creator must be created in an Azure Maps account. For information on how to create Azure Maps Creator in Azure Maps, see [Manage Azure Maps Creator](tutorial-creator-indoor-maps.md).
+To use Creator services, Azure Maps Creator must be created in an Azure Maps account. For information on how to create Azure Maps Creator in Azure Maps, see [Manage Azure Maps Creator](how-to-manage-creator.md).
 
 ## Upload a Drawing package
 
@@ -33,7 +33,7 @@ Use the [Azure Maps Data Upload API](https://docs.microsoft.com/rest/api/maps/da
 
 The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) converts an uploaded Drawing package into indoor map data. The Conversion service also validates the package. Validation issues are classified into two types: errors and warnings. If any errors are detected, the conversion process fails. If warnings are detected, the conversion will succeed. If the Drawing package fails to convert due to validation errors, you must fix the errors and upload the Drawing package again. To troubleshoot conversion errors and warnings, see [Drawing package warnings and errors](drawing-conversion-error-codes.md).
 
-When an error occurs, the Conversion service provides a link to the [Azure Maps Drawing Error Visualizer](azure-maps-drawing-errors-visualizer.md) stand-alone web application. You can use the Drawing ERror Visualizer to inspect errors and warnings that occurred during the conversion process.
+When an error occurs, the Conversion service provides a link to the [Azure Maps Drawing Error Visualizer](azure-maps-drawing-errors-visualizer.md) stand-alone web application. You can use the Drawing Error Visualizer to inspect errors and warnings that occurred during the conversion process.
 
 ## Create indoor map data
 
@@ -76,7 +76,7 @@ The [Alias service]() allows for the efficient governance and distribution of ti
 
 Feature statesets are collections of dynamic properties (*states*) assigned to dataset features such as rooms or equipment. An example of a *state* could be temperature or occupancy. Each *state* is a key/value pair containing the name of the property, the value, and the timestamp of the last update.
 
-The [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview) lets developers create and manage a feature stateset for a dataset. The stateset is defined by one or more *states*. Each feature, such as a room, can have one ore more *states* attached to it.
+The [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview) lets developers create and manage a feature stateset for a dataset. The stateset is defined by one or more *states*. Each feature, such as a room, can have one *state* attached to it.
 
 The value of each *state* in a stateset can be updated or retrieved by IoT devices or other applications.  For example, using the [Feature State Update API](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview), devices measuring space occupancy can systematically post the state change of a room.
 
