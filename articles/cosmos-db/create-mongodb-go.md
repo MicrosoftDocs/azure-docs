@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Connect a Go application to Azure Cosmos DB's API for MongoDB' 
 description: This quickstart demonstrates how to connect an existing Go application to Azure Cosmos DB's API for MongoDB.
-author: abhishekgupta
+author: abhirockzz
 ms.author: abhishgu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
