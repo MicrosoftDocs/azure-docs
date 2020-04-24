@@ -74,9 +74,9 @@ Make sure you have [Node.js](https://nodejs.org/en/download/) installed, and the
 
 1. First, navigate to your project folder in your terminal and then run the following NPM commands.
 ```console
-npm init -y
-npm install @azure/msal-Browser
-npm install express
+    npm init -y
+    npm install @azure/msal-Browser
+    npm install express
 ```
 2. Next, create a .js file named *server.js*, and then add the following code:
 
