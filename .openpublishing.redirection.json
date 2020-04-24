@@ -3443,6 +3443,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/iot-edge/how-to-deploy-monitor.md",
+      "redirect_url": "/azure/iot-edge/how-to-deploy-at-scale",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-deploy-monitor-cli.md",
+      "redirect_url": "/azure/iot-edge/how-to-deploy-cli-at-scale",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-deploy-monitor-vscode.md",
+      "redirect_url": "/azure/iot-edge/how-to-deploy-vscode-at-scale",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
       "redirect_url": "/azure/cognitive-services/recommendations/overview",
       "redirect_document_id": false
@@ -7569,6 +7584,11 @@
     {
       "source_path": "articles/application-gateway/application-gateway-create-gateway-cli-nodejs.md",
       "redirect_url": "/azure/application-gateway/quick-create-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-multisite-cli.md",
+      "redirect_url": "/azure/application-gateway/tutorial-multiple-sites-cli",
       "redirect_document_id": false
     },
     {
@@ -51493,6 +51513,56 @@
     {
       "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started.md",
       "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-ios-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/csharp-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/go-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/java-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/node-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/python-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/csharp-tutorial-od.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/go-tutorial-object-detection.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/java-tutorial-od.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/node-tutorial-object-detection.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/python-tutorial-od.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
       "redirect_document_id": false
     }
   ]

@@ -193,7 +193,7 @@ How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickst
 
 ### 2.3: Enable audit logging for Azure resources
 
-**Guidance**: Enable Diagnostic Settings on your Azure Database for PostgreSQL instances for access to audit, security, and diagnostic logs. Ensure that you specifically enable the PostgreSQL Audit log. Activity logs, which are automatically available, include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements. You may also enable Azure Activity Log Diagnostic Settings and send the logs to the same Log Analytics workspace or Storage Account.
+**Guidance**: Enable Diagnostic Settings on your Azure Database for PostgreSQL instances for access to audit, security, and resource logs. Ensure that you specifically enable the PostgreSQL Audit log. Activity logs, which are automatically available, include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements. You may also enable Azure Activity Log Diagnostic Settings and send the logs to the same Log Analytics workspace or Storage Account.
 
 How to configure and access Server Logs for Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
 
