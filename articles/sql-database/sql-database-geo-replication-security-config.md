@@ -4,7 +4,7 @@ description: Learn the security considerations for configuring and managing secu
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960

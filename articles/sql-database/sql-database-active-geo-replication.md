@@ -1,10 +1,10 @@
 ---
 title: Active geo-replication
-description: Use active geo-replication to create readable secondary databases of individual databases in the same or different data center (region).
+description: Use active geo-replication to create readable secondary databases of individual Azure SQL Databases in the same or different data center (region)se.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960
@@ -13,19 +13,19 @@ ms.reviewer: mathoma, carlrab
 ms.date: 04/06/2020
 ---
 
-# Creating and using active geo-replication
+# Creating and using active geo-replication - Azure SQL Database
 
 Active geo-replication is an Azure SQL Database feature that allows you to create readable secondary databases of individual databases on a SQL Database server in the same or different data center (region).
 
 > [!NOTE]
-> Active geo-replication is not supported by managed instance. For geographic failover of managed instances, use [Auto-failover groups](sql-database-auto-failover-group.md).
+> Active geo-replication is not supported by Azure SQL Managed Instance. For geographic failover of SQL Managed Instances, use [Auto-failover groups](sql-database-auto-failover-group.md).
 
 Active geo-replication is designed as a business continuity solution that allows the application to perform quick disaster recovery of individual databases in case of a regional disaster or large scale outage. If geo-replication is enabled, the application can initiate failover to a secondary database in a different Azure region. Up to four secondaries are supported in the same or different regions, and the secondaries can also be used for read-only access queries. The failover must be initiated manually by the application or the user. After failover, the new primary has a different connection end point. The following diagram illustrates a typical configuration of a geo-redundant cloud application using Active geo-replication.
 
 ![active geo-replication](./media/sql-database-active-geo-replication/geo-replication.png )
 
 > [!IMPORTANT]
-> SQL Database also supports auto-failover groups. For more information, see using [auto-failover groups](sql-database-auto-failover-group.md). Also, active geo-replication is not supported for databases created within a Managed Instance. Consider using [failover groups](sql-database-auto-failover-group.md) with Managed Instances.
+> SQL Database also supports auto-failover groups. For more information, see using [auto-failover groups](sql-database-auto-failover-group.md).
 
 If for any reason your primary database fails, or simply needs to be taken offline, you can initiate failover to any of your secondary databases. When failover is activated to one of the secondary databases, all other secondaries are automatically linked to the new primary.
 
@@ -38,7 +38,7 @@ You can manage replication and failover of an individual database or a set of da
 - [REST API: Single database](https://docs.microsoft.com/rest/api/sql/replicationlinks)
 
 
-Active geo-replication leverages the [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technology of SQL Server to asynchronously replicate committed transactions on the primary database to a secondary database using snapshot isolation. Auto-failover groups provide the group semantics on top of active geo-replication but the same asynchronous replication mechanism is used. While at any given point, the secondary database might be slightly behind the primary database, the secondary data is guaranteed to never have partial transactions. Cross-region redundancy enables applications to quickly recover from a permanent loss of an entire datacenter or parts of a datacenter caused by natural disasters, catastrophic human errors, or malicious acts. The specific RPO data can be found at [Overview of Business Continuity](sql-database-business-continuity.md).
+Active geo-replication leverages the [Always On availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technology of SQL Server to asynchronously replicate committed transactions on the primary database to a secondary database using snapshot isolation. Auto-failover groups provide the group semantics on top of active geo-replication but the same asynchronous replication mechanism is used. While at any given point, the secondary database might be slightly behind the primary database, the secondary data is guaranteed to never have partial transactions. Cross-region redundancy enables applications to quickly recover from a permanent loss of an entire datacenter or parts of a datacenter caused by natural disasters, catastrophic human errors, or malicious acts. The specific RPO data can be found at [Overview of Business Continuity](sql-database-business-continuity.md).
 
 > [!NOTE]
 > If there is a network failure between two regions, we retry every 10 seconds to re-establish connections.
@@ -103,12 +103,12 @@ To achieve real business continuity, adding database redundancy between datacent
 To ensure that your application can immediately access the new primary after failover,  ensure the authentication requirements for your secondary server and database are properly configured. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md). To guarantee compliance after failover, make sure that the backup retention policy on the secondary database matches that of the primary. These settings are not part of the database and are not replicated. By default, the secondary will be configured with a default PITR retention period of seven days. For details, see [SQL Database automated backups](sql-database-automated-backups.md).
 
 > [!IMPORTANT]
-> If your database is a member of a failover group, you cannot initiate its failover using the geo-replication faiover command. Consider using failover command for the group. If you need to failover an individual database, you must remove it from the failover group first. See  [failover groups](sql-database-auto-failover-group.md) for details. 
+> If your database is a member of a failover group, you cannot initiate its failover using the geo-replication failover command. Use the failover command for the group. If you need to failover an individual database, you must remove it from the failover group first. See  [failover groups](sql-database-auto-failover-group.md) for details. 
 
 
 ## Configuring secondary database
 
-Both primary and secondary databases are required to have the same service tier. It is also strongly recommended that secondary database is created with the same compute size (DTUs or vCores) as the primary. If the primary database is experiencing a heavy write workload, a secondary with lower compute size may not be able to keep up with it. That will cause redo lag on the secondary, and potential unavailability of the secondary. To mitigate these risks, active geo-replication will throttle the primary's transaction log rate if necessary to allow its secondaries to catch up. 
+Both primary and secondary databases are required to have the same service tier. It is also strongly recommended that the secondary database is created with the same compute size (DTUs or vCores) as the primary. If the primary database is experiencing a heavy write workload, a secondary with lower compute size may not be able to keep up with it. That will cause redo lag on the secondary, and potential unavailability of the secondary. To mitigate these risks, active geo-replication will throttle the primary's transaction log rate if necessary to allow its secondaries to catch up. 
 
 Another consequence of an imbalanced secondary configuration is that after failover, application performance may suffer due to insufficient compute capacity of the new primary. In that case, it will be necessary to scale up database service objective to the necessary level, which may take significant time and compute resources, and will require a [high availability](sql-database-high-availability.md) failover at the end of the scale up process.
 

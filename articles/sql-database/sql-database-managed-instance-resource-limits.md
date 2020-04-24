@@ -86,7 +86,7 @@ A few additional considerations:
   You can create another readable replica in a different Azure region using [auto-failover groups](sql-database-configure-failover-group.md)
 - Max instance IOPS depend on the file layout and distribution of workload. As an example, if you create 7 x 1TB files with max 5K IOPS each and 7 small files (smaller than 128 GB) with 500 IOPS each, you can get 38500 IOPS per instance (7x5000+7x500) if your workload can use all files. Note that some IOPS is also used for auto-backups.
 
-Find more information about the [resource limits in SQL Managed Instance pools in this article](sql-database-instance-pools.md#instance-pools-resource-limitations).
+Find more information about the [resource limits in SQL Managed Instance pools in this article](sql-database-instance-pools.md#resource-limitations).
 
 ### File IO characteristics in General Purpose tier
 

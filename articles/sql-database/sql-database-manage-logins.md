@@ -77,7 +77,7 @@ At this point, your Azure SQL instance is only configured for access using a sin
 
   - Create an additional SQL Server login in the managed instance
   - Add the login to the [sysadmin fixed server role](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) using the [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) statement. This login will have full administrative permissions.
-  - Alternatively, create an [Azure AD login](sql-database-aad-authentication-configure.md?tabs=azure-powershell#new-azure-ad-admin-functionality-for-mi) using the <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> syntax.
+  - Alternatively, create an [Azure AD login](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance) using the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax.
 
 - **In a single or pooled deployment, create SQL logins having limited administrative permissions**
 
@@ -102,10 +102,10 @@ You can create accounts for non-administrative users using one of two methods:
   Create a SQL login in the master database. Then create a user account in each database to which that user needs access and associate the user account with that login. This approach is preferred when the user must access multiple databases and you wish to keep the passwords synchronized. However, this approach has complexities when used with geo-replication as the login must be created on both the primary server and the secondary server(s). For more information, see [Configure and manage Azure SQL Database security for geo-restore or failover](sql-database-geo-replication-security-config.md).
 - **Create a user account**
 
-  Create a user account in the database to which a user needs access (also called a [contained user](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
+  Create a user account in the database to which a user needs access (also called a [contained user](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 
   - With a single or pooled database, you can always create this type of user account.
-  - With a managed instance database that does not support [Azure AD server principals](sql-database-aad-authentication-configure.md?tabs=azure-powershell#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities), you can only create this type of user account in a [contained database](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). With managed instance supporting [Azure AD server principals](sql-database-aad-authentication-configure.md?tabs=azure-powershell#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities), you can create user accounts to authenticate to the managed instance without requiring database users to be created as a contained database user.
+  - With managed instance supporting [Azure AD server principals](sql-database-aad-authentication-configure.md#create-contained-users-mapped-to-azure-ad-identities), you can create user accounts to authenticate to the managed instance without requiring database users to be created as a contained database user.
 
   With this approach, the user authentication information is stored in each database, and replicated to geo-replicated databases automatically. However, if the same account exists in multiple databases and you are using SQL Authentication, you must keep the passwords synchronized manually. Additionally, if a user has an account in different databases with different passwords, remembering those passwords can become a problem.
 
@@ -118,7 +118,7 @@ For examples showing how to create logins and users, see:
 - [Create login for managed instance database](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
 - [Create login for Azure Synapse Analytics database](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
 - [Create user](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql#examples)
-- [Creating Azure AD contained users](sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)
+- [Creating Azure AD contained users](sql-database-aad-authentication-configure.md#create-contained-users-mapped-to-azure-ad-identities)
 
 > [!TIP]
 > For a security tutorial that includes creating SQL Server a contained users in a single or pooled database, see [Tutorial: Secure a single or pooled database](sql-database-security-tutorial.md).

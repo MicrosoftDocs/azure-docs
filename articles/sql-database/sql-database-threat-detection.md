@@ -4,7 +4,7 @@ description: Advanced Threat Protection detects anomalous database activities in
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: "seo-dt-2019"
+ms.custom: seo-dt-2019, sqldbrb=1
 ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat

@@ -79,7 +79,7 @@ For your C# program to run, an Azure SQL server admin needs to assign an Azure A
 
 On the **SQL Server** page, select **Active Directory admin** > **Set admin**.
 
-For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server).
+For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in[ Configure and manage Azure Active Directory authentication with SQL Database](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-database).
 
 ### Add a non-admin user to a specific database (optional)
 

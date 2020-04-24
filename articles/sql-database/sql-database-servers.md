@@ -1,6 +1,7 @@
 ---
-title: Servers
-description: Learn about Azure SQL Database servers and their management.
+title: What is a logical SQL server in Azure? 
+titleSuffix: ""
+description: Learn about logical SQL servers used by Azure SQL Database and Azure Synapse Analytics, and how to manage them. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -12,11 +13,9 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 03/12/2019
 ---
-# Azure SQL Database servers and their management
+# What is a logical SQL server in Azure?
 
-## What is an Azure SQL Database server
-
-A SQL Database server is a logical construct that acts as a central administrative point for multiple single or [pooled](sql-database-elastic-pool.md) databases, [logins](sql-database-manage-logins.md), [firewall rules](sql-database-firewall-configure.md), [auditing rules](sql-database-auditing.md), [threat detection policies](sql-database-threat-detection.md), and [failover groups](sql-database-auto-failover-group.md) A SQL Database server can be in a different region than its resource group. The SQL Database server must exist before you can create the Azure SQL database. All databases managed by a SQL Database server are created within the same region as the SQL Database server.
+A SQL server in Azure is a logical construct that acts as a central administrative point for multiple single or [pooled](sql-database-elastic-pool.md) databases, [logins](sql-database-manage-logins.md), [firewall rules](sql-database-firewall-configure.md), [auditing rules](sql-database-auditing.md), [threat detection policies](sql-database-threat-detection.md), and [failover groups](sql-database-auto-failover-group.md) A logical SQL server can be in a different region than its resource group. The logical SQL server must exist before you can create an Azure SQL database or an Azure Synapse SQL pool. All databases managed by a logical SQL server are created within the same region as the logical SQL server.
 
 A SQL Database server is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to the SQL Database server that manages them, and exposes no instance-level access or features. In contrast, the instance databases in a managed instance are all co-located - in the same way that you are familiar with SQL Server in the on-premises world.
 
