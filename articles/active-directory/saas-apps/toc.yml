@@ -219,8 +219,6 @@
         href: box-tutorial.md
       - name: Boxcryptor
         href: boxcryptor-tutorial.md
-      - name: Bpm’online
-        href: bpmonline-tutorial.md
       - name: Brandfolder
         href: brandfolder-tutorial.md
       - name: Braze
@@ -383,6 +381,8 @@
         href: coupa-tutorial.md
       - name: CPQSync by Cincom
         href: cpqsync-by-cincom-tutorial.md
+      - name: Creatio
+        href: bpmonline-tutorial.md
       - name: CrossKnowledge Learning Suite
         href: crossknowledge-learning-suite-tutorial.md
       - name: CS Stars
