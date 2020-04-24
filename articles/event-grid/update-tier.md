@@ -6,7 +6,7 @@ author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 04/22/2020
 ms.author: spelluru
 ---
 
@@ -51,40 +51,40 @@ You can **upgrade** from the basic tier to the premium tier on the **Networking*
 
 
 ## Use Azure CLI
-This section shows you how to use Azure CLI commands to change the pricing tier of a topic or domain. 
+This section shows you how to use Azure CLI commands to change the pricing tier of a topic. To update pricing tier of a domain, use the `az eventgrid domain update` command in a similar fashion.
+
+### Prerequisites
+Update the Azure Event Grid extension for CLI by running the following command: 
+
+```azurecli-interactive
+az extension update -n eventgrid
+```
+
+If the extension isn't installed, run the following command to install it: 
+
+```azurecli-interactive
+az extension add -n eventgrid
+```
 
 ### Upgrade a topic from basic to premium
 
 ```azurecli-interactive
-az rest --method patch \
-        --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" \
-        --body "{\""sku\"": {\""name\"": \""premium\""}}"
+az eventgrid topic update \
+    --resource-group $resourceGroupName \
+    --name $topicName \
+    --location $location \
+    --sku "Premium" 
 ```
 
 ### Downgrade a topic from premium to basic
 
 ```azurecli-interactive
-az rest --method patch \
-        --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>?api-version=2020-04-01-preview" \
-        --body "{\""sku\"": {\""name\"": \""basic\""}}"
+az eventgrid topic update \
+    --resource-group $resourceGroupName \
+    --name $topicName \
+    --location $location \
+    --sku "Basic" 
 ```
-
-### Upgrade a domain from basic to premium
-
-```azurecli-interactive
-az rest --method patch \
-        --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/domains/<EVENT GRID DOMAIN NAME>?api-version=2020-04-01-preview" \
-        --body "{\""sku\"": {\""name\"": \""premium\""}}"
-```
-
-### Downgrade a domain from premium to basic
-
-```azurecli-interactive
-az rest --method patch \
-        --uri "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/domains/<EVENT GRID DOMAIN NAME>?api-version=2020-04-01-preview" \
-        --body "{\""sku\"": {\""name\"": \""basic\""}}"
-```
-
 
 
 ## Use Azure PowerShell

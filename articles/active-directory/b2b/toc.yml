@@ -17,7 +17,7 @@
     items:
     - name: Bulk invite via PowerShell
       href: bulk-invite-powershell.md
-    - name: Bulk invite via the portal (preview)
+    - name: Bulk invite via the portal
       href: tutorial-bulk-invite.md
     - name: Enforce multi-factor authentication
       href: b2b-tutorial-require-mfa.md
@@ -63,6 +63,8 @@
         href: add-users-administrator.md
       - name: Information workers adding B2B users
         href: add-users-information-worker.md
+      - name: Invite internal users to B2B
+        href: invite-internal-users.md
       - name: Google federation
         href: google-federation.md
       - name: One-time passcode authentication

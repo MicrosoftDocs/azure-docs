@@ -3,14 +3,14 @@ title: Azure Front Door - Frequently Asked Questions
 description: This page provides answers to frequently asked questions about Azure Front Door
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: sohamnchatterjee
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/08/2019
-ms.author: sharadag
+ms.date: 04/13/2020
+ms.author: sohamnc
 ---
 
 # Frequently asked questions for Azure Front Door
@@ -154,7 +154,14 @@ For the Front Door managed certificate option, the certificates are autorotated 
 
 ### What are the current cipher suites supported by Azure Front Door?
 
-The following are the current cipher suites supported by Azure Front Door:
+For TLS1.2 the following cipher suites are supported
+
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+
+When using custom domains with TLS1.0/1.1 enabled the following cipher suites are supported:
 
 - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384

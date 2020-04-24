@@ -35,7 +35,7 @@ Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-g
 - It's currently not possible to dynamically switch between BYOS and pay-as-you-go billing models for Linux images. To switch the billing model, you must redeploy the VM from the respective image.
 
 >[!NOTE]
-> Generation 2 RHEL BYOS images aren't currently available through the marketplace offer. If you require a 
+> Generation 2 RHEL BYOS images aren't currently available through the marketplace offer. If you require a
 Generation 2 RHEL BYOS image, visit the Cloud Access dashboard in Red Hat subscription management. For more information, see the [Red Hat documentation](https://access.redhat.com/articles/4847681).
 
 ## Requirements and conditions to access the Red Hat Gold Images
@@ -212,6 +212,7 @@ For steps to apply Azure Disk Encryption, see [Azure Disk Encryption scenarios o
 
 ## Next steps
 
+- More details about Red Hat Cloud Access are available at the [Red Hat public cloud documentation](https://access.redhat.com/public-cloud)
 - For step-by-step guides and program details for Cloud Access, see the [Red Hat Cloud Access documentation](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index).
 - To learn more about the Red Hat Update Infrastructure, see [Azure Red Hat Update Infrastructure](./redhat-rhui.md).
 - To learn more about all the Red Hat images in Azure, see the [documentation page](./redhat-images.md).
