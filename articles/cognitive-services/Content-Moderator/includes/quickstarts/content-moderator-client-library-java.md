@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Content Moderator client library for Java"
+title: "Content Moderator Java client library quickstart"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, learn how to get started with the Azure Cognitive Services Content Moderator client library for Java.
 services: cognitive-services
@@ -7,12 +7,10 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
+ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
 ---
-
-# Quickstart: Content Moderator client library for Java
 
 Get started with the Content Moderator client library for Java. Follow these steps to install the package and try out the example code for basic tasks. Content Moderator is a cognitive service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users.
 
@@ -54,7 +52,7 @@ gradle init --type basic
 
 When prompted to choose a build script DSL, select **Kotlin**.
 
-Find *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in the following build configuration. This configuration defines the project as a Java application whose entry point is the class **ContentModeratorQuickstart**. It imports the Content Moderator SDK as well as the Gson sdk for JSON serialization.
+Find *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in the following build configuration. This configuration defines the project as a Java application whose entry point is the class **ContentModeratorQuickstart**. It imports the Content Moderator client library as well as the Gson sdk for JSON serialization.
 
 ```kotlin
 plugins {
@@ -88,7 +86,7 @@ Then create a file named *ContentModeratorQuickstart.java* in the new folder. Op
 
 ## Object model
 
-The following classes handle some of the major features of the Content Moderator Java SDK.
+The following classes handle some of the major features of the Content Moderator Java client library.
 
 |Name|Description|
 |---|---|
@@ -189,8 +187,8 @@ Then navigate to the *src/main/resources/ModerationOutput.json* file and view th
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 
@@ -199,5 +197,5 @@ In this quickstart, you learned how to use the Content Moderator Java library to
 > [!div class="nextstepaction"]
 >[Image moderation concepts](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
 
-* [What is Azure Content Moderator?](./overview.md)
+* [What is Azure Content Moderator?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java).
