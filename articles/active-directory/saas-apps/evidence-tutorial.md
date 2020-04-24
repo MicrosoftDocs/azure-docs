@@ -79,8 +79,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, perform the following steps:
 
-    ![Evidence.com Domain and URLs single sign-on information](common/sp-identifier.png)
-
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<yourtenant>.evidence.com`
 
