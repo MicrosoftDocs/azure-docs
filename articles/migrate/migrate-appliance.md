@@ -2,7 +2,7 @@
 title: Azure Migrate appliance 
 description: Provides an overview of the Azure Migrate appliance used in server assessment and migration.
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 04/23/2020
 ---
 
 
@@ -121,7 +121,7 @@ download.microsoft.com/download | Allow downloads from Microsoft download.
 *.discoverysrv.windowsazure.us <br/> *.migration.windowsazure.us | Connect to Azure Migrate service URLs.
 *.hypervrecoverymanager.windowsazure.us | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
 *.blob.core.usgovcloudapi.net  |  **Used for VMware agentless migration**<br/><br/>Upload data to storage for migration.
-*.applicationinsights.us | Used by Gateway agent on the appliance to access the Application Insights endpoint for diagnostic monitoring.
+*.applicationinsights.us | Upload app logs used for internal monitoring.
 
 
 
@@ -297,12 +297,80 @@ Hyper-V Virtual Network Adapter | Bytes Sent/Second | Calculation for VM size
 
 ## Appliance upgrades
 
-The appliance is upgraded as the Azure Migrate agents running on the appliance are updated. This happens automatically because auto-update is enabled on the appliance by default. You can change this default setting to update the agents manually.
+The appliance is upgraded as the Azure Migrate agents running on the appliance are updated. This happens automatically, because auto-update is enabled on the appliance by default. You can change this default setting, to update the appliance services manually.
 
-- **Turn off auto-update**: You turn off auto-update in the registry by setting HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance "AutoUpdate" key to 0 (DWORD). If you decide to use manual updates, it's important to update all agents on the appliance at the same time, using the  **Update** button for each outdated agent on the appliance.
-- **Update manually**: For manual updates, make sure that you update all the agents on the appliance, using the **Update** button for each outdated agent on the appliance. You can switch the update setting back to automatic updates at any time.
+### Turn off auto-update
 
-![Automatically update appliance](./media/migrate-appliance/autoupdate.png)
+1. On the machine running the appliance, open the Registry Editor.
+2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
+3. To turn off auto-update, create a registry key **AutoUpdate** key with DWORD value of 0.
+
+    ![Set registry key](./media/migrate-appliance/registry-key.png)
+
+
+### Turn on auto-update
+
+You can turn on auto-update using either of these methods:
+
+- By deleting the AutoUpdate registry key from HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
+- After discovery is complete, in the Appliance Configuration Manager.
+
+To delete the registry key:
+
+1. On the machine running the appliance, open the Registry Editor.
+2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
+3. Delete the registry key **AutoUpdate**, that was previously created to turn off auto-update.
+
+To turn on from Appliance Configuration Manager, after discovery is complete:
+
+1. On the appliance machine, open the Appliance Configuration Manager.
+2. In **Appliance services** > **Automatic update of Azure Migrate components is turned off**, click to turn on auto-update.
+
+    ![Turn on auto updates](./media/migrate-appliance/turn-on.png)
+
+### Check the appliance services version
+
+You can check the appliance services version using either of these methods:
+
+- In Appliance Configuration Manager, after discovery is complete.
+- On the appliance machine, in the **Control Panel** > **Programs and Features**.
+
+To check in the Appliance Configuration Manager:
+
+1. After discovery is complete, open Appliance Configuration Manager (in the appliance web app).
+2. In **Appliance services**, verify the appliance services versions.
+
+    ![Check version](./media/migrate-appliance/version.png)
+
+To check in the Control Panel:
+
+1. On the appliance, click **Start** > **Control Panel** > **Programs and Features**
+2. Check the appliance services versions in the list.
+
+    ![Check version in Control Panel](./media/migrate-appliance/programs-features.png)
+
+### Manually update an older version
+
+If you are running an older version for any of the components, you must uninstall the service, and manually update to the latest version.
+
+1. To check for the latest appliance service versions, [download](https://aka.ms/latestapplianceservices) the LatestComponents.json file.
+2.	After downloading, open the LatestComponents.json file in Notepad.
+3. Find the latest service version in the file, and the download link for it. For example:
+
+    "Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
+
+4.	Download the latest version of an outdated service, using the download link in the file.
+5. After downloading, run the following command in an administrator command window, to verify the integrity of the downloaded MSI.
+
+    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```
+    For example:
+    C:\>CertUtil -HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
+
+5. Check that the command output matches the hash value entry for the service in the file (for example, the MD5 hash value above).
+6. Now, run the MSI to install the service. It's a silent install, and the installation window closes after it's done.
+7. After installation is complete, check the version of the service in **Control panel** > **Programs and Features**. The service version should now be upgraded to the latest shown in the json file.
+
+
 
 ## Next steps
 

@@ -3,9 +3,9 @@ title: Connectors for Azure Logic Apps
 description: Automate workflows with connectors for Azure Logic Apps, such as built-in, managed, on-premises, integration account, ISE, and enterprise connectors
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/05/2020
+ms.date: 04/24/2020
 ---
 
 # Connectors for Azure Logic Apps
@@ -43,6 +43,15 @@ Connectors are available as built-in triggers and actions or as managed connecto
   For example, if you're using Microsoft BizTalk Server, your logic apps can connect to and communicate with your BizTalk Server by using the [BizTalk Server on-premises connector](#on-premises-connectors). You can then extend or perform BizTalk-like operations in your logic apps by using the [integration account connectors](#integration-account-connectors).
 
   Connectors are classified as either Standard or Enterprise. [Enterprise connectors](#enterprise-connectors) provide access to enterprise systems such as SAP, IBM MQ, and IBM 3270 for an additional cost. To determine whether a connector is Standard or Enterprise, see the technical details in each connector's reference page under [Connectors overview](https://docs.microsoft.com/connectors).
+
+  > [!IMPORTANT]
+  > Starting **May 1, 2020**, changes by Google to their 
+  > [data security and privacy policies](https://www.blog.google/technology/safety-security/project-strobe/) 
+  > might affect logic apps that use the [Gmail connector](https://docs.microsoft.com/connectors/gmail/). 
+  > If your logic apps use the Gmail connector with a Gmail consumer account (email address that ends with 
+  > @gmail.com or @googlemail.com), your logic apps can use only Google-approved triggers, actions, and connectors. 
+  > Starting **June 15, 2020**, any non-compliant workflows will be disabled. For more information, see 
+  > [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
   You can also identify connectors by using these categories, although some connectors can cross multiple categories. For example, SAP is an Enterprise connector and an on-premises connector:
 

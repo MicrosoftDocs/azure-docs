@@ -193,7 +193,7 @@ How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickst
 
 ### 2.3: Enable audit logging for Azure resources
 
-**Guidance**: Enable Diagnostic Settings on your Azure Database for PostgreSQL instances for access to audit, security, and diagnostic logs. Ensure that you specifically enable the PostgreSQL Audit log. Activity logs, which are automatically available, include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements. You may also enable Azure Activity Log Diagnostic Settings and send the logs to the same Log Analytics workspace or Storage Account.
+**Guidance**: Enable Diagnostic Settings on your Azure Database for PostgreSQL instances for access to audit, security, and resource logs. Ensure that you specifically enable the PostgreSQL Audit log. Activity logs, which are automatically available, include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements. You may also enable Azure Activity Log Diagnostic Settings and send the logs to the same Log Analytics workspace or Storage Account.
 
 How to configure and access Server Logs for Azure Database for PostgreSQL: https://docs.microsoft.com/azure/postgresql/howto-configure-server-logs-in-portal
 
@@ -648,7 +648,7 @@ Feature coverage for Azure PaaS services in Azure Security Center: https://docs.
 
 **Guidance**: Use Azure Resource Graph to query and discover all resources (including Azure Database for PostgreSQL instances) within your subscription(s). Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
-How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+How to create queries with Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
@@ -794,7 +794,7 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 - Log connections should be enabled for PostgreSQL database servers
 
-How to view available Azure Policy Aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+How to view available Azure Policy aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
