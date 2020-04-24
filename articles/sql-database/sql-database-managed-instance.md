@@ -175,6 +175,22 @@ Managed instances are available during update operations but there is a short do
 
 [Accelerated database recovery](sql-database-accelerated-database-recovery.md) is not currently available for Azure SQL Database managed instances. Once enabled, this feature will significantly reduce variability of failover time, even in case of long-running transactions.
 
+### Management operations cross-impact
+
+Managed instance management operations can affect other management operations of the instances placed inside the same virtual cluster. This includes following:
+
+- **Long running restore operations** in a virtual cluster will put on hold other instance creation or scaling operation in the same subnet. 
+Example: if there is long running restore operation and there is create or scale request in the same subnet, this request will take longer to complete as it will wait for restore operation to complete before it continues.
+	
+- **Subsequent instance creation or scaling** operation is put on hold by previously initiated instance creation or instance scale that initiated virtual cluster resize
+Example: if there are multiple create and/or scale requests in the same subnet under the same virtual cluster, and one of them initiates virtual cluster resize, all requests that were submitted 5+ minutes after the one that required virtual cluster resize will last longer than expected as these requests will have to wait for the resize to complete before resuming.
+
+- **Create/scale operations submitted in 5 minute window** will be batched and executed in parallel
+Result: Only one virtual cluster resize will be performed for all operations submitted in 5 minute window (measuring from the moment of executing the first operation request). In case that another request is submitted more than 5 minutes after submitting the first one, it will wait for virtual cluster resize to complete before execution starts.
+
+> [!IMPORTANT]
+> All management operations are part of deployment automation process and any operation that is put on hold is automatically resumed after all conditions are met. There is no user action needed.
+
 ### Canceling management operations
 
 The following table summarizes ability to cancel specific management operations and typical overall durations:
