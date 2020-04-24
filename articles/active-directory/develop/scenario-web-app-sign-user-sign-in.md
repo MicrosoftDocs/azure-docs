@@ -240,24 +240,26 @@ During the application registration, you don't need to register an extra logout 
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-In ASP.NET Core, the sign-out button is exposed in `Views\Shared\_LoginPartial.cshtml`. It's displayed only when there's an authenticated account. That is, it's displayed when the user has previously signed in.
+In ASP.NET, selecting the **Sign out** button in the web app triggers the `SignOut` action on the `AccountController` controller (see below)
 
 ```html
-@using Microsoft.Identity.Web
-@if (User.Identity.IsAuthenticated)
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li class="navbar-text">Hello @User.GetDisplayName()!</li>
-        <li><a asp-area="AzureAD" asp-controller="Account" asp-action="SignOut">Sign out</a></li>
-    </ul>
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li><a asp-area="AzureAD" asp-controller="Account" asp-action="SignIn">Sign in</a></li>
-    </ul>
-}
-```
+<ul class="navbar-nav">
+  @if (User.Identity.IsAuthenticated)
+  {
+    <li class="nav-item">
+        <span class="navbar-text text-dark">Hello @User.Identity.Name!</span>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a>
+    </li>
+  }
+  else
+  {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Sign in</a>
+    </li>
+  }
+</ul>
 
 # [ASP.NET](#tab/aspnet)
 
@@ -325,15 +327,13 @@ In the Python quickstart, the sign-out button is located in the [templates/index
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-In ASP.NET, selecting the **Sign-out** button in the web app triggers the `SignOut` action on the `AccountController` controller. In previous versions of the ASP.NET Core templates, the `Account` controller was embedded with the web app. That's no longer the case because the controller is now part of the ASP.NET Core framework.
-
-The code for the `AccountController` is available from the ASP.NET core repository in [AccountController.cs](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs). The account control:
+In previous versions of the ASP.NET core templates, the `Account` controller was embedded with the web app. That's no longer the case because the controller is now part of the **Microsoft.Identity.Web.UI** NuGet package. See [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) for details.
 
 - Sets an OpenID redirect URI to `/Account/SignedOut` so that the controller is called back when Azure AD has completed the sign-out.
 - Calls `Signout()`, which lets the OpenID Connect middleware contact the Microsoft identity platform `logout` endpoint. The endpoint then:
 
   - Clears the session cookie from the browser.
-  - Calls back the logout URL. By default, the logout URL displays the signed-out view page [SignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). This page is also provided as part of ASP.NET Core.
+  - Calls back the logout URL. By default, the logout URL displays the signed-out view page [SignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). This page is also provided as part of MIcrosoft.Identity.Web.
 
 # [ASP.NET](#tab/aspnet)
 
@@ -395,15 +395,7 @@ The post-logout URI enables applications to participate in the global sign-out.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-The ASP.NET Core OpenID Connect middleware enables your app to intercept the call to the Microsoft identity platform `logout` endpoint by providing an OpenID Connect event named `OnRedirectToIdentityProviderForSignOut`. For an example of how to subscribe to this event (to clear the token cache), see [Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156).
-
-```csharp
-    // Handling the global sign-out
-    options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
-    {
-        // Forget about the signed-in user
-    };
-```
+The ASP.NET Core OpenID Connect middleware enables your app to intercept the call to the Microsoft identity platform `logout` endpoint by providing an OpenID Connect event named `OnRedirectToIdentityProviderForSignOut`. This is handled automatically by Microsoft.Identity.Web (which clears accounts in the case where your web app calls web apis)
 
 # [ASP.NET](#tab/aspnet)
 
