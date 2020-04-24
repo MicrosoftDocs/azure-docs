@@ -203,18 +203,18 @@ The initialization code is different depending on the platform. For ASP.NET Core
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-In ASP.NET Core web apps (and web APIs), the application is protected because you have a `[Authorize]` attribute on the controllers or the controller actions. This attribute checks that the user is authenticated. The code that's initializing the application is in the `Startup.cs` file.
+In ASP.NET Core web apps (and web APIs), the application is protected because you have a `[Authorize]` attribute on the controllers or the controller actions. This attribute checks that the user is authenticated. The code that's initializing the application is in the *Startup.cs* file.
 
 To add authentication with the Microsoft identity platform (formerly Azure AD v2.0), you'll need to add the following code. The comments in the code should be self-explanatory.
 
 > [!NOTE]
-> If you start your project with the default ASP.NET Core web project within Visual studio or by using `dotnet new mvc --auth SingleAuth` or `dotnet new webapp --auth SingleAuth`, you'll see code like the following: `services.AddAuthentication(AzureADDefaults.AuthenticationScheme).AddAzureAD(options => Configuration.Bind("AzureAd", options));`.
+> If you start your project with the default ASP.NET Core web project within Visual Studio or by using `dotnet new mvc --auth SingleAuth` or `dotnet new webapp --auth SingleAuth`, you'll see code like the following: `services.AddAuthentication(AzureADDefaults.AuthenticationScheme).AddAzureAD(options => Configuration.Bind("AzureAd", options));`.
 > 
-> This code uses the legacy **Microsoft.AspNetCore.Authentication.AzureAD.UI** NuGet package which is used to create an Azure AD v1.0 application. This article explains how to create a Microsoft identity platform (Azure AD v2.0) application, in which that code is replaced
+> This code uses the legacy **Microsoft.AspNetCore.Authentication.AzureAD.UI** NuGet package which is used to create an Azure AD v1.0 application. This article explains how to create a Microsoft identity platform (Azure AD v2.0) application which replaces that code.
 
-1. Add the following NuGet packages [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) and [Microsoft.Identity.Web.UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) to your project. You can also remove the Microsoft.AspNetCore.Authentication.AzureAD.UI NuGet package if it's present.
+1. Add the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) and [Microsoft.Identity.Web.UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) NuGet packages to your project. Remove the Microsoft.AspNetCore.Authentication.AzureAD.UI NuGet package if it's present.
 
-2. Update the code in `ConfigureServices` so that it uses the `AddSignIn` and the `AddMicrosoftIdentityUI` methods
+2. Update the code in `ConfigureServices` so that it uses the `AddSignIn` and `AddMicrosoftIdentityUI` methods.
 
    ```c#
    public class Startup
@@ -234,7 +234,7 @@ To add authentication with the Microsoft identity platform (formerly Azure AD v2
      }).AddMicrosoftIdentityUI();
     ```
 
-3. Make sure that the `Configure` method in `Startup.cs` enables authentication by a call to `app.UseAuthentication();`
+3. In the `Configure` method in *Startup.cs*, enable authentication with a call to `app.UseAuthentication();`
 
    ```c#
    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -248,18 +248,18 @@ To add authentication with the Microsoft identity platform (formerly Azure AD v2
    ```
 
 In the code above:
-- the `AddSignIn` extension method is defined in **Microsoft.Identity.Web**. It:
+- The `AddSignIn` extension method is defined in **Microsoft.Identity.Web**. It:
   - Adds the authentication service.
   - Configures options to read the configuration file (here from the "AzureAD" section)
-  - Configures the OpenID Connect options so that the used authority is the Microsoft identity platform (formerly Azure AD v2.0) endpoint.
+  - Configures the OpenID Connect options so that the authority is the Microsoft identity platform endpoint.
   - Validates the issuer of the token.
   - Ensures that the claims corresponding to name are mapped from the `preferred_username` claim in the ID token.
 
 - In addition to the configuration object, you can specify the name of the configuration section when calling `AddSignIn`. By default, it's `AzureAd`.
 
-- `AddSignIn` has other parameters for advanced scenarios. For instance, tracing OpenId Connect middleware events can help you troubleshoot your web application if authentication doesn't work. Setting the optional parameter `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` to `true` will show you how information gets elaborated by the set of ASP.NET Core middleware as it progresses from the HTTP response to the identity of the user in `HttpContext.User`.
+- `AddSignIn` has other parameters for advanced scenarios. For example, tracing OpenID Connect middleware events can help you troubleshoot your web application if authentication doesn't work. Setting the optional parameter `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` to `true` will show you how information is processed by the set of ASP.NET Core middleware as it progresses from the HTTP response to the identity of the user in `HttpContext.User`.
 
-- The `AddMicrosoftIdentityUI` extension method is defined in **Microsoft.Identity.Web.UI**. It provides some default controller to handle sign-out
+- The `AddMicrosoftIdentityUI` extension method is defined in **Microsoft.Identity.Web.UI**. It provides a default controller to handle sign-out.
 
 # [ASP.NET](#tab/aspnet)
 
