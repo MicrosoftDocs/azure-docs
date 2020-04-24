@@ -11,7 +11,7 @@ ms.author: spelluru
 ms.reviewer: shvija
 ---
 
-# Dynamically add partitions to an event hub (Kafka topic) in Azure Event Hubs
+# Dynamically add partitions to an event hub (Apache Kafka topic) in Azure Event Hubs
 Event Hubs provides message streaming through a partitioned consumer pattern in which each consumer only reads a specific subset, or partition, of the message stream. This pattern enables horizontal scale for event processing and provides other stream-focused features that are unavailable in queues and topics. A partition is an ordered sequence of events that is held in an event hub. As newer events arrive, they're added to the end of this sequence. For more information about partitions in general, see [Partitions](event-hubs-scalability.md#partitions)
 
 You can specify the number of partitions at the time of creating an event hub. In some scenarios, you may need to add partitions after the event hub has been created. This article describes how to dynamically add partitions to an existing event hub. 
@@ -89,7 +89,7 @@ Event Hubs provides direct receivers and an easy consumer library called the [Ev
 ## Apache Kafka clients
 This section describes how Apache Kafka clients that use the Kafka endpoint of Azure Event Hubs behave when the partition count is updated for an event hub. 
 
-Kafka clients that use Event Hubs with the Apache Kafka protocol behave differently from event hub clients that use AMQP protocol. Kafka clients update their metadata once every `metadata.max.age.ms` milliseconds. You specify this value in the client configurations. The `librdkafka` libraries also use the same configuration. Metadata updates inform the clients of service changes including the partition count increases.
+Kafka clients that use Event Hubs with the Apache Kafka protocol behave differently from event hub clients that use AMQP protocol. Kafka clients update their metadata once every `metadata.max.age.ms` milliseconds. You specify this value in the client configurations. The `librdkafka` libraries also use the same configuration. Metadata updates inform the clients of service changes including the partition count increases. For a list of configurations, see [Apache Kafka configurations for Event Hubs](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
 
 ### Sender/producer clients
 Producers always dictate that send requests contain the partition destination for each set of produced records. So, all produce partitioning is done on client-side with producer’s view of broker's metadata. Once the new partitions are added to the producer’s metadata view, they will be available for producer requests.
