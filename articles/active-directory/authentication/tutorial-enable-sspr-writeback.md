@@ -66,7 +66,7 @@ To set up the appropriate permissions for password writeback to occur, complete 
 1. From the **Permissions** tab, select **Add**.
 1. For **Principal**, select the account that permissions should be applied to (the account used by Azure AD Connect).
 1. In the **Applies to** drop-down list, select **Descendant User objects**.
-1. Under *Permissions*, select the boxes for the following option:
+1. Under *Permissions*, select the box for the following option:
     * **Reset password**
 1. Under *Properties*, select the boxes for the following options. You need to scroll through the list to find these options, which may already be set by default:
     * **Write lockoutTime**
