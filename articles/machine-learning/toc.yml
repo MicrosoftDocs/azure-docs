@@ -91,6 +91,8 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Concepts
   items: 
+    - name: Plan and manage costs
+      href: concept-plan-manage-cost.md
     - name: Workspace
       href: concept-workspace.md
     - name: Environments
@@ -160,8 +162,6 @@
           href: how-to-setup-authentication.md
         - name: Monitor Azure Machine Learning
           href: monitor-azure-machine-learning.md
-    - name: Plan and manage costs
-      href: concept-plan-manage-cost.md
     - name: Event grid integration
       href: concept-event-grid-integration.md
     - name: Deep learning
