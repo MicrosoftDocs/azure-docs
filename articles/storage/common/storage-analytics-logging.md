@@ -157,7 +157,7 @@ Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations non
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/diagnostic-logs-classic.cs" id="snippet_EnableDiagnosticLogs":::
 
-# [\.NET v11 SDK](#tab/dotnet)
+# [\.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
