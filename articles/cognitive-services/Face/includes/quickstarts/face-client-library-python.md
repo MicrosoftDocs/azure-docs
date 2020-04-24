@@ -1,18 +1,15 @@
 ---
-title: "Quickstart: Face client library for Python"
+title: "Face Python client library quickstart"
 description: This quickstart will help you get started with the Face client library for Python to detect, find similar, identify, verify and more.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: quickstart
+ms.topic: include
 ms.date: 04/14/2020
 ms.author: pafarley
 ---
-
-# Quickstart: Face client library for Python
-
 Get started with the Face client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
 
 Use the Face client library for Python to:
@@ -62,7 +59,7 @@ pip install --upgrade azure-cognitiveservices-vision-face
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Face Python SDK.
+The following classes and interfaces handle some of the major features of the Face Python client library.
 
 |Name|Description|
 |---|---|
@@ -89,7 +86,7 @@ These code snippets show you how to do the following tasks with the Face client 
 ## Authenticate the client
 
 > [!NOTE]
-> This quickstart assumes you've [created an environment variable](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for your Face key, named `FACE_SUBSCRIPTION_KEY`.
+> This quickstart assumes you've [created an environment variable](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for your Face key, named `FACE_SUBSCRIPTION_KEY`.
 
 Instantiate a client with your endpoint and key. Create a [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) object with your key, and use it with your endpoint to create a [FaceClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.faceclient?view=azure-python) object.
 
@@ -109,7 +106,7 @@ The following code outputs the given image to the display and draws rectangles a
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_frame)]
 
-![A young woman with a red rectangle drawn around the face](../images/face-rectangle-result.png)
+![A young woman with a red rectangle drawn around the face](../../images/face-rectangle-result.png)
 
 ## Find similar faces
 
@@ -282,5 +279,5 @@ In this quickstart, you learned how to use the Face library for Python to do bas
 > [!div class="nextstepaction"]
 > [Face API reference (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)
 
-* [What is the Face service?](../overview.md)
+* [What is the Face service?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py).

@@ -1,18 +1,15 @@
 ---
-title: "Quickstart: Face client library for Go | Microsoft Docs"
+title: "Face Go client library quickstart"
 description: Get started with the Face client library for Go.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: 
-ms.topic: quickstart
+ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
 ---
-
-# Quickstart: Face client library for Go
-
 Get started with the Face client library for Go. Follow these steps to install the library and try out our examples for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
 
 Use the Face service client library for Go to:
@@ -137,7 +134,7 @@ Next, you'll begin adding code to carry out different Face service operations.
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Face service Go SDK.
+The following classes and interfaces handle some of the major features of the Face service Go client library.
 
 |Name|Description|
 |---|---|
@@ -354,8 +351,8 @@ go run sample-app.go
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 If you created a **PersonGroup** in this quickstart and you want to delete it, call the **[Delete](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient.Delete)** method. If you migrated data using the Snapshot feature in this quickstart, you'll also need to delete the **PersonGroup** saved to the target subscription.
 
@@ -366,5 +363,5 @@ In this quickstart, you learned how to use the Face library for Go to do basis t
 > [!div class="nextstepaction"]
 > [Face API reference (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face)
 
-* [What is the Face service?](../overview.md)
+* [What is the Face service?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/Face/FaceQuickstart.go).

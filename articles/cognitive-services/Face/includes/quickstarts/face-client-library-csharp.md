@@ -1,17 +1,15 @@
 ---
-title: "Quickstart: Face client library for .NET"
+title: "Face .NET client library quickstart"
 description: Get started with the Face client library for .NET with this quickstart.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: quickstart
+ms.topic: include
 ms.date: 04/14/2020
 ms.author: pafarley
 ---
-# Quickstart: Face client library for .NET
-
 Get started with the Face client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
 
 Use the Face client library for .NET to:
@@ -83,7 +81,7 @@ If you're using the Visual Studio IDE, the client library is available as a down
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Face .NET SDK:
+The following classes and interfaces handle some of the major features of the Face .NET client library:
 
 |Name|Description|
 |---|---|
@@ -285,8 +283,8 @@ dotnet run
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 If you created a **PersonGroup** in this quickstart and you want to delete it, run the following code in your program:
 
@@ -307,5 +305,5 @@ In this quickstart, you learned how to use the Face library for .NET to do basis
 > [!div class="nextstepaction"]
 > [Face API reference (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)
 
-* [What is the Face service?](../overview.md)
+* [What is the Face service?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/Face/Program.cs).
