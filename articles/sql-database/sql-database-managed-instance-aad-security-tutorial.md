@@ -1,16 +1,17 @@
 ---
 title: Managed instance security with Azure AD server principals (logins)
-description: Learn about techniques and features to secure a managed instance in Azure SQL Database, and use Azure AD server principals (logins)
+description: Learn about techniques and features to secure Azure SQL Managed Instance, and use Azure AD server principals (logins)
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+ms.custom: sqldbrb=1
 ms.topic: tutorial
 author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
 ---
-# Tutorial: Managed instance security in Azure SQL Database using Azure AD server principals (logins)
+# Tutorial: Security in Azure SQL Managed Instance using Azure AD server principals (logins)
 
 Managed instance provides nearly all security features that the latest SQL Server on-premises (Enterprise Edition) Database Engine has:
 
@@ -22,6 +23,7 @@ Managed instance provides nearly all security features that the latest SQL Serve
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > - Create an Azure Active Directory (AD) server principal (login) for a managed instance
 > - Grant permissions to Azure AD server principals (logins) in a managed instance
 > - Create Azure AD users from Azure AD server principals (logins)
@@ -30,29 +32,29 @@ In this tutorial, you learn how to:
 > - Use cross-database queries with Azure AD users
 > - Learn about security features, such as threat protection, auditing, data masking, and encryption
 
-To learn more, see the [Azure SQL Database managed instance overview](sql-database-managed-instance-index.yml) and [capabilities](sql-database-managed-instance.md) articles.
+To learn more, see the [Azure SQL Managed Instance overview](sql-database-managed-instance-index.yml) and [capabilities](sql-database-managed-instance.md) articles.
 
 ## Prerequisites
 
 To complete the tutorial, make sure you have the following prerequisites:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
-- An Azure SQL Database managed instance
-  - Follow this article: [Quickstart: Create an Azure SQL Database managed instance](sql-database-managed-instance-get-started.md)
+- A managed instance
+  - Follow this article: [Quickstart: Create a managed instance](sql-database-managed-instance-get-started.md)
 - Able to access your managed instance and [provisioned an Azure AD administrator for the managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). To learn more, see:
-    - [Connect your application to a managed instance](sql-database-managed-instance-connect-app.md) 
-    - [Managed instance connectivity architecture](sql-database-managed-instance-connectivity-architecture.md)
-    - [Configure and manage Azure Active Directory authentication with SQL](sql-database-aad-authentication-configure.md)
+  - [Connect your application to a managed instance](sql-database-managed-instance-connect-app.md)
+  - [Managed instance connectivity architecture](sql-database-managed-instance-connectivity-architecture.md)
+  - [Configure and manage Azure Active Directory authentication with SQL](sql-database-aad-authentication-configure.md)
 
 ## Limiting access to your managed instance
 
 Managed instances can be accessed through a private IP address. Much like an isolated SQL Server on-premises environment, applications or users need access to the managed instance network (VNet) before a connection can be established. For more information, see the following article, [Connect your application to a managed instance](sql-database-managed-instance-connect-app.md).
 
-It is also possible to configure a service endpoint on the managed instance, which allows for public connections, in the same fashion as Azure SQL Database. 
-For more information, see the following article, [Configure public endpoint in Azure SQL Database managed instance](sql-database-managed-instance-public-endpoint-configure.md).
+It is also possible to configure a service endpoint on a managed instance, which allows for public connections, in the same fashion as for Azure SQL Database.
+For more information, see the following article, [Configure public endpoint in Azure SQL Managed Instance](sql-database-managed-instance-public-endpoint-configure.md).
 
-> [!NOTE] 
-> Even with service endpoints enabled, [SQL Database firewall rules](sql-database-firewall-configure.md) do not apply. Managed instance has its own [built-in firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) to manage connectivity.
+> [!NOTE]
+> Even with service endpoints enabled, [Azure SQL Database firewall rules](sql-database-firewall-configure.md) do not apply. Azure SQL Managed Instance has its own [built-in firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) to manage connectivity.
 
 ## Create an Azure AD server principal (login) for a managed instance using SSMS
 
@@ -109,8 +111,8 @@ To create other Azure AD server principals (logins), SQL Server roles or permiss
 
 ### Azure AD authentication
 
-- To allow the newly created Azure AD server principal (login) the ability to create other logins for other Azure AD users, groups, or applications, grant the login `sysadmin` or `securityadmin` server role. 
-- At a minimum, **ALTER ANY LOGIN** permission must be granted to the Azure AD server principal (login) to create other Azure AD server principals (logins). 
+- To allow the newly created Azure AD server principal (login) the ability to create other logins for other Azure AD users, groups, or applications, grant the login `sysadmin` or `securityadmin` server role.
+- At a minimum, **ALTER ANY LOGIN** permission must be granted to the Azure AD server principal (login) to create other Azure AD server principals (logins).
 - By default, the standard permission granted to newly created Azure AD server principals (logins) in master is: **CONNECT SQL** and **VIEW ANY DATABASE**.
 - The `sysadmin` server role can be granted to many Azure AD server principals (logins) within a managed instance.
 
@@ -146,7 +148,7 @@ Once the Azure AD server principal (login) has been created, and provided with `
 
      ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
-     For more information, see the following article: [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)](sql-database-ssms-mfa-authentication.md)
+     For more information, see the following article: [Universal Authentication (SSMS support for MFA)](sql-database-ssms-mfa-authentication.md)
 
 1. Select **Active Directory - Universal with MFA support**. This brings up a Multi-Factor Authentication (MFA) login window. Sign in with your Azure AD password.
 
@@ -369,7 +371,8 @@ Managed instance supports the impersonation of Azure AD server-level principals 
     ```
 
 > [!NOTE]
-> Only the SQL server-level principals (logins) that are part of the `sysadmin` role can execute the following operations targeting Azure AD principals: 
+> Only the SQL server-level principals (logins) that are part of the `sysadmin` role can execute the following operations targeting Azure AD principals:
+>
 > - EXECUTE AS USER
 > - EXECUTE AS LOGIN
 
@@ -426,18 +429,17 @@ Cross-database queries are supported for Azure AD accounts with Azure AD server 
 - Logon triggers are supported for logon events coming from Azure AD server principals (logins).
 - Service Broker and DB mail can be setup using Azure AD server principals (logins).
 
-
 ## Next steps
 
 ### Enable security features
 
 See the following [managed instance capabilities security features](sql-database-managed-instance.md#security-features) article for a comprehensive list of ways to secure your database. The following security features are discussed:
 
-- [Managed instance auditing](sql-database-managed-instance-auditing.md) 
+- [Managed instance auditing](sql-database-managed-instance-auditing.md)
 - [Always encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
-- [Threat detection](sql-database-managed-instance-threat-detection.md) 
+- [Threat detection](sql-database-managed-instance-threat-detection.md)
 - [Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking)
-- [Row-level security](/sql/relational-databases/security/row-level-security) 
+- [Row-level security](/sql/relational-databases/security/row-level-security)
 - [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### Managed instance capabilities
