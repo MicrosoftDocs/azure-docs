@@ -25,9 +25,8 @@ This article shows how to initiate an account failover for your storage account 
 
 ## Prerequisites
 
-Before you can perform an account failover on your storage account, make sure that you have performed the following steps:
+Before you can perform an account failover on your storage account, make sure that you have performed the following step:
 
-- Register for the account failover preview. For information about how to register, see [About the preview](storage-disaster-recovery-guidance.md#about-the-preview).
 - Make sure that your storage account is configured to use either geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS). For more information about geo-redundant storage, see [Azure Storage redundancy](storage-redundancy.md).
 
 ## Important implications of account failover
@@ -97,7 +96,7 @@ Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <
 
 To use Azure CLI to initiate an account failover, execute the following commands:
 
-```cli
+```azurecli
 az storage account show \ --name accountName \ --expand geoReplicationStats
 az storage account failover \ --name accountName
 ```

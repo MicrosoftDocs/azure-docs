@@ -28,6 +28,8 @@ landingContent:
         links:
           - text: Azure CDN video library
             url: https://azure.microsoft.com/documentation/videos/index/?services=cdn
+          - text: How to use HTTP overrides on Azure CDN from Microsoft
+            url: https://channel9.msdn.com/Shows/Azure-Friday/How-to-use-HTTP-overrides-on-Azure-CDN-from-Microsoft
 
   # Card (optional)
   - title: Get started

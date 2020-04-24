@@ -85,7 +85,7 @@ Open the following ports to **outbound** traffic.
 
    | Port number | How it's used |
    | --- | --- |
-   | 80 | Downloading certificate revocation lists (CRLs) while validating the SSL certificate |
+   | 80 | Downloading certificate revocation lists (CRLs) while validating the TLS/SSL certificate |
    | 443 | All outbound communication with the Application Proxy service |
 
 If your firewall enforces traffic according to originating users, also open ports 80 and 443 for traffic from Windows services that run as a Network Service.

@@ -22,7 +22,7 @@ In this article, you learn the pros and cons of the following data ingestion opt
 
 Data ingestion is the process in which unstructured data is extracted from one or multiple sources and then prepared for training machine learning models. It's also time intensive, especially if done manually, and if you have large amounts of data from multiple sources. Automating this effort frees up resources and ensures your models use the most recent and applicable data.
 
-We recommend that you evaluate using Azure Data Factory (ADF) initially, as it is specifically built to extract, load, and transform data. If you cannot meet your requirements using ADF, you can use the Python SDK to develop a custom code solution, or use ADF and the Python SDK together to create an overall data ingestion workflow that meets your needs.
+Azure Data Factory (ADF) is specifically built to extract, load, and transform data, however the Python SDK let's you develop a custom code solution for basic data ingestion tasks. If neither are quite what you need, you can also use ADF and the Python SDK together to create an overall data ingestion workflow that meets your needs. 
 
 ## Use Azure Data Factory
 
@@ -48,6 +48,8 @@ These steps and the following diagram illustrate Azure Data Factory's data inges
 
 
     ![ADF Data ingestion](media/concept-data-ingestion/data-ingest-option-one.svg)
+    
+Learn how to build a data ingestion pipeline for Machine Learning with [Azure Data Factory](how-to-data-ingest-adf.md).
 
 ## Use the Python SDK 
 

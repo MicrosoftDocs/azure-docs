@@ -249,7 +249,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 
    > [!NOTE]
    > The following section is optional and does not apply to the **Consumption** tier, which does not support the developer portal.
-   > If you do not intend to use the developer portal, or cannot use it since you are using the Consumption tier, please skip this step and jump straight to ["Build the JavaScript SPA to consume the API"](##build-the-javascript-spa-to-consume-the-api).
+   > If you do not intend to use the developer portal, or cannot use it since you are using the Consumption tier, please skip this step and jump straight to ["Build the JavaScript SPA to consume the API"](#build-the-javascript-spa-to-consume-the-api).
 
 ## [Optional] Configure the developer portal
 
@@ -462,8 +462,5 @@ The steps above can be adapted and edited to allow many different uses of Azure 
 * Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/authentication-scenarios.md).
 * Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
 * For other ways to secure your back-end service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md).
-* Consider using the Azure AD Graph API to assign custom claims and using an API Management policy to validate they're present in the token.
-
 * [Create an API Management service instance](get-started-create-service-instance.md).
-
 * [Manage your first API](import-and-publish.md).

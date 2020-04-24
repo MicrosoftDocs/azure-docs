@@ -209,3 +209,6 @@ PowerShell:
   ```
 ## Azure Government limitations
 Azure Cloud Shell in Azure Government is only accessible through the Azure portal.
+
+>[!Note]
+> Connecting to GCC-High or Government DoD Clouds for Exchange Online is currently not supported.

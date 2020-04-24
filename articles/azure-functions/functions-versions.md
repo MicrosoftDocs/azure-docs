@@ -13,7 +13,7 @@ The major versions of the Azure Functions runtime are related to the version of 
 | --------------- | ------------- | ------------ |
 | 3.x | GA | .NET Core 3.1 | 
 | 2.x | GA | .NET Core 2.2 |
-| 1.x | GA<sup>2</sup> | .NET Framework 4.6<sup>3</sup> |
+| 1.x | GA<sup>2</sup> | .NET Framework 4.7.2<sup>3</sup> |
 
 <sup>1</sup> GA releases are supported for production scenarios.   
 <sup>2</sup> Version 1.x is in maintenance mode. Enhancements are provided only in later versions.   

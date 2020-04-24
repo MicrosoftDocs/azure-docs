@@ -64,7 +64,7 @@ Define the iterations, hyperparameter settings, featurization, and other setting
 * [Examples: Jupyter Notebook examples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 * [How to: Configure automated ML experiments in Python](how-to-configure-auto-train.md)
 * [How to: Autotrain a time-series forecast model](how-to-auto-train-forecast.md)
-* [How to: Create, explore, and deploy automated machine learning experiments with [Azure Machine Learning studio](how-to-create-portal-experiments.md)
+* [How to: Create, explore, and deploy automated machine learning experiments with Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md)
 
 ### Estimators
 

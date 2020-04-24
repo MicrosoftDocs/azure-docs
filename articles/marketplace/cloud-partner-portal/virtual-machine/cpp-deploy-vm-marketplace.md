@@ -1,16 +1,18 @@
 ---
 title: Deploy a VM from the Azure Marketplace 
 description: Explains how to deploy a virtual machine from an Azure Marketplace pre-configured virtual machine.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Deploy a virtual machine from the Azure Marketplace
+
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Azure VM image certification](https://aks.ms/CertifyVMimage) to manage your migrated offers.
 
 This article explains how to deploy a pre-configured virtual machine (VM) from an Azure Marketplace, using the provided Azure PowerShell script.  This script also exposes the WinRM HTTP and HTTPS endpoints on the VM.  The script requires that you already have a certificate uploaded to Azure Key Vault, as described in [Create certificates for Azure Key Vault](./cpp-create-key-vault-cert.md). 
 
@@ -22,18 +24,18 @@ The quickstart Azure VM deployment template, is available as the online file [az
 
 |  **Parameter**        |   **Description**                                 |
 |  -------------        |   ---------------                                 |
-| newStorageAccountName	| Name of the storage account                       |
-| dnsNameForPublicIP	| DNS Name for the public IP. Must be lowercase.    |
-| adminUserName	        | Administrator's username                          |
-| adminPassword	        | Administrator's password                          |
-| imagePublisher	    | Image publisher                                   |
-| imageOffer	        | Image offer                                       |
-| imageSKU	            | Image SKU                                         |
-| vmSize	            | Size of the VM                                    |
-| vmName	            | Name of the VM                                    |
-| vaultName	            | Name of the key vault                             |
-| vaultResourceGroup	| Resource group of the key vault                   |
-| certificateUrl	    | URL for the certificate, including version in KeyVault, for example  `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
+| newStorageAccountName    | Name of the storage account                       |
+| dnsNameForPublicIP    | DNS Name for the public IP. Must be lowercase.    |
+| adminUserName            | Administrator's username                          |
+| adminPassword            | Administrator's password                          |
+| imagePublisher        | Image publisher                                   |
+| imageOffer            | Image offer                                       |
+| imageSKU                | Image SKU                                         |
+| vmSize                | Size of the VM                                    |
+| vmName                | Name of the VM                                    |
+| vaultName                | Name of the key vault                             |
+| vaultResourceGroup    | Resource group of the key vault                   |
+| certificateUrl        | URL for the certificate, including version in KeyVault, for example  `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 |  |  |
 
 

@@ -89,7 +89,7 @@ The following snippets are all taken from the main.go file.
 
 ### Connecting the Go app to Cosmos DB
 
-Azure Cosmos DB's API for MongoDB supports the SSL-enabled connection. To connect, you need to define the **DialServer** function in [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo), and make use of the [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial) function to perform the connection.
+Azure Cosmos DB's API for MongoDB supports the TLS-enabled connection. To connect, you need to define the **DialServer** function in [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo), and make use of the [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial) function to perform the connection.
 
 The following Golang code snippet connects the Go app with Azure Cosmos DB's API for MongoDB. The *DialInfo* class holds options for establishing a session.
 
@@ -125,7 +125,7 @@ defer session.Close()
 session.SetSafe(&mgo.Safe{})
 ```
 
-The **mgo.Dial()** method is used when there is no SSL connection. For an SSL connection, the **mgo.DialWithInfo()** method is required.
+The **mgo.Dial()** method is used when there is no TLS connection. For a TLS connection, the **mgo.DialWithInfo()** method is required.
 
 An instance of the **DialWIthInfo{}** object is used to create the session object. Once the session is established, you can access the collection by using the following code snippet:
 

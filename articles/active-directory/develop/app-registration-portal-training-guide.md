@@ -3,7 +3,7 @@ title: New Azure portal app registration experience
 titleSuffix: Microsoft identity platform
 description: An introduction to the new App registration experience in the Azure portal
 services: active-directory
-author: archieag
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/8/2019
-ms.author: aragra
+ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ---
@@ -29,7 +29,7 @@ There are many improvements in the new [App registrations](https://go.microsoft.
     check the signed in user in the Azure portal matches the user that
     was signed into the Application registration portal by comparing the
     email address from your profile.
-    > 
+    >
     > In some cases, especially when you sign in using personal Microsoft
     accounts(e.g. Outlook, Live, Xbox, etc.) with an Azure AD email address, we found out that when you
     go to the Azure portal from the old experience, it signs you into a
@@ -129,7 +129,7 @@ desktop). [Learn more](quickstart-configure-app-access-web-apis.md#add-redirect-
 
 Web APIs are configured in Expose an API page.
 
-> [!NOTE] 
+> [!NOTE]
 > Try out the new Authentication settings experience where you can
 configure settings for your application based on the platform or device
 that you want to target. [Learn more](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
@@ -143,8 +143,8 @@ that you want to target. [Learn more](quickstart-configure-app-access-web-apis.m
     Microsoft APIs, APIs my organization uses, or My APIs. The search
     bar on APIs my organization uses tab searches through service
     principals in the tenant.
-    
-    > [!NOTE] 
+
+    > [!NOTE]
     > You won't see this tab if your application isn't
     associated with a tenant. For more info on how to request
     permissions using the new experience, see [this

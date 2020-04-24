@@ -4,7 +4,7 @@ description: Learn how to configure customer-managed keys for your Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/19/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
 ---
@@ -14,13 +14,11 @@ ROBOTS: noindex, nofollow
 > [!NOTE]
 > At this time, you must request access to use this capability. To do so, please contact [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com).
 
-Data stored in your Azure Cosmos account is automatically and seamlessly encrypted. Azure Cosmos DB offers two options to manage the keys used to encrypt the data at rest:
+Data stored in your Azure Cosmos account is automatically and seamlessly encrypted with keys managed by Microsoft (**service-managed keys**). Optionally, you can choose to add a second layer of encryption with keys you manage (**customer-managed keys**).
 
-- **Service-managed keys**: By default, Microsoft manages the keys that are used to encrypt the data in your Azure Cosmos account.
+![Layers of encryption around customer data](./media/how-to-setup-cmk/cmk-intro.png)
 
-- **Customer-managed keys (CMK)**: You can optionally choose to add a second layer of encryption with your own keys.
-
-You must store customer-managed keys in [Azure Key Vault](../key-vault/key-vault-overview.md) and provide a key for each Azure Cosmos account that is enabled with customer-managed keys. This key is used to encrypt all the data stored in that account.
+You must store customer-managed keys in [Azure Key Vault](../key-vault/general/overview.md) and provide a key for each Azure Cosmos account that is enabled with customer-managed keys. This key is used to encrypt all the data stored in that account.
 
 > [!NOTE]
 > Currently, customer-managed keys are available only for new Azure Cosmos accounts. You should configure them during account creation.
@@ -41,8 +39,8 @@ Using customer-managed keys with Azure Cosmos DB requires you to set two propert
 
 To learn how to enable these properties on an existing Azure Key Vault instance, see the "Enabling soft-delete" and "Enabling Purge Protection" sections in one of the following articles:
 
-- [How to use soft-delete with PowerShell](../key-vault/key-vault-soft-delete-powershell.md)
-- [How to use soft-delete with Azure CLI](../key-vault/key-vault-soft-delete-cli.md)
+- [How to use soft-delete with PowerShell](../key-vault/general/soft-delete-powershell.md)
+- [How to use soft-delete with Azure CLI](../key-vault/general/soft-delete-cli.md)
 
 ## Add an access policy to your Azure Key Vault instance
 
@@ -182,6 +180,22 @@ New-AzResourceGroupDeployment `
     -accountName $accountName `
     -location $accountLocation `
     -keyVaultKeyUri $keyVaultKeyUri
+```
+
+### Using the Azure CLI
+
+When you create a new Azure Cosmos account through the Azure CLI, pass the URI of the Azure Key Vault key that you copied earlier under the **--key-uri** parameter.
+
+```azurecli-interactive
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
+keyVaultKeyUri = 'https://<my-vault>.vault.azure.net/keys/<my-key>'
+
+az cosmosdb create \
+    -n $accountName \
+    -g $resourceGroupName \
+    --locations regionName='West US 2' failoverPriority=0 isZoneRedundant=False \
+    --key-uri $keyVaultKeyUri
 ```
 
 ## Frequently asked questions

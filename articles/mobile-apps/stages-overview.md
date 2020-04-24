@@ -1,12 +1,12 @@
 ---
 title: Different stages in mobile app development with Visual Studio App Center and Azure services
 description: Learn about the different stages involved in mobile application development and how Microsoft services such as Visual Studio App Center can help you build a high-class mobile application.
-author: elamalani
+author: codemillmatt
 ms.assetid: 12bbb070-9b3c-1234-5678-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
+ms.date: 03/24/2020
+ms.author: masoucou
 ---
 
 # Different stages in mobile application development

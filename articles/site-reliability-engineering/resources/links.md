@@ -18,7 +18,7 @@ There are many, many sources for site reliability engineering (SRE) information 
 Here are some good curated lists of links for SRE and SRE-related topics:
 
 * [Awesome Site Reliability Engineering](https://github.com/dastergon/awesome-sre)
-* [Awesome Site Reliability Engineering Tools](https://github.com/squadcastHQ/awesome-sre-tools)
+* [Awesome Site Reliability Engineering Tools](https://github.com/SquadcastHub/awesome-sre-tools)
 * [The Patterns of Scalable, Reliable, and Performant Large-Scale Systems](http://awesome-scalability.com)
 * [awesome-distributed-systems](https://github.com/theanalyst/awesome-distributed-systems)
 * [Awesome Consensus](https://github.com/dgryski/awesome-consensus)

@@ -40,7 +40,7 @@ For more information, see [Azure Support FAQ](https://azure.microsoft.com/suppor
 
 Security and privacy are among the top priorities for Azure and Azure Spring Cloud customers. Azure helps ensure that only customers have access to application data, logs, or configurations by securely encrypting all of this data. All the service instances in Azure Spring Cloud are isolated from each other.
 
-Azure Spring Cloud provides complete SSL and certificate management.
+Azure Spring Cloud provides complete TLS/SSL and certificate management.
 
 Critical security patches for OpenJDK and Spring Cloud runtimes are applied to Azure Spring Cloud as soon as possible.
 

@@ -1,6 +1,6 @@
 ---
 title: How to update to dynamic regulatory compliance monitoring in your Azure Security Center regulatory compliance dashboard | Microsoft Docs
-description: "Updating your regulatory compliance packages (Preview)"
+description: Updating your regulatory compliance packages
 services: security-center
 documentationcenter: na
 author: memildin
@@ -15,7 +15,7 @@ ms.date: 11/04/2019
 ms.author: memildin
 
 ---
-# Update to dynamic compliance packages in your Regulatory Compliance dashboard (Preview)
+# Update to dynamic compliance packages in your Regulatory Compliance dashboard
 
 Azure Security Center continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. The **regulatory compliance dashboard** provides insights into your compliance posture based on how you're meeting specific compliance controls and requirements.
 
@@ -23,7 +23,7 @@ One standard for which you can track your compliance posture is [Azure CIS 1.1.0
 
 The representation of Azure CIS that initially appears in your compliance dashboard relies on a static set of rules that is included with Security Center.
 
-With the **dynamic compliance packages (preview)** feature, Security Center automatically improves its coverage of industry standards over time. Compliance packages are essentially initiatives defined in Azure Policy. They can be assigned to your selected scope (subscription, management group, and so on). To see compliance data mapped as assessments in your dashboard, add a compliance package to your management group or subscription from within the Security Policy. Adding a compliance package effectively assigns the regulatory compliance initiative to your selected scope. In this way, you can track newly published regulatory initiatives as compliance standards in your dashboard. When Microsoft releases new content for the initiative (new policies that map to more controls in the standard), the additional content appears automatically in your dashboard.
+With the **dynamic compliance packages** feature, Security Center automatically improves its coverage of industry standards over time. Compliance packages are essentially initiatives defined in Azure Policy. They can be assigned to your selected scope (subscription, management group, and so on). To see compliance data mapped as assessments in your dashboard, add a compliance package to your management group or subscription from within the Security Policy. Adding a compliance package effectively assigns the regulatory compliance initiative to your selected scope. In this way, you can track newly published regulatory initiatives as compliance standards in your dashboard. When Microsoft releases new content for the initiative (new policies that map to more controls in the standard), the additional content appears automatically in your dashboard.
 
 The dynamic compliance package for the Azure CIS benchmark, **Azure CIS 1.1.0 (new)**, improves on the original *static* version by:
 
@@ -42,10 +42,13 @@ The following steps explain how to add the dynamic package for monitoring your c
 
 1. Select the subscription or management group for which you want to manage the regulatory compliance posture. We recommend selecting the highest scope for which the standard is applicable so that compliance data is aggregated and tracked for all nested resources. 
 
-1. In the Industry & regulatory standards (preview) section, you'll see that Azure CIS 1.1.0 can be updated for new content. Click **Update now**. 
+1. In the Industry & regulatory standards section, you'll see that Azure CIS 1.1.0 can be updated for new content. Click **Update now**. 
 
 1. Optionally, click **Add more standards** to open the **Add regulatory compliance standards** page. There, you can search manually for **Azure CIS 1.1.0 (New)** and dynamic packages for other compliance standards such as **NIST SP 800-53 R4**, **SWIFT CSP CSCF-v2020**, **UKO and UK NHS**, and **Canada PBMM**.
     
+    > [!TIP]
+    > Only users who are owner or policy contributor have the necessary permissions to add compliance standards. 
+
     ![Adding regulatory packages to Azure Security Center's regulatory compliance dashboard](./media/update-regulatory-compliance-packages/security-center-dynamic-regulatory-compliance-additional-standards.png)
 
 

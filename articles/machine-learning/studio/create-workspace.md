@@ -15,6 +15,8 @@ ms.date: 12/07/2017
 
 # Create and share an Azure Machine Learning Studio (classic) workspace
 
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 To use Azure Machine Learning Studio (classic), you need to have a Machine Learning Studio (classic) workspace. This workspace contains the tools you need to create, manage, and publish experiments.
 
 ## Create a Studio (classic) workspace

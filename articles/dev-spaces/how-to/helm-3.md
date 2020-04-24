@@ -61,7 +61,7 @@ The following limitations apply while this feature is in preview:
 
 ## Create your cluster
 
-Create a new AKS cluster in a region that has this preview feature. The below commands create a resource group named *MyResourceGroup* and a new AKS cluster named *MyAKS* in the *South Central US* region:
+Create a new AKS cluster in a region that has this preview feature. The below commands create a resource group named *MyResourceGroup* and a new AKS cluster named *MyAKS*:
 
 ```azure-cli
 az group create --name MyResourceGroup --location eastus

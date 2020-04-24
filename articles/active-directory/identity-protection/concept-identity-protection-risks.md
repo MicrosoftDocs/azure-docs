@@ -27,18 +27,18 @@ Identity Protection provides organizations access to powerful resources to see a
 
 There are two types of risk **User** and **Sign-in** and two types of detection or calculation **Real-time** and **Offline**.
 
-### User risk'
+### User risk
 
 A user risk represents the probability that a given identity or account is compromised. 
 
 These risks are calculated offline using Microsoft's internal and external threat intelligence sources including security researchers, law enforcement professionals, security teams at Microsoft, and other trusted sources.
-''
-| Risk detection | Descript'on |
+
+| Risk detection | Description |
 | --- | --- |
 | Leaked credentials | This risk detection type indicates that the user's valid credentials have been leaked. When cybercriminals compromise valid passwords of legitimate users, they often share those credentials. This sharing is typically done by posting publicly on the dark web, paste sites, or by trading and selling the credentials on the black market. When the Microsoft leaked credentials service acquires user credentials from the dark web, paste sites, or other sources, they are checked against Azure AD users' current valid credentials to find valid matches. |
 | Azure AD threat intelligence | This risk detection type indicates user activity that is unusual for the given user or is consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources. |
 
-### Sign-in risk'
+### Sign-in risk
 
 A sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner. 
 
@@ -66,4 +66,3 @@ These risks can be calculated in real-time or calculated offline using Microsoft
 - [Policies available to mitigate risks](concept-identity-protection-policies.md)
 
 - [Security overview](concept-identity-protection-security-overview.md)
-""'

@@ -14,6 +14,8 @@ ms.date: 02/15/2019
 ---
 # Create endpoints for deployed Azure Machine Learning Studio (classic) web services
 
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 > [!NOTE]
 > This topic describes techniques applicable to a **Classic** Machine Learning web service.
 

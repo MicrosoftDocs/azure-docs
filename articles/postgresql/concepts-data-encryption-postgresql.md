@@ -1,5 +1,5 @@
 ---
-title: Azure Database for PostgreSQL Single server data encryption with a customer-managed key
+title: Data encryption with customer-managed key - Azure Database for PostgreSQL - Single server
 description: Azure Database for PostgreSQL Single server data encryption with a customer-managed key enables you to Bring Your Own Key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data.
 author: kummanish
 ms.author: manishku
@@ -27,9 +27,9 @@ Key Vault is a cloud-based, external key management system. It's highly availabl
 Data encryption for Azure Database for PostgreSQL Single server provides the following benefits:
 
 * Data-access is fully controlled by you by the ability to remove the key and making the database inaccessible 
-*	Full control over the key-lifecycle, including rotation of the key to align with corporate policies
-*	Central management and organization of keys in Azure Key Vault
-*	Ability to implement separation of duties between security officers, and DBA and system administrators
+*    Full control over the key-lifecycle, including rotation of the key to align with corporate policies
+*    Central management and organization of keys in Azure Key Vault
+*    Ability to implement separation of duties between security officers, and DBA and system administrators
 
 ## Terminology and description
 

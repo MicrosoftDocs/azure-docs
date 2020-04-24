@@ -74,7 +74,7 @@ To get started with the HLF network components deployment, navigate to the [Azur
     ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-settings.png)
 
 5. Enter the following details:
-    - **Organization name**: The name of the Fabric organization, which is required for various data plane operations.
+    - **Organization name**: The name of the Fabric organization, which is required for various data plane operations. The organization name needs to be unique per deployment. 
     - **Fabric network component**: Choose either Ordering Service or Peer nodes based on Blockchain network component you want to setup.
     - **Number of nodes** - The following are the two types of nodes:
         - Ordering service - select the number of nodes to provided fault tolerance to the network. Only 3,5 and 7 are the supported orderer node count.

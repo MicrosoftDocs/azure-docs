@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
+manager: lizross
 ---
 # Deploy a management tool with an Azure Resource Manager template
 

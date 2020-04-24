@@ -7,6 +7,7 @@ ms.author: robinsh
 ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
+ms.custom: [amqp, mqtt]
 ---
 
 # Manage connectivity and reliable messaging by using Azure IoT Hub device SDKs
@@ -124,7 +125,7 @@ For code samples in other languages, review the following implementation documen
 
 * [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
-* [Python SDK](https://github.com/Azure/azure-iot-sdk-python)
+* [Python SDK](https://github.com/Azure/azure-iot-sdk-python) (Reliability not yet implemented)
 
 ## Next steps
 

@@ -15,6 +15,8 @@ ms.date: 10/10/2019
 
 # Execute Azure Machine Learning pipelines in Azure Data Factory
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Run your Azure Machine Learning pipelines as a step in your Azure Data Factory pipelines. The Machine Learning Execute Pipeline activity enables batch prediction scenarios such as identifying possible loan defaults, determining sentiment, and analyzing customer behavior patterns.
 
 The below video features a six minute introduction and demonstration of this feature.

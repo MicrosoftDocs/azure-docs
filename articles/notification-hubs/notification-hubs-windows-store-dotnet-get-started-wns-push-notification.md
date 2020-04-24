@@ -18,7 +18,7 @@ ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
 ---
 
-# Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs
+# Tutorial: Send notifications to Universal Windows Platform apps using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 

@@ -80,7 +80,7 @@ The gradient boosting method can also be used for classification problems by red
   
     
 
-10. Run the pipeline.  
+10. Submit the pipeline.  
   
 ## Results
 

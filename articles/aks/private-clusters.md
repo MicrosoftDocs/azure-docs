@@ -7,93 +7,16 @@ ms.date: 2/21/2020
 
 ---
 
-# Create a private Azure Kubernetes Service cluster (preview)
+# Create a private Azure Kubernetes Service cluster
 
 In a private cluster, the control plane or API server has internal IP addresses that are defined in the [RFC1918 - Address Allocation for Private Internets](https://tools.ietf.org/html/rfc1918) document. By using a private cluster, you can ensure that network traffic between your API server and your node pools remains on the private network only.
 
 The control plane or API server is in an Azure Kubernetes Service (AKS)-managed Azure subscription. A customer's cluster or node pool is in the customer's subscription. The server and the cluster or node pool can communicate with each other through the [Azure Private Link service][private-link-service] in the API server virtual network and a private endpoint that's exposed in the subnet of the customer's AKS cluster.
 
-> [!IMPORTANT]
-> AKS preview features are self-service and are offered on an opt-in basis. Previews are provided *as is* and *as available* and are excluded from the service-level agreement (SLA) and limited warranty. AKS previews are partially covered by customer support on a *best effort* basis. Therefore, the features aren't meant for production use. For more information, see the following support articles:
->
-> * [AKS Support Policies](support-policies.md)
-> * [Azure Support FAQ](faq.md)
-
 ## Prerequisites
 
-* The Azure CLI version 2.0.77 or later, and the Azure CLI AKS Preview extension version 0.4.18
+* The Azure CLI version 2.2.0 or later
 
-## Currently supported regions
-
-* Australia East
-* Australia Southeast
-* Brazil South
-* Canada Central
-* Canada East
-* Cenral US
-* East Asia
-* East US
-* East US 2
-* East US 2 EUAP
-* France Central
-* Germany North
-* Japan East
-* Japan West
-* Korea Central
-* Korea South
-* North Central US
-* North Europe
-* North Europe
-* South Central US
-* UK South
-* West Europe
-* West US
-* West US 2
-* East US 2
-
-## Currently Supported Availability Zones
-
-* Central US
-* East US
-* East US 2
-* France Central
-* Japan East
-* North Europe
-* Southeast Asia
-* UK South
-* West Europe
-* West US 2
-
-## Install the latest Azure CLI AKS Preview extension
-
-To use private clusters, you need the Azure CLI AKS Preview extension version 0.4.18 or later. Install the Azure CLI AKS Preview extension by using the [az extension add][az-extension-add] command, and then check for any available updates by using the following [az extension update][az-extension-update] command:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-> [!CAUTION]
-> When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, you can use default settings for all AKS clusters that were created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
-
-```azurecli-interactive
-az feature register --name AKSPrivateLinkPreview --namespace Microsoft.ContainerService
-```
-
-It might take several minutes for the registration status to show as *Registered*. You can check on the status by using the following [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSPrivateLinkPreview')].{Name:name,State:properties.state}"
-```
-
-When the state is registered, refresh the registration of the *Microsoft.ContainerService* resource provider by using the following [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-az provider register --namespace Microsoft.Network
-```
 ## Create a private AKS cluster
 
 ### Create a resource group
@@ -154,9 +77,22 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 8. Select **Add**, add the virtual network of the VM, and then create the peering.  
 9. Go to the virtual network where you have the VM, select **Peerings**, select the AKS virtual network, and then create the peering. If the address ranges on the AKS virtual network and the VM's virtual network clash, peering fails. For more information, see  [Virtual network peering][virtual-network-peering].
 
+## Hub and spoke with custom DNS
+
+[Hub and spoke architectures](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) are commonly used to deploy networks in Azure. In many of these deployments, DNS settings in the spoke VNets are configured to reference a central DNS forwarder to allow for on-premises and Azure-based DNS resolution. When deploying an AKS cluster into such a networking environment, there are some special considerations that must be taken into account.
+
+![Private cluster hub and spoke](media/private-clusters/aks-private-hub-spoke.png)
+
+1. By default, when a private cluster is provisioned, a private endpoint (1) and a private DNS zone (2) are created in the cluster managed resource group. The cluster uses an A record in the private zone to resolve the IP of the private endpoint for communication to the API server.
+
+2. The private DNS zone is linked only to the VNet that the cluster nodes are attached to (3). This means that the private endpoint can only be resolved by hosts in that linked VNet. In scenarios where no custom DNS is configured on the VNet (default), this works without issue as hosts point at 168.63.129.16 for DNS which can resolve records in the private DNS zone due to the link.
+
+3. In scenarios where the VNet containing your cluster has custom DNS settings (4), cluster deployment fails unless the private DNS zone is linked to the VNet that contains the custom DNS resolvers (5). This link can be created manually after the private zone is created during cluster provisioning or via automation upon detection of creation of the zone using Azure Policy or other event-based deployment mechanisms (for example, Azure Event Grid and Azure Functions).
+
 ## Dependencies  
+
 * The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
-* To use a custom DNS server, deploy an AD server with DNS to forward to this IP 168.63.129.16
+* To use a custom DNS server, add the Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server.
 
 ## Limitations 
 * IP authorized ranges cannot be applied to the private api server endpoint, they only apply to the public API server
@@ -169,7 +105,6 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 * No support for converting existing AKS clusters into private clusters
 * Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning. 
 * Azure Monitor for containers Live Data isn't currently supported.
-* *Bring your own DNS* isn't currently supported.
 
 
 <!-- LINKS - internal -->
@@ -177,7 +112,7 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: /private-link/private-link-service-overview
+[private-link-service]: /azure/private-link/private-link-service-overview
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md

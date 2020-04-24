@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: helohr
+manager: lizross
 ---
 # Install Office on a master VHD image
 
@@ -32,7 +33,7 @@ The Office Deployment Tool requires a configuration XML file. To customize the f
 
 This sample configuration XML we've provided will do the following things:
 
-- Install Office from the monthly channel and deliver updates from the monthly channel when they’re executed.
+- Install Office from the monthly channel and deliver updates from the monthly channel when they're executed.
 - Use the x64 architecture.
 - Disable automatic updates.
 - Remove any existing installations of Office and migrate their settings.

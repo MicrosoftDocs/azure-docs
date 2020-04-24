@@ -3,8 +3,8 @@ title: "Known issues: Online migrations to Azure Database for MySQL"
 titleSuffix: Azure Database Migration Service
 description: Learn about known issues and migration limitations with online migrations to Azure Database for MySQL when using the Azure Database Migration Service.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms

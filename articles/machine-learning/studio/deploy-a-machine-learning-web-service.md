@@ -14,6 +14,8 @@ ms.date: 01/06/2017
 ---
 # Deploy an Azure Machine Learning Studio (classic) web service
 
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 Azure Machine Learning Studio (classic) enables you to build and test a predictive analytic solution. Then you can deploy the solution as a web service.
 
 Machine Learning Studio (classic) web services provide an interface between an application and a Machine Learning Studio (classic) workflow scoring model. An external application can communicate with a Machine Learning Studio (classic) workflow scoring model in real time. A call to a Machine Learning Studio (classic) web service returns prediction results to an external application. To make a call to a web service, you pass an API key that was created when you deployed the web service. A Machine Learning Studio (classic) web service is based on REST, a popular architecture choice for web programming projects.

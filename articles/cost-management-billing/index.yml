@@ -17,7 +17,7 @@ highlightedContent:
       url: cost-management-billing-overview.md
     - title: Analyze costs and create budgets
       itemType: learn
-      url: https://docs.microsoft.com/learn/modules/analyze-costs-create-budgets-azure-cost-management/
+      url: https://docs.microsoft.com/learn/modules/analyze-costs-create-budgets-azure-cost-management/?WT.mc_id=costmanagementcontent_docsazurebilling_-inproduct-learn
     - title: Cost Management best practices
       itemType: concept
       url: ./costs/cost-mgt-best-practices.md

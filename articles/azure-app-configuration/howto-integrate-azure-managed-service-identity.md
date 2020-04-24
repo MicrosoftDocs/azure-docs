@@ -2,14 +2,11 @@
 title: Authenticate using Azure managed identities 
 titleSuffix: Azure App Configuration
 description: Authenticate to Azure App Configuration using Azure managed identities
-ms.service: azure-app-configuration
 author: lisaguthrie
-
+ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.author: lcozzens
-
 ---
 # Integrate with Azure Managed Identities
 

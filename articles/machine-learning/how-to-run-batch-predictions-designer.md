@@ -38,13 +38,13 @@ Your training pipeline must be run at least once to be able to create an inferen
 
 1. Select the training pipeline that trains the model you want to use to make prediction.
 
-1. **Run** the pipeline.
+1. **Submit** the pipeline.
 
-    ![Run the pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
+    ![Submit the pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
 
 Now that the training pipeline has been run, you can create a batch inference pipeline.
 
-1. Next to **Run**, select the new dropdown **Create inference pipeline**.
+1. Next to **Submit**, select the new dropdown **Create inference pipeline**.
 
 1. Select **Batch inference pipeline**.
 
@@ -105,13 +105,13 @@ In this section, you will set up a manual pipeline run and alter the pipeline pa
 
     The pipeline details page shows you a detailed run history and connection string information for your pipeline. 
     
-1. Select **Run** to create a manual run of the pipeline.
+1. Select **Submit** to create a manual run of the pipeline.
 
     ![Pipeline details](./media/how-to-run-batch-predictions-designer/submit-manual-run.png)
     
 1. Change the parameter to use a different dataset.
     
-1. Select **Run** to run the pipeline.
+1. Select **Submit** to run the pipeline.
 
 ### Use the REST endpoint
 
@@ -140,3 +140,4 @@ You can also set a new default pipeline in the **Published pipelines** tab of yo
 ## Next steps
 
 Follow the designer [tutorial](tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.
+''

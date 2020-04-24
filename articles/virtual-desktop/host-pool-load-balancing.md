@@ -8,10 +8,11 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
+manager: lizross
 ---
 # Host pool load-balancing methods
 
-Windows Virtual Desktop supports two load-balancing methods. Each method determines which session host will host a user’s session when they connect to a resource in a host pool.
+Windows Virtual Desktop supports two load-balancing methods. Each method determines which session host will host a user's session when they connect to a resource in a host pool.
 
 The following load-balancing methods are available in Windows Virtual Desktop:
 
@@ -20,7 +21,7 @@ The following load-balancing methods are available in Windows Virtual Desktop:
 
 Each host pool can only configure one type of load-balancing specific to it. However, both load-balancing methods share the following behaviors no matter which host pool they're in:
 
-- If a user already has a session in the host pool and is reconnecting to that session, the load balancer will successfully redirect them to the session host with their existing session. This behavior applies even if that session host’s AllowNewConnections property is set to False.
+- If a user already has a session in the host pool and is reconnecting to that session, the load balancer will successfully redirect them to the session host with their existing session. This behavior applies even if that session host's AllowNewConnections property is set to False.
 - If a user doesn't already have a session in the host pool, then the load balancer won't consider session hosts whose AllowNewConnections property is set to False during load balancing.
 
 ## Breadth-first load-balancing method

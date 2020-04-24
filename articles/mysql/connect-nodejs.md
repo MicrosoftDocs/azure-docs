@@ -7,7 +7,7 @@ ms.service: mysql
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 # Quickstart: Use Node.js to connect and query data in Azure Database for MySQL
 

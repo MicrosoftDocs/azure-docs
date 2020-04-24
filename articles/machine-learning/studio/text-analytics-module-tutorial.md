@@ -14,6 +14,8 @@ ms.date: 03/14/2018
 ---
 # Create a sentiment analysis model in Azure Machine Learning Studio (classic)
 
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 You can use Azure Machine Learning Studio (classic) to build and operationalize text analytics models. These models can help you solve, for example, document classification or sentiment analysis problems.
 
 In a text analytics experiment, you would typically:
@@ -24,7 +26,7 @@ In a text analytics experiment, you would typically:
 4. Score and validate the model
 5. Deploy the model to production
 
-In this tutorial, you learn these steps as we walk through a sentiment analysis model using Amazon Book Reviews dataset (see this research paper “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” by John Blitzer, Mark Dredze, and Fernando Pereira; Association of Computational Linguistics (ACL), 2007.) This dataset consists of review scores (1-2 or 4-5) and a free-form text. The goal is to predict the review score: low (1-2) or high (4-5).
+In this tutorial, you learn these steps as we walk through a sentiment analysis model using Amazon Book Reviews dataset (see this research paper "Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification" by John Blitzer, Mark Dredze, and Fernando Pereira; Association of Computational Linguistics (ACL), 2007.) This dataset consists of review scores (1-2 or 4-5) and a free-form text. The goal is to predict the review score: low (1-2) or high (4-5).
 
 You can find experiments covered in this tutorial at Azure AI Gallery:
 

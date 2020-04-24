@@ -52,9 +52,13 @@ Auto-reconnect and DDNS are currently not supported in Point-to-Site VPNs.
 
 Yes. For the Resource Manager deployment model, you must have a RouteBased VPN type for your gateway. For the classic deployment model, you need a dynamic gateway. We do not support Point-to-Site for static routing VPN gateways or PolicyBased VPN gateways.
 
+### Can I configure a Point-to-Site client to connect to multiple virtual network gateways at the same time?
+
+Depending on the VPN Client software used, you may be able to connect to multiple Virtual Network Gateways provided the virtual networks being connected to do not have conflicting address spaces between them or the network from with the client is connecting from.  While the Azure VPN Client supports many VPN connections, only one connection can be Connected at any given time.
+
 ### Can I configure a Point-to-Site client to connect to multiple virtual networks at the same time?
 
-No. A Point-to-Site client can only connect to resources in the VNet in which the virtual network gateway resides.
+Yes, Point-to-Site connections to a Virtual Network Gateway deployed in a VNet that is peered with other VNets may have access to other peered VNets.  Provided the peered VNets are using the UseRemoteGateway / AllowGatewayTransit features, the Point-to-Site client will be able to connect to those peered VNets.  For more information please reference [this](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md) article.
 
 ### How much throughput can I expect through Site-to-Site or Point-to-Site connections?
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 04/02/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -27,6 +27,9 @@ This article presents two scenarios to configure Conditional Access policies for
 In the Conditional Access, these client apps are known to be protected with an app protection policy. More information about app protection policies can be found in the article, [App protection policies overview](/intune/apps/app-protection-policy)
 
 For a list of eligible client apps, see [App protection policy requirement](concept-conditional-access-grant.md).
+
+> [!NOTE]
+>    The or clause is used within the policy to enable users to utilize apps that support either the **Require app protection policy** or **Require approved client app** grant controls. For more information on which apps support the **Require app protection policy** grant control, see [App protection policy requirement](concept-conditional-access-grant.md).
 
 ## Scenario 1: Office 365 apps require approved apps with app protection policies
 
@@ -53,7 +56,7 @@ Organizations must complete the following steps in order to require the use of a
 1. Under **Access controls** > **Grant**, select the following options:
    - **Require approved client app**
    - **Require app protection policy (preview)**
-   - **Require all of the selected controls**
+   - **Require all the selected controls**
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create and enable your policy.
 
@@ -72,7 +75,7 @@ For the Conditional Access policy in this step, configure the following componen
    1. **Client apps (preview)**:
       1. Set **Configure** to **Yes**.
       1. Select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
-1. Under **Access controls** > **Grant**, select **Grant access**, **Require approved client app**, and select **Select**.
+1. Under **Access controls** > **Grant**, select **Grant access**, **Require app protection policy**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create and enable your policy.
 
@@ -105,7 +108,7 @@ Organizations must complete the following three steps in order to require the us
 1. Under **Access controls** > **Grant**, select the following options:
    - **Require approved client app**
    - **Require app protection policy (preview)**
-   - **Require all of the selected controls**
+   - **Require one of the selected controls**
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create and enable your policy.
 
@@ -122,7 +125,7 @@ Organizations must complete the following three steps in order to require the us
    1. **Client apps (preview)**:
       1. Set **Configure** to **Yes**.
       1. Select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
-1. Under **Access controls** > **Grant**, select **Grant access**, **Require approved client app**, and select **Select**.
+1. Under **Access controls** > **Grant**, select **Grant access**, **Require app protection policy**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create and enable your policy.
 

@@ -1,27 +1,48 @@
 ---
 title: Configure Azure Active Directory authentication
-description: Learn how to connect to SQL Database, managed instance, and Azure Synapse by using Azure Active Directory Authentication - after configuring Azure AD.
+description: Learn how to connect to SQL Database, managed instance, and Azure Synapse Analytics by using Azure Active Directory Authentication - after configuring Azure AD.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: data warehouse
+ms.custom: azure-synapse
 ms.devlang: 
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 01/07/2020
-tags: azure-synapse
+ms.date: 03/27/2020
 ---
 # Configure and manage Azure Active Directory authentication with SQL
 
-This article shows you how to create and populate Azure AD, and then use Azure AD with Azure [SQL Database](sql-database-technical-overview.md), [managed instance](sql-database-managed-instance.md), and [Azure Synapse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md). For an overview, see [Azure Active Directory Authentication](sql-database-aad-authentication.md).
+This article shows you how to create and populate Azure AD, and then use Azure AD with Azure [SQL Database (SQL DB)](sql-database-technical-overview.md), [managed instance (MI)](sql-database-managed-instance.md), and [Azure Synapse Analytics (formerly Azure SQL Data Warehouse)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). For an overview, see [Azure Active Directory Authentication](sql-database-aad-authentication.md).
 
 > [!NOTE]
-> This article applies to Azure SQL server, and to both SQL Database and Azure Synpase] that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and Azure Synapse.
+> This article applies to Azure SQL server, and to both SQL Database and Azure Synapse. For simplicity, SQL Database is used when referring to both SQL Database and Azure Synapse.
 
 > [!IMPORTANT]  
 > Connecting to SQL Server running on an Azure VM is not supported using an Azure Active Directory account. Use a domain Active Directory account instead.
+
+## Azure AD authentication methods
+
+Azure AD authentication supports the following authentication methods:
+
+- Azure AD cloud-only identities
+- Azure AD hybrid identities that support:
+  - Cloud authentication with two options coupled with seamless single sign-on (SSO)
+    - Azure AD password hash authentication
+    - Azure AD pass-through authentication
+  - Federated authentication
+
+For more information on Azure AD authentication methods, and which one to choose see, the article:
+- [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../active-directory/hybrid/choose-ad-authn.md)
+
+For more information on Azure AD hybrid identities, the setup, and synchronization, see the following articles:
+
+- Password hash authentication - [Implement password hash synchronization with Azure AD Connect sync](../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)
+- Pass-through authentication - [Azure Active Directory Pass-through Authentication](../active-directory/hybrid/how-to-connect-pta-quick-start.md)
+- Federated authentication - [Deploying Active Directory Federation Services in Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs) and [Azure AD Connect and federation](../active-directory/hybrid/how-to-connect-fed-whatis.md)
+
+All above authentication methods are supported for SQL DB (single database and database pools), managed instance, and Azure Synapse.
 
 ## Create and populate an Azure AD
 
@@ -156,7 +177,7 @@ The table below summarizes the functionality for the public preview Azure AD log
 | Is not present in the sys.server_principals view | Is present in the sys.server_principals view |
 | Allows individual Azure AD guest users to be set up as Azure AD admin for MI. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/b2b/add-users-administrator.md). | Requires creation of an Azure AD group with guest users as members to set up this group as an Azure AD admin for MI. For more information, see [Azure AD business to business support](sql-database-ssms-mfa-authentication.md#azure-ad-business-to-business-support). |
 
-As a best practice for existing Azure AD admins for MI created before GA, and still operating post GA, reset the Azure AD admin using the Azure portal “Remove admin” and “Set admin” option for the same Azure AD user or group.
+As a best practice for existing Azure AD admins for MI created before GA, and still operating post GA, reset the Azure AD admin using the Azure portal "Remove admin" and "Set admin" option for the same Azure AD user or group.
 
 ### Known issues with the Azure AD login GA for MI
 
@@ -229,7 +250,7 @@ For more information about CLI commands, see [az sql mi](/cli/azure/sql/mi).
 ## Provision an Azure Active Directory administrator for your Azure SQL Database server
 
 > [!IMPORTANT]
-> Only follow these steps if you are provisioning an Azure SQL Database server or SQL Pool in Azure Synapse.
+> Only follow these steps if you are provisioning an Azure SQL Database server or Azure Synapse Analytics.
 
 The following two procedures show you how to provision an Azure Active Directory administrator for your Azure SQL server in the Azure portal and by using PowerShell.
 
@@ -276,11 +297,11 @@ To run PowerShell cmdlets, you need to have Azure PowerShell installed and runni
 - Connect-AzAccount
 - Select-AzSubscription
 
-Cmdlets used to provision and manage Azure AD admin for Azure SQL Database and SQL Pool in Azure Synpase:
+Cmdlets used to provision and manage Azure AD admin for Azure SQL Database and Azure Synapse:
 
 | Cmdlet name | Description |
 | --- | --- |
-| [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Provisions an Azure Active Directory administrator for Azure SQL server or Azure Synpase. (Must be from the current subscription) |
+| [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Provisions an Azure Active Directory administrator for Azure SQL server or Azure Synapse. (Must be from the current subscription) |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Removes an Azure Active Directory administrator for Azure SQL server or Azure Synapse. |
 | [Get-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |Returns information about an Azure Active Directory administrator currently configured for the Azure SQL server or Azure Synapse. |
 
@@ -339,7 +360,7 @@ For more information about CLI commands, see [az sql server](/cli/azure/sql/serv
 
 ## Configure your client computers
 
-On all client machines, from which your applications or users connect to Azure SQL Database or SQL pool Azure Synpase using Azure AD identities, you must install the following software:
+On all client machines, from which your applications or users connect to Azure SQL Database or Azure Synapse using Azure AD identities, you must install the following software:
 
 - .NET Framework 4.6 or later from [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
 - Azure Active Directory Authentication Library for SQL Server (*ADAL.DLL*). Below are the download links to install the latest SSMS, ODBC, and OLE DB driver that contains the *ADAL.DLL* library.
@@ -362,7 +383,7 @@ You can meet these requirements by:
 Azure Active Directory authentication requires database users to be created as contained database users. A contained database user based on an Azure AD identity, is a database user that does not have a login in the master database, and which maps to an identity in the Azure AD directory that is associated with the database. The Azure AD identity can be either an individual user account or a group. For more information about contained database users, see [Contained Database Users- Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
-> Database users (with the exception of administrators) cannot be created using the Azure portal. RBAC roles are not propagated to SQL Server, SQL Database, or SQL Pool in Azure Synapse. Azure RBAC roles are used for managing Azure Resources, and do not apply to database permissions. For example, the **SQL Server Contributor** role does not grant access to connect to the SQL Database or SQL pool in Azure Synapse. The access permission must be granted directly in the database using Transact-SQL statements.
+> Database users (with the exception of administrators) cannot be created using the Azure portal. RBAC roles are not propagated to SQL Server, SQL Database, or Azure Synapse. Azure RBAC roles are used for managing Azure Resources, and do not apply to database permissions. For example, the **SQL Server Contributor** role does not grant access to connect to the SQL Database or Azure Synapse. The access permission must be granted directly in the database using Transact-SQL statements.
 
 > [!WARNING]
 > Special characters like  colon `:` or ampersand `&` when included as user names in the T-SQL CREATE LOGIN and CREATE USER statements are not supported.
@@ -416,7 +437,7 @@ A federated domain user account that is imported into a managed domain as an ext
 > [!NOTE]
 > Azure AD users are marked in the database metadata with type E (EXTERNAL_USER) and for groups with type X (EXTERNAL_GROUPS). For more information, see [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
-## Connect to the user database or data warehouse by using SSMS or SSDT  
+## Connect to the user database or Azure Synapse by using SSMS or SSDT  
 
 To confirm the Azure AD administrator is properly set up, connect to the **master** database using the Azure AD administrator account.
 To provision an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity that has access to the database.
@@ -426,35 +447,41 @@ To provision an Azure AD-based contained database user (other than the server ad
 
 ## Using an Azure AD identity to connect using SSMS or SSDT
 
-The following procedures show you how to connect to a SQL database with an Azure AD identity using SQL Server Management Studio or SQL Server Database Tools.
+The following procedures show you how to connect to a SQL database with an Azure AD identity using SQL Server Management Studio or SQL Server Database Tools. 
 
 ### Active Directory integrated authentication
 
-Use this method if you are logged in to Windows using your Azure Active Directory credentials from a federated domain.
+Use this method if you are logged into Windows using your Azure Active Directory credentials from a federated domain, or a managed domain that is configured for seamless single sign-on for pass-through and password hash authentication. For more information, see [Azure Active Directory Seamless Single Sign-On](../active-directory/hybrid/how-to-connect-sso.md).
 
-1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Active Directory - Integrated**. No password is needed or can be entered because your existing credentials will be presented for the connection.
+1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Azure Active Directory - Integrated**. No password is needed or can be entered because your existing credentials will be presented for the connection.
 
     ![Select AD Integrated Authentication][11]
 
-2. Select the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to. (The **AD domain name or tenant ID**” option is only supported for **Universal with MFA connection** options, otherwise it is greyed out.)  
+2. Select the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to. For more information, see the article [Multi-factor AAD auth](sql-database-ssms-mfa-authentication.md#azure-ad-domain-name-or-tenant-id-parameter) on the differences between the Connection Properties for SSMS 17.x and 18.x. 
 
     ![Select the database name][13]
 
-## Active Directory password authentication
+### Active Directory password authentication
 
-Use this method when connecting with an Azure AD principal name using the Azure AD managed domain. You can also use it for federated accounts without access to the domain, for example when working remotely.
+Use this method when connecting with an Azure AD principal name using the Azure AD managed domain. You can also use it for federated accounts without access to the domain, for example, when working remotely.
 
-Use this method to authenticate to SQL DB/DW with Azure AD for native or federated Azure AD users. A native user is one explicitly created in Azure AD and being authenticated using user name and password, while a federated user is a Windows user whose domain is federated with Azure AD. The latter method (using user & password) can be used when a user wants to use their windows credential, but their local machine is not joined with the domain (for example, using a remote access). In this case, a Windows user can indicate their domain account and password and can authenticate to SQL DB/DW using federated credentials.
+Use this method to authenticate to SQL DB or MI with Azure AD cloud-only identity users, or those who use Azure AD hybrid identities. This method supports users who want to use their Windows credential, but their local machine is not joined with the domain (for example, using remote access). In this case, a Windows user can indicate their domain account and password, and can authenticate to SQL DB, MI, or Azure Synapse.
 
-1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Active Directory - Password**.
+1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Azure Active Directory - Password**.
 
-2. In the **User name** box, type your Azure Active Directory user name in the format **username\@domain.com**. User names must be an account from the Azure Active Directory or an account from a domain federate with the Azure Active Directory.
+2. In the **User name** box, type your Azure Active Directory user name in the format **username\@domain.com**. User names must be an account from Azure Active Directory or an account from a managed or federated domain with Azure Active Directory.
 
-3. In the **Password** box, type your user password for the Azure Active Directory account or federated domain account.
+3. In the **Password** box, type your user password for the Azure Active Directory account or managed/federated domain account.
 
     ![Select AD Password Authentication][12]
 
 4. Select the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to. (See the graphic in the previous option.)
+
+### Active Directory interactive authentication
+
+Use this method for interactive authentication with or without multi-factor authentication (MFA), with password being requested interactively. This method can be used to authenticate to SQL DB, MI, and Azure Synapse for Azure AD cloud-only identity users, or those who use Azure AD hybrid identities.
+
+For more information, see [Using Multi-factor AAD authentication with Azure SQL Database and Azure Synapse Analytics (SSMS support for MFA)](sql-database-ssms-mfa-authentication.md).
 
 ## Using an Azure AD identity to connect from a client application
 
@@ -462,9 +489,14 @@ The following procedures show you how to connect to a SQL database with an Azure
 
 ### Active Directory integrated authentication
 
-To use integrated Windows authentication, your domain’s Active Directory must be federated with Azure Active Directory. Your client application (or a service) connecting to the database must be running on a domain-joined machine under a user’s domain credentials.
+To use integrated Windows authentication, your domain's Active Directory must be federated with Azure Active Directory, or should be a managed domain that is configured for seamless single sign-on for pass-through or password hash authentication. For more information, see [Azure Active Directory Seamless Single Sign-On](../active-directory/hybrid/how-to-connect-sso.md).
 
-To connect to a database using integrated authentication and an Azure AD identity, the Authentication keyword in the database connection string must be set to Active Directory Integrated. The following C# code sample uses ADO .NET.
+> [!NOTE]
+> [MSAL.NET (Microsoft.Identity.Client)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap) for integrated Windows authentication is not supported for seamless single sign-on for pass-through and password hash authentication.
+
+Your client application (or a service) connecting to the database must be running on a domain-joined machine under a user's domain credentials.
+
+To connect to a database using integrated authentication and an Azure AD identity, the Authentication keyword in the database connection string must be set to `Active Directory Integrated`. The following C# code sample uses ADO .NET.
 
 ```csharp
 string ConnectionString = @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated; Initial Catalog=testdb;";
@@ -476,7 +508,7 @@ The connection string keyword `Integrated Security=True` is not supported for co
 
 ### Active Directory password authentication
 
-To connect to a database using integrated authentication and an Azure AD identity, the Authentication keyword must be set to Active Directory Password. The connection string must contain User ID/UID and Password/PWD keywords and values. The following C# code sample uses ADO .NET.
+To connect to a database using Azure AD cloud-only identity user accounts, or those who use Azure AD hybrid identities, the Authentication keyword must be set to `Active Directory Password`. The connection string must contain User ID/UID and Password/PWD keywords and values. The following C# code sample uses ADO .NET.
 
 ```csharp
 string ConnectionString =
@@ -489,7 +521,7 @@ Learn more about Azure AD authentication methods using the demo code samples ava
 
 ## Azure AD token
 
-This authentication method allows middle-tier services to connect to Azure SQL Database or SQL pool in Azure Synapse by obtaining a token from Azure Active Directory (AAD). It enables sophisticated scenarios including certificate-based authentication. You must complete four basic steps to use Azure AD token authentication:
+This authentication method allows middle-tier services to obtain [JSON Web Tokens (JWT)](../active-directory/develop/id-tokens.md) to connect to Azure SQL Database or Azure Synapse by obtaining a token from Azure Active Directory (AAD). This method enables various application scenarios including service identities, service principals, and applications using certificate-based authentication. You must complete four basic steps to use Azure AD token authentication:
 
 1. Register your application with Azure Active Directory and get the client ID for your code.
 2. Create a database user representing the application. (Completed earlier in step 6.)
@@ -525,8 +557,7 @@ Guidance on troubleshooting issues with Azure AD Authentication can be found in 
 
 ## Next steps
 
-- For an overview of access and control in SQL Database, see [SQL Database access and control](sql-database-control-access.md).
-- For an overview of logins, users, and database roles in SQL Database, see [Logins, users, and database roles](sql-database-manage-logins.md).
+- For an overview of logins, users, database roles, and permissions in SQL Database, see [Logins, users, database roles, and user accounts](sql-database-manage-logins.md).
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
 - For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).
 - For more information about firewall rules in SQL Database, see [SQL Database firewall rules](sql-database-firewall-configure.md).

@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/26/2019
+ ms.date: 03/10/2020
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -13,7 +13,6 @@
 ## Limitations
 
 - Virtual machine scale sets are not currently supported on dedicated hosts.
-- The following VM series are supported: DSv3, ESv3 and Fsv2. 
 
 ## Benefits 
 
@@ -97,17 +96,15 @@ For more information, see [Azure Dedicated Host pricing](https://aka.ms/ADHPrici
 
 You can also save on costs with a [Reserved Instance of Azure Dedicated Hosts](../articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md).
  
-## VM families and Hardware generations
+## Sizes and hardware generations
 
-A SKU is defined for a host and it represents the VM size series and type. You can mix multiple VMs of different sizes within a single host as long as they are of the same size series. The type is the hardware generation currently available in the region.
+A SKU is defined for a host and it represents the VM size series and type. You can mix multiple VMs of different sizes within a single host as long as they are of the same size series. 
 
-Different `types` for the same VM series will be from different CPU vendors and have different CPU generations and number of cores.
+The *type* is the hardware generation. Different hardware types for the same VM series will be from different CPU vendors and have different CPU generations and number of cores. 
 
-Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
+The sizes and hardware types vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
-Dedicated hosts support the following host SKU\types:  DSv3_Type1 and ESv3_Type1
 
- 
 ## Host life cycle
 
 

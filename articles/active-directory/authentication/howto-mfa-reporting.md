@@ -5,7 +5,7 @@ description: This describes how to use the Azure Multi-Factor Authentication fea
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/30/2018
 
 ms.author: iainfou
@@ -87,7 +87,7 @@ The sign-in activity reports for MFA give you access to the following informatio
       - phone call went to voicemail
       - phone number has an invalid format
       - service error
-      - unable to reach the user’s phone
+      - unable to reach the user's phone
       - unable to send the mobile app notification to the device
       - unable to send the mobile app notification
       - user declined the authentication
@@ -123,17 +123,21 @@ The sign-in activity reports for MFA give you access to the following informatio
 
 First, ensure that you have the [MSOnline V1 PowerShell module](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) installed.
 
-Identify users who have registered for MFA using the PowerShell that follows.
+Identify users who have registered for MFA using the PowerShell that follows. This set of commands excludes disabled users since these accounts cannot authenticate against Azure AD.
 
-```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
+```powershell
+Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods -ne $null -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
+```
 
-Identify users who have not registered for MFA using the PowerShell that follows.
+Identify users who have not registered for MFA using the PowerShell that follows. This set of commands excludes disabled users since these accounts cannot authenticate against Azure AD.
 
-```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
+```powershell
+Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0 -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
+```
 
 Identify users and output methods registered. 
 
-```PowerShell
+```powershell
 Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},
 
 @{N='MFA Status';E={if ($_.StrongAuthenticationRequirements.State){$_.StrongAuthenticationRequirements.State} else {"Disabled"}}},

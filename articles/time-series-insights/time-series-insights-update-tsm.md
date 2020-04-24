@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 03/16/2020
 ms.custom: seodec18
 ---
 
@@ -205,11 +205,11 @@ Given the instance fields used in the previous definition and several time serie
 
 | Time Series ID | Instance fields |
 | --- | --- |
-| ID1 | “building” = “1000”, “floor” = “10”, “room” = “55”  |
-| ID2 | “building” = “1000”, “room” = “55” |
-| ID3 | “floor” = “10” |
-| ID4 | “building” = “1000”, “floor” = “10”  |
-| ID5 | None of “building”, “floor”, or “room” is set. |
+| ID1 | "building" = "1000", "floor" = "10", "room" = "55"  |
+| ID2 | "building" = "1000", "room" = "55" |
+| ID3 | "floor" = "10" |
+| ID4 | "building" = "1000", "floor" = "10"  |
+| ID5 | None of "building", "floor", or "room" is set. |
 
 Time Series **ID1** and **ID4** are displayed as part of hierarchy **H1** in the [Azure Time Series Insights explorer](time-series-insights-update-explorer.md) because they have fully defined and correctly ordered *building*, *floor*, and *room* parameters.
 
@@ -339,7 +339,7 @@ Variables conform to the following JSON example:
 "Status": {
   "kind": "categorical",
   "value": {
-     "tsx": "toLong($event.[Status].Double)" 
+     "tsx": "toLong($event.[Status].Double)"
 },
   "interpolation": {
     "kind": "step",
@@ -349,7 +349,7 @@ Variables conform to the following JSON example:
   },
   "categories": [
     {
-      "values": [0, 1, 2, 3],
+      "values": [0, 1, 2],
       "label": "Good"
     },
     {

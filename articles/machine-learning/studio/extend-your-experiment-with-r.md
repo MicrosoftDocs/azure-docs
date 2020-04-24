@@ -13,6 +13,8 @@ ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ---
 # Azure Machine Learning Studio (classic): Extend your experiment with R 
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 You can extend the functionality of Azure Machine Learning Studio (classic) through the R language by using the [Execute R Script][execute-r-script] module.
 
 This module accepts multiple input datasets and yields a single dataset as output. You can type an R script into the **R Script** parameter of the [Execute R Script][execute-r-script] module.
