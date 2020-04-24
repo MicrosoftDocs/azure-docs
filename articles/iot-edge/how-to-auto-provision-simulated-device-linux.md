@@ -202,7 +202,7 @@ Know your DPS **ID Scope** and device **Registration ID** before beginning the a
 
 In order for the IoT Edge runtime to automatically provision your device, it needs access to the TPM.
 
-You can give TPM access to the IoT Edge runtime by overriding the systemd settings so that the **iotedge** service has root privileges. If you don't want to elevate the service privileges, you can also use the following steps to manually provide TPM access.
+You can give TPM access to the IoT Edge runtime by overriding the systemd settings so that the `iotedge` service has root privileges. If you don't want to elevate the service privileges, you can also use the following steps to manually provide TPM access.
 
 1. Find the file path to the TPM hardware module on your device and save it as a local variable.
 
