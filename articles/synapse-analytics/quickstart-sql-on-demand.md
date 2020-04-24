@@ -61,9 +61,15 @@ CREATE DATABASE mydbname
 To run queries using SQL on-demand, create credentials for SQL on-demand to use to access files in storage.
 
 > [!NOTE]
-> Note that you need to create credential for access to the storage account. Although SQL on-demand can access storages from different regions, having storage and Azure Synapse workspace in same region will provide better performance experience.
+> In order to successfully run samples in this section you have to use SAS token.
+>
+> To start using SAS tokens you have to drop the UserIdentity which is explained in the following [article](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
+>
+> SQL on-demand by default always uses AAD pass-through.
 
-Modify the following code snippet to create credential for CSV, JSON and Parquet containers:
+For more information on how to manage storage access control, check this [link](sql/develop-storage-files-storage-access-control.md).
+
+Execute following code snippet to create credential used in samples in this section:
 
 ```sql
 -- create credentials for containers in our demo storage account
@@ -93,16 +99,14 @@ FROM OPENROWSET
   (
       BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/*.csv'
     , FORMAT = 'CSV'
-    , FIELDTERMINATOR =','
-    , ROWTERMINATOR = '\n'
   )
 WITH
   (
-      [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2
-    , [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2
-    , [year] smallint
-    , [population] bigint
-  ) AS [r]
+      country_code VARCHAR (5)
+    , country_name VARCHAR (100)
+    , year smallint
+    , population bigint
+  ) AS r
 WHERE
   country_name = 'Luxembourg' AND year = 2017
 ```

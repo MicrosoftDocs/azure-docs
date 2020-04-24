@@ -35,7 +35,7 @@ This tutorial demonstrates how an Angular single-page application (SPA) can:
 <!--start-collapse-->
 ### More information
 
-The sample application created in this tutorial enables an Angular SPA to query the Microsoft Graph API or a Web API that accepts tokens from the Microsoft identity platform endpoint. The MSAL for Angular library is a wrapper of the core MSAL.js library. It enables Angular (6+) applications to authenticate enterprise users by using Microsoft Azure Active Directory, Microsoft account users, and social identity users (such as Facebook, Google, and LinkedIn). The library also enables the applications to get access to Microsoft cloud services or Microsoft Graph.
+The sample application created in this tutorial enables an Angular SPA to query the Microsoft Graph API or a web API that accepts tokens from the Microsoft identity platform endpoint. The MSAL for Angular library is a wrapper of the core MSAL.js library. It enables Angular (6+) applications to authenticate enterprise users by using Microsoft Azure Active Directory, Microsoft account users, and social identity users (such as Facebook, Google, and LinkedIn). The library also enables the applications to get access to Microsoft cloud services or Microsoft Graph.
 
 In this scenario, after a user signs in, an access token is requested and added to HTTP requests through the authorization header. Token acquisition and renewal are handled by MSAL.
 
@@ -49,10 +49,6 @@ This tutorial uses the following library:
 |Library|Description|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library for JavaScript Angular Wrapper|
-
-> [!NOTE]
-> *Msal.js* targets the Microsoft identity platform endpoint, which enables personal accounts, work accounts, and school accounts to sign in and acquire tokens. The Microsoft identity platform endpoint has [some limitations](../azuread-dev/azure-ad-endpoint-comparison.md#limitations).
-> To understand the differences between the v1.0 and v2.0 endpoints, see the [endpoint comparison guide](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 You can find the source code for the MSAL.js library in the [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
 

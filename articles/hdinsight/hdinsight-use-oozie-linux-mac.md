@@ -6,7 +6,7 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 04/23/2020
 ---
 
 # Use Apache Oozie with Apache Hadoop to define and run a workflow on Linux-based Azure HDInsight
@@ -21,7 +21,7 @@ Learn how to use Apache Oozie with Apache Hadoop on Azure HDInsight. Oozie is a 
 You can also use Oozie to schedule jobs that are specific to a system, like Java programs or shell scripts.
 
 > [!NOTE]  
-> Another option to define workflows with HDInsight is to use Azure Data Factory. To learn more about Data Factory, see [Use Apache Pig and Apache Hive with Data Factory][azure-data-factory-pig-hive]. To use Oozie on clusters with Enterprise Security Package please see [Run Apache Oozie in HDInsight Hadoop clusters with Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
+> Another option to define workflows with HDInsight is to use Azure Data Factory. To learn more about Data Factory, see [Use Apache Pig and Apache Hive with Data Factory](../data-factory/transform-data.md). To use Oozie on clusters with Enterprise Security Package please see [Run Apache Oozie in HDInsight Hadoop clusters with Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 
 * **An Azure SQL Database**.  See [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started.md).  This article uses a database named **oozietest**.
 
-* The [URI scheme](./hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be `wasbs://`. See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
+* The URI scheme for your clusters primary storage. `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be `wasbs://`. See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
 
 ## Example workflow
 
@@ -49,10 +49,10 @@ The workflow used in this document contains two actions. Actions are definitions
 
     For more information about Hive, see [Use Apache Hive with HDInsight][hdinsight-use-hive].
 
-2. A Sqoop action exports the contents of the new Hive table to a table created in Azure SQL Database. For more information about Sqoop, see [Use Apache Sqoop with HDInsight][hdinsight-use-sqoop].
+2. A Sqoop action exports the contents of the new Hive table to a table created in Azure SQL Database. For more information about Sqoop, see [Use Apache Sqoop with HDInsight](hadoop/apache-hadoop-use-sqoop-mac-linux.md).
 
 > [!NOTE]  
-> For supported Oozie versions on HDInsight clusters, see [What's new in the Hadoop cluster versions provided by HDInsight][hdinsight-versions].
+> For supported Oozie versions on HDInsight clusters, see [What's new in the Hadoop cluster versions provided by HDInsight](hdinsight-component-versioning.md).
 
 ## Create the working directory
 
@@ -84,7 +84,7 @@ Oozie expects you to store all the resources required for a job in the same dire
 
 ## Add a database driver
 
-Because this workflow uses Sqoop to export data to the SQL database, you must provide a copy of the JDBC driver used to interact with the SQL database. To copy the JDBC driver to the working directory, use the following command from the SSH session:
+This workflow uses Sqoop to export data to the SQL database. So you must provide a copy of the JDBC driver used to interact with the SQL database. To copy the JDBC driver to the working directory, use the following command from the SSH session:
 
 ```bash
 hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /tutorials/useoozie/
@@ -269,7 +269,7 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
 
 ## Create the job definition
 
-The job definition describes where to find the workflow.xml. It also describes where to find other files used by the workflow, such as `useooziewf.hql`. In addition, it defines the values for properties used within the workflow and the associated files.
+The job definition describes where to find the workflow.xml. It also describes where to find other files used by the workflow, such as `useooziewf.hql`. Also, it defines the values for properties used within the workflow and the associated files.
 
 1. To get the full address of the default storage, use the following command. This address is used in the configuration file you create in the next step.
 
@@ -400,7 +400,7 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
     export OOZIE_URL=http://HOSTNAMEt:11000/oozie
     ```
 
-3. To submit the job, use the following:
+3. To submit the job, use the following code:
 
     ```bash
     oozie job -config job.xml -submit
@@ -471,7 +471,7 @@ For more information on the Oozie command, see [Apache Oozie command-line tool](
 
 ## Oozie REST API
 
-With the Oozie REST API, you can build your own tools that work with Oozie. The following is HDInsight-specific information about the use of the Oozie REST API:
+With the Oozie REST API, you can build your own tools that work with Oozie. The following HDInsight-specific information about the use of the Oozie REST API:
 
 * **URI**: You can access the REST API from outside the cluster at `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
@@ -521,7 +521,7 @@ To access the Oozie web UI, complete the following steps:
 
    * **Job DAG**: The DAG is a graphical overview of the data paths taken through the workflow.
 
-       ![HDInsight Apache Oozie job dag](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
+       ![`HDInsight Apache Oozie job dag`](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 
 7. If you select one of the actions from the **Job Info** tab, it brings up information for the action. For example, select the **RunSqoopExport** action.
 
@@ -648,9 +648,9 @@ With the Oozie UI, you can view Oozie logs. The Oozie UI also contains links to 
 
    3. If available, use the URL from the action to view more details, such as the JobTracker logs, for the action.
 
-The following are specific errors you might encounter and how to resolve them.
+The following are specific errors you might come across and how to resolve them.
 
-### JA009: Cannot initialize cluster
+### JA009: Can't initialize cluster
 
 **Symptoms**: The job status changes to **SUSPENDED**. Details for the job show the `RunHiveScript` status as **START_MANUAL**. Selecting the action displays the following error message:
 
@@ -660,7 +660,7 @@ The following are specific errors you might encounter and how to resolve them.
 
 **Resolution**: Change the Blob storage addresses that the job uses.
 
-### JA002: Oozie is not allowed to impersonate &lt;USER&gt;
+### JA002: Oozie isn't allowed to impersonate &lt;USER&gt;
 
 **Symptoms**: The job status changes to **SUSPENDED**. Details for the job show the `RunHiveScript` status as **START_MANUAL**. If you select the action, it shows the following error message:
 
@@ -668,7 +668,7 @@ The following are specific errors you might encounter and how to resolve them.
 
 **Cause**: The current permission settings don't allow Oozie to impersonate the specified user account.
 
-**Resolution**: Oozie can impersonate users in the **users** group. Use the `groups USERNAME` to see the groups that the user account is a member of. If the user isn't a member of the **users** group, use the following command to add the user to the group:
+**Resolution**: Oozie can impersonate users in the **`users`** group. Use the `groups USERNAME` to see the groups that the user account is a member of. If the user isn't a member of the **`users`** group, use the following command to add the user to the group:
 
     sudo adduser USERNAME users
 
@@ -703,13 +703,6 @@ For example, for the job in this document, you would use the following steps:
 
 In this article, you learned how to define an Oozie workflow and how to run an Oozie job. To learn more about how to work with HDInsight, see the following articles:
 
-* [Upload data for Apache Hadoop jobs in HDInsight][hdinsight-upload-data]
-* [Use Apache Sqoop with Apache Hadoop in HDInsight][hdinsight-use-sqoop]
-* [Use Apache Hive with Apache Hadoop on HDInsight][hdinsight-use-hive]
-* [Develop Java MapReduce programs for HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-[azure-data-factory-pig-hive]: ../data-factory/transform-data.md
-[hdinsight-versions]:  hdinsight-component-versioning.md
-[hdinsight-use-sqoop]:hadoop/apache-hadoop-use-sqoop-mac-linux.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+* [Upload data for Apache Hadoop jobs in HDInsight](hdinsight-upload-data.md)
+* [Use Apache Sqoop with Apache Hadoop in HDInsight](hadoop/apache-hadoop-use-sqoop-mac-linux.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hadoop/hdinsight-use-hive.md)

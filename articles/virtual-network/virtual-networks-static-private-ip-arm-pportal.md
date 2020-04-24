@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: KumudD
 manager: twooley
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
