@@ -12,8 +12,6 @@ After you enable monitoring of your Kubernetes cluster running on Azure Stack or
 
 ## How to stop monitoring using Helm
 
-To stop monitoring your hybrid Kubernetes cluster, run the following commands:
-
 1. To first identify the Azure Monitor for containers helm chart release installed on your cluster, run the following helm command.
 
     ```
