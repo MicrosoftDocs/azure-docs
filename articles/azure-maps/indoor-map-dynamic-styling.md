@@ -12,9 +12,7 @@ manager: philmea
 
 # Implement dynamic styling for Creator indoor maps
 
-Azure Maps Creator lets you dynamically render certain parts of your indoor map data. For example, you may have indoor map data for a building with sensors collecting temperature information. You can render meeting rooms with styles based on the room temperature level. The [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) supports such scenarios in which the tileset features render according to their states. In this article, we'll discuss how to dynamically render indoor map features based on associated feature states using the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) and the [Indoor Web Module](how-to-use-indoor-module.md).
-
-When a web application uses the [Indoor Web Module](how-to-use-indoor-module.md) to render indoor maps, you can further leverage the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) for dynamic styling. In particular, the [Get Map State Tile API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) allows for control over the tileset style at the level of individual feature. The map rendering engine will not reparse the underlying geometry and data, thus offering a significant boost in performance, especially in scenarios involving live data visualization.
+The Azure Maps Creator [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) lets you apply styles based on the dynamic properties of indoor map data features such as meeting rooms or hallways. For example, you can use dynamic styling to render meeting rooms of a facility in a specified color based on occupancy status.  In this article, we'll discuss how to dynamically render indoor map features based on associated dynamic properties (*states*) using the [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) and the [Indoor Web Module](how-to-use-indoor-module.md).
 
 ## Prerequisites
 
@@ -23,7 +21,7 @@ When a web application uses the [Indoor Web Module](how-to-use-indoor-module.md)
 3. [Enable Creator](how-to-manage-creator.md)
 4. Download the [Sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 5. [Create an indoor map](tutorial-creator-indoor-maps.md) in order to obtain a `tilesetId` and `statesetId`.
-6. Build a web application by following the steps in [How to use the Indoor Map module](how-use-indoor-module.md).
+6. Build a web application by following the steps in [How to use the Indoor Map module](how-to-use-indoor-module.md).
 
 This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
 
