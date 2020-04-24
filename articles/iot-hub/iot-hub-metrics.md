@@ -113,9 +113,6 @@ IoT Hub provides several metrics to give you an overview of the health of your h
 |Routing Deliveries | Routing Delivery Attempts | Count | Total | this is the routing delivery metric | ResourceID,<br>Result,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName |
 |RoutingDeliveryLatency| Routing Latency | Milliseconds | Average | this is the routing delivery latency metric | ResourceID,<br>RoutingSource,<br>EndpointType,<br>EndpointName|
 |Routing Data Size In Bytes Delivered| RoutingDeliveryDataSizeInBytes | Bytes | Total | The total number of bytes routed by IoT Hub to custom endpoint and built-in endpoint. Use the dimensions to identify data size routed to a specific type of endpoint or for a specific routing source.| ResourceID,<br>RoutingSource,<br>EndpointType<br>EndpointName|
-|Event Grid Deliveries|EventGridDeliveries| Milliseconds|Average|<i>this is the event grid deliveries</i>|ResourceID,<br>Result,<br>EventType|
-|Event Grid Latency|EventGridLatency| Milliseconds|Average|<i>this is the event grid latency</i>|ResourceID,<br>EventType|
-
 
 ## Next steps
 
