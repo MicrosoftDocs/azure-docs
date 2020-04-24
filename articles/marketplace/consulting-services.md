@@ -23,7 +23,7 @@ The marketplace storefronts are aligned with audiences and cloud products to hel
 |Audience      |IT pros and cloud developers|Business users and line-of-business decision makers|
 |Solution relevance      |Technical apps built for or built on Azure|Business apps that utilize or extend Dynamics 365, Power BI, Office 365, Azure (add-in or add-on finished apps)|
 |Publishing options      |Contact me, Trial, Transact, or Services for Azure|Contact me, Trial, or Services for Dynamics 365 and Power BI|
-|In-product experience      |Azure Management Portal|Dynamics 365, Office 365, Office client apps| 
+|In-product experience      |Azure portal|Dynamics 365, Office 365, Office client apps| 
 |Other      |On-premises publishing via Azure Stack, consulting services for Azure, managed services for Azure|Consulting services for Dynamics 365 and Power BI|
 
 Consulting services offers that are based on Dynamics 365, Power Apps, and Power BI are eligible to be listed on AppSource. For more information, download the [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) PDF file.
