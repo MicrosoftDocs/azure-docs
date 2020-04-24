@@ -492,7 +492,7 @@ Private endpoints for Cognitive Services resources let you:
 
 ### Conceptual overview
 
-A private endpoint is a special network interface for an Azure service in your [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your Cognitive Services resource, it provides secure connectivity between clients on your VNet and your resource. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the Cognitive Services service uses a secure private link.
+A private endpoint is a special network interface for an Azure service in your [VNet](../virtual-network/virtual-networks-overview.md). When you create a private endpoint for your Cognitive Services resource, it provides secure connectivity between clients on your VNet and your resource. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the Cognitive Services service uses a secure private link.
 
 Applications in the VNet can connect to the service over the private endpoint seamlessly, **using the same connection strings and authorization mechanisms that they would use otherwise**. Private endpoints can be used with all protocols supported by the Cognitive Services resource, including REST.
 
