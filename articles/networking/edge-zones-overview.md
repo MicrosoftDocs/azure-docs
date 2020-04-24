@@ -50,13 +50,13 @@ Azure Edge Zones will be available in the following metro areas:
 - Los Angeles, CA
 - Miami, FL
 
-[Contact the Edge Zones team](https://aka.ms/EdgeZones) for more information.
+[Contact the Edge Zone team](https://aka.ms/EdgeZones) for more information.
 
 ## <a name="carrier"></a>Azure Edge Zones with Carrier
 
 ![Edge Zones with Carrier](./media/edge-zones-overview/edge-carrier.png "Edge Zones with Carrier")
 
-Azure Edge Zones with Carrier are small-footprint extensions of Azure that are placed in mobile operators' datacenters in population centers. Azure Edge Zones with Carrier infrastructure is placed one hop away from the mobile operator's 5G network. This placement offers latency of less than 10 milliseconds to applications from mobile devices.
+Azure Edge Zones with Carrier are small-footprint extensions of Azure that are placed in mobile operators' datacenters in population centers. Azure Edge Zone with Carrier infrastructure is placed one hop away from the mobile operator's 5G network. This placement offers latency of less than 10 milliseconds to applications from mobile devices.
 
 Azure Edge Zones with Carrier are deployed in mobile operators' datacenters and connected to the Microsoft global network. They provide secure, reliable, high-bandwidth connectivity between applications that run close to the user. And they offer the full set of Azure services running within Azure regions. Developers can use the same set of familiar tools to build and deploy services into the Edge Zones.
 
@@ -77,9 +77,9 @@ Edge Zones will be offered in partnership with the following operators:
 
 ![Private Edge Zones](./media/edge-zones-overview/private-edge.png "Private Edge Zones")
 
-Azure Private Edge Zones are small-footprint extensions of Azure that are placed on-premises. Azure Private Edge Zones is based on the [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) platform. It enables low latency access to computing and storage services deployed on-premises. Private Edge Zones also lets you deploy applications from ISVs and virtualized network functions (VNFs) as [Azure managed applications](https://azure.microsoft.com/services/managed-applications/) along with virtual machines and containers on-premises. These VNFs can include mobile packet cores, routers, firewalls, and SD-WAN appliances. Azure Private Edge Zones comes with a cloud-native orchestration solution that lets you manage the lifecycles of VNFs and applications from the Azure portal.
+Azure Private Edge Zones are small-footprint extensions of Azure that are placed on-premises. Azure Private Edge Zone is based on the [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) platform. It enables low latency access to computing and storage services deployed on-premises. Private Edge Zone also lets you deploy applications from ISVs and virtualized network functions (VNFs) as [Azure managed applications](https://azure.microsoft.com/services/managed-applications/) along with virtual machines and containers on-premises. These VNFs can include mobile packet cores, routers, firewalls, and SD-WAN appliances. Azure Private Edge Zone comes with a cloud-native orchestration solution that lets you manage the lifecycles of VNFs and applications from the Azure portal.
 
-Azure Private Edge Zones lets you develop and deploy applications on-premises by using the same familiar tools that you use to build and deploy applications in Azure. 
+Azure Private Edge Zone lets you develop and deploy applications on-premises by using the same familiar tools that you use to build and deploy applications in Azure. 
 
 It also lets you: 
 
@@ -95,11 +95,11 @@ Typical use cases include:
 - Remote rendering for mixed reality and VDI scenarios.
 - Surveillance and security.
 
-We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to-end solutions that use Private Edge Zones. [Contact the Private Edge Zones team](https://aka.ms/EdgeZonesPartner) for more information.
+We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to-end solutions that use Private Edge Zones. [Contact the Private Edge Zone team](https://aka.ms/EdgeZonesPartner) for more information.
 
-### <a name="private-edge-partners"></a>Private Edge Zones partners
+### <a name="private-edge-partners"></a>Private Edge Zone partners
 
-![Private Edge Zones partners](./media/edge-zones-overview/partners.png "Private Edge Zones partners")
+![Private Edge Zone partners](./media/edge-zones-overview/partners.png "Private Edge Zones partners")
 
 #### <a name="vnf"></a>Virtualized network functions (VNFs)
 
@@ -143,9 +143,9 @@ We have a rich ecosystem of VNF vendors, ISVs, and MSP partners to enable end-to
 | Tech Mahindra                | Telstra              |
 |                              | Vodafone             |
 
-[Contact the Private Edge Zones team](https://aka.ms/EdgeZonesPartner) for information on how to become a partner.
+[Contact the Private Edge Zone team](https://aka.ms/EdgeZonesPartner) for information on how to become a partner.
 
-### <a name="solutions-private-edge"></a>Private Edge Zones solutions
+### <a name="solutions-private-edge"></a>Private Edge Zone solutions
 
 #### <a name="private-mobile-private-edge"></a>Private mobile network on Private Edge Zones
 
@@ -184,5 +184,5 @@ SD-WAN on Private Edge Zones lets you move from a capex-centric model to a softw
 
 For more information, contact the following teams:
 
-* [Edge Zones team](https://aka.ms/EdgeZones)
-* [Private Edge Zones team, to become a partner](https://aka.ms/EdgeZonesPartner)
+* [Edge Zone team](https://aka.ms/EdgeZones)
+* [Private Edge Zone team, to become a partner](https://aka.ms/EdgeZonesPartner)
