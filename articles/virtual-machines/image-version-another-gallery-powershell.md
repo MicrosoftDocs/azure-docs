@@ -4,9 +4,9 @@ description: Copy an image from another gallery using Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 04/09/2020
+ms.date: 04/22/2020
 ms.author: cynthn
 #PMcontact: akjosh
 #SIG to SIG

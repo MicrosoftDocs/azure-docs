@@ -12,9 +12,9 @@ ms.author: cynthn
 
 # Create a scale set from a generalized image
 
-Create a VM from a generalized image version stored in a [Shared Image Gallery](shared-image-galleries.md). If want to create a scale set using a specialized image version, see [Create scale set instances from a specialized image version](instance-specialized-image-version-powershell.md).
+Create a VM from a generalized image version stored in a [Shared Image Gallery](shared-image-galleries.md). If want to create a scale set using a specialized image, see [Create scale set instances from a specialized image](instance-specialized-image-version-powershell.md).
 
-Once you have a generalized image version, you can create a virtual machine scale set using the [New-AzVmss](/powershell/module/az.compute/new-azvmss) cmdlet. 
+Once you have a generalized image, you can create a virtual machine scale set using the [New-AzVmss](/powershell/module/az.compute/new-azvmss) cmdlet. 
 
 In this example, we are using the image definition ID to ensure your new VM will use the most recent version of an image. You can also use a specific version by using the image version ID for `-ImageReferenceId`. For example, to use image version *1.0.0* type: `-ImageReferenceId "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`. 
 

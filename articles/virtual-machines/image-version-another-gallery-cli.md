@@ -4,9 +4,9 @@ description: Copy an image version from another gallery with the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 04/09/2020
+ms.date: 04/22/2020
 ms.author: cynthn
 #PMcontact: akjosh
 #SIG to SIG
@@ -22,9 +22,7 @@ If you have multiple galleries in your organization, you can also create image v
 
 To complete this article, you must have an existing source gallery, image definition, and image version. You should also have a destination gallery. 
 
-
 The source image version must be replicated to the region where your destination gallery is located. 
-
 
 When working through this article, replace the resource names where needed.
 
@@ -43,13 +41,20 @@ az sig list -o table
 List the image definitions in a gallery, using [az sig image-definition list](/cli/azure/sig/image-definition#az-sig-image-definition-list). In this example, we are searching for image definitions in the gallery named *myGallery* in the *myGalleryRG* resource group.
 
 ```azurecli-interactive 
-az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery -o table
+az sig image-definition list \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   -o table
 ```
 
-List the shared image versions in a gallery, using [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to find the image version that you want to copy into your new gallery. In this example, we are looking for all of the image versions that are part of the *myImageDefinition* image definition.
+List the versions of an image in a gallery, using [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to find the image version that you want to copy into your new gallery. In this example, we are looking for all of the image versions that are part of the *myImageDefinition* image definition.
 
 ```azurecli-interactive
-az sig image-version list --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table
+az sig image-version list \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   -o table
 ```
 
 Once you have all of the information you need, you can get the ID of the source image version using [az sig image-version show](/cli/azure/sig/image-version#az-sig-image-version-show).
@@ -60,7 +65,7 @@ az sig image-version show \
    --gallery-name myGallery \
    --gallery-image-definition myImageDefinition \
    --gallery-image-version 1.0.0 \
-   --query "id"
+   --query "id" -o tsv
 ```
 
 
@@ -150,6 +155,6 @@ az sig image-version create \
 
 ## Next steps
 
-Create a VM from a [generalized](vm-generalized-image-version-cli.md) image version using CLI, or a [specialized](vm-specialized-image-version-PowerShell.md) image version, using PowerShell. You can't currently create a VM from a specialized version using the Azure CLI.
+Create a VM from a [generalized](vm-generalized-image-version-cli.md) or a [specialized](vm-specialized-image-version-cli.md) image version.
 
 Also, try out [Azure Image Builder (preview)](./linux/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md). 

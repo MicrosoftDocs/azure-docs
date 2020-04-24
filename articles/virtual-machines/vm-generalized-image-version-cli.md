@@ -4,15 +4,15 @@ description: Create a VM from a generalized image version using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 04/13/2020
+ms.date: 04/22/2020
 ms.author: cynthn
 #PMcontact: akjosh
 ---
 # Create a VM from a generalized image version using the CLI
 
-Create a VM from a [generalized image version](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) stored in a Shared Image Gallery. If you want to create a VM using a specialized image, see [Create a VM from a specialized image using PowerShell](vm-specialized-image-version-powershell.md). Currently, you cannot create a VM from a specialized image using the Azure CLI.
+Create a VM from a [generalized image version](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) stored in a Shared Image Gallery. If you want to create a VM using a specialized image, see [Create a VM from a specialized image](vm-specialized-image-version-powershell.md). 
 
 
 ## Get the image ID
