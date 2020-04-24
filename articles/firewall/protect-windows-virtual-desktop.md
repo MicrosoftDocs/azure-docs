@@ -5,13 +5,13 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 04/24/2020
 ms.author: victorh
 ---
 
 # Use Azure Firewall to protect Window Virtual Desktop deployments
 
-Windows Virtual Desktop (WVD) is a desktop and app virtualization service that runs on Azure. When an end user connects to a Windows Virtual Desktop environment, their session is run by a host pool. A host pool is a collection of Azure virtual machines that register to Windows Virtual Desktop as session hosts. These virtual machines run in your virtual network and are subject to the virtual network security controls. 
+Windows Virtual Desktop (WVD) is a desktop and app virtualization service that runs on Azure. When an end user connects to a Windows Virtual Desktop environment, their session is run by a host pool. A host pool is a collection of Azure virtual machines that register to Windows Virtual Desktop as session hosts. These virtual machines run in your virtual network and are subject to the virtual network security controls. They need outbound Internet access to the WVD service to operate properly and might also need outbound Internet access for end users. Azure Firewall can help you lock down your environment and filter outbound traffic.
 
 Follow the guidelines in this article to provide additional protection for your WVD host pool using Azure Firewall.
 
@@ -32,19 +32,18 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 - Create an application rule collection and add a rule to enable the *WindowsVirtualDesktop* FQDN tag. The source IP address range is the host pool virtual network, the protocol is **https**, and the destination is **WindowsVirtualDesktop**.
 - Enable Storage and Service Bus Service Endpoints on your WVD host pool subnet.
 
-   The set of required storage and service bus accounts for your WVD host pool is deployment specific, so it is not yet captured in the WindowsVirtualDesktop FQDN tag. This can be addressed in one of the following ways:
+   The set of required storage and service bus accounts for your WVD host pool is deployment specific, so it isn't yet captured in the WindowsVirtualDesktop FQDN tag. You can address this in one of the following ways:
 
-   - Enable Storage and Service Bus Service Endpoints on your WVD host pool subnet to bypass the firewall for these service dependencies.
-
-   Or
-
-   - Add the following application rules to your firewall configuration:
-     - *gsm.blob.core.windows.net 
-     - *gsm.servicebus.windows.net
-
-   - Alternatively, search your firewall application rule logs for denied access to *gsm.blob.core.windows.net and *gsm.servicebus.windows.net and add the exact storage and service bus accounts to your firewall rule configuration.
-
-
+   - Allow https access from your host pool subnet to *xt.blob.core.windows.net and *eh.servicebus.windows.net. These wildcard FQDNs enable the required access, but are less restrictive.
+   - Use the following log analytics query, to list the exact required FQDNs and allow them explicitly to your firewall application rules:
+   ```
+   AzureDiagnostics
+   | where Category == "AzureFirewallApplicationRule"
+   | search "Deny"
+   | search "gsm*eh.servicebus.windows.net" or "gsm*xt.blob.core.windows.net"
+   | parse msg_s with Protocol " request from " SourceIP ":" SourcePort:int " to " FQDN ":" *
+   | project TimeGenerated,Protocol,FQDN
+   ```
 
 - Create a network rule collection add the following rules:
 
