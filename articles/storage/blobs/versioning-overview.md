@@ -33,9 +33,9 @@ The most recent write operation creates the current version of the blob. A prior
 
 Each blob version is identified by a version ID. The value of the version ID is the timestamp at which the blob was written or updated. The version ID is assigned at the time that the version is created.
 
-You can provide the version ID on read or delete operations to perform the operation on a specific version. Any operation on a blob that omits the version ID acts on the base blob.
+You can perform read or delete operations on a specific version of a blob by providing its version ID. If you omit the version ID, the operation acts against the current version (the base blob).
 
-When you call a write operation to create or modify a blob, Azure Storage returns the *x-ms-version-id* header in the response. This header contains the version ID for the current version of the base blob that was created by the write operation.
+When you call a write operation to create or modify a blob, Azure Storage returns the *x-ms-version-id* header in the response. This header contains the version ID for the current version of the blob that was created by the write operation.
 
 The version ID remains the same for the lifetime of the version.
 
@@ -56,27 +56,36 @@ The following diagram shows how write operations affect blob versions. When a bl
 
 ### Versioning on delete operations
 
-A [Delete Blob](/rest/api/storageservices/delete-blob) operation acts on the current version. When you delete a blob that is versioned, the current version no longer exists. Azure Storage creates a version to save the state of the blob prior to deletion. All existing versions of the blob are preserved when the blob is deleted.
+When you delete a blob, Azure Storage creates a version to save the state of the blob immediately prior to deletion. All existing previous versions of the blob are preserved when the blob is deleted.
 
-You can also delete a specific version of the blob by specifying its version ID. However, you cannot delete the current version using its version ID.
+You can also delete a specific version of the blob by specifying its version ID. However, you cannot delete the current version of the blob using its version ID.
 
 The following diagram shows the effect of a delete operation on a versioned blob. The current version blob is deleted, but the prior versions persist.
 
-:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagram showing deletion of versioned base blob":::
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagram showing deletion of versioned blob":::
 
-Writing new data to the base blob creates a new version of the blob. Any existing versions are unaffected, as shown in the following diagram.
+Writing new data to the blob creates a new version of the blob. Any existing versions are unaffected, as shown in the following diagram.
 
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagram showing re-creation of deleted base blob":::
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagram showing re-creation of versioned blob after deletion":::
 
 ### Blob types
 
-When blob versioning is enabled for a storage account, all write and delete operations on block blobs trigger the creation of a new version.
+When blob versioning is enabled for a storage account, all write and delete operations on block blobs trigger the creation of a new version, with the exception of the [Put Block](/rest/api/storageservices/put-block) operation.
 
-For page blobs and append blobs, only a subset of write and delete operations trigger the creation of a version. These operations include the [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), [Delete Blob](/rest/api/storageservices/delete-blob), [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata), and [Copy Blob](/rest/api/storageservices/copy-blob) operations. A [Put Page](/rest/api/storageservices/put-page) operation on a page blob or an [Append Block](/rest/api/storageservices/append-block) operation on an append blob does not trigger the creation of a new version. To capture changes from those operations, take a manual snapshot.
+For page blobs and append blobs, only a subset of write and delete operations trigger the creation of a version. These operations include:
 
-All versions of a blob must be of the same blob type. For more information on blob types, see [Understanding block blobs, append blobs, and page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+- [Put Blob](/rest/api/storageservices/put-blob)
+- [Put Block List](/rest/api/storageservices/put-block-list)
+- [Delete Blob](/rest/api/storageservices/delete-blob)
+- [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)
+- [Copy Blob](/rest/api/storageservices/copy-blob)
 
-When blob versioning is enabled, you cannot overwrite a blob of one type with another type unless you first delete the blob and all its versions.
+The following operations do not trigger the creation of a new version. To capture changes from those operations, take a manual snapshot:
+
+- [Put Page](/rest/api/storageservices/put-page) (page blob)
+- [Append Block](/rest/api/storageservices/append-block) (append blob)
+
+All versions of a blob must be of the same blob type. When blob versioning is enabled, you cannot overwrite a blob of one type with another type unless you first delete the blob and all its versions.
 
 ### Access tiers
 
@@ -143,7 +152,7 @@ Blob versioning is designed to protect your data from accidental or malicious de
 
 ### RBAC action to delete a blob version
 
-The following table shows which RBAC actions support deleting a base blob or a blob version.
+The following table shows which RBAC actions support deleting a blob or a blob version.
 
 | Description | Blob service operation | RBAC data action required | RBAC built-in role support |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
