@@ -54,7 +54,7 @@ Where the `OperationResponse` is declared as:
 
 To track the scope of the entire list of Tasks, we use this helper class:
 
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Operation":::
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkOperationsHelper":::
 
 The `ExecuteAsync` method will wait until all operations are completed and you can use it like so:
 
