@@ -38,7 +38,8 @@ To complete this tutorial, the following prerequisites apply:
 - An existing SQL Server in your on-premises environment.
 - An existing managed instance. See [Quickstart: Create an Azure SQL Database managed instance](sql-database-managed-instance-get-started.md).
   - A `sysadmin` in the managed instance must be used to create Azure AD logins.
-- [Create an Azure AD admin for managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
+- [Create an Azure AD admin for managed instance](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance)
+](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 - You can connect to your managed instance within your network. See the following articles for additional information: 
     - [Connect your application to Azure SQL Database managed instance](sql-database-managed-instance-connect-app.md)
     - [Quickstart: Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises](sql-database-managed-instance-configure-p2s.md)
@@ -209,9 +210,6 @@ go
 Follow our [Quickstart: Restore a database to a managed instance](sql-database-managed-instance-get-started-restore.md).
 
 ## Part 4: Migrate users to managed instance
-
-> [!NOTE]
-> The Azure AD admin for managed instance functionality after creation has changed. For more information, see [New Azure AD admin functionality for MI](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi).
 
 Execute the ALTER USER command to complete the migration process on managed instance.
 

@@ -39,7 +39,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
 - An Azure SQL Database managed instance
   - Follow this article: [Quickstart: Create an Azure SQL Database managed instance](sql-database-managed-instance-get-started.md)
-- Able to access your managed instance and [provisioned an Azure AD administrator for the managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). To learn more, see:
+- Able to access your managed instance and [provisioned an Azure AD administrator for the managed instance](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance). To learn more, see:
     - [Connect your application to a managed instance](sql-database-managed-instance-connect-app.md) 
     - [Managed instance connectivity architecture](sql-database-managed-instance-connectivity-architecture.md)
     - [Configure and manage Azure Active Directory authentication with SQL](sql-database-aad-authentication-configure.md)
