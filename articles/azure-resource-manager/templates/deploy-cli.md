@@ -2,7 +2,7 @@
 title: Deploy resources with Azure CLI and template
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 04/20/2020
 ---
 # Deploy resources with ARM templates and Azure CLI
 
@@ -162,7 +162,7 @@ az deployment group create \
 
 ## Handle extended JSON format
 
-To deploy a template with multi-line strings or comments, you must use the `--handle-extended-json-format` switch.  For example:
+To deploy a template with multi-line strings or comments using Azure CLI with version 2.3.0 or older, you must use the `--handle-extended-json-format` switch.  For example:
 
 ```json
 {

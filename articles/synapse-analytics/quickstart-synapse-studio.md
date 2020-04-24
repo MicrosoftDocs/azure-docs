@@ -47,7 +47,7 @@ You can create new folders and upload files using the links in toolbar to organi
 > You need to be a member of the `Storage Blob Reader` role on the underlying storage in order to be able to query the files. Learn how to [assign **Storage Blob Data Reader** or **Storage Blob Data Contributor** RBAC permissions on Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role).
 
 1. Upload some `PARQUET` files.
-2. Select one or more files and then create a new SQL script or a Spark notebook to see the content of the files. If you want to create a notebook, you would need to create [Apache Spark pool in the workspace](spark/apache-spark-notebook-create-spark-use-sql.md).
+2. Select one or more files and then create a new SQL script or a Spark notebook to see the content of the files. If you want to create a notebook, you would need to create [Apache Spark pool in the workspace](quickstart-create-apache-spark-pool.md).
 
    ![Query files on storage](./media/quickstart-synapse-studio/query-files-on-storage.png)
 
@@ -61,5 +61,5 @@ You can create new folders and upload files using the links in toolbar to organi
 
 - Enable Azure AD users to query files [by assigning **Storage Blob Data Reader** or **Storage Blob Data Contributor** RBAC permissions on Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
 - [Query files on Azure Storage using SQL On-Demand](sql/on-demand-workspace-overview.md)
-- [Create Apache Spark pool](spark/apache-spark-notebook-create-spark-use-sql.md)
+- [Create Apache Spark pool](quickstart-create-apache-spark-pool.md)
 - [Create Power BI report on files stored on Azure Storage](sql/tutorial-connect-power-bi-desktop.md)

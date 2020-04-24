@@ -56,7 +56,7 @@ The following table represents the Azure portal settings and corresponding data 
 > [!NOTE]
 > The x-ms-summary extension provides a display name in Logic Apps, PowerApps, and Flow.
 >
-> To learn more, see [Customize your Swagger definition for PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/).
+> To learn more, see [Customize your Swagger definition for PowerApps](https://docs.microsoft.com/connectors/custom-connectors/openapi-extensions).
 
 ## <a name="CICD"></a>Use CI/CD to set an API definition
 
