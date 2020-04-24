@@ -1,15 +1,8 @@
 ---
-title: Container workloads - Azure Batch
+title: Container workloads
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
-services: batch
-author: LauraBrenner
-manager: evansma
-
-ms.service: batch
 ms.topic: article
-ms.workload: na
 ms.date: 03/02/2020
-ms.author: labrenne
 ms.custom: seodec18
 
 ---
