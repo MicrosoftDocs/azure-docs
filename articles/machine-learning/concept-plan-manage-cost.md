@@ -14,7 +14,7 @@ ms.date: 04/22/2020
 
 # Plan and manage costs for Azure Machine Learning
 
-This article describes how to plan and manage costs for Azure Machine Learning. First, you use the Azure pricing calculator to help plan for costs before you add any resources. Next, as you add the Azure resources, review the estimated costs.
+This article describes how to plan and manage costs for Azure Machine Learning. First, you use the Azure pricing calculator to help plan for costs before you add any resources. Next, as you add the Azure resources, review the estimated costs. Finally, use cost-saving tips as you train your model with managed Azure Machine Learning compute clusters.
 
 After you've started using Azure Machine Learning resources, use the cost management features to set budgets and monitor costs. Also review the forecasted costs and identify spending trends to identify areas where you might want to act.
 
