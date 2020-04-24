@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 
-ms.assetid: 79066aa5-2978-4aa1-be6f-d10d369f5ca3
+ms.assetid: e00cbbcd-2f2a-43f0-bac5-75f5fc34b6fc
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
@@ -78,32 +78,33 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** and wish to configure in **IDP** initiated mode, perform the following steps:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-	a. Click **Upload metadata file**.
+    a. In the **Identifier** text box, type any of the following URLs:
 
-    ![Upload metadata file](common/upload-metadata.png)
+    | |
+    |--|
+    | `https://app.float.com/sso/metadata`|
+    | `https://app.develop.float.com/sso/metadata`|
 
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
+    b. In the **Reply URL** text box, type a URL using any one of the following patterns:
 
-	![choose metadata file](common/browse-upload-metadata.png)
-
-	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
-
-	![image](common/idp-intiated.png)
-
-	> [!Note]
-	> If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
+    | |
+    |--|
+    | `https://<hostname>.float.com/sso/azuread`|
+    | `https://<hostname>.develop.float.com/sso/azuread`|
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![image](common/metadata-upload-additional-signon.png)
+    In the **Sign-on URL** text box, type a URL using any one of the following patterns:
 
-	In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<hostname>.float.com/login,https://<hostname>.develop.float.com/login`
+    | |
+    |--|
+    | `https://<hostname>.float.com/login`|
+    | `https://<hostname>.develop.float.com/login`|
 
 	> [!NOTE]
-    > The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [Float Client support team](mailto:support@float.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Float Client support team](mailto:support@float.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Float application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
