@@ -78,8 +78,7 @@ npm init -y
 npm install @azure/msal-Browser
 npm install express
 ```
-
-1. Next, create a .js file named *server.js*, and then add the following code:
+2. Next, create a .js file named *server.js*, and then add the following code:
 
 ```JavaScript
    const express = require('express');
