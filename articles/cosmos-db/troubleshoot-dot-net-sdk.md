@@ -98,7 +98,7 @@ The [query metrics](sql-api-query-metrics.md) will help determine where the quer
 ### The MAC signature found in the HTTP request is not the same as the computed signature
 If you received the following error message: "The MAC signature found in the HTTP request is not the same as the computed signature." it can be caused by the following scenarios.
 
-1. The key was rotated and did not follow the [best practices](secure-access-to-data#master-keys). This is usually the case. Comos DB account key rotation can take anywhere from a few seconds to possibly days depending on the Cosmos DB account size.
+1. The key was rotated and did not follow the [best practices](secure-access-to-data.md#master-keys). This is usually the case. Comos DB account key rotation can take anywhere from a few seconds to possibly days depending on the Cosmos DB account size.
    1. 401 MAC signature is seen shortly after a key rotation and eventually stops without any changes. 
 2. The key is misconfigured on the application so the key does not match the account. For instance cases where the key is read from a file and localization is not taken in consideration.
    1. 401 MAC signature issue will be consistent and happens for all calls
@@ -115,7 +115,7 @@ Causes:
 
 Solution:
    1. Follow the [performance tips](performance-tips.md) and convert the application to Direct + TCP connection mode. Direct + TCP does not have the header size restriction like HTTP does which avoids this issue.
-   2. If the session token is the cause, then a temporary mitgiation is to restart the application. Restarting the application instance will reset the session token. If the exceptions stop after the restart then it confirms the session token is the cause. It will eventually grow back to the size that will cause the exception.
+   2. If the session token is the cause, then a temporary mitigation is to restart the application. Restarting the application instance will reset the session token. If the exceptions stop after the restart then it confirms the session token is the cause. It will eventually grow back to the size that will cause the exception.
    3. If the application cannot be converted to Direct + TCP and the continuation token is the cause then try setting the ResponseContinuationTokenLimitInKb option. The option can be found in the FeedOptions for v2 or the QueryRequestOptions in v3.
 
  <!--Anchors-->
