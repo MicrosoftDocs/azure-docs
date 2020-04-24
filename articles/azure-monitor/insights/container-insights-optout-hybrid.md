@@ -12,9 +12,36 @@ After you enable monitoring of your Kubernetes cluster running on Azure Stack or
 
 ## How to stop monitoring using Helm
 
-To stop monitoring your hybrid Kubernetes cluster, you use the `Helm delete` command.
+To stop monitoring your hybrid Kubernetes cluster, run the following commands:
 
-`helm delete <release name of azure monitor for containers>`
+1. To first identify the Azure Monitor for containers helm chart release installed on your cluster, run the following helm command.
+
+    ```
+    helm list
+    ```
+
+    The output will resemble the following:
+
+    ```
+    NAME                            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
+    azmon-containers-release-1      default         3               2020-04-21 15:27:24.1201959 -0700 PDT   deployed        azuremonitor-containers-2.7.0   7.0.0-1
+    ```
+
+    *azmon-containers-release-1* represents the helm chart release for Azure Monitor for containers.
+
+2. To delete the chart release, run the following helm command.
+
+    `helm delete <release name of azure monitor for containers>`
+
+    Example:
+
+    `helm delete azmon-containers-release-1`
+
+    This will remove the release from the cluster. You can verify by running the `helm list` command:
+
+    ```
+    NAME                            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
+    ```
 
 The configuration change can take a few minutes to complete. Because Helm tracks your releases even after you’ve deleted them, you can audit a cluster’s history, and even undelete a release with `helm rollback`.
 
