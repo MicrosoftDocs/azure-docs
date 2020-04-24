@@ -7,7 +7,9 @@ ms.date: 05/04/2020
 
 # Tutorial: Learn how to access an Azure VMware Solution (AVS) private cloud
 
-In this tutorial you create a Windows virtual machine in the resource group you created in the previous tutorial [Tutorial: Configure networking for your VMWare private cloud in Azure](tutorial-configure-networking.md) and sign into vCenter. This is a VM on the same virtual network you created and provides access to vCenter and NSX Manager.
+During preview, AVS does not allow you to manage your private cloud with your on-premises vCenter. You'll need to perform additional setup and connection to a local vCenter instance through a jump box. 
+
+In this tutorial you create a Windows virtual machine for a jump box in the resource group you created in the previous tutorial [Tutorial: Configure networking for your VMWare private cloud in Azure](tutorial-configure-networking.md) and sign into vCenter. This is a VM on the same virtual network you created and provides access to vCenter and NSX Manager. 
 
 In this tutorial, you learn how to:
 
@@ -36,15 +38,13 @@ Enter the required information in the fields, and then select **Review + create*
 | **Username** | Enter the user name for logging on to the VM. |
 | **Password** | Enter the password for logging on to the VM. |
 | **Confirm password** | Enter the password for logging on to the VM. |
-| **Public inbound ports** | Select **None**. |
-
-![Configure a new Windows 10 VM for a jumpbox](./media/tutorial-access-private-cloud/ss9-basic-wjb01.png)
+| **Public inbound ports** | Select **None**. If you select None, you can use [JIT access](../security-center/security-center-just-in-time.md#configure-jit-access-from-an-azure-vms-page-) to control access to the VM only when you want to access it.  |
 
 After you have entered the appropriate information, click **Review + create**. Once validation passes, select **Create** to start the virtual machine creation process.
 
 ![Create a new Windows 10 VM for a jumpbox](./media/tutorial-access-private-cloud/ss11-review-create-wjb01.png)
 
-## Connect to vCenter
+## Connect to the local vCenter of your private cloud
 
 From the jump box log In to vSphere Client with VMware vCenter SSO. Log in to the vSphere Client using a cloud administrator user name; accept the security risk and continue when you see a warning about a potential security risk; log in to VMware vCenter with Single Sign-On credentials and verify the user interface successfully displays.
 
@@ -62,7 +62,7 @@ In the Windows VM, open a browser and navigate to the vCenter and NSX-T Manger U
 
 In the second tab of the browser, sign in to NSX-T manager.
 
-![Private cloud NSX Manger home](./media/tutorial-access-private-cloud/ss10-nsx-manager-home.png)
+![Local private cloud NSX Manger home](./media/tutorial-access-private-cloud/ss10-nsx-manager-home.png)
 
 In this tutorial you learned how to:
 

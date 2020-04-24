@@ -12,92 +12,77 @@ NSX-T provides the ability to configure DHCP for your private cloud. If you plan
 
 Use the following steps to configure a DHCP server on NSX-T.
 
-1. From NSX manager, navigate to the **Networking** tab and select **DHCP** under **IP Management**.
+From NSX manager, navigate to the **Networking** tab and select **DHCP** under **IP Management**. Select the **ADD SERVER** button. Then provide the server name and server IP address. Once done, select **Save**.
 
-   ![select DHCP under Networking](./media/manage-dhcp/select-dhcp.jpg)
+:::image type="content" source="./media/manage-dhcp/dhcp-server-settings.jpg" alt-text="add DHCP server" border="true":::
 
-1. Click on the **ADD SERVER** button. Then provide the server name and server IP address. Once done, click **Save**.
+### Connect DHCP server to the Tier-1 gateway.
 
-   ![add dhcp server](./media/manage-dhcp/dhcp-server-settings.jpg)
+Select **Tier 1 Gateways**, select the gateway and select **Edit**
 
-1. Connect DHCP server to the tier1 gateway.
+:::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.jpg" alt-text="select the gateway to use" border="true":::
 
-1. Click on **Tier 1 Gateways**, select the gateway and click **Edit**
+Add a subnet by selecting **No IP Allocation Set**
 
-   ![select the gateway to use](./media/manage-dhcp/edit-tier-1-gateway.jpg)
+:::image type="content" source="./media/manage-dhcp/add-subnet.jpg" alt-text="add a subnet" border="true":::
 
-1. Add a subnet by clicking on **No IP Allocation Set**
+On the next screen, select **DHCP Local Server** from the **Type** dropdown. For **DHCP Server**, select **Default DHCP** and select **Save**.
 
-   ![add a subnet](./media/manage-dhcp/add-subnet.jpg)
+:::image type="content" source="./media/manage-dhcp/set-ip-address-management.jpg" alt-text="select options for dhcp server" border="true":::
 
-1. On the next screen, select **DHCP Local Server** from the **Type** dropdown. For **DHCP Server**, select **Default DHCP** and click **Save**.
+On the **Tier -1 Gateway** window, select **Save**. On the next screen you'll see **Changes Saved**, select **Close Editing** to finish.
 
-    ![select options for dhcp server](./media/manage-dhcp/set-ip-address-management.jpg)
-
-1. On the **Tier -1 Gateway** window, click **Save**. On the next screen you'll see **Changes Saved**, click **Close Editing** to finish.
-
-    ![save your tier 1 gateway](./media/manage-dhcp/save-tier-1-gateway.jpg)
+### Add a network segment
 
 Once you've created your DHCP Server, you'll need to add network segments to it.
 
-1. In NSX-T, select the **Networking** tab and select **Segments** under **Connectivity**. Click **ADD SEGMENT**. Name the segment and connection to the Tier-1 Gateway.
+In NSX-T, select the **Networking** tab and select **Segments** under **Connectivity**. Select **ADD SEGMENT**. Name the segment and connection to the Tier-1 Gateway. Next, select **Set Subnets** to configure a new subnet. 
 
-   ![add a new network segment](./media/manage-dhcp/add-segment.jpg)
+:::image type="content" source="./media/manage-dhcp/add-segment.jpg" alt-text="add a new network segment" border="true":::
 
-1. Next, click **Set Subnets** to configure a new subnet.
+On the **Set Subnets** window, select **ADD SUBNET**. Enter the Gateway IP address and the DHCP range and select **Add** and then **APPLY**
 
-   ![select set subnets](./media/manage-dhcp/set-subnets.jpg)
+:::image type="content" source="./media/manage-dhcp/add-subnet-segment.jpg" alt-text="add network segment" border="true":::
 
-1. On the **Set Subnets** window, click **ADD SUBNET**. Enter the Gateway IP address and the DHCP range and click **Add**.
+When complete, select **Save** to complete adding a network segment.
 
-   ![add network segment](./media/manage-dhcp/add-subnet-segment.jpg)
-
-1. On the next window, click **APPLY**.
-
-1. When complete, click **Save** to complete adding a network segment.
-
-   ![segments complete](./media/manage-dhcp/segments-complete.jpg)
+:::image type="content" source="./media/manage-dhcp/segments-complete.jpg" alt-text="segments complete" border="true":::
 
 ## Create DHCP relay service
 
-1. In the NXT-T window, select the **Networking** tab, and under **IP Management**, select **DHCP**. Click **ADD SERVER**. Choose DHCP Relay for the **Server Type** and enter the server name and IP address for the relay server. Click **Save** to save your changes.
+In the NXT-T window, select the **Networking** tab, and under **IP Management**, select **DHCP**. Select **ADD SERVER**. Choose DHCP Relay for the **Server Type** and enter the server name and IP address for the relay server. Select **Save** to save your changes.
 
-   ![create dhcp relay server](./media/manage-dhcp/create-dhcp-relay.jpg)
+:::image type="content" source="./media/manage-dhcp/create-dhcp-relay.jpg" alt-text="create dhcp relay server" border="true":::
 
-1. Select **Tier-1 Gateways** under **Connectivity**. Click the vertical ellipsis on the Tier-1 gateway and choose **Edit**.
+Select **Tier-1 Gateways** under **Connectivity**. Select the vertical ellipsis on the Tier-1 gateway and choose **Edit**.
 
-   ![edit tier 1 gateway](./media/manage-dhcp/edit-tier-1-gateway-relay.jpg)
+:::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway-relay.jpg" alt-text="edit tier 1 gateway" border="true":::
 
-1. Click **No IP Allocation Set** to define the IP address allocation.
+Select **No IP Allocation Set** to define the IP address allocation.
 
-   ![edit ip address allocation](./media/manage-dhcp/edit-ip-address-allocation.jpg)
+:::image type="content" source="./media/manage-dhcp/edit-ip-address-allocation.jpg" alt-text="edit ip address allocation" border="true":::
 
-1. Into the dialog box, for **Type**, select **DHCP Relay Server**. In the **DHCP Relay** dropdown, select your DHCP relay server. When finished, click **Save**
+Into the dialog box, for **Type**, select **DHCP Relay Server**. In the **DHCP Relay** dropdown, select your DHCP relay server. When finished, select **Save**
 
-   ![](./media/manage-dhcp/set-ip-address-management-relay.jpg)
+:::image type="content" source="./media/manage-dhcp/set-ip-address-management-relay.jpg" alt-text="set ip address management" border="true":::
 
-1. Specify a DHCP Range IP on Segment:
+Specify a DHCP Range IP on Segment:
 
-   > [!NOTE]
-   > This configuration is required to realize DHCP relay functionality on the DHCP Client Segment. 
-release.
+> [!NOTE]
+> This configuration is required to realize DHCP relay functionality on the DHCP Client Segment. 
 
-1. Under **Connectivity**, select **Segments**. Click the vertical ellipses and select **Edit**. Instead, if you wanted to add a new segment, you can click **Add Segment** to create a new segment.
+Under **Connectivity**, select **Segments**. Select the vertical ellipses and select **Edit**. Instead, if you wanted to add a new segment, you can select **Add Segment** to create a new segment.
 
-   ![edit a network subnet](./media/manage-dhcp/edit-segments.jpg)
+:::image type="content" source="./media/manage-dhcp/edit-segments.jpg" alt-text="edit a network subnet" border="true":::
 
-1. You'll see details about the segment. Click the value under **Subnets** to add or modify the subnet.
+Add details about the segment. Select the value under **Subnets** or **Set Subnets** to add or modify the subnet.
 
-   ![network segments](./media/manage-dhcp/network-segments.jpg)
+:::image type="content" source="./media/manage-dhcp/network-segments.jpg" alt-text="network segments" border="true":::
 
-1. Click the vertical ellipses and choose **Edit**. If you need to create a new subnet, click **Add Subnet** to create a Gateway and configure a DHCP range.
+Select the vertical ellipses and choose **Edit**. If you need to create a new subnet, select **Add Subnet** to create a Gateway and configure a DHCP range. Provide the Range of the IP pool and select **Apply**, and then select **Save**
 
-   ![edit subnets](./media/manage-dhcp/edit-subnet.jpg)
+:::image type="content" source="./media/manage-dhcp/edit-subnet.jpg" alt-text="edit subnets" border="true":::
 
-1. Provide the Range of the IP pool and click **Apply**
+Now a DHCP server pool is assigned to the segment.
 
-   ![save the subnet you create](./media/manage-dhcp/save-subnet.jpg)
-
-1. A DHCP server pool is assigned to the segment.
-
-   ![DHCP server pool assigned to segment](./media/manage-dhcp/assigned-to-segment.jpg)
+:::image type="content" source="./media/manage-dhcp/assigned-to-segment.jpg" alt-text="DHCP server pool assigned to segment" border="true":::

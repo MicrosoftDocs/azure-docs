@@ -182,11 +182,17 @@ You'll have full administrator privileges on NSX-T and can manage role-based acc
 
 ## Billing and Support
 
-For questions on billing, see [pricing](https://azure.microsoft.com/pricing/calculator/)
+**How will I be billed during the preview of AVS**
+
+Billing for AVS during preview is monthly on a pay-as-you-go basis. Additional options will be available at general availability.
+
+**How will pricing be structured during the preview of AVS?**
+
+For general questions on pricing see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. Preview pricing is available on request, please contact your account team or follow the link on the pricing page to contact sales.
 
 **Who supports AVS?**
 
-Microsoft provides primary and second tier support for the platform, with VMware providing tier three support.
+Support for AVS is delivered by Microsoft. Please note as per our preview guidelines support parameters are scoped. Details on support for this specific service during preview is available on request to your account team.
 
 **What accounts do I need to create an AVS private cloud?**
 

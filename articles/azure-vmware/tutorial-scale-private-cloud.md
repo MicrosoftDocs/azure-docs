@@ -9,7 +9,9 @@ ms.date: 05/04/2020
 
 # Tutorial: Scale an Azure VMware Solution (AVS) Preview private cloud
 
-You can scale the number of clusters and the number of hosts in a private cloud. The cluster and host limits in a private cloud are provided in [the private cloud concept article](concepts-private-clouds-clusters.md).
+To get the most out of your AVS Preview private cloud experience, scale the clusters and hosts to reflect what you need for planned workloads. Since AVS won’t support your on-premises vCenter during preview, you'll need to use what you have already created through the Azure portal.
+
+You can scale the number of clusters and the number of hosts in a private cloud as required for your application workload. Performance and availability limitations for specific services need to be addressed on a case by case basis within your AVS Preview cloud environment. The cluster and host limits in a private cloud are provided in [the private cloud concept article](concepts-private-clouds-clusters.md).
 
 In this tutorial, you use the Azure portal to:
 
@@ -19,39 +21,35 @@ In this tutorial, you use the Azure portal to:
 
 ## Prerequisites
 
-You need a private cloud to complete this tutorial. If you haven't yet created a private cloud, use the [create a private cloud tutorial](tutorial-create-private-cloud.md) to create a private cloud.
+You need a private cloud to complete this tutorial. If you haven't yet created a private cloud, use the [create a private cloud tutorial](tutorial-create-private-cloud.md) to create a private cloud and configure networking for your VMware private cloud in Azure to setup the required virtual network.
 
-## Scale a private cloud
+## Add a new cluster
 
-On the overview page of an existing private cloud, select **Scale private cloud**.
+On the overview page of an existing private cloud, under **Manage**, select **Scale private cloud**. Next, select **+ Add a cluster**.
 
-![Select "Scale private cloud" in Overview](./media/scale-private-cloud/ss1-select-scale-private-cloud.png)
+![Select "Add a cluster"](./media/tutorial-scale-private-cloud/ss2-select-add-cluster.png)
 
-Select **+ Add a cluster**.
+In the **Add cluster** page, use the slider to select the number of hosts. Select **Save**.
 
-![Select "Add a cluster"](./media/scale-private-cloud/ss2-select-add-cluster.png)
-
-In the **Add cluster** page, enter a name, and use the slider to select the number of hosts. Select **OK**.
-
-![Configure a new private cloud cluster](./media/scale-private-cloud/ss3-configure-new-cluster.png)
+![Configure a new private cloud cluster](./media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png)
 
 The deployment of the new cluster will begin.
 
-## Scale a cluster in a private cloud 
+## Scale a cluster 
 
-On the overview page of an existing private cloud, select **Scale private cloud**.
+On the overview page of an existing private cloud, select **Scale private cloud** and select the pencil icon to edit the cluster.
 
-![Select "Scale private cloud" in Overview](./media/scale-private-cloud/ss4-select-scale-private-cloud-2.png)
+![Select "Scale private cloud" in Overview](./media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png)
 
-In the **Add cluster** form, enter a name, and use the slider to select the number of hosts. Select **OK**.
+In the **Edit Cluster** page, use the slider to select the number of hosts. Select **Save**.
 
-![Configure a new private cloud cluster](./media/scale-private-cloud/ss5-scale-cluster.png)
+![Configure a new private cloud cluster](./media/tutorial-scale-private-cloud/ss5-scale-cluster.png)
 
 The addition of hosts to the cluster will begin.
 
 ## Next steps
 
-If you require another AVS private cloud, [create another private cloud](tutorial-create-private-cloud.md).
+If you require another AVS private cloud, [create another private cloud](tutorial-create-private-cloud.md), following the same networking prerequisites, cluster and host limits...
 
 <!-- LINKS - external-->
 
