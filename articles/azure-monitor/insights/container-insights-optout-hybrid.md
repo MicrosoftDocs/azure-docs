@@ -1,0 +1,23 @@
+---
+title: How to stop monitoring your hybrid Kubernetes cluster | Microsoft Docs
+description: This article describes how you can stop monitoring of your hybrid Kubernetes cluster with Azure Monitor for containers.
+ms.topic: conceptual
+ms.date: 04/24/2020
+
+---
+
+# How to stop monitoring your hybrid cluster with Azure Monitor for containers
+
+After you enable monitoring of your Kubernetes cluster running on Azure Stack or on-premises, you can stop monitoring the cluster if you decide you no longer want to monitor it. This article shows how to accomplish this.  
+
+## How to stop monitoring using Helm
+
+To stop monitoring your hybrid Kubernetes cluster, you use the `Helm delete` command.
+
+`helm delete <release name of azure monitor for containers>`
+
+The configuration change can take a few minutes to complete.  Because Helm tracks your releases even after you’ve deleted them, you can audit a cluster’s history, and even undelete a release with `helm rollback`.
+
+## Next steps
+
+If the Log Analytics workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace](../../log-analytics/log-analytics-manage-del-workspace.md).
