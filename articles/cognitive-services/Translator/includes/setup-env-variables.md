@@ -17,4 +17,4 @@ Azure Cognitive Services are represented by Azure resources that you subscribe t
 After you get a key from your trial subscription or resource, create two [environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
 
 * `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` - The subscription key for your Translator resource.
-* `TRANSLATOR_TEXT_ENDPOINT` - The global endpoint for Translator API. Use `https://api.cognitive.microsofttranslator.com/`.
+* `TRANSLATOR_TEXT_ENDPOINT` - The global endpoint for Translator. Use `https://api.cognitive.microsofttranslator.com/`.

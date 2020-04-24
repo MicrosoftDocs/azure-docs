@@ -88,7 +88,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> For more information about endpoints, routes, and request parameters, see [Translator API 3.0: Transliterate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> For more information about endpoints, routes, and request parameters, see [Translator 3.0: Transliterate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ## Create a struct for your request body
 
@@ -106,7 +106,7 @@ b, _ := json.Marshal(body)
 
 ## Build the request
 
-Now that you've encoded the request body as JSON, you can build your POST request, and call the Translator API.
+Now that you've encoded the request body as JSON, you can build your POST request, and call the Translator.
 
 ```go
 // Build the HTTP POST request
@@ -118,7 +118,7 @@ if err != nil {
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
@@ -144,7 +144,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## Put it all together
 
-That's it, you've put together a simple program that will call the Translator API and return a JSON response. Now it's time to run your program:
+That's it, you've put together a simple program that will call the Translator and return a JSON response. Now it's time to run your program:
 
 ```console
 go run transliterate-text.go
@@ -165,7 +165,7 @@ If you'd like to compare your code against ours, the complete sample is availabl
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

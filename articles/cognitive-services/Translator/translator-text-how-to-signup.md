@@ -1,7 +1,7 @@
 ---
-title: Get started - Translator API
+title: Get started - Translator
 titleSuffix: Azure Cognitive Services
-description: This article will show you how to sign up for the Azure Cognitive Services Translator API and get a subscription key.
+description: This article will show you how to sign up for the Azure Cognitive Services Translator and get a subscription key.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -12,19 +12,19 @@ ms.date: 06/04/2019
 ms.author: swmachan
 ms.custom: seodec18
 ---
-# How to sign up for the Translator API
+# How to sign up for Translator
 
 ## Sign in to the Azure portal
 
 - Don't have an account? You can create a [free account](https://azure.microsoft.com/free/) to experiment at no charge.
 - Already have an account? [Sign in](https://ms.portal.azure.com/)
 
-## Create a subscription to the Translator API
+## Create a subscription for Translator
 
-After you sign in to the portal, you can create a subscription to the Translator API as follows:
+After you sign in to the portal, you can create a subscription to Translator as follows:
 
 1. Select **+ Create a resource**.
-1. In the **Search the Marketplace** search box, enter **Translator Text** and then select it from the results.
+1. In the **Search the Marketplace** search box, enter **Translator** and then select it from the results.
 1. Select **Create** to define details for the subscription.
 1. From the **Pricing tier** list, select the pricing tier that best fits your needs.
     1. Each subscription has a free tier. The free tier has the same features and functionalities as the paid plans and doesn't expire.
@@ -33,7 +33,7 @@ After you sign in to the portal, you can create a subscription to the Translator
 
 ## Authentication key
 
-When you sign up for Translator, you get a personalized access key unique to your subscription. This key is required on each call to the Translator API.
+When you sign up for Translator, you get a personalized access key unique to your subscription. This key is required on each call to the Translator.
 
 1. Retrieve your authentication key by first selecting the appropriate subscription.
 1. Select **Keys** in the **Resource Management** section of your subscription's details.
@@ -44,11 +44,11 @@ When you sign up for Translator, you get a personalized access key unique to you
 - [Code examples on GitHub](https://github.com/MicrosoftTranslator)
 - [Microsoft Translator Support Forum](https://www.aka.ms/TranslatorForum)
 
-Microsoft Translator will generally let your first couple of requests pass before it has verified the subscription account status. If the first few Microsoft Translator API requests succeed then the calls fail, the error response will indicate the problem. Please log the API response so you can see the reason.
+Microsoft Translator will generally let your first couple of requests pass before it has verified the subscription account status. If the first few Translator requests succeed then the calls fail, the error response will indicate the problem. Please log the API response so you can see the reason.
 
 ## Pricing options
 
-- [Translator API](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
+- [Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 
 ## Customization
 

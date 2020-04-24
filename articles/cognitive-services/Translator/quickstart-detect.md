@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Detect text language - Translator API"
+title: "Quickstart: Detect text language - Translator"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to detect the language of provided text using the Translator REST API.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
 ---
 
-# Quickstart: Use the Translator API to detect text language
+# Quickstart: Use the Translator to detect text language
 
 In this quickstart, you'll learn how to detect the language of provided text with the Translator REST API.
 

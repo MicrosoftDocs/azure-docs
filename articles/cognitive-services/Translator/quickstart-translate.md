@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Translate text - Translator"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn to translate text using the Translator API.
+description: In this quickstart, you'll learn to translate text using the Translator.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -13,7 +13,7 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
 ---
 
-# Quickstart: Use the Translator API to translate text
+# Quickstart: Use the Translator to translate text
 
 In this quickstart, you'll learn how to translate a text string from English to German, Italian, Japanese, and Thai using the Translator REST API.
 

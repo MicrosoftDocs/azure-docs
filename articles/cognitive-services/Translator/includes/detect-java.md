@@ -197,7 +197,7 @@ After you run the sample, you should see the following printed to terminal:
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
