@@ -207,7 +207,7 @@ The chart below lists the DTDL properties that Telemetry may have.
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
 | `@type` | Required | IRI |  | Immutable | This must be at least "Telemetry". It can also include a semantic type. |
-| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. The name must be unique for all contents in this Interface. | Immutable | The "programming" name of the telemetry |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: `^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$`. The name must be unique for all contents in this Interface. | Immutable | The "programming" name of the telemetry |
 | `schema` | Required | Schema (described later in this article) | Immutable | The data type of the Telemetry |
 | `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the telemetry. If this field is not provided, the digital twin interface processor will assign one. |
 | `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
@@ -252,7 +252,7 @@ The chart below lists the DTDL properties that a Property may have.
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
 | `@type` | Required | IRI |  | Immutable | This must at least be "Property". It can also include a semantic type. |
-| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. The name must be unique for all contents in this Interface. | Immutable | The "programming" name of the Property |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: `^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$`. The name must be unique for all contents in this Interface. | Immutable | The "programming" name of the Property |
 | `schema` | Required | Schema (described later in this article) | May not be Array nor any complex schema that contains Array | Immutable | The data type of the Property |
 | `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the Property. If this field is not provided, the digital twin interface processor will assign one. |
 | `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
@@ -293,7 +293,7 @@ The chart below lists the DTDL properties that a Command may have.
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
 | `@type` | Required | IRI |  | Immutable | This must be *Command* |
-| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. The name must be unique for all contents in this Interface. | Immutable | The "programming" name of the Command. |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: `^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$`. The name must be unique for all contents in this Interface. | Immutable | The "programming" name of the Command. |
 | `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the Command. If this field is not provided, the digital twin interface processor will assign one. |
 | `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
 | `description` | Optional | *string* | 1-512 chars | Mutable | A localizable description for human display |
@@ -339,7 +339,7 @@ The chart below lists the DTDL properties that *CommandPayload* may have.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. | Immutable | The "programming" name of the payload |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: `^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$`. | Immutable | The "programming" name of the payload |
 | `schema` | Required | Schema  (described later in this article) |  | Immutable | The data type of the payload |
 | `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the command payload. If this field is not provided, the digital twin interface processor will assign one. |
 | `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
@@ -360,7 +360,7 @@ The chart below lists the DTDL properties that a Relationship may have.
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
 | `@type` | Required | IRI |  | Immutable | This must be *Relationship* |
-| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. The name must be unique for all contents in this Interface. | Immutable | The "programming" name of the Relationship |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: `^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$`. The name must be unique for all contents in this Interface. | Immutable | The "programming" name of the Relationship |
 | `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the relationship. If this field is not provided, the digital twin interface processor will assign one. |
 | `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
 | `description` | Optional | *string* | 1-512 chars | Mutable | A localizable description for human display |
@@ -422,7 +422,7 @@ The chart below lists the DTDL properties that a Component may have.
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
 | `@type` | Required | IRI |  | Immutable | This must be *Component* |
-| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. The name must be unique for all contents in this Interface. | Immutable | The "programming" name of the Component. |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: `^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$`. The name must be unique for all contents in this Interface. | Immutable | The "programming" name of the Component. |
 | `schema` | Required | DTMI | cannot have a Component in a Component; cannot introduce a cycle of Components | Version number can be incremented | The data type of the component, given as the DTMI of another Interface |
 | `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the Component. If this field is not provided, the digital twin interface processor will assign one. |
 | `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
@@ -550,7 +550,7 @@ The chart below lists the DTDL properties that an *EnumValue* may have.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. The name must be unique for all *EnumValues* in this Enum. | Immutable | The "programming" name of the *EnumValue* |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: `^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$`. The name must be unique for all *EnumValues* in this Enum. | Immutable | The "programming" name of the *EnumValue* |
 | `enumValue` | Required | *int* or *string* | *EnumValue* must be unique for all *EnumValues* in this Enum. | Immutable | The on-the-wire value that maps to the *EnumValue* |
 | `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the enum value. If this field is not provided, the digital twin interface processor will assign one. |
 | `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
@@ -604,7 +604,7 @@ The chart below lists the DTDL properties that a *MapKey* may have.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. | Immutable | The "programming" name of the map's key |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: `^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$`. | Immutable | The "programming" name of the map's key |
 | `schema` | Required | Schema | Must be *string* | Immutable | The data type of the map's key |
 | `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the *MapKey*. If this field is not provided, the digital twin interface processor will assign one. |
 | `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
@@ -619,7 +619,7 @@ The chart below lists the DTDL properties that a *MapValue* may have.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. | Immutable | The "programming" name of the map's value |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: `^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$`. | Immutable | The "programming" name of the map's value |
 | `schema` | Required | Schema |  | Immutable | The data type of the map's values |
 | `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the *MapValue*. If this field is not provided, the digital twin interface processor will assign one. |
 | `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
@@ -679,7 +679,7 @@ The chart below lists the DTDL properties that a *Field* may have.
 
 | Property | Required | Data type | Limits | Version rules | Description |
 | --- | --- | --- | --- | --- | --- |
-| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: *^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$*. The name must be unique for all fields in this object. | Immutable | The "programming" name of the *Field* |
+| `name` | Required | *string* | 1-64 chars. The name must match this regular expression: `^[a-zA-Z](?:[a-zA-Z0-9_]*[a-zA-Z0-9])?$`. The name must be unique for all fields in this object. | Immutable | The "programming" name of the *Field* |
 | `schema` | Required | Schema |  | Immutable | The data type of the field |
 | `@id` | Optional | DTMI | Max 2048 chars | Version number can be incremented | The ID of the *Field*. If this is not provided, the digital twin interface processor will assign one. |
 | `comment` | Optional | *string* | 1-512 chars | Mutable | A developer comment |
