@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Linux Python app with Postgres'
-description: Learn how to get a Linux Python app working in Azure App Service, with connection to a PostgreSQL database in Azure. The tutorial demonstrates by using a Django sample app.
+title: 'Tutorial: Deploy Python (Django) with Postgres'
+description: Learn how to create a Python app with a PostgreSQL database and deploy it to Azure App Service on Linux. The tutorial uses a Django sample app for demonstration.
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 04/14/2020
@@ -157,12 +157,12 @@ Once the deployment finishes, you see a JSON output like the following:
 
 <pre>
 {
-  "URL": "http://<app-name>.azurewebsites.net",
+  "URL": "http://&lt;app-name&gt;.azurewebsites.net",
   "appserviceplan": "myAppServicePlan",
   "location": "westus",
-  "name": "<app-name>",
+  "name": "&lt;app-name&gt;",
   "os": "Linux",
-  "resourcegroup": "<app-resource-group>",
+  "resourcegroup": "&lt;app-resource-group&gt;",
   "runtime_version": "python|3.7",
   "runtime_version_detected": "-",
   "sku": "BASIC",
@@ -207,9 +207,8 @@ In the SSH session, run the following commands:
 ```bash
 cd site/wwwroot
 
-# Activate virtual environment
-python3 -m venv venv
-source venv/bin/activate
+# Activate default virtual environment in App Service container
+source /antenv/bin/activate
 # Install requirements in environment
 pip install -r requirements.txt
 # Run database migrations
@@ -361,8 +360,8 @@ Because you made changes to the data model, you need to rerun database migration
 ```
 cd site/wwwroot
 
-# Activate the virtual environment
-source venv/bin/activate
+# Activate default virtual environment in App Service container
+source /antenv/bin/activate
 # Run database migrations
 python manage.py migrate
 ```

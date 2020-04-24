@@ -18,7 +18,21 @@ A private endpoint is a network interface that connects you privately and secure
 
 For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
-> [!NOTE]
+>[!WARNING]
+> Implementing private endpoints can prevent other Azure services from interacting with Service Bus.
+>
+> Trusted Microsoft services are not supported when Virtual Networks are implemented.
+>
+> Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
+> - Integration with Azure Event Grid
+> - Azure IoT Hub Routes
+> - Azure IoT Device Explorer
+>
+> The below Microsoft services are required to be on a virtual network
+> - Azure App Service
+> - Azure Functions
+
+> [!IMPORTANT]
 > This feature is supported with the **premium** tier of Azure Service Bus. For more information about the premium tier, see the [Service Bus Premium and Standard messaging tiers](service-bus-premium-messaging.md) article.
 >
 > This feature is currently in **preview**. 

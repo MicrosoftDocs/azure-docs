@@ -4,15 +4,16 @@ titlesuffix: Azure Virtual Network
 description: Learn about public and private IP addresses in Azure.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
+ms.sudbservice: ip-services
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: kumud
+ms.author: allensu
 
 ---
 # IP address types and allocation methods in Azure
