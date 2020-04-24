@@ -29,7 +29,7 @@ After you enable monitoring of your Kubernetes cluster running on Azure Stack or
 
 2. To delete the chart release, run the following helm command.
 
-    `helm delete <release name of azure monitor for containers>`
+    `helm delete <releaseName>`
 
     Example:
 
