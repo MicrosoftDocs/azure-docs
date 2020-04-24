@@ -30,23 +30,23 @@ It is vital to monitor, manage, and know your own network for uncompromised secu
 
 Flow logs are the source of truth for all network activity in your cloud environment. Whether you're an upcoming startup trying to optimize resources or large enterprise trying to detect intrusion, Flow logs are your best bet. You can use it for optimizing network flows, monitoring throughput, verifying compliance, detecting intrusions and more.
 
-## Common Use Cases
+## Common use cases
 
-**Network Monitoring**: Identify unknown or undesired traffic. Monitor traffic levels and bandwidth consumption. Filter flow logs by IP and port to understand application behavior. Export Flow Logs to analytics and visualization tools of your choice to setup monitoring dashboards.
+**Network Monitoring**: Identify unknown or undesired traffic. Monitor traffic levels and bandwidth consumption. Filter flow logs by IP and port to understand application behavior. Export Flow Logs to analytics and visualization tools of your choice to set up monitoring dashboards.
 
-**Usage monitoring and optimization:**: Identify top talkers in your network. Combine with GeoIP data to identify cross-region traffic. Understand traffic growth for capacity forecasting. Use data to remove overtly restrictive traffic rules.
+**Usage monitoring and optimization:** Identify top talkers in your network. Combine with GeoIP data to identify cross-region traffic. Understand traffic growth for capacity forecasting. Use data to remove overtly restrictive traffic rules.
 
 **Compliance**: Use flow data to verify network isolation and compliance with enterprise access rules
 
 **Network forensics & Security analysis**: Analyze network flows from compromised IPs and network interfaces. Export flow logs to any SIEM or IDS tool of your choice.
 
-## How Logging works
+## How logging works
 
 **Key Properties**
 
-- Flow logs operate at [Layer 4](https://en.wikipedia.org/wiki/OSI_model#Layer_4:_Transport_Layer) and records all IP flows going in and out of an NSG
+- Flow logs operate at [Layer 4](https://en.wikipedia.org/wiki/OSI_model#Layer_4:_Transport_Layer) and record all IP flows going in and out of an NSG
 - Logs are collected through the Azure platform and do not affect customer resources or network performance in any way.
-- Logs are written in the JSON format and show outbound as well as inbound flows on a per NSG rule basis.
+- Logs are written in the JSON format and show outbound and inbound flows on a per NSG rule basis.
 - Each log record contains the network interface (NIC) the flow applies to, 5-tuple information, the traffic decision & (Version 2 only) throughput information. See _Log Format_ below for full details.
 - Flow Logs have a retention feature that allows automatically deleting the logs up to a year after their creation
 
@@ -55,7 +55,7 @@ Flow logs are the source of truth for all network activity in your cloud environ
 - Software defined networks are organized around Virtual Networks (VNETs) and subnets. The security of these VNets and subnets can be managed using an NSG.
 - A Network security group (NSG) contains a list of _security rules_ that allow or deny network traffic in resources it is connected to. NSGs can be associated with subnets, individual VMs, or individual network interfaces (NIC) attached to VMs (Resource Manager). For more information, see [Network security group overview](https://docs.microsoft.com/azure/virtual-network/security-overview?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json).
 - All traffic flows in your network are evaluated using the rules in the applicable NSG.
-- The result of these evaluations is NSG Flow Logs. Flow logs are collected through the Azure platform and do not require any change to the customer resources.
+- The result of these evaluations is NSG Flow Logs. Flow logs are collected through the Azure platform and don't require any change to the customer resources.
 - NSG Flow Logs are written to storage accounts from where they can be accessed.
 - You can export, process, analyze, and visualize Flow Logs using tools like TA, Splunk, Grafana, Stealthwatch, etc.
 
@@ -64,9 +64,9 @@ Flow logs are the source of truth for all network activity in your cloud environ
 Flow logs include the following properties:
 
 * **time** - Time when the event was logged
-* **systemId** - Network Security Group resource Id.
+* **systemId** - Network Security Group resource ID.
 * **category** - The category of the event. The category is always **NetworkSecurityGroupFlowEvent**
-* **resourceid** - The resource Id of the NSG
+* **resourceid** - The resource ID of the NSG
 * **operationName** - Always NetworkSecurityGroupFlowEvents
 * **properties** - A collection of properties of the flow
 	* **Version** - Version number of the Flow Log event schema
@@ -283,7 +283,7 @@ The text that follows is an example of a flow log. As you can see, there are mul
         }
         
 ```
-**Log Tuple Explained**
+**Log tuple explained**
 
 ![flow logs overview](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
 
@@ -298,21 +298,21 @@ Flow tuples from a TCP conversation between 185.170.185.105:35370 and 10.2.0.4:2
 For continuation _C_ and end _E_ flow states, byte and packet counts are aggregate counts from the time of the previous flow tuple record. Referencing the previous example conversation, the total number of packets transferred is 1021+52+8005+47 = 9125. The total number of bytes transferred is 588096+29952+4610880+27072 = 5256000.
 
 
-## Enabling Flow logs
+## Enabling NSG Flow Logs
 
 Use the relevant link from below for guides on enabling flow logs.
 
-- [Azure Portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
-- [Powershell](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-powershell)
+- [Azure portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-powershell)
 - [CLI](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-cli)
 - [REST](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-rest)
-- [ARM](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-azure-resource-manager)
+- [Azure Resource Manager](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-azure-resource-manager)
 
 ## Updating parameters
 
-**Azure Portal**
+**Azure portal**
 
-On the Azure Portal, navigate to the NSG Flow Logs section in Network Watcher. Then click the name of the NSG. This will bring up the settings pane for the Flow log. Change the parameters you want and hit **Save** to deploy the changes.
+On the Azure portal, navigate to the NSG Flow Logs section in Network Watcher. Then click the name of the NSG. This will bring up the settings pane for the Flow log. Change the parameters you want and hit **Save** to deploy the changes.
 
 **PS/CLI/REST/ARM**
 
@@ -335,7 +335,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 *Visualize flow Logs*
 
 - [Azure Traffic analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) is an Azure native service to process flow logs, extracts insights and visualize flow logs. 
-- [[Tutorial] Visualize NSG Flow logs with PowerBI](https://docs.microsoft.com/azure/network-watcher/network-watcher-visualize-nsg-flow-logs-power-bi)
+- [[Tutorial] Visualize NSG Flow logs with Power BI](https://docs.microsoft.com/azure/network-watcher/network-watcher-visualize-nsg-flow-logs-power-bi)
 - [[Tutorial] Visualize NSG Flow logs with Elastic Stack](https://docs.microsoft.com/azure/network-watcher/network-watcher-visualize-nsg-flow-logs-open-source-tools)
 - [[Tutorial] Manage and analyze NSG Flow logs using Grafana](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-grafana)
 - [[Tutorial] Manage and analyze NSG Flow logs using Graylog](https://docs.microsoft.com/azure/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog)
@@ -358,11 +358,11 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Enable on critical VNETs/Subnets**: Flow Logs should be enabled on all critical VNETs/subnets in your subscription as an auditability and security best practice. 
 
-**Enable NSG Flow Logging on all NSGs attached to a resource**: Flow logging in Azure is configured on the NSG resource. A flow will only be associated to one NSG Rule. In scenarios where multiple NSGs are utilized, we recommend that NSG flow logging is enabled on all NSGs applied a resource's subnet or network interface to ensure that all traffic is recorded. For more information, see [how traffic is evaluated](../virtual-network/security-overview.md#how-traffic-is-evaluated) in Network Security Groups.
+**Enable NSG Flow Logging on all NSGs attached to a resource**: Flow logging in Azure is configured on the NSG resource. A flow will only be associated to one NSG Rule. In scenarios where multiple NSGs are utilized, we recommend enabling NSG flow logs on all NSGs applied a resource's subnet or network interface to ensure that all traffic is recorded. For more information, see [how traffic is evaluated](../virtual-network/security-overview.md#how-traffic-is-evaluated) in Network Security Groups.
 
 **Storage provisioning**: Storage should be provisioned in tune with expected Flow Log volume.
 
-## Troubleshooting Common Issues
+## Troubleshooting common issues
 
 ### **I could not enable NSG Flow Logs**
 
