@@ -29,7 +29,7 @@ This release corresponds to the software versions:
 
 There are no new features in the 1911 release, only bug fixes.
 
-## Known issues in GA release
+## Known issues in this release
 
 No new issues are release noted for this release. All the release noted issues have carried over from the previous releases. To see a list of known issues, go to [Known issues in the GA release](data-box-gateway-release-notes.md#known-issues-in-ga-release).
 
