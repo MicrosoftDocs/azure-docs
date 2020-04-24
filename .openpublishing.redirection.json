@@ -908,6 +908,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Content-Moderator/dotnet-sdk-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/java-sdk-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/client-libraries?pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/python-sdk-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Content-Moderator/client-libraries?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Tutorials/create-publish-query-in-portal.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
       "redirect_document_id": false
@@ -17884,6 +17899,16 @@
     {
       "source_path": "articles/storage/blobs/data-lake-storage-evaluation.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-upgrade",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-migration-to-premium-storage.md",
+      "redirect_url": "/azure/virtual-machines/windows/migrate-to-managed-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-troubleshoot-vhds.md",
+      "redirect_url": "/azure/virtual-machines/troubleshooting",
       "redirect_document_id": false
     },
     {
