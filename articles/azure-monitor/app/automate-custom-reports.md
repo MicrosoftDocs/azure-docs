@@ -124,7 +124,7 @@ availabilityResults
 
 These steps only apply if you don't already have a SendGrid account configured.
 
-1. From the Azure portal select **Create a resource** search for **SendGrid Email Delivery** > Click **Create** > and fill out the SendGrid specific create instructions.
+1. From the Azure portal, select **Create a resource** > search for **SendGrid Email Delivery** > click **Create** > fill out the SendGrid specific create instructions.
 
      ![Create SendGrid Resource Screenshot](./media/automate-custom-reports/sendgrid.png)
 
@@ -136,7 +136,7 @@ These steps only apply if you don't already have a SendGrid account configured.
 
      ![Create and View API Key App Screenshot](./media/automate-custom-reports/function-app-15.png)
 
-4. Create an API Key > choose **Create & View** (Please review SendGrid's documentation on restricted access to determine what level of permissions is appropriate for your API Key. Full Access is selected here for example purposes only.)
+4. Create an API Key > choose **Create & View**. (Review SendGrid's documentation on restricted access to determine what level of permissions is appropriate for your API Key. Full Access is selected here for example purposes only.)
 
    ![Full access screenshot](./media/automate-custom-reports/function-app-16.png)
 
