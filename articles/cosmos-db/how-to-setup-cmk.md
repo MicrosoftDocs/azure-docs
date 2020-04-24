@@ -200,9 +200,19 @@ az cosmosdb create \
 
 ## Frequently asked questions
 
-### Is there any additional charge for using customer-managed keys?
+### Is there an additional charge to enable customer-managed keys?
 
-Yes. To account for the additional compute load that is required to manage data encryption and decryption with customer-managed keys, all operations executed against the Azure Cosmos account consume a 25 percent increase in [Request Units](./request-units.md).
+No, there's no charge to enable this feature
+
+### How do customer-managed keys impact capacity planning?
+
+When using customer-managed keys, [Request Units](./request-units.md) consumed by your database operations see an increase to reflect the additional processing required to perform encryption and decryption of your data. This may lead to slightly higher utilization of your provisioned capacity. Use the table below for guidance:
+
+| Operation type | Request Unit increase |
+|---|---|
+| Point-reads (fetching items by their ID) | + 5% |
+| Any write operation | + 6 to 15% depending on the number of properties to index |
+| Queries, reading change feed or conflict feed | + 15% |
 
 ### What data gets encrypted with the customer-managed keys?
 
