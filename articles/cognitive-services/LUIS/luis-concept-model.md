@@ -17,6 +17,8 @@ The app schema is built from models you create using [machine teaching](#authori
 
 LUIS's machine teaching methodology allows you to easily teach concepts to a machine. Understanding _machine learning_ is not necessary to use LUIS. Instead, you as the teacher, communicates a concept to LUIS by providing examples of the concept and explaining how a concept should be modeled using other related concepts. You, as the teacher, can also improve LUIS's model interactively by identifying and fixing prediction mistakes.
 
+<a name="v3-authoring-model-decomposition"></a>
+
 ## Authoring model decomposition
 
 LUIS supports _model decomposition_ with the authoring APIs, breaking down a concept into smaller parts. This allows you to build your models with confidence in how the various parts are constructed and predicted.
