@@ -4281,7 +4281,7 @@ Azure service: [Event Grid](../event-grid/index.yml)
 > |  | **domains/privateLinkResources** |  |
 > | Action | Microsoft.EventGrid/domains/privateLinkResources/read | Get or List PrivateLinkResources for domains |
 > |  | **domains/providers/Microsoft.Insights/logDefinitions** |  |
-> | Action | Microsoft.EventGrid/domains/providers/Microsoft.Insights/logDefinitions/read | Allows access to diagnostic logs |
+> | Action | Microsoft.EventGrid/domains/providers/Microsoft.Insights/logDefinitions/read | Allows access to resource logs |
 > |  | **domains/providers/Microsoft.Insights/metricDefinitions** |  |
 > | Action | Microsoft.EventGrid/domains/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for domains |
 > |  | **domains/topics** |  |
@@ -4349,7 +4349,7 @@ Azure service: [Event Grid](../event-grid/index.yml)
 > | Action | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for system topics |
 > | Action | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for system topics |
 > |  | **systemTopics/providers/Microsoft.Insights/logDefinitions** |  |
-> | Action | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/logDefinitions/read | Allows access to diagnostic logs |
+> | Action | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/logDefinitions/read | Allows access to resource logs |
 > |  | **systemTopics/providers/Microsoft.Insights/metricDefinitions** |  |
 > | Action | Microsoft.EventGrid/systemTopics/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for system topics |
 > |  | **topics** |  |
@@ -4373,7 +4373,7 @@ Azure service: [Event Grid](../event-grid/index.yml)
 > | Action | Microsoft.EventGrid/topics/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for topics |
 > | Action | Microsoft.EventGrid/topics/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for topics |
 > |  | **topics/providers/Microsoft.Insights/logDefinitions** |  |
-> | Action | Microsoft.EventGrid/topics/providers/Microsoft.Insights/logDefinitions/read | Allows access to diagnostic logs |
+> | Action | Microsoft.EventGrid/topics/providers/Microsoft.Insights/logDefinitions/read | Allows access to resource logs |
 > |  | **topics/providers/Microsoft.Insights/metricDefinitions** |  |
 > | Action | Microsoft.EventGrid/topics/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for topics |
 > |  | **topictypes** |  |

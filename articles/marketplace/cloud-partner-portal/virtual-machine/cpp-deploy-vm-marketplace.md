@@ -12,7 +12,7 @@ ms.author: dsindona
 # Deploy a virtual machine from the Azure Marketplace
 
 > [!IMPORTANT]
-> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Azure VM image certification](https://aks.ms/CertifyVMimage) to manage your migrated offers.
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Azure VM image certification](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-image-certification) to manage your migrated offers.
 
 This article explains how to deploy a pre-configured virtual machine (VM) from an Azure Marketplace, using the provided Azure PowerShell script.  This script also exposes the WinRM HTTP and HTTPS endpoints on the VM.  The script requires that you already have a certificate uploaded to Azure Key Vault, as described in [Create certificates for Azure Key Vault](./cpp-create-key-vault-cert.md). 
 
