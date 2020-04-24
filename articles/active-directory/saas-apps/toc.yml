@@ -219,8 +219,6 @@
         href: box-tutorial.md
       - name: Boxcryptor
         href: boxcryptor-tutorial.md
-      - name: Bpm’online
-        href: bpmonline-tutorial.md
       - name: Brandfolder
         href: brandfolder-tutorial.md
       - name: Braze
@@ -383,6 +381,8 @@
         href: coupa-tutorial.md
       - name: CPQSync by Cincom
         href: cpqsync-by-cincom-tutorial.md
+      - name: Creatio
+        href: bpmonline-tutorial.md
       - name: CrossKnowledge Learning Suite
         href: crossknowledge-learning-suite-tutorial.md
       - name: CS Stars
@@ -1030,9 +1030,9 @@
         href: netsuite-tutorial.md
       - name: Netvision Compas
         href: netvision-compas-tutorial.md
-      - name: New Relic
+      - name: New Relic by Account
         href: new-relic-tutorial.md
-      - name: New Relic (Limited Release)
+      - name: New Relic (By Organization)
         href: new-relic-limited-release-tutorial.md
       - name: Nexonia
         href: nexonia-tutorial.md
