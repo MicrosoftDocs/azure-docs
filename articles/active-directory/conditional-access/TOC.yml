@@ -96,6 +96,8 @@
     href: policy-migration-mfa.md
   - name: Troubleshooting
     items:
+    - name: Troubleshoot sign-in problems
+      href: troubleshoot-conditional-access.md
     - name: Troubleshoot using the What If tool 
       href: troubleshoot-conditional-access-what-if.md
 - name: Resources

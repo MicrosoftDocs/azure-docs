@@ -79,7 +79,7 @@ Abandon the existing encryption key so that new encryption key can be created:
 
 2. Start a new PowerShell session.
 
-3. Navigate to folder: `$env:Program Files\Microsoft Azure AD Sync\bin\`
+3. Navigate to folder: `'$env:ProgramFiles\Microsoft Azure AD Sync\bin\'`
 
 4. Run the command: `./miiskmu.exe /a`
 

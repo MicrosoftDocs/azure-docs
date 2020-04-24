@@ -22,7 +22,7 @@ To control access and protect data in Azure Logic Apps, you can set up security 
 
 ## Access to request-based triggers
 
-If your logic app uses a request-based trigger, which receives incoming calls or requests, such as the [Request](../connectors/connectors-native-reqres.md) or [Webhook](../connectors/connectors-native-webhook.md) trigger, you can limit access so that only authorized clients can call your logic app. All requests received by a logic app are encrypted and secured with Secure Sockets Layer (SSL) protocol.
+If your logic app uses a request-based trigger, which receives incoming calls or requests, such as the [Request](../connectors/connectors-native-reqres.md) or [Webhook](../connectors/connectors-native-webhook.md) trigger, you can limit access so that only authorized clients can call your logic app. All requests received by a logic app are encrypted and secured with Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), protocol.
 
 Here are options that can help you secure access to this trigger type:
 
@@ -180,7 +180,7 @@ To prevent others from changing or deleting your logic app, you can use [Azure R
 
 During a logic app run, all the data is [encrypted during transit](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) by using Transport Layer Security (TLS) and [at rest](../security/fundamentals/encryption-atrest.md). When your logic app finishes running, you can view the history for that run, including the steps that ran along with the status, duration, inputs, and outputs for each action. This rich detail provides insight into how your logic app ran and where you might start troubleshooting any problems that arise.
 
-When you view your logic app's run history, Logic Apps authenticates your access and then provides links to the inputs and outputs for the requests and responses for each run. However, for actions that handle any passwords, secrets, keys, or other sensitive information, you want to prevent others from viewing and accessing that data. For example, if your logic app gets a secret from [Azure Key Vault](../key-vault/key-vault-overview.md) to use when authenticating an HTTP action, you want to hide that secret from view.
+When you view your logic app's run history, Logic Apps authenticates your access and then provides links to the inputs and outputs for the requests and responses for each run. However, for actions that handle any passwords, secrets, keys, or other sensitive information, you want to prevent others from viewing and accessing that data. For example, if your logic app gets a secret from [Azure Key Vault](../key-vault/general/overview.md) to use when authenticating an HTTP action, you want to hide that secret from view.
 
 To control access to the inputs and outputs in your logic app's run history, you have these options:
 
@@ -371,7 +371,7 @@ For more information, see these sections in this topic:
 
 If you [automate deployment for logic apps by using Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can define secured [template parameters](../azure-resource-manager/templates/template-parameters.md), which are evaluated at deployment, by using the `securestring` and `secureobject` types. To define template parameters, use your template's top level `parameters` section, which is separate and different from your workflow definition's `parameters` section. To provide the values for template parameters, use a separate [parameter file](../azure-resource-manager/templates/parameter-files.md).
 
-For example, if you use secrets, you can define and use secured template parameters that retrieve those secrets from [Azure Key Vault](../key-vault/key-vault-overview.md) at deployment. You can then reference the key vault and secret in your parameter file. For more information, see these topics:
+For example, if you use secrets, you can define and use secured template parameters that retrieve those secrets from [Azure Key Vault](../key-vault/general/overview.md) at deployment. You can then reference the key vault and secret in your parameter file. For more information, see these topics:
 
 * [Pass sensitive values at deployment by using Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 * [Secure parameters in Azure Resource Manager templates](#secure-parameters-deployment-template) later in this topic
@@ -426,7 +426,7 @@ To protect sensitive information in your logic app's workflow definition, use se
 
 ### Secure parameters in Azure Resource Manager templates
 
-A [Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) for a logic app has multiple `parameters` sections. To protect passwords, keys, secrets, and other sensitive information, define secured parameters at the template level and workflow definition level by using the `securestring` or `secureobject` type. You can then store these values in [Azure Key Vault](../key-vault/key-vault-overview.md) and use the [parameter file](../azure-resource-manager/templates/parameter-files.md) to reference the key vault and secret. Your template then retrieves that information at deployment. For more information, see [Pass sensitive values at deployment by using Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
+A [Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) for a logic app has multiple `parameters` sections. To protect passwords, keys, secrets, and other sensitive information, define secured parameters at the template level and workflow definition level by using the `securestring` or `secureobject` type. You can then store these values in [Azure Key Vault](../key-vault/general/overview.md) and use the [parameter file](../azure-resource-manager/templates/parameter-files.md) to reference the key vault and secret. Your template then retrieves that information at deployment. For more information, see [Pass sensitive values at deployment by using Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
 
 Here is more information about these `parameters` sections:
 
@@ -624,7 +624,7 @@ HTTP and HTTPS endpoints support various kinds of authentication. Based on the t
 
 ### Basic authentication
 
-If the [Basic](../active-directory-b2c/secure-rest-api-dotnet-basic-auth.md) option is available, specify these property values:
+If the [Basic](../active-directory-b2c/secure-rest-api.md) option is available, specify these property values:
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
@@ -659,7 +659,7 @@ If the [Client Certificate](../active-directory/authentication/active-directory-
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Yes | **Client Certificate** <br>or <br>`ClientCertificate` | The authentication type to use for Secure Sockets Layer (SSL) client certificates. While self-signed certificates are supported, self-signed certificates for SSL aren't supported. |
+| **Authentication** | `type` | Yes | **Client Certificate** <br>or <br>`ClientCertificate` | The authentication type to use for TLS/SSL client certificates <p><p>**Note**: While self-signed certificates are supported, self-signed certificates for TLS/SSL aren't supported. The HTTP connector doesn't support intermediate TLS/SSL certificates. |
 | **Pfx** | `pfx` | Yes | <*encoded-pfx-file-content*> | The base64-encoded content from a Personal Information Exchange (PFX) file <p><p>To convert the PFX file into base64-encoded format, you can use PowerShell by following these steps: <p>1. Save the certificate content into a variable: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Convert the certificate content by using the `ToBase64String()` function and save that content to a text file: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Password** | `password`| No | <*password-for-pfx-file*> | The password for accessing the PFX file |
 |||||
@@ -686,9 +686,9 @@ For more information about securing services by using client certificate authent
 
 * [Improve security for APIs by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
 * [Improve security for back-end services by using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
-* [Improve security for your RESTfuL service by using client certificates](../active-directory-b2c/secure-rest-api-dotnet-certificate-auth.md)
+* [Improve security for your RESTfuL service by using client certificates](../active-directory-b2c/secure-rest-api.md)
 * [Certificate credentials for application authentication](../active-directory/develop/active-directory-certificate-credentials.md)
-* [Use an SSL certificate in your application code in Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
+* [Use a TLS/SSL certificate in your code in Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 
 <a name="azure-active-directory-oauth-authentication"></a>
 

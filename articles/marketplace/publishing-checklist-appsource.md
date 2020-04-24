@@ -1,7 +1,7 @@
 ---
 title: Publishing checklist for AppSource | Azure Marketplace
 description: Publishing checklist for AppSource.
-author: jm-aditi-ms
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

@@ -1,7 +1,7 @@
 ---
 title: Promote Your Business with Microsoft | Azure Marketplace
 description: Promote your business using Azure Marketplace and AppSource for app and service publishers
-author: jm-aditi-ms
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

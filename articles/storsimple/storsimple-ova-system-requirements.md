@@ -96,7 +96,7 @@ The following table lists the ports that need to be opened in your firewall to a
 <sup>1</sup> No inbound ports need to be opened on the public Internet.
 
 > [!IMPORTANT]
-> Ensure that the firewall does not modify or decrypt any SSL traffic between the StorSimple device and Azure.
+> Ensure that the firewall does not modify or decrypt any TLS traffic between the StorSimple device and Azure.
 > 
 > 
 

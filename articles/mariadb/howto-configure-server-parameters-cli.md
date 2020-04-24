@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 4/1/2020
 ---
 # Customize server configuration parameters by using Azure CLI
 You can list, show, and update configuration parameters for an Azure Database for MariaDB server by using Azure CLI, the Azure command-line utility. A subset of engine configurations is exposed at the server-level and can be modified.
@@ -53,10 +53,10 @@ This code resets the **slow\_query\_log** configuration to the default value **O
 
 ### Populating the time zone tables
 
-The time zone tables on your server can be populated by calling the `az_load_timezone` stored procedure from a tool like the MariaDB command line or MariaDB Workbench.
+The time zone tables on your server can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MariaDB command line or MariaDB Workbench.
 
 > [!NOTE]
-> If you are running the `az_load_timezone` command from MariaDB Workbench, you may need to turn off safe update mode first using `SET SQL_SAFE_UPDATES=0;`.
+> If you are running the `mysql.az_load_timezone` command from MariaDB Workbench, you may need to turn off safe update mode first using `SET SQL_SAFE_UPDATES=0;`.
 
 ```sql
 CALL mysql.az_load_timezone();

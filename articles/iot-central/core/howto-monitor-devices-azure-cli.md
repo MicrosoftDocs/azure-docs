@@ -3,7 +3,7 @@ title: Monitor device connectivity using the Azure IoT Central Explorer
 description: Monitor device messages and observe device twin changes through the IoT Central Explorer CLI.
 author: viv-liu
 ms.author: viviali
-ms.date: 12/18/2019
+ms.date: 03/27/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -12,11 +12,11 @@ manager: corywink
 
 # Monitor device connectivity using Azure CLI
 
-*This topic applies to builders and administrators.*
+*This topic applies to device developers and solution builders.*
 
 Use the Azure CLI IoT extension to see messages your devices are sending to IoT Central and observe changes in the device twin. You can use this tool to debug and observe device connectivity and diagnose issues of device messages not reaching the cloud or devices not responding to twin changes.
 
-[Visit the Azure CLI extensions reference for more details](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/central)
+[Visit the Azure CLI extensions reference for more details](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
 
 ## Prerequisites
 
@@ -58,10 +58,10 @@ az login
 ```
 
 ### Get the Application ID of your IoT Central app
-In **Administration/Application Settings**, copy the **Application ID**. You will use this in later steps.
+In **Administration/Application Settings**, copy the **Application ID**. You use this value in later steps.
 
 ### Monitor messages
-Monitor the messages that are being sent to your IoT Central app from your devices. This will include all headers and annotations.
+Monitor the messages that are being sent to your IoT Central app from your devices. The output includes all headers and annotations.
 
 ```azurecli
 az iot central app monitor-events --app-id <app-id> --properties all
@@ -76,4 +76,4 @@ az iot central device-twin show --app-id <app-id> --device-id <device-id>
 
 ## Next steps
 
-Now that you've learned how to use the IoT Central Explorer, the suggested next step is to explore [managing devices IoT Central](howto-manage-devices.md).
+If you're a device developer, a suggested next step is to read about [Device connectivity in Azure IoT Central](./concepts-get-connected.md).

@@ -21,7 +21,7 @@
 
 **Premium SSD managed disks: Per-VM limits**
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Maximum IOPS Per VM |80,000 IOPS with GS5 VM |
 | Maximum throughput per VM |2,000 MB/s with GS5 VM |

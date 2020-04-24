@@ -28,7 +28,7 @@ uses these concepts to provide directions for working with Azure Blueprints and 
 knowledge of them. Tools such as [ARMClient](https://github.com/projectkudu/ARMClient) and others
 may handle authorization automatically and are recommended for beginners.
 
-For the Blueprints specs, see [Azure Blueprints REST API](/rest/api/blueprints/).
+For the Azure Blueprints specs, see [Azure Blueprints REST API](/rest/api/blueprints/).
 
 ### REST API and PowerShell
 
@@ -470,7 +470,7 @@ values:
      assigning the blueprint has permissions to.
 
      > [!IMPORTANT]
-     > Blueprints doesn't manage the user-assigned managed identity. Users are responsible for
+     > Azure Blueprints doesn't manage the user-assigned managed identity. Users are responsible for
      > assigning sufficient roles and permissions or the blueprint assignment will fail.
 
 ## Clean up resources

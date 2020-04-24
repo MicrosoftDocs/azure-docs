@@ -1,5 +1,6 @@
 ---
-title: Create a basic ingress controller in Azure Kubernetes Service (AKS)
+title: Create an ingress controller
+titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure a basic NGINX ingress controller in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
@@ -22,7 +23,7 @@ You can also:
 
 ## Before you begin
 
-This article uses Helm to install the NGINX ingress controller and a sample web app.
+This article uses [Helm 3][helm] to install the NGINX ingress controller and a sample web app.
 
 This article also requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
@@ -36,7 +37,7 @@ The ingress controller also needs to be scheduled on a Linux node. Windows Serve
 > The following example creates a Kubernetes namespace for the ingress resources named *ingress-basic*. Specify a namespace for your own environment as needed.
 
 > [!TIP]
-> If you would like to enable [client source IP preservation][client-source-ip] for requests to containers in your cluster, add `--set controller.service.externalTrafficPolicy=Local` to the Helm install command. The client source IP is stored in the request header under *X-Forwarded-For*. When using an ingress controller with client source IP preservation enabled, SSL pass-through will not work.
+> If you would like to enable [client source IP preservation][client-source-ip] for requests to containers in your cluster, add `--set controller.service.externalTrafficPolicy=Local` to the Helm install command. The client source IP is stored in the request header under *X-Forwarded-For*. When using an ingress controller with client source IP preservation enabled, TLS pass-through will not work.
 
 ```console
 # Create a namespace for your ingress resources
@@ -233,6 +234,7 @@ You can also:
 - Create an ingress controller that uses Let's Encrypt to automatically generate TLS certificates [with a dynamic public IP address][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
+[helm]: https://helm.sh/
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
 

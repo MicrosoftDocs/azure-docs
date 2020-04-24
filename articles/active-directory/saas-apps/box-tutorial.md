@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 03/24/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -86,6 +86,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Identifier (Entity ID)** text box, type a URL:
     `box.net`
+
+    c. In the **Reply URL** text box, type a URL:
+    `https://sso.services.box.net/sp/ACS.saml2`
 
 	> [!NOTE]
 	> The Sign-on URL value is not real. Update the value with the actual Sign-On URL. Contact [Box Client support team](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

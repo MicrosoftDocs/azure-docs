@@ -20,6 +20,23 @@ By default, Event Hubs namespaces are accessible from internet as long as the re
 
 This feature is helpful in scenarios in which Azure Event Hubs should be only accessible from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Event Hubs with [Azure Express Route][express-route], you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses. 
 
+>[!WARNING]
+> Enabling IP filtering can prevent other Azure services from interacting with Event Hubs.
+>
+> Trusted Microsoft services are not supported when Virtual Networks are implemented.
+>
+> Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
+> - Azure Monitor (diagnostic setting)
+> - Azure Stream Analytics
+> - Integration with Azure Event Grid
+> - Azure IoT Hub Routes
+> - Azure IoT Device Explorer
+>
+> The following Microsoft services are required to be on a virtual network
+> - Azure Web Apps
+> - Azure Functions
+
+
 ## IP firewall rules
 The IP firewall rules are applied at the Event Hubs namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Event Hubs namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 

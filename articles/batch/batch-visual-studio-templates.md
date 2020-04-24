@@ -1,19 +1,8 @@
 ---
 title: Build solutions with Visual Studio templates - Azure Batch | Microsoft Docs
 description: Learn how Visual Studio project templates can help you implement and run your compute-intensive workloads on Azure Batch.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-
-ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: labrenne
 ms.custom: seodec18
 
 ---
@@ -440,7 +429,7 @@ Another helpful tool in Batch solution development is [Azure Batch File Conventi
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [process_exitcode]: https://msdn.microsoft.com/library/system.diagnostics.process.exitcode.aspx
 [vs_gallery]: https://visualstudiogallery.msdn.microsoft.com/
-[vs_gallery_templates]: https://go.microsoft.com/fwlink/?linkid=820714
+[vs_gallery_templates]: https://github.com/Azure/batch-extension-templates
 [vs_find_use_ext]: https://msdn.microsoft.com/library/dd293638.aspx
 
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png

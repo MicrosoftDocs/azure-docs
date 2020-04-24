@@ -20,6 +20,7 @@
       - name: Azure CLI
         href: service-bus-quickstart-cli.md
       - name: ARM template
+        displayName: Resource Manager      
         href: service-bus-resource-manager-namespace-queue.md
     - name: Send and receive messages
       items:
@@ -186,7 +187,7 @@
       href: service-bus-metrics-azure-monitor.md
     - name: Service Bus management libraries
       href: service-bus-management-libraries.md
-    - name: Diagnostic logs
+    - name: Resource logs
       href: service-bus-diagnostic-logs.md
     - name: Suspend and reactivate messaging entities
       href: entity-suspend.md
@@ -212,6 +213,8 @@
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide
+      href: service-bus-troubleshooting-guide.md
+    - name: Messaging exceptions
       href: service-bus-messaging-exceptions.md
     - name: Resource Manager exceptions
       href: service-bus-resource-manager-exceptions.md

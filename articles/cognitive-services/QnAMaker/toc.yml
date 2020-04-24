@@ -22,6 +22,8 @@
     href: Quickstarts/quickstart-sdk.md
 - name: Tutorials
   items:
+  - name: Integrate with Power Virtual Agent
+    href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
   - name: Test with batch file
     href: Quickstarts/batch-testing.md
 - name: Concepts
@@ -59,6 +61,8 @@
   - name: Best practices
     href: Concepts/best-practices.md
     displayName: tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat
+  - name: Using QnA Maker and LUIS
+    href: choose-natural-language-processing-service.md
 - name: How-to guides
   items:
   - name: Manage Azure resources
@@ -72,6 +76,8 @@
       href: How-To/collaborate-knowledge-base.md
     - name: Turn on active learning
       href: How-To/use-active-learning.md
+    - name: Change default answer
+      href: How-To/change-default-answer.md
   - name: Manage knowledge base
     items:
     - name: Create knowledge base
@@ -85,9 +91,9 @@
       displayName: metadata, pair
     - name: Test
       href: How-To/test-knowledge-base.md
-  - name: Manage QnA sets
+  - name: Manage QnA pairs
     items:
-    - name: Edit QnA set
+    - name: Edit QnA pair
       href: How-To/edit-knowledge-base.md
     - name: Add follow-up prompts
       href: How-To/multiturn-conversation.md
@@ -145,7 +151,7 @@
         href: Quickstarts/get-answer-from-knowledge-base-python.md
 - name: Reference
   items:
-  - name: Languages
+  - name: Language support
     href: Overview/language-support.md
   - name: Limits
     href: limits.md

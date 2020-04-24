@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
 ---
-| Resource | Default/maximum limit | Note |
+| Resource | Limit | Note |
 | --- | --- | --- |
 | Azure Application Gateway |1,000 per subscription | |
 | Front-end IP configurations |2 |1 public and 1 private |

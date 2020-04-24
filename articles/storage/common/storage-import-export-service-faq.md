@@ -94,15 +94,17 @@ You can ship drives to the Azure datacenter using any known carrier like FedEx, 
 > [!NOTE]
 > The datacenters in India require a declaration letter on your letterhead (delivery challan) to return the drives. To arrange the required entry pass, you must also book the pick up with your selected carrier and share the details with the datacenter.
 
-### Are there any restrictions with shipping my drive internationally?
+### Are there any restrictions with shipping and returning my drive internationally?
 
 Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisors to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner.
+
+After the upload is complete, the process to return drive(s) to an international address can take longer than the typical 2-3 days needed for local shipping. During the stage listed in the Azure portal as Packaging, the Data Box team is ensuring that the correct documentation is provided to ensure the shipment complies with the various international import and export requirements.
 
 ### Are there any special requirements for delivering my disks to a datacenter?
 
 The requirements depend on the specific Azure datacenter restrictions.
 
-- There are a few sites, that require a Microsoft datacenter Inbound ID number to be written on the parcel for security reasons. Before you ship your drives or disks to the datacenter, contact Azure DataBox Operations (adbops@microsoft.com) to get this number. Without this number, the package will be rejected.
+- There are a few sites, like Australia, Germany, and UK South, that require a Microsoft datacenter Inbound ID number to be written on the parcel for security reasons. Before you ship your drives or disks to the datacenter, contact Azure DataBox Operations (adbops@microsoft.com) to get this number. Without this number, the package will be rejected.
 - The datacenters in India require the personal details of the driver, such as the Government ID Card or Proof No. (for example, PAN, AADHAR, DL), name, contact, and the car plate number to get a gate entry pass. To avoid delivery delays, inform your carrier about these requirements.
 
 ### When creating a job, the shipping address is a location that is different from my storage account location. What should I do?

@@ -61,9 +61,6 @@
 
 - name: Concepts
   items:
-  - name: Common features documentation
-    href: sql-database-paas-index.yml
-
   - name: Feature comparison
     href: sql-database-features.md
 
@@ -119,7 +116,7 @@
       items:
       - name: Azure SQL Auditing
         href: sql-database-auditing.md
-      - name: To storage behind VNet or firewall
+      - name: Audit to storage account behind VNet or firewall
         href: create-auditing-storage-account-vnet-firewall.md
       - name: Audit log format
         href: sql-database-audit-log-format.md
@@ -131,7 +128,11 @@
       - name: Data discovery and classification
         href: sql-database-data-discovery-and-classification.md
       - name: Vulnerability assessment
-        href: sql-vulnerability-assessment.md
+        items:
+        - name: Vulnerability assessment  
+          href: sql-vulnerability-assessment.md
+        - name: Storing VA scans behind firewalls and VNets
+          href: sql-database-vulnerability-assessment-storage.md
       - name: Advanced Threat Protection
         href: sql-database-threat-detection-overview.md
       - name: Security attributes
@@ -296,8 +297,6 @@
 
   - name: Scalability
     items:
-    - name: Scalability documentation
-      href: sql-database-scalability-index.yml
     - name: Scale Up/Down
       href: sql-database-scale-resources.md
     - name: Read Scale-Out
@@ -327,8 +326,6 @@
 
   - name: Database features
     items:
-    - name: Database feature documentation
-      href: sql-database-features-index.yml
     - name: Multi-model capabilities
       href: sql-database-multi-model-features.md
     - name: In-memory
@@ -718,7 +715,6 @@
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
 - name: SQL managed instance
-  href:  sql-database-managed-instance-index.yml
   items:
   - name: Overview
     items:
@@ -748,6 +744,8 @@
         href: sql-database-managed-instance-configure-vm.md
       - name: Point-to-site connection
         href: sql-database-managed-instance-configure-p2s.md
+      - name: Long-term backup retention
+        href: sql-database-managed-instance-long-term-backup-retention-configure.md
     - name: Load data
       items:
       - name: Restore database backup
@@ -823,7 +821,9 @@
       href: sql-database-managed-instance-threat-detection.md
     - name: Connect applications
       href: sql-database-managed-instance-connect-app.md
-
+    - name: Create alerts
+      href: sql-database-managed-instance-alerts.md
+      
   - name: Samples
     items:
     - name: Azure CLI

@@ -304,7 +304,7 @@ You can manually install the Log Analytics Agent, so Security Center can collect
 
 - To identify Unmonitored VMs and computers issues:
 
-    A VM or computer is unmonitored by Security Center if the machine is not running the Microsoft Monitoring Agent extension. A machine may have a local agent already installed, for example the OMS direct agent or the System Center Operations Manager agent. Machines with these agents are identified as unmonitored because these agents are not fully supported in Security Center. To fully benefit from all of Security Center’s capabilities, the Microsoft Monitoring Agent extension is required.
+    A VM or computer is unmonitored by Security Center if the machine is not running the Log Analytics agent extension. A machine may have a local agent already installed, for example the OMS direct agent or the System Center Operations Manager agent. Machines with these agents are identified as unmonitored because these agents are not fully supported in Security Center. To fully benefit from all of Security Center’s capabilities, the Log Analytics agent extension is required.
 
     For more information about the reasons Security Center is unable to successfully monitor VMs and computers initialized for automatic provisioning, see [Monitoring agent health issues](security-center-troubleshooting-guide.md#mon-agent).
 

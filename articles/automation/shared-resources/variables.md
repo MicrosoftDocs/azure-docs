@@ -1,5 +1,5 @@
 ---
-title: Variable assets in Azure Automation
+title: Manage variables in Azure Automation
 description: Variable assets are values that are available to all runbooks and DSC configurations in Azure Automation.  This article explains the details of variables and how to work with them in both textual and graphical authoring.
 services: automation
 ms.service: automation
@@ -10,7 +10,7 @@ ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Variable assets in Azure Automation
+# Manage variables in Azure Automation
 
 Variable assets are values that are available to all runbooks and DSC configurations in your Automation account. You can manage them from the Azure portal, from PowerShell, within a runbook, or in a DSC configuration.
 
@@ -39,11 +39,14 @@ When you create a variable with the Azure portal, you must specify a data type f
 * Boolean
 * Null
 
-The variable isn't restricted to the designated data type. You must set the variable using Windows PowerShell if you want to specify a value of a different type. If you indicate `Not defined`, the value of the variable is set to Null, and you must set the value with the [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) cmdlet or the `Set-AutomationVariable` activity.
+The variable isn't restricted to the designated data type. You must set the variable using Windows PowerShell if you want to specify a value of a different type. If you indicate `Not defined`, the value of the variable is set to Null. You must set the value with the [Set-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) cmdlet or the `Set-AutomationVariable` activity.
 
-You can't use the portal to create or change the value for a complex variable type. However, you can provide a value of any type using Windows PowerShell. Complex types are retrieved as a [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
+You can't use the Azure portal to create or change the value for a complex variable type. However, you can provide a value of any type using Windows PowerShell. Complex types are retrieved as a [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
 You can store multiple values to a single variable by creating an array or hashtable and saving it to the variable.
+
+>[!NOTE]
+>VM name variables can be a maximum of 80 characters. Resource group variables can be a maximum of 90 characters. See [Naming rules and restrictions for Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules).
 
 ## PowerShell cmdlets that create and manage variable assets
 
@@ -71,8 +74,8 @@ The activities in the following table are used to access variables in runbooks a
 Note that `Get-AutomationVariable` does not work in PowerShell, but only in a runbook or DSC configuration. For example, to see the value of an encrypted variable, you might create a runbook to get the variable and then write it to the output stream:
  
 ```powershell
-$testEncryptVar = Get-AutomationVariable -Name TestVariable
-Write-output "The encrypted variable value is: $testEncryptVar"
+$mytestencryptvar = Get-AutomationVariable -Name TestVariable
+Write-output "The encrypted value of the variable is: $mytestencryptvar"
 ```
 
 ## Functions to access variables in Python 2 runbooks
@@ -134,7 +137,7 @@ $vmIpAddress = $vmValue.IpAddress
 
 ### Create and use a variable in a runbook or DSC configuration
 
-The only way to create a new variable from within a runbook or DSC configuration is to use the `New-AzAutomationVariable` cmdlet, or its AzureRM module equivalent. The script uses this cmdlet to set the initial value of the variable. The script can then retrieve the value using `Get-AzAutomationVariable`. If the value is a simple type, that same type is retrieved. If it's a complex type, then a `PSCustomObject` type is retrieved.
+The only way to create a new variable from within a runbook or DSC configuration is to use the `New-AzAutomationVariable` cmdlet or its AzureRM module equivalent. The script uses this cmdlet to set the initial value of the variable. The script can then retrieve the value using `Get-AzAutomationVariable`. If the value is a simple type, that same type is retrieved. If it's a complex type, then a `PSCustomObject` type is retrieved.
 
 >[!NOTE]
 >The only way to retrieve an encrypted value is by using the `Get-AutomationVariable` activity in the runbook or DSC configuration. 
