@@ -3,13 +3,11 @@ title: "PowerShell: Use proximity placement groups"
 description: Learn about creating and using proximity placement groups using Azure PowerShell. 
 services: virtual-machines
 ms.service: virtual-machines
-
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: cynthn
-#pmcontact: zivr
+ms.reviewer: zivr
 ---
 
 # Deploy VMs to proximity placement groups using PowerShell

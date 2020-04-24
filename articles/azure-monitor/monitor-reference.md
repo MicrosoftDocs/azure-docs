@@ -202,7 +202,6 @@ Other solutions are available for monitoring different applications and services
 | [SQL health check](insights/sql-assessment.md) | Assess the risk and health of your SQL Server environments.  |
 | [Wire Data](insights/wire-data.md) | Consolidated network and performance data collected from Windows-connected and Linux-connected computers with the Log Analytics agent. |
 
-
 ## Third party integration
 
 | Solution | Description |

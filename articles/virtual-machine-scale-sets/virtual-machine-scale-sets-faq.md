@@ -1,13 +1,13 @@
 ---
 title: Azure virtual machine scale sets FAQs
 description: Get answers to the most frequently asked questions about virtual machine scale sets in Azure.
-author: mayanknayar
+author: mimckitt
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
-ms.author: manayar
+ms.author: mimckitt
 ---
 
 # Azure virtual machine scale sets FAQs
@@ -440,7 +440,7 @@ There are two main ways to change the password for VMs in scale sets.
 
     Update the admin credentials directly in the scale set model (for example using the Azure Resource Explorer, PowerShell or CLI). Once the scale set is updated, all new VMs have the new credentials. Existing VMs only have the new credentials if they are reimaged.
 
-- Reset the password using the VM access extensions.
+- Reset the password using the VM access extensions. Make sure to follow the password requirements as described [here](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
 
     Use the following PowerShell example:
 

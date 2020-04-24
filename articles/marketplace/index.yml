@@ -81,7 +81,7 @@ landingContent:
       - text: SaaS offers
         url: ./partner-center-portal/create-new-saas-offer.md
       - text: Virtual machines offers
-        url: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
+        url: ./marketplace-virtual-machines.md
       - text: Azure application offers
         url: ./partner-center-portal/create-new-azure-apps-offer.md
       - text: Dynamics 365 for Customer Engagement & PowerApps offers
@@ -105,7 +105,7 @@ landingContent:
         url: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
       - text: Tax details
         url: ./partner-center-portal/tax-details-paid-transactions.md
-      - text: Commercial markteplace billing
+      - text: Commercial marketplace billing
         url: ./partner-center-portal/billing-details.md
 
   - title: API reference

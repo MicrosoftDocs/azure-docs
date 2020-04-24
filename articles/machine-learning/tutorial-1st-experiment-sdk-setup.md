@@ -81,7 +81,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
     
 1. Select the **tutorial-1st-experiment-sdk-train.ipynb** file in your **tutorials/create-first-ml-experiment** folder.
 
-1. On the top bar, select a compute instance to use to run the notebook. These VMs are pre-configured with [everything you need to run Azure Machine Learning](concept-compute-instance.md#contents). You can select a VM created by any user of your workspace. 
+1. On the top bar, select a compute instance to use to run the notebook. These VMs are pre-configured with [everything you need to run Azure Machine Learning](concept-compute-instance.md#contents). 
 
 1. If no VMs are found, select **+ Add** to create the compute instance VM. 
 

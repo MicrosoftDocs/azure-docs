@@ -17,7 +17,7 @@ Before using the Azure portal to create a new Azure HPC Cache, make sure your en
 A paid subscription is recommended.
 
 > [!NOTE]
-> During the first several months of the GA release, the Azure HPC Cache team must add your subscription to the access list before it can be used to create a cache instance. This procedure helps ensure that each customer gets high-quality responsiveness from their caches. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
+> The Azure HPC Cache team must add your subscription to the access list before it can be used to create a cache instance. This procedure helps ensure that each customer gets high-quality responsiveness from their caches. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.
 
 ## Network infrastructure
 
@@ -79,11 +79,11 @@ To create a compatible storage account, use these settings:
 * Access tier (default): **Hot**
 
 It's a good practice to use a storage account in the same location as your cache.
-<!-- clarify location - same region or same resource group or same virtual network? -->
 
 You also must give the cache application access to your Azure storage account as mentioned in [Permissions](#permissions), above. Follow the procedure in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to give the cache the required access roles. If you are not the storage account owner, have the owner do this step.
 
 ### NFS storage requirements
+<!-- linked from configuration.md -->
 
 If using an NFS storage system (for example, an on-premises hardware NAS system), make sure it meets these requirements. You might need to work with the network administrators or firewall managers for your storage system (or data center) to verify these settings.
 

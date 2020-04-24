@@ -6,10 +6,12 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
+ms.date: 04/13/2020
 ---
 
 # Data flow script (DFS)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Data flow script (DFS) is the underlying metadata, similar to a coding language, that is used to execute the transformations that are included in a mapping data flow. Every transformation is represented by a series of properties that provide the necessary information to run the job properly. The script is visible and editable from ADF by clicking on the "script" button on the top ribbon of the browser UI.
 
@@ -35,14 +37,14 @@ Let's say we start with a simple source to sink data flow like the following:
 
 ```
 source(output(
-		movieId as string,
-		title as string,
-		genres as string
-	),
-	allowSchemaDrift: true,
-	validateSchema: false) ~> source1
+        movieId as string,
+        title as string,
+        genres as string
+    ),
+    allowSchemaDrift: true,
+    validateSchema: false) ~> source1
 source1 sink(allowSchemaDrift: true,
-	validateSchema: false) ~> sink1
+    validateSchema: false) ~> sink1
 ```
 
 If we decide to add a derive transformation, first we need to create the core transformation text, which has a simple expression to add a new uppercase column called `upperCaseTitle`:
@@ -53,43 +55,43 @@ derive(upperCaseTitle = upper(title)) ~> deriveTransformationName
 Then, we take the existing DFS and add the transformation:
 ```
 source(output(
-		movieId as string,
-		title as string,
-		genres as string
-	),
-	allowSchemaDrift: true,
-	validateSchema: false) ~> source1
+        movieId as string,
+        title as string,
+        genres as string
+    ),
+    allowSchemaDrift: true,
+    validateSchema: false) ~> source1
 derive(upperCaseTitle = upper(title)) ~> deriveTransformationName
 source1 sink(allowSchemaDrift: true,
-	validateSchema: false) ~> sink1
+    validateSchema: false) ~> sink1
 ```
 
 And now we reroute the incoming stream by identifying which transformation we want the new transformation to come after (in this case, `source1`) and copying the name of the stream to the new transformation:
 ```
 source(output(
-		movieId as string,
-		title as string,
-		genres as string
-	),
-	allowSchemaDrift: true,
-	validateSchema: false) ~> source1
+        movieId as string,
+        title as string,
+        genres as string
+    ),
+    allowSchemaDrift: true,
+    validateSchema: false) ~> source1
 source1 derive(upperCaseTitle = upper(title)) ~> deriveTransformationName
 source1 sink(allowSchemaDrift: true,
-	validateSchema: false) ~> sink1
+    validateSchema: false) ~> sink1
 ```
 
 Finally we identify the transformation we want to come after this new transformation, and replace its input stream (in this case, `sink1`) with the output stream name of our new transformation:
 ```
 source(output(
-		movieId as string,
-		title as string,
-		genres as string
-	),
-	allowSchemaDrift: true,
-	validateSchema: false) ~> source1
+        movieId as string,
+        title as string,
+        genres as string
+    ),
+    allowSchemaDrift: true,
+    validateSchema: false) ~> source1
 source1 derive(upperCaseTitle = upper(title)) ~> deriveTransformationName
 deriveTransformationName sink(allowSchemaDrift: true,
-	validateSchema: false) ~> sink1
+    validateSchema: false) ~> sink1
 ```
 
 ## DFS fundamentals
@@ -105,12 +107,12 @@ source(
 For instance, a simple source with three columns (movieId, title, genres) would be:
 ```
 source(output(
-		movieId as string,
-		title as string,
-		genres as string
-	),
-	allowSchemaDrift: true,
-	validateSchema: false) ~> source1
+        movieId as string,
+        title as string,
+        genres as string
+    ),
+    allowSchemaDrift: true,
+    validateSchema: false) ~> source1
 ```
 
 All transformations other than sources have the same basic construction:
@@ -130,10 +132,15 @@ source1 derive(
 And a sink with no schema would simply be:
 ```
 derive1 sink(allowSchemaDrift: true,
-	validateSchema: false) ~> sink1
+    validateSchema: false) ~> sink1
 ```
 
 ## Script snippets
+
+Script snippets are shareable code of Data Flow Script that you can use to share across data flows. This video below talks about how to use script snippets and utilizing Data Flow Script to copy and paste portions of the script behind your data flow graphs:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tA9b]
+
 
 ### Aggregated summary stats
 Add an Aggregate transformation to your data flow called "SummaryStats" and then paste in this code below for the aggregate function in your script, replacing the existing SummaryStats. This will provide a generic pattern for data profile summary statistics.
