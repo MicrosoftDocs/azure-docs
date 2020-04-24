@@ -468,7 +468,6 @@ The automation script is provided below. Replace text with your information and 
     .Link
     To find more information about how to set up Azure PowerShell, refer to the following links.
     https://azure.microsoft.com/documentation/articles/powershell-install-configure/
-    https://azure.microsoft.com/documentation/articles/storage-powershell-guide-full/
     https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/
 
     #>

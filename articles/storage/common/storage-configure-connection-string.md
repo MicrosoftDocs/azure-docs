@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 04/24/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -25,7 +25,7 @@ A connection string includes the authorization information required for your app
 
 ## View and copy a connection string
 
-[!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
+To learn how to view your account access keys and copy a connection string, see [Manage storage account access keys](storage-account-keys-manage.md).
 
 ## Store a connection string
 
