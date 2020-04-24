@@ -1,10 +1,10 @@
 ---
-title: Migrate from SQL Server to managed instance
-description: Learn how to migrate a database from SQL Server instance to Azure SQL Database - Managed instance. 
+title: Migrate from SQL Server to an Azure SQL Managed Instance
+description: Learn how to migrate a database from SQL Server to Azure SQL Managed Instance. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: bonova
@@ -12,9 +12,9 @@ ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
 ---
-# SQL Server instance migration to Azure SQL Database managed instance
+# SQL Server instance migration to Azure SQL Managed Instance
 
-In this article, you learn about the methods for migrating a SQL Server 2005 or later version instance to [Azure SQL Database managed instance](sql-database-managed-instance.md). For information on migrating to a single database or elastic pool, see [Migrate to a single or pooled database](sql-database-cloud-migrate.md). For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
+In this article, you learn about the methods for migrating a SQL Server 2005 or later version instance to [Azure SQL Managed Instance](sql-database-managed-instance.md). For information on migrating to a single database or elastic pool, see [Migrate to a single or pooled database](sql-database-cloud-migrate.md). For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
 
 > [!NOTE]
 > If you want to quickly start and try Managed Instance, you might want to go to [Quick-start guide](sql-database-managed-instance-quickstart-guide.md) instead of this page. 
@@ -35,7 +35,7 @@ At a high level, the database migration process looks like:
 
 ## Assess managed instance compatibility
 
-First, determine whether managed instance is compatible with the database requirements of your application. The managed instance deployment option is designed to provide easy lift and shift migration for the majority of existing applications that use SQL Server on-premises or on virtual machines. However, you may sometimes require features or capabilities that are not yet supported and the cost of implementing a workaround are too high.
+First, determine whether SQL Managed Instance is compatible with the database requirements of your application. The SQL Managed Instance deployment option is designed to provide easy lift and shift migration for the majority of existing applications that use SQL Server on-premises or on virtual machines. However, you may sometimes require features or capabilities that are not yet supported and the cost of implementing a workaround are too high.
 
 Use [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) to detect potential compatibility issues impacting database functionality on Azure SQL Database. DMA does not yet support managed instance as migration destination, but it is recommended to run assessment against Azure SQL Database and carefully review list of reported feature parity and compatibility issues against product documentation. See [Azure SQL Database features](sql-database-features.md) to check are there some reported blocking issues that not blockers in managed instance, because most of the blocking issues preventing a migration to Azure SQL Database have been removed with managed instance. For instance, features like cross-database queries, cross-database transactions within the same instance, linked server to other SQL sources, CLR, global temp tables, instance level views, Service Broker and the like are available in managed instances.
 
@@ -179,19 +179,19 @@ Managed Instance provides a lot of advanced tools for monitoring and troubleshoo
 
 ## Leverage advanced PaaS features
 
-Once you are on a fully managed platform and you have verified that workload performances are matching you SQL Server workload performance, take advantages that are provided automatically as part of the SQL Database service. 
+Once you are on a fully managed platform and you have verified that workload performances are matching your SQL Server workload performance, take advantages that are provided automatically as part of the service. 
 
-Even if you don't make some changes in managed instance during the migration, there are high chances that you would turn on some of the new features while you are operating your instance to take an advantage of the latest database engine improvements. Some changes are only enabled once the [database compatibility level has been changed](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database).
+Even if you don't make some changes in SQL Managed Instance during the migration, there are high chances that you would turn on some of the new features while you are operating your instance to take an advantage of the latest database engine improvements. Some changes are only enabled once the [database compatibility level has been changed](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database).
 
 
-For instance, you don’t have to create backups on managed instance -  the service performs backups for you automatically. You no longer must worry about scheduling, taking, and managing backups. Managed instance provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). Additionally, you do not need to worry about setting up high availability as [high availability](sql-database-high-availability.md) is built in.
+For instance, you don’t have to create backups on SQL Managed Instance - the service performs backups for you automatically. You no longer must worry about scheduling, taking, and managing backups. SQL Managed Instance provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). Additionally, you do not need to worry about setting up high availability as [high availability](sql-database-high-availability.md) is built in.
 
 To strengthen security, consider using [Azure Active Directory Authentication](sql-database-security-overview.md), [Auditing](sql-database-managed-instance-auditing.md), [threat detection](sql-database-advanced-data-security.md), [row-level security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), and [dynamic data masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ).
 
-In addition to advanced management and security features, Managed Instance provides a set of advanced tools that can help you to [monitor and tune your workload](sql-database-monitor-tune-overview.md). [Azure SQL analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) enables you to monitor a large set of Managed Instances and centralize monitoring of a large number of instances and databases. [Automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) in Managed Instance continuously monitor performance of your SQL plan execution statistics and automatically fix the identified performance issues.
+In addition to advanced management and security features, SQL Managed Instance provides a set of advanced tools that can help you to [monitor and tune your workload](sql-database-monitor-tune-overview.md). [Azure SQL analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) enables you to monitor a large set of SQL Managed Instances and centralize monitoring of a large number of instances and databases. [Automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) in SQL Managed Instance continuously monitors performance of your SQL plan execution statistics and automatically fixes the identified performance issues.
 
 ## Next steps
 
-- For information about managed instances, see [What is a managed instance?](sql-database-managed-instance.md).
-- For a tutorial that includes a restore from backup, see [Create a managed instance](sql-database-managed-instance-get-started.md).
-- For tutorial showing migration using DMS, see [Migrate your on-premises database to managed instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
+- For information about Azure SQL Managed Instance, see [What is Azure SQL Managed Instance?](sql-database-managed-instance.md).
+- For a tutorial that includes a restore from backup, see [Create an Azure SQL Managed Instance](sql-database-managed-instance-get-started.md).
+- For tutorial showing migration using DMS, see [Migrate your on-premises database to Azure SQL Managed Instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
