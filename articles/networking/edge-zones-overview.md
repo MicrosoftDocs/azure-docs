@@ -1,6 +1,6 @@
 ---
-title: About Azure Edge Zones offerings - Preview
-description: 'Learn about edge computing offerings from Microsoft: Azure Edge Zones.'
+title: About Azure Edge Zone Preview
+description: 'Learn about edge computing offerings from Microsoft: Azure Edge Zone.'
 services: vnf-manager
 author: ganesr
 
@@ -11,9 +11,9 @@ ms.author: ganesr
 
 ---
 
-# About Azure Edge Zones - Preview
+# About Azure Edge Zone Preview
 
-Azure Edge Zones is a family of offerings from Microsoft Azure that enables data processing close to the user. You can deploy VMs, containers, and other selected Azure services into edge zones to address the low latency and high throughput requirements of applications.
+Azure Edge Zone is a family of offerings from Microsoft Azure that enables data processing close to the user. You can deploy VMs, containers, and other selected Azure services into Edge Zones to address the low latency and high throughput requirements of applications.
 
 Typical use case scenarios for Edge Zones include:
 
@@ -25,7 +25,7 @@ Typical use case scenarios for Edge Zones include:
 - Media streaming and content delivery.
 - Surveillance and security.
 
-There are three types of Azure edge zones:
+Azure Edge Zones are available as three discrete offerings:
 
 - Azure Edge Zones
 - Azure Edge Zones with Carrier
@@ -35,7 +35,7 @@ There are three types of Azure edge zones:
 
 ![Azure Edge Zones](./media/edge-zones-overview/edge-zones.png "Azure Edge Zones")
 
-Azure edge zones are small-footprint extensions of Azure placed in population centers that are far away from Azure regions. Azure edge zones support VMs, containers, and a selected set of Azure services that let you run latency-sensitive and throughput-intensive applications close to end users. Azure Edge Zones is part of the Microsoft global network. It provides secure, reliable, high-bandwidth connectivity between applications that run at the edge zone close to the user. And it offers the full set of Azure services running within Azure regions. Azure edge zones are owned and operated by Microsoft. You can use the same set of Azure tools and the same portal to manage and deploy services into edge zones.
+Azure Edge Zones are small-footprint extensions of Azure placed in population centers that are far away from Azure regions. Azure Edge Zones support VMs, containers, and a selected set of Azure services that let you run latency-sensitive and throughput-intensive applications close to end users. Azure Edge Zones are part of the Microsoft global network. It provides secure, reliable, high-bandwidth connectivity between applications that run at the edge zone close to the user. And it offers the full set of Azure services running within Azure regions. Azure Edge Zones are owned and operated by Microsoft. You can use the same set of Azure tools and the same portal to manage and deploy services into Edge Zones.
 
 Typical use cases include:
 
@@ -56,9 +56,9 @@ Azure Edge Zones will be available in the following metro areas:
 
 ![Edge Zones with Carrier](./media/edge-zones-overview/edge-carrier.png "Edge Zones with Carrier")
 
-Azure edge zones with carrier are small-footprint extensions of Azure that are placed in mobile operators' datacenters in population centers. Azure Edge Zones with Carrier infrastructure is placed one hop away from the mobile operator's 5G network. This placement offers latency of less than 10 milliseconds to applications from mobile devices.
+Azure Edge Zones with Carrier are small-footprint extensions of Azure that are placed in mobile operators' datacenters in population centers. Azure Edge Zones with Carrier infrastructure is placed one hop away from the mobile operator's 5G network. This placement offers latency of less than 10 milliseconds to applications from mobile devices.
 
-Azure Edge Zones with Carrier is deployed in mobile operators' datacenters and connected to the Microsoft global network. It provides secure, reliable, high-bandwidth connectivity between applications that run close to the user. And it offers the full set of Azure services running within Azure regions. Developers can use the same set of familiar tools to build and deploy services into the edge zones.
+Azure Edge Zones with Carrier is deployed in mobile operators' datacenters and connected to the Microsoft global network. It provides secure, reliable, high-bandwidth connectivity between applications that run close to the user. And it offers the full set of Azure services running within Azure regions. Developers can use the same set of familiar tools to build and deploy services into the Edge Zones.
 
 Typical use cases include:
 
@@ -77,7 +77,7 @@ Edge Zones will be offered in partnership with the following operators:
 
 ![Private Edge Zones](./media/edge-zones-overview/private-edge.png "Private Edge Zones")
 
-Azure private edge zones are small-footprint extensions of Azure that are placed on-premises. Azure Private Edge Zones is based on the [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) platform. It enables low latency access to computing and storage services deployed on-premises. Private Edge Zones also lets you deploy applications from ISVs and virtualized network functions (VNFs) as [Azure managed applications](https://azure.microsoft.com/services/managed-applications/) along with virtual machines and containers on-premises. These VNFs can include mobile packet cores, routers, firewalls, and SD-WAN appliances. Azure Private Edge Zones comes with a cloud-native orchestration solution that lets you manage the lifecycles of VNFs and applications from the Azure portal.
+Azure Private Edge Zones are small-footprint extensions of Azure that are placed on-premises. Azure Private Edge Zones is based on the [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) platform. It enables low latency access to computing and storage services deployed on-premises. Private Edge Zones also lets you deploy applications from ISVs and virtualized network functions (VNFs) as [Azure managed applications](https://azure.microsoft.com/services/managed-applications/) along with virtual machines and containers on-premises. These VNFs can include mobile packet cores, routers, firewalls, and SD-WAN appliances. Azure Private Edge Zones comes with a cloud-native orchestration solution that lets you manage the lifecycles of VNFs and applications from the Azure portal.
 
 Azure Private Edge Zones lets you develop and deploy applications on-premises by using the same familiar tools that you use to build and deploy applications in Azure. 
 
