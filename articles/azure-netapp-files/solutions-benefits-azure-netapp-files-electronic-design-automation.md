@@ -76,7 +76,7 @@ The functional phases include a mixture of sequential and random read and write 
 
 In the graphs above, most of the throughput comes from the sequential physical phases of workload. The I/O comes from the small random and metadata-intensive functional phases. Both phases happen in parallel. 
 
-In conclusion, you can pair Azure compute with Azure NetApp files for EDA design to get scalable bandwidth. 
+In conclusion, you can pair Azure compute with Azure NetApp Files for EDA design to get scalable bandwidth. 
 
 ## Next steps
 
