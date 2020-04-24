@@ -60,6 +60,8 @@ Each subentity can have:
 
 An example of a machine-learned entity is an order for a plane ticket. Conceptually this is a single transaction with many smaller units of data such as date, time, quantity of seats, type of seat such as first class or coach, origin location, destination location, and meal choice.
 
+<a name="machine-learned-entity-components-help-extract-data"></a>
+
 ### Machine-learned subentity help extract data
 
 A subentity is a machine-learned child entity within a machine-learned parent entity.
