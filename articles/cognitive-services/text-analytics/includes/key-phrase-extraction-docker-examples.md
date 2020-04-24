@@ -3,12 +3,12 @@ title: Key Phrase Extraction container docker examples
 titleSuffix: Azure Cognitive Services
 description: Key Phrase Extraction container docker examples
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 08/21/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 ### Key Phrase Extraction container docker examples

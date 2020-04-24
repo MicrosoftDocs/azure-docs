@@ -1,12 +1,12 @@
 ---
 title: Tutorial - Create and use disks for scale sets with Azure CLI
 description: Learn how to use the Azure CLI to create and use Managed Disks with virtual machine scale set, including how to add, prepare, list, and detach disks.
-author: cynthn
+author: ju-shim
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: mvc
 
 ---
@@ -46,18 +46,7 @@ When a scale set is created or scaled, two disks are automatically attached to e
 
 
 ## Azure data disks
-Additional data disks can be added if you need to install applications and store data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 4 TB. The size of the VM instance determines how many data disks can be attached. For each VM vCPU, two data disks can be attached.
-
-### Max data disks per VM
-| Type | Common sizes | Max data disks per VM |
-|----|----|----|
-| [General purpose](../virtual-machines/linux/sizes-general.md) | A, B, and D series | 64 |
-| [Compute optimized](../virtual-machines/linux/sizes-compute.md) | F series | 64 |
-| [Memory optimized](../virtual-machines/linux/sizes-memory.md) | D, E, G, and M series | 64 |
-| [Storage optimized](../virtual-machines/linux/sizes-storage.md) | L series | 64 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | N series | 64 |
-| [High performance](../virtual-machines/linux/sizes-hpc.md) | A and H series | 64 |
-
+Additional data disks can be added if you need to install applications and store data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 4 TB. The size of the VM instance determines how many data disks can be attached. For each VM vCPU, two data disks can be attached up to an absolute maximum of 64 disks per virtual machine.
 
 ## VM disk types
 Azure provides two types of disk.

@@ -26,6 +26,7 @@ The Key Vault VM extension supports below versions of Windows:
 ### Supported certificate content types
 
 - PKCS #12
+- PEM
 
 ## Extension schema
 

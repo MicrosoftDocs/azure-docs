@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/24/2020
+ms.date: 3/27/2020
 ---
 
 # Backup and restore in Azure Database for MySQL
@@ -70,7 +70,7 @@ During geo-restore, the server configurations that can be changed include comput
 After a restore from either recovery mechanism, you should perform the following tasks to get your users and applications back up and running:
 
 - If the new server is meant to replace the original server, redirect clients and client applications to the new server
-- Ensure appropriate server-level firewall rules are in place for users to connect
+- Ensure appropriate VNet rules are in place for users to connect. These rules are not copied over from the original server.
 - Ensure appropriate logins and database level permissions are in place
 - Configure alerts, as appropriate
 

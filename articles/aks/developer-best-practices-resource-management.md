@@ -1,5 +1,6 @@
 ---
-title: Developer best practices - Resource management in Azure Kubernetes Services (AKS)
+title: Resource management best practices
+titleSuffix: Azure Kubernetes Service
 description: Learn the application developer best practices for resource management in Azure Kubernetes Service (AKS)
 services: container-service
 author: zr-msft

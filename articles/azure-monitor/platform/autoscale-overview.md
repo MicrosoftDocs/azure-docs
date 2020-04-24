@@ -1,5 +1,5 @@
 ---
-title: "Overview of autoscale in Virtual Machines, Cloud Services, and Web Apps"
+title: Autoscale in VMs, Cloud Services, and Web Apps
 description: "Autoscale in Microsoft Azure. Applies to Virtual Machines, Virtual machine Scale sets, Cloud Services and Web Apps."
 ms.subservice: autoscale
 ms.topic: conceptual

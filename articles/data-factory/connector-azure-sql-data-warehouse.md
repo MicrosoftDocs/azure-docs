@@ -19,6 +19,15 @@ ms.date: 03/25/2020
 > * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Current version](connector-azure-sql-data-warehouse.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Synapse Analytics, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure SQL Data Warehouse, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Synapse Analytics, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 ## Supported capabilities
@@ -367,7 +376,7 @@ To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to 
 | allowCopyCommand | Indicates whether to use [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview) to load data into SQL Data Warehouse. `allowCopyCommand` and `allowPolyBase` cannot be both true. <br/><br/>See [Use COPY statement to load data into Azure SQL Data Warehouse](#use-copy-statement) section for constraints and details.<br/><br/>Allowed values are **True** and **False** (default). | No.<br>Apply  when using COPY. |
 | copyCommandSettings | A group of properties that can be specified when `allowCopyCommand` property is set to TRUE. | No.<br/>Apply  when using COPY. |
 | writeBatchSize    | Number of rows to inserts into the SQL table **per batch**.<br/><br/>The allowed value is **integer** (number of rows). By default, Data Factory dynamically determines the appropriate batch size based on the row size. | No.<br/>Apply  when using bulk insert.     |
-| writeBatchTimeout | Wait time for the batch insert operation to finish before it times out.<br/><br/>The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No.<br/>Apply  when using bulk insert.        |
+| writeBatchTimeout | Wait time for the batch insert operation to finish before it times out.<br/><br/>The allowed value is **timespan**. Example: "00:30:00" (30 minutes). | No.<br/>Apply  when using bulk insert.        |
 | preCopyScript     | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Data Warehouse in each run. Use this property to clean up the preloaded data. | No                                            |
 | tableOption | Specifies whether to automatically create the sink table if not exists based on the source schema. Auto table creation is not supported when staged copy is configured in copy activity. Allowed values are: `none` (default), `autoCreate`. |No |
 | disableMetricsCollection | Data Factory collects metrics such as SQL Data Warehouse DWUs for copy performance optimization and recommendations. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
@@ -402,7 +411,7 @@ The following PolyBase settings are supported under `polyBaseSettings` in copy a
 
 | Property          | Description                                                  | Required                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| rejectValue       | Specifies the number or percentage of rows that can be rejected before the query fails.<br/><br/>Learn more about PolyBase’s reject options in the Arguments section of [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Allowed values are 0 (default), 1, 2, etc. | No                                            |
+| rejectValue       | Specifies the number or percentage of rows that can be rejected before the query fails.<br/><br/>Learn more about PolyBase's reject options in the Arguments section of [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Allowed values are 0 (default), 1, 2, etc. | No                                            |
 | rejectType        | Specifies whether the **rejectValue** option is a literal value or a percentage.<br/><br/>Allowed values are **Value** (default) and **Percentage**. | No                                            |
 | rejectSampleValue | Determines the number of rows to retrieve before PolyBase recalculates the percentage of rejected rows.<br/><br/>Allowed values are 1, 2, etc. | Yes, if the **rejectType** is **percentage**. |
 | useTypeDefault    | Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the Arguments section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Allowed values are **True** and **False** (default).<br><br> | No                                            |
@@ -480,7 +489,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 
 ### Staged copy by using PolyBase
 
-When your source data is not natively compatible with PolyBase, enable data copying via an interim staging Azure Blob storage instance (it can't be Azure Premium Storage). In this case, Azure Data Factory automatically converts the data to meet the data format requirements of PolyBase. Then it invokes PolyBase to load data into SQL Data Warehouse. Finally, it cleans up your temporary data from the blob storage. See [Staged copy](copy-activity-performance.md#staged-copy) for details about copying data via a staging Azure Blob storage instance.
+When your source data is not natively compatible with PolyBase, enable data copying via an interim staging Azure Blob storage instance (it can't be Azure Premium Storage). In this case, Azure Data Factory automatically converts the data to meet the data format requirements of PolyBase. Then it invokes PolyBase to load data into SQL Data Warehouse. Finally, it cleans up your temporary data from the blob storage. See [Staged copy](copy-activity-performance-features.md#staged-copy) for details about copying data via a staging Azure Blob storage instance.
 
 To use this feature, create an [Azure Blob Storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account with the interim blob storage. Then specify the `enableStaging` and `stagingSettings` properties for the Copy Activity as shown in the following code.
 
@@ -526,7 +535,7 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
 
 ### Best practices for using PolyBase
 
-The following sections provide best practices in addition to those mentioned in [Best practices for Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md).
+The following sections provide best practices in addition to those mentioned in [Best practices for Azure Synapse Analytics](../synapse-analytics/sql/best-practices-sql-pool.md).
 
 #### Required database permission
 
@@ -608,7 +617,7 @@ Using COPY statement supports the following configuration:
 2. Format settings are with the following:
 
    1. For **Parquet**: `compression` can be **no compression**, **Snappy**, or **GZip**.
-   2. For **ORC**: `compression` can be **no compression**, **zlib**, or **Snappy**.
+   2. For **ORC**: `compression` can be **no compression**, **```zlib```**, or **Snappy**.
    3. For **Delimited text**:
       1. `rowDelimiter` is explicitly set as **single character** or "**\r\n**", the default value is not supported.
       2. `nullValue` is left as default or set to **empty string** ("").
@@ -700,7 +709,7 @@ Settings specific to Azure Synapse Analytics are available in the **Source Optio
 
 * SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Batch size**: Enter a batch size to chunk large data into reads.
+**Batch size**: Enter a batch size to chunk large data into reads. In data flows, ADF will use this setting to set Spark columnar caching. This is an option field which will use Spark defaults if it is left blank.
 
 **Isolation Level**: The default for SQL sources in mapping data flow is read uncommitted. You can change the isolation level here to one of these values:
 * Read Committed
@@ -735,7 +744,7 @@ Settings specific to Azure Synapse Analytics are available in the **Settings** t
 When you copy data from or to Azure Synapse Analytics, the following mappings are used from Azure Synapse Analytics data types to Azure Data Factory interim data types. See [schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn how Copy Activity maps the source schema and data type to the sink.
 
 >[!TIP]
->Refer to [Table data types in Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) article on SQL DW supported data types and the workarounds for unsupported ones.
+>Refer to [Table data types in Azure Synapse Analytics](../synapse-analytics/sql/develop-tables-data-types.md) article on SQL DW supported data types and the workarounds for unsupported ones.
 
 | Azure Synapse Analytics data type    | Data Factory interim data type |
 | :------------------------------------ | :----------------------------- |

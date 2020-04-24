@@ -36,7 +36,7 @@ Microsoft has partnered with Gemalto to deliver the Azure Dedicated HSM service.
 
 ### Q: What is an HSM used for?
 
-HSMs are used for storing cryptographic keys that are used for cryptographic functionality such as Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), encrypting data, PKI (public key infrastructure), DRM (digital rights management), and signing documents.
+HSMs are used for storing cryptographic keys that are used for cryptographic functionality such as TLS (transport layer security), encrypting data, PKI (public key infrastructure), DRM (digital rights management), and signing documents.
 
 ### Q: How does Dedicated HSM work?
 
@@ -65,6 +65,7 @@ As of late March 2019, Dedicated HSM is available in the 14 regions listed below
 * East US
 * East US 2
 * West US
+* West US 2
 * South Central US
 * Southeast Asia
 * East Asia
@@ -80,6 +81,10 @@ As of late March 2019, Dedicated HSM is available in the 14 regions listed below
 * Canada East
 * Australia East
 * Australia Southeast
+* Switzerland North
+* Switzerland West
+* US Gov Virginia
+* US Gov Texas
 
 ## Interoperability
 

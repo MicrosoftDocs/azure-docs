@@ -1,18 +1,11 @@
 ---
 title: Azure support for generation 2 VMs 
 description: Overview of Azure support for generation 2 VMs
-services: virtual-machines-windows
-documentationcenter: ''
 author: ju-shim
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: sizes
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
 ---
@@ -30,9 +23,11 @@ Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-b
 Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series VMs). Azure now offers generation 2 support for the following selected VM series:
 
 * [B-series](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
-* [DC-series](../dcv2-series.md)
+* [DCsv2-series](../dcv2-series.md)
 * [DSv2-series](../dv2-dsv2-series.md) and [Dsv3-series](../dv3-dsv3-series.md)
+* [Dasv4-series](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)
 * [Esv3-series](../ev3-esv3-series.md)
+* [Easv4-series](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series)
 * [Fsv2-series](../fsv2-series.md)
 * [GS-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
 * [HB-series](../hb-series.md)
@@ -56,7 +51,7 @@ Generation 2 VMs support the following Marketplace images:
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16.04, 18.04, 19.04, 19.10 
 * RHEL 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 7.0
-* Cent OS 8.0, 7.7, 7.6, 7.5, 7.4
+* Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4
 * Oracle Linux 7.7, 7.7-CI
 
 ## On-premises vs. Azure generation 2 VMs

@@ -263,6 +263,29 @@ Here is an example of Azure Maps with the language set to "fr-FR" and regional v
 
 A complete list of supported languages and regional views is documented [here](supported-languages.md).
 
+## Navigating the map
+
+There are several different ways in which the map can be zoomed, panned, rotated, and pitched. The following details all the different ways to navigate the map.
+
+**Zoom the map**
+
+- Touch the map with two fingers and pinch together to zoom out or spread the fingers apart to zoom in.
+- Double tap the map to zoom in one level.
+- Double tap with two fingers to zoom the map out one level.
+- Tap twice; on second tap, hold your finger on the map and drag up to zoom in, or down to zoom out.
+
+**Pan the map**
+
+- Touch the map and drag in any direction.
+
+**Rotate the map**
+
+- Touch the map with two fingers and rotate.
+
+**Pitch the map**
+
+- Touch the map with two fingers and drag them up or down together.
+
 ## Next steps
 
 Learn how to add overlay data on the map:

@@ -2,13 +2,13 @@
 title: Prepare Hyper-V VMs for assessment/migration with Azure Migrate 
 description: Learn how to prepare for assessment/migration of Hyper-V VMs with Azure Migrate.
 ms.topic: tutorial
-ms.date: 03/23/2020
+ms.date: 04/15/2020
 ms.custom: mvc
 ---
 
 # Prepare for assessment and migration of Hyper-V VMs to Azure
 
-This article describes how to prepare for assessment of on-premises Hyper-V VMs with Azure Migrate:Server Assessment(migrate-services-overview.md#azure-migrate-server-assessment-tool), and migration of Hyper-V VMs with [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
+This article describes how to prepare for assessment of on-premises Hyper-V VMs with [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool), and migration of Hyper-V VMs with [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
 This tutorial is the first in a series that shows you how to assess and migrate Hyper-V VMs to Azure. In this tutorial, you learn how to:
@@ -90,8 +90,9 @@ You can prepare Hyper-V for VM assessment manually, or using a configuration scr
 - Set up PowerShell remoting on each host, so that the Azure Migrate appliance can run PowerShell commands on the host, over a WinRM connection.
 - Delegate credentials if VM disks are located on remote SMB shares.
 - Set up an account that the appliance will use to discover VMs on Hyper-V hosts.
-- Set up Hyper-V Integration Services on each VM you want to discover and assess.
+- Set up Hyper-V Integration Services on each VM you want to discover and assess. The default settings when you enable Integration Services are sufficient for Azure Migrate.
 
+    ![Enable Integration Services](./media/tutorial-prepare-hyper-v/integrated-services.png)
 
 
 ## Prepare with a script
@@ -107,7 +108,7 @@ The script does the following:
 - Checks that the host is running a supported version of Hyper-V, and the Hyper-V role.
 - Enables the WinRM service, and opens ports 5985 (HTTP) and 5986 (HTTPS) on the host (needed for metadata collection).
 - Enables PowerShell remoting on the host.
-- Checks that the Hyper-V integration service is enabled on all VMs managed by the host.
+- Checks that the Hyper-V Integration Services is enabled on all VMs managed by the host.
 - Enables CredSSP on the host if needed.
 
 Run the script as follows:
@@ -208,9 +209,11 @@ When you set up the appliance, you finish setting up CredSSP by [enabling it on 
 Before setting up the Azure Migrate appliance and beginning assessment in the next tutorial, prepare for appliance deployment.
 
 1. [Verify](migrate-appliance.md#appliance---hyper-v) appliance requirements.
-2. [Review](migrate-appliance.md#url-access) the Azure URLs that the appliance will need to access.
+2. Review the Azure URLs that the appliance will need to access in the [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds. If you're using a URL-based firewall or proxy, ensure it allows access to the required URLs.
 3. Review the data that the appliance will collect during discovery and assessment.
-4. [Note](migrate-appliance.md#collected-data---hyper-v) port access requirements for the appliance.
+4. [Review](migrate-appliance.md#collected-data---hyper-v) port access requirements for the appliance.
+
+
 
 
 ## Prepare for Hyper-V migration

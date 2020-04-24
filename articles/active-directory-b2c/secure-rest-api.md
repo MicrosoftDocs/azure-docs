@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -182,6 +182,8 @@ The following is an example of a RESTful technical profile configured with an HT
 
 ## OAuth2 bearer authentication 
 
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
+
 Bearer token authentication is defined in [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). In bearer token authentication, Azure AD B2C sends an HTTP request with a token in the authorization header.
 
 ```http
@@ -192,6 +194,7 @@ A bearer token is an opaque string. It can be a JWT access token or any string t
 
 - **Bearer token**. To be able to send the bearer token in the Restful technical profile, your policy needs to first acquire the bearer token and then use it in the RESTful technical profile.  
 - **Static bearer token**. Use this approach when your REST API issues a long-term access token. To use a static bearer token, create a policy key and make a reference from the RESTful technical profile to your policy key. 
+
 
 ## Using OAuth2 Bearer  
 
@@ -204,11 +207,19 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
 1. Locate the [ClaimsSchema](claimsschema.md) element. If the element doesn't exist, add it.
-1. Add the city bearerToken to the **ClaimsSchema** element.  
+1. Add the following claims to the **ClaimsSchema** element.  
 
 ```xml
 <ClaimType Id="bearerToken">
-  <DisplayName>bearer token</DisplayName>
+  <DisplayName>Bearer token</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+<ClaimType Id="grant_type">
+  <DisplayName>Grant type</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+<ClaimType Id="scope">
+  <DisplayName>scope</DisplayName>
   <DataType>string</DataType>
 </ClaimType>
 ```
@@ -265,7 +276,7 @@ To support bearer token authentication in your custom policy, modify the REST AP
 1. Ensure you add the claim used above as an input claim:
 
     ```xml
-    <InputClaim ClaimTyeReferenceId="bearerToken"/>
+    <InputClaim ClaimTypeReferenceId="bearerToken"/>
     ```    
 
 After you add the above snippets, your technical profile should look like the following XML code:
@@ -285,7 +296,7 @@ After you add the above snippets, your technical profile should look like the fo
         <Item Key="AllowInsecureAuthInProduction">false</Item>
       </Metadata>
       <InputClaims>
-        <InputClaim ClaimTyeReferenceId="bearerToken"/>
+        <InputClaim ClaimTypeReferenceId="bearerToken"/>
       </InputClaims>
       ...
     </TechnicalProfile>

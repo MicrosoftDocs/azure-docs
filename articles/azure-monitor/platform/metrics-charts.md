@@ -115,6 +115,9 @@ To change the color of a chart line, click on the colored bar in the legend that
 
 After the chart colors are configured, they will remain that way when you pin the chart to a dashboard. The following section shows you how to pin a chart.
 
+> [!NOTE]
+> Due to constraints of our release and publishing schedule, changing colors of the chart lines temporarily requires passing a special parameter **?feature.colorpicker=true** when starting Azure portal [https://portal.azure.com/?feature.colorpicker=true](https://portal.azure.com/?feature.colorpicker=true). This limitation will be removed soon. 
+
 ![metric image](./media/metrics-charts/018.png)
 
 ## Pin charts to dashboards

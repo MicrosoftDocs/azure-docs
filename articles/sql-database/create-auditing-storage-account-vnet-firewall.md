@@ -81,7 +81,7 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
    ```powershell
    Connect-AzAccount
    Select-AzSubscription -SubscriptionId <subscriptionId>
-   Set-AzSqlServer -ResourceGroupName <your resource group> -ServerName <sql database server> -AssignIdentity
+   Set-AzSqlServer -ResourceGroupName <your resource group> -ServerName <azure server name> -AssignIdentity
    ```
    
    [**REST API**](https://docs.microsoft.com/rest/api/sql/servers/createorupdate):
@@ -89,7 +89,7 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
    Sample request
 
    ```html
-   PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<sql database server>?api-version=2015-05-01-preview
+   PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<azure server name>?api-version=2015-05-01-preview
    ```
 
    Request body
@@ -100,7 +100,7 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
               "type": "SystemAssigned",
               },
    "properties": {
-     "fullyQualifiedDomainName": "<sql database server>.database.windows.net",
+     "fullyQualifiedDomainName": "<azure server name>.database.windows.net",
      "administratorLogin": "<administrator login>",
      "administratorLoginPassword": "<complex password>",
      "version": "12.0",
@@ -118,7 +118,7 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
    Sample request
 
    ```html
-   PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<azure sql database server>?api-version=2017-03-01-preview
+   PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<azure server name>?api-version=2017-03-01-preview
    ```
 
    Request body

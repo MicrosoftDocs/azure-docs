@@ -122,7 +122,7 @@ This is normally not a cause for concern and can usually be ignored for unplanne
 
 This issue is indicated when you are unable to see the datastore in Azure the portal when trying to reprotect the virtual machine that has experienced a failover. This is because the Master target is not recognized as a virtual machine under vCenters added to Azure Site Recovery.
 
-For more information about reprotecting a vitual machine, see [Reprotect and fail back machines to an on-premises site after failover to Azure](vmware-azure-reprotect.md).
+For more information about reprotecting a virtual machine, see [Reprotect and fail back machines to an on-premises site after failover to Azure](vmware-azure-reprotect.md).
 
 To resolve the issue:
 
@@ -132,7 +132,7 @@ Manually create the Master target in the vCenter that manages your source machin
 > 
 > The discovery and refresh fabric operations can take up to 30 minutes to complete. 
 
-## Linux Master Target registration with CS fails with an SSL error 35 
+## Linux Master Target registration with CS fails with a TLS error 35 
 
 The Azure Site Recovery Master Target registration with the configuration server fails due to the Authenticated Proxy being enabled on the Master Target. 
  
