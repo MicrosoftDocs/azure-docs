@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: rezas
+ms.custom: [amqp, mqtt]
 ---
 
 # Understand and invoke direct methods from IoT Hub
@@ -45,7 +46,7 @@ Now, invoke a direct method from a back-end app.
 
 Direct method invocations on a device are HTTPS calls that are made up of the following items:
 
-* The *request URI* specific to the device along with the [API version](/rest/api/iothub/service/invokedevicemethod):
+* The *request URI* specific to the device along with the [API version](/rest/api/iothub/service/devicemethod/invokedevicemethod):
 
     ```http
     https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30
@@ -173,9 +174,9 @@ The AMQP message arrives on the receive link that represents the method request.
 
 The device creates a sending link to return the method response on address `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`.
 
-The method’s response is returned on the sending link and is structured as follows:
+The method's response is returned on the sending link and is structured as follows:
 
-* The correlation ID property, which contains the request ID passed in the method’s request message.
+* The correlation ID property, which contains the request ID passed in the method's request message.
 
 * An application property named `IoThub-status`, which contains the user supplied method status.
 

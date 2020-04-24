@@ -61,7 +61,7 @@ For a complete sample PowerShell script, see [Copy a database to a new server](s
 
 # [Azure CLI](#tab/azure-cli)
 
-```azure-cli
+```azurecli
 az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myResourceGroup" --dest-server $targetserver `
     --name "<databaseName>" --resource-group "<resourceGroup>" --server $sourceserver
 ```

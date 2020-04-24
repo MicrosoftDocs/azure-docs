@@ -70,7 +70,7 @@ The decision forest classifier in Azure Machine Learning consists of an ensemble
 
     + If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.
 
-11. Run the pipeline.
+11. Submit the pipeline.
 
 
 

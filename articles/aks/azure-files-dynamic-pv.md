@@ -1,5 +1,6 @@
 ---
-title: Dynamically create a Files volume for multiple pods in Azure Kubernetes Service (AKS)
+title: Dynamically create Azure Files share
+titleSuffix: Azure Kubernetes Service
 description: Learn how to dynamically create a persistent volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
@@ -27,7 +28,7 @@ A storage class is used to define how an Azure file share is created. A storage 
 
 * *Standard_LRS* - standard locally redundant storage (LRS)
 * *Standard_GRS* - standard geo-redundant storage (GRS)
-* *Standard_ZRS* - standard zone redundant storage (GRS)
+* *Standard_ZRS* - standard zone redundant storage (ZRS)
 * *Standard_RAGRS* - standard read-access geo-redundant storage (RA-GRS)
 * *Premium_LRS* - premium locally redundant storage (LRS)
 * *Premium_ZRS* - premium zone redundant storage (GRS)

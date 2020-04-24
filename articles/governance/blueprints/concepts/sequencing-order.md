@@ -42,8 +42,8 @@ created within that resource group:
 
 When composing large blueprint definitions, it may be necessary for resources to be created in a
 specific order. The most common use pattern of this scenario is when a blueprint definition includes
-several Azure Resource Manager templates. Blueprints handles this pattern by allowing the sequencing
-order to be defined.
+several Azure Resource Manager templates. Azure Blueprints handles this pattern by allowing the
+sequencing order to be defined.
 
 The ordering is accomplished by defining a `dependsOn` property in the JSON. The blueprint
 definition, for resource groups, and artifact objects support this property. `dependsOn` is a string

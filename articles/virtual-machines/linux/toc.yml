@@ -45,9 +45,13 @@
     href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md
   - name: 14b - Integrate Jenkins with Azure DevOps
     href: ../../jenkins/tutorial-build-deploy-jenkins.md
-  - name: 15a - DevOps for IaaS and PaaS on Azure
+  - name: 15a - Configure Rolling deployment strategy
     href: tutorial-devops-azure-pipelines-classic.md
-  - name: 15b - CI/CD with Azure Pipelines(YAML)
+  - name: 15b - Configure Canary deployment strategy
+    href: tutorial-azure-devops-canary-strategy.md
+  - name: 15c - Configure Blue-Green deployment strategy
+    href: tutorial-azure-devops-blue-green-strategy.md
+  - name: 15d - CI/CD with Azure Pipelines(YAML)
     href: tutorial-build-deploy-azure-pipelines.md
   - name: 16a - Create LAMP stack
     href: tutorial-lamp-stack.md
@@ -177,6 +181,7 @@
         href: reserved-vm-instance-size-flexibility.md
     - name: Spot VMs
       href: spot-vms.md
+      displayName: pre-empt, preempt
     - name: Previous generations
       href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Isolated sizes
@@ -315,6 +320,10 @@
           href: disk-encryption-sample-scripts.md
         - name: Disk encryption on an isolated network
           href: disk-encryption-isolated-network.md
+        - name: How to verify encryption status
+          href: how-to-verify-encryption-status.md
+        - name: How to configure LVM RAID on crypt
+          href: how-to-configure-lvm-raid-on-crypt.md
         - name: Disk encryption troubleshooting
           href: disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ
@@ -498,8 +507,6 @@
       href: capture-image.md
     - name: Build image with Packer
       href: build-image-with-packer.md
-    - name: RHEL images in Azure
-      href: rhel-images.md
     - name: Download existing disk
       href: download-vhd.md
   - name: Availability and scale
@@ -520,6 +527,8 @@
       href: create-cli-availability-zone.md
   - name: Use automation tools
     items:
+    - name: Custom data
+      href: ../custom-data.md
     - name: Ansible
       items:
       - name: Install and configure

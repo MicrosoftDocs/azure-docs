@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/9/2020
+ms.date: 4/1/2020
 ---
 # Limitations in Azure Database for MySQL
 The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
@@ -40,7 +40,7 @@ When connections exceed the limit, you may receive the following error:
 
 Creating new client connections to MySQL takes time and once established, these connections occupy database resources, even when idle. Most applications request many short-lived connections, which compounds this situation. The result is fewer resources available for your actual workload leading to decreased performance. A connection pooler that decreases idle connections and reuses existing connections will help avoid this. To learn about setting up ProxySQL, visit our [blog post](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
 
-## query_cache_size
+### query_cache_size
 
 The query cache is turned off by default. To enable the query cache, configure the `query_cache_type` parameter. 
 
@@ -65,7 +65,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 |Memory Optimized|16|0|0|134217728|
 |Memory Optimized|32|0|0|134217728|
 
-## sort_buffer_size
+### sort_buffer_size
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) to learn more about this parameter.
 
@@ -85,7 +85,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 |Memory Optimized|16|524288|32768|33554432|
 |Memory Optimized|32|524288|32768|33554432|
 
-## join_buffer_size
+### join_buffer_size
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) to learn more about this parameter.
 
@@ -105,7 +105,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 |Memory Optimized|16|262144|128|4294967295|
 |Memory Optimized|32|262144|128|4294967295|
 
-## max_heap_table_size
+### max_heap_table_size
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) to learn more about this parameter.
 
@@ -125,7 +125,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 |Memory Optimized|16|16777216|16384|4294967295|
 |Memory Optimized|32|16777216|16384|4294967295|
 
-## tmp_table_size
+### tmp_table_size
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size) to learn more about this parameter.
 
@@ -144,6 +144,10 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 |Memory Optimized|8|16777216|1024|536870912|
 |Memory Optimized|16|16777216|1024|1073741824|
 |Memory Optimized|32|16777216|1024|1073741824|
+
+### time_zone
+
+The time zone tables can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench. Refer to the [Azure portal](howto-server-parameters.md#working-with-the-time-zone-parameter) or [Azure CLI](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) articles for how to call the stored procedure and set the global or session-level time zones.
 
 ## Storage engine support
 

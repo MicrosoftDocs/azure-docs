@@ -53,7 +53,7 @@ To create an Apache Kafka cluster on HDInsight, use the following steps:
     |Secure Shell (SSH) username | The default username is **sshuser**.  You can provide another name for the SSH username. |
     |Use cluster login password for SSH| Select this check box to use the same password for SSH user as the one you provided for the cluster login user.|
 
-   ![Azure portal create cluster basics](./media/apache-kafka-get-started/azure-portal-cluster-basics-blank.png)
+   ![Azure portal create cluster basics](./media/apache-kafka-get-started/azure-portal-cluster-basics.png)
 
     Each Azure region (location) provides _fault domains_. A fault domain is a logical grouping of underlying hardware in an Azure data center. Each fault domain shares a common power source and network switch. The virtual machines and managed disks that implement the nodes within an HDInsight cluster are distributed across these fault domains. This architecture limits the potential impact of physical hardware failures.
 

@@ -246,15 +246,7 @@ If you have finished with just the HSM device, then it can be deleted as a resou
 > [!NOTE]
 > if you have issue with any Gemalto device configuration you should contact [Gemalto customer support](https://safenet.gemalto.com/technical-support/).
 
-If you want to remove just the HSM resource in Azure you can use the following command replacing the "$" variables with your unique parameters:
-
-```powershel
-
-Remove-AzureRmResource -Resourceid ` /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
-
-```
-
-If you have finished with resources in this resource group, then you can remove them all with the following command:
+If you want to remove the HSM resource in Azure you can use the following command replacing the "$" variables with your unique parameters:
 
 ```powershell
 

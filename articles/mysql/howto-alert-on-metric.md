@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 
 # Use the Azure portal to set up alerts on metrics for Azure Database for MySQL 

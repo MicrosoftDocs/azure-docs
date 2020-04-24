@@ -1,7 +1,7 @@
 ---
 title: Show route directions on a map | Microsoft Azure Maps
 description: In this article, you'll learn how to display directions between two locations on a map using the Microsoft Azure Maps Web SDK.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
 ms.topic: conceptual
@@ -62,6 +62,9 @@ The last block of code uses the [Fetch API](https://fetch.spec.whatwg.org/) to m
 The route query, data source, symbol, line layers, and camera bounds are created inside the [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Again, we want to ensure that results are displayed after the map loads fully.
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Best practices for using the routing service](how-to-use-best-practices-for-search.md)
 
 Learn more about the classes and methods used in this article:
 

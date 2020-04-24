@@ -42,7 +42,7 @@ Make sure that you've [set up your development environment](howto-setup-environm
 
 If you're running the Azure CLI locally, open a Bash command shell and  run `az login` to sign in to Azure.
 
-```bash
+```azurecli
 az login
 ```
 
@@ -91,7 +91,7 @@ TENANT=<tenant ID>
 
 Create the resource group for the cluster. Run the following command from the same Bash shell that you used to define the variables above:
 
-```bash
+```azurecli
 az group create --name $CLUSTER_NAME --location $LOCATION
 ```
 
@@ -110,7 +110,7 @@ If you don't know the network name or the resource group the existing VNET belon
 
 Define a VNET_ID variable using the following CLI command in a BASH shell:
 
-```bash
+```azurecli
 VNET_ID=$(az network vnet show -n {VNET name} -g {VNET resource group} --query id -o tsv)
 ```
 
@@ -128,7 +128,7 @@ _To create a log-analytics workspace see [Create log-analytics workspace](../azu
 
 Define a WORKSPACE_ID variable using the following CLI command in a BASH shell:
 
-```bash
+```azurecli
 WORKSPACE_ID=$(az monitor log-analytics workspace show -g {RESOURCE_GROUP} -n {NAME} --query id -o tsv)
 ```
 
@@ -141,19 +141,19 @@ You're now ready to create a cluster. The following will create the cluster in t
 
 If you are **not** peering your cluster to a virtual network or **do not** want Azure Monitoring, use the following command:
 
-```bash
+```azurecli
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID
 ```
 
 If you **are** peering your cluster to a virtual network, use the following command which adds the `--vnet-peer` flag:
 
-```bash
+```azurecli
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --vnet-peer $VNET_ID
 ```
 
 If you **want** Azure Monitoring with your cluster use the following command which adds the `--workspace-id` flag:
 
-```bash
+```azurecli
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --workspace-id $WORKSPACE_ID
 ```
 
@@ -172,7 +172,7 @@ After a few minutes, `az openshift create` will complete.
 
 Get the URL to sign in to your cluster by running the following command:
 
-```bash
+```azurecli
 az openshift show -n $CLUSTER_NAME -g $CLUSTER_NAME
 ```
 
@@ -220,7 +220,7 @@ In the OpenShift console, click the question mark in the upper right corner by y
 >
 > Alternately, you can [download the oc CLI](https://www.okd.io/download.html) directly.
 
-The **Command Line Tools** page provides a command of the form `oc login https://<your cluster name>.<azure region>.cloudapp.azure.com --token=<token value>`.  Click the *Copy to clipboard* button to copy this command.  In a terminal window, [set your path](https://docs.okd.io/latest/cli_reference/get_started_cli.html#installing-the-cli) to include your local installation of the oc tools. Then sign in to the cluster using the oc CLI command you copied.
+The **Command Line Tools** page provides a command of the form `oc login https://<your cluster name>.<azure region>.cloudapp.azure.com --token=<token value>`.  Click the *Copy to clipboard* button to copy this command.  In a terminal window, [set your path](https://docs.okd.io/latest/cli_reference/openshift_cli/getting-started-cli.html#installing-the-cli) to include your local installation of the oc tools. Then sign in to the cluster using the oc CLI command you copied.
 
 If you couldn't get the token value using the steps above, get the token value from: `https://<your cluster name>.<azure region>.cloudapp.azure.com/oauth/token/request`.
 

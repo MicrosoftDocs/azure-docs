@@ -2,20 +2,12 @@
 title: Containers Offer Publishing Guide for Azure Marketplace
 description: This article describes the requirements to publish Containers in the Marketplace
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-
-author: ellacroi
-manager: nunoc
-
-
-
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-
-
-
-ms.topic: article
-ms.date: 07/09/2018
-ms.author: ellacroi
+ms.topic: conceptual
+ms.date: 04/15/2020
+ms.author: dsindona
 
 ---
 
@@ -45,9 +37,9 @@ Microsoft currently supports free and bring-your-own-license (BYOL) licensing mo
 
 If you haven't already done so, 
 
-- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace.
+- [Learn](https://azuremarketplace.microsoft.com/sell) about the marketplace.
 
-If you're registered and are creating a new offer or working on an existing one,
+To register in Partner Center, start creating a new offer or working on an existing one:
 
-- [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer.
-- See [Containers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) for more information.
+- [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
+- See [create an Azure container offer](./partner-center-portal/create-azure-container-offer.md) for more information.

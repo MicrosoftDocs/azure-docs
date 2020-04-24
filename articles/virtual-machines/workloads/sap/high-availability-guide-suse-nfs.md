@@ -14,7 +14,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/06/2020
+ms.date: 03/26/2020
 ms.author: radeltch
 
 ---
@@ -149,15 +149,13 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. IP address 10.0.0.5 for NW2
             * Repeat the steps above for NW2
       1. Create the backend pools
-         1. Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster for NW1
+         1. Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster
             1. Open the load balancer, select backend pools, and click Add
-            1. Enter the name of the new backend pool (for example **nw1-backend**)
+            1. Enter the name of the new backend pool (for example **nw-backend**)
             1. Select Virtual Network
             1. Click Add a virtual machine
             1. Select the virtual machines of the NFS cluster and their IP addresses.
             1. Click Add.
-         1. Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster for NW2
-            * Repeat the steps above to create a backend pool for NW2
       1. Create the health probes
          1. Port 61000 for NW1
             1. Open the load balancer, select health probes, and click Add
@@ -169,7 +167,7 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
       1. Load balancing rules
          1. Open the load balancer, select load-balancing rules and click Add
          1. Enter the name of the new load balancer rule (for example **nw1-lb**)
-         1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-frontend**. **nw1-backend** and **nw1-hp**)
+         1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-frontend**. **nw-backend** and **nw1-hp**)
          1. Select **HA Ports**.
          1. Increase idle timeout to 30 minutes
          1. **Make sure to enable Floating IP**
@@ -185,15 +183,13 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. IP address 10.0.0.5 for NW2
             * Repeat the steps above for NW2
       1. Create the backend pools
-         1. Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster for NW1
+         1. Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster
             1. Open the load balancer, select backend pools, and click Add
-            1. Enter the name of the new backend pool (for example **nw1-backend**)
+            1. Enter the name of the new backend pool (for example **nw-backend**)
             1. Click Add a virtual machine
             1. Select the Availability Set you created earlier
             1. Select the virtual machines of the NFS cluster
             1. Click OK
-         1. Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster for NW2
-            * Repeat the steps above to create a backend pool for NW2
       1. Create the health probes
          1. Port 61000 for NW1
             1. Open the load balancer, select health probes, and click Add
@@ -470,9 +466,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    When using drbd to synchronize data from one host to another, a so called split brain can occur. A split brain is a scenario where both cluster nodes promoted the drbd device to be the primary and went out of sync. It might be a rare situation but you still want to handle and resolve a split brain as fast as possible. It is therefore important to be notified when a split brain happened.
 
-   Read [the official drbd documentation](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) on how to set up a split brain notification.
+   Read [the official drbd documentation](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-split-brain-notification) on how to set up a split brain notification.
 
-   It is also possible to automatically recover from a split brain scenario. For more information, read [Automatic split brain recovery policies](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration)
+   It is also possible to automatically recover from a split brain scenario. For more information, read [Automatic split brain recovery policies](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-automatic-split-brain-recovery-configuration)
    
 ### Configure Cluster Framework
 
@@ -576,6 +572,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure colocation col-<b>NW2</b>_nfs_on_drbd inf: \
      g-<b>NW2</b>_nfs ms-drbd_<b>NW2</b>_nfs:Master
    </code></pre>
+
+   The `crossmnt` option in the `exportfs` cluster resources is present in our documentation for backward compatibility with older SLES versions.  
 
 1. **[1]** Disable maintenance mode
    

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Create Web Application Firewall (WAF) policy for Azure Front Door - Azure portal'
-description: In this tutorial, you learn how to create a WAF policy by using the Azure portal.
+title: 'Tutorial: Create WAF policy for Azure Front Door - Azure portal'
+description: In this tutorial, you learn how to create a Web Application Firewall (WAF) policy by using the Azure portal.
 author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
@@ -11,7 +11,7 @@ ms.author: victorh
 
 # Tutorial: Create a Web Application Firewall policy on Azure Front Door using the Azure portal
 
-This tutorial shows you how to create a basic Azure Web Application Firewall (WAF) policy, and apply the policy to a front-end host at Azure Front Door.
+This tutorial show you how to create a basic Azure Web Application Firewall (WAF) policy and apply it to a front-end host at Azure Front Door.
 
 In this tutorial, you learn how to:
 
@@ -22,18 +22,17 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Create a Front Door profile by following the instructions described in [Quickstart: Create a Front Door profile](../../frontdoor/quickstart-create-front-door.md).
+Create a Front Door profile by following the instructions described in [Quickstart: Create a Front Door profile](../../frontdoor/quickstart-create-front-door.md). 
 
 ## Create a Web Application Firewall policy
 
-First, create a basic WAF policy with managed Default Rule Set (DRS) by using the portal.
+First, create a basic WAF policy with managed Default Rule Set (DRS) by using the portal. 
 
-1. On the top left-hand side of the screen, select **Create a resource**>search for **WAF**>select **Web application firewall ** > select **Create**.
+1. On the top left-hand side of the screen, select **Create a resource**>search for **WAF**>select **Web application firewall (Preview)** > select **Create**.
 2. In the **Basics** tab of the **Create a WAF policy** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Review + create**:
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
-    | Policy for            |Select Global WAF (Front Door).|
     | Subscription            |Select your Front Door subscription name.|
     | Resource group          |Select your Front Door resource group name.|
     | Policy name             |Enter a unique name for your WAF policy.|

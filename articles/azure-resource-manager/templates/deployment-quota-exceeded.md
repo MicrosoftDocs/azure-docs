@@ -17,28 +17,28 @@ During deployment, you receive an error stating that the current deployment will
 
 ### Azure CLI
 
-Use the [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete) command to delete deployments from the history.
+Use the [az deployment group delete](/cli/azure/group/deployment) command to delete deployments from the history.
 
 ```azurecli-interactive
-az group deployment delete --resource-group exampleGroup --name deploymentName
+az deployment group delete --resource-group exampleGroup --name deploymentName
 ```
 
 To delete all deployments older than five days, use:
 
 ```azurecli-interactive
 startdate=$(date +%F -d "-5days")
-deployments=$(az group deployment list --resource-group exampleGroup --query "[?properties.timestamp<'$startdate'].name" --output tsv)
+deployments=$(az deployment group list --resource-group exampleGroup --query "[?properties.timestamp<'$startdate'].name" --output tsv)
 
 for deployment in $deployments
 do
-  az group deployment delete --resource-group exampleGroup --name $deployment
+  az deployment group delete --resource-group exampleGroup --name $deployment
 done
 ```
 
 You can get the current count in the deployment history with the following command:
 
 ```azurecli-interactive
-az group deployment list --resource-group exampleGroup --query "length(@)"
+az deployment group list --resource-group exampleGroup --query "length(@)"
 ```
 
 ### Azure PowerShell

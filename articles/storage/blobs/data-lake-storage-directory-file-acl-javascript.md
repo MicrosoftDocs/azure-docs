@@ -1,21 +1,18 @@
 ---
-title: Use JavaScript for files & ACLs in Azure Data Lake Storage Gen2 (preview)
+title: Use JavaScript for files & ACLs in Azure Data Lake Storage Gen2
 description: Use Azure Storage Data Lake client library for JavaScript to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
-ms.date: 12/18/2019
+ms.date: 03/20/2020
 ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ---
 
-# Use JavaScript to manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (preview)
+# Use JavaScript to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
 
 This article shows you how to use JavaScript to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
-
-> [!IMPORTANT]
-> The JavaScript library that is featured in this article is currently in public preview.
 
 [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-file-datalake) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples) | [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
 
@@ -42,9 +39,13 @@ const AzureStorageDataLake = require("@azure/storage-file-datalake");
 
 ## Connect to the account 
 
-To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. The easiest way to get one is to use an account key. 
+To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. 
 
-This example creates an instance of the **DataLakeServiceClient** by using an account key.
+### Connect by using an account key
+
+This is the easiest way to connect to an account. 
+
+This example creates a **DataLakeServiceClient** instance by using an account key.
 
 ```javascript
 
@@ -61,7 +62,28 @@ function GetDataLakeServiceClient(accountName, accountKey) {
 
 ```
 > [!NOTE]
-> This method of authorization works only for Node.js applications. If you plan to run your code in a browser, you can authorize by using Azure Active Directory (AD). For guidance on how to do that, see the [Azure Storage File Data Lake client library for JavaScript](https://www.npmjs.com/package/@azure/storage-file-datalake) readme file. 
+> This method of authorization works only for Node.js applications. If you plan to run your code in a browser, you can authorize by using Azure Active Directory (AD). 
+
+### Connect by using Azure Active Directory (AD)
+
+You can use the [Azure identity client library for JS](https://www.npmjs.com/package/@azure/identity) to authenticate your application with Azure AD.
+
+This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
+
+```javascript
+function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantID) {
+
+  const credential = new ClientSecretCredential(tenantID, clientID, clientSecret);
+  
+  const datalakeServiceClient = new DataLakeServiceClient(
+      `https://${accountName}.dfs.core.windows.net`, credential);
+
+  return datalakeServiceClient;             
+}
+```
+
+> [!NOTE]
+> For more examples, see the [Azure identity client library for JS](https://www.npmjs.com/package/@azure/identity) documentation.
 
 ## Create a file system
 

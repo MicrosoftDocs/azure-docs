@@ -80,7 +80,7 @@ For more information about the theoretical framework for this algorithm and its 
 
    
 
-10. Run the pipeline.
+10. Submit the pipeline.
 
 ### Results
 

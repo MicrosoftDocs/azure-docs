@@ -1,6 +1,6 @@
 ---
 title: Sign in users in JavaScript single-page apps | Azure
-titleSuffix: Microsoft identity platform 
+titleSuffix: Microsoft identity platform
 description: Learn how a JavaScript app can call an API that requires access tokens using the Microsoft identity platform.
 services: active-directory
 author: navyasric
@@ -8,7 +8,6 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev 
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
@@ -38,7 +37,7 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 > 1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or a personal Microsoft account.
 > 1. If your account gives you access to more than one tenant, select the account at the top right, and then set your portal session to the Azure Active Directory (Azure AD) tenant you want to use.
 > 1. Go to the new [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) pane.
-> 1. Enter a name for your application. 
+> 1. Enter a name for your application.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application.
@@ -78,10 +77,9 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 > Run the project with a web server by using Node.js
 
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
-> [Download the code sample]()
+> [Download the code sample](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
 
 > [!div renderon="docs"]
-
 > #### Step 3: Configure your JavaScript app
 >
 > In the *JavaScriptSPA* folder, edit *authConfig.js*, and set the `clientID`, `authority` and `redirectUri` values under `msalConfig`.
@@ -99,13 +97,13 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 >      cacheLocation: "sessionStorage", // This configures where your cache will be stored
 >      storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
 >    }
->  };  
+>  };
 >
 >```
 
 > [!div renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 >
@@ -122,10 +120,10 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
-> We have configured your project with values of your app's properties. 
+> We have configured your project with values of your app's properties.
 
 > [!div renderon="docs"]
-> 
+>
 > Then, still in the same folder, edit *graphConfig.js* file to set the `graphMeEndpoint` and `graphMeEndpoint` for the `apiConfig` object.
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
@@ -199,7 +197,7 @@ The quickstart code also shows how to initialize the MSAL library:
       cacheLocation: "sessionStorage", // This configures where your cache will be stored
       storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
     }
-  };  
+  };
 
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
@@ -234,7 +232,7 @@ myMSALObj.loginPopup(loginRequest)
 
 > |Where  |  |
 > |---------|---------|
-> | `scopes`   | (Optional) Contains scopes that are being requested for user consent at sign-in time. For example, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (that is, `api://<Application ID>/access_as_user`). |
+> | `scopes`   | (Optional) Contains scopes that are being requested for user consent at sign-in time. For example, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom web APIs (that is, `api://<Application ID>/access_as_user`). |
 
 > [!TIP]
 > Alternatively, you might want to use the `loginRedirect` method to redirect the current page to the sign-in page instead of a popup window.
@@ -264,7 +262,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 > |Where  |  |
 > |---------|---------|
-> | `scopes`   | Contains scopes being requested to be returned in the access token for API. For example, `[ "mail.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (that is, `api://<Application ID>/access_as_user`).|
+> | `scopes`   | Contains scopes being requested to be returned in the access token for API. For example, `[ "mail.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom web APIs (that is, `api://<Application ID>/access_as_user`).|
 
 #### Get a user token interactively
 
@@ -306,8 +304,3 @@ To browse the MSAL repo for documentation, FAQ, issues, and more, see:
 
 > [!div class="nextstepaction"]
 > [MSAL.js GitHub repo](https://github.com/AzureAD/microsoft-authentication-library-for-js)
-
-Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
-
-> [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

@@ -64,7 +64,7 @@ When you run the module, it creates a candidate dataset, and returns a set of ro
     + If selected, the first row is returned and others discarded. 
     + If you uncheck this option, the last duplicate row is kept in the results, and others are discarded. 
 
-5. Run the pipeline.
+5. Submit the pipeline.
 
 6. To review the results, right-click the module, and select **Visualize**. 
 

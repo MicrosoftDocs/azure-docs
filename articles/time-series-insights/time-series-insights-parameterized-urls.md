@@ -8,7 +8,7 @@ ms.author: dpalled
 manager: cshankar
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 02/04/2020
+ms.date: 04/15/2020
 ms.custom: seodec18
 ---
 
@@ -24,7 +24,7 @@ The Time Series Insights Explorer supports URL query parameters to specify views
 
 ## Environment ID
 
-The `environmentId=<guid>` parameter specifies the target environment ID. It's a component of the data access FQDN, and you can find it in the top-right corner of the environment overview in the Azure portal. It’s everything that precedes `env.timeseries.azure.com`.
+The `environmentId=<guid>` parameter specifies the target environment ID. It's a component of the data access FQDN, and you can find it in the top-right corner of the environment overview in the Azure portal. It's everything that precedes `env.timeseries.azure.com`.
 
 An example environment ID parameter is `?environmentId=10000000-0000-0000-0000-100000000108`.
 

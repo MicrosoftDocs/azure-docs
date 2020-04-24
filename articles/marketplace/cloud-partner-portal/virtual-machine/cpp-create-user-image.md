@@ -1,16 +1,18 @@
 ---
 title: Create a user VM image for the Azure Marketplace 
 description: Lists the steps and references required to create a user VM image.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Create a user VM image
+
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin the moving management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create your Azure Virtual Machine technical assets](https://aka.ms/AzureVMTechAsset) to manage your migrated offers.
 
 This article explains the two general steps required to create an unmanaged image from a generalized VHD.  References are provided to guide you through each step: capture the image and generalize the image.
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/22/2020
+ms.date: 03/30/2020
 ms.author: iainfou
 
 #Customer intent: As an IT administrator or decision maker, I want to understand the differences between Active Directory Domain Services (AD DS), Azure AD, and Azure AD DS so I can choose the most appropriate identity solution for my organization.
@@ -23,12 +23,16 @@ Although the three Active Directory-based identity solutions share a common name
 
 * **Active Directory Domain Services (AD DS)** - Enterprise-ready lightweight directory access protocol (LDAP) server that provides key features such as identity and authentication, computer object management, group policy, and trusts.
     * AD DS is a central component in many organizations with an on-premises IT environment, and provides core user account authentication and computer management features.
+    * For more information, see [Active Directory Domain Services overview in the Windows Server documentation][overview-adds].
 * **Azure Active Directory (Azure AD)** - Cloud-based identity and mobile device management that provides user account and authentication services for resources such as Office 365, the Azure portal, or SaaS applications.
     * Azure AD can be synchronized with an on-premises AD DS environment to provide a single identity to users that works natively in the cloud.
+    * For more information about Azure AD, see [What is Azure Active Directory?][whatis-azuread]
 * **Azure Active Directory Domain Services (Azure AD DS)** - Provides managed domain services with a subset of fully-compatible traditional AD DS features such as domain join, group policy, LDAP, and Kerberos / NTLM authentication.
     * Azure AD DS integrates with Azure AD, which itself can synchronize with an on-premises AD DS environment. This ability extends central identity use cases to traditional web applications that run in Azure as part of a lift-and-shift strategy.
 
 This overview article compares and contrasts how these identity solutions can work together, or would be used independently, depending on the needs of your organization.
+
+To get started, [create an Azure AD DS managed domain using the Azure portal][tutorial-create].
 
 ## Azure AD DS and self-managed AD DS
 
@@ -116,3 +120,5 @@ To get started with using Azure AD DS, [create an Azure AD DS managed domain usi
 [manage-gpos]: manage-group-policy.md
 [tutorial-ldaps]: tutorial-configure-ldaps.md
 [tutorial-create]: tutorial-create-instance.md
+[whatis-azuread]: ../active-directory/fundamentals/active-directory-whatis.md
+[overview-adds]: /windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview

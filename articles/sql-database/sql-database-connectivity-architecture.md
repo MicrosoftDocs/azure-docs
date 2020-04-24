@@ -39,7 +39,7 @@ The following steps describe how a connection is established to an Azure SQL dat
 Azure SQL Database supports the following three options for the connection policy setting of a SQL Database server:
 
 - **Redirect (recommended):** Clients establish connections directly to the node hosting the database, leading to reduced latency and improved throughput. For connections to use this mode, clients need to:
-   - Allow outbound communication from the client to all Azure IP addresses in the region on ports in the range of 11000 11999. Use the Service Tags for SQL to make this easier to manage.  
+   - Allow outbound communication from the client to all Azure SQL IP addresses in the region on ports in the range of 11000 11999. Use the Service Tags for SQL to make this easier to manage.  
    - Allow outbound communication from the client to Azure SQL Database gateway IP addresses on port 1433.
 
 - **Proxy:** In this mode, all connections are proxied via the Azure SQL Database gateways,leading to increased latency and reduced throughput. For connections to use this mode, clients need to allow outbound communication from the client to Azure SQL Database gateway IP addresses on port 1433.
@@ -61,7 +61,7 @@ If you are connecting from outside Azure, your connections have a connection pol
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Additionally open ports 14000-14999 to enable [Connecting with DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+> Additionally open TCP ports 1434 and 14000-14999 to enable [Connecting with DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
 
 
 ## Azure SQL Database gateway IP addresses

@@ -77,7 +77,7 @@ This module supports two methods for fitting a regression model, with different 
 
 7. Add the [Train Model](./train-model.md) module to your pipeline, and connect a labeled dataset.
 
-8. Run the pipeline.
+8. Submit the pipeline.
 
 ### Results for ordinary least squares model
 
@@ -126,7 +126,7 @@ After training is complete:
 
     If you are not using a parameter sweep, use the [Train Model](train-model.md) module.
 
-13. Run the pipeline.
+13. Submit the pipeline.
 
 ### Results for online gradient descent
 

@@ -35,6 +35,8 @@ In this tutorial, you will learn how to:
 
 ## Set up feature management
 
+Add a reference to the `Microsoft.FeatureManagement` NuGet package to utilize the .NET Core feature manager.
+    
 The .NET Core feature manager `IFeatureManager` gets feature flags from the framework's native configuration system. As a result, you can define your application's feature flags by using any configuration source that .NET Core supports, including the local *appsettings.json* file or environment variables. `IFeatureManager` relies on .NET Core dependency injection. You can register the feature management services by using standard conventions:
 
 ```csharp

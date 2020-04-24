@@ -54,8 +54,8 @@ Save costs and improve availability:
 ## How to work with Reliable Services
 Service Fabric Reliable Services enables you to easily create stateless and stateful services. For more information, see the [introduction to Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction).
 - Always honor the [cancellation token](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) in the `RunAsync()` method for stateless and stateful services and the `ChangeRole()` method for stateful services. If you don't, Service Fabric doesn't know if your service can be closed. For example, if you don't honor the cancellation token, much longer application upgrade times can occur.
--	Open and close [communication listeners](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) in a timely way, and honor the cancellation tokens.
--	Never mix sync code with async code. For example, don't use `.GetAwaiter().GetResult()` in your async calls. Use async *all the way* through the call stack.
+-    Open and close [communication listeners](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) in a timely way, and honor the cancellation tokens.
+-    Never mix sync code with async code. For example, don't use `.GetAwaiter().GetResult()` in your async calls. Use async *all the way* through the call stack.
 
 ## How to work with Reliable Actors
 Service Fabric Reliable Actors enables you to easily create stateful, virtual actors. For more information, see the [introduction to Reliable Actors](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction).
@@ -64,8 +64,8 @@ Service Fabric Reliable Actors enables you to easily create stateful, virtual ac
 - Make the actor state as [granular as possible](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices).
 - Manage the [actor's life cycle](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices). Delete actors if you're not going to use them again. Deleting unneeded actors is especially important when you're using the [volatile state provider](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#state-persistence-and-replication), because all the state is stored in memory.
 - Because of their [turn-based concurrency](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#concurrency), actors are best used as independent objects. Don't create graphs of multi-actor, synchronous method calls (each of which most likely becomes a separate network call) or create circular actor requests. These will significantly affect performance and scale.
-- Don’t mix sync code with async code. Use async consistently to prevent performance issues.
-- Don’t make long-running calls in actors. Long-running calls will block other calls to the same actor, due to the turn-based concurrency.
+- Don't mix sync code with async code. Use async consistently to prevent performance issues.
+- Don't make long-running calls in actors. Long-running calls will block other calls to the same actor, due to the turn-based concurrency.
 - If you're communicating with other services by using [Service Fabric remoting](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) and you're creating a `ServiceProxyFactory`, create the factory at the [actor-service](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) level and *not* at the actor level.
 
 
@@ -73,7 +73,7 @@ Service Fabric Reliable Actors enables you to easily create stateful, virtual ac
 Be thorough about adding [application logging](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) in service calls. It will help you diagnose scenarios in which services call each other. For example, when A calls B calls C calls D, the call could fail anywhere. If you don't have enough logging, failures are hard to diagnose. If the services are logging too much because of call volumes, be sure to at least log errors and warnings.
 
 ## IoT and messaging applications
-When you're reading messages from [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) or [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/), use  [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor). ServiceFabricProcessor integrates with Service Fabric Reliable Services to maintain the state of reading from the event hub partitions and pushes new messages to your services via the `IEventProcessor::ProcessEventsAsync()` method.
+When you're reading messages from [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) or [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/), use  [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/ServiceFabricProcessor). ServiceFabricProcessor integrates with Service Fabric Reliable Services to maintain the state of reading from the event hub partitions and pushes new messages to your services via the `IEventProcessor::ProcessEventsAsync()` method.
 
 
 ## Design guidance on Azure

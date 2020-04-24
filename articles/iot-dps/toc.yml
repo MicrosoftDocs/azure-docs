@@ -103,6 +103,8 @@
     href: concepts-tpm-attestation.md
   - name: Symmetric key attestation
     href: concepts-symmetric-key-attestation.md
+  - name: Security practices for device manufacturers
+    href: concepts-device-oem-security-practices.md
 - name: How-to guides
   items:
   - name: Connect MXChip IoT DevKit to IoT Hub
@@ -171,50 +173,46 @@
     href: https://github.com/Azure/azure-iot-sdk-java
   - name: Azure IoT SDK for .NET
     href: https://github.com/Azure/azure-iot-sdk-csharp
-- name: Related
-  items:
-  - name: Solutions
-    items:
-    - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
-    - name: IoT solution accelerators
-      href: /azure/iot-accelerators
-  - name: Platform Services
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Plug and Play
-      href: /azure/iot-pnp
-    - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
-    - name: IoT Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Maps
-      href: /azure/azure-maps
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Edge solutions
-    items:
-    - name: Azure IoT Edge
-      href: /azure/iot-edge
-    - name: IoT Device SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks   
 - name: Resources
   items:
   - name: Support and help options
     href: /azure/iot-fundamentals/iot-support-help
-  - name: Azure IoT Samples for C# (.NET)
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
-  - name: Azure IoT Samples for Node.js
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
-  - name: Azure IoT Samples for Java
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
-  - name: Azure IoT Samples for Python
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
-  - name: Azure IoT Samples for iOS Platform
-    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
-  - name: Azure IoT Hub
-    href: https://azure.microsoft.com/services/iot-hub/
+  - name: Azure IoT services
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub
+    - name: IoT Hub Device Provisioning Service
+      href: /azure/iot-dps
+    - name: IoT Central
+      href: https://docs.microsoft.com/microsoft-iot-central/
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: IoT solution accelerators
+      href: /azure/iot-accelerators
+    - name: IoT Plug and Play
+      href: /azure/iot-pnp
+    - name: Azure Maps
+      href: /azure/azure-maps
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Azure IoT SDKs
+    items:
+    - name: IoT Service SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: IoT Device SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+  - name: Azure IoT samples
+    items:
+    - name: C# (.NET)
+      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+    - name: Node.js
+      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
+    - name: Java
+      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+    - name: Python
+      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
+    - name: iOS Platform
+      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Azure Certified for IoT device catalog
     href: https://catalog.azureiotsolutions.com/
   - name: Azure IoT Developer Center
@@ -223,8 +221,8 @@
     href: iot-dps-customer-data-requests.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Device Explorer tool
-    href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
+  - name: Azure IoT Explorer tool
+    href: https://github.com/Azure/azure-iot-explorer
   - name: iothub-diagnostics tool
     href: https://github.com/Azure/iothub-diagnostics
   - name: MSDN forum
