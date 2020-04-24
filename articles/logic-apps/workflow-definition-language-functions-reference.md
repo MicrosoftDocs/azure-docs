@@ -3,20 +3,14 @@ title: Reference guide for functions in expressions
 description: Reference guide to functions in expressions for Azure Logic Apps and Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 04/23/2020
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
 
-For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
-and [Power Automate](https://docs.microsoft.com/flow/getting-started), some 
-[expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) 
-get their values from runtime actions that might not yet exist when your 
-workflow starts running. To reference these values or process the values 
-in these expressions, you can use *functions* provided by the 
-[Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
+For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Power Automate](https://docs.microsoft.com/flow/getting-started), some [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) get their values from runtime actions that might not yet exist when your workflow starts running. To reference these values or process the values in these expressions, you can use *functions* provided by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > This reference page applies to both Azure Logic Apps and Power Automate, 
@@ -25,10 +19,7 @@ in these expressions, you can use *functions* provided by the
 > For more information about functions and expressions in Power Automate, see 
 > [Use expressions in conditions](https://docs.microsoft.com/flow/use-expressions-in-conditions).
 
-For example, you can calculate values by using math functions, such as the
-[add() function](../logic-apps/workflow-definition-language-functions-reference.md#add), 
-when you want the sum from integers or floats. Here are other 
-example tasks that you can perform with functions:
+For example, you can calculate values by using math functions, such as the [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) function, when you want the sum from integers or floats. Here are other example tasks that you can perform with functions:
 
 | Task | Function syntax | Result |
 | ---- | --------------- | ------ |
@@ -36,22 +27,15 @@ example tasks that you can perform with functions:
 | Return a globally unique identifier (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
 ||||
 
-To find functions [based on their general purpose](#ordered-by-purpose),
-review the following tables. Or, for detailed information about each function,
-see the [alphabetical list](#alphabetical-list).
+To find functions [based on their general purpose](#ordered-by-purpose), review the following tables. Or, for detailed information about each function, see the [alphabetical list](#alphabetical-list).
 
 > [!NOTE]
-> In the syntax for parameter definitions, a question mark (?)
-> that appears after a parameter means the parameter is optional.
-> For example, see [getFutureTime()](#getFutureTime).
+> In the syntax for parameter definitions, a question mark (?) that appears after a parameter 
+> means the parameter is optional. For example, see [getFutureTime()](#getFutureTime).
 
 ## Functions in expressions
 
-To show how to use a function in an expression,
-this example shows how you can get the value from
-the `customerName` parameter and assign that value
-to the `accountName` property by using the
-[parameters()](#parameters) function in an expression:
+To show how to use a function in an expression, this example shows how you can get the value from the `customerName` parameter and assign that value to the `accountName` property by using the [parameters()](#parameters) function in an expression:
 
 ```json
 "accountName": "@parameters('customerName')"
@@ -76,10 +60,8 @@ so that you get a combined string, "SophiaOwen":
 "customerName": "@concat('Sophia', 'Owen')"
 ```
 
-Or, you can get string values from parameters. This example
-uses the `parameters()` function in each `concat()` parameter
-and the `firstName` and `lastName` parameters. You then pass
-the resulting strings to the `concat()` function so that
+Or, you can get string values from parameters. This example uses the `parameters()` function in each `concat()` parameter
+and the `firstName` and `lastName` parameters. You then pass the resulting strings to the `concat()` function so that
 you get a combined string, for example, "SophiaOwen":
 
 ```json
@@ -88,17 +70,14 @@ you get a combined string, for example, "SophiaOwen":
 
 Either way, both examples assign the result to the `customerName` property.
 
-Here are the available functions ordered by their general purpose,
-or you can browse the functions based on [alphabetical order](#alphabetical-list).
+Here are the available functions ordered by their general purpose, or you can browse the functions based on [alphabetical order](#alphabetical-list).
 
 <a name="ordered-by-purpose"></a>
 <a name="string-functions"></a>
 
 ## String functions
 
-To work with strings, you can use these string functions
-and also some [collection functions](#collection-functions).
-String functions work only on strings.
+To work with strings, you can use these string functions and also some [collection functions](#collection-functions). String functions work only on strings.
 
 | String function | Task |
 | --------------- | ---- |
@@ -121,8 +100,7 @@ String functions work only on strings.
 
 ## Collection functions
 
-To work with collections, generally arrays, strings,
-and sometimes, dictionaries, you can use these collection functions.
+To work with collections, generally arrays, strings, and sometimes, dictionaries, you can use these collection functions.
 
 | Collection function | Task |
 | ------------------- | ---- |
@@ -143,10 +121,7 @@ and sometimes, dictionaries, you can use these collection functions.
 
 ## Logical comparison functions
 
-To work with conditions, compare values and expression results,
-or evaluate various kinds of logic, you can use these logical comparison functions.
-For the full reference about each function, see the
-[alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+To work with conditions, compare values and expression results, or evaluate various kinds of logic, you can use these logical comparison functions. For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 | Logical comparison function | Task |
 | --------------------------- | ---- |
@@ -165,12 +140,14 @@ For the full reference about each function, see the
 
 ## Conversion functions
 
-To change a value's type or format, you can use these conversion functions.
-For example, you can change a value from a Boolean to an integer.
-For more information about how Logic Apps handles content types during
-conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md).
-For the full reference about each function, see the
-[alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+To change a value's type or format, you can use these conversion functions. For example, you can change a value from a Boolean to an integer. For more information about how Logic Apps handles content types during conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md). For the full reference about each function, see the [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+> [!NOTE]
+> Azure Logic Apps automatically converts values between some data types, 
+> which means that you don't have to manually perform these conversions. 
+> However, if you do so, you might experience unexpected display behaviors, 
+> which don't affect the actual conversions, only how they are shown. 
+> For more information, see [Implicit data type conversions](#implicit-data-conversions).
 
 | Conversion function | Task |
 | ------------------- | ---- |
@@ -197,6 +174,39 @@ For the full reference about each function, see the
 | [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Return the string version for a URI-encoded string. |
 | [xml](../logic-apps/workflow-definition-language-functions-reference.md#xml) | Return the XML version for a string. |
 |||
+
+<a name="implicit-data-conversions"></a>
+
+## Implicit data type conversions
+
+Azure Logic Apps automatically or implicitly converts between some data types, so you don't have to manually convert these types. For example, if you use non-string values where strings are expected as inputs, Logic Apps automatically converts the non-string values into strings.
+
+For example, suppose a trigger returns a numerical value as output:
+
+`triggerBody()?['123']`
+
+If you use this numerical output where string input is expected, such as a URL, Logic Apps automatically converts the value into a string by using the curly braces (`{}`) notation:
+
+`@{triggerBody()?['123']}`
+
+### Base64 encoding and decoding
+
+Logic Apps automatically or implicitly performs base64 encoding or decoding, so you don't have to manually perform these operations by using the corresponding expressions:
+
+* `base64(<value>)`
+* `base64ToBinary(<value>)`
+* `base64ToString(<value>)`
+* `base64(decodeDataUri(<value>))`
+* `concat('data:;base64,',<value>)`
+* `concat('data:,',encodeUriComponent(<value>))`
+* `decodeDataUri(<value>)`
+
+> [!NOTE]
+> If you manually add these expressions to your logic app, for example, by using the expression editor, 
+> navigate away from the Logic App Designer and return to the designer, the designer shows only the 
+> parameter values. The expressions are preserved in code view only if you don't edit the parameter 
+> values. Otherwise, Logic Apps removes the expressions from code view, leaving only the parameter values. 
+> This behavior doesn't affect encoding or decoding, only whether the expressions are shown.
 
 <a name="math-functions"></a>
 
@@ -962,6 +972,13 @@ And returns this result: `["hello"]`
 
 Return the base64-encoded version for a string.
 
+> [!NOTE]
+> Azure Logic Apps automatically performs base64 encoding and decoding, 
+> which means that you don't have to manually perform these conversions. 
+> However, if you do so, you might experience unexpected display behaviors, 
+> which don't affect the actual conversions, only how they are shown. 
+> For more information, see [Implicit data type conversions](#implicit-data-conversions).
+
 ```
 base64('<value>')
 ```
@@ -991,6 +1008,13 @@ And returns this result: `"aGVsbG8="`
 ### base64ToBinary
 
 Return the binary version for a base64-encoded string.
+
+> [!NOTE]
+> Azure Logic Apps automatically performs base64 encoding and decoding, 
+> which means that you don't have to manually perform these conversions. 
+> However, if you do so, you might experience unexpected display behaviors, 
+> which don't affect the actual conversions, only how they are shown. 
+> For more information, see [Implicit data type conversions](#implicit-data-conversions).
 
 ```
 base64ToBinary('<value>')
@@ -1022,11 +1046,14 @@ And returns this result:
 
 ### base64ToString
 
-Return the string version for a base64-encoded string,
-effectively decoding the base64 string.
-Use this function rather than [decodeBase64()](#decodeBase64).
-Although both functions work the same way,
-`base64ToString()` is preferred.
+Return the string version for a base64-encoded string, effectively decoding the base64 string. Use this function rather than [decodeBase64()](#decodeBase64), which is deprecated.
+
+> [!NOTE]
+> Azure Logic Apps automatically performs base64 encoding and decoding, 
+> which means that you don't have to manually perform these conversions. 
+> However, if you do so, you might experience unexpected display behaviors, 
+> which don't affect the actual conversions, only how they are shown. 
+> For more information, see [Implicit data type conversions](#implicit-data-conversions).
 
 ```
 base64ToString('<value>')
@@ -1631,48 +1658,22 @@ And returns this result: `74`
 
 <a name="decodeBase64"></a>
 
-### decodeBase64
+### decodeBase64 (deprecated)
 
-Return the string version for a base64-encoded string,
-effectively decoding the base64 string.
-Consider using [base64ToString()](#base64ToString)
-rather than `decodeBase64()`.
-Although both functions work the same way,
-`base64ToString()` is preferred.
-
-```
-decodeBase64('<value>')
-```
-
-| Parameter | Required | Type | Description |
-| --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | String | The base64-encoded string to decode |
-|||||
-
-| Return value | Type | Description |
-| ------------ | ---- | ----------- |
-| <*decoded-base64-string*> | String | The string version for a base64-encoded string |
-||||
-
-*Example*
-
-This example creates a string for a base64-encoded string:
-
-```
-decodeBase64('aGVsbG8=')
-```
-
-And returns this result: `"hello"`
+This function is deprecated, so please use [base64ToString()](#base64ToString) instead.
 
 <a name="decodeDataUri"></a>
 
 ### decodeDataUri
 
-Return the binary version for a data uniform resource identifier (URI).
-Consider using [dataUriToBinary()](#dataUriToBinary),
-rather than `decodeDataUri()`.
-Although both functions work the same way,
-`dataUriToBinary()` is preferred.
+Return the binary version for a data uniform resource identifier (URI). Consider using [dataUriToBinary()](#dataUriToBinary), rather than `decodeDataUri()`. Although both functions work the same way, `dataUriToBinary()` is preferred.
+
+> [!NOTE]
+> Azure Logic Apps automatically performs base64 encoding and decoding, 
+> which means that you don't have to manually perform these conversions. 
+> However, if you do so, you might experience unexpected display behaviors, 
+> which don't affect the actual conversions, only how they are shown. 
+> For more information, see [Implicit data type conversions](#implicit-data-conversions).
 
 ```
 decodeDataUri('<value>')
@@ -1770,12 +1771,14 @@ And return this result: `2`
 
 ### encodeUriComponent
 
-Return a uniform resource identifier (URI) encoded version for a
-string by replacing URL-unsafe characters with escape characters.
-Consider using [uriComponent()](#uriComponent),
-rather than `encodeUriComponent()`.
-Although both functions work the same way,
-`uriComponent()` is preferred.
+Return a uniform resource identifier (URI) encoded version for a string by replacing URL-unsafe characters with escape characters. Consider using [uriComponent()](#uriComponent), rather than `encodeUriComponent()`. Although both functions work the same way, `uriComponent()` is preferred.
+
+> [!NOTE]
+> Azure Logic Apps automatically performs base64 encoding and decoding, 
+> which means that you don't have to manually perform these conversions. 
+> However, if you do so, you might experience unexpected display behaviors, 
+> which don't affect the actual conversions, only how they are shown. 
+> For more information, see [Implicit data type conversions](#implicit-data-conversions).
 
 ```
 encodeUriComponent('<value>')
@@ -2499,8 +2502,7 @@ items('myForEachLoopName')
 
 ### iterationIndexes
 
-Return the index value for the current iteration inside an Until loop. 
-You can use this function inside nested Until loops. 
+Return the index value for the current iteration inside an Until loop. You can use this function inside nested Until loops. 
 
 ```
 iterationIndexes('<loopName>')
@@ -2518,17 +2520,11 @@ iterationIndexes('<loopName>')
 
 *Example* 
 
-This example creates a counter variable and increments that 
-variable by one during each iteration in an Until loop until 
-the counter value reaches five. The example also creates a 
-variable that tracks the current index for each iteration. 
-In the Until loop, during each iteration, the example increments 
-the counter and then assigns the counter value to the current 
-index value and then increments the counter. At any time, 
-you can determine the current iteration number by 
-retrieving the current index value.
+This example creates a counter variable and increments that variable by one during each iteration in an Until loop until the counter value reaches five. The example also creates a variable that tracks the current index for each iteration. In the Until loop, during each iteration, the example increments the counter and then assigns the counter value to the current index value and then increments the counter. While in the loop, this example references the current iteration index by using the `iterationIndexes` function:
 
-```
+`iterationIndexes('Until_Max_Increment')`
+
+```json
 {
    "actions": {
       "Create_counter_variable": {
@@ -2559,7 +2555,7 @@ retrieving the current index value.
             "Create_counter_variable": [ "Succeeded" ]
          }
       },
-      "Until": {
+      "Until_Max_Increment": {
          "type": "Until",
          "actions": {
             "Assign_current_index_to_counter": {
@@ -2572,6 +2568,15 @@ retrieving the current index value.
                   "Increment_variable": [ "Succeeded" ]
                }
             },
+            "Compose": {
+               "inputs": "'Current index: ' @{iterationIndexes('Until_Max_Increment')}",
+               "runAfter": {
+                  "Assign_current_index_to_counter": [
+                     "Succeeded"
+                    ]
+                },
+                "type": "Compose"
+            },           
             "Increment_variable": {
                "type": "IncrementVariable",
                "inputs": {

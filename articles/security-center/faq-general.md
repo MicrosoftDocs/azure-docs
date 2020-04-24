@@ -55,7 +55,7 @@ The security policies enabled in Azure Security Center drive security recommenda
 
 
 ## Who can modify a security policy?
-To modify a security policy, you must be a Security Administrator or an Owner or Contributor of that subscription.
+To modify a security policy, you must be a Security Admin or an Owner or Contributor of that subscription.
 
 To learn how to configure a security policy, see [Setting security policies in Azure Security Center](tutorial-security-policy.md).
 
