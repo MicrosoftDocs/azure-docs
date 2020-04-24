@@ -56,7 +56,7 @@ For more information, see the following article, [Configure public endpoint in A
 
 ## Create an Azure AD server principal (login) for a managed instance using SSMS
 
-The first Azure AD server principal (login) can be created by the standard SQL Server account (non-azure AD) that is a `sysadmin`, or the Azure AD admin for the managed instance created during the provisioning process. For more information, see [Provision an Azure Active Directory administrator for your managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). This functionality has changed since the [GA of Azure AD server principals](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi).
+The first Azure AD server principal (login) can be created by the standard SQL Server account (non-azure AD) that is a `sysadmin`, or the Azure AD admin for the managed instance created during the provisioning process. For more information, see [Provision an Azure Active Directory administrator for your managed instance](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 See the following articles for examples of connecting to your managed instance:
 
