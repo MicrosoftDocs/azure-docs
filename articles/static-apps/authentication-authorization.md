@@ -19,7 +19,7 @@ Authentication and authorization is enforced by rules defined in the _routes.jso
 - Twitter
 - Google
 
-The topics of authentication and authorization overlaps with routing rules. Make sure to read the [routing guide](routes.md) along with this article.
+The topics of authentication and authorization significantly overlap with routing concepts. Make sure to read the [routing guide](routes.md) along with this article.
 
 ## Roles
 
