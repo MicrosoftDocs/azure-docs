@@ -1923,6 +1923,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Face/Quickstarts/csharp-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Face/Quickstarts/client-libraries?pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/Quickstarts/python-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Face/Quickstarts/client-libraries?pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Face/Quickstarts/go-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Face/Quickstarts/client-libraries?pivots=programming-language-go",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/classic/rdma-cluster.md",
       "redirect_url": "/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances",
       "redirect_document_id": false
