@@ -30,11 +30,13 @@ Every user that accesses a static app belongs to one or more roles. There are tw
 
 Beyond the built-in roles, you can create new roles in the _routes.json_ file and assign them to users via invitations.
 
-## Add user
+## Role management
+
+### Add a user to a role
 
 To add users to your site, you generate invitations which allow you to associate users to specific roles. Roles are defined and maintained in the _routes.json_ file.
 
-## Create an invitation
+#### Create an invitation
 
 - Navigate to a static app in the Azure portal
 - Under _Settings_, click on **Role Management**
@@ -50,7 +52,7 @@ To add users to your site, you generate invitations which allow you to associate
 - Copy the link from the _Invite link_ box
 - Email the invitation link to the person you are granting access to your app
 
-## Update role assignments
+### Update role assignments
 
 - Navigate to a static app in the Azure portal
 - Under _Settings_, click on **Role Management**
@@ -60,7 +62,7 @@ To add users to your site, you generate invitations which allow you to associate
 - Edit the list of roles in the _Role_ box
 - Click the **Update** button
 
-## Remove user
+### Remove user from all roles
 
 - Navigate to a static app in the Azure portal
 - Under _Settings_, click on **Role Management**
@@ -69,6 +71,10 @@ To add users to your site, you generate invitations which allow you to associate
 - Click the **Delete** button
 
 Removing a user also invalidates the permissions for the user. This action may take a few minutes to propagate the change worldwide.
+
+## System folder
+
+TODO /.auth system folder
 
 ## Login
 
@@ -105,7 +111,7 @@ You can use a [route rule](routes.md) to map a default provider to a friendly ro
 
 ## Logout
 
-The `/.auth/logout` route logs a user out of the website. You can add a link to your site navigation to allow the user to log out as shown the the following example:
+The `/.auth/logout` route logs out user from the website. You can add a link to your site navigation to allow the user to log out as shown the the following example:
 
 ```html
 <a href="/.auth/logout">Log out</a>
@@ -122,9 +128,9 @@ You can use a [route rule](routes.md) to map a friendly route like _/logout_.
 
 ## Block an authorization provider
 
-You may want to restrict some apps from using an authorization provider. For instance, your app may want to standardize on providers that expose email addresses to your app, or your app must only use Azure Active Directory.
+In some cases, you may want to restrict some apps from using an authorization provider. For instance, your app may want to standardize only on providers that expose email addresses.
 
-To block providers, a route rules are used to return a 404 when requesting the provider-specific route. For example, to restrict Twitter as provider, add the following route rule:
+To block a provider, [route rules](routes.md) are used to return a 404 when requesting the blocked provider-specific route. For example, to restrict Twitter as provider, add the following route rule.
 
 ```json
 {
