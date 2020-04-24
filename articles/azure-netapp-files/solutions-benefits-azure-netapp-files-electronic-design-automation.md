@@ -22,7 +22,7 @@ Time-to-market (TTM) is a critical consideration for the semiconductor and chip 
 
 ## Test scenario configurations
 
-The tests involve three scenarios intended to investigate the potential benefits for I/O upper limits and latency. The table below describes the test configurations. 
+The tests involve three scenarios with the following configurations. 
 
 |    Scenario    |    Volumes    |    Clients<br> SLES15 D16s_v3  |
 |----------------|---------------|--------------------------------|
@@ -32,17 +32,17 @@ The tests involve three scenarios intended to investigate the potential benefits
 
 The first scenario addresses how far a single volume can be driven.  
 
-The second and the third scenarios evaluate the limits of a single Azure NetApp Files endpoint. 
+The second and the third scenarios evaluate the limits of a single Azure NetApp Files endpoint. They investigate the potential benefits of I/O upper limits and latency.
 
 ## Test scenario results
 
-The following table summarizes the results for the test scenarios. 
+The following table summarizes the test scenarios results.
 
 |    Scenario       |    I/O rate<br>  at 2 ms     |    I/O rate<br>  at the edge     |    Throughput<br>  at 2 ms     |    Throughput<br>  at the edge     |
 |-------------------|---------------------------|--------------------------------|-----------------------------|----------------------------------|
-|    1 volume       |    39,601                 |    49,502                      |    692MiB/s                 |    866MiB/s                      |
-|    6 volumes      |    255,613                |    317,000                     |    4,577MiB/s               |    5,568MiB/s                    |
-|    12 volumes     |    256,612                |    319,196                     |    4,577MiB/s               |    5,709MiB/s                    |
+|    1 volume       |    39,601                 |    49,502                      |    692 MiB/s                 |    866 MiB/s                      |
+|    6 volumes      |    255,613                |    317,000                     |    4,577 MiB/s               |    5,568 MiB/s                    |
+|    12 volumes     |    256,612                |    319,196                     |    4,577 MiB/s               |    5,709 MiB/s                    |
 
 The single-volume scenario represents the basic application configuration. It's the baseline scenario for follow-on test scenarios.  
 
@@ -70,7 +70,7 @@ The table below summarizes the layout of the test scenarios.
 
 The complete workload is a mixture of concurrently running functional and physical phases. It represents a typical flow from one set of EDA tools to another.   
 
-The functional phase consists of initial specifications and a logical design. The physical phase takes place when the logical design converts into a physical chip. During the sign-off and tape-out phases, final checks are completed, and the design is delivered to a foundry for manufacturing.  
+The functional phase consists of initial specifications and a logical design. The physical phase takes place when the logical design is converted to a physical chip. During the sign-off and tape-out phases, final checks are completed, and the design is delivered to a foundry for manufacturing.  
 
 In terms of storage, the functional phases include a mixture of sequential and random read and write I/O. The functional phases are metadata intensive, like file stat and access calls. Although metadata operations are effectively without size, the read and write operations range between less than 1 K and 16 K. Most reads are between 4 K and 16 K.  Most writes are 4 K or less.  On the other hand, the physical phases are composed of sequential read and write operations entirely. They are a mixture of 32 K and 64 K OP sizes.  
 
