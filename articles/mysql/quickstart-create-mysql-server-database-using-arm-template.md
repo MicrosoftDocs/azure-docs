@@ -1,5 +1,5 @@
 ---
-title: Create Azure DB for MySQL server with VNet using ARM template
+title: Create an Azure DB for MySQL server using the ARM template
 description: In this article, learn how to create an Azure Database for MySQL server with virtual network integration, by using an Azure Resource Manager template.
 services: azure-resource-manager
 author: mgblythe
@@ -11,7 +11,7 @@ ms.date: 04/23/2020
 zone_pivot_groups: user-interface-options
 ---
 
-# Quickstart: Create an Azure Database for MySQL server with VNet by using Azure Resource Manager template
+# Quickstart: Create an Azure Database for MySQL server by using the ARM template
 
 Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. This quickstart shows you how to use a predefined Azure Resource Manager (ARM) template to create an Azure Database for MySQL server with virtual network integration. You can create the server using the Azure portal, Azure CLI, or Azure PowerShell.
 
@@ -22,14 +22,14 @@ Azure Database for MySQL is a managed service that you use to run, manage, and s
 ::: zone pivot="user-interface-azure-powershell"
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-* [Azure PowerShell](/powershell/azure/). Alternatively, in a code snippet, you can select **Try it** to open Azure Cloud Shell and run PowerShell code.
+* If you want to run the code locally, [Azure PowerShell](/powershell/azure/).
 
 ::: zone-end
 
 ::: zone pivot="user-interface-azure-cli"
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-* [Azure CLI](/cli/azure/). Alternatively, in a code snippet, you can select **Try it** to open Azure Cloud Shell and run Azure CLI code.
+* If you want to run the code locally, [Azure CLI](/cli/azure/).
 
 ::: zone-end
 
@@ -49,7 +49,7 @@ The template used in this quickstart is from [Azure quickstart templates](https:
 
 :::code language="json" source="~/quickstart-templates/101-managed-mysql-with-vnet/azuredeploy.json" range="001-231" highlight="147-229":::
 
-Five Azure resources are defined in this template:
+The template defines five Azure resources:
 
 * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
 * [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/microsoft.network/virtualnetworks/subnets)
@@ -63,37 +63,41 @@ More Azure Database for MySQL template samples can be found in [Azure quickstart
 
 ::: zone pivot="user-interface-azure-cli"
 
-Use the following interactive code to create a new Azure Database for MySQL server using the template. You will be prompted for the new server name, the name and location of a new resource group, and an administrator account name and password.
+Use the following code to create a new Azure Database for MySQL server using the template. Before you run the code, change the first few lines of code. You'll need to enter the new server name, the name and location of a new resource group, and an administrator account name and password.
+
+To run the code in Azure Cloud Shell, select **Try it** at the upper corner of any code block.
 
 ```azurecli-interactive
-$serverName = Read-Host -Prompt "Enter a name for the new Azure Database for MySQL server"
-$resourceGroupName = Read-Host -Prompt "Enter a name for the new resource group where the server will exist"
-$location = Read-Host -Prompt "Enter an Azure location (for example, centralus) for the resource group"
-$adminUser = Read-Host -Prompt "Enter the Azure Database for MySQL server's administrator account name"
-$adminPassword = Read-Host -Prompt "Enter the administrator password" -AsSecureString
+# Fill in the server name, resource group name, location, admin user name, and password
+serverName=
+resourceGroupName=
+location=
+adminUser=
+adminPassword=
 
-az group create --name $resourceGroupName --location $location #use this command when you need to create a new resource group for your deployment
-az deployment group create --resource-group $resourceGroupName `
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-managed-mysql-with-vnet/azuredeploy.json `
-    --parameters 'serverName=' + $serverName `
-    --parameters 'administratorLogin=' + $adminUser `
-    --parameters 'administratorLoginPassword=' + $adminPassword
+params='serverName='$serverName' administratorLogin='$adminUser' administratorLoginPassword='$adminPassword
+
+# Create the resource group, then deploy the template to create the server
+az group create --name $resourceGroupName --location $location
+az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-managed-mysql-with-vnet/azuredeploy.json
 ```
 
 ::: zone-end
 
 ::: zone pivot="user-interface-azure-powershell"
 
-Use the following interactive code to create a new Azure Database for MySQL server using the template. You will be prompted for the new server name, the name and location of a new resource group, and an administrator account name and password.
+Use the following interactive code to create a new Azure Database for MySQL server using the template. The code prompts you for the new server name, the name and location of a new resource group, and an administrator account name and password.
+
+To run the code in Azure Cloud Shell, select **Try it** at the upper corner of any code block.
 
 ```azurepowershell-interactive
 $serverName = Read-Host -Prompt "Enter a name for the new Azure Database for MySQL server"
 $resourceGroupName = Read-Host -Prompt "Enter a name for the new resource group where the server will exist"
-$location = Read-Host -Prompt "Enter an Azure location (for example, centralus) for the resource group"
+$location = Read-Host -Prompt "Enter an Azure region (for example, centralus) for the resource group"
 $adminUser = Read-Host -Prompt "Enter the Azure Database for MySQL server's administrator account name"
 $adminPassword = Read-Host -Prompt "Enter the administrator password" -AsSecureString
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location #use this command when you need to create a new resource group for your deployment
+New-AzResourceGroup -Name $resourceGroupName -Location $location # Use this command when you need to create a new resource group for your deployment
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
     -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-managed-mysql-with-vnet/azuredeploy.json `
     -serverName $serverName `
@@ -107,41 +111,42 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 ::: zone pivot="user-interface-azure-portal"
 
-1. Select the following link to deploy the Azure Database for MySQL server template in the Azure portal:
+Select the following link to deploy the Azure Database for MySQL server template in the Azure portal:
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
 
-2. In the **Deploy Azure Database for MySQL with VNet** window, take the following actions:
+On the **Deploy Azure Database for MySQL with VNet** page:
 
-    1. In **Resource group**, select **Create new**. Then in the new resource group dialog box, enter a name for the new resource group, and select **OK**. Alternatively, you can just select an existing resource group.
+1. For **Resource group**, either select an existing resource group, or select **Create new**, enter a name for the new resource group, and select **OK**.
 
-    2. If you created a new resource group, select a **Location** for the resource group and the new server.
+2. If you created a new resource group, select a **Location** for the resource group and the new server.
 
-    3. Enter a **Server Name**, **Administrator Login**, and **Administrator Login Password**.
+3. Enter a **Server Name**, **Administrator Login**, and **Administrator Login Password**.
 
-        ![Deploy Azure Database for MySQL with VNet window, Azure quickstart template, Azure portal](./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png)
+    ![Deploy Azure Database for MySQL with VNet window, Azure quickstart template, Azure portal](./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png)
 
-    4. If you want, change the other settings. Those settings already have default values entered, so you don't need to do anything unless you want to.
+4. Change the other default settings if you want:
 
-        | Setting | Default value | Description |
-        | --- | --- | --- |
-        | **Sku Capacity** | *2* | The vCore capacity, which can be *2*, *4*, *8*, *16*, *32*, or *64* |
-        | **Sku Name** | *GP_Gen5_2* | The SKU tier prefix, SKU family, and SKU capacity, joined by underscores (for example, *B_Gen5_1*, *GP_Gen5_16*, and *MO_Gen5_32*) |
-        | **Sku Size MB** | *5120* | The storage size, in megabytes, of the Azure Database for MySQL server |
-        | **Sku Tier** | *GeneralPurpose* | The deployment tier, such as *Basic*, *GeneralPurpose*, or *MemoryOptimized* |
-        | **Sku Family** | *Gen5* | *Gen4* or *Gen5*, which indicates hardware generation for server deployment |
-        | **Mysql Version** | *5.7* | The version of MySQL server to deploy, such as *5.6* or *5.7* |
-        | **Backup Retention Days** | *7* | The desired period for geo-redundant backup retention, in days |
-        | **Geo Redundant Backup** | *Disabled* | *Enabled* or *Disabled*, depending on geo-disaster recovery (Geo-DR) requirements |
-        | **Virtual Network Name** | *azure_mysql_vnet* | The name of the virtual network |
-        | **Subnet Name** | *azure_mysql_subnet* | The name of the subnet |
-        | **Virtual Network Rule Name** | *AllowSubnet* | The name of the virtual network rule allowing the subnet |
-        | **Vnet Address Prefix** | *10.0.0.0/16* | The address prefix for the virtual network |
-        | **Subnet Prefix** | *10.0.0.0/16* | The address prefix for the subnet |
+    | Setting | Default value | Description |
+    | --- | --- | --- |
+    | **Subscription** | One of your accounts | The Azure subscription you want to use for the server |
+    | **Sku Capacity** | *2* | The vCore capacity, which can be *2*, *4*, *8*, *16*, *32*, or *64* |
+    | **Sku Name** | *GP_Gen5_2* | The SKU tier prefix, SKU family, and SKU capacity, joined by underscores (for example, *B_Gen5_1*, *GP_Gen5_16*, and *MO_Gen5_32*) |
+    | **Sku Size MB** | *5120* | The storage size, in megabytes, of the Azure Database for MySQL server |
+    | **Sku Tier** | *GeneralPurpose* | The deployment tier, such as *Basic*, *GeneralPurpose*, or *MemoryOptimized* |
+    | **Sku Family** | *Gen5* | *Gen4* or *Gen5*, which indicates hardware generation for server deployment |
+    | **Mysql Version** | *5.7* | The version of MySQL server to deploy, such as *5.6* or *5.7* |
+    | **Backup Retention Days** | *7* | The desired period for geo-redundant backup retention, in days |
+    | **Geo Redundant Backup** | *Disabled* | *Enabled* or *Disabled*, depending on geo-disaster recovery (Geo-DR) requirements |
+    | **Virtual Network Name** | *azure_mysql_vnet* | The name of the virtual network |
+    | **Subnet Name** | *azure_mysql_subnet* | The name of the subnet |
+    | **Virtual Network Rule Name** | *AllowSubnet* | The name of the virtual network rule allowing the subnet |
+    | **Vnet Address Prefix** | *10.0.0.0/16* | The address prefix for the virtual network |
+    | **Subnet Prefix** | *10.0.0.0/16* | The address prefix for the subnet |
 
-3. Read the terms and conditions, and then select **I agree to the terms and conditions stated above**.
+5. Read the terms and conditions, and then select **I agree to the terms and conditions stated above**.
 
-4. Select **Purchase**.
+6. Select **Purchase**.
 
 ::: zone-end
 
@@ -179,7 +184,7 @@ Follow these steps to see an overview of your new Azure Database for MySQL serve
 
 1. Go to the [Azure portal](https://portal.azure.com) to manage your MySQL databases. Search for and select **Azure Database for MySQL servers**.
 
-2. In the database list, select your new server. The overview page for your new Azure Database for MySQL server appears.
+2. In the database list, select your new server. The **Overview** page for your new Azure Database for MySQL server appears.
 
 ::: zone-end
 
@@ -210,13 +215,13 @@ Write-Host "Press [ENTER] to continue..."
 
 ::: zone pivot="user-interface-azure-portal"
 
-1. Go to the [Azure portal](https://portal.azure.com) to manage your resource groups. Search for and select **Resource groups**.
+1. In the [Azure portal](https://portal.azure.com), search for and select **Resource groups**.
 
 2. In the resource group list, choose the name of your resource group.
 
-3. In the overview page of your resource group, select **Delete resource group**.
+3. In the **Overview** page of your resource group, select **Delete resource group**.
 
-4. In the confirmation dialog box, type of the name of your resource group, and then select **Delete**.
+4. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
 
 ::: zone-end
 
