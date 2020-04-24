@@ -40,7 +40,7 @@ You can backup each individual secret, key, and certificate in your vault using 
 
 ### Limitations
 
-* You cannot backup a key vault in one geography and restore it into another geography. Learn more about Azure geographies. [Link](https://azure.microsoft.com/en-us/global-infrastructure/geographies/)
+* You cannot backup a key vault in one geography and restore it into another geography. Learn more about Azure geographies. [Link](https://azure.microsoft.com/global-infrastructure/geographies/)
 
 * The backup command backs up all versions of each secret. If you have a secret with a large number of previous versions (greater than 10) there is a chance the request will exceed the maximum allowed request size and the operation may fail.
 
