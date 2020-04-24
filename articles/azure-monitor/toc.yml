@@ -717,7 +717,12 @@
       - name: Agent management
         href: insights/container-insights-manage-agent.md
       - name: Configure Prometheus metric scraping
-        href: insights/container-insights-prometheus-integration.md
+        - name: Configuration overview
+          href: insights/container-insights-prometheus-configuration-overview.md       
+        - name: Configure AKS and Kubernetes
+          href: insights/container-insights-prometheus-configuration-aks.md
+        - name: Configure Azure Red Hat OpenShift 3.11
+          href: insights/container-insights-prometheus-configuration-aro.md
       - name: Configure agent collection settings
         href: insights/container-insights-agent-config.md
       - name: Update to enable metrics
