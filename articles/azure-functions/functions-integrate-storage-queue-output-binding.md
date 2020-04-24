@@ -4,52 +4,44 @@ description: Use Azure Functions to create a serverless function that is invoked
 
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: how-to
-ms.date: 09/19/2017
+ms.date: 04/24/2020
 ms.custom: mvc
 ---
 # Add messages to an Azure Storage queue using Functions
 
-In Azure Functions, input and output bindings provide a declarative way to make data from external services available to your code. In this quickstart, you use an output binding to create a message in a queue when a function is triggered by an HTTP request. You use Azure Storage Explorer to view the queue messages that your function creates:
-
-![Queue message shown in Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
+In Azure Functions, input and output bindings provide a declarative way to make data from external services available to your code. In this quickstart, you use an output binding to create a message in a queue when a function is triggered by an HTTP request. You use Azure storage container to view the queue messages that your function creates.
 
 ## Prerequisites
 
 To complete this quickstart:
 
-* Follow the directions in [Create your first function from the Azure portal](functions-create-first-azure-function.md) and don't do the **Clean up resources** step. That quickstart creates the function app and function that you use here.
+- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Install [Microsoft Azure Storage Explorer](https://storageexplorer.com/). This is a tool you'll use to examine queue messages that your output binding creates.
+- Follow the directions in [Create your first function from the Azure portal](functions-create-first-azure-function.md) and don't do the **Clean up resources** step. That quickstart creates the function app and function that you use here.
 
 ## <a name="add-binding"></a>Add an output binding
 
-In this section, you use the portal UI to add a queue storage output binding to the function you created earlier. This binding will make it possible to write minimal code to create a message in a queue. You don't have to write code for tasks such as opening a storage connection, creating a queue, or getting a reference to a queue. The Azure Functions runtime and queue output binding take care of those tasks for you.
+In this section, you use the portal UI to add a queue storage output binding to the function you created earlier. This binding makes it possible to write minimal code to create a message in a queue. You don't have to write code for tasks such as opening a storage connection, creating a queue, or getting a reference to a queue. The Azure Functions runtime and queue output binding take care of those tasks for you.
 
-1. In the Azure portal, open the function app page for the function app that you created in [Create your first function from the Azure portal](functions-create-first-azure-function.md). To do this, select **All services > Function Apps**, and then select your function app.
+1. In the Azure portal, open the function app page for the function app that you created in [Create your first function from the Azure portal](functions-create-first-azure-function.md). To do this, search for and select **Function App**. Then, select your function app.
 
-1. Select the function that you created in that earlier quickstart.
+1. Select your function app, and then select the function that you created in that earlier quickstart.
 
-1. Select **Integrate > New Output > Azure Queue Storage**.
+1. Select **Integration**, and then select **+ Add optput**.
 
-1. Click **Select**.
+   :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding.png" alt-text="Create an output binding for your function." border="true":::
 
-    ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
+1. Select the **Azure Queue Storage** binding type, and add the settings as specified in the table that follows this screenshot: 
 
-1. If you get an **Extensions not installed** message, choose **Install** to install the Storage bindings extension in the function app. This may take a minute or two.
-
-    ![Install the Storage binding extension](./media/functions-integrate-storage-queue-output-binding/functions-integrate-install-binding-extension.png)
-
-1. Under **Azure Queue Storage output**, use the settings as specified in the table that follows this screenshot: 
-
-    ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
-
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Add a Queue storage output binding to a function in the Azure portal." border="true":::
+    
     | Setting      |  Suggested value   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Message parameter name** | outputQueueItem | The name of the output binding parameter. | 
+    | **Queue name**   | outqueue  | The name of the queue to connect to in your Storage account. |
     | **Storage account connection** | AzureWebJobsStorage | You can use the storage account connection already being used by your function app, or create a new one.  |
-    | **Queue name**   | outqueue    | The name of the queue to connect to in your Storage account. |
 
-1. Click **Save** to add the binding.
+1. Select **OK** to add the binding.
 
 Now that you have an output binding defined, you need to update the code to use the binding to add messages to a queue.  
 
