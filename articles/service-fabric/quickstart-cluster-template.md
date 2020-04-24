@@ -53,7 +53,6 @@ Service Fabric uses X.509 certificates to [secure a cluster](./service-fabric-cl
 
 ```powershell
 # Designate unique (within cloudapp.azure.com) names for your resources
-
 $resourceGroupName = "SFQuickstartRG"
 $keyVaultName = "SFQuickstartKV"
 
@@ -70,16 +69,16 @@ New-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $resourceGroupName -L
 The script will prompt you for the following (be sure to modify *CertDNSName* and *KeyVaultName* from the example values below):
 
 * **Password:** Password!1
-* **CertDNSName:** sfquickstart.southcentralus.cloudapp.azure.com
-* **KeyVaultName:** SFQuickstartKV
+* **CertDNSName:** *sfquickstart*.southcentralus.cloudapp.azure.com
+* **KeyVaultName:** *SFQuickstartKV*
 * **KeyVaultSecretName:** clustercert
 
 Upon completion, the script will provide the parameter values needed for template deployment. Be sure to store these in the following variables, as they will be needed to deploy your cluster template:
 
 ```powershell
-$certThumbprint = "<Certificate Thumbprint>"
-$certUrlValue = "<Certificate URL>"
 $sourceVaultId = "<Source Vault Resource Id>"
+$certUrlValue = "<Certificate URL>"
+$certThumbprint = "<Certificate Thumbprint>"
 ```
 
 ## Create a Service Fabric cluster
@@ -160,13 +159,17 @@ New-AzResourceGroupDeployment `
 
 Once the deployment completes, find the `managementEndpoint` value in the output and open the address in a web browser to view your cluster in [Service Fabric Explorer](./service-fabric-visualizing-your-cluster.md).
 
+![Service Fabric Explorer showing new cluster](./media/quickstart-cluster-template/service-fabric-explorer.png)
+
 You can also find the Service Fabric Explorer endpoint from your Service Explorer resource blade in Azure portal.
+
+![Service Fabric resource blade showing Service Fabric Explorer endpoint](./media/quickstart-cluster-template/service-fabric-explorer-endpoint-azure-portal.png)
 
 ## Clean up resources
 
 When no longer needed, delete the resource group, which deletes the resources in the resource group.
 
-```azurepowershell-interactive
+```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
