@@ -18,7 +18,7 @@ This article covers information about deploying Azure confidential computing vir
 
 Azure confidential computing virtual machines are designed to protect the confidentially and integrity of your data and code while it's processed in the cloud 
 
-[DCsv2-Series](../virtual-machines/dcv2-series) VMs are the latest and most recent confidential computing size family. These VMs support a larger range of deployment capabilities, have 2x the Enclave Page Cache (EPC) and a larger selection of sizes to compared to our DC-Series VMs. The [DC-Series](../virtual-machines/sizes-previous-gen#preview-dc-series) VMs are currently in preview and will be deprecated and not included in general availability.
+[DCsv2-Series](../virtual-machines/dcv2-series.md) VMs are the latest and most recent confidential computing size family. These VMs support a larger range of deployment capabilities, have 2x the Enclave Page Cache (EPC) and a larger selection of sizes to compared to our DC-Series VMs. The [DC-Series](../virtual-machines/sizes-previous-gen#preview-dc-series.md) VMs are currently in preview and will be deprecated and not included in general availability.
 
 Start deploying a DCsv2-Series VM via the Microsoft commercial marketplace by following the [quickstart tutorial](quick-create-marketplace.md).
 
@@ -81,7 +81,7 @@ Follow a quickstart tutorial to deploy a DCsv2-Series virtual machine in less th
   
 - **Resizing** – Because of their specialized hardware, you can only resize confidential computing instances within the same size family. For example, you can only resize a DCsv2-series VM from one DCsv2-series size to another. Resizing from a non-confidential computing size to a confidential computing size isn't supported.  
 
-- **Image** – To provide Intel Software Guard Extension (Intel SGX) support on confidential compute instances, all deployments need to be run on Generation 2 images. Azure confidential computing supports workloads running on Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, and Windows Server 2016 Gen 2. Read about [support for generation 2 VMs on Azure](../virtual-machines/linux/generation-2) to learn more about supported and unsupported scenarios. 
+- **Image** – To provide Intel Software Guard Extension (Intel SGX) support on confidential compute instances, all deployments need to be run on Generation 2 images. Azure confidential computing supports workloads running on Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, and Windows Server 2016 Gen 2. Read about [support for generation 2 VMs on Azure](../virtual-machines/linux/generation-2.md) to learn more about supported and unsupported scenarios. 
 
 - **Storage** – Azure confidential computing virtual machine data disks and our ephemeral OS disks are on NVMe disks. Instances support only Premium SSD and Standard SSD disks, not Ultra SSD, or Standard HDD. Virtual machine size **DC8_v2** doesn't support Premium storage. 
 
@@ -91,15 +91,15 @@ Follow a quickstart tutorial to deploy a DCsv2-Series virtual machine in less th
 
 When using virtual machines in Azure, you're responsible for implementing a high availability and disaster recovery solution to avoid any downtime. 
 
-Azure confidential computing doesn't support zone-redundancy via Availability Zones at this time. For the highest availability and redundancy for confidential computing, use [Availability Sets](../virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Because of hardware restrictions, Availability Sets for confidential computing instances can only have a maximum of 10 update domains. 
+Azure confidential computing doesn't support zone-redundancy via Availability Zones at this time. For the highest availability and redundancy for confidential computing, use [Availability Sets](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Because of hardware restrictions, Availability Sets for confidential computing instances can only have a maximum of 10 update domains. 
 
 ## Deploying via an Azure Resource Manager Template 
 
 Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
-To learn about Azure Resource Manager templates, see [Template deployment overview](../azure-resource-manager/templates/overview).
+To learn about Azure Resource Manager templates, see [Template deployment overview](../azure-resource-manager/templates/overview.md).
 
-To deploy a DCsv2-Series VM in an ARM template you will utilize the [Virtual Machine resource](../virtual-machines/windows/template-description). You need to ensure you specify the correct properties for **vmSize** and for your **imageReference**.
+To deploy a DCsv2-Series VM in an ARM template you will utilize the [Virtual Machine resource](../virtual-machines/windows/template-description.md). You need to ensure you specify the correct properties for **vmSize** and for your **imageReference**.
 
 ### VM Size
 
