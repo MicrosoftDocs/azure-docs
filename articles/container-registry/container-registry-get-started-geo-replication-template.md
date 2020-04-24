@@ -14,7 +14,7 @@ ms.date: 04/23/2020
 
 Azure Container Registry is a managed Docker container registry service used for storing private Docker container images and related artifacts. This quickstart shows how to create an Azure Container Registry instance using an Azure Resource Manager template. 
 
-The template sets up a [geo-replicated](container-registry-geo-replication.md) registry, which automatically synchronizes registry content across more than one Azure region. Geo-replication is a feature of the [Premium](container-registry-skus.md) registry service tier and enables network-close access to images from regional deployments, while providing a single management experience.
+The template sets up a [geo-replicated](container-registry-geo-replication.md) registry, which automatically synchronizes registry content across more than one Azure region. Geo-replication enables network-close access to images from regional deployments, while providing a single management experience. It's a feature of the [Premium](container-registry-skus.md) registry service tier and 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -43,7 +43,7 @@ More Azure Container Registry template samples can be found in the [quickstart t
 
  1. Select the following image to sign in to Azure and open a template. The template creates a registry and a replica in another location.
 
-  [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
 
  2. Select or enter the following values.
 
@@ -55,21 +55,21 @@ More Azure Container Registry template samples can be found in the [quickstart t
     * **Acr Replica Location**: enter a location for the registry replica, using the region's short name. It must be different from the home registry location. Example: **westeurope**.
     * **I agree to the terms and conditions stated above**: Select.
 
-       ![Template properties](media/container-registry-get-started-geo-replication-template/template-properties.png)
+      ![Template properties](media/container-registry-get-started-geo-replication-template/template-properties.png)
 
  3. If you accept the terms and conditions, select **Purchase**. After the registry has been created successfully, you get a notification:
 
     ![Portal notification](media/container-registry-get-started-geo-replication-template/deployment-notification.png)
 
- The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-cli.md).
+ The Azure portal is used to deploy the template. In addition to the Azure portal, you can use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-cli.md).
 
 ## Review deployed resources
 
-Use the Azure portal or tools such as the Azure CLI to view the properties of the container registry.
+Use the Azure portal or a tool such as the Azure CLI to review the properties of the container registry.
 
 1. In the portal, search for Container Registries, and select the container registry you created.
 
-1. On the **Overview** page, note the **Login server** of the registry. Use this URI with Docker to tag and push images to your registry. For information, see [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md).
+1. On the **Overview** page, note the **Login server** of the registry. Use this URI when you use Docker to tag and push images to your registry. For information, see [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md).
     ![Registry overview](media/container-registry-get-started-geo-replication-template/registry-overview.png)
 
 1. On the **Replications** page, confirm the locations of the home replica and the replica added through the template. If desired, add more replicas on this page.
@@ -78,7 +78,7 @@ Use the Azure portal or tools such as the Azure CLI to view the properties of th
 
 ## Clean up resources
 
-When you no longer need them, delete the resource group, the registry, and the related replication. To do so, go to the Azure portal, select the resource group that contains the registry, and then select **Delete resource group**.
+When you no longer need them, delete the resource group, the registry, and the registry replica. To do so, go to the Azure portal, select the resource group that contains the registry, and then select **Delete resource group**.
 
 
 ## Next steps
