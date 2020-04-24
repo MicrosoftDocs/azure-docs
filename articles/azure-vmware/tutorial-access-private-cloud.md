@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 In the resource group, select **+ Add** then search and select **Microsoft Windows 10**, and then click **Create**.
 
-![Add a new Windows 10 VM for a jumpbox](./media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png)
+:::image type="content" source="./media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="Add a new Windows 10 VM for a jumpbox" border="true":::
 
 Enter the required information in the fields, and then select **Review + create**. For additional information on the fields, see the following table.
 
@@ -42,7 +42,7 @@ Enter the required information in the fields, and then select **Review + create*
 
 After you have entered the appropriate information, click **Review + create**. Once validation passes, select **Create** to start the virtual machine creation process.
 
-![Create a new Windows 10 VM for a jumpbox](./media/tutorial-access-private-cloud/ss11-review-create-wjb01.png)
+:::image type="content" source="./media/tutorial-access-private-cloud/ss11-review-create-wjb01.png" alt-text="Create a new Windows 10 VM for a jumpbox" border="true":::
 
 ## Connect to the local vCenter of your private cloud
 
@@ -50,19 +50,19 @@ From the jump box log In to vSphere Client with VMware vCenter SSO. Log in to th
 
 In the Azure portal, select your private cloud and then in the **Overview** view, select **Identity > Default**. The URLs and login credentials for private cloud vCenter and NSX-T manager are displayed.
 
-![Display private cloud vCenter and NSX Manager URLs and credentials](./media/tutorial-access-private-cloud/ss4-display-identity.png)
+:::image type="content" source="./media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Display private cloud vCenter and NSX Manager URLs and credentials" border="true":::
 
 Navigate to the virtual machine you created in the preceding step and connect to the virtual machine. For detailed steps on how to connect to the virtual machine, see [connect to a virtual machine](../virtual-machines/windows/connect-logon.md#connect-to-the-virtual-machine)
 
 In the Windows VM, open a browser and navigate to the vCenter and NSX-T Manger URLs in two tabs. In the vCenter tab, enter the `cloudadmin@vmcp.local` user credentials from the previous step.
 
-![Sign in to private cloud vCenter](./media/tutorial-access-private-cloud/ss5-vcenter-login.png)
+:::image type="content" source="./media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Sign in to private cloud vCenter" border="true":::
 
-![Private cloud vSphere home](./media/tutorial-access-private-cloud/ss6-vsphere-client-home.png)
+:::image type="content" source="./media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="vCenter portal" border="true":::
 
 In the second tab of the browser, sign in to NSX-T manager.
 
-![Local private cloud NSX Manger home](./media/tutorial-access-private-cloud/ss10-nsx-manager-home.png)
+:::image type="content" source="./media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="Local private cloud NSX Manger home" border="true":::
 
 In this tutorial you learned how to:
 
