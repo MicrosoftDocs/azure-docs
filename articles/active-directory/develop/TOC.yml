@@ -349,10 +349,6 @@
           href: msal-handling-exceptions.md?tabs=python
         - name: Logging
           href: msal-logging.md?tabs=python
-#    - name: Migration
-#      items:
-#      - name: Overview
-#        href: msal-migration.md  # TODO: DELETE THIS ARTICLE
     - Name: All platforms
       items:
       - name: Supported authentication flows
@@ -366,8 +362,6 @@
       - name: Shared devices
         href: msal-shared-devices.md
         displayName: shared device mode, firstline worker, frontline worker, flw
-#     - name: Scopes for v1.0 apps   # TODO: Move to v1 or delete this article
-#       href: msal-v1-app-scopes.md
       - name: Handle SameSite cookie changes in Chrome browser
         href: howto-handle-samesite-cookie-changes-chrome-browser.md
   - name: Authentication protocols
