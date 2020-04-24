@@ -11,25 +11,24 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
-ms.author: megan-beatty
+ms.author: mebeatty
 # customer intent: As an IT admin, I want to learn about Front Door and what the Rules Engine feature does. 
 ---
 
 # What is Rules Engine for Azure Front Door? 
 
-Rules Engine allows you to customize how http requests are handled at the edge and have more control of your web application behavior. Rules Engine for Azure Front Door comprises several key features, including:
+Rules Engine allows you to customize how HTTP requests are handled at the edge and provides more control of the behavior of your web application. Rules Engine for Azure Front Door comprises several key features, including:
 
-- Enforce HTTPS at the edge and keep your application more secure. 
-- Header-based routing – route requests based on the patterns in the contents of both request and response headers. 
-- Parameter-based routing – take advantage of a series of match conditions including post args, query strings, and request methods, to route requests based on HTTP request parameters. 
-- Route configurations overrides - use redirect capabilities to return 301/302/307/308 redirects to the client to redirect to new hostnames, paths, and protocols. Additionally, use forwarding capabilities to rewrite the request URL path without doing a traditional redirect. 
+- Header-based routing – route requests based on the patterns in the contents of request headers, cookies, and query strings.
+- Parameter-based routing – take advantage of a series of match conditions including post args, query strings, cookies, and request methods, to route requests based on HTTP request parameters. 
+- Route configurations overrides - use redirect capabilities to return 301/302/307/308 redirects to the client to redirect to new hostnames, paths, and protocols. Additionally, use forwarding capabilities to rewrite the request URL path without doing a traditional redirect and forward the request to the appropriate backend in your configured backend pool. 
 
 
 ## Architecture 
 
-Rules engine handles requests at the edge. Once configuring Rules Engine, when a request hits your Front Door endpoint, WAF will continue to be executed first, followed by the Rules Engine configuration associated with your Frontend/ Domain. Rules Engine follows the “best match” policy, meaning the rule that is executed for the request is the one that most closely matches the patterns you outlined in the configuration. If a request matches none of the rules in your Rule Engine configuration, then the default Routing Rule is executed. 
+Rules engine handles requests at the edge. Once configuring Rules Engine, when a request hits your Front Door endpoint, WAF will continue to be executed first, followed by the Rules Engine configuration associated with your Frontend/ Domain. When a Rules Engine configuration is executed, it means that the parent routing rule is already a match. Whether all of the actions in each of the rules within the Rules Engine configuration are executed is subject to all of the match conditions within that rule being satisfied. If a request matches none of the conditions in your Rule Engine configuration, then the default Routing Rule is executed. 
 
-For example, in the configuration below, a Rules Engine is configured to append a response header which changes the max age of the cache control if the match condition is met. 
+For example, in the configuration below, a Rules Engine is configured to append a response header which changes the max-age of the cache control if the match condition is met. 
 
 ![response header action](./media/front-door-rules-engine/rules-engine-architecture-3.png)
 
@@ -37,11 +36,11 @@ In another example, we see that Rules Engine is configured to send a user to a m
 
 ![route configuration override](./media/front-door-rules-engine/rules-engine-architecture-1.png)
 
-In both of these examples, when none of the match conditions are met, the specified Route Rule is what is executed. 
+In both of these examples, when none of the match conditions are met, the specified Route Rule is what gets executed. 
 
 ## Terminology 
 
-With AFD Rules Engine, you can create a series of Rules Engine configurations, each composed of a set of rules. The following outlines some helpful terminology you will come across when configuring your rules engine. 
+With AFD Rules Engine, you can create a series of Rules Engine configurations, each composed of a set of rules. The following outlines some helpful terminology you will come across when configuring your Rules Engine. 
 
 - *Rules Engine Configuration*: A set of rules that are applied to single Route Rule. Each configuration is limited to 5 rules. You can create up to 10 configurations. 
 - *Rules Engine Rule*: A rule composed of up to 10 match conditions and 5 actions.

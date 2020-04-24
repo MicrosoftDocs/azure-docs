@@ -11,14 +11,14 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
-ms.author: megan-beatty
+ms.author: mebeatty
 # customer intent: As an IT admin, I want to learn about Front Door and how to configure Rules Engine feature via the Azure Portal or Azure CLI. 
 ---
 
 # Configure your Rules Engine 
 
 ## Configure Rules Engine in Azure portal 
-1. Before creating a Rules engine configuration, [create a Front door](quickstart-create-front-door.md)
+1. Before creating a Rules engine configuration, [create a Front door](quickstart-create-front-door.md).
 
 2. Within your Front door resource, go to **Settings** and select **Rule Engine configuration**. Click **Add**, give your configuration a name, and start creating your first Rules Engine configuration. 
 
@@ -44,7 +44,7 @@ ms.author: megan-beatty
 
 ## Configure Rules Engine in Azure CLI 
 
-1. If you haven't already, install [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Add “front-door” extension:- az extension adds --name front-door. Then, login and switch to your subscription az account set --subscription <name_or_Id>. 
+1. If you haven't already, install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Add “front-door” extension:- az extension add --name front-door. Then, login and switch to your subscription az account set --subscription <name_or_Id>. 
 
 2. Start by creating a Rules Engine - this example shows one rule with one header-based action and one match condition. 
 
@@ -61,7 +61,7 @@ az network front-door rules-engine rule list -f {front_door} -g {rg} --name {rul
 3.	Add a forwarding route override action. 
 
 ```azurecli-interactive
-az network front-door rules-engine rule action add -f {front_door} -g {rg} --rules-engine-name {rules_engine} --name {rule1} --action-type ForwardRouteOverride --backend-pool {backend_pool_name} --caching Enabled
+az network front-door rules-engine rule action add -f {front_door} -g {rg} --rules-engine-name {rules_engine} --name {rule1} --action-type ForwardRouteOverride --backend-pool {backend_pool_name} --caching Disabled
 ```
 
 4.	List all the actions in a rule. 

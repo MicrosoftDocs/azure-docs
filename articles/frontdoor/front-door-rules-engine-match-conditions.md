@@ -11,13 +11,13 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
-ms.author: megan-beatty
+ms.author: mebeatty
 # customer intent: As an IT admin, I want to learn about Front Door and what new features are available. 
 ---
 
 # Azure Front Door Rules Engine Match Conditions
 
-In [AFD Rules Engine](front-door-rules-engine.md) a rule consists of one or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in AFD Rules Engine. 
+In [AFD Rules Engine](front-door-rules-engine.md) a rule consists of zero or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in AFD Rules Engine. 
 
 The first part of a rule is a match condition or set of match conditions. A rule can consist of up to 10 match conditions. A match condition identifies specific types of requests for which defined actions are performed. If you use multiple match conditions, the match conditions are grouped together by using AND logic.
 
@@ -27,11 +27,9 @@ For example, you can use a match condition to:
 - Filter requests by header information.
 - Filter requests from mobile devices or desktop devices.
 
-## Match conditions
-
 The following match conditions are available to use in Azure Front Door Rules engine.  
 
-### Device type 
+## Device type 
 
 Identifies requests made from a mobile device or desktop device.  
 
@@ -41,7 +39,7 @@ Operator | Supported values
 ---------|----------------
 Equals, Not equals | Mobile, Desktop
 
-### Post argument
+## Post argument
 
 Identifies requests based on arguments defined for the POST request method that's used in the request. 
 
@@ -49,9 +47,9 @@ Identifies requests based on arguments defined for the POST request method that'
 
 Argument name | Operator | Argument value | Case transform
 --------------|----------|----------------|---------------
-String | [Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
+String | [Standard operator list](#standard-operator-list) | String, Int | Lowercase, Uppercase, Trim, Remove Whitespace, URL Encode, URL decode
 
-### Query string
+## Query string
 
 Identifies requests that contain a specific query string parameter. This parameter is set to a value that matches a specific pattern. Query string parameters (for example, **parameter=value**) in the request URL determine whether this condition is met. This match condition identifies a query string parameter by its name and accepts one or more values for the parameter value.
 
@@ -59,9 +57,9 @@ Identifies requests that contain a specific query string parameter. This paramet
 
 Operator | Query string | Case Transform
 ---------|--------------|---------------
-[Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
+[Standard operator list](#standard-operator-list) | String, Int | Lowercase, Uppercase, Trim, Remove Whitespace, URL Encode, URL decode
 
-### Remote address
+## Remote address
 
 Identifies requests based on the requester's location or IP address.
 
@@ -69,10 +67,8 @@ Identifies requests based on the requester's location or IP address.
 
 Operator | Supported values
 ---------|-----------------
-Any | N/A
 Geo Match | Country code
 IP Match | IP address (space-separated)
-Not Any | N/A
 Not Geo Match | Country code
 Not IP Match | IP address (space-separated)
 
@@ -86,7 +82,7 @@ Not IP Match | IP address (space-separated)
   - **IPv4 example**: *5.5.5.64/26* matches any requests that arrive from addresses 5.5.5.64 through 5.5.5.127.
   - **IPv6 example**: *1:2:3:/48* matches any requests that arrive from addresses 1:2:3:0:0:0:0:0 through 1:2:3:ffff:ffff:ffff:ffff:ffff.
 
-### Request body
+## Request body
 
 Identifies requests based on specific text that appears in the body of the request.
 
@@ -94,9 +90,9 @@ Identifies requests based on specific text that appears in the body of the reque
 
 Operator | Request body | Case transform
 ---------|--------------|---------------
-[Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
+[Standard operator list](#standard-operator-list) | String, Int | Lowercase, Uppercase, Trim, Remove Whitespace, URL Encode, URL decode
 
-### Request header
+## Request header
 
 Identifies requests that use a specific header in the request.
 
@@ -104,9 +100,9 @@ Identifies requests that use a specific header in the request.
 
 Header name | Operator | Header value | Case transform
 ------------|----------|--------------|---------------
-String | [Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
+String | [Standard operator list](#standard-operator-list) | String, Int | Lowercase, Uppercase, Trim, Remove Whitespace, URL Encode, URL decode
 
-### Request method
+## Request method
 
 Identifies requests that use the specified request method.
 
@@ -120,7 +116,7 @@ Equals, Not equals | GET, POST, PUT, DELETE, HEAD, OPTIONS, TRACE
 
 - Only the GET request method can generate cached content in Azure CDN. All other request methods are proxied through the network. 
 
-### Request protocol
+## Request protocol
 
 Identifies requests that use the specified protocol used.
 
@@ -130,7 +126,7 @@ Operator | Supported values
 ---------|----------------
 Equals, Not equals | HTTP, HTTPS
 
-### Request URL
+## Request URL
 
 Identifies requests that match the specified URL.
 
@@ -138,13 +134,13 @@ Identifies requests that match the specified URL.
 
 Operator | Request URL | Case transform
 ---------|-------------|---------------
-[Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
+[Standard operator list](#standard-operator-list) | String, Int | Lowercase, Uppercase, Trim, Remove Whitespace, URL Encode, URL decode
 
 #### Key information
 
 - When you use this rule condition, be sure to include protocol information. For example: *https://www.\<yourdomain\>.com*.
 
-### URL file extension
+## Request file extension
 
 Identifies requests that include the specified file extension in the file name in the requesting URL.
 
@@ -152,13 +148,13 @@ Identifies requests that include the specified file extension in the file name i
 
 Operator | Extension | Case transform
 ---------|-----------|---------------
-[Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
+[Standard operator list](#standard-operator-list) | String, Int | Lowercase, Uppercase, Trim, Remove Whitespace, URL Encode, URL decode
 
 #### Key information
 
 - For extension, don't include a leading period; for example, use *html* instead of *.html*.
 
-### URL file name
+## Request file name
 
 Identifies requests that include the specified file name in the requesting URL.
 
@@ -166,13 +162,13 @@ Identifies requests that include the specified file name in the requesting URL.
 
 Operator | File name | Case transform
 ---------|-----------|---------------
-[Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
+[Standard operator list](#standard-operator-list) | String, Int | Lowercase, Uppercase, Trim, Remove Whitespace, URL Encode, URL decode
 
 #### Key information
 
 - To specify multiple file names, separate each file name with a single space. 
 
-### URL path
+## Request path
 
 Identifies requests that include the specified path in the requesting URL.
 
@@ -180,15 +176,9 @@ Identifies requests that include the specified path in the requesting URL.
 
 Operator | Value | Case Transform
 ---------|-------|---------------
-[Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
+[Standard operator list](#standard-operator-list) | String, Int | Lowercase, Uppercase, Trim, Remove Whitespace, URL Encode, URL decode
 
-#### Key information
-
-- A file name value can take advantage of wildcard values. For example, each file name pattern can consist of one or more asterisks (*), where each asterisk matches a sequence of one or more characters.
-
-## Reference for rules engine match conditions
-
-### Standard operator list
+## Standard operator list
 
 For rules that accept values from the standard operator list, the following operators are valid:
 
@@ -217,4 +207,4 @@ For numeric operators like *Less than* and *Greater than or equals*, the compari
 
 - Learn how to set up your first [Rules Engine configuration](front-door-tutorial-rules-engine.md). 
 - Learn more about [Rules Engine actions](front-door-rules-engine-actions.md)
-- Learn more about [Azure Front Door rules engine](front-door-rules-engine.md)
+- Learn more about [Azure Front Door Rules Engine](front-door-rules-engine.md)

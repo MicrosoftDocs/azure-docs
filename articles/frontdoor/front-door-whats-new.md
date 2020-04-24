@@ -11,7 +11,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
-ms.author: megan-beatty
+ms.author: mebeatty
 # customer intent: As an IT admin, I want to learn about Front Door and what new features are available. 
 ---
 
