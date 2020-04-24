@@ -166,20 +166,24 @@ Here are the types of filter that you can use:
 
 | Filter name | Description | Filter Schema | Supported Values | 
 | --- | --- | --- | --- |
-| Type | The class of event flowing through your Twin instance | "filter": "type = <[eventType](./concepts-route-events.md#types-of-event-messages)>" | Microsoft.<Service RP>.Twin.Create <br> Microsoft.<Service RP>.Twin.Delete <br> Microsoft.<Service RP>.Twin.Update <br>  For telemetry, we will use “microsoft.iot.telemetry”  |
-| Source | Name of Digital Twins instance | "filter": " source = '…'" |  ```<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net``` |
-| Subject | This describes the subject of the event in the context of the event source above. These might be written in a URI format (/ delimited) for those subjects which are uniquely identified by multiple parts or ids.  | "filter": " subject = '…'" |```<twinid>``` or ```<twinid>/relationships/ <relationship>/<edged>``` |
-| ID | *** Not implemented for public preview *** | "filter": "id = '…'" | |
-| Schema | *** Not implemented for public preview ***  | "filter": "dataschema = '…'" | |
-| Content type |  | "filter": "datacontenttype = '…'" | application/json <br> application/json for Edge.Create or application/json-patch+json for Edge.Update|
-| Spec version |  | "filter": "specversion = '…'" | 1.0 *** Follow up - system generated, can the customer provide any custom version|
-| Type/subject combination |  | "filter": "type = '…' AND subject != '…'" | |
-| Type/type combination |  | "filter": "type = '…' OR type = '…'" | |
-| Type/subject/source/id combination |  | "filter": "(type = '…' AND subject = '…') OR (source = '…' AND id = '…')" | |
-| True |  | "filter": "true" | |
-| False |  | "filter": "false |
+| Type | The class of event flowing through your Twin instance | "filter" : "type = <[eventType](./concepts-route-events.md#types-of-event-messages)>" | `Microsoft.<ServiceRP>.Twin.Create` <br> `Microsoft.<ServiceRP>.Twin.Delete` <br> `Microsoft.<ServiceRP>.Twin.Update` <br>  `Microsoft.iot.Telemetry`  |
+| Source | Name of Digital Twins instance | "filter" : "source = \<hostname\>" |  `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` |
+| Subject | This describes the subject of the event in the context of the event source above | "filter": " subject = \<subject\>" |`<twinid>` <br> or a URI format for subjects which are uniquely identified by multiple parts or ids:<br>`<twinid>/relationships/<relationship>/<edged>`|
+| Content type | Content type of data value, This attribute enables data to carry any type of content, whereby format and encoding might differ from that of the chosen event format | "filter": "datacontenttype = \<contentType\>" | `application/json` <br> `application/json` for Edge.Create or `application/json-patch+json`for Edge.Update|
+| Spec version | The version of the event schema you are using. | "filter": "specversion = \<version\>" | Defaults to `1.0` to describe the CloudEvents schema version 1.0. Can be set to any custom double value if you are using a custom event specification |
+| Enabled | Allows creating a route with no filtering, or temporarily disabling a route | "filter" : "\<enabled\>" | `true` = route is enabled with no filtering <br> `false` = route is disabled |
+<!--
+| ID | *Not implemented for public preview* | "filter": "id = '…'" | |
+| Schema | *Not implemented for public preview*  | "filter": "dataschema = '…'" | |
+-->
 
-```Microsoft.IoT.Telemetry```
+It is also possible to combine filters using the following operations:
+
+| Filter name | Filter Schema | Example | 
+| --- | --- | --- |
+| AND / OR | "filter": "\<filter1\> AND \<filter2\>" | `"filter": "type != Microsoft.iot.Telemetry AND datacontenttype = application/json"` |
+| AND / OR | "filter": "\<filter1\> AND \<filter2\>" | `"filter": "type != Microsoft.iot.Telemetry OR datacontenttype = application/json"` |
+| Nested operations | "filter": "(\<Comparison1\>) AND (\<Comparison2\>)" | `"filter": "(type != Microsoft.iot.Telemetry OR datacontenttype = application/json) OR (specversion != 1.0)"` |
 
 > [!NOTE]
 > During preview, only string equality is supported (=, !=).
