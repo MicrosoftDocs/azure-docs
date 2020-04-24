@@ -23,7 +23,7 @@ When migrating a database protected by [Transparent Data Encryption](https://doc
 > * Extract certificate from file to base-64 string
 > * Upload it using PowerShell cmdlet
 
-For an alternative option using fully managed service for seamless migration of both TDE protected database and corresponding certificate, see [How to migrate your on-premises database to Managed Instance using Azure Database Migration Service](../dms/tutorial-sql-server-to-managed-instance.md).
+For an alternative option using fully managed service for seamless migration of both TDE protected database and corresponding certificate, see [How to migrate your on-premises database to Azure SQL Managed Instance using Azure Database Migration Service](../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
 > Migrated certificate is used for restore of the TDE protected database only. Soon after restore is done, the migrated certificate gets replaced by a different protector, either service-managed certificate or asymmetric key from the key vault, depending on the type of the transparent data encryption you set on the instance.
@@ -134,13 +134,13 @@ If certificate is kept in SQL Server’s local machine certificate store, it can
    Import-Module Az
    # connect to Azure with an interactive dialog for sign-in
    Connect-AzAccount
-   # list subscriptions available and copy id of the subscription target Managed Instance belongs to
+   # list subscriptions available and copy id of the subscription target the managed instance belongs to
    Get-AzSubscription
    # set subscription for the session
    Select-AzSubscription <subscriptionId>
    ```
 
-2. Once all preparation steps are done, run the following commands to upload base-64 encoded certificate to the target Managed Instance:
+2. Once all preparation steps are done, run the following commands to upload base-64 encoded certificate to the target managed instance:
 
    ```azurepowershell
    $fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -Encoding Byte
@@ -162,14 +162,14 @@ You need to first [setup an Azure Key Vault](/azure/key-vault/key-vault-manage-w
    # connect to Azure with an interactive dialog for sign-in
    az login
 
-   # list subscriptions available and copy id of the subscription target Managed Instance belongs to
+   # list subscriptions available and copy id of the subscription target the managed instance belongs to
    az account list
 
    # set subscription for the session
    az account set --subscription <subscriptionId>
    ```
 
-1. Once all preparation steps are done, run the following commands to upload base-64 encoded certificate to the target Managed Instance:
+1. Once all preparation steps are done, run the following commands to upload base-64 encoded certificate to the target managed instance:
 
    ```azurecli
    az sql mi tde-key set --server-key-type AzureKeyVault --kid "<keyVaultId>" `
@@ -178,7 +178,7 @@ You need to first [setup an Azure Key Vault](/azure/key-vault/key-vault-manage-w
 
 * * *
 
-The certificate is now available to the specified Managed Instance and backup of corresponding TDE protected database can be restored successfully.
+The certificate is now available to the specified managed instance and backup of corresponding TDE protected database can be restored successfully.
 
 ## Next steps
 
