@@ -35,7 +35,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
    The set of required storage and service bus accounts for your WVD host pool is deployment specific, so it isn't yet captured in the WindowsVirtualDesktop FQDN tag. You can address this in one of the following ways:
 
    - Allow https access from your host pool subnet to *xt.blob.core.windows.net and *eh.servicebus.windows.net. These wildcard FQDNs enable the required access, but are less restrictive.
-   - Use the following log analytics query, to list the exact required FQDNs and allow them explicitly to your firewall application rules:
+   - Use the following log analytics query to list the exact required FQDNs, and then allow them explicitly in your firewall application rules:
    ```
    AzureDiagnostics
    | where Category == "AzureFirewallApplicationRule"
