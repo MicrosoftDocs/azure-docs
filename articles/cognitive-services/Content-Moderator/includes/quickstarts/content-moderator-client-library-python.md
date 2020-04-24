@@ -195,7 +195,7 @@ Then add the following code to iterate through your images. The rest of the code
 
 ### Check for adult/racy content
 
-The following code checks the image at the given URL for adult or racy content and prints results to the console. See the [Image moderation concepts](./image-moderation-api.md) guide for information on what these terms mean.
+The following code checks the image at the given URL for adult or racy content and prints results to the console. See the [Image moderation concepts](../../image-moderation-api.md) guide for information on what these terms mean.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imagemod_ar)]
 
@@ -289,7 +289,7 @@ Use the following code to delete a given image list.
 
 ## Create a review
 
-You can use the Content Moderator Python client library to feed content into the [Review tool](https://contentmoderator.cognitive.microsoft.com) so that human moderators can review it. To learn more about the Review tool, see the [Review tool conceptual guide](./review-tool-user-guide/human-in-the-loop.md).
+You can use the Content Moderator Python client library to feed content into the [Review tool](https://contentmoderator.cognitive.microsoft.com) so that human moderators can review it. To learn more about the Review tool, see the [Review tool conceptual guide](../../review-tool-user-guide/human-in-the-loop.md).
 
 The following code uses the [ReviewsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python) class to create a review, retrieve its ID, and check its details after receiving human input through the Review tool's web portal.
 
@@ -348,5 +348,5 @@ In this quickstart, you learned how to use the Content Moderator Python library 
 > [!div class="nextstepaction"]
 >[Image moderation concepts](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
 
-* [What is Azure Content Moderator?](./overview.md)
+* [What is Azure Content Moderator?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ContentModerator/ContentModeratorQuickstart.py).

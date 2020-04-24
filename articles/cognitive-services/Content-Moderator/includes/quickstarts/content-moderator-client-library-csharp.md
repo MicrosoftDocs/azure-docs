@@ -173,7 +173,7 @@ The following method iterates through the image URLs in a text file, creates an 
 
 #### Analyze content
 
-For more information on the image attributes that Content Moderator screens for, see the [Image moderation concepts](./image-moderation-api.md) guide.
+For more information on the image attributes that Content Moderator screens for, see the [Image moderation concepts](../../image-moderation-api.md) guide.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_imagemod_analyze)]
 
@@ -183,7 +183,7 @@ For more information on the image attributes that Content Moderator screens for,
 
 ## Create a review
 
-You can use the Content Moderator .NET client library to feed content into the [Review tool](https://contentmoderator.cognitive.microsoft.com) so that human moderators can review it. To learn more about the Review tool, see the [Review tool conceptual guide](./review-tool-user-guide/human-in-the-loop.md).
+You can use the Content Moderator .NET client library to feed content into the [Review tool](https://contentmoderator.cognitive.microsoft.com) so that human moderators can review it. To learn more about the Review tool, see the [Review tool conceptual guide](../../review-tool-user-guide/human-in-the-loop.md).
 
 The method in this section uses the [Reviews](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet) class to create a review, retrieve its ID, and check its details after receiving human input through the Review tool's web portal. It logs all of this information in an output text file. Call the method from your `Main` method:
 
@@ -273,5 +273,5 @@ In this quickstart, you learned how to use the Content Moderator .NET library to
 > [!div class="nextstepaction"]
 > [Image moderation concepts](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
 
-* [What is Azure Content Moderator?](./overview.md)
+* [What is Azure Content Moderator?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ContentModerator/Program.cs).
