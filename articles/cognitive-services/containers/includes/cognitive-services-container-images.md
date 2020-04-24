@@ -21,7 +21,7 @@ The Microsoft Container Registry (MCR) syndicates all of the generally available
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|
 | [LUIS](../../LUIS/luis-container-howto.md) | LUIS | `mcr.microsoft.com/azure-cognitive-services/luis` |
-| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Sentiment Analysis | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Sentiment Analysis v3 | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
 #### Public "Ungated" preview (container registry: `mcr.microsoft.com`)
 

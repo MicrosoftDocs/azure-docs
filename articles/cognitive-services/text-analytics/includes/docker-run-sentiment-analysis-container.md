@@ -13,6 +13,8 @@ ms.author: aahi
 
 To run the *Sentiment Analysis* container, execute the following `docker run` command.
 
+#### [Version 3.0](#tab/version-3)
+
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 mcr.microsoft.com/azure-cognitive-services/sentiment \
@@ -20,6 +22,18 @@ Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
+
+#### [Version 2.1-preview](#tab/version-2)
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+mcr.microsoft.com/azure-cognitive-services/sentiment \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+---
 
 This command:
 
