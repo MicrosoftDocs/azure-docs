@@ -36,7 +36,7 @@ As part of the Azure PowerShell Az module, the cmdlets in the following table ar
 
 ## Activities used to access credentials
 
-The activities in the following table are used to access credentials in runbooks and DSC configurations.
+The activities in the following table are used to access credentials in graphical runbooks and DSC configurations. For examples of the use of activities, see [Graphical authoring in Azure Automation](../automation-graphical-authoring-intro.md#activities).
 
 | Activity | Description |
 |:--- |:--- |

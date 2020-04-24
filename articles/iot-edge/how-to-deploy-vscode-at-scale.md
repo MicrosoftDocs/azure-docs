@@ -209,15 +209,15 @@ After you have configured the deployment manifest and configured tags in the dev
 
 1. Navigate to the deployment manifest JSON file that you want to use, and click **Select Edge Deployment Manifest**.
 
-1. Provide values as prompted, starting with the **deployment id**.
+1. Provide values as prompted, starting with the **deployment ID**.
 
-   ![Specify a deployment id](./media/how-to-deploy-monitor-vscode/create-deployment-at-scale.png)
+   ![Specify a deployment ID](./media/how-to-deploy-monitor-vscode/create-deployment-at-scale.png)
 
    Specify values for these parameters:
 
   | Parameter | Description |
   | --- | --- |
-  | Deployment id | The name of the deployment that will be created in the IoT hub. Give your deployment a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`. |
+  | Deployment ID | The name of the deployment that will be created in the IoT hub. Give your deployment a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`. |
   | Target condition | Enter a target condition to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test' and properties.reported.devicemodel='4000x'`. |
   | Priority |  A positive integer. If two or more deployments are targeted at the same device, the deployment with the highest numerical value for Priority will apply. |
 
@@ -230,7 +230,7 @@ After you have configured the deployment manifest and configured tags in the dev
 
 ## Monitoring and modifying deployments
 
-Use the [Azure CLI](how-to-deploy-monitor-cli.md#monitor-a-deployment) or the [Azure portal](how-to-deploy-monitor.md#monitor-a-deployment) to monitor, modify, and delete deployments. Both provide metrics on your deployments.
+Use the [Azure portal](how-to-monitor-iot-edge-deployments.md#monitor-a-deployment-in-the-azure-portal) or the [Azure CLI](how-to-monitor-iot-edge-deployments.md#monitor-a-deployment-with-azure-cli) to monitor, modify, and delete deployments. Both provide metrics on your deployments.
 
 ## Next steps
 
