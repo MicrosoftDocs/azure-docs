@@ -166,7 +166,7 @@ To add a filter, you can use a PUT request to *https://{YourHost}/ EventRoutes/m
 
 | Filter name | Description | Filter Schema | Supported Values | 
 | --- | --- | --- | --- |
-| Type | The class of event flowing through your Twin instance | "filter" : "type = <[eventType](./concepts-route-events.md#types-of-event-messages)>" | `Microsoft.<ServiceRP>.Twin.Create` <br> `Microsoft.<ServiceRP>.Twin.Delete` <br> `Microsoft.<ServiceRP>.Twin.Update` <br>  `Microsoft.iot.Telemetry`  |
+| Type | The class of event flowing through your Twin instance | "filter" : "type = <[eventType](./concepts-route-events.md#types-of-event-messages)>" | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Edge.Create`<br>`Microsoft.DigitalTwins.Edge.Update`<br>`Microsoft.DigitalTwins.Edge.Delete` <br> `Microsoft.iot.Telemetry`  |
 | Source | Name of Digital Twins instance | "filter" : "source = \<hostname\>" |  `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` |
 | Subject | This describes the subject of the event in the context of the event source above | "filter": " subject = \<subject\>" |`<twinid>` <br> or a URI format for subjects which are uniquely identified by multiple parts or ids:<br>`<twinid>/relationships/<relationship>/<edged>`|
 | Content type | Content type of data value, This attribute enables data to carry any type of content, whereby format and encoding might differ from that of the chosen event format | "filter": "datacontenttype = \<contentType\>" | `application/json` <br> `application/json` for Edge.Create or `application/json-patch+json`for Edge.Update|
