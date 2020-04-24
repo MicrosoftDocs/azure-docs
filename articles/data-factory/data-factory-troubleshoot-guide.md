@@ -663,16 +663,18 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: For 502 error, most of the time this is because your Ambari Server process was shut down. You can restart the Ambari Services by rebooting the head node.  
 
-1. Connect to one of your node on Hdinsight using SSH.
-2. Identify your active head node host by running “ping headnodehost”.
-3. Connect to your active head node as Ambari Server sits on the active head node using SSH.  
-4. Reboot the active head node.
+    1. Connect to one of your node on Hdinsight using SSH.
+    2. Identify your active head node host by running “ping headnodehost”.
+    3. Connect to your active head node as Ambari Server sits on the active head node using SSH.  
+    4. Reboot the active head node.
 
-For more information: Look through Azure HDInsight troubleshooting documentation, for example:
+    For more information: Look through Azure HDInsight troubleshooting documentation, for example:
 
-- [Ambari UI 502 error](https://hdinsight.github.io/ambari/ambari-ui-502-error.html).
-- [Scenario: RpcTimeoutException for Apache Spark thrift server in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception).
-- [Troubleshooting bad gateway errors in Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502).
+        - [Ambari UI 502 error](https://hdinsight.github.io/ambari/ambari-ui-502-error.html).
+        - [Scenario: RpcTimeoutException for Apache Spark thrift server in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception).
+        - [Troubleshooting bad gateway errors in Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502).
+
+<br>
 
 - **Cause**: When error message contains a message similar to 'Unable to service the submit job request as templeton service is busy with too many submit job requests' or 'Queue root.joblauncher already has 500 applications, cannot accept submission of application', this means that too many jobs are being submitted to HDInsight at the same time.
 
