@@ -3,15 +3,12 @@ title: Acquire a token to call a web API (desktop app) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a desktop app that calls web APIs to acquire a token for the app
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
@@ -175,7 +172,7 @@ catch(MsalUiRequiredException)
 
 ### Mandatory parameters
 
-`AcquireTokenInteractive` has only one mandatory parameter, ``scopes``, which contains an enumeration of strings that define the scopes for which a token is required. If the token is for Microsoft Graph, the required scopes can be found in the API reference of each Microsoft Graph API in the section named "Permissions." For instance, to [list the user's contacts](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), the scope "User.Read", "Contacts.Read" must be used. For more information, see [Microsoft Graph permissions reference](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+`AcquireTokenInteractive` has only one mandatory parameter, ``scopes``, which contains an enumeration of strings that define the scopes for which a token is required. If the token is for Microsoft Graph, the required scopes can be found in the API reference of each Microsoft Graph API in the section named "Permissions." For instance, to [list the user's contacts](https://docs.microsoft.com/graph/api/user-list-contacts), the scope "User.Read", "Contacts.Read" must be used. For more information, see [Microsoft Graph permissions reference](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
 On Android, you also need to specify the parent activity by using `.WithParentActivityOrWindow`, as shown, so that the token gets back to that parent activity after the interaction. If you don't specify it, an exception is thrown when calling `.ExecuteAsync()`.
 

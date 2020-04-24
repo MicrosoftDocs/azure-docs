@@ -29,13 +29,13 @@ This cURL-based quickstart walks you through getting an answer from your knowled
 Use the knowledge base from the previous quick to query for an answer based on metadata.
 
 1. From the knowledge base's **Settings** page, select the **CURL** tab to see an example cURL command used to generate an answer from the knowledge base.
-1. Copy the command to an editable environment (such as a text file) so you can edit the command. Edit the question value as follows so that the metadata of `service:qna_maker` is used as a filter for the QnA sets.
+1. Copy the command to an editable environment (such as a text file) so you can edit the command. Edit the question value as follows so that the metadata of `service:qna_maker` is used as a filter for the QnA pairs.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
 
-    The question is just a single word, `size`, which can return either of the two QnA sets. The `strictFilters` array tells the response to reduce to just the `qna_maker` answers.
+    The question is just a single word, `size`, which can return either of the two QnA pairs. The `strictFilters` array tells the response to reduce to just the `qna_maker` answers.
 
 1. The response includes only the answer that meets the filter criteria. The following cURL response has been formatted for readability:
 

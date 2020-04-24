@@ -15,6 +15,8 @@ ms.date: 01/12/2018
 
 # Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data based on **change tracking** information in the source Azure SQL database to an Azure blob storage.  
 
 You perform the following steps in this tutorial:

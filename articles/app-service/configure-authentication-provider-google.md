@@ -4,8 +4,7 @@ description: Learn how to configure Google authentication as an identity provide
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: article
 ms.date: 09/02/2019
-ms.custom: seodec18
-ms.custom: fasttrack-edit
+ms.custom: [seodec18, fasttrack-edit]
 
 ---
 

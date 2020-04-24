@@ -88,7 +88,7 @@ By using Site Recovery, you can replicate and recover VMs between any two region
 
 ### Does Site Recovery require internet connectivity?
 
-No, Site Recovery doesn't require internet connectivity. But it does require access to Site Recovery URLs and IP ranges, as mentioned in [networking in Azure VM disaster recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
+No, Site Recovery doesn't require internet connectivity. But it does require access to Site Recovery URLs and IP ranges, as mentioned in [networking in Azure VM disaster recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls).
 
 ### Can I replicate an application that has a separate resource group for separate tiers?
 

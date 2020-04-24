@@ -144,7 +144,6 @@ In this document, you learned how to configure security policies in Azure Securi
 * [Alerts Validation in Azure Security Center](security-center-alert-validation.md)
 * [Email Notifications in Azure Security Center](security-center-provide-security-contact-details.md)
 * [Handling Security Incidents in Azure Security Center](security-center-incident.md)
-* [Investigate Incidents and Alerts in Azure Security Center](security-center-investigation.md)
 * [Azure Security Center detection capabilities](security-center-detection-capabilities.md)
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](faq-general.md) — Find frequently asked questions about using the service

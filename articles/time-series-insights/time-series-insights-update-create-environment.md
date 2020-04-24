@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 02/20/2020
+ms.date: 04/02/2020
 ms.custom: seodec18
 # Customer intent: As a data analyst or developer, I want to learn how to create a Time Series Insights Preview environment so that I can use Time Series Insights queries to understand device behavior. 
 ---
@@ -26,7 +26,6 @@ In this tutorial, you learn how to:
 > * Run a solution accelerator sample to stream data into the Azure Time Series Insights Preview environment.
 > * Perform basic analysis on the data.
 > * Define a Time Series Model type and hierarchy, and associate it with your instances.
-> * Use the Power BI connector and visualize data in Power BI.
 
 >[!TIP]
 > [IoT solution accelerators](https://www.azureiotsolutions.com/Accelerators) provide enterprise-grade preconfigured solutions that you can use to accelerate the development of custom IoT solutions.
@@ -189,7 +188,7 @@ In this section, you perform basic analytics on your time series data by using t
 
     A time series chart appears. Change the **Interval** to **30s**.
 
-1. Repeat the previous step with the other two time series instances so that you’re viewing all three, as shown in this chart:
+1. Repeat the previous step with the other two time series instances so that you're viewing all three, as shown in this chart:
 
     [![Chart for all time series.](media/v2-update-provision/tsi-explorer-add-three-instances.png)](media/v2-update-provision/tsi-explorer-add-three-instances.png#lightbox)
 
@@ -355,3 +354,8 @@ Learn more about Time Series Models:
 
 > [!div class="nextstepaction"]
 > [Azure Time Series Insights Preview data modeling](./time-series-insights-update-tsm.md)
+
+Learn more about Connect your environment to Power BI
+
+> [!div class="nextstepaction"]
+> [Visualize data from Time Series Insights in Power BI](./how-to-connect-power-bi.md)

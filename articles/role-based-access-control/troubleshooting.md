@@ -148,7 +148,7 @@ If you grant a user read-only access to a single web app, some features are disa
 * Changing settings like general configuration, scale settings, backup settings, and monitoring settings
 * Accessing publishing credentials and other secrets like app settings and connection strings
 * Streaming logs
-* Diagnostic logs configuration
+* Resource logs configuration
 * Console (command prompt)
 * Active and recent deployments (for local git continuous deployment)
 * Estimated spend
@@ -173,7 +173,7 @@ These items require **write** access to the **App Service plan** that correspond
 
 These items require **write** access to the whole **Resource group** that contains your website:  
 
-* SSL Certificates and bindings (SSL certificates can be shared between sites in the same resource group and geo-location)  
+* TLS/SSL Certificates and bindings (TLS/SSL certificates can be shared between sites in the same resource group and geo-location)  
 * Alert rules  
 * Autoscale settings  
 * Application insights components  

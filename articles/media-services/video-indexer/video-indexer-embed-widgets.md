@@ -260,7 +260,7 @@ By default, the player will start playing the video. you can choose not to by pa
 
 ## Code samples
 
-See the [code samples](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Widgets) repo that contains samples for Video Indexer API and Widgets:
+See the [code samples](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) repo that contains samples for Video Indexer API and Widgets:
 
 | File/folder                       | Description                                |
 |-----------------------------------|--------------------------------------------|

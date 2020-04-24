@@ -2,7 +2,7 @@
 title: "Tutorial: extract structured data with machine-learned entity - LUIS"
 description: Extract structured data from an utterance using the machine-learned entity. To increase the extraction accuracy, add subcomponents with descriptors and constraints.
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 #Customer intent: As a new user, I want to understand how to extract complex data contained in a user utterance.
 ---
 
@@ -211,7 +211,7 @@ Test the app using the interactive **Test** panel. This process lets you enter a
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Go to the end of the URL in the address and replace _YOUR_QUERY_HERE_ with the same query as you entered in the interactive test panel.
+1. Go to the end of the URL in the address bar and replace _YOUR_QUERY_HERE_ with the same query as you entered in the interactive test panel.
 
     `deliver a medium veggie pizza`
 

@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/20/2020
 ms.author: bwren
 ms.subservice: 
 ---
@@ -33,8 +33,7 @@ The default pricing for Log Analytics is a **Pay-As-You-Go** model based on data
   - Number of VMs monitored
   - Type of data collected from each monitored VM 
   
-In addition to the Pay-As-You-Go model, Log Analytics has **Capacity Reservation** tiers which enable you to save as much as 25% compared to the Pay-As-You-Go price. The capacity reservation pricing enables you to buy a reservation starting at 100 GB/day. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. The Capacity Reservation tiers have a 31-day commitment period. During the commitment period, you can change to a higher level Capacity Reservation tier (which will restart the 31-day commitment period), but you cannot move back to Pay-As-You-Go or to a lower Capacity Reservation tier until after the commitment period is finished. 
-[Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Log Analytics Pay-As-You-Go and Capacity Reservation pricing. 
+In addition to the Pay-As-You-Go model, Log Analytics has **Capacity Reservation** tiers which enable you to save as much as 25% compared to the Pay-As-You-Go price. The capacity reservation pricing enables you to buy a reservation starting at 100 GB/day. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. The Capacity Reservation tiers have a 31-day commitment period. During the commitment period, you can change to a higher level Capacity Reservation tier (which will restart the 31-day commitment period), but you cannot move back to Pay-As-You-Go or to a lower Capacity Reservation tier until after the commitment period is finished. Billing for the Capacity Reservation tiers is done on a daily basis. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Log Analytics Pay-As-You-Go and Capacity Reservation pricing. 
 
 In all pricing tiers, the data volume is calculated from a string representation of the data as it is prepared to be stored. Several [properties common to all data types](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) are not included in the calculation of the event size, including `_ResourceId`, `_ItemId`, `_IsBillable` and `_BilledSize`.
 
@@ -86,6 +85,9 @@ Subscriptions who had a Log Analytics workspace or Application Insights resource
 
 The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that is not billed. This allocation is aggregated at the workspace level. Data ingested above the aggregate daily data allocation is billed per GB as data overage. Note that on your bill, the service will be **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. 
 
+> [!TIP]
+> If your workspace has access to the **Per Node** pricing tier, but you're wondering whether it would be cost less in a Pay-As-You-Go tier, you can [use the query below](#evaluating-the-legacy-per-node-pricing-tier) to easily get a recommendation. 
+
 Workspaces created prior to April 2016 can also access the original **Standard** and **Premium** pricing tiers which have fixed data retention of 30 and 365 days respectively. New workspaces cannot be created in the **Standard** or **Premium** pricing tiers, and if a workspace is moved out of these tiers, it cannot be moved back. 
 
 More details of pricing tier limitations are available [here](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#log-analytics-workspaces).
@@ -106,10 +108,14 @@ To set the default retention for your workspace,
 3. On the pane, move the slider to increase or decrease the number of days and then click **OK**.  If you are on the *free* tier, you will not be able to modify the data retention period and you need to upgrade to the paid tier in order to control this setting.
 
     ![Change workspace data retention setting](media/manage-cost-storage/manage-cost-change-retention-01.png)
+
+When the retention is lowered, there is a several day grace period before the oldest data is removed. 
     
 The retention can also be [set via Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) using the `retentionInDays` parameter. Additionally, if you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This functionality is only exposed via Azure Resource Manager. 
 
 Two data types -- `Usage` and `AzureActivity` -- are retained for 90 days by default, and there is no charge for for this 90 day retention. These data types are also free from data ingestion charges. 
+
+
 
 ### Retention by data type
 
@@ -435,6 +441,59 @@ To see the number of distinct Automation nodes, use the query:
  ) on lowComputer
  | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc
 ```
+
+## Evaluating the legacy Per Node pricing tier
+
+The decision of whether workspaces with access to the legacy **Per Node** pricing tier are better off in that tier or in a current **Pay-As-You-Go** or **Capacity Reservation** tier is often difficult for customers to assess.  This involves understanding the trade-off between the fixed cost per monitored node in the Per Node pricing tier and its included data allocation of 500 MB/node/day and the cost of just paying for ingested data in the Pay-As-You-Go (Per GB) tier. 
+
+To facilitate this assessment, the following query can be used to make a recommendation for the optimal pricing tier based on a workspace's usage patterns.  This query looks at the monitored nodes and data ingested into a workspace in the last 7 days, and for each day evaluates which pricing tier would have been optimal. To use the query, you need to specify whether the workspace is using Azure Security Center by setting `workspaceHasSecurityCenter` to `true` or `false`, and then (optionally) updating the Per Node and Per GB prices that your organizaiton receives. 
+
+```kusto
+// Set these parameters before running query
+let workspaceHasSecurityCenter = true;  // Specify if the workspace has Azure Security Center
+let PerNodePrice = 15.; // Enter your price per node / month 
+let PerGBPrice = 2.30; // Enter your price per GB 
+// ---------------------------------------
+let SecurityDataTypes=dynamic(["SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent", "Update", "UpdateSummary"]);
+union withsource = tt * 
+| where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize nodesPerHour = dcount(computerName) by bin(TimeGenerated, 1h)  
+| summarize nodesPerDay = sum(nodesPerHour)/24.  by day=bin(TimeGenerated, 1d)  
+| join (
+    Heartbeat 
+    | where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
+    | where Computer != ""
+    | summarize ASCnodesPerHour = dcount(Computer) by bin(TimeGenerated, 1h) 
+    | extend ASCnodesPerHour = iff(workspaceHasSecurityCenter, ASCnodesPerHour, 0)
+    | summarize ASCnodesPerDay = sum(ASCnodesPerHour)/24.  by day=bin(TimeGenerated, 1d)   
+) on day
+| join (
+    Usage 
+    | where TimeGenerated > ago(8d)
+    | where StartTime >= startofday(now(-7d)) and EndTime < startofday(now())
+    | where IsBillable == true
+    | extend NonSecurityData = iff(DataType !in (SecurityDataTypes), Quantity, 0.)
+    | extend SecurityData = iff(DataType in (SecurityDataTypes), Quantity, 0.)
+    | summarize DataGB=sum(Quantity)/1000., NonSecurityDataGB=sum(NonSecurityData)/1000., SecurityDataGB=sum(SecurityData)/1000. by day=bin(StartTime, 1d)  
+) on day
+| extend AvgGbPerNode =  NonSecurityDataGB / nodesPerDay
+| extend PerGBDailyCost = iff(workspaceHasSecurityCenter,
+             (NonSecurityDataGB + max_of(SecurityDataGB - 0.5*ASCnodesPerDay, 0.)) * PerGBPrice,
+             DataGB * PerGBPrice)
+| extend OverageGB = iff(workspaceHasSecurityCenter, 
+             max_of(DataGB - 0.5*nodesPerDay - 0.5*ASCnodesPerDay, 0.), 
+             max_of(DataGB - 0.5*nodesPerDay, 0.))
+| extend PerNodeDailyCost = nodesPerDay * PerNodePrice / 31. + OverageGB * PerGBPrice
+| extend Recommendation = iff(PerNodeDailyCost < PerGBDailyCost, "Per Node tier", 
+             iff(NonSecurityDataGB > 85., "Capacity Reservation tier", "Pay-as-you-go (Per GB) tier"))
+| project day, nodesPerDay, ASCnodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, Recommendation | sort by day asc
+| project day, Recommendation // Comment this line to see details
+| sort by day asc
+```
+
+This query is not an exact replication of how usage is calculated, but will work for providing pricing tier recommendations in most cases.  
 
 ## Create an alert when data collection is high
 

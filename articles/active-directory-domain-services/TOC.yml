@@ -145,13 +145,9 @@
       href: faqs.md
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=active-directory-ds
-    - name: Compatible third-party software
-      href: compatible-software.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/active-directory-ds/
     - name: Azure AD feedback forum
       href: https://feedback.azure.com/forums/169401-azure-active-directory
-    - name: Contact us
-      href: contact-us.md
     - name: Use Azure AD Domain Services in Azure CSP subscriptions
       href: csp.md

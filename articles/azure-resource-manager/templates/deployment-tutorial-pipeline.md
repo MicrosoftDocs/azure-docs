@@ -1,7 +1,7 @@
 ---
 title: Continuous integration with Azure Pipelines
 description: Learn how to continuously build, test, and deploy Azure Resource Manager templates.
-ms.date: 03/13/2020
+ms.date: 04/22/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -39,7 +39,7 @@ To complete this article, you need:
 
 ## Prepare a GitHub repository
 
-GitHub is used to store your project source code including Resource Manager templates. For other supported repositories, see [repositories supported by Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops#supported-repository-types).
+GitHub is used to store your project source code including Resource Manager templates. For other supported repositories, see [repositories supported by Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops).
 
 ### Create a GitHub repository
 
@@ -52,11 +52,7 @@ If you don't have a GitHub account, see [Prerequisites](#prerequisites).
 
 1. Select **New**, a green button.
 1. In **Repository name**, enter a repository name.  For example, **AzureRmPipeline-repo**. Remember to replace any of **AzureRmPipeline** with your project name. You can select either **Public** or **private** for going through this tutorial. And then select **Create repository**.
-1. Write down the URL. The repository URL is the following format:
-
-    ```url
-    https://github.com/[YourAccountName]/[YourRepositoryName]
-    ```
+1. Write down the URL. The repository URL is the following format - **https://github.com/[YourAccountName]/[YourRepositoryName]**.
 
 This repository is referred to as a *remote repository*. Each of the developers of the same project can clone his/her own *local repository*, and merge the changes to the remote repository.
 

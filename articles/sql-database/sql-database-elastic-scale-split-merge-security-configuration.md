@@ -20,7 +20,7 @@ To use the Split/Merge service, you must correctly configure security. The servi
 
 Certificates are configured in two ways. 
 
-1. [To Configure the SSL Certificate](#to-configure-the-ssl-certificate)
+1. [To Configure the TLS/SSL Certificate](#to-configure-the-tlsssl-certificate)
 2. [To Configure Client Certificates](#to-configure-client-certificates) 
 
 ## To obtain certificates
@@ -43,26 +43,26 @@ If those options are not available, you can generate **self-signed certificates*
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
 * Get the WDK from [Windows 8.1: Download kits and tools](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
-## To configure the SSL certificate
+## To configure the TLS/SSL certificate
 
-An SSL certificate is required to encrypt the communication and authenticate the server. Choose the most applicable of the three scenarios below, and execute all its steps:
+A TLS/SSL certificate is required to encrypt the communication and authenticate the server. Choose the most applicable of the three scenarios below, and execute all its steps:
 
 ### Create a new self-signed certificate
 
 1. [Create a Self-Signed Certificate](#create-a-self-signed-certificate)
-2. [Create PFX file for Self-Signed SSL Certificate](#create-pfx-file-for-self-signed-ssl-certificate)
-3. [Upload SSL Certificate to Cloud Service](#upload-ssl-certificate-to-cloud-service)
-4. [Update SSL Certificate in Service Configuration File](#update-ssl-certificate-in-service-configuration-file)
-5. [Import SSL Certification Authority](#import-ssl-certification-authority)
+2. [Create PFX file for Self-Signed TLS/SSL Certificate](#create-pfx-file-for-self-signed-tlsssl-certificate)
+3. [Upload TLS/SSL Certificate to Cloud Service](#upload-tlsssl-certificate-to-cloud-service)
+4. [Update TLS/SSL Certificate in Service Configuration File](#update-tlsssl-certificate-in-service-configuration-file)
+5. [Import TLS/SSL Certification Authority](#import-tlsssl-certification-authority)
 
 ### To use an existing certificate from the certificate store
-1. [Export SSL Certificate From Certificate Store](#export-ssl-certificate-from-certificate-store)
-2. [Upload SSL Certificate to Cloud Service](#upload-ssl-certificate-to-cloud-service)
-3. [Update SSL Certificate in Service Configuration File](#update-ssl-certificate-in-service-configuration-file)
+1. [Export TLS/SSL Certificate From Certificate Store](#export-tlsssl-certificate-from-certificate-store)
+2. [Upload TLS/SSL Certificate to Cloud Service](#upload-tlsssl-certificate-to-cloud-service)
+3. [Update TLS/SSL Certificate in Service Configuration File](#update-tlsssl-certificate-in-service-configuration-file)
 
 ### To use an existing certificate in a PFX file
-1. [Upload SSL Certificate to Cloud Service](#upload-ssl-certificate-to-cloud-service)
-2. [Update SSL Certificate in Service Configuration File](#update-ssl-certificate-in-service-configuration-file)
+1. [Upload TLS/SSL Certificate to Cloud Service](#upload-tlsssl-certificate-to-cloud-service)
+2. [Update TLS/SSL Certificate in Service Configuration File](#update-tlsssl-certificate-in-service-configuration-file)
 
 ## To configure client certificates
 Client certificates are required in order to authenticate requests to the service. Choose the most applicable of the three scenarios below, and execute all its steps:
@@ -96,7 +96,7 @@ A certificate is required to encrypt the credentials that are stored in the meta
 
 ### Use a new self-signed certificate
 1. [Create a Self-Signed Certificate](#create-a-self-signed-certificate)
-2. [Create PFX file for Self-Signed Encryption Certificate](#create-pfx-file-for-self-signed-ssl-certificate)
+2. [Create PFX file for Self-Signed Encryption Certificate](#create-pfx-file-for-self-signed-tlsssl-certificate)
 3. [Upload Encryption Certificate to Cloud Service](#upload-encryption-certificate-to-cloud-service)
 4. [Update Encryption Certificate in Service Configuration File](#update-encryption-certificate-in-service-configuration-file)
 
@@ -180,7 +180,7 @@ Refer to the documentation for Dynamic IP Security in IIS for other supported va
 ## Operations for configuring service certificates
 This topic is for reference only. Follow the configuration steps outlined in:
 
-* Configure the SSL certificate
+* Configure the TLS/SSL certificate
 * Configure client certificates
 
 ## Create a self-signed certificate
@@ -199,7 +199,7 @@ To customize:
 * -e with the certificate expiration date
   Create a strong password and specify it when prompted.
 
-## Create PFX file for self-signed SSL certificate
+## Create PFX file for self-signed TLS/SSL certificate
 Execute:
 
         pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
@@ -209,7 +209,7 @@ Enter password and then export certificate with these options:
 * Yes, export the private key
 * Export all extended properties
 
-## Export SSL certificate from certificate store
+## Export TLS/SSL certificate from certificate store
 * Find certificate
 * Click Actions -> All tasks -> Export…
 * Export certificate into a .PFX file with these options:
@@ -217,17 +217,17 @@ Enter password and then export certificate with these options:
   * Include all certificates in the certification path if possible
     *Export all extended properties
 
-## Upload SSL certificate to cloud service
-Upload certificate with the existing or generated .PFX file with the SSL key pair:
+## Upload TLS/SSL certificate to cloud service
+Upload certificate with the existing or generated .PFX file with the TLS key pair:
 
 * Enter the password protecting the private key information
 
-## Update SSL certificate in service configuration file
+## Update TLS/SSL certificate in service configuration file
 Update the thumbprint value of the following setting in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
     <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
 
-## Import SSL certification authority
+## Import TLS/SSL certification authority
 Follow these steps in all account/machine that will communicate with the service:
 
 * Double-click the .CER file in Windows Explorer
@@ -244,7 +244,7 @@ Change these settings to false in the service configuration file to turn off the
 <Setting name="SetupWebserverForClientCertificates" value="false" />
 ```
 
-Then, copy the same thumbprint as the SSL certificate in the CA certificate setting:
+Then, copy the same thumbprint as the TLS/SSL certificate in the CA certificate setting:
 
 ```xml
 <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
@@ -407,7 +407,7 @@ Update the thumbprint value of the following settings in the service configurati
 ```
 
 ## Common certificate operations
-* Configure the SSL certificate
+* Configure the TLS/SSL certificate
 * Configure client certificates
 
 ## Find certificate
@@ -473,7 +473,7 @@ In the [Azure portal](https://portal.azure.com/)
 7. Once completed, copy the certificate thumbprint from the new entry in the list.
 
 ## Other security considerations
-The SSL settings described in this document encrypt communication between the service and its clients when the HTTPS endpoint is used. This is important since credentials for database access and potentially other sensitive information are contained in the communication. Note, however, that the service persists internal status, including credentials, in its internal tables in the Microsoft Azure SQL database that you have provided for metadata storage in your Microsoft Azure subscription. That database was defined as part of the following setting in your service configuration file (.CSCFG file): 
+The TLS settings described in this document encrypt communication between the service and its clients when the HTTPS endpoint is used. This is important since credentials for database access and potentially other sensitive information are contained in the communication. Note, however, that the service persists internal status, including credentials, in its internal tables in the Microsoft Azure SQL database that you have provided for metadata storage in your Microsoft Azure subscription. That database was defined as part of the following setting in your service configuration file (.CSCFG file): 
 
 ```xml
 <Setting name="ElasticScaleMetadata" value="Server=…" />

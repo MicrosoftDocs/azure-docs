@@ -90,7 +90,7 @@ You can use the Azure portal to create the credential asset. Do this operation f
 
 ### Create the credential asset with Windows PowerShell
 
-To prepare a new credential asset in Windows PowerShell, your script first creates a `PSCredential` object using the assigned username and password. The script then uses this object to create the asset through a call to the [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) cmdlet. Alternatively, the script can call the [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) cmdlet to prompt the user to type in a name and password. See [Credential assets in Azure Automation](shared-resources/credentials.md). 
+To prepare a new credential asset in Windows PowerShell, your script first creates a `PSCredential` object using the assigned user name and password. The script then uses this object to create the asset through a call to the [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) cmdlet. Alternatively, the script can call the [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) cmdlet to prompt the user to type in a name and password. See [Credential assets in Azure Automation](shared-resources/credentials.md). 
 
 ## Managing Azure resources from an Azure Automation runbook
 

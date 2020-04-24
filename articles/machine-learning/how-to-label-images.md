@@ -12,7 +12,7 @@ ms.date: 11/04/2019
 
 # Tag images in a labeling project
 
-After your project administrator [creates a labeling project](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, you can use the labeling tool to rapidly prepare data for a Machine Learning project. This article describes:
+After your project administrator [creates a labeling project](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, you can use the labeling tool (public preview) to rapidly prepare data for a Machine Learning project. This article describes:
 
 > [!div class="checklist"]
 > * How to access your labeling projects
@@ -41,7 +41,9 @@ Go to **View detailed instructions**. These instructions are specific to your pr
 
 In all image-labeling tasks, you choose an appropriate tag or tags from a set that's specified by the project administrator. You can select the first nine tags by using the number keys on your keyboard.  
 
-In image-classification tasks, you can choose to view multiple images simultaneously. Use the icons above the image area to select the layout. To select all the displayed images simultaneously, use **Select all**. To select individual images, use the circular selection button in the upper-right corner of the image. You must select at least one image to apply a tag. If you select multiple images, any tag that you select will be applied to all the selected images.
+In image-classification tasks, you can choose to view multiple images simultaneously. Use the icons above the image area to select the layout. 
+
+To select all the displayed images simultaneously, use **Select all**. To select individual images, use the circular selection button in the upper-right corner of the image. You must select at least one image to apply a tag. If you select multiple images, any tag that you select will be applied to all the selected images.
 
 Here we've chosen a two-by-two layout and are about to apply the tag "Mammal" to the images of the bear and orca. The image of the shark was already tagged as "Cartilaginous fish," and the iguana hasn't been tagged yet.
 
