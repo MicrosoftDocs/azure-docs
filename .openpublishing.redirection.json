@@ -727,7 +727,10 @@
       "redirect_url": "/azure/cognitive-services/personalizer/how-to-manage-model",
       "redirect_document_id": false
     },
-
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-boundaries.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-limits"
+    },
       {
         "source_path": "articles/cognitive-services/LUIS/luis-migration-api-authoring.md",
         "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-authoring-entities",
@@ -2340,6 +2343,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/multi-master-benefits.md",
+      "redirect_url": "/azure/cosmos-db/conflict-resolution-policies",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/sql-api-python-application.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-python",
       "redirect_document_id": false
@@ -2673,6 +2681,16 @@
       "source_path": "articles/cosmos-db/sql-api-dotnetcore-get-started.md",
       "redirect_url": "/azure/cosmos-db/sql-api-get-started",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/search-example-adventureworks-modeling.md",
+      "redirect_url": "/azure/search/search-what-is-data-import",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/search/search-example-adventureworks-multilevel-faceting.md",
+      "redirect_url": "/azure/search/search-filters-facets",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/search/preview-api-resetskills.md",
@@ -7546,6 +7564,16 @@
     {
       "source_path": "articles/application-gateway/create-vmss-template.md",
       "redirect_url": "/azure/application-gateway/resource-manager-template-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-create-gateway-cli-nodejs.md",
+      "redirect_url": "/azure/application-gateway/quick-create-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-create-vmss-cli.md",
+      "redirect_url": "/azure/application-gateway/tutorial-url-redirect-cli",
       "redirect_document_id": false
     },
     {
@@ -14099,6 +14127,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-api-overview.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-samples",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/event-hubs/event-hubs-archive-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-capture-overview",
       "redirect_document_id": false
@@ -14159,10 +14192,20 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-dotnet-framework-api-overview.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/event-hubs/event-hubs-dotnet-standard-api-overview.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
@@ -14228,6 +14271,11 @@
       "redirect_url": "/azure/event-hubs/authorize-access-azure-active-directory",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/event-hubs/event-hubs-spark-connector.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-kafka-spark-tutorial",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/event-hubs/event-hubs-tutorial-virtual-networks-firewalls.md",
       "redirect_url": "/azure/event-hubs/event-hubs-service-endpoints",
@@ -17826,6 +17874,11 @@
     {
       "source_path": "articles/sql-data-warehouse/performance-tuning-ordered-cci.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/performance-tuning-ordered-cci",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/synapse-analytics/apache-spark-notebook-create-spark-use-sql.md",
+      "redirect_url": "/azure/synapse-analytics/quickstart-apache-spark-notebook",
       "redirect_document_id": true
     },
     {
@@ -51440,6 +51493,56 @@
     {
       "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started.md",
       "redirect_url": "/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-ios-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/csharp-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/go-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/java-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/node-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/python-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/csharp-tutorial-od.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/go-tutorial-object-detection.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/java-tutorial-od.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/node-tutorial-object-detection.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Vision-Service/python-tutorial-od.md",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/quickstarts/object-detection",
       "redirect_document_id": false
     }
   ]
