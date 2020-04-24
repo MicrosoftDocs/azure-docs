@@ -5,16 +5,14 @@ services: functions
 author: jeffhollan
 ms.service: azure-functions
 ms.topic: include
-ms.date: 10/25/2019
+ms.date: 04/24/2020
 ms.author: jehollan, glenga
 ms.custom: include file
 ---
 
-1. Open the Azure portal from [https://portal.azure.com](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select the **Create a resource** button
-
-    ![Create resource](./media/functions-create-function-app-portal/function-app-create-resource.png)
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 
 1. Select **Compute** > **Function App**.
 
@@ -43,7 +41,7 @@ ms.custom: include file
     | ------------ | ---------------- | ----------- |
     | **[Storage account](../articles/storage/common/storage-account-create.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
     |**Operating system**| Preferred operating system | An operating system is pre-selected for you based on your runtime stack selection, but you can change the setting if necessary. |
-    | **[Plan](../articles/azure-functions/functions-scale.md)** | Premium | For Plan Type, select **Premium (Preview)** and select defaults for the *Windows Plan* and *Sku and size* selections. |
+    | **[Plan](../articles/azure-functions/functions-scale.md)** | Premium | For Plan Type, select **Premium** and select defaults for the *Windows Plan* and *Sku and size* selections. |
 
     Select the **Next : Monitoring >** button.
 
