@@ -719,7 +719,7 @@
       - name: Configure Prometheus metric scraping
         items:
         - name: Configuration overview
-          href: insights/container-insights-prometheus-configuration-overview.md       
+          href: insights/container-insights-prometheus-integration.md       
         - name: Configure AKS and on-premises Kubernetes
           href: insights/container-insights-prometheus-configuration-aks.md
         - name: Configure Azure Red Hat OpenShift 3.11
