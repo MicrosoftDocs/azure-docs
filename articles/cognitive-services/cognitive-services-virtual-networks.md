@@ -524,7 +524,7 @@ When you resolve the endpoint URL from outside the VNet with the private endpoin
 
 This approach enables access to the Cognitive Services resource **using the same connection string** for clients on the VNet hosting the private endpoints, as well as clients outside the VNet.
 
-If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the Cognitive Services resource endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet.
+If you are using a custom DNS server on your network, clients must be able to resolve the  fully qualified domain name (FQDN) for the Cognitive Services resource endpoint to the private endpoint IP address. You should configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet.
 
 > [!TIP]
 > When using a custom or on-premises DNS server, you should configure your DNS server to resolve the Cognitive Services resource name in the 'privatelink' subdomain to the private endpoint IP address. You can do this by delegating the 'privatelink' subdomain to the private DNS zone of the VNet, or configuring the DNS zone on your DNS server and adding the DNS A records.
