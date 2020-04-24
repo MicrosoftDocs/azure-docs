@@ -253,7 +253,7 @@ conceptualContent:
       links:
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-bir-2012-netherlands
           itemType: concept
-          BIR 2012 (Netherlands)
+          text: BIR 2012 (Netherlands)
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-c5-germany
           itemType: concept
           text: C5 (Germany)
