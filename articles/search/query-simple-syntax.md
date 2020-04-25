@@ -41,7 +41,9 @@ Field grouping is similar but scopes the grouping to a single field. For example
 
 In the simple syntax, search operators include these characters: `+ | " ( ) ' \`  
 
-If a search operator is part of the search text, escape the character by prefixing it with a single backslash (`\`). For example, `search=luxury\+hotel` will match on the term *luxury+hotel*. To make things simple for the more typical cases, there are two exceptions to this rule where escaping is not needed:  
+If any of these characters are part of a token in the index, escape it by prefixing it with a single backslash (`\`). For example, suppose you used a custom analyzer for whole term tokenization, and your index contains the string "Luxury+Hotel". To get a match on this token, add an escape character: `search=luxury\+hotel`. 
+
+To make things simple for the more typical cases, there are two exceptions to this rule where escaping is not needed:  
 
 + The NOT operator `-` only needs to be escaped if it's the first character after a whitespace. If the `-` appears in the middle (for example, in `3352CDD0-EF30-4A2E-A512-3B30AF40F3FD`), you can skip escaping.
 
