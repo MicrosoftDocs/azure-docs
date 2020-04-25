@@ -40,11 +40,11 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: dotnet-sdk-quickstart.md
+            url: client-libraries.md?pivots=programming-language-csharp
           - text: Using the Python SDK
-            url: python-sdk-quickstart.md
+            url: client-libraries.md?pivots=programming-language-python
           - text: Using the Java SDK
-            url: java-sdk-quickstart.md
+            url: client-libraries.md?pivots=programming-language-java
       - linkListType: how-to-guide
         links:
           - text: Using the API console
