@@ -67,9 +67,16 @@ Update the alerts in the article [Set up and use metrics and diagnostic logs wit
 
 [!INCLUDE [iot-hub-include-endpoint-health](../../includes/iot-hub-include-endpoint-health.md)]
 
-## Common error codes output by the diagnostic logs (2.2.1.1.5)
+## Common error codes output by the diagnostic logs
+
 <!-- Error codes output by the diagnostic logs (2.2.1.1.5)-->
 
 [!INCLUDE [iot-hub-diagnostics-error-codes](../../includes/iot-hub-diagnostics-error-codes.md)]
+
+## Operation names used by the diagnostic logs
+
+<!-- Error codes output by the diagnostic logs-->
+
+[!INCLUDE [iot-hub-diagnostics-operation-names](../../includes/iot-hub-diagnostics-operation-names.md)]
 
 ## Next steps
