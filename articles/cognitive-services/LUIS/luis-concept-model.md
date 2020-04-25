@@ -19,19 +19,6 @@ LUIS's machine teaching methodology allows you to easily teach concepts to a mac
 
 <a name="v3-authoring-model-decomposition"></a>
 
-## Authoring model decomposition
-
-LUIS supports _model decomposition_ with the authoring APIs, breaking down a concept into smaller parts. This allows you to build your models with confidence in how the various parts are constructed and predicted.
-
-Model decomposition has the following parts:
-
-* [intents](#intents-classify-utterances)
-    * [features](#features)
-* [machine-learned entities](#machine-learned-entities)
-    * [subentities](#machine-learned-entity-components-help-extract-data) (also machine-learned entities)
-        * [features](#features)
-        * [constraints](#constraints-are-text-rules) provided by non-machine-learned entities such as regular expressions, lists, and prebuilt entities (such as number and date)
-
 ## Intents classify utterances
 
 An intent classifies example utterances to teach LUIS about the intent. Example utterances within an intent are used as positive examples of the utterance. These same utterances are used as negative examples in all other intents.
@@ -44,72 +31,11 @@ The following utterance is a **positive example** for the `OrderBook` intent and
 
 The result of well-designed intents, with their example utterances, is a high intent prediction.
 
-
-<a name="entities-extract-data"></a>
-<a name="machine-learned-entities"></a>
-
-## Machine-learned entities extract data
+## Entities extract data
 
 An entity represents a unit of data you want extracted from the utterance. A machine-learned entity is a top-level entity containing subentities, which are also machine-learned entities.
 
-Each subentity can have:
-
-* child subentities - total length of 5 entities from parent to last child
-* machine-learned features - such as a phrase list
-* constraints (regular expression entity, list entity, prebuilt entity)
-
 An example of a machine-learned entity is an order for a plane ticket. Conceptually this is a single transaction with many smaller units of data such as date, time, quantity of seats, type of seat such as first class or coach, origin location, destination location, and meal choice.
-
-<a name="machine-learned-entity-components-help-extract-data"></a>
-
-### Machine-learned subentity help extract data
-
-A subentity is a machine-learned child entity within a machine-learned parent entity.
-
-**Use the subentity to**:
-
-* decompose the parts of the machine-learned entity (parent entity).
-
-The following represents a machine-learned entity with all these separate pieces of data:
-
-* TravelOrder (machine-learned entity)
-    * DateTime (subentity with prebuilt datetimeV2 constraint)
-    * Location To (subentity with prebuilt geographyV2 constraint)
-    * Location From (subentity with prebuilt geographyV2 constraint)
-    * Seating (subentity)
-        * Quantity (subentity with prebuilt number constraint)
-        * Quality (subentitywith feature of phrase list such as `first`, `business`, and `couch`)
-    * Meals (subentity with constraint of list entity as food choices)
-
-Some of this data, such as the origin location and destination location, should be learned from the context of the utterance, perhaps with such wording as `from` and `to`. Other parts of data can be extracted with exact string matches (`Vegan`) or prebuilt entities (geographyV2 of `Seattle` and `Cairo`).
-
-You design how the data is matched and extracted by which models you choose and how you configure them.
-
-### Constraints are text rules
-
-A constraint is a text-matching rule, provided by a non-machine-learned entity. The constraint is applied at prediction time to limit the prediction and provide entity resolution needed by the client application. You define these rules while authoring the subentity.
-
-Use a constraint when you know the exact text to extract.
-
-Constraints include:
-
-* [regular expression](reference-entity-regular-expression.md) entities
-* [list](reference-entity-list.md) entities
-* [prebuilt](luis-reference-prebuilt-entities.md) entities
-
-Continuing with the example of the plane ticket, the airport codes can be in a List entity for exact text matches.
-
-For an airport list, the list entry for Seattle is the city name, `Seattle` and the synonyms for Seattle include the airport code for Seattle along with surrounding towns and cities:
-
-|`Seattle` List entity synonyms|
-|--|
-|`Sea`|
-|`seatac`|
-|`Bellevue`|
-
-If you want to only recognize 3 letter codes for airport codes, use a regular expression as the constraint.
-
-`/^[A-Z]{3}$/`
 
 ## Intents versus entities
 
@@ -128,15 +54,34 @@ This utterance _may_ have several entities:
 * Locations of Seattle (origin) and Cairo (destination)
 * The quantity of a single ticket
 
+## Entity model decomposition
+
+LUIS supports _model decomposition_ with the authoring APIs, breaking down a concept into smaller parts. This allows you to build your models with confidence in how the various parts are constructed and predicted.
+
+Model decomposition has the following parts:
+
+* [intents](#intents-classify-utterances)
+    * [features](#features)
+* [machine-learned entities](#machine-learned-entities)
+    * [subentities](#machine-learned-entity-components-help-extract-data) (also machine-learned entities)
+        * [features](#features)
+            * [phrase list](luis-concept-feature.md)
+            * [non-machine-learned entities](luis-concept-feature.md) such as [regular expressions](reference-entity-regular-expression), [lists](reference-entity-list), and [prebuilt entities](luis-reference-prebuilt-entities)
+
+<a name="entities-extract-data"></a>
+<a name="machine-learned-entities"></a>
+
 ## Features
 
-A [feature](luis-concept-feature.md) is applied to a model at training time, including phrase lists and entities.
+A [feature](luis-concept-feature.md) is a distinguishing trait or attribute of data that your system observes. Machine learning features give LUIS important cues for where to look for things that will distinguish a concept. They are hints that LUIS can use, but not hard rules. These hints are used in conjunction with the labels to find the data.
 
-**Use a feature when you want to**:
+## Patterns
 
-* boost the significance of words and phrases identified by the feature
-* have LUIS recommend new text or phrases to recommend for the phrase list
-* fix an error on the training data
+[Patterns](luis-concept-patterns.md) are designed to improve accuracy when several utterances are very similar. A pattern allows you to gain more accuracy for an intent without providing many more utterances.
+
+## Extending the app at runtime
+
+The app's schema (models and features) is trained and published to the prediction endpoint. You can [pass new information](schema-change-prediction-runtime.md), along with the user's utterance, to the prediction endpoint to augment the prediction.
 
 ## Next steps
 

@@ -134,7 +134,7 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
 
 ## Add prebuilt number to help extract data
 
-The order information should also include how many of an item is in the order, such as how many pizzas. To extract this data, a new machine-learned subcomponent needs to be added to `Order` and that component needs a constraint of a prebuilt number. By constraining the entity to a prebuilt number, the entity will find and extract numbers whether the text is a digit, `2`, or text, `two`.
+The order information should also include how many of an item are in the order, such as how many pizzas. To extract this data, a new machine-learned subcomponent needs to be added to `Order` and that component needs a constraint of a prebuilt number. By constraining the entity to a prebuilt number, the entity will find and extract numbers whether the text is a digit, `2`, or text, `two`.
 
 Begin by adding the prebuilt number entity to the app.
 
