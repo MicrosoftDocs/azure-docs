@@ -16,9 +16,12 @@ Machine learning features give LUIS important cues for where to look for things 
 
 Features should be considered a necessary part of your schema design.
 
-## What is a phrase list
+## A phrase list for a particular concept
 
 A phrase list is a list of words or phrases that encapsulates a particular concept.
+
+When adding a phrase list, you can set the feature as:
+* **[Global](#global-features)**. A global feature applies to the entire app.
 
 ### When to use a phrase list
 
@@ -51,7 +54,7 @@ If you want to extract the medical terms:
 <a name="how-to-use-a-phrase-lists"></a>
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## A model as a feature
+## A model as a feature helps another model
 
 You can add a model (intent or entity) as a feature to another model (intent or entity). By adding an existing intent or entity as a feature, your adding a well-defined concept with labeled examples.
 
@@ -79,19 +82,11 @@ For example, if n shipping address entity contained a street address subentity, 
     * Country (subentity)
     * Postal code (subentity)
 
-### Global features
-
-While the most common use is to apply a feature to a specific model, you can configure the feature as a **global feature** to apply it to your entire application.
-
-The most common use for a global feature is to add an additional vocabulary, such as words from another language, to the app. If your customers use a primary language, but expect to be able to use another language within the same utterance, you can add a feature that includes words from the secondary language.
-
-Because the user expected to use the second language across any intent or entity, it should be added in a phrase list with the phrase list configured as a global feature.
-
-### Required features
+## Required features
 
 A required feature has to be found in order for the model to be returned from the prediction endpoint. Use a required feature when you know your incoming data must match the feature.
 
-**A required feature is a non-machine learned entity**:
+**A required feature uses a non-machine learned entity**:
 * Regular expression entity
 * List entity
 * Prebuilt entity
@@ -108,7 +103,7 @@ Continuing with the example of the shipping address:
     * Country (subentity)
     * Postal code (subentity)
 
-#### Required feature using prebuilt entities
+### Required feature using prebuilt entities
 
 The city, state, and country are generally a closed set of lists, meaning they don't change much over time. These entities could have the relevant recommended features and those features could be marked as required. That means the entire shipping address is not returned is the entities with required features are not found.
 
@@ -116,7 +111,7 @@ What if the city, state, or country are in the utterance but either in a locatio
 
 Another example of a required feature for the shipping address is to make the street number a required [prebuilt](luis-reference-prebuilt-entities.md) number. This allows a user to enter "1 Microsoft Way" or "One Microsoft Way". Both will resolve to a number of "1" for the Street number subentity.
 
-#### Required feature using list entities
+### Required feature using list entities
 
 A [list entity](reference-entity-list.md) is used as a list of canonical names along with their synonyms. As a required feature, if the utterance doesn't include either the canonical name or a synonym, then the entity isn't returned as part of the prediction endpoint.
 
@@ -128,11 +123,19 @@ Continuing with the shipping address example, suppose your company only ships to
 
 The client application, such as a chat bot can ask a follow-question, so the customer understands that the country selection is limited and _required_.
 
-#### Required feature using regular expression entities
+### Required feature using regular expression entities
 
 A [regular expression entity](reference-entity-regular-expression.md) used as a required feature provides rich text-matching capabilities.
 
 Continuing with the shipping address, you can create a regular expression that captures syntax rules of the country postal codes.
+
+## Global features
+
+While the most common use is to apply a feature to a specific model, you can configure the feature as a **global feature** to apply it to your entire application.
+
+The most common use for a global feature is to add an additional vocabulary, such as words from another language, to the app. If your customers use a primary language, but expect to be able to use another language within the same utterance, you can add a feature that includes words from the secondary language.
+
+Because the user expected to use the second language across any intent or entity, it should be added in a phrase list with the phrase list configured as a global feature.
 
 ## Best practices
 Learn [best practices](luis-concept-best-practices.md).
