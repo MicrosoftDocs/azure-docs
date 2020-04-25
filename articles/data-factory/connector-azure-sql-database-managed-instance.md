@@ -119,11 +119,7 @@ For different authentication types, refer to the following sections on prerequis
 
 To use a service principal-based Azure AD application token authentication, follow these steps:
 
-<<<<<<< HEAD
-1. Follow the steps to [Provision an Azure Active Directory administrator for your SQL Managed instance](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
-=======
 1. Follow the steps to [Provision an Azure Active Directory administrator for your Managed Instance](../sql-database/sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance).
->>>>>>> 9ffd1f0859abf804af2d8dd1d7766ba5f8da9ec5
 
 2. [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) from the Azure portal. Make note of the application name and the following values that define the linked service:
 
@@ -181,11 +177,7 @@ A data factory can be associated with a [managed identity for Azure resources](d
 
 To use managed identity authentication, follow these steps.
 
-<<<<<<< HEAD
-1. Follow the steps to [Provision an Azure Active Directory administrator for your SQL Managed instance](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
-=======
 1. Follow the steps to [Provision an Azure Active Directory administrator for your Managed Instance](../sql-database/sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance).
->>>>>>> 9ffd1f0859abf804af2d8dd1d7766ba5f8da9ec5
 
 2. [Create logins](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) for the Azure Data Factory managed identity. In SQL Server Management Studio (SSMS), connect to your SQL Managed instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
 
