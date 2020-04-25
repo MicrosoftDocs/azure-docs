@@ -133,9 +133,9 @@ Cosmos DB uses HMAC for authorization. You can use either a master key, or a [re
 
 Cosmos DB supports execution of triggers during writes. The service supports a maximum of one pre-trigger and one post-trigger per write operation. 
 
-## Autopilot mode limits
+## Autoscale mode limits
 
-See the [Autopilot](provision-throughput-autopilot.md#autopilot-limits) article for the throughput and storage limits in autopilot mode.
+See the [Autoscale](provision-throughput-autopilot.md#autoscale-limits) article for the throughput and storage limits in autoscale mode.
 
 ## SQL query limits
 
