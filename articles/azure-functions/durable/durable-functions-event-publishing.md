@@ -131,7 +131,7 @@ Using the Azure portal, create another function app to listen for events publish
 
 1. Name the new trigger, and then select **Create Function**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-name-event-grid-trigger.png" alt-text="Name the event grid trigger in the Azure portal." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Name the event grid trigger in the Azure portal." border="true":::
 
 
 A function with the following code is created:
