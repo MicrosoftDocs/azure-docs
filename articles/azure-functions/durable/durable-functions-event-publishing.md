@@ -25,7 +25,7 @@ Following are some scenarios where this feature is useful:
 
 ## Create a custom Event Grid topic
 
-Create an Event Grid topic for sending events from Durable Functions. The following instructions show how to create a topic by using Azure CLI. You can also do this by [using PowerShell](../../event-grid/custom-event-quickstart-powershell.md) or by [using the Azure portal](../../event-grid/custom-event-quickstart-portal.md).
+Create an Event Grid topic for sending events from Durable Functions. The following instructions show how to create a topic by using Azure CLI. You can also create the topic by [using PowerShell](../../event-grid/custom-event-quickstart-powershell.md) or by [using the Azure portal](../../event-grid/custom-event-quickstart-portal.md).
 
 ### Create a resource group
 
@@ -78,7 +78,7 @@ Add `eventGridTopicEndpoint` and `eventGridKeySettingName` in a `durableTask` pr
 
 ### Durable Functions 2.x
 
-Add a `notifications` section to the `durableTask` property of the file, replacing `<topic_name>` with the name you chose. If the `durableTask` or `extensions` properties do not exist, create them like this example:
+Add a `notifications` section to the `durableTask` property of the file, replacing `<topic_name>` with the name you chose. If the `durableTask` or `extensions` properties don't exist, create them like this example:
 
 ```json
 {
@@ -96,7 +96,7 @@ Add a `notifications` section to the `durableTask` property of the file, replaci
 }
 ```
 
-The possible Azure Event Grid configuration properties can be found in the [host.json documentation](../functions-host-json.md#durabletask). After you configure the `host.json` file, your function app sends lifecycle events to the Event Grid topic. This works when you run your function app both locally and in Azure.
+The possible Azure Event Grid configuration properties can be found in the [host.json documentation](../functions-host-json.md#durabletask). After you configure the `host.json` file, your function app sends lifecycle events to the Event Grid topic. This action starts when you run your function app both locally and in Azure.
 
 Set the app setting for the topic key in the Function App and `local.settings.json`. The following JSON is a sample of the `local.settings.json` for local debugging. Replace `<topic_key>` with the topic key.  
 
@@ -111,9 +111,9 @@ Set the app setting for the topic key in the Function App and `local.settings.js
 }
 ```
 
-If you are using the [Storage Emulator](../../storage/common/storage-use-emulator.md) (Windows only), make sure it is working. It's a good idea to run the `AzureStorageEmulator.exe clear all` command before executing.
+If you're using the [Storage Emulator](../../storage/common/storage-use-emulator.md) (Windows only), make sure it's working. It's a good idea to run the `AzureStorageEmulator.exe clear all` command before executing.
 
-If you are using an existing Azure Storage account, replace `UseDevelopmentStorage=true` in `local.settings.json` with its connection string.
+If you're using an existing Azure Storage account, replace `UseDevelopmentStorage=true` in `local.settings.json` with its connection string.
 
 ## Create functions that listen for events
 
@@ -183,7 +183,7 @@ Now you're ready to receive lifecycle events.
 
 ## Run Durable Functions app to send the events
 
-In the Durable Functions project that you configured earlier, start debugging on your local machine and start an orchestration. The app publishes Durable Functions lifecycle events to Event Grid. Verify that Event Grid triggers the the listener function you created by checking its logs in the Azure portal.
+In the Durable Functions project that you configured earlier, start debugging on your local machine and start an orchestration. The app publishes Durable Functions lifecycle events to Event Grid. Verify that Event Grid triggers the listener function you created by checking its logs in the Azure portal.
 
 ```
 2019-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)
