@@ -41,6 +41,9 @@ Azure AD Conditional Access supports the following device platforms:
 - Windows
 - macOS
 
+> [!WARNING]
+> Microsoft is aware of an issue with Conditional Access policies and macOS 10.15.4 based devices. More information can be found in the the blog post, [Known Issue: Conditional access unexpectedly blocking macOS 10.15.4 native mail client/other apps](https://techcommunity.microsoft.com/t5/intune-customer-success/known-issue-conditional-access-unexpectedly-blocking-macos-10-15/ba-p/1322283).
+
 If you block legacy authentication using the **Other clients** condition, you can also set the device platform condition.
 
 ## Locations
@@ -105,7 +108,7 @@ On Windows 7, iOS, Android, and macOS Azure AD identifies the device using a cli
 
 #### Chrome support
 
-For Chrome support in **Windows 10 Creators Update (version 1703)** or later, install the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). This extension is required when a Conditional Access policy requires device specific details.
+For Chrome support in **Windows 10 Creators Update (version 1703)** or later, install the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). This extension is required when a Conditional Access policy requires device-specific details.
 
 To automatically deploy this extension to Chrome browsers, create the following registry key:
 
@@ -137,7 +140,7 @@ This setting has an impact on access attempts made from the following mobile app
 | --- | --- | --- |
 | Dynamics CRM app | Dynamics CRM | Windows 10, Windows 8.1, iOS, and Android |
 | Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication)| Office 365 Exchange Online | Windows 10 |
-| MFA and location policy for apps. Device based policies are not supported.| Any My Apps app service | Android and iOS |
+| MFA and location policy for apps. Device-based policies are not supported.| Any My Apps app service | Android and iOS |
 | Microsoft Teams Services - this controls all services that support Microsoft Teams and all its Client Apps - Windows Desktop, iOS, Android, WP, and web client | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android, and macOS |
 | Office 2016 apps, Office 2013 (with modern authentication), [OneDrive sync client](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
 | Office 2016 apps, Universal Office apps, Office 2013 (with modern authentication), [OneDrive sync client](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
