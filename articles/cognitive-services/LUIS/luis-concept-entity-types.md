@@ -55,15 +55,9 @@ Machine-learned entities allow you to design your app schema for decomposition, 
 
 Designing for decomposition allows LUIS to return a deep degree of entity resolution to your client application. This allows your client application to focus on business rules and leave data resolution to LUIS.
 
-### Machine-learned entities are primary data collections
+A machine-learned entity triggers based on the context learned through example utterances.
 
-[**Machine-learned entities**](tutorial-machine-learned-entity.md) are the top-level data unit. Subentities are child entities of machine-learned entities. A machine-learned entity triggers based on the context learned through example utterances.
-
-[**Features**](luis-concept-feature.md) are applied to boost the relevance of the words or phrases for the prediction by identifying concepts through distinguishing traits or attributes. When you create a feature in your LUIS app, it should be applied as closely to the concept it helps identify.
-
-**Required features** constrain triggering based on the exact-text matching definition of a non-machine-learned entity such as a [List](reference-entity-list.md) or [Regex](reference-entity-regular-expression.md), or [prebuilt entity](luis-reference-prebuilt-entities.md).
-
-For example, a `size` machine-learned entity can have a required feature of a `sizeList` list entity that constrains the `size` entity to trigger only when values contained within the `sizeList` entity are encountered such as `small`, `large`, and `XL`.
+[**Machine-learned entities**](tutorial-machine-learned-entity.md) are the top-level extractors. Subentities are child entities of machine-learned entities.
 
 <a name="composite-entity"></a>
 <a name="list-entity"></a>
@@ -74,13 +68,15 @@ For example, a `size` machine-learned entity can have a required feature of a `s
 
 ## Types of entities
 
+A subentity to a parent should be a machine-learned entity. The subentity can use a non-machine-learned entity as a [feature](luis-concept-feature.md).
+
 Choose the entity based on how the data should be extracted and how it should be represented after it is extracted.
 
 |Entity type|Purpose|
 |--|--|
 |[**Machine-learned**](tutorial-machine-learned-entity.md)|Machine-learned entities learn from context in the utterance. Parent grouping of entities, regardless of entity type. This makes variation of placement in example utterances significant. |
 |[**List**](reference-entity-list.md)|List of items and their synonyms extracted with **exact text match**.|
-|[**Pattern.any**](#patternany-entity)|Entity where finding the end of entity is difficult to determine because the entity is free-form. |
+|[**Pattern.any**](#patternany-entity)|Entity where finding the end of entity is difficult to determine because the entity is free-form. Only available in [patterns](luis-concept-patterns).|
 |[**Prebuilt**](luis-reference-prebuilt-entities.md)|Already trained to extract specific kind of data such as URL or email. Some of these prebuilt entities are defined in the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. If your specific culture or entity isn't currently supported, contribute to the project.|
 |[**Regular Expression**](reference-entity-regular-expression.md)|Uses regular expression for **exact text match**.|
 
@@ -99,13 +95,11 @@ To extract the origin and destination, create two subentities as part of the tic
 
 ### Using required features to constrain entities
 
-You can use a [**machine-learned entity**](tutorial-machine-learned-entity.md) to extract the data that describes the action of booking a flight and then to decompose the top-level entity into the separate parts.
-
-In this example, `Book a flight from Seattle to Cairo`, the top-level entity could be `travelAction` and labeled to extract `flight from Seattle to Cairo`. Then two subentities are created, called `origin` and `destination`, both with a required feature applied of the prebuilt `geographyV2` entity. In the training utterances, you need to label the `origin` and `destination` appropriately.
+Learn more about [required features](luis-concept-feature.md)
 
 ## Pattern.any entity
 
-[!INCLUDE [Pattern.any entity - concepts](./includes/pattern-any-entity.md)]
+A Pattern.any is only available in a [Pattern](luis-concept=patterns.md).
 
 ## If you need more than the maximum number of entities
 
