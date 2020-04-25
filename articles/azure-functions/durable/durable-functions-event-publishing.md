@@ -127,7 +127,7 @@ Using the Azure portal, create another function app to listen for events publish
 
 1. Search for **Event Grid**, and then select the **Azure Event Grid trigger** template. 
 
-    :::image type="content" source="./media/durable-functions-event-publishing/function-configure-timer-trigger.png" alt-text="Select the event grid trigger template in the Azure portal." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Select the event grid trigger template in the Azure portal." border="true":::
 
 1. Name the new trigger, and then select **Create Function**.
 
@@ -177,7 +177,7 @@ module.exports = async function(context, eventGridEvent) {
 
 1. Select `Create`.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-description.png" alt-text="Create an Event Grid subscription." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Create an Event Grid subscription." border="true":::
 
 Now you're ready to receive lifecycle events.
 
