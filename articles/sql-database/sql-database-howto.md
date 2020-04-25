@@ -1,6 +1,7 @@
 ---
-title: Configure and manage
-description: Learn how to configure and manage Azure SQL Database.
+title: Configure and manage content reference
+titleSuffix: Azure SQL Database 
+description: Find content that teaches you how to configure and manage Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -24,14 +25,7 @@ In this section you can find various guides, scripts, and explanations that can 
 - [Load data with BCP](sql-database-load-from-csv-with-bcp.md)
 - [Load data with ADF](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 
-### Data sync
 
-- [SQL Data Sync](sql-database-sync-data.md)
-- [Data Sync Agent](sql-database-data-sync-agent.md)
-- [Replicate schema changes](sql-database-update-sync-schema.md)
-- [Monitor with OMS](sql-database-sync-monitor-oms.md)
-- [Best practices for Data Sync](sql-database-best-practices-data-sync.md)
-- [Troubleshoot Data Sync](sql-database-troubleshoot-data-sync.md)
 
 ## Monitoring and tuning
 

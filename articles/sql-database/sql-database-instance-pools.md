@@ -15,11 +15,11 @@ ms.date: 09/05/2019
 ---
 # What is an Azure SQL Managed Instance pool (preview)?
 
-Instance pools are a new Azure SQL Managed Instance deployment option that provide an easy way to manage and scale shared resources for multiple Azure SQL Managed Instances, as well as a convenient and cost-effective way to migrate multiple smaller SQL instances to the cloud at scale. 
+Instance pools are a new deployment option for Azure SQL Managed Instance that provides a convenient and cost-efficient way to migrate smaller SQL instances to the cloud at scale.
 
-Instance pools provide a framework to deploy multiple SQL Managed Instances within a single virtual machine, so that compute, storage, and networking resources are shared by the pool, simplifying management and deployment of the individual SQL Managed Instances in the pool. Additionally, instance pools support native VNet integration so you can deploy multiple instance pools and multiple single instances in the same subnet.
+Instance pools allow you to pre-provision compute resources according to your total migration requirements. You can then deploy several individual SQL Managed Instances up to your pre-provisioned compute level. For example, if you pre-provision 8 vCores you can deploy two 2 vCore and one 4 vCore instances, and then migrate databases into these instances. Prior to instance pools being available, smaller and less compute-intensive workloads would often have to be consolidated into a larger managed instance when migrating to the cloud. The need to migrate groups of databases to a large instance typically required careful capacity planning and resource governance, additional security considerations, and some extra data consolidation work at the instance level.
 
-Instance pools also allow you to pre-provision compute resources according to your total SQL Server migration requirements. You can then deploy several individual SQL Managed Instances up to your pre-provisioned compute level. Instance pools replace the previous workflow of consolidating smaller and less-compute intensive workloads into a larger single SQL Managed Instance. The need to migrate groups of databases, or multiple SQL Server instances to a large instance typically required careful capacity planning and resource governance, additional security considerations, and some extra data consolidation work at the instance level.  Instance pools serve to simplify the entire migration process for multiple database and SQL Server instances. 
+Additionally, instance pools support native VNet integration so you can deploy multiple instance pools and multiple single instances in the same subnet.
 
 ## Key capabilities 
 

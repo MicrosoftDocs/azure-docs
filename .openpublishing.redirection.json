@@ -117,6 +117,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-howto.md",
+      "redirect_url": "/azure/sql-database/sql-database-howto-single-database",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/power-bi-workspace-collections/app-token-flow.md",
       "redirect_url": "/previous-versions/azure/power-bi-workspace-collections/app-token-flow",
       "redirect_document_id": false
