@@ -49,7 +49,7 @@ Now that you have an output binding defined, you need to update the code to use 
 
 In this section, you add code that writes a message to the output queue. The message includes the value that is passed to the HTTP trigger in the query string. For example, if the query string includes `name=Azure`, the queue message will be *Name passed to the function: Azure*.
 
-1. Select your function to display the function code in the editor.
+1. In your function, select **Code + Test** to display the function code in the editor.
 
 1. Update the function code depending on your function language:
 
@@ -131,8 +131,6 @@ Skip this section if you have already installed Storage Explorer and connected i
 1. Expand the **Queues** node, and then select the queue named **outqueue**. 
 
    The queue contains the message that the queue output binding created when you ran the HTTP-triggered function. If you invoked the function with the default `name` value of *Azure*, the queue message is *Name passed to the function: Azure*.
-
-    ![Queue message shown in Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
 1. Run the function again, and you'll see a new message appear in the queue.  
 
