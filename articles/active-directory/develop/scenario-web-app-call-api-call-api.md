@@ -19,6 +19,10 @@ ms.custom: aaddev
 
 Now that you have a token, you can call a protected web API.
 
+## Call a protected web API
+
+Calling a protected web API depends on your language and framework of choice:
+
 # [ASP.NET Core](#tab/aspnetcore)
 
 Here's simplified code for the action of the `HomeController`. This code gets a token to call Microsoft Graph. Code has been added to show how to call Microsoft Graph as a REST API. The URL for the Microsoft Graph API is provided in the appsettings.json file and is read in a variable named `webOptions`:
