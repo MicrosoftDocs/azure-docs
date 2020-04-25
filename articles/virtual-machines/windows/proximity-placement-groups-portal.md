@@ -26,8 +26,7 @@ A proximity placement group is a logical grouping used to make sure that Azure c
 1. Under **Services** in the search results, select **Proximity placement groups**.
 1. In the **Proximity placement groups** page, select **Add**.
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected.
-1. In **Resource group** either select **Create new** to create a new group or select an existing resource group from the drop-down.
-1. If you’re planning to create a placement group in an existing resource group, you need to ensure that the existing resource group is  empty 
+1. In **Resource group** either select **Create new** to create a new group or select an empty resource group that already exists, from the drop-down. 
 1. In **Region** select the location where you want the proximity placement group to be created.
 1. In **Proximity placement group name** type a name and then select **Review + create**.
 1. After validation passes, select **Create** to create the proximity placement group.
