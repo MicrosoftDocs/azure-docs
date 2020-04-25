@@ -1,10 +1,11 @@
 ---
-title: Manage single and pooled databases after migration
-description: Learn how to manage your database after migration to Azure SQL Database.
+title: Manage after migration
+titleSuffix: Azure SQL Database
+description: Learn how to manage your single and pooled database after migration to Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: joesackmsft
@@ -12,7 +13,7 @@ ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
 ---
-# New DBA in the cloud – Managing your single and pooled databases in Azure SQL Database
+# New DBA in the cloud – Managing Azure SQL Database after migration
 
 Moving from the traditional self-managed, self-controlled environment to a PaaS environment can seem a bit overwhelming at first. As an app developer or a DBA, you would want to know the core capabilities of the platform that would help you keep your application available, performant, secure and resilient - always. This article aims to do exactly that. The article succinctly organizes resources and gives you some guidance on how to best use the key capabilities of SQL Database with single and pooled databases to manage and keep your application running efficiently and achieve optimal results in the cloud. Typical audience for this article would be those who:
 
@@ -28,12 +29,9 @@ This article discusses some of the core characteristics of Azure SQL Database as
 - Intelligent database monitoring and maintenance
 - Data movement
 
-> [!NOTE]
-> This article applies to the following deployment options in Azure SQL Database: single databases and elastic pools. It does not apply to the managed instance deployment option in SQL Database.
-
 ## Monitor databases using the Azure portal
 
-In the [Azure portal](https://portal.azure.com/), you can monitor an individual databases utilization by selecting your database and clicking the **Monitoring** chart. This brings up a **Metric** window that you can change by clicking the **Edit chart** button. Add the following metrics:
+In the [Azure portal](https://portal.azure.com/), you can monitor an individual database's utilization by selecting your database and clicking the **Monitoring** chart. This brings up a **Metric** window that you can change by clicking the **Edit chart** button. Add the following metrics:
 
 - CPU percentage
 - DTU percentage

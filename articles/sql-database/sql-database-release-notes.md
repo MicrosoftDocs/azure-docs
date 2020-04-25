@@ -1,6 +1,7 @@
 ---
-title: Release Notes
-description: Learn about the new features and improvements in the Azure SQL Database service and in the Azure SQL Database documentation
+title: What's new? 
+titleSuffix: Azure SQL Database & SQL Managed Instance
+description: Learn about the new features and improvements for Azure SQL Database & SQL Managed Instance service and documentation
 services: sql-database
 author: stevestein
 ms.service: sql-database
@@ -10,13 +11,13 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: sstein
 ---
-# SQL Database release notes
+# What's new in Azure SQL Database & SQL Managed Instance? 
 
-This article lists SQL Database features that are currently in public preview. For SQL Database updates and improvements, see [SQL Database service updates](https://azure.microsoft.com/updates/?product=sql-database). For updates and improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
+This article lists Azure SQL Database and Azure SQL Managed Instance features that are currently in public preview. For SQL Database updates and improvements, see [SQL Database & SQL Managed Instance service updates](https://azure.microsoft.com/updates/?product=sql-database). For updates and improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
 
 ## Features in public preview
 
-### [Single database](#tab/single-database)
+### [Azure SQL Database](#tab/single-database)
 
 | Feature | Details |
 | ---| --- |
@@ -24,7 +25,7 @@ This article lists SQL Database features that are currently in public preview. F
 | Accelerated database recovery with single databases and elastic pools | For information, see [Accelerated Database Recovery](sql-database-accelerated-database-recovery.md).|
 |Approximate Count Distinct|For information, see [Approximate Count Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
 |Batch Mode on Rowstore (under compatibility level 150)|For information, see [Batch Mode on Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
-| Data discovery & classification  |For information, see [Azure SQL Database and SQL Data Warehouse data discovery & classification](sql-database-data-discovery-and-classification.md).|
+| Data discovery & classification  |For information, see [Azure SQL Database and Azure Synapse Analytics data discovery & classification](sql-database-data-discovery-and-classification.md).|
 | Elastic database jobs | For information, see [Create, configure, and manage elastic jobs](elastic-jobs-overview.md). |
 | Elastic queries | For information, see [Elastic query overview](sql-database-elastic-query-overview.md). |
 | Elastic transactions | [Distributed transactions across cloud databases](sql-database-elastic-transactions-overview.md). |
@@ -35,44 +36,44 @@ This article lists SQL Database features that are currently in public preview. F
 |Table Variable Deferred Compilation (under compatibility level 150)|For information, see [Table Variable Deferred Compilation](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
 | &nbsp; |
 
-### [Managed Instance](#tab/managed-instance)
+### [Azure SQL Managed Instance](#tab/managed-instance)
 
 | Feature | Details |
 | ---| --- |
 | <a href="/azure/sql-database/sql-database-instance-pools">Instance pools</a> | A convenient and cost-efficient way to migrate smaller SQL instances to the cloud. |
-| <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD server principals (logins)</a> | Create server-level logins using <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> statement. |
-| [Transactional Replication](sql-database-managed-instance-transactional-replication.md) | Replicate the changes from your tables into other databases placed on Managed Instances, Single Databases, or SQL Server instances, or update your tables when some rows are changed in other Managed Instances or SQL Server instance. For information, see [Configure replication in an Azure SQL Database managed instance database](replication-with-sql-database-managed-instance.md). |
-| Threat detection |For information, see [Configure threat detection in Azure SQL Database managed instance](sql-database-managed-instance-threat-detection.md).|
-| Long-term backup retention | For information, see [Configure long-term back up retention in Azure SQL Database managed instance](sql-database-managed-instance-long-term-backup-retention-configure.md). | 
+| <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD server principals (logins)</a> | Create instance-level logins using <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> statement. |
+| [Transactional Replication](sql-database-managed-instance-transactional-replication.md) | Replicate the changes from your tables into other databases placed on SQL Managed Instances, SQL Databases, or SQL Server instances, or update your tables when some rows are changed in other SQL Managed Instances or SQL Server instance. For information, see [Configure replication in Azure SQL Managed Instance](replication-with-sql-database-managed-instance.md). |
+| Threat detection |For information, see [Configure threat detection in Azure SQL Managed Instance](sql-database-managed-instance-threat-detection.md).|
+| Long-term backup retention | For information, see [Configure long-term back up retention in Azure SQL Managed Instance](sql-database-managed-instance-long-term-backup-retention-configure.md). | 
 
 ---
 
-## Managed instance - new features and known issues
+## SQL Managed instance - new features and known issues
 
-### Managed instance H2 2019 updates
+### SQL Managed instance H2 2019 updates
 
-- [Service-aided subnet configuration](https://azure.microsoft.com/updates/service-aided-subnet-configuration-for-managed-instance-in-azure-sql-database-available/) A secure and convenient way to manage subnet configuration where you control data traffic while managed instance ensures the uninterrupted flow of management traffic
+- [Service-aided subnet configuration](https://azure.microsoft.com/updates/service-aided-subnet-configuration-for-managed-instance-in-azure-sql-database-available/) A secure and convenient way to manage subnet configuration where you control data traffic while SQL Managed Instance ensures the uninterrupted flow of management traffic
 - [Transparent data encryption (TDE) with Bring Your Own Key (BYOK)](https://azure.microsoft.com/updates/general-avilability-transparent-data-encryption-with-customer-managed-keys-for-azure-sql-database-managed-instance/) enables bring-your-own-key (BYOK) scenario for data protection at rest and allows organizations to separate management duties for keys and data.
 - [Auto-failover groups](https://azure.microsoft.com/updates/azure-sql-database-auto-failover-groups-feature-now-available-in-all-regions/) enable you to replicate all databases from the primary instance to a secondary instance in another region.
-- Configure your Managed instance behavior with [Global trace flags](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/).
+- Configure your SQL Managed Instance behavior with [Global trace flags](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/).
 
 ### Managed instance H1 2019 updates
 
-The following features are enabled in Managed instance deployment model in H1 2019:
+The following features are enabled in SQL Managed Instance deployment model in H1 2019:
   - Support for subscriptions with <a href="https://aka.ms/sql-mi-visual-studio-subscribers"> Azure monthly credit for Visual Studio subscribers </a> and increased [regional limits](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
   - Support for <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 and SharePoint 2019 </a> and <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
-  - Create instances with <a href="https://aka.ms/managed-instance-collation">server-level collation</a> and <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">time-zone</a> of your choice.
-  - Managed instances are now protected with <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">built-in firewall</a>.
+  - Create instances with <a href="https://aka.ms/managed-instance-collation">instance-level collation</a> and <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">time-zone</a> of your choice.
+  - SQL Managed Instances are now protected with <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">built-in firewall</a>.
   - Configure instances to use [public endpoints](sql-database-managed-instance-public-endpoint-configure.md), [Proxy override](sql-database-connectivity-architecture.md#connection-policy) connection to get better network performance, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores on Gen5 hardware generation</a> or <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configure backup retention up to 35 days</a> for Point-in-time restore. Long-term backup retention (up to 10 years) is still not enabled so you can use <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">Copy-only backups</a> as an alternative.
-  - New functionalities enable you to <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">geo-restore your database to another data center using PowerShell</a>, [rename database](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [delete virtual cluster](sql-database-managed-instance-delete-virtual-cluster.md).
+  - New functionalities enable you to [geo-restore your database to another data center using PowerShell](https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa), [rename database](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [delete virtual cluster](sql-database-managed-instance-delete-virtual-cluster.md).
   - New built-in [Instance Contributor role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) enables separation of duty (SoD) compliance with security principles and compliance with enterprise standards.
-  - Managed instance is available in the following Azure Government regions to GA (US Gov Texas, US Gov Arizona) as well as in China North 2 and China East 2. It is also available in the following public regions: Australia Central, Australia Central 2, Brazil South, France South, UAE Central, UAE North, South Africa North, South Africa West.
+  - SQL Managed Instance is available in the following Azure Government regions to GA (US Gov Texas, US Gov Arizona) as well as in China North 2 and China East 2. It is also available in the following public regions: Australia Central, Australia Central 2, Brazil South, France South, UAE Central, UAE North, South Africa North, South Africa West.
 
 ### Known issues
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
-|[Permissions on resource group not applied to Managed Instance](#permissions-on-resource-group-not-applied-to-managed-instance)|Feb 2020|Has Workaround||
+|[Permissions on resource group not applied to SQL Managed Instance](#permissions-on-resource-group-not-applied-to-managed-instance)|Feb 2020|Has Workaround||
 |[Limitation of manual failover via portal for failover groups](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Has Workaround||
 |[SQL Agent roles need explicit EXECUTE permissions for non-sysadmin logins](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Has Workaround||
 |[SQL Agent jobs can be interrupted by Agent process restart](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dec 2019|No Workaround|Mar 2020|
@@ -95,13 +96,13 @@ The following features are enabled in Managed instance deployment model in H1 20
 |Database consistency not verified using DBCC CHECKDB after restore database from Azure Blob Storage.||Resolved|Nov 2019|
 |Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.||Resolved|Oct 2019|
 |Database Mail feature with external (non-Azure) mail servers using secure connection||Resolved|Oct 2019|
-|Contained databases not supported in managed instance||Resolved|Aug 2019|
+|Contained databases not supported in SQL Managed Instance||Resolved|Aug 2019|
 
-### Permissions on resource group not applied to managed instance
+### Permissions on resource group not applied to SQL Managed Instance
 
-Managed Instance Contributor RBAC role when applied to a resource group (RG) is not applied to Managed Instance and has no effect.
+SQL Managed Instance Contributor RBAC role when applied to a resource group (RG) is not applied to SQL Managed Instance and has no effect.
 
-**Workaround**: Setup Managed Instance Contributor role for users at the subscription level.
+**Workaround**: Setup SQL Managed Instance Contributor role for users at the subscription level.
 
 ### Limitation of manual failover via portal for failover groups
 
@@ -131,13 +132,13 @@ SQL Agent creates a new session each time job is started, gradually increasing m
 
 ### In-memory OLTP memory limits are not applied
 
-Business Critical service-tier will not correctly apply [max memory limits for memory-optimized objects](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space) in some cases. Managed instance may enable workload to use more memory for In-memory OLTP operations, which may affect availability and stability of the instance. In-memory OLTP queries that are reaching the limits might not fail immediately. This issue will be fixed soon. The queries that use more In-memory OLTP memory will fail sooner if they reach the [limits](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space).
+Business Critical service-tier will not correctly apply [max memory limits for memory-optimized objects](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space) in some cases. SQL Managed instance may enable workload to use more memory for In-memory OLTP operations, which may affect availability and stability of the instance. In-memory OLTP queries that are reaching the limits might not fail immediately. This issue will be fixed soon. The queries that use more In-memory OLTP memory will fail sooner if they reach the [limits](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space).
 
 **Workaround:** [Monitor In-memory OLTP storage usage](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitoring) using [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) to ensure that the workload is not using more than available memory. Increase the memory limits that depend on the number of vCores, or optimize your workload to use less memory.
 
 ### Wrong error returned while trying to remove a file that is not empty
 
-SQL Server/Managed Instance [don't allow user to drop a file that is not empty](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). If you try to remove a non-empty data file using `ALTER DATABASE REMOVE FILE` statement, the error `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` will not be immediately returned. Managed Instance will keep trying to drop the file and the operation will fail after 30min with `Internal server error`.
+SQL Server/SQL Managed Instance [don't allow user to drop a file that is not empty](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). If you try to remove a non-empty data file using `ALTER DATABASE REMOVE FILE` statement, the error `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` will not be immediately returned. SQL Managed Instance will keep trying to drop the file and the operation will fail after 30min with `Internal server error`.
 
 **Workaround**: Remove the content of the file using `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` command. If this is the only file in the filegroup you would need to delete data from the table or partition associated to this filegroup before you shrink the file, and optionally load this data into another table/partition.
 
@@ -157,7 +158,7 @@ Restore process will block these operations on the Managed instances and instanc
 
 ### Cross-database Service Broker dialogs must be re-initialized after service tier upgrade
 
-Cross-database Service Broker dialogs will stop delivering the messages to the services in other databases after change service tier operation. The messages are **not lost** and they can be found in the sender queue. Any change of vCores or instance storage size in Managed Instance, will cause `service_broke_guid` value in [sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) view to be changed for all databases. Any `DIALOG` created using [BEGIN DIALOG](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) statement that references Service Brokers in other database will stop delivering messages to the target service.
+Cross-database Service Broker dialogs will stop delivering the messages to the services in other databases after change service tier operation. The messages are **not lost** and they can be found in the sender queue. Any change of vCores or instance storage size in SQL Managed Instance, will cause `service_broke_guid` value in [sys.databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) view to be changed for all databases. Any `DIALOG` created using [BEGIN DIALOG](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) statement that references Service Brokers in other database will stop delivering messages to the target service.
 
 **Workaround:** Stop any activity that uses cross-database Service Broker dialog conversations before updating service tier and re-initialize them after. If there are remaining messages that are undelivered after service tier change, read the messages from the source queue and resend them to the target queue.
 
@@ -173,7 +174,7 @@ The `@query` parameter in the [sp_send_db_mail](/sql/relational-databases/system
 
 ### Transactional Replication must be reconfigured after geo-failover
 
-If Transactional Replication is enabled on a database in an auto-failover group, the managed instance administrator must clean up all publications on the old primary and reconfigure them on the new primary after a failover to another region occurs. See [Replication](sql-database-managed-instance-transact-sql-information.md#replication) for more details.
+If Transactional Replication is enabled on a database in an auto-failover group, the SQL Managed Instance administrator must clean up all publications on the old primary and reconfigure them on the new primary after a failover to another region occurs. See [Replication](sql-database-managed-instance-transact-sql-information.md#replication) for more details.
 
 ### AAD logins and users are not supported in SSDT
 
@@ -181,7 +182,7 @@ SQL Server Data Tools don't fully support Azure Active directory logins and user
 
 ### Temporary database is used during RESTORE operation
 
-When a database is restoring on Managed Instance, the restore service will first create an empty database with the desired name to allocate the name on the instance. After some time, this database will be dropped and restoring of the actual database will be started. The database that is in *Restoring* state will temporary have a random GUID value instead of name. The temporary name will be changed to the desired name specified in `RESTORE` statement once the restore process completes. In the initial phase, user can access the empty database and even create tables or load data in this database. This temporary database will be dropped when the restore service starts the second phase.
+When a database is restoring on SQL Managed Instance, the restore service will first create an empty database with the desired name to allocate the name on the instance. After some time, this database will be dropped and restoring of the actual database will be started. The database that is in *Restoring* state will temporary have a random GUID value instead of name. The temporary name will be changed to the desired name specified in `RESTORE` statement once the restore process completes. In the initial phase, user can access the empty database and even create tables or load data in this database. This temporary database will be dropped when the restore service starts the second phase.
 
 **Workaround**: Do not access the database that you are restoring until you see that restore is completed.
 
@@ -193,14 +194,14 @@ The `tempdb` database is always split into 12 data files and the file structure 
 
 `CREATE DATABASE`, `ALTER DATABASE ADD FILE`, and `RESTORE DATABASE` statements might fail because the instance can reach the Azure Storage limit.
 
-Each General Purpose managed instance has up to 35 TB of storage reserved for Azure Premium Disk space. Each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on the disk isn't charged, but the total sum of Azure Premium Disk sizes can't exceed 35 TB. In some cases, a managed instance that doesn't need 8 TB in total might exceed the 35 TB Azure limit on storage size due to internal fragmentation.
+Each General Purpose SQL Managed Instance has up to 35 TB of storage reserved for Azure Premium Disk space. Each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on the disk isn't charged, but the total sum of Azure Premium Disk sizes can't exceed 35 TB. In some cases, a SQL Managed Instance that doesn't need 8 TB in total might exceed the 35 TB Azure limit on storage size due to internal fragmentation.
 
-For example, a General Purpose managed instance might have one large file that's 1.2 TB in size placed on a 4-TB disk. It also might have 248 files with 1 GB size each that are placed on separate 128-GB disks. In this example:
+For example, a General Purpose SQL Managed Instance might have one large file that's 1.2 TB in size placed on a 4-TB disk. It also might have 248 files with 1 GB size each that are placed on separate 128-GB disks. In this example:
 
 - The total allocated disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB.
 - The total reserved space for databases on the instance is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB.
 
-This example illustrates that under certain circumstances, due to a specific distribution of files, a managed instance might reach the 35-TB limit that's reserved for an attached Azure Premium Disk when you might not expect it to.
+This example illustrates that under certain circumstances, due to a specific distribution of files, a SQL Managed Instance might reach the 35-TB limit that's reserved for an attached Azure Premium Disk when you might not expect it to.
 
 In this example, existing databases continue to work and can grow without any problem as long as new files aren't added. New databases can't be created or restored because there isn't enough space for new disk drives, even if the total size of all databases doesn't reach the instance size limit. The error that's returned in that case isn't clear.
 
@@ -220,7 +221,7 @@ WHERE database_id > 4
 
 ### Error logs aren't persisted
 
-Error logs that are available in managed instance aren't persisted, and their size isn't included in the maximum storage limit. Error logs might be automatically erased if failover occurs. There might be gaps in the error log history because Managed Instance was moved several times on several virtual machines.
+Error logs that are available in SQL Managed Instance aren't persisted, and their size isn't included in the maximum storage limit. Error logs might be automatically erased if failover occurs. There might be gaps in the error log history because SQL Managed Instance was moved several times on several virtual machines.
 
 ### Transaction scope on two databases within the same instance isn't supported
 
@@ -253,7 +254,7 @@ using (var scope = new TransactionScope())
 
 ### CLR modules and linked servers sometimes can't reference a local IP address
 
-CLR modules placed in a managed instance and linked servers or distributed queries that reference a current instance sometimes can't resolve the IP of a local instance. This error is a transient issue.
+CLR modules placed in a SQL Managed Instance and linked servers or distributed queries that reference a current instance sometimes can't resolve the IP of a local instance. This error is a transient issue.
 
 **Workaround:** Use context connections in a CLR module if possible.
 

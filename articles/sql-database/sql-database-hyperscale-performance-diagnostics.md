@@ -4,7 +4,7 @@ description: This article describes how to troubleshoot Hyperscale performance p
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019 sqldbrb=1
 ms.topic: troubleshooting
 author: denzilribeiro
 ms.author: denzilr

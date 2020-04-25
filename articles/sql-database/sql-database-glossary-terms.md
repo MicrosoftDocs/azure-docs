@@ -1,11 +1,11 @@
 ---
 title: Glossary of terms 
-
-description: A glossery of terms for working with 
+titleSuffix: Azure SQL 
+description: A glossery of terms for working with Azure SQL Database, Azure SQL Managed Instance, and SQL on Azure VM. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: 
+ms.custom: sqldbrb=4
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -13,7 +13,7 @@ ms.author: sstein
 ms.reviewer: 
 ms.date: 01/22/2020
 ---
-# Azure SQL Database glossary of terms
+# Azure SQL glossary of terms
 
 ## Azure SQL Database
 
@@ -44,9 +44,10 @@ ms.date: 01/22/2020
 |Service tier|General Purpose, Business Critical|[SQL Managed Instance service tiers](sql-database-managed-instance.md#service-tiers)..|
 |Compute tier|Provisioned compute|[Provisioned compute](sql-database-service-tiers-vcore.md#compute-tiers)|
 |Compute generation|Gen5|[Hardware generations](sql-database-service-tiers-vcore.md#hardware-generations)
-|Server entity|Instance|[Database server](sql-database-servers.md)|
-||SQL Database managed instance server, managed instance server, or instance server|[Managed instance](sql-database-managed-instance.md)|
-|Resource type|vCore|A CPU core provided to the compute resource for a single database, elastic pool, or managed instance.|
-||Compute size and storage amount|Compute size is the maximum amount of CPU, memory and other non-storage related resources available for a single database, elastic pool, or managed instance.  Storage size is the maximum amount of storage available for a single database, elastic pool, or managed instance.  For sizing options in the vcore model, see [vCore single databases](sql-database-vcore-resource-limits-single-databases.md), [vCore elastic pools](sql-database-vcore-resource-limits-elastic-pools.md) and [managed instances](sql-database-managed-instance-resource-limits.md).  For sizing options in the DTU model, see [DTU single databases](sql-database-dtu-resource-limits-single-databases.md) and [DTU elastic pools](sql-database-dtu-resource-limits-elastic-pools.md).
+|Server entity|Instance| N/A as the SQL Managed Instance is in itself the server, conversely to the logical SQL server abstraction layer that SQL Database depends on. |
+|Resource type|vCore|A CPU core provided to the compute resource for SQL Managed Instance.|
+||Compute size and storage amount|Compute size is the maximum amount of CPU, memory and other non-storage related resources for SQL Managed Instance.  Storage size is the maximum amount of storage available for a SQL Managed Instance.  For sizing options, [SQL Managed Instances](sql-database-managed-instance-resource-limits.md). |
 
 ## SQL on Azure VM 
+
+need moar stuff here 
