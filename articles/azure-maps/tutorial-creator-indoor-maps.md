@@ -285,7 +285,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **Body**, provide the styles that you want to dynamically update. For example, you may use the following configuration to collect and style measurements on occupancy and temperature on features. When you're done, click **Send**.
+3. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **Body**, provide the styles below to reflect changes to the `occupied` and `temperature` *states*. When you're done, click **Send**.
 
     ```json
     {
@@ -350,14 +350,15 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
     }
     ```
 
-4. Copy the `statesetId` from the response body
-5. Create a **POST** request to update the state: Pass the stateset ID, datasetID, and featureID with your Azure Maps subscription key. The request should look like the following URL:
+4. Copy the `statesetId` from the response body.
+
+5. Create a **POST** request to update the state: Pass the statesetId, datasetId, and feature `ID` with your Azure Maps subscription key. The request should look like the following URL:
 
     ```http
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&datasetID={datasetId}&featureID={featureId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-6. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **body** of the **POST** request, copy and paste the JSON in the sample below.
+6. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **BODY** of the **POST** request, copy and paste the JSON in the sample below.
 
     ```json
     {
@@ -376,7 +377,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
 7. Upon a successful update, you will receive a `200 OK` HTTP status code. If you have  [dynamic styling implemented](indoor-map-dynamic-styling.md) for an indoor map, the update will display in your rendered map at the specified time stamp.
 
-The [Feature Get States API](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) allows you to retrieve the state of a feature using its feature ID. You can also delete the stateset and its resources by using the [Feature State Delete API](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
+The [Feature Get States API](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) allows you to retrieve the state of a feature using its feature `ID`. You can also delete the stateset and its resources by using the [Feature State Delete API](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
 
 ## Next steps
 

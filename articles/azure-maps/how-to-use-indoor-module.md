@@ -19,7 +19,7 @@ The Azure Maps Web SDK includes the *Indoor Maps* module. The  *Indoor Maps* mod
 1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps)
 2. [Enable Creator](how-to-manage-creator.md)
 3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
-4. Get a `tilesetId` and a `featurestatesetId` by completing the [tutorial for creating Indoor maps](tutorial-creator-indoor-maps.md).
+4. Get a `tilesetId` and a `statesetId` by completing the [tutorial for creating Indoor maps](tutorial-creator-indoor-maps.md).
  You'll need to use these identifiers to render indoor maps with the Azure Maps Indoor Maps module.
 
 ## Embed the Indoor Maps module
@@ -35,13 +35,11 @@ To use the globally hosted Azure Content Delivery Network version of the Azure M
 
  Or, you can download the *Azure Maps Services* module. The *Azure Maps Services* module contains a client library for accessing Azure Maps services. Follow the steps below to install and load the *Indoor Maps* module into your web application.  
   
-  1. Download the [azure-maps-rest](https://www.npmjs.com/package/azure-maps-rest) NPM package. This package also includes TypeScript definitions.
+  1. Install the NPM package. Make sure you use administrator privileges in the console:
 
-  2. Install the NPM package:
+        > **npm i azure-maps-rest**
 
-        > **npm install azure-maps-rest**
-
-  3. Reference the *Indoor Maps* module JavaScript and Style Sheet in the `<head>` element of the HTML file:
+  2. Reference the *Indoor Maps* module JavaScript and Style Sheet in the `<head>` element of the HTML file:
 
       ```html
       <script src="node_modules/azure-maps-rest/dist/atlas-indoor.min.js"></script>
@@ -226,10 +224,9 @@ Your file should now look similar to the HTML below.
   </html>
   ```
 
-To see your indoor map, load it into a web browser. It should appear like the image below.
+To see your indoor map, load it into a web browser. It should appear like the image below. If you click on the stairwell feature, the *level picker* will appear in the upper right-hand corner.
 
   ![indoor map image](media/how-to-use-indoor-module/indoor-map-image.png)
-
 
 ## Next steps
 

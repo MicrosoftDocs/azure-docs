@@ -31,7 +31,7 @@ Once you complete the prerequisites, you should have a simple web application co
 
 ### Select features
 
-To implement dynamic styling, a feature, such as a unit, must be identified by a feature  `ID`. You'll use the feature `ID` to update the dynamic property or *state* of a feature defined in the feature stateset. To view features defined in a dataset, you can use one of the following methods:
+To implement dynamic styling, a feature, such as a unit, must be identified by a feature `ID`. You'll use the feature `ID` to update the dynamic property or *state* of a specific feature defined in the feature stateset. To view features defined in a dataset, you can use one of the following methods:
 
 * WFS API. Datasets can be queried using the Web Feature Service (WFS) API. WFS follows the Open Geospatial Consortium API Features. The WFS API is helpful when there is a need to query features within a dataset. For example, you can use WFS to find all mid-size meeting rooms of a given facility and floor level.
 
