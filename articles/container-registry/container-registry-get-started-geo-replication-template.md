@@ -14,7 +14,7 @@ ms.date: 04/23/2020
 
 Azure Container Registry is a managed Docker container registry service used for storing private Docker container images and related artifacts. This quickstart shows how to create an Azure Container Registry instance using an Azure Resource Manager template. 
 
-The template sets up a [geo-replicated](container-registry-geo-replication.md) registry, which automatically synchronizes registry content across more than one Azure region. Geo-replication enables network-close access to images from regional deployments, while providing a single management experience. It's a feature of the [Premium](container-registry-skus.md) registry service tier and 
+The template sets up a [geo-replicated](container-registry-geo-replication.md) registry, which automatically synchronizes registry content across more than one Azure region. Geo-replication enables network-close access to images from regional deployments, while providing a single management experience. It's a feature of the [Premium](container-registry-skus.md) registry service tier. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -55,7 +55,7 @@ More Azure Container Registry template samples can be found in the [quickstart t
     * **Acr Replica Location**: enter a location for the registry replica, using the region's short name. It must be different from the home registry location. Example: **westeurope**.
     * **I agree to the terms and conditions stated above**: Select.
 
-      ![Template properties](media/container-registry-get-started-geo-replication-template/template-properties.png)
+    ![Template properties](media/container-registry-get-started-geo-replication-template/template-properties.png)
 
  3. If you accept the terms and conditions, select **Purchase**. After the registry has been created successfully, you get a notification:
 
