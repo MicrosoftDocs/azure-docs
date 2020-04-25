@@ -171,7 +171,7 @@ module.exports = async function(context, eventGridEvent) {
 
     :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Create the Event Grid subscription." border="true":::
 
-1. Name your event subscription and select **Event Grid Topics** for the **Topic Type**. 
+1. Name your event subscription and select the **Event Grid Topics** topic type. 
 
 1. Select the subscription. Then, select the resource group and resource that you created for the Event Grid topic. 
 
