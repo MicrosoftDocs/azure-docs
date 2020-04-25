@@ -158,6 +158,8 @@ def graphcall():
     return render_template('display.html', result=graph_data)
 ```
 
+---
+
 ## Next steps
 
 > [!div class="nextstepaction"]
