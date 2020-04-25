@@ -2,7 +2,7 @@
 title: Durable Functions publishing to Azure Event Grid (preview)
 description: Learn how to configure automatic Azure Event Grid publishing for Durable Functions.
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 04/25/2020
 ---
 
 # Durable Functions publishing to Azure Event Grid (preview)
@@ -121,17 +121,18 @@ Using the Azure portal, create another function app to listen for events publish
 
 ### Create an Event Grid trigger function
 
-Create a function to receive the lifecycle events. Select **Custom Function**.
+1. In your function app, select **Functions**, and then select **+ Add** 
 
-![Select a Create a custom function.](./media/durable-functions-event-publishing/functions-portal.png)
+   :::image type="content" source="./media/durable-functions-event-publishing/function-add-function.png" alt-text="Add a function in the Azure portal." border="true":::
 
-Choose Event Grid Trigger, and select a language.
+1. Search for **Event Grid**, and then select the **Azure Event Grid trigger** template. 
 
-![Select the Event Grid Trigger.](./media/durable-functions-event-publishing/eventgrid-trigger.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/function-configure-timer-trigger.png" alt-text="Select the event grid trigger template in the Azure portal." border="true":::
 
-Enter the name of the function, and then select `Create`.
+1. Name the new trigger, and then select **Create Function**.
 
-![Create the Event Grid Trigger.](./media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
+    :::image type="content" source="./media/functions-create-scheduled-function/function-name-event-grid-trigger.png" alt-text="Name the event grid trigger in the Azure portal." border="true":::
+
 
 A function with the following code is created:
 
@@ -160,11 +161,19 @@ module.exports = async function(context, eventGridEvent) {
 
 ---
 
-Select `Add Event Grid Subscription`. This operation adds an Event Grid subscription for the Event Grid topic that you created. For more information, see [Concepts in Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts)
+### Add an Event Grid subscription
 
-![Select the Event Grid Trigger link.](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
+1. In your new function, select **Integration** and then select **Event Grid Trigger (eventGridEvent)**. This operation adds an Event Grid subscription for the Event Grid topic that you created. For more information, see [Concepts in Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts)
 
-Select `Event Grid Topics` for **Topic Type**. Select the resource group that you created for the Event Grid topic. Then select the instance of the Event Grid topic. Press `Create`.
+    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Select the Event Grid Trigger link." border="true":::
+
+1. Select **Create Event Grid Description**.
+
+    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-description.png" alt-text="Create the Event Grid subscription." border="true":::
+
+1. Name your subscription and select `Event Grid Topics` for **Topic Type**. 
+
+1. Select the resource group that you created for the Event Grid topic. Then select the instance of the Event Grid topic. Select `Create`.
 
 ![Create an Event Grid subscription.](./media/durable-functions-event-publishing/eventsubscription.png)
 
