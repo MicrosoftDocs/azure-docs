@@ -10,7 +10,7 @@ ms.author: patricka
 ms.date: 04/22/2020
 ---
 
-# Create an Azure Blockchain Service member using an Azure Resource Manager template
+# Quickstart: Create an Azure Blockchain Service member using an Azure Resource Manager template
 
 In this quickstart, you deploy a new blockchain member and consortium in Azure Blockchain Service using an Azure Resource Manager template.
 
