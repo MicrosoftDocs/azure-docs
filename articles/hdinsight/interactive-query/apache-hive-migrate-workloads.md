@@ -11,7 +11,7 @@ ms.date: 11/13/2019
 
 # Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
 
-This document shows you how to migrate Apache Hive and LLAP workloads on HDInsight 3.6 to HDInsight 4.0. HDInsight 4.0 provides newer Hive and LLAP features such as materialized views and query result caching. When you migrate your workloads to HDInsight 4.0, you can use many newer features of Hive 3 that aren't available on HDInsight 3.6.
+This document shows how to migrate Apache Hive and LLAP workloads on HDInsight 3.6 to HDInsight 4.0. HDInsight 4.0 provides newer Hive and LLAP features such as materialized views and query result caching. When you migrate your workloads to HDInsight 4.0, you can use many newer features of Hive 3 that aren't available on HDInsight 3.6.
 
 This article covers the following subjects:
 
@@ -20,17 +20,15 @@ This article covers the following subjects:
 * Preservation of Hive security policies across HDInsight versions
 * Query execution and debugging from HDInsight 3.6 to HDInsight 4.0
 
-One advantage of Hive is the ability to export metadata to an external database (referred to as the Hive Metastore). The **Hive Metastore** is responsible for storing table statistics, including the table storage location, column names, and table index information. The metastore database schema differs between Hive versions. The recommended way to upgrade the Hive metastore safely is to create a copy and upgrade the copy instead of the current production environment.
-
-HDInsight 3.6 and HDInsight 4.0 require different metastore schemas and can't share a single metastore.
+One advantage of Hive is the ability to export metadata to an external database (referred to as the Hive Metastore). The **Hive Metastore** is responsible for storing table statistics, including the table storage location, column names, and table index information. HDInsight 3.6 and HDInsight 4.0 require different metastore schemas and can't share a single metastore. The recommended way to upgrade the Hive metastore safely is to upgrade a copy instead of the original in the current production environment. This document requires the original and new clusters to have access to the same Storage Account. Therefore, it does not cover data migration to another region.
 
 ## Migrate from external metastore
 
-### Copy SQL database
+### 1. Copy SQL database
 Create a new copy of your external metastore. If you're using an external metastore, one of the safe and easy ways to make a copy of the metastore is to [restore the Database](../../sql-database/sql-database-recovery-using-backups.md#point-in-time-restore) with a different name using the SQL Database restore function.  See [Use external metadata stores in Azure HDInsight](../hdinsight-use-external-metadata-stores.md) to learn more about attaching an external metastore to an HDInsight cluster.
 
-### Upgrade metastore schema
-Once the metastore **copy** is complete, run a schema upgrade script in [Script Action](../hdinsight-hadoop-customize-cluster-linux.md) on the existing HDInsight 3.6 cluster to upgrade the new metastore to Hive 3 schema. This allows the database to be attached as HDInsight 4.0 metastore.
+### 2. Upgrade metastore schema
+Once the metastore **copy** is complete, run a schema upgrade script in [Script Action](../hdinsight-hadoop-customize-cluster-linux.md) on the existing HDInsight 3.6 cluster to upgrade the new metastore to Hive 3 schema. (This step doesn't require the new metastore to be connected to a cluster.) This allows the database to be attached as HDInsight 4.0 metastore.
 
 Use the values in the table further below. Replace `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` with the appropriate values for the Hive metastore **copy**, separated by spaces. Don't include ".database.windows.net" when specifying the SQL server name.
 
@@ -51,17 +49,42 @@ You can verify the upgrade by running the following sql query against the databa
 select * from dbo.version
 ```
 
-After the schema upgrade is complete, deploy a new HDInsight 4.0 cluster and connect the upgraded metastore. If you've already deployed 4.0, set it so that you can connect to the metastore from Ambari.
+### 3. Run major compaction on ACID tables in HDInsight 3.6
 
-### Validate Hive table access in HDInsight 4.0
+One key difference between Hive on HDInsight 3.6 and Hive on HDInsight 4.0 is ACID-compliance for tables. In HDInsight 3.6, enabling Hive ACID-compliance requires additional configuration, but in HDInsight 4.0 tables are ACID-compliant by default. The only action required before migration is to run 'MAJOR' compaction against each ACID table on the 3.6 cluster. See the [Hive Language Manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTable/Partition/Compact) for details on compaction.
 
-After completing the previous set of steps to migrate the Hive Metastore to HDInsight 4.0, the tables and databases recorded in the metastore will be visible from within the HDInsight 4.0 cluster by executing `show tables` or `show databases` from within the cluster. See [Query execution across HDInsight versions](#query-execution-across-hdinsight-versions) for information on query execution in HDInsight 4.0 clusters.
+### 4. Deploy a new HDInsight 4.0 cluster
 
-The actual data from the tables, however, isn't accessible until the cluster has access to the necessary storage accounts. To make sure your HDInsight 4.0 cluster can access the same data as your old HDInsight 3.6 cluster, complete the following steps:
+1. Specify the upgraded metastore as the new cluster's Hive metastore.
 
-1. Determine the Azure storage account of your table or database.
+1. The actual data from the tables, however, isn't accessible until the cluster has access to the necessary storage accounts.
+Make sure that the Hive tables' Storage Accounts in the HDInsight 3.6 cluster are specified as either the primary or secondary Storage Accounts of the new HDInsight 4.0 cluster.
+For more information about adding storage accounts to HDInsight clusters, see [Add additional storage accounts to HDInsight](../hdinsight-hadoop-add-storage.md).
 
-1. If your HDInsight 4.0 cluster is already running, attach the Azure storage account to the cluster via Ambari. If you haven't yet created the HDInsight 4.0 cluster, make sure the Azure storage account is specified as either the primary or a secondary cluster storage account. For more information about adding storage accounts to HDInsight clusters, see [Add additional storage accounts to HDInsight](../hdinsight-hadoop-add-storage.md).
+### 5. Complete migration with a post-upgrade tool in HDInsight 4.0
+
+Once you've completed the metastore migration, run a post-upgrade tool to make previously non-ACID tables compatible with the HDInsight 4.0 cluster. The HDInsight 4.0 warehouse will have the following properties:
+
+|3.6 |4.0 |
+|---|---|
+|External tables|External tables|
+|Non-ACID managed tables|External tables with property 'external.table.purge'='true'|
+|ACID managed tables|ACID managed tables|
+
+You may need to adjust the properties of your warehouse before executing the migration. For example, if you expect that some table will be accessed by a third party (such as an HDInsight 3.6 cluster), that table must be external once the migration is complete. In HDInsight 4.0, all managed tables are expected to be transactional. Therefore, managed tables in HDInsight 4.0 should be accessed by only HDInsight 4.0 clusters.
+
+Once your table properties are set correctly, execute the Hive warehouse migration tool from the HDInsight 4.0 cluster using the SSH shell:
+
+1. Connect to your cluster headnode using SSH. For instructions, see [Connect to HDInsight using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
+1. Open a login shell as the Hive user by running `sudo su - hive`
+1. Execute the following command from the shell.
+
+    ```bash
+    STACK_VERSION=$(hdp-select status hive-server2 | awk '{ print $3; }')
+    /usr/hdp/$STACK_VERSION/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true -m automatic --modifyManagedTables
+    ```
+
+After the migration tool completes, your Hive warehouse will be ready for HDInsight 4.0.
 
 ## Migrate from internal metastore
 
@@ -83,6 +106,7 @@ The HDInsight 3.6 and 4.0 clusters must use the same Storage Account.
 
     ```bash
     wget https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/exporthive_hdi_3_6.sh
+    chmod 755 exporthive_hdi_3_6.sh
     ```
 
     * For a regular HDInsight cluster, without ESP, simply execute `exporthive_hdi_3_6.sh`.
@@ -137,41 +161,7 @@ The HDInsight 3.6 and 4.0 clusters must use the same Storage Account.
     beeline -u "jdbc:hive2://$hn0:10001/default;principal=hive/_HOST@$DOMAIN_UPPER;auth-kerberos;transportMode=http" -n "$USER@$DOMAIN" -f alltables.hql
     ```
 
-## Run schema migration script from HDInsight 4.0
-When the HDInsight 4.0 Hive metastore is ready, whether upgraded from external or internal HDInsight 3.6 metastore from the previous steps, the next step is to run a migration tool to make the data compatible with the new cluster.
-
-Tables are treated differently in HDInsight 3.6 and HDInsight 4.0. For this reason, you can't share the same tables for clusters of different versions. If you want to use HDInsight 3.6 at the same time as HDInsight 4.0, you must have separate copies of the data for each version.
-
-Your Hive workload may include a mix of ACID and non-ACID tables. One key difference between Hive on HDInsight 3.6 (Hive 2) and Hive on HDInsight 4.0 (Hive 3) is ACID-compliance for tables. In HDInsight 3.6, enabling Hive ACID-compliance requires additional configuration, but in HDInsight 4.0 tables are ACID-compliant by default. The only action required before migration is to run a major compaction against the ACID table on the 3.6 cluster. From the Hive view or from Beeline, run the following query:
-
-```sql
-alter table myacidtable compact 'major';
-```
-
-This compaction is required because HDInsight 3.6 and HDInsight 4.0 ACID tables understand ACID deltas differently. Compaction enforces a clean slate that guarantees consistency. The [Hive migration documentation](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.3.0/bk_ambari-upgrade-major/content/prepare_hive_for_upgrade.html) contains guidance for bulk compaction of HDInsight 3.6 ACID tables.
-
-Once you've completed the metastore migration and compaction steps, you can migrate the actual warehouse. After you complete the Hive warehouse migration, the HDInsight 4.0 warehouse will have the following properties:
-
-|3.6 |4.0 |
-|---|---|
-|External tables|External tables|
-|Non-transactional managed tables|External tables|
-|Transactional managed tables|Managed tables|
-
-You may need to adjust the properties of your warehouse before executing the migration. For example, if you expect that some table will be accessed by a third party (such as an HDInsight 3.6 cluster), that table must be external once the migration is complete. In HDInsight 4.0, all managed tables are transactional. Therefore, managed tables in HDInsight 4.0 should only be accessed by HDInsight 4.0 clusters.
-
-Once your table properties are set correctly, execute the Hive warehouse migration tool from the HDInsight 4.0 cluster using the SSH shell:
-
-1. Connect to your cluster headnode using SSH. For instructions, see [Connect to HDInsight using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
-1. Open a login shell as the Hive user by running `sudo su - hive`
-1. Determine the data platform stack version by executing `ls /usr/hdp`. This will display a version string that you should use in the next command.
-1. Execute the following command from the shell. Replace `STACK_VERSION` with the version string from the previous step:
-
-```bash
-/usr/hdp/STACK_VERSION/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true -m automatic --modifyManagedTables
-```
-
-After the migration tool completes, your Hive warehouse will be ready for HDInsight 4.0.
+The post-upgrade tool for external metastore migration does not apply here, since non-ACID managed tables from HDInsight 3.6 convert to ACID managed tables in HDInsight 4.0.
 
 > [!Important]  
 > Managed tables in HDInsight 4.0 (including tables migrated from 3.6) should not be accessed by other services or applications, including HDInsight 3.6 clusters.
