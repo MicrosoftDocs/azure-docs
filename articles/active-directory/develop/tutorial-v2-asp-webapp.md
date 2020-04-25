@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40 
+ms.custom: aaddev, identityplatformtop40
 ---
 
 # Add sign-in to Microsoft to an ASP.NET web app
@@ -113,7 +113,7 @@ The following steps are used to create an OWIN middleware Startup class to confi
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
-        /// Configure OWIN to use OpenIdConnect 
+        /// Configure OWIN to use OpenIdConnect
         /// </summary>
         /// <param name="app"></param>
         public void Configuration(IAppBuilder app)
@@ -204,7 +204,7 @@ To create a new controller to expose sign-in and sign-out methods, follow these 
                 OpenIdConnectAuthenticationDefaults.AuthenticationType);
         }
     }
-    
+
     /// <summary>
     /// Send an OpenID Connect sign-out request.
     /// </summary>
@@ -287,19 +287,19 @@ This controller demonstrates the uses of the `[Authorize]` attribute to protect 
         public ActionResult Index()
         {
             var userClaims = User.Identity as System.Security.Claims.ClaimsIdentity;
-    
+
             //You get the user’s first and last name below:
             ViewBag.Name = userClaims?.FindFirst("name")?.Value;
-    
+
             // The 'preferred_username' claim can be used for showing the username
             ViewBag.Username = userClaims?.FindFirst("preferred_username")?.Value;
-    
+
             // The subject/ NameIdentifier claim can be used to uniquely identify the user across the web
             ViewBag.Subject = userClaims?.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-    
+
             // TenantId is the unique Tenant Id - which represents an organization in Azure AD
             ViewBag.TenantId = userClaims?.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid")?.Value;
-    
+
             return View();
         }
     }
@@ -307,7 +307,7 @@ This controller demonstrates the uses of the `[Authorize]` attribute to protect 
 
 <!--start-collapse-->
 > ### More information
-> Because of the use of the `[Authorize]` attribute, all methods of this controller can be executed only if the user is authenticated. If the user isn't authenticated and tries to access the controller, OWIN initiates an authentication challenge and forces the user to authenticate. The preceding code looks at the list of claims for specific user attributes included in the user’s Id token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization. 
+> Because of the use of the `[Authorize]` attribute, all methods of this controller can be executed only if the user is authenticated. If the user isn't authenticated and tries to access the controller, OWIN initiates an authentication challenge and forces the user to authenticate. The preceding code looks at the list of claims for specific user attributes included in the user’s Id token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization.
 <!--end-collapse-->
 
 ## Create a view to display the user's claims
@@ -483,7 +483,7 @@ Learn about how web apps can call web APIs.
 Learn more about Web apps calling web APIs with the Microsoft identity platform:
 
 > [!div class="nextstepaction"]
-> [Web apps calling Web APIs](scenario-web-app-sign-user-overview.md)
+> [Web apps calling web APIs](scenario-web-app-sign-user-overview.md)
 
 Learn how to build Web apps calling Microsoft Graph:
 

@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/22/2019
+ms.date: 04/10/2019
 
 ---
 
@@ -269,7 +269,7 @@ To create a role with access to only the _SecurityBaseline_ table, create a cust
 
  Custom logs are created from data sources such as custom logs and HTTP Data Collector API. The easiest way to identify the type of log is by checking the tables listed under [Custom Logs in the log schema](../log-query/get-started-portal.md#understand-the-schema).
 
- You can't currently grant access to individual custom logs, but you can grant access to all custom logs. To create a role with access to all custom logs, create a custom role using the following actions:
+ You can't grant access to individual custom logs, but you can grant access to all custom logs. To create a role with access to all custom logs, create a custom role using the following actions:
 
 ```
 "Actions":  [
@@ -278,6 +278,9 @@ To create a role with access to only the _SecurityBaseline_ table, create a cust
     "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
 ],
 ```
+An alternative approach to manage access to custom logs is to assign them to an Azure resource and manage access using the resource-context paradigm. To use this method, you must include the resource ID by specifying it in the [x-ms-AzureResourceId](data-collector-api.md#request-headers) header when data is ingested to Log Analytics via the [HTTP Data Collector API](data-collector-api.md). The resource ID must be valid and have access rules applied to it. After the logs are ingested, they are accessible to those with read access to the resource, as explained here.
+
+Sometimes custom logs come from sources that are not directly associated to a specific resource. In this case, create a resource group  just to manage access to these logs. The resource group does not incur any cost, but gives you a valid resource ID to control access to the custom logs. For example, if a specific firewall is sending custom logs, create a resource group called "MyFireWallLogs" and make sure that the API requests contain the resource ID of "MyFireWallLogs". The firewall log records are then accessible only to users that were granted access to either MyFireWallLogs or those with full workspace access.          
 
 ### Considerations
 

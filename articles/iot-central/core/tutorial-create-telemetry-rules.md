@@ -29,11 +29,11 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you begin, complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) and [Add a simulated device to your IoT Central application](./quick-create-pnp-device.md) quickstarts to create the **MXChip IoT DevKit** device template to work with.
+Before you begin, complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) and [Add a simulated device to your IoT Central application](./quick-create-simulated-device.md) quickstarts to create the **MXChip IoT DevKit** device template to work with.
 
 ## Create a rule
 
-To create a telemetry rule, the device template must include at least one telemetry value. This tutorial uses a simulated **MXChip IoT DevKit** device that sends temperature and humidity telemetry. You added this device template and created a simulated device in the [Add a simulated device to your IoT Central application](./quick-create-pnp-device.md) quickstart. The rule monitors the temperature reported by the device and sends an email when it goes above 70 degrees.
+To create a telemetry rule, the device template must include at least one telemetry value. This tutorial uses a simulated **MXChip IoT DevKit** device that sends temperature and humidity telemetry. You added this device template and created a simulated device in the [Add a simulated device to your IoT Central application](./quick-create-simulated-device.md) quickstart. The rule monitors the temperature reported by the device and sends an email when it goes above 70 degrees.
 
 1. In the left pane, select **Rules**.
 
