@@ -114,7 +114,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 |--|--|--|
 | 1.7 | 12.9, 12.10 | Customer |
 
-Deploy Azure Application Gateway for web applications with HTTPS/SSL enabled for trusted certificates.
+Deploy Azure Application Gateway for web applications with HTTPS/TLS enabled for trusted certificates.
 
 - [How to deploy Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 

@@ -29,28 +29,22 @@ As part of the Azure PowerShell Az module, the cmdlets in the following table ar
 
 | Cmdlet | Description |
 |:--- |:--- |
-| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |Retrieves information about a credential asset. This cmdlet doesn't return a `PSCredential` object.  |
+| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |Retrieves a [CredentialInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.commands.automation.model.credentialinfo?view=azurerm-ps) object containing metadata about the credential. The cmdlet doesn't retrieve the `PSCredential` object itself.  |
 | [New-AzAutomationCredential](/powershell/module/az.automation/new-azautomationcredential?view=azps-3.3.0) |Creates a new Automation credential. |
 | [Remove-AzAutomationCredential](/powershell/module/az.automation/remove-azautomationcredential?view=azps-3.3.0) |Removes an Automation credential. |
 | [Set-AzAutomationCredential](/powershell/module/az.automation/set-azautomationcredential?view=azps-3.3.0) |Sets the properties for an existing Automation credential. |
 
 ## Activities used to access credentials
 
-The activities in the following table are used to access credentials in runbooks and DSC configurations.
+The activities in the following table are used to access credentials in graphical runbooks and DSC configurations. For examples of the use of activities, see [Graphical authoring in Azure Automation](../automation-graphical-authoring-intro.md#activities).
 
 | Activity | Description |
 |:--- |:--- |
-| `Get-AutomationPSCredential` |Gets a credential to use in a runbook or DSC configuration. The credential is in the form of a `PSCredential` object. For more about the cmdlet corresponding to this activity, see [Module assets in Azure Automation](modules.md). |
+| `Get-AutomationPSCredential` |Gets a `PSCredential` object to use in a runbook or DSC configuration. Most often, you should use this activity instead of the `Get-AzAutomationCredential` cmdlet, as the latter only retrieves credential information. This information isn't normally helpful to pass to another cmdlet. |
 | [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |Gets a credential with a prompt for user name and password. |
 | [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | Creates a credential asset. |
 
-To retrieve `PSCredential` objects in your code, you can install the Microsoft Azure Automation ISE add-on for the PowerShell ISE. For more information, see [Module assets in Azure Automation](modules.md).
-
-```azurepowershell
-Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser -Force
-```
-
-Your script can also import the required module where needed, as in the following example: 
+To retrieve `PSCredential` objects in your code, you must import the `Orchestrator.AssetManagement.Cmdlets` module. For more information, see [Manage modules in Azure Automation](modules.md).
 
 ```azurepowershell
 Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
