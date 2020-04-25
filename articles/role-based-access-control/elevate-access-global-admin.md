@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/03/2019
+ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 
 ---
-# Elevate access to manage all Azure subscriptions and management Groups
+# Elevate access to manage all Azure subscriptions and management groups
 
 As a Global Administrator in Azure Active Directory (Azure AD), you might not have access to all subscriptions and management groups in your directory. This article describes the ways that you can elevate your access to all subscriptions and management groups.
 
@@ -26,7 +26,7 @@ As a Global Administrator in Azure Active Directory (Azure AD), you might not ha
 
 ## Why would you need to elevate your access?
 
-If you are a Global Administrator, there might be times when you want to do the following:
+If you are a Global Administrator, there might be times when you want to do the following actions:
 
 - Regain access to an Azure subscription or management group when a user has lost access
 - Grant another user or yourself access to an Azure subscription or management group
@@ -51,9 +51,7 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Active Directory admin center](https://aad.portal.azure.com) as a Global Administrator.
 
-1. Search for and select **Azure Active Directory**.
-
-   ![Select Azure Active Directory - screenshot](./media/elevate-access-global-admin/search-for-azure-active-directory.png)
+1. Open **Azure Active Directory**.
 
 1. Under **Manage**, select **Properties**.
 
@@ -94,7 +92,7 @@ To remove the User Access Administrator role assignment at root scope (`/`), fol
 
 1. Set the **Access management for Azure resources** toggle back to **No**. Since this is a per-user setting, you must be signed in as the same user as was used to elevate access.
 
-    If you try to remove the User Access Administrator role assignment on the Access control (IAM) pane, you'll see the following message. To remove the role assignment, you must set set the toggle back to **No** or use Azure PowerShell, Azure CLI, or the REST API.
+    If you try to remove the User Access Administrator role assignment on the Access control (IAM) pane, you'll see the following message. To remove the role assignment, you must set the toggle back to **No** or use Azure PowerShell, Azure CLI, or the REST API.
 
     ![Remove role assignments with root scope](./media/elevate-access-global-admin/iam-root-remove.png)
 
@@ -229,7 +227,7 @@ You can list all of the deny assignments for a user at root scope (`/`).
 
 ### Remove elevated access
 
-When you call `elevateAccess`, you create a role assignment for yourself, so to revoke those privileges you need to remove the User Access Administrator role assignment for yourself at root scope (`/`)
+When you call `elevateAccess`, you create a role assignment for yourself, so to revoke those privileges you need to remove the User Access Administrator role assignment for yourself at root scope (`/`).
 
 1. Call [GET roleDefinitions](/rest/api/authorization/roledefinitions/get) where `roleName` equals User Access Administrator to determine the name ID of the User Access Administrator role.
 

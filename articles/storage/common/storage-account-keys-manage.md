@@ -27,8 +27,8 @@ Microsoft recommends that you use Azure Key Vault to manage your access keys, an
 
 Microsoft recommends using Azure Key Vault to manage and rotate your access keys. Your application can securely access your keys in Key Vault, so that you can avoid storing them with your application code. For more information about using Key Vault for key management, see the following articles:
 
-- [Manage storage account keys with Azure Key Vault and PowerShell](../../key-vault/key-vault-overview-storage-keys-powershell.md)
-- [Manage storage account keys with Azure Key Vault and the Azure CLI](../../key-vault/key-vault-ovw-storage-keys.md)
+- [Manage storage account keys with Azure Key Vault and PowerShell](../../key-vault/secrets/overview-storage-keys-powershell.md)
+- [Manage storage account keys with Azure Key Vault and the Azure CLI](../../key-vault/secrets/overview-storage-keys.md)
 
 ## Manually rotate access keys
 

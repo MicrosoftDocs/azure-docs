@@ -2,13 +2,13 @@
 title: Prepare Hyper-V VMs for assessment/migration with Azure Migrate 
 description: Learn how to prepare for assessment/migration of Hyper-V VMs with Azure Migrate.
 ms.topic: tutorial
-ms.date: 03/31/2020
+ms.date: 04/15/2020
 ms.custom: mvc
 ---
 
 # Prepare for assessment and migration of Hyper-V VMs to Azure
 
-This article describes how to prepare for assessment of on-premises Hyper-V VMs with Azure Migrate:Server Assessment(migrate-services-overview.md#azure-migrate-server-assessment-tool), and migration of Hyper-V VMs with [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
+This article describes how to prepare for assessment of on-premises Hyper-V VMs with [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool), and migration of Hyper-V VMs with [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
 This tutorial is the first in a series that shows you how to assess and migrate Hyper-V VMs to Azure. In this tutorial, you learn how to:
@@ -209,9 +209,11 @@ When you set up the appliance, you finish setting up CredSSP by [enabling it on 
 Before setting up the Azure Migrate appliance and beginning assessment in the next tutorial, prepare for appliance deployment.
 
 1. [Verify](migrate-appliance.md#appliance---hyper-v) appliance requirements.
-2. [Review](migrate-appliance.md#url-access) the Azure URLs that the appliance will need to access.
+2. Review the Azure URLs that the appliance will need to access in the [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds. If you're using a URL-based firewall or proxy, ensure it allows access to the required URLs.
 3. Review the data that the appliance will collect during discovery and assessment.
-4. [Note](migrate-appliance.md#collected-data---hyper-v) port access requirements for the appliance.
+4. [Review](migrate-appliance.md#collected-data---hyper-v) port access requirements for the appliance.
+
+
 
 
 ## Prepare for Hyper-V migration

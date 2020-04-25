@@ -8,9 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/06/2020
+ms.date: 04/14/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-two
+zone_pivot_groups: programming-languages-set-sixteen
 ---
 
 # Learn the basics of speech synthesis
@@ -36,6 +36,10 @@ In this article, you learn common design patterns for doing text-to-speech synth
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Java Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [JavaScript Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

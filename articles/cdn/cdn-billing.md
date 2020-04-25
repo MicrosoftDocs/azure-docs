@@ -3,7 +3,7 @@ title: Understanding Azure CDN billing | Microsoft Docs
 description: This FAQ describes how Azure CDN billing works.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
-ms.author: magattus
+ms.author: allensu
 
 ---
 # Understanding Azure CDN billing

@@ -65,7 +65,7 @@ You can [provision and manage your Azure Cosmos account](how-to-manage-database-
 > [!NOTE]
 > Regional failovers only apply to single region writes accounts. Multi-region write accounts do not require or have any limits on changing the write region.
 
-Cosmos DB automatically takes backups of your data at regular intervals. For details on backup retention intervals and windows, see [Online backup and on-demand data restore in Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+Cosmos DB automatically takes backups of your data at regular intervals. For details on backup retention intervals and windows, see [Online backup and on-demand data restore in Azure Cosmos DB](online-backup-and-restore.md).
 
 ## Per-account limits
 

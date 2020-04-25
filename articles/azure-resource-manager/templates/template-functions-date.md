@@ -2,7 +2,7 @@
 title: Template functions - date
 description: Describes the functions to use in an Azure Resource Manager template to work with dates.
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/22/2020
 ---
 # Date functions for ARM templates
 
@@ -15,7 +15,7 @@ Resource Manager provides the following functions for working with dates in your
 
 `dateTimeAdd(base, duration, [format])`
 
-Adds a time duration to a base datetime value.
+Adds a time duration to a base value. ISO 8601 format is expected.
 
 ### Parameters
 

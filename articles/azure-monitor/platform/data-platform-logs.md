@@ -4,7 +4,7 @@ description: Describes logs in Azure Monitor which are used for advanced analysi
 documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: tysonn
+
 
 ms.topic: conceptual
 ms.tgt_pltfrm: na

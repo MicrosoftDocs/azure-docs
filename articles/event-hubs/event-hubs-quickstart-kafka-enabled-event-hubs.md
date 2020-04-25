@@ -41,7 +41,7 @@ When you create a **standard** tier Event Hubs namespace, the Kafka endpoint for
 
 3. Update the configuration details for the producer in `src/main/resources/producer.config` as follows:
 
-    **SSL:**
+    **TLS/SSL:**
 
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -71,7 +71,7 @@ When you create a **standard** tier Event Hubs namespace, the Kafka endpoint for
 
 6. Update the configuration details for the consumer in `src/main/resources/consumer.config` as follows:
    
-    **SSL:**
+    **TLS/SSL:**
 
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093

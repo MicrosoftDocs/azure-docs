@@ -23,7 +23,7 @@ Now that you have a token, you can call a protected web API.
 
 Here's simplified code for the action of the `HomeController`. This code gets a token to call Microsoft Graph. Code has been added to show how to call Microsoft Graph as a REST API. The URL for the Microsoft Graph API is provided in the appsettings.json file and is read in a variable named `webOptions`:
 
-```JSon
+```json
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",

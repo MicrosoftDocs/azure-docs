@@ -55,7 +55,7 @@ The following list highlights scenarios where more than one lab account may be b
     
     When you set up a lab account, you set policies that apply to *all* classroom labs under the lab account, such as:
     - The Azure virtual network with shared resources that the classroom lab can access. For example, you may have a set of classroom labs that need access to a shared data set within a virtual network.
-    - The virtual machine (VM) images that the classroom labs can use to create VMs. For example, you may have a set of classroom labs that need access to the [Data Science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) Marketplace image. 
+    - The virtual machine (VM) images that the classroom labs can use to create VMs. For example, you may have a set of classroom labs that need access to the [Data Science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) Marketplace image. 
     
     If you have classroom labs that have unique policy requirements from one another, it may be beneficial to create separate lab accounts to manage these classroom labs separately.
 
@@ -152,6 +152,9 @@ The location that a classroom lab exists in varies based on the following factor
        
     When there is **no** VNet peered and [lab creators are allowed to pick the lab location](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), the locations that can be selected by the lab creator are based on available capacity.
 
+> [!NOTE]
+> To help ensure that there is sufficient VM capacity for a region, it's important that you first request capacity through the lab account or when creating the lab.
+
 A general rule is to set a resource's region to one that is closest to its users. For classroom labs, this means creating the classroom lab closest to your students. For online courses where students are located all over the world, you need to use your best judgment to create a classroom lab that's centrally located. Or, split a class into multiple classroom labs based on your students' region.
 
 ### Shared image gallery
@@ -165,7 +168,7 @@ When administrators or lab creators create a classroom lab, they can choose from
 | ---- | ----- | ------ | ------------- |
 | Small| <ul><li>2 Cores</li><li>3.5 GB RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | This size is best suited for command line, opening web browser, low traffic web servers, small to medium databases. |
 | Medium | <ul><li>4 Cores</li><li>7 GB RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | This size is best suited for relational databases, in-memory caching, and analytics. |
-| Medium (Nested virtualization) | <ul><li>4 Cores</li><li>16 GB RAM</li></ul> | [Standard_DC4s_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | This size is best suited for relational databases, in-memory caching, and analytics.  This size also supports nested virtualization. |
+| Medium (Nested virtualization) | <ul><li>4 Cores</li><li>16 GB RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | This size is best suited for relational databases, in-memory caching, and analytics.  This size also supports nested virtualization. |
 | Large | <ul><li>8 Cores</li><li>32 GB RAM</li></ul>  | [Standard_DC8_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | This size is best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches.  This size also supports nested virtualization. |
 | Small GPU (Visualization) | <ul><li>6 Cores</li><li>56 GB RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | This size is best suited for remote visualization, streaming, gaming, encoding using frameworks such as OpenGL and DirectX. |
 | Small GPU (Compute) | <ul><li>6 Cores</li><li>56 GB RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |This size is best suited for computer-intensive applications like Artificial Intelligence and Deep Learning. |
