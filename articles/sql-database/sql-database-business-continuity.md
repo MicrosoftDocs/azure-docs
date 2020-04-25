@@ -1,11 +1,12 @@
 ---
 title: Cloud business continuity - database recovery
-description: Learn how Azure SQL Database supports cloud business continuity and database recovery and helps keep mission-critical cloud applications running.
+titleSuffix: Azure SQL Database & SQL Managed Instance
+description: Learn how Azure SQL Database and SQL Managed Instance support cloud business continuity and database recovery and helps keep mission-critical cloud applications running.
 keywords: business continuity,cloud business continuity,database disaster recovery,database recovery
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: 
+ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960
@@ -15,13 +16,13 @@ ms.date: 06/25/2019
 ---
 # Overview of business continuity with Azure SQL Database
 
-**Business continuity** in Azure SQL Database refers to the mechanisms, policies, and procedures that enable your business to continue operating in the face of disruption, particularly to its computing infrastructure. In the most of the cases, Azure SQL Database will handle the disruptive events that might happen in the cloud environment and keep your applications and business processes running. However, there are some disruptive events that cannot be handled by SQL Database automatically such as:
+**Business continuity** in Azure SQL Database and SQL Managed Instance refers to the mechanisms, policies, and procedures that enable your business to continue operating in the face of disruption, particularly to its computing infrastructure. In the most of the cases, SQL Database and SQL Managed Instance will handle the disruptive events that might happen in the cloud environment and keep your applications and business processes running. However, there are some disruptive events that cannot be handled by SQL Database automatically such as:
 
 - User accidentally deleted or updated a row in a table.
 - Malicious attacker succeeded to delete data or drop a database.
 - Earthquake caused a power outage and temporary disabled data-center.
 
-This overview describes the capabilities that Azure SQL Database provides for business continuity and disaster recovery. Learn about options, recommendations, and tutorials for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. Learn what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance.
+This overview describes the capabilities that SQL Database and SQL Managed Instance provide for business continuity and disaster recovery. Learn about options, recommendations, and tutorials for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. Learn what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance.
 
 ## SQL Database features that you can use to provide business continuity
 
@@ -34,16 +35,16 @@ From a database perspective, there are four major potential disruption scenarios
 
 To mitigate the local hardware and software failures, SQL Database includes a [high availability architecture](sql-database-high-availability.md), which guarantees automatic recovery from these failures with up to 99.995% availability SLA.  
 
-To protect your business from data loss, SQL Database automatically creates full database backups weekly, differential database backups every 12 hours, and transaction log backups every 5 - 10 minutes . The backups are stored in RA-GRS storage for at least 7 days for all service tiers. All service tiers except Basic support configurable backup retention period for point-in-time restore, up to 35 days. 
+To protect your business from data loss, SQL Database and SQL Managed Instance automatically create full database backups weekly, differential database backups every 12 hours, and transaction log backups every 5 - 10 minutes . The backups are stored in RA-GRS storage for at least 7 days for all service tiers. All service tiers except Basic support configurable backup retention period for point-in-time restore, up to 35 days. 
 
-SQL Database also provides several business continuity features, that you can use to mitigate various unplanned scenarios. 
+SQL Database and SQL Managed Instance also provide several business continuity features that you can use to mitigate various unplanned scenarios. 
 
 - [Temporal tables](sql-database-temporal-tables.md) enable you to restore row versions from any point in time.
 - [Built-in automated backups](sql-database-automated-backups.md) and [Point in Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore) enables you to restore complete database to some point in time within the configured retention period up to 35 days.
 - You can [restore a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore) to the point at which it was deleted if the **SQL Database server has not been deleted**.
-- [Long-term backup retention](sql-database-long-term-retention.md) enables you to keep the backups up to 10 years.
+- [Long-term backup retention](sql-database-long-term-retention.md) enables you to keep the backups up to 10 years. This is in limited public preview for SQL Managed Instance
 - [Active geo-replication](sql-database-active-geo-replication.md) enables you to create readable replicas and manually failover to any replica in case of a data center outage or application upgrade.
-- [Auto-failover group](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) allows the application to automatically recovery in case of a data center outage.
+- [Auto-failover group](sql-database-auto-failover-group.md#terminology-and-capabilities) allows the application to automatically recovery in case of a data center outage.
 
 ## Recover a database within the same Azure region
 
@@ -53,14 +54,14 @@ If the maximum supported backup retention period for point-in-time restore (PITR
 
 ## Compare geo-replication with failover groups
 
-[Auto-failover groups](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) simplify the deployment and usage of [geo-replication](sql-database-active-geo-replication.md) and add the additional capabilities as described in the following table:
+[Auto-failover groups](sql-database-auto-failover-group.md#terminology-and-capabilities) simplify the deployment and usage of [geo-replication](sql-database-active-geo-replication.md) and add the additional capabilities as described in the following table:
 
 |                                              | Geo-replication | Failover groups  |
 |:---------------------------------------------| :-------------- | :----------------|
 | Automatic failover                           |     No          |      Yes         |
 | Fail over multiple databases simultaneously  |     No          |      Yes         |
 | User must update connection string after failover      |     Yes         |      No          |
-| Managed instance supported                   |     No          |      Yes         |
+| SQL Managed Instance support                   |     No          |      Yes         |
 | Can be in same region as primary             |     Yes         |      No          |
 | Multiple replicas                            |     Yes         |      No          |
 | Supports read-scale                          |     Yes         |      Yes         |
@@ -141,7 +142,7 @@ After recovery from either recovery mechanism, you must perform the following ad
 - Configure alerts, as appropriate
 
 > [!NOTE]
-> If you are using a failover group and connect to the databases using the read-write lstener, the redirection after failover will happen automatically and transparently to the application.
+> If you are using a failover group and connect to the databases using the read-write listener, the redirection after failover will happen automatically and transparently to the application.
 
 ## Upgrade an application with minimal downtime
 

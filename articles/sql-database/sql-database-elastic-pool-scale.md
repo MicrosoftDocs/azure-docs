@@ -4,7 +4,7 @@ description: This page describes scaling resources for elastic pools in Azure SQ
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: oslake
