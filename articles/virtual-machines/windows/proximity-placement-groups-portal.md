@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 10/30/2019
+ms.date: 04/24/2020
 ms.author: cynthn
 
 ---
@@ -16,7 +16,9 @@ To get VMs as close as possible, achieving the lowest possible latency, you shou
 
 A proximity placement group is a logical grouping used to make sure that Azure compute resources are physically located close to each other. Proximity placement groups are useful for workloads where low latency is a requirement.
 
-Proximity placement groups cannot be used with dedicated hosts.
+> [!NOTE]
+> Proximity placement groups cannot be used with dedicated hosts.
+>
 
 ## Create the proximity placement group
 
@@ -55,24 +57,25 @@ You can also add an existing VM to a proximity placement group.
 E.g. VM1 is in AVzone 1 and is a part of placement group, then if we’re planning to add vm2, then vm2 should be part of the same AV zone 
 
 
-
-
 ## Add VMs existing in an AV set into a proximity placement group
 
 If the VM is part of the Availability set, you need to add the availability set into the the placement group, before adding the VMs.
 
-1. Stop\deallocate all the VMs in the availability set.
-1. Go to Availability set configuration 
-1. Select the Placement group and click save 
-1. Start the VMs 
-this will add the availability set along with all its VM into the Placement group.
+1. In the [portal](https://portal.azure.com) search for *Availability sets* and select your availability set from the results.
+1.
+1. Stop\deallocate each VM in the availability set by selecting the VM, then selecting **Stop** on the page for the VM, and then select **OK** to stop the VM.
+1. On the page for your availability set, make sure all of the VMs have the **Status** listed as **Stopped (deallocated)**.
+1. In the left menu, select **Configuration**.
+1. Under **Proximity placement group**, select a placement group from the drop-down, and then select **Save**.
+1. Select **Overview** from the left menu to see the list of VMs again. 
+1. Select each VM in the availability set, and then select **Start** on the page for each VM. 
 
-## Add Existing VM to Placement Group 
-1. Stop (Deallocate) the VM
-1. Go to the VM Configuration Blade 
-1. Select the Placement Group and Click on Save 
-1. Start the VMs
-This will add the Existing VM into a Placement group 
+
+## Add existing VM to placement group 
+1. On the page for the VM, select **Stop**.
+1. Once the status of the VM is listed as **Stopped (deallocated)**, select **Configuration** on the left menu.
+1. Under **Proximity placement group**, select a placement group from the drop-down, and then select **Save**.
+1. Select **Overview** from the left menu, then select **Start** to restart the VM.
 
 ## Next steps
 
