@@ -88,7 +88,7 @@ The sample currently lets MSAL.Python produce the authorization-code URL and han
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-Microsoft.Identity.Web takes care of setting the right OpenIDConnect settings, subscribing to the code received event and redeeming this code. you don't have anything extra to do.
+Microsoft.Identity.Web simplifies your code by setting the correct OpenID Connect settings, subscribing to the code received event, and redeeming the code. No additional code is required to redeem the authorization code.
 
 # [ASP.NET](#tab/aspnet)
 
