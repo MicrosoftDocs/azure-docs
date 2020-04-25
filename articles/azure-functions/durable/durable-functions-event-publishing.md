@@ -177,7 +177,7 @@ module.exports = async function(context, eventGridEvent) {
 
 1. Select `Create`.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Create an Event Grid subscription." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Create an Event Grid subscription." border="true":::
 
 Now you're ready to receive lifecycle events.
 
