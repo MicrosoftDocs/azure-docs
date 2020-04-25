@@ -59,7 +59,7 @@ The following parameters in the template are set with a default value for the Lo
 
 >[!NOTE]
 >Before using this template, review the following:
->* [additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
+>* [Additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
 >* Because only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription, review [Workspace mappings](how-to/region-mappings.md) to specify the supported regions inline or in a parameters file.
 >* If you are new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design](../azure-monitor/platform/design-logs-deployment.md) guidance to learn about access control, and understand the design implementation strategies we recommend for your organization.
 
