@@ -55,7 +55,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-If you're interested in understanding more about the token cache, see [Token cache serialiation options](#token-cache)
+If you're interested in understanding more about the token cache, see [Token cache serialization options](#token-cache)
 
 > [!NOTE]
 > To fully understand the code examples here, you need to be familiar with [ASP.NET Core fundamentals](https://docs.microsoft.com/aspnet/core/fundamentals), and in particular with [dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) and [options](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
