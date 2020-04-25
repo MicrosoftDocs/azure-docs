@@ -102,7 +102,7 @@ You can find the information that you need to populate the `register_azure_*()` 
 
 The following examples show how to register an Azure blob container, an Azure file share, and Azure Data Lake Storage Generation 2 as a datastore. The parameters provided in these examples are the **required parameters** to create and register a datastore. 
 
-To create datastores for other storage services, please see the [reference documentation for the applicable `register_azure_*` methods](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
+To create datastores for other storage services and see optional parameters for these methods, please see the [reference documentation for the applicable `register_azure_*` methods](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
 
 #### Blob container
 
