@@ -77,7 +77,7 @@ When you create a workspace, an Azure blob container and an Azure file share are
 
 ## Create and register datastores
 
-When you register an Azure storage solution as a datastore, you automatically create and register that datastore to a specific workspace. You can create and register datastores to a workspace by using the Python SDK or Azure Machine Learning studio.
+When you register an Azure storage solution as a datastore, you automatically create and register that datastore to a specific workspace. You can create and register datastores to a workspace by using the [Python SDK](#python-sdk) or [Azure Machine Learning studio](#azure-machine-learning-studio).
 
 >[!IMPORTANT]
 > As part of the initial datastore create and register process, Azure Machine Learning validates that the underlying storage service exists and that the user provided principal (username, service principal or SAS token) has access to that storage. For Azure Data Lake Storage Gen 1 and 2 datastores, however,  this validation  happens later, when data access methods like [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py) or [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) are called. 
@@ -102,7 +102,7 @@ You can find the information that you need to populate the `register_azure_*()` 
 
 The following examples show how to register an Azure blob container, an Azure file share, and Azure Data Lake Storage Generation 2 as a datastore. The parameters provided in these examples are the **required parameters** to create and register a datastore. 
 
-For other storage services, please see the [reference documentation for the applicable `register_azure_*` methods](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
+To create datastores for other storage services, please see the [reference documentation for the applicable `register_azure_*` methods](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
 
 #### Blob container
 
