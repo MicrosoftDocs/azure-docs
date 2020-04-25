@@ -4,7 +4,7 @@ description: Add an Azure SQL Database elastic pool to a failover group using th
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: MashaMSFT

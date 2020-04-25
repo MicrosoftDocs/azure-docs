@@ -1,10 +1,10 @@
 ---
 title: Disaster recovery 
-description: Learn how to recover a database from a regional datacenter outage or failure with the Azure SQL Database active geo-replication, and geo-restore capabilities.
+description: Learn how to recover a database from a regional data center outage or failure with the Azure SQL Database active geo-replication, and geo-restore capabilities.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
 author: anosov1960
@@ -65,7 +65,7 @@ The Azure teams work diligently to restore service availability as quickly as po
 
 ## Fail over to geo-replicated secondary server in the failover group
 
-If your application’s downtime can result in business liability, you should be using failover groups. It enables the application to quickly restore availability in a different region in case of an outage. For a tutorial, see [Implement a geo-distributed database](sql-database-implement-geo-distributed-database.md).
+If your application's downtime can result in business liability, you should be using failover groups. It enables the application to quickly restore availability in a different region in case of an outage. For a tutorial, see [Implement a geo-distributed database](sql-database-implement-geo-distributed-database.md).
 
 To restore availability of the database(s) you need to initiate the failover to the secondary server using one of the supported methods.
 
@@ -77,7 +77,7 @@ Use one of the following guides to fail over to a geo-replicated secondary datab
 
 ## Recover using geo-restore
 
-If your application’s downtime does not result in business liability you can use [geo-restore](sql-database-recovery-using-backups.md) as a method to recover your application database(s). It creates a copy of the database from its latest geo-redundant backup.
+If your application's downtime does not result in business liability you can use [geo-restore](sql-database-recovery-using-backups.md) as a method to recover your application database(s). It creates a copy of the database from its latest geo-redundant backup.
 
 ## Configure your database after recovery
 

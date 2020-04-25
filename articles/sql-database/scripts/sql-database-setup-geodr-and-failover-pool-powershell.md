@@ -1,10 +1,10 @@
 ﻿---
-title: PowerShell example-active geo-replication-pooled Azure SQL database 
+title: "PowerShell: Configure elastic pool active geo-replication"
 description: Azure PowerShell example script to set up active geo-replication for a pooled database in Azure SQL Database and fail it over.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
 author: mashamsft

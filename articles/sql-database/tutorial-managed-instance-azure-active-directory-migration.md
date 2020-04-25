@@ -1,5 +1,5 @@
 ---
-title: Migrate SQL ServerWindows users and groups to managed instance using T-SQL
+title: Migrate SQL ServerWindows users and groups to SQL Managed Instance using T-SQL
 description: Learn about how to migrate SQL Server on-premises Windows users and groups to Azure SQL Managed Instance
 services: sql-database
 ms.service: sql-database
@@ -15,7 +15,7 @@ ms.date: 10/30/2019
 # Tutorial: Migrate SQL Server on-premises Windows users and groups to Azure SQL Managed Instance using T-SQL DDL syntax
 
 > [!NOTE]
-> The syntax used to migrate users and groups to managed instance in this article is in **public preview**.
+> The syntax used to migrate users and groups to SQL Managed Instance in this article is in **public preview**.
 
 This article takes you through the process of migrating your on-premises Windows users and groups in your SQL Server to Azure SQL Managed Instance using T-SQL syntax.
 
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > - Create logins for SQL Server
 > - Create a test database for migration
 > - Create logins, users, and roles
-> - Backup and restore your database to managed instance (MI)
+> - Backup and restore your database to SQL Managed Instance (MI) 
 > - Manually migrate users to MI using ALTER USER syntax
 > - Testing authentication with the new mapped users
 
@@ -37,17 +37,17 @@ To complete this tutorial, the following prerequisites apply:
 - The Windows domain is federated with Azure Active Directory (Azure AD).
 - Access to Active Directory to create users/groups.
 - An existing SQL Server in your on-premises environment.
-- An existing managed instance. See [Quickstart: Create a managed instance](sql-database-managed-instance-get-started.md).
-  - A `sysadmin` in the managed instance must be used to create Azure AD logins.
-- [Create an Azure AD admin for managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
-- You can connect to your managed instance within your network. See the following articles for additional information:
+- An existing SQL Managed Instance. See [Quickstart: Create a SQL Managed Instance](sql-database-managed-instance-get-started.md).
+  - A `sysadmin` in the SQL Managed Instance must be used to create Azure AD logins.
+- [Create an Azure AD admin for SQL Managed Instance](sql-database-aad-authentication-configure.md#provision-azure-ad-admin-sql-managed-instance).
+- You can connect to your SQL Managed Instance within your network. See the following articles for additional information:
   - [Connect your application to Azure SQL Managed Instance](sql-database-managed-instance-connect-app.md)
   - [Quickstart: Configure a point-to-site connection to an Azure SQL Managed Instance from on-premises](sql-database-managed-instance-configure-p2s.md)
   - [Configure public endpoint in Azure SQL Managed Instance](sql-database-managed-instance-public-endpoint-configure.md)
 
 ## T-SQL DDL syntax
 
-Below are the T-SQL DDL syntax used to support SQL Server on-premises Windows users and groups migration to managed instance with Azure AD authentication.
+Below are the T-SQL DDL syntax used to support SQL Server on-premises Windows users and groups migration to SQL Managed Instance with Azure AD authentication.
 
 ```sql
 -- For individual Windows users with logins
@@ -196,7 +196,7 @@ select * from test;
 go
 ```
 
-## Part 3: Backup and restore the individual user database to managed instance
+## Part 3: Backup and restore the individual user database to SQL Managed Instance
 
 Create a backup of the migration database using the article [Copy Databases with Backup and Restore](/sql/relational-databases/databases/copy-databases-with-backup-and-restore), or use the following syntax:
 
@@ -207,16 +207,13 @@ backup database migration to disk = 'C:\Migration\migration.bak';
 go
 ```
 
-Follow our [Quickstart: Restore a database to a managed instance](sql-database-managed-instance-get-started-restore.md).
+Follow our [Quickstart: Restore a database to a SQL Managed Instance](sql-database-managed-instance-get-started-restore.md).
 
-## Part 4: Migrate users to managed instance
+## Part 4: Migrate users to SQL Managed Instance
 
-> [!NOTE]
-> The Azure AD admin for managed instance functionality after creation has changed. For more information, see [New Azure AD admin functionality for MI](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi).
+Execute the ALTER USER command to complete the migration process on SQL Managed Instance.
 
-Execute the ALTER USER command to complete the migration process on managed instance.
-
-1. Sign into your managed instance using the Azure AD admin account for managed instance. Then create your Azure AD login in the managed instance using the following syntax. For more information, see [Tutorial: Managed instance security in Azure SQL Database using Azure AD server principals (logins)](sql-database-managed-instance-aad-security-tutorial.md).
+1. Sign into your SQL Managed Instance using the Azure AD admin account for SQL Managed Instance. Then create your Azure AD login in the SQL Managed Instance using the following syntax. For more information, see [Tutorial: SQL Managed Instance security in Azure SQL Database using Azure AD server principals (logins)](sql-database-managed-instance-aad-security-tutorial.md).
 
     ```sql
     use master
@@ -309,23 +306,23 @@ Execute the ALTER USER command to complete the migration process on managed inst
 
 ## Part 5: Testing Azure AD user or group authentication
 
-Test authenticating to managed instance using the user previously mapped to the Azure AD login using the ALTER USER syntax.
+Test authenticating to SQL Managed Instance using the user previously mapped to the Azure AD login using the ALTER USER syntax.
 
 1. Log into the federated VM using your MI subscription as  `aadsqlmi\testUser1`
-1. Using SQL Server Management Studio (SSMS), sign into your managed instance using **Active Directory Integrated** authentication, connecting
+1. Using SQL Server Management Studio (SSMS), sign into your SQL Managed Instance using **Active Directory Integrated** authentication, connecting
 to the database `migration`.
-    1. You can also sign in using the testUser1@aadsqlmi.net credentials with the SSMS option **Active Directory – Universal with MFA support**. However, in this case, you can't use the Single Sign On mechanism and you must type a password. You won't need to use a federated VM to log in to your managed instance.
+    1. You can also sign in using the testUser1@aadsqlmi.net credentials with the SSMS option **Active Directory – Universal with MFA support**. However, in this case, you can't use the Single Sign On mechanism and you must type a password. You won't need to use a federated VM to log in to your SQL Managed Instance.
 1. As part of the role member **SELECT**, you can select from the `test` table
 
     ```sql
     Select * from test  --  and see one row (1,10)
     ```
 
-Test authenticating to a managed instance using a member of a Windows group `migration`. The user `aadsqlmi\testGroupUser` should have been added to the group `migration` before the migration.
+Test authenticating to a SQL Managed Instance using a member of a Windows group `migration`. The user `aadsqlmi\testGroupUser` should have been added to the group `migration` before the migration.
 
 1. Log into the federated VM using your MI subscription as  `aadsqlmi\testGroupUser`
 1. Using SSMS with **Active Directory Integrated** authentication, connect to the MI server and the database `migration`
-    1. You can also sign in using the testGroupUser@aadsqlmi.net credentials with the SSMS option **Active Directory – Universal with MFA support**. However, in this case, you can't use the Single Sign On mechanism and you must type a password. You won't need to use a federated VM to log into your managed instance.
+    1. You can also sign in using the testGroupUser@aadsqlmi.net credentials with the SSMS option **Active Directory – Universal with MFA support**. However, in this case, you can't use the Single Sign On mechanism and you must type a password. You won't need to use a federated VM to log into your SQL Managed Instance.
 1. As part of the `db_owner` role, you can create a new table.
 
     ```sql

@@ -1,8 +1,10 @@
 ---
 title: Azure Hybrid Benefit 
-description: Use existing SQL Server licenses for SQL Database discounts.
+titleSuffix: Azure SQL Database & SQL Managed Instance 
+description: Use existing SQL Server licenses for Azure SQL Database and SQL Managed Instance discounts.
 services: sql-database
 ms.service: sql-database
+ms.custom: sqldbrb=4
 ms.subservice: service
 ms.topic: conceptual
 author: stevestein
@@ -10,9 +12,9 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
 ---
-# Azure Hybrid Benefit
+# Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance 
 
-In the provisioned compute tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on SQL Database by using [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to save up to 30 percent or even higher on Azure SQL Database by using your on-premises SQL Server licenses with Software Assurance. Please do use the Azure Hybrid Benefit Calculator using the link mentioned before for correct values. 
+In the provisioned compute tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on Azure SQL Database and Azure SQL Managed Instance by using [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to save up to 30 percent or even higher on SQL Database & SQL Managed Instance by using your on-premises SQL Server licenses with Software Assurance. The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) page has a calculator to help determine savings. 
 
 > [!NOTE]
 > Changing to Azure Hybrid Benefit does not require any downtime.
@@ -56,5 +58,5 @@ To set or update the license type by using the REST API:
 
 ## Next steps
 
-- For choosing between the SQL Database deployment options, see [Choose the right deployment option in Azure SQL](sql-database-paas-vs-sql-server-iaas.md).
-- For a comparison of SQL Database features, see [Azure SQL Database Features](sql-database-features.md).
+- For for help with choosing an Azure SQL deployment option, see [Choose the right deployment option in Azure SQL](sql-database-paas-vs-sql-server-iaas.md).
+- For a comparison of SQL Database and SQL Managed Instance features, see [SQL Database & SQL Managed Instance features](sql-database-features.md).

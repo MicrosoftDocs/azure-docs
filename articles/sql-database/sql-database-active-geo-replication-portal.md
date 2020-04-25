@@ -1,10 +1,10 @@
 ---
 title: "Tutorial: Geo-replication & failover in portal"
-description: Configure geo-replication for a single or pooled database in Azure SQL Database using the Azure portal and initiate failover.
+description: Configure geo-replication for an Azure SQL Database using the Azure portal and initiate failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960
@@ -12,11 +12,13 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
 ---
-# Configure active geo-replication for Azure SQL Database in the Azure portal and initiate failover
+# Tutorial: Configure active geo-replication & failover in portal (Azure SQL Database)
 
-This article shows you how to configure [active geo-replication for single and pooled databases](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) in Azure SQL Database using the [Azure portal](https://portal.azure.com) and to initiate failover.
+This article shows you how to configure [active geo-replication for Azure SQL Database](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) using the [Azure portal](https://portal.azure.com) and to initiate failover.
 
-For information about auto-failover groups with single and pooled databases, see [Best practices of using failover groups with single and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). For information about auto-failover groups with Managed Instances, see [Best practices of using failover groups with managed-instances](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
+For best practices using auto-failover groups, see [Best practices for Azure SQL Database](sql-database-auto-failover-group.md#best-practices-for-sql-database) and [Best practices for Azure SQL Managed Instance](sql-database-auto-failover-group.md#best-practices-for-sql-managed-instance). 
+
+
 
 ## Prerequisites
 
@@ -40,7 +42,7 @@ After the secondary is created and seeded, data begins replicating from the prim
 > If the partner database already exists (for example, as a result of terminating a previous geo-replication relationship) the command fails.
 
 1. In the [Azure portal](https://portal.azure.com), browse to the database that you want to set up for geo-replication.
-2. On the SQL database page, select **geo-replication**, and then select the region to create the secondary database. You can select any region other than the region hosting the primary database, but we recommend the [paired region](../best-practices-availability-paired-regions.md).
+2. On the SQL Database page, select **geo-replication**, and then select the region to create the secondary database. You can select any region other than the region hosting the primary database, but we recommend the [paired region](../best-practices-availability-paired-regions.md).
 
     ![Configure geo-replication](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
 3. Select or configure the server and pricing tier for the secondary database.

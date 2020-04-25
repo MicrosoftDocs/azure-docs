@@ -4,7 +4,7 @@ description: Learn to configure your Azure SQL database and application for fail
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960
@@ -12,9 +12,9 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
 ---
-# Tutorial: Implement a geo-distributed database
+# Tutorial: Implement a geo-distributed database (Azure SQL Database)
 
-Configure an Azure SQL database and application for failover to a remote region and test a failover plan. You learn how to:
+Configure an Azure SQL Database and application for failover to a remote region and test a failover plan. You learn how to:
 
 > [!div class="checklist"]
 > - Create a [failover group](sql-database-auto-failover-group.md)
@@ -362,14 +362,14 @@ To test a failover:
 
 ## Next steps
 
-In this tutorial, you configured an Azure SQL database and application for failover to a remote region and tested a failover plan. You learned how to:
+In this tutorial, you configured an Azure SQL Database and application for failover to a remote region and tested a failover plan. You learned how to:
 
 > [!div class="checklist"]
 > - Create a geo-replication failover group
 > - Run a Java application to query an Azure SQL database
 > - Test failover
 
-Advance to the next tutorial on how to migrate using DMS.
+Advance to the next tutorial on how to add an Azure SQL Managed Instance to a failover group: 
 
 > [!div class="nextstepaction"]
-> [Migrate SQL Server to Azure SQL database managed instance using DMS](../dms/tutorial-sql-server-to-managed-instance.md)
+> [Add an Azure SQL Managed Instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md)

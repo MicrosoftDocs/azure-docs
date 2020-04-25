@@ -1,10 +1,10 @@
 ---
-title: Resource management in dense elastic pools | Microsoft Docs
-description: Manage compute resources in Azure SQL elastic pools with many databases.
+title: Resource management in dense elastic pools
+description: Manage compute resources in Azure SQL Database elastic pools with many databases.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: dimitri-furman
