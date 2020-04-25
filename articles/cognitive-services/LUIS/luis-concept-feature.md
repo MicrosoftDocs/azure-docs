@@ -4,11 +4,13 @@ description: Add features to a language model to provide hints about how to reco
 ms.topic: conceptual
 ms.date: 04/23/2020
 ---
-# Machine-learning features
+# Machine-learning (ML) features
 
-A machine learning _feature_ is a distinguishing trait or attribute of data that your system observes & learns through. In Language Understanding (LUIS), a feature describes and explains what is significant about your intents and entities.
+In machine learning, a **feature** is a distinguishing trait or attribute of data that your system observes.
 
-LUIS provides the following machine-learning features:
+Machine learning features give LUIS important cues for where to look for things that will distinguish a concept. They are hints that LUIS can use, but not hard rules.  These hints are used in conjunction with the labels to find the data.
+
+ LUIS supports both phrase lists and using other entities as features:
 * Phrase list feature
 * Model (intent or entity) as a feature
 
@@ -43,31 +45,94 @@ An example of words that may need a phrase list to boost their significance are 
 If you want to extract the medical terms:
 * First create example utterances and label medical terms within those utterances.
 * Then create a phrase list with examples of the terms within the subject domain. This phrase list should include the actual term you labeled and other terms that describe the same concept.
-* Add the phrase list to the entity or sub-entity that extracts the concept used in the phrase list. The most common scenario is a component (child) of a machine-learned entity. If the phrase list should be applied across all intents or entities, mark the phrase list as a global phrase list. The `enabledForAllModels` flag controls this model scope in the API.
+* Add the phrase list to the entity or subentity that extracts the concept used in the phrase list. The most common scenario is a component (child) of a machine-learned entity. If the phrase list should be applied across all intents or entities, mark the phrase list as a global phrase list. The `enabledForAllModels` flag controls this model scope in the API.
 
 <a name="how-to-use-phrase-lists"></a>
 <a name="how-to-use-a-phrase-lists"></a>
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## When to use an entity as a feature to an intent
+## A model as a feature
+
+You can add a model (intent or entity) as a feature to another model (intent or entity). By adding an existing intent or entity as a feature, your adding a well-defined concept with labeled examples.
+
+When adding a model as a feature, you can set the feature as:
+* **[Required](#required-features)**. A required feature has to be found in order for the model to be returned from the prediction endpoint.
+* **[Global](#global-features)**. A global feature applies to the entire app.
+
+### When to use an entity as a feature to an intent
 
 Add an entity as a feature to an intent when the detection of that entity is significant for the intent.
 
-For example, if the intent is for booking a flight and the entity is ticket information (such as the number of seats, origin, and destination), then finding the ticket information entity should add significant weight to the prediction of the book flight intent.
+For example, if the intent is for booking a flight, `BookFlight`, and the entity is ticket information (such as the number of seats, origin, and destination), then finding the ticket information entity should add significant weight to the prediction of the `BookFlight` intent.
 
-## When to use an entity as a feature to another entity
+### When to use an entity as a feature to another entity
 
 An entity (A) should be added as a feature to another entity (B) when the detection of that entity (A) is significant for the prediction of entity (B).
 
-For example, if the street address entity (A) is detected, then finding the street address (A) adds significant weight to the prediction for the shipping address entity (B).
+For example, if n shipping address entity contained a street address subentity, then finding the street address subentity adds significant weight to the prediction for the shipping address entity.
 
-## Global features
+* Shipping address (machine learned entity)
+    * Street number (subentity)
+    * Street address (subentity)
+    * City (subentity)
+    * State or Province (subentity)
+    * Country (subentity)
+    * Postal code (subentity)
 
-While the most common use is to apply a feature to a specific model, configure the feature as a **global feature** to apply it to your entire application.
+### Global features
+
+While the most common use is to apply a feature to a specific model, you can configure the feature as a **global feature** to apply it to your entire application.
 
 The most common use for a global feature is to add an additional vocabulary, such as words from another language, to the app. If your customers use a primary language, but expect to be able to use another language within the same utterance, you can add a feature that includes words from the secondary language.
 
 Because the user expected to use the second language across any intent or entity, it should be added in a phrase list with the phrase list configured as a global feature.
+
+### Required features
+
+A required feature has to be found in order for the model to be returned from the prediction endpoint. Use a required feature when you know your incoming data must match the feature.
+
+**A required feature is a non-machine learned entity**:
+* Regular expression entity
+* List entity
+* Prebuilt entity
+
+What are good features to mark as required? If you are confident your model will be found in the data, set the feature as required. A required feature doesn't return anything, if it isn't found.
+
+Continuing with the example of the shipping address:
+* Shipping address (machine learned entity)
+    * Street number (subentity)
+    * Street address (subentity)
+    * Street name (subentity)
+    * City (subentity)
+    * State or Province (subentity)
+    * Country (subentity)
+    * Postal code (subentity)
+
+#### Required feature using prebuilt entities
+
+The city, state, and country are generally a closed set of lists, meaning they don't change much over time. These entities could have the relevant recommended features and those features could be marked as required. That means the entire shipping address is not returned is the entities with required features are not found.
+
+What if the city, state, or country are in the utterance but either in a location or slang that LUIS doesn't expect? If you want to provide some post processing to help resolve the entity, due to a low confidence score from LUIS, do not mark the feature as required.
+
+Another example of a required feature for the shipping address is to make the street number a required [prebuilt](luis-reference-prebuilt-entities.md) number. This allows a user to enter "1 Microsoft Way" or "One Microsoft Way". Both will resolve to a number of "1" for the Street number subentity.
+
+#### Required feature using list entities
+
+A [list entity](reference-entity-list.md) is used as a list of canonical names along with their synonyms. As a required feature, if the utterance doesn't include either the canonical name or a synonym, then the entity isn't returned as part of the prediction endpoint.
+
+Continuing with the shipping address example, suppose your company only ships to a limited set of countries. You can create a list entity that includes several ways your customer may reference the country. If LUIS doesn't find an exact match within the text of the utterance, then the entity (that has the required feature of the list entity) isn't returned in the prediction.
+
+|Canonical name|Synonyms|
+|--|--|
+|United States|U.S.<br>U.S.A<br>US<br>USA<br>0|
+
+The client application, such as a chat bot can ask a follow-question, so the customer understands that the country selection is limited and _required_.
+
+#### Required feature using regular expression entities
+
+A [regular expression entity](reference-entity-regular-expression.md) used as a required feature provides rich text-matching capabilities.
+
+Continuing with the shipping address, you can create a regular expression that captures syntax rules of the country postal codes.
 
 ## Best practices
 Learn [best practices](luis-concept-best-practices.md).
