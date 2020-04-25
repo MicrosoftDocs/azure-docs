@@ -19,6 +19,8 @@ A proximity placement group is a logical grouping used to make sure that Azure c
 > [!NOTE]
 > Proximity placement groups cannot be used with dedicated hosts.
 >
+> If you want to use availability zones together with placement groups, you need to make sure that the VMs in the placement group are also all in the same availability zone.
+>
 
 ## Create the proximity placement group
 
@@ -45,18 +47,7 @@ A proximity placement group is a logical grouping used to make sure that Azure c
 1. After it passes validation, select **Create** to deploy the VM in the placement group.
 
 
-## Add an existing VM to a proximity placement group
-
-You can also add an existing VM to a proximity placement group. 
-
-
-1. If the VM is part of the Availability set, then we need to add the Availability set into the placement group 
-
-1. If there exists a VM already part of an Availability Zone in the placement group, then while adding a VM we need to ensure that the VM to be added is part of the same Availability Zone
-E.g. VM1 is in AVzone 1 and is a part of placement group, then if we’re planning to add vm2, then vm2 should be part of the same AV zone 
-
-
-## Add VMs existing in an AV set into a proximity placement group
+## Add VMs in an availability set to a proximity placement group
 
 If the VM is part of the Availability set, you need to add the availability set into the the placement group, before adding the VMs.
 
@@ -71,10 +62,14 @@ If the VM is part of the Availability set, you need to add the availability set 
 
 
 ## Add existing VM to placement group 
+
+
 1. On the page for the VM, select **Stop**.
 1. Once the status of the VM is listed as **Stopped (deallocated)**, select **Configuration** on the left menu.
 1. Under **Proximity placement group**, select a placement group from the drop-down, and then select **Save**.
 1. Select **Overview** from the left menu, then select **Start** to restart the VM.
+
+ 
 
 ## Next steps
 
