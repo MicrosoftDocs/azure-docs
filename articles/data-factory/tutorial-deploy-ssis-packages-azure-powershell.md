@@ -2,7 +2,7 @@
 title: Set up an Azure-SSIS Integration Runtime with PowerShell 
 description: Learn how to set up an Azure-SSIS Integration Runtime in Azure Data Factory with PowerShell so you can deploy and run SSIS packages in Azure.
 services: data-factory
-documentationcenter: ''
+documentationcenter: ""
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: 
@@ -44,7 +44,7 @@ In this tutorial, you will:
 - An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. For conceptual information about Azure-SSIS IR, see [Azure-SSIS Integration Runtime overview](concepts-integration-runtime.md#azure-ssis-integration-runtime).
 
 - (Optional) logical SQL server. If you don't already have a database server, create one in the Azure portal before you get started. Azure Data Factory will in turn create SSISDB on this database server. We recommend that you create the database server in the same Azure region as the integration runtime. This configuration lets the integration runtime write execution logs to SSISDB without crossing Azure regions. 
-    - Based on the selected database server, SSISDB can be created on your behalf as a single database, part of an elastic pool, or in a SQL Managed instance, and accessible in a public network or by joining a virtual network. For guidance in choosing the type of database server to host SSISDB, see [Compare an Azure SQL Database, elastic pool, and SQL Managed instance](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance). 
+    - Based on the selected database server, SSISDB can be created on your behalf as a single database, part of an elastic pool, or in a SQL Managed instance, and accessible in a public network or by joining a virtual network. For guidance in choosing the type of database server to host SSISDB, see [Compare an Azure SQL Database, elastic pool, and SQL Managed instance](create-azure-ssis-integration-runtime.md#comparison-of-a-azure-sql-database-elastic-pool-and-sql-managed-instance).
     
       If you use an logical SQL server with an IP firewall or virtual network service endpoints, or a SQL Managed instance with a private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR, join your Azure-SSIS IR to a virtual network. For more information, see [Create an Azure-SSIS IR in a virtual network](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
     - Confirm that the **Allow access to Azure services** setting is enabled for the database server. This setting isn't applicable when you use an logical SQL server with IP firewall rules or virtual network service endpoints, or a SQL Managed instance with a private endpoint to host SSISDB. For more information, see [Secure your Azure SQL database](../sql-database/sql-database-security-tutorial.md#create-firewall-rules). To enable this setting by using PowerShell, see [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule).
