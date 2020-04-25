@@ -1,5 +1,5 @@
 ---
-title: Create an Azure DB for MySQL server using the ARM template
+title: Create an Azure DB for MySQL using an ARM template
 description: In this article, learn how to create an Azure Database for MySQL server with virtual network integration, by using an Azure Resource Manager template.
 services: azure-resource-manager
 author: mgblythe
@@ -47,7 +47,7 @@ You create an Azure Database for MySQL server with a defined set of compute and 
 
 The template used in this quickstart is from [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet/).
 
-:::code language="json" source="~/quickstart-templates/101-managed-mysql-with-vnet/azuredeploy.json" range="001-231" highlight="147-229":::
+:::code language="json" source="~/quickstart-templates/101-managed-mysql-with-vnet/azuredeploy.json" range="001-231" highlight="149,162,176,199,213":::
 
 The template defines five Azure resources:
 
@@ -57,7 +57,7 @@ The template defines five Azure resources:
 * [**Microsoft.DBforMySQL/servers/virtualNetworkRules**](/azure/templates/microsoft.dbformysql/servers/virtualnetworkrules)
 * [**Microsoft.DBforMySQL/servers/firewallRules**](/azure/templates/microsoft.dbformysql/servers/firewallrules)
 
-More Azure Database for MySQL template samples can be found in [Azure quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql&pageNumber=1&sort=Popular).
+More Azure Database for MySQL template samples can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformysql&pageNumber=1&sort=Popular).
 
 ## Deploy the template
 
@@ -184,7 +184,7 @@ Write-Host "Press [ENTER] to continue..."
 
 Follow these steps to see an overview of your new Azure Database for MySQL server:
 
-1. Go to the [Azure portal](https://portal.azure.com) to manage your MySQL databases. Search for and select **Azure Database for MySQL servers**.
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for MySQL servers**.
 
 2. In the database list, select your new server. The **Overview** page for your new Azure Database for MySQL server appears.
 
