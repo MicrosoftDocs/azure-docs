@@ -15,9 +15,9 @@ ms.date: 04/24/2020
 
 Azure Cognitive Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-The simple parser is more flexible and will attempt to interpret the request even if it's not perfectly composed. Because of this flexibility, it is the default for queries in Azure Cognitive Search. 
+The simple parser is more flexible and will attempt to interpret a request even if it's not perfectly composed. Because of this flexibility, it is the default for queries in Azure Cognitive Search. 
 
-The simple syntax is used for query expressions passed in the `search` parameter of a [Search Documents request](https://docs.microsoft.com/rest/api/searchservice/search-documents), not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter expressions](search-filters.md) parameter of the Search Documents API. The `search` and `$filter` parameters have different syntax, with their own rules for constructing queries, escaping strings, and so on.
+The simple syntax is used for query expressions passed in the `search` parameter of a [Search Documents request](https://docs.microsoft.com/rest/api/searchservice/search-documents), not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [$filter expressions](search-filters.md) parameter of the same Search Documents API. The `search` and `$filter` parameters have different syntax, with their own rules for constructing queries, escaping strings, and so on.
 
 Although the simple parser is based on the [Apache Lucene Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) class, the implementation in Azure Cognitive Search excludes fuzzy search. If you need [fuzzy search](search-query-fuzzy.md) or other advanced query forms, consider the alternative [full Lucene query syntax](query-lucene-syntax.md) instead.
 
@@ -41,7 +41,7 @@ Field grouping is similar but scopes the grouping to a single field. For example
 
 In the simple syntax, search operators include these characters: `+ | " ( ) ' \`  
 
-If any of these characters are part of a token in the index, escape it by prefixing it with a single backslash (`\`). For example, suppose you used a custom analyzer for whole term tokenization, and your index contains the string "Luxury+Hotel". To get a match on this token, add an escape character: `search=luxury\+hotel`. 
+If any of these characters are part of a token in the index, escape it by prefixing it with a single backslash (`\`) in the query. For example, suppose you used a custom analyzer for whole term tokenization, and your index contains the string "Luxury+Hotel". To get an exact match on this token, insert an escape character: `search=luxury\+hotel`. 
 
 To make things simple for the more typical cases, there are two exceptions to this rule where escaping is not needed:  
 
