@@ -38,7 +38,7 @@ Select the tab for the platform you're interested in:
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-To enable your web app to call protected APIs, when using Microsoft.Identity.Web, all you need to do is call `AddWebAppCallsProtectedWebApi`, and decide of a token cache serialization format (for instance in memory token cache):
+To enable your web app to call protected APIs when using Microsoft.Identity.Web, you need only to call `AddWebAppCallsProtectedWebApi` and specify a token cache serialization format (for example, in-memory token cache):
 
 ```C#
 // This method gets called by the runtime. Use this method to add services to the container.
