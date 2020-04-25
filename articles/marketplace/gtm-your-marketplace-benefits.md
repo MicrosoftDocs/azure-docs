@@ -40,7 +40,7 @@ Your steps to get started are easy:
 2. The team reaches out to the "owner" or "primary contact" per marketplace offer. It is a best practice to enter either an individual or an alias you check regularly: messages sent to aliases such as info@company.com often get lost.
 
 >[!Note]
->If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, by looking in Partner Center. They should have the communication and next steps. <br> <br> If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at [Help and Support](https://partner.microsoft.com/en-US/support/v2/?stage=1).
+>If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, by looking in Partner Center. They should have the communication and next steps. <br> <br> If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at [Help and Support](https://partner.microsoft.com/support/v2/?stage=1).
 
 The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.
 
