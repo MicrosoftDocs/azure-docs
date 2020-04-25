@@ -169,13 +169,15 @@ module.exports = async function(context, eventGridEvent) {
 
 1. Select **Create Event Grid Description**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-description.png" alt-text="Create the Event Grid subscription." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Create the Event Grid subscription." border="true":::
 
-1. Name your subscription and select `Event Grid Topics` for **Topic Type**. 
+1. Name your event subscription and select `Event Grid Topics` for the **Topic Type**. 
 
-1. Select the resource group that you created for the Event Grid topic. Then select the instance of the Event Grid topic. Select `Create`.
+1. Select the subscription. Then select the resource group that you created for the Event Grid topic and the resource. 
 
-![Create an Event Grid subscription.](./media/durable-functions-event-publishing/eventsubscription.png)
+1. Select `Create`.
+
+    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-description.png" alt-text="Create an Event Grid subscription." border="true":::
 
 Now you're ready to receive lifecycle events.
 
