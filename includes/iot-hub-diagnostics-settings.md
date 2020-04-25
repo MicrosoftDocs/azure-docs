@@ -12,6 +12,8 @@
 
 ### Enable logging with diagnostics settings
 
+ROBIN: Check this out.
+
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
