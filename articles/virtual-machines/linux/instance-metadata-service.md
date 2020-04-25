@@ -18,26 +18,10 @@ ms.reviewer: azmetadata
 ## Summary
 
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances and can be used to manage and configure your virtual machines.
-This includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data that is available, see [metadata APIs](#-Metadata-APIs). 
+This includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data that is available, see [metadata APIs](#metadata-apis). 
 Instance Metadata Service is available for both the VM and virtual machine scale set Instances. It is only available for running VMs created/managed using [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/). 
 
 Azure's Instance Metadata Service is a REST Endpoint that is available at a well-known non-routable IP address (`169.254.169.254`), it can be accessed only from within the VM.
-
-> [!IMPORTANT]
-> This service is  **generally available** in all Azure Regions.  It regularly receives updates to expose new information and features. This page reflects the up-to-date [metadata APIs](#-Metadata-APIs) available.
-
-## Regional Availability
-
-The service is available in generally available Azure regions. Not all API version may be available in all Azure Regions.
-
-Regions                                        | Availability?                                 | Supported Versions
------------------------------------------------|-----------------------------------------------|-----------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
-[Azure China 21Vianet](https://www.azure.cn/)                                            | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
-
-This table is updated when there are service updates and or new supported versions are available.
 
 ## Security
 
@@ -54,8 +38,7 @@ Requests must also contain a `Metadata: true` header to ensure that the actual r
 To access Instance Metadata Service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) or the [Azure portal](https://portal.azure.com), and follow the samples below.
 More examples of how to query IMDS can be found at [Azure Instance Metadata Samples](https://github.com/microsoft/azureimds).
 
-
-Below is the sample code to retrieve all metadata for an instance, to access specific data source, see [Metadata API](#-metadata-apis) section. 
+Below is the sample code to retrieve all metadata for an instance, to access specific data source, see [Metadata API](#metadata-apis) section. 
 
 **Request**
 
@@ -203,7 +186,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 The Instance Metadata Service is versioned and specifying the API version in the HTTP request is mandatory.
 
-You can see the newest versions listed in this [availability table](#-Regional-Availability).
+Follow are the supported service versions: 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15.
+
+Note when new version is released, it will take a while to roll out to all regions. Currently version 2019-11-01 is still getting deployed and may not be available in all regions.
 
 As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
 
@@ -236,8 +221,8 @@ IMDS contains multiple API interfaces representing different data sources.
 
 Data | Description | Version Introduced
 -----|-------------|-----------------------
-instance | See [Instance API](#-Instance-API) | 2017-04-02
-attested | See [Attested Data](#-Attested-Data) | 2018-10-01
+instance | See [Instance API](#instance-api) | 2017-04-02
+attested | See [Attested Data](#attested-data) | 2018-10-01
 identity | See [Acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 scheduledevents | See [Scheduled Events](scheduled-events.md) | 2017-08-01
 
@@ -273,7 +258,6 @@ vmId | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-
 vmScaleSetName | [Virtual machine scale set Name](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) of your virtual machine scale set | 2017-12-01
 vmSize | [VM size](sizes.md) | 2017-04-02
 zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
-
 
 ### Sample 1: Tracking VM running on Azure
 
@@ -434,6 +418,69 @@ The cloud and the values of the Azure Environment are listed below.
 [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | AzureChinaCloud
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
+## Network Metadata 
+
+Network metadata is part of the instance API. The following Network categories are available through the instance/network endpoint.
+
+Data | Description | Version Introduced
+-----|-------------|-----------------------
+ipv4/privateIpAddress | Local IPv4 address of the VM | 2017-04-02
+ipv4/publicIpAddress | Public IPv4 address of the VM | 2017-04-02
+subnet/address | Subnet address of the VM | 2017-04-02
+subnet/prefix | Subnet prefix, example 24 | 2017-04-02
+ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02
+macAddress | VM mac address | 2017-04-02
+
+> [!NOTE]
+> All API responses are JSON strings. All following example responses are pretty-printed for readability.
+
+#### Sample 1: Retrieving network information
+
+***Request***
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
+```
+
+***Response***
+
+> [!NOTE]
+> The response is a JSON string. The following example response is pretty-printed for readability.
+
+```json
+{
+  "interface": [
+    {
+      "ipv4": {
+        "ipAddress": [
+          {
+            "privateIpAddress": "10.1.0.4",
+            "publicIpAddress": "X.X.X.X"
+          }
+        ],
+        "subnet": [
+          {
+            "address": "10.1.0.0",
+            "prefix": "24"
+          }
+        ]
+      },
+      "ipv6": {
+        "ipAddress": []
+      },
+      "macAddress": "000D3AF806EC"
+    }
+  ]
+}
+
+```
+
+#### Sample 2: Retrieving public IP address
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
+
+```
 
 ## Storage Metadata
 
@@ -596,71 +643,6 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList
 ]
 ```
 
-## Network Metadata 
-
-Network metadata is part of the instance API. The following Network categories are available through the instance/network endpoint.
-
-Data | Description | Version Introduced
------|-------------|-----------------------
-ipv4/privateIpAddress | Local IPv4 address of the VM | 2017-04-02
-ipv4/publicIpAddress | Public IPv4 address of the VM | 2017-04-02
-subnet/address | Subnet address of the VM | 2017-04-02
-subnet/prefix | Subnet prefix, example 24 | 2017-04-02
-ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02
-macAddress | VM mac address | 2017-04-02
-
-> [!NOTE]
-> All API responses are JSON strings. All following example responses are pretty-printed for readability.
-
-#### Sample 1: Retrieving network information
-
-***Request***
-
-```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
-```
-
-***Response***
-
-> [!NOTE]
-> The response is a JSON string. The following example response is pretty-printed for readability.
-
-```json
-{
-  "interface": [
-    {
-      "ipv4": {
-        "ipAddress": [
-          {
-            "privateIpAddress": "10.1.0.4",
-            "publicIpAddress": "X.X.X.X"
-          }
-        ],
-        "subnet": [
-          {
-            "address": "10.1.0.0",
-            "prefix": "24"
-          }
-        ]
-      },
-      "ipv6": {
-        "ipAddress": []
-      },
-      "macAddress": "000D3AF806EC"
-    }
-  ]
-}
-
-```
-
-#### Sample 2: Retrieving public IP address
-
-```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
-
-```
-
-
 ## Attested Data
 
 Part of the scenario served by Instance Metadata Service is to provide guarantees that the data provided is coming from Azure. We sign part of this information so that marketplace images can be sure that it's their image running on Azure.
@@ -677,7 +659,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-ver
 
 ```
 
-Api-version is a mandatory field. Refer to the [service availability section](#service-availability) for supported API versions.
+Api-version is a mandatory field. Refer to the [usage section](#Usage) for supported API versions.
 Nonce is an optional 10-digit string. If not provided, IMDS returns the current UTC timestamp in its place. Due to IMDS's caching mechanism, a previously cached nonce value may be returned.
 
  ***Response***
@@ -692,7 +674,6 @@ Nonce is an optional 10-digit string. If not provided, IMDS returns the current 
 ```
 
 The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
-
 
 ### Sample 2: Validating that the VM is running in Azure
 
@@ -751,7 +732,6 @@ vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using
 subscriptionId | Azure subscription for the Virtual Machine, introduced in `2019-04-30`
 sku | Specific SKU for the VM image, introduced in `2019-11-01`
 
-
 #### Sample 3: Verifying the signature
 
 Once you get the signature above, you can verify that the signature is from Microsoft. Also you can verify the intermediate certificate and the certificate chain. Lastly, you can verify the subscription ID is correct.
@@ -788,15 +768,20 @@ In cases where the intermediate certificate cannot be downloaded due to network 
 >The intermediate certificate for Azure China 21Vianet will be from DigiCert Global Root CA instead of Baltimore.
 Also if you had pinned the intermediate certificates for Azure China as part of root chain authority change, the intermediate certificates will have to be updated.
 
-
 ## Managed Identity via Metadata Service
 User can enable the managed identity on a VM, and then leverage Instance Metadata Service to pass the token for accessing Azure services. Applications running on a VM now can request a token from the Azure Instance Metadata service endpoint, and then use the token to authenticate to cloud services, including key vault.
 For detailed steps to enable this feature, see [Acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
-
 ## Scheduled Events via Metadata Service
 You can obtain the status of the scheduled events via metadata service, then user can specify a set of action to execute upon these events.  See [Scheduled Events](scheduled-events.md) for details. 
 
+## Regional Availability
+
+The service is **generally available** in all Azure regions. This includes: 
+1. [All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)
+2. [Azure Government](https://azure.microsoft.com/overview/clouds/government/)  
+3. [Azure China 21Vianet](https://www.azure.cn/) 
+4. [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/) 
 
 ## Sample Code in Different Languages
 
@@ -810,13 +795,10 @@ Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
 JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
-PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
-Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 Puppet | https://github.com/keirans/azuremetadata
-
 
 ## Error and Debugging
 
@@ -831,7 +813,6 @@ HTTP Status Code | Reason
 410 Gone | Retry after some time for a max of 70 seconds
 429 Too Many Requests | The API currently supports a maximum of 5 queries per second
 500 Service Error     | Retry after some time
-
 
 ### Known issues and FAQ
 
@@ -856,7 +837,6 @@ HTTP Status Code | Reason
 10. I updated my tags in virtual machine scale set but they don't appear in the instances unlike VMs?
     * Currently for ScaleSets tags only show to the VM on a reboot/reimage/or a disk change to the instance.
 
-
 ## Support and Feedback
 
 Send your feedback and comments on https://feedback.azure.com.
@@ -864,7 +844,8 @@ To get support for the service, create a support issue in Azure portal for the V
 
 ![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png)
 
-
 ## Next Steps
 
-Learn more about [Acquire an access token for the VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+Learn more about:
+1.  [Acquire an access token for the VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+2.  [Scheduled Events](scheduled-events.md) 
