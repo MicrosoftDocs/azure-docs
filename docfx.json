@@ -521,7 +521,9 @@
         "articles/service-fabric-mesh/*.md": "service-fabric-mesh",
         "articles/service-health/**/*.md": "service-health",
         "articles/aks/**/*.md": "container-service",
-	"articles/remote-rendering/**/*.md": "azure-remote-rendering"
+	"articles/remote-rendering/**/*.md": "azure-remote-rendering",
+	"articles/media-services/.*md": "media-services",
+	"articles/media-services/**/*.md": "media-services"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture",
