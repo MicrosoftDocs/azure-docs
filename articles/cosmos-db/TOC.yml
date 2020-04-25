@@ -518,6 +518,7 @@
         - name: Total Cost of Ownership (TCO)
           href: total-cost-ownership.md
         - name: Understand your bill
+          displayName: free tier
           href: understand-your-bill.md
         - name: Optimize provisioned throughput cost
           displayName: request units, RUs, RU
@@ -531,6 +532,7 @@
         - name: Optimize multi-region cost
           href: optimize-cost-regions.md
         - name: Optimize development/testing cost
+          displayName: free tier
           href: optimize-dev-test.md
         - name: Optimize cost with reserved capacity
           href: cosmos-db-reserved-capacity.md
