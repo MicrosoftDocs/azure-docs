@@ -71,7 +71,7 @@ Open Postman and follow these steps:
 
     Postman then reports a status of **202 Accepted**.
 
-1. Next, return to your function in the Azure portal. Locate the *Logs* window and you'll see messages coming from the manual call to the function.
+1. Next, return to your function in the Azure portal. Review the logs and you'll see messages coming from the manual call to the function.
 
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="View the logs to see the master key test results." border="true":::
 
