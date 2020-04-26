@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 04/23/2020
 ms.author: b-juche
 ---
 # Benefits of using Azure NetApp Files with Oracle Database
@@ -22,19 +22,21 @@ Oracle Direct NFS (dNFS) makes it possible to drive higher performance than the 
 
 ## How Oracle Direct NFS works
 
-Oracle Direct NFS (dNFS) bypasses the operating system’s buffer cache. Data is cached only once in the user space, eliminating the overhead of memory copies.  
+The following summary explains how Oracle Direct NFS works at a high level:
 
-The traditional NFS client uses a single network flow, as the following example shows: 
+* Oracle Direct NFS bypasses the operating system buffer cache. Data is cached only once in the user space, eliminating the overhead of memory copies.  
 
-![Traditional NFS client using a single network flow](../media/azure-netapp-files/solutions-traditional-nfs-client-using-single-network-flow.png)
+* The traditional NFS client uses a single network flow as shown below:    
 
-In contrast, Oracle dNFS improves performance by load-balancing network traffic across multiple network flows. This capability enables the Oracle database to dynamically establish a significant number of 650 distinct network connections, as shown in the example below:  
+    ![Traditional NFS client using a single network flow](../media/azure-netapp-files/solutions-traditional-nfs-client-using-single-network-flow.png)
 
-![Oracle Direct NFS improving performance](../media/azure-netapp-files/solutions-oracle-direct-nfs-performance-load-balancing.png)
+    Oracle Direct NFS further improves performance by load-balancing network traffic across multiple network flows. As tested and shown below, 650 distinct network connections were established dynamically by the Oracle Database:  
+
+    ![Oracle Direct NFS improving performance](../media/azure-netapp-files/solutions-oracle-direct-nfs-performance-load-balancing.png)
 
 The [Oracle FAQ for Direct NFS](http://www.orafaq.com/wiki/Direct_NFS) shows that Oracle dNFS is an optimized NFS client. It provides fast and scalable access to NFS storage that is located on NAS storage devices (accessible over TCP/IP). dNFS is built into the database kernel just like ASM, which is used primarily with DAS or SAN storage. As such, *the guideline is to use dNFS when implementing NAS storage and use ASM when implementing SAN storage.*
 
-dNFS is the default option in Oracle 18c and the default for RAC.
+dNFS is the default option in Oracle 18c.
 
 dNFS is available starting with Oracle Database 11g. The diagram below compares dNFS with native NFS. When you use dNFS, an Oracle database that runs on an Azure virtual machine can drive more I/O than the native NFS client.
 

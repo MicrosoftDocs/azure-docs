@@ -454,7 +454,7 @@ Below are a few samples to help you write queries on Azure Backup data that resi
     | extend Vault= Resource
     | project-away Resource
     ````
-    
+
 ## Next steps
 
 Once you review the data model, you can start [creating custom queries](../azure-monitor/learn/tutorial-logs-dashboards.md) in Azure Monitor logs to build your own dashboard.
