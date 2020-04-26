@@ -95,7 +95,7 @@ The [query metrics](sql-api-query-metrics.md) will help determine where the quer
 * If the back-end query returns quickly, and spends a large time on the client check the load on the machine. It's likely that there are not enough resource and the SDK is waiting for resources to be available to handle the response.
 * If the back-end query is slow try [optimizing the query](optimize-cost-queries.md) and looking at the current [indexing policy](index-overview.md) 
 
-### The MAC signature found in the HTTP request is not the same as the computed signature
+### HTTP 401: The MAC signature found in the HTTP request is not the same as the computed signature
 If you received the following 401 error message: "The MAC signature found in the HTTP request is not the same as the computed signature." it can be caused by the following scenarios.
 
 1. The key was rotated and did not follow the [best practices](secure-access-to-data.md#key-rotation). This is usually the case. Cosmos DB account key rotation can take anywhere from a few seconds to possibly days depending on the Cosmos DB account size.
