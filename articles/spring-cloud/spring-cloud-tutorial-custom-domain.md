@@ -50,7 +50,7 @@ When you have successfully imported your certificate, you'll see it on the list 
 ## Add Custom Domain
 You can use a CNAME record to map a custom DNS name to Azure Spring Cloud. 
 
-> [NOTE] 
+> [!NOTE] 
 > The A record is not supported. 
 
 ### Create the CNAME record
