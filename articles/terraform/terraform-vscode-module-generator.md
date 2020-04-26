@@ -2,7 +2,7 @@
 title: Tutorial - Create a Terraform base template in Azure using Yeoman
 description: Learn how to create a Terraform base template in Azure using Yeoman.
 ms.topic: tutorial
-ms.date: 04/13/2020
+ms.date: 04/25/2020
 ---
 
 # Tutorial: Create a Terraform base template in Azure using Yeoman
@@ -98,10 +98,10 @@ This empty directory is required to be put under $GOPATH/src. For more informati
 
     - **Terraform module project Name** - A value of `doc-sample-module` is used for the example.
 
-        ![Project name](media/terraform-vscode-module-generator/ymg-project-name.png)       
+        ![Project name](media/terraform-vscode-module-generator/ymg-project-name.png)
 
 
-    - **Would you like to include the Docker image file?** - Enter `y`. If you select `n`, the generated module code will support running only in native mode.
+    - **Would you like to include the Docker image file?** - Enter `y`. If you enter `n`, the generated module code will support running only in native mode.
 
         ![Include Docker image file?](media/terraform-vscode-module-generator/ymg-include-docker-image-file.png) 
 
@@ -121,7 +121,7 @@ This empty directory is required to be put under $GOPATH/src. For more informati
 
     ![Visual Studio Code](media/terraform-vscode-module-generator/ymg-open-in-vscode.png)
 
-The following files were created by the Yeoman module generator. For more information about these files and their usage, see [Terratest documentation](https://terratest.gruntwork.io/docs/).
+The following files were created by the Yeoman module generator:
 
 - `main.tf` - Defines a module called `random-shuffle`. The input is a `string_list`. The output is the count of the permutations.
 - `variables.tf` - Defines the input and output variables used by the module.
@@ -135,6 +135,8 @@ The following files were created by the Yeoman module generator. For more inform
     - All codes in test are end-to-end tests.
     - End-to-end tests attempt to provision all of the items defined under `fixture`. The results in the `template_output.go` file are compared with the pre-defined expected values.
     - `Gopkg.lock` and `Gopkg.toml`: Defines the dependencies. 
+
+For more information about the Yeoman generator for Azure https://github.com/Azure/generator-az-terra-module, see the [Terratest documentation](https://terratest.gruntwork.io/docs/).
 
 ## Test your new Terraform module using a Docker file
 
