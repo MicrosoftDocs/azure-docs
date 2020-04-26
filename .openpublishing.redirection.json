@@ -17352,6 +17352,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/insights/container-insights-optout-openshift.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-optout-openshift-v3",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/mobile-engagement/mobile-engagement-send-personalized-notifications.md",
       "redirect_url": "/azure/azure-resource-manager/management/azure-subscription-service-limits#mobile-engagement-limits",
       "redirect_document_id": false
@@ -51643,6 +51648,91 @@
     {
       "source_path": "articles/active-directory/develop/active-directory-graph-api-quickstart.md",
       "redirect_url": "/azure/active-directory/develop/microsoft-graph-intro",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/container-instances-jenkins.md",
+      "redirect_url": "/azure/developer/jenkins/azure-container-instances-as-jenkins-build-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/tutorial-jenkins-dev-spaces.md",
+      "redirect_url": "/azure/developer/jenkins/azure-dev-spaces-and-aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/storage-java-jenkins-continuous-integration-solution.md",
+      "redirect_url": "/azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/install-solution-template-quickstart.md",
+      "redirect_url": "/azure/developer/jenkins/configure-on-linux-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/install-solution-template-tutorial.md",
+      "redirect_url": "/azure/developer/jenkins/configure-on-linux-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/jenkins-continuous-deployment.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-from-github-to-aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-from-github-to-azure-app-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/jenkins-aks-blue-green-deployment.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-aks-using-blue-green-deployment-pattern",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/execute-cli-jenkins-pipeline.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/deploy-jenkins-app-service-plugin.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-azure-app-service-using-plugin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/jenkins-azure-functions-deploy.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-azure-spring-cloud-using-azure-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/tutorial-build-deploy-jenkins.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/service-fabric-cicd-your-linux-applications-with-jenkins.md",
+      "redirect_url": "/azure/developer/jenkins/deploy-to-service-fabric-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/tutorial-jenkins-github-docker-cicd.md",
+      "redirect_url": "/azure/developer/jenkins/pipeline-with-github-and-docker",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/jenkins-plugins.md",
+      "redirect_url": "/azure/developer/jenkins/plug-ins-for-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/jenkins/jenkins-azure-vm-agents.md",
+      "redirect_url": "/azure/developer/jenkins/scale-deployments-using-vm-agents",
       "redirect_document_id": false
     }
   ]
