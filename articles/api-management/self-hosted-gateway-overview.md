@@ -1,6 +1,6 @@
 ---
 title: Azure API Management self-hosted gateway overview | Microsoft Docs
-description: Learn how Azure API Management self-hosted gateway helps organizations manage APIs in the hybrid and multicloud environments.
+description: Learn how Azure API Management self-hosted gateway helps organizations manage APIs in hybrid and multicloud environments.
 services: api-management
 documentationcenter: ''
 author: vlvinogr
@@ -8,16 +8,14 @@ manager: gwallace
 editor: ''
 
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/24/2020
+ms.date: 04/26/2020
 ms.author: apimpm
 ---
 
-# Self-hosted API Management gateway overview
+# API Management self-hosted gateway overview
 
-This article explains how self-hosted gateway feature enables hybrid and multi-cloud API management, presents its high-level architecture, and highlights its fundamental capabilities.
+This article explains how self-hosted gateway feature enables hybrid and multi-cloud API management, presents its high-level architecture, and highlights its capabilities.
 
 ## Hybrid and multi-cloud API management
 
@@ -35,20 +33,26 @@ By default, all these components are deployed in Azure, causing all API traffic 
 
 ![API traffic flow without self-hosted gateways](media/self-hosted-gateway-overview/without-gateways.png)
 
-Deploying self-hosted gateways into the same environments as backend API implementations and adding them to the API Management service allows API traffic to flow directly to the backend APIs, which improves latency, optimizes data transfer costs, and enables compliance while retaining the benefits of having a single point of management and discovery of all APIs within the organization regardless of where their implementations are hosted.
+Deploying self-hosted gateways into the same environments where the backend API implementations are hosted allows API traffic to flow directly to the backend APIs, which improves latency, optimizes data transfer costs, and enables compliance while retaining the benefits of having a single point of management, observanility, and discovery of all APIs within the organization regardless of where their implementations are hosted.
 
 ![API traffic flow with self-hosted gateways](media/self-hosted-gateway-overview/with-gateways.png)
 
 ## Packaging and features
 
-The self-hosted gateway is a containerized, functionally-equivalent version of the managed gateway deployed to Azure as part of every API Management service. The self-hosted gateway is available as a Linux-based Docker container from the Microsoft Container Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a desktop, server cluster, or cloud infrastructure.
+The self-hosted gateway is a containerized, functionally-equivalent version of the managed gateway deployed to Azure as part of every API Management service. The self-hosted gateway is available as a Linux-based Docker [container](https://aka.ms/apim/sputnik/dhub) from the Microsoft Container Registry. It can be deployed to Docker, Kubernetes, or any other container orchestration solution running on a server cluster on premises, cloud infrastructure, or for evaluation and development purposes, on a personal computer.
 
-> [!IMPORTANT]
-> Some functionality available in the managed gateway is not yet available in preview. Most notably: Log to Event Hub policy, Service Fabric integration, downstream HTTP/2. There is no plan to make a built-in cache available in the self-hosted gateway.
+The following functionality found in the managed gateways is **not available** in the self-hosted gateways:
+
+- Upstream (backend side) TLS version and cipher management
+- Validation of server and client certificates using CA root certificates uploaded to API Management service. To add support for custom CA, add a layer to the self-hosted gateway container image that installs the CA's root certificate.
+- Integration with the [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)
+- TLS session resumption
+- Client certificate renegotiation. Therefore, when using client certificate authentication, clients must be required to present their certificates as part of the TLS handshake. To accomplish that, enable the negotiate client certificate setting when configuring a self-hosted gateway custom hostname.
+- Built-in cache. See this [document](api-management-howto-cache-external.md) to learn about using external cache in self-hosted gateways.
 
 ## Connectivity to Azure
 
-The self-hosted gateway requires outbound TCP/IP connectivity to Azure on port 443. Each self-hosted gateway has to be associated with a single API Management service and is configured via its management plane. Self-hosted gateway uses connectivity to Azure for:
+Self-hosted gateways require outbound TCP/IP connectivity to Azure on port 443. Each self-hosted gateway must be associated with a single API Management service and is configured via its management plane. Self-hosted gateway uses connectivity to Azure for:
 
 -   Reporting its status by sending heartbeat messages every minute
 -   Regularly checking for (every 10 seconds) and applying configuration updates whenever they are available
@@ -57,17 +61,17 @@ The self-hosted gateway requires outbound TCP/IP connectivity to Azure on port 4
 
 When connectivity to Azure is lost, self-hosted gateway will be unable to receive configuration updates, report its status, or upload telemetry.
 
-The self-hosted gateway is designed to "fail static" and can survive the temporary loss of connectivity to Azure. It can be deployed with or without local configuration backup turned on. In the former case, self-hosted gateways will regularly save a backup copy of configuration on a persistent volume attached to the container or pod.
+The self-hosted gateway is designed to "fail static" and can survive temporary loss of connectivity to Azure. It can be deployed with or without local configuration backup. In the former case, self-hosted gateways will regularly save a backup copy of the latest downloaded configuration on a persistent volume attached to its container or pod.
 
 When configuration backup is turned off and connectivity to Azure is interrupted:
 
--   Self-hosted gateways that are running will continue to function using an in-memory copy of the configuration
+-   Running self-hosted gateways will continue to function using an in-memory copy of the configuration
 -   Stopped self-hosted gateways will not be able to start
 
 When configuration backup is turned on and connectivity to Azure is interrupted:
 
--   Self-hosted gateways that are running will continue to function using an in-memory copy of the configuration
--   Stopped self-hosted gateways will start using a backup copy of the configuration
+-   Running self-hosted gateways will continue to function using an in-memory copy of the configuration
+-   Stopped self-hosted gateways will be able to start using a backup copy of the configuration
 
 When connectivity is restored, each self-hosted gateway affected by the outage will automatically reconnect with its associated API Management service and download all configuration updates that occurred while the gateway was "offline".
 

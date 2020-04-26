@@ -32,7 +32,7 @@ This article describes the steps for deploying self-hosted gateway to a Kubernet
 6. Click on the **<gateway-name>.yml** file link and download the YAML file.
 7. Select **copy** icon located at the bottom right corner of the **Deploy** text box to save the `kubectl` commands to the clipboard.
 8. Paste commands to the terminal (or command) window. The first command creates a Kubernetes secret containing access token generated in step 4. Second command applies the configuration file downloaded in step 6 to the Kubernetes cluster and expects the the file to be present in the current directory.
-9. Execute the commands to create the necessary Kubernetes objects in the [default namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) and start self-hosted gateway pod(s) from [container image](https://aka.ms/apim/sputnik/repo) downloaded from the Microsoft Container Registry.
+9. Execute the commands to create the necessary Kubernetes objects in the [default namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) and start self-hosted gateway pod(s) from [container image](https://aka.ms/apim/sputnik/dhub) downloaded from the Microsoft Container Registry.
 10. Execute command shown bellow to check if the deployment succeeded . Note that it might take a little time for all the objects to be created and for pod(s) to initialize.
 ```console
 kubectl get deployments
