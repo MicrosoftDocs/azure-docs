@@ -109,7 +109,7 @@ If you received the following 401 error message: "The MAC signature found in the
  The size of the header has grown to large and is exceeding the maximum allowed size. It's always recommended to use the latest SDK. Make sure to use at least version [3.x](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) or [2.x](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md), which adds header size tracing to the exception message.
 
 Causes:
- 1. The session token has grown to large. The session token grows as the number of partitions increase in the container.
+ 1. The session token has grown too large. The session token grows as the number of partitions increase in the container.
  2. The continuation token has grown to large. Different queries will have different continuation token sizes.
  3. It's caused by a combination of the session token and continuation token.
 
