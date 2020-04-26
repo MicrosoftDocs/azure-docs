@@ -64,7 +64,7 @@ In the second tab of the browser, sign in to NSX-T manager.
 
 :::image type="content" source="./media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="Local private cloud NSX Manger home" border="true":::
 
-# Next steps
+## Next steps
 
 In this tutorial you learned how to:
 
