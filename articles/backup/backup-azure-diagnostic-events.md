@@ -49,13 +49,13 @@ After data flows into the Log Analytics workspace, dedicated tables for each of 
 
 ## Legacy event
 
-Traditionally, all backup-related diagnostics data for a vault was contained in a single event called AzureBackupReport. The six events described here are, in essence, a decomposition of all the data contained in AzureBackupReport. 
+Traditionally, all backup-related diagnostics data for a vault was contained in a single event called AzureBackupReport. The six events described here are, in essence, a decomposition of all the data contained in AzureBackupReport.
 
 Currently, we continue to support the AzureBackupReport event for backward compatibility in cases where users have existing custom queries on this event. Examples are custom log alerts and custom visualizations. *We recommend that you move to the [new events](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users) as early as possible*. The new events:
 
-- Make the data much easier to work with in log queries.
-- Provide better discoverability of schemas and their structure.
-- Improve performance across both ingestion latency and query times. 
+* Make the data much easier to work with in log queries.
+* Provide better discoverability of schemas and their structure.
+* Improve performance across both ingestion latency and query times.
 
 *The legacy event in Azure diagnostics mode will eventually be deprecated. Choosing the new events might help you to avoid complex migrations at a later date*. Our [reporting solution](https://docs.microsoft.com/azure/backup/configure-reports) that uses Log Analytics will also stop supporting data from the legacy event.
 
@@ -68,21 +68,21 @@ Currently, we continue to support the AzureBackupReport event for backward compa
     let VaultUnderAzureDiagnostics = (){
         AzureDiagnostics
         | where TimeGenerated >= RangeStart | where Category == "AzureBackupReport" and OperationName == "Vault" and SchemaVersion_s == "V2"
-        | summarize arg_max(TimeGenerated, *) by ResourceId    
+        | summarize arg_max(TimeGenerated, *) by ResourceId
         | project ResourceId, Category};
     let VaultUnderResourceSpecific = (){
         CoreAzureBackup
-        | where TimeGenerated >= RangeStart | where OperationName == "Vault" 
+        | where TimeGenerated >= RangeStart | where OperationName == "Vault"
         | summarize arg_max(TimeGenerated, *) by ResourceId
         | project ResourceId, Category};
         // Some Workspaces will not have AzureDiagnostics Table, hence you need to use isFuzzy
     let CombinedVaultTable = (){
-        CombinedTable | union isfuzzy = true 
+        CombinedTable | union isfuzzy = true
         (VaultUnderAzureDiagnostics() ),
         (VaultUnderResourceSpecific() )
         | distinct ResourceId, Category};
     CombinedVaultTable | where Category == "AzureBackupReport"
-    | join kind = leftanti ( 
+    | join kind = leftanti (
     CombinedVaultTable | where Category == "CoreAzureBackup"
     ) on ResourceId
     | parse ResourceId with * "SUBSCRIPTIONS/" SubscriptionId:string "/RESOURCEGROUPS" * "MICROSOFT.RECOVERYSERVICES/VAULTS/" VaultName:string
