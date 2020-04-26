@@ -19,9 +19,6 @@ To start Azure Functions diagnostics:
 
 1. Navigate to your function app in the [Azure portal](https://portal.azure.com).
 1. Select **Diagnose and solve problems** to open Azure Functions diagnostics.
-
-   :::image type="content" source="./media/functions-diagnostics/functions-diagnose-solve-problems.png" alt-text="Diagnose and solve problems in the function app." border="true":::
-
 1. Choose a category that best describes the issue of your function app by using the keywords in the homepage tile. You can also type a keyword that best describes your issue in the search bar. For example, you could type `execution` to see a list of diagnostic reports related to your function app execution and open them directly from the homepage.
 
    :::image type="content" source="./media/functions-diagnostics/functions-app-search-azure-functions-diagnostics.png" alt-text="Search for Azure Functions diagnostics." border="true":::
