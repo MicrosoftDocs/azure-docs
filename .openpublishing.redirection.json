@@ -49387,6 +49387,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/translator/translator-text-how-to-signup.md",
+      "redirect_url": "/azure/cognitive-services/translator/translator-how-to-signup",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/aks/virtual-kubelet.md",
       "redirect_url": "/azure/aks/concepts-scale#burst-to-azure-container-instances",
       "redirect_document_id": false
