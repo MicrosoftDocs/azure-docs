@@ -1,26 +1,21 @@
-- name: Azure VMware Solution by Virtustream (AVS by Virtustream)
-  href:
+- name: Azure VMware Solution (AVS)
+  href: index.yml
 - name: Overview
   items:
-  - name: About AVS by Virtustream
+  - name: About Azure VMware Solution (AVS)
     href: introduction.md
-- name: Quickstarts
-  expanded: true
-  items:
 - name: Tutorials
   items:
-  - name: 1 - Create an AVS by Virtustream private cloud
-    href: tutorials-create-private-cloud.md
-  - name: 2 - Create a service VNet and resources
-    href: tutorials-create-vnet-resources.md
-  - name: 3 - Access a private cloud 
-    href: tutorials-access-private-cloud.md   
-  - name: 4 - Create an NSX-T network
-    href: tutorials-create-t1-ls.md
-  - name: 5 - Deploy a VM
-    href: tutorials-deploy-vm.md
-  - name: 6 - Scale a private cloud
-    href: tutorials-scale-private-cloud.md
+  - name: 1 - Network planning
+    href: tutorial-network-checklist.md
+  - name: 2 - Create an AVS private cloud
+    href: tutorial-create-private-cloud.md
+  - name: 3 - Configure networking
+    href: tutorial-configure-networking.md
+  - name: 4 - Access a private cloud 
+    href: tutorial-access-private-cloud.md
+  - name: 5 - Scale a private cloud
+    href: tutorial-scale-private-cloud.md
 - name: Concepts
   items:
   - name: Private clouds and clusters
@@ -33,6 +28,12 @@
     href: concepts-identity.md
   - name: Private cloud upgrades
     href: concepts-upgrades.md
+- name: How-to guides
+  items:
+  - name: Manage DHCP
+    href: manage-dhcp.md
+  - name: Disaster recovery
+    href: disaster-recovery.md
 - name: Reference
   items:
 - name: Resources

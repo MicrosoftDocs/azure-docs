@@ -1,31 +1,24 @@
 ---
-title: Concepts - storage in Azure VMware Solution by Virtustream private clouds
-description: Learn about the key storage capabilities in Azure VMware Solution by Virtustream private clouds.
-services: 
-author: dikamath
-
-ms.service: vmware-virtustream
+title: Concepts - Storage
+description: Learn about the key storage capabilities in Azure VMware Solution (AVS) Preview private clouds.
 ms.topic: conceptual
-ms.date: 7/29/2019
-ms.author: dikamath 
-ms.custom: 
-
+ms.date: 05/04/2020
 ---
 
-# Azure VMware Solution by Virtustream storage concepts
+# Azure VMware Solution (AVS) Preview storage concepts
 
-AVS by Virtustream private clouds provide native, cluster-wide storage with VMware vSAN. All local storage from each host in a cluster is used in a vSAN datastore, and data-at-rest encryption is available and enabled by default. You can use Azure Storage resources to extend storage capabilities of your private clouds.
+AVS private clouds provide native, cluster-wide storage with VMware vSAN. All local storage from each host in a cluster is used in a vSAN datastore, and data-at-rest encryption is available and enabled by default. You can use Azure Storage resources to extend storage capabilities of your private clouds.
 
 ## vSAN clusters
 
-Local storage in each cluster host is used as part of a vSAN datastore, two diskgroups for High-end (HE) hosts and one diskgroup for General-purpose hosts. All diskgroups use an NVMe cache tier of 1.6 TB with the raw, per host, SSD-based capacity shown in the table below. The size of the raw capacity tier of a cluster is the per host capacity times the number of hosts. For example, a four host cluster of HE hosts will provide 61.6-TB raw capacity in the vSAN capacity tier.
+Local storage in each cluster host is used as part of a vSAN datastore. There are two diskgroups, one for High-End (HE) hosts and one for general purpose hosts. All diskgroups use an NVMe cache tier of 1.6 TB with the raw, per host, SSD-based capacity shown in the table below. The size of the raw capacity tier of a cluster is the per host capacity times the number of hosts. For example, a four host cluster of HE hosts will provide 61.6-TB raw capacity in the vSAN capacity tier.
 
 | Host type                   |  Raw SSD capacity |
 | :---                        |       :---:       |
 | High-end                    |      15.4 TB       |
 | General-purpose             |       7.7 TB       |
 
-Local storage in cluster hosts is used in cluster-wide vSAN datastore. All datastores are created as part of a private cloud deployment and they are available for use immediately. The cloudadmin user and all users in the CloudAdmin group can manage datastores with these vSAN privileges:
+Local storage in cluster hosts is used in cluster-wide vSAN datastore. All datastores are created as part of a private cloud deployment and are available for use immediately. The cloudadmin user and all users in the CloudAdmin group can manage datastores with these vSAN privileges:
 - Datastore.AllocateSpace
 - Datastore.Browse
 - Datastore.Config
@@ -39,7 +32,7 @@ vSAN datastores use data-at-rest encryption by default. The encryption solution 
 
 ## Scaling
 
-Native cluster storage capacity is scaled by adding hosts to a cluster. For clusters that use HE hosts, the raw cluster-wide capacity is increased by 15.4 TB with each additional host. Clusters that are built with GP hosts have their raw capacity increased by 7.7 TB with each additional host. In both types of clusters, hosts take about 10 minutes to be added to a cluster. See the [scale private cloud tutorial][tutorials-scale-private-cloud] for instructions on scaling clusters.
+Native cluster storage capacity is scaled by adding hosts to a cluster. For clusters that use HE hosts, the raw cluster-wide capacity is increased by 15.4 TB with each additional host. Clusters that are built with GP hosts have their raw capacity increased by 7.7 TB with each additional host. In both types of clusters, hosts take about 10 minutes to be added to a cluster. See the [scale private cloud tutorial][tutorial-scale-private-cloud] for instructions on scaling clusters.
 
 ## Azure storage integration
 
