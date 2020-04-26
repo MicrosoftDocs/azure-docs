@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Content Moderator client library for .NET"
+title: "Content Moderator .NET client library quickstart"
 titleSuffix: Azure Cognitive Services
 description: Get started with the Content Moderator client library for .NET with this quickstart.
 services: cognitive-services
@@ -11,8 +11,6 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
 ---
-
-# Quickstart: Content Moderator client library for .NET
 
 Get started with the Content Moderator client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. Content Moderator is a cognitive service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content to comply with regulations or maintain the intended environment for users.
 
@@ -89,7 +87,7 @@ If you're using the Visual Studio IDE, the client library is available as a down
 
 ## Object model
 
-The following classes handle some of the major features of the Content Moderator .NET SDK.
+The following classes handle some of the major features of the Content Moderator .NET client library.
 
 |Name|Description|
 |---|---|
@@ -175,7 +173,7 @@ The following method iterates through the image URLs in a text file, creates an 
 
 #### Analyze content
 
-For more information on the image attributes that Content Moderator screens for, see the [Image moderation concepts](./image-moderation-api.md) guide.
+For more information on the image attributes that Content Moderator screens for, see the [Image moderation concepts](../../image-moderation-api.md) guide.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_imagemod_analyze)]
 
@@ -185,7 +183,7 @@ For more information on the image attributes that Content Moderator screens for,
 
 ## Create a review
 
-You can use the Content Moderator .NET SDK to feed content into the [Review tool](https://contentmoderator.cognitive.microsoft.com) so that human moderators can review it. To learn more about the Review tool, see the [Review tool conceptual guide](./review-tool-user-guide/human-in-the-loop.md).
+You can use the Content Moderator .NET client library to feed content into the [Review tool](https://contentmoderator.cognitive.microsoft.com) so that human moderators can review it. To learn more about the Review tool, see the [Review tool conceptual guide](../../review-tool-user-guide/human-in-the-loop.md).
 
 The method in this section uses the [Reviews](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet) class to create a review, retrieve its ID, and check its details after receiving human input through the Review tool's web portal. It logs all of this information in an output text file. Call the method from your `Main` method:
 
@@ -265,8 +263,8 @@ dotnet run
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 
@@ -275,5 +273,5 @@ In this quickstart, you learned how to use the Content Moderator .NET library to
 > [!div class="nextstepaction"]
 > [Image moderation concepts](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
 
-* [What is Azure Content Moderator?](./overview.md)
+* [What is Azure Content Moderator?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ContentModerator/Program.cs).
