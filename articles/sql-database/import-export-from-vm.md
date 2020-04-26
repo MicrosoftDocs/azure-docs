@@ -1,5 +1,5 @@
 ---
-title: Import or export an Azure SQL Database
+title: Import or export an Azure SQL Database without allowing Azure services to access the server.
 description: Import or export an Azure SQL Database without allowing Azure services to access the server.
 services: sql-database
 ms.service: sql-database

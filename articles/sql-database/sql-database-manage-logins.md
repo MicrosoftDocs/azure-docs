@@ -5,7 +5,7 @@ keywords: sql database security,database security management,login security,data
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: VanMSFT
@@ -33,7 +33,7 @@ When a user attempts to connect to a database, they provide a user account and a
 
 - [SQL authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
 
-  With this authentication method, the user submits a user account name and associated password to establish a connection. This password is stored in the master database for user accounts linked to a login or stored in the database containing the user account for user accounts not linked to a login.
+  With this authentication method, the user submits a user account name and associated password to establish a connection. This password is stored in the master database for user accounts linked to a login or stored in the database containing the user accounts *not* linked to a login.
 - [Azure Active Directory Authentication](sql-database-aad-authentication.md)
 
   With this authentication method, the user submits a user account name and requests that the service use the credential information stored in Azure Active Directory.
@@ -60,7 +60,7 @@ To identify the administrator accounts for a database, open the Azure portal, an
 ![SQL Server Admins](media/sql-database-manage-logins/sql-admins2.png)
 
 > [!IMPORTANT]
-> The admin login name cannot be changed after it has been created. To reset the password for the logical server admin, go to the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**. To reset the password for a managed instance server, go to the Azure portal, click the instance, and click **Reset password**. You can also use PowerShell or the Azure CLI.
+> The admin login name cannot be changed after it has been created. To reset the password for the logical server admin, go to the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**. To reset the password for the managed instance, go to the Azure portal, click the instance, and click **Reset password**. You can also use PowerShell or the Azure CLI.
 
 ## Create additional logins and users having administrative permissions
 

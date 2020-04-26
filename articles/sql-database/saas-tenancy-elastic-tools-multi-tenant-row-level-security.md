@@ -4,7 +4,7 @@ description: Use elastic database tools with row-level security to build an appl
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom:
+ms.custom: sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
 author: VanMSFT

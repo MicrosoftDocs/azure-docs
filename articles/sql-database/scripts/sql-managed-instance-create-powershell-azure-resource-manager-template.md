@@ -1,10 +1,11 @@
 ---
-title: Template example - create a managed instance in Azure SQL Database 
-description: Use this Azure PowerShell example script to create a managed instance in Azure SQL Database.
+title: "Create an instance (ARM Template & Powershell) "
+titleSuffix: Azure SQL Managed Instance 
+description: Use this Azure PowerShell example script to create an Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: "seo-dt-2019"
+ms.custom: seo-dt-2019, sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft
@@ -12,19 +13,19 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
 ---
-# Use PowerShell with Azure Resource Manager template to create a managed instance in Azure SQL Database
+# Use PowerShell with Azure Resource Manager template to create an Azure SQL Managed Instance
 
-Azure SQL Database Managed Instance can be created using Azure PowerShell library and Azure Resource Manager templates.
+Azure SQL Managed Instance can be created using Azure PowerShell library and Azure Resource Manager templates.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, run `Connect-AzAccount` to create a connection to Azure.
 
-Azure PowerShell commands can start deployment using predefined Azure Resource Manager template. The following properties can be specified in the template:
+Azure PowerShell commands can start deployment using a predefined Azure Resource Manager template. The following properties can be specified in the template:
 
-- Instance name
+- SQL Managed Instance name
 - SQL administrator username and password.
 - Size of the instance (number of cores and max storage size).
 - VNet and subnet where the instance will be placed.
@@ -34,7 +35,10 @@ Instance name, SQL Administrator user name, VNet/subnet, and collation cannot be
 
 ## Prerequisites
 
-This sample assumes that you have [created a valid network environment](../sql-database-managed-instance-create-vnet-subnet.md) or [modified existing VNet](../sql-database-managed-instance-configure-vnet-subnet.md) for your Managed Instance. The sample uses the cmdlets [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) and [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) so make sure that you have installed the following PowerShell modules:
+This sample assumes that you have [created a valid network environment](../sql-database-managed-instance-create-vnet-subnet.md) or [modified an existing VNet](../sql-database-managed-instance-configure-vnet-subnet.md) for your SQL Managed Instance. You can prepare the network environment using a separate [Azure Resource Managed template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment), if necessary. 
+
+
+The sample uses the cmdlets [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) and [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) so make sure that you have installed the following PowerShell modules:
 
 ```powershell
 Install-Module Az.Network
@@ -43,7 +47,8 @@ Install-Module Az.Resources
 
 ## Azure Resource Manager template
 
-The following content should be placed in a file that represents a template that will be used to create the instance:
+
+Save the following script into a .json file, and note the file location: 
 
 ```json
 {
@@ -94,9 +99,7 @@ The following content should be placed in a file that represents a template that
 }
 ```
 
-Assumption is that Azure VNet with the properly configured subnet already exists. If you do not have a properly configured subnet, prepare the network environment using separate [Azure Resource Managed template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) that can be executed independently or included in this template.
-
-Save the content of this file as .json file, put the file path in the following PowerShell script, and change the names of the objects in the script:
+Update the following PowerShell script with the correct file path for the .json file you saved previously, and change the names of the objects in the script:
 
 ```powershell
 $subscriptionId = "ed827499-xxxx-xxxx-xxxx-xxxxxxxxxx"
@@ -123,10 +126,10 @@ New-AzResourceGroupDeployment  -Name MyDeployment -ResourceGroupName $resourceGr
                                     -instance $name -user $user -pwd $secpasswd -subnetId $subnetId
 ```
 
-Once the script has been successfully run, the SQL Database can be accessed from all Azure services and the configured IP address.
+Once the script completes, the SQL Managed Instance can be accessed from all Azure services and the configured IP address.
 
 ## Next steps
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
 
-Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).
+Additional SQL Managed Instance PowerShell script samples can be found in the [Azure SQL Managed Instance PowerShell scripts](../sql-database-powershell-samples.md).

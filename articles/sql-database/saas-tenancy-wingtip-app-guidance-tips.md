@@ -4,12 +4,12 @@ description: "Provides steps and guidance for installing and running the sample 
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
-author: MightyPen
-ms.author: genemi
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: 
 ms.date: 12/18/2018
 ---
 # General guidance for working with Wingtip Tickets sample SaaS apps
@@ -70,7 +70,7 @@ Tips for exploring and stepping through PowerShell scripts:
 
 Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect and browse the application servers and databases.
 
-The deployment initially has tenants and catalog SQL Database servers to connect to. The naming of the servers depends on the database tenancy pattern (see below for specifics).
+The deployment initially has tenants and catalog SQL Database logical servers to connect to. The naming of the servers depends on the database tenancy pattern (see below for specifics).
 
    - **Standalone application:** servers for each tenant (ex. *contosoconcerthall-&lt;User&gt;* server) and *catalog-sa-&lt;User&gt;*
    - **Database per tenant:** *tenants1-dpt-&lt;User&gt;*  and *catalog-dpt-&lt;User&gt;* servers

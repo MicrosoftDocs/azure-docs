@@ -4,7 +4,7 @@ description: Learn how to provision and catalog new tenants in an Azure SQL Data
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
 author: stevestein

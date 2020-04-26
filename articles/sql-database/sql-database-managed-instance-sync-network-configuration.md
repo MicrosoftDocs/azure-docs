@@ -1,10 +1,11 @@
 ---
-title: Azure App Service - sync network configuration 
-description: This article discusses how to sync your network configuration for Azure App Service hosting plan.
+title: Sync network configuration for Azure App Service 
+titleSuffix: Azure SQL Managed Instance 
+description: This article discusses how to sync your network configuration for Azure App Service hosting plan with your Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: srdan-bozovic-msft
@@ -12,11 +13,11 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 12/13/2018
 ---
-# Sync networking configuration for Azure App Service hosting plan
+# Sync networking configuration for Azure App Service hosting plan with Azure SQL Managed Instance
 
-It might happen that although you [integrated your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md), you can't establish connection to Managed Instance. One thing you can try is to refresh networking configuration for your service plan.
+It might happen that although you [integrated your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md), you can't establish a connection to SQL Managed Instance. Refreshing, or synchronizing, the networking configuration for your service plan can resolve this issue. 
 
-## Sync network configuration for App Service hosting plan
+## Sync network configuration 
 
 To do that, follow these steps:  
 
@@ -24,7 +25,7 @@ To do that, follow these steps:
 
    ![app service plan](./media/sql-database-managed-instance-sync-networking/app-service-plan.png)
 
-2. Click **Networking** and then click **Click here to Manage**.
+2. Select **Networking** and then select **Click here to Manage**.
 
    ![manage service plan](./media/sql-database-managed-instance-sync-networking/manage-plan.png)
 
@@ -36,8 +37,8 @@ To do that, follow these steps:
   
    ![sync done](./media/sql-database-managed-instance-sync-networking/sync-done.png)
 
-You are now ready to try to re-establish your connection to your Managed Instance.
+You are now ready to try to re-establish your connection to your SQL Managed Instance.
 
 ## Next steps
 
-- For information about configuring your VNet for Managed Instance, see [Managed Instance VNet architecture](sql-database-managed-instance-connectivity-architecture.md) and [How to configure existing VNet](sql-database-managed-instance-configure-vnet-subnet.md).
+- For information about configuring your VNet for SQL Managed Instance, see [SQL Managed Instance VNet architecture](sql-database-managed-instance-connectivity-architecture.md) and [How to configure existing VNet](sql-database-managed-instance-configure-vnet-subnet.md).

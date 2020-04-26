@@ -120,7 +120,7 @@ Get-AzVirtualNetworkPeering `
 
 ```
 
-Once VPN peering is established, test connectivity by launching SQL Server Management Studio (SSMS) on your SQL Server and connecting to both managed instances. For more information on connecting to a managed instance using SSMS, see [Use SSMS to connect to the MI](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance). 
+Once VPN peering is established, test connectivity by launching SQL Server Management Studio (SSMS) on your SQL Server and connecting to both managed instances. For more information on connecting to a managed instance using SSMS, see [Use SSMS to connect to the MI](sql-database-managed-instance-configure-p2s.md#connect-with-ssms). 
 
 ![Test connectivity to the managed instances](media/sql-database-managed-instance-configure-replication-tutorial/test-connectivity-to-mi.png)
 
@@ -394,7 +394,7 @@ While it's possible that this error message is accurate, and there really aren't
 
 ### Enable security features
 
-See the following [managed instance capabilities security features](sql-database-managed-instance.md#azure-sql-database-security-features) article for a comprehensive list of ways to secure your database. The following security features are discussed:
+See the following [managed instance capabilities security features](sql-database-managed-instance.md#security-features) article for a comprehensive list of ways to secure your database. The following security features are discussed:
 
 - [Managed instance auditing](sql-database-managed-instance-auditing.md) 
 - [Always encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)

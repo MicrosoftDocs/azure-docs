@@ -4,12 +4,12 @@ description: "Cross-tenant analytics queries using data extracted from Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: anumjs
-ms.author: anjangsh
-ms.reviewer: MightyPen, sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: 
 ms.date: 12/18/2018
 ---
 # Explore SaaS analytics with Azure SQL Database, SQL Data Warehouse, Data Factory, and Power BI
@@ -37,7 +37,7 @@ SaaS applications hold a potentially vast amount of tenant data in the cloud. Th
 
 Accessing the data for all tenants is simple when all the data is in just one multi-tenant database. But access is more complex when distributed at scale across thousands of databases. One way to tame the complexity is to extract the data to an analytics database or a data warehouse for query.
 
-This tutorial presents an end-to-end analytics scenario for the Wingtip Tickets application. First, [Azure Data Factory (ADF)](../data-factory/introduction.md) is used as the orchestration tool to extract tickets sales and related data from each tenant database. This data is loaded into staging tables in an analytics store. The analytics store could either be an SQL Database or a SQL Data Warehouse. This tutorial uses [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) as the analytics store.
+This tutorial presents an end-to-end analytics scenario for the Wingtip Tickets application. First, [Azure Data Factory (ADF)](../data-factory/introduction.md) is used as the orchestration tool to extract tickets sales and related data from each tenant database. This data is loaded into staging tables in an analytics store. The analytics store could either be a SQL Database or a SQL Data Warehouse. This tutorial uses [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) as the analytics store.
 
 Next, the extracted data is transformed and loaded into a set of [star-schema](https://www.wikipedia.org/wiki/Star_schema) tables. The tables consist of a central fact table plus related dimension tables:
 
@@ -89,7 +89,7 @@ Now review the Azure resources you deployed:
 #### Tenant databases and analytics store
 Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect to **tenants1-dpt-&lt;user&gt;** and **catalog-dpt-&lt;user&gt;** servers. Replace &lt;user&gt; with the value used when you deployed the app. Use Login = *developer* and Password = *P\@ssword1*. See the [introductory tutorial](saas-dbpertenant-wingtip-app-overview.md) for more guidance.
 
-![Connect to SQL Database server from SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
+![Connect to SQL Database logical server from SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
 In the Object Explorer:
 

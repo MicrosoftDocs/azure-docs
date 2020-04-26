@@ -5,7 +5,7 @@ keywords: connect to sql database,query sql database, azure portal, portal, quer
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom:
+ms.custom: sqldbrb=1
 ms.devlang:
 ms.topic: quickstart
 author: Ninarn
@@ -13,18 +13,18 @@ ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 03/12/2020
 ---
-# Quickstart: Use the Azure portal's query editor to query a SQL database
+# Quickstart: Use the Azure portal's query editor to query a SQL Database
 
-The query editor is a tool in the Azure portal for running SQL queries against your Azure SQL database or Azure SQL Data Warehouse. 
+The query editor is a tool in the Azure portal for running SQL queries against your Azure SQL Database or Azure SQL Data Warehouse. 
 
-In this quickstart, you'll use the query editor to run Transact-SQL (T-SQL) queries against an Azure SQL database.
+In this quickstart, you'll use the query editor to run Transact-SQL (T-SQL) queries against an Azure SQL Database.
 
 
 ## Prerequisites
 
-Completing this quickstart requires the AdventureWorksLT sample database. If you don't have a working copy of the AdventureWorksLT SQL database, the following quickstart quickly creates one:
+Completing this quickstart requires the AdventureWorksLT sample database. If you don't have a working copy of the AdventureWorksLT SQL Database, the following quickstart quickly creates one:
 
-- [Quickstart: Create a single Azure SQL database using the Azure portal, PowerShell, or Azure CLI](sql-database-single-database-get-started.md) 
+- [Quickstart: Create an Azure SQL Database using the Azure portal, PowerShell, or Azure CLI](sql-database-single-database-get-started.md) 
 
 ### Configure network settings
 
@@ -36,16 +36,16 @@ If you get one of the following errors in the query editor: *Your local network 
 
 ## Open the SQL Database Query Editor
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) and select the SQL database you want to query.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and select the SQL Database you want to query.
 
-2. In the **SQL database** menu, select **Query editor (preview)**.
+2. In the **SQL Database** menu, select **Query editor (preview)**.
 
     ![find query editor](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
 
 ## Establish a connection to the database
 
-Even though you're signed into the portal, you still need to provide credentials to access the SQL database. You can connect using SQL authentication or Azure Active Directory to connect to your database.
+Even though you're signed into the portal, you still need to provide credentials to access the SQL Database. You can connect using SQL authentication or Azure Active Directory to connect to your database.
 
 ### Connect using SQL Authentication
 
@@ -58,7 +58,7 @@ Even though you're signed into the portal, you still need to provide credentials
 
 ### Connect using Azure Active Directory
 
-Configuring an Azure Active Directory (Azure AD) administrator enables you to use a single identity to sign in to the Azure portal and your SQL database. To connect to your database using Azure AD, follow the steps below to configure an Azure AD admin for your SQL server.
+Configuring an Azure Active Directory (Azure AD) administrator enables you to use a single identity to sign in to the Azure portal and your SQL Database. To connect to your database using Azure AD, follow the steps below to configure an Azure AD admin for your SQL server.
 
 > [!NOTE]
 > * Email accounts (for example, outlook.com, gmail.com, yahoo.com, and so on) aren't yet supported as Azure AD admins. Make sure to choose a user created either natively in the Azure AD, or federated into the Azure AD.
@@ -80,11 +80,11 @@ Configuring an Azure Active Directory (Azure AD) administrator enables you to us
 
 ### Connect to the database
 
-6. In the **SQL server** menu, select **SQL databases**, and then select your SQL database.
+6. In the **SQL server** menu, select **SQL databases**, and then select your SQL Database.
 
-7. In the **SQL database** menu, select **Query editor (preview)**. In the **Login** page, under the **Active Directory authentication** label, a message appears saying you have been signed in if you're an Azure AD admin. Then select the **Continue as** *\<your user or group ID>* button. If the page indicates that you have not successfully logged in, you may need to refresh the page.
+7. In the **SQL Database** menu, select **Query editor (preview)**. In the **Login** page, under the **Active Directory authentication** label, a message appears saying you have been signed in if you're an Azure AD admin. Then select the **Continue as** *\<your user or group ID>* button. If the page indicates that you have not successfully logged in, you may need to refresh the page.
 
-## Query a SQL database
+## Query a SQL Database
 
 The following example queries should run successfully against the AdventureWorksLT sample database.
 

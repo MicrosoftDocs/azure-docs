@@ -2,11 +2,11 @@
 title: Run PowerShell scripts in a Windows VM in Azure
 description: This topic describes how to run PowerShell scripts within an Azure Windows virtual machine by using the Run Command feature
 services: automation
-ms.service: automation
+ms.service: virtual-machines
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
-ms.topic: article
+ms.topic: how-to
 manager: carmonm
 ---
 # Run PowerShell scripts in your Windows VM by using Run Command

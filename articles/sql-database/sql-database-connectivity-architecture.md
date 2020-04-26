@@ -4,8 +4,8 @@ description: This document explains the Azure SQL connectivity architecture for 
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: fasttrack-edit
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+ms.custom: fasttrack-edit, sqldbrb=1 
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.devlang: 
 ms.topic: conceptual
 author: rohitnayakmsft
@@ -13,14 +13,15 @@ ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
 ---
-# Azure SQL Connectivity Architecture
+# Azure SQL connectivity architecture
+
 > [!NOTE]
-> This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
+> This article applies to Azure SQL server, and to both SQL Database and Azure Synapse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and Azure Synapse Analytics.
 
 > [!IMPORTANT]
-> This article does *not* apply to **Azure SQL Database Managed Instance**. Refer to [Connectivity architecture for a managed instance](sql-database-managed-instance-connectivity-architecture.md).
+> This article does *not* apply to **Azure SQL Managed Instance**. Refer to [Connectivity architecture for a managed instance](sql-database-managed-instance-connectivity-architecture.md).
 
-This article explains architecture of various components that direct network traffic to the Azure SQL Database or SQL Data Warehouse. It also explains different connection policies and how it impacts clients connecting from within Azure and clients connecting from outside of Azure. 
+This article explains architecture of various components that direct network traffic to the Azure SQL Database or Azure Synapse. It also explains different connection policies and how it impacts clients connecting from within Azure and clients connecting from outside of Azure. 
 
 ## Connectivity architecture
 
@@ -61,7 +62,7 @@ If you are connecting from outside Azure, your connections have a connection pol
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Additionally open ports 14000-14999 to enable [Connecting with DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+> Additionally open TCP ports 1434 and 14000-14999 to enable [Connecting with DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
 
 
 ## Azure SQL Database gateway IP addresses

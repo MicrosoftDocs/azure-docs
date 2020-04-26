@@ -256,8 +256,8 @@
       href: search-query-troubleshoot-collection-filters.md
     - name: Understand collection filters
       href: search-query-understand-collection-filters.md
-    - name: Example of multi-level facets
-      href: search-example-adventureworks-multilevel-faceting.md
+    - name: Filter by language
+      href: search-filters-language.md
   - name: Results
     items:
     - name: Work with results
@@ -455,10 +455,6 @@
       href: https://wolterskluwereap.azurewebsites.net/
     - name: JFK files demo
       href: https://aka.ms/jfkfiles
-    - name: NYC Jobs demo
-      href: https://aka.ms/azjobsdemo
-    - name: Search use cases
-      href: https://searchsamples.azurewebsites.net/
   - name: Training
     items:
     - name: Introduction (Microsoft Learn)

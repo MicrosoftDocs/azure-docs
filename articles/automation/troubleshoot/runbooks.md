@@ -179,7 +179,7 @@ This error is caused by using both AzureRM and Az module cmdlets in a runbook. I
 
 ### Resolution
 
-Az and AzureRM cmdlets can't be imported and used in the same runbook. To learn more about Az cmdlets in Azure Automation, see [Az module support in Azure Automation](../az-modules.md).
+Az and AzureRM cmdlets can't be imported and used in the same runbook. To learn more about Az cmdlets in Azure Automation, see [Manage modules in Azure Automation](../shared-resources/modules.md).
 
 ## <a name="task-was-cancelled"></a>Scenario: The runbook fails with the error: A task was canceled
 
@@ -362,6 +362,20 @@ To determine what's wrong, take the following steps:
        Start-Sleep -Seconds 30
    }
    ```
+
+## <a name="object-reference-not-set"></a>Scenario: Incorrect object reference on call to Add-AzAccount
+
+### Issue
+
+You receive this error when working with `Add-AzAccount`, which is an alias for the `Connect-AzAccount` cmdlet:
+
+```error
+Add-AzAccount : Object reference not set to an instance of an object
+```
+
+### Cause
+
+This error can occur if the runbook doesn't do the proper steps before calling `Add-AzAccount` to add the Automation account. An example of one of the necessary steps is signing in with a Run As account. For the correct operations to use in your runbook, see [Runbook execution in Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution).
 
 ## <a name="child-runbook-object"></a>Scenario: Object reference not set to an instance of an object
 
@@ -604,6 +618,33 @@ If your script parses cmdlet output, the script must store the output in a varia
 $SomeVariable = add-pnplistitem ....
 if ($SomeVariable.someproperty -eq ....
 ```
+
+## Scenario: Invalid status code "Forbidden" when using Key Vault inside a runbook
+
+### Issue
+
+When trying to access Key Vault through an Azure Automation runbook, you get the following error:
+
+```error
+Operation returned an invalid status code 'Forbidden' 
+```
+
+### Cause
+
+Possible causes for this issue:
+
+* Not using a Run As account.
+* Insufficient permissions.
+
+### Resolution
+
+#### Not using Run As account
+
+Follow steps at [Step 5 - Add authentication to manage Azure resources](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) to ensure that you are using a Run As account to access Key Vault. 
+
+#### Insufficient permissions
+
+Follow steps at [Add permissions to Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault. 
 
 ## <a name="other"></a>My problem isn't listed above
 

@@ -178,7 +178,7 @@ To enable provisioning a Cosmos DB instance in your subscription with customer-m
         > [!NOTE]
         > This key vault instance can be different than the key vault that is created by Azure Machine Learning when you provision the workspace. If you want to use the same key vault instance for the workspace, pass the same key vault while provisioning the workspace by using the [key_vault parameter](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-This Cosmos DB instance is created in a Microsoft-managed resource group in your subscription. 
+This Cosmos DB instance is created in a Microsoft-managed resource group in your subscription. The managed resource group is named in the format <AML Workspace Resource Group Name><GUID>
 
 > [!IMPORTANT]
 > * If you need to delete this Cosmos DB instance, you must delete the Azure Machine Learning workspace that uses it. 

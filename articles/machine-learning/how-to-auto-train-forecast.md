@@ -31,13 +31,13 @@ You can [configure](#config) how far into the future the forecast should extend 
 
 Features extracted from the training data play a critical role. And, automated ML performs standard pre-processing steps and generates additional time-series features to capture seasonal effects and maximize predictive accuracy.
 
-## Time-series and Deep Learning models
+## Time-series and deep learning models
 
 
 Automated ML provides users with both native time-series and deep learning models as part of the recommendation system. These learners include:
-+ Prophet
-+ Auto-ARIMA
-+ ForecastTCN
++ Prophet (Preview)
++ Auto-ARIMA (Preview)
++ ForecastTCN (Preview)
 
 Automated ML's deep learning allows for forecasting univariate and multivariate time series data.
 
@@ -46,7 +46,7 @@ Deep learning models have three intrinsic capabilities:
 1. They support multiple inputs and outputs
 1. They can automatically extract patterns in input data that spans over long sequences
 
-Given larger data, deep learning models, such as Microsoft's ForecastTCN, can improve the scores of the resulting model. 
+Given larger data, deep learning models, such as Microsoft's ForecastTCN, can improve the scores of the resulting model. Learn how to [configure your experiment for deep learning](#configure-a-dnn-enable-forecasting-experiment).
 
 Native time series learners are also provided as part of automated ML. Prophet works best with time series that have strong seasonal effects and several seasons of historical data. Prophet is accurate & fast, robust to outliers, missing data, and dramatic changes in your time series. 
 
@@ -184,6 +184,17 @@ See the [forecasting sample notebooks](https://github.com/Azure/MachineLearningN
 > DNN support for forecasting in Automated Machine Learning is in Preview and not supported for local runs.
 
 In order to leverage DNNs for forecasting, you will need to set the `enable_dnn` parameter in the AutoMLConfig to true. 
+
+```python
+automl_config = AutoMLConfig(task='forecasting',
+                             enable_dnn=True,
+                             ...
+                             **time_series_settings)
+```
+Learn more about [the AutoMLConfig](#configure-and-run-experiment).
+
+Alternatively, you can select the `Enable deep learning` option in the studio.
+![alt text](./media/how-to-auto-train-forecast/enable_dnn.png)
 
 We recommend using an AML Compute cluster with GPU SKUs and at least two nodes as the compute target. To allow sufficient time for the DNN training to complete, we recommend setting the experiment timeout to a minimum of a couple of hours.
 For more information on AML compute and VM sizes that include GPU's, see the [AML Compute documentation](how-to-set-up-training-targets.md#amlcompute) and [GPU optimized virtual machine sizes documentation](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).

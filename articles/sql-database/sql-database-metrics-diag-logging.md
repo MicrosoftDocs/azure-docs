@@ -1,11 +1,11 @@
 ---
 title: Configure streaming export of metrics and resource logs
-description: Learn how to configure streaming export of metrics and resource logs, including intelligent diagnostic analysis from Azure SQL Database to the destination of your choice to store information about resource utilization and query execution statistics.
+description: Learn how to configure streaming export of metrics and resource logs, including intelligent diagnostic analysis from Azure SQL Database and Azure SQL Managed Instance to the destination of your choice to store information about resource utilization and query execution statistics.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
 ms.custom: seoapril2019
-ms.devlang: 
+ms.devlang: sqldbrb=2
 ms.topic: conceptual
 author: danimir
 ms.author: danil
@@ -13,7 +13,7 @@ ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
 ---
 
-# Configure streaming export of Azure SQL Database diagnostic telemetry
+# Configure streaming export of Azure SQL Database and Azure SQL Managed Instance diagnostic telemetry
 
 In this article, you will learn about the performance metrics and resource logs for Azure SQL Database that you can export to one of several destinations for analysis. You will learn how to configure the streaming export of this diagnostic telemetry through the Azure portal, PowerShell, Azure CLI, the REST API, and Azure Resource Manager templates.
 
@@ -23,13 +23,13 @@ You will also learn about the destinations to which you can stream this diagnost
 - [Event Hubs](#stream-into-event-hubs)
 - [Azure Storage](#stream-into-azure-storage)
 
-## Diagnostic telemetry for export for Azure SQL Database
+## Diagnostic telemetry for export
 
 Most important among the diagnostic telemetry that you can export is the Intelligent Insights (SQLInsights) log. [Intelligent Insights](sql-database-intelligent-insights.md) uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Once detected, a detailed analysis is performed that generates a Intelligent Insights log with an intelligent assessment of the issue. This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements. You need to configure the streaming export of this log to view its contents.
 
-In addition to streaming the export of the Intelligent Insights log, you can also export a variety of performance metrics and additional SQL Database logs. The following table describes the performance metrics and resources logs that you can configure for streaming export to one of several destinations. This diagnostic telemetry can be configured for single databases, elastic pools and pooled databases, and managed instances and instance databases.
+In addition to streaming the export of the Intelligent Insights log, you can also export a variety of performance metrics and additional database logs. The following table describes the performance metrics and resources logs that you can configure for streaming export to one of several destinations. This diagnostic telemetry can be configured for single databases, elastic pools and pooled databases, and managed instances and instance databases.
 
-| Diagnostic telemetry for databases | Single database and pooled database support | Managed instance database support |
+| Diagnostic telemetry for databases | Azure SQL Database support | Azure SQL Managed Instance support |
 | :------------------- | ----- | ----- |
 | [Basic metrics](#basic-metrics): Contains DTU/CPU percentage, DTU/CPU limit, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, and XTP storage percentage. | Yes | No |
 | [Instance and App Advanced](#advanced-metrics): Contains tempdb system database data and log file size and tempdb percent log file used. | Yes | No |
@@ -92,7 +92,7 @@ Select one of the following tabs for step-by-step guidance for configuring the s
 
 # [Azure portal](#tab/azure-portal)
 
-### Elastic pools
+### Elastic pools in Azure SQL Database
 
 You can set up an elastic pool resource to collect the following diagnostic telemetry:
 
@@ -127,7 +127,7 @@ To enable streaming of diagnostic telemetry for an elastic pool resource, follow
 > [!IMPORTANT]
 > In addition to configuring diagnostic telemetry for an elastic pool, you also need to configure diagnostic telemetry for each database in the elastic pool.
 
-### Single or pooled database
+### Single and pooled databases in Azure SQL Database
 
 You can set up a single or pooled database resource to collect the following diagnostic telemetry:
 
@@ -156,7 +156,7 @@ To enable streaming of diagnostic telemetry for a single or a pooled database, f
 > [!TIP]
 > Repeat these steps for each single and pooled database you want to monitor.
 
-### Managed instance
+### Instances in Azure SQL Database Managed Instance
 
 You can set up a managed instance resource to collect the following diagnostic telemetry:
 
@@ -192,7 +192,7 @@ To enable streaming of diagnostic telemetry for a managed instance resource, fol
 > [!IMPORTANT]
 > In addition to configuring diagnostic telemetry for a managed instance, you also need to configure diagnostic telemetry for each instance database.
 
-### Instance database
+### Databases in Azure SQL Database Managed Instance
 
 You can set up an instance database resource to collect the following diagnostic telemetry:
 
@@ -225,7 +225,7 @@ To enable streaming of diagnostic telemetry for an instance database, follow the
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> The PowerShell Azure Resource Manager module is still supported Azure, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 You can enable metrics and diagnostics logging by using PowerShell.
 
@@ -317,13 +317,13 @@ You can combine these parameters to enable multiple output options.
 
 ## Stream into SQL Analytics
 
-SQL Database metrics and resource logs that are streamed into a Log Analytics workspace can be consumed by Azure SQL Analytics. Azure SQL Analytics is a cloud solution that monitors the performance of single databases, elastic pools and pooled databases, and managed instances and instance databases at scale and across multiple subscriptions. It can help you collect and visualize Azure SQL Database performance metrics, and it has built-in intelligence for performance troubleshooting.
+Azure SQL Database and Azure SQL Managed Instance metrics and resource logs that are streamed into a Log Analytics workspace can be consumed by Azure SQL Analytics. Azure SQL Analytics is a cloud solution that monitors the performance of single databases, elastic pools and pooled databases, and managed instances and instance databases at scale and across multiple subscriptions. It can help you collect and visualize performance metrics, and it has built-in intelligence for performance troubleshooting.
 
 ![Azure SQL Analytics Overview](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
 ### Installation overview
 
-You can monitor a collection of Azure SQL databases with Azure SQL Analytics by performing the following steps:
+You can monitor a collection of databases and database collections with Azure SQL Analytics by performing the following steps:
 
 1. Create an Azure SQL Analytics solution from the Azure Marketplace.
 2. Create a Log Analytics workspace in the solution.
@@ -351,14 +351,14 @@ You need to separately configure diagnostic telemetry streaming for single and p
 
 ### Use Azure SQL Analytics for monitoring and alerting
 
-You can use SQL Analytics as a hierarchical dashboard to view your SQL database resources.
+You can use SQL Analytics as a hierarchical dashboard to view your database resources.
 
-- To learn how to use Azure SQL Analytics, see [Monitor SQL Database by using SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
+- To learn how to use Azure SQL Analytics, see [Monitor by using SQL Analytics](../azure-monitor/insights/azure-sql.md).
 - To learn how to set up alerts for in SQL Analytics, see [Creating alerts for database, elastic pools, and managed instances](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts).
 
 ## Stream into Event Hubs
 
-You can stream SQL Database metrics and resource logs into Event Hubs by using the built-in **Stream to an event hub** option in the Azure portal. You also can enable the Service Bus rule ID by using diagnostics settings via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API. Be sure that the event hub is in the same region as your database and server.
+You can stream Azure SQL Database and Azure SQL Managed Instance metrics and resource logs into Event Hubs by using the built-in **Stream to an event hub** option in the Azure portal. You also can enable the Service Bus rule ID by using diagnostics settings via PowerShell cmdlets, the Azure CLI, or the Azure Monitor REST API. Be sure that the event hub is in the same region as your database and server.
 
 ### What to do with metrics and resource logs in Event Hubs
 
@@ -455,13 +455,13 @@ Refer to the following table for details about advanced metrics.
 |tempdb_log_size<sup>2</sup>| Tempdb Log File Size Kilobytes |Tempdb Log File Size Kilobytes.|
 |tempdb_log_used_percent<sup>2</sup>| Tempdb Percent Log Used |Tempdb Percent Log Used.|
 
-<sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. 
+<sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models.
 
 <sup>2</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases or data warehouses.
 
 ### Basic logs
 
-Details of telemetry available for all logs are documented in the following tables. See [supported diagnostic telemetry](#diagnostic-telemetry-for-export-for-azure-sql-database) to understand which logs are supported for a particular database flavor - Azure SQL single, pooled, or instance database.
+Details of telemetry available for all logs are documented in the following tables. See [supported diagnostic telemetry](#diagnostic-telemetry-for-export) to understand which logs are supported for a particular database flavor - Azure SQL single, pooled, or instance database.
 
 #### Resource usage stats for managed instances
 
@@ -751,4 +751,4 @@ To learn about Event Hubs, read:
 
 To learn how to set up alerts based on telemetry from log analytics see:
 
-- [Creating alerts for SQL Database and managed instance](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts)
+- [Creating alerts for Azure SQL Database and Azure SQL Managed Instance](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts)

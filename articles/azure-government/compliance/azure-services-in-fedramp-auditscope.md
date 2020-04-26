@@ -132,7 +132,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Microsoft Graph](https://developer.microsoft.com/en-us/graph)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Microsoft Managed Desktop](https://www.microsoft.com/en-us/microsoft-365/modern-desktop/enterprise/microsoft-managed-desktop) | |  |  | :heavy_check_mark: |
+| [Microsoft Managed Desktop](https://www.microsoft.com/en-us/microsoft-365/modern-desktop/enterprise/microsoft-managed-desktop) | |  |  | |
 | [Microsoft PowerApps](https://docs.microsoft.com/powerapps/powerapps-overview) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Microsoft Stream](https://docs.microsoft.com/stream/overview) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |

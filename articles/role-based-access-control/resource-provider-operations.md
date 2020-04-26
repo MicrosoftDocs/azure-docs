@@ -6666,8 +6666,6 @@ Azure service: [Virtual Network](../virtual-network/index.yml), [Load Balancer](
 > | Action | Microsoft.Network/privateEndpoints/read | Gets an private endpoint resource. |
 > | Action | Microsoft.Network/privateEndpoints/write | Creates a new private endpoint, or updates an existing private endpoint. |
 > | Action | Microsoft.Network/privateEndpoints/delete | Deletes an private endpoint resource. |
-> |  | **privateEndpoints/privateDnsZoneConfigs** |  |
-> | Action | Microsoft.Network/privateEndpoints/privateDnsZoneConfigs/write | Puts a Private DNS Zone Config |
 > |  | **privateLinkServices** |  |
 > | Action | Microsoft.Network/privateLinkServices/read | Gets an private link service resource. |
 > | Action | Microsoft.Network/privateLinkServices/write | Creates a new private link service, or updates an existing private link service. |

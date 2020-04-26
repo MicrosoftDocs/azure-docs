@@ -219,6 +219,9 @@ To learn more about creating offer listings, see [Offer listing best practices](
 
 Provide logos and images to use with your offer. All images must be in .png format. Blurry images will be rejected.
 
+>[!Note]
+>If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
+
 #### Store logos
 
 Provide .png files of your offer's logo in each of the following four pixel sizes:
