@@ -1,14 +1,14 @@
 ---
-title: How to stop monitoring your Azure Red Hat OpenShift cluster | Microsoft Docs
+title: How to stop monitoring your Azure Red Hat OpenShift v3 cluster | Microsoft Docs
 description: This article describes how you can stop monitoring of your Azure Red Hat OpenShift cluster with Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 04/24/2020
 
 ---
 
-# How to stop monitoring your Azure Red Hat OpenShift cluster with Azure Monitor for containers
+# How to stop monitoring your Azure Red Hat OpenShift v3 cluster
 
-After you enable monitoring of your Azure Red Hat OpenShift cluster, you can stop monitoring the cluster if you decide you no longer want to monitor it. This article shows how to accomplish this using the provided Azure Resource Manager templates.  
+After you enable monitoring of your Azure Red Hat OpenShift version 3.x cluster, you can stop monitoring the cluster with Azure Monitor for containers if you decide you no longer want to monitor it. This article shows how to accomplish this using the Azure Resource Manager template provided.  
 
 ## Azure Resource Manager template
 
