@@ -112,7 +112,7 @@
         displayName: request units, RUs, RU
         href: scaling-throughput.md
       - name: Conflict types and resolution policies
-        displayName: last write wins, custom
+        displayName: last write wins, custom, multi master, multi-master
         href: conflict-resolution-policies.md
       - name: Global distribution - under the hood
         href: global-dist-under-the-hood.md
@@ -518,6 +518,7 @@
         - name: Total Cost of Ownership (TCO)
           href: total-cost-ownership.md
         - name: Understand your bill
+          displayName: free tier
           href: understand-your-bill.md
         - name: Optimize provisioned throughput cost
           displayName: request units, RUs, RU
@@ -531,6 +532,7 @@
         - name: Optimize multi-region cost
           href: optimize-cost-regions.md
         - name: Optimize development/testing cost
+          displayName: free tier
           href: optimize-dev-test.md
         - name: Optimize cost with reserved capacity
           href: cosmos-db-reserved-capacity.md
@@ -1180,8 +1182,8 @@
       href: https://azure.microsoft.com/try/cosmosdb/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cosmos-db/
-    - name: Multi-master benefits
-      href: multi-master-benefits.md
+    - name: Performance levels
+      href: performance-levels.md
     - name: Use cases
       items:
       - name: Common use cases

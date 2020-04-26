@@ -25,7 +25,7 @@ Authoring is the ability to create, manage and deploy a [LUIS app](#luis-app), e
 
 ## <a name="authoring-key"></a>Authoring Key
 
-Previously named "Programmatic" key. Used to author the app. Not used for production-level endpoint queries. For more information, see [Key limits](luis-boundaries.md#key-limits).
+Previously named "Programmatic" key. Used to author the app. Not used for production-level endpoint queries. For more information, see [Key limits](luis-limits.md#key-limits).
 
 ## <a name="batch-test-json-file"></a>Batch test JSON file
 
@@ -46,7 +46,7 @@ A contributor is the same thing as a [collaborator](#collaborator).
 
 ## <a name="descriptor"></a>Descriptor
 
-A descriptor is a [feature](#features) applied to a model at training time, including [phrase lists](#phrase-list) and [entities](#entity). 
+A descriptor is a [feature](#features) applied to a model at training time, including [phrase lists](#phrase-list) and [entities](#entity).
 
 ## <a name="domain"></a>Domain
 
@@ -116,7 +116,7 @@ Renamed to [authoring key](#authoring-key).
 
 ## <a name="publish"></a>Publish
 
-Publishing means making a LUIS active version available on either the staging or production [endpoint](#endpoint).  
+Publishing means making a LUIS active version available on either the staging or production [endpoint](#endpoint).
 
 ## <a name="quota"></a>Quota
 

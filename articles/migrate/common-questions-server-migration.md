@@ -60,7 +60,7 @@ No. Azure Availability Zones aren't supported for Azure Migrate migration.
 
 ## What transport protocol does Azure Migrate use during replication?
 
-Azure Migrate uses the Network Block Device (NBD) protocol with SSL encryption.
+Azure Migrate uses the Network Block Device (NBD) protocol with TLS encryption.
 
 ## What is the minimum vCenter Server version required for migration?
 

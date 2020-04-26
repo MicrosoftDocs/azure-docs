@@ -1,22 +1,13 @@
 ---
 title: Create shared VM images with Azure PowerShell 
 description: Learn how to use Azure PowerShell to create a shared virtual machine image in Azure
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-windows
-
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.subservice: imaging
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
-ms.custom: 
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---

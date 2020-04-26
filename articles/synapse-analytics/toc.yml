@@ -20,8 +20,8 @@
     href: quickstart-synapse-studio.md
   - name: Create pools
     items:
-    - name: Create Apache Spark pool using web tools
-      href: ./spark/apache-spark-notebook-create-spark-use-sql.md
+    - name: Create Apache Spark notebook using web tools
+      href: quickstart-apache-spark-notebook.md
     - name: Create Apache Spark pool using Azure portal
       href: quickstart-create-apache-spark-pool.md
     - name: Create SQL pool
@@ -322,8 +322,8 @@
       href: troubleshoot/troubleshoot-synapse-studio.md
     - name: Troubleshoot Synapse Analytics Studio with PowerShell
       href: troubleshoot/troubleshoot-synapse-studio-powershell.md
-    - name: Integrate with Power BI
-      items:
+    # - name: Integrate with Power BI
+    #   items:
 - name: How to
   items:
   - name: Secure
