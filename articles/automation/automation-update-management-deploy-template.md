@@ -62,7 +62,7 @@ The following parameters in the template are set with a default value for the Lo
 
 The JSON template specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
-It is important to understand the following configuration details if you are new to Azure Automation and Azure Monitor Log Analytics workspace, in order to avoid errors when attempting to create, configure, and use a Log Analytics workspace linked to your new Automation account.
+It is important to understand the following configuration details if you are new to Azure Automation and Azure Monitor, in order to avoid errors when attempting to create, configure, and use a Log Analytics workspace linked to your new Automation account.
 
 * Review [Additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
 
