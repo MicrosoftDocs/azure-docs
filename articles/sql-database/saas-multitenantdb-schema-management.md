@@ -4,15 +4,15 @@ description: "Manage Schema for multiple tenants in a multi-tenant application t
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: MightyPen
-ms.author: genemi
-ms.reviewer: billgib, sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: 
 ms.date: 12/18/2018
 ---
-# Manage schema in a SaaS application that uses sharded multi-tenant SQL databases
+# Manage schema in a SaaS application that uses sharded multi-tenant databases
 
 This tutorial examines the challenges in maintaining a fleet of databases in a Software as a Service (SaaS) application. Solutions are demonstrated for fanning out schema changes across the fleet of databases.
 

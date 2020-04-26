@@ -1,15 +1,15 @@
 ---
 title: Restore a database in a multitenant SaaS app
-description: Learn how to restore a single tenant's SQL database after accidentally deleting data
+description: Learn how to restore a single tenant's Azure SQL Database after accidentally deleting data
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: billgib
+ms.reviewer: 
 ms.date: 12/04/2018
 ---
 # Restore a single tenant with a database-per-tenant SaaS application

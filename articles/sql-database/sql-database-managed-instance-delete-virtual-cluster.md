@@ -1,9 +1,9 @@
 ---
-title: Delete a subnet after deleting a managed instance
-description: Learn how to delete an Azure virtual network after deleting an Azure SQL Database managed instance. 
+title: Delete a subnet after deleting an Azure SQL Managed Instance
+description: Learn how to delete an Azure virtual network after deleting an Azure SQL Managed Instance. 
 services: sql-database
 ms.service: sql-database
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: danimir
@@ -11,9 +11,9 @@ ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 ms.date: 06/26/2019
 ---
-# Delete a subnet after deleting an Azure SQL Database managed instance
+# Delete a subnet after deleting an Azure SQL Managed Instance
 
-This article provides guidelines on how to manually delete a subnet after deleting the last Azure SQL Database managed instance residing in it.
+This article provides guidelines on how to manually delete a subnet after deleting the last Azure SQL Managed Instance residing in it.
 
 Managed instances are deployed into [virtual clusters](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture). Each virtual cluster is associated with a subnet. The virtual cluster persists by design for 12 hours after the last instance deletion to enable you to more quickly create managed instances in the same subnet. There's no charge for keeping an empty virtual cluster. During this period, the subnet associated with the virtual cluster can't be deleted.
 
@@ -47,5 +47,5 @@ To delete a virtual cluster through the API, use the URI parameters specified in
 - For an overview, see [What is a Managed Instance?](sql-database-managed-instance.md).
 - Learn about [connectivity architecture in Managed Instance](sql-database-managed-instance-connectivity-architecture.md).
 - Learn how to [modify an existing virtual network for Managed Instance](sql-database-managed-instance-configure-vnet-subnet.md).
-- For a tutorial that shows how to create a virtual network, create a Managed Instance, and restore a database from a database backup, see [Create an Azure SQL Database Managed Instance](sql-database-managed-instance-get-started.md).
+- For a tutorial that shows how to create a virtual network, create a Managed Instance, and restore a database from a database backup, see [Create an Azure SQL Managed Instance](sql-database-managed-instance-get-started.md).
 - For DNS issues, see [Configuring a custom DNS](sql-database-managed-instance-custom-dns.md).

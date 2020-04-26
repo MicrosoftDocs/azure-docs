@@ -9,6 +9,7 @@ ms.service: sql-database
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/08/2020
+ms.custom: sqldbrb=1
 ---
 
 # How to migrate your SQLite database to Azure SQL Database Serverless
