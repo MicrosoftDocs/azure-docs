@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 02/26/2020
+ms.date: 04/09/2020
 ---
 
 # What are the Apache Hadoop components and versions available with HDInsight?
@@ -28,7 +28,7 @@ The component versions associated with HDInsight cluster versions are listed in 
 | Apache Hadoop and YARN | 3.1.1         | 2.7.3                       |
 | Apache Tez             | 0.9.1         | 0.7.0                       |
 | Apache Pig             | 0.16.0        | 0.16.0                      |
-| Apache Hive            | 3.1.0         | 2.1.0 (Non-ESP clusters), 1.2.1 (ESP clusters)                |
+| Apache Hive            | 3.1.0         | 1.2.1 (2.1.0 on ESP Interactive Query) |
 | Apache Tez Hive2       | -             | 0.8.4                       |
 | Apache Ranger          | 1.1.0         | 0.7.0                       |
 | Apache HBase           | 2.0.2         | 1.1.2                       |
