@@ -4,7 +4,7 @@ description: Learn how to configure Hybrid Connections in Azure Relay to connect
 author: eamono
 
 ms.topic: conceptual
-ms.date: 9/5/2019
+ms.date: 04/26/2020
 ms.author: eamono
 # Customer intent: As solution architect, I want to be able to connect my function app in Azure to on-premises resources so I can remotely manage those resources by using PowerShell functions.
 ---
@@ -47,39 +47,57 @@ cmd.exe /C $Cmd
 
 The App Service Hybrid Connections feature is available only in Basic, Standard, and Isolated pricing plans. When you create the function app with PowerShell, create or select one of these plans.
 
-1. In the [Azure portal](https://portal.azure.com), select **+ Create a resource** in the menu on the left, and then select **Function app**.
+1. From the Azure portal menu or the **Home** page, select **Create a resource**.
 
-1. For **Hosting plan**, select **App Service plan**, and then select **App Service plan/Location**.
+1. In the **New** page, select **Compute** > **Function App**.
 
-1. Select **Create new**, type an **App Service plan** name, choose a **Location** in a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access, and then select **Pricing tier**.
+1. On the **Basics** page, use the function app settings as specified in the following table.
 
-1. Choose the S1 Standard plan, and then select **Apply**.
-
-1. Select **OK** to create the plan, and then configure the remaining **Function App** settings as specified in the table immediately after the following screenshot:
-
-    ![PowerShell Core function app](./media/functions-hybrid-powershell/create-function-powershell-app.png)  
-
-    | Setting      | Suggested value  | Description                                        |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z`, `0-9`, and `-`.  | 
+    | Setting      | Suggested value  | Description |
+    | ------------ | ---------------- | ----------- |
     | **Subscription** | Your subscription | The subscription under which this new function app is created. |
-    | **Resource Group** |  myResourceGroup | Name for the new resource group in which to create your function app. You can also use the suggested value. |
-    | **OS** | Preferred OS | Select Windows. |
+    | **[Resource Group](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which to create your function app. |
+    | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
+    |**Publish**| Code | Option to publish code files or a Docker container. |
     | **Runtime stack** | Preferred language | Choose PowerShell Core. |
-    | **Storage** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be from 3 to 24 characters in length and can contain numbers and lowercase letters only. You can also use an existing account.
-    | **Application Insights** | Default | Creates an Application Insights resource of the same *App name* in the nearest supported region. By expanding this setting, you can change the **New resource name** or choose a different **Location** in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) region where you want to store your data. |
+    |**Version**| Version number | Choose the version of your installed runtime.  |
+    |**Region**| Preferred region | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
 
-1. After your settings are validated, select **Create**.
+    :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-basics.png" alt-text="Create a function app - Basics." border="true":::
 
-1. Select the **Notification** icon in the upper-right corner of the portal, and wait for the "Deployment succeeded" message.
+1. Select **Next : Hosting**. On the **Hosting** page, enter the following settings.
+
+    | Setting      | Suggested value  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **[Storage account](../articles/storage/common/storage-account-create.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and can contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
+    |**Operating system**| Preferred operating system | An operating system is pre-selected for you based on your runtime stack selection, but you can change the setting if necessary. |
+    | **[Plan](../articles/azure-functions/functions-scale.md)** | **App service plan** | Choose **App service plan**. When you run in an App Service plan, you must manage the [scaling of your function app](../articles/azure-functions/functions-scale.md).  |
+
+    :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-hosting.png" alt-text="Create a function app - Hosting." border="true":::
+
+1. Select **Next : Monitoring**. On the **Monitoring** page, enter the following settings.
+
+    | Setting      | Suggested value  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Default | Creates an Application Insights resource of the same *App name* in the nearest supported region. By expanding this setting or selecting **Create new**, you can change the Application Insights name or choose a different region in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data. |
+
+    :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-monitoring.png" alt-text="Create a function app - Monitoring." border="true":::
+
+1. Select **Review + create** to review the app configuration selections.
+
+1. On the **Review + create** page, review your settings, and then select **Create** to provision and deploy the function app.
+
+1. Select the **Notifications** icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
 
 1. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
+
+    ![Deployment notification](./media/functions-create-function-app-portal/function-app-create-notification2.png)
 
 ## Create a hybrid connection for the function app
 
 Hybrid connections are configured from the networking section of the function app:
 
-1. Select the **Platform features** tab in the function app, and then select **Networking**. 
+1. Under **Settings** in the function app you just created, select **Networking**. 
    ![App Overview for platform networking](./media/functions-hybrid-powershell/app-overview-platform-networking.png)  
 1. Select **Configure your hybrid connections endpoints**.
    ![Networking](./media/functions-hybrid-powershell/select-network-feature.png)  
