@@ -51662,12 +51662,12 @@
     },
     {
       "source_path": "articles/jenkins/install-solution-template-quickstart.md",
-      "redirect_url": "/azure/developer/jenkins/configure-on-linux-vm-quickstart",
+      "redirect_url": "/azure/developer/jenkins/configure-on-linux-vm",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/jenkins/install-solution-template-tutorial.md",
-      "redirect_url": "/azure/developer/jenkins/configure-on-linux-vm-tutorial",
+      "redirect_url": "/azure/developer/jenkins/configure-on-linux-vm",
       "redirect_document_id": false
     },
     {
