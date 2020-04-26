@@ -35,15 +35,15 @@ You use this request location in Postman along with the function's master key in
 
 1. Navigate to your function in the Azure portal and select **Function Keys**. Then, select the function key you want to copy. 
 
-:::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="Locate the master key to copy." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="Locate the master key to copy." border="true":::
 
 1. In the **Edit key** section, copy the key value to your clipboard, and then select **OK**.
 
-:::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Copy the master key to the clipboard." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Copy the master key to the clipboard." border="true":::
 
-After copying the *_master* key, select **Code + Test**, and then select **Logs**. You'll see messages from the function logged here when you manually run the function from Postman.
+1. After copying the *_master* key, select **Code + Test**, and then select **Logs**. You'll see messages from the function logged here when you manually run the function from Postman.
 
-:::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="View the logs to see the master key test results." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="View the logs to see the master key test results." border="true":::
 
 > [!CAUTION]  
 > Due to the elevated permissions in your function app granted by the master key, you should not share this key with third parties or distribute it in an application.
@@ -53,19 +53,19 @@ After copying the *_master* key, select **Code + Test**, and then select **Logs*
 Open Postman and follow these steps:
 
 1. Enter the **request location in the URL text box**.
-2. Ensure the HTTP method is set to **POST**.
-3. Select the **Headers** tab.
-4. Type **x-functions-key** as the first key and paste the master key (from the clipboard) as the value.
-5. Type **Content-Type** as the second key and type **application/json** as the value.
+1. Ensure the HTTP method is set to **POST**.
+1. Select the **Headers** tab.
+1. Type **x-functions-key** as the first key and paste the master key (from the clipboard) as the value.
+1. Type **Content-Type** as the second key and type **application/json** as the value.
 
     :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Postman headers settings." border="true":::
 
-6. Select the **Body** tab.
-7. Type **{ "input": "test" }** as the body for the request.
+1. Select the **Body** tab.
+1. Type **{ "input": "test" }** as the body for the request.
 
     :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Postman body settings." border="true":::
 
-8. Select **Send**.
+1. Select **Send**.
         
     :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Send a request with Postman." border="true":::
 
