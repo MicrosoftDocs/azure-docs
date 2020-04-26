@@ -163,7 +163,7 @@ Using the Azure portal, create another function app to listen for events publish
 
 ### Add an Event Grid subscription
 
-1. In your new function, select **Integration** and then select **Event Grid Trigger (eventGridEvent)**. This operation adds an Event Grid subscription for the Event Grid topic that you created. For more information, see [Concepts in Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts)
+1. In your new function, select **Integration** and then select **Event Grid Trigger (eventGridEvent)**. This operation adds an Event Grid subscription for the Event Grid topic that you created. For more information, see [Concepts in Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts).
 
     :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Select the Event Grid Trigger link." border="true":::
 
