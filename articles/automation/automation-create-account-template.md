@@ -45,8 +45,6 @@ The JSON template is configured to prompt you for:
 * The name of the Automation account
 * The region to create the account in
 
-The JSON template specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
-
 The following parameters in the template are set with a default value for the Log Analytics workspace:
 
 * sku - defaults to the new Per-GB pricing tier released in the April 2018 pricing model
@@ -57,9 +55,11 @@ The following parameters in the template are set with a default value for the Lo
 >If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**.
 >
 
-Before using this template, review the following:
+The JSON template specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
-* [Additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
+It is important to understand the following configuration details if you are new to Azure Automation and Azure Monitor Log Analytics workspace, in order to avoid errors when attempting to create, configure, and use a Log Analytics workspace linked to your new Automation account.
+
+* Review [Additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
 
 * Because only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription, review [Workspace mappings](how-to/region-mappings.md) to specify the supported regions inline or in a parameters file.
 
