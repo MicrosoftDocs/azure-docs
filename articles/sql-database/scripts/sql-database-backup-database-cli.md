@@ -19,9 +19,9 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Sample script
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
 ### Sign in to Azure
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ```azurecli-interactive
 $subscription = "<subscriptionId>" # add subscription here
@@ -38,21 +38,17 @@ az account set -s $subscription # ...or use 'az login'
 Use the following command to remove  the resource group and all resources associated with it.
 
 ```azurecli-interactive
-az group delete --name $resourceGroup
+az group delete --name $resource
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Creates a SQL Database server that hosts single databases and elastic pools. |
-| [az sql db show](/cli/azure/sql/db#az-sql-db-show) | Gets a SQL standalone or pooled database. |
-| [az sql db restore](/cli/azure/sql/db#az-sql-db-restore) | Restores a SQL standalone or pooled database. |
-| [az sql db delete](/cli/azure/sql/db#az-sql-db-delete) | Removes an Azure SQL standalone or pooled database. |
-| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
+| [az sql server](/cli/azure/sql/server) | Server commands. |
+| [az sql db](/cli/azure/sql/db) | Database commands. |
 
 ## Next steps
 

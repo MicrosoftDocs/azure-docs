@@ -1,14 +1,14 @@
 ---
 title: Advanced query samples
 description: Use Azure Resource Graph to run some advanced queries, including working with columns, listing tags used, and matching resources with regular expressions.
-ms.date: 12/05/2019
+ms.date: 03/20/2020
 ms.topic: sample
 ---
 # Advanced Resource Graph query samples
 
 The first step to understanding queries with Azure Resource Graph is a basic understanding of the
 [Query Language](../concepts/query-language.md). If you aren't already familiar with [Azure Data
-Explorer](../../../data-explorer/data-explorer-overview.md), it's recommended to review the basics
+Explorer](/azure/data-explorer/data-explorer-overview), it's recommended to review the basics
 to understand how to compose requests for the resources you're looking for.
 
 We'll walk through the following advanced queries:
@@ -519,12 +519,18 @@ az graph query -q "limit 1" --include displayNames
 Search-AzGraph -Query "limit 1" -Include DisplayNames
 ```
 
+An alternative to getting the subscription name is to use the `join` operator and connect to the
+**ResourceContainers** table and the `Microsoft.Resources/subscriptions` type. `join` works in Azure
+CLI, Azure PowerShell, portal, and all supported SDK. For an example, see
+[Sample - Key vault with subscription name](#join).
+
 > [!NOTE]
 > If the query doesn't use **project** to specify the returned properties,
 > **subscriptionDisplayName** and **tenantDisplayName** are automatically included in the results.
 > If the query does use **project**, each of the _DisplayName_ fields must be explicitly included in
 > the **project** or they won't be returned in the results, even when the **Include** parameter is
-> used.
+> used. The **Include** parameter doesn't work with
+> [tables](../concepts/query-language.md#resource-graph-tables).
 
 ## Next steps
 

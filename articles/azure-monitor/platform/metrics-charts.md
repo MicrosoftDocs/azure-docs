@@ -107,6 +107,19 @@ To control the y-axis range, use the “…” chart menu, and select **Edit cha
 > [!WARNING]
 > Locking the boundaries of y-axis for the charts that track various counts or sums over a period of time (and thus use count, sum, minimum, or maximum aggregations) usually requires specifying a fixed time granularity rather than relying on the automatic defaults. This is necessary is because the values on charts change when the time granularity is automatically modified by the user resizing browser window or going from one screen resolution to another. The resulting change in time granularity effects the look of the chart, invalidating current selection of y-axis range.
 
+## Change colors of chart lines
+
+After you configure the charts, the chart lines are automatically assigned a color from a default palette. You can change those colors.
+
+To change the color of a chart line, click on the colored bar in the legend that corresponds to the chart. The color picker dialog will open. Use the color picker to configure the color for the line.
+
+After the chart colors are configured, they will remain that way when you pin the chart to a dashboard. The following section shows you how to pin a chart.
+
+> [!NOTE]
+> Due to constraints of our release and publishing schedule, changing colors of the chart lines temporarily requires passing a special parameter **?feature.colorpicker=true** when starting Azure portal [https://portal.azure.com/?feature.colorpicker=true](https://portal.azure.com/?feature.colorpicker=true). This limitation will be removed soon. 
+
+![metric image](./media/metrics-charts/018.png)
+
 ## Pin charts to dashboards
 
 After configuring the charts, you may want to add it to the dashboards so that you can view it again, possibly in context of other monitoring telemetry, or share with your team.

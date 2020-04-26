@@ -13,6 +13,9 @@
   - name: Live event with portal and Wirecast
     displayName: live, event, portal, wirecast
     href: live-events-wirecast-quickstart.md
+  - name: Live event with portal and OBS
+    displayName: live, event, portal, obs
+    href: live-events-obs-quickstart.md
 - name: Tutorials
   items:
   - name: Encode remote file and stream video
@@ -75,7 +78,7 @@
     items:
     - name: Overview
       href: encoding-concept.md   
-      displayName: encoding, presets, jobs, adaptive, bitrate, billing 
+      displayName: encode, encoding, presets, jobs, adaptive, bitrate, billing 
     - name: Standard Encoder formats
       displayName: containers, codecs    
       href: media-encoder-standard-formats.md
@@ -87,7 +90,7 @@
     items:
     - name: Overview
       href: analyzing-video-audio-files-concept.md
-      displayName: analyzing, presets, jobs
+      displayName: analyze, analyzing, presets, jobs
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md    
   - name: Live streaming 
@@ -98,6 +101,7 @@
       href: live-events-outputs-concept.md    
       displayName: vanity, ingest 
     - name: Tested on-premises live encoders
+      displayName: recommended
       href: recommended-on-premises-live-encoders.md
     - name: Time-shifting and live-to-VOD
       displayName: archive, dvr
@@ -113,7 +117,7 @@
   - name: Packaging and delivery
     items:
     - name: Dynamic packaging
-      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming  
+      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming, audio, video 
       href: dynamic-packaging-overview.md
     - name: Dynamic manifests
       href: filters-dynamic-manifest-overview.md 
@@ -401,7 +405,9 @@
       href: https://aka.ms/ams-v3-ruby-sdk
   - name: Azure Media Services Explorer
     href: https://github.com/Azure/Azure-Media-Services-Explorer
-  - name: Quotas and limitations
+  - name: Quotas and limits
     href: limits-quotas-constraints.md       
   - name: Azure clouds and regions
     href: azure-clouds-regions.md
+  - name: Documentation updates
+    href: docs-release-notes.md

@@ -10,11 +10,11 @@ ms.date: 03/13/2020
 ms.author: memildin
 
 ---
-# Export security alerts and recommendations (Preview)
+# Export security alerts and recommendations
 
 Azure Security Center generates detailed security alerts and recommendations. You can view them in the portal or through programmatic tools. You may also need to export this information or send it to other monitoring tools in your environment. 
 
-This article describes the set of (preview) tools that allow you to export alerts and recommendations either manually or in an ongoing, continuous fashion.
+This article describes the set of tools that allow you to export alerts and recommendations either manually or in an ongoing, continuous fashion.
 
 Using these tools you can:
 
@@ -31,7 +31,7 @@ The steps below are necessary whether you're setting up a continuous export to L
 
 1. Select the specific subscription for which you want to configure the data export.
     
-1. From the sidebar of the settings page for that subscription, select **Continuous Export (Preview)**.
+1. From the sidebar of the settings page for that subscription, select **Continuous Export**.
 
     [![Export options in Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox)
     Here you see the export options. There's a tab for each available export target. 

@@ -14,57 +14,46 @@ ms.date: 07/16/2019
 ---
 # Use CLI to add an Azure SQL Database managed instance to a failover group
 
-This PowerShell script example creates two managed instances, adds them to a failover group, and then tests failover from the primary managed instance to the secondary managed instance.
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+This Azure CLI example creates two managed instances, adds them to a failover group, and then tests failover from the primary managed instance to the secondary managed instance.
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Sample scripts
 
+### Sign in to Azure
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+### Run the script
+
 [!code-azurecli-interactive[main](../../../cli_scripts/sql-database/failover-groups/add-managed-instance-to-failover-group-az-cli.sh "Add managed instance to a failover group")]
 
-## Clean up deployment
+### Clean up deployment
 
 Use the following command to remove the resource group and all resources associated with it. You will need to remove the resource group twice. Removing the resource group the first time will remove the managed instance and virtual clusters but will then fail with the error message `az group delete : Long running operation failed with status 'Conflict'.`. Run the az group delete command a second time to remove any residual resources as well as the resource group.
 
 ```azurecli-interactive
-az group delete --name $resourceGroupName
+az group delete --name $resource
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| Command | Notes |
+| | |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Creates a virtual network.  |
-| [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Adds a subnet configuration to a virtual network. |
-| [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) | Gets a virtual network in a resource group. |
-| [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show) | Gets a subnet in a virtual network. |
-| [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) | Creates a network security group. |
-| [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create) | Creates a route table. |
-| [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) | Updates a subnet configuration for a virtual network. |
-| [az network vnet update](/cli/azure/network/vnet#az-network-vnet-update) | Updates a virtual network. |
-| [az network nsg show](/cli/azure/network/nsg#az-network-nsg-show) | Gets a network security group. |
-| [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)| Adds a network security rule configuration to a network security group. |
-| [az network nsg rule update](/cli/azure/network/nsg#az-network-nsg-update) | Updates a network security group. |
-| [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create) | Adds a route to a route table. |
-| [az network route-table update](/cli/azure/network/route-table#az-network-route-table-update) | Updates a route table. |
-| [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create) | Creates an Azure SQL Database managed instance. |
-| [az sql mi show](/cli/azure/sql/mi#az-sql-mi-show)| Returns information about Azure SQL Managed Database Instance. |
-| [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) | Creates a public IP address. |
-| [az network vnet-gateway create](/cli/azure/network/vnet-gateway#az-network-vnet-gateway-create) | Creates a Virtual Network Gateway |
-| [az sql instance-failover-group create](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-create) | Creates a new Azure SQL Database managed instance failover group. |
-| [az sql instance-failover-group show](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-show) | Gets or lists managed instance failover groups.|
-| [az sql instance-failover-group set-primary](/cli/azure/sql/instance-failover-group#az-sql-instance-failover-group-set-primary) | Executes a failover of a managed instance failover group. |
-| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
+| [az network vnet](/cli/azure/network/vnet) | Virtual network commands.  |
+| [az network vnet subnet](/cli/azure/network/vnet/subnet) | Virtual network subnet commands. |
+| [az network nsg](/cli/azure/network/nsg) | Network security group commands. |
+| [az network nsg rule](/cli/azure/network/nsg/rule)| Network security rule commands. |
+| [az network route-table](/cli/azure/network/route-table) | Route table commands. |
+| [az sql mi](/cli/azure/sql/mi) | Managed instance commands. |
+| [az network public-ip](/cli/azure/network/public-ip) | Network public IP address commands. |
+| [az network vnet-gateway](/cli/azure/network/vnet-gateway) | Virtual Network Gateway commands |
+| [az sql instance-failover-group](/cli/azure/sql/instance-failover-group) | Managed instance failover group commands. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../sql-database-cli-samples.md).

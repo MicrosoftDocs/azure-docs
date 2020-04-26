@@ -5,23 +5,21 @@ services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: femila
-editor: jwargo
 
-ms.assetid: 
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/30/2020
+ms.date: 04/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2020
 ---
 
 # Transport Layer Security (TLS)
 
-To ensure a higher level of security, Notification Hubs will disable support for TLS versions 1.0 and 1.1 on April 30, 2020. These older protocols deliver weak cryptography, and are vulnerable to BEAST and POODLE attacks. Applications deployed to devices running Android version 5 or greater, or iOS version 5 or greater, are not impacted by this change as those operating systems support TLS 1.2 and the client and server will negotiate the highest mutually supported version of the protocol upon connection.
+To ensure a higher level of security, Notification Hubs will disable support for TLS versions 1.0 and 1.1 on May 31, 2020 (extended from April 30, 2020). These older protocols deliver weak cryptography, and are vulnerable to BEAST and POODLE attacks. Applications deployed to devices running Android version 5 or greater, or iOS version 5 or greater, are not impacted by this change as those operating systems support TLS 1.2 and the client and server will negotiate the highest mutually supported version of the protocol upon connection.
 
 We recommend that you review your all of your applications that use Azure Notification Hubs, to ensure that they use the most applicable libraries and TLS stacks that support TLS 1.2.
 

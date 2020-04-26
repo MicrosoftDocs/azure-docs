@@ -23,7 +23,7 @@ Security Center is offered in two tiers:
 - The **Free** tier is enabled on all your Azure subscriptions once you visit the Azure Security Center dashboard in the Azure portal for the first time, or if enabled programmatically via API. The free tier provides security policy, continuous security assessment, and actionable security recommendations to help you protect your Azure resources.
 - The **Standard** tier extends the capabilities of the Free tier to workloads running in private and other public clouds, providing unified security management and threat protection across your hybrid cloud workloads. The standard tier also adds threat protection capabilities, which use built-in behavioral analytics and machine learning to identify attacks and zero-day exploits, access and application controls to reduce exposure to network attacks and malware, and more. In addition, standard tier adds vulnerability scanning for your virtual machines. You can try the standard tier for free. Security Center standard supports Azure resources including VMs, Virtual machine scale sets, App Service, SQL servers, and Storage accounts. If you have Azure Security Center standard, you can opt out of support based on resource type. 
 
-Most of the free tier security assessments for VMs, as well many of the standard tier security alerts, require the installation of the Microsoft Monitoring Agent (MMA) capability. You can enable Auto Provision on Security Center to automatically deploy the agent for your Azure VMs.
+Most of the free tier security assessments for VMs, as well many of the standard tier security alerts, require the installation of the Log Analytics agent capability. You can enable Auto Provision on Security Center to automatically deploy the agent for your Azure VMs.
 
 ## Try standard tier free for 30 days
 The standard tier is free for the first 30 days. At the end of 30 days, should you choose to continue using the service, we will automatically start charging for usage.
@@ -55,7 +55,7 @@ Security Center offers enhanced security and threat protection for your hybrid c
 
 
 ## Next steps
-In this article, you were introduced to pricing for Security Center. To learn more about the Standard tier’s enhanced security and advanced threat protection, see:
+In this article, you were introduced to pricing for Security Center. To learn more about the Standard tier's enhanced security and advanced threat protection, see:
 
 - [Threat protection in Azure Security Center](threat-protection.md)
 - [Just-in-time VM access control](security-center-just-in-time.md)

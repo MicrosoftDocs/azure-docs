@@ -754,10 +754,371 @@ TLS 1.2 Cipher Suites minimum bar:
 
 ## Step 3: Build a SCIM endpoint
 
-Now that you have designed your schema and understood the Azure AD SCIM implementation, you can get started developing your SCIM endpoint. Rather than starting from scratch and building the implementation completely on your own, you can rely on a number of open source SCIM libraries published by the SCIM commuinty.  
-The open source .NET Core [reference code](https://aka.ms/SCIMReferenceCode) published by the Azure AD provisioning team is one such resource that can jump start your development. Once you've built your SCIM endpoint, you'll want to test it out. You can use the collection of [postman tests](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) provided as part of the reference code or run through the sample requests / responses provided [above](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations).  
+Now that you have designed your schema and understood the Azure AD SCIM implementation, you can get started developing your SCIM endpoint. Rather than starting from scratch and building the implementation completely on your own, you can rely on a number of open source SCIM libraries published by the SCIM community.
 
-Note: The reference code is intended to help you get started building your SCIM endpoint and is provided "AS IS." Contributions from the community are welcome to help build and maintain the code. 
+The open source .NET Core [reference code](https://aka.ms/SCIMReferenceCode) published by the Azure AD provisioning team is one such resource that can jump start your development. Once you have built your SCIM endpoint, you will want to test it out. You can use the collection of [postman tests](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) provided as part of the reference code or run through the sample requests / responses provided [above](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations).  
+
+   > [!Note]
+   > The reference code is intended to help you get started building your SCIM endpoint and is provided "AS IS." Contributions from the community are welcome to help build and maintain the code.
+
+The solution is composed of two projects, _Microsoft.SCIM_ and _Microsoft.SCIM.WebHostSample_.
+
+The _Microsoft.SCIM_ project is the library that defines the components of the web service that conforms to the SCIM specification. It declares the interface _Microsoft.SCIM.IProvider_, requests are translated into calls to the provider’s methods, which would be programmed to operate on an identity store.
+
+![Breakdown: A request translated into calls to the provider's methods](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
+
+The _Microsoft.SCIM.WebHostSample_ project is a Visual Studio ASP.NET Core Web Application, based on the _Empty_ template. This allows the sample code to be deployed as standalone, hosted in containers or within Internet Information Services. It also implements the _Microsoft.SCIM.IProvider_ interface keeping classes in memory as a sample identity store.
+
+```csharp
+    public class Startup
+    {
+        ...
+        public IMonitor MonitoringBehavior { get; set; }
+        public IProvider ProviderBehavior { get; set; }
+
+        public Startup(IWebHostEnvironment env, IConfiguration configuration)
+        {
+            ...
+            this.MonitoringBehavior = new ConsoleMonitor();
+            this.ProviderBehavior = new InMemoryProvider();
+        }
+        ...
+```
+
+### Building a custom SCIM endpoint
+
+The SCIM service must have an HTTP address and server authentication certificate of which the root certification authority is one of the following names:
+
+* CNNIC
+* Comodo
+* CyberTrust
+* DigiCert
+* GeoTrust
+* GlobalSign
+* Go Daddy
+* VeriSign
+* WoSign
+
+The .NET Core SDK includes an HTTPS development certificate that can be used during development, the certificate is installed as part of the first-run experience. Depending on how you run the ASP.NET Core Web Application it will listen to a different port:
+
+* Microsoft.SCIM.WebHostSample: https://localhost:5001
+* IIS Express: https://localhost:44359/
+
+For more information on HTTPS in ASP.NET Core use the following link:
+[Enforce HTTPS in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl)
+
+### Handling endpoint authentication
+
+Requests from Azure Active Directory include an OAuth 2.0 bearer token. Any service receiving the request should authenticate the issuer as being Azure Active Directory for the expected Azure Active Directory tenant.
+
+In the token, the issuer is identified by an iss claim, like `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`. In this example, the base address of the claim value, `https://sts.windows.net`, identifies Azure Active Directory as the issuer, while the relative address segment, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_, is a unique identifier of the Azure Active Directory tenant for which the token was issued.
+
+The audience for the token will be the application template ID for the application in the gallery, each of the applications registered in a single tenant may receive the same `iss` claim with SCIM requests. The application template ID for each application in the gallery varies, please contact [ProvisioningFeedback@microsoft.com](mailto:ProvisioningFeedback@microsoft.com) for questions around the application template ID for a gallery application. The application template ID for all custom apps is _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_.
+
+In the sample code, requests are authenticated using the Microsoft.AspNetCore.Authentication.JwtBearer package. The following code enforces that requests to any of the service’s endpoints are authenticated using the bearer token issued by Azure Active Directory for a specified tenant:
+
+```csharp
+        public void ConfigureServices(IServiceCollection services)
+        {
+            if (_env.IsDevelopment())
+            {
+                ...
+            }
+            else
+            {
+                services.AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                    .AddJwtBearer(options =>
+                    {
+                        options.Authority = " https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/";
+                        options.Audience = "8adf8e6e-67b2-4cf2-a259-e3dc5476c621";
+                        ...
+                    });
+            }
+            ...
+        }
+
+        public void Configure(IApplicationBuilder app)
+        {
+            ...
+            app.UseAuthentication();
+            app.UseAuthorization();
+            ...
+       }
+```
+
+A bearer token is also required to use of the provided [postman tests](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) and perform local debugging using localhost. The sample code uses ASP.NET Core environments to change the authentication options during development stage and enable the use a self-signed token.
+
+For more information on multiple environments in ASP.NET Core use the following link:
+[Use multiple environments in ASP.NET Core](
+https://docs.microsoft.com/aspnet/core/fundamentals/environments)
+
+The following code enforces that requests to any of the service’s endpoints are authenticated using a bearer token signed with a custom key:
+
+```csharp
+        public void ConfigureServices(IServiceCollection services)
+        {
+            if (_env.IsDevelopment())
+            {
+                services.AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                    .AddJwtBearer(options =>
+                    {
+                        options.TokenValidationParameters =
+                            new TokenValidationParameters
+                            {
+                                ValidateIssuer = false,
+                                ValidateAudience = false,
+                                ValidateLifetime = false,
+                                ValidateIssuerSigningKey = false,
+                                ValidIssuer = "Microsoft.Security.Bearer",
+                                ValidAudience = "Microsoft.Security.Bearer",
+                                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("A1B2C3D4E5F6A1B2C3D4E5F6"))
+                            };
+                    });
+            }
+	    ...
+```
+
+Send a GET request to the Token controller to get a valid bearer token, the method _GenerateJSONWebToken_ is responsible to create a token matching the parameters configured for development:
+
+```csharp
+        private string GenerateJSONWebToken()
+        {
+            // Create token key
+            SymmetricSecurityKey securityKey =
+                new SymmetricSecurityKey(Encoding.UTF8.GetBytes("A1B2C3D4E5F6A1B2C3D4E5F6"));
+            SigningCredentials credentials =
+                new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            // Set token expiration
+            DateTime startTime = DateTime.UtcNow;
+            DateTime expiryTime = startTime.AddMinutes(120);
+
+            // Generate the token
+            JwtSecurityToken token =
+                new JwtSecurityToken(
+                    "Microsoft.Security.Bearer",
+                    "Microsoft.Security.Bearer",
+                    null,
+                    notBefore: startTime,
+                    expires: expiryTime,
+                    signingCredentials: credentials);
+
+            string result = new JwtSecurityTokenHandler().WriteToken(token);
+            return result;
+        }
+```
+
+### Handling provisioning and deprovisioning of users
+
+***Example 1. Query the service for a matching user***
+
+Azure Active Directory queries the service for a user with an externalId attribute value matching the mailNickname attribute value of a user in Azure AD. The query is expressed as a Hypertext Transfer Protocol (HTTP) request such as this example, wherein jyoung is a sample of a mailNickname of a user in Azure Active Directory.
+
+>[!NOTE]
+> This is an example only. Not all users will have a mailNickname attribute, and the value a user has may not be unique in the directory. Also, the attribute used for matching (which in this case is externalId) is configurable in the [Azure AD attribute mappings](customize-application-attributes.md).
+
+```
+GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
+ Authorization: Bearer ...
+```
+
+In the sample code the request is translated into a call to the QueryAsync method of the service’s provider. Here is the signature of that method: 
+
+```csharp
+ // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+ // Microsoft.SCIM.IRequest is defined in 
+ // Microsoft.SCIM.Service.  
+ // Microsoft.SCIM.Resource is defined in 
+ // Microsoft.SCIM.Schemas.  
+ // Microsoft.SCIM.IQueryParameters is defined in 
+ // Microsoft.SCIM.Protocol.  
+
+ Task<Resource[]> QueryAsync(IRequest<IQueryParameters> request);
+```
+
+In the sample query, for a user with a given value for the externalId attribute, values of the arguments passed to the QueryAsync method are:
+
+* parameters.AlternateFilters.Count: 1
+* parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
+* parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
+* parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
+
+***Example 2. Provision a user***
+
+If the response to a query to the web service for a user with an externalId attribute value that matches the mailNickname attribute value of a user doesn't return any users, then Azure Active Directory requests that the service provision a user corresponding to the one in Azure Active Directory.  Here is an example of such a request: 
+
+```
+ POST https://.../scim/Users HTTP/1.1
+ Authorization: Bearer ...
+ Content-type: application/scim+json
+ {
+   "schemas":
+   [
+     "urn:ietf:params:scim:schemas:core:2.0:User",
+     "urn:ietf:params:scim:schemas:extension:enterprise:2.0User"],
+   "externalId":"jyoung",
+   "userName":"jyoung",
+   "active":true,
+   "addresses":null,
+   "displayName":"Joy Young",
+   "emails": [
+     {
+       "type":"work",
+       "value":"jyoung@Contoso.com",
+       "primary":true}],
+   "meta": {
+     "resourceType":"User"},
+    "name":{
+     "familyName":"Young",
+     "givenName":"Joy"},
+   "phoneNumbers":null,
+   "preferredLanguage":null,
+   "title":null,
+   "department":null,
+   "manager":null}
+```
+
+In the sample code the request is translated into a call to the CreateAsync method of the service’s provider. Here is the signature of that method: 
+
+```csharp
+ // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+ // Microsoft.SCIM.IRequest is defined in 
+ // Microsoft.SCIM.Service.  
+ // Microsoft.SCIM.Resource is defined in 
+ // Microsoft.SCIM.Schemas.  
+
+ Task<Resource> CreateAsync(IRequest<Resource> request);
+```
+
+In a request to provision a user, the value of the resource argument is an instance of the Microsoft.SCIM.Core2EnterpriseUser class, defined in the Microsoft.SCIM.Schemas library.  If the request to provision the user succeeds, then the implementation of the method is expected to return an instance of the Microsoft.SCIM.Core2EnterpriseUser class, with the value of the Identifier property set to the unique identifier of the newly provisioned user.  
+
+***Example 3. Query the current state of a user*** 
+
+To update a user known to exist in an identity store fronted by an SCIM, Azure Active Directory proceeds by requesting the current state of that user from the service with a request such as: 
+
+```
+ GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
+ Authorization: Bearer ...
+```
+
+In the sample code the request is translated into a call to the RetrieveAsync method of the service’s provider. Here is the signature of that method: 
+
+```csharp
+ // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+ // Microsoft.SCIM.IRequest is defined in 
+ // Microsoft.SCIM.Service.  
+ // Microsoft.SCIM.Resource and 
+ // Microsoft.SCIM.IResourceRetrievalParameters 
+ // are defined in Microsoft.SCIM.Schemas 
+
+ Task<Resource> RetrieveAsync(IRequest<IResourceRetrievalParameters> request);
+```
+
+In the example of a request to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters argument are as follows: 
+  
+* Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+* SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+
+***Example 4. Query the value of a reference attribute to be updated*** 
+
+If a reference attribute is to be updated, then Azure Active Directory queries the service to determine whether the current value of the reference attribute in the identity store fronted by the service already matches the value of that attribute in Azure Active Directory. For users, the only attribute of which the current value is queried in this way is the manager attribute. Here is an example of a request to determine whether the manager attribute of a user object currently has a certain value: 
+In the sample code the request is translated into a call to the QueryAsync method of the service’s provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
+  
+* parameters.AlternateFilters.Count: 2
+* parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
+* parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
+* parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
+* parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
+* parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
+* parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
+* parameters.RequestedAttributePaths.ElementAt(0): "ID"
+* parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+
+Here, the value of the index x can be 0 and the value of the index y can be 1, or the value of x can be 1 and the value of y can be 0, depending on the order of the expressions of the filter query parameter.   
+
+***Example 5. Request from Azure AD to an SCIM service to update a user*** 
+
+Here is an example of a request from Azure Active Directory to an SCIM service to update a user: 
+
+```
+  PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
+  Authorization: Bearer ...
+  Content-type: application/scim+json
+  {
+    "schemas": 
+    [
+      "urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+    "Operations":
+    [
+      {
+        "op":"Add",
+        "path":"manager",
+        "value":
+          [
+            {
+              "$ref":"http://.../scim/Users/2819c223-7f76-453a-919d-413861904646",
+              "value":"2819c223-7f76-453a-919d-413861904646"}]}]}
+```
+
+In the sample code the request is translated into a call to the UpdateAsync method of the service’s provider. Here is the signature of that method: 
+
+```csharp
+ // System.Threading.Tasks.Tasks and 
+ // System.Collections.Generic.IReadOnlyCollection<T>  // are defined in mscorlib.dll.  
+ // Microsoft.SCIM.IRequest is defined in
+ // Microsoft.SCIM.Service.
+ // Microsoft.SCIM.IPatch, 
+ // is defined in Microsoft.SCIM.Protocol. 
+
+ Task UpdateAsync(IRequest<IPatch> request);
+```
+
+In the example of a request to update a user, the object provided as the value of the patch argument has these property values: 
+  
+* ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+* ResourceIdentifier.SchemaIdentifier:  "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
+* (PatchRequest as PatchRequest2).Operations.Count: 1
+* (PatchRequest as PatchRequest2).Operations.ElementAt(0).OperationName: OperationName.Add
+* (PatchRequest as PatchRequest2).Operations.ElementAt(0).Path.AttributePath: "manager"
+* (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.Count: 1
+* (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
+* (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
+
+***Example 6. Deprovision a user***
+
+To deprovision a user from an identity store fronted by an SCIM service, Azure AD sends a request such as:
+
+```
+  DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
+  Authorization: Bearer ...
+```
+
+In the sample code the request is translated into a call to the DeleteAsync method of the service’s provider. Here is the signature of that method: 
+
+```csharp
+ // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+ // Microsoft.SCIM.IRequest is defined in 
+ // Microsoft.SCIM.Service.  
+ // Microsoft.SCIM.IResourceIdentifier, 
+ // is defined in Microsoft.SCIM.Protocol. 
+
+ Task DeleteAsync(IRequest<IResourceIdentifier> request);
+```
+
+The object provided as the value of the resourceIdentifier argument has these property values in the example of a request to deprovision a user: 
+
+* ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+* ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 ## Step 4: Integrate your SCIM endpoint with the Azure AD SCIM client
 
@@ -788,7 +1149,7 @@ Applications that support the SCIM profile described in this article can be conn
    ![Example: An app's Provisioning page in the Azure portal](media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)<br/>
    *Configuring provisioning in the Azure portal*
 
-7. In the **Tenant URL** field, enter the URL of the application's SCIM endpoint. Example: https://api.contoso.com/scim/
+7. In the **Tenant URL** field, enter the URL of the application's SCIM endpoint. Example: `https://api.contoso.com/scim/`
 8. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Azure AD, then copy the required OAuth bearer token into the optional **Secret Token** field. If this field is left blank, Azure AD includes an OAuth bearer token issued from Azure AD with each request. Apps that use Azure AD as an identity provider can validate this Azure AD-issued token. 
    > [!NOTE]
    > It's ***not*** recommended to leave this field blank and rely on a token generated by Azure AD. This option is primarily available for testing purposes.

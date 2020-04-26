@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2019
+ms.date: 3/19/2020
 ---
 
 # Create an Azure Database for MariaDB server by using the Azure portal
@@ -53,7 +53,7 @@ To create an Azure Database for MariaDB server:
 
    ![Create server - Pricing tier window](./media/quickstart-create-mariadb-server-database-using-azure-portal/3-pricing-tier.png)
 
-4. Select **Create** to provision the server. Provisioning can take up to 20 minutes.
+4. Select **Review + create** to provision the server. Provisioning can take up to 20 minutes.
 
 5. To monitor the deployment process, select **Notifications** on the toolbar (the bell icon).
 

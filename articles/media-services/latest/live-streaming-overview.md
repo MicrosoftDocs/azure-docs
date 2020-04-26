@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 03/18/2020
 ms.author: juliako
 
 ---
@@ -114,6 +114,10 @@ The asset that the live output is archiving to, automatically becomes an on-dema
 - [Live Event types feature comparison](live-event-types-comparison.md)
 - [States and billing](live-event-states-billing.md)
 - [Latency](live-event-latency.md)
+
+## Frequently asked questions
+
+See the [Frequently asked questions](frequently-asked-questions.md#live-streaming) article.
 
 ## Ask questions, give feedback, get updates
 

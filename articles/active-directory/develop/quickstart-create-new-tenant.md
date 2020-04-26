@@ -1,11 +1,10 @@
 ---
-title: Create an Azure Active Directory tenant | Microsoft Docs
+title: Create an Azure Active Directory tenant
 description: Learn how to create an Azure AD tenant to use for registering and building applications.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity

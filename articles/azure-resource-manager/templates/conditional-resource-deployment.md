@@ -5,9 +5,9 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ---
 
-# Conditional deployment in Resource Manager templates
+# Conditional deployment in ARM templates
 
-Sometimes you need to optionally deploy a resource in a template. Use the `condition` element to specify whether the resource is deployed. The value for this element resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource.
+Sometimes you need to optionally deploy a resource in an Azure Resource Manager (ARM) template. Use the `condition` element to specify whether the resource is deployed. The value for this element resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource.
 
 ## New or existing resource
 
@@ -82,5 +82,5 @@ If you deploy a template with [complete mode](deployment-modes.md) and a resourc
 
 ## Next steps
 
-* For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md).
-* To create multiple instances of a resource, see [Resource iteration in Azure Resource Manager templates](copy-resources.md).
+* For recommendations about creating templates, see [ARM template best practices](template-best-practices.md).
+* To create multiple instances of a resource, see [Resource iteration in ARM templates](copy-resources.md).

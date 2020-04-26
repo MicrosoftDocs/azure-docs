@@ -20,9 +20,9 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Sample script
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
 ### Sign in to Azure
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ```azurecli-interactive
 $subscription = "<subscriptionId>" # add subscription here
@@ -39,15 +39,15 @@ az account set -s $subscription # ...or use 'az login'
 Use the following command to remove the resource group and all resources associated with it.
 
 ```azurecli-interactive
-az group delete --name $sourceresourcegroupname
-az group delete --name $targetresourcegroupname
+az group delete --name $resource
+az group delete --name $targetResource
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| Command | Notes |
+| | |
 |---|---|
 | [az sql db copy](/cli/azure/sql/db#az-sql-db-copy) | Creates a copy of a database that uses the snapshot at the current time. |
 

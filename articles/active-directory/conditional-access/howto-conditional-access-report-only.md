@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 03/25/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -18,6 +18,9 @@ ms.collection: M365-identity-device-management
 # Configure a Conditional Access policy in report-only mode (Preview)
 
 To configure a Conditional Access policy in report-only mode:
+
+> [!IMPORTANT]
+> If your organization has not already, [Set up Azure Monitor integration with Azure AD](#set-up-azure-monitor-integration-with-azure-ad). This process must take place before data will be available to review.
 
 1. Sign into the **Azure portal** as a Conditional Access administrator, security administrator, or global administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
@@ -52,7 +55,7 @@ More information about Azure Monitor pricing can be found on the [Azure Monitor 
 
 ## View Conditional Access Insights workbook
 
-Once you’ve integrated your Azure AD logs with Azure Monitor, you can monitor the impact of Conditional Access policies using the new Conditional Access insights workbooks.
+Once you've integrated your Azure AD logs with Azure Monitor, you can monitor the impact of Conditional Access policies using the new Conditional Access insights workbooks.
 
 1. Sign into the **Azure portal** as a security administrator or global administrator.
 1. Browse to **Azure Active Directory** > **Workbooks**.
@@ -75,9 +78,9 @@ Once you’ve integrated your Azure AD logs with Azure Monitor, you can monitor 
 
 Customers have noticed that queries sometimes fail if the wrong or multiple workspaces are associated with the workbook. To fix this problem, click **Edit** at the top of the workbook and then the Settings gear. Select and then remove workspaces that are not associated with the workbook. There should be only one workspace associated with each workbook.
 
-### Why doesn’t the Conditional Access Policies dropdown parameter contain my policies?
+### Why doesn't the Conditional Access Policies dropdown parameter contain my policies?
 
-The Conditional Access Policies dropdown is populated by querying the most recent sign-ins over a period of 4 hours. If a tenant doesn’t have any sign-ins in the past 4 hours, it is possible that the dropdown will be empty. If this delay is a persistent problem, such as in small tenants with infrequent sign-ins, admins can edit the query for the Conditional Access Policies dropdown and extend the time for the query to a time longer than 4 hours.
+The Conditional Access Policies dropdown is populated by querying the most recent sign-ins over a period of 4 hours. If a tenant doesn't have any sign-ins in the past 4 hours, it is possible that the dropdown will be empty. If this delay is a persistent problem, such as in small tenants with infrequent sign-ins, admins can edit the query for the Conditional Access Policies dropdown and extend the time for the query to a time longer than 4 hours.
 
 ## Next steps
 

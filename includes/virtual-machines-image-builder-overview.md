@@ -22,10 +22,10 @@ For the preview, these features are supported:
 
 - Creation of golden baseline images, that includes your minimum security and corporate configurations, and allow departments to customize it further for their needs.
 - Patching of existing images, Image Builder will allow you to continually patch existing custom images.
+- Connect image builder to your existing virtual networks, so you can connect to existing configuration servers (DSC, Chef, Puppet etc.), file shares, or any other routable servers/services.
 - Integration with the Azure Shared Image Gallery, allows you to distribute, version, and scale images globally, and gives you an image management system.
 - Integration with existing image build pipelines, just call Image Builder from your pipeline, or use the simple Preview Image Builder Azure DevOps Task.
 - Migrate an existing image customization pipeline to Azure. Use your existing scripts, commands, and processes to customize images.
-- Use Red Hat Bring Your Own Subscription support. Create Red Hat Enterprise images for use with your eligible, unused Red Hat subscriptions.
 - Creation of images in VHD format.
  
 
@@ -47,16 +47,11 @@ AIB will support Azure Marketplace base OS images:
 - CentOS 7.6, 7.7
 - SLES 12 SP4
 - SLES 15, SLES 15 SP1
-- Windows 10 RS5 Enterprise/Professional/Enterprise for Virtual Desktop (EVD) 
+- Windows 10 RS5 Enterprise/Enterprise multi-session/Professional
 - Windows 2016
 - Windows 2019
 
-AIB will support RHEL ISO's, as a source for:
-- RHEL 7.3
-- RHEL 7.4
-- RHEL 7.5
-
-RHEL 7.6 ISOs are not supported, but are being tested.
+RHEL ISOs support is being deprecated, please review the Template documentation for further details.
 
 ## How it works
 

@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Language customization in Azure Active Directory B2C (Azure AD B2C) allows you to accommodate different languages to suit your customer' needs. Microsoft provides the translations for 36 languages, but you can also provide your own translations for any language. Even if your experience is provided for only a single language, you can customize any text on the pages. 
+Language customization in Azure Active Directory B2C (Azure AD B2C) allows you to accommodate different languages to suit your customer' needs. Microsoft provides the translations for [36 languages](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages), but you can also provide your own translations for any language. Even if your experience is provided for only a single language, you can customize any text on the pages. 
 
 This article shows you how to support multiple locales or languages in the policy for user journeys. Localization requires three steps: set-up the explicit list of supported languages, provide language-specific strings and collections, and edit the [content definition](contentdefinitions.md) for the page. 
 

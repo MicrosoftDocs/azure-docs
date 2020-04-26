@@ -2,7 +2,7 @@
 title: Move Azure VMs to new subscription or resource group
 description: Use Azure Resource Manager to move virtual machines to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 03/31/2020
 ---
 
 # Move guidance for virtual machines
@@ -22,18 +22,40 @@ The following scenarios aren't yet supported:
 
 ## Virtual machines with Azure Backup
 
-To move virtual machines configured with Azure Backup, use the following workaround:
+To move virtual machines configured with Azure Backup, you must delete the restore points from the vault.
+
+If [soft delete](../../../backup/backup-azure-security-feature-cloud.md) is enabled for your virtual machine, you can't move the virtual machine while those restore points are kept. Either [disable soft delete](../../../backup/backup-azure-security-feature-cloud.md#disabling-soft-delete) or wait 14 days after deleting the restore points.
+
+### Portal
+
+1. Select the virtual machine that is configured for backup.
+
+1. In the left pane, select **Backup**.
+
+1. Select **Stop backup**.
+
+1. Select **Delete back data**.
+
+1. After delete is complete, you can move the vault and virtual machine to the target subscription. After the move, you can continue backups.
+
+### PowerShell
 
 * Find the location of your Virtual Machine.
 * Find a resource group with the following naming pattern: `AzureBackupRG_<location of your VM>_1` for example, AzureBackupRG_westus2_1
-* If in Azure portal, then check "Show hidden types"
 * If in PowerShell, use the `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
+* Find the resource with type `Microsoft.Compute/restorePointCollections` that has the naming pattern `AzureBackup_<name of your VM that you're trying to move>_###########`
+* Delete this resource. This operation deletes only the instant recovery points, not the backed-up data in the vault.
+
+### Azure CLI
+
+* Find the location of your Virtual Machine.
+* Find a resource group with the following naming pattern: `AzureBackupRG_<location of your VM>_1` for example, AzureBackupRG_westus2_1
 * If in CLI, use the `az resource list -g AzureBackupRG_<location of your VM>_1`
 * Find the resource with type `Microsoft.Compute/restorePointCollections` that has the naming pattern `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Delete this resource. This operation deletes only the instant recovery points, not the backed-up data in the vault.
-* After delete is complete, you can move the vault and virtual machine to the target subscription. After the move, you can continue backups with no loss in data.
-* For information about moving Recovery Service vaults for backup, see [Recovery Services limitations](../../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## Next steps
 
-For commands to move resources, see [Move resources to new resource group or subscription](../move-resource-group-and-subscription.md).
+* For commands to move resources, see [Move resources to new resource group or subscription](../move-resource-group-and-subscription.md).
+
+* For information about moving Recovery Service vaults for backup, see [Recovery Services limitations](../../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).

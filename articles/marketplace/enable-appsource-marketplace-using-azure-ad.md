@@ -1,14 +1,12 @@
 ---
 title: Enable a Microsoft AppSource and Azure Marketplace listing by using Azure Active Directory | Azure
 description: Enable a listing type by using Azure Active Directory in the Azure Marketplace and AppSource for app and service publishers.
-services: Azure, AppSource, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
-ms.date: 09/12/2018
-ms.author: pabutler
+ms.topic: conceptual
+ms.date: 04/15/2020
+ms.author: dsindona
 
 ---
 # Enable an AppSource and Marketplace listing by using Azure Active Directory
@@ -84,5 +82,10 @@ Use Azure AD to support one of the following actions:
 
 ## Next steps
 
-- Make sure you've [registered in the Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
-- See [how to create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information on how to create or complete your offer.
+If you haven't already done so, 
+
+- [Learn](https://azuremarketplace.microsoft.com/sell) about the marketplace.
+
+To register in Partner Center, start creating a new offer or working on an existing one:
+
+- [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.

@@ -36,7 +36,7 @@ An **[internal (or private) load balancer](./concepts-limitations.md#internalloa
 For more information on the individual load balancer components, see [Azure Load Balancer components and limitations](./concepts-limitations.md)
 
 >[!NOTE]
-> Azure provides a suite of fully managed load-balancing solutions for your scenarios. If you need high-performance, low-latency, Layer-4 load balancing, see [What is Azure Application Gateway?](../application-gateway/overview.md) If you're looking for global DNS load balancing, see [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md) Your end-to-end scenarios may benefit from combining these solutions.
+> Azure provides a suite of fully managed load-balancing solutions for your scenarios. If you need high-performance, low-latency, Layer-7 load balancing, see [What is Azure Application Gateway?](../application-gateway/overview.md) If you're looking for global DNS load balancing, see [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md) Your end-to-end scenarios may benefit from combining these solutions.
 >
 > For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
@@ -79,6 +79,7 @@ Basic Load Balancer is offered at no charge.
 See [SLA for Load Balancer](https://aka.ms/lbsla). Basic Load Balancer has no SLA.
 
 ## Next steps
+See [Upgrade a Basic Load Balancer](upgrade-basic-standard.md) to upgrade Basic Load Balancer to Standard Load Balancer.
 
 See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer.
 

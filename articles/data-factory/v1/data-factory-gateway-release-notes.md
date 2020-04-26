@@ -38,7 +38,7 @@ We no more maintain the Release notes here. Get latest release notes [here](http
 ## 2.10.6347.7
 ### Enhancements-
 - You can add DNS entries to whitelist service bus rather than whitelisting all Azure IP addresses from your firewall (if needed). You can find respective DNS entry on Azure portal (Data Factory -> ‘Author and Deploy’ -> ‘Gateways’ -> "serviceUrls" (in JSON)
-- HDFS connector now supports self-signed public certificate by letting you skip SSL validation.
+- HDFS connector now supports self-signed public certificate by letting you skip TLS validation.
 - Fixed: Issue with gateway offline during update (due to clock skew)
 
 

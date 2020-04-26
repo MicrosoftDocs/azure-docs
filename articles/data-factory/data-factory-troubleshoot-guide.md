@@ -11,6 +11,7 @@ ms.reviewer: craigg
 ---
 
 # Troubleshoot Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article explores common troubleshooting methods for external control activities in Azure Data Factory.
 
@@ -631,14 +632,12 @@ The following table applies to Azure Batch.
 
 - **Cause**: There was an internal error while trying to read the Service Principal or instantiating the MSI authentication.
 
-- **Recommendation**:  Please consider providing a Service Principal which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.
+- **Recommendation**:  Please consider providing a Service Principal which has permissions to create an HDInsight cluster in the provided subscription and try again. Make sure the [Manage Identities are set up correctly](https://docs.microsoft.com/azure/hdinsight/hdinsight-managed-identities). In case if this is not an acceptable solution, contact ADF support team for further assistance.
 
 
 ### Error code:  2300
 
 - **Message**: `Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
-
-<br>
 
 - **Cause**: When error message contains a message similar to 'The remote name could not be resolved.', this could mean the provided cluster URI is invalid.
 
@@ -650,27 +649,32 @@ The following table applies to Azure Batch.
 
 - **Cause**: When error message contains a message similar to 'A task was canceled.', this means that the job submission timed out.
 
-- **Recommendation**:  The problem could be either general HDInsight connectivity or network connectivity. First confirm that the HDInsight Ambari UI is available from any browser. Confirm that your credentials are still valid. If you're using self-hosted integrated runtime (IR), make sure to do this from the VM or machine where the self-hosted IR is installed. Then try submitting the job from Data Factory again. If it still fails, contact the Data Factory team for support.
+- **Recommendation**:  The problem could be either general HDInsight connectivity or network connectivity. First confirm that the HDInsight Ambari UI is available from any browser. Confirm that your credentials are still valid. For more information, read [Ambari Web UI](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-manage-ambari#ambari-web-ui). If you're using self-hosted integrated runtime (IR), make sure to do this from the VM or machine where the self-hosted IR is installed. Then try submitting the job from Data Factory again. If it still fails, contact the Data Factory team for support.
 
 <br>
 
 - **Cause**: When error message contains a message similar to 'User admin is locked out in Ambari' or 'Unauthorized: Ambari user name or password is incorrect', this means the credentials for HDInsight are incorrect or have expired.
 
-- **Recommendation**:  Correct the credentials and redeploy the linked service. First make sure the credentials work on HDInsight by opening the cluster URI on any browser and trying to sign in. If the credentials don't work, you can reset them from the Azure portal.
+- **Recommendation**:  Correct the credentials and redeploy the linked service. First make sure the credentials work on HDInsight by opening the cluster URI on any browser and trying to sign in. If the credentials don't work, you can reset them from the Azure portal. For ESP cluster, you can [reset the password through self service password reset](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password).
 
 <br>
 
 - **Cause**: When error message contains a message similar to '502 - Web server received an invalid response while acting as a gateway or proxy server', this error is returned by HDInsight service.
 
+- **Recommendation**: For 502 error, most of the time this is because your Ambari Server process was shut down. You can restart the Ambari Services by rebooting the head node.  
 
-- **Recommendation**: Look through Azure HDInsight troubleshooting documentation, for example,  https://hdinsight.github.io/ambari/ambari-ui-502-error.html, https://hdinsight.github.io/spark/spark-thriftserver-errors.html, https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502.
-                  
+    1. Connect to one of your node on Hdinsight using SSH.
+    2. Identify your active head node host by running “ping headnodehost”.
+    3. Connect to your active head node as Ambari Server sits on the active head node using SSH.  
+    4. Reboot the active head node.
+
+        For more information: Look through Azure HDInsight troubleshooting documentation, for example: [Ambari UI 502 error](https://hdinsight.github.io/ambari/ambari-ui-502-error.html), [RpcTimeoutException for Apache Spark thrift server](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception), [Troubleshooting bad gateway errors in Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502).
 
 <br>
 
 - **Cause**: When error message contains a message similar to 'Unable to service the submit job request as templeton service is busy with too many submit job requests' or 'Queue root.joblauncher already has 500 applications, cannot accept submission of application', this means that too many jobs are being submitted to HDInsight at the same time.
 
-- **Recommendation**:  Consider limiting the number of concurrent jobs submitted to HDInsight. Refer to Data Factory activity concurrency if the jobs are being submitted by the same activity. Change the triggers so the concurrent pipeline runs are spread out over time. Refer to HDInsight documentation to adjust templeton.parallellism.job.submit as the error suggests.
+- **Recommendation**:  Consider limiting the number of concurrent jobs submitted to HDInsight. Refer to Data Factory activity concurrency if the jobs are being submitted by the same activity. Change the triggers so the concurrent pipeline runs are spread out over time. Refer to [HDInsight documentation](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors) to adjust `templeton.parallellism.job.submit` as the error suggests.
 
 
 ### Error code:  2301
@@ -729,7 +733,6 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: The error message should help to identify the issue. Please fix the json configuration and try again. Check https://docs.microsoft.com/azure/data-factory/compute-linked-services#azure-hdinsight-on-demand-linked-service for more information.
                 
-
 
 ### Error code:  2310
 
@@ -905,7 +908,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: The storage linked service type is not supported by the activity.
 
-- **Recommendation**:  Please make sure the selected linked service has one of the supported types for the activity. HDI activities support AzureBlobStorage and AzureBlobFSStorage linked services.
+- **Recommendation**:  Please make sure the selected linked service has one of the supported types for the activity. HDI activities support AzureBlobStorage and AzureBlobFSStorage linked services. For more information, read [Compare storage options for use with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-compare-storage-options)
 
 
 ### Error code:  2355
@@ -1023,7 +1026,7 @@ To use Fiddler to create an HTTP session of the monitored web application:
 
    ![Fiddler options](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
-1. If your application uses SSL certificates, add the Fiddler certificate to your device. Go to **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop**.
+1. If your application uses TLS/SSL certificates, add the Fiddler certificate to your device. Go to **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop**.
 
 1. Turn off capturing by going to **File** > **Capture Traffic**. Or press **F12**.
 

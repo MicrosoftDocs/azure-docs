@@ -136,6 +136,8 @@
     href: feature-hashing.md
   - name: Preprocess Text
     href: preprocess-text.md
+  - name: Latent Dirichlet Allocation
+    href: latent-dirichlet-allocation.md
 - name: Recommendation
   items: 
   - name: Evaluate Recommender
@@ -150,6 +152,10 @@
     href: pca-based-anomaly-detection.md
   - name: Train Anomaly Detection Model
     href: train-anomaly-detection-model.md
+- name: Web Service
+  items: 
+  - name: Web Service Input/Output
+    href: web-service-input-output.md
 - name: Module errors & troubleshooting
   href: designer-error-codes.md
   

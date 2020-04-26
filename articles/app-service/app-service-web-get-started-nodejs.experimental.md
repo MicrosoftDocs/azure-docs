@@ -4,12 +4,11 @@ description: Deploy your first Node.js Hello World to Azure App Service in minut
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 08/23/2019
-ms.custom: mvc, devcenter
-ms.custom: seodec18
-
+ms.custom: mvc, devcenter, seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
 ---
+
 # Create a Node.js web app in Azure
 
 > [!NOTE]
@@ -73,7 +72,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
 
-```json
+<pre>
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -81,11 +80,11 @@ When the web app has been created, the Azure CLI shows output similar to the fol
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
+  "defaultHostName": "&lt;app_name&gt;.azurewebsites.net",
   "enabled": true,
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
 }
-```
+</pre>
 
 ### Set Node.js runtime
 

@@ -1,17 +1,7 @@
 ---
-title: Automatically scale compute nodes in an Azure Batch pool | Microsoft Docs
+title: Automatically scale compute nodes in an Azure Batch pool
 description: Enable automatic scaling on a cloud pool to dynamically adjust the number of compute nodes in the pool.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: 
-
-ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
@@ -664,6 +654,7 @@ $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 $NodeDeallocationOption = taskcompletion;
 ```
+`$curTime` can be adjusted to reflect your local time zone by adding `time()` to the product of `TimeZoneInterval_Hour` and your UTC offset. For instance, use `$curTime = time() + (-6 * TimeInterval_Hour);` for Mountain Daylight Time (MDT). Keep in mind that the offset would need to be adjusted at the start and end of daylight saving time (if applicable).
 
 ### Example 2: Task-based adjustment
 

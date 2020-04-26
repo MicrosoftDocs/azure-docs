@@ -15,7 +15,7 @@ ms.date: 02/11/2020
 
 This article describes how to use the Tune Model Hyperparameters module in Azure Machine Learning designer (preview). The goal is to determine the optimum hyperparameters for a machine learning model. The module builds and tests multiple models by using different combinations of settings. It compares metrics over all models to get the combinations of settings. 
 
-The terms *parameter* and *hyperparameter* can be confusing. The model's *parameters* are what you set in the properties pane. Basically, this module performs a *parameter sweep* over the specified parameter settings. It learns an optimal set of _hyperparameters_, which might be different for each specific decision tree, dataset, or regression method. The process of finding the optimal configuration is sometimes called *tuning*. 
+The terms *parameter* and *hyperparameter* can be confusing. The model's *parameters* are what you set in the right pane of the module. Basically, this module performs a *parameter sweep* over the specified parameter settings. It learns an optimal set of _hyperparameters_, which might be different for each specific decision tree, dataset, or regression method. The process of finding the optimal configuration is sometimes called *tuning*. 
 
 The module supports the following method for finding the optimum settings for a model: *integrated train and tune.* In this method, you configure a set of parameters to use. You then let the module iterate over multiple combinations. The module measures accuracy until it finds a "best" model. With most learner modules, you can choose which parameters should be changed during the training process, and which should remain fixed.
 

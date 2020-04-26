@@ -21,7 +21,7 @@ After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid
 
 To install and configure a Windows Hybrid Runbook Worker, you can use one of the following methods.
 
-* For Azure VMs, install the Log Analytics agent for Windows using the [virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md). The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace using an Azure Resource Manager template or PowerShell. Once the agent is installed, the VM can be added to a Hybrid Runbook Worker group in your Automation account following step 4 in the [Manual deployment](#manual-deployment) section.
+* For Azure VMs, install the Log Analytics agent for Windows using the [virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md). The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace using an Azure Resource Manager template or PowerShell. Once the agent is installed, the VM can be added to a Hybrid Runbook Worker group in your Automation account. Refer to steps 3 and 4 in the [Manual deployment](#manual-deployment) section.
 
 * Use an Automation runbook to completely automate the process of configuring a Windows computer. This is the recommended method for machines in your datacenter or another cloud environment.
 
@@ -139,7 +139,7 @@ In the search results, you should see heartbeat records for the computer, indica
 Use the following steps to complete the agent installation and setup.
 
 1. Enable the solution to onboard the agent machine. See [Onboard machines in the workspace](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-automation-account#onboard-machines-in-the-workspace).
-2. Verify that the agent has correctly downloaded the Automation solution. It should have a folder called **AzureAutomationFiles** in **C:\Program Files\Microsoft Monitoring Agent\Agent**. 
+2. Verify that the agent has correctly downloaded the Automation solution. 
 3. To confirm the version of the Hybrid Runbook Worker, browse to **C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation** and note the **version** subfolder.
 
 ### Step 4 - Install the runbook environment and connect to Azure Automation

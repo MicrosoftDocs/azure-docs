@@ -31,7 +31,7 @@ This example shows you how to deny installing extensions published by 'Microsoft
 
 In a [bash Cloud Shell](https://shell.azure.com/bash), type:
 
-```azurecli-interactive 
+```bash
 vim ~/clouddrive/azurepolicy.rules.json
 ```
 
@@ -72,7 +72,7 @@ This example shows you how to create a parameters file for Linux VMs in Cloud Sh
 
 In the [bash Cloud Shell](https://shell.azure.com/bash), type:
 
-```azurecli-interactive
+```bash
 vim ~/clouddrive/azurepolicy.parameters.json
 ```
 
