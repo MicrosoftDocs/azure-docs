@@ -29,7 +29,8 @@ Create a file named *quickstart.py* and paste the following Python code in it.
 
 ## Build and run app
 
-Now you're ready to test the app, and verify the speech recognition functionality using the Speech service.
+Now you're ready to test the app, and verify the speech recognition functionality using the Speech service.<br>
+If you are running this app on a Mac, you may need to give microphone access to the Terminal application. In System Settings, open Security & Privacy, go to the Privacy tab, and select Microphone in the list, then check Terminal.
 
 1. **Start your app** - From the command line, type:
     ```bash
