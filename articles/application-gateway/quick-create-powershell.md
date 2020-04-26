@@ -6,7 +6,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/05/2020
+ms.date: 04/15/2020
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -94,12 +94,10 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### Create the backend pool
 
-1. Use `New-AzApplicationGatewayBackendAddressPool` to create the backend pool for the application gateway. The backend pool will be empty for now and while you create the backend server NICs in the next section, you will add them to the backend pool.
+1. Use `New-AzApplicationGatewayBackendAddressPool` to create the backend pool for the application gateway. The backend pool will be empty for now. When you create the backend server NICs in the next section, you will add them to the backend pool.
 2. Configure the settings for the backend pool with `New-AzApplicationGatewayBackendHttpSetting`.
 
 ```azurepowershell-interactive
-$address1 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic1
-$address2 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic2
 $backendPool = New-AzApplicationGatewayBackendAddressPool `
   -Name myAGBackendPool
 $poolSettings = New-AzApplicationGatewayBackendHttpSetting `

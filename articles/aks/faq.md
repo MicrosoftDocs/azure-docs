@@ -93,6 +93,25 @@ AKS supports the following [admission controllers][admission-controllers]:
 
 Currently, you can't modify the list of admission controllers in AKS.
 
+## Can I use admission controller webhooks on AKS?
+
+Yes, you may use admission controller webhooks on AKS. It is recommended you exclude internal AKS namespaces which are marked with the **control-plane label.** For example, by adding the below to the webhook configuration:
+
+```
+namespaceSelector:
+    matchExpressions:
+    - key: control-plane
+      operator: DoesNotExist
+```
+
+## Can admission controller webhooks impact kube-system and internal AKS namespaces?
+
+To protect the stability of the system and prevent custom admission controllers from impacting internal services in the kube-system, namespace AKS has an **Admissions Enforcer**, which automatically excludes kube-system and AKS internal namespaces. This service ensures the custom admission controllers don't affect the services running in kube-system.
+
+If you have a critical use case for having something deployed on kube-system (not recommended) which you require to be covered by your custom admission webhook, you may add the below label or annotation so that Admissions Enforcer ignores it.
+
+Label: ```"admissions.enforcer/disabled": "true"``` or Annotation: ```"admissions.enforcer/disabled": true```
+
 ## Is Azure Key Vault integrated with AKS?
 
 AKS isn't currently natively integrated with Azure Key Vault. However, the [Azure Key Vault FlexVolume for Kubernetes project][keyvault-flexvolume] enables direct integration from Kubernetes pods to Key Vault secrets.

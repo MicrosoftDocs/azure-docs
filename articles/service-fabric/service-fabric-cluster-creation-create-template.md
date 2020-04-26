@@ -79,7 +79,7 @@ The cluster authentication certificate must be configured in both the Service Fa
       "extensionProfile": {
         "extensions": [
           {
-            "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
+            "name": "[concat('ServiceFabricNodeVmExt_',variables('vmNodeType0Name'))]",
             "properties": {
               ...
               "settings": {

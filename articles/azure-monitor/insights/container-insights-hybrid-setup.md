@@ -34,7 +34,7 @@ Before you start, make sure that you have the following:
     |*.blob.core.windows.net |Port 443 |  
     |*.dc.services.visualstudio.com |Port 443 |
 
-* The containerized agent requires Kubelet’s `cAdvisor secure port: 10250` or `unsecure port :10255` to be opened on all nodes in the cluster to collect performance metrics. We recommend you configure `secure port: 10250` on the Kubelet’s cAdvisor if it’s not configured already.
+* The containerized agent requires Kubelet's `cAdvisor secure port: 10250` or `unsecure port :10255` to be opened on all nodes in the cluster to collect performance metrics. We recommend you configure `secure port: 10250` on the Kubelet's cAdvisor if it's not configured already.
 
 * The containerized agent requires the following environmental variables to be specified on the container in order to communicate with the Kubernetes API service within the cluster to collect inventory data - `KUBERNETES_SERVICE_HOST` and `KUBERNETES_PORT_443_TCP_PORT`.
 
@@ -102,7 +102,7 @@ To first identify the full resource ID of your Log Analytics workspace required 
 
 3. The following example displays the list of workspaces in your subscriptions in the default JSON format.
 
-    ```
+    ```azurecli
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
@@ -223,7 +223,7 @@ To first identify the full resource ID of your Log Analytics workspace required 
        az login
        az account set --subscription "Subscription Name"
        # execute deployment command to add container insights solution to the specified Log Analytics workspace
-       az group deployment create --resource-group <resource group of log analytics workspace> --template-file ./containerSolution.json --parameters @./containerSolutionParams.json
+       az deployment group create --resource-group <resource group of log analytics workspace> --name <deployment name> --template-file  ./containerSolution.json --parameters @./containerSolutionParams.json
        ```
 
        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
@@ -235,6 +235,9 @@ To first identify the full resource ID of your Log Analytics workspace required 
        After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
 ## Install the chart
+
+>[!NOTE]
+>The following commands are applicable only for Helm version 2. Use of the --name parameter is not applicable with Helm version 3.
 
 To enable the HELM chart, do the following:
 

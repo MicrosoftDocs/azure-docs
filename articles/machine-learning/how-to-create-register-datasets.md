@@ -165,7 +165,7 @@ sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'
 
 In TabularDatasets, you can specify a time stamp from a column in the data or from wherever the path pattern data is stored to enable a time series trait. This specification allows for easy and efficient filtering by time.
 
-Use the [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) method on the`TabularDataset` class to specify your time stamp column and to enable filtering by time. For more information, see [Tabular time series-related API demo with NOAA weather data](https://aka.ms/azureml-tsd-notebook).
+Use the [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) method on the`TabularDataset` class to specify your time stamp column and to enable filtering by time. For more information, see [Tabular time series-related API demo with NOAA weather data](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb).
 
 ```Python
 # create a TabularDataset with time series trait
@@ -246,7 +246,7 @@ file_dataset = MNIST.get_file_dataset()
 
 from azureml.opendatasets import Diabetes
 
-# Diabetes class can return ONLY return TabularDataset and must be called from the static function
+# Diabetes class can return ONLY TabularDataset and must be called from the static function
 diabetes_tabular = Diabetes.get_tabular_dataset()
 ```
 

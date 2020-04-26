@@ -1,5 +1,5 @@
 ---
-title: Preview - Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster
+title: Run Windows Server container in Azure Kubernetes Service cluster
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using the Azure CLI.
 services: container-service
 ms.topic: article
@@ -300,7 +300,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
+> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete]. If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Next steps
 

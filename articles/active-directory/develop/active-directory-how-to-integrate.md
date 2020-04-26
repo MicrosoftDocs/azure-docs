@@ -1,11 +1,10 @@
 ---
-title: How to integrate with Azure Active Directory | Microsoft Docs
+title: How to integrate with Azure Active Directory
 description: Learn the benefits of integrating your application with Azure Active Directory, and get resources for features like simplified sign-in, identity management, multi-factor authentication, and access control.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: d13bba54-96bd-4b81-bee9-c8025ffa1648
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual

@@ -18,7 +18,7 @@ Before you get started:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=xamarin)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=xamarin&pivots=programming-language-csharp)
 > * Make sure that you have access to a microphone for audio capture
 
 If you've already done this, great. Let's keep going.
@@ -141,4 +141,4 @@ Building and running Android and iOS applications in the device or simulator hap
 
 ## Next steps
 
-[!INCLUDE [footer](../footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

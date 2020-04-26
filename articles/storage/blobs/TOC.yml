@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Blob storage?
     href: storage-blobs-overview.md
+  - name: Compare core storage services
+    href: ../common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   expanded: true
 - name: Blob storage
   items:
@@ -47,6 +49,8 @@
             href: storage-quickstart-blobs-nodejs.md
           - name: JavaScript (v10 SDK for Node.js)
             href: storage-quickstart-blobs-nodejs-legacy.md
+          - name: JavaScript (v12 SDK for browser)
+            href: quickstart-blobs-javascript-browser.md
           - name: JavaScript (v10 SDK for browser)
             href: storage-quickstart-blobs-javascript-client-libraries-legacy.md
       - name: Go
@@ -111,6 +115,8 @@
       items:
       - name: Security recommendations
         href: security-recommendations.md
+      - name: Security baseline
+        href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure Storage encryption at rest
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
@@ -639,6 +645,10 @@
     items:
     - name: Processing big data
       href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Integrating with Azure services
+      href: ../blobs/data-lake-storage-integrate-with-azure-services.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Filtering data with query acceleration
+      href: data-lake-storage-query-acceleration.md
     - name: Azure Blob File System driver for Hadoop
       href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure Blob File System URI
@@ -788,6 +798,10 @@
         href: data-lake-storage-explorer.md
       - name: Hadoop File System CLI
         href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Query
+      items:
+      - name: Filter data with query acceleration
+        href: data-lake-storage-query-acceleration-how-to.md
     - name: Transfer
       items:
       - name: AzCopy
@@ -836,6 +850,8 @@
       href: https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.0.0-preview.6
     - name: REST
       href: /rest/api/storageservices/data-lake-storage-gen2
+    - name: Query acceleration
+      href: query-acceleration-sql-reference.md
     - name: AzCopy v10
       items:
       - name: azcopy

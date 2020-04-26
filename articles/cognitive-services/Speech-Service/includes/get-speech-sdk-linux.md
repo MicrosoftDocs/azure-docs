@@ -1,18 +1,15 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 :::row:::
     :::column span="3":::
-        The Speech SDK only supports **Ubuntu 16.04/18.04**, **Debian 9**, **Red Hat Enterprise Linux (RHEL) 8**, and **CentOS 7/8** on the following target architectures when used with Linux:
-        - x86
+        The Speech SDK only supports **Ubuntu 16.04/18.04**, **Debian 9**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
         - x64
-        - ARM32
-        - ARM64
     :::column-end:::
     :::column:::
         <br>
@@ -50,7 +47,7 @@ sudo apt-get update
 sudo apt-get install build-essential libssl1.0.2 libasound2
 ```
 
-# [RHEL 8 and CentOS 7/8](#tab/rhel-centos)
+# [RHEL 7/8 and CentOS 7/8](#tab/rhel-centos)
 
 ```Bash
 sudo yum update

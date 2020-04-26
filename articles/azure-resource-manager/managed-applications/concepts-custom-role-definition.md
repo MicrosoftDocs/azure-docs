@@ -15,7 +15,7 @@ This article provides an overview of the custom role definition artifact and its
 
 ## Custom role definition artifact
 
-You need to name the custom role definition artifact customRoleDefinition.json. Place it at the same level as createUiDefinition.json and mainTemplate.json in the .zip package that creates a managed application definition. To learn how to create the .zip package and publish a managed application definition, see [Publish a managed application definition.](publish-managed-app-definition-quickstart.md)
+You need to name the custom role definition artifact customRoleDefinition.json. Place it at the same level as createUiDefinition.json and mainTemplate.json in the .zip package that creates a managed application definition. To learn how to create the .zip package and publish a managed application definition, see [Publish a managed application definition.](publish-service-catalog-app.md)
 
 ## Custom role definition schema
 

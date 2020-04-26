@@ -21,7 +21,8 @@ ms.author: tisande
 The following limitations are applicable when using change streams:
 
 * The `operationType` and `updateDescription` properties are not yet supported in the output document.
-* The `insert`, `update`, and `replace` operations types are currently supported. Delete operation or other events are not yet supported.
+* The `insert`, `update`, and `replace` operations types are currently supported. 
+* Delete operation or other events are not yet supported.
 
 Due to these limitations, the $match stage, $project stage, and fullDocument options are required as shown in the previous examples.
 
