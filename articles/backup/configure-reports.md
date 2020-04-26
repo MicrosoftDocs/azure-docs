@@ -43,7 +43,7 @@ In the monitoring section of your Recovery Services vault, select **Diagnostics 
 
 ![Diagnostics settings pane](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
-Azure Backup also provides a built-in Azure policy, which automates the configuration of diagnostics settings for all vaults in a given scope. To learn how to use this policy, see [Configure vault diagnostics settings at scale](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics).
+Azure Backup also provides a built-in Azure Policy definition, which automates the configuration of diagnostics settings for all vaults in a given scope. To learn how to use this policy, see [Configure vault diagnostics settings at scale](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics).
 
 > [!NOTE]
 > After you configure diagnostics, it might take up to 24 hours for the initial data push to complete. After data starts flowing into the Log Analytics workspace, you might not see data in the reports immediately because data for the current partial day isn't shown in the reports. For more information, see [Conventions used in Backup reports](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports). We recommend that you start viewing the reports two days after you configure your vaults to send data to Log Analytics.
