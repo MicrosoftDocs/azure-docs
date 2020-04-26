@@ -23,7 +23,7 @@ At a high level, the database migration process looks like:
 
 ![migration process](./media/sql-database-managed-instance-migration/migration-process.png)
 
-- [Assess SQL Managed Instance compatibility](#assess-managed-instance-compatibility) where you should ensure that there are no blocking issues that can prevent your migrations.
+- [Assess SQL Managed Instance compatibility](#assess-sql-managed-instance-compatibility) where you should ensure that there are no blocking issues that can prevent your migrations.
   - This step also includes creation of [performance baseline](#create-performance-baseline) to determine resource usage on your source SQL Server instance. This step is needed if you want to deploy properly sized SQL Managed Instance and verify that performances after migration are not affected.
 - [Choose app connectivity options](sql-database-managed-instance-connect-app.md)
 - [Deploy to an optimally sized SQL Managed Instance](#deploy-to-an-optimally-sized-managed-instance) where you will choose technical characteristics (number of vCores, amount of memory) and performance tier (Business Critical, General Purpose) of your SQL Managed Instance.
