@@ -9,7 +9,7 @@ ms.date: 05/04/2020
 
 During preview, AVS does not allow you to manage your private cloud with your on-premises vCenter. You'll need to perform additional setup and connection to a local vCenter instance through a jump box. 
 
-In this tutorial you create a Windows virtual machine for a jump box in the resource group you created in the previous tutorial [Tutorial: Configure networking for your VMWare private cloud in Azure](tutorial-configure-networking.md) and sign into vCenter. This is a VM on the same virtual network you created and provides access to vCenter and NSX Manager. 
+In this tutorial, you create a Windows virtual machine for a jump box in the resource group you created in the previous tutorial [Tutorial: Configure networking for your VMWare private cloud in Azure](tutorial-configure-networking.md) and sign into vCenter. This is a VM on the same virtual network you created and provides access to vCenter and NSX Manager. 
 
 In this tutorial, you learn how to:
 
@@ -23,7 +23,7 @@ In the resource group, select **+ Add** then search and select **Microsoft Windo
 
 :::image type="content" source="./media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="Add a new Windows 10 VM for a jumpbox" border="true":::
 
-Enter the required information in the fields, and then select **Review + create**. For additional information on the fields, see the following table.
+Enter the required information in the fields, and then select **Review + create**. For more information on the fields, see the following table.
 
 | Field | Value |
 | --- | --- |
@@ -46,7 +46,7 @@ After you have entered the appropriate information, click **Review + create**. O
 
 ## Connect to the local vCenter of your private cloud
 
-From the jump box log In to vSphere Client with VMware vCenter SSO. Log in to the vSphere Client using a cloud administrator user name; accept the security risk and continue when you see a warning about a potential security risk; log in to VMware vCenter with Single Sign-On credentials and verify the user interface successfully displays.
+From the jump box sign in to vSphere Client with VMware vCenter SSO. sign in to the vSphere Client using a cloud administrator user name; accept the security risk and continue when you see a warning about a potential security risk; sign in to VMware vCenter with Single Sign-On credentials and verify the user interface successfully displays.
 
 In the Azure portal, select your private cloud and then in the **Overview** view, select **Identity > Default**. The URLs and login credentials for private cloud vCenter and NSX-T manager are displayed.
 
@@ -63,6 +63,8 @@ In the Windows VM, open a browser and navigate to the vCenter and NSX-T Manger U
 In the second tab of the browser, sign in to NSX-T manager.
 
 :::image type="content" source="./media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="Local private cloud NSX Manger home" border="true":::
+
+# Next steps
 
 In this tutorial you learned how to:
 
