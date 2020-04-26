@@ -86,49 +86,37 @@ In this section, you add code that writes a message to the output queue. The mes
 
 ## Test the function
 
-1. After the code changes are saved, select **Run**. 
+1. After the code changes are saved, select **Test**.
+1. Confirm that your test matches the image below and select **Run**. 
 
-    ![Add a Queue storage output binding to a function in the Azure portal.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Test the queue storage binding in the Azure portal." border="true":::
 
     Notice that the **Request body** contains the `name` value *Azure*. This value appears in the queue message that is created when the function is invoked.
     
     As an alternative to selecting **Run** here, you can call the function by entering a URL in a browser and specifying the `name` value in the query string. The browser method is shown in the [previous quickstart](functions-create-first-azure-function.md#test-the-function).
 
-2. Check the logs to make sure that the function succeeded. 
+1. Check the logs to make sure that the function succeeded. 
 
-A new queue named **outqueue** is created in your Storage account by the Functions runtime when the output binding is first used. You'll use Storage Explorer to verify that the queue and a message in it were created.
+A new queue named **outqueue** is created in your Storage account by the Functions runtime when the output binding is first used. You'll use storage account to verify that the queue and a message in it were created.
 
-### Connect Storage Explorer to your account
+### Find the storage account connected to AzureWebJobsStorage
 
-Skip this section if you have already installed Storage Explorer and connected it to the storage account that you're using with this quickstart.
 
-1. Run the [Microsoft Azure Storage Explorer](https://storageexplorer.com/) tool, select the connect icon on the left, choose **Use a storage account name and key**, and select **Next**.
+1. Go to your function app and select **Configuration**.
 
-    ![Run the Storage Account Explorer tool.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
+1. Under **Application settings**, select **AzureWebJobsStorage**.
 
-1. In the Azure portal, on the function app page, select your function and then select **Integrate**.
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Locate the storage account connected to AzureWebJobsStorage." border="true":::
 
-1. Select the **Azure Queue storage** output binding that you added in an earlier step.
+1. Locate and make note of the account name.
 
-1. Expand the **Documentation** section at the bottom of the page. 
-
-   The portal shows credentials that you can use in Storage Explorer to connect to the storage account.
-
-   ![Get the Storage account connection credentials.](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
-
-1. Copy the **Account Name** value from the portal and paste it in the **Account name** box in Storage Explorer.
- 
-1. Click the show/hide icon next to **Account Key** to display the value, and then copy the **Account Key** value and paste it in the **Account key** box in Storage Explorer.
-  
-1. Select **Next > Connect**.
-
-   ![Paste the storage credentials and connect.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="Locate the storage account connected to AzureWebJobsStorage." border="true":::
 
 ### Examine the output queue
 
-1. In Storage Explorer, select the storage account that you're using for this quickstart.
+1. In the resource group for your function app, select the storage account that you're using for this quickstart.
 
-1. Expand the **Queues** node, and then select the queue named **outqueue**. 
+1. Under **Queue service**, select **Queues** and select the queue named **outqueue**. 
 
    The queue contains the message that the queue output binding created when you ran the HTTP-triggered function. If you invoked the function with the default `name` value of *Azure*, the queue message is *Name passed to the function: Azure*.
 
