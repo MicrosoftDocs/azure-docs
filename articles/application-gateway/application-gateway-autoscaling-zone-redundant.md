@@ -170,7 +170,7 @@ The following table compares the features available with each SKU.
 |Billing|Billing scheduled to start on July 1, 2019.|
 |FIPS mode|These are currently not supported.|
 |ILB only mode|This is currently not supported. Public and ILB mode together is supported.|
-|Netwatcher integration|Not supported.|
+|Net watcher integration|Not supported.|
 |Azure Security Center integration|Not yet available.
 
 ## Migrate from v1 to v2
