@@ -45,8 +45,8 @@ Create and populate three security groups for your workspace:
 - **WS1\_WSAdmins** – for users who need complete control over the workspace
 - **WS1\_SparkAdmins** – for those users who need complete control over the Spark aspects of the workspace
 - **WS1\_SQLAdmins** – for users who need complete control over the SQL aspects of the workspace
-- Add **WS1\_Admins** to **WS1\_SQLAdmins**
-- Add **WS1\_Admins** to **WS1\_SparkAdmins**
+- Add **WS1\_WSAdmins** to **WS1\_SQLAdmins**
+- Add **WS1\_WSAdmins** to **WS1\_SparkAdmins**
 
 ## STEP 2: Prepare your Data Lake Storage Gen2 account
 
@@ -83,7 +83,7 @@ The Synapse workspace needs access to STG1 and CNT1 so it can run pipelines and 
 - Open the Azure portal
 - Locate STG1
 - Navigate to CNT1
-- Ensure that the MSI for WS1 is assigned to the **Azure Blob Data Contributor** role on CNT1
+- Ensure that the MSI (Managed Service Identity) for WS1 is assigned to the **Azure Blob Data Contributor** role on CNT1
   - If you don't see it assigned, assign it.
   - The MSI has the same name as the workspace. In this case, it would be &quot;WS1&quot;.
 

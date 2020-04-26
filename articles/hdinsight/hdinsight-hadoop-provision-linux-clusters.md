@@ -164,7 +164,7 @@ For more information on creating domain-joined HDInsight cluster, see [Create do
 
 ### TLS
 
-For more information, see [Transport Layer Security](./hdinsight-plan-virtual-network-deployment.md#transport-layer-security)
+For more information, see [Transport Layer Security](./transport-layer-security.md)
 
 ### Virtual network
 

@@ -1,9 +1,11 @@
 - name: Keys
   href: index.yml
+
 - name: Overview 
   items:
   - name: About Key Vault keys
     href: about-keys.md
+
 - name: Quickstarts
   expanded: true
   items:
@@ -14,6 +16,7 @@
   - name: Portal
     href: quick-create-portal.md
   - name: Python
+
     href: quick-create-python.md
 - name: Tutorials 
   items:
@@ -23,10 +26,7 @@
     href: hsm-protected-keys-vendor-agnostic-byok.md
   - name: Import HSM-protected keys(legacy)
     href: hsm-protected-keys-legacy.md
-- name: Concepts 
-  items:
-- name: How-to guides
-  items:
+
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -46,6 +46,7 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
     displayName: ARM
+
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

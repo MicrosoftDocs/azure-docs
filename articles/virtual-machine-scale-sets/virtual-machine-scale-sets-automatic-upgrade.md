@@ -153,7 +153,7 @@ az provider register --namespace Microsoft.Compute
 - The new image version should not be excluded from the latest version for that gallery image. Image versions excluded from the gallery image's latest version are not rolled out to the scale set through automatic OS image upgrade.
 
 > [!NOTE]
->It can take up to 2 hours for a scale set to get the first image rollout after the scale set is configured for automatic OS upgrades. This is a one-time delay per scale set. Subsequent image rollouts are applied to the scale set without this delay.
+>It can take up to 3 hours for a scale set to trigger the first image upgrade rollout after the scale set is configured for automatic OS upgrades. This is a one-time delay per scale set. Subsequent image rollouts are triggered on the scale set within 30 minutes.
 
 
 ## Configure automatic OS image upgrade

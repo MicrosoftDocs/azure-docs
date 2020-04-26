@@ -29,9 +29,9 @@ The following policy applies to all selected users, who attempt to register usin
 1. Under **Assignments**, select **Users and groups**, and select the users and groups you want this policy to apply to.
 
    > [!WARNING]
-   > Users must be enabled for the [combined registration preview](../authentication/howto-registration-mfa-sspr-combined.md).
+   > Users must be enabled for the [combined registration](../authentication/howto-registration-mfa-sspr-combined.md).
 
-1. Under **Cloud apps or actions**, select **User actions**, check **Register security information (preview)**.
+1. Under **Cloud apps or actions**, select **User actions**, check **Register security information**.
 1. Under **Conditions** > **Locations**.
    1. Configure **Yes**.
    1. Include **Any location**.

@@ -89,7 +89,7 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 1. Generate configurations by running the following command in the root folder of PiggyMetrics containing the parent POM:
 
     ```console
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.0.0:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
     ```
 
     a. Select the modules `gateway`,`auth-service`, and `account-service`.
