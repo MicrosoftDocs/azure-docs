@@ -17352,6 +17352,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/insights/container-insights-optout-openshift.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-optout-openshift-v3",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/mobile-engagement/mobile-engagement-send-personalized-notifications.md",
       "redirect_url": "/azure/azure-resource-manager/management/azure-subscription-service-limits#mobile-engagement-limits",
       "redirect_document_id": false
