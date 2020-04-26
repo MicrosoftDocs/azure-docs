@@ -43,7 +43,7 @@ You use this request location in Postman along with the function's master key in
 
 1. After copying the *_master* key, select **Code + Test**, and then select **Logs**. You'll see messages from the function logged here when you manually run the function from Postman.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="View the logs to see the master key test results." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="View the logs to see the master key test results." border="true":::
 
 > [!CAUTION]  
 > Due to the elevated permissions in your function app granted by the master key, you should not share this key with third parties or distribute it in an application.
@@ -73,7 +73,7 @@ Postman then reports a status of **202 Accepted**.
 
 Next, return to your function in the Azure portal. Locate the *Logs* window and you'll see messages coming from the manual call to the function.
 
-    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Function log results from manual call." border="true":::
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="View the logs to see the master key test results." border="true":::
 
 ## Next steps
 
