@@ -50,7 +50,7 @@ On the **Basics** tab, enter values for the fields. The following table shows a 
 | **NSX-T manager password** | Enter a NSX-T administrator password. |
 | **Address block** | Enter an IP address block for the CIDR network for the private cloud. An example is, 10.175.0.0/22. |
 
-:::image type="content" source="./media/tutorial-create-private-cloud/create-private-cloud.jpg" alt-text="create a private cloud" border="true":::
+:::image type="content" source="./media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="create a private cloud" border="true":::
 
 Once finished, select **Review + Create**. On the next screen verify the information entered. If the information is all correct, select **Create**.
 
@@ -104,7 +104,7 @@ az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --locati
 
 Navigate to the resource group you created and select your private cloud, when the deployment is completed you'll see the following screen and you'll see the status of **Succeeded**.
 
-:::image type="content" source="./media/tutorial-create-private-cloud/validate-deployment.jpg" alt-text="Validate the private cloud deployed" border="true":::
+:::image type="content" source="./media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Validate the private cloud deployed" border="true":::
 
 ## Delete a private cloud
 
