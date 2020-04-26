@@ -111,7 +111,7 @@ Navigate to your AVS private cloud, under **Manage**, select **Identity**, here 
 
 :::image type="content" source="./media/tutorial-configure-networking/locate-urls.png" alt-text="locate the vCenter urls" border="true":::
 
-# Next steps
+## Next steps
 
 In this tutorial you learned how to:
 
