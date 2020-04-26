@@ -1454,7 +1454,7 @@ tools:
     # Card
     - title: Jenkins
       imageSrc: https://docs.microsoft.com/media/logos/logo_jenkins.svg
-      url: jenkins/index.yml
+      url: /azure/developer/jenkins
     # Card
     - title: Terraform
       imageSrc: https://docs.microsoft.com/media/logos/logo_terraform.svg
@@ -1462,7 +1462,7 @@ tools:
     # Card
     - title: Ansible
       imageSrc: ./media/index/ansible.svg
-      url: https://docs.microsoft.com/azure/developer/ansible
+      url: /azure/developer/ansible
 
 additionalContent:
   sections:
