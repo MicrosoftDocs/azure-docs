@@ -1,5 +1,5 @@
 ---
-title: Explanability in automated machine learning
+title: Explainability in automated ML
 titleSuffix: Azure Machine Learning
 description: Learn how to get explanations for how your automated ML model determines feature importance and makes predictions when using the Azure Machine Learning SDK.
 services: machine-learning

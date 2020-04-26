@@ -64,7 +64,7 @@ The function in the following table is used to access connections in a Python 2 
 
 ## Creating a new connection
 
-### To create a new connection with the Azure portal
+### Create a new connection with the Azure portal
 
 1. From your Automation account, click the **Assets** part to open the **Assets** blade.
 2. Click the **Connections** part to open the **Connections** blade.
@@ -72,7 +72,7 @@ The function in the following table is used to access connections in a Python 2 
 4. In the **Type** dropdown, select the type of connection you want to create. The form will present the properties for that particular type.
 5. Complete the form and click **Create** to save the new connection.
 
-### To create a new connection with Windows PowerShell
+### Create a new connection with Windows PowerShell
 
 Create a new connection with Windows PowerShell using the `New-AzAutomationConnection` cmdlet. This cmdlet has a parameter named `ConnectionFieldValues` that expects a [hashtable](https://technet.microsoft.com/library/hh847780.aspx) defining values for each of the properties defined by the connection type.
 
@@ -84,7 +84,7 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-You are able to use the script to create the connection asset because when you create your Automation account, it automatically includes several global modules by default along with the connection type `AzureServicePrincipal` to create the `AzureRunAsConnection` connection asset. This is important to keep in mind, because if you attempt to create a new connection asset to connect to a service or application with a different authentication method, it will fail because the connection type is not already defined in your Automation account. For more information on how to create your own connection type for your custom or module from the [PowerShell Gallery](https://www.powershellgallery.com), see [Integration Modules](automation-integration-modules.md).
+When you create your Automation account, it includes several global modules by default, along with the connection type `AzureServicePrincipal` to create the `AzureRunAsConnection` connection asset. If you try to create a new connection asset to connect to a service or application with a different authentication method, the operation fails because the connection type is not already defined in your Automation account. For more information on creating your own connection type for a custom [PowerShell Gallery](https://www.powershellgallery.com) module, see [Integration modules](automation-integration-modules.md).
 
 ## Using a connection in a runbook or DSC configuration
 

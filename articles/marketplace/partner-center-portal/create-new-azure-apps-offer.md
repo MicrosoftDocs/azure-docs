@@ -216,6 +216,9 @@ In the **Support contact** section, you must also provide the **Support URL** wh
 
 In this section, you can provide logos and images that will be used when showing your offer to customer. All images must be in .png format.
 
+>[!Note]
+>If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
+
 #### Store logos
 
 Provide your offer's logo in three sizes: **Small (48 x 48)**, **Medium (90 X 90)**, and **Large (216 x 216)**.
@@ -350,7 +353,7 @@ If you have already set prices for your plan in United States Dollars (USD) and 
 
 Provide the per-month price for this plan.  This price is in addition to any Azure infrastructure or pay-as-you-go software costs incurred by the resources deployed by this solution.
 
-Prices set in local currency (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates available during setup. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market. If you would like to set custom prices in an individual market, modify and import the pricing spreadsheet. 
+Prices set in USD (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates when saved. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market. If you would like to set custom prices in an individual market, modify and import the pricing spreadsheet. 
 
 >[!Note]
 >You must first save your pricing changes to enable export of pricing data.
@@ -392,7 +395,16 @@ All Azure application plan packages must include these two files in the root fol
 
 * A user interface definition for the Azure application creation experience named [createUiDefinition.json](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
 
+Maximum file sizes supported are:
+
+* Up to 1 Gb in total compressed `.zip` archive size
+
+* Up to 1 Gb for any individual uncompressed file within the `.zip` archive  
+
 All new Azure application offers must also include an [Azure partner customer usage attribution](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution) GUID.
+
+>[!Note]
+>If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 ### Previously published packages 
 

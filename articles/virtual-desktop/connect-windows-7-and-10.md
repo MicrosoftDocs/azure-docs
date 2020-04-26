@@ -16,6 +16,9 @@ manager: lizross
 
 You can access Windows Virtual Desktop resources on devices with Windows 7, Windows 10, and Windows 10 IoT Enterprise using the Windows Desktop client.
 
+>[!NOTE]
+>The client automatically detects whether you're using the Fall 2019 release or the Spring 2020 release of Windows Virtual Desktop.
+
 > [!IMPORTANT]
 > Windows Virtual Desktop doesn't support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
 

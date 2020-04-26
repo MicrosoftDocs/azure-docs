@@ -157,8 +157,6 @@
     - name: Add Descriptor
       displayName: synonym, interchange, phrase list, descriptor
       href: luis-how-to-add-features.md
-    - name: Migrate to V3 Authoring
-      href: luis-migration-authoring-entities.md
     - name: With REST APIs
       items:
       - name: Build app programmatically using Node.js
@@ -219,11 +217,10 @@
     items:
     - name: For Developers
       href: developer-reference-resource.md
-    - name: Authoring APIs
-      href: luis-migration-api-authoring.md
-    - name: Migrate to V3 API
+    - name: Migrate to V3 Authoring APIs
+      href: luis-migration-authoring-entities.md
+    - name: Migrate to V3 Prediction APIs
       href: luis-migration-api-v3.md
-      displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override
     - name: Migrate to V2 API
       href: luis-migration-api-v1-to-v2.md
   - name: Use containers
@@ -332,7 +329,7 @@
     href: luis-reference-regions.md
     displayName: failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr
   - name: Limits
-    href: luis-boundaries.md
+    href: luis-limits.md
   - name: Application settings
     href: luis-reference-application-settings.md
   - name: Prebuilt entity reference

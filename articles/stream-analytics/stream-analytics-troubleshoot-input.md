@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 # Troubleshoot input connections
 
-This article describes common issues with Azure Stream Analytics input connections, how to troubleshoot input issues, and how to correct the issues. Many troubleshooting steps require diagnostic logs to be enabled for your Stream Analytics job. If you do not have diagnostic logs enabled, see [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analytics-job-diagnostic-logs.md).
+This article describes common issues with Azure Stream Analytics input connections, how to troubleshoot input issues, and how to correct the issues. Many troubleshooting steps require resource logs to be enabled for your Stream Analytics job. If you do not have resource logs enabled, see [Troubleshoot Azure Stream Analytics by using resource logs](stream-analytics-job-diagnostic-logs.md).
 
 ## Input events not received by job 
 
@@ -36,7 +36,7 @@ When a Stream Analytics job receives a malformed message from an input, it drops
 
 ![Azure Stream Analytics inputs tile](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-Enable diagnostics logs to view the details of the error and the message (payload) that caused the error. There are multiple reasons why deserialization errors can occur. For more information regarding specific deserialization errors, see [Input data errors](data-errors.md#input-data-errors). If diagnostic logs are not enabled, a brief notification will be available in the Azure portal.
+Enable resource logs to view the details of the error and the message (payload) that caused the error. There are multiple reasons why deserialization errors can occur. For more information regarding specific deserialization errors, see [Input data errors](data-errors.md#input-data-errors). If resource logs are not enabled, a brief notification will be available in the Azure portal.
 
 ![Input details warning notification](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 

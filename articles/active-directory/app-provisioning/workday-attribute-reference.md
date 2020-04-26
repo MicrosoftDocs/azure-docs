@@ -18,7 +18,7 @@ ms.author: chmutali
 # Workday attribute reference
 This section provides a list of attributes that you can fetch from Workday using XPATH queries. Based on the Workday Web Services API version, you plan to use, refer to the appropriate section. 
 
-## XPATH values for Workday Web Services version 21.1
+## XPATH values for Workday Web Services (WWS) API v21.1
 
 
 The table below captures the list of Workday attributes and corresponding XPATH expressions that are shipped out of the box with the Workday inbound provisioning app connector. 
@@ -106,7 +106,9 @@ The table below captures the list of Workday attributes and corresponding XPATH 
 | 79 | WorkerType                            | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Position\_Data/wd:Worker\_Type\_Reference/@wd:Descriptor                                                                                                                                                                                                                                                                                                    |
 | 80 | WorkSpaceReference                    | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Position\_Data/wd:Work\_Space\_\_Reference/@wd:Descriptor                                                                                                                                                                                                                                                                                                   |
 
-## XPATH values for Workday Web Services version 30+
+## XPATH values for Workday Web Services (WWS) API v30+
+
+If you are using a WWS API v30.0 and above, before turning on the provisioning job, please update the **XPATH API expressions** under **Attribute Mapping -> Advanced Options -> Edit attribute list for Workday** to use the values listed below. To configure additional XPATHs, refer to the section [Tutorial: Managing your configuration](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration). 
 
 
 | \# | Name                                  | Workday XPATH API expression                                                                                                                                                                                                                                                                                                                                                |
