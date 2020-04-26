@@ -150,14 +150,14 @@ Using the Azure portal, create another function app to listen for events publish
     }
     ```
 
-# [JavaScript](#tab/javascript)
+   # [JavaScript](#tab/javascript)
 
-```javascript
-module.exports = async function(context, eventGridEvent) {
-    context.log(typeof eventGridEvent);
-    context.log(eventGridEvent);
-}
-```
+   ```javascript
+   module.exports = async function(context, eventGridEvent) {
+       context.log(typeof eventGridEvent);
+       context.log(eventGridEvent);
+   }
+   ```
 
 ---
 
