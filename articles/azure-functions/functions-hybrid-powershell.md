@@ -11,7 +11,7 @@ ms.author: eamono
 
 # Managing hybrid environments with PowerShell in Azure Functions and App Service Hybrid Connections
 
-The Azure App Service Hybrid Connections feature enables access to resources in other networks. You can learn more about this capability in the [Hybrid Connections](../app-service/app-service-hybrid-connections.md) documentation. This article describes how to use this capability to run PowerShell functions that target an on-premises server. This server can then be used to manage all resources in the on-premises environment from an Azure PowerShell function.
+The Azure App Service Hybrid Connections feature enables access to resources in other networks. You can learn more about this capability in the [Hybrid Connections](./app-service/app-service-hybrid-connections.md) documentation. This article describes how to use this capability to run PowerShell functions that target an on-premises server. This server can then be used to manage all resources in the on-premises environment from an Azure PowerShell function.
 
 
 ## Configure an on-premises server for PowerShell remoting
@@ -98,13 +98,17 @@ The App Service Hybrid Connections feature is available only in Basic, Standard,
 Hybrid connections are configured from the networking section of the function app:
 
 1. Under **Settings** in the function app you just created, select **Networking**. 
-   ![App Overview for platform networking](./media/functions-hybrid-powershell/app-overview-platform-networking.png)  
 1. Select **Configure your hybrid connections endpoints**.
-   ![Networking](./media/functions-hybrid-powershell/select-network-feature.png)  
+   
+    :::image type="content" source="./media/functions-hybrid-powershell/configure-hybrid-connection-endpoint.png" alt-text="Configure the hybrid connection endpoints." border="true":::
+
 1. Select **Add hybrid connection**.
-   ![Hybrid Connection](./media/functions-hybrid-powershell/hybrid-connection-overview.png)  
+   
+    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-connection-overview.png" alt-text="Hybrid Connection" border="true":::
+
 1. Enter information about the hybrid connection as shown right after the following screenshot. You have the option of making the **Endpoint Host** setting match the host name of the on-premises server to make it easier to remember the server later when you're running remote commands. The port matches the default Windows remote management service port that was defined on the server earlier.
-  ![Add Hybrid Connection](./media/functions-hybrid-powershell/add-hybrid-connection.png)  
+  
+      :::image type="content" source="./media/functions-hybrid-powershell/add-hybrid-connection.png" alt-text="Add Hybrid Connection" border="true":::
 
     **Hybrid connection name**: ContosoHybridOnPremisesServer
     
@@ -118,7 +122,7 @@ Hybrid connections are configured from the networking section of the function ap
     
     **Name**: contosopowershellhybrid
 
-5. Select **OK** to create the hybrid connection.
+1. Select **OK** to create the hybrid connection.
 
 ## Download and install the hybrid connection
 
