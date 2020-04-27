@@ -71,7 +71,7 @@ You can configure autoscale for new databases or containers when creating them t
 
 1. Select **New Container.** Enter a name for your database, container, and a partition key. Under **Throughput**, select the **Autoscale** option, and choose the maximum throughput (RU/s) that the database or container cannot exceed when using the autoscale option.
 
-   ![Creating a container and configuring Autoscale throughput](./media/pprovision-throughput-autoscale/create-container-autoscale-mode.png)
+   ![Creating a container and configuring Autoscale throughput](./media/provision-throughput-autoscale/create-container-autoscale-mode.png)
 
 1. Select **OK**.
 
