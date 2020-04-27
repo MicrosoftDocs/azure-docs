@@ -143,5 +143,5 @@ Under **properties**, you will also have to reference an image under **storagePr
 
 In this article you learned about the qualifications and configurations needed when creating confidential computing virtual machine. You can now head to the Azure Marketplace to deploy a DCsv2-Series VM.
 
-[!div class=”nextstepaction”]
-[Deploy a DCsv2-Series Virtual Machine in the Azure Marketplace](quick-create-marketplace.md)
+> [!div class="nextstepaction"]
+> [Deploy a DCsv2-Series Virtual Machine in the Azure Marketplace](quick-create-marketplace.md)
