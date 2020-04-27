@@ -61,6 +61,7 @@ Twin type models can be written in any text editor. The DTDL language follows JS
 Here is an example of a typical model, written as a DTDL interface: 
 
 ```json
+[
 {
     "@id": "dtmi:com:contoso:Planet;1",
     "@type": "Interface",
@@ -86,14 +87,20 @@ Here is an example of a typical model, written as a DTDL interface:
             "@type": "Relationship",
             "name": "satellites",
             "target": "dtmi:com:contoso:Moon;1"
-        },
+        }
+    ],
+    "components": [
         {
             "@type": "Component",
             "name": "deepestCrater",
             "schema": "dtmi:com:contoso:Crater;1"
         }
     ]
+},
+{
+    //Interface definition for dtmi:com:contoso:Crater;1
 }
+]
 ```
 
 The fields of the DTDL document are:
