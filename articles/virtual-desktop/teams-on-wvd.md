@@ -26,7 +26,7 @@ Before you can use Microsoft Teams on Windows Virtual Desktop, you'll need to do
 
 ## Use unoptimized Microsoft Teams
 
-You can use unoptimized Microsoft Teams in your Windows Virtual Desktop environments to leverage the chat and collaboration features of Microsoft Teams. Audio and video calling is not supported. You can still make audio calls and join meetings with audio, but audio quality in calls will vary based on your host configuration. To learn more, check out [Teams on VDI performance consideration](https://docs.microsoft.com/microsoftteams/teams-for-vdi#teams-on-vdi-performance-considerations).
+You can use Microsoft Teams in your Windows Virtual Desktop environments to leverage the chat and collaboration features of Microsoft Teams. Windows Virtual Desktop does not support Teams on VDI audio/video (AV) optimizations. Calls and meetings are not supported. If your organization's policies allow, you can still make audio calls and join meetings with audio, but unoptimized audio quality in calls will vary based on your host configuration and may not be reliable. To learn more, check out [Teams on VDI performance consideration](https://docs.microsoft.com/microsoftteams/teams-for-vdi#teams-on-vdi-performance-considerations).
 
 ### Prepare your image for Teams
 
