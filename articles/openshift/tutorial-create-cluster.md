@@ -18,9 +18,9 @@ In this tutorial, part one of three, you'll prepare your environment to create a
 
 ## Before you begin
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-### Install the 'az aro' extension
+### Install the `az aro` extension
 The `az aro` extension allows you to create, access, and delete Azure Red Hat OpenShift clusters directly from the command line using the Azure CLI.
 
 Run the following command to install the `az aro` extension.
@@ -184,7 +184,6 @@ az aro create \
   # --domain foo.example.com # [OPTIONAL] custom domain
   # --pull-secret 'Pull secret from https://cloud.redhat.com/openshift/install/azure/installer-provisioned/' # [OPTIONAL] 
 ```
-
 >[!NOTE]
 > It normally takes about 35 minutes to create a cluster.
 
@@ -193,26 +192,6 @@ az aro create \
 >
 > By default, OpenShift uses self-signed certificates for all of the routes created on `*.apps.<random>.<location>.aroapp.io`.  If you choose to use custom DNS after connecting to the cluster, you will need to follow the OpenShift documentation to [configure a custom CA for your ingress controller](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) and a [custom CA for your API server](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
 >
-> You can follow this article to [create testing certificates to use with your custom domain](../configure/custom-ca.md).
-<!-- 
-## Next steps
-
-In this article, an Azure Red Hat OpenShift cluster running OpenShift 4 was deployed. You learned how to:
-
-> [!div class="checklist"]
-> * Setup the prerequisites and create the required virtual network and subnets
-> * Deploy a cluster
-> * Connect to the cluster using the `kubeadmin` user -->
-
-Advance to the next article to learn how to connect to the cluster. 
-<!-- configure the cluster for authentication using Azure Active Directory. -->
-
-<!-- > [!div class="nextstepaction"]
-> [Configure authentication with Azure Active Directory using the command line](configure-azure-ad-cli.md)
-
-> [!div class="nextstepaction"]
-> [Configure authentication with Azure Active Directory using the Azure portal and OpenShift web console](configure-azure-ad-cli.md)
- -->
 
 ## Next steps
 
