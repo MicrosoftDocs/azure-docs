@@ -2353,6 +2353,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/provision-throughput-autopilot.md",
+      "redirect_url": "/azure/cosmos-db/provision-throughput-autoscale",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/autopilot-faq.md",
+      "redirect_url": "/azure/cosmos-db/autoscale-faq",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/how-to-custom-synchronization.md",
       "redirect_url": "/azure/cosmos-db/how-to-multi-master",
       "redirect_document_id": true
@@ -4345,6 +4355,11 @@
     {
       "source_path": "articles/azure-portal/resource-group-portal-linked-resources.md",
       "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/templates/template-tutorial-secure-artifacts.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/secure-template-with-sas-token",
       "redirect_document_id": false
     },
     {
@@ -7365,6 +7380,11 @@
     {
       "source_path": "articles/logic-apps/logic-apps-using-sap-connector-old.md",
       "redirect_url": "/azure/logic-apps/logic-apps-using-sap-connector",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-schema-2015-08-01.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-schema-2016-04-01",
       "redirect_document_id": true
     },
     {
@@ -14200,7 +14220,7 @@
       "source_path": "articles/event-hubs/event-hubs-api-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-samples",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-archive-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-capture-overview",
@@ -14265,7 +14285,7 @@
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-api-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
@@ -14275,7 +14295,7 @@
       "source_path": "articles/event-hubs/event-hubs-dotnet-standard-api-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
@@ -14345,7 +14365,7 @@
       "source_path": "articles/event-hubs/event-hubs-spark-connector.md",
       "redirect_url": "/azure/event-hubs/event-hubs-kafka-spark-tutorial",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-tutorial-virtual-networks-firewalls.md",
       "redirect_url": "/azure/event-hubs/event-hubs-service-endpoints",
@@ -51741,6 +51761,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/jenkins/overview.md",
+      "redirect_url": "/azure/developer/jenkins/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/terraform/terraform-backend.md",
       "redirect_url": "/azure/developer/terraform/store-state-in-azure-storage",
       "redirect_document_id": false
@@ -51851,7 +51876,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/terraform/index",
+      "source_path": "articles/terraform/index.yml",
       "redirect_url": "/azure/developer/terraform/",
       "redirect_document_id": false
     }
