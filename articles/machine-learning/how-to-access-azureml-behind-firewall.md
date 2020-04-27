@@ -38,7 +38,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **\*.azureml.ms** | Used by Azure Machine Learning APIs |
 | **\*.experiments.azureml.net** | Used by experiments running in Azure Machine Learning|
 | **\*.modelmanagement.azureml.net** | Used to register and deploy models|
-| **mlworkspace.azure.ai** | Used by the Azure Portal when viewing a workspace |
+| **mlworkspace.azure.ai** | Used by the Azure portal when viewing a workspace |
 | **\*.aether.ms** | Used when running Azure Machine Learning pipelines |
 | **\*.instances.azureml.net** | Azure Machine Learning compute instances |
 | **windows.net** | Azure Blob Storage |
