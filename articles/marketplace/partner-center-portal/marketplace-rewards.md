@@ -36,10 +36,10 @@ Your steps to get started are easy:
 3. To activate sales and marketing benefit, you must first assign a company marketing contact. This contact will receive follow-up communications about your Marketplace Rewards.
 4. To add or update your marketing contact information, go to the top of the Sales and Marketing benefits tab on Marketplace Rewards page, then select **Add, update, or change**.  Next, do the following:
 
-    * Select a user from the list. If the user you want to assign is not in the list, you can add new users in **Account settings**.
-    * Provide an email address for the user that's different from the email address associated with your company's Partner Center account. We will email instructions for using your Marketplace Rewards benefit to your designated marketing contact's email address.
-    * Provide the contact phone and preferred language for this marketing contact. After you finish entering this information, select **Assign user**.
-    * After you’ve updated the marketing contact, select **Activate** for the benefit you want to start using. Once you activate a benefit, your marketing contact will be contacted by a member of the Rewards team within a week.
+    1. Select a user from the list. If the user you want to assign is not in the list, you can add new users in **Account settings**.
+    1. Provide an email address for the user that's different from the email address associated with your company's Partner Center account. We will email instructions for using your Marketplace Rewards benefit to your designated marketing contact's email address.
+    1. Provide the contact phone and preferred language for this marketing contact. After you finish entering this information, select **Assign user**.
+    1. After you've updated the marketing contact, select **Activate** for the benefit you want to start using. Once you activate a benefit, your marketing contact will be contacted by a member of the Rewards team within a week.
 
 **Technical benefits**
 
@@ -47,6 +47,9 @@ Your steps to get started are easy:
 2. How to make use of Azure sponsorship benefits will be shared via an email as you unlock these benefits.
 
 >[!Note]
->If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, either by looking in Cloud Partner Portal or in Partner Center. They should have the communication and next steps. <br> <br> If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at https://aka.ms/marketplacepublishersupport.
+>If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, either by looking in Cloud Partner Portal or in Partner Center. They should have the communication and next steps.
+
+>[!Note] 
+>If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at https://aka.ms/marketplacepublishersupport.
 
 The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.

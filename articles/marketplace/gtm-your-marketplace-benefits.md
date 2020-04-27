@@ -41,10 +41,10 @@ Your steps to get started are easy:
 3. To activate sales and marketing benefit, you must first assign a company marketing contact. This contact will receive follow-up communications about your Marketplace Rewards.
 4. To add or update your marketing contact information, go to the top of the Sales and Marketing benefits tab on Marketplace Rewards page, then select **Add, update, or change**.  Next, do the following:
 
-    * Select a user from the list. If the user you want to assign is not in the list, you can add new users in **Account settings**.
-    * Provide an email address for the user that's different from the email address associated with your company's Partner Center account. We will email instructions for using your Marketplace Rewards benefit to your designated marketing contact's email address.
-    * Provide the contact phone and preferred language for this marketing contact. After you finish entering this information, select **Assign user**.
-    * After you've updated the marketing contact, select **Activate** for the benefit you want to start using. Once you activate a benefit, your marketing contact will be contacted by a member of the Rewards team within a week.
+    1. Select a user from the list. If the user you want to assign is not in the list, you can add new users in **Account settings**.
+    1. Provide an email address for the user that's different from the email address associated with your company's Partner Center account. We will email instructions for using your Marketplace Rewards benefit to your designated marketing contact's email address.
+    1. Provide the contact phone and preferred language for this marketing contact. After you finish entering this information, select **Assign user**.
+    1. After you've updated the marketing contact, select **Activate** for the benefit you want to start using. Once you activate a benefit, your marketing contact will be contacted by a member of the Rewards team within a week.
 
 **Technical benefits**
 
@@ -111,8 +111,6 @@ Microsoft reserves the right to revoke and terminate Marketplace Rewards benefit
 This offer is conducted in English for all partners with a live offer in Azure Marketplace or Microsoft AppSource.
 
 Transactions that are proven to be fraudulent will not count towards a publisher's billed sales program tier, as noted in the [list, trial, consulting](#list-trial-and-consulting-benefits) section and the [transact partner benefits](#marketplace-rewards-for-transact-partners) section. Microsoft will allocate partners to eligibility tiers based on their actual billed sales, after the fraud has been removed.
-
-Transactions that are proven to be fraudulent will not count towards a publisher's <mark>[billed sales program tier](https://aka.ms/marketplacepublisherrewards)</mark>, as noted in the [list, trial, consulting](#list-trial-and-consulting-benefits) section, the [transact partner benefits](#marketplace-rewards-for-transact-partners) section, and [Program Overview](https://aka.ms/marketplacepublisherrewards). Microsoft will allocate partners to eligibility tiers based on their actual billed sales, after the fraud has been removed.
 
 ## Next steps
 
