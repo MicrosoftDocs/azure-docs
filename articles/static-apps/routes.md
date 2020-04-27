@@ -22,7 +22,7 @@ The topic of routing significantly overlaps with authentication and authorizatio
 
 ## Location
 
-The _routes.json_ file must exist at the root of app's build folder. If your web app includes a build step that copies built files to a specific folder, then the _routes.json_ file needs to exist in this folder. For instance, React apps often place the build files to a _public_ folder. The _routes.json_ file would need to be placed in this folder.
+The _routes.json_ file must exist at the root of app's build folder. If your web app includes a build step that copies built files to a specific folder, then the _routes.json_ file needs to exist in this folder.
 
 The following table lists the appropriate location for a number of front-end JavaScript frameworks and libraries.
 
@@ -100,7 +100,7 @@ You can also secure routes with wildcards. In the following example, any file re
 
 You can use [301](https://en.wikipedia.org/wiki/HTTP_301) and [302](https://en.wikipedia.org/wiki/HTTP_302) HTTP status codes to redirect requests from one route to another.
 
-For instance, the following rule creates a 301 redirect from `old-page.html` to `new-page.html`.
+For instance, the following rule creates a 301 redirect from _old-page.html_ to _new-page.html_.
 
 ```json
 {
@@ -202,7 +202,7 @@ The following examples describe what happens when a request matches a rule.
 | _/logout_     | Users are logged out of any authentication provider. |
 | _/calendar/2020/01_ | The browser is served the _/calendar.html_ file. |
 | _/specials_ | The browser is redirected to _/deals_. |
-| _/invalid-customers_     | The _/custom-404.html_ file is served. |
+| _/unknown-folder_     | The _/custom-404.html_ file is served. |
 
 <sup>1</sup> You can provide a custom error page by defining a `Unauthorized_MissingRoles` rule in the `platformErrorOverrides` array.
 
