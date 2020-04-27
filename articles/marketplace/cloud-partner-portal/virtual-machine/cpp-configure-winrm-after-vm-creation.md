@@ -12,7 +12,7 @@ ms.author: dsindona
 # Configure WinRM after virtual machine creation
 
 > [!IMPORTANT]
-> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Virtual Machine offer](https://aka.ms/CreateAzureVMoffer) to manage your migrated offers.
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Virtual Machine offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) to manage your migrated offers.
 
 This article explains how to configure an existing Azure-hosted virtual machine (VM) to enable WinRM over HTTPS.  This configuration applies only to Windows-based VMs and requires the following two-step process:
 
