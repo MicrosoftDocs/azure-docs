@@ -21,21 +21,18 @@ Using Azure Active Directory (Azure AD) portal, you can add a large number of me
 
 ## Understand the bulk upload spreadsheet
 
-Use the bulk upload spreadsheet as the template to fill in to successfully create Azure AD users in bulk.
+Use the bulk upload spreadsheet as the template to fill in to successfully add Azure AD group members in bulk. Your spreadsheet might look like this example:
 
 ![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/groups-bulk-import-members/template-with-callouts.png)
 
-First two rows must not be removed or modified, needed for processing
-There’s an example row that should be removed/replaced before upload
-Note: Older versions of the template may not have the sample row
-Provide info about Column header format
-Format is <Item> [PropertyName] <Required or not>. For example, “Name [displayName] Required”
-NOTE: Older versions of the template may have “Name (example: Chris Green) [displayName] *”
-For groups, format is the same but you have the option to choose which item you use. Ex. “Member object ID or user principal name [memberObjectIdOrUpn] Required”
-Required columns are list first
-Any additional columns included in the uploaded CSV file will be ignored
-create-template-example
-I think we should recommend they download the latest version of the template periodically.
+The first two rows of the upload template must not be removed or modified, or the upload can't be processed. We have included one row of examples of acceptable values. You must remove the examples row and replace it with your entries. Any additional columns you add are ignored and not processed. The required columns are listed first.
+
+> [!Note]
+> Older versions of the template might not have the examples row. We recommend that you download the latest version of the template as often as possible.
+
+The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Required or blank*&gt;. For example, `Name [displayName] Required`. Some older versions of the template might have something like `Name (example: Chris Green) [displayName] *`.
+
+For groups, format is the same but you have the option to decide which identifier you use. An example of one such column heading is `Member object ID or user principal name [memberObjectIdOrUpn] Required`.
 
 ## To bulk import group members
 

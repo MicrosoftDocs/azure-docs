@@ -34,7 +34,9 @@ The first two rows of the upload template must not be removed or modified, or th
 > [!Note]
 > Older versions of the template might not have the examples row. We recommend that you download the latest version of the template as often as possible.
 
-The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Required or blank*&gt;. For example, `Name [displayName] Required`. Some older versions of the template might have something like `Name (example: Chris Green) [displayName] *`. For groups, format is the same but you have the option to decide which identifier you use. An example of one such column heading is `Member object ID or user principal name [memberObjectIdOrUpn] Required`.
+The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Required or blank*&gt;. For example, `Name [displayName] Required`. Some older versions of the template might have something like `Name (example: Chris Green) [displayName] *`.
+
+For groups, format is the same but you have the option to decide which identifier you use. An example of one such column heading is `Member object ID or user principal name [memberObjectIdOrUpn] Required`.
 
 ## To create users in bulk
 
