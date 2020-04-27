@@ -61,7 +61,7 @@ To create a RemoteApp group with PowerShell:
    FriendlyName        : 
    IconIndex           : 0 
    IconPath            : C:\Program Files\Microsoft Office\Root\VFS\Windows\Installer\{90160000-000F-0000-1000-0000000FF1CE}\accicons.exe 
-   Id                  : /subscriptions/beec440d-0623-4cf1-8237-e1cb4a9bcba7<sub id>/resourcegroups/0301RG/providers/Microsoft.DesktopVirtualization/applicationgroups/0301RAG/startmenuitems/Access 
+   Id                  : /subscriptions/resourcegroups/providers/Microsoft.DesktopVirtualization/applicationgroups/startmenuitems/Access 
    Name                : 0301RAG/Access 
    Type                : Microsoft.DesktopVirtualization/applicationgroups/startmenuitems
    
@@ -71,7 +71,7 @@ To create a RemoteApp group with PowerShell:
    FriendlyName        : 
    IconIndex           : 0 
    IconPath            : C:\windows\system32\charmap.exe 
-   Id                  : /subscriptions/beec440d-0623-4cf1-8237-e1cb4a9bcba7<sub id>/resourcegroups/0301RG/providers/Microsoft.DesktopVirtualization/applicationgroups/0301RAG/startmenuitems/Character Map 
+   Id                  : /subscriptions/resourcegroups/providers/Microsoft.DesktopVirtualization/applicationgroups/startmenuitems/Character Map 
    Name                : 0301RAG/Character Map 
    Type                : Microsoft.DesktopVirtualization/applicationgroups/startmenuitems 
    ```

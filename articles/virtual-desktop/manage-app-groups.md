@@ -29,7 +29,7 @@ In this tutorial, learn how to:
 ## Create a RemoteApp group
 
 If you've already created a host pool and session host VMs using the Azure
-portal or PowerShell, you can add virtual machines from the Azure portal with
+portal or PowerShell, you can add application groups from the Azure portal with
 the following process:
 
 1.  Sign in to the [Azure portal](https://portal.azure.com/).
@@ -48,16 +48,16 @@ the following process:
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the Basics tab in the Azure portal.](media/basics-tab.png)
 
-6. If you want to add virtual machines to your host pool, select **Host pools** in the menu on the left side of the screen.
+6. If you want to add application groups to your host pool, select **Host pools** in the menu on the left side of the screen.
    
-    Next, select the name of the host pool you want to add virtual machines to.
+    Next, select the name of the host pool you want to add application groups to.
    
     After that, select **Application groups** from the menu on the left side of the screen, then select **+Add**.
 
     Finally, select the subscription group and resource group you want to create the app group in. You can either select the name of an existing resource group from the drop-down menu or select **Create new** to make a new one.
 
       >[!NOTE]
-      >When you add virtual machines to your host pool, the host pool that's related to the application group is already selected because you navigated from it.
+      >When you add application groups to your host pool, the host pool that's related to the application group is already selected because you navigated from it.
       > 
       > [!div class="mx-imgBorder"]
       >![A screenshot of the Basics tab with the host pool preselected.](media/host-pool-selected.png)
@@ -71,7 +71,7 @@ the following process:
 
 9.  To publish individual users or user groups to the app group, select **+Add Azure AD users or user groups**.
 
-10.  Select the number of users you want to add the apps to. You can select single or multiple users.
+10.  Select the number of users you want to add the apps to. You can select single or multiple users and user groups.
 
      > [!div class="mx-imgBorder"]
      > ![A screenshot of the user selection menu.](media/select-users.png)
@@ -110,7 +110,7 @@ the following process:
 
 16.  If you want to register the app group to a workspace, go to **Register application group** and select **Yes**. If you'd rather register the app group at a later time, select **No**.
 
-17.  If you select **Yes**, you can either create a new workspace or select an existing workspace to register your app group to.
+17.  If you select **Yes**, you can select an existing workspace to register your app group to.
        
        >[!NOTE]
        >You can only register the app group to workspaces created in the same location as the host pool. Also. if you've previously registered another app group from the same host pool as your new app group to a workspace, it will be selected and you can't edit it. All app groups from a host pool must be registered to the same workspace.
@@ -129,7 +129,6 @@ The deployment process will do the following things for you:
 - Create the RemoteApp app group.
 - Add your selected apps to the app group.
 - Publish the app group published to users and user groups you selected.
-- Create a workspace, if you chose to make one.
 - Register the app group, if you chose to do so.
 - Create a link to an Azure Resource Manager template based on your configuration that you can download and save for later.
 
