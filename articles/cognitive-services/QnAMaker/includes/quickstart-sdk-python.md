@@ -1,4 +1,9 @@
-
+---
+title: "Quickstart: QnA Maker client library for Python"
+description: This quickstart shows how to get started with the QnA Maker client library for Python.
+ms.topic: quickstart
+ms.date: 04/27/2020
+---
 Use the QnA Maker client library for python to:
 
 * Create a knowledge base
