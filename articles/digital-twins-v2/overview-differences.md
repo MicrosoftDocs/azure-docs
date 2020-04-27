@@ -15,13 +15,13 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Differences to Azure Digital Twins from previous release (2018)
+# How has Azure Digital Twins changed since the previous release (2018)?
 
 The first public preview of Azure Digital Twins was released in October of 2018. While the core concepts from that previous release are still the same in the current public preview, some of the interfaces and implementation details have changed with the new release. The new release also aims to be more flexible and accessible. These changes were motivated by customer feedback.
 
 If you used Azure Digital Twins during the previous public preview, use the information and best practices in this article to learn how to work with the new version differently.
 
-## Changes by topic
+## Differences by topic
 
 The chart below provides a side-by-side view of major concepts that have changed between the previous release and the new (current) release.
 
