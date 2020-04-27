@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Understand the Azure Digital Twins APIs and SDKs
+# Use the Azure Digital Twins APIs and SDKs
 
 The Azure Digital Twins API surface can be broadly divided into the following categories: 
 
@@ -32,7 +32,7 @@ Use the [Azure Digital Twins OpenAPI (Swagger) file](https://github.com/Azure/az
 
 You can also view example call bodies in the Swagger's accompanying [examples folder](https://github.com/Azure/azure-digital-twins/tree/private-preview/OpenApiSpec/examples).
 
-## C# SDK
+## Azure Digital Twins C# SDK
 
 ## Other languages: Generate an Azure Digital Twins SDK 
 
@@ -87,7 +87,7 @@ To add these, open *Tools > NuGet Package Manager > Manage NuGet Packages for So
 
 You can now build the project, and include it as a project reference in any Azure Digital Twins application you write.
 
-### General usage guidelines
+### General SDK guidelines
 
 This section contains general information about and guidelines for using the generated SDK.
 
