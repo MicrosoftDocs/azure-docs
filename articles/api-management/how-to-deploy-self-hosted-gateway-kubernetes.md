@@ -48,7 +48,7 @@ NAME             TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)           
 12. Go back to the Azure portal and select **Overview**.
 13. **Status** showing a green checkmark icon followed by the node count matching the number of replicas specified in the YAML file confirms that deployed self-hosted gateway pods are successfully communicating with the API Management service and have a regular "heartbeat".
 
-![gateway status](media/api-management-howto-deploy-self-hosted-gateway-to-k8s/status.png)
+![gateway status](media/how-to-deploy-self-hosted-gateway-kubernetes/status.png)
 
 > [!TIP]
 > Execute <code>kubectl logs deployment/<gateway-name></code> command to view logs from a randomly selected pod if there are more than one.

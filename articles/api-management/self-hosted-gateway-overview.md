@@ -33,7 +33,7 @@ By default, all these components are deployed in Azure, causing all API traffic 
 
 ![API traffic flow without self-hosted gateways](media/self-hosted-gateway-overview/without-gateways.png)
 
-Deploying self-hosted gateways into the same environments where the backend API implementations are hosted allows API traffic to flow directly to the backend APIs, which improves latency, optimizes data transfer costs, and enables compliance while retaining the benefits of having a single point of management, observanility, and discovery of all APIs within the organization regardless of where their implementations are hosted.
+Deploying self-hosted gateways into the same environments where the backend API implementations are hosted allows API traffic to flow directly to the backend APIs, which improves latency, optimizes data transfer costs, and enables compliance while retaining the benefits of having a single point of management, observability, and discovery of all APIs within the organization regardless of where their implementations are hosted.
 
 ![API traffic flow with self-hosted gateways](media/self-hosted-gateway-overview/with-gateways.png)
 

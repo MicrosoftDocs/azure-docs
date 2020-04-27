@@ -52,7 +52,7 @@ CONTAINER ID        IMAGE                                                 COMMAN
 ```
 10. Go back to Azure portal, click on **Overview** and confirm that self-hosted gateway container you just deployed is reporting a healthy status.
 
-![gateway status](media/api-management-howto-deploy-self-hosted-gateway-to-docker/status.png)
+![gateway status](media/how-to-deploy-self-hosted-gateway-docker/status.png)
 
 > [!TIP]
 > Use <code>console docker container logs <gateway-name></code> command to view a snapshot of self-hosted gateway log.

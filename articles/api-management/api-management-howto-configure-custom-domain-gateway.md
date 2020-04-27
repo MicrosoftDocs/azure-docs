@@ -39,7 +39,7 @@ To perform the steps described in this article, you must have:
 
 1. Select **Certificates** from under **Security**.
 2. Select **+ Add**.
-3. Enter a resource name for the certificate into **Id** field.
+3. Enter a resource name for the certificate into **ID** field.
 4. Select the file containing the certificate (.PFX) by selecting the **Certificate** field or the folder icon adjacent to it.
 5. Enter the password for the certificate into the **Password** field.
 6. Select **Create** to add the certificate to your API Management service.
