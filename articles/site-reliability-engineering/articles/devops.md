@@ -1,5 +1,6 @@
 ---
 title: "FAQ: SRE and DevOps | Microsoft Docs"
+titleSuffix: Azure
 description: "FAQ: Understanding the relationship between SRE and DevOps"
 author: dnblankedelman
 manager: efreeman
