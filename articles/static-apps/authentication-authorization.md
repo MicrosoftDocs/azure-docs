@@ -40,37 +40,37 @@ To add users to your site, you generate invitations which allow you to associate
 
 #### Create an invitation
 
-- Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com)
-- Under _Settings_, click on **Role Management**
-- Click on the **Invite** button
-- Select an _Authorization provider_ from the list of options
-- Add either the user account name or email address of the recipient in the _Invitee details_ box
+- Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
+- Under _Settings_, click on **Role Management**.
+- Click on the **Invite** button.
+- Select an _Authorization provider_ from the list of options.
+- Add either the user account name or email address of the recipient in the _Invitee details_ box.
   - For GitHub and Twitter you enter the user account name. For all others, enter the recipient's email address.
-- Select the domain of your static site from the _Domain_ drop-down
-- Add a comma separated list of role names in the _Role_ box
+- Select the domain of your static site from the _Domain_ drop-down.
+- Add a comma separated list of role names in the _Role_ box.
 - Enter the maximum number of hours you want the invitation to remain valid.
   - The maximum possible limit is 7 days, or 168 hours.
-- Click the **Generate** button
-- Copy the link from the _Invite link_ box
-- Email the invitation link to the person you are granting access to your app
+- Click the **Generate** button.
+- Copy the link from the _Invite link_ box.
+- Email the invitation link to the person you are granting access to your app.
 
 ### Update role assignments
 
-- Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com)
-- Under _Settings_, click on **Role Management**
-- Locate the user in the list
-- Check the checkbox on the user's row
-- Click the **Edit** button to open the _Edit user roles_ window
-- Edit the list of roles in the _Role_ box
-- Click the **Update** button
+- Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
+- Under _Settings_, click on **Role Management**.
+- Locate the user in the list.
+- Check the checkbox on the user's row.
+- Click the **Edit** button to open the _Edit user roles_ window.
+- Edit the list of roles in the _Role_ box.
+- Click the **Update** button.
 
 ### Remove user from all roles
 
-- Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com)
-- Under _Settings_, click on **Role Management**
-- Locate the user in the list
-- Check the checkbox on the user's row
-- Click the **Delete** button
+- Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com).
+- Under _Settings_, click on **Role Management**.
+- Locate the user in the list.
+- Check the checkbox on the user's row.
+- Click the **Delete** button.
 
 Removing a user also invalidates the permissions for the user. This action may take a few minutes to propagate the change worldwide.
 
