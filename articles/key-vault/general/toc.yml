@@ -18,6 +18,12 @@
   - name: Use Azure Key Vault with an Azure web app in .NET
     href: tutorial-net-create-vault-azure-web-app.md
 
+- name: Samples
+  items:
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-samples.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+
 - name: Concepts 
   items:
   - name: Basic concepts
