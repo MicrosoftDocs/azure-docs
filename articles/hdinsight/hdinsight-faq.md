@@ -6,7 +6,7 @@ author: Ramakoni1
 ms.author: ramakoni
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
 ---
