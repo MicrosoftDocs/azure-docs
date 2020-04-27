@@ -21,7 +21,7 @@ To access a key vault, your key vault client application has to access multiple 
 
 * Authentication via Azure Active Directory (Azure AD).
 * Management of Azure Key Vault. This includes creating, reading, updating, deleting, and setting access policies through Azure Resource Manager.
-* Accessing and managing objects (keys and secrets) stored in Key Vault itself, going through the Key Vault-specific endpoint (for example, [https://yourvaultname.vault.azure.net](https://yourvaultname.vault.azure.net)).  
+* Accessing and managing objects (keys and secrets) stored in Key Vault itself, going through the Key Vault-specific endpoint (for example, `https://yourvaultname.vault.azure.net`).  
 
 Depending on your configuration and environment, there are some variations.
 
