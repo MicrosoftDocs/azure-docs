@@ -15,13 +15,13 @@ Backup for Azure file shares is available in the following GEOS:
 
 | GA regions | Supported regions but not GA                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Australia South East (ASE), Canada Central (CNC), West Central US (WCUS), West US 2 (WUS 2), India South (INS), North Central US (NCUS), Japan East (JPE), Brazil South (BRS), South East Asia (SEA)                                                     |Australia East (ASE), Canada East (CE), East Asia (EA), East US (EUS), East US 2 (EUS2), Japan West (JPW), India Central (INC), Korea Central (KRC), Korea South (KRS), North Europe (NE), South Central US (SCUS), UK South (UKS), UK West (UKW), West Europe (WE), West US (WUS), US Gov Arizona (UGA), US Gov Texas (UGT), US Gov Virginia (UGV), Australia Central (ACL), India West (INW), South Africa North (SAN), UAE North(UAN), France Central (FRC), Germany North (GN), Germany West Central (GWC), South Africa West (SAW), UAE Central (UAC), Norway East (NWE), Norway West (NWW), Switzerland North (SZN) , Central US (CUS)           |
+| Australia South East (ASE), Canada Central (CNC), West Central US (WCUS), West US 2 (WUS 2), India South (INS), North Central US (NCUS), Japan East (JPE), Brazil South (BRS), South East Asia (SEA)                                                     |Australia East (AE), Canada East (CE), East Asia (EA), East US (EUS), East US 2 (EUS2), Japan West (JPW), India Central (INC), Korea Central (KRC), Korea South (KRS), North Europe (NE), South Central US (SCUS), UK South (UKS), UK West (UKW), West Europe (WE), West US (WUS), US Gov Arizona (UGA), US Gov Texas (UGT), US Gov Virginia (UGV), Australia Central (ACL), India West (INW), South Africa North (SAN), UAE North(UAN), France Central (FRC), Germany North (GN), Germany West Central (GWC), South Africa West (SAW), UAE Central (UAC), Norway East (NWE), Norway West (NWW), Switzerland North (SZN) , Central US (CUS)           |
 
 ## Supported storage accounts
 
 | Storage  account details | Support                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Account  Kind            | Azure  Backup supports Azure file shares in both general-purpose v1 and general-purpose v2 storage accounts |
+| Account  Kind            | Azure  Backup supports Azure file shares present in general-purpose v1,general-purpose v2 and file share type storage accounts |
 | Performance              | Azure  Backup supports file shares in both standard and Premium Storage accounts |
 | Replication              | Azure  files shares in Storage Accounts with any replication type are  supported |
 
