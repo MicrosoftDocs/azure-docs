@@ -82,7 +82,7 @@ the following process:
 
 13.  To add an application from the start menu:
 
-      - Go to **Application source**and select **Start menu** from the drop-down menu. Next, go to **Application** and choose the application from the drop-down menu.
+      - Go to **Application source** and select **Start menu** from the drop-down menu. Next, go to **Application** and choose the application from the drop-down menu.
 
      > [!div class="mx-imgBorder"]
      > ![A screenshot of the add application screen with the Start menu selected.](media/add-app-start.png)
@@ -93,7 +93,7 @@ the following process:
 
 14. To add an application from specific file path:
 
-      - Go to **Application source**and select **File path** from the drop-down menu.
+      - Go to **Application source** and select **File path** from the drop-down menu.
 
       - Enter the path to the application on the session host, registered with the associated host pool.
 
