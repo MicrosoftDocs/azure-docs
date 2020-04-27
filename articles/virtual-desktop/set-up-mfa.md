@@ -51,7 +51,9 @@ Here's what you'll need to get started:
 
 8. On the **Select** panel, select the **Windows Virtual Desktop** Enterprise app (app ID: 9cdead84-a844-4324-93f2-b2e6bb768d07).
 
-    ![A screenshot of the Cloud apps or actions page. The user has selected the Windows Virtual Desktop app by selecting the check mark next to it. The selected app is highlighted in red.](media/cloud-apps-select.png)
+    ![A screenshot of the Cloud apps or actions page. The user has selected the Windows Virtual Desktop app by selecting the check mark next to it. The selected app has a blue check mark next to it.](media/cloud-apps-select.png)
+
+    ![A screenshot of the Cloud apps or actions page. The user has selected the Windows Virtual Desktop app and is looking at the app's settings.](media/cloud-apps-enterprise.png)
     
 
 9. Select **Select**
