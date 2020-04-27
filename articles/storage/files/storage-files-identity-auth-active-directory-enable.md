@@ -11,7 +11,7 @@ ms.author: rogarana
 
 # Enable on-premises Active Directory Domain Services authentication over SMB for Azure file shares
 
-[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: Azure Active Directory Domain Services (Azure AD DS) and on-premises Active Directory Domain Services (AD DS) (preview). This article focuses on the newly introduced (preview) support of leveraging Active Directory Domain Service for authentication to Azure file shares. If you are interested in enabling Azure AD DS (GA) authentication for Azure file shares, refer to [our article on the subject](storage-files-identity-auth-active-directory-domain-service-enable.md).
+[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) through two types of Domain Services: Azure Active Directory Domain Services (Azure AD DS) and on-premises Active Directory Domain Services (AD DS) (preview). This article focuses on the newly introduced (preview) support of leveraging Active Directory Domain Service for authentication to Azure file shares. If you are interested in enabling Azure AD DS authentication for Azure file shares, refer to [our article on the subject](storage-files-identity-auth-active-directory-domain-service-enable.md).
 
 ## Limitations
 
@@ -59,13 +59,13 @@ Before you enable AD DS authentication for Azure file shares, make sure you have
 
 Azure Files authentication with AD DS (preview) is available in [all Public regions and Azure Gov regions](https://azure.microsoft.com/global-infrastructure/locations/).
 
-## Workflow overview
-
-Before you enable AD DS authentication over SMB for Azure file shares, we recommend that you read and complete the [prerequisite](#prerequisites) section. The prerequisites validate that your AD, Azure AD, and Azure Storage environments are properly configured. 
+## Overview
 
 If you plan to enable any networking configurations on your file share, we recommend you to evaluate the [networking consideration](https://docs.microsoft.com/azure/storage/files/storage-files-networking-overview) and complete the related configuration first before enabling AD DS authentication.
 
-Next, follow the steps below to set up Azure Files for AD Authentication: 
+AD DS authentication for Azure file shares, represents two 
+
+Next, follow the steps below to set up Azure Files for AD DS authentication: 
 
 1. Enable Azure Files AD DS authentication on your storage account. 
 
