@@ -26,16 +26,6 @@ With Custom Keyword's customization, performance, and integration features, you 
 | Keyword verification | When there's high confidence in the keyword being detected locally, audio is sent to the cloud for further verification that a user said the keyword. Keyword verification provides an additional layer of security by reducing the impact of an incorrect local detection and protecting user privacy.
 | Voice assistant & Speech SDK integration | Keywords generated from the Custom Keyword on Speech Studio can be easily integrated within your device or application via the Speech SDK. Simply point the SDK to the keyword model provided by Speech Studio and your product will be voice activated, backed by keyword verification. You can complete your product's voice experiences by building your own [voice assistant](voice-assistants.md).
 
-## Getting started with custom keywords
-
-We offer quickstarts designed to have you running code in less than 10 minutes. This table includes a list of voice assistant quickstarts, organized by language.
-
-| Quickstart | Platform | API reference |
-|------------|----------|---------------|
-| C#, UWP | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| Java | Windows, macOS, Linux | [Browse](https://aka.ms/csspeech/javaref) |
-| Java | Android | [Browse](https://aka.ms/csspeech/javaref) |
-
 ## Sample code
 
 Sample code for integrating a keyword model is available on GitHub. These samples cover the client application for integrating your keyword in several popular programming languages.
