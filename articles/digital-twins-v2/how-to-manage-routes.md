@@ -166,9 +166,9 @@ To add a filter, you can use a PUT request to *https://{YourHost}/ EventRoutes/m
 
 | Filter name | Description | Filter Schema | Supported Values | 
 | --- | --- | --- | --- |
-| Type | The class of event flowing through your Twin instance | "filter" : "type = '<[eventType](./concepts-route-events.md#types-of-event-messages)>'" | `microsoft.digitaltwins.twin.create` <br> `microsoft.digitaltwins.twin.delete` <br> `microsoft.digitaltwins.twin.update`<br>`microsoft.digitaltwins.edge.create`<br>`microsoft.digitaltwins.edge.update`<br>`microsoft.digitaltwins.edge.delete` <br> `microsoft.iot.telemetry`  |
+| Type | The class of event flowing through your Twin instance | "filter" : "type = '<[eventType](./concepts-route-events.md#types-of-event-messages)>'" | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Edge.Create`<br>`Microsoft.DigitalTwins.Edge.Update`<br> `Microsoft.DigitaTwins.Edge.Delete` <br> `microsoft.iot.telemetry`  |
 | Source | Name of Digital Twins instance | "filter" : "source = '\<hostname\>'" |  For notifications: `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> For telemetry: `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/ digitaltwins/<twinId>`|
-| Subject | A description of the event in the context of the event source above | "filter": " subject = '\<subject\>'" |`<twinid>` <br> or a URI format for subjects, which are uniquely identified by multiple parts or IDs:<br>`<twinid>/relationships/<relationship>/<edged>`|
+| Subject | A description of the event in the context of the event source above | "filter": " subject = '\<subject\>'" | **For notifications** the subject is `<twinid>` <br> or a URI format for subjects, which are uniquely identified by multiple parts or IDs:<br>`<twinid>/relationships/<relationship>/<edged>`<br> **For telemetry** the subject is the component path (if the telemetry is emitted from a twin component) i.e. `comp1.comp2`. If the Telemetry is not emitted from a component, then its Subject field is empty. |
 | Content type | Content type of data value. | "filter": "datacontenttype = '\<contentType\>'" | `application/json` |
 | Spec version | The version of the event schema you are using. | "filter": "specversion = '\<version\>'" | Must be `1.0`. This describes the CloudEvents schema version 1.0 |
 | Enabled | Allows creating a route with no filtering, or temporarily disabling a route | "filter" : "\<enabled\>" | `true` = route is enabled with no filtering <br> `false` = route is disabled |
@@ -181,9 +181,9 @@ It is also possible to combine filters using the following operations:
 
 | Filter name | Filter Schema | Example | 
 | --- | --- | --- |
-| AND / OR | "filter": "\<filter1\> AND \<filter2\>" | `"filter": "type != 'Microsoft.iot.Telemetry' AND datacontenttype = 'application/json'"` |
-| AND / OR | "filter": "\<filter1\> AND \<filter2\>" | `"filter": "type != 'Microsoft.iot.Telemetry' OR datacontenttype = 'application/json'"` |
-| Nested operations | "filter": "(\<Comparison1\>) AND (\<Comparison2\>)" | `"filter": "(type != 'Microsoft.iot.Telemetry' OR datacontenttype = 'application/json') OR (specversion != '1.0')"` |
+| AND / OR | "filter": "\<filter1\> AND \<filter2\>" | `"filter": "type != 'microsoft.iot.telemetry' AND datacontenttype = 'application/json'"` |
+| AND / OR | "filter": "\<filter1\> AND \<filter2\>" | `"filter": "type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json'"` |
+| Nested operations | "filter": "(\<Comparison1\>) AND (\<Comparison2\>)" | `"filter": "(type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json') OR (specversion != '1.0')"` |
 
 > [!NOTE]
 > During preview, only string equality is supported (=, !=).
