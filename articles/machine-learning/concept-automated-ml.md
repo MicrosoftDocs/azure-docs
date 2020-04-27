@@ -199,13 +199,12 @@ The following table shows a summary of features available on local and remote co
 | Image Classification and Labeling support                  | ✓      |       | ✓                             |
 | Auto-ARIMA, Prophet and ForecastTCN models for forecasting | ✓      |       | ✓                             |
 | Multiple runs/iterations in parallel                       | ✓      |       | ✓                             |
-| Create and run experiments in studio web experience UI       | ✓      |       | ✓                             |
+| Create models with interpretability in AutoML studio web experience UI      | ✓      |       | ✓                             |
 | Feature engineering customization in studio web experience UI                        | ✓      |       | ✓                              |
 | Azure ML hyperparameter tuning                             | ✓      |       |                               |
 | Azure ML Pipeline workflow support                         | ✓      |       |                               |
 | Continue a run                                             | ✓      |       |                               |
 | Forecasting                                                | ✓      | ✓     | ✓                             |
-| Model interpretability (in notebooks)                      | ✓      | ✓     | ✓                             |
 | Create and run experiments in notebooks                    | ✓      | ✓     |                               |
 | Register and visualize experiment's info and metrics in UI | ✓      | ✓     |                               |
 | Data guardrails                                            | ✓      | ✓     |                               |
