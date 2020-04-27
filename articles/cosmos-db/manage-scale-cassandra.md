@@ -29,7 +29,7 @@ If you need to minimize latency, there is a spectrum of options for managing sca
 * [Manually by using the Azure portal](#use-azure-portal)
 * [Programmatically by using the control plane features](#use-control-plane)
 * [Programmatically by using CQL commands with a specific SDK](#use-cql-queries)
-* [Dynamically by using Autoscale](#use-autoscale)
+* [Dynamically by using autoscale](#use-autoscale)
 
 The following sections explain the advantages and disadvantages of each approach. You can then decide on the best strategy to balance the scaling needs of your system, the overall cost, and efficiency needs for your solution.
 
@@ -51,13 +51,13 @@ A disadvantage with this approach may be that you cannot respond to unpredictabl
 
 You can scale the system dynamically with code by executing the [CQL ALTER commands](cassandra-support.md#keyspace-and-table-options) for the given database or container.
 
-The advantage of this approach is that it allows you to respond to scale needs dynamically and in a custom way that suits your application. With this approach, you can still leverage the standard RU/s charges and rates. If your system's scale needs are mostly predictable (around 70% or more), using SDK with CQL may be a more cost-effective method of auto-scaling than using Autoscale. The disadvantage of this approach is that it can be quite complex to implement retries while rate limiting may increase latency.
+The advantage of this approach is that it allows you to respond to scale needs dynamically and in a custom way that suits your application. With this approach, you can still leverage the standard RU/s charges and rates. If your system's scale needs are mostly predictable (around 70% or more), using SDK with CQL may be a more cost-effective method of auto-scaling than using autoscale. The disadvantage of this approach is that it can be quite complex to implement retries while rate limiting may increase latency.
 
-## <a id="use-autoscale"></a>Use Autoscale
+## <a id="use-autoscale"></a>Use autoscale
 
-In addition to manual or programmatic way of provisioning throughput, you can also configure Azure cosmos containers in Autoscale mode. Autoscale mode will automatically and instantly scale to your consumption needs within specified RU ranges without compromising SLAs. To learn more, see the [Create Azure Cosmos containers and databases in autoscale mode](provision-throughput-autoscale.md) article.
+In addition to manual or programmatic way of provisioning throughput, you can also configure Azure cosmos containers in autoscale mode. Autoscale mode will automatically and instantly scale to your consumption needs within specified RU ranges without compromising SLAs. To learn more, see the [Create Azure Cosmos containers and databases in autoscale mode](provision-throughput-autoscale.md) article.
 
-The advantage of this approach is that it is the easiest way to manage the scaling needs in your system. It guarantees not to apply rate-limiting **within the configured RU ranges**. The disadvantage is that, if the scaling needs in your system are predictable, Autoscale may be a less cost-effective way of handling your scaling needs than using the bespoke control plane or SDK level approaches mentioned above.
+The advantage of this approach is that it is the easiest way to manage the scaling needs in your system. It guarantees not to apply rate-limiting **within the configured RU ranges**. The disadvantage is that, if the scaling needs in your system are predictable, autoscale may be a less cost-effective way of handling your scaling needs than using the bespoke control plane or SDK level approaches mentioned above.
 
 ## Next steps
 
