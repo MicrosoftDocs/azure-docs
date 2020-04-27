@@ -197,8 +197,8 @@ The following table shows a summary of features available on local and remote co
 | Image Classification and Labeling support                  | ✓      |       | ✓                             |
 | Auto-ARIMA, Prophet and ForecastTCN models for forecasting | ✓      |       | ✓                             |
 | Multiple runs/iterations in parallel                       | ✓      |       | ✓                             |
-| Create and run experiments in studio web experience        | ✓      |       | ✓                             |
-| Feature engineering customization UI                       | ✓      |       | ✓                              |
+| Create and run experiments in studio web experience UI       | ✓      |       | ✓                             |
+| Feature engineering customization in studio web experience UI                        | ✓      |       | ✓                              |
 | Azure ML hyperparameter tuning                             | ✓      |       |                               |
 | Azure ML Pipeline workflow support                         | ✓      |       |                               |
 | Continue a run                                             | ✓      |       |                               |
