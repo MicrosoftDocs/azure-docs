@@ -28,7 +28,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + [Contrib features below] 
 
 + **Breaking changes**
-  + [Reference upcoming breaking changes and old API support drop date]
+  + AmlCompute clusters supported a Preview feature around run-based creation, that we are planning on deprecating in two weeks. You can continue to create persistent compute targets as always by using the Amlcompute class, but the specific approach of specifying the identifier "amlcompute" as the compute target in run config will not be supported in the near future. 
 
 + **Bug fixes and improvements**
   + **azureml-automl-runtime**
