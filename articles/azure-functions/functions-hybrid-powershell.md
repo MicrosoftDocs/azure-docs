@@ -159,7 +159,7 @@ Hybrid connections are configured from the networking section of the function ap
 
     :::image type="content" source="./media/functions-hybrid-powershell/save-administrator-password.png" alt-text="Save the password for the administrator account." border="true":::
 
-## Create a function http trigger
+## Create a function HTTP trigger
 
 1. In your function app, select **Functions**, and then select **+ Add**.
 
