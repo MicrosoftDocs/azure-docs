@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2020
+ms.date: 04/27/2020
 ---
 # Execute Python Script module
 
