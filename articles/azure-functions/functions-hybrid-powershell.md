@@ -108,17 +108,14 @@ Hybrid connections are configured from the networking section of the function ap
   
       :::image type="content" source="./media/functions-hybrid-powershell/add-hybrid-connection.png" alt-text="Add hybrid connection." border="true":::
 
-    **Hybrid connection name**: ContosoHybridOnPremisesServer
-    
-    **Endpoint Host**: finance1
-    
-    **Endpoint Port**: 5986
-    
-    **Servicebus namespace**: Create New
-    
-    **Location**: Pick an available location
-    
-    **Name**: contosopowershellhybrid
+    | Setting      | Suggested value  |
+    | ------------ | ---------------- |
+    | **Hybrid connection name** | ContosoHybridOnPremisesServer |
+    | **Endpoint Host** | finance1 |
+    | **Endpoint Port** | 5986 |
+    | **Servicebus namespace** | Create New |
+    | **Location** | Pick an available location |
+    | **Name** | contosopowershellhybrid | 
 
 1. Select **OK** to create the hybrid connection.
 
