@@ -70,10 +70,15 @@ Read operations on a blob that belongs to an encryption scope happen transparent
 
 When you disable an encryption scope, any subsequent read or write operations made with the encryption scope will fail with HTTP error code 403 (Forbidden). If you re-enable the encryption scope, read and write operations will proceed normally again.
 
+If an encryption scope is protected with a customer-managed key in Azure Key Vault, then you can also delete the key to disable the encryption scope. Keep in mind that a key vault that stores customer-managed keys for Azure Storage encryption must be configured with the **Soft Delete** and **Purge Protection** properties. These properties protect keys from deletion, so be sure to take this behavior into account if you delete a customer-managed key. For more information, see one one of the following articles in the Azure Key Vault documentation:
+
+- [Azure Key Vault - How to use soft-delete with PowerShell](../../key-vault/general/soft-delete-powershell.md)
+- [Azure Key Vault - How to use soft-delete with CLI](../../key-vault/general/soft-delete-cli.md)
+
 When an encryption scope is disabled, you are no longer billed for it. ???Need more info on pricing/costs???
 
 > [!NOTE]
-> It is not possible to delete an encryption scope in the preview (???will it be possible in GA???).
+> It is not possible to delete an encryption scope.
 
 ## Next steps
 
