@@ -50,13 +50,13 @@ gcc --version
 
 To complete this quickstart on Windows, install the following software on your local Windows environment:
 
-* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure you include the **NuGet package manager** component and the **Desktop Development with C++** workload when you install Visual Studio.
+* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure you include the **Desktop Development with C++** workload when you [install](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) Visual Studio.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 
 ### Azure IoT explorer
 
-To interact with the sample device in the second part of this quickstart, you use the **Azure IoT explorer** tool. Download and install the latest release of **Azure IoT explorer** for your operating system from the [repository releases](https://github.com/Azure/azure-iot-explorer/releases) page.
+To interact with the sample device in the second part of this quickstart, you use the **Azure IoT explorer** tool. [Download and install the latest release of **Azure IoT explorer**](./howto-install-iot-explorer.md) for your operating system.
 
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
@@ -66,6 +66,9 @@ Run the following command to get the _IoT hub connection string_ for your hub. M
 az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ```
 
+> [!TIP]
+> You can also use the Azure IoT Explorer tool to find the IoT hub connection string.
+
 ## Download the code
 
 In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT Hub Device C SDK.
@@ -73,7 +76,7 @@ In this quickstart, you prepare a development environment you can use to clone a
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT C SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-c) GitHub repository into this location:
 
 ```cmd\bash
-git clone --recurse-submodules -b public-preview-pnp https://github.com/Azure/azure-iot-sdk-c.git
+git clone --depth 1 --recurse-submodules -b public-preview-pnp https://github.com/Azure/azure-iot-sdk-c.git
 ```
 
 You should expect this operation to take several minutes to complete.
@@ -129,11 +132,11 @@ After the device client sample starts, use the Azure IoT explorer tool to verify
 
 [!INCLUDE [iot-pnp-iot-explorer-1.md](../../includes/iot-pnp-iot-explorer-1.md)]
 
-1. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the Plug and Play configurations; if it does not, select **+ Add module definition source** and then **On the connected device** to add it.
+1. To ensure the tool can read the model definition from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the Plug and Play configurations; if it does not, select **+ Add module definition source** and then **On the connected device** to add it. To save any changes you made, select **Save and Connect**.
 
 1. Back on the **Devices** overview page, find the device identity you created previously. With the sample device application still running in the command prompt, check that the device **Connection state** in Azure IoT explorer is **Connected**. If the connection state is **Disconnected**, select **Refresh** until it is. Click on the device ID to view more details about the device.
 
-1. Expand the interface with ID **urn:YOUR_COMPANY_NAME_HERE:EnvironmentalSensor:1** to reveal the interface and IoT Plug and Play primitives—properties, commands, and telemetry.
+1. Select **IoT Plug and Play components** to view the model information for your device.
 
 [!INCLUDE [iot-pnp-iot-explorer-2.md](../../includes/iot-pnp-iot-explorer-2.md)]
 

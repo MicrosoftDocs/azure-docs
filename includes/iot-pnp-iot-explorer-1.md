@@ -3,7 +3,7 @@ author: dominicbetts
 ms.author: dominicbetts
 ms.service: iot-pnp
 ms.topic: include
-ms.date: 10/24/2019
+ms.date: 04/27/2020
 ---
 
 1. Open Azure IoT explorer. You see the **App configurations** page.
