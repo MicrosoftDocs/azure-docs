@@ -54,7 +54,7 @@ az -v
 ```output
 ...
 Extensions:
-aro                                0.1.0
+aro                                1.0.0
 ...
 ```
 
@@ -84,10 +84,8 @@ Next, you will create a virtual network containing two empty subnets.
 
     An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create][az-group-create] command.
 
-    The following example creates a resource group named *aro-rg* in the *eastus* location.
-
     ```azurecli-interactive
-    az group create --name aro-rg --location eastus
+    az group create --name $CLUSTER --location $LOCATION
     ```
 
     The following example output shows the resource group created successfully:
@@ -105,17 +103,17 @@ Next, you will create a virtual network containing two empty subnets.
     }
     ```
 
-3. **Create a virtual network.**
+2. **Create a virtual network.**
 
     Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets, for the master and worker nodes.
 
-    Create a new virtual network in the same resource group you created earlier, for example in *aro-rg*.
+    Create a new virtual network in the same resource group you created earlier.
 
     ```azurecli-interactive
     az network vnet create \
-    --resource-group aro-rg \
+    --resource-group $RESOURCEGROUP \
     --name aro-vnet \
-    --address-prefixes 10.0.0.0/8
+    --address-prefixes 10.0.0.0/22
     ```
 
     The following example output shows the virtual network created successfully:
@@ -138,34 +136,34 @@ Next, you will create a virtual network containing two empty subnets.
     }
     ```
 
-4. **Add an empty subnet for the master nodes.**
+3. **Add an empty subnet for the master nodes.**
 
     ```azurecli-interactive
     az network vnet subnet create \
-    --resource-group aro-rg \
+    --resource-group $RESOURCEGROUP \
     --vnet-name aro-vnet \
     --name master-subnet \
     --address-prefixes 10.0.1.0/24 \
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **Add an empty subnet for the worker nodes.**
+4. **Add an empty subnet for the worker nodes.**
 
     ```azurecli-interactive
     az network vnet subnet create \
-    --resource-group aro-rg \
+    --resource-group $RESOURCEGROUP \
     --vnet-name aro-vnet \
     --name worker-subnet \
     --address-prefixes 10.1.0.0/20 \
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-6. **[Disable subnet private endpoint policies](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) on the master subnet.** This is required to be able to connect and manage the cluster.
+5. **[Disable subnet private endpoint policies](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) on the master subnet.** This is required to be able to connect and manage the cluster.
 
     ```azurecli-interactive
     az network vnet subnet update \
     --name master-subnet \
-    --resource-group aro-rg \
+    --resource-group $RESOURCEGROUP \
     --vnet-name aro-vnet \
     --disable-private-link-service-network-policies true
     ```
@@ -176,13 +174,13 @@ Run the following command to create a cluster. Optionally, you can pass a pull s
 
 ```azurecli-interactive
 az aro create \
-  --resource-group aro-rg \
-  --name aro-cluster \
+  --resource-group $RESOURCEGROUP \
+  --name $CLUSTER \
   --vnet aro-vnet \
   --master-subnet master-subnet \
   --worker-subnet worker-subnet
   # --domain foo.example.com # [OPTIONAL] custom domain
-  # --pull-secret 'Pull secret from https://cloud.redhat.com/openshift/install/azure/installer-provisioned/' # [OPTIONAL] 
+  # --pull-secret '$(< pull-secret.txt)' # [OPTIONAL]
 ```
 >[!NOTE]
 > It normally takes about 35 minutes to create a cluster.

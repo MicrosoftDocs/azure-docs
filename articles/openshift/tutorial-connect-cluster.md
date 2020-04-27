@@ -11,9 +11,9 @@ ms.date: 04/24/2020
 
 # Tutorial: Connect to an Azure Red Hat OpenShift 4 cluster
 
-In this tutorial, part two of three, you will connect to an Azure Red Hat OpenShift (ARO) cluster running OpenShift 4 as the kube-admin user through the OpenShift web console. You learn how to:
+In this tutorial, part two of three, you will connect to an Azure Red Hat OpenShift (ARO) cluster running OpenShift 4 as the kubeadmin user through the OpenShift web console. You learn how to:
 > [!div class="checklist"]
-> * Obtain `kube-admin` credentials for your cluster
+> * Obtain `kubeadmin` credentials for your cluster
 > * Install the OpenShift CLI
 > * Connect to an ARO cluster using the OpenShift CLI
 
@@ -92,7 +92,7 @@ oc login $apiServer -u kubeadmin -p <kubeadmin password>
 
 In this part of the tutorial, you learned how to:
 > [!div class="checklist"]
-> * Obtain `kube-admin` credentials for your cluster
+> * Obtain `kubeadmin` credentials for your cluster
 > * Install the OpenShift CLI
 > * Connect to an ARO cluster using the OpenShift CLI
 

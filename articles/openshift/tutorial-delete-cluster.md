@@ -55,4 +55,4 @@ In this part of the tutorial, you learned how to:
 > [!div class="checklist"]
 > * Delete an Azure Red Hat OpenShift 4 cluster
 
-Learn more about using OpenShift with the official [Red Hat OpenShift documentation](https://docs.openshift.com/aro/welcome/index.html)
+Learn more about using OpenShift with the official [Red Hat OpenShift documentation](https://www.openshift.com/try)
