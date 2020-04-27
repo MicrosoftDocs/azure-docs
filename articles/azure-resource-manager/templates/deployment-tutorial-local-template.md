@@ -32,7 +32,7 @@ Templates are JSON files. To review/edit templates, you need a good JSON editor.
 
 ## Review template
 
-The template deploys a storage account, app service plan, and web app.. If you are interested in creating the template, you can go through [tutorial about Quickstart templates](template-tutorial-quickstart-template.md). However it's not required for completing this tutorial.
+The template deploys a storage account, app service plan, and web app. If you are interested in creating the template, you can go through [tutorial about Quickstart templates](template-tutorial-quickstart-template.md). However it's not required for completing this tutorial.
 
 The template deploys a storage account, app service plan, and web app.
 
