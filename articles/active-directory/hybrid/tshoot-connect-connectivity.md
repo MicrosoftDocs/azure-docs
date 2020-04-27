@@ -74,10 +74,10 @@ This error appears if the endpoint **https://secure.aadcdn.microsoftonline-p.com
 If the installation wizard is successful in connecting to Azure AD, but the password itself cannot be verified you see this error:  
 ![Bad password.](./media/tshoot-connect-connectivity/badpassword.png)
 
-* Is the password a temporary password and must be changed? Is it actually the correct password? Try to sign in to https://login.microsoftonline.com (on another computer than the Azure AD Connect server) and verify the account is usable.
+* Is the password a temporary password and must be changed? Is it actually the correct password? Try to sign in to `https://login.microsoftonline.com` (on another computer than the Azure AD Connect server) and verify the account is usable.
 
 ### Verify proxy connectivity
-To verify if the Azure AD Connect server has actual connectivity with the Proxy and Internet, use some PowerShell to see if the proxy is allowing web requests or not. In a PowerShell prompt, run `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Technically the first call is to https://login.microsoftonline.com and this URI works as well, but the other URI is faster to respond.)
+To verify if the Azure AD Connect server has actual connectivity with the Proxy and Internet, use some PowerShell to see if the proxy is allowing web requests or not. In a PowerShell prompt, run `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Technically the first call is to `https://login.microsoftonline.com` and this URI works as well, but the other URI is faster to respond.)
 
 PowerShell uses the configuration in machine.config to contact the proxy. The settings in winhttp/netsh should not impact these cmdlets.
 
@@ -102,7 +102,7 @@ When Azure AD Connect sends an export request to Azure AD, Azure AD can take up 
 ## The communication pattern between Azure AD Connect and Azure AD
 If you have followed all these preceding steps and still cannot connect, you might at this point start looking at network logs. This section is documenting a normal and successful connectivity pattern. It is also listing common red herrings that can be ignored when you are reading the network logs.
 
-* There are calls to https://dc.services.visualstudio.com. It is not required to have this URL open in the proxy for the installation to succeed and these calls can be ignored.
+* There are calls to `https://dc.services.visualstudio.com`. It is not required to have this URL open in the proxy for the installation to succeed and these calls can be ignored.
 * You see that dns resolution lists the actual hosts to be in the DNS name space nsatc.net and other namespaces not under microsoftonline.com. However, there are not any web service requests on the actual server names and you do not have to add these URLs to the proxy.
 * The endpoints adminwebservice and provisioningapi are discovery endpoints and used to find the actual endpoint to use. These endpoints are different depending on your region.
 

@@ -2,7 +2,7 @@
 title: Kubernetes monitoring with Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can view and analyze the performance of a Kubernetes cluster with Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 03/26/2020
 ---
 
 # Monitor your Kubernetes cluster performance with Azure Monitor for containers
@@ -52,7 +52,7 @@ The health statuses included are:
 * **Warning**: One or more issues are detected that must be addressed or the health condition could become critical.
 * **Unknown**: If the service wasn't able to make a connection with the node or pod, the status changes to an Unknown state.
 * **Not found**: Either the workspace, the resource group, or subscription that contains the workspace for this solution was deleted.
-* **Unauthorized**: User doesn’t have required permissions to read the data in the workspace.
+* **Unauthorized**: User doesn't have required permissions to read the data in the workspace.
 * **Error**: An error occurred while attempting to read data from the workspace.
 * **Misconfigured**: Azure Monitor for containers wasn't configured correctly in the specified workspace.
 * **No data**: Data hasn't reported to the workspace for the last 30 minutes.
@@ -194,6 +194,20 @@ The information that's presented when you view the **Nodes** tab is described in
 | Uptime | Represents the time since a node started or was rebooted. |
 | Controller | Only for containers and pods. It shows which controller it resides in. Not all pods are in a controller, so some might display **N/A**. | 
 | Trend Min&nbsp;%, Avg&nbsp;%, 50th&nbsp;%, 90th&nbsp;%, 95th&nbsp;%, Max&nbsp;% | Bar graph trend represents the average percentile metric percentage of the controller. |
+
+You may notice a workload after expanding a node named **Other process**. It represents non-containerized processes that run on your node, and includes:
+
+* Self-managed or managed Kubernetes non-containerized processes
+
+* Container run-time processes  
+
+* Kubelet  
+
+* System processes running on your node
+
+* Other non-Kubernetes workloads running on node hardware or VM
+
+It is calculated by: *Total usage from CAdvisor* - *Usage from containerized process*.  
 
 In the selector, select **Controllers**.
 

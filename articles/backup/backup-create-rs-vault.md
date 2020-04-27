@@ -83,7 +83,7 @@ For this process, there are pricing implications as it is at the storage level.
 >Before you begin:
 >
 >- Review the [support matrix](backup-support-matrix.md#cross-region-restore) for a list of supported managed types and regions.
->- The Cross Region Restore (CRR) feature is currently only available in the WCUS region.
+>- The Cross Region Restore (CRR) feature is now previewed in all Azure public regions.
 >- CRR is a vault level opt-in feature for any GRS vault (turned off by default).
 >- Please use the following command to onboard your subscription for this feature:<br>
 >  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`

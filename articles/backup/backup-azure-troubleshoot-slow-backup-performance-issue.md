@@ -9,7 +9,7 @@ ms.date: 07/05/2019
 
 This article provides troubleshooting guidance to help you diagnose the cause of slow backup performance for files and folders when you're using Azure Backup. When you use the Azure Backup agent to back up files, the backup process might take longer than expected. This delay might be caused by one or more of the following:
 
-* [There are performance bottlenecks on the computer that’s being backed up.](#cause1)
+* [There are performance bottlenecks on the computer that's being backed up.](#cause1)
 * [Another process or antivirus software is interfering with the Azure Backup process.](#cause2)
 * [The Backup agent is running on an Azure virtual machine (VM).](#cause3)  
 * [You're backing up a large number (millions) of files.](#cause4)
@@ -39,19 +39,19 @@ We also strongly recommend that you review the [Azure Backup service FAQ](backup
 
 Bottlenecks on the computer that's being backed up can cause delays. For example, the computer's ability to read or write to disk, or available bandwidth to send data over the network, can cause bottlenecks.
 
-Windows provides a built-in tool that's called [Performance Monitor](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) to detect these bottlenecks.
+Windows provides a built-in tool called [Performance Monitor](https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (Perfmon) to detect these bottlenecks.
 
 Here are some performance counters and ranges that can be helpful in diagnosing bottlenecks for optimal backups.
 
 | Counter | Status |
 | --- | --- |
-| Logical Disk(Physical Disk)--%idle |• 100% idle to 50% idle = Healthy</br>• 49% idle to 20% idle = Warning or Monitor</br>• 19% idle to 0% idle = Critical or Out of Spec |
-| Logical Disk(Physical Disk)--%Avg. Disk Sec Read or Write |• 0.001 ms to 0.015 ms  = Healthy</br>• 0.015 ms to 0.025 ms = Warning or Monitor</br>• 0.026 ms or longer = Critical or Out of Spec |
+| Logical Disk(Physical Disk)--%idle |* 100% idle to 50% idle = Healthy</br>* 49% idle to 20% idle = Warning or Monitor</br>* 19% idle to 0% idle = Critical or Out of Spec |
+| Logical Disk(Physical Disk)--%Avg. Disk Sec Read or Write |* 0.001 ms to 0.015 ms  = Healthy</br>* 0.015 ms to 0.025 ms = Warning or Monitor</br>* 0.026 ms or longer = Critical or Out of Spec |
 | Logical Disk(Physical Disk)--Current Disk Queue Length (for all instances) |80 requests for more than 6 minutes |
-| Memory--Pool Non Paged Bytes |• Less than 60% of pool consumed = Healthy<br>• 61% to 80% of pool consumed = Warning or Monitor</br>• Greater than 80% pool consumed = Critical or Out of Spec |
-| Memory--Pool Paged Bytes |• Less than 60% of pool consumed = Healthy</br>• 61% to 80% of pool consumed = Warning or Monitor</br>• Greater than 80% pool consumed = Critical or Out of Spec |
-| Memory--Available Megabytes |• 50% of free memory available or more = Healthy</br>• 25% of free memory available = Monitor</br>• 10% of free memory available = Warning</br>• Less than 100 MB or 5% of free memory available = Critical or Out of Spec |
-| Processor--\%Processor Time (all instances) |• Less than 60% consumed = Healthy</br>• 61% to 90% consumed = Monitor or Caution</br>• 91% to 100% consumed = Critical |
+| Memory--Pool Non Paged Bytes |* Less than 60% of pool consumed = Healthy<br>* 61% to 80% of pool consumed = Warning or Monitor</br>* Greater than 80% pool consumed = Critical or Out of Spec |
+| Memory--Pool Paged Bytes |* Less than 60% of pool consumed = Healthy</br>* 61% to 80% of pool consumed = Warning or Monitor</br>* Greater than 80% pool consumed = Critical or Out of Spec |
+| Memory--Available Megabytes |* 50% of free memory available or more = Healthy</br>* 25% of free memory available = Monitor</br>* 10% of free memory available = Warning</br>* Less than 100 MB or 5% of free memory available = Critical or Out of Spec |
+| Processor--\%Processor Time (all instances) |* Less than 60% consumed = Healthy</br>* 61% to 90% consumed = Monitor or Caution</br>* 91% to 100% consumed = Critical |
 
 > [!NOTE]
 > If you determine that the infrastructure is the culprit, we recommend that you defragment the disks regularly for better performance.
@@ -90,3 +90,7 @@ The following indicators can help you understand the bottleneck and accordingly 
 
 * **UI is showing progress for the data transfer**. The data is still being transferred. The network bandwidth or the size of data might be causing delays.
 * **UI is not showing progress for the data transfer**. Open the logs located at C:\Program Files\Microsoft Azure Recovery Services Agent\Temp, and then check for the FileProvider::EndData entry in the logs. This entry signifies that the data transfer finished and the catalog operation is happening. Don't cancel the backup jobs. Instead, wait a little longer for the catalog operation to finish. If the problem persists, contact [Azure support](https://portal.azure.com/#create/Microsoft.Support).
+
+## Next steps
+
+* [Common questions about backing up files and folders](backup-azure-file-folder-backup-faq.md)

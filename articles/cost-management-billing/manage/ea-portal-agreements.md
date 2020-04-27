@@ -3,7 +3,7 @@ title: Azure EA agreements and amendments
 description: This article explains how Azure EA agreements and amendments affect your Azure EA portal use.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
@@ -20,10 +20,6 @@ Any amendments for Azure customers need to go through their partner or Microsoft
 ## Enrollment provisioning status
 
 The start date of a new monetary commitment is defined by the date that the regional operations center processed it. Since monetary commitment orders via the Azure EA portal are processed in the UTC time zone, you may experience some delay if your monetary commitment purchase order was processed in a different region. The coverage start date on the purchase order at https://www.explore.ms shows the start of the monetary commitment. The coverage start date is when the monetary commitment appears in the Azure EA portal.
-
-## Special pricing and Azure commitment discount amendments
-
-If you require special pricing and Azure Commitment Discount (ACD) amendments, you need to discuss them with your account team. The Azure Ops team can apply ACD after an amendment has been processed by the Business Desk ​and requested to Azure Ops team. ACD discount is only applied to the current month. Any previous months are compensated by backdated credit. ​
 
 ## Support offer not provisioned
 
@@ -104,7 +100,7 @@ Please make sure to review the commercial information - monetary balance informa
 
 **Step Two: Review and validate**
 
-Review the markup price in the _Usage Summary_ for the commitment term in the customer view. The Microsoft price will still be available in the partner view. The views can be toggled using the partner markup “people” toggle at the top right.
+Review the markup price in the _Usage Summary_ for the commitment term in the customer view. The Microsoft price will still be available in the partner view. The views can be toggled using the partner markup "people" toggle at the top right.
 
 1. Review the prices in the price sheet.
 1. Changes can be made before publishing by selecting **Edit** on _View Usage Summary > Customer View_ tab.
@@ -164,17 +160,17 @@ The Azure Compute Pre-Purchase Plan (CPP - previously known as the Azure Compute
 
 If you have ordered a CPP SKU, it is for a specific type of machine in a specific data center. As this feature stands today we do not provide a list of all of the CPP purchases a customer has made so there is no list of awaiting credits; however, when you do configure the purchased machine types in the data center where they were purchased, you will see the monthly allocation in the Usage Summary report on the EA Portal.
 
-The pre-purchased amount will show up as a credit in the “Included Units” column and usage against it will result in no usage charges until the “Included Units” are consumed. Once they are consumed, additional usage will be at the negotiated rates in the normal EA customer price sheet.
+The pre-purchased amount will show up as a credit in the "Included Units" column and usage against it will result in no usage charges until the "Included Units" are consumed. Once they are consumed, additional usage will be at the negotiated rates in the normal EA customer price sheet.
 
 The way the credits are purchased are based on number of machines of a class per month. For example: if you purchased 70 A2 VMs per year in US East 2, you would not quite see that in the EA portal in the same way you purchased it.
 
-Monthly machines are calculated as running 744 hours per month. Converting that to hours would be 70 times 744 or 52,080 purchased hours of A2 VMs per month. Since in the EA Portal Usage Summary A2 VMs are reported in 100-Hours increments what you would see is a credit of 520.8 (52,080/100) “Included Units” per month and you would see the consumed units so far in the month. The usage charges should show as zero until the monthly consumed units exceed the monthly included units.
+Monthly machines are calculated as running 744 hours per month. Converting that to hours would be 70 times 744 or 52,080 purchased hours of A2 VMs per month. Since in the EA Portal Usage Summary A2 VMs are reported in 100-Hours increments what you would see is a credit of 520.8 (52,080/100) "Included Units" per month and you would see the consumed units so far in the month. The usage charges should show as zero until the monthly consumed units exceed the monthly included units.
 
 Different machine types use different units of measure so for example D3 and D4 VMs use a 10-Hours unit of measure in our Usage Summary report so a purchase of 70 of those would show up a 5208 included units per month (52,080/10).
 
 In general, the formula below will provide you the number of VMs purchased based on their units of measurement:
 
-<center><b> (“Included Quantity” * “Units of Measure”) / 744 </b></center>
+<center><b> ("Included Quantity" * "Units of Measure") / 744 </b></center>
 
 ## Plan SKUs
 
@@ -190,7 +186,7 @@ Enterprise Administrators can assign Account Owners to provision previously purc
 1. Click **Reports** on the left navigation.
 1. Click the **Price Sheet** tab.
 1. Click the 'Download' icon in the top-right corner.
-1. Find the corresponding Plan SKU part numbers with filter on column “Included Quantity” and select values greater than “0”.
+1. Find the corresponding Plan SKU part numbers with filter on column "Included Quantity" and select values greater than "0".
 
 ### Provision the plan SKUs
 
@@ -219,7 +215,7 @@ Enterprise administrators can add new account owners, associate an existing acco
 1. Provide a name you would like to use to identify this account in reporting.
 1. Click **Add**.
 1. You can add an additional account by selecting the **+ Add an Account** option again, or return to the homepage by selecting the **Admin** button.  
-1. If you click to view the Account page, the newly added account will appear in a "Pending" status. It will change to “Active” status after the Account Owner has logged on to EA portal for the first time.
+1. If you click to view the Account page, the newly added account will appear in a "Pending" status. It will change to "Active" status after the Account Owner has logged on to EA portal for the first time.
 
 ### Existing/New account owners to create new subscriptions
 
@@ -235,7 +231,7 @@ The first time you add a subscription to your account, you'll be asked to accept
 
 **Step Two: Update subscription name**
 
-All new subscriptions will be added with the default “Microsoft Azure Enterprise” subscription name. It's important to update the subscription name to differentiate it from the other subscriptions within your Enterprise Enrollment and ensure that it's recognizable on reports at the enterprise level.
+All new subscriptions will be added with the default "Microsoft Azure Enterprise" subscription name. It's important to update the subscription name to differentiate it from the other subscriptions within your Enterprise Enrollment and ensure that it's recognizable on reports at the enterprise level.
 
 Click **Subscriptions**, click on the subscription you created, and then click **Edit Subscription Details.**
 
@@ -248,13 +244,13 @@ Only account owners can view and manage subscriptions.
 
 **Account owner showing in pending status**
 
-When new Account Owners (AO) are added to the enrollment for the first time, they'll always show as “pending” under status. Upon receiving the activation welcome email, the AO can sign in to activate their account. This activation will update their account status from “pending” to “active”.
+When new Account Owners (AO) are added to the enrollment for the first time, they'll always show as "pending" under status. Upon receiving the activation welcome email, the AO can sign in to activate their account. This activation will update their account status from "pending" to "active".
 
 **Usages being charged after Plan SKUs are purchased**
 
 This scenario occurs when the customer has deployed services under the wrong enrollment number or selected the wrong services.
 
-To validate if you're deploying under the right enrollment, you can check your included units information via the price sheet. Please sign in as an Enterprise Administrator and click on **Reports** on the left navigation and select **Price Sheet** tab. Click the Download icon in the top-right corner and find the corresponding Plan SKU part numbers with filter on column “Included Quantity” and select values greater than “0”.
+To validate if you're deploying under the right enrollment, you can check your included units information via the price sheet. Please sign in as an Enterprise Administrator and click on **Reports** on the left navigation and select **Price Sheet** tab. Click the Download icon in the top-right corner and find the corresponding Plan SKU part numbers with filter on column "Included Quantity" and select values greater than "0".
 
 Ensure that your OMS plan is showing on the price sheet under included units. If there are no included units for OMS plan on your enrollment, your OMS plan may be under another enrollment. Please contact Azure Enterprise Portal Support at [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
 

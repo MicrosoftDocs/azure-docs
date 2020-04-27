@@ -1,17 +1,134 @@
 ---
 title: What's new in Azure Monitor documentation
 description: Significant updates to Azure Monitor documentation updated each month.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 02/05/2020
+ms.date: 03/05/2020
 
 ---
 
 # What's new in Azure Monitor documentation?
 This article provides lists Azure Monitor articles that are either new or have been significantly updated. It will be refreshed the first week of each month to include article updates from the previous month.
+
+## March 2020
+
+### General
+- [Azure Monitor overview](overview.md) - Added Azure Monitor overview video.
+- [Azure Monitor customer-managed key configuration](platform/customer-managed-keys.md) - General updates.
+- [Azure Monitor data reference](/azure/azure-monitor/reference) - New site.
+
+### Alerts
+
+- [Create, view, and manage activity log alerts in Azure Monitor](platform/alerts-activity-log.md) - Additional explanation of Resource Manager template.
+- [Understand how metric alerts work in Azure Monitor.](platform/alerts-metric-overview.md) - Updated for government support.
+- [Troubleshooting Azure Monitor alerts and notifications](platform/alerts-troubleshoot.md) - New article
+
+### Application Insights
+- [Automate Azure Application Insights with PowerShell](app/powershell.md) - Added ARMClient examples.
+- [Continuous export of telemetry from Application Insights](app/export-telemetry.md) - Add table with details of export structure.
+- [Enable Snapshot Debugger for .NET apps in Azure App Service](app/snapshot-debugger-appservice.md) - Added Resource Manager template example.
+- [Manage usage and costs for Azure Application Insights](app/pricing.md) - Added information on data cap alert.
+- [Monitor Python applications with Azure Monitor (preview)](app/opencensus-python.md) - Added standard metrics.
+- [Source map support for JavaScript applications - Azure Monitor Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/source-map-support) - New article.
+
+
+### Containers
+- [Azure Monitor FAQ](faq.md) - Update for Azure Monitor for containers.
+- [Configure GPU monitoring with Azure Monitor for containers](insights/container-insights-gpu-monitoring.md) - New article
+
+### Insights
+- [Office 365 management solution in Azure](insights/solution-office-365.md) - Updated deprecation date.
+
+### Logs
+- [Optimize log queries in Azure Monitor](log-query/query-optimization.md) - Added CPU condition for XML and JSON parsing.
+- [Delete and recover Azure Log Analytics workspace](platform/delete-workspace.md) - Added troubleshooting.
+- [Use Azure Monitor Logs with Azure Logic Apps and Power Automate](platform/logicapp-flow-connector.md) - Updated for new Azure Monitor connector.
+
+### Metrics
+- [Disk metrics deprecation in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/portal-disk-metrics-deprecation) - New article.
+- [Tutorial - Create a metrics chart in Azure Monitor](learn/tutorial-metrics-explorer.md) - Added video.
+
+### Platform logs
+- [Collect and analyze Azure activity log in Azure Monitor](platform/activity-log-collect.md) - Rewrite to better explain collecting Activity log with diagnostic settings.
+
+### Virtual machines
+- [Monitor Azure virtual machines with Azure Monitor](insights/monitor-vm-azure.md) - New article.
+- [Quickstart: Monitor Azure virtual machines with Azure Monitor](learn/quick-monitor-azure-vm.md) - Updated to add Azure Monitor for VMs.
+- [Alerts from Azure Monitor for VMs](insights/vminsights-alerts.md) - New article
+- [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Updated agent download links.
+
+
+General updates for general availability of Azure Monitor for VMs
+- [What is Azure Monitor for VMs?](insights/vminsights-overview.md)
+- [Azure Monitor for VMs (GA) frequently asked questions](insights/vminsights-ga-release-faq.md) 
+- [Enable Azure Monitor for VMs by using Azure Policy](insights/vminsights-enable-at-scale-policy.md) 
+- [How to chart performance with Azure Monitor for VMs](insights/vminsights-performance.md)
+- [How to Query Logs from Azure Monitor for VMs](insights/vminsights-log-search.md)
+- [View app dependencies with Azure Monitor for VMs](insights/vminsights-maps.md) 
+
+
+### Visualizations
+- [Visualizing data from Azure Monitor](visualizations.md) - Updated to note planned deprecation of View Designer.
+
+
+
+
+
+## February 2020
+
+### Agents
+Multiple updates as part of rewrite of diagnostics extension content.
+
+- [Overview of the Azure monitoring agents](platform/agents-overview.md) - Restructured tables to better clarify unique features of each agent.
+- [Azure Diagnostics extension overview](platform/diagnostics-extension-overview.md) - Complete rewrite.
+- [Use blob storage for IIS and table storage for events in Azure Monitor](platform/diagnostics-extension-logs.md) - General rewrite for update and clarity.
+- [Install and configure Windows Azure diagnostics extension (WAD)](platform/diagnostics-extension-windows-install.md) - New article. 
+- [Windows diagnostics extension schema](platform/diagnostics-extension-schema-windows.md) - Reorganized.
+- [Send data from Windows Azure diagnostics extension to Azure Event Hubs](platform/diagnostics-extension-stream-event-hubs.md) - Completely rewritten and updated.
+- [Store and view diagnostic data in Azure Storage](/azure/cloud-services/diagnostics-extension-to-storage) - Completely rewritten and updated.
+- [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md) - Better clarifies relationship with Log Analytics agent.
+- [Azure Monitor virtual machine extension for Linux](../virtual-machines/extensions/oms-linux.md) - Better clarifies relationship with Log Analytics agent.
+
+
+
+
+### Application Insights
+- [Connection strings in Azure Application Insights](app/sdk-connection-string.md) - New article.
+
+### Insights and solutions
+
+#### Azure Monitor for Containers
+- [Integrate Azure Active Directory with Azure Kubernetes Service](../aks/azure-ad-integration.md) - Added note for creating a client application to support RBAC-enabled cluster to support Azure Monitor for containers.
+
+#### Azure Monitor for VMs
+- [Azure Monitor for VMs (GA) frequently asked questions](insights/vminsights-ga-release-faq.md) - Change to how performance data is stored.
+
+#### Office 365
+- [Office 365 management solution in Azure](insights/solution-office-365.md) - Updated deprecation date.
+
+
+### Logs
+- [Optimize log queries in Azure Monitor](log-query/query-optimization.md) - New article.
+- [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Improved sample queries to help understand your usage.
+
+### Metrics
+- [Azure Monitor platform metrics exportable via Diagnostic Settings](platform/metrics-supported-export-diagnostic-settings.md) - Added section on change to behavior for nulls and zero values.
+
+
+### Visualizations
+Multiple new articles for view designer to workbooks conversion guide.
+
+- [Azure Monitor view designer to workbooks transition guide](platform/view-designer-conversion-overview.md) - New article.
+- [Azure Monitor view designer to workbooks conversion options](platform/view-designer-conversion-options.md) - New article.
+- [Azure Monitor view designer to workbooks tile conversions](platform/view-designer-conversion-tiles.md) - New article.
+- [Azure Monitor view designer to workbooks conversion summary and access](platform/view-designer-conversion-access.md) - New article.
+- [Azure Monitor view designer to workbooks conversion common tasks](platform/view-designer-conversion-tasks.md) - New article.
+- [Azure Monitor view designer to workbooks conversion examples](platform/view-designer-conversion-examples.md) - New article.
+
+
+
 
 ## January 2020
 
@@ -40,14 +157,14 @@ This article provides lists Azure Monitor articles that are either new or have b
 ### Insights and solutions
 
 #### Azure Monitor for Containers
-- [Configure Azure Monitor for containers agent data collection](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config) - Added details for upgrading agent on Azure Red Hat OpenShift, and added additional information to distinguish the methods for upgrading agent.
-- [Create performance alerts for Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-alerts) - Revised information and updated steps for creating an alert on performance data stored in workspace using workspace-context alerts.
-- [Kubernetes monitoring with Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-analyze) - Updated both the overview article and the analyze article regarding support of Windows Kubernetes clusters.
-- [Configure Azure Red Hat OpenShift clusters with Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-azure-redhat-setup) - Added details for upgrading agent on Azure Red Hat OpenShift, and added additional information to distinguish the methods for upgrading agent.
-- [Configure Hybrid Kubernetes clusters with Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-hybrid-setup) - Updated to reflect added support for secure port:10250 with the Kubelet's cAdvisor.
-- [How to manage the Azure Monitor for containers agent](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-manage-agent) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
-- [Configure Azure Monitor for containers Prometheus Integration](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-prometheus-integration) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
-- [How to update Azure Monitor for containers for metrics](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-update-metrics) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
+- [Configure Azure Monitor for containers agent data collection](insights/container-insights-agent-config.md) - Added details for upgrading agent on Azure Red Hat OpenShift, and added additional information to distinguish the methods for upgrading agent.
+- [Create performance alerts for Azure Monitor for containers](insights/container-insights-alerts.md) - Revised information and updated steps for creating an alert on performance data stored in workspace using workspace-context alerts.
+- [Kubernetes monitoring with Azure Monitor for containers](insights/container-insights-analyze.md) - Updated both the overview article and the analyze article regarding support of Windows Kubernetes clusters.
+- [Configure Azure Red Hat OpenShift clusters with Azure Monitor for containers](insights/container-insights-azure-redhat-setup.md) - Added details for upgrading agent on Azure Red Hat OpenShift, and added additional information to distinguish the methods for upgrading agent.
+- [Configure Hybrid Kubernetes clusters with Azure Monitor for containers](insights/container-insights-hybrid-setup.md) - Updated to reflect added support for secure port:10250 with the Kubelet's cAdvisor.
+- [How to manage the Azure Monitor for containers agent](insights/container-insights-manage-agent.md) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
+- [Configure Azure Monitor for containers Prometheus Integration](insights/container-insights-prometheus-integration.md) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
+- [How to update Azure Monitor for containers for metrics](insights/container-insights-update-metrics.md) - Updated details related to behavior and config of metric scraping with Azure Red Hat OpenShift compared to other types of Kubernetes clusters.
 
 
 #### Azure Monitor for VMs

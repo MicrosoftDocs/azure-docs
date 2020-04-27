@@ -14,7 +14,7 @@ ms.topic: quickstart
 
 In this quickstart, you learn to manage blobs by using Python. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. You'll upload, download, and list blobs, and you'll create and delete containers.
 
-[API reference documentation](/python/api/azure-storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Package (Python Package Index)](https://pypi.org/project/azure-storage-blob/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
+[API reference documentation](/python/api/azure-storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Package (Python Package Index)](https://pypi.org/project/azure-storage-blob/) | [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## Prerequisites
 
@@ -99,7 +99,7 @@ Azure Blob storage is optimized for storing massive amounts of unstructured data
 
 The following diagram shows the relationship between these resources.
 
-![Diagram of Blob storage architecture](./media/storage-blob-introduction/blob1.png)
+![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
 
 Use the following Python classes to interact with these resources:
 
@@ -167,7 +167,7 @@ The following code snippet:
 Add this code to the end of the `try` block:
 
 ```python
-# Create a file in local Documents directory to upload and download
+# Create a file in local data directory to upload and download
 local_path = "./data"
 local_file_name = "quickstart" + str(uuid.uuid4()) + ".txt"
 upload_file_path = os.path.join(local_path, local_file_name)
@@ -210,7 +210,7 @@ Add this code to the end of the `try` block:
 
 ```python
 # Download the blob to a local file
-# Add 'DOWNLOAD' before the .txt extension so you can see both files in Documents
+# Add 'DOWNLOAD' before the .txt extension so you can see both files in the data directory
 download_file_path = os.path.join(local_path, str.replace(local_file_name ,'.txt', 'DOWNLOAD.txt'))
 print("\nDownloading blob to \n\t" + download_file_path)
 
@@ -272,7 +272,7 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-Before you begin the clean up process, check your *Documents* folder for the two files. You can open them and observe that they are identical.
+Before you begin the clean up process, check your *data* folder for the two files. You can open them and observe that they are identical.
 
 After you've verified the files, press the **Enter** key to delete the test files and finish the demo.
 

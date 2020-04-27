@@ -4,10 +4,11 @@ description: Use this article to learn standard diagnostic skills for Azure IoT 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/20/2019
+ms.date: 04/21/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom:  [amqp, mqtt]
 ---
 
 # Common issues and resolutions for Azure IoT Edge
@@ -32,13 +33,34 @@ You can run the `check` command as follows, or include the `--help` flag to see 
   iotedge check
   ```
 
-The types of checks run by the tool can be classified as:
+The troubleshooting tool runs many checks that are sorted into the these three categories:
 
 * Configuration checks: Examines details that could prevent Edge devices from connecting to the cloud, including issues with *config.yaml* and the container engine.
 * Connection checks: Verifies the IoT Edge runtime can access ports on the host device and all the IoT Edge components can connect to the IoT Hub.
 * Production readiness checks: Looks for recommended production best practices, such as the state of device certificate authority (CA) certificates and module log file configuration.
 
-For a complete list of diagnostic checks, see [Built-in troubleshooting functionality](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
+For information about each of the diagnostic checks this tool runs, including what to do if you get an error or warning, see [IoT Edge troubleshoot checks](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
+
+## Gather debug information with iotedge 'support-bundle' command
+
+When you need to gather logs from an IoT Edge device, the most convenient way is to use the `support-bundle` command. By default, this command collects module, IoT Edge Security Manager and container engine logs, 'iotedge check' JSON output and other useful debug information. It compresses them into a single file for easy sharing. The `support-bundle` command is available in [release 1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) and later.
+
+Run the `support-bundle` command with the `--since` flag to specify how long from the past you want to get logs. For example `6h` will get logs since the last 6 hours, `6d` since the last 6 days, `6m` since the last 6 minutes and so on. Include the `--help` flag to see a complete list of options.
+
+* On Linux:
+
+  ```bash
+  sudo iotedge support-bundle --since 6h
+  ```
+
+* On Windows:
+
+  ```powershell
+  iotedge support-bundle --since 6h
+  ```
+
+> [!WARNING]
+> Output from the `support-bundle` command can contain host, device and module names, information logged by your modules etc. Please be aware of this if sharing the output in a public forum.
 
 ## Standard diagnostic steps
 

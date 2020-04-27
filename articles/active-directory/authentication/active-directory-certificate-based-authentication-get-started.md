@@ -5,7 +5,7 @@ description: Learn how to configure certificate-based authentication in your env
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/21/2019
 
 ms.author: iainfou
@@ -37,7 +37,7 @@ To configure certificate-based authentication, the following statements must be 
 - The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.
 - Each certificate authority must have a certificate revocation list (CRL) that can be referenced via an internet-facing URL.
 - You must have at least one certificate authority configured in Azure Active Directory. You can find related steps in the [Configure the certificate authorities](#step-2-configure-the-certificate-authorities) section.
-- For Exchange ActiveSync clients, the client certificate must have the user’s routable email address in Exchange online in either the Principal Name or the RFC822 Name value of the Subject Alternative Name field. Azure Active Directory maps the RFC822 value to the Proxy Address attribute in the directory.
+- For Exchange ActiveSync clients, the client certificate must have the user's routable email address in Exchange online in either the Principal Name or the RFC822 Name value of the Subject Alternative Name field. Azure Active Directory maps the RFC822 value to the Proxy Address attribute in the directory.
 - Your client device must have access to at least one certificate authority that issues client certificates.
 - A client certificate for client authentication must have been issued to your client.
 

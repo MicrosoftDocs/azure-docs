@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/25/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
@@ -57,12 +57,12 @@ The following table shows which types of storage accounts support ZRS in which r
 
 |    Storage account type    |    Supported regions    |    Supported services    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-|    General-purpose v2<sup>1</sup>    | Asia Southeast<br /> Europe North<br />  Europe West<br /> France Central<br /> Japan East<br /> UK South<br /> US Central<br /> US East<br /> US East 2<br /> US West 2    |    Block blobs<br /> Page blobs<sup>2</sup><br /> File shares (standard)<br /> Tables<br /> Queues<br /> |
+|    General-purpose v2<sup>1</sup>    | Asia Southeast<br /> Australia East<br /> Europe North<br />  Europe West<br /> France Central<br /> Japan East<br /> South Africa North<br /> UK South<br /> US Central<br /> US East<br /> US East 2<br /> US West 2    |    Block blobs<br /> Page blobs<sup>2</sup><br /> File shares (standard)<br /> Tables<br /> Queues<br /> |
 |    BlockBlobStorage<sup>1</sup>    | Europe West<br /> US East    |    Block blobs only    |
 |    FileStorage    | Europe West<br /> US East    |    Azure Files only    |
 
 <sup>1</sup> The archive tier is not currently supported for ZRS accounts.<br />
-<sup>2</sup> Azure disks for virtual machines, including both managed and unmanaged disks, support LRS only. They do not support ZRS or GZRS. For more information on managed disks, see [Pricing for Azure managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+<sup>2</sup> Storage accounts that contain Azure managed disks for virtual machines always use LRS. Azure unmanaged disks should also use LRS. It is possible to create a storage account for Azure unmanaged disks that uses GRS, but it is not recommended due to potential issues with consistency over asynchronous geo-replication. Neither managed nor unmanaged disks support ZRS or GZRS. For more information on managed disks, see [Pricing for Azure managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 For information about which regions support ZRS, see **Services support by region**  in [What are Azure Availability Zones?](../../availability-zones/az-overview.md).
 
@@ -96,7 +96,7 @@ A write operation is first committed to the primary location and replicated usin
 
 Geo-zone-redundant storage (GZRS) (preview) combines the high availability provided by redundancy across availability zones with protection from regional outages provided by geo-replication. Data in a GZRS storage account is copied across three [Azure availability zones](../../availability-zones/az-overview.md) in the primary region and is also replicated to a secondary geographic region for protection from regional disasters. Microsoft recommends using GZRS for applications requiring maximum consistency, durability, and availability, excellent performance, and resilience for disaster recovery.
 
-With a GZRS storage account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data is also durable in the case of a complete regional outage or a disaster in which the primary region isn’t recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year.
+With a GZRS storage account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data is also durable in the case of a complete regional outage or a disaster in which the primary region isn't recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year.
 
 Only general-purpose v2 storage accounts support GZRS and RA-GZRS. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md). GZRS and RA-GZRS support block blobs, page blobs (except for VHD disks), files, tables, and queues.
 
@@ -105,10 +105,12 @@ GZRS and RA-GZRS are currently available for preview in the following regions:
 - Asia Southeast
 - Europe North
 - Europe West
+- Japan East
 - UK South
 - US East
 - US East 2
 - US Central
+- US West 2
 
 Microsoft continues to enable GZRS and RA-GZRS in additional Azure regions. Check the [Azure Service Updates](https://azure.microsoft.com/updates/) page regularly for information about supported regions.
 
@@ -154,7 +156,7 @@ The following table shows how durable and available your data is in a given scen
 
 <sup>2</sup> For information for storage account types, see [Storage account overview](storage-account-overview.md).
 
-All data for all types of storage accounts are copied according to the redundancy option for the storage account. Objects including block blobs, append blobs, page blobs, queues, tables, and files are copied.
+All data for all types of storage accounts and [all tiers (including archive)](../blobs/storage-blob-storage-tiers.md) are copied according to the redundancy option for the storage account. Objects including block blobs, append blobs, page blobs, queues, tables, and files are copied.
 
 For pricing information for each redundancy option, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 

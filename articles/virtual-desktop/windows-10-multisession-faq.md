@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
+manager: lizross
 ---
 # Windows 10 Enterprise multi-session FAQ
 
@@ -27,13 +28,13 @@ Windows 10 Enterprise multi-session is a virtual edition of Windows 10 Enterpris
  
 ## Can I run Windows 10 Enterprise multi-session on-premises?
 
-Windows 10 Enterprise multi-session can't run in on-premises production environments because it's optimized for the Windows Virtual Desktop service for Azure. It’s against the licensing agreement to run Windows 10 Enterprise multi-session outside of Azure for production purposes. Windows 10 Enterprise multi-session won't activate against on-premises Key Management Services (KMS).
+Windows 10 Enterprise multi-session can't run in on-premises production environments because it's optimized for the Windows Virtual Desktop service for Azure. It's against the licensing agreement to run Windows 10 Enterprise multi-session outside of Azure for production purposes. Windows 10 Enterprise multi-session won't activate against on-premises Key Management Services (KMS).
  
 ## How do I customize the Windows 10 Enterprise multi-session image for my organization?
 
 You can start a virtual machine (VM) in Azure with Windows 10 Windows 10 Enterprise multi-session and customize it by installing LOB applications, sysprep/generalize, and then create an image using the Azure portal.  
  
-To get started, create a VM in Azure with Windows 10 Windows 10 Enterprise multi-session. Instead of starting the VM in Azure, you can download the VHD directly. After that, you'll be able to use the VHD you downloaded to create a new Generation 1 VM on a Windows 10 PC with Hyper-V enabled.
+To get started, create a VM in Azure with Windows 10 Enterprise multi-session. Instead of starting the VM in Azure, you can download the VHD directly. After that, you'll be able to use the VHD you downloaded to create a new Generation 1 VM on a Windows 10 PC with Hyper-V enabled.
 
 Customize the image to your needs by installing LOB applications and sysprep the image. When you're done customizing, upload the image to Azure with the VHD inside. After that, get Windows Virtual Desktop from the Azure Marketplace and use it to deploy a new host pool with the customized image.
  

@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
+manager: lizross
 ---
 # Create a host pool with an Azure Resource Manager template
 
@@ -37,7 +38,7 @@ If you're deploying in a Cloud Solution Provider subscription, follow these step
 
 1. Scroll down and right-click **Deploy to Azure**, then select **Copy Link Location**.
 2. Open a text editor like Notepad and paste the link there.
-3. Right after “https://portal.azure.com/” and before the hashtag (#) enter an at sign (@) followed by the tenant domain name. Here's an example of the format you should use: https://portal.azure.com/@Contoso.onmicrosoft.com#create/.
+3. Right after "https://portal.azure.com/" and before the hashtag (#) enter an at sign (@) followed by the tenant domain name. Here's an example of the format you should use: `https://portal.azure.com/@Contoso.onmicrosoft.com#create/`.
 4. Sign in to the Azure portal as a user with Admin/Contributor permissions to the Cloud Solution Provider subscription.
 5. Paste the link you copied to the text editor into the address bar.
 
@@ -61,7 +62,7 @@ After that, add users to the desktop application group with this cmdlet:
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-The user’s UPN should match the user’s identity in Azure Active Directory (for example, user1@contoso.com). If you want to add multiple users, you must run this cmdlet for each user.
+The user's UPN should match the user's identity in Azure Active Directory (for example, user1@contoso.com). If you want to add multiple users, you must run this cmdlet for each user.
 
 After you've completed these steps, users added to the desktop application group can sign in to Windows Virtual Desktop with supported Remote Desktop clients and see a resource for a session desktop.
 

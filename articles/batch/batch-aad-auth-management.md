@@ -1,20 +1,8 @@
 ---
 title: Use Azure Active Directory to authenticate Batch Management solutions
 description: Explore using Azure Active Directory to authenticate from applications that use the Batch Management .NET library.
-services: batch
-documentationcenter: .net
-author: LauraBrenner
-manager: evansma
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: batch
 ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
 ms.date: 04/27/2017
-ms.author: labrenne
 ---
 
 # Authenticate Batch Management solutions with Active Directory
@@ -87,9 +75,9 @@ Your client application uses the application ID (also referred to as the client 
 
 ```csharp
 // Specify the unique identifier (the "Client ID") for your application. This is required so that your
-// native client application (i.e. this sample) can access the Microsoft Azure AD Graph API. For information
-// about registering an application in Azure Active Directory, please see "Adding an Application" here:
-// https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
+// native client application (i.e. this sample) can access the Microsoft Graph API. For information
+// about registering an application in Azure Active Directory, please see "Register an application with the Microsoft identity platform" here:
+// https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app
 private const string ClientId = "<application-id>";
 ```
 Also copy the redirect URI that you specified during the registration process. The redirect URI specified in your code must match the redirect URI that you provided when you registered the application.

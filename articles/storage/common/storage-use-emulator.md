@@ -321,6 +321,6 @@ There are no differences specific to Queue storage in the emulator.
 
 ## Next steps
 
-* Evaluate the cross-platform, community-maintained open-source storage emulator [Azurite](https://github.com/arafato/azurite). 
+* Evaluate the cross-platform, community-maintained open-source storage emulator [Azurite](https://github.com/azure/azurite). 
 * [Azure Storage samples using .NET](../storage-samples-dotnet.md) contains links to several code samples you can use when developing your application.
 * You can use the [Microsoft Azure Storage Explorer](https://storageexplorer.com) to work with resources in your cloud Storage account, and in the storage emulator.

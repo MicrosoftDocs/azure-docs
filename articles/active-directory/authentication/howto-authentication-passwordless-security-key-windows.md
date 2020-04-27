@@ -5,7 +5,7 @@ description: Learn how to enable passwordless security key sign-in to Azure Acti
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/30/2020
 
 ms.author: iainfou
@@ -32,7 +32,7 @@ This document focuses on enabling FIDO2 security key based passwordless authenti
 | [Combined security information registration preview](concept-registration-mfa-sspr-combined.md) | X | X |
 | Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
 | WebAuthN requires Windows 10 version 1809 or higher | X | X |
-| [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1809 or higher | X |   |
+| [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1903 or higher | X |   |
 | [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) require Windows 10 Insider Build 18945 or higher |   | X |
 | Fully patched Windows Server 2016/2019 Domain Controllers. |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) version 1.4.32.0 or later |   | X |
@@ -51,6 +51,7 @@ The following scenarios aren't supported:
 - Log in to a server using a security key.
 - If you haven't used your security key to sign in to your device while online, you can't use it to sign in or unlock offline.
 - Signing in or unlocking a Windows 10 device with a security key containing multiple Azure AD accounts. This scenario utilizes the last account added to the security key. WebAuthN allows users to choose the account they wish to use.
+- Unlock a device running Windows 10 version 1809. For the best experience, use Windows 10 version 1903 or higher.
 
 ## Prepare devices for preview
 

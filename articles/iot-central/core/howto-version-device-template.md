@@ -4,7 +4,7 @@ description: Iterate over your device templates by creating new versions and wit
 author: sarahhubbard
 ms.author: sahubbar
 ms.date: 12/09/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
@@ -12,7 +12,7 @@ manager: peterpr
 
 # Create a new device template version
 
-
+*This article applies to solution builders and device developers.*
 
 Azure IoT Central allows rapid development of IoT Applications. You can quickly iterate over your device template designs by adding, editing, or deleting device capabilities, views, and customizations. Once you have published your device template, the device capability model shows as **Published** with lock icons next to the model. In order to make changes to the device capability model, you will need to create a new version of the device template. Meanwhile the cloud properties, customizations, and views can all be edited at any time without needing to version the device template. Once you have saved any of these changes, you can publish the device template to make the latest changes available for the operator to view in Device Explorer.
 
@@ -76,7 +76,4 @@ You can create multiple versions of the device template. Over time, you will hav
 
 ## Next steps
 
-Now that you have learned how to use device template versions in your Azure IoT Central application, here is the suggested next step:
-
-> [!div class="nextstepaction"]
-> [How to create telemetry rules](tutorial-create-telemetry-rules.md)
+If you're a device developer, a suggested next step is to read about [Azure IoT Edge devices and Azure IoT Central](./concepts-iot-edge.md).

@@ -2,14 +2,14 @@
 title: Localization - Azure Active Directory B2C
 description: Specify the Localization element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/27/2019
-ms.author: marsma
+ms.date: 04/20/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -142,221 +142,195 @@ The **LocalizedString** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ElementType | Yes | A reference to a claim type element or a user interface element in the policy. Possible values: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`, or  . The `ClaimType` value is used to localize one of the claim attributes, as specified in the StringId. The `UxElement` value is used to localize one of the user interface elements as specified in the StringId. The `ErrorMessage` value is used to localize one of the system error messages as specified in the StringId. The `Predicate` value is used to localize one of the [Predicate](predicates.md) error messages, as specified in the StringId. The `InputValidation` value is used to localize one of the [PredicateValidation](predicates.md) group error messages as specified in the StringId. |
+| ElementType | Yes | Possible values: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predicate](#predicate), [InputValidation](#inputvalidation), or [UxElement](#uxelement).   | 
 | ElementId | Yes | If **ElementType** is set to `ClaimType`, `Predicate`, or `InputValidation`, this element contains a reference to a claim type already defined in the ClaimsSchema section. |
 | StringId | Yes | If **ElementType** is set to `ClaimType`, this element contains a reference to an attribute of a claim type. Possible values: `DisplayName`, `AdminHelpText`, or `PatternHelpText`. The `DisplayName` value is used to set the claim display name. The `AdminHelpText` value is used to set the help text name of the claim user. The `PatternHelpText` value is used to set the claim pattern help text. If **ElementType** is set to `UxElement`, this element contains a reference to an attribute of a user interface element. If **ElementType** is set to `ErrorMessage`, this element specifies the identifier of an error message. See [Localization string IDs](localization-string-ids.md) for a complete list of the `UxElement` identifiers.|
 
+## ElementType
 
-The following example shows a localized sign-up page. The first three **LocalizedString** values set the claim attribute. The third changes the value of the continue button. The last one changes the error message.
+The ElementType reference to a claim type, a claim transformation, or a user interface element in the policy to be localized.
 
-```XML
-<LocalizedResources Id="api.selfasserted.en">
-  <LocalizedStrings>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
-  </LocalizedStrings>
-</LocalizedResources>
-```
+| Element to localize | ElementType | ElementId |StringId |
+| --------- | -------- | ----------- |----------- |
+| Identity provider name |`ClaimsProvider`| | The ID of the ClaimsExchange element|
+| Claim type attributes|`ClaimType`|Name of the claim type| The attribute of the claim to be localized. Possible values: `AdminHelpText`, `DisplayName`, `PatternHelpText`, and `UserHelpText`.|
+|Error message|`ErrorMessage`||The ID of the error message |
+|Copies localized strings into claims|`GetLocalizedStringsTra nsformationClaimType`||The name of the output claim|
+|Predicate user message|`Predicate`|The name of the predicate| The attribute of the predicate to be localized. Possible values: `HelpText`.|
+|Predicate group user message|`InputValidation`|The ID of the PredicateValidation element.|The ID of the PredicateGroup element. The predicate group must be a child of the predicate validation element as defined in the ElementId.|
+|User interface elements |`UxElement` | | The ID of the user interface element to be localized.|
 
-The following example shows a localized the **UserHelpText** of **Predicate** with Id `IsLengthBetween8And64`. And a localized **UserHelpText** of **PredicateGroup** with Id `CharacterClasses` of **PredicateValidation** with Id `StrongPassword`.
+## Examples
 
-```XML
-<PredicateValidation Id="StrongPassword">
-  <PredicateGroups>
-    ...
-    <PredicateGroup Id="CharacterClasses">
-    ...
-    </PredicateGroup>
-  </PredicateGroups>
-</PredicateValidation>
+### ClaimsProvider
 
-...
+The ClaimsProvider value is used to localize one of the claim providers display name. 
 
-<Predicate Id="IsLengthBetween8And64" Method="IsLengthRange">
+```xml
+<OrchestrationStep Order="2" Type="ClaimsExchange">
   ...
-</Predicate>
-...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
+    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
+    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
+  </ClaimsExchanges>
+</OrchestrationStep>
 
-
-<LocalizedString ElementType="InputValidation" ElementId="StrongPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
-
-<LocalizedString ElementType="Predicate" ElementId="IsLengthBetween8And64" StringId="HelpText">The password must be between 8 and 64 characters.</LocalizedString>
 ```
 
-## Set up localization
+The following example shows how to localize claim providers' display name.
 
-This article shows you how to support multiple locales or languages in the policy for user journeys. Localization requires three steps: set-up the explicit list of the supported languages, provide language-specific strings and collections, and edit the ContentDefinition for the page.
+```xml
+<LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
+<LocalizedString ElementType="ClaimsProvider" StringId="GoogleExchange">Google</LocalizedString>
+<LocalizedString ElementType="ClaimsProvider" StringId="LinkedInExchange">LinkedIn</LocalizedString>
+```
 
-### Set up the explicit list of supported languages
+### ClaimType
 
-Under the **BuildingBlocks** element, add the **Localization** element with the list of supported languages. The following example shows how to define the localization support for both English (default) and Spanish:
+The ClaimType value is used to localize one of the claim attributes. 
+
+```xml
+<ClaimType Id="email">
+  <DisplayName>Email Address</DisplayName>
+  <DataType>string</DataType>
+  <UserHelpText>Email address that can be used to contact you.</UserHelpText>
+  <UserInputType>TextBox</UserInputType>
+</ClaimType>
+```
+
+The following example shows how to localize the DisplayName, UserHelpText, and PatternHelpText attributes of the email claim type.
 
 ```XML
-<Localization Enabled="true">
-  <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
-    <SupportedLanguage>en</SupportedLanguage>
-    <SupportedLanguage>es</SupportedLanguage>
-  </SupportedLanguages>
-</Localization>
+<LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
+<LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
+<LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
 ```
 
-### Provide language-specific strings and collections
+### ErrorMessage
 
-Add **LocalizedResources** elements inside the **Localization** element after the close of the **SupportedLanguages** element. You add **LocalizedResources** elements for each page (content definition) and any language you want to support. To customize the unified sign-up or sign-in page, sign-up and multi-factor authentication (MFA) pages for English, Spanish, and France, you add the following **LocalizedResources** elements.
+The ErrorMessage value is used to localize one of the system error messages. 
 
-- Unified sign-up or sign-in page, English `<LocalizedResources Id="api.signuporsignin.en">`
-- Unified sign-up or sign-in page, Spanish `<LocalizedResources Id="api.signuporsignin.es">`
-- Unified sign-up or sign-in page, France `<LocalizedResources Id="api.signuporsignin.fr">`
-- Sign-Up, English `<LocalizedResources Id="api.localaccountsignup.en">`
-- Sign-Up, Spanish `<LocalizedResources Id="api.localaccountsignup.es">`
-- Sign-Up, France `<LocalizedResources Id="api.localaccountsignup.fr">`
-- MFA, English `<LocalizedResources Id="api.phonefactor.en">`
-- MFA, Spanish `<LocalizedResources Id="api.phonefactor.es">`
-- MFA, France `<LocalizedResources Id="api.phonefactor.fr">`
+```xml
+<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
+  <Metadata>
+    <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
+    <Item Key="UserMessageIfClaimsPrincipalAlreadyExists">You are already registered, please press the back button and sign in instead.</Item>
+  </Metadata>
+  ...
+</TechnicalProfile>
+```
 
-Each **LocalizedResources** element contains all of the required  **LocalizedStrings** elements with multiple **LocalizedString** elements and **LocalizedCollections** elements with multiple **LocalizedCollection** elements.  The following example adds the sign-up page English localization:
+The following example shows how to localize the UserMessageIfClaimsPrincipalAlreadyExists error message.
 
-Note: This example makes a reference to `Gender` and `City` claim types. To use this example, make sure you define those claims. For more information, see [ClaimsSchema](claimsschema.md).
 
 ```XML
-<LocalizedResources Id="api.localaccountsignup.en">
-
- <LocalizedCollections>
-   <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
-      <Item Text="Female" Value="F" />
-      <Item Text="Male" Value="M" />
-    </LocalizedCollection>
-   <LocalizedCollection ElementType="ClaimType" ElementId="City" TargetCollection="Restriction">
-      <Item Text="New York" Value="NY" />
-      <Item Text="Paris" Value="Paris" />
-      <Item Text="London" Value="London" />
-    </LocalizedCollection>
-  </LocalizedCollections>
-
-  <LocalizedStrings>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
-  </LocalizedStrings>
-</LocalizedResources>
+<LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
 ```
 
-The sign-up page localization for Spanish.
+### GetLocalizedStringsTransformationClaimType
+
+The GetLocalizedStringsTransformationClaimType value is used to copy localized strings into claims. For more information, see [GetLocalizedStringsTransformation claims transformation](string-transformations.md#getlocalizedstringstransformation)
+
+
+```xml
+<ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
+    <OutputClaim ClaimTypeReferenceId="message" TransformationClaimType="email_message" />
+    <OutputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="email_code" />
+    <OutputClaim ClaimTypeReferenceId="signature" TransformationClaimType="email_signature" />
+   </OutputClaims>
+</ClaimsTransformation>
+```
+
+The following example shows how to localize output claims of the GetLocalizedStringsTransformation claims transformation.
+
+```xml
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for verifying your account!</LocalizedString>
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
+<LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
+```
+
+### Predicate
+
+The Predicate value is used to localize one of the [Predicate](predicates.md) error messages. 
+
+```xml
+<Predicates>
+  <Predicate Id="LengthRange" Method="IsLengthRange"  HelpText="The password must be between 6 and 64 characters.">
+    <Parameters>
+      <Parameter Id="Minimum">6</Parameter>
+      <Parameter Id="Maximum">64</Parameter>
+    </Parameters>
+  </Predicate>
+  <Predicate Id="Lowercase" Method="IncludesCharacters" HelpText="a lowercase letter">
+    <Parameters>
+      <Parameter Id="CharacterSet">a-z</Parameter>
+    </Parameters>
+  </Predicate>
+  <Predicate Id="Uppercase" Method="IncludesCharacters" HelpText="an uppercase letter">
+    <Parameters>
+      <Parameter Id="CharacterSet">A-Z</Parameter>
+    </Parameters>
+  </Predicate>
+</Predicates>
+```
+
+The following example shows how to localize predicates help text.
+
+```xml
+<LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">The password must be between 6 and 64 characters.</LocalizedString>
+<LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">a lowercase letter</LocalizedString>
+<LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">an uppercase letter</LocalizedString>
+```
+
+### InputValidation
+
+The InputValidation value is used to localize one of the [PredicateValidation](predicates.md) group error messages. 
+
+```xml
+<PredicateValidations>
+  <PredicateValidation Id="CustomPassword">
+    <PredicateGroups>
+      <PredicateGroup Id="LengthGroup">
+        <PredicateReferences MatchAtLeast="1">
+          <PredicateReference Id="LengthRange" />
+        </PredicateReferences>
+      </PredicateGroup>
+      <PredicateGroup Id="CharacterClasses">
+        <UserHelpText>The password must have at least 3 of the following:</UserHelpText>
+        <PredicateReferences MatchAtLeast="3">
+          <PredicateReference Id="Lowercase" />
+          <PredicateReference Id="Uppercase" />
+          <PredicateReference Id="Number" />
+          <PredicateReference Id="Symbol" />
+        </PredicateReferences>
+      </PredicateGroup>
+    </PredicateGroups>
+  </PredicateValidation>
+</PredicateValidations>
+```
+
+The following example shows how to localize a predicate validation group help text.
 
 ```XML
-<LocalizedResources Id="api.localaccountsignup.es">
-
- <LocalizedCollections>
-   <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
-      <Item Text="Femenino" Value="F" />
-      <Item Text="Masculino" Value="M" />
-    </LocalizedCollection>
-   <LocalizedCollection ElementType="ClaimType" ElementId="City" TargetCollection="Restriction">
-      <Item Text="Nueva York" Value="NY" />
-      <Item Text="París" Value="Paris" />
-      <Item Text="Londres" Value="London" />
-    </LocalizedCollection>
-  </LocalizedCollections>
-
-  <LocalizedStrings>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Dirección de correo electrónico</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Dirección de correo electrónico que puede usarse para ponerse en contacto con usted.</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Introduzca una dirección de correo electrónico.</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_continue">Crear</LocalizedString>
-   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">Ya existe un usuario con el id. especificado. Elija otro diferente.</LocalizedString>
-  </LocalizedStrings>
-</LocalizedResources>
+<LocalizedString ElementType="InputValidation" ElementId="CustomPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
 ```
 
-### Edit the ContentDefinition for the page
+### UxElement
 
-For each page that you want to localize, specify the language codes to look for in the **ContentDefinition**.
-
-In the following example, English (en) and Spanish (es) custom strings are added to the sign-up page. The **LocalizedResourcesReferenceId** for each **LocalizedResourcesReference** is the same as their locale, but you could use any string as the identifier. For each language and page combination, you point to the  corresponding **LocalizedResources** you previously created.
+The UxElement value is used to localize one of the user interface elements. The following example shows how to localize the continue and cancel buttons.
 
 ```XML
-<ContentDefinition Id="api.localaccountsignup">
-...
-  <LocalizedResourcesReferences MergeBehavior="Prepend">
-    <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
-    <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
-  </LocalizedResourcesReferences>
-</ContentDefinition>
+<LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
+<LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
 ```
 
-The following example shows the final XML:
+## Next steps
 
-```XML
-<BuildingBlocks>
-  <ContentDefinitions>
-    <ContentDefinition Id="api.localaccountsignup">
-      <!-- Other content definitions elements... -->
-      <LocalizedResourcesReferences MergeBehavior="Prepend">
-         <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
-         <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
-      </LocalizedResourcesReferences>
-    </ContentDefinition>
-    <!-- More content definitions... -->
-  </ContentDefinitions>
+See the following articles for localization examples:
 
-  <Localization Enabled="true">
-
-    <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
-      <SupportedLanguage>en</SupportedLanguage>
-      <SupportedLanguage>es</SupportedLanguage>
-      <!-- More supported language... -->
-    </SupportedLanguages>
-
-    <LocalizedResources Id="api.localaccountsignup.en">
-      <LocalizedCollections>
-        <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
-          <Item Text="Female" Value="F" />
-          <Item Text="Male" Value="M" />
-          <!-- More items... -->
-        </LocalizedCollection>
-        <LocalizedCollection ElementType="ClaimType" ElementId="City" TargetCollection="Restriction">
-          <Item Text="New York" Value="NY" />
-          <Item Text="Paris" Value="Paris" />
-          <Item Text="London" Value="London" />
-        </LocalizedCollection>
-        <!-- More localized collections... -->
-      </LocalizedCollections>
-      <LocalizedStrings>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
-      <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Please enter your email</LocalizedString>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
-        <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
-       <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
-        <!-- More localized strings... -->
-      </LocalizedStrings>
-    </LocalizedResources>
-
-    <LocalizedResources Id="api.localaccountsignup.es">
-      <LocalizedCollections>
-       <LocalizedCollection ElementType="ClaimType" ElementId="Gender" TargetCollection="Restriction">
-          <Item Text="Femenino" Value="F" />
-          <Item Text="Masculino" Value="M" />
-        </LocalizedCollection>
-        <LocalizedCollection ElementType="ClaimType" ElementId="City" TargetCollection="Restriction">
-          <Item Text="Nueva York" Value="NY" />
-          <Item Text="París" Value="Paris" />
-          <Item Text="Londres" Value="London" />
-        </LocalizedCollection>
-      </LocalizedCollections>
-      <LocalizedStrings>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Dirección de correo electrónico</LocalizedString>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Dirección de correo electrónico que puede usarse para ponerse en contacto con usted.</LocalizedString>
-        <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Introduzca una dirección de correo electrónico.</LocalizedString>
-        <LocalizedString ElementType="UxElement" StringId="button_continue">Crear</LocalizedString>
-      <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">Ya existe un usuario con el id. especificado. Elija otro diferente.</LocalizedString>
-      </LocalizedStrings>
-    </LocalizedResources>
-    <!-- More localized resources... -->
-  </Localization>
-</BuildingBlocks>
-```
+- [Language customization with custom policy in Azure Active Directory B2C](custom-policy-localization.md)
+- [Language customization with user flows in Azure Active Directory B2C](user-flow-language-customization.md)

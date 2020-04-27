@@ -67,7 +67,7 @@ In this scenario, you both train and test the model by using Cross Validate Mode
 
 5. Set a value for the **Random seed** parameter if you want to repeat the results of cross-validation across successive runs on the same data.  
 
-6. Run the pipeline.
+6. Submit the pipeline.
 
 7. See the [Results](#results) section for a description of the reports.
 

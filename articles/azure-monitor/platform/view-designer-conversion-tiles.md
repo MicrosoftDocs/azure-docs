@@ -3,7 +3,7 @@ title: Azure Monitor view designer to workbooks tile conversions
 description: 
 author: austonli
 ms.author: aul
-ms.service: azure-monitor
+
 ms.subservice: 
 ms.topic: conceptual
 ms.date: 02/07/2020
@@ -59,6 +59,7 @@ Original query
 ```KQL
 search * 
 | summarize AggregatedValue = count() by Type
+```
 
 Updated query
 ```KQL

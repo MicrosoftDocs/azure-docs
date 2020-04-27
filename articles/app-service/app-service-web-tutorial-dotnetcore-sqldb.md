@@ -5,10 +5,9 @@ description: Learn how to get a .NET Core app working in Azure App Service, with
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
-ms.custom: mvc, cli-validate
-ms.custom: seodec18
-
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service
 
 > [!NOTE]
@@ -36,7 +35,7 @@ What you learn how to:
 To complete this tutorial:
 
 * [Install Git](https://git-scm.com/)
-* [Install .NET Core](https://www.microsoft.com/net/core/)
+* [Install .NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## Create local .NET Core app
 
@@ -60,8 +59,8 @@ The sample project contains a basic CRUD (create-read-update-delete) app using [
 Run the following commands to install the required packages, run database migrations, and start the application.
 
 ```bash
-dotnet restore
-dotnet ef database update
+dotnet tool install -g dotnet-ef --version 3.1.1
+dotnet-ef database update
 dotnet run
 ```
 
@@ -96,23 +95,23 @@ az sql server create --name <server_name> --resource-group myResourceGroup --loc
 
 When the SQL Database logical server is created, the Azure CLI shows information similar to the following example:
 
-```json
+<pre>
 {
-  "administratorLogin": "sqladmin",
+  "administratorLogin": "&lt;db_username&gt;",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<server_name>.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/<server_name>",
+  "fullyQualifiedDomainName": "&lt;server_name&gt;.database.windows.net",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/&lt;server_name&gt;",
   "identity": null,
   "kind": "v12.0",
   "location": "westeurope",
-  "name": "<server_name>",
+  "name": "&lt;server_name&gt;",
   "resourceGroup": "myResourceGroup",
   "state": "Ready",
   "tags": null,
   "type": "Microsoft.Sql/servers",
   "version": "12.0"
 }
-```
+</pre>
 
 ### Configure a server firewall rule
 
@@ -227,7 +226,7 @@ git commit -m "connect to SQLDB in Azure"
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-```bash
+<pre>
 Counting objects: 98, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (92/92), done.
@@ -249,9 +248,9 @@ remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
 remote: App container will begin restart within 10 seconds.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
  * [new branch]      master -> master
-```
+</pre>
 
 ### Browse to the Azure app
 

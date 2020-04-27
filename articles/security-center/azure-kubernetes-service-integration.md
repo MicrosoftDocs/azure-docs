@@ -15,8 +15,9 @@ ms.author: memildin
 
 ---
 
-# Azure Kubernetes Services integration with Security Center (Preview)
-Azure Kubernetes Service (AKS) is Microsoft’s managed service for developing, deploying, and managing containerized applications. 
+# Azure Kubernetes Services integration with Security Center
+
+Azure Kubernetes Service (AKS) is Microsoft's managed service for developing, deploying, and managing containerized applications. 
 
 Use AKS together with Azure Security Center's standard tier (see [pricing](security-center-pricing.md)) to gain deeper visibility to your AKS nodes, cloud traffic, and security controls.
 
@@ -30,10 +31,7 @@ Together, these two tools form the best cloud-native Kubernetes security offerin
 
 Using the two services together provides:
 
-* **Security recommendations** - Security Center identifies your AKS resources and categorizes them: from clusters to individual virtual machines. You can then view security recommendations per resource. For more information, see the containers recommendations in the [reference list of recommendations](recommendations-reference.md#recs-computeapp). 
-
-    > [!NOTE]
-    > If the name of a Security Center recommendation ends with a "(Preview)" tag, it's referring to the preview nature of the recommendation, not the feature.
+* **Security recommendations** - Security Center identifies your AKS resources and categorizes them: from clusters to individual virtual machines. You can then view security recommendations per resource. For more information, see the containers recommendations in the [reference list of recommendations](recommendations-reference.md#recs-containers). 
 
 * **Environment hardening** - Security Center constantly monitors the configuration of your Kubernetes clusters and Docker configurations. It then generates security recommendations that reflect industry standards.
 
@@ -41,7 +39,7 @@ Using the two services together provides:
     * Raw security events, such as network data and process creation
     * The Kubernetes audit log
 
-    For more information, see [threat detection for Azure containers](security-center-alerts-compute.md#azure-containers-)
+    For more information, see [threat protection for Azure containers](threat-protection.md#azure-containers)
 
     For the list of possible alerts, see these sections in the alerts reference table: [AKS cluster level alerts](alerts-reference.md#alerts-akscluster) and [Container host level alerts](alerts-reference.md#alerts-containerhost).  
 
@@ -59,4 +57,4 @@ To learn more about Security Center's container security features, see:
 
 * [Integration with Azure Container Registry](azure-container-registry-integration.md)
 
-* [Data management at Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) - Describes the data policies of Microsoft services (including Azure, Intune, and Office 365), details of Microsoft’s data management, and the retention policies that affect your data
+* [Data management at Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) - Describes the data policies of Microsoft services (including Azure, Intune, and Office 365), details of Microsoft's data management, and the retention policies that affect your data

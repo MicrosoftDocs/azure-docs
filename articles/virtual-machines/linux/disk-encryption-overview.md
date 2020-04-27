@@ -2,11 +2,11 @@
 title: Enable Azure Disk Encryption for Linux VMs
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Linux VMs.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
-
 ms.custom: seodec18
 
 ---
@@ -28,7 +28,7 @@ You can learn the fundamentals of Azure Disk Encryption for Linux in just a few 
 
 ## Supported VMs and operating systems
 
-### Supported VM sizes
+### Supported VMs
 
 Linux VMs are available in a [range of sizes](sizes.md). Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/), or on virtual machines that do not meet these minimum memory requirements:
 
@@ -40,7 +40,9 @@ Linux VMs are available in a [range of sizes](sizes.md). Azure Disk Encryption i
 
 Once the OS disk encryption process is complete on Linux virtual machines, the VM can be configured to run with less memory. 
 
-Azure Disk Encryption is also available for VMs with premium storage. 
+Azure Disk Encryption is also available for VMs with premium storage.
+
+Azure Disk Encryption is not available on [Generation 2 VMs](generation-2.md#generation-1-vs-generation-2-capabilities)) and [Lsv2-series VMs](../lsv2-series.md)). For more exceptions, see [Azure Disk Encryption: Unsupported scenarios](disk-encryption-linux.md#unsupported-scenarios).
 
 ### Supported operating systems
 
@@ -77,7 +79,7 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 > [!NOTE]
 > The new Azure Disk Encryption implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images.  
 >
-> ADE is also supported for RHEL Bring-Your-Own-Subscription Gold Images, but only **after** the subscription has been registered . For more information, see [Red Hat Enterprise Linux Bring-Your-Own-Subscription Gold Images in Azure](../workloads/redhat/byos.md##encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)
+> ADE is also supported for RHEL Bring-Your-Own-Subscription Gold Images, but only **after** the subscription has been registered . For more information, see [Red Hat Enterprise Linux Bring-Your-Own-Subscription Gold Images in Azure](../workloads/redhat/byos.md#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)
 
 ## Additional VM requirements
 
@@ -99,7 +101,7 @@ To enable the Azure Disk Encryption feature, the Linux VMs must meet the followi
   - To get a token to connect to your key vault, the Linux VM must be able to connect to an Azure Active Directory endpoint, \[login.microsoftonline.com\].
   - To write the encryption keys to your key vault, the Linux VM must be able to connect to the key vault endpoint.
   - The Linux VM must be able to connect to an Azure storage endpoint that hosts the Azure extension repository and an Azure storage account that hosts the VHD files.
-  -  If your security policy limits access from Azure VMs to the Internet, you can resolve the preceding URI and configure a specific rule to allow outbound connectivity to the IPs. For more information, see [Azure Key Vault behind a firewall](../../key-vault/key-vault-access-behind-firewall.md).  
+  -  If your security policy limits access from Azure VMs to the Internet, you can resolve the preceding URI and configure a specific rule to allow outbound connectivity to the IPs. For more information, see [Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md).  
 
 ## Encryption key storage requirements  
 

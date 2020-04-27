@@ -3,7 +3,7 @@ title: Get started with the Azure Enterprise portal
 description: This article explains how Azure Enterprise Agreement (Azure EA) customers use the Azure Enterprise portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
@@ -106,7 +106,7 @@ The notification contact receives usage notifications related to the enrollment.
 
 To activate your service, the initial enterprise administrator opens the [Azure Enterprise portal](https://ea.azure.com) and signs in using the email address from the invitation email.
 
-If you’ve been set up as the enterprise administrator, you don’t need to receive the activation email. Go to [Azure Enterprise portal](https://ea.azure.com) and sign in with your work, school, or Microsoft account email address and password.
+If you've been set up as the enterprise administrator, you don't need to receive the activation email. Go to [Azure Enterprise portal](https://ea.azure.com) and sign in with your work, school, or Microsoft account email address and password.
 
 If you have more than one enrollment, choose one to activate. By default, only active enrollments are shown. To view enrollment history, clear the **Active** option in the top right of the Azure Enterprise portal.
 
@@ -554,7 +554,7 @@ You can create as many departments as you need under your Azure EA enrollment. I
 
 After you have created departments and subscriptions, you can see data in the usage report. This information can help you track usage and manage cost and spend at the department level.
 
-You can also access usage data via the reporting API. For detailed information and sample code, see [Reporting API documentation](https://ea.azure.com/helpdocs/reportingAPI).
+You can also access usage data via the reporting API. For detailed information and sample code, see [Azure Enterprise REST APIs](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
 
 ### Can I set a spending quota and get alerts as I approach my limit?
 
@@ -566,7 +566,7 @@ To define your spending quota, select a department and then select the edit icon
 
 If you use _resource groups_ and _tags_, this information is tracked at service level, and you can access it in the detailed usage download (CSV) file. See the [download usage report](https://ea.azure.com/report/downloadusage) in the Azure Enterprise portal.
 
-You can also access usage via API. For detailed information and sample code, see the [Reporting API](https://ea.azure.com/helpdocs/reportingAPI) in the Azure Enterprise portal documentation.
+You can also access usage via API. For detailed information and sample code, see [Azure Enterprise REST APIs](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
 
 > [!NOTE]
 > You can only apply tags to resources that support Azure Resource Manager operations. If you created a virtual machine, virtual network, or storage through the classic deployment model (such as through the classic portal), you cannot apply a tag to that resource. You must re-deploy these resources through the Resource Manager to support tagging. All other resources support tagging.

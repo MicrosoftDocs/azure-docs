@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for MariaDB
 

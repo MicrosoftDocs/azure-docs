@@ -3,7 +3,7 @@ title: Create a function that runs on a schedule in Azure
 description: Learn how to create a function in Azure that runs based on a schedule that you define.
 
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 03/28/2018
 ms.custom: mvc, cc996988-fb4f-47
 ---

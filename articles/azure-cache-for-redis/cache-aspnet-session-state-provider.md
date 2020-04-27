@@ -76,10 +76,10 @@ The commented section provides an example of the attributes and sample settings 
 Configure the attributes with the values from your cache blade in the Microsoft Azure portal, and configure the other values as desired. For instructions on accessing your cache properties, see [Configure Azure Cache for Redis settings](cache-configure.md#configure-azure-cache-for-redis-settings).
 
 * **host** – specify your cache endpoint.
-* **port** – use either your non-SSL port or your SSL port, depending on the ssl settings.
+* **port** – use either your non-TLS/SSL port or your TLS/SSL port, depending on the TLS settings.
 * **accessKey** – use either the primary or secondary key for your cache.
-* **ssl** – true if you want to secure cache/client communications with ssl; otherwise false. Be sure to specify the correct port.
-  * The non-SSL port is disabled by default for new caches. Specify true for this setting to use the SSL port. For more information about enabling the non-SSL port, see the [Access Ports](cache-configure.md#access-ports) section in the [Configure a cache](cache-configure.md) topic.
+* **ssl** – true if you want to secure cache/client communications with TLS; otherwise false. Be sure to specify the correct port.
+  * The non-TLS port is disabled by default for new caches. Specify true for this setting to use the TLS port. For more information about enabling the non-TLS port, see the [Access Ports](cache-configure.md#access-ports) section in the [Configure a cache](cache-configure.md) topic.
 * **throwOnError** – true if you want an exception to be thrown if there is a failure, or false if you want the operation to fail silently. You can check for a failure by checking the static Microsoft.Web.Redis.RedisSessionStateProvider.LastException property. The default is true.
 * **retryTimeoutInMilliseconds** – Operations that fail are retried during this interval, specified in milliseconds. The first retry occurs after 20 milliseconds, and then retries occur every second until the retryTimeoutInMilliseconds interval expires. Immediately after this interval, the operation is retried one final time. If the operation still fails, the exception is thrown back to the caller, depending on the throwOnError setting. The default value is 0, which means no retries.
 * **databaseId** – Specifies which database to use for cache output data. If not specified, the default value of 0 is used.
@@ -119,6 +119,11 @@ Once these steps are performed, your application is configured to use the Azure 
 * Distributed In Memory Session State Provider such as Azure Cache for Redis Session State Provider - This provider gives you the best of both worlds. Your Web App can have a simple, fast, and scalable Session State Provider. Because this provider stores the Session state in a Cache, your app has to take in consideration all the characteristics associated when talking to a Distributed In Memory Cache, such as transient network failures. For best practices on using Cache, see [Caching guidance](../best-practices-caching.md) from Microsoft Patterns & Practices [Azure Cloud Application Design and Implementation Guidance](https://github.com/mspnp/azure-guidance).
 
 For more information about session state and other best practices, see [Web Development Best Practices (Building Real-World Cloud Apps with Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
+
+## Third-party session state providers
+
+* [NCache](https://www.alachisoft.com/ncache/session-index.html)
+* [Apache ignite](https://apacheignite-net.readme.io/docs/aspnet-session-state-caching)
 
 ## Next steps
 

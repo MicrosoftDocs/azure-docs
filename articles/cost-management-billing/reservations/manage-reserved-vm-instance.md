@@ -4,7 +4,6 @@ description: Learn how you can manage Azure Reservations.
 ms.service: cost-management-billing
 author: bandersmsft
 ms.reviewer: yashesvi
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: banders

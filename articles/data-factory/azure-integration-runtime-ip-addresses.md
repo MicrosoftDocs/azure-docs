@@ -15,6 +15,8 @@ ms.date: 01/06/2020
 
 # Azure Integration Runtime IP addresses
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The IP addresses that Azure Integration Runtime uses depends on the region where your Azure integration runtime is located. *All* Azure integration runtimes that are in the same region use the same IP address ranges.
 
 > [!IMPORTANT]  
@@ -34,6 +36,7 @@ Allow traffic from the IP addresses listed for the Azure Integration runtime in 
 | &nbsp;         | Australia Southeast | 20.42.225.0/25,</br>20.42.225.128/26,</br>13.77.53.160/28    |
 | Brazil         | Brazil South        | 191.235.224.128/25,</br>191.235.225.0/26,</br>191.233.205.160/28 |
 | Canada         | Canada Central      | 52.228.80.128/25,</br>52.228.81.0/26,</br>13.71.175.80/28    |
+| China          | China East 2        | 40.73.172.48/28,</br>52.130.0.128/25,</br>52.130.1.0/26      |
 | Europe         | North Europe        | 20.38.82.0/23,</br>20.38.80.192/26,</br>13.69.230.96/28      |
 | &nbsp;         | West Europe         | 40.74.26.0/23,</br>40.74.24.192/26,</br>13.69.67.192/28      |
 | France         | France Central      | 20.43.40.128/25,</br>20.43.41.0/26,</br>40.79.132.112/28     |
@@ -46,7 +49,7 @@ Allow traffic from the IP addresses listed for the Azure Integration runtime in 
 |                | East US             | 20.42.2.0/23,</br>20.42.4.0/26,</br>40.71.14.32/28           |
 |                | East US2            | 20.41.2.0/23,</br>20.41.4.0/26,</br>20.44.17.80/28           |
 |                | East US 2 EUAP      | 20.39.8.128/26,</br>20.39.8.96/27,</br>40.75.35.144/28       |
-|                | North Central US    | 40.80.185.0/25,</br>40.80.185.128/26,</br>52.162.111.48/28   |
+|                | North Central US    | 40.80.185.0/24,</br>40.80.186.0/25,</br>52.162.111.48/28      |
 |                | South Central US    | 40.119.9.0/25,</br>40.119.9.128/26,</br>13.73.244.32/28      |
 |                | West Central US     | 52.150.137.128/25,</br>52.150.136.192/26,</br>13.71.199.0/28 |
 |                | West US             | 40.82.250.0/23,</br>40.82.249.64/26,</br>13.86.219.208/28    |

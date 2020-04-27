@@ -276,7 +276,7 @@ Use Event Viewer logs to locate the error code, suberror code, server error code
    - Reason: Connection with the auth endpoint was aborted.
    - Resolution: Retry after sometime or try joining from an alternate stable network location.
 - **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441)
-   - Reason: The Secure Sockets Layer (SSL) certificate sent by the server could not be validated.
+   - Reason: The Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), certificate sent by the server could not be validated.
    - Resolution: Check the client time skew. Retry after sometime or try joining from an alternate stable network location. 
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
    - Reason: The attempt to connect to `https://login.microsoftonline.com` failed.
@@ -355,7 +355,7 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
    - Resolution: Disable TPM on devices with this error. Windows 1809 automatically detects TPM failures and completes hybrid Azure AD join without using the TPM.
 - **NTE_AUTHENTICATION_IGNORED** (0x80090031/-2146893775)
    - Reason: TPM locked out.
-   - Resolution: Transient error. Wait for the cooldown period. Join attempt after some time should succeed. More Information can be found in the article [TPM fundamentals](https://docs.microsoft.com/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering)
+   - Resolution: Transient error. Wait for the cooldown period. Join attempt after some time should succeed. More Information can be found in the article [TPM fundamentals](/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering)
 
 ##### Network Errors
 

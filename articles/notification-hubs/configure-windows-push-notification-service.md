@@ -15,7 +15,8 @@ ms.reviewer: jowargo
 ms.lastreviewed: 03/25/2019
 ---
 
-# Configure Windows Push Notification Service (WNS) settings for a notification hub in the Azure portal
+# Configure Windows Push Notification Service settings in the Azure portal
+
 This article shows you how to configure Windows Notification Service (WNS) settings for an Azure notification hub by using the Azure portal.  
 
 ## Prerequisites

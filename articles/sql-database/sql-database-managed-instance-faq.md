@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
-ms.date: 07/16/2019
+ms.date: 03/17/2020
 ---
 # SQL Database managed instance frequently asked questions (FAQ)
 
@@ -36,13 +36,13 @@ For available service tiers and their characteristics, see [technical difference
 
 **Where can I find known issues and bugs?**
 
-For bugs and known issues see [known issues](sql-database-managed-instance-transact-sql-information.md#Issues).
+For bugs and known issues see [known issues](sql-database-release-notes.md#known-issues).
 
 ## New features
 
 **Where can I find latest features and the features in public preview?**
 
-For new and preview features see [release notes](/azure/sql-database/sql-database-release-notes?tabs=managed-instance).
+For new and preview features see [release notes](sql-database-release-notes.md?tabs=managed-instance).
 
 ## Deployment times 
 
@@ -54,7 +54,11 @@ Expected time to create new managed instance or change service tier (vCores, sto
 
 **Can a managed instance have the same name as on-premises SQL Server?**
 
-Managed instance must have a name that ends with *database.windows.net*. To use another DNS zone instead of the default, for example, **mi-another-name**.contoso.com: 
+Changing managed instance name is not supported.
+
+Managed instance default DNS zone *.database.windows.net* could be changed. 
+
+To use another DNS zone instead of the default, for example, *.contoso.com*: 
 - Use CliConfig to define an alias. The tool is just a registry settings wrapper, so it could be done using group policy or script as well.
 - Use *CNAME* with *TrustServerCertificate=true* option.
 
@@ -119,24 +123,24 @@ Use the **Accumulated costs** option and then filter by the **Resource type** as
 
 **How can I set inbound NSG rules on management ports?**
 
-The built-in firewall feature configures Windows firewall on all virtual machines in the cluster to allow inbound connections from IP ranges associated only to Microsoft management/deployment machines and secure admin workstations effectively preventing intrusions through the network layer.
+Managed instance control plane maintains NSG rules that protect management ports.
 
-Here is what ports are used for:
+Here is what management ports are used for:
 
 Ports 9000 and 9003 are used by Service Fabric infrastructure. Service Fabric primary role is to keep the virtual cluster healthy and keep goal state in terms of number of component replicas.
 
-Ports 1438, 1440, and 1452 are used by Node Agent. Node agent is an application that runs inside the cluster and is used by the control plane to execute management commands.
+Ports 1438, 1440, and 1452 are used by node agent. Node agent is an application that runs inside the cluster and is used by the control plane to execute management commands.
 
-In addition to the built-in firewall on the network layer, communication is also protected with certificates.
+In addition to NSG rules the built-in firewall protects the instance on the network layer. On the application layer communication is protected with the certificates.
   
 For more information and how to verify the built-in firewall, see [Azure SQL Database managed instance built-in firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 
-## Mitigate network risks  
+## Mitigate data exfiltration risks  
 
-**How can I mitigate networking risks?**
+**How can I mitigate data exfiltration risks?**
 
-To mitigate any networking risks, customers are recommended to apply a set of security settings and controls:
+To mitigate any data exfiltration risks, customers are recommended to apply a set of security settings and controls:
 
 - Turn on [Transparent Data Encryption (TDE)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql) on all databases.
 - Turn off Common Language Runtime (CLR). This is recommended on-premises as well.
@@ -175,19 +179,19 @@ DNS configuration is eventually refreshed:
 As a workaround, downgrade the managed instance to 4 vCore and upgrade it again afterward. This has a side effect of refreshing the DNS configuration.
 
 
-## Static IP address
+## IP address
+
+**Can I connect to managed instance using IP address?**
+
+Connecting to managed instance using IP address is not supported. Managed instance host name maps to load balancer in front of managed instance virtual cluster. As one virtual cluster could host multiple managed instances connection could not be routed to proper managed instance without specifying its name.
+
+For more information on managed instance virtual cluster architecture, see [Virtual cluster connectivity architecture](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture).
 
 **Can a managed instance have a static IP address?**
 
 In rare but necessary situations, we might need to do an online migration of a managed instance to a new virtual cluster. If needed, this migration is because of changes in our technology stack aimed to improve security and reliability of the service. Migrating to a new virtual cluster results in changing the IP address that is mapped to the managed instance host name. The managed instance service doesn't claim static IP address support and reserves the right to change it without notice as a part of regular maintenance cycles.
 
 For this reason, we strongly discourage relying on immutability of the IP address as it could cause unnecessary downtime.
-
-## Moving MI
-
-**Can I move a managed instance or its VNet to another resource group?**
-
-No, this is current platform limitation. After a managed instance is created, moving the managed instance or VNet to another resource group or subscription is not supported.
 
 ## Change time zone
 

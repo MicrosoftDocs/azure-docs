@@ -12,7 +12,7 @@ Within an Azure subscription, you can create up to 500 Recovery Services vaults 
 
 ## Comparing Recovery Services vaults and Backup vaults
 
-If you still have Backup vaults, they are being auto-upgraded to Recovery Services vaults. By November 2017, all Backup vaults have been upgraded to Recovery Services vaults.
+If you still have Backup vaults, they're being auto-upgraded to Recovery Services vaults. By November 2017, all Backup vaults have been upgraded to Recovery Services vaults.
 
 Recovery Services vaults are based on the Azure Resource Manager model of Azure, whereas Backup vaults were based on the Azure Service Manager model. When you upgrade a Backup vault to a Recovery Services vault, the backup data remains intact during and after the upgrade process. Recovery Services vaults provide features not available for Backup vaults, such as:
 
@@ -24,13 +24,21 @@ Recovery Services vaults are based on the Azure Resource Manager model of Azure,
 
 - **Protect all configurations of Azure Virtual Machines**: Recovery Services vaults protect Resource Manager-based VMs including Premium Disks, Managed Disks, and Encrypted VMs. Upgrading a Backup vault to a Recovery Services vault gives you the opportunity to upgrade your Service Manager-based VMs to Resource Manager-based VMs. While upgrading the vault, you can retain your Service Manager-based VM recovery points and configure protection for the upgraded (Resource Manager-enabled) VMs. [Learn more](https://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 
-- **Instant restore for IaaS VMs**: Using Recovery Services vaults, you can restore files and folders from an IaaS VM without restoring the entire VM, which enables faster restore times. Instant restore for IaaS VMs is available for both Windows and Linux VMs. [Learn more](https://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
+- **Instant restore for IaaS VMs**: Using Recovery Services vaults, you can restore files and folders from an IaaS VM without restoring the entire VM, which enables faster restore times. Instant restore for IaaS VMs is available for both Windows and Linux VMs. [Learn more](backup-instant-restore-capability.md)
+
+## Storage settings in the Recovery Services vault
+
+A Recovery Services vault is an entity that stores the backups and recovery points created over time. The Recovery Services vault also contains the backup policies that are associated with the protected virtual machines.
+
+Azure Backup automatically handles storage for the vault. See how [storage settings can be changed](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy).
+
+To learn more about storage redundancy, see these articles on [geo](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs) and [local](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs) redundancy.
 
 ## Managing your Recovery Services vaults in the portal
 
 Creation and management of Recovery Services vaults in the Azure portal is easy because the Backup service integrates into other Azure services. This integration means you can create or manage a Recovery Services vault *in the context of the target service*. For example, to view the recovery points for a VM, select your VM, and click **Backup** in the Operations menu.
 
-![Recovery services vault details VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
+![Recovery Services vault details VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
 
 If the VM doesn't have backup configured, then it will prompt you to configure backup. If backup has been configured, you'll see backup information about the VM, including a list of restore points.  
 
@@ -71,4 +79,4 @@ The following sections contain links to articles that explain how to use a Recov
 Use the following articles to:</br>
 [Back up an IaaS VM](backup-azure-arm-vms-prepare.md)</br>
 [Back up an Azure Backup Server](backup-azure-microsoft-azure-backup.md)</br>
-[Back up a Windows Server](backup-configure-vault.md)
+[Back up a Windows Server](backup-windows-with-mars-agent.md)

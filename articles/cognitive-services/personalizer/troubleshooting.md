@@ -1,8 +1,8 @@
 ---
 title: Troubleshooting - Personalizer
 description: This article contains answers to frequently asked troubleshooting questions about Personalizer.
-ms.topic: conceptual
-ms.date: 02/18/2020
+ms.topic: troubleshooting
+ms.date: 02/26/2020
 ms.author: diberry
 ---
 # Personalizer Troubleshooting
@@ -31,6 +31,19 @@ These issues should be transparent. If they continue, contact support by selecti
 
 <details>
 <summary>
+<b>The learning loop doesn't attain a 100% match to the system without Personalizer. How do I fix this?</b></summary>
+
+**Answer**: The reasons you don't attain your goal with the learning loop:
+* Not enough features sent with Rank API call
+* Bugs in the features sent - such as sending non-aggregated feature data such as timestamps to Rank API
+* Bugs with loop processing - such as not sending reward data to Reward API for events
+
+To fix, you need to change the processing by either changing the features sent to the loop, or make sure the reward is a correct evaluation of the quality of the Rank's response.
+
+</details>
+
+<details>
+<summary>
 <b>The learning loop doesn't seem to learn. How do I fix this?</b></summary>
 
 **Answer**: The learning loop needs a few thousand Reward calls before Rank calls prioritize effectively.
@@ -44,7 +57,7 @@ If you are unsure about how your learning loop is currently behaving, run an [of
 
 **Answer**: Personalizer returns the same probabilities in a Rank API result when it has just started and has an _empty_ model, or when you reset the Personalizer Loop, and your model is still within your **Model update frequency** period.
 
-When the new update period begins, the updated model is used, and you’ll see the probabilities change.
+When the new update period begins, the updated model is used, and you'll see the probabilities change.
 
 </details>
 
@@ -75,7 +88,7 @@ When the new update period begins, the updated model is used, and you’ll see t
 </details>
 
 <details>
-<summary><b>I created an offline evaluation and it succeeded almost instantly. Why is that? I don’t see any results?</b></summary>
+<summary><b>I created an offline evaluation and it succeeded almost instantly. Why is that? I don't see any results?</b></summary>
 
 **Answer**: The offline evaluation uses the trained model data from the events in that time period. If you did not send any data in the time period between start and end time of the evaluation, it will complete without any results. Submit a new offline evaluation by selecting a time range with events you know were sent to Personalizer.
 
@@ -88,7 +101,7 @@ When the new update period begins, the updated model is used, and you’ll see t
 <summary><b>How do I import a learning policy?</b></summary>
 
 **Answer**:
-Learn more about [learning policy concepts](concept-active-learning.md#understand-learning-policy-settings) and [how to apply](how-to-learning-policy.md) a new learning policy. If you do not want to select a learning policy, you can use the [offline evaluation](how-to-offline-evaluation.md) to suggest a learning policy, based on your current events.
+Learn more about [learning policy concepts](concept-active-learning.md#understand-learning-policy-settings) and [how to apply](how-to-manage-model.md) a new learning policy. If you do not want to select a learning policy, you can use the [offline evaluation](how-to-offline-evaluation.md) to suggest a learning policy, based on your current events.
 
 </details>
 

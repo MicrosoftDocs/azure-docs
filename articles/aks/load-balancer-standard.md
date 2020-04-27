@@ -1,10 +1,9 @@
 ---
-title: Use a Standard SKU load balancer in Azure Kubernetes Service (AKS)
+title: Use a Standard SKU load balancer
+titleSuffix: Azure Kubernetes Service
 description: Learn how to use a load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
 services: container-service
 author: zr-msft
-
-ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
@@ -30,7 +29,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 This article assumes you have an AKS cluster with the *Standard* SKU Azure Load Balancer. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-The AKS cluster service principal needs also permission to manage network resources if you use an existing subnet or resource group. In general, assign the *Network contributor* role to your service principal on the delegated resources. For more information on permissions, see [Delegate AKS access to other Azure resources][aks-sp].
+The AKS cluster service principal needs also permission to manage network resources if you use an existing subnet or resource group. In general, assign the *Network contributor* role to your service principal on the delegated resources. Instead of a service principal, you can also use the system assigned managed identity for permissions. For more information, see [Use managed identities](use-managed-identity.md). For more information on permissions, see [Delegate AKS access to other Azure resources][aks-sp].
 
 ### Moving from a Basic SKU Load Balancer to Standard SKU
 
@@ -38,7 +37,7 @@ If you have an existing cluster with the Basic SKU Load Balancer, there are impo
 
 For example, making blue/green deployments to migrate clusters is a common practice given the `load-balancer-sku` type of a cluster can only be defined at cluster create time. However, *Basic SKU* Load Balancers use *Basic SKU* IP Addresses which are not compatible with *Standard SKU* Load Balancers as they require *Standard SKU* IP Addresses. When migrating clusters to upgrade Load Balancer SKUs, a new IP address with a compatible IP Address SKU will be required.
 
-For more considerations on how to migrate clusters, visit [our documentation on migration considerations](acs-aks-migration.md) to view a list of important topics to consider when migrating. The below limitations are also important behavioral differences to note when using Standard SKU Load Balancers in AKS.
+For more considerations on how to migrate clusters, visit [our documentation on migration considerations](aks-migration.md) to view a list of important topics to consider when migrating. The below limitations are also important behavioral differences to note when using Standard SKU Load Balancers in AKS.
 
 ### Limitations
 

@@ -3,19 +3,19 @@ title: Connect data sources to Azure Sentinel | Microsoft Docs
 description: Learn how to connect data sources to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: angrobe
 editor: ''
 
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: overview
+ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Connect data sources
@@ -52,7 +52,6 @@ The following data connection methods are supported by Azure Sentinel:
     - [Office 365](connect-office-365.md)
     - [Microsoft Defender ATP](connect-microsoft-defender-advanced-threat-protection.md)
     - [Microsoft web application firewall](connect-microsoft-waf.md)
-    - [Windows security events](connect-windows-security-events.md) 
     - [Windows firewall](connect-windows-firewall.md)
     - [Windows security events](connect-windows-security-events.md)
 

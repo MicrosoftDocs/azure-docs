@@ -34,8 +34,10 @@ This article outlines, for IoT Central:
 - Jobs don't support complex types.
 - Array schema types aren't supported.
 - Only the C device SDK and the Node.js device and service SDKs are supported.
-- It's only available in the United States and Europe locations.
+- IoT Central is currently available in the United States, Europe, Asia Pacific, Australia, United Kingdom, and Japan locations.
+- You cannot use the **Custom application (legacy)** application template in the United Kingdom and Japan locations.
 - Device capability models must have all the interfaces defined inline in the same file.
+- Support for [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) is in preview and is only supported only in selected regions.
 
 ## Personas
 
@@ -53,7 +55,7 @@ As a solution builder, you use IoT Central to create a custom, cloud-hosted IoT 
 - A cloud-based application that receives telemetry from your devices and enables you to manage those devices.
 - Multiple devices running custom code connected to your cloud-based application.
 
-You can quickly deploy a new IoT Central application and then customize it to your specific requirements in your browser. You can start with a generic _application template_ or with one of the industry-focused application templates for [Retail](../retail/overview-iot-central-retail-pnp.md), [Energy](../energy/overview-iot-central-energy.md), [Government](../government/overview-iot-central-government.md), or [Healthcare](../healthcare/overview-iot-central-healthcare.md).
+You can quickly deploy a new IoT Central application and then customize it to your specific requirements in your browser. You can start with a generic _application template_ or with one of the industry-focused application templates for [Retail](../retail/overview-iot-central-retail.md), [Energy](../energy/overview-iot-central-energy.md), [Government](../government/overview-iot-central-government.md), or [Healthcare](../healthcare/overview-iot-central-healthcare.md).
 
 As a solution builder, you use the web-based tools to create a _device template_ for the devices that connect to your application. A device template is the blueprint that defines the characteristics and behavior of a type of device such as the:
 
@@ -67,7 +69,6 @@ This device template includes:
 - A _device capability model_ that describes the capabilities a device should implement such as the telemetry it sends and the properties it reports.
 - Cloud properties that aren't stored on the device.
 - Customizations, dashboards, and forms that are part of your IoT Central application.
-
 
 ### Pricing
 
@@ -191,7 +192,7 @@ Each Azure subscription has default quotas that could impact the scope of your I
 
 ## Next steps
 
-Now that you have an overview of IoT Central, here are suggested next steps:
+Now that you have an overview of IoT Central, here are some suggested next steps:
 
 - Understand the available [Azure technologies and services for creating IoT solutions](../../iot-fundamentals/iot-services-and-technologies.md).
 - Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
@@ -199,3 +200,5 @@ Now that you have an overview of IoT Central, here are suggested next steps:
 - Learn more about [IoT Plug and Play (preview)](../../iot-pnp/overview-iot-plug-and-play.md).
 - Learn how to [Connect an Azure IoT Edge device](./tutorial-add-edge-as-leaf-device.md).
 - Learn more about [Azure IoT technologies and services](../../iot-fundamentals/iot-services-and-technologies.md).
+
+If you're a device developer and want to dive into some code, the suggested next step is to [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device-nodejs.md).

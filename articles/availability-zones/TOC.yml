@@ -23,7 +23,7 @@
     - name: Managed disks
       items:
       - name: Add a managed disk in Availability Zones with CLI
-        href: ../virtual-machines/linux/add-disk.md#use-managed-disks
+        href: ../virtual-machines/linux/add-disk.md#attach-a-new-disk-to-a-vm
       - name: Add a managed disk in Availability Zones with PowerShell
         href: ../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine
     - name: Virtual machine scale sets
@@ -68,11 +68,11 @@
     - name: Event Hubs
       items:
       - name: Event Hubs geo-disaster recovery
-        href: ../event-hubs/event-hubs-geo-dr.md#availability-zones-preview
+        href: ../event-hubs/event-hubs-geo-dr.md#availability-zones
     - name: Service Bus
       items:
       - name: Service Bus geo-disaster recovery
-        href: ../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview
+        href: ../service-bus-messaging/service-bus-geo-dr.md#availability-zones
     - name: VPN Gateway
       items:
       - name: Create a zone-redundant virtual network gateway
@@ -85,6 +85,10 @@
       items:
       - name: Create an Azure Active Directory Domain Services instance
         href: ../active-directory-domain-services/tutorial-create-instance.md
+  - name: Edge Zones Documentation
+    items:
+    - name: What are Edge Zones?
+      href: ../networking/edge-zones-overview.md
 - name: Disaster Recovery
   items:
   - name: Use Azure Site Recovery

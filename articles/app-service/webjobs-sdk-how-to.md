@@ -122,7 +122,7 @@ In version 3.*x*, the connection limit defaults to infinite connections. If for 
 
 In version 2.*x*, you control the number of concurrent connections to a host by using the [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. In 2.*x*, you should increase this value from the default of 2 before starting your WebJobs host.
 
-All outgoing HTTP requests that you make from a function by using `HttpClient` flow through `ServicePointManager`. After you reach the value set in `DefaultConnectionLimit`, `ServicePointManager` starts queueing requests before sending them. Suppose your `DefaultConnectionLimit` is set to 2 and your code makes 1,000 HTTP requests. Initially, only two requests are allowed through to the OS. The other 998 are queued until there’s room for them. That means your `HttpClient` might time out because it appears to have made the request, but the request was never sent by the OS to the destination server. So you might see behavior that doesn't seem to make sense: your local `HttpClient` is taking 10 seconds to complete a request, but your service is returning every request in 200 ms. 
+All outgoing HTTP requests that you make from a function by using `HttpClient` flow through `ServicePointManager`. After you reach the value set in `DefaultConnectionLimit`, `ServicePointManager` starts queueing requests before sending them. Suppose your `DefaultConnectionLimit` is set to 2 and your code makes 1,000 HTTP requests. Initially, only two requests are allowed through to the OS. The other 998 are queued until there's room for them. That means your `HttpClient` might time out because it appears to have made the request, but the request was never sent by the OS to the destination server. So you might see behavior that doesn't seem to make sense: your local `HttpClient` is taking 10 seconds to complete a request, but your service is returning every request in 200 ms. 
 
 The default value for ASP.NET applications is `Int32.MaxValue`, and that's likely to work well for WebJobs running in a Basic or higher App Service Plan. WebJobs typically need the Always On setting, and that's supported only by Basic and higher App Service Plans.
 
@@ -152,14 +152,14 @@ Automatic triggers call a function in response to an event. Consider this exampl
 ```cs
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
-    [Blob("samples-workitems/{myQueueItem}", FileAccess.Read)] Stream myBlob,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
     ILogger log)
 {
     log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```
 
-The `QueueTrigger` attribute tells the runtime to call the function whenever a queue message appears in the `myqueue-items` queue. The `Blob` attribute tells the runtime to use the queue message to read a blob in the *sample-workitems* container. The content of the queue message, passed in to the function in the `myQueueItem` parameter, is the name of the blob.
+The `QueueTrigger` attribute tells the runtime to call the function whenever a queue message appears in the `myqueue-items` queue. The `Blob` attribute tells the runtime to use the queue message to read a blob in the *sample-workitems* container. The name of the blob item in the `samples-workitems` container is obtained directly from the queue trigger as a binding expression (`{queueTrigger}`).
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
@@ -392,7 +392,7 @@ static async Task Main()
 }
 ```
 
-For more details, see the [Azure CosmosDB binding](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings) article.
+For more details, see the [Azure CosmosDB binding](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings) article.
 
 ### Event Hubs trigger configuration (version 3.*x*)
 
@@ -420,7 +420,7 @@ static async Task Main()
 }
 ```
 
-For more details, see the [Event Hubs binding](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings) article.
+For more details, see the [Event Hubs binding](../azure-functions/functions-bindings-event-hubs-trigger.md#host-json) article.
 
 ### Queue storage trigger configuration
 

@@ -24,7 +24,7 @@ Additional information on RHEL images in Azure, including publishing and retenti
 Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
 
 > [!IMPORTANT]
-> RHUI is intended only for pay-as-you-go (PAYGO) images. For custom and golden images, also known as bring-your-own-subscription (BYOS), the system needs to be attached to RHSM or Satellite in order to receive updates. See [Red Hat article](https://access.redhat.com/solutions/253273) for more details.
+> RHUI is intended only for pay-as-you-go (PAYG) images. For custom and golden images, also known as bring-your-own-subscription (BYOS), the system needs to be attached to RHSM or Satellite in order to receive updates. See [Red Hat article](https://access.redhat.com/solutions/253273) for more details.
 
 
 ## Important information about Azure RHUI
@@ -101,7 +101,7 @@ Use the following instructions to lock a RHEL VM to a particular minor release (
     yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config' install 'rhui-azure-rhel7-eus'
     ```
 
-1. Lock the releasever variable (run as root):
+1. Lock the `releasever` variable (run as root):
     ```bash
     echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
     ```
@@ -116,7 +116,7 @@ Use the following instructions to lock a RHEL VM to a particular minor release (
 
 ### Switch a RHEL VM back to non-EUS (remove a version lock)
 Run the following as root:
-1. Remove the releasever file:
+1. Remove the `releasever` file:
     ```bash
     rm /etc/yum/vars/releasever
      ```
@@ -166,7 +166,7 @@ If you're using a network configuration to further restrict access from RHEL PAY
 
 ### Update expired RHUI client certificate on a VM
 
-If you are using an older RHEL VM image, for example, RHEL 7.4 (image URN: `RedHat:RHEL:7.4:7.4.2018010506`), you will experience connectivity issues to RHUI due to a now-expired SSL client certificate. The error you see may look like _"SSL peer rejected your certificate as expired"_ or _"Error: Cannot retrieve repository metadata (repomd.xml) for repository: ... Please verify its path and try again"_. To overcome this problem, please update the RHUI client package on the VM using the following command:
+If you are using an older RHEL VM image, for example, RHEL 7.4 (image URN: `RedHat:RHEL:7.4:7.4.2018010506`), you will experience connectivity issues to RHUI due to a now-expired TLS/SSL client certificate. The error you see may look like _"SSL peer rejected your certificate as expired"_ or _"Error: Cannot retrieve repository metadata (repomd.xml) for repository: ... Please verify its path and try again"_. To overcome this problem, please update the RHUI client package on the VM using the following command:
 
 ```bash
 sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'

@@ -2,7 +2,7 @@
 title: Support for VMware migration in Azure Migrate
 description: Learn about support for VMware VM migration in Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 04/15/2020
 ---
 
 # Support matrix for VMware migration
@@ -30,7 +30,7 @@ Review [this article](server-migrate-overview.md) to figure out which method you
 --- | ---
 **VMware vCenter Server** | Version 5.5, 6.0, 6.5, or 6.7.
 **VMware vSphere ESXI host** | Version 5.5, 6.0, 6.5, or 6.7.
-**vCenter Server permissions** | Agentless migration uses the [Migrate Appliance](migrate-appliance.md). The appliance needs these permissions:<br/><br/> - **Datastore.Browse**: Allow browsing of VM log files to troubleshoot snapshot creation and deletion.<br/><br/> **Datastore.LowLevelFileOperations**: Allow read/write/delete/rename operations in the datastore browser, to troubleshoot snapshot creation and deletion.<br/><br/> - **VirtualMachine.Configuration.DiskChangeTracking**: Allow enable or disable change tracking of VM disks, to pull changed blocks of data between snapshots.<br/><br/> - **VirtualMachine.Configuration.DiskLease**: Allow disk lease operations for a VM, to read the disk using the VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **VirtualMachine.Provisioning.AllowReadOnlyDiskAccess**: Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.AllowVirtualMachineDownload**: Allows read operations on files associated with a VM, to download the logs and troubleshoot if failure occurs.<br/><br/> - **VirtualMachine.SnapshotManagement.***: Allow creation and management of VM snapshots for replication.<br/><br/> - **Virtual Machine.Interaction.Power Off**: Allow the VM to be powered off during migration to Azure.
+**vCenter Server permissions** | Agentless migration uses the [Migrate Appliance](migrate-appliance.md). The appliance needs these permissions:<br/><br/> - **Datastore.Browse**: Allow browsing of VM log files to troubleshoot snapshot creation and deletion.<br/><br/> - **Datastore.LowLevelFileOperations**: Allow read/write/delete/rename operations in the datastore browser, to troubleshoot snapshot creation and deletion.<br/><br/> - **VirtualMachine.Configuration.DiskChangeTracking**: Allow enable or disable change tracking of VM disks, to pull changed blocks of data between snapshots.<br/><br/> - **VirtualMachine.Configuration.DiskLease**: Allow disk lease operations for a VM, to read the disk using the VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **VirtualMachine.Provisioning.AllowDiskAccess**: (specifically for vSphere 6.0 and above) Allow opening a disk on a VM for random read access on the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.AllowReadOnlyDiskAccess**: Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.AllowDiskRandomAccess**: Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.AllowVirtualMachineDownload**: Allows read operations on files associated with a VM, to download the logs and troubleshoot if failure occurs.<br/><br/> - **VirtualMachine.SnapshotManagement.***: Allow creation and management of VM snapshots for replication.<br/><br/> - **Virtual Machine.Interaction.Power Off**: Allow the VM to be powered off during migration to Azure.
 
 
 
@@ -40,9 +40,9 @@ Review [this article](server-migrate-overview.md) to figure out which method you
 --- | ---
 **Supported operating systems** | [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems that are supported by Azure can be migrated using agentless migration.
 **Required changes for Azure** | Some VMs might require changes so that they can run in Azure. Azure Migrate makes these changes automatically for the following operating systems:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8<br/><br/> For other operating systems, you need to make adjustments manually before migration. The relevant articles contain instructions about how to do this.
-**Linux boot** | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the ‘/’ partition should be on the OS disk, and not span other disks.
+**Linux boot** | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks.
 **UEFI boot** | VMs with UEFI boot aren't supported for migration.
-**Disk size** | 2 TB OS disk; 4 TB for data disks.
+**Disk size** | 2 TB OS disk; 8 TB for data disks.
 **Disk limits** |  Up to 60 disks per VM.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.
@@ -59,10 +59,12 @@ Review [this article](server-migrate-overview.md) to figure out which method you
 
 
 ## Agentless-Azure Migrate appliance 
-Agentless migration uses the Azure Migrate appliance, deployed on a VMware VM.
+
+Agentless migration uses the [Azure Migrate appliance](migrate-appliance.md). You can deploy the appliance as a VMWare VM using an OVA template, imported into vCenter Server, or using a [PowerShell script](deploy-appliance-script.md).
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---vmware) for VMware.
-- Learn about [URLs](migrate-appliance.md#url-access) the appliance needs to access.
+- Learn about URLs that the appliance needs to access in [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
+- In Azure Government, you must deploy the appliance using the script.
 
 ## Agentless-ports
 
@@ -118,7 +120,8 @@ When you set up the replication appliance using the OVA template provided in the
 
 - Learn about [replication appliance requirements](migrate-replication-appliance.md#appliance-requirements) for VMware.
 - MySQL must be installed on the appliance. Learn about [installation options](migrate-replication-appliance.md#mysql-installation).
-- Learn about [URLs](migrate-replication-appliance.md#url-access) and [ports](migrate-replication-appliance.md#port-access) the replication appliance needs to access.
+- Learn about URLs that the replication appliance needs to access in [public](migrate-replication-appliance.md#url-access) and [government](migrate-replication-appliance.md#azure-government-url-access) clouds.
+- Review the [ports](migrate-replication-appliance.md#port-access) the replication appliance needs to access.
 
 ## Agent-based-ports
 

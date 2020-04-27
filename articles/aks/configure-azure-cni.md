@@ -2,12 +2,9 @@
 title: Configure Azure CNI networking in Azure Kubernetes Service (AKS)
 description: Learn how to configure Azure CNI (advanced) networking in Azure Kubernetes Service (AKS), including deploying an AKS cluster into an existing virtual network and subnet.
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.author: mlearned
+
 ---
 
 # Configure Azure CNI networking in Azure Kubernetes Service (AKS)
@@ -25,6 +22,8 @@ This article shows you how to use *Azure CNI* networking to create and use a vir
 * The service principal used by the AKS cluster must have at least [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) permissions on the subnet within your virtual network. If you wish to define a [custom role](../role-based-access-control/custom-roles.md) instead of using the built-in Network Contributor role, the following permissions are required:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
+* Instead of a service principal, you can use the system assigned managed identity for permissions. For more information, see [Use managed identities](use-managed-identity.md).
+* The subnet assigned to the AKS node pool cannot be a [delegated subnet](../virtual-network/subnet-delegation-overview.md).
 
 ## Plan IP addressing for your cluster
 

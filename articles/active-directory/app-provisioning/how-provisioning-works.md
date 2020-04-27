@@ -7,7 +7,7 @@ author: msmimart
 manager: CelesteDG
 
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 Automatic provisioning refers to creating user identities and roles in the cloud applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Before you start a deployment, you can review this article to learn how Azure AD provision works and get configuration recommendations. 
 
-The **Azure AD Provisioning Service** provisions users to SaaS apps and other systems by connecting to a System for Cross-Domain Identity Management (SCIM) 2.0 user management API endpoint provided by the application vendor. This SCIM endpoint allows Azure AD to programmatically create, update, and remove users. For selected applications, the provisioning service can also create, update, and remove additional identity-related objects, such as groups and roles. The channel used for provisioning between Azure AD and the application is encrypted using HTTPS SSL encryption.
+The **Azure AD Provisioning Service** provisions users to SaaS apps and other systems by connecting to a System for Cross-Domain Identity Management (SCIM) 2.0 user management API endpoint provided by the application vendor. This SCIM endpoint allows Azure AD to programmatically create, update, and remove users. For selected applications, the provisioning service can also create, update, and remove additional identity-related objects, such as groups and roles. The channel used for provisioning between Azure AD and the application is encrypted using HTTPS TLS encryption.
 
 
 ![Azure AD Provisioning Service](./media/how-provisioning-works/provisioning0.PNG)
@@ -63,7 +63,7 @@ When you configure provisioning to a SaaS application, one of the types of attri
 
 For outbound provisioning from Azure AD to a SaaS application, relying on [user or group assignments](../manage-apps/assign-user-or-group-access-portal.md) is the most common way to determine which users are in scope for provisioning. Because user assignments are also used for enabling single sign-on, the same method can be used for managing both access and provisioning. Assignment-based scoping doesn't apply to inbound provisioning scenarios such as Workday and Successfactors.
 
-* **Groups.** With an Azure AD Premium license plan, you can use groups to assign access to a SaaS application. Then, when the provisioning scope is set to **Sync only assigned users and groups**, the Azure AD provisioning service will provision or de-provision users based on whether they're members of a group that's assigned to the application. The group object itself isn't provisioned unless the application supports group objects.
+* **Groups.** With an Azure AD Premium license plan, you can use groups to assign access to a SaaS application. Then, when the provisioning scope is set to **Sync only assigned users and groups**, the Azure AD provisioning service will provision or de-provision users based on whether they're members of a group that's assigned to the application. The group object itself isn't provisioned unless the application supports group objects. Ensure that groups assigned to your application have the property "SecurityEnabled" set to "False".
 
 * **Dynamic groups.** The Azure AD user provisioning service can read and provision users in [dynamic groups](../users-groups-roles/groups-create-rule.md). Keep these caveats and recommendations in mind:
 
