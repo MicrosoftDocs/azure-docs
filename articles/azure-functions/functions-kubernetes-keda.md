@@ -31,7 +31,7 @@ There are various ways to install KEDA in any Kubernetes cluster including Helm.
 You can deploy any function app to a Kubernetes cluster running KEDA.  Since your functions run in a Docker container, your project needs a `Dockerfile`.  If it doesn't already have one, you can add a Dockerfile by running the following command at the root of your Functions project:
 
 > [!NOTE]
-> The Core Tools automatically create the Dockerfile for Azure Functions 2.0  written in .NET, Node, Python, or PowerShell. For function apps written in Java, or for Azure Functions 3.0, the Dockerfile must be created manually. Use the Azure Functions [image list](https://github.com/Azure/azure-functions-docker) to find the correct image to base the Azure Function.
+> The Core Tools automatically create the Dockerfile for Azure Functions written in .NET, Node, Python, or PowerShell. For function apps written in Java, the Dockerfile must be created manually. Use the Azure Functions [image list](https://github.com/Azure/azure-functions-docker) to find the correct image to base the Azure Function.
 
 ```cli
 func init --docker-only
