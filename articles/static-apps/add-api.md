@@ -1,7 +1,7 @@
 ---
 title: Add an API to Azure Static Web Apps with Azure Functions
 description: Get started with Azure Static Web Apps by adding a Serverless API to your static web app using Azure Functions.
-services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
+services: azure-functions
 author: manekinekko
 ms.service: azure-functions
 ms.topic:  how-to
@@ -31,7 +31,7 @@ Once your project is created, you can use Visual Studio Code to clone a Git repo
 
 ![Clone a GitHub project using Visual Studio Code](media/vscode-git-0.png)
 
-To get the GitHub project's URL, navigate to https://github.com/<YOUR_GITHUB_ACCOUNT>/vanilla-basic and click on the **Clone or download** green button, then copy the HTTPS URL.
+To get the GitHub project's URL, navigate to `https://github.com/<YOUR_GITHUB_ACCOUNT>/vanilla-basic` and click on the **Clone or download** green button, then copy the HTTPS URL.
 
 ![Clone a GitHub project using Visual Studio Code](media/github-clone-url.png)
 
@@ -42,9 +42,10 @@ In this section, you'll use Visual Studio Code to create a local Azure Functions
 
 1. Inside the **myquickstart-vanilla** project create, a sub-folder called **api**.
 
+[!NOTE]
 > You can give this folder any name. We are using `api` as an example.
 
-2. Choose the Azure icon in the Activity bar, then in the **Functions** area, select the **Create new project**... icon.
+2 Create an Azure Functions with the **Azure Functions: Create New Project...** command in the Command Palette by pressing **F1**.
 
 ![Create a new Azure Functions using Visual Studio Code](media/create-azure-functions-vscode-0.png)
 
@@ -172,10 +173,11 @@ After you've verified that the function runs correctly on your local computer, i
 </html>
 ```
 
-2. With Core Tools running, use the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) Visual Studio Code extension to serve the `index.html` and open it a in browser.
+2. With Core Tools running, use the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) Visual Studio Code extension to serve the `index.html` and open it a in browser. Press **F1** and choose **Live Server: Open with Live Server**.
 
 ![Create a new Azure Functions using Visual Studio Code](media/create-azure-functions-vscode-4.png)
 
+[!NOTE]
 > You can use other HTTP servers or proxies to serve the `index.html` file. Accessing the `index.html` from `file:///` will not work.
 
 ### Commit and push your changes to GitHub
@@ -184,6 +186,7 @@ Using Visual Studio Code, commit and push your changes to the remote git reposit
 
 ![Create a new Azure Functions using Visual Studio Code](media/vscode-git-1.png)
 
+Or, you can also use the Command Pallette by pressing **F1** and typing **Git: Commit All**, then add a message, and then type in **Git: push**.
 
 ## Create static app in the Azure Portal 
 
@@ -212,6 +215,12 @@ On the build details screen:
 1. **App artifact location**: Leave empty
 1. Click **Review + create**
 
+| Setting | Description             |
+| -------- | ----------------------- |
+|  App location | The location of the static application source code (required) |
+|  Api location | The location of the API backend. This should point to the root folder of the Azure Functions App project (optional) |
+|  App artifact location | The location of the built artifact (optional) |
+
 ![Create static app on Azure Portal - screen 3](media/create-static-app-on-azure-portal-3.png)
 
 1. Click **Create**
@@ -224,7 +233,6 @@ On the build details screen:
 The deployed API will be available at `https://<STATIC_APP_NAME>.staticsitescanary.net/api/<FUNCTION_OR_ROUTE_NAME>`.
 
 ![GitHub Workflow](media/github-workflow-1.png)
-
 
 You can access the API endpoint by using the `cURL` command or your browser (for GET requests).
 
