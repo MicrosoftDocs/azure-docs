@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Build an end-to-end solution
 titleSuffix: Azure Digital Twins
-description: 'Tutorial: Build out an end-to-end Azure Digital Twins solution that's driven by device data.'
+description: Tutorial to build out an end-to-end Azure Digital Twins solution that's driven by device data.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 4/15/2020
