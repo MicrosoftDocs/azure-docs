@@ -547,16 +547,6 @@ productDirectory:
         - compute
       url: virtual-machines/linux/index.yml
     # Card
-    - title: Mobile Apps
-      summary: Build and host the backend for any mobile app
-      imageSrc: https://docs.microsoft.com/media/common/i_mobileapp.svg
-      azureCategories:
-        - compute
-        - containers
-        - mobile
-        - web
-      url: app-service-mobile/index.yml
-    # Card
     - title: SAP HANA on Azure Large Instances
       summary: Run the largest SAP HANA workloads of any hyperscale cloud provider
       imageSrc: https://static.docs.com/ui/media/product/azure/sap.svg
@@ -1464,15 +1454,15 @@ tools:
     # Card
     - title: Jenkins
       imageSrc: https://docs.microsoft.com/media/logos/logo_jenkins.svg
-      url: jenkins/index.yml
+      url: /azure/developer/jenkins
     # Card
     - title: Terraform
       imageSrc: https://docs.microsoft.com/media/logos/logo_terraform.svg
-      url: terraform/index.yml
+      url: /azure/developer/terraform/
     # Card
     - title: Ansible
       imageSrc: ./media/index/ansible.svg
-      url: https://docs.microsoft.com/azure/developer/ansible
+      url: /azure/developer/ansible
 
 additionalContent:
   sections:
