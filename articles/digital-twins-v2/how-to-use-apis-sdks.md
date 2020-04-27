@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Use the Azure Digital Twins APIs and SDKs
 
-The Azure Digital Twins API surface can be broadly divided into the following categories: 
+The Azure Digital Twins APIs are used to manage the major elements of your Azure Digital Twins solution. The API surface can be broadly divided into the following categories: 
 
 * **DigitalTwinsModels** - The DigitalTwinsModels category contains APIs to manage the [models](concepts-models.md) in an Azure Digital Twins instance. Management activities include upload, validation, and retrieval of models authored in DTDL.
 * **DigitalTwins** - The DigitalTwins category contains the APIs that let developers create, modify, and delete [digital twins](concepts-twins-graph.md) and their relationships in an Azure Digital Twins instance.
