@@ -13,22 +13,20 @@ ms.author: cshoe
 
 Azure Static Web Apps provides authentication-related user information via a [direct-access endpoint](#direct-access-endpoint) and to [API functions](#api-functions).
 
-Many user interfaces rely heavily on user authentication data. The direct-access endpoint is a helper that exposes user information without having to implement a custom function. Beyond convenience, the direct-access endpoint isn't subject to cold start delays associated with serverless architecture.
+Many user interfaces rely heavily on user authentication data. The direct-access endpoint is a utility API that exposes user information without having to implement a custom function. Beyond convenience, the direct-access endpoint isn't subject to cold start delays that are associated with serverless architecture.
 
 ## Client principal data
 
-User information is available in the app via the `x-ms-client-principal` request header. The client principal data is sent as a [Base64](https://www.wikipedia.org/wiki/Base64)-encoded string containing a serialized JSON object.
-
-The following properties are featured in the client principal object:
+Client principal data object exposes user-identifiable information to your app. The following properties are featured in the client principal object:
 
 | Property  | Description |
 |-----------|---------|
 | `identityProvider` | The name of the [identity provider](authentication-authorization.md). |
-| `userId` | An Azure Static Web Apps-specific unique identifier for the user.  <ul><li>The value is unique on a per-app basis. For instance, the same user returns a different `userId` value on a different Static Web Apps site.<li>The value persists for the lifetime of a user. If you delete and add the same user back to the app, a new `userId` is generated.</ul>|
+| `userId` | An Azure Static Web Apps-specific unique identifier for the user. <ul><li>The value is unique on a per-app basis. For instance, the same user returns a different `userId` value on a different Static Web Apps resource.<li>The value persists for the lifetime of a user. If you delete and add the same user back to the app, a new `userId` is generated.</ul>|
 | `userDetails` | Username or email address of the user. Some providers return the [user's email address](authentication-authorization.md), while others send the [user handle](authentication-authorization.md). |
 | `userRoles`     | An array of the [user's assigned roles](authentication-authorization.md). |
 
-The following example is a sample decoded `x-ms-client-principal` object:
+The following example is a sample client principal object:
 
 ```json
 {
@@ -60,7 +58,9 @@ console.log(getUserInfo());
 
 ## API functions
 
-Client principal data is passed to API functions in the request header. The following example function, named `user`, shows how to read and return user information.
+Client principal data is passed to API functions in the `x-ms-client-principal` request header. The client principal data is sent as a [Base64](https://www.wikipedia.org/wiki/Base64)-encoded string containing a serialized JSON object.
+
+The following example function, named `user`, shows how to read and return user information.
 
 ```javascript
 module.exports = async function (context, req) {
