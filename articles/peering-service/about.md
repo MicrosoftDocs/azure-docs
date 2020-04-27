@@ -54,7 +54,7 @@ Office 365, Dynamics 365, and any other Microsoft SaaS services are hosted in mu
 
 Microsoft and partner service providers ensure that the traffic for the prefixes registered with a Peering Service connection enters and exits the nearest Microsoft edge PoP locations on the Microsoft global network. Microsoft ensures that the networking traffic egressing from the prefixes registered with Peering Service connections takes the nearest Microsoft edge PoP locations on the Microsoft global network.
 
-![Microsoft network and public connectivity](./media/peering-service-about/peering-service-background-final.png)
+![Microsoft network and public connectivity](./media/peering-service-about/peering-service-background-final.png) <- should be 160+ frontdoor locations right now 
 
 > [!NOTE]
 > For more information about the Microsoft global network, see [Microsoft global network](https://docs.microsoft.com/azure/networking/microsoft-global-network).
