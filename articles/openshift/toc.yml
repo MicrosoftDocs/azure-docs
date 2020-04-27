@@ -18,7 +18,7 @@
     - name: Create a Azure Red Hat OpenShift 4 cluster 
       href: howto-using-azure-redhat-openshift.md
     - name: Create a private Azure Red Hat OpenShift 4 cluster 
-      href: howto-create-private-cluster.md
+      href: create-private-cluster.md
     - name: Configure DNS Forwarding for an Azure Red Hat OpenShift 4 cluster
       href: dns-forwarding.md
     - name: Configure Azure Active Directory authentication for Azure Red Hat OpenShift 4 cluster
