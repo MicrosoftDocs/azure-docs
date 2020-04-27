@@ -21,6 +21,12 @@
       href: howto-create-private-cluster.md
     - name: Configure DNS Forwarding for an Azure Red Hat OpenShift 4 cluster
       href: dns-forwarding.md
+    - name: Configure Azure Active Directory authentication for Azure Red Hat OpenShift 4 cluster
+      items:
+        - name: Configure Azure Active Directory authentication (CLI)
+          href: configure-azure-ad-cli.md
+        - name: Configure Azure Active Directory authentication (Portal)
+          href: configure-azure-ad-ui.md
     - name: Monitoring and logging for Azure Red Hat OpenShift 4
       items:
         - name: Azure Monitor for containers in Azure Red Hat OpenShift 4 (preview)

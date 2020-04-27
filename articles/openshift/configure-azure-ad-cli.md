@@ -11,7 +11,7 @@ ms.custom: mvc
 #Customer intent: As an operator, I need to configure Azure Active Directory authentication for an Azure Red Hat OpenShift cluster running OpenShift 4
 ---
 
-# Configure Azure Active Directory authentication for an Azure Red Hat OpenShift 4 cluster using the command line
+# Configure Azure Active Directory authentication for an Azure Red Hat OpenShift 4 cluster (CLI)
 
 ## Before you begin
 
@@ -210,4 +210,4 @@ oauth.config.openshift.io/cluster configured
 
 If you now logout of the OpenShift Web Console and try to log in again, you'll be presented with a new option to log in with **AAD**. You may need to wait for a few minutes.
 
-![Log in screen with Azure Active Directory option](../_img/aro4-login-2.png)
+![Log in screen with Azure Active Directory option](media/aro4-login-2.png)

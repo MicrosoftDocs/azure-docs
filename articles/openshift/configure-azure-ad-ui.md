@@ -11,9 +11,9 @@ ms.custom: mvc
 # Customer intent: As an operator, I need to configure Azure Active Directory authentication for an Azure Red Hat OpenShift cluster running OpenShift 4
 ---
 
-# Configure Azure Active Directory authentication for an Azure Red Hat OpenShift 4 cluster using the Azure portal and the OpenShift web console
+# Configure Azure Active Directory authentication for an Azure Red Hat OpenShift 4 cluster (Portal)
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Before you begin
 
@@ -34,15 +34,15 @@ Login to the Azure portal, and navigate to [App registrations blade](https://ms.
 
 Provide a name for the application, for example **aro-azuread-auth**, and fill in the **Redirect URI** using the value of the OAuth callback URL you retrieved earlier.
 
-![New application registration](../_img/aro4-ad-registerapp.png)
+![New application registration](media/aro4-ad-registerapp.png)
 
 Navigate to **Certificates & secrets** and click on **New client secret** and fill in the details. Make note of the key value, as you'll use it in a later stage. You won't be able to retrieve it again.
 
-![Create a secret](../_img/aro4-ad-clientsecret.png)
+![Create a secret](media/aro4-ad-clientsecret.png)
 
 Navigate to the **Overview** and make note of the **Application (client) ID** and **Directory (tenant) ID**. You'll need them in a later stage.
 
-![Retrieve Application (client) and Directory (tenant) IDs](../_img/aro4-ad-ids.png)
+![Retrieve Application (client) and Directory (tenant) IDs](media/aro4-ad-ids.png)
 
 ## Configure optional claims
 
@@ -58,7 +58,7 @@ We'll configure OpenShift to use the `email` claim and fall back to `upn` to set
 
 Navigate to **Token configuration (preview)** and click on **Add optional claim**. Select **ID** then check the **email** and **upn** claims.
 
-![Create a secret](../_img/aro4-ad-tokens.png)
+![Create a secret](media/aro4-ad-tokens.png)
 
 ## Assign users and groups to the cluster (optional)
 
@@ -99,18 +99,18 @@ Launch the console URL in a browser and login using the `kubeadmin` credentials.
 Navigate to **Administration**, click on **Cluster Settings**, then select the **Global Configuration** tab. Scroll to select **OAuth**.
 
 Scroll down to select **Add** under **Identity Providers** and select **OpenID Connect**.
-![Select OpenID Connect from the Identity Providers dropdown](../_img/aro4-oauth-idpdrop.png)
+![Select OpenID Connect from the Identity Providers dropdown](media/aro4-oauth-idpdrop.png)
 
 Fill in the name as **AAD**, the **Client ID** as the **Application ID** and the **Client Secret**. The **Issuer URL** is formatted as such: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Replace the placeholder with the Tenant ID you retrieved earlier.
 
-![Fill in OAuth details](../_img/aro4-oauth-idp-1.png)
+![Fill in OAuth details](media/aro4-oauth-idp-1.png)
 
 Scroll down to the **Claims** section and update the **Preferred Username** to use the value from the **upn** claim.
 
-![Fill in claims details](../_img/aro4-oauth-idp-2.png)
+![Fill in claims details](media/aro4-oauth-idp-2.png)
 
 ## Verify login through Azure Active Directory
 
 If you now logout of the OpenShift Web Console and try to login again, you'll be presented with a new option to login with **AAD**. You may need to wait for a few minutes.
 
-![Login screen with Azure Active Directory option](../_img/aro4-login-2.png)
+![Login screen with Azure Active Directory option](media/aro4-login-2.png)
