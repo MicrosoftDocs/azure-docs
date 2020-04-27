@@ -24,7 +24,7 @@ You'll need the following to create an Azure Red Hat OpenShift 4.3 cluster:
 
 - Azure CLI version 2.0.72 or greater
   
-- The 'az aro' extension
+- The `az aro` extension
 
 - A virtual network containing two empty subnets, each with no network security group attached.  Your cluster will be deployed into these subnets.
 
@@ -55,7 +55,7 @@ The `az aro` extension allows you to create, access, and delete Azure Red Hat Op
    az extension add -n aro --index https://az.aroapp.io/preview
    ```
 
-3. Verify the ARO extension is registered.
+3. Verify the `aro` extension is registered.
 
    ```console
    az -v
@@ -91,13 +91,13 @@ Follow these steps to create a virtual network containing two empty subnets.
 
 2. Create a resource group for your cluster.
 
-   ```console
+   ```azurecli
    az group create -g "$RESOURCEGROUP" -l $LOCATION
    ```
 
 3. Create the virtual network.
 
-   ```console
+   ```azurecli
    az network vnet create \
      -g "$RESOURCEGROUP" \
      -n vnet \
@@ -107,7 +107,7 @@ Follow these steps to create a virtual network containing two empty subnets.
 
 4. Add two empty subnets to your virtual network.
 
-   ```console
+   ```azurecli
    for subnet in "$CLUSTER-master" "$CLUSTER-worker"; do
      az network vnet subnet create \
        -g "$RESOURCEGROUP" \
@@ -121,7 +121,7 @@ Follow these steps to create a virtual network containing two empty subnets.
 
 5. Disable network policies for Private Link Service on your virtual network and subnets. This is a requirement for the ARO service to access and manage the cluster.
 
-   ```console
+   ```azurecli
    az network vnet subnet update \
      -g "$RESOURCEGROUP" \
      --vnet-name vnet \
@@ -132,9 +132,14 @@ Follow these steps to create a virtual network containing two empty subnets.
 
 ## Create a cluster
 
-Run the following command to create a cluster.
+Run the following command to create a cluster. 
 
-```console
+* The Azure Red Hat OpenShift management resource represents the cluster and will be placed in the resource group denoted by the `-g` parameter.  Multiple Azure Red Hat OpenShift management resources can co-exist in the same resource group if you wish.
+* All of the Azure resources associated with the cluster itself will be placed in the resource group denoted by the `--cluster-resource-group` parameter. This resource group must not exist at creation time and will be created by the service. Only one Azure Red Hat OpenShift cluster can exist in a given cluster resource group.
+
+For the full details on each parameter see the [https://docs.microsoft.com/en-us/cli/azure/aro?view=azure-cli-latest#az-aro-create](`az aro create` documentation).
+
+```azurecli
 az aro create \
   -g "$RESOURCEGROUP" \
   -n "$CLUSTER" \
@@ -153,7 +158,7 @@ az aro create \
 
 You can find the cluster console URL (of the form `https://console-openshift-console.apps.<random>.<location>.aroapp.io/`) under the Azure Red Hat OpenShift 4.3 cluster resource. Run the following command to view the resource:
 
-```console
+```azurecli
 az aro list -o table
 ```
 
@@ -167,7 +172,7 @@ az aro list-credentials -g "$RESOURCEGROUP" -n "$CLUSTER"
 
 Run the following command to delete a cluster.
 
-```console
+```azurecli
 az aro delete -g "$RESOURCEGROUP" -n "$CLUSTER"
 
 # (optional)
