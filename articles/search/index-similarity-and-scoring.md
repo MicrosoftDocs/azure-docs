@@ -27,9 +27,9 @@ If you want to break the tie among repeating scores, you can add an **$orderby**
 
 ## Scoring profiles
 
-You can customize the way different fields are ranked by defining a custom *scoring profile*. Scoring profiles give you greater control over the ranking of items in search results. For example, you might want to boost items based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long.   A scoring profile is part of the index definition, composed of weighted fields, functions, and parameters.  
+You can customize the way different fields are ranked by defining a custom *scoring profile*. Scoring profiles give you greater control over the ranking of items in search results. For example, you might want to boost items based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long. 
 
-Learn more about [Scoring Profiles](index-add-scoring-profiles)
+A scoring profile is part of the index definition, composed of weighted fields, functions, and parameters. For more information about defining one, see [Scoring Profiles](index-add-scoring-profiles.md).
 
 ## Scoring statistics
 
