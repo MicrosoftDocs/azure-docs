@@ -13,16 +13,16 @@ ms.author: cshoe
 
 Routing in Azure Static Web Apps defines back-end routing rules and authorization behavior for both static content and APIs. The rules are defined as an array of rules in the _routes.json_ file.
 
-- The _routes.json_ file must exist at the root of built app.
-- Rules are executed in the same order as they appear in the `routes` array.
+- The _routes.json_ file must exist at the root of app's build folder.
+- Rules are executed in the order as they appear in the `routes` array.
 - Roles are defined in the _routes.json_ file and users are associated to roles via [invitations](authentication-authorization.md).
-- You have full control over role names; there's no master list to which your roles must adhere.
+- You have full control over role names.
 
 The topic of routing significantly overlaps with authentication and authorization concepts. Make sure to read the [authentication and authorization](authentication-authorization.md) guide along with this article.
 
 ## Placement
 
-The _routes.json_ file must exist at the root of built app. If your web app includes a build step that copies built files to a specific folder, then the _routes.json_ file needs to exist in this folder. For instance, React apps often build files to a _public_ folder. The _routes.json_ file would need to be placed in this folder.
+The _routes.json_ file must exist at the root of app's build folder. If your web app includes a build step that copies built files to a specific folder, then the _routes.json_ file needs to exist in this folder. For instance, React apps often place the build files to a _public_ folder. The _routes.json_ file would need to be placed in this folder.
 
 ## Defining routes
 
@@ -45,7 +45,7 @@ Each rule is composed of a route pattern, along with one or more of the optional
 
 ## Securing routes with roles
 
-Routes are secured by adding one or more a role names into a rule's `allowedRoles` array.
+Routes are secured by adding one or more role names into a rule's `allowedRoles` array.
 
 By default, every user belongs to the built-in `anonymous` role, and all logged-in users are members of the `authenticated` role. For instance, to require that only logged-in users have access to a route, add the built-in `authenticated` role to the `allowedRoles` array.
 
@@ -93,13 +93,13 @@ You can also secure routes with wildcards. In the following example, any file re
 ```
 
 > [!NOTE]
-> Requests for files referenced by a served file are only evaluated for authentication checks. For instance, requests to a CSS file under a wild card path serve the CSS file, and not what is defined as the `serve` file. The CSS file is served as long as the user meets the required authentication requirements.
+> Requests for files referenced by a served file are only evaluated for authentication checks. For instance, requests to a CSS file under a wildcard path serve the CSS file, and not what is defined as the `serve` file. The CSS file is served as long as the user meets the required authentication requirements.
 
 ## Redirects
 
 You can use [301](https://en.wikipedia.org/wiki/HTTP_301) and [302](https://en.wikipedia.org/wiki/HTTP_302) HTTP status codes to redirect requests from one route to another.
 
-For instance, the following rule creates a 301 redirect from one page to another.
+For instance, the following rule creates a 301 redirect from `old-page.html` to `new-page.html`.
 
 ```json
 {
@@ -201,7 +201,7 @@ The following examples describe what happens when a request matches a rule.
 | _/logout_     | Users are logged out of any authentication provider. |
 | _/calendar/2020/01_ | The browser is served the _/calendar.html_ file. |
 | _/specials_ | The browser is redirected to _/deals_. |
-| _/foo_     | The _/custom-404.html_ file is served. |
+| _/invalid-customers_     | The _/custom-404.html_ file is served. |
 
 <sup>1</sup> You can provide a custom error page by defining a `Unauthorized_MissingRoles` rule in the `platformErrorOverrides` array.
 
