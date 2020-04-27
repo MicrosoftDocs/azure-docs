@@ -631,36 +631,9 @@ All known issues and feature requests are tracked using [GitHub issues](https://
 
 ### Cross-origin resource sharing
 
-Azure Functions supports cross-origin resource sharing (CORS). CORS is configured [in the portal](functions-how-to-use-azure-function-app-settings.md#cors) and through the [Azure CLI](/cli/azure/functionapp/cors). The CORS allowed origins list applies at the function app level. With CORS enabled, responses include the `Access-Control-Allow-Origin` header. For more information, see [Cross-origin resource sharing](functions-how-to-use-azure-function-app-settings.md#cors).
+Azure Functions supports cross-origin resource sharing (CORS). CORS is configured [in the portal](functions-how-to-use-azure-function-app-settings.md#cors) and through the [Azure CLI](/cli/azure/functionapp/cors). The CORS allowed origins list applies at the function app level. With CORS enabled, responses include the `Access-Control-Allow-Origin` header. For more information, see [Cross-origin resource sharing](functions-how-to-use-azure-function-app-settings.md#cors). 
 
-The allowed origins list [isn't currently supported](https://github.com/Azure/azure-functions-python-worker/issues/444) for Python function apps. Because of this limitation, you must expressly set the `Access-Control-Allow-Origin` header in your HTTP functions, as shown in the following example:
-
-```python
-def main(req: func.HttpRequest) -> func.HttpResponse:
-
-    # Define the allow origin headers.
-    headers = {"Access-Control-Allow-Origin": "https://contoso.com"}
-
-    # Set the headers in the response.
-    return func.HttpResponse(
-            f"Allowed origin '{headers}'.",
-            headers=headers, status_code=200
-    )
-``` 
-
-Make sure that you also update your function.json to support the OPTIONS HTTP method:
-
-```json
-    ...
-      "methods": [
-        "get",
-        "post",
-        "options"
-      ]
-    ...
-```
-
-This HTTP method is used by web browsers to negotiate the allowed origins list. 
+CORS is fully supported for Python function apps.
 
 ## Next steps
 
