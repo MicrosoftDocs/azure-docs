@@ -138,7 +138,7 @@ The following table lists the available platform error overrides:
 
 ## Example route file
 
-The following example shows how to build route rules in a _routes.json_ file. Some routes use the [/.auth system folder](authentication-authorization.md) that access authentication-related utility endpoints.
+The following example shows how to build route rules in a _routes.json_ file. Some routes use the [_/.auth_ system folder](authentication-authorization.md) that access authentication-related utility endpoints.
 
 ```json
 {
