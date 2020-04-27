@@ -64,6 +64,10 @@
     items:
     - name: Agents
       href: samples/arm-agent.md
+    - name: Alert rules - logs
+      href: samples/arm-alerts-log.md
+    - name: Alert rules - metrics
+      href: samples/arm-alerts-metric.md
     - name: Application Insights
       href: samples/arm-appinsights.md
     - name: Azure Monitor for Containers
@@ -72,16 +76,10 @@
       href: samples/arm-vminsights.md
     - name: Diagnostic settings
       href: samples/arm-diagnostic-settings.md
-    - name: Diagnostics extension
-      href: samples/arm-diagnostics-extension.md
-    - name: Log alert rules
-      href: samples/arm-alerts-log.md
     - name: Log Analytics workspace
       href: samples/arm-workspace.md
     - name: Log queries
       href: samples/arm-log-queries.md
-    - name: Metric alert rules
-      href: samples/arm-alerts-metric.md
     - name: Workbooks and dashboards
       href: samples/arm-workbooks.md
   - name: Azure PowerShell
