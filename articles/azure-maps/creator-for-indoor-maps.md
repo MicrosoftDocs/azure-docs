@@ -3,7 +3,7 @@ title: Creator for indoor maps| Microsoft Azure Maps
 description: This article introduces concepts that apply to Azure Maps Creator services.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/24/2020
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -31,9 +31,9 @@ Use the [Azure Maps Data Upload API](https://docs.microsoft.com/rest/api/maps/da
 
 ## Convert a Drawing package
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) converts an uploaded Drawing package into indoor map data. The Conversion service also validates the package. Validation issues are classified into two types: errors and warnings. If any errors are detected, the conversion process fails. If warnings are detected, the conversion will succeed. If the Drawing package fails to convert due to validation errors, you must fix the errors and upload the Drawing package again. To troubleshoot conversion errors and warnings, see [Drawing package warnings and errors](drawing-conversion-error-codes.md).
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) converts an uploaded Drawing package into indoor map data. The Conversion service also validates the package. Validation issues are classified into two types: errors and warnings. If any errors are detected, the conversion process fails. Should warnings be detected, the conversion will succeed.
 
-When an error occurs, the Conversion service provides a link to the [Azure Maps Drawing Error Visualizer](azure-maps-drawing-errors-visualizer.md) stand-alone web application. You can use the Drawing Error Visualizer to inspect errors and warnings that occurred during the conversion process.
+When an error occurs, the Conversion service provides a link to the [Azure Maps Drawing Error Visualizer](azure-maps-drawing-errors-visualizer.md) stand-alone web application. You can use the Drawing Error Visualizer to inspect [Drawing package warnings and errors](drawing-conversion-error-codes.md) that occurred during the conversion process. Once you have fixed the errors, you can then attempt to upload and convert the package.
 
 ## Create indoor map data
 
@@ -57,7 +57,7 @@ The [Dataset service](https://docs.microsoft.com/rest/api/maps/dataset/createpre
 
 A tileset is a collection of vector data that represents a set of uniform grid tiles. Developers can use the [Tileset service](https://docs.microsoft.com/rest/api/maps/tileset/createpreview) to create tilesets from a dataset.
 
-To reflect different content stages, developers can create multiple tilesets from the same dataset. For example, a developer can create one tileset with furniture and equipment, and another tileset without furniture and equipment.  They can create one tileset with the most recent data updates, and one without the most recent data updates.
+To reflect different content stages, developers can create multiple tilesets from the same dataset. For example, a developer can make one tileset with furniture and equipment, and another tileset without furniture and equipment.  They can generate one tileset with the most recent data updates, and one without the most recent data updates.
 
 In addition to the vector data, the tileset provides metadata for map rendering optimization. For example, tileset metadata contains a min and max zoom level for the tileset. The metadata also provides a bounding box defining the geographic extent of the tileset. The bounding box allows an application to programmatically set the correct center point. For more information about tileset metadata, see [Tileset List API](https://docs.microsoft.com/rest/api/maps/tileset/listpreview).
 
@@ -101,13 +101,13 @@ Datasets can be queried using the [Web Feature Service (WFS) API](https://docs.m
 
 The [Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/) includes the Indoor Maps module. This module offers extended functionalities to the Azure Maps *Map Control* library. The Indoor Maps module renders indoor maps created in Creator. It integrates widgets such as *floor picker*, which helps users visualize the different floors.
 
-The Indoor Maps module allows developers to create web applications that integrate indoor map data with other [Azure Maps services](https://docs.microsoft.com/azure/azure-maps/). The most common application setups could include enabling indoor map visualization and adding knowledge from other maps such as road, imagery, weather, and transit.
+The Indoor Maps module allows developers to create web applications that integrate indoor map data with other [Azure Maps services](https://docs.microsoft.com/azure/azure-maps/). The most common application setups could include adding knowledge to indoor maps from other maps such as road, imagery, weather, and transit.
 
 The Indoor Maps module also supports dynamic map styling. For a step-by-step walk-through on how to implement feature stateset dynamic styling in an application, see [How to Use the Indoor Map Module](how-to-use-indoor-module.md)
 
 ### Azure Maps integration
 
-As you begin to develop solutions for indoor maps, more can be done by leveraging existing Azure Maps capabilities. For example, asset tracking or safety scenarios could be implemented by using the [Azure Maps Geofence API](https://docs.microsoft.com/rest/api/maps/spatial/postgeofence) with Creator indoor maps. The Geofence API could be used to perform automated processing and logic based on, for example, whether a worker enters or leaves specific indoor areas. For more information on how to connect Azure Maps with IoT telemetry is available [here](tutorial-iot-hub-maps.md).
+As you begin to develop solutions for indoor maps, you can discover ways to integrate existing Azure Maps capabilities. For example, asset tracking or safety scenarios could be implemented by using the [Azure Maps Geofence API](https://docs.microsoft.com/rest/api/maps/spatial/postgeofence) with Creator indoor maps. The Geofence API could be used to determine, for example, whether a worker enters or leaves specific indoor areas. For more information on how to connect Azure Maps with IoT telemetry is available [here](tutorial-iot-hub-maps.md).
 
 ### Data Maintenance
 
