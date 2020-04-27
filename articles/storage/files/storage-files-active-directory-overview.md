@@ -72,6 +72,7 @@ The following table summarizes the supported Azure file shares authentication sc
 
 - Azure AD DS and on-premises AD DS authentication do not support authentication against computer accounts. You can consider using a service logon account instead.
 - Azure AD DS authentication does not support authentication against Azure AD-joined devices.
+- Azure file shares only support authentication against one domain service, either Azure Active Directory Domain Service (Azure AD DS) or on-premises Active Directory Domain Services (AD DS).
 
 ## Advantages of identity-based authentication
 Identity-based authentication for Azure Files offers several benefits over using Shared Key authentication:
