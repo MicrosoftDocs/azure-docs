@@ -195,18 +195,18 @@ The following table shows a summary of features available on local and remote co
 | DNN-BERT-based text featurization and training             | ✓      |       | ✓                             |
 | Out-of-the-box GPU support (training and inference)        | ✓      |       | ✓                             |
 | Image Classification and Labeling support                  | ✓      |       | ✓                             |
-| Feature engineering customization UI                       | ✓      |       |                               |
 | Auto-ARIMA, Prophet and ForecastTCN models for forecasting | ✓      |       | ✓                             |
 | Multiple runs/iterations in parallel                       | ✓      |       | ✓                             |
+| Create and run experiments in studio web experience        | ✓      |       | ✓                             |
+| Feature engineering customization UI                       | ✓      |       |                               |
 | Azure ML hyperparameter tuning                             | ✓      |       |                               |
 | Azure ML Pipeline workflow support                         | ✓      |       |                               |
 | Continue a run                                             | ✓      |       |                               |
-| Create and run experiments in studio web experience        | ✓      |       | ✓                             |
+| Forecasting                                                | ✓      | ✓     | ✓                             |
+| Model interpretability (in notebooks)                      | ✓      | ✓     | ✓                             |
 | Create and run experiments in notebooks                    | ✓      | ✓     |                               |
 | Register and visualize experiment's info and metrics in UI | ✓      | ✓     |                               |
 | Data guardrails                                            | ✓      | ✓     |                               |
-| Forecasting                                                | ✓      | ✓     | ✓                             |
-| Model interpretability (in notebooks)                      | ✓      | ✓     | ✓                             |
 
 
 ## Automated ML in Azure Machine Learning
