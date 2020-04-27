@@ -20,7 +20,7 @@ For DTU purchasing model resource limits for elastic pools, see [DTU resource li
 
 ## Single database: Storage sizes and compute sizes
 
-The following tables show the resources available for a single database at each service tier and compute size. You can set the service tier, compute size, and storage amount for a single database using the [Azure portal](sql-database-single-databases-manage.md#azure-portal), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-t-sql-t-sql), [PowerShell](sql-database-single-databases-manage.md#powershell), the [Azure CLI](sql-database-single-databases-manage.md#azure-cli), or the [REST API](sql-database-single-databases-manage.md#rest-api).
+The following tables show the resources available for a single database at each service tier and compute size. You can set the service tier, compute size, and storage amount for a single database using the [Azure portal](sql-database-single-databases-manage.md#azure-portal), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-t-sql), [PowerShell](sql-database-single-databases-manage.md#powershell), the [Azure CLI](sql-database-single-databases-manage.md#azure-cli), or the [REST API](sql-database-single-databases-manage.md#rest-api).
 
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale a single database](sql-database-single-database-scale.md)
