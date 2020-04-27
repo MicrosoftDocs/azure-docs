@@ -124,6 +124,8 @@
       items:
       - name: Beginning
         href: storage-files-identity-auth-active-directory-enable.md
+      - name: Configure permissions
+        href: storage-files-identity-ad-ds-configure-permissions.md
       - name: Update password
         href: storage-files-identity-ad-ds-update-password.md
     - name: Enable Azure AD DS authentication and authorization
