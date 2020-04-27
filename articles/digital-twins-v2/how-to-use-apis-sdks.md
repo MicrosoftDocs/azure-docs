@@ -51,7 +51,7 @@ autorest --input-file=adtApiSwagger.json --csharp --output-folder=ADTApi --add-c
 
 As a result, you will see a new folder named *ADTApi* in your working directory. The generated SDK files will have the namespace *ADTApi*, which you'll continue to use through the rest of the examples.
 
-AutoRest supports a wide range of language code generators. During preview, SDK generation is only guaranteed with C# and Typescript.
+AutoRest supports a wide range of language code generators.
 
 ### Add the SDK to a Visual Studio Project
 
@@ -83,7 +83,7 @@ You can now build the project, and include it as a project reference in any Azur
 
 ### General usage guidelines
 
-This section contains general information about and guidelines for using the generated C# SDK.
+This section contains general information about and guidelines for using the generated SDK.
 
 #### Synchronous and asynchronous calls
 
