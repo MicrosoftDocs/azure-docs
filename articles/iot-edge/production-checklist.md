@@ -4,7 +4,7 @@ description: Learn how to take your Azure IoT Edge solution from development to 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/24/2020
+ms.date: 4/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -167,12 +167,22 @@ For an example of a tag convention, see [Update the IoT Edge runtime](how-to-upd
 
 You know about storing your container images for custom code modules in your private Azure registry, but you can also use it to store public container images such as for the edgeAgent and edgHub runtime modules. Doing so may be required if you have very tight firewall restrictions as these runtime containers are stored in the Microsoft Container Registry (MCR).
 
-Obtain the images with the Docker pull command to place in your registry. Be aware that you will need to update the images with each new release of IoT Edge runtime.
+Obtain the images with the Docker pull command to place in your private registry. Be aware that you will need to update the images with each new release of IoT Edge runtime.
 
 | IoT Edge runtime container | Docker pull command |
 | --- | --- |
 | [Azure IoT Edge Agent](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
 | [Azure IoT Edge HUb](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
+
+Next, be sure to update the image references in the deployment.template.json file for the edgeAgent and edgeHub system modules. Replace `mcr.microsoft.com` with your registry name and server for both modules.
+
+* edgeAgent:
+
+    `"image": "<registry name and server>/azureiotedge-agent:1.0",`
+
+* edgeHub:
+
+    `"image": "<registry name and server>/azureiotedge-hub:1.0",`
 
 ## Networking
 
