@@ -18,11 +18,7 @@ manager: lizross
 > The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Windows Virtual Desktop offers a diagnostics feature that allows the administrator to identify issues through a single interface. The Windows Virtual Desktop roles log a diagnostic activity whenever a user interacts with the system. Each log contains relevant information such as the Windows Virtual Desktop roles involved in the transaction, error messages, tenant information, and user information. Diagnostic activities are created by both end-user and administrative actions, and can be categorized into three main categories:
-
-* Feed subscription activities: the end-user triggers these activities whenever they try to connect to their feed through Microsoft Remote Desktop applications.
-* Connection activities: the end-user triggers these activities whenever they try to connect to a desktop or RemoteApp through Microsoft Remote Desktop applications.
-* Management activities: the administrator triggers these activities whenever they perform management operations on the system, such as creating host pools, assigning users to app groups, and creating role assignments.
+Windows Virtual Desktop offers a diagnostics feature that allows the administrator to identify issues through a single interface. To learn more about the diagnostic capabilities of Windows Virtual Desktop, see [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics.md).
   
 Connections that don't reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the end-user is experiencing network connectivity issues.
 
@@ -30,8 +26,8 @@ Connections that don't reach Windows Virtual Desktop won't show up in diagnostic
 
 Error scenarios are categorized in internal to the service and external to Windows Virtual Desktop.
 
-* Internal Issue: specifies scenarios that can't be mitigated by the tenant administrator and need to be resolved as a support issue. When providing feedback through the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), include the activity ID and approximate time frame of when the issue occurred.
-* External Issue: relate to scenarios which can be mitigated by the system administrator. These are external to Windows Virtual Desktop.
+* Internal Issue: specifies scenarios that can't be mitigated by the customer and need to be resolved as a support issue. When providing feedback through the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), include the correlation ID and approximate time frame of when the issue occurred.
+* External Issue: relate to scenarios that can be mitigated by the customer. These are external to Windows Virtual Desktop.
 
 The following table lists common errors your admins might run into.
 
@@ -45,7 +41,7 @@ The following table lists common errors your admins might run into.
 |Failed to create registration key |Registration token couldn't be created. Try creating it again with a shorter expiry time (between 1 hour and 1 month). |
 |Failed to delete registration key|Registration token couldn't be deleted. Try deleting it again. If it still doesn't work, use PowerShell to check if the token is still there. If it's there, delete it with PowerShell.|
 |Failed to change session host drain mode |Couldn't change drain mode on the VM. Check the VM status. If the VM's unavailable, drain mode can't be changed.|
-|Failed to disconnect user sessions |Couldn't disconnect the user from the VM. Check the VM status. If the VM's unavailable, the user session can't be disconnected. If the VM is available, check the user session status to see if it's available. |
+|Failed to disconnect user sessions |Couldn't disconnect the user from the VM. Check the VM status. If the VM's unavailable, the user session can't be disconnected. If the VM is available, check the user session status to see if it's disconnected. |
 |Failed to log off all user(s) within the session host |Could not sign off users from the VM. Check the VM status. If unavailable, users can't be signed off. Check user session status to see if they're already signed off. You can force sign out with PowerShell. |
 |Failed to unassign user from application group|Could not unpublish an app group for a user. Check to see if user is available on Azure AD. Check to see if the user is part of a user group that the appgroup is published to. |
 |There was an error retrieving the available locations |Check location of VM used in the create host pool wizard. If image is not available in that location, add image in that location or choose a different VM location. |

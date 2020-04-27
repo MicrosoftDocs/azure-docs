@@ -24,14 +24,15 @@ Windows Virtual Desktop delegated access supports the following values for each 
 
 * Security principal
     * Users
+    * User groups
     * Service principals
 * Role definition
     * Built-in roles
+    * Custom roles
 * Scope
-    * Tenant groups
-    * Tenants
     * Host pools
     * App groups
+    * Workspaces
 
 ## PowerShell cmdlets for role assignments
 
@@ -41,8 +42,8 @@ Windows Virtual Desktop uses Azure role-based access control (RBAC) while publis
 
 Run the following cmdlet to add Azure Active Directory users to an app group:
 
-```powershell```
-New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+```powershell
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'  
 ```
 
 Run the following cmdlet to add Azure Active Directory user group to an app group:

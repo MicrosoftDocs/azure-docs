@@ -266,7 +266,7 @@ WVDErrors
 >[!NOTE]
 >The most important table for troubleshooting is WVDErrors. Use this query to understand which issues occur for user activities like connections or feeds when a user subscribes to the list of apps or desktops. The table will show you management errors as well as host registration issues.
 >
->During public preview, if you need help with resolving an issue, share the CorrelationID for the error with the preview channel. Also, make sure your Service Error value always says ServiceError = “false”. A "false" value means the issue can be resolved by an admin task on your end. If ServiceError = “true”, you'll need to escalate the issue to Microsoft.  
+>During public preview, if you need help with resolving an issue, make sure you give the CorrelationID for the error in your help request. Also, make sure your Service Error value always says ServiceError = “false”. A "false" value means the issue can be resolved by an admin task on your end. If ServiceError = “true”, you'll need to escalate the issue to Microsoft.
 
 ## Next steps 
 
