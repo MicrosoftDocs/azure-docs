@@ -34,6 +34,7 @@ This volume will be created the first time the instance is started, but will not
 
 ## Disk Types
 
+::: moniker range="=cyclecloud-7"
 There are four [Azure disk types](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types). CycleCloud uses standard hard disk drives (HDD) by default. To use a more performant SSD drive for the disk, use `SSD = true`:
 
 ``` ini
@@ -44,6 +45,24 @@ SSD = true
 ```
 
 A premium SSH disk is used by default when you are using a VM series that is premium storage-compatible.
+
+::: moniker-end
+::: moniker range=">=cyclecloud-8"
+Azure offers four basic storage options: [Ultra](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk), [Premium SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd), [Standard SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd), and [Standard HDD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd).
+
+To specify the storage type to use for your virtual machine, use: `StorageAccountType = [UltraSSD_LRS|Premium_LRS|StandardSSD_LRS|Standard_LRS]` on your volume.
+
+For example:
+
+``` ini
+[[[volume example-vol]]]
+Size = 100
+Persistent = true
+StorageAccountType = StandardSSD_LRS
+```
+
+For backwards compatibility, `SSD=true` will select `Premium_LRS` or `StandardSSD_LRS` depending on the capabilities of the VM size selected.
+::: moniker-end
 
 > [!NOTE]
 > Azure SSD will round up to the next size for [pricing](https://azure.microsoft.com/pricing/details/managed-disks). For example, if you create a disk size of 100GB, you will be charged at the 128GB rate.
