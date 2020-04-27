@@ -4,7 +4,7 @@ description: Explains how to configure additional settings for the cache like MT
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/27/2020
 ms.author: v-erkel
 ---
 
@@ -28,7 +28,7 @@ The default value is 1500 bytes, but you can change it to 1400.
 > [!NOTE]
 > If you lower the cache's MTU size, make sure that the clients and storage systems that communicate with the cache have the same MTU setting or a lower value.
 
-Lowering the cache MTU value can help you work around packet size restrictions in the rest of the cache's network. For example, some VPNs can't transmit full-size 1500-byte packets successfully. Reducing the size of packets sent over the VPN might eliminate that issue. However, note that a lower cache MTU setting means that any other component that communicates with the cache - including clients and storage systems - must also have a lower setting to avoid communication problems with the cache.
+Lowering the cache MTU value can help you work around packet size restrictions in the rest of the cache's network. For example, some VPNs can't transmit full-size 1500-byte packets successfully. Reducing the size of packets sent over the VPN might eliminate that issue. However, note that a lower cache MTU setting means that any other component that communicates with the cache - including clients and storage systems - must also have a lower MTU setting to avoid communication problems.
 
 If you don't want to change the MTU settings on other system components, you should not lower the cache's MTU setting. There are other solutions to work around VPN packet size restrictions. Read [Adjust VPN packet size restrictions](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) in the NAS troubleshooting article to learn more about diagnosing and addressing this problem.
 
@@ -54,7 +54,7 @@ Snapshots are not a replacement for data backups, and they don't include any inf
 > [!NOTE]
 > This snapshot feature is different from the snapshot feature included in NetApp or Isilon storage software. Those snapshot implementations flush changes from the cache to the back-end storage system before taking the snapshot.
 >
-> For efficiency, the Azure HPC Cache snapshot does not flush changes first, and only records data that has been written to the Blob container. This snapshot does not represent the state of cached data, so recent changes might be excluded.
+> For efficiency, the Azure HPC Cache snapshot does not flush changes first, and only records data that has been written to the Blob container. This snapshot does not represent the state of cached data, so it might not include recent changes.
 
 This feature is available for Azure Blob storage targets only, and its configuration can't be changed.
 
