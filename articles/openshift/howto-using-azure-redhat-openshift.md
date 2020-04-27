@@ -12,12 +12,6 @@ keywords: aro, openshift, az aro, red hat, cli
 
 # Create, access, and manage an Azure Red Hat OpenShift 4.3 Cluster
 
-> [!IMPORTANT]
-> Please note that Azure Red Hat OpenShift 4.3 is currently only available in private preview in East US and East US 2. Private preview acceptance is by invitation only. Please be sure to register your subscription before attempting to enable this feature: [Azure Red Hat OpenShift Private Preview Registration](https://aka.ms/aro-preview-register)
-
-> [!NOTE]
-> Preview features are self-service and are provided as is and as available and are excluded from the service-level agreement (SLA) and limited warranty. Therefore, the features aren't meant for production use.
-
 ## Prerequisites
 
 You'll need the following to create an Azure Red Hat OpenShift 4.3 cluster:
@@ -28,9 +22,9 @@ You'll need the following to create an Azure Red Hat OpenShift 4.3 cluster:
 
 - A virtual network containing two empty subnets, each with no network security group attached.  Your cluster will be deployed into these subnets.
 
-- A cluster AAD application (client ID and secret) and service principal, or sufficient AAD permissions for `az aro create` to create an AAD application and service principal for you automatically.
+- A cluster Azure Active Directory application (client ID and secret) and service principal, or sufficient AAD permissions for `az aro create` to create an AAD application and service principal for you automatically.
 
-- The RP service principal and cluster service principal must each have the Contributor role on the cluster virtual network.  If you have the "User Access Administrator" role on the virtual network, `az aro create` will set up the role assignments for you automatically.
+- The resource provider service principal and cluster service principal must each have the Contributor role on the cluster virtual network.  If you have the "User Access Administrator" role on the virtual network, `az aro create` will set up the role assignments for you automatically.
 
 ### Install the 'az aro' extension
 The `az aro` extension allows you to create, access, and delete Azure Red Hat OpenShift clusters directly from the command line using the Azure CLI.
@@ -132,12 +126,13 @@ Follow these steps to create a virtual network containing two empty subnets.
 
 ## Create a cluster
 
-Run the following command to create a cluster. 
+The Azure Red Hat OpenShift management resource represents the cluster and will be placed in the resource group denoted by the `-g` parameter.  Multiple Azure Red Hat OpenShift management resources can co-exist in the same resource group if you wish.
 
-* The Azure Red Hat OpenShift management resource represents the cluster and will be placed in the resource group denoted by the `-g` parameter.  Multiple Azure Red Hat OpenShift management resources can co-exist in the same resource group if you wish.
-* All of the Azure resources associated with the cluster itself will be placed in the resource group denoted by the `--cluster-resource-group` parameter. This resource group must not exist at creation time and will be created by the service. Only one Azure Red Hat OpenShift cluster can exist in a given cluster resource group.
+All of the Azure resources associated with the cluster itself will be placed in the resource group denoted by the `--cluster-resource-group` parameter. This resource group must not exist at creation time and will be created by the service. Only one Azure Red Hat OpenShift cluster can exist in a given cluster resource group.
 
-For the full details on each parameter see the [https://docs.microsoft.com/en-us/cli/azure/aro?view=azure-cli-latest#az-aro-create](`az aro create` documentation).
+For the full details on each parameter, see the [https://docs.microsoft.com/en-us/cli/azure/aro?view=azure-cli-latest#az-aro-create](`az aro create` documentation).
+
+Run the following command to create a cluster.
 
 ```azurecli
 az aro create \
