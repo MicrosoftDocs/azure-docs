@@ -11,15 +11,15 @@ ms.date: 04/24/2020
 
 # Tutorial: Connect to an Azure Red Hat OpenShift 4 cluster
 
-In this tutorial, part two of three, you will connect to an Azure Red Hat OpenShift (ARO) cluster running OpenShift 4 as the kubeadmin user through the OpenShift web console. You learn how to:
+In this tutorial, part two of three, you will connect to an Azure Red Hat OpenShift cluster running OpenShift 4 as the kubeadmin user through the OpenShift web console. You learn how to:
 > [!div class="checklist"]
 > * Obtain `kubeadmin` credentials for your cluster
 > * Install the OpenShift CLI
-> * Connect to an ARO cluster using the OpenShift CLI
+> * Connect to an Azure Red Hat OpenShift cluster using the OpenShift CLI
 
 ## Before you begin
 
-In previous tutorials, an ARO cluster was created. If you have not done these steps, and would like to follow along, start with [Tutorial 1 - Create an Azure Red Hat Openshift 4 Cluster.](tutorial-create-cluster.md)
+In previous tutorials, an Azure Red Hat OpenShift cluster was created. If you have not done these steps, and would like to follow along, start with [Tutorial 1 - Create an Azure Red Hat Openshift 4 Cluster.](tutorial-create-cluster.md)
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -29,8 +29,8 @@ You can log into the cluster using the `kubeadmin` user.  Run the following comm
 
 ```azurecli-interactive
 az aro list-credentials \
-  --name aro-cluster \
-  --resource-group aro-rg
+  --name $CLUSTER \
+  --resource-group $RESOURCEGROUP
 ```
 
 The following example output shows the password will be in `kubeadminPassword`.
@@ -46,8 +46,8 @@ You can find the cluster console URL by running the following command, which wil
 
 ```azurecli-interactive
  az aro show \
-    --name aro-cluster \
-    --resource-group aro-rg \
+    --name $CLUSTER \
+    --resource-group $RESOURCEGROUP \
     --query "consoleProfile.url" -o tsv
 ```
 
@@ -79,7 +79,7 @@ echo 'export PATH=$PATH:~/openshift' >> ~/.bashrc && source ~/.bashrc
 Retrieve the API server's address.
 
 ```azurecli-interactive
-apiServer=$(az aro show -g aro-rg -n aro-cluster --query apiserverProfile.url -o tsv)
+apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.url -o tsv)
 ```
 
 Login to the OpenShift cluster's API server using the following command. Replace **\<kubeadmin password>** with the password you just retrieved.
@@ -94,7 +94,7 @@ In this part of the tutorial, you learned how to:
 > [!div class="checklist"]
 > * Obtain `kubeadmin` credentials for your cluster
 > * Install the OpenShift CLI
-> * Connect to an ARO cluster using the OpenShift CLI
+> * Connect to an Azure Red Hat OpenShift cluster using the OpenShift CLI
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]

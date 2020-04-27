@@ -15,8 +15,6 @@
 - name: How-to guides
   expanded: true
   items:
-    - name: Create a Azure Red Hat OpenShift 4 cluster 
-      href: howto-using-azure-redhat-openshift.md
     - name: Create a private Azure Red Hat OpenShift 4 cluster 
       href: create-private-cluster.md
     - name: Configure DNS Forwarding for an Azure Red Hat OpenShift 4 cluster

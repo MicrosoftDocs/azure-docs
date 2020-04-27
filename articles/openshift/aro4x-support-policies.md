@@ -19,11 +19,11 @@ This article outlines configuration requirements for Azure Red Hat OpenShift 4 c
 
 * All OpenShift Cluster operators must remain in a managed state. The list of cluster operators can be returned by running `oc get clusteroperators`.
 * The cluster Prometheus and Alertmanager services must not be removed or modified.  Service Alertmanager rules must not be removed.
-* The ARO service sets the OpenShift cluster version.  It must not be modified.
-* ARO service logging (mdsd pods) must not be removed or modified.
+* The Azure Red Hat OpenShift service sets the OpenShift cluster version.  It must not be modified.
+* Azure Red Hat OpenShift service logging (mdsd pods) must not be removed or modified.
 * The 'arosvc.azurecr.io' cluster pull secret must not be removed or modified.
 * All cluster virtual machines must have outbound internet access, at least to the Azure Resource Manager (ARM) and service logging (Geneva) endpoints.
-* The ARO service accesses your cluster via Private Link Service.  Service access must not be removed or modified.
+* The Azure Red Hat OpenShift service accesses your cluster via Private Link Service.  Service access must not be removed or modified.
 * Non-RHCOS compute nodes are not supported. For example, you cannot use a RHEL compute node.
 
 ## Supported virtual machine sizes

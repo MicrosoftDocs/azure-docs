@@ -89,7 +89,7 @@ cat > manifest.json<< EOF
   "source": null,
   "essential": false,
   "additionalProperties": []
-}
+}]
 EOF
 ```
 
