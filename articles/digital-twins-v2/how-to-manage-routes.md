@@ -24,15 +24,15 @@ Supported endpoint types include:
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-See [Choose between Azure messaging services](https://docs.microsoft.com/azure/event-grid/compare-messaging-services) for more information on the different endpoints.
+For more information on the different endpoints, see [Choose between Azure messaging services](https://docs.microsoft.com/azure/event-grid/compare-messaging-services).
 
 Endpoints and routes are managed with the [**EventRoutes APIs**](how-to-use-apis.md), or with the [Azure Digital Twins CLI](how-to-use-cli.md).
 
 ## Create an endpoint for Azure Digital Twins
 
-To link an endpoint to Azure Digital Twins, the Event Hub, Event Grid topic, or Service Bus that you're using for the endpoint needs to exist already. 
+To link an endpoint to Azure Digital Twins, the Event Hub, event grid topic, or Service Bus that you're using for the endpoint needs to exist already. 
 
-The following example shows how to create an Event Grid topic using the Azure CLI:
+The following example shows how to create an event grid topic using the Azure CLI:
 
 ```azurecli
 az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l "westcentralus"
@@ -44,7 +44,7 @@ Once you have created the topic, you can link it to Azure Digital Twins with the
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-This makes the Event Grid topic available inside of Azure Digital Twins, under the name specified with the `--endpoint-name` argument. You will typically use that name as the target of an **event route**, which you'll create in the next section using the Azure Digital Twins service API.
+This makes the event grid topic available inside of Azure Digital Twins, under the name specified with the `--endpoint-name` argument. You will typically use that name as the target of an **event route**, which you'll create in the next section using the Azure Digital Twins service API.
 
 Equivalent commands exist for Event Hub and Service Bus endpoints:
 
@@ -86,7 +86,7 @@ await client.EventRoutes.AddAsync("routeName", new EventRoute("endpointID"));
 
 ### Event route sample code
 
-The following code sample shows how to create, list and delete an event route:
+The following code sample shows how to create, list, and delete an event route:
 ```csharp
 try
 {
@@ -168,18 +168,18 @@ Here are the types of filter that you can use:
 
 | Filter name | Description | Filter text |
 | --- | --- | --- |
-| Type |  | "filter": "type = '…'" |
-| Source |  | "filter": " source = '…'" |
-| Subject |  | "filter": " subject = '…'" |
-| ID |  | "filter": "id = '…'" |
-| Schema |  | "filter": "dataschema = '…'" |
-| Content type |  | "filter": "datacontenttype = '…'" |
-| Spec version |  | "filter": "specversion = '…'" |
-| Type/subject combination |  | "filter": "type = '…' AND subject != '…'" |
-| Type/type combination |  | "filter": "type = '…' OR type = '…'" |
-| Type/subject/source/id combination |  | "filter": "(type = '…' AND subject = '…') OR (source = '…' AND id = '…')" |
-| True |  | "filter": "true" |
-| False |  | "filter": "false |
+| Type |  | `"filter": "type = '…'"` |
+| Source |  | `"filter": " source = '…'"` |
+| Subject |  | `"filter": " subject = '…'"` |
+| ID |  | `"filter": "id = '…'"` |
+| Schema |  | `"filter": "dataschema = '…'"` |
+| Content type |  | `"filter": "datacontenttype = '…'"` |
+| Spec version |  | `"filter": "specversion = '…'"` |
+| Type/subject combination |  | `"filter": "type = '…' AND subject != '…'"` |
+| Type/type combination |  | `"filter": "type = '…' OR type = '…'"` |
+| Type/subject/source/ID combination |  | `"filter": "(type = '…' AND subject = '…') OR (source = '…' AND id = '…')"` |
+| True |  | `"filter": "true"` |
+| False |  | `"filter": "false"` |
 
 > [!NOTE]
 > During preview, only string equality is supported (=, !=).
@@ -192,7 +192,7 @@ Endpoints and routes can also be managed using the Azure Digital Twins CLI. The 
 
 ## Monitor event routes
 
-Routing metrics such as count, latency and failure rate can be viewed in the [Azure portal](https://portal.azure.com/). 
+Routing metrics such as count, latency, and failure rate can be viewed in the [Azure portal](https://portal.azure.com/). 
 
 From the portal homepage, search for your Azure Digital Twins instance to pull up its details. Select the **Metrics** option from the Azure Digital Twins instance's menu to bring up the *Metrics* page.
 

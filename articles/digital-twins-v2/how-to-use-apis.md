@@ -194,7 +194,7 @@ try
 ```
 ## Monitor APIs
 
-API metrics such as requests, latency and failure rate can be viewed in the [Azure portal](https://portal.azure.com/). 
+API metrics such as requests, latency, and failure rate can be viewed in the [Azure portal](https://portal.azure.com/). 
 
 From the portal homepage, search for your Azure Digital Twins instance to pull up its details. Select the **Metrics** option from the Azure Digital Twins instance's menu to bring up the *Metrics* page.
 
