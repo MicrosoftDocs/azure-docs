@@ -29,7 +29,7 @@ For this tutorial, we deploy a Linux VM that runs the Ubuntu 16.04 LTS operating
 Sign in to the [Azure portal](https://portal.azure.com).
 
 > [!NOTE]  
-> If you want to migrate classic alert rules and use an existing Linux Virtual Machine, please make sure the Virutal Machine has a system-assigned identity set to **On**.
+> If you want to migrate classic alert rules and use an existing Linux virtual machine, make sure the virutal machine has a system-assigned identity set to **On**.
 
 Create a new Linux VM: 
 
