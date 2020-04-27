@@ -25,13 +25,13 @@ In order to bulk create users in the administration portal, you must be signed i
 
 ## Understand the bulk upload template
 
-Use the bulk upload spreadsheet as the template to help you successfully create Azure AD users in bulk. Your spreadsheet might look like this example:
+Download and fill in the bulk upload CSV template to help you successfully create Azure AD users in bulk. The CSV template you download might look like this example:
 
 ![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/users-bulk-add/create-template-example.png)
 
 ### CSV file structure
 
-The rows in the CSV template are as follows:
+The rows in a downloaded CSV template are as follows:
 
 - **Version number**: The first row containing the version number must be included in the upload CSV.
 - **Column headings**: The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Required or blank*&gt;. For example, `Name [displayName] Required`. Some older versions of the template might have slight variations.
