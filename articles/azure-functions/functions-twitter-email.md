@@ -5,7 +5,7 @@ author: craigshoemaker
 
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.topic: tutorial
-ms.date: 11/06/2018
+ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
 ---
@@ -70,19 +70,19 @@ Functions provides a great way to offload processing tasks in a logic apps workf
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## Create an HTTP triggered function  
+## Create an HTTP trigger function  
 
-1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **In-portal**.
+1. From the left menu of the **Functions** window, select **Functions**, then select **Add** from the top menu.
 
-    ![Functions quickstart page in the Azure portal](media/functions-twitter-email/05-function-app-create-portal.png)
+2. From the **New Function** window, select **Http trigger**.
 
-2. Next, select **Webhook + API** and click **Create**. 
+    ![Choose the HTTP trigger](./media/functions-twitter-email/06-function-http-trigger.png)
 
-    ![Choose the HTTP trigger](./media/functions-twitter-email/06-function-webhook.png)
+2. From the **New Function** page, select **Create Function**.
 
-3. Replace the contents of the `run.csx` file with the following code, then click **Save**:
+In your new HTTP trigger function, select **Code + Test** from the left menu, replace the contents of the `run.csx` file with the following code, and then select **Save**:
 
-    ```csharp
+   ```csharp
     #r "Newtonsoft.Json"
     
     using System;
@@ -114,12 +114,13 @@ Functions provides a great way to offload processing tasks in a logic apps workf
             ? (ActionResult)new OkObjectResult(category)
             : new BadRequestObjectResult("Please pass a value on the query string or in the request body");
     }
-    ```
-    This function code returns a color category based on the sentiment score received in the request. 
+   ```
 
-4. To test the function, click **Test** at the far right to expand the Test tab. Type a value of `0.2` for the **Request body**, and then click **Run**. A value of **RED** is returned in the body of the response. 
+   This function code returns a color category based on the sentiment score received in the request. 
 
-    ![Test the function in the Azure portal](./media/functions-twitter-email/07-function-test.png)
+4. To test the function, select **Test** from the top menu. In the **Input** tab, enter a value of `0.2` in the **Body**, and then select **Run**. A value of **RED** is returned in the body of the response in the **Output** tab. 
+
+    ![Define the proxy settings](./media/functions-twitter-email/07-function-test.png)
 
 Now you have a function that categorizes sentiment scores. Next, you create a logic app that integrates your function with your Twitter and Cognitive Services API. 
 
@@ -207,7 +208,7 @@ Now, your function is triggered when a sentiment score is sent from the logic ap
 
 ## Add email notifications
 
-The last part of the workflow is to trigger an email when the sentiment is scored as _RED_. This topic uses an Outlook.com connector. You can perform similar steps to use a Gmail or Office 365 Outlook connector.   
+The last part of the workflow is to trigger an email when the sentiment is scored as _RED_. This article uses an Outlook.com connector. You can perform similar steps to use a Gmail or Office 365 Outlook connector.   
 
 1. In the Logic Apps Designer, click **New step** > **Add a condition**. 
 
@@ -269,7 +270,7 @@ Now that the workflow is complete, you can enable the logic app and see the func
     > [!IMPORTANT]
     > After you have completed this tutorial, you should disable the logic app. By disabling the app, you avoid being charged for executions and using up the transactions in your Cognitive Services API.
 
-Now you have seen how easy it is to integrate Functions into a Logic Apps workflow.
+Now you've seen how easy it is to integrate Functions into a Logic Apps workflow.
 
 ## Disable the logic app
 
