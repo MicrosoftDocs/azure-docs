@@ -181,14 +181,18 @@ to convert it to VHD format. For more information, see
 
 ## Check the Windows services
 
-Make sure that each of the following Windows services is set to start automatically. These services
-are the minimum that must be configured to ensure VM connectivity. To set the startup settings, run
-the following example:
+Make sure that each of the following Windows services is set to the Windows default value. These
+services are the minimum that must be configured to ensure VM connectivity. To set the startup
+settings, run the following example:
 
 ```powershell
-Get-Service -Name BFE, Dhcp, Dnscache, IKEEXT, iphlpsvc, mpssvc, Netlogon, Netman, nsi, RemoteRegistry, TermService |
+Get-Service -Name BFE, Dhcp, Dnscache, IKEEXT, iphlpsvc, nsi, mpssvc, RemoteRegistry |
 Where-Object StartType -ne Automatic |
 Set-Service -StartupType Automatic
+
+Get-Service -Name Netlogon, Netman, TermService |
+Where-Object StartType -ne Manual |
+Set-Service -StartupType Manual
 ```
 
 ## Update remote desktop registry settings
