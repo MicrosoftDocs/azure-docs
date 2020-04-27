@@ -11,20 +11,12 @@
   items:
   - name: Connect a device to IoT Hub
     items:
-      - name: C Linux
-        href: quickstart-connect-pnp-device-c-linux.md
-      - name: C Windows
-        href: quickstart-connect-pnp-device-c-windows.md
+      - name: C
+        href: quickstart-connect-device-c.md
       - name: Node.js
-        href: quickstart-connect-pnp-device-node.md
+        href: quickstart-connect-device-node.md
 - name: Tutorials
   items:
-  - name: Use VS Code tools (Linux)
-    href: tutorial-visual-studio-code-linux.md
-  - name: Use VS Code tools (Windows)
-    href: tutorial-visual-studio-code-windows.md
-  - name: Build a device ready for certification
-    href: tutorial-build-device-certification.md
   - name: Connect a device to IoT Central
     href: ../iot-central/core/tutorial-connect-pnp-device.md
 - name: Concepts

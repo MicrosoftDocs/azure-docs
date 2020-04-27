@@ -47528,12 +47528,22 @@
     },
     {
       "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-linux.md",
-      "redirect_url": "/azure/iot-pnp/quickstart-connect-pnp-device-c-linux/",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device-c/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-c-linux.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device-c/",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-pnp/quickstart-connect-pnp-device.md",
-      "redirect_url": "/azure/iot-pnp/quickstart-connect-pnp-device-c-windows/",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device-c/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-c-windows.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device-c/",
       "redirect_document_id": false
     },
     {
@@ -47600,6 +47610,26 @@
       "source_path": "articles/iot-pnp/howto-develop-with-vs-vscode.md",
       "redirect_url": "/azure/iot-pnp/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-build-device-certification.md",
+      "redirect_url": "/azure/iot-pnp/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-visual-studio-code-linux.md",
+      "redirect_url": "/azure/iot-pnp/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-visual-studio-code-windows.md",
+      "redirect_url": "/azure/iot-pnp/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-node.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device-node",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/iot-central/core/overview-iot-options.md",

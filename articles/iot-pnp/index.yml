@@ -32,15 +32,11 @@ landingContent:
     - linkListType: quickstart
       links:
         - text: Connect a sample device to IoT Hub
-          url: quickstart-connect-pnp-device-c-windows.md
-    - linkListType: tutorial
-      links:
-        - text: Use Visual Studio Code modeling and code generation tools
-          url: tutorial-visual-studio-code-linux.md
-        - text: Build a device that's ready for certification
-          url: tutorial-build-device-certification.md
+          url: quickstart-connect-device-c.md
     - linkListType: concept
       links:
+        - text: Developer guide
+          url: concepts-developer-guide.md
         - text: Common interfaces
           url: concepts-common-interfaces.md
   - title: Build solutions
