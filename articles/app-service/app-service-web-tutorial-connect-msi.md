@@ -200,14 +200,14 @@ az webapp identity assign --resource-group myResourceGroup --name <app-name>
 
 Here's an example of the output:
 
-```json
+<pre>
 {
   "additionalProperties": {},
   "principalId": "21dfa71c-9e6f-4d17-9e90-1d28801c9735",
   "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
   "type": "SystemAssigned"
 }
-```
+</pre>
 
 ### Grant permissions to managed identity
 

@@ -6,8 +6,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdiseo17may2017
-ms.date: 04/07/2020
+ms.custom: hdiseo17may2017,seoapr2020
+ms.date: 04/27/2020
 ---
 
 # Upload data for Apache Hadoop jobs in HDInsight
@@ -18,7 +18,7 @@ HDInsight provides a Hadoop distributed file system (HDFS) over Azure Storage, a
 
 Note the following requirements before you begin:
 
-* An Azure HDInsight cluster. For instructions, see [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) or [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
+* An Azure HDInsight cluster. For instructions, see [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Knowledge of the following articles:
     * [Use Azure Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md)
     * [Use Data Lake Storage Gen1 with HDInsight](hdinsight-hadoop-use-data-lake-store.md)
@@ -168,4 +168,3 @@ Now that you understand how to get data into HDInsight, read the following artic
 * [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Submit Apache Hadoop jobs programmatically](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use Apache Pig with HDInsight](./use-pig.md)
