@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Tutorial: Using SQL on-demand (preview) with Power BI Desktop & create report
+# Tutorial: Use SQL on-demand (preview) with Power BI Desktop & create a report
 
 In this tutorial, you learn how to:
 
