@@ -17,13 +17,11 @@ ms.service: digital-twins
 
 # Event routes (preview)
 
-It is often useful for data from Azure Digital Twins to be sent to downstream data services for additional storage or processing. 
+It is often useful for data from Azure Digital Twins to be sent to downstream data services for additional storage or processing. This type of data egress is handled using **event routes**. 
 
-For example...
+Here are some example cases that might involve an event route to move data:
 * A hospital may want to send Azure Digital Twins event data to [Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md), to record time series data of handwashing-related events for bulk analytics.
 * A business that is already using [Azure Maps](../azure-maps/about-azure-maps.md) may want to use Azure Digital Twins to enhance their solution. They can quickly enable an Azure Map after setting up Azure Digital Twins, bring Azure Map entities into Azure Digital Twins as [digital twins](concepts-twins-graph.md) in the twin graph, or run powerful queries leveraging their Azure Maps and Azure Digital Twins data together.
-
-Data egress for scenarios like these is handled using **event routes**. 
 
 ## About event routes
 

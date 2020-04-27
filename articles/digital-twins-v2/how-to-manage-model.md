@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Manage Azure Digital Twins models
 
-Azure Digital Twins **DigitalTwinsModels APIs** are APIs used to manage the [models](concepts-models.md) that an Azure Digital Twins instance knows about. Management operations include upload, validation, and retrieval of models authored in [Digital Twins Definition language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). 
+You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinsModels APIs**](how-to-use-apis.md). Management operations include upload, validation, and retrieval of models. 
 
 [!INCLUDE [digital-twins-generate-sdk.md](../../includes/digital-twins-generate-sdk.md)]
 

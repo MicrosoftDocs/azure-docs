@@ -17,11 +17,13 @@ ms.service: digital-twins
 
 # Understand event data
 
-Different events in Azure Digital Twins produce notifications, which allow the solution backend to be notified when different actions are happening. Recall that there are several types of notifications that can be generated, and used for event routing:
+Different events in Azure Digital Twins produce **notifications**, which allow the solution backend to be aware when different actions are happening. These are then [routed](concepts-route-events.md) to different locations inside and outside of Azure Digital Twins that can use this information to take action.
+
+There are several types of notifications that can be generated, and notification messages may look different depending on which type of event generated them. This article gives detail about different types of messages, and what they might look like.
+
+This chart shows the different notification types:
 
 [!INCLUDE [digital-twins-notifications.md](../../includes/digital-twins-notifications.md)]
-
-Notification messages may look different depending on which type of event generated them. This article gives detail about different types of messages, and what they might look like.
 
 In general, notifications are made up of two parts: the header and the body. 
 
