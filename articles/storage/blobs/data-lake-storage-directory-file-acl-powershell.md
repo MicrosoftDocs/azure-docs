@@ -1,22 +1,19 @@
 ---
-title: Azure Data Lake Storage Gen2 PowerShell for files & ACLs (preview)
+title: Azure Data Lake Storage Gen2 PowerShell for files & ACLs
 description: Use PowerShell cmdlets to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 services: storage
 author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
 ---
 
-# Use PowerShell to manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (preview)
+# Use PowerShell to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
 
 This article shows you how to use PowerShell to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
-
-> [!IMPORTANT]
-> The PowerShell module that is featured in this article is currently in public preview.
 
 [Gen1 to Gen2 mapping](#gen1-gen2-map) | [Give feedback](https://github.com/Azure/azure-powershell/issues)
 
@@ -28,7 +25,7 @@ This article shows you how to use PowerShell to create and manage directories, f
 > * .NET Framework is 4.7.2 or greater installed. See [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 > * PowerShell version `5.1` or higher.
 
-## Install PowerShell modules
+## Install the PowerShell module
 
 1. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.    
 
@@ -38,16 +35,10 @@ This article shows you how to use PowerShell to create and manage directories, f
     
    To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
     
-2. Install the latest **PowershellGet** module. Then, close and reopen the PowerShell console.
+2. Install **Az.Storage** module.
 
    ```powershell
-   Install-Module PowerShellGet –Repository PSGallery –Force 
-   ```
-
-3. Install **Az.Storage** preview module.
-
-   ```powershell
-   Install-Module az.storage -RequiredVersion 1.13.3-preview -Repository PSGallery -AllowClobber -AllowPrerelease -Force 
+   Install-Module Az.Storage -Repository PSGallery -Force  
    ```
 
    For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
@@ -416,11 +407,7 @@ The following table shows how the cmdlets used for Data Lake Storage Gen1 map to
 |Set-AzDataLakeStoreItemOwner<br>Set-AzDataLakeStoreItemPermission<br>Set-AzDataLakeStoreItemAcl|Update-AzDataLakeGen2Item|The Update-AzDataLakeGen2Item cmdlet updates a single item only, and not recursively. If want to update recursively, list items by using the Get-AzDataLakeStoreChildItem cmdlet, then pipeline to the Update-AzDataLakeGen2Item cmdlet.|
 |Test-AzDataLakeStoreItem|Get-AzDataLakeGen2Item|The Get-AzDataLakeGen2Item cmdlet will report an error if the item doesn't exist.|
 
-
-
 ## See also
 
 * [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-* [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-* [Storage PowerShell cmdlets](/powershell/module/az.storage).
-
+* [Storage PowerShell cmdlets](/powershell/module/az.storage)

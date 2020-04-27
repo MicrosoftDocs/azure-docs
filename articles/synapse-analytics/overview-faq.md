@@ -87,7 +87,7 @@ A: Data flow allows data engineers to develop graphical data transformation logi
 
 ## Security and Access
 
-A: End-to-end single sign-on experience is an important authentication process in Synapse Analytics. Managing and passing through the identity via a full AAD integration is a must.
+A: End-to-end single sign-on experience is an important authentication process in Synapse Analytics. Managing and passing the identity  through via a full AAD integration is a must.
 
 ### Q: How do I get access to files and folders in the ADLSg2
 

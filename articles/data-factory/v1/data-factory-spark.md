@@ -242,7 +242,7 @@ In this step, you create a pipeline with an HDInsightSpark activity. Currently, 
 
 ### Verify the results
 
-1. Start the Jupyter Notebook for your HDInsight Spark cluster by going to [this website](https://CLUSTERNAME.azurehdinsight.net/jupyter). You also can open a cluster dashboard for your HDInsight Spark cluster, and then start the Jupyter Notebook.
+1. Start the Jupyter Notebook for your HDInsight Spark cluster by going to `https://CLUSTERNAME.azurehdinsight.net/jupyter`. You also can open a cluster dashboard for your HDInsight Spark cluster, and then start the Jupyter Notebook.
 
 1. Select **New** > **PySpark** to start a new notebook.
 

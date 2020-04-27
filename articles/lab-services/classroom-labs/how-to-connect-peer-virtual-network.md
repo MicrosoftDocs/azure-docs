@@ -27,7 +27,7 @@ Virtual network peering enables you to seamlessly connect Azure virtual networks
 
 You may need to connect your lab's network with a peer virtual network in some scenarios including the following ones:
 
-- The virtual machines in the lab have software that connects to on-premises license servers to acquire license
+- The virtual machines in the lab have software that connects to on-premises license servers to acquire license.
 - The virtual machines in the lab need access to data sets (or any other files) on university's network shares.
 
 Certain on-premises networks are connected to Azure Virtual Network either through [ExpressRoute](../../expressroute/expressroute-introduction.md) or [Virtual Network Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md). These services must be set up outside of Azure Lab Services. To learn more about connecting an on-premises network to Azure using ExpressRoute, see [ExpressRoute overview](../../expressroute/expressroute-introduction.md). For on-premises connectivity using a Virtual Network Gateway, the gateway, specified virtual network, and the lab account must all be in the same region.
@@ -43,7 +43,7 @@ During the new [lab account creation](tutorial-setup-lab-account.md), you can pi
 
 ### Address range
 
-There is also an option to provide **Address range** for virtual machines for the labs. If the address range is provided, all the virtual machines in the labs under the lab account will be created in that address range. The address range should be in CIDR notation (e.g. 10.20.0.0/20) and not overlap with any existing address ranges.  When providing an address range, it's important to think about the number of *labs* that will be created and provide an address range to accommodate that. Lab Services assumes a maximum of 512 virtual machines per lab.  For example, an ip range with '/23' can create only one lab.  A range with a '/21' will allow for the creation of four labs.
+There is also an option to provide **Address range** for virtual machines for the labs.  The **Address range** property only applies if **Peer virtual network** is enabled for the lab.  If the address range is provided, all the virtual machines in the labs under the lab account will be created in that address range. The address range should be in CIDR notation (e.g. 10.20.0.0/20) and not overlap with any existing address ranges.  When providing an address range, it's important to think about the number of *labs* that will be created and provide an address range to accommodate that. Lab Services assumes a maximum of 512 virtual machines per lab.  For example, an ip range with '/23' can create only one lab.  A range with a '/21' will allow for the creation of four labs.
 
 If the **Address range** is not specified, Lab Services will use the default address range given to it by Azure when creating the virtual network to be peered with your virtual network.  The range is often something like 10.x.0.0/16.  This may lead to ip range overlap, so make sure to either specify and address range in the lab settings or check the address range of your virtual network being peered.
 
