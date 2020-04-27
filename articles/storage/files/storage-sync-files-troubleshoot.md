@@ -1230,7 +1230,7 @@ Unintended recalls also might occur in other scenarios, like when you are browsi
 
 ### TLS 1.2 required for Azure File Sync
 
-You can view the TLS settings at your server by looking at the [registry settings](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings). 
+You can view the TLS settings at your server by looking at the [registry settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings). 
 
 If you are using a proxy, consult your proxy's documentation and ensure it is configured to use TLS1.2.
 
