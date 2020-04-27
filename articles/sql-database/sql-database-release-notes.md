@@ -7,7 +7,7 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/28/2020
 ms.author: sstein
 ---
 # SQL Database release notes
@@ -75,7 +75,7 @@ The following features are enabled in Managed instance deployment model in H1 20
 |[Permissions on resource group not applied to Managed Instance](#permissions-on-resource-group-not-applied-to-managed-instance)|Feb 2020|Has Workaround||
 |[Limitation of manual failover via portal for failover groups](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Has Workaround||
 |[SQL Agent roles need explicit EXECUTE permissions for non-sysadmin logins](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Has Workaround||
-|[SQL Agent jobs can be interrupted by Agent process restart](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dec 2019|No Workaround|Mar 2020|
+|[SQL Agent jobs can be interrupted by Agent process restart](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dec 2019|Resolved|Mar 2020|
 |[AAD logins and users are not supported in SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|Nov 2019|No Workaround||
 |[In-memory OLTP memory limits are not applied](#in-memory-oltp-memory-limits-are-not-applied)|Oct 2019|Has Workaround||
 |[Wrong error returned while trying to remove a file that is not empty](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|Oct 2019|Has Workaround||
@@ -90,7 +90,7 @@ The following features are enabled in Managed instance deployment model in H1 20
 |[Exceeding storage space with small database files](#exceeding-storage-space-with-small-database-files)||Has Workaround||
 |[GUID values shown instead of database names](#guid-values-shown-instead-of-database-names)||Has Workaround||
 |[Error logs aren't persisted](#error-logs-arent-persisted)||No Workaround||
-|[Transaction scope on two databases within the same instance isn't supported](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Has Workaround||
+|[Transaction scope on two databases within the same instance isn't supported](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Has Workaround|Mar 2020|
 |[CLR modules and linked servers sometimes can't reference a local IP address](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Has Workaround||
 |Database consistency not verified using DBCC CHECKDB after restore database from Azure Blob Storage.||Resolved|Nov 2019|
 |Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.||Resolved|Oct 2019|
@@ -127,7 +127,7 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 ### SQL Agent jobs can be interrupted by Agent process restart
 
-SQL Agent creates a new session each time job is started, gradually increasing memory consumption. To avoid hitting the internal memory limit which would block execution of scheduled jobs, Agent process will be restarted once its memory consumption reaches threshold. It may result in interrupting execution of jobs running at the moment of restart.
+**(Resolved in March 2020)** SQL Agent creates a new session each time job is started, gradually increasing memory consumption. To avoid hitting the internal memory limit which would block execution of scheduled jobs, Agent process will be restarted once its memory consumption reaches threshold. It may result in interrupting execution of jobs running at the moment of restart.
 
 ### In-memory OLTP memory limits are not applied
 
@@ -224,7 +224,7 @@ Error logs that are available in managed instance aren't persisted, and their si
 
 ### Transaction scope on two databases within the same instance isn't supported
 
-The `TransactionScope` class in .NET doesn't work if two queries are sent to two databases within the same instance under the same transaction scope:
+**(Resolved in March 2020)** The `TransactionScope` class in .NET doesn't work if two queries are sent to two databases within the same instance under the same transaction scope:
 
 ```csharp
 using (var scope = new TransactionScope())
@@ -249,9 +249,7 @@ using (var scope = new TransactionScope())
 
 ```
 
-Although this code works with data within the same instance, it required MSDTC.
-
-**Workaround:** Use [SqlConnection.ChangeDatabase(String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) to use another database in a connection context instead of using two connections.
+**Workaround (not needed since March 2020):** Use [SqlConnection.ChangeDatabase(String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) to use another database in a connection context instead of using two connections.
 
 ### CLR modules and linked servers sometimes can't reference a local IP address
 

@@ -82,15 +82,6 @@ The following sets of permissions are supported on the root directory of a file 
 - NT AUTHORITY\SYSTEM:(F)
 - CREATOR OWNER:(OI)(CI)(IO)(F)
 
-### Configure NTFS permissions with icacls
-Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
-
-```
-icacls <mounted-drive-letter>: /grant <user-email>:(f)
-```
-
-For more information on how to use icacls to set NTFS permissions and on the different types of supported permissions, see [the command-line reference for icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
-
 ### Mount a file share from the command prompt
 
 Use the Windows **net use** command to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, see [Use an Azure file share with Windows](../articles/storage/files/storage-how-to-use-files-windows.md). 
@@ -98,6 +89,10 @@ Use the Windows **net use** command to mount the Azure file share. Remember to r
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
 ```
+
+If you experience issues in connecting to Azure Files, please refer to [the troubleshooting tool we published for Azure Files mounting errors on Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). We also provide [guidance](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) to work around scenarios when port 445 is blocked. 
+
+
 ### Configure NTFS permissions with Windows File Explorer
 Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory.
 
@@ -109,6 +104,15 @@ Use Windows File Explorer to grant full permission to all directories and files 
 7.    Select **OK**.
 8.    In the **Security** tab, select all permissions you want to grant your new user.
 9.    Select **Apply**.
+
+### Configure NTFS permissions with icacls
+Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
+
+```
+icacls <mounted-drive-letter>: /grant <user-email>:(f)
+```
+
+For more information on how to use icacls to set NTFS permissions and on the different types of supported permissions, see [the command-line reference for icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
 ## 4. Mount a file share from a domain-joined VM
 

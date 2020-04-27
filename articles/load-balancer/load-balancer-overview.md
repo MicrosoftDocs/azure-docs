@@ -79,6 +79,7 @@ Basic Load Balancer is offered at no charge.
 See [SLA for Load Balancer](https://aka.ms/lbsla). Basic Load Balancer has no SLA.
 
 ## Next steps
+See [Upgrade a Basic Load Balancer](upgrade-basic-standard.md) to upgrade Basic Load Balancer to Standard Load Balancer.
 
 See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer.
 

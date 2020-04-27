@@ -1,13 +1,10 @@
 ---
 title: Tutorial - Create custom VM images with Azure PowerShell 
 description: In this tutorial, you learn how to use Azure PowerShell to create a custom virtual machine image in Azure
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
+ms.subservice: imaging
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn

@@ -8,16 +8,18 @@ ms.topic: conceptual
 ---
 # Start/stop VMs during off-hours solution in Azure Automation
 
-The **Start/stop VMs during off-hours solution** starts or stops your Azure virtual machines. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/platform/action-groups.md). The solution supports both Azure Resource Manager and classic VMs for most scenarios. 
+The **Start/stop VMs during off-hours** solution starts or stops your Azure virtual machines. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/platform/action-groups.md). The solution supports both Azure Resource Manager and classic VMs for most scenarios. 
 
-This solution provides a decentralized low-cost automation option for users who want to optimize their VM costs. With this solution, you can:
+This solution uses [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) cmdlet to start VMs. It uses [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) for stopping VMs.
+
+> [!NOTE]
+> The **Start/stop VMs during off-hours** solution has been updated to support the newest versions of the Azure modules that are available.
+
+The solution provides a decentralized low-cost automation option for users who want to optimize their VM costs. With this solution, you can:
 
 - [Schedule VMs to start and stop](automation-solution-vm-management-config.md#schedule).
 - Schedule VMs to start and stop in ascending order by [using Azure Tags](automation-solution-vm-management-config.md#tags) (not supported for classic VMs).
 - Autostop VMs based on [low CPU usage](automation-solution-vm-management-config.md#cpuutil).
-
-> [!NOTE]
-> The **Start/stop VMs during off-hours** solution has been updated to support the newest versions of the Azure modules that are available.
 
 The following are limitations with the current solution:
 
@@ -114,7 +116,7 @@ All parent runbooks include the `WhatIf` parameter. When set to True, the parame
 The following table lists the variables created in your Automation account. Only modify variables prefixed with `External`. Modifying variables prefixed with `Internal` causes undesirable effects.
 
 > [!NOTE]
-> Limitations on VM name and resource group are largely a result of variable size.
+> Limitations on VM name and resource group are largely a result of variable size. See [Variable assets in Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/variables).
 
 |Variable | Description|
 |---------|------------|
@@ -140,7 +142,7 @@ The following table lists the variables created in your Automation account. Only
 >[!NOTE]
 >For the variable `External_WaitTimeForVMRetryInSeconds`, the default value has been updated from 600 to 2100. 
 
-Across all scenarios, the variables `External_Start_ResourceGroupNames`,  `External_Stop_ResourceGroupNames`, and `External_ExcludeVMNames` are necessary for targeting VMs, except for the comma-separated VM lists for the **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**, and **ScheduledStartStop_Parent** runbooks. That is, your VMs must belong to target resource groups for start and stop actions to occur. The logic works similar to Azure policy, in that you can target the subscription or resource group and have actions inherited by newly created VMs. This approach avoids having to maintain a separate schedule for every VM and manage starts and stops in scale.
+Across all scenarios, the variables `External_Start_ResourceGroupNames`,  `External_Stop_ResourceGroupNames`, and `External_ExcludeVMNames` are necessary for targeting VMs, except for the comma-separated VM lists for the **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**, and **ScheduledStartStop_Parent** runbooks. That is, your VMs must belong to target resource groups for start and stop actions to occur. The logic works similar to Azure Policy, in that you can target the subscription or resource group and have actions inherited by newly created VMs. This approach avoids having to maintain a separate schedule for every VM and manage starts and stops in scale.
 
 ### Schedules
 
@@ -153,8 +155,8 @@ Don't enable all schedules, because doing so might create overlapping schedule a
 |Schedule_AutoStop_CreateAlert_Parent | Every 8 hours | Runs the **AutoStop_CreateAlert_Parent** runbook every 8 hours, which in turn stops the VM-based values in `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames`, and `External_ExcludeVMNames` variables. Alternatively, you can specify a comma-separated list of VMs by using the `VMList` parameter.|
 |Scheduled_StopVM | User-defined, daily | Runs the **ScheduledStopStart_Parent** runbook with a parameter of `Stop` every day at the specified time. Automatically stops all VMs that meet the rules defined by variable assets. Enable the related schedule **Scheduled-StartVM**.|
 |Scheduled_StartVM | User-defined, daily | Runs the **ScheduledStopStart_Parent** runbook with a parameter value of `Start` every day at the specified time. Automatically starts all VMs that meet the rules defined by variable assets. Enable the related schedule **Scheduled-StopVM**.|
-|Sequenced-StopVM | 1:00 AM (UTC), every Friday | Runs the Sequenced_Parent runbook with a parameter value of `Stop` every Friday at the specified time. Sequentially (ascending) stops all VMs with a tag of **SequenceStop** defined by the appropriate variables. For more information on tag values and asset variables, see the Runbooks section. Enable the related schedule, **Sequenced-StartVM**.|
-|Sequenced-StartVM | 1:00 PM (UTC), every Monday | Runs the **SequencedStopStart_Parent** runbook with a parameter value of `Start` every Monday at the specified time. Sequentially (descending) starts all VMs with a tag of **SequenceStart** defined by the appropriate variables. For more information on tag values and variable assets, see the [Runbooks](#runbooks). Enable the related schedule, **Sequenced-StopVM**.
+|Sequenced-StopVM | 1:00 AM (UTC), every Friday | Runs the **Sequenced_StopStop_Parent** runbook with a parameter value of `Stop` every Friday at the specified time. Sequentially (ascending) stops all VMs with a tag of **SequenceStop** defined by the appropriate variables. For more information on tag values and asset variables, see [Runbooks](#runbooks). Enable the related schedule, **Sequenced-StartVM**.|
+|Sequenced-StartVM | 1:00 PM (UTC), every Monday | Runs the **SequencedStopStart_Parent** runbook with a parameter value of `Start` every Monday at the specified time. Sequentially (descending) starts all VMs with a tag of **SequenceStart** defined by the appropriate variables. For more information on tag values and variable assets, see [Runbooks](#runbooks). Enable the related schedule, **Sequenced-StopVM**.
 
 ## Use of the solution with classic VMs
 
