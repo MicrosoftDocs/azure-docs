@@ -25,7 +25,7 @@ This article describes issues that you might encounter in your Azure Time Series
 
 ## Problem: No data is shown
 
-If no data is appearing in the [Azure Time Series Insights explorer](https://insights.timeseries.azure.com), consider these common causes:
+If no data is appearing in the [Azure Time Series Insights explorer](https://insights.timeseries.azure.com), consider these common causes.
 
 ### Cause A: Event source data isn't in JSON format
 
@@ -51,7 +51,7 @@ Data will appear in your Time Series Insights explorer within a few minutes afte
 
 ## Problem: Some data is shown, but data is missing
 
-When data appears only partially and the data seems to be lagging, consider these possible issues:
+When data appears only partially and the data seems to be lagging, consider these possible issues.
 
 ### Cause A: Your environment is being throttled
 
@@ -97,7 +97,7 @@ To fix the lag:
 
 ## Problem: Data was showing previously but is no longer showing
 
-If Time Series Insights is no longer ingesting data, but events are still streaming into Iot Hub or Event Hub, consider this potential cause:
+If Time Series Insights is no longer ingesting data, but events are still streaming into Iot Hub or Event Hub, consider this potential cause.
 
 ### Cause A: Your hub access key was regenerated and your environment needs to be updated
 
@@ -129,6 +129,6 @@ The following values won't be displayed:
 
 ## Next steps
 
-- Read about [How to mitigate latency in Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
+- Read about [how to mitigate latency in Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
 
 - Learn [how to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
