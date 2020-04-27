@@ -80,7 +80,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 5. Check that everything worked by running the app. In Visual Studio Code, save all your changes, select the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) on the left side, then select the **Start Debugging** button ![Start debugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
 
-6. Now go back to your internet browser and open the Developer tools Network tab by pressing F12 on most machines. Navigate to [http://localhost:3000](http://localhost:3000) to watch the calls made over the network.
+6. Now go back to your internet browser and open the Developer tools Network tab by pressing F12 on most machines. Navigate to `http://localhost:3000` to watch the calls made over the network.
 
     ![Networking tab in Chrome that shows network activity](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
 

@@ -332,7 +332,7 @@ Leads are customers who are deploying your products from the Marketplace. Whethe
 
 **Where can I get help in setting up my lead destination?**
 
-Learn more in [Partner Center-Get Customer Leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) documentation, or submit a support ticket through [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) by selecting your offer type and lead management.
+Learn more in [Partner Center-Get Customer Leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) documentation, or submit a support ticket through [Help and support](https://partner.microsoft.com/support/v2/?stage=1) by selecting your offer type and lead management.
 
 **Am I required to configure a lead destination to publish an offer on Marketplace?**
 

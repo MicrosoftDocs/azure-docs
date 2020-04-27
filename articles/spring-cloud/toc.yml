@@ -32,6 +32,8 @@
       href: spring-cloud-tutorial-bind-redis.md
     - name: Bind an application to Azure MySQL
       href: spring-cloud-tutorial-bind-mysql.md
+    - name: Map custom DNS name to Azure Spring Cloud
+      href: spring-cloud-tutorial-custom-domain.md
     - name: Use IntelliJ to deploy Azure Spring Cloud applications
       href: spring-cloud-tutorial-intellij-deploy-apps.md
 - name: Concepts
