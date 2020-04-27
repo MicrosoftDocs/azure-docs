@@ -13,11 +13,11 @@ ms.custom: mvc
 
 # Configure Azure Active Directory authentication for an Azure Red Hat OpenShift 4 cluster using the command line
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
-
 ## Before you begin
 
-Retrieve your cluster specific URLs that are going to be used to configure the Azure Active Directory application.
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+Retrieve your cluster-specific URLs that are going to be used to configure the Azure Active Directory application.
 
 Construct the cluster's OAuth callback URL and store it in a variable **oauthCallbackURL**. Make sure to replace **aro-rg** with your resource group's name and **aro-cluster** with your cluster's name.
 
@@ -146,7 +146,7 @@ The following example output shows the password will be in `kubeadminPassword`.
 }
 ```
 
-Login to the OpenShift cluster's API server using the following command. The `$apiServer` variable was set [earlier](). Replace **\<kubeadmin password>** with the password you just retrieved.
+Log in to the OpenShift cluster's API server using the following command. The `$apiServer` variable was set [earlier](). Replace **\<kubeadmin password>** with the password you retrieved.
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>
@@ -208,8 +208,6 @@ oauth.config.openshift.io/cluster configured
 
 ## Verify login through Azure Active Directory
 
-If you now logout of the OpenShift Web Console and try to login again, you'll be presented with a new option to login with **AAD**. You may need to wait for a few minutes.
+If you now logout of the OpenShift Web Console and try to log in again, you'll be presented with a new option to log in with **AAD**. You may need to wait for a few minutes.
 
-![Login screen with Azure Active Directory option](../_img/aro4-login-2.png)
-
-## Next steps
+![Log in screen with Azure Active Directory option](../_img/aro4-login-2.png)

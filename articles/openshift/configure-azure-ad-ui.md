@@ -114,7 +114,3 @@ Scroll down to the **Claims** section and update the **Preferred Username** to u
 If you now logout of the OpenShift Web Console and try to login again, you'll be presented with a new option to login with **AAD**. You may need to wait for a few minutes.
 
 ![Login screen with Azure Active Directory option](../_img/aro4-login-2.png)
-
-## Next steps
-
-
