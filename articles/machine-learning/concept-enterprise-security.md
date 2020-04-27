@@ -380,10 +380,7 @@ Here are the details:
 
 * [Secure Azure Machine Learning web services with TLS](how-to-secure-web-service.md)
 * [Consume a Machine Learning model deployed as a web service](how-to-consume-web-service.md)
-* [How to run batch predictions](how-to-use-parallel-run-step.md)
-* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
-* [Collect data for models in production](how-to-enable-data-collection.md)
-* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Use Azure Machine Learning with Azure Firewall](how-to-access-azureml-behind-firewall.md)
 * [Use Azure Machine Learning with Azure Virtual Network](how-to-enable-virtual-network.md)
 * [Best practices for building recommendation systems](https://github.com/Microsoft/Recommenders)
 * [Build a real-time recommendation API on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)
