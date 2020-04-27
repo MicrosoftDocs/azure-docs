@@ -24,7 +24,7 @@ You can create the resource group for the Azure SQL Database ahead of time or wh
 
 To create a logical SQL server using the [Azure portal](https://portal.azure.com), create a new [logical SQL server](sql-database-servers.md) resource from the Azure Marketplace. Alternatively, you can create the logical SQL server when you deploy an Azure SQL Database. 
 
-  ![create logical SQL server](./media/sql-database-get-started-portal/create-logical-sql-server.png.png)
+  ![create logical SQL server](./media/sql-database-get-started-portal/create-logical-sql-server.png)
 
 
 ### Create a blank or sample database

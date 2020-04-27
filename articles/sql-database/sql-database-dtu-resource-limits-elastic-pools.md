@@ -22,10 +22,10 @@ This article provides the detailed resource limits for Azure SQL Databases that 
 ## Elastic pool: Storage sizes and compute sizes
 
 For Azure SQL Database elastic pools, the following tables show the resources available at each service tier and compute size. You can set the service tier, compute size, and storage amount using:
-* [Azure portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)
-* [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases)
-* [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases)
-* [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
+* [Azure portal](sql-database-elastic-pool-manage.md#azure-portal)
+* [PowerShell](sql-database-elastic-pool-manage.md#powershell)
+* [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli)
+* [REST API](sql-database-elastic-pool-manage.md#rest-api).
 
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale an elastic pool](sql-database-elastic-pool-scale.md)

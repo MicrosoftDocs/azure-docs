@@ -1,5 +1,5 @@
 ﻿---
-title: "PowerShell" Create a single database"  
+title: "PowerShell: Create a single database" 
 description: Azure PowerShell example script to create a single Azure SQL Database. 
 services: sql-database
 ms.service: sql-database
