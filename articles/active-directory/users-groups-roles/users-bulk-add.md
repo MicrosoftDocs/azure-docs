@@ -46,7 +46,7 @@ The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Req
 
 1. Open the CSV file and add a line for each user you want to create. The only required values are **Name**, **User principal name**, **Initial password** and **Block sign in (Yes/No)**. Then save the file.
 
-   ![The CSV file contains names and IDs of the users to create](./media/users-bulk-add/add-csv-file.png)
+   [![](media/users-bulk-add/add-csv-file.png "The CSV file contains names and IDs of the users to create")](media/users-bulk-add/add-csv-file.png#lightbox)
 
 1. On the **Bulk create user** page, under Upload your CSV file, browse to the file. When you select the file and click **Submit**, validation of the CSV file starts.
 1. After the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
