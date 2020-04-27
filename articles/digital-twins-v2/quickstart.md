@@ -106,7 +106,7 @@ addModels Room Floor
 
 Verify the models were created by running the `listModels` command. This will query the Azure Digital Twins instance for all models that have been uploaded. Look for the edited *Room* model in the results:
 
-:::image type="content" source="media/quickstart/output-listModels.png" alt-text="Results of listModels, showing the updated Room model":::
+:::image type="content" source="media/quickstart/output-list-models.png" alt-text="Results of listModels, showing the updated Room model":::
 
 Keep the project console window running for the following steps.
 
@@ -130,7 +130,7 @@ addTwin urn:example:Room:2 room1 DisplayName string Room1 Temperature double 80 
 
 The output from these commands should indicate the twins were created successfully. 
 
-:::image type="content" source="media/quickstart/output-addTwin.png" alt-text="Excerpt from the results of addTwin commands, showing floor0, floor1, room0, and room1":::
+:::image type="content" source="media/quickstart/output-add-twin.png" alt-text="Excerpt from the results of addTwin commands, showing floor0, floor1, room0, and room1":::
 
 You can also verify that the twins were created by running the `queryTwins` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the *floor0*, *floor1*, *room0*, and *room1* twins in the results.
 
@@ -149,7 +149,7 @@ addEdge floor1 contains room1 relationship1
 
 The output from these commands shows information about the relationships being created:
 
-:::image type="content" source="media/quickstart/output-addEdge.png" alt-text="Excerpt from the results of addEdge commands, showing relationship0 and relationship1":::
+:::image type="content" source="media/quickstart/output-add-edge.png" alt-text="Excerpt from the results of addEdge commands, showing relationship0 and relationship1":::
 
 To verify the relationships were created successfully, use either of the following commands to query the relationships in your Azure Digital Twins instance.
 * To see all relationships coming off of each floor,
