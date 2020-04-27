@@ -152,19 +152,33 @@ Hybrid connections are configured from the networking section of the function ap
 
 ## Create an app setting for the password of an administrator account
 
-1. Select the **Platform features** tab in the function app.
-1. Under **General Settings**, select **Configuration**.
-![Select Platform configuration](./media/functions-hybrid-powershell/select-configuration.png)  
-1. Expand **New application setting** to create a new setting for the password.
-1. Name the setting _ContosoUserPassword_, and enter the password.
-1. Select **OK** and then save to store the password in the function application.
-![Add app setting for password](./media/functions-hybrid-powershell/add-appsetting-password.png)  
+1. Under **Settings** for your function app, select **Configuration**. 
+1. Select **+ New application setting**.
 
-## Create a function http trigger to test
+    :::image type="content" source="./media/functions-hybrid-powershell/select-configuration.png" alt-text="Configure a password for the administrator account." border="true":::
 
-1. Create a new HTTP trigger function from the function app.
-![Create new HTTP trigger](./media/functions-hybrid-powershell/create-http-trigger-function.png)  
-1. Replace the PowerShell code from the template with the following code:
+1. Name the setting **ContosoUserPassword**, and enter the password. Select **OK**.
+1. Select **OK** and then **Save** to store the password in the function application.
+
+    :::image type="content" source="./media/functions-hybrid-powershell/save-administrator-password.png" alt-text="Save the password for the administrator account." border="true":::
+
+## Create a function http trigger
+
+1. In your function app, select **Functions**, and then select **+ Add**.
+
+    :::image type="content" source="./media/functions-hybrid-powershell/create-http-trigger-function.png" alt-text="Create new HTTP trigger." border="true":::
+
+1. Select the **HTTP trigger** template.
+
+    :::image type="content" source="./media/functions-hybrid-powershell/select-http-trigger-template.png" alt-text="Select the HTTP trigger template." border="true":::
+
+1. Name the new function and select **Create Function**.
+
+    :::image type="content" source="./media/functions-hybrid-powershell/create-new-http-function.png" alt-text="Name and create the new HTTP trigger function." border="true":::
+
+## Test the function
+
+1. In the new function, select **Code + Test**. Replace the PowerShell code from the template with the following code:
 
     ```powershell
     # Input bindings are passed in via param block.
@@ -199,8 +213,13 @@ Hybrid connections are configured from the networking section of the function ap
                    -SessionOption (New-PSSessionOption -SkipCACheck)
     ```
 
-3. Select **Save** and **Run** to test the function.
-![Test the function app](./media/functions-hybrid-powershell/test-function-hybrid.png)  
+1. Select **Save**.
+
+    :::image type="content" source="./media/functions-hybrid-powershell/save-http-function.png" alt-text="Change the PowerShell code and save the HTTP trigger function." border="true":::
+
+ 1. Select **Test**, and then select **Run** to test the function. Review the logs to verify that the test was successful.
+
+     :::image type="content" source="./media/functions-hybrid-powershell/test-function-hybrid.png" alt-text="Test HTTP trigger function." border="true":::
 
 ## Managing other systems on-premises
 
