@@ -35,7 +35,7 @@ If you already have the extension installed, you can update by running the follo
 az extension update -n aro --index https://az.aroapp.io/stable
 ```
 
-### Register the preview resource provider
+### Register the resource provider
 
 Next, you need to register the `Microsoft.RedHatOpenShift` resource provider in your subscription.
 

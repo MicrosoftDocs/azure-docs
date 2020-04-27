@@ -29,16 +29,16 @@ The `az aro` extension allows you to create, access, and delete Azure Red Hat Op
 Run the following command to install the `az aro` extension.
 
 ```azurecli-interactive
-az extension add -n aro --index https://az.aroapp.io/preview
+az extension add -n aro --index https://az.aroapp.io/stable
 ```
 
 If you already have the extension installed, you can update by running the following command.
 
 ```azurecli-interactive
-az extension update -n aro --index https://az.aroapp.io/preview
+az extension update -n aro --index https://az.aroapp.io/stable
 ```
 
-### Register the preview resource provider
+### Register the resource provider
 
 Next, you need to register the `Microsoft.RedHatOpenShift` resource provider in your subscription.
 
