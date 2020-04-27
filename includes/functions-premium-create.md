@@ -25,9 +25,9 @@ ms.custom: include file
     | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. Choose **.NET** for C# and F# functions. |
     |**Region**| Preferred region | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
 
-    ![Basics](./media/functions-premium-create/function-app-create-basics.png)
+    ![Basics page](./media/functions-premium-create/function-app-create-basics.png)
 
-1. Select **Next : Hosting**. On the **Hosting** page, enter the following settings:
+1. Select **Next: Hosting**. On the **Hosting** page, enter the following settings:
 
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
@@ -35,15 +35,15 @@ ms.custom: include file
     |**Operating system**| Preferred operating system | An operating system is pre-selected for you based on your runtime stack selection, but you can change the setting if necessary. |
     | **[Plan](../articles/azure-functions/functions-scale.md)** | Premium | Hosting plan that defines how resources are allocated to your function app. Select **Premium**, and then select the defaults for **Windows Plan** and **Sku and size**. |
 
-    ![Hosting](./media/functions-premium-create/function-app-premium-create-hosting.png)
+    ![Hosting page](./media/functions-premium-create/function-app-premium-create-hosting.png)
 
-1. Select **Next : Monitoring**. On the **Monitoring** page, enter the following settings:
+1. Select **Next: Monitoring**. On the **Monitoring** page, enter the following settings:
 
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
-    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Default | Creates an Application Insights resource of the same *App name* in the nearest supported region. By expanding this setting, you can change the **New resource name** or choose a different **Location** in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data. |
+    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Default | Creates an Application Insights resource of the same *App name* in the nearest supported region. By expanding this setting, you can change the **New resource name** or choose a different **Location** in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) to store your data. |
 
-    ![Monitoring](./media/functions-create-function-app-portal/function-app-create-monitoring.png)
+    ![Monitoring page](./media/functions-create-function-app-portal/function-app-create-monitoring.png)
 
 1. Select **Review + create** to review the app configuration selections.
 
