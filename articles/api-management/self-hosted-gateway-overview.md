@@ -44,10 +44,10 @@ The self-hosted gateway is a containerized, functionally-equivalent version of t
 The following functionality found in the managed gateways is **not available** in the self-hosted gateways:
 
 - Upstream (backend side) TLS version and cipher management
-- Validation of server and client certificates using CA root certificates uploaded to API Management service. To add support for custom CA, add a layer to the self-hosted gateway container image that installs the CA's root certificate.
+- Validation of server and client certificates using [CA root certificates](api-management-howto-ca-certificates.md) uploaded to API Management service. To add support for custom CA, add a layer to the self-hosted gateway container image that installs the CA's root certificate.
 - Integration with the [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)
 - TLS session resumption
-- Client certificate negotiation. This means that API consumers must present their certificates as part of the initial TLS handshake. To accomplish that, enable the negotiate client certificate setting when configuring a self-hosted gateway custom hostname.
+- Client certificate renegotiation. This means that for [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) to work API consumers must present their certificates as part of the initial TLS handshake. To ensure that, enable the negotiate client certificate setting when configuring a self-hosted gateway custom hostname.
 - Built-in cache. See this [document](api-management-howto-cache-external.md) to learn about using external cache in self-hosted gateways.
 
 ## Connectivity to Azure
