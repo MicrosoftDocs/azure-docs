@@ -5,6 +5,7 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
+ms.custom: has-adal-ref
 ---
 
 # Manage connections in Azure Automation
