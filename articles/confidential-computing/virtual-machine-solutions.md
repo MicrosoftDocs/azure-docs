@@ -12,7 +12,7 @@ ms.author: JenCook
 
 # Solutions on Azure virtual machines
 
-This article covers information about deploying Azure confidential computing virtual machines (VMs) running Intel processors backed by [Intel Software Extension Guard](https://software.intel.com/sgx) (Intel SGX). 
+This article covers information about deploying Azure confidential computing virtual machines (VMs) running Intel processors backed by [Intel Software Guard Extension](https://software.intel.com/sgx) (Intel SGX). 
 
 ## Azure confidential computing VM Sizes
 
