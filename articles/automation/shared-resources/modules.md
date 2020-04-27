@@ -17,7 +17,6 @@ Azure Automation allows you to import PowerShell modules to enable cmdlets in ru
 * [Azure PowerShell Az.Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0)
 * [Azure PowerShell AzureRM.Automation](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-6.13.0)
 * Internal `Orchestrator.AssetManagement.Cmdlets` module for the Log Analytics agent for Windows
-* [AzureAutomationAuthoringToolkit](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.9)
 * Other PowerShell modules
 * Custom modules that you create 
 
@@ -35,7 +34,7 @@ When Azure Automation executes runbook and DSC compilation jobs, it loads the mo
 
 The following table lists modules that Azure Automation imports by default when you create your Automation account. Automation can import newer versions of these modules. However, you can't remove the original version from your Automation account, even if you delete a newer version. Note that these default modules include several AzureRM modules. 
 
-Az.Automation modules are preferred in your runbooks and DSC configurations. However, Azure Automation doesn't import the root Az module automatically into any new or existing Automation accounts. For more about working with these modules, see [Migrating to Az modules](#migrating-to-az-modules).
+Azure Automation doesn't import the root Az module automatically into any new or existing Automation accounts. For more about working with these modules, see [Migrating to Az modules](#migrating-to-az-modules).
 
 > [!NOTE]
 > We don't recommend altering modules and runbooks in Automation accounts that contain the [Start/Stop VMs during off-hours solution in Azure Automation](../automation-solution-vm-management.md).
@@ -67,6 +66,10 @@ Az.Automation modules are preferred in your runbooks and DSC configurations. How
 | xPowerShellExecutionPolicy | 1.1.0.0 |
 | xRemoteDesktopAdmin | 1.1.0.0 |
 
+## Az module cmdlets
+
+For Az.Automation, the majority of the cmdlets have the same names as for the AzureRM modules, except that the AzureRm prefix has been changed to Az. For a list of Az modules that don't follow this naming convention, see [list of exceptions](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
+
 ## Internal cmdlets
 
 The following table defines the internal cmdlets supported by the `Orchestrator.AssetManagement.Cmdlets` module. Use these cmdlets in your runbooks and DSC configurations to interact with Azure assets within the Automation account. The cmdlets are designed to be used instead of Azure PowerShell cmdlets to retrieve secrets from encrypted variables, credentials, and encrypted connections. 
@@ -86,41 +89,47 @@ The following table defines the internal cmdlets supported by the `Orchestrator.
 
 Note that the internal cmdlets differ in naming from the Az and AzureRM cmdlets. Internal cmdlet names don't contain words like “Azure” or “Az” in the noun, but do use the word "Automation". We recommend their use over the use of Az or AzureRM cmdlets during runbook execution in an Azure sandbox or on a Windows hybrid worker. They require fewer parameters and run in the context of your already-executing job.
 
-Use Az or AzureRM cmdlets for manipulating Azure Automation resources outside the context of a runbook. In these cases, you must implicitly connect to Azure when using the cmdlets, as when using a Run As account to authenticate to Azure. 
+We recommend that you use Az or AzureRM cmdlets for manipulating Azure Automation resources outside the context of a runbook. 
 
-## Modules supporting Get-AutomationPSCredential
+## Module supporting Get-AutomationPSCredential
 
-For local development using the Azure Automation Authoring Toolkit, the `Get-AutomationPSCredential` cmdlet is part of assembly [AzureAutomationAuthoringToolkit](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.9). For Azure working with the Automation context, the cmdlet is in `Orchestrator.AssetManagement.Cmdlets`. To find out more about the use of credentials in Azure Automation, see [Credential assets in Azure Automation](credentials.md).
-
-Note that `Get-AutomationPsCredential` returns a `PSCredential` object, which is expected by most PowerShell cmdlets that work with credentials. Most often, you should use this cmdlet instead of the [Get-AzAutomationCredential](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationcredential?view=azps-3.8.0) cmdlet. `Get-AzAutomationCredential` retrieves a [CredentialInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.commands.automation.model.credentialinfo?view=azurerm-ps) object containing metadata about the credential. This information is not normally helpful to pass to another cmdlet.
+The `Get-AutomationPSCredential` cmdlet is part of the module `Orchestrator.AssetManagement.Cmdlets`. This cmdlet returns a `PSCredential` object, which is expected by most PowerShell cmdlets that work with credentials. To find out more about the use of credentials in Azure Automation, see [Credential assets in Azure Automation](credentials.md).
 
 ## Migrating to Az modules
 
-There are several things to take into consideration when using the Az modules in Azure Automation:
+### Migration considerations
 
-* We don't recommend running AzureRM modules and Az modules in the same Automation account, as it's guaranteed to cause problems. See [Migrate Azure PowerShell from AzureRM to Az](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.7.0). 
+This section includes considerations to take into account when migrating to the Az modules in Azure Automation. See also [Migrate Azure PowerShell from AzureRM to Az](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.7.0). 
 
-* Be sure to test all runbooks and DSC configurations carefully in a separate Automation account before importing the Az modules. 
+#### Use of AzureRM modules and Az modules in the same Automation account
 
-* Importing an Az module into your Automation account doesn't automatically import the module into the PowerShell session that runbooks use. Modules are imported into the PowerShell session in the following situations:
+ We don't recommend running AzureRM modules and Az modules in the same Automation account. When you're sure you want to migrate from AzureRM to Az, it's best to fully commit to a complete migration. The most important reason for this is that Azure Automation often reuses sandboxes within the Automation account to save on startup times. If you don't make a full module migration, you might start a job using only AzureRM modules, then start another job using only Az modules. The sandbox soon crashes and you receive a fatal error stating that the modules aren’t compatible. This situation results in randomly occurring crashes for any given runbook or configuration. 
 
-    * When a runbook invokes a cmdlet from a module
-    * When a runbook imports the module explicitly with the [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-7) cmdlet
-    * When a runbook imports another dependent module
+#### Import of Az modules into the PowerShell session
 
-After you've completed the migration of your modules, don't try to start runbooks using AzureRM modules on the Automation account. It's also recommended to not import or update AzureRM modules on the account. Consider the account migrated to Az.Automation, and operate with Az modules only.
+Importing an Az module into your Automation account doesn't automatically import the module into the PowerShell session that runbooks use. Modules are imported into the PowerShell session in the following situations:
 
->[!IMPORTANT]
->When you create a new Automation account, Azure Automation installs the AzureRM modules by default. You can still update the tutorial runbooks with AzureRM cmdlets. However, you should not run these runbooks.
+* When a runbook invokes a cmdlet from a module
+* When a runbook imports the module explicitly with the [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-7) cmdlet
+* When a runbook imports another dependent module
+    
+#### Testing for your runbooks and DSC configurations prior to module migration
+
+Be sure to test all runbooks and DSC configurations carefully in a separate Automation account before migrating to the Az modules. 
+
+#### Updates for tutorial runbooks 
+
+When you create a new Automation account, even after migration to Az modules, Azure Automation installs the AzureRM modules by default. You can still update the tutorial runbooks with the AzureRM cmdlets. However, you shouldn't run these runbooks.
 
 ### Stop and unschedule all runbooks that use AzureRM modules
 
-To ensure that you don't run any existing runbooks that use AzureRM modules, stop and unschedule all affected runbooks using the [Remove-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationschedule?view=azurermps-6.13.0) cmdlet. It's important to review each schedule separately to ensure that you can reschedule it in the future for your runbooks, if necessary.
+To ensure that you don't run any existing runbooks or DSC configurations that use AzureRM modules, you must stop and unschedule all affected runbooks and configurations. First, make sure that you review each runbook or DSC configuration and its schedules separately to ensure that you can reschedule the item in the future if necessary. 
 
-```powershell
-Get-AzureRmAutomationSchedule -AutomationAccountName "Contoso17" -Name "DailySchedule08" -ResourceGroupName "ResourceGroup01" 
-Remove-AzureRmAutomationSchedule -AutomationAccountName "Contoso17" -Name "DailySchedule08" -ResourceGroupName "ResourceGroup01"
-```
+When you're ready to remove your schedules, you can either use the Azure portal or the [Remove-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationschedule?view=azurermps-6.13.0) cmdlet. See [Removing a schedule](schedules.md#removing-a-schedule).
+
+### Remove the AzureRM modules
+
+It's possible to remove the AzureRM modules before importing the Az modules. However, deletion of the AzureRM modules can interrupt source control synchronization and cause any scripts that are still scheduled to fail. If you decide to remove the modules, see [Uninstall AzureRM](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.8.0#uninstall-azurerm).
 
 ### Import the Az modules
 
@@ -139,17 +148,11 @@ This import process can also be done through the [PowerShell Gallery](https://ww
 
 ### Test your runbooks
 
-Once you've imported the Az modules into the Automation account, you can start editing your runbooks to use the new modules. The majority of the cmdlets have the same names as for the AzureRM modules, except that the AzureRm prefix has been changed to Az. For a list of modules that don't follow this naming convention, see [list of exceptions](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
-
-One way to test the modification of a runbook to use the new cmdlets is by using `Enable-AzureRmAlias -Scope Process` at the beginning of the runbook. By adding this command to your runbook, the script can run without changes. 
+Once you've imported the Az modules into the Automation account, you can start editing your runbooks and DSC configurations to use the new modules. One way to test the modification of a runbook to use the new cmdlets is by using `Enable-AzureRmAlias -Scope Process` at the beginning of the runbook. By adding this command to your runbook, the script can run without changes. 
 
 ## Authoring modules
 
 We recommend that you follow the considerations in this section when you author a PowerShell module for use in Azure Automation.
-
-### References to AzureRM and Az
-
-If referencing the Az modules in your module, ensure that you aren't also referencing the AzureRM modules. You can't use both sets of modules at the same time. 
 
 ### Version folder
 
