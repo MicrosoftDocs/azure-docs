@@ -110,7 +110,6 @@ Recovery points on DPM/MABS disk | 64 for file servers, and 448 for app servers.
 **Restore** | **Supported**
 --- | ---
 Restoring files across operating systems | You can restore files on any machine that has the same (or compatible) OS as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#system-requirements).
-Restoring files on classic VMs | Not supported.
 Restoring files from encrypted VMs | Not supported.
 Restoring files from network-restricted storage accounts | Not supported.
 Restoring files on VMs using Windows Storage Spaces | Restore not supported on same VM.<br/><br/> Instead, restore the files on a compatible VM.

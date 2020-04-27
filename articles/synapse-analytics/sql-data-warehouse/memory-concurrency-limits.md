@@ -1,12 +1,12 @@
 ---
 title: Memory and concurrency limits
 description: View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure Synapse Analytics.
-services: sql-data-warehouse
+services: synapse-analytics
 author: ronortloff
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: workload-management
+ms.subservice: 
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
@@ -15,9 +15,11 @@ ms.custom: azure-synapse
 
 
 # Memory and concurrency limits for Azure Synapse Analytics
+
 View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure Synapse Analytics.  
 
 ## Data warehouse capacity settings
+
 The following tables show the maximum capacity for the data warehouse at different performance levels. To change the performance level, see [Scale compute - portal](quickstart-scale-compute-portal.md).
 
 ### Service Levels
@@ -46,7 +48,8 @@ The service levels range from DW100c to DW30000c.
 The maximum service level is DW30000c, which has 60 Compute nodes and one distribution per Compute node. For example, a 600 TB data warehouse at DW30000c processes approximately 10 TB per Compute node.
 
 ## Concurrency maximums for workload groups
-With the introduction of [workload groups](sql-data-warehouse-workload-isolation.md), the concept of concurrency slots no longer applies.  Resources per request are allocated on a percentage basis and specified in the workload group definition.  However, even with the removal of concurrency slots, there are minimum amounts of resources needed per queries based on the service level.  The below table defined the minimum amount of resources needed per query across service levels and the associated concurrency that can be achieved. 
+
+With the introduction of [workload groups](sql-data-warehouse-workload-isolation.md), the concept of concurrency slots no longer applies.  Resources per request are allocated on a percentage basis and specified in the workload group definition.  However, even with the removal of concurrency slots, there are minimum amounts of resources needed per queries based on the service level.  The below table defined the minimum amount of resources needed per query across service levels and the associated concurrency that can be achieved.
 
 |Service Level|Maximum concurrent queries|Min % supported for REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
@@ -69,7 +72,8 @@ With the introduction of [workload groups](sql-data-warehouse-workload-isolation
 ||||
 
 ## Concurrency maximums for resource classes
-To ensure each query has enough resources to execute efficiently, SQL Analytics in Azure Synapse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue based on importance and concurrency slots. Queries wait in the queue until enough concurrency slots are available. [Importance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) and concurrency slots determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
+
+To ensure each query has enough resources to execute efficiently, SQL Analytics in Azure Synapse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue based on importance and concurrency slots. Queries wait in the queue until enough concurrency slots are available. [Importance](sql-data-warehouse-workload-importance.md) and concurrency slots determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
 
 **Static resource classes**
 
@@ -117,11 +121,11 @@ The following table shows the maximum concurrent queries and concurrency slots f
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-
-When there are not enough concurrency slots free to start query execution, queries are queued and executed based on importance.  If there is equivalent importance, queries are executed on a first-in, first-out basis.  As a queries finishes and the number of queries and slots fall below the limits, SQL Data Warehouse releases queued queries. 
+When there are not enough concurrency slots free to start query execution, queries are queued and executed based on importance.  If there is equivalent importance, queries are executed on a first-in, first-out basis.  As a queries finishes and the number of queries and slots fall below the limits, SQL Data Warehouse releases queued queries.
 
 ## Next steps
 
 To learn more about how to leverage resource classes to optimize your workload further please review the following articles:
+
 * [Resource classes for workload management](resource-classes-for-workload-management.md)
 * [Analyzing your workload](analyze-your-workload.md)

@@ -4,7 +4,7 @@ description: Roles to delegate for identity tasks in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
@@ -73,9 +73,9 @@ Configure company properties | Global Administrator |
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Passthrough authentication | Global Administrator | 
-Read all configuration | Global reader | 
-Seamless single sign-on | Global Administrator | 
+Passthrough authentication | Hybrid Identity Administrator | 
+Read all configuration | Global reader | Hybrid Identity Administrator |
+Seamless single sign-on | Hybrid Identity Administrator | 
 
 ## Connect Health
 

@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 04/17/2020
 ---
 
 # Use the Apache Beeline client with Apache Hive
@@ -35,7 +35,7 @@ When connecting from a client to HDInsight over an Azure Virtual Network, you mu
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 ```
 
-Replace `<headnode-FQDN>` with the fully qualified domain name of a cluster headnode. To find the fully qualified domain name of a headnode, use the information in the [Manage HDInsight using the Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) document.
+Replace `<headnode-FQDN>` with the fully qualified domain name of a cluster headnode. To find the fully qualified domain name of a headnode, use the information in the [Manage HDInsight using the Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes) document.
 
 ---
 
@@ -60,7 +60,7 @@ To find the JDBC URL from Ambari:
 
 ### Over public or private endpoints
 
-When connecting to a cluster using the public or private endpoints, you must provide the cluster login account name (default `admin`) and password. For example, using Beeline from a client system to connect to the `clustername.azurehdinsight.net` address. This connection is made over port `443`, and is encrypted using SSL.
+When connecting to a cluster using the public or private endpoints, you must provide the cluster login account name (default `admin`) and password. For example, using Beeline from a client system to connect to the `clustername.azurehdinsight.net` address. This connection is made over port `443`, and is encrypted using TLS/SSL.
 
 Replace `clustername` with the name of your HDInsight cluster. Replace `admin` with the cluster login account for your cluster. For ESP clusters, use the full UPN (for example, user@domain.com). Replace `password` with the password for the cluster login account.
 
@@ -80,11 +80,11 @@ Private endpoints point to a basic load balancer, which can only be accessed fro
 
 ### Use Beeline with Apache Spark
 
-Apache Spark provides its own implementation of HiveServer2, which is sometimes referred to as the Spark Thrift server. This service uses Spark SQL to resolve queries instead of Hive, and may provide better performance depending on your query.
+Apache Spark provides its own implementation of HiveServer2, which is sometimes referred to as the Spark Thrift server. This service uses Spark SQL to resolve queries instead of Hive. And may provide better performance depending on your query.
 
 #### Through public or private endpoints
 
-The connection string used  is slightly different. Instead of containing `httpPath=/hive2` it's `httpPath/sparkhive2`. Replace `clustername` with the name of your HDInsight cluster. Replace `admin` with the cluster login account for your cluster. For ESP clusters, use the full UPN (for example, user@domain.com). Replace `password` with the password for the cluster login account.
+The connection string used  is slightly different. Instead of containing `httpPath=/hive2` it uses `httpPath/sparkhive2`. Replace `clustername` with the name of your HDInsight cluster. Replace `admin` with the cluster login account for your cluster. For ESP clusters, use the full UPN (for example, user@domain.com). Replace `password` with the password for the cluster login account.
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p 'password'
@@ -114,7 +114,7 @@ When connecting directly from the cluster head node, or from a resource inside t
 
 * A Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* Notice the [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your cluster's primary storage. For example,  `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2, or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI is `wasbs://`. For more information, see [secure transfer](../../storage/common/storage-require-secure-transfer.md).
+* Notice the URI scheme for your cluster's primary storage. For example,  `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2, or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI is `wasbs://`. For more information, see [secure transfer](../../storage/common/storage-require-secure-transfer.md).
 
 * Option 1: An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). Most of the steps in this document assume that you're using Beeline from an SSH session to the cluster.
 
@@ -173,7 +173,7 @@ This example is based on using the Beeline client from an SSH connection.
 
     This information describes the columns in the table.
 
-5. Enter the following statements to create a table named **log4jLogs** by using sample data provided with the HDInsight cluster: (Revise as needed based on your [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme).)
+5. Enter the following statements to create a table named **log4jLogs** by using sample data provided with the HDInsight cluster: (Revise as needed based on your URI scheme.)
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -240,7 +240,7 @@ This example is based on using the Beeline client from an SSH connection.
 
 ## Run a HiveQL file
 
-This is a continuation from the prior example. Use the following steps to create a file, then run it using Beeline.
+This example is a continuation from the prior example. Use the following steps to create a file, then run it using Beeline.
 
 1. Use the following command to create a file named **query.hql**:
 
@@ -296,7 +296,7 @@ This is a continuation from the prior example. Use the following steps to create
 
 ## Install beeline client
 
-Although Beeline is included on the head nodes of your HDInsight cluster, you may want to install it on a local machine.  The steps below to install Beeline on a local machine are based on a [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10).
+Although Beeline is included on the head nodes, you may want to install it locally.  The install steps for a local machine are based on a [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10).
 
 1. Update package lists. Enter the following command in your bash shell:
 
@@ -312,7 +312,7 @@ Although Beeline is included on the head nodes of your HDInsight cluster, you ma
         sudo apt install openjdk-11-jre-headless
         ```
 
-    1. Open the bashrc file (usually found in ~/.bashrc): `nano ~/.bashrc`.
+    1. Open the bashrc file (often found in ~/.bashrc): `nano ~/.bashrc`.
 
     1. Amend the bashrc file. Add the following line at the end of the file:
 

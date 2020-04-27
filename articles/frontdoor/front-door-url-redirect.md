@@ -35,13 +35,13 @@ You can set the protocol that will be used for redirection. This allows for one 
 - **Match request**: This option retains the protocol used by the incoming request. So, an HTTP request remains HTTP and an HTTPS request remains HTTPS post redirection.
 
 ## Destination host
-As part of configuring a redirect routing, you can also change the hostname or domain for the redirect request. You can set this field to change the hostname in the URL for the redirection or otherwise preserve the hostname from the incoming request. So, using this field you can redirect all requests sent on https://www.contoso.com/* to https://www.fabrikam.com/*.
+As part of configuring a redirect routing, you can also change the hostname or domain for the redirect request. You can set this field to change the hostname in the URL for the redirection or otherwise preserve the hostname from the incoming request. So, using this field you can redirect all requests sent on `https://www.contoso.com/*` to `https://www.fabrikam.com/*`.
 
 ## Destination path
-For cases where you want to replace the path segment of a URL as part of redirection, you can set this field with the new path value. Otherwise, you can choose to preserve the path value as part of redirect. So, using this field, you can redirect all requests sent to https://www.contoso.com/* to  https://www.contoso.com/redirected-site.
+For cases where you want to replace the path segment of a URL as part of redirection, you can set this field with the new path value. Otherwise, you can choose to preserve the path value as part of redirect. So, using this field, you can redirect all requests sent to `https://www.contoso.com/\*` to  `https://www.contoso.com/redirected-site`.
 
 ## Query string parameters
-You can also replace the query string parameters in the redirected URL. In order to replace any existing query string from the incoming request URL, set this field to 'Replace' and then set the appropriate value. Otherwise, you can retain the original set of query strings by setting the field to 'Preserve'. As an example, using this field, you can redirect all traffic sent to https://www.contoso.com/foo/bar to https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F. 
+You can also replace the query string parameters in the redirected URL. In order to replace any existing query string from the incoming request URL, set this field to 'Replace' and then set the appropriate value. Otherwise, you can retain the original set of query strings by setting the field to 'Preserve'. As an example, using this field, you can redirect all traffic sent to `https://www.contoso.com/foo/bar` to `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F`. 
 
 ## Destination fragment
 The destination fragment is the portion of URL after '#', normally used by browsers to land on a specific section on a page. You can set this field to add a fragment to the redirect URL.

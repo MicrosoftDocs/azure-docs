@@ -1,12 +1,12 @@
 ---
 title: Analyze data with Azure Machine Learning 
 description: Use Azure Machine Learning to build a predictive machine learning model based on data stored in Azure Synapse.
-services: sql-data-warehouse
+services: synapse-analytics
 author: mlee3gsd 
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: integration
+ms.subservice: 
 ms.date: 02/05/2020
 ms.author: martinle
 ms.reviewer: igorstan
@@ -19,7 +19,7 @@ tag: azure-Synapse
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [sqlcmd](../sql/get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 

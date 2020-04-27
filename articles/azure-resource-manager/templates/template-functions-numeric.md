@@ -4,9 +4,9 @@ description: Describes the functions to use in an Azure Resource Manager templat
 ms.topic: conceptual
 ms.date: 11/08/2017
 ---
-# Numeric functions for Azure Resource Manager templates
+# Numeric functions for ARM templates
 
-Resource Manager provides the following functions for working with integers:
+Resource Manager provides the following functions for working with integers in your Azure Resource Manager (ARM) template:
 
 * [add](#add)
 * [copyIndex](#copyindex)

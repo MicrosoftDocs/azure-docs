@@ -1,5 +1,6 @@
 ---
-title: Limitations for Windows Server node pools in Azure Kubernetes Service (AKS)
+title: Windows Server node pools limitations
+titleSuffix: Azure Kubernetes Service
 description: Learn about the known limitations when you run Windows Server node pools and application workloads in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
@@ -50,7 +51,7 @@ AKS clusters with Windows node pools must use the Azure CNI (advanced) networkin
 
 ## Can I change the max. # of pods per node?
 
-It is currently a requirement to be set to a maximum of 30 pods to ensure the reliability of your clusters.
+Yes. For the implications and options that are available, see [Maximum number of pods][maximum-number-of-pods].
 
 ## How do patch my Windows nodes?
 
@@ -118,3 +119,4 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [preview-support]: support-policies.md#preview-features-or-feature-flags
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
+[maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node

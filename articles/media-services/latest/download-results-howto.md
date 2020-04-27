@@ -20,6 +20,10 @@ In Azure Media Services, when processing your videos (for example, encoding or a
 
 This article demonstrates how to download the results using Java and .NET SDKs.
 
+## Prerequisites 
+
+Review [manage assets](manage-asset-concept.md).
+
 ## Java
 
 ```java

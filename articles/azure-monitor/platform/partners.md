@@ -45,7 +45,7 @@ You can create JIRA tickets on Azure Monitor alerts.
 
 ![Circonus Logo](./media/partners/circonus.png)
 
-Circonus is a microservices monitoring and analytics platform built for on premises or SaaS deployment. It is fully automatable API-Centric platform is more scalable and reliable than systems it monitors. Developed for the requirements of DevOps, Circonus delivers percentile-based alerts, graphs, dashboards, and machine-learning intelligence that enable business optimization. Circonus monitors your Microsoft Azure cloud resources and their applications in real time. You can use Circonus to collect and track metrics for the variables you want to measure for your resources and applications. With Circonus, you gain system-wide visibility into Azure's resource utilization, application performance, and operational health.
+Circonus is the machine data intelligence expert, providing the only machine data intelligence platform capable of handling billions of metric streams in real time to drive unprecedented business insight and value. Use Circonus to collect, track, and visualize key metrics related to your Microsoft Azure setup. Gain system-wide visibility into Azure’s resource utilization, application performance, and operational health.
 
 [Go to the documentation.][circonus-doc]
 
@@ -200,6 +200,14 @@ ScienceLogic delivers the next generation IT service assurance platform for mana
 Serverless360 is a one platform tool to operate, manage, and monitor Azure serverless components. Manageability is one of the key challenges with serverless implementations. Hundreds of small, discrete serverless services are scattered in various places – managing and operating such solutions is complex. Serverless360 solves these challenges with rich set of sophisticated tools. It can monitor serverless services like Azure Functions, Logic Apps, Event Grids, Service Bus Queues, Topics, Relays, Event Hubs, Storage queues, files, blob, and tables. Serverless360 is available in the Azure Marketplace. These capabilities are available on both SaaS and private hosting (hosted on your own environment).  
 
 [Learn more.][serverless360-doc]
+
+## ServiceNow
+
+![ServiceNow Logo](./media/partners/servicenow.png)
+
+Reduce incidents and MTTR with NOW AIOps platform to eliminate noise, prioritize, identify root cause detection using ML, and remediate with ITX workflows.  Understand the current state of your Iaas/PaaS/FaaS services from Azure and build service maps from tags to build application service context for the business impact analysis.    
+
+[Learn more.](https://www.servicenow.com/solutions/aiops.html)
 
 ## SignalFx
 

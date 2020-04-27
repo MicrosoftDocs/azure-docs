@@ -1,14 +1,9 @@
 ---
 title: Overview of Linux VMs in Azure 
 description: Overview of Linux virtual machines in Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines-linux
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines-linux
-
 ms.topic: overview
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
@@ -100,12 +95,6 @@ To achieve a proper DevOps culture, all infrastructure must be code.  When all t
 Azure supports for [cloud-init](https://cloud-init.io/) across most Linux Distros that support it.  We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. These images will make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets.
 
 * [Using cloud-init on Azure Linux VMs](using-cloud-init.md)
-
-## Quotas
-Each Azure Subscription has default quota limits in place that could impact the deployment of a large number of VMs for your project. The current limit on a per subscription basis is 20 VMs per region.  Quota limits can be raised quickly and easily by filing a support ticket requesting a limit increase.  For more details on quota limits:
-
-* [Azure Subscription Service Limits](../../azure-resource-manager/management/azure-subscription-service-limits.md)
-
 
 ## Storage
 * [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)

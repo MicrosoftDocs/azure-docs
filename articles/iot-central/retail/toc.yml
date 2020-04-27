@@ -3,46 +3,46 @@
 - name: Overview
   items:
     - name: Building retail solutions with Azure IoT Central
-      href: overview-iot-central-retail-pnp.md
+      href: overview-iot-central-retail.md
 - name: Tutorials
   items:
   - name : In-store analytics checkout
     items:
     - name: 1- Create a retail application
-      href: tutorial-in-store-analytics-create-app-pnp.md
+      href: tutorial-in-store-analytics-create-app.md
     - name: 2 - Customize the operator dashboard
-      href: tutorial-in-store-analytics-customize-dashboard-pnp.md
+      href: tutorial-in-store-analytics-customize-dashboard.md
     - name: 3 - Export data and visualize insights
-      href: tutorial-in-store-analytics-export-data-visualize-insights-pnp.md
+      href: tutorial-in-store-analytics-export-data-visualize-insights.md
   - name : Smart inventory management
     items:
     - name: Create a smart inventory management application
-      href: tutorial-iot-central-smart-inventory-management-pnp.md
+      href: tutorial-iot-central-smart-inventory-management.md
   - name : Connected logistics
     items:    
     - name: Create a connected logistics application
-      href: tutorial-iot-central-connected-logistics-pnp.md
+      href: tutorial-iot-central-connected-logistics.md
   - name : Digital distribution center
     items:    
     - name: Create a digital distribution center application
-      href: tutorial-iot-central-digital-distribution-center-pnp.md 
+      href: tutorial-iot-central-digital-distribution-center.md 
   - name : Micro-fulfillment center 
     items:    
     - name: Create a micro-fulfillment  center application
-      href: tutorial-micro-fulfillment-center-pnp.md 
+      href: tutorial-micro-fulfillment-center.md 
         
 - name: Concepts
   items:
     - name: Connected logistics app template architecture
-      href: architecture-connected-logistics-pnp.md
+      href: architecture-connected-logistics.md
     - name: Digital distribution center app template architecture
-      href: architecture-digital-distribution-center-pnp.md 
+      href: architecture-digital-distribution-center.md 
     - name: Smart inventory management app template architecture
-      href: architecture-smart-inventory-management-pnp.md 
+      href: architecture-smart-inventory-management.md 
     - name: Store analytics architecture
       href: store-analytics-architecture.md 
     - name: Micro-fulfillment center app template architecture
-      href: architecture-micro-fulfillment-center-pnp.md
+      href: architecture-micro-fulfillment-center.md
     - name: Connectivity
       href: ../core/concepts-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: What are application templates?
@@ -130,7 +130,7 @@
       - name: IoT solution accelerators
         href: /azure/iot-accelerators
       - name: IoT Plug and Play
-        href: /azure/iot-pnp
+        href: /azure/iot
       - name: Azure Maps
         href: /azure/azure-maps
       - name: Time Series Insights

@@ -31,6 +31,8 @@
       href: concept-fundamentals-block-legacy-authentication.md
     - name: Identity secure score
       href: identity-secure-score.md 
+    - name: Continuous access evaluation
+      href: concept-fundamentals-continuous-access-evaluation.md
   - name: Groups and users
     items:
     - name: Groups and access management
@@ -49,7 +51,7 @@
     href: active-directory-deployment-checklist-p2.md
   - name: Data storage
     items:
-    - name: Identity data storage for the EU
+    - name: Identity data storage for Europe
       href: active-directory-data-storage-eu.md
     - name: Identity data storage for Australia and New Zealand
       href: active-directory-data-storage-australia-newzealand.md

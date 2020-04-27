@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 04/14/2020
 ms.author: pafarley
 
 ---
@@ -22,66 +22,46 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 ## March 2020 
 
+### New features
+
+* **Value types for labeling** You can now specify the types of values you're labeling with the Form Recognizer sample labeling tool. The following value types and variations are currently supported:
+  * `string`
+    * default, `no-whitespaces`, `alphanumeric`
+  * `number`
+    * default, `currency`
+  * `date` 
+    * default, `dmy`, `mdy`, `ymd`
+  * `time`
+  * `integer`
+
+  See the [Sample labeling tool](./quickstarts/label-tool.md#specify-tag-value-types) guide to learn how to use this feature.
+
+
+* **Table visualization** The sample labeling tool now displays tables that were recognized in the document. This lets you view the tables that have been recognized and extracted from the document, prior to labeling and analyzing. This feature can be toggled on/off using the layers option.
+
+  This is an example of how tables are recognized and extracted:
+
+  > [!div class="mx-imgBorder"]
+  > ![Table visualization using the sample labeling tool](./media/whats-new/formre-table-viz.png)
+
+    The extracted tables are available in the JSON output under `"pageResults"`.
+
+  > [!IMPORTANT]
+  > Labeling tables isn't supported. If tables are not recognized and extrated automatically, you can only label them as key/value pairs. When labeling tables as key/value pairs, label each cell as a unique value.
+
+### Extraction enhancements
+
+This release includes extraction enhancements and accuracy improvements, specifically, the capability to label and extract multiple key/value pairs in the same line of text. 
+ 
+### Sample labeling tool is now open-source
+
+The Form Recognizer sample labeling tool is now available as an open-source project. You can integrate it within your solutions and make customer-specific changes to meet your needs.
+
+For more information about the Form Recognizer sample labeling tool, review the documentation available on [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
+
 ### TLS 1.2 enforcement
 
-* TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../cognitive-services-security.md).
-
-### Extraction Enhancements and bug fixes
-
-This release includes extraction enhancements and accuracy improvements, specifically, the capability to label and extract multiple key/value pairs in the same line of text. In addition, we've fixed several bugs, including a fix that allows users to submit a file URL as the source to the [`analyzeForm`](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) and [`analyzeLayout`](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync) APIs. 
-
-
-**Enhancements**
-
-* Added additional logs and telemetry for storage manager, time-to-results, and document complexity 
-* Improved model performance
-* Integrated latest pdfminer release
-* Integrated new read layout OCR engine
-
-**Bug fixes**
-
-* Bug fix: Public version is no longer hard coded into the route
-* Bug fix: Slow blob listings no longer block training 
-* Bug fix: Kestrel unable to process malformed JSON for Analyze requests
-* Bug fix: Get/Delete APIs return errors for non-existent models
-* Bug fix: Isolate currency characters not detected
-* Bug fix: Prediction takes longer than 60 seconds
-* Bug fix: Unable to extract key/value pairs. List index out of range. 
- 
-### Form Recognizer Sample Labeling Tool is now open-source
-
-The Form Recognizer Sample Labeling Tool is now available as an open-source project. You can integrate it within your solutions and make customer-specific changes to meet your needs.
-
-For more information about the Form Recognizer Sample Labeling Tool, review the documentation available on [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
-
-### Labeling value types
-
-Value types are now available for use with the Form Recognizer Sample Labeling Tool. These value types are currently supported: 
-
-* String
-* Number 
-* Integer
-* Date 
-* Time
-
-This image shows what value type selection looks like within the Form Recognizer Sample Labeling Tool:
-
-> [!div class="mx-imgBorder"]
-> ![Value type selection with sample labeling tool](./media/whats-new/formre-value-type.png)
-
-The extracted table are available in the JSON output in `pageResults`.
-
-### Table visualization 
-
-The Form Recognizer Labeling Tool now displays tables that were recognized in the document. This lets you view the tables that have been recognized and extracted from the document, prior to labeling and analyzing with the Form Recognizer Sample Labeling Tool. This feature can be toggled on/off using the layers option. 
-
-This is an example of how tables are recognized and extracted:
-
-> [!div class="mx-imgBorder"]
-> ![Table visualization using the sample labeling tool](./media/whats-new/formre-table-viz.png)
-
-> [!IMPORTANT]
-> Labeling tables isn't supported. If tables are not recognized and extrated automatically, you can only label them as key/value pairs. When labeling tables as key/value pairs, please label each cell as a value.
+TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../cognitive-services-security.md).
 
 ## January 2020
 

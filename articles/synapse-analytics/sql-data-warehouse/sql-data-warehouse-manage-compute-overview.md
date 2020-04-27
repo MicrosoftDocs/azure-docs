@@ -1,12 +1,12 @@
 ---
 title: Manage compute resource for SQL pool
 description: Learn about performance scale out capabilities in an Azure Synapse Analytics SQL pool. Scale out by adjusting DWUs, or lower costs by pausing the data warehouse.
-services: sql-data-warehouse
+services: synapse-analytics
 author: ronortloff
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: 
 ms.date: 11/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
@@ -15,21 +15,21 @@ ms.custom: seo-lt-2019, azure-synapse
 
 # Manage compute in Azure Synapse Analytics data warehouse
 
-Learn about managing compute resources in Azure Synapse Analytics SQL pool. Lower costs by pausing the SQL pool, or scale the data warehouse to meet performance demands. 
+Learn about managing compute resources in Azure Synapse Analytics SQL pool. Lower costs by pausing the SQL pool, or scale the data warehouse to meet performance demands.
 
 ## What is compute management?
 
-The architecture of data warehouse separates storage and compute, allowing each to scale independently. As a result, you can scale compute to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural consequence of this architecture is that [billing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) for compute and storage is separate. If you don't need to use your data warehouse for a while, you can save compute costs by pausing compute. 
+The architecture of data warehouse separates storage and compute, allowing each to scale independently. As a result, you can scale compute to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural consequence of this architecture is that [billing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) for compute and storage is separate. If you don't need to use your data warehouse for a while, you can save compute costs by pausing compute.
 
 ## Scaling compute
 
-You can scale out or scale back compute by adjusting the [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) setting for your SQL pool. Loading and query performance can increase linearly as you add more data warehouse units. 
+You can scale out or scale back compute by adjusting the [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md) setting for your SQL pool. Loading and query performance can increase linearly as you add more data warehouse units.
 
 For scale-out steps, see the [Azure portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), or [T-SQL](quickstart-scale-compute-tsql.md) quickstarts. You can also perform scale-out operations with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 To perform a scale operation, SQL pool first kills all incoming queries and then rolls back transactions to ensure a consistent state. Scaling only occurs once the transaction rollback is complete. For a scale operation, the system detaches the storage layer from the compute nodes, adds compute nodes, and then reattaches the storage layer to the Compute layer. Each SQL pool is stored as 60 distributions, which are evenly distributed to the compute nodes. Adding more compute nodes adds more compute power. As the number of compute nodes increases, the number of distributions per compute node decreases, providing more compute power for your queries. Likewise, decreasing data warehouse units reduces the number of compute nodes, which reduces the compute resources for queries.
 
-The following table shows how the number of distributions per Compute node changes as the data warehouse units change.  DW30000c provides 60 Compute nodes and achieves much higher query performance than DW100c. 
+The following table shows how the number of distributions per Compute node changes as the data warehouse units change.  DW30000c provides 60 Compute nodes and achieves much higher query performance than DW100c.
 
 | Data warehouse units  | \# of compute nodes | \# of distributions per node |
 | -------- | ---------------- | -------------------------- |
@@ -50,16 +50,15 @@ The following table shows how the number of distributions per Compute node chang
 | DW15000c | 30               | 2                          |
 | DW30000c | 60               | 1                          |
 
-
 ## Finding the right size of data warehouse units
 
-To see the performance benefits of scaling out, especially for larger data warehouse units, you want to use at least a 1-TB data set. To find the best number of data warehouse units for your SQL pool, try scaling up and down. Run a few queries with different numbers of data warehouse units after loading your data. Since scaling is quick, you can try various performance levels in an hour or less. 
+To see the performance benefits of scaling out, especially for larger data warehouse units, you want to use at least a 1-TB data set. To find the best number of data warehouse units for your SQL pool, try scaling up and down. Run a few queries with different numbers of data warehouse units after loading your data. Since scaling is quick, you can try various performance levels in an hour or less.
 
 Recommendations for finding the best number of data warehouse units:
 
 - For a SQL pool in development, begin by selecting a smaller number of data warehouse units.  A good starting point is DW400c or DW200c.
 - Monitor your application performance, observing the number of data warehouse units selected compared to the performance you observe.
-- Assume a linear scale, and determine how much you need to increase or decrease the data warehouse units. 
+- Assume a linear scale, and determine how much you need to increase or decrease the data warehouse units.
 - Continue making adjustments until you reach an optimum performance level for your business requirements.
 
 ## When to scale out
@@ -73,30 +72,30 @@ Scaling out data warehouse units impacts these aspects of performance:
 Recommendations for when to scale out data warehouse units:
 
 - Before you perform a heavy data loading or transformation operation, scale out to make the data available more quickly.
-- During peak business hours, scale out to accommodate larger numbers of concurrent queries. 
+- During peak business hours, scale out to accommodate larger numbers of concurrent queries.
 
 ## What if scaling out does not improve performance?
 
-Adding data warehouse units increasing the parallelism. If the work is evenly split between the Compute nodes, the additional parallelism improves query performance. If scaling out is not changing your performance, there are some reasons why this might happen. Your data might be skewed across the distributions, or queries might be introducing a large amount of data movement. To investigate query performance issues, see [Performance troubleshooting](sql-data-warehouse-troubleshoot.md#performance). 
+Adding data warehouse units increasing the parallelism. If the work is evenly split between the Compute nodes, the additional parallelism improves query performance. If scaling out is not changing your performance, there are some reasons why this might happen. Your data might be skewed across the distributions, or queries might be introducing a large amount of data movement. To investigate query performance issues, see [Performance troubleshooting](sql-data-warehouse-troubleshoot.md#performance).
 
 ## Pausing and resuming compute
 
-Pausing compute causes the storage layer to detach from the Compute nodes. The compute resources are released from your account. You are not charged for compute while compute is paused. Resuming compute reattaches storage to the Compute nodes, and resumes charges for Compute. 
+Pausing compute causes the storage layer to detach from the Compute nodes. The compute resources are released from your account. You are not charged for compute while compute is paused. Resuming compute reattaches storage to the Compute nodes, and resumes charges for Compute.
 When you pause a SQL pool:
 
-* Compute and memory resources are returned to the pool of available resources in the data center
-* Data warehouse unit costs are zero for the duration of the pause.
-* Data storage is not affected and your data stays intact. 
-* All running or queued operations are cancelled.
+- Compute and memory resources are returned to the pool of available resources in the data center
+- Data warehouse unit costs are zero for the duration of the pause.
+- Data storage is not affected and your data stays intact.
+- All running or queued operations are cancelled.
 
 When you resume a SQL pool:
 
-* The SQL pool acquires compute and memory resources for your data warehouse units setting.
-* Compute charges for your data warehouse units resume.
-* Your data becomes available.
-* After the SQL pool is online, you need to restart your workload queries.
+- The SQL pool acquires compute and memory resources for your data warehouse units setting.
+- Compute charges for your data warehouse units resume.
+- Your data becomes available.
+- After the SQL pool is online, you need to restart your workload queries.
 
-If you always want your SQL pool accessible, consider scaling it down to the smallest size rather than pausing. 
+If you always want your SQL pool accessible, consider scaling it down to the smallest size rather than pausing.
 
 For pause and resume steps, see the [Azure portal](pause-and-resume-compute-portal.md), or [PowerShell](pause-and-resume-compute-powershell.md) quickstarts. You can also use the [pause REST API](sql-data-warehouse-manage-compute-rest-api.md#pause-compute) or the [resume REST API](sql-data-warehouse-manage-compute-rest-api.md#resume-compute).
 
@@ -112,15 +111,14 @@ See also [Understanding transactions](sql-data-warehouse-develop-transactions.md
 
 To automate the compute management operations, see [Manage compute with Azure functions](manage-compute-with-azure-functions.md).
 
-Each of the scale-out, pause, and resume operations can take several minutes to complete. If you are scaling, pausing, or resuming automatically, we recommend implementing logic to ensure that certain operations have completed before proceeding with another action. Checking the SQL pool state through various endpoints allows you to correctly implement automation of such operations. 
+Each of the scale-out, pause, and resume operations can take several minutes to complete. If you are scaling, pausing, or resuming automatically, we recommend implementing logic to ensure that certain operations have completed before proceeding with another action. Checking the SQL pool state through various endpoints allows you to correctly implement automation of such operations.
 
 To check the SQL pool state, see the [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) or [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) quickstart. You can also check the SQL pool state with a [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
-
 ## Permissions
 
-Scaling the SQL pool requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse).  Pause and Resume require the [SQL DB Contributor](../../role-based-access-control/built-in-roles.md#sql-db-contributor) permission, specifically Microsoft.Sql/servers/databases/action.
-
+Scaling the SQL pool requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Pause and Resume require the [SQL DB Contributor](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#sql-db-contributor) permission, specifically Microsoft.Sql/servers/databases/action.
 
 ## Next steps
+
 See the how to guide for [manage compute](manage-compute-with-azure-functions.md) Another aspect of managing compute resources is allocating different compute resources for individual queries. For more information, see [Resource classes for workload management](resource-classes-for-workload-management.md).

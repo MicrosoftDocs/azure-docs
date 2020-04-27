@@ -1,9 +1,8 @@
 ---
 title: Commercial marketplace payout summary | Azure Marketplace
 description: The Payout summary shows you details about the money you’ve earned with your offer. It also lets you know when you’ll receive payments and how much you'll be paid.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
@@ -171,4 +170,4 @@ This option provides a download of each earning line item you see in the Transac
 
 ## Billing questions and support
 
-To get help on billing questions, please contact [commercial marketplace publisher support](https://aka.ms/marketplacepublishersupport).
+To get help on billing questions, please contact [commercial marketplace publisher support](https://partner.microsoft.com/support/v2/?stage=1).

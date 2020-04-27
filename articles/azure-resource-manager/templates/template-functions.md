@@ -2,11 +2,11 @@
 title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/06/2020
 ---
-# Azure Resource Manager template functions
+# ARM template functions
 
-This article describes all the functions you can use in an Azure Resource Manager template. For information about using functions in your template, see [template syntax](template-expressions.md).
+This article describes all the functions you can use in an Azure Resource Manager (ARM) template. For information about using functions in your template, see [template syntax](template-expressions.md).
 
 To create your own functions, see [User-defined functions](template-syntax.md#functions).
 
@@ -71,6 +71,13 @@ Resource Manager provides several functions for making comparisons in your templ
 <a id="deployment" aria-hidden="true" />
 <a id="parameters" aria-hidden="true" />
 <a id="variables" aria-hidden="true" />
+
+## Date functions
+
+Resource Manager provides the following functions for working with dates.
+
+* [dateTimeAdd](template-functions-date.md#datetimeadd)
+* [utcNow](template-functions-date.md#utcnow)
 
 ## Deployment value functions
 
@@ -218,11 +225,10 @@ Resource Manager provides the following functions for working with strings:
 * [uri](template-functions-string.md#uri)
 * [uriComponent](template-functions-string.md#uricomponent)
 * [uriComponentToString](template-functions-string.md#uricomponenttostring)
-* [utcNow](template-functions-string.md#utcnow)
 
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md)
+* For a description of the sections in an ARM template, see [Authoring ARM templates](template-syntax.md)
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md)
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
-* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md)
+* To see how to deploy the template you've created, see [Deploy an application with ARM templates](deploy-powershell.md)
