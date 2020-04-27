@@ -35,9 +35,9 @@ The rows in a downloaded CSV template are as follows:
 
 ### Additional guidance
 
+- The first two rows of the upload template must not be removed or modified, or the upload can't be processed.
 - The required columns are listed first.
 - We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
-- The first two rows of the upload template must not be removed or modified, or the upload can't be processed.
 - We recommend that you download the latest version of the CSV template as often as possible.
 
 ## To bulk restore users

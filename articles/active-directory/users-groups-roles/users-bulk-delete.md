@@ -30,14 +30,14 @@ Download and fill in the CSV template to help you successfully delete Azure AD u
 The rows in a downloaded CSV template are as follows:
 
 - **Version number**: The first row containing the version number must be included in the upload CSV.
-- **Column headings**: The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Required or blank*&gt;. For example, `Name [displayName] Required`. Some older versions of the template might have slight variations.
+- **Column headings**: The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Required or blank*&gt;. For example, `User name [userPrincipalName] Required`. Some older versions of the template might have slight variations.
 - **Examples row**: We have included in the template a row of examples of acceptable values for each column. You must remove the examples row and replace it with your own entries.
 
 ### Additional guidance
 
+- The first two rows of the upload template must not be removed or modified, or the upload can't be processed.
 - The required columns are listed first.
 - We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
-- The first two rows of the upload template must not be removed or modified, or the upload can't be processed.
 - We recommend that you download the latest version of the CSV template as often as possible.
 
 ## To bulk delete users

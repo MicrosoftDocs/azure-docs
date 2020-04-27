@@ -19,7 +19,6 @@ ms.collection: M365-identity-device-management
 
 Using Azure Active Directory (Azure AD) portal, you can remove a large number of members from a group by using a comma-separated values (CSV) file to bulk remove group members.
 
-
 ## Understand the CSV template
 
 Download and fill in the bulk upload CSV template to successfully add Azure AD group members in bulk. Your CSV template might look like this example:
@@ -36,9 +35,9 @@ The rows in a downloaded CSV template are as follows:
 
 ### Additional guidance
 
+- The first two rows of the upload template must not be removed or modified, or the upload can't be processed.
 - The required columns are listed first.
 - We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
-- The first two rows of the upload template must not be removed or modified, or the upload can't be processed.
 - We recommend that you download the latest version of the CSV template as often as possible.
 
 ## To bulk remove group members
