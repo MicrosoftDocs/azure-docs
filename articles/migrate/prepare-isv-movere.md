@@ -7,12 +7,12 @@ ms.date: 04/26/2020
 
 # Prepare to work with ISV tools/Movere
 
-If you've added an ISV tool, or Movere, to an Azure Migrate project there are a couple of steps you need to do, before you link the tool to Azure Migrate. 
+If you've added an ISV tool, or Movere, to an Azure Migrate project, there are a couple of steps to prepare before you link the tool, and send data to Azure Migrate. 
 
 
 ## Check Azure AD permissions
 
-When you link a tool with an Azure Migrate project, your user account needs a couple of permissions:
+Your Azure user account needs a couple of permissions:
 
 - Permission to register an Azure AD app with your Azure tenant.
 - Permission to allocate a role to the Azure AD app at the subscription level.
@@ -27,19 +27,23 @@ When you link a tool with an Azure Migrate project, your user account needs a co
 
 ## Set permissions to assign a role to an Azure AD app
  
-In your Azure subscription, your account must have **Microsoft.Authorization/*/Write access** to assign a role to an Azure AD app. 
+In your Azure subscription, your account needs **Microsoft.Authorization/*/Write access**, to assign a role to an Azure AD app. 
 
 1. To check the subscription permissions, in the Azure portal, open **Subscriptions**.
 2. Select the relevant subscription. If you don't see it, select the **global subscriptions filter**. 
 3. Select **My permissions**. Then, select **Click here to view complete access details for this subscription**.
 4. In **Role assignments** > **View**, and check the permissions.
 5. If your account doesn't have permissions, ask the subscription administrator to add you to [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) role, or the [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role.
-
+ to 
 
 ## Start using the tool
 
 1. If you don't yet have a license or free trial for the tool, in the tool entry in Azure Migrate, in **Register**, click **Learn more**.
-2. In the tool, follow the instructions, to link from the tool to the Azure Migrate project, and send data.
+2. In the tool, follow the instructions, to link from the tool to the Azure Migrate project, and to send data to Azure Migrate.
+
+## Next steps
+
+Add additional [assessment](how-to-assess.md) and [migration](how-to-migrate.md) tools.
 
 
    
