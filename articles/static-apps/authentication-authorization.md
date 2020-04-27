@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Authentication and authorization for Azure Static Web Apps
 
-Authentication and authorization is enforced by rules defined in the _routes.json_ file and managed through the role management features in the portal. Granting access to secured routes is enabled by creating invitations that associate a user to roles. Roles are defined in the _routes.json_ file and invitations are tied to one of the following authorization providers:
+Authentication and authorization is enforced by rules defined in the [routes.json](routes.md) file and managed through the role management features in the portal. Granting access to secured routes is enabled by creating [invitations](#invitations) that associate a user to roles. Roles are defined in the _routes.json_ file and invitations are tied to one of the following authorization providers:
 
 - Azure Active Directory
 - GitHub
@@ -36,9 +36,11 @@ Beyond the built-in roles, you can create new roles in the _routes.json_ file an
 
 To add users to your site, you generate invitations which allow you to associate users to specific roles. Roles are defined and maintained in the _routes.json_ file.
 
+<a name="invitiations"></a>
+
 #### Create an invitation
 
-- Navigate to a static app in the Azure portal
+- Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com)
 - Under _Settings_, click on **Role Management**
 - Click on the **Invite** button
 - Select an _Authorization provider_ from the list of options
@@ -54,7 +56,7 @@ To add users to your site, you generate invitations which allow you to associate
 
 ### Update role assignments
 
-- Navigate to a static app in the Azure portal
+- Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com)
 - Under _Settings_, click on **Role Management**
 - Locate the user in the list
 - Check the checkbox on the user's row
@@ -64,7 +66,7 @@ To add users to your site, you generate invitations which allow you to associate
 
 ### Remove user from all roles
 
-- Navigate to a static app in the Azure portal
+- Navigate to a Static Web Apps resource in the [Azure portal](https://portal.azure.com)
 - Under _Settings_, click on **Role Management**
 - Locate the user in the list
 - Check the checkbox on the user's row
@@ -74,7 +76,7 @@ Removing a user also invalidates the permissions for the user. This action may t
 
 ## System folder
 
-TODO /.auth system folder
+Azure Static Web Apps uses the `/.auth` system folder to provide access to authorization-related utility APIs. Rather than exposing any of the routes under the `/.auth` folder directly to end-users, consider creating [routing rules](routing.md) to create friendly URLs.
 
 ## Login
 
@@ -111,7 +113,7 @@ You can use a [route rule](routes.md) to map a default provider to a friendly ro
 
 ## Logout
 
-The `/.auth/logout` route logs out user from the website. You can add a link to your site navigation to allow the user to log out as shown the the following example:
+The `/.auth/logout` route logs users out from the website. You can add a link to your site navigation to allow the user to log out as shown the the following example.
 
 ```html
 <a href="/.auth/logout">Log out</a>
