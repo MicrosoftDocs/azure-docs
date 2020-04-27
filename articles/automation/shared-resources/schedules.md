@@ -188,7 +188,8 @@ You can use the [Remove-AzAutomationSchedule](https://docs.microsoft.com/powersh
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"
 $scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
-Remove-AzureRmAutomationSchedule -AutomationAccountName $automationAccountName ` -Name $scheduleName -ResourceGroupName "ResourceGroup01"
+Remove-AzAutomationSchedule -AutomationAccountName $automationAccountName `
+-Name $scheduleName -ResourceGroupName "ResourceGroup01"
 ```
 
 ## Next steps
