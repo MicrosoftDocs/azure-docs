@@ -181,7 +181,7 @@ The requestOverrides object defines changes made to the request when the back-en
 
 * **backend.request.method**: The HTTP method that's used to call the back-end.
 * **backend.request.querystring.\<ParameterName\>**: A query string parameter that can be set for the call to the back-end. Replace *\<ParameterName\>* with the name of the parameter that you want to set. Please note that if the empty string is provided, the parameter is still included on the back-end request.
-* **backend.request.headers.\<HeaderName\>**: A header that can be set for the call to the back-end. Replace *\<HeaderName\>* with the name of the header that you want to set. If you provide the empty string, the header is not included on the back-end request.
+* **backend.request.headers.\<HeaderName\>**: A header that can be set for the call to the back-end. Replace *\<HeaderName\>* with the name of the header that you want to set. Please note that if an empty string is provided, the parameter is still included on the back-end request.
 
 Values can reference application settings and parameters from the original client request.
 
