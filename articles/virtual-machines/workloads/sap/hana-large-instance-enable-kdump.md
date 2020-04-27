@@ -48,19 +48,21 @@ S
 - Script to enable Kdump can be found [here](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh)
 
 - Run this script on HANA Large Instance using the below command
-**Note** sudo privilege needed to run this command.
+[!NOTE]
+sudo privilege needed to run this command.
 
 ```bash
 sudo bash enable-kdump.sh
 ```
 
-- If the command output is "Kdump is successfully enabled, please reboot the system to apply the change", then the Kdump is successfully enabled. Reboot the system to apply changes.
+- If the command output is Kdump is successfully enabled, please reboot the system to apply the change, then the Kdump is successfully enabled. Reboot the system to apply changes.
 
-- If the command output is "Failed to do certain operation, Exiting !!!!", then Kdump service is not enabled. Refer to section [Support issue](#support-issue).
+- If the command output is Failed to do certain operation, Exiting !!!!, then Kdump service is not enabled. Refer to section [Support issue](#support-issue).
 
 ## Test Kdump
 
-**Note**: Below operation will trigger a kernel crash and system reboot.
+[!NOTE]
+ Below operation will trigger a kernel crash and system reboot.
 
 - Trigger a kernel crash
 
