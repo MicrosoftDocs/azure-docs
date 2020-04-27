@@ -41,8 +41,6 @@ Here's what you'll need to get started:
 
 3. Select **Conditional Access**.
 
-    ![A screenshot showing the user hovering their mouse cursor over the Conditional Access tab.](media/conditional-access-location.png)
-
 4. Select **+ New policy**.
 
 5. Enter a **name** for the **rule**, then **select** the *name of the **group** you created in the prerequisites.
@@ -51,7 +49,7 @@ Here's what you'll need to get started:
 
 7. Next, open **Cloud Apps or actions**.
 
-8. On the **Select** panel, select the **Windows Virtual Desktop** Enterprise app.
+8. On the **Select** panel, select the **Windows Virtual Desktop** Enterprise app (app ID: 9cdead84-a844-4324-93f2-b2e6bb768d07).
 
     ![A screenshot of the Cloud apps or actions page. The user has selected the Windows Virtual Desktop app by selecting the check mark next to it. The selected app is highlighted in red.](media/cloud-apps-select.png)
     
