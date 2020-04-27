@@ -89,7 +89,7 @@ In this section, you add code that writes a message to the output queue. The mes
 1. After the code changes are saved, select **Test**.
 1. Confirm that your test matches the image below and select **Run**. 
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Test the queue storage binding in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Test the queue storage binding in the Azure portal." border="true":::
 
     Notice that the **Request body** contains the `name` value *Azure*. This value appears in the queue message that is created when the function is invoked.
     
