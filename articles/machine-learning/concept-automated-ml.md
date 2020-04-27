@@ -162,23 +162,20 @@ The following table shows a summary of features available on local and remote co
 | Feature                                                    | Remote | Local | Requires <br>Enterprise workspace |
 |------------------------------------------------------------|--------|-------|-------------------------------|
 | Data streaming (Large data support, up to 100 GB)          | ✓      |       | ✓                             |
-| DNN-based text featurization                               | ✓      |       | ✓                             |
+| DNN-BERT-based text featurization and training             | ✓      |       | ✓                             |
+| Out-of-the-box GPU support (training and inference)        | ✓      |       | ✓                             |
+| Image Classification and Labeling support                  | ✓      |       | ✓                             |
 | Feature engineering customization UI                       | ✓      |       |                               |
-| Prophet or ARIMA models for forecasting                    | ✓      |       | ✓                             |
+| Auto-ARIMA, Prophet and ForecastTCN models for forecasting | ✓      |       | ✓                             |
 | Multiple runs/iterations in parallel                       | ✓      |       | ✓                             |
+| Azure ML hyperparameter tuning                             | ✓      |       |                               |
+| Azure ML Pipeline workflow support                         | ✓      |       |                               |
 | Continue a run                                             | ✓      |       |                               |
 | Create and run experiments in studio web experience        | ✓      |       | ✓                             |
-| Feature Sweeping (or advanced transformers)                | ?      | ?     |                               |
-| Custom featurizers support                                 | ?      | ?     |                               |
-| Feature engineering customization SDK                      | ?      | ?     | ✓                             |
-| Many models training SDK                                   | ?      | ?     |                               |
 | Create and run experiments in notebooks                    | ✓      | ✓     |                               |
 | Register and visualize experiment's info and metrics in UI | ✓      | ✓     |                               |
-| Subsampling                                                | ✓      | ✓     |                               |
 | Data guardrails                                            | ✓      | ✓     |                               |
 | Forecasting                                                | ✓      | ✓     | ✓                             |
-| ONNX models                                                | ✓      | ✓     |                               |
-| Ensemble iterations                                        | ✓      | ✓     |                               |
 | Model interpretability (in notebooks)                      | ✓      | ✓     | ✓                             |
 
 
