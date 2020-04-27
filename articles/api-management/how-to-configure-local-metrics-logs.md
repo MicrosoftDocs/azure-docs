@@ -18,7 +18,7 @@ ms.author: apimpm
 
 # Configure local metrics and logs for Azure API Management self-hosted gateway
 
-This article provides details for configuring local metrics and logs for [Azure API Management self-hosted gateway](./self-hosted-gateway-overview.md). For configuring cloud metrics and logs, see [this article](api-management-howto-configure-cloud-metrics-and-logs.md). 
+This article provides details for configuring local metrics and logs for the [self-hosted gateway](./self-hosted-gateway-overview.md). For configuring cloud metrics and logs, see [this article](how-to-configure-cloud-metrics-logs.md). 
 
 ## Metrics
 The self-hosted gateway supports [StatsD](https://github.com/statsd/statsd), which has become a unifying protocol for metrics collection and aggregation. This section walks through the steps for deploying StatsD to Kubernetes, configuring the gateway to emit metrics via StatsD, and using [Prometheus](https://prometheus.io/) to monitor the metrics. 
@@ -232,5 +232,5 @@ Here is a sample configuration of local logging:
 ## Next steps
 
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
-* Learn about [configuring and persisting logs in the cloud](api-management-howto-configure-local-metrics-and-logs.md)
+* Learn about [configuring and persisting logs in the cloud](how-to-configure-local-metrics-logs.md)
 

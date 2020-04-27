@@ -18,7 +18,7 @@ ms.author: apimpm
 
 # Configure cloud metrics and logs for Azure API Management self-hosted gateway
 
-This article provides details for configuring cloud metrics and logs for [Azure API Management self-hosted gateway](./self-hosted-gateway-overview.md).
+This article provides details for configuring cloud metrics and logs for the [self-hosted gateway](./self-hosted-gateway-overview.md).
 
 The self-hosted gateway has to be associated with an API management service and requires outbound TCP/IP connectivity to Azure on port 443. The gateway leverages the outbound connection to send telemetry to Azure, if configured to do so. 
 
@@ -54,7 +54,7 @@ The self-hosted gateway currently emits the following metrics through Azure Moni
 
 ## Logs
 
-The self-hosted gateway currently does not send [diagnostic logs](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) to the cloud. However, it is possible to [configure and persist logs locally](./api-management-howto-configure-local-metrics-and-logs.md) where the self-hosted gateway is deployed. 
+The self-hosted gateway currently does not send [diagnostic logs](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) to the cloud. However, it is possible to [configure and persist logs locally](how-to-configure-local-metrics-logs.md) where the self-hosted gateway is deployed. 
 
 If a gateway is deployed in [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), you can enable [Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) to collect logs from your containers and view them in Log Analytics. 
 
@@ -62,6 +62,6 @@ If a gateway is deployed in [Azure Kubernetes Service](https://azure.microsoft.c
 ## Next steps
 
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
-* Learn about [configuring and persisting logs locally](api-management-howto-configure-local-metrics-and-logs.md)
+* Learn about [configuring and persisting logs locally](how-to-configure-local-metrics-logs.md)
 
 
