@@ -16,7 +16,7 @@ Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs]
 
 ## Supported scenarios
 
-- Backup reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA/ASE in Azure VMs, Microsoft Azure Recovery Services (MARS) agent, Microsoft Azure Backup Server (MABS), and System Center Data Protection Manager (DPM).
+- Backup reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA/ASE in Azure VMs, Microsoft Azure Recovery Services (MARS) agent, Microsoft Azure Backup Server (MABS), and System Center Data Protection Manager (DPM). Data for Azure File Share backup is currently not visible in Backup Reports.
 - For DPM workloads, Backup reports are supported for DPM Version 5.1.363.0 and above and Agent Version 2.0.9127.0 and above.
 - For MABS workloads, Backup reports are supported for MABS Version 13.0.415.0 and above and Agent Version 2.0.9170.0 and above.
 - Backup reports can be viewed across all backup items, vaults, subscriptions, and regions as long as their data is being sent to a Log Analytics workspace that the user has access to. To view reports for a set of vaults, you only need to have reader access to the Log Analytics workspace to which the vaults are sending their data. You don't need to have access to the individual vaults.
@@ -121,7 +121,7 @@ The widgets in the Backup report are powered by Kusto queries, which run on the 
 
 - The earlier Power BI template app for reporting, which sourced data from an Azure storage account, is on a deprecation path. We recommend that you start sending vault diagnostic data to Log Analytics to view reports.
 
-- In addition, the V1 schema of sending diagnostics data to a storage account or a Log Analytics workspace is also on a deprecation path. If you've written any custom queries or automations based on the V1 schema, you're advised to update these queries to use the currently supported V2 schema.
+- * In addition, the [V1 schema](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) of sending diagnostics data to a storage account or an LA Workspace is also on a deprecation path. This means that if you have written any custom queries or automations based on the V1 schema, you are advised to update these queries to use the currently supported V2 schema.
 
 ## Next steps
 
