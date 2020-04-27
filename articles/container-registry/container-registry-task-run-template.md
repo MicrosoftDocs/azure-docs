@@ -138,13 +138,13 @@ Create a Dockerfile that pulls the base image from your base registry. Perform t
 
 1. In the GitHub UI, select **Create new file**.
 1. Name your file *Dockerfile-test* and paste the following contents. Substitute your registry name for *mybaseregistry*.
-  ```
-  FROM mybaseregistry.azurecr.io/baseimages/node:9-alpine
-  COPY . /src
-  RUN cd /src && npm install
-  EXPOSE 80
-  CMD ["node", "/src/server.js"]
-  ```
+    ```
+    FROM mybaseregistry.azurecr.io/baseimages/node:9-alpine
+    COPY . /src
+    RUN cd /src && npm install
+    EXPOSE 80
+    CMD ["node", "/src/server.js"]
+    ```
  1. Select **Commit new file**.
 
 [!INCLUDE [container-registry-tasks-user-assigned-id](../../includes/container-registry-tasks-user-assigned-id.md)]
