@@ -1,7 +1,7 @@
 ---
 title: Use VS Code to connect and query
 titleSuffix: Azure SQL Database & SQL Managed Instance 
-description: Learn how to connect to Azre SQL Database or SQL Managed Instance on Azure by using Visual Studio Code. Then, run Transact-SQL (T-SQL) statements to query and edit data.
+description: Learn how to connect to Azure SQL Database or SQL Managed Instance on Azure by using Visual Studio Code. Then, run Transact-SQL (T-SQL) statements to query and edit data.
 keywords: connect to sql database
 services: sql-database
 ms.service: sql-database
@@ -43,7 +43,7 @@ Make sure you have installed the latest [Visual Studio Code](https://code.visual
 
 ## Configure Visual Studio Code
 
-### **Mac OS**
+### **macOS**
 
 For macOS, you need to install OpenSSL, which is a prerequisite for .NET Core that mssql extension uses. Open your terminal and enter the following commands to install **brew** and **OpenSSL**.
 

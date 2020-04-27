@@ -1,6 +1,6 @@
 ---
 title: Manage elastic pools
-description: Create and manage Azure SQL Database elastic pools using the Azure portal, PowerShell, the Az CLI, Transact-SQL (T-SQL), and Rest API. 
+description: Create and manage Azure SQL Database elastic pools using the Azure portal, PowerShell, the Azure CLI, Transact-SQL (T-SQL), and Rest API. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools

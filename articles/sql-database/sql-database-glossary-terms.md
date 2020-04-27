@@ -1,7 +1,7 @@
 ---
 title: Glossary of terms 
 titleSuffix: Azure SQL 
-description: A glossery of terms for working with Azure SQL Database, Azure SQL Managed Instance, and SQL on Azure VM. 
+description: A glossary of terms for working with Azure SQL Database, Azure SQL Managed Instance, and SQL on Azure VM. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -30,7 +30,7 @@ ms.date: 01/22/2020
 |Compute generation|Gen5, M-series, Fsv2-series|[Hardware generations](sql-database-service-tiers-vcore.md#hardware-generations)
 |Server entity| logical SQL server |[logical SQL servers in Azure](sql-database-servers.md)|
 |Resource type|vCore|A CPU core provided to the compute resource for a single database, elastic pool. |
-||Compute size and storage amount|Compute size is the maximum amount of CPU, memory and other non-storage related resources available for a single database, or elastic pool.  Storage size is the maximum amount of storage available for a single database, or elastic poole. For sizing options in the vcore model, see [vCore single databases](sql-database-vcore-resource-limits-single-databases.md), and [vCore elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).  (sql-database-managed-instance-resource-limits.md).  For sizing options in the DTU model, see [DTU single databases](sql-database-dtu-resource-limits-single-databases.md) and [DTU elastic pools](sql-database-dtu-resource-limits-elastic-pools.md).
+||Compute size and storage amount|Compute size is the maximum amount of CPU, memory and other non-storage related resources available for a single database, or elastic pool.  Storage size is the maximum amount of storage available for a single database, or elastic pool. For sizing options in the vcore model, see [vCore single databases](sql-database-vcore-resource-limits-single-databases.md), and [vCore elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).  (sql-database-managed-instance-resource-limits.md).  For sizing options in the DTU model, see [DTU single databases](sql-database-dtu-resource-limits-single-databases.md) and [DTU elastic pools](sql-database-dtu-resource-limits-elastic-pools.md).
 
 
 ## Azure SQL Managed Instance
