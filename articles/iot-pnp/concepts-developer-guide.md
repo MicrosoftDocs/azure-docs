@@ -121,7 +121,7 @@ You can use [IoT Hub's custom endpoints and routing rules](../iot-hub/iot-hub-de
 
 ### Commands
 
-A command must execute within 30 seconds by default, and the device must be connected when the command arrives. If the device does respond in time, or the device isn't connected, then the command fails.
+A command must execute within 30 seconds by default, and the device must be connected when the command arrives. If the device doesn't respond in time, or the device isn't connected, then the command fails.
 
 ## Register a device
 
