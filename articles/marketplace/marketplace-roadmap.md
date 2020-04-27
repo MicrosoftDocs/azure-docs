@@ -28,7 +28,7 @@ Once a capability is live, it will be removed from the roadmap. Functionality th
 * [Standard Contract](https://aka.ms/standardcontract)
 * [SaaS Fulfillment API](https://aka.ms/saasapiv2)
 * [Marketplace Geos and Currencies](https://aka.ms/marketplacegeos)
-* [Seller Insights](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
+* [Seller Insights](./partner-center-portal/analytics.md)
 * [Microsoft Build Marketplace Blog](https://aka.ms/marketplacebuildblog)
 * [Marketplace May Updates Blog](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
 * Partner Center: [Create Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) / [Manage Account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account) / [Migration from CPP](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)

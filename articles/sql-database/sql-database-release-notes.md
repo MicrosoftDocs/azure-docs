@@ -90,7 +90,7 @@ The following features are enabled in Managed instance deployment model in H1 20
 |[Exceeding storage space with small database files](#exceeding-storage-space-with-small-database-files)||Has Workaround||
 |[GUID values shown instead of database names](#guid-values-shown-instead-of-database-names)||Has Workaround||
 |[Error logs aren't persisted](#error-logs-arent-persisted)||No Workaround||
-|[Transaction scope on two databases within the same instance isn't supported](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Has Workaround||
+|[Transaction scope on two databases within the same instance isn't supported](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Has Workaround|March 2020|
 |[CLR modules and linked servers sometimes can't reference a local IP address](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Has Workaround||
 |Database consistency not verified using DBCC CHECKDB after restore database from Azure Blob Storage.||Resolved|Nov 2019|
 |Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.||Resolved|Oct 2019|
@@ -224,7 +224,7 @@ Error logs that are available in managed instance aren't persisted, and their si
 
 ### Transaction scope on two databases within the same instance isn't supported
 
-The `TransactionScope` class in .NET doesn't work if two queries are sent to two databases within the same instance under the same transaction scope:
+**(Resolved in March 2020)** The `TransactionScope` class in .NET doesn't work if two queries are sent to two databases within the same instance under the same transaction scope:
 
 ```csharp
 using (var scope = new TransactionScope())
@@ -249,9 +249,7 @@ using (var scope = new TransactionScope())
 
 ```
 
-Although this code works with data within the same instance, it required MSDTC.
-
-**Workaround:** Use [SqlConnection.ChangeDatabase(String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) to use another database in a connection context instead of using two connections.
+**Workaround (not needed since March 2020):** Use [SqlConnection.ChangeDatabase(String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) to use another database in a connection context instead of using two connections.
 
 ### CLR modules and linked servers sometimes can't reference a local IP address
 

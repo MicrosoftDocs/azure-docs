@@ -1,7 +1,7 @@
 ﻿---
-title: Convert a legacy Direct peering to Azure resource using the portal
+title: Convert a legacy Direct peering to an Azure resource by using the Azure portal
 titleSuffix: Azure
-description: Convert a legacy Direct peering to Azure resource using the portal
+description: Convert a legacy Direct peering to an Azure resource by using the Azure portal
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -10,26 +10,26 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-# Convert a legacy Direct peering to Azure resource using the portal
+# Convert a legacy Direct peering to an Azure resource by using the Azure portal
 
-This article describes how to convert an existing legacy Direct peering to Azure resource using the portal.
+This article describes how to convert an existing legacy Direct peering to an Azure resource by using the Azure portal.
 
-If you prefer, you can complete this guide using the [PowerShell](howto-legacy-direct-powershell.md).
+If you prefer, you can complete this guide by using [PowerShell](howto-legacy-direct-powershell.md).
 
 ## Before you begin
-* Review [Prerequisites](prerequisites.md) and [Direct peering walkthrough](walkthrough-direct-all.md) before you begin configuration.
+* Review the [prerequisites](prerequisites.md) and the [Direct peering walkthrough](walkthrough-direct-all.md) before you begin configuration.
 
 
-## Convert legacy Direct peering to Azure resource
+## Convert a legacy Direct peering to an Azure resource
 
-### Sign in to portal and select your subscription
+### Sign in to the portal and select your subscription
 [!INCLUDE [Account](./includes/account-portal.md)]
 
-### <a name=create></a>Convert legacy Direct peering
+### <a name=create></a>Convert a legacy Direct peering
 
-You can convert legacy peering connections using **Peering** resource.
+You can convert legacy peering connections by using the **Peering** resource.
 
-#### Launch resource and configure basic settings
+#### Launch the resource and configure basic settings
 [!INCLUDE [direct-peering-basic](./includes/direct-portal-basic.md)]
 
 #### Configure connections and submit
@@ -40,8 +40,8 @@ You can convert legacy peering connections using **Peering** resource.
 
 ## Additional resources
 
-For more information, visit [Internet peering FAQs](faqs.md)
+For more information, see [Internet peering FAQs](faqs.md).
 
 ## Next steps
 
-* [Create or modify a Direct peering using the portal](howto-direct-portal.md).
+* [Create or modify a Direct peering by using the portal](howto-direct-portal.md)

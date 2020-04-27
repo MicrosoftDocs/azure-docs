@@ -2,7 +2,7 @@
 title: Support for VMware migration in Azure Migrate
 description: Learn about support for VMware VM migration in Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 04/15/2020
 ---
 
 # Support matrix for VMware migration
@@ -59,10 +59,12 @@ Review [this article](server-migrate-overview.md) to figure out which method you
 
 
 ## Agentless-Azure Migrate appliance 
-Agentless migration uses the Azure Migrate appliance, deployed on a VMware VM.
+
+Agentless migration uses the [Azure Migrate appliance](migrate-appliance.md). You can deploy the appliance as a VMWare VM using an OVA template, imported into vCenter Server, or using a [PowerShell script](deploy-appliance-script.md).
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---vmware) for VMware.
-- Learn about [URLs](migrate-appliance.md#url-access) the appliance needs to access.
+- Learn about URLs that the appliance needs to access in [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
+- In Azure Government, you must deploy the appliance using the script.
 
 ## Agentless-ports
 
@@ -118,7 +120,8 @@ When you set up the replication appliance using the OVA template provided in the
 
 - Learn about [replication appliance requirements](migrate-replication-appliance.md#appliance-requirements) for VMware.
 - MySQL must be installed on the appliance. Learn about [installation options](migrate-replication-appliance.md#mysql-installation).
-- Learn about [URLs](migrate-replication-appliance.md#url-access) and [ports](migrate-replication-appliance.md#port-access) the replication appliance needs to access.
+- Learn about URLs that the replication appliance needs to access in [public](migrate-replication-appliance.md#url-access) and [government](migrate-replication-appliance.md#azure-government-url-access) clouds.
+- Review the [ports](migrate-replication-appliance.md#port-access) the replication appliance needs to access.
 
 ## Agent-based-ports
 

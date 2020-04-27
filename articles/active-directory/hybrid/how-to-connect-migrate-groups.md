@@ -105,7 +105,7 @@ if ($group -eq $null)
 }
 
 $csvFile = Import-Csv -Path $inputCsv -ErrorAction Stop
-$msDSConsistencyGuid = [GUID] $csvFile.'mS-DS-ConsistencyGuid'
+$msDSConsistencyGuid = $csvFile.'mS-DS-ConsistencyGuid'
 $objectGuid = [GUID] $csvFile.'objectGUID'
 $targetGuid = $msDSConsistencyGuid
 

@@ -169,6 +169,8 @@ Load balancer supports both Basic and Standard SKUs. These SKUs differ in scenar
 
 The complete scenario configuration might differ slightly depending on SKU. Load balancer documentation calls out when an article applies only to a specific SKU. To compare and understand the differences, see the following table. For more information, see [Azure Standard Load Balancer overview](load-balancer-standard-overview.md).
 
+To upgrade Basic Load Balancer to Standard, see [Upgrade a Basic Load Balancer](upgrade-basic-standard.md).
+
 >[!NOTE]
 > Microsoft recommends Standard Load Balancer.
 Standalone VMs, availability sets, and virtual machine scale sets can be connected to only one SKU, never both. Load Balancer and the public IP address SKU must match when you use them with public IP addresses. Load Balancer and public IP SKUs aren't mutable.
@@ -205,6 +207,7 @@ For more information, see [Load balancer limits](https://docs.microsoft.com/azur
 
 ## Next steps
 
+- See [Upgrade a Basic Load Balancer](upgrade-basic-standard.md) to upgrade Basic Load Balancer to Standard Load Balancer.
 - See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer: create one, create VMs with a custom IIS extension installed, and load balance the web app between the VMs.
 - Learn more about [Azure Load Balancer](load-balancer-overview.md).
 - Learn about using [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).

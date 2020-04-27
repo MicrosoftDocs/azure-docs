@@ -18,6 +18,9 @@ Using the diagnostics functionality of Azure Spring Cloud, you can analyze logs 
 
 Choose the log category and metric category you want to monitor.
 
+> [!TIP]
+> Just want to stream your logs? Check out this [Azure CLI command](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)!
+
 ## Logs
 
 |Log | Description |

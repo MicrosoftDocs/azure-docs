@@ -17,11 +17,23 @@ extension and client. The extension, through the client, validates settings such
 At this time, most Azure Policy Guest Configuration policies only audit settings inside the machine. They don't
 apply configurations. The exception is one built-in policy [referenced below](#applying-configurations-using-guest-configuration).
 
+## Resource provider
+
+Before you can use Guest Configuration, you must register the resource provider. The resource provider is registered
+automatically if assignment of a Guest Configuration policy is done through the portal. You can manually register
+through the [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell), or [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
+
 ## Extension and client
 
 To audit settings inside a machine, a [virtual machine
 extension](../../../virtual-machines/extensions/overview.md) is enabled. The extension downloads
 applicable policy assignment and the corresponding configuration definition.
+
+> [!Important]
+> The Guest Configuration extension is required to perform audits in Azure virtual machines.
+> To deploy the extension at scale, assign the following policy definitions:
+>   - [Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+>   - [Deploy prerequisites to enable Guest Configuration Policy on Linux VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ### Limits set on the extension
 
@@ -29,13 +41,7 @@ To limit the extension from impacting applications running inside the machine, t
 Configuration isn't allowed to exceed more than 5% of CPU. This limitation exists for
 both built-in and custom definitions.
 
-## Register Guest Configuration resource provider
-
-Before you can use Guest Configuration, you must register the resource provider. You can register
-through the [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell), or [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli). The resource provider is registered automatically if
-assignment of a Guest Configuration policy is done through the portal.
-
-## Validation tools
+### Validation tools
 
 Inside the machine, the Guest Configuration client uses local tools to run the audit.
 
@@ -59,17 +65,21 @@ configuration within the machine.
 
 ## Supported client types
 
-The following table shows a list of supported operating system on Azure images:
+Guest Configuration policies are inclusive of new versions. Older versions of operating systems available
+in the Azure marketplace are excluded if the Guest Configuration agent is not compatible. The following table
+shows a list of supported operating systems on Azure images:
 
 |Publisher|Name|Versions|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04, 16.04, 18.04|
-|Credativ|Debian|8, 9|
-|Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
+|Canonical|Ubuntu Server|14.04 and later|
+|Credativ|Debian|8 and later|
+|Microsoft|Windows Server|2012 and later|
 |Microsoft|Windows Client|Windows 10|
-|OpenLogic|CentOS|7.3, 7.4, 7.5, 7.6, 7.7|
-|Red Hat|Red Hat Enterprise Linux|7.4, 7.5, 7.6, 7.7|
-|Suse|SLES|12 SP3|
+|OpenLogic|CentOS|7.3 and later|
+|Red Hat|Red Hat Enterprise Linux|7.4 and later|
+|Suse|SLES|12 SP3 and later|
+
+Custom virtual machine images are supported by Guest Configuration policies as long as they are one of the operating systems in the table above.
 
 ### Unsupported client types
 

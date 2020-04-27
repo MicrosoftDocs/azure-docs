@@ -35,7 +35,7 @@ This article provides information about both scenarios: using the DSC extension 
 ## Prerequisites
 
 - **Local machine**: To interact with the Azure VM extension, you must use either the Azure portal or the Azure PowerShell SDK.
-- **Guest Agent**: The Azure VM that's configured by the DSC configuration must be an OS that supports Windows Management Framework (WMF) 4.0 or later. For the full list of supported OS versions, see the [DSC extension version history](/powershell/scripting/dsc/getting-started/azuredscexthistory).
+- **Guest Agent**: The Azure VM that's configured by the DSC configuration must be an OS that supports Windows Management Framework (WMF) 4.0 or later. For the full list of supported OS versions, see the [DSC extension version history](../../automation/automation-dsc-extension-history.md).
 
 ## Terms and concepts
 
@@ -70,8 +70,7 @@ three values will need to be provided.
 - RegistrationKey - a shared secret used to register nodes with the service
 - NodeConfigurationName - the name of the Node Configuration (MOF) to pull from the service to configure the server role
 
-This information can be seen in the
-[Azure portal](../../automation/automation-dsc-onboarding.md#onboard-vms-by-using-the-azure-portal) or you can use PowerShell.
+This information can be seen in the Azure portal or you can use PowerShell.
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
@@ -101,7 +100,7 @@ The **Get-AzVMDscExtension** cmdlet retrieves the DSC extension status of a spec
 
 The **Get-AzVMDscExtensionStatus** cmdlet retrieves the status of the DSC configuration that's enacted by the DSC extension handler. This action can be performed on a single VM or on a group of VMs.
 
-The **Remove-AzVMDscExtension** cmdlet removes the extension handler from a specific VM. This cmdlet does *not* remove the configuration, uninstall WMF, or change the applied settings on the VM. It only removes the extension handler. 
+The **Remove-AzVMDscExtension** cmdlet removes the extension handler from a specific VM. This cmdlet does *not* remove the configuration, uninstall WMF, or change the applied settings on the VM. It only removes the extension handler.
 
 Important information about Resource Manager DSC extension cmdlets:
 
