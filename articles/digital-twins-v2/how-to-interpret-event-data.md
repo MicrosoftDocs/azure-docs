@@ -106,15 +106,15 @@ Here are the fields in the body of a life-cycle notification.
 
 | Name | Value |
 | --- | --- |
-| id | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event. |
-| source | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
-| specversion | 1.0 |
-| type | `Microsoft.<Service RP>.Twin.Create`<br>`Microsoft.<Service RP>.Twin.Delete`<br>`Microsoft.<Service RP>.TwinProxy.Create`<br>`Microsoft.<Service RP>.TwinProxy.Delete`<br>`Microsoft.<Service RP>.TwinProxy.Attach`<br>`Microsoft.<Service RP>.TwinProxy.Detach` |
-| datacontenttype | application/json |
-| subject | ID of the digital twin |
-| time | Timestamp for when the operation occurred on the twin |
-| sequence | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
-| sequencetype | More detail about how the sequence field is used. For example, this property may specify that the value must be a signed 32-bit integer, which starts at 1 and increases by 1 each time. |
+| `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event. |
+| `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
+| `specversion` | 1.0 |
+| `type` | `Microsoft.<Service RP>.Twin.Create`<br>`Microsoft.<Service RP>.Twin.Delete`<br>`Microsoft.<Service RP>.TwinProxy.Create`<br>`Microsoft.<Service RP>.TwinProxy.Delete`<br>`Microsoft.<Service RP>.TwinProxy.Attach`<br>`Microsoft.<Service RP>.TwinProxy.Detach` |
+| `datacontenttype` | application/json |
+| `subject` | ID of the digital twin |
+| `time` | Timestamp for when the operation occurred on the twin |
+| `sequence` | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
+| `sequencetype` | More detail about how the sequence field is used. For example, this property may specify that the value must be a signed 32-bit integer, which starts at 1 and increases by 1 each time. |
 
 #### Body details
 
@@ -192,14 +192,14 @@ Here are the fields in the body of an edge change notification.
 
 | Name    | Value |
 | --- | --- |
-| id    | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
-| source    | Name of the Azure Digital Twins instance, like *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
-| specversion    | 1.0 |
-| type    | `Microsoft.<Service RP>.Edge.Create`<br>`Microsoft.<Service RP>.Edge.Update`<br>`Microsoft.<Service RP>.Edge.Delete`<br>`datacontenttype    application/json for Edge.Create`<br>`application/json-patch+json for Edge.Update` |
-| subject    | ID of the relationship, like `<twinID>/relationships/<relationshipName>/<edgeID>` |
-| time    | Timestamp for when the operation occurred on the relationship |
-| sequence | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
-| sequencetype | More detail about how the sequence field is used. For example, this property may specify that the value must be a signed 32-bit integer, which starts at 1 and increases by 1 each time. |
+| `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
+| `source` | Name of the Azure Digital Twins instance, like *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
+| `specversion` | 1.0 |
+| `type` | `Microsoft.<Service RP>.Edge.Create`<br>`Microsoft.<Service RP>.Edge.Update`<br>`Microsoft.<Service RP>.Edge.Delete`<br>`datacontenttype    application/json for Edge.Create`<br>`application/json-patch+json for Edge.Update` |
+| `subject` | ID of the relationship, like `<twinID>/relationships/<relationshipName>/<edgeID>` |
+| `time` | Timestamp for when the operation occurred on the relationship |
+| `sequence` | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
+| `sequencetype` | More detail about how the sequence field is used. For example, this property may specify that the value must be a signed 32-bit integer, which starts at 1 and increases by 1 each time. |
 
 #### Body details
 
@@ -244,17 +244,17 @@ Here are the fields in the body of a model change notification.
 
 | Name    | Value |
 | --- | --- |
-| id    | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
-| source    | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
-| specversion    | 1.0 |
-| type    | `Microsoft.<Service RP>.Model.Upload`<br>`Microsoft.<Service RP>.Model.Reload` (Hub-specific)<br>`Microsoft.<Service RP>.Model.Patch` (Hub-specific)<br>`Microsoft.<Service RP>.Model.Decom`<br>`Microsoft.<Service RP>.Model.Delete` |
-| datacontenttype    | application/json |
-| subject    | ID of the model, in the form `dtmi:<domain>:<unique model identifier>;<model version number>` |
-| time    | Timestamp for when the operation occurred on the model |
-| sequence    | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
-| sequencetype    | More detail about how the sequence field is used. For example, this property may specify that the value must be a signed 32-bit integer, which starts at 1 and increases by 1 each time. |
-| modelstatus    | The resolution status for resolving a model. Possible values: Successful/NotFound/Failed (IoT Hub only) | 
-| updatereason    | Update model reason in the schema. Possible values: Create/Reset/Override (IoT Hub only) | 
+| `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
+| `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westcentralus.azuredigitaltwins.net* |
+| `specversion` | 1.0 |
+| `type` | `Microsoft.<Service RP>.Model.Upload`<br>`Microsoft.<Service RP>.Model.Reload` (Hub-specific)<br>`Microsoft.<Service RP>.Model.Patch` (Hub-specific)<br>`Microsoft.<Service RP>.Model.Decom`<br>`Microsoft.<Service RP>.Model.Delete` |
+| `datacontenttype` | application/json |
+| `subject` | ID of the model, in the form `dtmi:<domain>:<unique model identifier>;<model version number>` |
+| `time` | Timestamp for when the operation occurred on the model |
+| `sequence` | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
+| `sequencetype` | More detail about how the sequence field is used. For example, this property may specify that the value must be a signed 32-bit integer, which starts at 1 and increases by 1 each time. |
+| `modelstatus` | The resolution status for resolving a model. Possible values: Successful/NotFound/Failed (IoT Hub only) | 
+| `updatereason` | Update model reason in the schema. Possible values: Create/Reset/Override (IoT Hub only) | 
 
 #### Body details
 
@@ -286,15 +286,15 @@ Here are the fields in the body of a digital twin change notification.
 
 | Name    | Value |
 | --- | --- |
-| id    | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
-| source    | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westcentralus.azuredigitaltwins.net*
-| specversion    | 1.0 |
-| type    | `Microsoft.<Service RP>.Twin.Update` |
-| datacontenttype    | application/json-patch+json |
-| subject    | ID of the digital twin |
-| time    | Timestamp for when the operation occurred on the digital twin |
-| sequence | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
-| sequencetype | More detail about how the sequence field is used. For example, this property may specify that the value must be a signed 32-bit integer, which starts at 1 and increases by 1 each time. |
+| `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
+| `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westcentralus.azuredigitaltwins.net*
+| `specversion` | 1.0 |
+| `type` | `Microsoft.<Service RP>.Twin.Update` |
+| `datacontenttype` | application/json-patch+json |
+| `subject` | ID of the digital twin |
+| `time` | Timestamp for when the operation occurred on the digital twin |
+| `sequence` | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
+| `sequencetype` | More detail about how the sequence field is used. For example, this property may specify that the value must be a signed 32-bit integer, which starts at 1 and increases by 1 each time. |
 
 #### Body details
 
