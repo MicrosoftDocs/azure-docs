@@ -51637,7 +51637,7 @@
     },
     {
       "source_path": "articles/sql-database-edge/deploy-onnx.md",
-      "redirect_url": "/azure/azure-sql-edge/deploy-onnx.md",
+      "redirect_url": "/azure/azure-sql-edge/deploy-onnx",
       "redirect_document_id": true
     },
     {
