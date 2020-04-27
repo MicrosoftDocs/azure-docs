@@ -17,26 +17,35 @@ ms.collection: M365-identity-device-management
 
 # Bulk create users in Azure Active Directory
 
-Azure Active Directory (Azure AD) supports bulk user create and delete operations, bulk invite for guests, and supports downloading lists of users, groups, and group members.
+Azure Active Directory (Azure AD) supports bulk user create and delete operations and supports downloading lists of users. Just fill out comma-separated values (CSV) template you can download from the Azure AD portal.
 
 ## Required permissions
 
 In order to bulk create users in the administration portal, you must be signed in as a Global administrator or User administrator.
 
-## Understand the bulk upload spreadsheet
+## Understand the bulk upload template
 
 Use the bulk upload spreadsheet as the template to help you successfully create Azure AD users in bulk. Your spreadsheet might look like this example:
 
 ![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/users-bulk-add/create-template-example.png)
 
-The first two rows of the upload template must not be removed or modified, or the upload can't be processed. We have included one row of examples of acceptable values. You must remove the examples row and replace it with your entries. Any additional columns you add are ignored and not processed. The required columns are listed first.
+### CSV file structure
+
+The rows in the CSV template are as follows:
+
+- **Version number**: The first row containing the version number must be included in the upload CSV.
+- **Column headings**: The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Required or blank*&gt;. For example, `Name [displayName] Required`. Some older versions of the template might have slight variations.
+- **Examples row**: We have included in the template a row of examples of acceptable values for each column. You must remove the examples row and replace it with your own entries.
+
+### Additional issues
+
+- The first two rows of the upload template must not be removed or modified, or the upload can't be processed.
+- Any additional columns you add are ignored and not processed.
+- The required columns are listed first.
+- Don't add additional columns.
 
 > [!Note]
-> Older versions of the template might not have the examples row. We recommend that you download the latest version of the template as often as possible.
-
-The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Required or blank*&gt;. For example, `Name [displayName] Required`. Some older versions of the template might have something like `Name (example: Chris Green) [displayName] *`.
-
-For groups, format is the same but you have the option to decide which identifier you use. An example of one such column heading is `Member object ID or user principal name [memberObjectIdOrUpn] Required`.
+> We recommend that you download the latest version of the CSV template as often as possible.
 
 ## To create users in bulk
 
