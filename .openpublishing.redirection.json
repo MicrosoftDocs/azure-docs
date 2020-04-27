@@ -3443,6 +3443,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/iot-edge/how-to-deploy-monitor.md",
+      "redirect_url": "/azure/iot-edge/how-to-deploy-at-scale",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-deploy-monitor-cli.md",
+      "redirect_url": "/azure/iot-edge/how-to-deploy-cli-at-scale",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-deploy-monitor-vscode.md",
+      "redirect_url": "/azure/iot-edge/how-to-deploy-vscode-at-scale",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
       "redirect_url": "/azure/cognitive-services/recommendations/overview",
       "redirect_document_id": false
@@ -7569,6 +7584,11 @@
     {
       "source_path": "articles/application-gateway/application-gateway-create-gateway-cli-nodejs.md",
       "redirect_url": "/azure/application-gateway/quick-create-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-multisite-cli.md",
+      "redirect_url": "/azure/application-gateway/tutorial-multiple-sites-cli",
       "redirect_document_id": false
     },
     {

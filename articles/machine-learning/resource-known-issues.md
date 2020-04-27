@@ -35,6 +35,23 @@ Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter w
 
 ## Installation and import
 
+* **Pip Installation: Dependencies are not guaranteed to be consistent with single line installation**: 
+
+   This is a known limitation of pip, as it does not have a functioning dependency resolver when you install as a single line. The first  unique dependency is the only one it looks at. 
+
+   In the following code `azure-ml-datadrift` and `azureml-train-automl` are both installed using a single line pip install. 
+     ```
+       pip install azure-ml-datadrift, azureml-train-automl
+     ```
+   For this example, let's say `azure-ml-datadrift` requires version > 1.0 and `azureml-train-automl` requires version < 1.2. If the latest version of `azure-ml-datadrift` is 1.3,  then both packages get upgraded to 1.3, regardless of the `azureml-train-automl` package requirement for an older version. 
+
+   To ensure the appropriate versions are installed for your packages, install using multiple lines like in the following code. Order isn't an issue here, since pip explicitly downgrades as part of the next line call. And so, the appropriate version dependencies are applied.
+    
+     ```
+        pip install azure-ml-datadrift
+        pip install azureml-train-automl 
+     ```
+     
 * **Error message: Cannot uninstall 'PyYAML'**
 
     Azure Machine Learning SDK for Python: PyYAML is a `distutils` installed project. Therefore, we cannot accurately determine which files belong to it if there is a partial uninstall. To continue installing the SDK while ignoring this error, use:
@@ -78,20 +95,6 @@ Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter w
     * Add `azureml-dataprep` version 1.1.8 or above.
     * Add `pyarrow` version 0.11 or above.
     
-* **Pip Installation: Dependecies are not guaranteed to be consistent with single line installation**: This is a known limitation of pip as it does not have a functioning dependency resolver when you install as a single line. The first unique dependency is the only one it looks at. For example, if you are installing azure-ml-datadrift which requires version > 1.0 and azureml-train-automl which requires version < 1.2 and if the latest version is 1.3, when the user installs the packages in a single line as shown below, everything gets upgraded to 1.3 even though the azureml-train-automl package requires an older version. 
-
-    * You will see inconsistent dependecies with single line installation.
-    ```python
-       pip install azure-ml-datadrift, azureml-train-automl
-     ```
-   
-    * To ensure the appropriate versions are installed for your packages, install using multiple lines like in the following code. Order doesn't matter here.
-    
-     ```python
-        pip install azure-ml-datadrift
-        pip install azureml-train-automl 
-     ```
-     
 ## Create and manage workspaces
 
 > [!WARNING]
