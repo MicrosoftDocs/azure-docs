@@ -17,6 +17,12 @@ In this tutorial, part two of three, you will connect to an Azure Red Hat OpenSh
 > * Install the OpenShift CLI
 > * Connect to an ARO cluster using the OpenShift CLI
 
+## Before you begin
+
+In previous tutorials, an ARO cluster was created. If you have not done these steps, and would like to follow along, start with [Tutorial 1 - Create an Azure Red Hat Openshift 4 Cluster.](tutorial-create-cluster.md)
+
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
 ## Connect to the cluster
 
 You can log into the cluster using the `kubeadmin` user.  Run the following command to find the password for the `kubeadmin` user.
