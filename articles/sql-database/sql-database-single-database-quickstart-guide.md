@@ -1,10 +1,10 @@
 ---
-title: Quickstart - single databases
-description: 'Learn how to quickly get started with single databases in Azure SQL Database'
+title: Single database quickstart content reference
+description: 'Find a content reference of all the quicktsarts that will help you quickly get started with single databases in Azure SQL Database'
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: quickstart
 author: jovanpop-msft
@@ -14,7 +14,7 @@ ms.date: 07/29/2019
 ---
 # Getting started with single databases in Azure SQL Database
 
-[A single database](sql-database-single-index.yml) is fully managed PaaS database as a service (DbaaS) that is ideal storage engine for the modern cloud-born applications. In this section, you will learn how to quickly configure and create a single database in SQL Database.
+[A single database](sql-database-single-index.yml) is fully managed PaaS database as a service (DbaaS) that is ideal storage engine for the modern cloud-born applications. In this section, you will learn how to quickly configure and create a single database in Azure SQL Database.
 
 ## Quickstart overview
 
@@ -50,4 +50,4 @@ The following Microsoft Learn modules help you learn for free about Azure SQL Da
 - Find more advanced how-to's in [how to use a single database in Azure SQL Database](sql-database-howto-single-database.md).
 - Find more sample scripts written in [PowerShell](sql-database-powershell-samples.md) and [Azure CLI](sql-database-cli-samples.md).
 - Learn more about the [management API](sql-database-single-databases-manage.md) that you can use to configure your databases.
-- [Identify the right Azure SQL Database/Managed Instance SKU for your on-premises database](/sql/dma/dma-sku-recommend-sql-db/).
+- [Identify the right Azure SQL Database or SQL Managed Instance SKU for your on-premises database](/sql/dma/dma-sku-recommend-sql-db/).

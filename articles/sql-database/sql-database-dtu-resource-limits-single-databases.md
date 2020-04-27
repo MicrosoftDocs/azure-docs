@@ -4,7 +4,7 @@ description: This page describes some common DTU resource limits for single data
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
 author: stevestein
@@ -12,7 +12,7 @@ ms.author: sstein
 ms.reviewer: 
 ms.date: 03/20/2019
 ---
-# Resource limits for single databases using the DTU purchasing model
+# Resource limits for single databases using the DTU purchasing model - Azure SQL Database
 
 This article provides the detailed resource limits for Azure SQL Database single databases using the DTU purchasing model.
 
@@ -97,6 +97,6 @@ The following tables show the resources available for a single database at each 
 - For vCore resource limits for a single database, see [resource limits for single databases using the vCore purchasing model](sql-database-vcore-resource-limits-single-databases.md)
 - For vCore resource limits for elastic pools, see [resource limits for elastic pools using the vCore purchasing model](sql-database-vcore-resource-limits-elastic-pools.md)
 - For DTU resource limits for elastic pools, see [resource limits for elastic pools using the DTU purchasing model](sql-database-dtu-resource-limits-elastic-pools.md)
-- For resource limits for managed instances, see [managed instance resource limits](sql-database-managed-instance-resource-limits.md).
+- For resource limits for SQL Managed Instances, see [SQL Managed Instance resource limits](sql-database-managed-instance-resource-limits.md).
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - For information about resource limits on a database server, see [overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.

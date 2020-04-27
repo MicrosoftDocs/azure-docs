@@ -1,10 +1,10 @@
 ---
 title: Create a single database
-description: Create an  Azure SQL Database single database using the Azure portal, PowerShell, or Azure CLI. Query the database with Query Editor in the Azure portal.
+description: Create a single Azure SQL Database using the Azure portal, PowerShell, or Azure CLI. Query the database with Query Editor in the Azure portal.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom:
+ms.custom: sqldbrb=1
 ms.devlang:
 ms.topic: quickstart
 author: sachinpMSFT
@@ -14,9 +14,9 @@ ms.date: 04/19/2020
 ---
 # Quickstart: Create an Azure SQL Database single database
 
-In this quickstart, you use the Azure portal, a PowerShell script, or an Azure CLI script to create an Azure SQL Database single database. You then query the database using **Query editor** in the Azure portal. 
+In this quickstart, you use the Azure portal, a PowerShell script, or an Azure CLI script to create a single Azure SQL Database. You then query the database using **Query editor** in the Azure portal. 
 
-A [single database](sql-database-single-database.md) is the quickest and simplest deployment option for Azure SQL Database. You manage a single database within a [SQL Database server](sql-database-servers.md), which is inside an [Azure resource group](../azure-resource-manager/management/overview.md) in a specified Azure region. In this quickstart, you create a new resource group and SQL server for the new database.
+A [single database](sql-database-single-database.md) is the quickest and simplest deployment option for Azure SQL Database. You manage a single database within a [logical SQL server](sql-database-servers.md), which is inside an [Azure resource group](../azure-resource-manager/management/overview.md) in a specified Azure region. In this quickstart, you create a new resource group and logical SQL server for the new database.
 
 You can create a single database in the *provisioned* or *serverless* compute tier. A provisioned database is pre-allocated a fixed amount of compute resources, including CPU and memory, and uses one of two [purchasing models](sql-database-purchase-models.md). This quickstart creates a provisioned database using the [vCore-based](sql-database-service-tiers-vcore.md) purchasing model, but you can also choose a [DTU-based](sql-database-service-tiers-DTU.md) model. 
 

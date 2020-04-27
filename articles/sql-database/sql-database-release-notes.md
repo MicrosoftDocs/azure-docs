@@ -1,11 +1,12 @@
 ---
 title: What's new? 
 titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Learn about the new features and improvements for Azure SQL Database & SQL Managed Instance service and documentation
+description: Learn about the new features and improvements for the Azure SQL Database & SQL Managed Instance service and documentation
 services: sql-database
 author: stevestein
 ms.service: sql-database
 ms.subservice: service
+ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 ms.date: 04/14/2020
@@ -13,7 +14,7 @@ ms.author: sstein
 ---
 # What's new in Azure SQL Database & SQL Managed Instance? 
 
-This article lists Azure SQL Database and Azure SQL Managed Instance features that are currently in public preview. For SQL Database updates and improvements, see [SQL Database & SQL Managed Instance service updates](https://azure.microsoft.com/updates/?product=sql-database). For updates and improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
+This article lists Azure SQL Database and Azure SQL Managed Instance features that are currently in public preview. For SQL Database and SQL Managed Instance updates and improvements, see [SQL Database & SQL Managed Instance service updates](https://azure.microsoft.com/updates/?product=sql-database). For updates and improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
 
 ## Features in public preview
 
@@ -48,7 +49,7 @@ This article lists Azure SQL Database and Azure SQL Managed Instance features th
 
 ---
 
-## SQL Managed instance - new features and known issues
+## SQL Managed Instance - new features and known issues
 
 ### SQL Managed instance H2 2019 updates
 
@@ -57,7 +58,7 @@ This article lists Azure SQL Database and Azure SQL Managed Instance features th
 - [Auto-failover groups](https://azure.microsoft.com/updates/azure-sql-database-auto-failover-groups-feature-now-available-in-all-regions/) enable you to replicate all databases from the primary instance to a secondary instance in another region.
 - Configure your SQL Managed Instance behavior with [Global trace flags](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/).
 
-### Managed instance H1 2019 updates
+### SQL Managed Instance H1 2019 updates
 
 The following features are enabled in SQL Managed Instance deployment model in H1 2019:
   - Support for subscriptions with <a href="https://aka.ms/sql-mi-visual-studio-subscribers"> Azure monthly credit for Visual Studio subscribers </a> and increased [regional limits](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
@@ -266,4 +267,4 @@ For updates and improvements to all Azure services, see [Service updates](https:
 
 ## Contribute to content
 
-To contribute to the Azure SQL Database documentation, see the [Docs Contributor Guide](https://docs.microsoft.com/contribute/).
+To contribute to the Azure SQL documentation, see the [Docs Contributor Guide](https://docs.microsoft.com/contribute/).

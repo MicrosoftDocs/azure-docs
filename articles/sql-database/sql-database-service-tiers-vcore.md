@@ -1,6 +1,7 @@
 ---
-title: vCore model overview
-description: The vCore purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price.
+title: vCore purchasing model overview
+titleSuffix: Azure SQL Database & SQL Managed Instance 
+description: The vCore purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price for Azure SQL Database and Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,9 +11,9 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
 ---
-# vCore model overview
+# vCore model overview - Azure SQL Database & SQL Managed Instance 
 
-The virtual core (vCore) model provides several benefits:
+The virtual core (vCore) purchasing model used by Azure SQL Database and Azure SQL Managed Instance provides several benefits:
 
 - Higher compute, memory, IO, and storage limits.
 - Control over the hardware generation to better match compute and memory requirements of the workload.
@@ -26,8 +27,8 @@ Service tier options in the vCore model include General Purpose, Business Critic
 ||**General purpose**|**Business critical**|**Hyperscale**|
 |---|---|---|---|
 |Best for|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance per database replica.|Most business workloads with highly scalable storage and read-scale requirements.  Offers higher resilience to failures by allowing configuration of more than one isolated database replica. |
-|Storage|Uses remote storage.<br/>**Single databases and elastic pools provisioned compute**:<br/>5 GB – 4 TB<br/>**Serverless compute**:<br/>5 GB - 3 TB<br/>**Managed Instance**: 32 GB - 8 TB |Uses local SSD storage.<br/>**Single databases and elastic pools provisioned compute**:<br/>5 GB – 4 TB<br/>**Managed Instance**:<br/>32 GB - 4 TB |Flexible autogrow of storage as needed. Supports up to 100 TB of storage. Uses local SSD storage for local buffer-pool cache and local data storage. Uses Azure remote storage as final long-term data store. |
-|IOPS and throughput (approximate)|**Single databases and elastic pools**: See resource limits for [single databases](../sql-database/sql-database-vcore-resource-limits-single-databases.md) and [elastic pools](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).<br/>**Managed Instance**: See [Overview Azure SQL Database managed instance resource limits](../sql-database/sql-database-managed-instance-resource-limits.md#service-tier-characteristics).|See resource limits for [single databases](../sql-database/sql-database-vcore-resource-limits-single-databases.md) and [elastic pools](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).|Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS and throughput will depend on the workload.|
+|Storage|Uses remote storage.<br/>**SQL Database provisioned compute**:<br/>5 GB – 4 TB<br/>**Serverless compute**:<br/>5 GB - 3 TB<br/>**SQL Managed Instance**: 32 GB - 8 TB |Uses local SSD storage.<br/>**SQL Database provisioned compute**:<br/>5 GB – 4 TB<br/>**SQL Managed Instance**:<br/>32 GB - 4 TB |Flexible autogrow of storage as needed. Supports up to 100 TB of storage. Uses local SSD storage for local buffer-pool cache and local data storage. Uses Azure remote storage as final long-term data store. |
+|IOPS and throughput (approximate)|**SQL Database**: See resource limits for [single databases](../sql-database/sql-database-vcore-resource-limits-single-databases.md) and [elastic pools](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).<br/>**SQL Managed Instance**: See [Overview Azure SQL Managed Instance resource limits](../sql-database/sql-database-managed-instance-resource-limits.md#service-tier-characteristics).|See resource limits for [single databases](../sql-database/sql-database-vcore-resource-limits-single-databases.md) and [elastic pools](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).|Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS and throughput will depend on the workload.|
 |Availability|1 replica, no read-scale replicas|3 replicas, 1 [read-scale replica](sql-database-read-scale-out.md),<br/>zone-redundant high availability (HA)|1 read-write replica, plus 0-4 [read-scale replicas](sql-database-read-scale-out.md)|
 |Backups|[Read-access geo-redundant storage (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|Snapshot-based backups in Azure remote storage. Restores use these snapshots for fast recovery. Backups are instantaneous and don't impact compute I/O performance. Restores are fast and aren't a size-of-data operation (taking minutes rather than hours or days).|
 |In-memory|Not supported|Supported|Not supported|
@@ -104,11 +105,11 @@ For more information on resource limits, see [Resource limits for single databas
 
 ### Selecting a hardware generation
 
-In the Azure portal, you can select the hardware generation for a SQL database or pool at the time of creation, or you can change the hardware generation of an existing SQL database or pool.
+In the Azure portal, you can select the hardware generation for a SQL Database or pool at the time of creation, or you can change the hardware generation of an existing SQL database or pool.
 
-**To select a hardware generation when creating a SQL database or pool**
+**To select a hardware generation when creating a SQL Database or pool**
 
-For detailed information, see [Create a SQL database](sql-database-single-database-get-started.md).
+For detailed information, see [Create a SQL Database](sql-database-single-database-get-started.md).
 
 On the **Basics** tab, select the **Configure database** link in the **Compute + storage** section, and then select the **Change configuration** link:
 
@@ -119,7 +120,7 @@ Select the desired hardware generation:
   ![select hardware](media/sql-database-service-tiers-vcore/select-hardware.png)
 
 
-**To change the hardware generation of an existing SQL database or pool**
+**To change the hardware generation of an existing SQL Database or pool**
 
 For a database, on the Overview page, select the **Pricing tier** link:
 
@@ -129,21 +130,21 @@ For a pool, on the Overview page, select **Configure**.
 
 Follow the steps to change configuration, and select the hardware generation as described in the previous steps.
 
-**To select a hardware generation when creating a managed instance**
+**To select a hardware generation when creating a SQL Managed Instance**
 
-For detailed information, see [Create a managed instance](sql-database-managed-instance-get-started.md).
+For detailed information, see [Create a SQL Managed Instance](sql-database-managed-instance-get-started.md).
 
 On the **Basics** tab, select the **Configure database** link in the **Compute + storage** section, and then select desired hardware generation:
 
-  ![configure managed instance](media/sql-database-service-tiers-vcore/configure-managed-instance.png)
+  ![configure SQL Managed Instance](media/sql-database-service-tiers-vcore/configure-managed-instance.png)
   
-**To change the hardware generation of an existing managed instance**
+**To change the hardware generation of an existing SQL Managed Instance**
 
 # [Portal](#tab/azure-portal)
 
-From the managed instance page, select **Pricing tier** link placed under the Settings section
+From the SQL Managed Instance page, select **Pricing tier** link placed under the Settings section
 
-![change managed instance hardware](media/sql-database-service-tiers-vcore/change-managed-instance-hardware.png)
+![change SQL Managed Instance hardware](media/sql-database-service-tiers-vcore/change-managed-instance-hardware.png)
 
 On the **Pricing tier** page you will be able to change hardware generation as described in the previous steps.
 
@@ -173,7 +174,7 @@ For more details check [az sql mi update](https://docs.microsoft.com/cli/azure/s
 
 #### <a name="gen4gen5-1"></a> Gen4/Gen5
 
-Gen4 hardware is [being phased out](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) and is not available anymore for the new deployments. All new databases must be deployed on Gen5 hardware.
+Gen4 hardware is [being phased out](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) and is no longer available for new deployments. All new databases must be deployed on Gen5 hardware.
 
 Gen5 is available in most regions worldwide.
 
@@ -216,7 +217,15 @@ Approved support requests are typically fulfilled within 5 business days.
 
 ## Next steps
 
-- To create a SQL database, see [Creating a SQL database using the Azure portal](sql-database-single-database-get-started.md).
-- For the specific compute sizes and storage size choices available for single databases, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md).
-- For the specific compute sizes and storage size choices available for elastic pools, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
-- For pricing details, see the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/).
+To get started, see: 
+- [Creating a SQL Database using the Azure portal](sql-database-single-database-get-started.md)
+- [Creating a SQL Managed Instance using the Azure portal](sql-database-managed-instance-get-started.md)
+
+For pricing details, see the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/).
+
+For details about the specific compute and storage sizes available in the general purpose and business critical service tiers, see: 
+
+- [vCore-based resource limits for Azure SQL Database](sql-database-vcore-resource-limits-single-databases.md).
+- [vCore-based resource limits for pooled Azure SQL Databases](sql-database-vcore-resource-limits-elastic-pools.md).
+- [vCore-based resource limits for Azure SQL Managed Instance](sql-database-managed-instance-resource-limits.md). 
+

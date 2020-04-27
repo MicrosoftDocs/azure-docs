@@ -4,7 +4,7 @@ description: Find a reference of content that teaches you to configure and manag
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: jovanpop-msft
@@ -128,4 +128,4 @@ In this article you can find a content reference of various guides, scripts, and
 - [SaaS app security](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
 ## Next steps
-- Learn more about [How-to guides for managed instance](sql-database-howto-managed-instance.md)
+- Learn more about [How-to guides for SQL Managed Instance](sql-database-howto-managed-instance.md)
