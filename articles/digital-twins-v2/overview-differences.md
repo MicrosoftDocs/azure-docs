@@ -35,10 +35,12 @@ The main changes in the newest preview release are:
 
 ## Next steps
 
-See how to migrate an Azure Digital Twins instance created in the previous release:
-* [Migrate from Public Preview 1](how-to-migrate.md)
-
-Learn about the key elements Azure Digital Twins in the current release:
+Learn more about the key elements of Azure Digital Twins in the current release:
 * [Concepts: Twin models](concepts-models.md)
 * [Concepts: Digital twins and the twin graph](concepts-twins-graph.md)
 * [Concepts: Azure Digital Twins query language](concepts-query-language.md)
+
+Or, go ahead and dive into working with Azure Digital Twins in the quickstart:
+
+> [!div class="nextstepaction"]
+> [Quickstart: Get started with Azure Digital Twins](quickstart.md)

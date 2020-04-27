@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Authenticate against Azure Digital Twins
+title: Authenticate a client application
 titleSuffix: Azure Digital Twins
-description: See how to authenticate against the Azure Digital Twins service.
-author: cschormann
-ms.author: cschorm # Microsoft employees only
-ms.date: 3/17/2020
+description: See how to authenticate a client application against the Azure Digital Twins service.
+author: baanders
+ms.author: baanders # Microsoft employees only
+ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -15,59 +15,17 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Authenticate against Azure Digital Twins
+# Authenticate a client application against Azure Digital Twins
 
-> [!TIP]
-> To learn how to create an Azure Digital Twins instance, see [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md).
+After you [create an Azure Digital Twins instance](how-to-set-up-instance.md), you can create a client application that you will use to interact with the instance. This article shows you how to set up and properly authenticate that client application with the Azure Digital Twins instance.
 
-Before you can issue API calls against your Azure Digital Twins instance, you will need to authenticate. This is a two-step process:
+This is done in two steps:
 1. Create an app registration
 2. Write authentication code in a client application
 
-This article will walk you through how to do both.
-
 ## Create an app registration
 
-To authenticate against Azure Digital Twins from a client application, you need to set up an **app registration** in [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
-
-This app registration is where you configure access permissions to the [Azure Digital Twins APIs](how-to-use-apis.md). Your client app authenticates against the app registration, and as a result is granted the configured access permissions to the APIs.
-
-To create an app registration, you need to provide the resource IDs for the Azure Digital Twins APIs, and the baseline permissions to the API. In your working directory, open a new file and enter the following JSON snippet to configure these details: 
-
-```json
-[{
-    "resourceAppId": "https://digitaltwins.azure.net",
-    "resourceAccess": [
-     {
-       "id": "4589bd03-58cb-4e6c-b17f-b580e39652f8",
-       "type": "Scope"
-     }
-    ]
-}]
-``` 
-
-Save this file as *manifest.json*.
-
-Next, run the following command to create an app registration (replacing placeholders as needed):
-
-```azurecli
-az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses <path-to-manifest.json> --reply-url <one-or-more-reply-URLs>
-```
-
-> [!TIP]
-> For a desktop or console app, a typical reply URL would be "http://localhost".
-
-From the output of this command, look for the `appId` field and note its value. You will need this **app registration ID** later, when you authenticate against the Azure Digital Twins APIs.
-
-Depending on your scenario, you may need to make additional changes to the app registration. Here are some common requirements you may need to meet:
-* Activate public client access
-* Set specific reply URLs for web and desktop access
-* Allow for implicit OAuth2 authentication flows
-
-The easiest way to set up these settings is to use the [Azure portal](https://portal.azure.com/). For more information about this process, see [Register an application with the Microsoft identity platform](https://docs.microsoft.com/graph/auth-register-app-v2).
-
-> [!TIP] 
-> If your Azure subscription is created using a Microsoft account such as Live, Xbox, or Hotmail, you need to set the *signInAudience* on the app registration to support personal accounts.
+[!INCLUDE [Azure Digital Twins setup steps: client app registration](../../includes/digital-twins-setup-2.md)]
 
 ## Write client app authentication code
 
@@ -83,17 +41,16 @@ You will need to add references in your project to the following libraries, whic
 * Microsoft.Rest.ClientRuntime.Azure
 * System.Security.Cryptography.ProtectedData
 
-### Code samples
+### Minimal code sample
 
 To authenticate a .NET app with Azure services, you can use the following minimal code within your client app.
 
-> [!TIP] 
-> If your Azure subscription is created using a Microsoft account such as Live, Xbox, or Hotmail, you can find the tenant ID in the default directory overview in the Azure Active Directory section. 
+You will need your *Application (client) ID* and *Directory (tenant) ID* from earlier. 
 
 ```csharp
 private string adtAppId = "https://digitaltwins.azure.net";
-private string clientId = "<your-app-registration-ID>";
-private string tenantId = "<your-tenant-ID>";
+private string clientId = "<your-application-ID>";
+private string tenantId = "<your-directory-ID>";
 private AuthenticationResult authResult;
 static async Task Authenticate()
 {
@@ -105,13 +62,23 @@ static async Task Authenticate()
 
 The sample above shows the most minimal code that can be used to authenticate using the Microsoft Authentication Library (MSAL). There are many more options you can use, to implement things like caching and other authentication flows. For more information, see [Overview of Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md).
 
-The sample below is a more complete example. It creates an API client.
+### A more-complete code sample
+
+This section offers a more complete example. It creates an API client.
 
 You will need to have references to the following libraries, which you can find on NuGet:
 * Microsoft.Identity.Client. This is the MSAL client library.
 * *Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * System.Security.Cryptography.ProtectedData
+
+In addition to your *Application (client) ID* and *Directory (tenant) ID* from earlier, you will also need the Azure Digital Twins instance's *hostName*. You may have noted this earlier when you created your instance, or you can look for the *hostName* property in the output of this command:
+
+```azurecli
+az dt show --dt-name <your-Azure-Digital-Twins-instance>
+```
+
+Here is the client app code.
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -125,13 +92,13 @@ namespace Azure Digital TwinsGettingStarted
 {
     class Program
     {
-        private const string clientId = "<your-app-registration>";
-        // The Azure Digital Twins API resource ID
         private const string adtAppId = "https://digitaltwins.azure.net";
+        private const string clientId = "<your-application-ID>";
+        private string tenantId = "<your-directory-ID>";
         private static AuthenticationResult authResult;
 
         private static AzureDigitalTwinsAPIClient client;
-        private const string adtInstanceUrl = "<your-app-ID>";
+        private const string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
 
         static async Task Main(string[] args)
         {
