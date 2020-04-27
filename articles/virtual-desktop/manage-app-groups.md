@@ -80,7 +80,7 @@ the following process:
 
 12.  Select the **Applications** tab, then select **+Add applications**.
 
-13.  To add an application from the start menu:
+13.  To add an application from the start menu: 
 
       - Go to **Application source** and select **Start menu** from the drop-down menu. Next, go to **Application** and choose the application from the drop-down menu.
 
