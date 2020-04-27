@@ -26,7 +26,7 @@ Note the following requirements before you begin:
 
 ## Upload data to Azure Storage
 
-## Utilities
+### Utilities
 
 Microsoft provides the following utilities to work with Azure Storage:
 
@@ -41,7 +41,7 @@ Microsoft provides the following utilities to work with Azure Storage:
 > [!NOTE]  
 > The Hadoop command is only available on the HDInsight cluster. The command only allows loading data from the local file system into Azure Storage.  
 
-## Hadoop command line
+### Hadoop command line
 
 The Hadoop command line is only useful for storing data into Azure storage blob when the data is already present on the cluster head node.
 
@@ -68,7 +68,7 @@ For a list of other Hadoop commands that work with files, see [https://hadoop.ap
 > [!WARNING]  
 > On Apache HBase clusters, the default block size used when writing data is 256 KB. While this works fine when using HBase APIs or REST APIs, using the `hadoop` or `hdfs dfs` commands to write data larger than ~12 GB results in an error. For more information, see [storage exception for write on blob](hdinsight-troubleshoot-hdfs.md#storage-exception-for-write-on-blob).
 
-## Graphical clients
+### Graphical clients
 
 There are also several applications that provide a graphical interface for working with Azure Storage. The following table is a list of a few of these applications:
 
