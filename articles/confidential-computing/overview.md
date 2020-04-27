@@ -23,7 +23,8 @@ Azure confidential computing allows you to isolate your sensitive data while it'
 ## Overview
 <p><p>
 
-> [!VIDEO https://www.youtube.com/embed/Qu6sP0XDMU8]
+
+> [!VIDEO https://www.youtube.com/embed/rT6zMOoLEqI]
 
 We know that securing your cloud data is important. We hear your concerns. Here's just a few questions that our customers may have when moving sensitive workloads to the cloud: 
 
