@@ -16,7 +16,7 @@ ms.service: azure-project-spool
 
 ~
 
-# Spool Docs Philosophy
+# ACS Docs Philosophy
 
 - We (Microsoft) have communications infrastructure that works really well at scale. COVID-19 has proven that.
 - Our comms infrastructure is an asset that we can leverage to the benefit of both customers *and* our bottom line.
@@ -29,11 +29,11 @@ ms.service: azure-project-spool
   - Adding calling to their apps
   - Adding chat to their apps
   - Adding SMS to their apps
-  - Consolidating the billing of Azure customers who depend on Twilio for things that Spool offers (phone number provisioning, PSTN, SMS)
+  - Consolidating the billing of Azure customers who depend on Twilio for things that ACS offers (phone number provisioning, PSTN, SMS)
 - The types of customers **who we can help most** are:
   - Those who currently manage their own WebRTC and/or telephony infrastructure.
   - Existing Azure customers who use Twilio and other competitors for things that we can do for them (phone number provisioning, sms, calling).
-   - Some use-cases have been listed in the [About Spool page](https://review.docs.microsoft.com/en-us/azure/project-spool/overview?branch=pr-en-us-104477).
+   - Some use-cases have been listed in the [About ACS page](https://review.docs.microsoft.com/en-us/azure/project-spool/overview?branch=pr-en-us-104477).
 - As a developer, I decide to pay (or advocate for) a service when it's painless. I look for simplicity that **doesn't make me think**. If the docs don't make me think, then I trust that the product won't make me think.
 - **We can use docs to unify our thinking in service of our customer's need for simplicity.** To facilitate that, a docs skeleton has been created. We can all add meat to the skeleton.
 - Our docs can be used to identify and reconcile ambiguity. Points of ambiguity will be documented at the top of each page under development.

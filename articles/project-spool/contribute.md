@@ -2,7 +2,7 @@
 
 ## Intro
 
-The status of Spool Docs is being tracked in [this spreadsheet](https://microsoft.sharepoint-df.com/:x:/t/IC3SDK/EasbZy5MyMBLq2S0NyTNBVABhKiR6r8bq8Ld8clQQkgOeA?e=AYC94P).
+The status of ACS Docs is being tracked in [this spreadsheet](https://microsoft.sharepoint-df.com/:x:/t/IC3SDK/EasbZy5MyMBLq2S0NyTNBVABhKiR6r8bq8Ld8clQQkgOeA?e=AYC94P).
 
 Open issues are being discussed in [this document](https://microsoft.sharepoint-df.com/:w:/t/IC3SDK/Eer2632Xk-hHgCtvPAj6kgkBPlV42XZmsZ8TG4GwsvZf0A?e=p3yxen).
 
@@ -51,7 +51,7 @@ The numbers in the above diagram correspond to the following numbered annotation
 5. I've forked from our org's private repository **[2]** to facilitate contributions from this team.  Since we're working with a small number of people, I've opted to minimize process complexity by using **a single fork** that we all own together.  This means you don't have to submit pull requests - you can just push your commits directly into our branch (**[6]**).
 6. This is our branch.  This is where our changes will be pushed.  We won't ever directly contribute to the "root".  When we push to this branch, changes will automatically be built and staged [here](https://review.docs.microsoft.com/en-us/azure/project-spool/?branch=pr-en-us-104477).
 7. When you clone **[5]**, you're pulling the entire Azure-docs-pr repository down onto your local machine.
-8. This is your local Spool branch, where we'll be making our changes.
+8. This is your local ACS branch, where we'll be making our changes.
 9. When we make changes in our local branch, we'll sync our changes.  This pulls others' changes down from **[6]** to **[8]**, and then pushes our changes from **[8]** to **[6]**.
 10. I've [issued a pull request](https://github.com/MicrosoftDocs/azure-docs-pr/pull/104477) from **[6]** to **[4]**.  This is what enables continuous validation and staging as we commit our changes to **[6]**.  If you view that pull request after pushing to **[4]**, you'll be able to see the validations and staging status.
 

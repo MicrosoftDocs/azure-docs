@@ -1,5 +1,5 @@
 ---
-title: Get Started With Project Spool
+title: Get Started With Azure Communication Services
 description: TODO
 author: mikben    
 manager: jken
@@ -13,7 +13,7 @@ ms.service: azure-project-spool
 ---
 
 
-# Get Started With Project Spool
+# Get Started With Azure Communication Services
 
 This Quickstart will teach you how to:
 

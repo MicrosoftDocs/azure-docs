@@ -9,15 +9,13 @@
     href: contribute.md
   - name: Internal Questions
     href: internalquestions.md
-  - name: Docs Priorities
-    href: docspriorities.md
   - name: Canonical Scenarios
     href: canonicalscenarios.md
   - name: Generating Reference Docs
     href: automatingreferencedocs.md
 - name: Overview
   items:
-  - name: About Project Spool
+  - name: About Azure Communication Services
     href: overview.md
 - name: Quickstarts
   expanded: true
