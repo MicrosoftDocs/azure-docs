@@ -764,13 +764,13 @@ To use Tomcat with Redis, you must configure your app to use a [PersistentManage
 
 8. Update the `azure-webapp-maven-plugin` configuration in your app's *pom.xml* file to refer to your Redis account info. This file uses the environment variables you set previously to keep your account information out of your source files.
 
-    If necessary, change `1.8.0` to the current version of the [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
+    If necessary, change `1.9.1` to the current version of the [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 
     ```xml
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.8.0</version>
+        <version>1.9.1</version>
         <configuration>            
             <!-- Web App information -->
             <schemaVersion>v2</schemaVersion>
