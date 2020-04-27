@@ -27,28 +27,28 @@ You can debug issues in the validation host pool with either [the diagnostics fe
 >[!NOTE]
 > We recommend that you leave the validation host pool in place to test all future updates.
 
+>[!IMPORTANT]
+>The Windows Virtual Desktop Spring 2020 release currently has trouble enabling and disabling validation environment. We'll update this article when we've resolved the issue.
+
 ## Prerequisites
 
-Before you begin, follow the instructions in [Set up the Windows Virtual Desktop PowerShell module]() to set up your PowerShell module and sign in to Azure.
-
-<!-->Create link to this page when article is ready<--->
+Before you begin, follow the instructions in [Set up the Windows Virtual Desktop PowerShell module](powershell-module.md) to set up your PowerShell module and sign in to Azure.
 
 ## Create your host pool
 
 You can create a host pool by following the instructions in any of these articles:
 - [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
-- [Create a host pool with an Azure Resource Manager template](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)
 - [Create a host pool with PowerShell](create-host-pools-powershell.md)
 
 ## Define your host pool as a validation host pool
 
-Run the following PowerShell cmdlets to define the new host pool as a validation host pool. Replace the values in quotes by the values relevant to your session:
+Run the following PowerShell cmdlets to define the new host pool as a validation host pool. Replace the values in brackets with the values relevant to your session:
 
 ```powershell
 Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -ValidationEnvironment:$true
 ```
 
-Run the following PowerShell cmdlet to confirm that the validation property has been set. Replace the values in quotes by the values relevant to your session.
+Run the following PowerShell cmdlet to confirm that the validation property has been set. Replace the values in brackets with the values relevant to your session.
 
 ```powershell
 Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | Format-List

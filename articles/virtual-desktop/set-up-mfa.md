@@ -37,17 +37,13 @@ Here's what you'll need to get started:
 
 1. Open **Azure Active Directory**.
 
-2. Go to the **All applications** tab. In the "Application type" drop-down menu, select **Enterprise Applications**, then search for **Windows Virtual Desktop Client**.
-
-    ![A screenshot of the All applications tab. The user entered "windows virtual desktop client" into the search bar, and the app has shown up in the search results.](media/all-applications-search.png)
+2. Go to the **All applications** tab. In the "Application type" drop-down menu, then select **Enterprise Applications**.
 
 3. Select **Conditional Access**.
 
     ![A screenshot showing the user hovering their mouse cursor over the Conditional Access tab.](media/conditional-access-location.png)
 
 4. Select **+ New policy**.
-
-   ![A screenshot of the Conditional Access page. The user is hovering their mouse cursor over the new policy button.](media/new-policy-button.png)
 
 5. Enter a **name** for the **rule**, then **select** the *name of the **group** you created in the prerequisites.
 
@@ -59,10 +55,6 @@ Here's what you'll need to get started:
 
     ![A screenshot of the Cloud apps or actions page. The user has selected the Windows Virtual Desktop app by selecting the check mark next to it. The selected app is highlighted in red.](media/cloud-apps-select.png)
     
-    >[!NOTE]
-    >You should also see the Windows Virtual Desktop Client app selected on the left side of the screen, as shown in the following image. You need both the Windows Virtual Desktop and Windows Virtual Desktop Client Enterprise apps for the policy to work.
-    >
-    > ![A screenshot of the Cloud apps or actions page. The Windows Virtual Desktop and Windows Virtual Desktop Client apps are highlighted in red.](media/cloud-apps-enterprise-selected.png)
 
 9. Select **Select**
 

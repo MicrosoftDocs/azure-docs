@@ -33,9 +33,6 @@ Automatic assignment is the default assignment type for new personal desktop hos
 
 To automatically assign users, first assign them to the personal desktop host pool so that they can see the desktop in their feed. When an assigned user launches the desktop in their feed, they will claim an available session host if they have not already connected to the host pool, which completes the assignment process.
 
-> [!NOTE]
-> Make sure you've installed Windows Virtual Desktop PowerShell module version 1.0.1534.2001 or later before following these instructions.
-
 To configure a host pool to automatically assign users to VMs, run the following PowerShell cmdlet:
 
 ```powershell

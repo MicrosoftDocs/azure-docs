@@ -34,7 +34,7 @@ To retrieve a list of published RemoteApps for an app group, run the following P
 Get-AzWvdApplication -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname>
 ```
 
-To assign a friendly name to a RemoteApp, run the following PowerShell cmdlet:
+To assign a friendly name to a RemoteApp, run the following cmdlet with the required parameters:
 
 ```powershell
 Update-AzWvdApplication -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -Name <applicationname> -FriendlyName <newfriendlyname>
@@ -107,7 +107,7 @@ You can change the display name for a published remote desktop by setting a frie
 
 3. Under Services, select **Windows Virtual Desktop**. 
 
-4. On the Windows Virtual Desktop page, select the application groups you want to edit on the left side of the screen. 
+4. On the Windows Virtual Desktop page, select **Application groups** on the left side of the screen, then select the name of the app group you want to edit. 
 
 5. Select **Applications** in the menu on the left side of the screen.
 

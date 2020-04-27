@@ -19,9 +19,7 @@ Configuring the load-balancing method for a host pool allows you to adjust the W
 
 ## Prerequisites
 
-This article assumes you've followed the instructions in [Set up the Windows Virtual Desktop PowerShell module]() to download and install the PowerShell module and sign in to your Azure account.
-
-<!--->This needs a link<--->
+This article assumes you've followed the instructions in [Set up the Windows Virtual Desktop PowerShell module](powershell-module.md) to download and install the PowerShell module and sign in to your Azure account.
 
 ## Configure breadth-first load balancing
 
@@ -36,7 +34,7 @@ Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname>
 After that, to make sure you've set the breadth-first load balancing method, run the following cmdlet: 
 
 ```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType 
 
 Name             : hostpoolname 
 LoadBalancerType : BreadthFirst
@@ -61,7 +59,7 @@ Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname>
 To make sure the setting has updated, run this cmdlet:
 
 ```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType, MaxSessionLimit 
+Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType, MaxSessionLimit 
 
 Name             : hostpoolname
 LoadBalancerType : DepthFirst
