@@ -85,14 +85,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | |
     |--|
     | `https://app.float.com/sso/metadata`|
-    | `https://app.develop.float.com/sso/metadata`|
 
     b. In the **Reply URL** text box, type a URL using any one of the following patterns:
 
     | |
     |--|
     | `https://<hostname>.float.com/sso/azuread`|
-    | `https://<hostname>.develop.float.com/sso/azuread`|
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -101,7 +99,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | |
     |--|
     | `https://<hostname>.float.com/login`|
-    | `https://<hostname>.develop.float.com/login`|
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Float Client support team](mailto:support@float.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
