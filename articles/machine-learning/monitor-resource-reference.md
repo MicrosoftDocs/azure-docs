@@ -172,7 +172,7 @@ The following are dimensions that can be used to filter resource metrics:
 | Dimension | Description |
 | ----- | ----- |
 | CreatedTime | |
-| DeviceId | ID of the device (GPU). |
+| DeviceId | ID of the device (GPU). Only available for GpuUtilization. |
 | NodeId | ID of the node created where job is running. |
 | RunId | ID of the run/job. |
 
