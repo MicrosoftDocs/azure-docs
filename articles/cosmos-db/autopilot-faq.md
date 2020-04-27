@@ -24,10 +24,10 @@ Yes, autoscale mode is supported for multi-master accounts. The max RU/s are ava
 Refer to the Azure Cosmos DB [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for details. 
 
 ### How do I enable autoscale for my containers or databases?
-Autoscale mode can be enabled on new containers and databases created using the Azure portal. 
+Autoscale mode can be currently be enabled on new containers and databases created using the Azure portal or .NET V3 SDK.
 
 ### Is there CLI or SDK support to create containers or databases with autoscale mode?
-Currently, you can only create resources with autoscale mode from the Azure portal. Support for CLI and SDK is not yet available.
+Currently, you can only create resources with autoscale mode from the Azure portal and .NET V3 SDK. Support for CLI and other SDKs is not yet available.
 
 ### Can I enable autoscale on an existing container or a database?
 Currently, you can enable autoscale on new containers and databases when creating them. Support to enable autoscale mode on existing containers and databases is not yet available. You can migrate existing containers to a new container using [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) or [change feed](change-feed.md). 
@@ -41,28 +41,28 @@ Yes, autoscale mode is supported for shared throughput databases. To enable this
 ### What is the number of allowed collections per shared throughput database when autoscale is enabled?
 For shared throughput databases with autoscale mode enabled, the number of allowed collections is: MIN(25, Max RU/s of database / 1000). For example, if the max throughput of the database is 20,000 RU/s, the database can have MIN(25, 20,000 RU/s / 1000) = 20 collections. 
 
-
 ### What is the storage limit associated with each max RU/s option?  
 The storage limit in GB for each max RU/s is: Max RU/s of database or container / 100. For example, if the max RU/s is 20,000 RU/s, the resource can support 200 GB of storage. 
 See the [autoscale limits](provision-throughput-autopilot.md#autoscale-limits) article for the available max RU/s and storage options. 
 
 ### What happens if I exceed the storage limit associated with my max throughput?
-If the storage limit associated with the max throughput of the database or container is exceeded, Azure Cosmos DB will automatically increase the max throughput to the next highest tier that can support that level of storage. For example, suppose a database or container is provisioned with the 4000 RU/s max throughput option, which has a storage limit of 50 GB. If the storage of the resource increases to 100 GB, the max RU/s of the database or container will be automatically increased to 20,000 RU/s, which can support up to 200 GB. 
+If the storage limit associated with the max throughput of the database or container is exceeded, Azure Cosmos DB will automatically increase the max throughput to the next highest RU/s that can support that level of storage.
+
+For example, if you start with a max RU/s of 50,000 RU/s (scales between 5000 - 50,000 RU/s), you can store up to 500 GB of data. If you exceed 500 GB - e.g. storage is now 600 GB, the new maximum RU/s will be 60,000 RU/s (scales between 6000 - 60,000 RU/s).
 
 ### How quickly will autoscale up and down based on spikes in traffic?
-In autoscale mode, you can instantaneously scale up or scale down the RU/s within the minimum and maximum RU/s range, based on incoming traffic. Billing is done at a 1-hour granularity, where you are charged for the highest RU/s in a particular hour.
+In autoscale mode, the system instantaneously scales up or down the RU/s within the minimum and maximum RU/s range, based on incoming traffic. Billing is done at a 1-hour granularity, where you are charged for the highest RU/s the system scaled to in a particular hour.
 
 ### Can I specify a custom max throughput (RU/s) value for autoscale mode?
-Currently, you can select between [four options](provision-throughput-autoscale.md#autopilot-limits) for max throughput (RU/s).
+Yes. See this [documentation](provision-throughput-autopilot.md#how-autoscale-provisioned-throughput-works) describing how autoscale provisioned throughput works.
 
-### Can I increase the max RU/s (move to a higher tier) on the database or container? 
-Yes. From the **Scale & Settings** option for your container, or **Scale** option for your database, you can select a higher max RU/s for autoscale mode. This is an asynchronous scale-up operation that may take sometime to complete (typically 4-6 hours, depending on the RU/s selected) as the service provisions more resources to support the higher scale. 
+### Can I change the max RU/s on the database or container? 
+Yes. You can currently use the Azure Cosmos DB .NET V3 SDK or the Azure Portal to change the max RU/s. 
 
-### Can I reduce the max RU/s (move to a lower tier) on the database or container?
-Yes. As long as the current storage of the database or container is below the [storage limit](#what-is-the-storage-limit-associated-with-each-max-rus-option) associated with the max RU/s tier you want to scale down to, you can reduce the max RU/s to that tier. For example, if you have selected 20,000 RU/s as the max RU/s, you can scale down the max RU/s to 4000 RU/s if you have less than 50 GB of storage (the storage limit associated with 4000 RU/s).
+The minimum autoscale max RU/s is: MAX(4000, highest max RU/s ever provisioned / 10, current storage * 100). For example, suppose you have an autoscale container with max RU/s of 20,000 RU/s (scales between 2000 - 20,000 RU/s) and 50 GB of storage. You would be able to lower the max RU/s to a minimum of 5000 RU/s (scales between 500 - 5000 RU/s).
 
 ### What is the mapping between the max RU/s and physical partitions?
-When you first select the max RU/s, Azure Cosmos DB will provision: Max RU/s / 10,000 RU/s = # of physical partitions. Each [physical partition](partition-data.md#physical-partitions) can support up to 10,000 RU/s and 50 GB storage. As storage size grows, Azure Cosmos DB will automatically split the partitions to add more physical partitions to handle the storage increase, or increase the max RU/s tier if storage [exceeds the associated limit](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
+When you first select the max RU/s, Azure Cosmos DB will provision: Max RU/s / 10,000 RU/s = # of physical partitions. Each [physical partition](partition-data.md#physical-partitions) can support up to 10,000 RU/s and 50 GB storage. As storage size grows, Azure Cosmos DB will automatically split the partitions to add more physical partitions to handle the storage increase, or increase the max RU/s if storage [exceeds the associated limit](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
 
 The Max RU/s of the database or container is divided evenly across all physical partitions. So, the total throughput any single physical partition can scale to is: Max RU/s of database or container / # physical partitions. 
 
