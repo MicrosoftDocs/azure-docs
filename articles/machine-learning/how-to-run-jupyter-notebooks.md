@@ -62,6 +62,9 @@ For an example, see [Tutorial: Create your first ML experiment](tutorial-1st-exp
 
 You can access all Git operations by using a terminal window. All Git files and folders will be stored in your workspace file system.
 
+> [!NOTE]
+> Add your files and folders anywhere under the **/Users** folder so they will be visible in all your Jupyter environments.
+
 To access the terminal:
 
 1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com).
