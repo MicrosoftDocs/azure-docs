@@ -46,7 +46,7 @@ Create the demo database (and drop an existing database if necessary) by running
 
 ```sql
 -- Drop database if it exists
-IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'Demo')
+IF EXISTS (SELECT * FROM sys.databases WHERE name = 'Demo')
 BEGIN
     DROP DATABASE Demo
 END;

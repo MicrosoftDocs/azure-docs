@@ -6,7 +6,7 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/23/2020
 ---
 
 # Scale Azure HDInsight clusters
@@ -102,7 +102,7 @@ To avoid having your running jobs fail during a scale down operation, you can tr
 
 To see a list of pending and running jobs, you can use the YARN **Resource Manager UI**, following these steps:
 
-1. From the [Azure portal](https://portal.azure.com/), select your cluster.  See [List and show clusters](./hdinsight-administer-use-portal-linux.md#showClusters) for the instructions. The cluster is opened in a new portal page.
+1. From the [Azure portal](https://portal.azure.com/), select your cluster.  The cluster is opened in a new portal page.
 2. From the main view, navigate to **Cluster dashboards** > **Ambari home**. Enter your cluster  credentials.
 3. From the Ambari UI, select **YARN** on the list of services on the left-hand menu.  
 4. From the YARN page, select **Quick Links** and hover over the active head node, then select **Resource Manager UI**.
@@ -246,4 +246,3 @@ Region servers are automatically balanced within a few minutes after completing 
 ## Next steps
 
 * [Automatically scale Azure HDInsight clusters](hdinsight-autoscale-clusters.md)
-* [Introduction to Azure HDInsight](hadoop/apache-hadoop-introduction.md)

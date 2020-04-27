@@ -1,5 +1,5 @@
 ---
-title: Credential assets in Azure Automation
+title: Manage credentials in Azure Automation
 description: Credential assets in Azure Automation contain security credentials that can be used to authenticate to resources accessed by the runbook or DSC configuration. This article describes how to create credential assets and use them in a runbook or DSC configuration.
 services: automation
 ms.service: automation
@@ -10,11 +10,10 @@ ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
 ---
-# Credential assets in Azure Automation
+
+# Manage credentials in Azure Automation
 
 An Automation credential asset holds an object that contains security credentials, such as a user name and a password. Runbooks and DSC configurations use cmdlets that accept a [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) object for authentication. Alternatively, they can extract the user name and password of the `PSCredential` object to provide to some application or service requiring authentication. 
-
-Azure Automation securely stores the properties of a credential. Access to the properties through a runbook or DSC configuration uses the [Get-AutomationPSCredential](#activities-used-to-access-credentials) activity.
 
 > [!NOTE]
 > Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each Automation account. This key is stored in Key Vault. Before storing a secure asset, the key is loaded from Key Vault and then used to encrypt the asset.
@@ -30,30 +29,22 @@ As part of the Azure PowerShell Az module, the cmdlets in the following table ar
 
 | Cmdlet | Description |
 |:--- |:--- |
-| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |Retrieves information about a credential asset. This cmdlet doesn't return a `PSCredential` object.  |
+| [Get-AzAutomationCredential](/powershell/module/az.automation/get-azautomationcredential?view=azps-3.3.0) |Retrieves a [CredentialInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.commands.automation.model.credentialinfo?view=azurerm-ps) object containing metadata about the credential. The cmdlet doesn't retrieve the `PSCredential` object itself.  |
 | [New-AzAutomationCredential](/powershell/module/az.automation/new-azautomationcredential?view=azps-3.3.0) |Creates a new Automation credential. |
 | [Remove-AzAutomationCredential](/powershell/module/az.automation/remove-azautomationcredential?view=azps-3.3.0) |Removes an Automation credential. |
 | [Set-AzAutomationCredential](/powershell/module/az.automation/set-azautomationcredential?view=azps-3.3.0) |Sets the properties for an existing Automation credential. |
 
 ## Activities used to access credentials
 
-The activities in the following table are used to access credentials in runbooks and DSC configurations.
+The activities in the following table are used to access credentials in graphical runbooks and DSC configurations. For examples of the use of activities, see [Graphical authoring in Azure Automation](../automation-graphical-authoring-intro.md#activities).
 
 | Activity | Description |
 |:--- |:--- |
-| `Get-AutomationPSCredential` |Gets a credential to use in a runbook or DSC configuration. The credential is in the form of a `PSCredential` object. |
+| `Get-AutomationPSCredential` |Gets a `PSCredential` object to use in a runbook or DSC configuration. Most often, you should use this activity instead of the `Get-AzAutomationCredential` cmdlet, as the latter only retrieves credential information. This information isn't normally helpful to pass to another cmdlet. |
 | [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) |Gets a credential with a prompt for user name and password. |
 | [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) | Creates a credential asset. |
 
-For local development using the Azure Automation Authoring Toolkit, the `Get-AutomationPSCredential` cmdlet is part of assembly [AzureAutomationAuthoringToolkit](https://www.powershellgallery.com/packages/AzureAutomationAuthoringToolkit/0.2.3.9). For Azure working with the Automation context, the cmdlet is in `Orchestrator.AssetManagement.Cmdlets`. See [Manage modules in Azure Automation](modules.md).
-
-To retrieve `PSCredential` objects in your code, you can install the [Microsoft Azure Automation ISE add-on for the PowerShell ISE](https://github.com/azureautomation/azure-automation-ise-addon).
-
-```azurepowershell
-Install-Module AzureAutomationAuthoringToolkit -Scope CurrentUser -Force
-```
-
-Your script can also import the required module where needed, as in the following example: 
+To retrieve `PSCredential` objects in your code, you must import the `Orchestrator.AssetManagement.Cmdlets` module. For more information, see [Manage modules in Azure Automation](modules.md).
 
 ```azurepowershell
 Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
@@ -62,9 +53,9 @@ Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
 > [!NOTE]
 > You should avoid using variables in the `Name` parameter of `Get-AutomationPSCredential`. Their use can complicate discovery of dependencies between runbooks or DSC configurations and credential assets at design time.
 
-## Python2 functions that access credentials
+## Python 2 functions that access credentials
 
-The function in the following table is used to access credentials in a Python2 runbook.
+The function in the following table is used to access credentials in a Python 2 runbook.
 
 | Function | Description |
 |:---|:---|
@@ -151,9 +142,9 @@ The following image shows an example of using a credential in a graphical runboo
 
 While DSC configurations in Azure Automation can work with credential assets using `Get-AutomationPSCredential`, they can also pass credential assets via parameters. For more information, see [Compiling configurations in Azure Automation DSC](../automation-dsc-compile.md#credential-assets).
 
-## Using credentials in Python2
+## Using credentials in Python 2
 
-The following example shows an example of accessing credentials in Python2 runbooks.
+The following example shows an example of accessing credentials in Python 2 runbooks.
 
 
 ```python
@@ -172,4 +163,4 @@ print cred["password"]
 * To understand the different authentication methods for Automation, see [Azure Automation Security](../automation-security-overview.md).
 * To get started with graphical runbooks, see [My first graphical runbook](../automation-first-runbook-graphical.md).
 * To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](../automation-first-runbook-textual.md).
-* To get started with Python2 runbooks, see [My first Python2 runbook](../automation-first-runbook-textual-python2.md). 
+* To get started with Python 2 runbooks, see [My first Python 2 runbook](../automation-first-runbook-textual-python2.md). 

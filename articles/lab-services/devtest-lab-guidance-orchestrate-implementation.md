@@ -40,7 +40,7 @@ The first area of focus when deploying an Azure DevTest Labs solution is to esta
 ## Milestone 2: Deploy the pilot lab
 Once the network topology is in place, the first/pilot lab can be created by taking the following the steps:
 
-1. Create an initial DevTest Labs environment (step-by-step instructions can be found [here](https://github.com/Azure/fta-devops/blob/master/devtest-labs/articles/devtest-labs-walkthrough-it.md))
+1. Create an initial DevTest Labs environment.
 2. Determine allowable VM images and sizes for use with lab. Decide whether custom images can be uploaded into Azure for use with DevTest Labs.
 3. Secure access to the lab by creating initial Role Base Access Controls (RBAC) for the lab (lab owners and lab users). We recommend that you use synchronized active directory accounts with Azure Active Directory for identity with DevTest Labs.
 4. Configure DevTest Labs to use policies such as schedules, cost management, claimable VMs, custom images, or formulas.
