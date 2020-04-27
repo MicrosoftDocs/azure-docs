@@ -133,7 +133,8 @@ Sometimes, you may want to specialize a model further. For example, it might be 
 The following example re-imagines the *Planet* model from the earlier DTDL example as a subtype of a larger *CelestialBody* model. The "parent" model is defined first, and then the "child" model builds on it by using the field `extends`.
 
 ```json
-{
+[
+  {
     "@id": "dtmi:com:contoso:CelestialBody;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2",
@@ -155,8 +156,8 @@ The following example re-imagines the *Planet* model from the earlier DTDL examp
             "schema": "double"
         }
     ]
-},
-{
+  },
+  {
     "@id": "dtmi:com:contoso:Planet;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2",
@@ -176,7 +177,8 @@ The following example re-imagines the *Planet* model from the earlier DTDL examp
             "schema": "dtmi:com:contoso:Crater;1"
         }
     ]
-}
+  }
+]
 ```
 
 In this example, *CelestialBody* contributes a name, a mass, and a telemetry to *Planet*. The `extends` section is structured as an array of interface names (which allows the extending interface to inherit from multiple parent models if desired).
