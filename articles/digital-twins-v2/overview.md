@@ -29,7 +29,7 @@ Azure Digital Twins does the hard work of translating a device-centric view of t
 
 Your Azure Digital Twins instance is either managed within the [Azure portal](https://portal.azure.com), or via custom [Azure Digital Twins CLI](how-to-use-cli.md) commands.
 
-## Azure Digital Twins key capabilities
+## Azure Digital Twins capabilities
 
 Here is a summary of what you can do with Azure Digital Twins.
 
@@ -64,7 +64,7 @@ Here are some examples of insights you can gather:
 * Which assembly lines had an average temperature outside the range of 77 and 79 degrees F?
 * Which power station has surplus capacity that is accessible to a particular customer?   
 
-### Manage access
+### Manage access to your instance
 
 [**Security in Azure Digital Twins**](concepts-security.md) uses role-based access control (RBAC) to allow you to manage your instance at a twin level. You can define the policies for data access, using built-in roles or defining your own.
 

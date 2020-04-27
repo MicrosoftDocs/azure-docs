@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Manage your Azure Digital Twins model set
+# Manage Azure Digital Twins models
 
 Azure Digital Twins **DigitalTwinsModels APIs** are APIs used to manage the [models](concepts-models.md) that an Azure Digital Twins instance knows about. Management operations include upload, validation, and retrieval of models authored in [Digital Twins Definition language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). 
 

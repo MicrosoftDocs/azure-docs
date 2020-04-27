@@ -106,7 +106,7 @@ The fields of the DTDL document are:
 | `displayName` | [optional] Allows you to give the model a friendly name if desired. |
 | `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (*Property*, *Telemetry*, *Command*, *Relationship*, or *Component*) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a *Property*). |
 
-### Schema options
+### Possible schemas
 
 As per DTDL, the schema for *Property* and *Telemetry* attributes can be of standard primitive types—`integer`, `double`, `string`, and `Boolean`—and other types such as `DateTime` and `Duration`. 
 
@@ -116,7 +116,7 @@ In addition to primitive types, *Property* and *Telemetry* fields can have the f
 * `Map`
 * `Enum`
 
-### Inheritance
+### Model inheritance
 
 Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model *Room*, and specialized variants *ConferenceRoom* and *Gym*. To express specialization, DTDL supports inheritance: interfaces can inherit from one or more other interfaces. 
 

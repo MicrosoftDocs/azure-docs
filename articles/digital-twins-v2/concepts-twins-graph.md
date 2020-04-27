@@ -60,7 +60,7 @@ public Task<boolean> CreateRoom(string id, double temperature, double humidity)
 }
 ```
 
-## Relationships: creating a graph of digital twins
+## Relationships: Creating a graph of digital twins
 
 Twins are connected into a twin graph by their relationships. The relationships that a twin can have are defined as part of its model.  
 

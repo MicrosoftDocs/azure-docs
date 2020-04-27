@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Ingest telemetry from IoT Hub
 titleSuffix: Azure Digital Twins
-description: See how to ingest messages from IoT Hub.
+description: See how to ingest device telemetry messages from IoT Hub.
 author: cschormann
 ms.author: cschorm # Microsoft employees only
 ms.date: 3/17/2020
@@ -15,13 +15,13 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Ingest telemetry from IoT Hub
+# Ingest IoT Hub telemetry into Azure Digital Twins
 
 Azure Digital Twins is driven with data from IoT devices and other sources, by calling the [DigitalTwins APIs](how-to-use-apis.md) to set properties or fire telemetry events on [digital twins](concepts-twins-graph.md). Once a property change or telemetry event arrives inside of Azure Digital Twins, all further event propagation and processing happens inside of Azure Digital Twins.
 
 This how-to document walks through an example of ingesting telemetry from [IoT Hub](../iot-hub/about-iot-hub.md).
 
-## The example scenario
+## Example telemetry scenario
 
 This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, using an Azure Function. There are many possible configurations and matching strategies you can use for this, but the example for this article contains the following parts:
 * A thermometer device in IoT Hub, with a known device ID.
@@ -163,7 +163,7 @@ public class JsonPatch
     }
 ```
 
-### The final function result
+### Full Azure function code
 
 Using the code from the earlier samples, here is the entire Azure function in context:
 

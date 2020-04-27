@@ -91,7 +91,7 @@ try
 }
 ```
 
-## Relationship-based queries
+## Query based on relationships
 
 When querying based on digital twins' relationships, Azure Digital Twins Query Store language has a special syntax.
 
@@ -121,7 +121,7 @@ WHERE T.$dtId = 'ABC'
 >[!NOTE] 
 > The developer does not need to correlate this `JOIN` with a key value in the `WHERE` clause (or specify a key value inline with the `JOIN` definition). This correlation is computed automatically by the system, as the relationship properties themselves identify the target entity.
 
-### Query properties of relationships
+### Query the properties of a relationship
 
 Similarly to the way digital twins have properties described via DTDL, relationships can also have properties. 
 The Azure Digital Twins Query Store language allows filtering and projection of relationships, by assigning an alias to the relationship within the `JOIN` clause. 
@@ -138,7 +138,7 @@ AND R.reportedCondition = 'clean'
 
 In the example above, note how *reportedCondition* is a property of the *servicedBy* relationship itself (NOT of some digital twin that has a *servicedBy* relationship).
 
-### Limitations
+### Preview limitations on querying
 
 These are the current limitations on using `JOIN` in the Azure Digital Twins Query Store language:
 * No subqueries are supported within the `FROM` statement.
@@ -146,7 +146,7 @@ These are the current limitations on using `JOIN` in the Azure Digital Twins Que
 * During public preview, graph traversal depth is restricted: only one `JOIN` is allowed per query.
 * The source for `JOIN` operations is restricted: query must declare the twins where the query begins.
 
-## Best practices and recommendations
+## Query best practices
 
 Below are some tips for querying with Azure Digital Twins.
 

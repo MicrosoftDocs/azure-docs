@@ -64,7 +64,7 @@ The endpoint APIs that are available in control plane are:
 * Get endpoint by ID (pass in endpoint ID)
 * Delete endpoint by ID (pass in endpoint ID)
 
-## Create a route
+## Create an event route
  
 Event routes are created in a client application with the following [Azure Digital Twins API](how-to-use-apis.md) call: 
 

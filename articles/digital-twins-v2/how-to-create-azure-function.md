@@ -75,13 +75,13 @@ namespace adtIngestFunctionSample
 
 This is your basic Azure function.
 
-### Run and debug the function app
+### Run and debug the Azure function app
 
 You can now compile and run the function. While Azure functions are ultimately intended to run in the cloud, you can also run and debug Azure functions locally.
 
 For more information about this, see [Debug Event Grid trigger locally](../azure-functions/functions-debug-event-grid-trigger-local.md).
 
-### Add the Azure Digital Twins SDK to your function app
+### Add the Azure Digital Twins SDK to your Azure function app
 
 Visit [How-to: Use the Azure Digital Twins APIs](how-to-use-apis.md) to see how to generate the Azure Digital Twins SDK using AutoRest, and compile it as a reusable project.
 
@@ -95,7 +95,7 @@ Once you have added a reference to the project or added the classes, add the fol
 using ADTApi;
 ```
 
-## Add authentication code to the function
+## Add authentication code to the Azure function
 
 Next, add authentication code that will allow the function to access Azure Digital Twins.
 
@@ -217,7 +217,7 @@ namespace adtIngestFunctionSample
 
 Now your Azure function is complete and ready to publish.
 
-## Publish the function app to Azure
+## Publish the Azure function app
 
 To publish the function app to Azure, right-select the function project (not the solution) in Solution Explorer, and choose *Publish()*.
 
@@ -234,7 +234,7 @@ Select or create an App Service plan to use with Azure Functions. If unsure, sta
 
 On the following page, enter the desired name for the new function app, a resource group, and other details.
 
-## Set up security access
+## Set up security access for the Azure function app
 
 The Azure function skeleton from earlier examples requires that a bearer token be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app. This only needs to be done once for each function app.
 
@@ -250,7 +250,7 @@ On the identity page, set the *Status* toggle to *On*.
 
 Also note the **object ID** shown on this page, as it will be used in the next section.
 
-### Access roles
+### Assign access roles
 
 Because Azure Digital Twins uses role-based access control to manage access (see [Concepts: Securing Azure Digital Twins solutions](concepts-security.md) for more information on this), you also need to add a role for each function app that you want to allow to access Azure Digital Twins.
 

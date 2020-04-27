@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Deploy Azure Digital Twins alongside other services
+# Integrate Azure Digital Twins with other services
 
 Azure Digital Twins is typically used together with other services. Using [**event routes**](concepts-route-events.md), Azure Digital Twins receives data from upstream services such as [IoT Hub](../iot-hub/about-iot-hub.md), which is used to deliver telemetry and notifications. Azure Digital Twins can also route data to downstream services for storage, workflow integration, analytics, and other uses. 
 
@@ -27,7 +27,7 @@ Azure Digital Twins does not have a built-in IoT Hub. You can use an existing Io
 
 To ingest data from IoT Hub into Azure Digital Twins, use an [Azure Function](../azure-functions/functions-overview.md). Learn more about this pattern in [How-to: Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md), or try it out yourself in the [Azure Digital Twins tutorial: Build an end-to-end solution](tutorial.md).
 
-## Egress services
+## Data egress services
 
 Azure Digital Twins can send data to connected **endpoints**. Supported endpoints can be:
 * [Event Hub](../event-hubs/event-hubs-about.md)

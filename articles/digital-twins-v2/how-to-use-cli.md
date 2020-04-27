@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# The Azure Digital Twins CLI
+# Use the Azure Digital Twins CLI
 
 In addition to managing your Azure Digital Twins instance in the Azure portal, Azure Digital Twins has a **command-line interface (CLI)** that you can use to perform most major actions with the service, including:
 * Managing an Azure Digital Twins instance
@@ -27,7 +27,7 @@ This article provides the CLI commands for these tasks, and other information th
 
 You can also view the reference documentation for these commands as part of the [az iot command set](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest).
 
-## Getting started
+## Getting started with the CLI
 
 First, either open an instance of [Azure Cloud Shell](../cloud-shell/overview.md) or [install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -63,7 +63,7 @@ You can now use the Azure Digital Twins CLI commands. Here are some helpful tips
 * Use `az dt -h` to review the top-level commands.
 * All commands have help descriptions and examples. Append `--help` or `-h` to the end of a command or command group to expand these details.
 
-## Azure Digital Twins CLI Command Guide
+## Azure Digital Twins CLI command guide
 
 The following sections describe the commands you can use with the Azure Digital Twins CLI.
 
@@ -171,7 +171,7 @@ Uses:
 
   `az dt endpoint delete --endpoint-name myeh_endpoint -n mydtinstance`
 
-### Manage Azure Digital Twins routes
+### Manage routes
 
 Command group: `az dt route`
 

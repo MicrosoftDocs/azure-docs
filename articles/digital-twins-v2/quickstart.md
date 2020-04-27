@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Get started with Azure Digital Twins
 titleSuffix: Azure Digital Twins
-description: Set up and explore a starter Azure Digital Twins project.
+description: 'Quickstart: Set up and explore a sample Azure Digital Twins project.'
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 4/15/2020

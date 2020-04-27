@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Authenticate a client application against Azure Digital Twins
+# Authenticate a client application with Azure Digital Twins
 
 After you [create an Azure Digital Twins instance](how-to-set-up-instance.md), you can create a client application that you will use to interact with the instance. This article shows you how to set up and properly authenticate that client application with the Azure Digital Twins instance.
 
@@ -41,7 +41,7 @@ You will need to add references in your project to the following libraries, whic
 * Microsoft.Rest.ClientRuntime.Azure
 * System.Security.Cryptography.ProtectedData
 
-### Minimal code sample
+### Minimal authentication code sample
 
 To authenticate a .NET app with Azure services, you can use the following minimal code within your client app.
 
@@ -62,7 +62,7 @@ static async Task Authenticate()
 
 The sample above shows the most minimal code that can be used to authenticate using the Microsoft Authentication Library (MSAL). There are many more options you can use, to implement things like caching and other authentication flows. For more information, see [Overview of Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md).
 
-### A more-complete code sample
+### More complex authentication code sample
 
 This section offers a more complete example. It creates an API client.
 

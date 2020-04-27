@@ -25,7 +25,7 @@ Notification messages may look different depending on which type of event genera
 
 In general, notifications are made up of two parts: the header and the body. 
 
-### Notification headers
+### Event notification headers
 
 Notification message headers are represented with key-value pairs. Depending on the protocol used (MQTT, AMQP, or HTTP), message headers will be serialized differently. This section discusses general header information for notification messages, regardless of the specific protocol and serialization chosen.
 
@@ -37,13 +37,13 @@ Some notifications conform to the CloudEvents standard. CloudEvents conformance 
 
 Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. Notifications emitted by Azure Digital Twins to Event Grid are formatted into the Event Grid schema, until Event Grid supports CloudEvents on input. Extension attributes on headers will be added as properties on the Event Grid schema inside of the payload. 
 
-### Notification body examples
+### Event notification bodies
 
 The bodies of notification messages are described here in JSON. Depending on the serialization desired for the message body (such as with JSON, CBOR, Protobuf, etc.), the message body may be serialized differently.
 
-The set of fields that the body contains vary with different notification types. Here are two sample message bodies, to get an idea of what they generally look like and may include:
+The set of fields that the body contains vary with different notification types. Here are two sample message bodies, to get an idea of what they generally look like and may include.
 
-Telemetry message
+Telemetry message:
 
 ```json
 { 
@@ -63,7 +63,7 @@ Telemetry message
 }
 ```
 
-Life-cycle notifications message
+Life-cycle notification message:
 
 ```json
 { 
@@ -92,7 +92,7 @@ This section goes into more detail about the different types of notifications em
 
 ### Digital twin life-cycle notifications
 
-All [digital twins](concepts-twins-graph.md) emit notifications, regardless of whether they represent [IoT Hub devices in Azure Digital Twins](how-to-ingest-iot-hub-data.md) or not. This is because of life-cycle notifications, which have to do with the digital twin itself.
+All [digital twins](concepts-twins-graph.md) emit notifications, regardless of whether they represent [IoT Hub devices in Azure Digital Twins](how-to-ingest-iot-hub-data.md) or not. This is because of **life-cycle notifications**, which are about the digital twin itself.
 
 Life-cycle notifications are triggered when:
 * A digital twin is created
@@ -182,7 +182,7 @@ Here is another example of a digital twin. This one is based on a [model](concep
 
 ### Digital twin edge change notifications
 
-Edge change notifications are triggered when any relationship of a digital twin is created, updated, or deleted. 
+**Edge change notifications** are triggered when any relationship of a digital twin is created, updated, or deleted. 
 
 #### Properties
 
@@ -234,7 +234,7 @@ Here is an example of a create or delete edge notification:
 
 ### Digital twin model change notifications
 
-Model change notifications are triggered when a Digital Twins Definition Language (DTDL) [model](concepts-models.md) is uploaded, reloaded, patched, decommissioned, or deleted.
+**Model change notifications** are triggered when a Digital Twins Definition Language (DTDL) [model](concepts-models.md) is uploaded, reloaded, patched, decommissioned, or deleted.
 
 #### Properties
 
@@ -274,7 +274,7 @@ For `Model.Delete`, the request body is the same as a `GET` request, and it gets
 
 ### Digital twin change notifications
 
-These notifications are triggered when a digital twin is being updated, like:
+**Digital twin change notifications** are triggered when a digital twin is being updated, like:
 * When property values or metadata changes.
 * When digital twin or component metadata changes. An example of this scenario is changing the model of a digital twin.
 
