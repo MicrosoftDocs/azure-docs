@@ -64,7 +64,7 @@
     items:
     - name: Agents
       href: samples/arm-agent.md
-      - name: Application Insights
+    - name: Application Insights
       href: samples/arm-appinsights.md
     - name: Azure Monitor for Containers
       href: samples/arm-container-insights.md
