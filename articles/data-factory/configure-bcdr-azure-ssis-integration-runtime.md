@@ -142,7 +142,7 @@ This section applies when one of the following conditions is true:
 
 1. Stop Azure-SSIS IR on primary region.
 
-2. Edit Azure-SSIS IR with new region, endpoint and VNET information of secondary instance.
+2. Edit Azure-SSIS IR with new region, endpoint, and VNET information of secondary instance.
 
 ```powershell
   Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
