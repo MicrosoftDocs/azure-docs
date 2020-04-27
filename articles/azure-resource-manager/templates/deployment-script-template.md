@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 04/27/2020
 ms.author: jgao
 
 ---
@@ -253,7 +253,7 @@ Setting environment variables (EnvironmentVariable) in your container instances 
 
 ## Debug deployment scripts
 
-The script service creates a [storage account](../../storage/common/storage-account-overview.md) and a [container instance](../../container-instances/container-instances-overview.md) for script execution. If these resources are automatically created by the script service, both resources have the **azscripts** suffix in the resource names.
+The script service creates a [storage account](../../storage/common/storage-account-overview.md) (unless you specify an existing storage account) and a [container instance](../../container-instances/container-instances-overview.md) for script execution. If these resources are automatically created by the script service, both resources have the **azscripts** suffix in the resource names.
 
 ![Resource Manager template deployment script resource names](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
 
@@ -298,21 +298,15 @@ To see the deploymentScripts resource in the portal, select **Show hidden types*
 
 ## Use an existing storage account
 
-
+The requirements for using an existing storage account:
 
 - Supported storage account kinds are: General-purpose v2 accounts, General-purpose v1 accounts and fileStorage accounts. For more information, see [Types of storage accounts](../../storage/common/storage-account-overview.md).
 - Storage account firewall rules must be turned off. See [Configure Azure Storage firewalls and virtual network](../../storage/common/storage-network-security.md)
-- Deployment script's user-assigned managed identity must have permissions to manage the storage account.
+- Deployment script's user-assigned managed identity must have permissions to manage the storage account, which include read, create, delete file shares.
 
-
-
-  Deployment scripts creates a file share using a unique name, at the end of a successful execution, if the cleanup preference is set to always, the process deletes the file share created
-
-  If a deployment script fails and the cleanup preference was set to OnSuccess, deployment scripts would not remove the file share
-  If a deployment script is set to OnExpiration, once the script expires, deployment scripts will remove the file share
+When an existing storage account is used, the script service creates a file share using a unique name. See [Clean up deployment script resources](#clean-up-deployment-script-resources) for how the script service cleans up the resource.
 
 ## Clean up deployment script resources
-
 
 A storage account and a container instance are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise a storage account along with a container instance are automatically created by the script service. The two automatically created resources are usually deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the resources until the resources are deleted. For the price information, see [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -320,9 +314,9 @@ The life cycle of these resources is controlled by the following properties in t
 
 - **cleanupPreference**: Clean up preference when the script execution gets in a terminal state. The supported values are:
 
-  - **Always**: Delete the automatically created resources once script execution gets in a terminal state. If an existing storage account is used, the script service deletes the file share created in the storage account. Since the deploymentScripts resource may still be present after the resources are cleaned up, the script service persist the script execution results, for example, stdout, outputs, return value, etc. before the resources are deleted.
+  - **Always**: Delete the automatically created resources once script execution gets in a terminal state. If an existing storage account is used, the script service deletes the file share created in the storage account. Because the deploymentScripts resource may still be present after the resources are cleaned up, the script service persist the script execution results, for example, stdout, outputs, return value, etc. before the resources are deleted.
   - **OnSuccess**: Delete the automatically created resources only when the script execution is successful. If an existing storage account is used, the script service doesn't remove the file share. You can still access the resources to find the debug information.
-  - **OnExpiration**: Delete the resources only when the **retentionInterval** setting is expired.
+  - **OnExpiration**: Delete the resources only when the **retentionInterval** setting is expired. If an existing storage account is used, the script service removes the file share, but retain the storage account.
 
 - **retentionInterval**: Specify the time interval that a script resource will be retained and after which will be expired and deleted.
 
