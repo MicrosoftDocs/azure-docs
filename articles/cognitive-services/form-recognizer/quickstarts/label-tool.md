@@ -57,7 +57,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
-   This command will make the sample labeling tool available through a web browser. Go to [http://localhost:3000](http://localhost:3000).
+   This command will make the sample labeling tool available through a web browser. Go to `http://localhost:3000`.
 
 > [!NOTE]
 > You can also label documents and train models using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](./python-labeled-data.md).
