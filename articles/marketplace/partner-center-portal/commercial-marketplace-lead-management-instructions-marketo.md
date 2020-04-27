@@ -1,12 +1,12 @@
 ---
 title: Configure lead management in Marketo | Azure Marketplace
 description: Configure lead management for Marketo for Azure marketplace customers.
-author: qianw211    
+author: qianw211 
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.author: dsindona
+ms.date: 03/30/2020
 ---
 
 # Configure lead management in Marketo
@@ -16,16 +16,21 @@ This article describes how to set up your Marketo CRM system to process sales le
 ## Set up your Marketo CRM system
 
 1. Sign in to Marketo.
+
 2. Select **Design Studio**.
+
     ![Marketo Design Studio](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-1.png)
 
 3.  Select **New Form**.
+
     ![Marketo new form](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-2.png)
 
 4.  Fill the required fields in the New Form and then select **Create**.
+
     ![Marketo create new form](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-3.png)
 
 5.  On Field Details, select **Finish**.
+
     ![Marketo finish form](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-4.png)
 
 6.  Approve and Close.
@@ -36,7 +41,7 @@ This article describes how to set up your Marketo CRM system to process sales le
 
 8. Marketo Embed Code displays code similar to the following example.
 
-    ```
+    ```html
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
     ```
@@ -55,9 +60,10 @@ This article describes how to set up your Marketo CRM system to process sales le
 
 ## Configure your offer to send leads to Marketo
 
-When you are ready to configure the lead management information for your offer in the publishing portal, follow the below steps: 
+When you are ready to configure the lead management information for your offer in the publishing portal, follow these steps: 
 
 1. Navigate to the **Offer setup** page for your offer.
+
 1. Select **Connect** under the Lead Management section. 
 
     ![Lead management - Connect](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
@@ -68,6 +74,13 @@ When you are ready to configure the lead management information for your offer i
 
 4. Provide the **Server ID**, **Munching account ID**, and **Form ID**.
 
-    >[!Note]
-    >You must finish configuring the rest of the offer and publish it before you can receive leads for the offer. 
+    > [!Note]
+    > You must finish configuring the rest of the offer and publish it before you can receive leads for the offer. 
 
+5. **Contact email** - Provide emails for people in your company who should receive email notifications when a new lead is received. You can provide multiple emails by separating them with a semicolon.
+
+6. Select **OK**.
+
+   To make sure you have successfully connected to a lead destination, click on the validate button. If successful, you will have a test lead in the lead destination.
+
+   ![Connection details](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

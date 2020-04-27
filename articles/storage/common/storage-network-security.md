@@ -248,7 +248,7 @@ IP network rules are only allowed for **public internet** IP addresses. IP addre
    > IP network rules have no effect on requests originating from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
 
   > [!NOTE]
-  > Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public inbound IP address range.
+  > Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
 
 Only IPV4 addresses are supported for configuration of storage firewall rules.
 

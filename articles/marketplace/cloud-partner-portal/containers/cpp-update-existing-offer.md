@@ -11,6 +11,9 @@ ms.author: dsindona
 
 # Update an existing container offer
 
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Container offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Container offer](https://aka.ms/CreateContainerOffer) to manage your migrated offers.
+
 This article steps through the different aspects of updating your container offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
 There are several reasons why you might want to update your offer, such as:

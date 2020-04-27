@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Machine Learning documentation
-summary: Learn how to use Azure Machine Learning to train, deploy, and manage machine learning models and pipelines at scale. Tutorials, code examples, API references, and more show you how. 
+summary: Learn how to train, deploy, and manage machine learning models, AutoML experiments, and pipelines at scale with Azure Machine Learning. Tutorials, code examples, API references, and more show you how. 
 
 metadata:
   title: Azure Machine Learning documentation
-  description: Learn how to use Azure Machine Learning to train, deploy, and manage machine learning models and pipelines at scale. Tutorials, code examples, API references, and more show you how. 
+  description: Learn how to train, deploy, and manage machine learning models, AutoML experiments, and pipelines at scale with Azure Machine Learning. Tutorials, code examples, API references, and more show you how. 
  
   services: machine-learning
   ms.service: machine-learning
@@ -14,7 +14,7 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 03/18/2020
+  ms.date: 04/22/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -31,17 +31,32 @@ landingContent:
             url: tutorial-1st-experiment-sdk-setup.md
           - text: The designer (drag & drop)
             url: tutorial-designer-automobile-price-train-score.md
+          - text: Auto ML (no code/low-code)
+            url: tutorial-first-experiment-automated-ml.md
           - text: RStudio
             url: tutorial-1st-r-experiment.md
-          - text: Auto ML
-            url: tutorial-first-experiment-automated-ml.md
+
+  # Studio
+  - title: 'Use the studio web experience'
+    linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure machine learning?
-            url: overview-what-is-azure-ml.md
-          - text: Architecture and concepts
-            url: concept-azure-machine-learning-architecture.md
-            
+        - text: What is the designer (drag & drop)?
+          url: concept-designer.md   
+        - text: What is automated machine learning?
+          url: concept-automated-ml.md   
+      - linkListType: tutorial
+        links:
+          - text: 'AutoML: build a classification model'
+            url: tutorial-first-experiment-automated-ml.md                 
+          - text: 'AutoML: train & deploy ML models'
+            url: how-to-use-automated-ml-for-ml-models.md         
+          - text: 'The designer: predict auto prices'
+            url: tutorial-designer-automobile-price-train-score.md
+          - text: Create an image labeling project  
+            url: tutorial-labeling.md
+
+
   # PYTHON
   - title: 'Use the Python SDK'
     linkLists:
@@ -66,6 +81,40 @@ landingContent:
           - text: Train with Keras
             url: how-to-train-keras.md
 
+  # MLOps
+  - title: Deploy & manage models
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: What is MLOps?
+            url: concept-model-management-and-deployment.md
+          - text: How & where to deploy
+            url: how-to-deploy-and-where.md
+          - text: Realtime prediction
+            url: how-to-consume-web-service.md
+          - text: Batch prediction 
+            url: how-to-use-parallel-run-step.md
+
+  # Reference
+  - title: Go to reference docs
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: SDK for Python
+            url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
+          - text: Designer algorithms & modules
+            url: algorithm-module-reference/module-reference.md
+          - text: MLOps examples repository
+            url: https://github.com/microsoft/MLOps            
+          - text: REST API
+            url: https://docs.microsoft.com/rest/api/azureml/
+          - text: Machine learning CLI
+            url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
+          - text: AI reference architectures (GitHub)
+            url: https://github.com/Microsoft/AI
+          - text: SDK for R
+            url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
+
   # Pipelines
   - title: 'Build ML pipelines'
     linkLists:
@@ -81,39 +130,3 @@ landingContent:
         url: concept-ml-pipelines.md   
       - text: What is the designer?
         url: concept-designer.md   
-
-  # MLOps
-  - title: Deploy & manage models
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: What is MLOps?
-            url: concept-model-management-and-deployment.md
-          - text: How & where to deploy
-            url: how-to-deploy-and-where.md
-          - text: MLOps examples
-            url: https://github.com/microsoft/MLOps
-          - text: Realtime prediction
-            url: how-to-consume-web-service.md
-          - text: Batch prediction 
-            url: how-to-use-parallel-run-step.md
-          - text: Authentication
-            url: how-to-setup-authentication.md
-
-  # Reference
-  - title: Go to reference docs
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: SDK for Python
-            url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
-          - text: SDK for R
-            url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
-          - text: REST API
-            url: https://docs.microsoft.com/rest/api/azureml/
-          - text: Machine learning CLI
-            url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
-          - text: Designer algorithms & modules
-            url: algorithm-module-reference/module-reference.md
-          - text: AI reference architectures (GitHub)
-            url: https://github.com/Microsoft/AI

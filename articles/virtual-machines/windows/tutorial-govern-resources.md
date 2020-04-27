@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
 manager: gwallace
-editor: tysonn
+
 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure

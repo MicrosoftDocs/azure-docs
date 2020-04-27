@@ -16,6 +16,8 @@ ms.date: 10/31/2018
 
 # Create a shared self-hosted integration runtime in Azure Data Factory
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This guide shows you how to create a shared self-hosted integration runtime in Azure Data Factory. Then you can use the shared self-hosted integration runtime in another data factory.
 
 ## Create a shared self-hosted IR using Azure Data Factory UI

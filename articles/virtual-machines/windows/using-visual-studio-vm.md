@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cathysull
 manager: cathys
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.service: virtual-machines-windows

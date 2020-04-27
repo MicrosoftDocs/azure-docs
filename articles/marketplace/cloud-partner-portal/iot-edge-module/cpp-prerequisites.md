@@ -5,11 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/06/2020
 ms.author: dsindona
 ---
 
 # IoT Edge module publishing prerequisites
+
+>[!Important]
+>Starting April 13, 2020, we'll begin moving management of your IoT Edge module offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an IoT Edge module offer](https://aka.ms/AzureCreateIoT) to manage your migrated offers.
 
 This article describes the prerequisites for publishing an IoT Edge module offer.  If you have not already done so, review the [IoT Edge modules publishing guide](../..//iot-edge-module.md).
 

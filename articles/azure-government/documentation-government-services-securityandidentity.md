@@ -93,8 +93,6 @@ For details on the service and how to use it, see the [Azure Sentinel public doc
 
 ### Variations
 
-Unless otherwise specified, new feature releases to general availability will be available in Azure Sentinel Government within three months of their release in the Azure Sentinel commercial environment.
-
 - **Office 365 data connector**  
 The Office 365 data connector can be used only for [Office 365 GCC High](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod).
 
@@ -151,7 +149,6 @@ All features covered in the above list are available in the US Government cloud 
 The following Azure Active Directory Premium P1 features are currently not available in Azure Government:
 
 - Azure Active Directory Domain Services
-- Cloud App Security
 - B2B Collaboration is available in Azure US Government tenants created after June, 2019. Over time, more tenants will get access to this functionality. See [How can I tell if B2B collaboration is available in my Azure US Government tenant?](../active-directory/b2b/current-limitations.md#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant)
 
 The following features have known limitations in Azure Government:

@@ -7,6 +7,7 @@ ms.author: robinsh
 ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
+ms.custom: [amqp, mqtt]
 ---
 
 # Manage connectivity and reliable messaging by using Azure IoT Hub device SDKs

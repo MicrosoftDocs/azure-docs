@@ -11,6 +11,7 @@ ms.reviewer: craigg
 ---
 
 # Troubleshoot Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article explores common troubleshooting methods for external control activities in Azure Data Factory.
 

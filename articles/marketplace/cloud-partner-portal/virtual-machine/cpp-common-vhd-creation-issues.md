@@ -11,6 +11,9 @@ ms.author: dsindona
 
 # Common issues during VHD creation (FAQ)
 
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create VHD FAQs](https://aka.ms/VHDcreationIssues) to manage your migrated offers.
+
 The following frequently asked questions (FAQ) cover common issues encountered during virtual hard disk (VHD) and virtual machine (VM) creation for VM offers. 
 
 ## How do you create a VM from the Azure portal using the VHD that is uploaded to premium storage?

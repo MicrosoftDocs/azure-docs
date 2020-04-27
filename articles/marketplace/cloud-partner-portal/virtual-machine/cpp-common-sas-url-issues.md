@@ -11,6 +11,9 @@ ms.author: dsindona
 
 # Common SAS URL issues and fixes
 
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Common SAS URL issues and fixes](https://aka.ms/AzureSAS_URL_FAQ) to manage your migrated offers.
+
 The following table lists some of the common issues encountered when working with shared access signatures (which are used to identify and share the uploaded VHDs for your solution), along with suggested resolutions.
 
 | **Issue** | **Failure Message** | **Fix** | 

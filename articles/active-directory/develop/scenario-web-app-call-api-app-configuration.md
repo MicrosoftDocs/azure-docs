@@ -2,15 +2,12 @@
 title: Configure a web app that calls web APIs - Microsoft identity platform | Azure
 description: Learn how to configure the code of a web app that calls web APIs
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
@@ -94,7 +91,7 @@ The [ASP.NET Core Web app tutorial](https://github.com/Azure-Samples/active-dire
 Following is the code from [Startup.cs#L40-L42](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/2-WebApp-graph-user/2-1-Call-MSGraph/Startup.cs#L40-L42). It features calls to:
 
 - The `AddMicrosoftIdentityPlatformAuthentication` method, which adds authentication to the web app.
-- The `AddMsal` method, which adds the capability of calling Web APIs.
+- The `AddMsal` method, which adds the capability of calling web APIs.
 - The `AddInMemoryTokenCaches` method, which is about choosing a token-cache implementation.
 
 ```csharp
@@ -253,7 +250,7 @@ public class TokenAcquisition : ITokenAcquisition
 
 ### The TokenAcquisition.BuildConfidentialClientApplication method
 
-In ASP.NET Core, building the confidential client application uses information that's in the `HttpContext`. The `HttpContext` associated with the request is accessed by using the `CurrentHttpContext` property. `HttpContext` has information about the URL for the web app and about the signed-in user (in a  `ClaimsPrincipal`). 
+In ASP.NET Core, building the confidential client application uses information that's in the `HttpContext`. The `HttpContext` associated with the request is accessed by using the `CurrentHttpContext` property. `HttpContext` has information about the URL for the web app and about the signed-in user (in a  `ClaimsPrincipal`).
 
 The `BuildConfidentialClientApplication` method also uses the ASP.NET Core configuration. The configuration has an "AzureAD" section, and also is bound to  both of the following elements:
 

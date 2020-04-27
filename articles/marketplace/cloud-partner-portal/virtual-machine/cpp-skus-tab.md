@@ -11,6 +11,9 @@ ms.author: dsindona
 
 # Virtual machine SKUs tab
 
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Virtual Machine offer](https://aka.ms/CreateAzureVMoffer) to manage your migrated offers.
+
 The **SKUs** tab of the **New Offer** page enables you to create one or more SKUs and associate them to your new offer.  Different SKUs can differentiate a solution by feature sets, VM image types, throughput or scalability, billing models, or some other characteristic.
 
 

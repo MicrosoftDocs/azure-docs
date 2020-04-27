@@ -22,6 +22,7 @@
   expanded: true
   items:
   - name: Application Gateway
+    expanded: true
     items:
      - name: Deploy WAF v2 - ARM template
        displayName: Resource Manager

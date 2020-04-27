@@ -99,6 +99,8 @@
     - name: Features
       href: luis-concept-feature.md
       displayName: descriptor, phrase list
+    - name: Extend app at runtime
+      href: schema-change-prediction-runtime.md
   - name: Prediction score
     href: luis-concept-prediction-score.md
   - name: Best practices
@@ -155,8 +157,6 @@
     - name: Add Descriptor
       displayName: synonym, interchange, phrase list, descriptor
       href: luis-how-to-add-features.md
-    - name: Migrate to V3 Authoring
-      href: luis-migration-authoring-entities.md
     - name: With REST APIs
       items:
       - name: Build app programmatically using Node.js
@@ -192,12 +192,14 @@
       displayName: import, export
   - name: Publish
     href: luis-how-to-publish-app.md
+  - name: Query prediction runtime
+    href: luis-get-started-get-intent-from-browser.md
   - name: Manage app
     items:
-    - name: Authoring and runtime keys
+    - name: Azure resources
       displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction
       href: luis-how-to-azure-subscription.md
-    - name: Migrate to authoring key
+    - name: Migrate to authoring resource
       items:
         - name: Overview
           href: luis-migration-authoring.md
@@ -215,11 +217,10 @@
     items:
     - name: For Developers
       href: developer-reference-resource.md
-    - name: Authoring APIs
-      href: luis-migration-api-authoring.md
-    - name: Migrate to V3 API
+    - name: Migrate to V3 Authoring APIs
+      href: luis-migration-authoring-entities.md
+    - name: Migrate to V3 Prediction APIs
       href: luis-migration-api-v3.md
-      displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override
     - name: Migrate to V2 API
       href: luis-migration-api-v1-to-v2.md
   - name: Use containers
@@ -234,6 +235,24 @@
     - name: Container limitations
       href: luis-container-limitations.md
       displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
+  - name: Related services
+    items:
+    - name: Azure Bot Service
+      href: https://dev.botframework.com/
+    - name: Bot Builder 4.x SDK C#
+      href: https://github.com/Microsoft/botbuilder-dotnet
+    - name: QnA maker
+      href: https://qnamaker.ai/
+    - name: Bing Speech API
+      href: https://azure.microsoft.com/services/cognitive-services/speech/
+    - name: Bing Spell Check API
+      href: https://azure.microsoft.com/services/cognitive-services/spell-check/
+    - name: Text Analytics
+      href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
+    - name: Recognizers-Text
+      href: https://github.com/Microsoft/Recognizers-Text
+    - name: Intelligent Kiosk
+      href: https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk
 - name: Reference
   items:
   - name: Developer reference
@@ -371,31 +390,13 @@
     href: reference-pattern-syntax.md
   - name: Sentiment
     href: luis-reference-prebuilt-sentiment.md
-- name: Related
-  items:
-  - name: Azure Bot Service
-    href: https://dev.botframework.com/
-  - name: Bot Builder 4.x SDK C#
-    href: https://github.com/Microsoft/botbuilder-dotnet
-  - name: QnA maker
-    href: https://qnamaker.ai/
-  - name: Bing Speech API
-    href: https://azure.microsoft.com/services/cognitive-services/speech/
-  - name: Bing Spell Check API
-    href: https://azure.microsoft.com/services/cognitive-services/spell-check/
-  - name: Text Analytics
-    href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
-  - name: Recognizers-Text
-    href: https://github.com/Microsoft/Recognizers-Text
-  - name: Intelligent Kiosk
-    href: https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk
 - name: Resources
   items:
   - name: Code samples
     href: https://github.com/Azure-Samples/cognitive-services-language-understanding
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-  - name: Language and region support
+  - name: Language support
     href: luis-language-support.md
     displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
   - name: Azure Roadmap

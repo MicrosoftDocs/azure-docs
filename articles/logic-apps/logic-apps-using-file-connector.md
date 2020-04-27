@@ -64,7 +64,7 @@ This article shows how you can connect to an on-premises file system as describe
    | -------- | -------- | ----- | ----------- |
    | **Connection Name** | Yes | <*connection-name*> | The name you want for your connection |
    | **Root folder** | Yes | <*root-folder-name*> | The root folder for your file system, for example, if you installed your on-premises data gateway  such as a local folder on the computer where the on-premises data gateway is installed, or the folder for a network share that the computer can access. <p>For example: `\\PublicShare\\DropboxFiles` <p>The root folder is the main parent folder, which is used for relative paths for all file-related actions. |
-   | **Authentication Type** | No | <*auth-type*> | The type of authentication that your file system uses, for example, **Windows** |
+   | **Authentication Type** | No | <*auth-type*> | The type of authentication that your file system uses: **Windows** |
    | **Username** | Yes | <*domain*>\\<*username*> | The username for the computer where you have your file system |
    | **Password** | Yes | <*your-password*> | The password for the computer where you have your file system |
    | **gateway** | Yes | <*installed-gateway-name*> | The name for your previously installed gateway |

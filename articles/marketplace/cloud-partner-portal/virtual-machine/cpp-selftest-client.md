@@ -11,6 +11,9 @@ ms.author: dsindona
 
 # Create a self-test client to pre-validate an Azure virtual machine image
 
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Azure VM image certification](https://aks.ms/CertifyVMimage) to manage your migrated offers.
+
 Use this article as a guide for creating a client service that consumes the self-test API. You can use the self-test API to pre-validate a virtual machine (VM) to ensure it meets the latest Azure Marketplace publishing requirements. This client service enables you to test a VM before you submit your offer for Microsoft certification.
 
 ## Development and testing overview

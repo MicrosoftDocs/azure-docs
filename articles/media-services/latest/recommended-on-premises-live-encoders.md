@@ -7,7 +7,7 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 02/10/2020
+ms.date: 04/16/2020
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
@@ -63,8 +63,6 @@ When streaming via RTMPS, check firewall and/or proxy settings to confirm that o
 - Telestream Wirecast (version 13.0.2 or higher due to the TLS 1.2 requirement)
 - Telestream Wirecast S (only RTMP is supported)
 - Teradek Slice 756
-- TriCaster 8000
-- Tricaster Mini HD-4
 - VMIX
 - xStream
 - [Ffmpeg](https://www.ffmpeg.org)

@@ -2,7 +2,7 @@
 title: Define multiple instances of a property
 description: Use copy operation in an Azure Resource Manager template to iterate multiple times when creating a property on a resource.
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/14/2020
 ---
 # Property iteration in ARM templates
 
@@ -24,7 +24,9 @@ The copy element has the following general format:
 ]
 ```
 
-For **name**, provide the name of the resource property that you want to create. The **count** property specifies the number of iterations you want for the property.
+For **name**, provide the name of the resource property that you want to create.
+
+The **count** property specifies the number of iterations you want for the property.
 
 The **input** property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the **input** property.
 
@@ -72,11 +74,7 @@ The following example shows how to apply `copy` to the dataDisks property on a v
 }
 ```
 
-Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration.
-
-> [!NOTE]
-> Property iteration also supports an offset argument. The offset must come after the name of the iteration, such as copyIndex('dataDisks', 1).
->
+Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration. Property iteration also supports an offset argument. The offset must come after the name of the iteration, such as copyIndex('dataDisks', 1).
 
 Resource Manager expands the `copy` array during deployment. The name of the array becomes the name of the property. The input values become the object properties. The deployed template becomes:
 
@@ -105,6 +103,66 @@ Resource Manager expands the `copy` array during deployment. The name of the arr
         }
       ],
       ...
+```
+
+The copy operation is helpful when working with arrays because you can iterate through each element in the array. Use the `length` function on the array to specify the count for iterations, and `copyIndex` to retrieve the current index in the array.
+
+The following example template creates a failover group for databases that are passed in as an array.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "primaryServerName": {
+            "type": "string"
+        },
+        "secondaryServerName": {
+            "type": "string"
+        },
+        "databaseNames": {
+            "type": "array",
+            "defaultValue": [
+                "mydb1",
+                "mydb2",
+                "mydb3"
+            ]
+        }
+    },
+    "variables": {
+        "failoverName": "[concat(parameters('primaryServerName'),'/', parameters('primaryServerName'),'failovergroups')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Sql/servers/failoverGroups",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[variables('failoverName')]",
+            "properties": {
+                "readWriteEndpoint": {
+                    "failoverPolicy": "Automatic",
+                    "failoverWithDataLossGracePeriodMinutes": 60
+                },
+                "readOnlyEndpoint": {
+                    "failoverPolicy": "Disabled"
+                },
+                "partnerServers": [
+                    {
+                        "id": "[resourceId('Microsoft.Sql/servers', parameters('secondaryServerName'))]"
+                    }
+                ],
+                "copy": [
+                    {
+                        "name": "databases",
+                        "count": "[length(parameters('databaseNames'))]",
+                        "input": "[resourceId('Microsoft.Sql/servers/databases', parameters('primaryServerName'), parameters('databaseNames')[copyIndex('databases')])]"
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {
+    }
+}
 ```
 
 The copy element is an array so you can specify more than one property for the resource.

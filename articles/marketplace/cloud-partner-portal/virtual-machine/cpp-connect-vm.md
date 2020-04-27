@@ -11,6 +11,9 @@ ms.author: dsindona
 
 # Connect to your Azure-based virtual machine
 
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin the moving management of your Azure Virtual Machine offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create your Azure Virtual Machine technical assets](https://aka.ms/AzureVMTechAsset) to manage your migrated offers.
+
 This article explains how to connect to and sign into the virtual machines (VMs) you created on Azure.  Once you've successfully connected, you can work with the VM as if you were locally logged on to its host server. 
 
 ## Connect to a Windows-based VM

@@ -1,5 +1,6 @@
 ---
-title: Create an HTTPS ingress with Azure Kubernetes Service (AKS) cluster
+title: Create ingress with automatic TLS
+titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an NGINX ingress controller that uses Let's Encrypt for automatic TLS certificate generation in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article

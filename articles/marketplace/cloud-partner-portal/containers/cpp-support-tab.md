@@ -11,6 +11,9 @@ ms.author: dsindona
 
 # Container Support tab
 
+> [!IMPORTANT]
+> Starting April 13, 2020, we'll begin moving the management of your Azure Container offers to Partner Center. After the migration, you'll create and manage your offers in Partner Center. Follow the instructions in [Create an Azure Container offer](https://aka.ms/CreateContainerOffer) to manage your migrated offers.
+
 Use the **Support** tab of the **New Offer** page to provide technical and user support resources for your offer.  The following input areas are provided on the Support form: **Engineering Contact**, **Customer Support**, and **Support Urls**. An asterisk (*) appended to the field name indicates that it's required.
 
 
