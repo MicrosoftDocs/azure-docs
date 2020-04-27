@@ -66,4 +66,4 @@ During public preview, IoT Plug and Play devices send separate messages per inte
 
 Now that you have an overview of IoT Plug and Play, the suggested next step is to try out one of the quickstarts:
 
-- [Connect a device to IoT Hub](./quickstart-connect-pnp-device-c.md)
+- [Connect a device to IoT Hub](./quickstart-connect-device-c.md)

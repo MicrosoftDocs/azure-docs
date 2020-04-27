@@ -12,9 +12,9 @@
   - name: Connect a device to IoT Hub
     items:
       - name: C
-        href: quickstart-connect-pnp-device-c.md
+        href: quickstart-connect-device-c.md
       - name: Node.js
-        href: quickstart-connect-pnp-device-node.md
+        href: quickstart-connect-device-node.md
 - name: Tutorials
   items:
   - name: Connect a device to IoT Central

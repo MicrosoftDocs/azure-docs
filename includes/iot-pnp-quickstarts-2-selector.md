@@ -11,5 +11,5 @@
 ---
 
 > [!div class="op_single_selector"]
-> * [C](../articles/iot-pnp/quickstart-connect-pnp-device-c.md)
-> * [Node.js](../articles/iot-pnp/quickstart-connect-pnp-device-node.md)
+> * [C](../articles/iot-pnp/quickstart-connect-device-c.md)
+> * [Node.js](../articles/iot-pnp/quickstart-connect-device-node.md)

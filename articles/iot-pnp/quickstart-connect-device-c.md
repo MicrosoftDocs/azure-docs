@@ -130,15 +130,7 @@ The device is now ready to receive commands and property updates, and has starte
 
 After the device client sample starts, use the Azure IoT explorer tool to verify it's working.
 
-[!INCLUDE [iot-pnp-iot-explorer-1.md](../../includes/iot-pnp-iot-explorer-1.md)]
-
-1. To ensure the tool can read the model definition from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the Plug and Play configurations; if it does not, select **+ Add module definition source** and then **On the connected device** to add it. To save any changes you made, select **Save and Connect**.
-
-1. Back on the **Devices** overview page, find the device identity you created previously. With the sample device application still running in the command prompt, check that the device **Connection state** in Azure IoT explorer is **Connected**. If the connection state is **Disconnected**, select **Refresh** until it is. Click on the device ID to view more details about the device.
-
-1. Select **IoT Plug and Play components** to view the model information for your device.
-
-[!INCLUDE [iot-pnp-iot-explorer-2.md](../../includes/iot-pnp-iot-explorer-2.md)]
+[!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer.md)]
 
 ## Review the code
 
