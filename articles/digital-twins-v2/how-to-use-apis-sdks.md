@@ -24,7 +24,13 @@ The Azure Digital Twins API surface can be broadly divided into the following ca
 * **Query** - The Query category lets developers [find sets of digital twins in the twin graph](how-to-query-graph.md) across relationships.
 * **EventRoutes** - The EventRoutes category contains APIs to [route data](concepts-route-events.md), through the system and to downstream services.
 
-Currently, the only published SDK for interacting with these APIs is in C#. If you are working in another language, you can either use the REST APIs directly, or you can generate your own SDK using AutoRest.
+You can either use the REST APIs directly, or through an SDK. Currently, the only published SDK for interacting with these APIs is in C#. If you are working in another language, you can generate your own SDK using AutoRest.
+
+## REST API usage examples
+
+Use the [Azure Digital Twins OpenAPI (Swagger) file](https://github.com/Azure/azure-digital-twins/blob/private-preview/OpenApiSpec/digitaltwins.json) as a resource for calling the APIs directly.
+
+You can also view example call bodies in the Swagger's accompanying [examples folder](https://github.com/Azure/azure-digital-twins/tree/private-preview/OpenApiSpec/examples).
 
 ## C# SDK
 
@@ -33,7 +39,7 @@ Currently, the only published SDK for interacting with these APIs is in C#. If y
 To generate an SDK, you will need:
 * [AutoRest](https://github.com/Azure/autorest), version 2.0.4413
 * [Node.js](https://nodejs.org) as a pre-requisite to AutoRest
-* The [Azure Digital Twins API definitions](https://dev.azure.com/ADT-PM-STAGING/PrivatePreviewStage/_git/PrivatePreviewStage?path=%2FOpenApiSpec%2Fdigitaltwins.json) OpenAPI (Swagger) file
+* The [Azure Digital Twins OpenAPI (Swagger) file](https://github.com/Azure/azure-digital-twins/blob/private-preview/OpenApiSpec/digitaltwins.json)
 
 If you have Node.js installed, you can run this command to make sure you have the right version of AutoRest installed:
 ```cmd/sh
@@ -188,6 +194,7 @@ try
     Console.WriteLine($"*** Error in twin query: ${e.Response.StatusCode}");
 }
 ```
+
 ## Monitor API metrics
 
 API metrics such as requests, latency and failure rate can be viewed in the [Azure portal](https://portal.azure.com/). 
