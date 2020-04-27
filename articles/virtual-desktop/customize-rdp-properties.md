@@ -40,7 +40,7 @@ Any custom properties you define for the host pool will override these defaults.
 
 ## Configure RDP properties in the Azure portal
 
-To configure RDP properties in the Azure Portal:
+To configure RDP properties in the Azure portal:
 
 1. Sign in to Azure at <https://portal.azure.com>.
 2. Enter **windows virtual desktop** into the search bar.
@@ -130,5 +130,5 @@ Now that you've customized the RDP properties for a given host pool, you can sig
 - [Connect with the Windows Desktop client](connect-windows-7-and-10.md)
 - [Connect with the web client](connect-web.md)
 - [Connect with the Android client](connect-android.md)
-- [Connect with the MacOS client](connect-macos.md)
+- [Connect with the macOS client](connect-macos.md)
 - [Connect with the iOS client](connect-ios.md)
