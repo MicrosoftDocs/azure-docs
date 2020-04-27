@@ -14,7 +14,7 @@ ms.custom: mvc, cc996988-fb4f-47
 
 Azure Functions integrates with Azure Logic Apps in the Logic Apps Designer. This integration lets you use the computing power of Functions in orchestrations with other Azure and third-party services. 
 
-This tutorial shows you how to use Functions with Logic Apps and Cognitive Services on Azure to run sentiment analysis from Twitter posts. An HTTP triggered function categorizes tweets as green, yellow, or red based on the sentiment score. An email is sent when poor sentiment is detected. 
+This tutorial shows you how to use Azure Functions with Logic Apps and Cognitive Services on Azure to run sentiment analysis from Twitter posts. An HTTP triggered function categorizes tweets as green, yellow, or red based on the sentiment score. An email is sent when poor sentiment is detected. 
 
 ![image first two steps of app in Logic App Designer](media/functions-twitter-email/00-logic-app-overview.png)
 
@@ -66,7 +66,7 @@ The Cognitive Services APIs are available in Azure as individual resources. Use 
 
 ## Create the function app
 
-Functions provides a great way to offload processing tasks in a logic apps workflow. This tutorial uses an HTTP triggered function to process tweet sentiment scores from Cognitive Services and return a category value.  
+Azure Functions provides a great way to offload processing tasks in a logic apps workflow. This tutorial uses an HTTP triggered function to process tweet sentiment scores from Cognitive Services and return a category value.  
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -78,11 +78,11 @@ Functions provides a great way to offload processing tasks in a logic apps workf
 
     ![Choose the HTTP trigger](./media/functions-twitter-email/06-function-http-trigger.png)
 
-2. From the **New Function** page, select **Create Function**.
+3. From the **New Function** page, select **Create Function**.
 
-In your new HTTP trigger function, select **Code + Test** from the left menu, replace the contents of the `run.csx` file with the following code, and then select **Save**:
+4. In your new HTTP trigger function, select **Code + Test** from the left menu, replace the contents of the `run.csx` file with the following code, and then select **Save**:
 
-   ```csharp
+    ```csharp
     #r "Newtonsoft.Json"
     
     using System;
@@ -114,11 +114,11 @@ In your new HTTP trigger function, select **Code + Test** from the left menu, re
             ? (ActionResult)new OkObjectResult(category)
             : new BadRequestObjectResult("Please pass a value on the query string or in the request body");
     }
-   ```
+    ```
 
-   This function code returns a color category based on the sentiment score received in the request. 
+    This function code returns a color category based on the sentiment score received in the request. 
 
-4. To test the function, select **Test** from the top menu. In the **Input** tab, enter a value of `0.2` in the **Body**, and then select **Run**. A value of **RED** is returned in the body of the response in the **Output** tab. 
+5. To test the function, select **Test** from the top menu. In the **Input** tab, enter a value of `0.2` in the **Body**, and then select **Run**. A value of **RED** is returned in the body of the response in the **Output** tab. 
 
     ![Define the proxy settings](./media/functions-twitter-email/07-function-test.png)
 
@@ -180,7 +180,7 @@ Now your app is connected to Twitter. Next, you connect to text analytics to det
 
     ![New Step, and then Add an action](media/functions-twitter-email/12-connection-settings.png)
 
-4. Next, enter **Tweet Text** in the text box and then click on **New Step**.
+4. Next, enter **Tweet text** in the text box and then click on **New Step**.
 
     ![Define text to analyze](media/functions-twitter-email/13-analyze-tweet-text.png)
 
