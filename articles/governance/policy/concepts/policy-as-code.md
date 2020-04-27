@@ -31,7 +31,7 @@ before it's too late and they're attempting to deploy in production.
 
 The recommended general workflow of Policy as Code looks like this diagram:
 
-![Policy as Code workflow overview](../media/policy-as-code/policy-as-code-workflow.png)
+:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Policy as Code workflow overview" border="false":::
 
 ### Create and update policy definitions
 
