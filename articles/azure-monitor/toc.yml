@@ -62,7 +62,9 @@
   items:
   - name: Resource Manager templates
     items:
-    - name: Application Insights
+    - name: Agents
+      href: samples/arm-agent.md
+      - name: Application Insights
       href: samples/arm-appinsights.md
     - name: Azure Monitor for Containers
       href: samples/arm-container-insights.md
@@ -74,8 +76,6 @@
       href: samples/arm-diagnostics-extension.md
     - name: Log alert rules
       href: samples/arm-alerts-log.md
-    - name: Log Analytics agent
-      href: samples/arm-agent.md
     - name: Log Analytics workspace
       href: samples/arm-workspace.md
     - name: Log queries
