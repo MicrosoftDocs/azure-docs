@@ -59,6 +59,7 @@ Oozie can impersonate users in the **`users`** group. Use the `groups USERNAME` 
 
 > [!NOTE]  
 > It can take several minutes before HDInsight recognizes that the user has been added to the group.
+
 ---
 
 ## Launcher ERROR (Sqoop)
