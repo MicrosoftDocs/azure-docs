@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Using Azure Active Directory (Azure AD) portal, you can add a large number of members to a group by using a comma-separated values (CSV) file to bulk import group members.
 
-## Understand the bulk upload CSV template
+## Understand the CSV template
 
 Download and fill in the bulk upload CSV template to successfully add Azure AD group members in bulk. Your CSV template might look like this example:
 
@@ -30,7 +30,7 @@ Download and fill in the bulk upload CSV template to successfully add Azure AD g
 The rows in a downloaded CSV template are as follows:
 
 - **Version number**: The first row containing the version number must be included in the upload CSV.
-- **Column headings**: The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Required or blank*&gt;. For example, `Name [displayName] Required`. Some older versions of the template might have slight variations. For group membership changes, you have the option of which identifier to use. For example, member object ID or user principal name.
+- **Column headings**: The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Required or blank*&gt;. For example, `Name [displayName] Required`. Some older versions of the template might have slight variations. For group membership changes, you have the option of which identifier to use: member object ID or user principal name.
 - **Examples row**: We have included in the template a row of examples of acceptable values for each column. You must remove the examples row and replace it with your own entries.
 
 ### Additional guidance
@@ -38,9 +38,7 @@ The rows in a downloaded CSV template are as follows:
 - The required columns are listed first.
 - We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
 - The first two rows of the upload template must not be removed or modified, or the upload can't be processed.
-
-> [!Note]
-> We recommend that you download the latest version of the CSV template as often as possible.
+- We recommend that you download the latest version of the CSV template as often as possible.
 
 ## To bulk import group members
 

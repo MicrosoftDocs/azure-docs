@@ -17,7 +17,28 @@ ms.collection: M365-identity-device-management
 
 # Bulk restore deleted users in Azure Active Directory
 
-Azure Active Directory (Azure AD) supports bulk user create and delete operations, bulk invite for guests, and supports downloading lists of users, groups, and group members.
+Azure Active Directory (Azure AD) supports bulk user restore operations and supports downloading lists of users, groups, and group members.
+
+## Understand the CSV template
+
+Download and fill in the CSV template to help you successfully restore Azure AD users in bulk. The CSV template you download might look like this example:
+
+![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/users-bulk-restore/understand-template.png)
+
+### CSV template structure
+
+The rows in a downloaded CSV template are as follows:
+
+- **Version number**: The first row containing the version number must be included in the upload CSV.
+- **Column headings**: The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Required or blank*&gt;. For example, `Object ID [objectId] Required`. Some older versions of the template might have slight variations.
+- **Examples row**: We have included in the template a row of examples of acceptable values for each column. You must remove the examples row and replace it with your own entries.
+
+### Additional guidance
+
+- The required columns are listed first.
+- We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
+- The first two rows of the upload template must not be removed or modified, or the upload can't be processed.
+- We recommend that you download the latest version of the CSV template as often as possible.
 
 ## To bulk restore users
 
@@ -27,7 +48,7 @@ Azure Active Directory (Azure AD) supports bulk user create and delete operation
 
    ![Select the bulk restore command on the Deleted users page](./media/users-bulk-restore/bulk-restore.png)
 
-1. Open the CSV file and add a line for each user you want to restore. The only required value is **ObjectID**. Then save the file.
+1. Open the CSV template and add a line for each user you want to restore. The only required value is **ObjectID**. Then save the file.
 
    ![Select a local CSV file in which you list the users you want to add](./media/users-bulk-restore/upload-button.png)
 

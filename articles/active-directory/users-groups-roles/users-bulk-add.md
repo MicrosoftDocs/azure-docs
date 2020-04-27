@@ -23,13 +23,13 @@ Azure Active Directory (Azure AD) supports bulk user create and delete operation
 
 In order to bulk create users in the administration portal, you must be signed in as a Global administrator or User administrator.
 
-## Understand the bulk upload template
+## Understand the CSV template
 
 Download and fill in the bulk upload CSV template to help you successfully create Azure AD users in bulk. The CSV template you download might look like this example:
 
 ![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/users-bulk-add/create-template-example.png)
 
-### CSV file structure
+### CSV template structure
 
 The rows in a downloaded CSV template are as follows:
 
@@ -42,9 +42,7 @@ The rows in a downloaded CSV template are as follows:
 - The required columns are listed first.
 - We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
 - The first two rows of the upload template must not be removed or modified, or the upload can't be processed.
-
-> [!Note]
-> We recommend that you download the latest version of the CSV template as often as possible.
+- We recommend that you download the latest version of the CSV template as often as possible.
 
 ## To create users in bulk
 
