@@ -17,13 +17,13 @@ ms.service: digital-twins
 
 # Query the Azure Digital Twins twin graph
 
-This article goes in-depth on using the [Azure Digital Twins Query Store language](concepts-query-language.md) to query the twin graph for information.
+This article goes in-depth on using the [Azure Digital Twins Query Store language](concepts-query-language.md) to query the [twin graph](concepts-twins-graph.md) for information.
 
 ## Query syntax
 
 Here are some sample queries that illustrate the query language structure and perform possible query operations.
 
-Get digital twins by properties (including ID and metadata):
+Get [digital twins](concepts-twins-graph.md) by properties (including ID and metadata):
 ```sql
 SELECT  * 
 FROM DigitalTwins T  
@@ -32,7 +32,7 @@ AND T.$dtId in ['123', '456']
 AND T.Temperature = 70
 ```
 
-Get digital twins by model
+Get digital twins by [model](concepts-models.md)
 ```sql
 SELECT  * 
 FROM DigitalTwins T  

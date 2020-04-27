@@ -129,5 +129,8 @@ namespace Azure Digital TwinsGettingStarted
 
 ## Next steps
 
-See how to make API calls to your Azure Digital Twin instance:
-* [How-to: Manage a digital twin](how-to-manage-twin.md)
+Read more about how security works in Azure Digital Twins:
+* [Concepts: Securing Azure Digital Twins solutions](concepts-security.md)
+
+Or, now that authentication is set up, read about making API calls to your Azure Digital Twin instance:
+* [Concepts: The Azure Digital Twins SDKs](concepts-sdks.md)

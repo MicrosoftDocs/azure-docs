@@ -17,11 +17,11 @@ ms.service: digital-twins
 
 # Deploy Azure Digital Twins alongside other services
 
-Azure Digital Twins is typically used together with other services. Azure Digital Twins receives data from upstream services such as IoT Hub, which is used to deliver telemetry and notifications. Azure Digital Twins can also route data to downstream services for storage, workflow integration, analytics, and other uses. 
+Azure Digital Twins is typically used together with other services. Using [**event routes**](concepts-route-events.md), Azure Digital Twins receives data from upstream services such as [IoT Hub](../iot-hub/about-iot-hub.md), which is used to deliver telemetry and notifications. Azure Digital Twins can also route data to downstream services for storage, workflow integration, analytics, and other uses. 
 
 ## Data ingress
 
-Azure Digital Twins can be driven with data from [IoT Hub](../iot-hub/about-iot-hub.md). This allows you to collect telemetry from physical devices in your environment, and process this data using the Azure Digital Twins graph in the cloud.
+Azure Digital Twins can be driven with data from IoT Hub. This allows you to collect telemetry from physical devices in your environment, and process this data using the Azure Digital Twins graph in the cloud.
 
 Azure Digital Twins does not have a built-in IoT Hub. You can use an existing IoT Hub you currently have in production, or deploy a new one. This gives you full access to all of the device management capabilities of IoT Hub.
 
@@ -38,15 +38,12 @@ Endpoints are attached to Azure Digital Twins using management APIs or the Azure
 
 There are many other services where you may want to ultimately direct your data, such as [Azure Storage](../storage/common/storage-introduction.md) or [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md). To send your data to services like these, attach the destination service to an endpoint.
 
-For example, if you are also using [Azure Maps](../azure-maps/about-azure-maps.md) and want to correlate location with your Azure Digital Twins graph, you can use an Azure Function with Event Grid to establish communication between all the services in your deployment.
+For example, if you are also using [Azure Maps](../azure-maps/about-azure-maps.md) and want to correlate location with your Azure Digital Twins [twin graph](concepts-twins-graph.md), you can use an Azure Function with Event Grid to establish communication between all the services in your deployment.
 
 ## Next steps
 
-See how to set up an instance of Azure Digital Twins:
-* [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md)
+Learn more about endpoints and routing events to external services:
+* [Concepts: Routing Azure Digital Twins events](concepts-route-events.md)
 
 See how to set up Azure Digital Twins to ingest data from IoT Hub:
 * [How-to: Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)
-
-Learn more about endpoints and routing events to external services:
-* [Concepts: Routing Azure Digital Twins events](concepts-route-events.md)

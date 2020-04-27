@@ -22,7 +22,7 @@ In this quickstart, you'll set up an Azure Digital Twins instance and use a pre-
 Here are the steps included:
 1. Set up an Azure Digital Twins instance
 2. Configure a sample client application to interact with the instance
-3. Build out a sample solution, including models, digital twins, and relationships
+3. Build out a sample solution, including **models**, **digital twins**, and **relationships**
 4. Query the sample solution to see how Azure Digital Twins can help you answer questions about your environment
 
 The quickstart is driven by a sample project written in C#. Get the sample project on your machine by [downloading the Azure Digital Twins samples repository as a ZIP file](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip).
@@ -42,13 +42,13 @@ The quickstart is driven by a sample project written in C#. Get the sample proje
 
 ## Build out a sample solution
 
-In the remainder of this quickstart, you will use the sample project and some pre-written example code to build out a basic Azure Digital Twins solution. The major solution components are models, digital twins, and relationships, resulting in a queryable twin graph of an environment.
+In the remainder of this quickstart, you will use the sample project and some pre-written example code to build out a basic Azure Digital Twins solution. The major solution components are **models**, **digital twins**, and **relationships**, resulting in a queryable **twin graph** of an environment.
 
 ### Model a physical environment with DTDL
 
 The first step in building out an Azure Digital Twins solution is concepting and defining twin [**models**](concepts-models.md) for your environment. 
 
-Models are similar to classes in object-oriented programming languages; they provide user-defined templates for digital twins to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *commands*, *relationships*, and *components*.
+Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *commands*, *relationships*, and *components*.
 
 In the sample project folder, navigate to the *DigitalTwinsMetadata/DigitalTwinsSample/Models* folder. This folder contains sample models.
 
@@ -136,7 +136,7 @@ You can also verify that the twins were created by running the `queryTwins` comm
 
 ### Create a graph by adding relationships
 
-Next, you can create some **relationships** between these twins, to connect them into a **twin graph**. Twin graphs are used to represent an entire environment. 
+Next, you can create some **relationships** between these twins, to connect them into a [**twin graph**](concepts-twins-graph.md). Twin graphs are used to represent an entire environment. 
 
 To add a relationship, you use the `addEdge` command. Specify the twin that the relationship is coming from, the type of relationship to add, and the twin that the relationship is connecting to. Lastly, provide a name (ID) for the relationship.
 

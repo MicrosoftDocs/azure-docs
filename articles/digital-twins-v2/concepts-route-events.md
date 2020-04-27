@@ -21,7 +21,7 @@ It is often useful for data from Azure Digital Twins to be sent to downstream da
 
 For example...
 * A hospital may want to send Azure Digital Twins event data to [Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md), to record time series data of handwashing-related events for bulk analytics.
-* A business that is already using [Azure Maps](../azure-maps/about-azure-maps.md) may want to use Azure Digital Twins to enhance their solution. They can quickly enable an Azure Map after setting up Azure Digital Twins, bring Azure Map entities into Azure Digital Twins as digital twins in the twin graph, or run powerful queries leveraging their Azure Maps and Azure Digital Twins data together.
+* A business that is already using [Azure Maps](../azure-maps/about-azure-maps.md) may want to use Azure Digital Twins to enhance their solution. They can quickly enable an Azure Map after setting up Azure Digital Twins, bring Azure Map entities into Azure Digital Twins as [digital twins](concepts-twins-graph.md) in the twin graph, or run powerful queries leveraging their Azure Maps and Azure Digital Twins data together.
 
 Data egress for scenarios like these is handled using **event routes**. 
 

@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Connect twins into a graph with relationships
 
-The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) representing your whole environment. The twin graph is made up of individual twins connected via **relationships**.
+The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) representing your whole environment. The twin graph is made up of individual digital twins connected via **relationships**.
 
 Once you have a working [Azure Digital Twins instance](how-to-set-up-instance.md) and have set up [authentication](how-to-authenticate-client.md) for your client app, you can use the **DigitalTwins APIs** to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [How-to: Manage a digital twin](how-to-manage-twin.md).
 
@@ -61,7 +61,7 @@ static async Task<bool> AddRelationship(string source, string relationship, stri
 
 ### Create a digital twin graph 
 
-The following code snippet incorporates the method above to create a larger graph of twins with relationships.
+The following code snippet incorporates the method above to create a larger graph of twins (based on [models](concepts-models.md)) with relationships.
 
 ```csharp
 static async Task CreateTwins()

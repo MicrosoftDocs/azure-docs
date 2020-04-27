@@ -17,11 +17,11 @@ ms.service: digital-twins
 
 # Understand twin models in Azure Digital Twins
 
-A key characteristic of Azure Digital Twins is the ability to define your own vocabulary and build your twin graph in the self-defined terms of your business. This capability is provided through user-defined **models**.
+A key characteristic of Azure Digital Twins is the ability to define your own vocabulary and build your twin graph in the self-defined terms of your business. This capability is provided through user-defined **models**. You can think of models as the nouns in a description of your world. 
 
-A model is similar to a **class** in an object-oriented programming language, defining a data shape for one particular concept in your real work environment. Models have names (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this type of entity in your environment can do. Models are written using the JSON-based **Digital Twin Definition Language (DTDL)**.  
+A model is similar to a **class** in an object-oriented programming language, defining a data shape for one particular concept in your real work environment. Models have names (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this type of entity in your environment can do. Later, you will use these models to create [**digital twins**](concepts-twins-graph.md) that represent specific entities that meet this type description.
 
-You can think of the models as nouns in a description of your world.
+Models are written using the JSON-based **Digital Twin Definition Language (DTDL)**.  
 
 ## Digital Twin Definition Language (DTDL) for writing models
 

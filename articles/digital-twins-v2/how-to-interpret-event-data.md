@@ -32,7 +32,7 @@ Notification message headers are represented with key-value pairs. Depending on 
 Some notifications conform to the CloudEvents standard. CloudEvents conformance is as follows.
 * Notifications emitted from devices continue to follow the existing specifications for notifications
 * Notifications processed and emitted by IoT Hub continue to follow the existing specifications for notification, except where IoT Hub chooses to support CloudEvents, such as through Event Grid
-* Notifications emitted from digital twin based on models conform to CloudEvents
+* Notifications emitted from [digital twins](concepts-twins-graph.md) with a [model](concepts-models.md) conform to CloudEvents
 * Notifications processed and emitted by Azure Digital Twins conform to CloudEvents
 
 Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. Notifications emitted by Azure Digital Twins to Event Grid are formatted into the Event Grid schema, until Event Grid supports CloudEvents on input. Extension attributes on headers will be added as properties on the Event Grid schema inside of the payload. 
@@ -92,7 +92,7 @@ This section goes into more detail about the different types of notifications em
 
 ### Digital twin life-cycle notifications
 
-All digital twins emit notifications, regardless of whether they represent [IoT Hub devices in Azure Digital Twins](how-to-ingest-iot-hub-data.md) or not. This is because of life-cycle notifications, which have to do with the digital twin itself.
+All [digital twins](concepts-twins-graph.md) emit notifications, regardless of whether they represent [IoT Hub devices in Azure Digital Twins](how-to-ingest-iot-hub-data.md) or not. This is because of life-cycle notifications, which have to do with the digital twin itself.
 
 Life-cycle notifications are triggered when:
 * A digital twin is created
@@ -152,7 +152,7 @@ Here is an example of a body for an [IoT Plug and Play (PnP)](../iot-pnp/overvie
 }
 ```
 
-Here is another example of a digital twin. This one is based on a model, and does not support components:
+Here is another example of a digital twin. This one is based on a [model](concepts-models.md), and does not support components:
 
 ```json
 {
@@ -232,7 +232,7 @@ Here is an example of a create or delete edge notification:
 }
 ```
 
-### Digital model change notifications
+### Digital twin model change notifications
 
 Model change notifications are triggered when a Digital Twins Definition Language (DTDL) [model](concepts-models.md) is uploaded, reloaded, patched, decommissioned, or deleted.
 

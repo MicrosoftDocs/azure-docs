@@ -63,11 +63,11 @@ For more detailed steps on how to do this, try it out in the [Azure Digital Twin
 Before you assign an RBAC role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's best to grant only the narrowest possible scope.
 
 The following list describes the levels at which you can scope access to Azure Digital Twins resources.
-* Models: The actions for this resource dictate control over models (models) uploaded in Azure Digital Twins.
-* Query Digital Twins Graph: The actions for this resource determine ability to run SQL query operations on twins within the Azure Digital Twins graph.
-* Digital Twin: The actions for this resource provide control over CRUD operations on digital twins in the twin graph.
-* Digital Twin relationship: The actions for this resource define control over CRUD operations on relationships between digital twins in the twin graph.
-* Event route: The actions for this resource determine permissions to route events from Azure Digital Twins to an endpoint service like [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), or [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
+* Models: The actions for this resource dictate control over [models](concepts-models.md) uploaded in Azure Digital Twins.
+* Query Digital Twins Graph: The actions for this resource determine ability to run [query operations](concepts-query-language.md) on digital twins within the Azure Digital Twins graph.
+* Digital Twin: The actions for this resource provide control over CRUD operations on [digital twins](concepts-twins-graph.md) in the twin graph.
+* Digital Twin relationship: The actions for this resource define control over CRUD operations on [relationships](concepts-twins-graph.md) between digital twins in the twin graph.
+* Event route: The actions for this resource determine permissions to [route events](concepts-route-events.md) from Azure Digital Twins to an endpoint service like [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), or [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
 
 ## Next steps
 

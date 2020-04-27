@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Ingest telemetry from IoT Hub
 
-Azure Digital Twins is driven with data from IoT devices and other sources, by calling the [DigitalTwins APIs](how-to-use-apis.md) to set properties or fire telemetry events on digital twins. Once a property change or telemetry event arrives inside of Azure Digital Twins, all further event propagation and processing happens inside of Azure Digital Twins.
+Azure Digital Twins is driven with data from IoT devices and other sources, by calling the [DigitalTwins APIs](how-to-use-apis.md) to set properties or fire telemetry events on [digital twins](concepts-twins-graph.md). Once a property change or telemetry event arrives inside of Azure Digital Twins, all further event propagation and processing happens inside of Azure Digital Twins.
 
 This how-to document walks through an example of ingesting telemetry from [IoT Hub](../iot-hub/about-iot-hub.md).
 
@@ -31,7 +31,7 @@ This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, u
 > [!NOTE]
 > This example uses a straightforward ID match between the device ID and a corresponding digital twin's ID, but it is possible to provide more sophisticated mappings from the device to its twin (such as with a mapping table).
 
-Whenever a temperature telemetry event is sent by the thermometer device, the *temperature* property of the Room twin should update. To make this happen, you will map from a telemetry event on a device to a property setter on the digital twin. You will use topology information from the graph to find the Room twin, and then you can set the twin's property. 
+Whenever a temperature telemetry event is sent by the thermometer device, the *temperature* property of the *Room* twin should update. To make this happen, you will map from a telemetry event on a device to a property setter on the digital twin. You will use topology information from the [twin graph](concepts-twins-graph.md) to find the *Room* twin, and then you can set the twin's property. 
 
 This scenario is outlined in a diagram below:
 
@@ -87,7 +87,7 @@ string devid = (string)job["systemProperties"].ToObject<JObject>().Property("IoT
 double temp = (double)job["body"].ToObject<JObject>().Property("temperature").Value;
 ```
 
-Recall that the purpose of this exercise is to update the temperature of a Room within the twin graph. This means that our target for the message is not the digital twin that is associated with this device, but the Room twin that is its parent. You can find the parent twin using the device ID value that you extracted from the telemetry message using the code above.
+Recall that the purpose of this exercise is to update the temperature of a *Room* within the twin graph. This means that our target for the message is not the digital twin that is associated with this device, but the *Room* twin that is its parent. You can find the parent twin using the device ID value that you extracted from the telemetry message using the code above.
 
 To do this, use the Azure Digital Twins APIs to access the incoming relationships to the device-representing twin (which in this case has the same ID as the device). From the incoming relationship, you can find the ID of the parent with the code snippet below.
 
@@ -104,7 +104,7 @@ if (relPage != null) {
 }
 ```
 
-Now that you have the ID of the parent twin representing the Room, you can "patch" (make select updates to) that twin. To do this, use the following code:
+Now that you have the ID of the parent twin representing the *Room*, you can "patch" (make select updates to) that twin. To do this, use the following code:
 
 ```csharp
 // See the utility class defined further down in this file

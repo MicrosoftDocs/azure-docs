@@ -62,7 +62,7 @@ Models for Azure Digital Twins are written in DTDL. A patient room in this scena
 > [!NOTE]
 > This is a sample body for a .json file in which a model is defined and saved, to be uploaded as part of a client project. If you are defining a model in the body of an API call, remember to fit the code above into the context of a complete API call body (including *[]* brackets around this section).
 
-This model defines a name and a unique ID for the patient room, and properties to represent visitor count and hand-wash status (these counters will be updated from motion sensors and smart soap dispensers, and will be used together to calculate a *handwash percentage* property). The model also defines a relationship *hasDevices*, which will be used to connect the Room twin to the actual devices.
+This model defines a name and a unique ID for the patient room, and properties to represent visitor count and hand-wash status (these counters will be updated from motion sensors and smart soap dispensers, and will be used together to calculate a *handwash percentage* property). The model also defines a relationship *hasDevices*, which will be used to connect any [digital twins](concepts-twins-graph.md) based on this *Room* model to the actual devices.
 
 Following this method, you can go on to define models for the hospital's wards, zones, or the hospital itself.
 
