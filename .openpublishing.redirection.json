@@ -4348,6 +4348,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/templates/template-tutorial-secure-artifacts.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/secure-template-with-sas-token",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/templates/template-tutorial-create-linked-templates.md",
       "redirect_url": "/azure/azure-resource-manager/templates/deployment-tutorial-linked-template",
       "redirect_document_id": false
@@ -14200,7 +14205,7 @@
       "source_path": "articles/event-hubs/event-hubs-api-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-samples",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-archive-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-capture-overview",
@@ -14265,7 +14270,7 @@
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-api-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
@@ -14275,7 +14280,7 @@
       "source_path": "articles/event-hubs/event-hubs-dotnet-standard-api-overview.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
@@ -14345,7 +14350,7 @@
       "source_path": "articles/event-hubs/event-hubs-spark-connector.md",
       "redirect_url": "/azure/event-hubs/event-hubs-kafka-spark-tutorial",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-tutorial-virtual-networks-firewalls.md",
       "redirect_url": "/azure/event-hubs/event-hubs-service-endpoints",
