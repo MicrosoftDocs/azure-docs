@@ -1,34 +1,27 @@
 ---
 title: Tutorial - Delete an Azure Red Hat OpenShift cluster
 description: In this tutorial, learn how to delete an Azure Red Hat OpenShift cluster using the Azure CLI
-author: jimzim
-ms.author: jzim
+author: suvetriv
+ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
-ms.date: 05/06/2019
+ms.date: 04/24/2020
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
-# Tutorial: Delete an Azure Red Hat OpenShift cluster
+# Tutorial: Delete an Azure Red Hat OpenShift 4 cluster
 
-This is the end of the tutorial. When you're finished testing the sample cluster, here's how to delete it and its associated resources so you don't get charged for what you're not using.
-
-In part three of the series, you'll learn how to:
+In this tutorial, part three of three, an Azure Red Hat OpenShift (ARO) cluster running OpenShift 4 is deleted. You learn how to:
 
 > [!div class="checklist"]
 > * Delete an Azure Red Hat OpenShift cluster
 
-In this tutorial series, you'll learn how to:
-> [!div class="checklist"]
-> * [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md)
-> * [Conect to an Azure Red Hat OpenShift cluster](tutorial-connect-cluster.md)
-> * Delete an Azure Red Hat OpenShift cluster
 
 ## Before you begin
 
-Before you begin this tutorial:
+In previous tutorials, an ARO cluster was created and connected to using the OpenShift web console. If you have not done these steps, and would like to follow along, start with[Tutorial 1 - Create an Azure Red Hat Openshift 4 Cluster.](tutorial-create-cluster.md)
 
-* Create a cluster by following the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Sign in to Azure
 
@@ -48,7 +41,7 @@ Open a Bash terminal and set the variable CLUSTER_NAME to the name of your clust
 CLUSTER_NAME=yourclustername
 ```
 
-Now delete your cluster:
+Now, delete your cluster:
 
 ```bash
 az aro delete --resource-group $CLUSTER_NAME --name $CLUSTER_NAME
