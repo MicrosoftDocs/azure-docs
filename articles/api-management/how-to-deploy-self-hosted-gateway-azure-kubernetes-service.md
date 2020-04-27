@@ -18,7 +18,7 @@ ms.author: apimpm
 
 # Deploy a self-hosted Azure API Management gateway to Azure Kubernetes Service
 
-This article provides the steps for deploying self-hosted Azure API Management gateway into an [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) Cluster. For deploying self-hosted gateway to other Kubernetes clusters (e.g., clusters in a foreign cloud), see [deploy self-hosted gateway to Kubernetes](api-management-howto-deploy-self-hosted-gateway-to-k8s.md).
+This article provides the steps for deploying self-hosted Azure API Management gateway into an [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS) Cluster. For deploying self-hosted gateway to other Kubernetes clusters (e.g., clusters in a foreign cloud), see [deploy self-hosted gateway to Kubernetes](api-management-howto-deploy-self-hosted-gateway-to-k8s.md).
 
 ## Prerequisites
 
@@ -41,20 +41,20 @@ This article provides the steps for deploying self-hosted Azure API Management g
 ```console
     kubectl apply -f <gateway-name>.yaml
 ```
-10. Execute the command. The command instructs your AKS cluster to run the container, using self-hosted gateway's image downloaded from the Microsoft Container Registry, and to configure the container to expose HTTP (8080) and HTTPS (443) ports.
-11. Run the below command to check the gateway pod is running. Note that your pod name will be different. 
+11. Execute the command. The command instructs your AKS cluster to run the container, using self-hosted gateway's image downloaded from the Microsoft Container Registry, and to configure the container to expose HTTP (8080) and HTTPS (443) ports.
+12. Run the below command to check the gateway pod is running. Note that your pod name will be different. 
 ```console
 kubectl get pods
 NAME                                   READY     STATUS    RESTARTS   AGE
 contoso-apim-gateway-59f5fb94c-s9stz   1/1       Running   0          1m
 ```
-12. Run the below command to check the gateway service is running. Note that your service name and IP addresses will be different. 
+13. Run the below command to check the gateway service is running. Note that your service name and IP addresses will be different. 
 ```console
 kubectl get services
 NAME             TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
 contosogateway   NodePort    10.110.230.87   <none>        80:32504/TCP,443:30043/TCP   1m
 ```
-13. Go back to the Azure portal and confirm that gateway node you just deployed is reporting healthy status.
+14. Go back to the Azure portal and confirm that gateway node you just deployed is reporting healthy status.
 
 > [!TIP]
 > Use <code>kubectl logs <gateway-pod-name></code> command to view a snapshot of self-hosted gateway log.
