@@ -69,7 +69,7 @@ The App Service Hybrid Connections feature is available only in Basic, Standard,
 
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
-    | **[Storage account](../storage/common/storage-account-create.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and can contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
+    | **[Storage account](../storage/common/storage-account-create.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and can contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](../azure-functions/functions-scale.md#storage-account-requirements). |
     |**Operating system**| Preferred operating system | An operating system is pre-selected for you based on your runtime stack selection, but you can change the setting if necessary. |
     | **[Plan](../azure-functions/functions-scale.md)** | **App service plan** | Choose **App service plan**. When you run in an App Service plan, you must manage the [scaling of your function app](../azure-functions/functions-scale.md).  |
 
@@ -91,8 +91,6 @@ The App Service Hybrid Connections feature is available only in Basic, Standard,
 
 1. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
 
-    ![Deployment notification](./media/functions-create-function-app-portal/function-app-create-notification2.png)
-
 ## Create a hybrid connection for the function app
 
 Hybrid connections are configured from the networking section of the function app:
@@ -104,11 +102,11 @@ Hybrid connections are configured from the networking section of the function ap
 
 1. Select **Add hybrid connection**.
    
-    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-connection-overview.png" alt-text="Hybrid Connection" border="true":::
+    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-connection-overview.png" alt-text="Add a hybrid connection." border="true":::
 
 1. Enter information about the hybrid connection as shown right after the following screenshot. You have the option of making the **Endpoint Host** setting match the host name of the on-premises server to make it easier to remember the server later when you're running remote commands. The port matches the default Windows remote management service port that was defined on the server earlier.
   
-      :::image type="content" source="./media/functions-hybrid-powershell/add-hybrid-connection.png" alt-text="Add Hybrid Connection" border="true":::
+      :::image type="content" source="./media/functions-hybrid-powershell/add-hybrid-connection.png" alt-text="Add hybrid connection." border="true":::
 
     **Hybrid connection name**: ContosoHybridOnPremisesServer
     
@@ -127,16 +125,26 @@ Hybrid connections are configured from the networking section of the function ap
 ## Download and install the hybrid connection
 
 1. Select **Download connection manager** to save the .msi file locally on your computer.
-![Download installer](./media/functions-hybrid-powershell/download-hybrid-connection-installer.png)  
-1. Copy the .msi file from your local computer to the on-premises server.
+
+    :::image type="content" source="./media/functions-hybrid-powershell/download-hybrid-connection-installer.png" alt-text="Download the installer." border="true":::
+
+1. Copy the *.msi* file from your local computer to the on-premises server.
 1. Run the Hybrid Connection Manager installer to install the service on the on-premises server.
-![Install Hybrid Connection](./media/functions-hybrid-powershell/hybrid-installation.png)  
+
+    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-installation.png" alt-text="Install the hybrid connection." border="true":::
+
 1. From the portal, open the hybrid connection and then copy the gateway connection string to the clipboard.
-![Copy hybrid connection string](./media/functions-hybrid-powershell/copy-hybrid-connection.png)  
+
+    :::image type="content" source="./media/functions-hybrid-powershell/copy-hybrid-connection.png" alt-text="Copy the hybrid connection string." border="true":::
+
 1. Open the Hybrid Connection Manager UI on the on-premises server.
-![Open Hybrid Connection UI](./media/functions-hybrid-powershell/hybrid-connection-ui.png)  
+
+    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-connection-ui.png" alt-text="Open the Hybrid Connection UI." border="true":::
+
 1. Select the **Enter Manually** button and paste the connection string from the clipboard.
-![Paste connection](./media/functions-hybrid-powershell/enter-manual-connection.png)  
+
+    :::image type="content" source="./media/functions-hybrid-powershell/enter-manual-connection.png" alt-text="Paste the hybrid connection." border="true":::
+
 1. Restart the Hybrid Connection Manager from PowerShell if it doesn't show as connected.
     ```powershell
     Restart-Service HybridConnectionManager
