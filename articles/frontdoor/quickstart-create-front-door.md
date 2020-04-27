@@ -38,7 +38,7 @@ If you don't already have a web app, use the following steps to set up example w
 
 1. Select **Web** > **Web App**.
 
-   ![Create a web app in the Azure portal](media/quickstart-create-front-door/create-web-app-for-front-door.png)
+   ![Create a web app in the Azure portal](media/quickstart-create-front-door/create-web-app-azure-front-door.png)
 
 1. In **Web App**, select the **Subscription** to use.
 
@@ -56,7 +56,7 @@ If you don't already have a web app, use the following steps to set up example w
 
 1. Select **Review + create**, review the **Summary**, and then select **Create**. It might take several minutes for the deployment to complete.
 
-   ![Review summary for web app](media/quickstart-create-front-door/summary-for-web-app-for-front-door.png)
+   ![Review summary for web app](media/quickstart-create-front-door/web-app-summary-azure-front-door.png)
 
 After your deployment is complete, create a second web app. Use the same procedure with the same values, except for the following values:
 
@@ -83,7 +83,7 @@ Configure Azure Front Door to direct user traffic based on lowest latency betwee
 
 1. For **Host name**, enter a globally unique hostname. This example uses *contoso-frontend*. Select **Add**.
 
-   ![Add a frontend host for Azure Front Door](media/quickstart-create-front-door/add-frontend-host-for-front-door.png)
+   ![Add a frontend host for Azure Front Door](media/quickstart-create-front-door/add-frontend-host-azure-front-door.png)
 
 Next, create a backend pool that contains your two web apps.
 
@@ -99,7 +99,7 @@ Next, create a backend pool that contains your two web apps.
 
 1. Select your subscription, again, and choose the second web app you created from **Backend host name**. Select **Add**.
 
-   ![Add a backend host to your Front Door](media/quickstart-create-front-door/add-backend-host-to-pool-for-front-door.png)
+   ![Add a backend host to your Front Door](media/quickstart-create-front-door/add-backend-host-pool-azure-front-door.png)
 
 Finally, add a routing rule. A routing rule maps your frontend host to the backend pool. The rule forwards a request for `contoso-frontend.azurefd.net` to **myBackendPool**.
 
@@ -112,7 +112,7 @@ Finally, add a routing rule. A routing rule maps your frontend host to the backe
 
 1. Select **Review + Create**, and then **Create**.
 
-   ![Configured Azure Front Door](media/quickstart-create-front-door/configuration-of-front-door.png)
+   ![Configured Azure Front Door](media/quickstart-create-front-door/configuration-azure-front-door.png)
 
 ## View Azure Front Door in action
 
@@ -137,7 +137,7 @@ To test instant global failover in action, try the following steps:
 
 1. Refresh your browser. This time, you should see an error message.
 
-   ![Both instances of the web app stopped](media/quickstart-create-front-door/service-has-been-stopped.png)
+   ![Both instances of the web app stopped](media/quickstart-create-front-door/web-app-stopped-message.png)
 
 ## Clean up resources
 
