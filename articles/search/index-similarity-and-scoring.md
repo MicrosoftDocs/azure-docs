@@ -50,7 +50,7 @@ GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringS
 
 ## Similarity ranking algorithms
 
-Azure Cognitive Search supports two different similarity ranking algorithms: A *classic similarity* algorithm and the official implementation of the *Okapi BM25* algorithm (currently in preview). The classical similarity algorithm is the default algorithm, but starting July 15, any new services created after that date use the new BM25 algorithm. It will be the only algorithm available.
+Azure Cognitive Search supports two different similarity ranking algorithms: A *classic similarity* algorithm and the official implementation of the *Okapi BM25* algorithm (currently in preview). The classical similarity algorithm is the default algorithm, but starting July 15, any new services created after that date use the new BM25 algorithm. It will be the only algorithm available on new services.
 
 For now, you can specify which similarity ranking algorithm you would like to use. For more information, see [Ranking algorithm](index-ranking-similarity.md).
 
