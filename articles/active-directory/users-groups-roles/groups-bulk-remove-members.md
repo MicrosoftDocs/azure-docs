@@ -19,6 +19,8 @@ ms.collection: M365-identity-device-management
 
 Using Azure Active Directory (Azure AD) portal, you can remove a large number of members from a group by using a comma-separated values (CSV) file to bulk remove group members.
 
+bulk-remove-members/template-example-csv-file.png
+
 ## To bulk remove group members
 
 1. Sign in to [the Azure portal](https://portal.azure.com) with a User administrator account in the organization. Group owners can also bulk remove members of groups they own.
