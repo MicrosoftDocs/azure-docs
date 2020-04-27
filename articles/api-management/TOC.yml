@@ -107,9 +107,9 @@
             - name: Deploy a self-hosted gateway to Kubernetes
               href: how-to-deploy-self-hosted-gateway-kubernetes.md
             - name: Deploy a self-hosted gateway to Docker
-              href: api-management-howto-deploy-self-hosted-gateway-to-docker.md
+              href: how-to-deploy-self-hosted-gateway-docker.md
             - name: Configure custom domain for self-hosted gateway
-              href: api-management-howto-configure-custom-domain-gateway.md            
+              href: api-management-howto-configure-custom-domain-gateway.md
       - name: Cache
         items:
             - name: Add caching to improve performance
