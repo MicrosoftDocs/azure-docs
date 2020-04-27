@@ -21,7 +21,7 @@ Backup for Azure file shares is available in the following GEOS:
 
 | Storage  account details | Support                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Account  Kind            | Azure  Backup supports Azure file shares present in general-purpose v1,general-purpose v2 and file share type storage accounts |
+| Account  Kind            | Azure  Backup supports Azure file shares present in general-purpose v1, general-purpose v2 and file share type storage accounts |
 | Performance              | Azure  Backup supports file shares in both standard and Premium Storage accounts |
 | Replication              | Azure  files shares in Storage Accounts with any replication type are  supported |
 
