@@ -106,7 +106,7 @@ To learn about storage in Kubernetes follow this [link](https://kubernetes.io/do
 ### Local logs and metrics
 Self-hosted gateway sends telemetry to [Azure Monitor](api-management-howto-use-azure-monitor.md) and [Azure Application Insights](api-management-howto-app-insights.md) per configuration settings in the associated API Management service.
 When [connectivity to Azure](self-hosted-gateway-overview.md#connectivity-to-azure) is temporarily lost, the flow of telemetry to Azure is interrupted and the data is lost for the duration of the outage.
-Consider [setting up local monitoring](api-management-howto-configure-local-metrics-and-logs.md) to ensure ability to observe the API traffic and prevent telemetry loss during Azure connectivity outages.
+Consider [setting up local monitoring](how-to-configure-local-metrics-logs.md) to ensure ability to observe the API traffic and prevent telemetry loss during Azure connectivity outages.
 
 ## Next steps
 

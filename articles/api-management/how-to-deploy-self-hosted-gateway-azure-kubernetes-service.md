@@ -18,7 +18,7 @@ ms.author: apimpm
 
 # Deploy Azure API Management self-hosted gateway to Azure Kubernetes Service
 
-This article provides the steps for deploying self-hosted gateway to an [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS) Cluster. For deploying self-hosted gateway to other Kubernetes clusters (e.g., clusters in a foreign cloud), see [deploy self-hosted gateway to Kubernetes](api-management-howto-deploy-self-hosted-gateway-to-k8s.md).
+This article provides the steps for deploying self-hosted gateway to an [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS) Cluster. For deploying self-hosted gateway to other Kubernetes clusters (e.g., clusters in a foreign cloud), see [deploy self-hosted gateway to Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md).
 
 ## Prerequisites
 
@@ -63,8 +63,8 @@ contosogateway   NodePort    10.110.230.87   <none>        80:32504/TCP,443:3004
 
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
 * Learn more about [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-* Learn [how to configure and persist logs in the cloud](api-management-howto-configure-local-metrics-and-logs.md)
-* * Learn [how to configure and persist logs locally](api-management-howto-configure-local-metrics-and-logs.md)
+* Learn [how to configure and persist logs in the cloud](how-to-configure-cloud-metrics-logs.md)
+* * Learn [how to configure and persist logs locally](how-to-configure-local-metrics-logs.md)
 
 
 
