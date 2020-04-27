@@ -76,7 +76,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | For example, Google+.  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | For example, Facebook.  |
 | [OAuth1](oauth1-technical-profile.md) |  | X |  | For example, Twitter. |
-| [SAML2](saml-technical-profile.md) |  |   | X | For example, Salesforce, ADFS. |
+| [SAML2](saml-identity-provider-technical-profile.md) |  |   | X | For example, Salesforce, ADFS. |
 | WSFED| X |  |  |  |
 
 
