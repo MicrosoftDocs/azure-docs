@@ -41,11 +41,11 @@ Regular upgrades of the AVS private cloud and VMware software ensures the latest
 
 ## Monitoring your private cloud
 
-You can use [Logs in Azure Monitor](../azure-monitor/overview.md) to collect logs on your virtual machines running in your AVS private cloud. You are able to [download and install the MMA agent](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) on your AVS private cloud for both Linux and Windows virtual machines just like your other on-premises or Azure virtual machines. You can run the same queries you would normally run on your virtual machines just the same. To learn more about creating queries, see [how to write queries](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries)
+You can use [Logs in Azure Monitor](../azure-monitor/overview.md) to collect logs on your virtual machines running in your AVS private cloud. You are able to [download and install the MMA agent](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) on your AVS private cloud for both Linux and Windows virtual machines just like your other on-premises or Azure virtual machines. You can run the same queries you would normally run on your virtual machines just the same. To learn more about creating queries, see [how to write queries](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
 
 ## Next steps
 
-The next step is to learn key [private cloud and cluster concepts][concepts-private-clouds-clusters.md].
+The next step is to learn key [private cloud and cluster concepts](concepts-private-clouds-clusters.md).
 
 <!-- LINKS - external -->
 
