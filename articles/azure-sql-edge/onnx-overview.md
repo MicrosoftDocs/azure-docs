@@ -1,7 +1,7 @@
 ---
-title: Machine learning and AI with ONNX in Azure SQL Database Edge Preview | Microsoft Docs
-description: Machine learning in Azure SQL Database Edge Preview supports models in the Open Neural Network Exchange (ONNX) format. ONNX is an open format you can use to interchange models between various machine learning frameworks and tools.
-keywords: deploy sql database edge
+title: Machine learning and AI with ONNX in Azure SQL Edge Preview | Microsoft Docs
+description: Machine learning in Azure SQL Edge Preview supports models in the Open Neural Network Exchange (ONNX) format. ONNX is an open format you can use to interchange models between various machine learning frameworks and tools.
+keywords: deploy SQL Edge
 services: sql-database-edge
 ms.service: sql-database-edge
 ms.subservice: machine-learning
@@ -11,13 +11,13 @@ ms.author: davidph
 ms.date: 03/26/2020
 ---
 
-# Machine learning and AI with ONNX in SQL Database Edge Preview
+# Machine learning and AI with ONNX in SQL Edge Preview
 
-Machine learning in Azure SQL Database Edge Preview supports models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai/) format. ONNX is an open format you can use to interchange models between various [machine learning frameworks and tools](https://onnx.ai/supported-tools).
+Machine learning in Azure SQL Edge Preview supports models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai/) format. ONNX is an open format you can use to interchange models between various [machine learning frameworks and tools](https://onnx.ai/supported-tools).
 
 ## Overview
 
-To infer machine learning models in Azure SQL Database Edge, you will first need to get a model. This can be a pre-trained model or a custom model trained with your framework of choice. Azure SQL Database Edge supports the ONNX format and you will need to convert the model to this format. There should be no impact on model accuracy, and once you have the ONNX model, you can deploy the model in Azure SQL Database Edge and use [native scoring with the PREDICT T-SQL function](/sql/advanced-analytics/sql-native-scoring/).
+To infer machine learning models in Azure SQL Edge, you will first need to get a model. This can be a pre-trained model or a custom model trained with your framework of choice. Azure SQL Edge supports the ONNX format and you will need to convert the model to this format. There should be no impact on model accuracy, and once you have the ONNX model, you can deploy the model in Azure SQL Edge and use [native scoring with the PREDICT T-SQL function](/sql/advanced-analytics/sql-native-scoring/).
 
 ## Get ONNX models
 
@@ -38,7 +38,7 @@ To obtain a model in the ONNX format:
 
 ## Limitations
 
-Currently, not all ONNX models are supported by Azure SQL Database Edge. The support is limited to models with **numeric data types**:
+Currently, not all ONNX models are supported by Azure SQL Edge. The support is limited to models with **numeric data types**:
 
 - [int and bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
 - [real and float](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql).
@@ -49,5 +49,5 @@ The model inputs should be structured so that each input to the model correspond
 
 ## Next steps
 
-- [Deploy SQL Database Edge through Azure portal](deploy-portal.md)
-- [Deploy an ONNX model on Azure SQL Database Edge Preview](deploy-onnx.md)
+- [Deploy SQL Edge through Azure portal](deploy-portal.md)
+- [Deploy an ONNX model on Azure SQL Edge Preview](deploy-onnx.md)

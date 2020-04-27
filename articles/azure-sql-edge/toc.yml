@@ -1,8 +1,8 @@
-- name: SQL Database Edge Documentation
+- name: SQL Edge Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is SQL Database Edge?
+  - name: What is SQL Edge?
     href: overview.md
   - name: What's new
     href: whats-new.md
@@ -11,9 +11,9 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Deploy SQL Database Edge
+  - name: Deploy SQL Edge
     href: deploy-portal.md 
-  - name: Deploy ONNX on SQL Database Edge
+  - name: Deploy ONNX on SQL Edge
     href: deploy-onnx.md 
 - name: Tutorials
   items:
