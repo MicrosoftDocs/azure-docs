@@ -89,7 +89,7 @@ already configured with the setting you want to enforce also provide the value t
 Look at the **Export template** page (under **Settings**) in the Azure portal for that specific
 resource.
 
-![Export template page on existing resource](../media/create-custom-policy-definition/export-template.png)
+:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Export template page on existing resource" border="false":::
 
 Doing so for a storage account reveals a template similar to this example:
 
