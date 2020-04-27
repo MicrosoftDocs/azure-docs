@@ -2339,6 +2339,10 @@ Azure service: [Virtual Machines](../virtual-machines/index.yml), [Virtual Machi
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/redeploy/action | Redeploys a Virtual Machine instance in a Virtual Machine Scale Set |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/performMaintenance/action | Performs planned maintenance on a Virtual Machine instance in a Virtual Machine Scale Set |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/runCommand/action | Executes a predefined script on a Virtual Machine instance in a Virtual Machine Scale Set. |
+> |  | **virtualMachineScaleSets/VirtualMachines/extensions** |  |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/VirtualMachines/extensions/read | Get the properties of an extension for Virtual Machine in Virtual Machine Scale Set |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/VirtualMachines/extensions/write | Creates a new extension for Virtual Machine in Virtual Machine Scale Set or updates an existing one |
+> | Action | Microsoft.Compute/virtualMachineScaleSets/VirtualMachines/extensions/delete | Deletes the extension for Virtual Machine in Virtual Machine Scale Set |
 > |  | **virtualMachineScaleSets/virtualMachines/instanceView** |  |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/instanceView/read | Retrieves the instance view of a Virtual Machine in a VM Scale Set. |
 > |  | **virtualMachineScaleSets/virtualMachines/networkInterfaces** |  |
@@ -2349,10 +2353,6 @@ Azure service: [Virtual Machines](../virtual-machines/index.yml), [Virtual Machi
 > | Action | Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/ipConfigurations/publicIPAddresses/read | Get properties of public IP address created using Virtual Machine Scale Set. Virtual Machine Scale Set can create at most one public IP per ipconfiguration (private IP) |
 > |  | **virtualMachineScaleSets/vmSizes** |  |
 > | Action | Microsoft.Compute/virtualMachineScaleSets/vmSizes/read | List available sizes for creating or updating a virtual machine in the Virtual Machine Scale Set |
-> |  | **virtualMachineScaleSetVirtualMachines/extensions** |  |
-> | Action | Microsoft.Compute/virtualMachineScaleSetVirtualMachines/extensions/read | Get the properties of an extension for Virtual Machine in Virtual Machine Scale Set |
-> | Action | Microsoft.Compute/virtualMachineScaleSetVirtualMachines/extensions/write | Creates a new extension for Virtual Machine in Virtual Machine Scale Set or updates an existing one |
-> | Action | Microsoft.Compute/virtualMachineScaleSetVirtualMachines/extensions/delete | Deletes the extension for Virtual Machine in Virtual Machine Scale Set |
 > |  | **virtualMachines** |  |
 > | DataAction | Microsoft.Compute/virtualMachines/login/action | Log in to a virtual machine as a regular user |
 > | DataAction | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Log in to a virtual machine with Windows administrator or Linux root user privileges |
