@@ -260,7 +260,7 @@ Go to the deployed application and select the URL:
  
 ![Select the URL](../media/rotate10.png)
 
-When the application opens in the browser, you will see the **Generated Secret Value** and a **Database Connected** value of **true**.
+When the application opens in the browser, you will see the **Generated Secret Value** and a **Database Connected** value of *true*.
 
 ## Learn more
 
