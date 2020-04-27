@@ -18,8 +18,6 @@ In this article, you'll prepare your environment to create Azure Red Hat OpenShi
 > [!div class="checklist"]
 > * Setup the prerequisites and create the required virtual network and subnets
 > * Deploy a cluster with a private API server endpoint and a private ingress controller
-> 
-[!INCLUDE [cloud-shell-try-it.md](../../_includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
@@ -199,8 +197,6 @@ az aro create \
 > If you choose to specify a custom domain, for example **foo.example.com**, the OpenShift console will be available at a URL such as `https://console-openshift-console.apps.foo.example.com`, instead of the built-in domain `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
 >
 > By default OpenShift uses self-signed certificates for all of the routes created on `*.apps.<random>.<location>.aroapp.io`.  If you choose Custom DNS, after connecting to the cluster, you will need to follow the OpenShift documentation to [configure a custom CA for your ingress controller](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) and [custom CA for your API server](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
->
-> You can follow this article to [create testing certificates to use with your custom domain](../configure/custom-ca.md).
 
 ## Connect to the private cluster
 
@@ -231,17 +227,17 @@ You can find the cluster console URL by running the following command, which wil
 ```
 
 >[!IMPORTANT]
-> In order to connect to a private Azure Red Hat OpenShift cluster, you will need to perform the following step from a host that is either in the Virtual Network you created or in a Virtual Network that is [peered](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) with the Virtual Network the cluster was deployed to.
+> In order to connect to a private Azure Red Hat OpenShift cluster, you will need to perform the following step from a host that is either in the Virtual Network you created or in a Virtual Network that is [peered](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) with the Virtual Network the cluster was deployed to.
 
 Launch the console URL in a browser and login using the `kubeadmin` credentials.
 
-![Azure Red Hat OpenShift login screen](../_img/aro4-login.png)
+![Azure Red Hat OpenShift login screen](media/aro4-login.png)
 
 ## Install the OpenShift CLI
 
 Once you're logged into the OpenShift Web Console, click on the **?** on the top right and then on **Command Line Tools**. Download the release appropriate to your machine.
 
-![Azure Red Hat OpenShift login screen](../_img/aro4-download-cli.png)
+![Azure Red Hat OpenShift login screen](media/aro4-download-cli.png)
 
 You can also download the latest release of the CLI appropriate to your machine from <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>.
 
@@ -254,7 +250,7 @@ apiServer=$(az aro show -g aro-rg -n aro-cluster --query apiserverProfile.url -o
 ```
 
 >[!IMPORTANT]
-> In order to connect to a private Azure Red Hat OpenShift cluster, you will need to perform the following step from a host that is either in the Virtual Network you created or in a Virtual Network that is [peered](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) with the Virtual Network the cluster was deployed to.
+> In order to connect to a private Azure Red Hat OpenShift cluster, you will need to perform the following step from a host that is either in the Virtual Network you created or in a Virtual Network that is [peered](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) with the Virtual Network the cluster was deployed to.
 
 Login to the OpenShift cluster's API server using the following command. Replace **\<kubeadmin password>** with the password you just retrieved.
 

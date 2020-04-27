@@ -1,4 +1,13 @@
-# Configure DNS Forwarding on an ARO 4.3 Cluster
+---
+title: Configure DNS Forwarding for Azure Red Hat OpenShift 4
+description: Configure DNS Forwarding for Azure Red Hat OpenShift 4
+author: sakthi-vetrivel
+ms.author: suvetriv
+ms.service: container-service
+ms.topic: conceptual
+ms.date: 04/24/2020
+---
+# Configure DNS Forwarding on an Azure Red Hat OpenShift 4 Cluster
 
 To configure DNS Forwarding on an ARO 4.3 cluster, you'll need to modify the DNS Operator in Azure Red Hat OpenShift 4. This modification will allow your application pods running inside the ARO 4.3 cluster to resolve names hosted on a private DNS server outside the cluster. These steps are documented for OpenShift 4.3 [here](https://docs.openshift.com/container-platform/4.3/networking/dns-operator.html).
 

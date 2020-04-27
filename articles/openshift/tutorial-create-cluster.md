@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Create an Azure Red Hat OpenShift 4 cluster
 description: Learn how to create a Microsoft Azure Red Hat OpenShift cluster using the Azure CLI
-author: suvetriv
+author: sakthi-vetrivel
 ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service

@@ -32,9 +32,9 @@
         - name: Azure Monitor for containers in Azure Red Hat OpenShift 4 (preview)
           items: 
             - name: Configure Azure Monitor for containers for Azure Red Hat OpenShift 4 (preview)
-              href : ../azure-monitor/insights/container-insights-azure-redhat4-setup
+              href : ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
             - name: Disable Azure Monitor for containers in Azure Red Hat OpenShift 3.11 (preview)
-              href: ../zure-monitor/insights/container-insights-optout-openshift-v4
+              href: ../azure-monitor/insights/container-insights-optout-openshift-v4.md
     - name: Azure Red Hat OpenShift 3.11
       items:
         - name: Set up your Azure Red Hat OpenShift dev environment for Azure Red Hat OpenShift 3.11
@@ -85,7 +85,7 @@
     - name: Supported resources for Azure Red Hat OpenShift 3.11
       href: supported-resources.md
     - name: Supported resources for Azure Red Hat OpenShift 4.3
-      href: aro4x-support policies.md
+      href: aro4x-support-policies.md
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: Red Hat OpenShift documentation

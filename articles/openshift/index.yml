@@ -29,11 +29,11 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Create an Azure Red Hat OpenShift cluster
+          - text: Create an Azure Red Hat OpenShift 4 cluster
             url: tutorial-create-cluster.md
-          - text: Scale an Azure Red Hat OpenShift cluster
-            url: tutorial-scale-cluster.md
-          - text: Delete an Azure Red Hat OpenShift cluster
+          - text: Connect to an Azure Red Hat OpenShift 4 cluster
+            url: tutorial-connect-cluster.md
+          - text: Delete an Azure Red Hat OpenShift 4 cluster
             url: tutorial-delete-cluster.md
 
   # Card
@@ -41,12 +41,12 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Set up your Azure Red Hat OpenShift dev environment
-            url: howto-setup-environment.md
-          - text: Create an Azure AD tenant
-            url: howto-create-tenant.md
-          - text: Create an Azure AD app object and user
-            url: howto-aad-app-configuration.md
+          - text: Create an Azure Red Hat OpenShift 4 cluster
+            url: howto-using-azure-redhat-openshift.md
+          - text: Create a private Azure Red Hat OpenShift 4 cluster
+            url: howto-create-private-cluster.md
+          - text: Configure DNS Forwarding for an Azure Red Hat OpenShift 4 cluster
+            url: dns-forwarding.md
 
   # Card
   - title: Reference
