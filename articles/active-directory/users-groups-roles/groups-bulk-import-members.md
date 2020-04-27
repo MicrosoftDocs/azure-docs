@@ -1,11 +1,11 @@
 ---
-title: Bulk import upload to add members to a group - Azure Active Directory | Microsoft Docs
+title: Bulk upload to add or create members of a group - Azure Active Directory | Microsoft Docs
 description: Add group members in bulk in the Azure Active Directory admin center. 
 services: active-directory 
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/16/2020
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -18,6 +18,24 @@ ms.collection: M365-identity-device-management
 # Bulk import group members in Azure Active Directory
 
 Using Azure Active Directory (Azure AD) portal, you can add a large number of members to a group by using a comma-separated values (CSV) file to bulk import group members.
+
+## Understand the bulk upload spreadsheet
+
+The spreadsheet is the template you must use to successfully create Azure AD users in bulk. 
+
+![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/groups-bulk-import-members/template-with-callouts.png)
+
+First two rows must not be removed or modified, needed for processing
+There’s an example row that should be removed/replaced before upload
+Note: Older versions of the template may not have the sample row
+Provide info about Column header format
+Format is <Item> [PropertyName] <Required or not>. For example, “Name [displayName] Required”
+NOTE: Older versions of the template may have “Name (example: Chris Green) [displayName] *”
+For groups, format is the same but you have the option to choose which item you use. Ex. “Member object ID or user principal name [memberObjectIdOrUpn] Required”
+Required columns are list first
+Any additional columns included in the uploaded CSV file will be ignored
+
+I think we should recommend they download the latest version of the template periodically.
 
 ## To bulk import group members
 
