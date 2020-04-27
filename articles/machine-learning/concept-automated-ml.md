@@ -176,7 +176,7 @@ The ONNX runtime also supports C#, so you can use the model built automatically 
 
 When using Azure Automated ML (with the Python SDK), you choose either a local compute or a remote compute target to train your models. 
 * **Local compute**: Training occurs on your local laptop or VM compute.
-* **Remote compute**: Training occurs on an Azure Managed compute clusters.
+* **Remote compute**: Training occurs on Azure Managed compute clusters.
 
 More features are available when you use the remote compute, as shown in the table below. However, when you use a remote compute, you'll need to factor in setup time. The internal infrastructure preparation time will add around 1.5 minutes per child run, plus additional minutes for the cluster infrastructure if the VMs are not yet up and running.
 
