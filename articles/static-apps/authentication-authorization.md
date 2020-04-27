@@ -36,7 +36,7 @@ Beyond the built-in roles, you can create new roles in the _routes.json_ file an
 
 To add users to your site, you generate invitations which allow you to associate users to specific roles. Roles are defined and maintained in the _routes.json_ file.
 
-<a name="invitiations"></a>
+<a name="invitations" id="invitations"></a>
 
 #### Create an invitation
 
