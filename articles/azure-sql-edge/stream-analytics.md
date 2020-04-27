@@ -50,7 +50,7 @@ To use a SQL Database DAC package (*.dacpac) with SQL Edge, take these steps:
 
     2. In the left pane, select **IoT Edge**.
 
-    3. On the **IoT Edge** page, find and select the IoT edge where the SQL Edge module is deployed.
+    3. On the **IoT Edge** page, find and select the IoT Edge where the SQL Edge module is deployed.
 
     4. On the **IoT Edge Device** device page, select **Set Module**.
 
@@ -141,7 +141,7 @@ To deploy the streaming job to the SQL Edge module, update the SQL Edge module c
 
 2. In the left pane, select **IoT Edge**.
 
-3. On the **IoT Edge** page, find and select the IoT edge where the SQL Edge module is deployed.
+3. On the **IoT Edge** page, find and select the IoT Edge where the SQL Edge module is deployed.
 
 4. On the **IoT Edge Device** device page, select **Set Module**.
 
