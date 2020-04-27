@@ -344,6 +344,8 @@
       href: backup-rbac-rs-vault.md
     - name: Security for cloud workloads
       href: backup-azure-security-feature-cloud.md
+    - name: Soft delete for SQL Server and SAP HANA in Azure VMs
+      href: soft-delete-sql-saphana-in-azure-vm.md
     - name: Security for hybrid backups
       href: backup-azure-security-feature.md
     - name: Built-in security controls
