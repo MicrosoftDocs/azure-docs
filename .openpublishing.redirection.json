@@ -51741,6 +51741,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/jenkins/overview.md",
+      "redirect_url": "/azure/developer/jenkins/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/terraform/terraform-backend.md",
       "redirect_url": "/azure/developer/terraform/store-state-in-azure-storage",
       "redirect_document_id": false
@@ -51851,7 +51856,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/terraform/index",
+      "source_path": "articles/terraform/index.yml",
       "redirect_url": "/azure/developer/terraform/",
       "redirect_document_id": false
     }
