@@ -29,7 +29,7 @@ This article assumes you've already followed the instructions in [Set up the Pow
 Run the following cmdlet to sign in to the Windows Virtual Desktop environment:
 
 ```powershell
-New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> 
+New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <RemoteApp|Desktop>  -Location -DesktopAppGroupName <appgroupname> 
 ```
 
 This will create the host pool, workspace and desktop app group. Additionally, it will register the desktop app group to the workspace. You can only create a workspace with this, not use an existing workspace in this cmdlet. 
