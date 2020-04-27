@@ -7,8 +7,6 @@
     href: docs-philosophy.md
   - name: Contributor Quickstart
     href: contribute.md
-  - name: Internal Questions
-    href: internalquestions.md
   - name: Canonical Scenarios
     href: canonicalscenarios.md
   - name: Generating Reference Docs

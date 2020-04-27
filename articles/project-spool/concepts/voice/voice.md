@@ -14,13 +14,13 @@ ms.service: azure-project-spool
 
 #  Voice
 
-Spool's SDKs and APIs help you make and receive phone calls from within your applications.
+The ACS SDKs and APIs help you make and receive phone calls from within your applications.
 
-You can use Spool to make and receive calls, analyze call metadata, host conference calls, record calls, and even build call trees. Your calls aren't restricted to plain-old telephone numbers - you can use Spool to call browser clients and mobile apps as well.
+You can use ACS to make and receive calls, analyze call metadata, host conference calls, record calls, and even build call trees. Your calls aren't restricted to plain-old telephone numbers - you can use ACS to call browser clients and mobile apps as well.
 
 The flow supporting voice calls looks like this:
 
-1. Provision a Spool API key
+1. Provision an API key
 2. TODO
 
 Our Voice Quickstarts will help you get started:
@@ -48,7 +48,7 @@ You may want to add video and messaging to your applications as well. These reso
 ### Meta
 
 -  Customer intent statements: 
-   - I want to know how to think about "voice" when I'm working with Spool.
+   - I want to know how to think about "voice" when I'm working with ACS.
 
 - Resources: 
   - How Twilio handles programmable voice: https://www.twilio.com/docs/voice

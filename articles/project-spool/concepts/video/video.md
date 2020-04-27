@@ -14,11 +14,11 @@ ms.service: azure-project-spool
 
 # Video
 
-Spool's SDKs and APIs allow you to add video and voice chat to your applications.
+The ACS SDKs and APIs allow you to add video and voice chat to your applications.
 
 The flow supporting video calls looks like this:
 
-1. Provision a Spool API key
+1. Provision an API key
 2. Create a server application
 2. Create a Space 
 3. Your clients request access tokens
@@ -32,8 +32,8 @@ Our Video Quickstarts will help you get started:
 
 Our Video Tutorials will help you with more advanced scenarios:
 
-- How to create a video chatroom with Spool
-- How to build a screen-sharing app with Spool
+- How to create a video chatroom with ACS
+- How to build a screen-sharing app with ACS
 - How to record videos
 
 You may want to allow your users to make phone calls and send messages from within your app. These conceptual overviews will help you get started:
@@ -48,10 +48,10 @@ You may want to allow your users to make phone calls and send messages from with
 ### Meta
 
 -  Customer intent statements: 
-   - I want to know how to think about "video" when I'm working with Spool.
+   - I want to know how to think about "video" when I'm working with ACS.
 
 - Resources: 
-  - [Spool Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
+  - [ACS Contributor Quickstart](https://review.docs.microsoft.com/en-us/azure/project-spool/contribute?branch=pr-en-us-104477)
   - How Twilio handles programmable voice: https://www.twilio.com/docs/voice
 
 - Discussion:

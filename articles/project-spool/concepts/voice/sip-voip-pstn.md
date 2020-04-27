@@ -12,7 +12,7 @@ ms.service: azure-project-spool
 
 ---
 
-# SIP, VoIP, PSTN, and Spool
+# SIP, VoIP, and PSTN
 
 SIP, VoIP, and PSTN are each technologies that help people connect to each other.
 
@@ -33,7 +33,7 @@ VoIP stands for Voice over IP. It's how people can have phone calls over the int
 PSTN stands for Public Switched Telephone Network. It's the technology that supports plain-old landline telephony.
 
 
-## Tying It All Together With Spool
+## Tying It All Together With ACS
 
 TODO
 
@@ -41,11 +41,11 @@ TODO
 ### meta
 
 -  Customer intent statements: 
-   - I'm confused about how Spool relates to SIP, PSTN, and VOIP.
+   - I'm confused about how ACS relates to SIP, PSTN, and VOIP.
 
 - Discussion:
   - What other technologies should we tie together on this page?
-  - How should we "tie it all together with spool"?
+  - How should we "tie it all together with ACS"?
   - When do our customers need to care about these technologies?
   - Should we reference any sample(s) from this page?
   - Is the draft technically accurate?

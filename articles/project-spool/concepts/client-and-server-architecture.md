@@ -13,7 +13,7 @@ ms.service: azure-project-spool
 
 # Client and Server Architecture
 
-Every Spool app has the following components:
+Every ACS app has the following components:
 
 1. **Clients**. These are your users' devices.
 2. **Server(s)**. Your clients talk to your server to establish connectivity with other clients.
@@ -25,7 +25,7 @@ TODO
 ### meta
 
 -  Customer intent statements: 
-   - I want to know what the overall client-server architecture of Spool looks like.
+   - I want to know what the overall client-server architecture of Azure Communication Services looks like.
 
 - Discussion:
   - How do we want to describe client/server architecture to our customers?

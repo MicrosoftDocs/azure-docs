@@ -1,5 +1,5 @@
 ---
-title: Spool Docs Philosophy
+title: ACS Docs Philosophy
 description: A place to brainstorm about the purpose of docs and how we can deliver maximum value to our customers.
 author: mikben    
 manager: jken
@@ -20,7 +20,7 @@ ms.service: azure-project-spool
 
 - We (Microsoft) have communications infrastructure that works really well at scale. COVID-19 has proven that.
 - Our comms infrastructure is an asset that we can leverage to the benefit of both customers *and* our bottom line.
-- Spool is the product that we're building to expose our comms infrastructure to the broader market. Two teams are working together to make this happen: IC3 and Azure.
+- ACS is the product that we're building to expose our comms infrastructure to the broader market. Two teams are working together to make this happen: IC3 and Azure.
 - The **infrastructure** and **customer experience** are owned primarily by IC3, while the **offering through Azure** is owned by Azure. A positive customer experience (marketing, acquisition, conversion, consumption, retention) depends on effective collaboration between these two teams.
 - **Docs are a forcing function** for clarity between stakeholders as we approach public preview and GA.
 - **Docs can serve as the North Star** - the source of truth - for all stakeholders as ambiguity is minimized.

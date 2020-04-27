@@ -14,7 +14,7 @@ ms.service: azure-project-spool
 
 # Phone Numbers and Short Codes
 
-Project Spool gives you a global Phone Numbers catalog that allows you to tailor your communications for specific locales.
+ACS gives you a global Phone Numbers catalog that allows you to tailor your communications for specific locales.
 
 Phone Numbers are used to make and receive calls, send SMS and MMS messages, and initiate call trees.
 

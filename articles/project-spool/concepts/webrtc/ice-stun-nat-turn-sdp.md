@@ -14,7 +14,7 @@ ms.service: azure-project-spool
 
 # ICE, STUN, NAT, TURN, and SDP
 
-As you develop on Spool, you'll encounter terms like ICE, STUN, NAT, TURN, and SDP. These are each protocols that help your client devices connect with one another.
+As you develop on ACS, you'll encounter terms like ICE, STUN, NAT, TURN, and SDP. These are each protocols that help your client devices connect with one another.
 
 ## ICE
 
@@ -57,7 +57,7 @@ SDP (Session Description Protocol) is uses to describe the format of the media b
  - how does spool relate
 
 
-## Tying It All Together With Spool
+## Tying It All Together With ACS
 
 TODO
 

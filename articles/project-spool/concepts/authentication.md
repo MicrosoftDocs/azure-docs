@@ -1,6 +1,6 @@
 ---
 title: Authentication and Authorization
-description: Learn about the various ways an app or service can authenticate to Spool, and the levels of control that you have to gate access to various features.
+description: Learn about the various ways an app or service can authenticate to ACS, and the levels of control that you have to gate access to various features.
 author: mikben
 manager: jken
 services: azure-project-spool
@@ -19,7 +19,7 @@ TODO
 ### meta
 
 - Customer intent statements: 
-  - I want to know what the auth model is as I develop against Spool.
+  - I want to know what the auth model is as I develop against ACS.
 
 - Discussion:
   - How do we want to describe our auth model to our customers?

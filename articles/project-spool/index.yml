@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Project Spool documentation 
-summary: Project Spool is cloud-based communications service that lets you add voice, video, chat, and telephony to your apps. 
+title: Azure Communication Services
+summary: Azure Communication Services is a cloud-based communications service that lets you add voice, video, chat, and telephony to your apps. 
 
 metadata:
-  title: Project Spool documentation 
-  description: Project Spool is cloud-based communications service that lets you add voice, video, chat, and telephony to your apps. 
+  title: Azure Communication Services 
+  description: ACS is a cloud-based communications service that lets you add voice, video, chat, and telephony to your apps. 
   ms.service: azure-functions 
   ms.topic: landing-page # Required
   author: mikben 
@@ -13,11 +13,11 @@ metadata:
   ms.date: 03/10/2020 
 
 landingContent:
-  - title: About Project Spool
+  - title: About Azure Communication Services
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Project Spool?
+          - text: What is Azure Communication Services?
             url: functions-overview.md 
       - linkListType: concept
         links:
@@ -55,7 +55,7 @@ landingContent:
     linkLists:
       - linkListType: download
         links:
-          - text: Project Spool samples
+          - text: Samples
             url: /samples/browse/?products=azure-functions
           - text: Azure Resource Manager templates
             url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Web&term=functions
