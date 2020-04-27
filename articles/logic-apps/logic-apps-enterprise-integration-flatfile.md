@@ -1,21 +1,32 @@
 ---
 title: Encode or decode flat files
-description: Encode or decode flat files for enterprise integration with Azure Logic Apps and Enterprise Integration Pack
+description: Encode or decode flat files for enterprise integration in Azure Logic Apps by using the Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 07/08/2016
+ms.date: 04/28/2020
 ---
 
-# Encode or decode flat files with Azure Logic Apps and Enterprise Integration Pack
+# Encode and decode flat files in Azure Logic Apps by using the Enterprise Integration Pack
 
-You may want to encode XML content before you send it to a business partner in a business-to-business (B2B) scenario. In a logic app, you can use the flat file encoding connector to do this. The logic app that you create can get its XML content from a variety of sources, including from an HTTP request trigger, from another application, or even from one of the many [connectors](../connectors/apis-list.md). For more information about logic apps, see the [logic apps documentation](logic-apps-overview.md "Learn more about Logic apps").  
+Before you send XML content to a business partner in a business-to-business (B2B) scenario, you might want to encode that content first. By building a logic app, you can use the **Flat File** connector to encode and decode flat files. Your logic app can get this XML content from various sources, such as an HTTP request trigger, another app, or other [connectors supported by Azure Logic Apps](../connectors/apis-list.md). For more information, see [What is Azure Logic Apps](logic-apps-overview.md)?
 
-## Create the flat file encoding connector
-Follow these steps to add a flat file encoding connector to your logic app.
+## Prerequisites
+
+* An Azure subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+
+* The logic app where you want to use the **Flat File** connector and a trigger that starts your logic app's workflow. The **Flat File** connector provides only actions, not triggers. You can use either the trigger or another action to feed the XML content into your logic app for encoding or decoding. If you're new to logic apps, review [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's associated with your Azure subscription and linked to the logic app where you plan to use the **Flat File** connector. Both your logic app and integration account must exist in the same location or Azure region.
+
+* A flat file [schema]() that you use for encoding or decoding the XML content
+
+* At least two [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md) that you've already defined in your integration account.
+
+## Add flat file encode action
 
 1. Create a logic app and [link it to your integration account](logic-apps-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app"). This account contains the schema you will use to encode the XML data.  
 
@@ -72,7 +83,7 @@ You can now test your connector by making a request to the HTTP endpoint, and in
 
       ![Screenshot of Flat File Decoding option](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
 
-1. Select the **Content** control. This produces a list of the content from earlier steps that you can use as the content to decode. Notice that the *Body* from the incoming HTTP request is available to be used as the content to decode. You can also enter the content to decode directly into the **Content** control.     
+1. Select the **Content** control. This produces a list of the content from earlier steps that you can use as the content to decode. Notice that the *Body* from the incoming HTTP request is available to be used as the content to decode. You can also enter the content to decode directly into the **Content** control.
 
 1. Select the *Body* tag. Notice the body tag is now in the **Content** control.
 
@@ -80,14 +91,14 @@ You can now test your connector by making a request to the HTTP endpoint, and in
 
    ![Screenshot of Flat File Decoding dialog box](media/logic-apps-enterprise-integration-flatfile/flatfile-decode-1.png) 
 
-1. Save your work.  
+1. Save your work.
 
    ![Screenshot of Save icon](media/logic-apps-enterprise-integration-flatfile/flatfile-6.png)    
 
-At this point, you are finished setting up your flat file decoding connector. In a real world application, you may want to store the decoded data in a line-of-business application such as Salesforce. You can easily add an action to send the output of the decoding action to Salesforce.
+You're now finished with setting up your flat file decoding connector. In a real world app, you might want to store the decoded data in a line-of-business application such as Salesforce. You can easily add an action to send the output of the decoding action to Salesforce.
 
 You can now test your connector by making a request to the HTTP endpoint and including the XML content you want to decode in the body of the request.  
 
 ## Next steps
-* [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack").  
 
+* [Learn about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
