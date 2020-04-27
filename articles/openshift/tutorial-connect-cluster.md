@@ -1,3 +1,21 @@
+---
+title: Tutorial - Connect to an Azure Red Hat OpenShift 4 cluster
+description: Learn how to connect a Microsoft Azure Red Hat OpenShift cluster
+author: suvetriv
+ms.author: suvetriv
+ms.topic: tutorial
+ms.service: container-service
+ms.date: 04/24/2020
+#Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
+---
+
+# Tutorial: Connect to an Azure Red Hat OpenShift 4 cluster
+
+In this tutorial, part two of three, you will connect to an Azure Red Hat OpenShift (ARO) cluster running OpenShift 4 as the kube-admin user through the OpenShift web console. You learn how to:
+> [!div class="checklist"]
+> * Obtain `kube-admin` credentials for your cluster
+> * Install the OpenShift CLI
+> * Connect to an ARO cluster using the OpenShift CLI
 
 ## Connect to the cluster
 
@@ -29,13 +47,13 @@ You can find the cluster console URL by running the following command, which wil
 
 Launch the console URL in a browser and login using the `kubeadmin` credentials.
 
-![Azure Red Hat OpenShift login screen](../_img/aro4-login.png)
+![Azure Red Hat OpenShift login screen](media/aro4-login.png)
 
 ## Install the OpenShift CLI
 
 Once you're logged into the OpenShift Web Console, click on the **?** on the top right and then on **Command Line Tools**. Download the release appropriate to your machine.
 
-![Azure Red Hat OpenShift login screen](../_img/aro4-download-cli.png)
+![Azure Red Hat OpenShift login screen](media/aro4-download-cli.png)
 
 You can also download the latest release of the CLI appropriate to your machine from <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>.
 
@@ -63,3 +81,15 @@ Login to the OpenShift cluster's API server using the following command. Replace
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>
 ```
+
+## Next steps
+
+In this part of the tutorial, you learned how to:
+> [!div class="checklist"]
+> * Obtain `kube-admin` credentials for your cluster
+> * Install the OpenShift CLI
+> * Connect to an ARO cluster using the OpenShift CLI
+
+Advance to the next tutorial:
+> [!div class="nextstepaction"]
+> [Delete an Azure Red Hat OpenShift cluster](tutorial-delete-cluster.md)

@@ -11,13 +11,14 @@ ms.date: 04/24/2020
 
 # Tutorial: Create an Azure Red Hat OpenShift 4 cluster
 
-In part one of the series, you'll learn how to:
-
-
-
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+In this tutorial, part one of three, you'll prepare your environment to create an Azure Red Hat OpenShift cluster running OpenShift 4, and create a cluster. You will learn how to:
+> [!div class="checklist"]
+> * Setup the prerequisites and create the required virtual network and subnets
+> * Deploy a cluster
 
 ## Before you begin
+
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ### Install the 'az aro' extension
 The `az aro` extension allows you to create, access, and delete Azure Red Hat OpenShift clusters directly from the command line using the Azure CLI.
@@ -57,7 +58,7 @@ aro                                0.1.0
 ...
 ```
 
-### Obtain a Red Hat pull secret (optional)
+### Get a Red Hat pull secret (optional)
 
 A Red Hat pull secret enables your cluster to access Red Hat container registries along with additional content. This step is optional but recommended.
 
