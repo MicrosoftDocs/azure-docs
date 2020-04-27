@@ -1,6 +1,6 @@
 ---
 title: Add an API to Azure Static Web Apps with Azure Functions
-description: Get started with Azure Static Web Apps by adding a Serverless API to your static application using Azure Functions.
+description: Get started with Azure Static Web Apps by adding a Serverless API to your static web app using Azure Functions.
 services: #Required for articles that deal with a service; service slug assigned to your service by ACOM.
 author: manekinekko
 ms.service: azure-functions
@@ -11,7 +11,7 @@ ms.author: wachegha
 
 # Add an API to Azure Static Web Apps with Azure Functions
 
-Get started with Azure Static Web Apps by adding a Serverless API to your static application using Azure Functions. After testing the code locally, you will deploy it to the serverless environment using Azure Static Web Apps.
+You can get started with Azure Static Web Apps by adding a Serverless API to your static web app using Azure Functions. After testing the code locally, you will deploy it to the serverless environment using Azure Static Web Apps.
 
 ## Prerequisites
 
@@ -21,13 +21,13 @@ Before you get started, make sure you have the following requirements in place:
 - The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
 - [Live Server Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension.
 
-## Create a repository 
+## Create a git repository 
 
-Navigate to https://github.com/staticwebdev/vanilla-basic and create a new GitHub project called *myquickstart-vanilla* using this template.
+Navigate to https://github.com/staticwebdev/vanilla-basic/generate and create a new GitHub project called *myquickstart-vanilla* using this template.
 
 ![Create a new repository from vanilla-basic](media/create-repository.png)
 
-Once your project is created, you can use Visual Studio Code to clone a Git repository with the **Git: Clone** command in the Command Palette (`Cmd +  Shift + P` on Mac and `Ctrl + Shift + P` on Windows). You would then paste that URL into the **Git: Clone prompt**.
+Once your project is created, you can use Visual Studio Code to clone a Git repository with the **Git: Clone** command in the Command Palette by pressing **F1**. Then paste that URL into the **Git: Clone prompt**.
 
 ![Clone a GitHub project using Visual Studio Code](media/vscode-git-0.png)
 
@@ -38,7 +38,7 @@ To get the GitHub project's URL, navigate to https://github.com/<YOUR_GITHUB_ACC
 
 ## Create your local project
 
-In this section, you use Visual Studio Code to create a local Azure Functions project in your chosen language. Later in this article, you'll publish your function code to Azure.
+In this section, you'll use Visual Studio Code to create a local Azure Functions project. Later in this article, you'll publish your function code to Azure.
 
 1. Inside the **myquickstart-vanilla** project create, a sub-folder called **api**.
 
@@ -63,7 +63,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 6. You should have the following project structure.
 
-```bash
+```files
 ├── api
 │   ├── GetMessage
 │   │   ├── function.json
@@ -76,8 +76,6 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 ├── index.html
 ├── readme.md
 └── styles.css
-
-2 directories, 10 files
 ```
 
 7. Update the `GetMessage` function under `api/GetMessage/index.js` with:
@@ -120,7 +118,7 @@ module.exports = async function (context, req) {
 
 Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local) to let you run this project on your local development computer before you publish to Azure.
 
-1. To call your function, press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+1. To call your function, press **F5** to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
 2. If you haven't already installed Azure Functions Core Tools, select **Install** at the prompt. When the Core Tools are installed, your app starts in the **Terminal** panel. You can see the URL endpoint of your HTTP-triggered function running locally.
 
@@ -128,7 +126,7 @@ Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.mic
 
 3. With Core Tools running, navigate to the following URL to execute a GET request.
 
-   http://localhost:7071/api/message
+   <http://localhost:7071/api/message>
 
 4. A response is returned, which looks like the following in a browser:
 
@@ -187,7 +185,7 @@ Using Visual Studio Code, commit and push your changes to the remote git reposit
 ![Create a new Azure Functions using Visual Studio Code](media/vscode-git-1.png)
 
 
-## Create static app on Azure Portal 
+## Create static app in the Azure Portal 
 
 ![Create a new repository from vanilla-basic - screen 1](media/create-static-app-on-azure-portal-1.png)
 
@@ -217,7 +215,7 @@ On the build details screen:
 ![Create static app on Azure Portal - screen 3](media/create-static-app-on-azure-portal-3.png)
 
 1. Click **Create**
-1. Wait for deployment to finish 
+1. Wait for deployment to finish (this may take a minute)
 1. Navigate to `https://github.com/<YOUR_GITHUB_ACCOUNT>/myquickstart-vanilla/actions?query=workflow%3A"Azure+Pages+CI%2FCD"`
 1. Make sure the build is successful
 
@@ -235,7 +233,6 @@ curl "https://thankful-water-0eb4bc604.staticsitescanary.net/api/message"
 ```
 
 Or you can directly access your Azure Static Web App at https://thankful-water-0eb4bc604.staticsitescanary.net and check the result on the screen.
-
 
 ## Clean up resources
 
