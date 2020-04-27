@@ -45,7 +45,7 @@ The Azure Cosmos DB's API for Cassandra provides the capability to adjust throug
 
 The advantage of this method is that you can automate the scaling up or down of resources based on a timer to account for peak activity, or periods of low activity. Take a look at our sample [here](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) for how to accomplish this using Azure Functions and Powershell.
 
-A disadvantage with this approach may be that you cannot respond to unpredictable changing scale needs in real-time. Instead, you may need to leverage the application context in your system, at the client/SDK level, or using [Autoscale](provision-throughput-autopilot.md).
+A disadvantage with this approach may be that you cannot respond to unpredictable changing scale needs in real-time. Instead, you may need to leverage the application context in your system, at the client/SDK level, or using [Autoscale](provision-throughput-autoscale.md).
 
 ## <a id="use-cql-queries"></a>Use CQL queries with a specific SDK
 
@@ -55,7 +55,7 @@ The advantage of this approach is that it allows you to respond to scale needs d
 
 ## <a id="use-autoscale"></a>Use Autoscale
 
-In addition to manual or programmatic way of provisioning throughput, you can also configure Azure cosmos containers in Autoscale mode. Autoscale mode will automatically and instantly scale to your consumption needs within specified RU ranges without compromising SLAs. To learn more, see the [Create Azure Cosmos containers and databases in autoscale mode](provision-throughput-autopilot.md) article.
+In addition to manual or programmatic way of provisioning throughput, you can also configure Azure cosmos containers in Autoscale mode. Autoscale mode will automatically and instantly scale to your consumption needs within specified RU ranges without compromising SLAs. To learn more, see the [Create Azure Cosmos containers and databases in autoscale mode](provision-throughput-autoscale.md) article.
 
 The advantage of this approach is that it is the easiest way to manage the scaling needs in your system. It guarantees not to apply rate-limiting **within the configured RU ranges**. The disadvantage is that, if the scaling needs in your system are predictable, Autoscale may be a less cost-effective way of handling your scaling needs than using the bespoke control plane or SDK level approaches mentioned above.
 

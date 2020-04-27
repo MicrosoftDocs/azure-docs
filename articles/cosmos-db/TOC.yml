@@ -137,9 +137,9 @@
         displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
         href: set-throughput.md
       - name: Provision throughput - autoscale mode
-        href: provision-throughput-autopilot.md
+        href: provision-throughput-autoscale.md
       - name: Autoscale FAQ
-        href: autopilot-faq.md
+        href: autoscale-faq.md
     - name: SQL query
       items:
       - name: Getting started

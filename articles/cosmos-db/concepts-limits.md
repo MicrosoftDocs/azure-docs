@@ -135,7 +135,7 @@ Cosmos DB supports execution of triggers during writes. The service supports a m
 
 ## Autoscale mode limits
 
-See the [Autoscale](provision-throughput-autopilot.md#autoscale-limits) article for the throughput and storage limits in autoscale mode.
+See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article for the throughput and storage limits in autoscale mode.
 
 ## SQL query limits
 

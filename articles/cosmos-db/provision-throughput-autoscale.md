@@ -1,11 +1,11 @@
 ---
 title: Create Azure Cosmos containers and databases in autoscale mode.
-description: Learn about the benefits, use cases, and how to provision Azure Cosmos databases and containers in autopilot mode.
+description: Learn about the benefits, use cases, and how to provision Azure Cosmos databases and containers in autoscale mode.
 author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 04/28/2020
 ---
 
 # Create Azure Cosmos containers and databases in autoscale mode
@@ -13,7 +13,7 @@ ms.date: 11/04/2019
 Azure Cosmos DB allows you to provision throughput on your containers in either manual or autoscale mode. This article describes the benefits and use cases of autoscale mode.
 
 > [!NOTE]
-> You can [enable autoscale for new databases and containers](#create-a-database-or-a-container-with-autopilot-mode) only. It is not available for existing containers and databases.
+> You can [enable autoscale for new databases and containers](#create-db-container-autoscale) only. It is not available for existing containers and databases.
 
 In addition to manual provisioning of throughput, you can now configure Azure Cosmos containers in autoscale mode. Containers and databases configured in autoscale mode will **automatically and instantly scale the provisioned throughput based on your application needs without impacting the availability, latency, throughput, or performance of the workload globally.**
 
@@ -21,7 +21,7 @@ When configuring containers and databases in autoscale mode, you need to specify
 
 For the specified maximum throughput on the container or the database, the system allows operating within the calculated storage limit. If the storage limit is exceeded, then the maximum throughput is automatically adjusted to a higher value. When using database level throughput with autoscale mode, the number of containers allowed within a database is calculated as: `0.001*TMax`. For example, if you provision 20,000 autoscale RU/s, then the database can have 20 containers.
 
-## Benefits of autoscale mode
+## <a id="autoscale-benefits"></a> Benefits of autoscale mode
 
 Azure Cosmos containers that are configured in autoscale mode have the following benefits:
 
@@ -33,7 +33,7 @@ Azure Cosmos containers that are configured in autoscale mode have the following
 
 * **Highly available:** Containers in autoscale mode use the same globally distributed, fault-tolerant, highly available backend to ensure data durability and high availability.
 
-## Use cases of autoscale mode
+## <a id="autoscale-usecases"></a> Use cases of autoscale mode
 
 The use cases for Azure Cosmos containers configured in autoscale mode include:
 
@@ -61,7 +61,7 @@ Solutions to the previous problems not only require an enormous amount of time i
 | **Pricing** | Manually provisioned RU/s per hour. | For single write region accounts, you pay for the throughput used on an hourly basis, by using the autoscale RU/s per hour rate. <br/><br/>For accounts with multiple write regions, there is no extra charge for autoscale. You pay for the throughput used on hourly basis using the same multi-master RU/s per hour rate. |
 | **Best suited for workload types** |  Predictable and stable workloads|   Unpredictable and variable workloads  |
 
-## Create a database or a container with autoscale mode
+## <a id="create-db-container-autoscale"></a> Create a database or a container with autoscale mode
 
 You can configure autoscale for new databases or containers when creating them through the Azure portal. Use the following steps to create a new database or container, enable autoscale, and specify the maximum throughput (RU/s).
 
@@ -71,7 +71,7 @@ You can configure autoscale for new databases or containers when creating them t
 
 1. Select **New Container.** Enter a name for your database, container, and a partition key. Under **Throughput**, select the **Autoscale** option, and choose the maximum throughput (RU/s) that the database or container cannot exceed when using the autoscale option.
 
-   ![Creating a container and configuring Autoscale throughput](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
+   ![Creating a container and configuring Autoscale throughput](./media/pprovision-throughput-autoscale/create-container-autoscale-mode.png)
 
 1. Select **OK**.
 
@@ -90,7 +90,7 @@ The following table shows the maximum throughout and storage limits for differen
 
 ## Next steps
 
-* Review the [autoscale FAQ](autopilot-faq.md).
+* Review the [autoscale FAQ](autoscale-faq.md).
 * Learn more about [logical partitions](partition-data.md).
 * Learn how to [provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
 * Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
