@@ -31,7 +31,15 @@ Here are examples that describe commonly-used triggers:
     * [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
     * [Tutorial: Create automated, schedule-based recurring workflows by using Azure Logic Apps](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
 
-  * The **When an email is received** trigger lets your logic app check for new email from any mail provider that's supported by Logic Apps, for example, [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail](https://docs.microsoft.com/connectors/gmail/), [Outlook.com](https://docs.microsoft.com/connectors/outlook/), and so on. For more information, see these topics:<p>
+  * The **When an email is received** trigger lets your logic app check for new email from any mail provider that's supported by Logic Apps, for example, [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail](https://docs.microsoft.com/connectors/gmail/), [Outlook.com](https://docs.microsoft.com/connectors/outlook/), and so on.
+
+    > [!IMPORTANT]
+    > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
+    > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
+    > [create a Google client app to use for authentication with your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+    > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
+    For more information, see these topics:<p>
 
     * [Tutorial: Create automated approval-based workflows by using Azure Logic Apps](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
     * [Tutorial: Automate tasks to process emails by using Azure Logic Apps, Azure Functions, and Azure Storage](../logic-apps/tutorial-process-email-attachments-workflow.md)

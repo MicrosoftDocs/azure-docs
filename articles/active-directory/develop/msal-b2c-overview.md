@@ -1,7 +1,7 @@
 ---
 title: Use MSAL with Azure Active Directory B2CLearn | Azure
 titleSuffix: Microsoft identity platform
-description: Microsoft Authentication Library for JavaScript (MSAL.js) enables applications to work with Azure AD B2C and acquire tokens to call secured Web APIs. These web APIs can be Microsoft Graph, other Microsoft APIs, web APIs from others, or your own web API.
+description: Microsoft Authentication Library for JavaScript (MSAL.js) enables applications to work with Azure AD B2C and acquire tokens to call secured web APIs. These web APIs can be Microsoft Graph, other Microsoft APIs, web APIs from others, or your own web API.
 services: active-directory
 author: negoe
 manager: CelesteDG
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/16/2019
-ms.author: negoe 
+ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about Microsoft Authentication Library so that I can decide if this platform meets my application development needs and requirements.
@@ -34,7 +34,7 @@ This demonstration contains two parts:
 - how to protect a web API.
 - how to register a single-page application to authenticate and call *that* web API.
 
-## Node.js Web API
+## Node.js web API
 
 > [!NOTE]
 > At this moment, MSAL.js for Node is still in development (see the [roadmap](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)). In the meantime, we suggest using [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad), an authentication library for Node.js developed and supported by Microsoft.
@@ -60,7 +60,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 2. Configure the sample with the application credentials that you obtained earlier while registering your application. Change the following lines of code by replacing the values with the names of your clientID, host, tenantId and policy name.
 
 ```JavaScript
-const clientID = "<Application ID for your Node.js Web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
+const clientID = "<Application ID for your Node.js web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
 const b2cDomainHost = "<Domain of your B2C host eg. fabrikamb2c.b2clogin.com>";
 const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (GUID)
 const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
@@ -101,7 +101,7 @@ There are two points of interest in configuring your application:
     // The current application coordinates were pre-registered in a B2C tenant.
     const apiConfig = {
         b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"], //API scopes you exposed during api registration
-        webApi: "https://fabrikamb2chello.azurewebsites.net/hello" 
+        webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
     };
    ```
 

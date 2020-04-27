@@ -75,4 +75,4 @@ This tutorial outlines how to integrate your SQL Server Data tools (SSDT) databa
 
 ## Next steps
 
-- [Developing for SQL pool](sql-data-warehouse-overview-develop.md)
+- [Developing for Developing for SQL pool](sql-data-warehouse-overview-develop.md)

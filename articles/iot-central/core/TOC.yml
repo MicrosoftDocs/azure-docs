@@ -133,7 +133,7 @@
   - name: Industry application templates
     items:
     - name: Retail
-      href: ../retail/overview-iot-central-retail-pnp.md
+      href: ../retail/overview-iot-central-retail.md
     - name: Energy
       href: ../energy/overview-iot-central-energy.md
     - name: Government
