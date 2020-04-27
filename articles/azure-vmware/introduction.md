@@ -45,7 +45,7 @@ You can use [Logs in Azure Monitor](../azure-monitor/overview.md) to collect log
 
 ## Next steps
 
-The next step is to learn key [private cloud and cluster concepts][concepts-private-clouds-clusters.md].
+The next step is to learn key [private cloud and cluster concepts](concepts-private-clouds-clusters.md).
 
 <!-- LINKS - external -->
 

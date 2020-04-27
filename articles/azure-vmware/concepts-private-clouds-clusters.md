@@ -59,6 +59,8 @@ The general upgrade policies and processes for the AVS platform software is desc
 
 Host maintenance and lifecycle management are done without impact on the capacity or performance of private cloud clusters. Examples of automated host maintenance include firmware upgrades and hardware repair or replacement.
 
+Microsoft is responsible for lifecycle management of NSX-T appliances and bootstrapping network config. As an administrator to your AVS private cloud, you are responsible for NSX-T SDN configuration like network segments, distributed firewall rules, Tier 1 gateways, and load balancers.
+
 ## Backup and restoration
 
 Private cloud vCenter and NSX-T configurations are backed up hourly. Backups are kept for three days. Restoration from a backup is requested through a Service Request in the Azure portal.
