@@ -150,7 +150,7 @@ Managing the performance of joins in your data flow is a very common operation t
 
 This will avoid on-the-fly shuffles by pushing down the contents of either side of your join relationship into the Spark node. This works well for smaller tables that are used for reference lookups. Larger tables that may not fit into the node's memory are not good candidates for broadcast optimization.
 
-The recommended configuration for data flows with many join operations is to keep the optimization set to "Auto" for "Broadcast" and use a Memory Optimized Azure Integration Runtime configuration. If you are experiencing out of memory errors or broadcast timeouts during data flow executions, you can switch off the broadcast optimization. Howevever, this will result in slower performing data flows. Optionally, you can instruct data flow to pushdown only the left or right side of the join, or both.
+The recommended configuration for data flows with many join operations is to keep the optimization set to "Auto" for "Broadcast" and use a Memory Optimized Azure Integration Runtime configuration. If you are experiencing out of memory errors or broadcast timeouts during data flow executions, you can switch off the broadcast optimization. However, this will result in slower performing data flows. Optionally, you can instruct data flow to pushdown only the left or right side of the join, or both.
 
 ![Broadcast Settings](media/data-flow/newbroad.png "Broadcast Settings")
 
