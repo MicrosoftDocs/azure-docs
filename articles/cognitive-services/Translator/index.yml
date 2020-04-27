@@ -35,7 +35,7 @@ landingContent:
             url: translator-text-how-to-signup.md
           - text: FAQ
             url: https://www.microsoft.com/translator/faq.aspx
-  - title: Translator
+  - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
