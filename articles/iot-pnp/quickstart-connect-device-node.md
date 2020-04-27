@@ -79,21 +79,15 @@ Run a sample application in the SDK to simulate an IoT Plug and Play device that
 
 You see the following output, indicating the device has begun sending telemetry data to the hub, and is now ready to receive commands and property updates.
 
-   ![Device confirmation messages](media/quickstart-connect-pnp-device-node/device-confirmation-node.png)
+   ![Device confirmation messages](media/quickstart-connect-device-node/device-confirmation-node.png)
 
  Keep the sample running as you complete the next steps.
 
 ## Use the Azure IoT explorer to validate the code
 
-[!INCLUDE [iot-pnp-iot-explorer-1.md](../../includes/iot-pnp-iot-explorer-1.md)]
+After the device client sample starts, use the Azure IoT explorer tool to verify it's working.
 
-4. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the Plug and Play configurations; if it does not, select **+ Add module definition source** and then **On the connected device** to add it.
-
-1. Back on the **Devices** overview page, find the device identity you created previously. With the device application still running in the command prompt, check that the device's **Connection state** in Azure IoT explorer is reporting as _Connected_ (if not, hit **Refresh** until it is). Select the device to view more details.
-
-1. Expand the interface with ID **urn:contoso:com:EnvironmentalSensor:1** to reveal the interface and IoT Plug and Play primitives—properties, commands, and telemetry.
-
-[!INCLUDE [iot-pnp-iot-explorer-2.md](../../includes/iot-pnp-iot-explorer-2.md)]
+[!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer.md)]
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 

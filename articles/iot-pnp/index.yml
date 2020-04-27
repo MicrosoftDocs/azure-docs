@@ -32,7 +32,7 @@ landingContent:
     - linkListType: quickstart
       links:
         - text: Connect a sample device to IoT Hub
-          url: quickstart-connect-pnp-device-c-windows.md
+          url: quickstart-connect-device-c.md
     - linkListType: concept
       links:
         - text: Developer guide
