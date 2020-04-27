@@ -4,7 +4,7 @@ description: This article describes how Azure Cosmos DB provides high availabili
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
 
@@ -93,6 +93,8 @@ This feature is available in following Azure regions:
 - West Europe
 
 - West US 2
+
+- Australia East
 
 > [!NOTE]
 > Enabling Availability Zones for a single region Azure Cosmos account will result in charges that are equivalent to adding an additional region to your account. For details on pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) and the [multi-region cost in Azure Cosmos DB](optimize-cost-regions.md) articles.

@@ -820,7 +820,7 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
 ### Azure Machine Learning SDK for Python v1.0.62
 
 + **New features**
-  + Introduced the `timeseries`  trait on TabularDataset. This trait enables easy timestamp filtering on data a TabularDataset, such as taking all data between a range of time or the most recent data. To learn about this the `timeseries`  trait on TabularDataset, please visit https://aka.ms/azureml-data for documentation or https://aka.ms/azureml-tsd-notebook for an example notebook.
+  + Introduced the `timeseries`  trait on TabularDataset. This trait enables easy timestamp filtering on data a TabularDataset, such as taking all data between a range of time or the most recent data. To learn about this the `timeseries`  trait on TabularDataset, please visit https://aka.ms/azureml-data for documentation or https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb for an example notebook.
   + Enabled training with TabularDataset and FileDataset. Please visit https://aka.ms/dataset-tutorial for an example notebook.
 
   + **azureml-train-core**
@@ -1334,7 +1334,7 @@ We reverted a change that improved performance, as it was causing issues for som
 + **Preview features**
     + Integration with [MLflow](https://mlflow.org) 1.0.0 tracking through azureml-mlflow package ([example notebooks](https://aka.ms/azureml-mlflow-examples)).
     + Submit Jupyter notebook as a run. [API Reference Documentation](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
-    + Public Preview of [Data Drift Detector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) through azureml-contrib-datadrift package ([example notebooks](https://aka.ms/azureml-datadrift-example)). Data Drift is one of the top reasons where model accuracy degrades over time. It happens when data served to model in production is different from the data that the model was trained on. AML Data Drift detector helps customer to monitor data drift and sends alert whenever drift is detected.
+    + Public Preview of [Data Drift Detector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) through azureml-contrib-datadrift package ([example notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/monitor-models/data-drift)). Data Drift is one of the top reasons where model accuracy degrades over time. It happens when data served to model in production is different from the data that the model was trained on. AML Data Drift detector helps customer to monitor data drift and sends alert whenever drift is detected.
 
 + **Breaking changes**
 

@@ -16,7 +16,7 @@ Service Health tracks four types of health events that may impact your resources
 
 1. **Service issues** - Problems in the Azure services that affect you right now. 
 2. **Planned maintenance** - Upcoming maintenance that can affect the availability of your services in the future.  
-3. **Health advisories** - Changes in Azure services that require your attention. Examples include when Azure features are deprecated or if you exceed a usage quota.
+3. **Health advisories** - Changes in Azure services that require your attention. Examples include deprecation of Azure features or upgrade requirements (e.g upgrade to a supported PHP framework).
 4. **Security advisories (preview)** - Security related notifications that may affect the availability of your Azure services.
 
 > [!NOTE]
@@ -37,6 +37,12 @@ The **Service issues** view shows any ongoing problems in Azure services that ar
 Choose the **Potential impact** tab to see the specific list of resources you own that might be impacted by the issue. You can download a CSV list of these resources to share with your team.
 
 ![Manage service issue - Impact](./media/service-health-overview/azure-service-health-overview-4.png)
+
+## See emerging issues which may impact your services
+
+There are situations when widespread service issues may be posted to the [Azure Status page](https://status.azure.com) before targeted communications can be sent to impacted customers. To ensure that Azure Service Health provides a comprehensive view of issues that may affect you, active Azure Status page issues are surfaced in Service Health as *emerging issues*. When an event is active on the Azure Status page, an emerging issues banner will be present in Service Health. Click the banner to see the full details of the issue.
+
+![Emerging service issue](./media/service-health-overview/azure-service-health-emerging-issue.png)
 
 ## Get links and downloadable explanations 
 

@@ -113,8 +113,6 @@ Fill in these values for each namespace path:
 
 * **Virtual namespace path** - Set the client-facing file path for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
 
-<!--  The virtual path should start with a slash ``/``. -->
-
 * **NFS export path** - Enter the path to the NFS export.
 
 * **Subdirectory path** - If you want to mount a specific subdirectory of the export, enter it here. If not, leave this field blank.

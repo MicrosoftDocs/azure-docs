@@ -1,7 +1,7 @@
 ---
 title: Supported Resource Manager resource types
 description: Provide a list of the Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 04/15/2020
+ms.date: 04/23/2020
 ms.topic: reference
 ---
 # Azure Resource Graph table and resource type reference
@@ -46,7 +46,11 @@ part of a **table** in Resource Graph.
 - livearena.broadcast/services
 - mailjet.email/services
 - microsoft.aad/domainservices
+- microsoft.aadiam/privatelinkforazuread
 - microsoft.aadiam/tenants
+- microsoft.aisupercomputer/accounts
+- microsoft.aisupercomputer/accounts/jobgroups
+- microsoft.aisupercomputer/accounts/jobgroups/jobs
 - microsoft.alertsmanagement/actionrules
 - microsoft.alertsmanagement/smartdetectoralertrules
 - microsoft.analysisservices/servers
@@ -59,6 +63,7 @@ part of a **table** in Resource Graph.
 - microsoft.automation/automationaccounts/runbooks
 - microsoft.azconfig/configurationstores
 - microsoft.azureactivedirectory/b2cdirectories
+- microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
 - microsoft.azuredata/sqlbigdataclusters
@@ -347,6 +352,7 @@ part of a **table** in Resource Graph.
 - microsoft.remoteapp/collections
 - microsoft.resourcegraph/queries
 - microsoft.resources/deploymentscripts
+- microsoft.resources/templatespecs
 - microsoft.saas/applications
 - microsoft.scheduler/jobcollections
 - microsoft.search/searchservices
@@ -401,6 +407,12 @@ part of a **table** in Resource Graph.
 - microsoft.visualstudio/account
 - microsoft.visualstudio/account/extension
 - microsoft.visualstudio/account/project
+- microsoft.vmware/arczones
+- microsoft.vmware/resourcepools
+- microsoft.vmware/vcenters
+- microsoft.vmware/virtualmachines
+- microsoft.vmware/virtualmachinetemplates
+- microsoft.vmware/virtualnetworks
 - microsoft.vmwarecloudsimple/dedicatedcloudnodes
 - microsoft.vmwarecloudsimple/dedicatedcloudservices
 - microsoft.vmwarecloudsimple/virtualmachines
@@ -450,7 +462,6 @@ part of a **table** in Resource Graph.
 
 ## securityresources
 
-- assessmentmetadata
 - microsoft.security/assessments
 - microsoft.security/assessments/subassessments
 - microsoft.security/pricings

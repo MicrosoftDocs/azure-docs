@@ -880,7 +880,7 @@ Deploy Diagnostic Settings for Key Vault to Event Hub
 
 Use recommendations from Azure Security Center as a secure configuration baseline for your Azure Key Vault instances.
 
-How to view available Azure Policy Aliases:
+How to view available Azure Policy aliases:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
@@ -1000,7 +1000,7 @@ https://docs.microsoft.com/azure/security-center/security-center-remediate-recom
 
 ### 7.11: Manage Azure secrets securely
 
-**Guidance**: Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications. Ensure that Azure Key Vault soft delete is enabled.
+**Guidance**: Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications. Ensure that Azure Key Vault soft-delete is enabled.
 
 How to integrate with Azure Managed Identities:
 
@@ -1176,7 +1176,7 @@ How to restore Key Vault Secrets: https://docs.microsoft.com/powershell/module/a
 
 ### 9.4: Ensure protection of backups and customer managed keys
 
-**Guidance**: Ensure that soft delete is enabled for Azure Key Vault. Soft delete allows recovery of deleted key vaults and vault objects such as keys, secrets, and certificates. 
+**Guidance**: Ensure that soft-delete is enabled for Azure Key Vault. Soft-delete allows recovery of deleted key vaults and vault objects such as keys, secrets, and certificates. 
 
 How to use Azure Key Vault's Soft Delete: 
 

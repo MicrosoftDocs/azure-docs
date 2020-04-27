@@ -2,7 +2,7 @@
 title: Migrate Hyper-V VMs to Azure with Azure Migrate Server Migration 
 description: Learn how to migrate on-premises Hyper-V VMs to Azure with Azure Migrate Server Migration
 ms.topic: tutorial
-ms.date: 11/18/2019
+ms.date: 04/15/2020
 ms.custom: [ "MVC", "fasttrack-edit"]
 ---
 
@@ -12,12 +12,12 @@ This article shows you how to migrate on-premises Hyper-V VMs to Azure, using ag
 
 [Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
-This tutorial is the third in a series that demonstrates how to assess and migrate Hyper-V to Azure using Azure Migrate Server Assessment and Migration. In this tutorial, you learn how to:
+This tutorial is the third in a series that demonstrates how to assess and migrate Hyper-V to Azure using Azure Migrate Server Assessment and Server Migration. In this tutorial, you learn how to:
 
 
 > [!div class="checklist"]
 > * Prepare Azure and your on-premises Hyper-V environment
-> * Set up the source environment, and deploy a replication appliance.
+> * Set up the source environment.
 > * Set up the target environment.
 > * Enable replication.
 > * Run a test migration to make sure everything's working as expected.
@@ -31,23 +31,28 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Before you begin this tutorial, you should:
 
 1. [Review](hyper-v-migration-architecture.md) the Hyper-V migration architecture.
-2. [Complete the first tutorial](tutorial-prepare-hyper-v.md) in this series to set up Azure and Hyper-V for migration. In the first tutorial, you:
-    - [Prepare Azure](tutorial-prepare-hyper-v.md#prepare-azure) for migration.
-    - [Prepare the on-premises environment](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-migration) for migration.
-3. We recommend that you try assessing Hyper-V VMs, using Azure Migrate: Server Assessment, before migrating them to Azure. To do this, [complete the second tutorial](tutorial-assess-hyper-v.md) in this series. Although we recommend that you try out an assessment, you don't have to run an assessment before you migrate VMs.
-4. Make sure that your Azure account is assigned the Virtual Machine Contributor role, so that you have permissions to:
+2. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) Hyper-V host requirements, and the Azure URLs that the Hyper-V hosts need to access.
+3. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) requirements for Hyper-V VMs that you want to migrate. Hyper-V VMs must conform with [Azure VM requirements](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
+2. We recommend that you complete the previous tutorials in this series. The [first tutorial](tutorial-prepare-hyper-v.md) shows you how to set up Azure and Hyper-V for migration. The second tutorial shows you how to [assess Hyper-V VMs](tutorial-assess-hyper-v.md before migration, using Azure Migrate:Server Assessment. 
+    > [!NOTE]
+    > Although we recommend that you try out an assessment, you don't have to run an assessment before you migrate VMs.
+    > For migrating Hyper-V VMs, Azure Migrate:Server Migration runs software agents (Microsoft Azure Site Recovery provider and Microsoft Azure Recovery Service agent) on Hyper-V Hosts or cluster nodes, to orchestrate and replicate data to Azure Migrate. The [Azure Migrate appliance](migrate-appliance.md) isn't used for Hyper-V migration.
+
+3. Make sure that your Azure account is assigned the Virtual Machine Contributor role, so that you have permissions to:
 
     - Create a VM in the selected resource group.
     - Create a VM in the selected virtual network.
     - Write to an Azure managed disk.
-5. [Set up an Azure network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). When you migrate to Azure, the created Azure VMs are joined to an Azure network you specify when you set up migration.
+4. [Set up an Azure network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). When you migrate to Azure, the created Azure VMs are joined to an Azure network you specify when you set up migration.
 
+## Add the Azure Migrate:Server Migration tool
 
-## Add the Azure Migrate Server Migration tool
+Add the Azure Migrate:Server Migration tool.
 
-If you didn't follow the second tutorial to assess Hyper-V VMs, you need to [follow these instructions](how-to-add-tool-first-time.md) to set up an Azure Migrate project, and add the Azure Migrate Server Assessment tool to the project.
+- If you followed the second tutorial to [assess VMware VMs](/tutorial-assess-hyper-v.md), you have already set up an Azure Migrate project, and can go ahead and add the tool now.
+- If you didn't follow the second tutorial[, follow these instructions](how-to-add-tool-first-time.md) to set up an Azure Migrate project. You add the Azure Migrate:Server Migration tool when you create the project.
 
-If you followed the second tutorial and already have an Azure Migrate project, add the Azure Migrate: Server Migration tool as follows:
+If you have a project set up, add the tool as follows:
 
 1. In the Azure Migrate project, click **Overview**. 
 2. In **Discover, assess, and migration servers**, click **Assess and migrate servers**.
@@ -59,25 +64,8 @@ If you followed the second tutorial and already have an Azure Migrate project, a
 
     ![Server Migration tool](./media/tutorial-migrate-hyper-v/server-migration-tool.png)
 
-
-## Set up the Azure Migrate appliance
-
-Azure Migrate Server Migration runs a software agent on Hyper-V Hosts or cluster nodes to orchestrate and replicate data to Azure Migrate and doesn't require a dedicated appliance for migration.
-
-- The Azure Migrate : Server Assessment appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate Server Migration.
-- Migration orchestration and data replication is handled by Microsoft Azure Site Recovery provider and Microsoft Azure Recovery Service agent.
-
-To set up the appliance:
-- If you followed the second tutorial to assess Hyper-V VMs, you already set up the appliance during that tutorial, and don't need to do it again.
-- If you didn't follow that tutorial, you need to set up the appliance now. To do this, you: 
-
-    - Download a compressed Hyper-V VHD from the Azure portal.
-    - Create the appliance, and check that it can connect to Azure Migrate Server Assessment. 
-    - Configure the appliance for the first time, and register it with the Azure Migrate project.
-
-    Follow the detailed instructions in [this article](how-to-set-up-appliance-hyper-v.md) to set up the appliance.
-
 ## Prepare Hyper-V hosts
+
 
 1. In the Azure Migrate project > **Servers**, in **Azure Migrate: Server Migration**, click **Discover**.
 2. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with Hyper-V**.
@@ -104,21 +92,6 @@ It can take up to 15 minutes after finalizing registration until discovered VMs 
 
 ![Discovered servers](./media/tutorial-migrate-hyper-v/discovered-servers.png)
 
-### Register Hyper-V hosts
-
-Install the downloaded setup file (AzureSiteRecoveryProvider.exe) on each relevant Hyper-V host.
-
-1. Run the provider setup file on each host or cluster node.
-2. In the Provider Setup wizard > **Microsoft Update**, opt in to use Microsoft Update to check for Provider updates.
-3. In **Installation**, accept the default installation location for the Provider and agent, and select **Install**.
-4. After installation, in the Registration Wizard > **Vault Settings**, select **Browse**, and in **Key File**, select the vault key file that you downloaded.
-5. In **Proxy Settings**, specify how the provider running on the host connects to the internet.
-    - If the appliance is located behind a proxy server, you need to specify proxy settings.
-    - Specify the proxy name as **http://ip-address**, or **http://FQDN**. HTTPS proxy servers aren't supported.
-   
-
-6. Make sure that the provider can reach the [required URLs](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts).
-7. In **Registration**, after the host is registered, click **Finish**.
 
 ## Replicate Hyper-V VMs
 

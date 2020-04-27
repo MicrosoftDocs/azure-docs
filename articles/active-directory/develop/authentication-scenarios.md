@@ -20,7 +20,7 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 
 ## What is authentication
 
-This article covers many of the authentication concepts you'll need to understand to create protected web apps, web APIs, or apps calling protected Web APIs. If you see a term you aren't familiar with, try our [glossary](developer-glossary.md) or our [Microsoft identity platform videos](identity-videos.md) which cover basic concepts.
+This article covers many of the authentication concepts you'll need to understand to create protected web apps, web APIs, or apps calling protected web APIs. If you see a term you aren't familiar with, try our [glossary](developer-glossary.md) or our [Microsoft identity platform videos](identity-videos.md) which cover basic concepts.
 
 **Authentication** is the process of proving you are who you say you are. Authentication is sometimes shortened to AuthN.
 
@@ -30,7 +30,7 @@ Instead of creating apps that each maintain their own username and password info
 
 Azure Active Directory (Azure AD) is a centralized identity provider in the cloud. Delegating authentication and authorization to it enables scenarios such as Conditional Access policies that require a user to be in a specific location, the use of multi-factor authentication, as well as enabling a user to sign in once and then be automatically signed in to all of the web apps that share the same centralized directory. This capability is referred to as Single Sign On (SSO).
 
-A centralized identity provider is even more important for apps that have users located around the globe that don't necessarily sign in from the enterprise's network. Azure AD authenticates users and provides access tokens. An [access token](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#access-token) is a security token that is issued by an authorization server. It contains information about the user and the app for which the token is intended; which can be used to access Web APIs and other protected resources.
+A centralized identity provider is even more important for apps that have users located around the globe that don't necessarily sign in from the enterprise's network. Azure AD authenticates users and provides access tokens. An [access token](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#access-token) is a security token that is issued by an authorization server. It contains information about the user and the app for which the token is intended; which can be used to access web APIs and other protected resources.
 
 The Microsoft identity platform simplifies authentication for application developers by providing identity as a service, with support for industry-standard protocols such as [OAuth 2.0](https://oauth.net/2/) and [OpenID Connect](https://openid.net/connect/), as well as open-source libraries for different platforms to help you start coding quickly. It allows developers to build applications that sign in all Microsoft identities, get tokens to call [Microsoft Graph](https://developer.microsoft.com/graph/), other Microsoft APIs, or APIs that developers have built. For more information, see [Evolution of Microsoft identity platform](about-microsoft-identity-platform.md).
 
@@ -67,26 +67,26 @@ A claim consists of key-value pairs that provide information such as the:
 
 For more detailed claim information, see [access tokens](access-tokens.md) and [ID tokens](id-tokens.md).
 
-It's up to the app for which the token was generated, the web app that signed-in the user, or the Web API being called, to validate the token. The token is signed by the Security Token Server (STS) with a private key. The STS publishes the corresponding public key. To validate a token, the app verifies the signature by using the STS public key to validate that the signature was created using the private key.
+It's up to the app for which the token was generated, the web app that signed-in the user, or the web API being called, to validate the token. The token is signed by the Security Token Server (STS) with a private key. The STS publishes the corresponding public key. To validate a token, the app verifies the signature by using the STS public key to validate that the signature was created using the private key.
 
 Tokens are only valid for a limited amount of time. Usually the STS provides a pair of tokens: an access token to access the application or protected resource, and a refresh token used to refresh the access token when the access token is close to expiring.
 
-Access tokens are passed to a Web API as the bearer token in the `Authorization` header. An app can provide a refresh token to the STS, and if the user access to the app wasn't revoked, it will get back a new access token and a new refresh token. This is how the scenario of someone leaving the enterprise is handled. When the STS receives the refresh token, it won't issue another valid access token if the user is no longer authorized.
+Access tokens are passed to a web API as the bearer token in the `Authorization` header. An app can provide a refresh token to the STS, and if the user access to the app wasn't revoked, it will get back a new access token and a new refresh token. This is how the scenario of someone leaving the enterprise is handled. When the STS receives the refresh token, it won't issue another valid access token if the user is no longer authorized.
 
 ### How each flow emits tokens and codes
 
 Depending on how your client is built, it can use one (or several) of the authentication flows supported by Azure AD. These flows can produce a variety of tokens (id_tokens, refresh tokens, access tokens) as well as authorization codes, and require different tokens to make them work. This chart provides an overview:
 
-|Flow | Requires | id_token | access token | refresh token | authorization code | 
+|Flow | Requires | id_token | access token | refresh token | authorization code |
 |-----|----------|----------|--------------|---------------|--------------------|
-|[Authorization code flow](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Authorization code flow](v2-oauth2-auth-code-flow.md) | | x | x | x | x|
 |[Implicit flow](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
 |[Hybrid OIDC flow](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
 |[Refresh token redemption](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | refresh token | x | x | x| |
 |[On-behalf-of flow](v2-oauth2-on-behalf-of-flow.md) | access token| x| x| x| |
 |[Client credentials](v2-oauth2-client-creds-grant-flow.md) | | | x (app-only)| | |
 
-Tokens issued via the implicit mode have a length limitation due to being passed back to the browser via the URL (where `response_mode` is `query` or `fragment`).  Some browsers have a limit on the size of the URL that can be put in the browser bar and fail when it is too long.  Thus, these tokens do not have `groups` or `wids` claims. 
+Tokens issued via the implicit mode have a length limitation due to being passed back to the browser via the URL (where `response_mode` is `query` or `fragment`).  Some browsers have a limit on the size of the URL that can be put in the browser bar and fail when it is too long.  Thus, these tokens do not have `groups` or `wids` claims.
 
 Now that you have an overview of the basics, read on to understand the identity app model and API, learn how provisioning works in Azure AD, and get links to detailed information about common scenarios Azure AD supports.
 
@@ -99,7 +99,7 @@ For an identity provider to know that a user has access to a particular app, bot
 * Customize the branding of your application in the sign-in dialog. This is important because this is the first experience a user will have with your app.
 * Decide if you want to let users sign in only if they belong to your organization. This is a single tenant application. Or allow users to sign in using any work or school account. This is a multi-tenant application. You can also allow personal Microsoft accounts, or a social account from LinkedIn, Google, and so on.
 * Request scope permissions. For example, you can request the "user.read" scope, which grants permission to read the profile of the signed-in user.
-* Define scopes that define access to your Web API. Typically, when an app wants to access your API, it will need to request permissions to the scopes you define.
+* Define scopes that define access to your web API. Typically, when an app wants to access your API, it will need to request permissions to the scopes you define.
 * Share a secret with Azure AD that proves the app's identity to Azure AD.  This is relevant in the case where the app is a confidential client application. A confidential client application is an application that can hold credentials securely. They require a trusted backend server to store the credentials.
 
 Once registered, the application will be given a unique identifier that the app shares with Azure AD when it requests tokens. If the app is a [confidential client application](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application), it will also share the secret or the public key*-depending on whether certificates or secrets were used.
@@ -123,7 +123,7 @@ Consent is the process of a resource owner granting authorization for a client a
 
 In the Microsoft identity platform, an [application object](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-object) describes an application. At deployment time, the Microsoft identity platform uses the application object as a blueprint to create a [service principal](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#service-principal-object), which represents a concrete instance of an application within a directory or tenant. The service principal defines what the app can actually do in a specific target directory, who can use it, what resources it has access to, and so on. The Microsoft identity platform creates a service principal from an application object through **consent**.
 
-The following diagram shows a simplified Microsoft identity platform provisioning flow driven by consent. It shows two tenants: A and B. Tenant A owns the application. Tenant B is instantiating the application via a service principal.  
+The following diagram shows a simplified Microsoft identity platform provisioning flow driven by consent. It shows two tenants: A and B. Tenant A owns the application. Tenant B is instantiating the application via a service principal.
 
 ![Simplified provisioning flow driven by consent](./media/authentication-scenarios/simplified-provisioning-flow-consent-driven.svg)
 
@@ -157,7 +157,7 @@ The following sequence diagram summarizes this interaction:
 
 ### How a web app determines if the user is authenticated
 
-Web app developers can indicate whether all or only certain pages require authentication. For example, in ASP.NET/ASP.NET Core, this is done by adding the `[Authorize]` attribute to the controller actions. 
+Web app developers can indicate whether all or only certain pages require authentication. For example, in ASP.NET/ASP.NET Core, this is done by adding the `[Authorize]` attribute to the controller actions.
 
 This attribute causes ASP.NET to check for the presence of a session cookie containing the identity of the user. If a cookie isn't present, ASP.NET redirects authentication to the specified identity provider. If the identity provider is Azure AD, the web app redirects authentication to `https://login.microsoftonline.com`, which displays a sign-in dialog.
 

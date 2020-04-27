@@ -6,14 +6,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/31/2020
+ms.date: 04/20/2020
 ms.author: diberry
 ---
 ## Prerequisites
 
 * [JDK SE](https://aka.ms/azure-jdks)  (Java Development Kit, Standard Edition)
 * [Visual Studio Code](https://code.visualstudio.com/) or your favorite IDE
-* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
+* A LUIS app ID - use the public IoT app ID of `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. The user query used in the quickstart code is specific to that app.
 
 ## Create LUIS runtime key for predictions
 

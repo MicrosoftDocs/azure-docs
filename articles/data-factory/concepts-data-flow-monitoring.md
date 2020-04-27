@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
+ms.date: 04/17/2020
 ---
 
 # Monitor Data Flows
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 After you have completed building and debugging your data flow, you will want to schedule your data flow to execute on a schedule within the context of a pipeline. You can schedule the pipeline from Azure Data Factory using Triggers. Or you can use the Trigger Now option from the Azure Data Factory Pipeline Builder to execute a single-run execution to test your data flow within the pipeline context.
 
@@ -27,6 +27,10 @@ You will see statistics at this level as well including the run times and status
 When you are in the graphical node monitoring view, you will see a simplified view-only version of your data flow graph.
 
 ![Data Flow Monitoring](media/data-flow/mon003.png "Data Flow Monitoring")
+
+Here is a video overview of monitoring performance of your data flows from the ADF monitoring screen:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4u4mH]
 
 ## View Data Flow Execution Plans
 
