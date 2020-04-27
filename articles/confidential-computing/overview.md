@@ -71,7 +71,7 @@ In Azure confidential computing virtual machines, a part of the CPU's hardware i
 
 ![VM model](media/overview/hardware-backed-enclave.png)
 
-Azure confidential computing infrastructure is currently comprised of a specialty SKU of virtual machines (VMs). These VMs run on Intel processors with Software Extension Guard (Intel SGX). [Intel SGX](https://intel.com/sgx) is the component that allows the increased protection that we light up with confidential computing. 
+Azure confidential computing infrastructure is currently comprised of a specialty SKU of virtual machines (VMs). These VMs run on Intel processors with Software Guard Extension (Intel SGX). [Intel SGX](https://intel.com/sgx) is the component that allows the increased protection that we light up with confidential computing. 
 
 Today, Azure offers the [DCsv2-Series](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) built on Intel SGX technology for hardware-based enclave creation. You can build secure enclave-based applications to run in the DCsv2-series of VMs to protect your application data and code in use. 
 
@@ -90,11 +90,11 @@ An application built with enclaves is partitioned in two ways:
 1. An "untrusted" component (the host)
 1. A "trusted" component (the enclave)
 
-**The host** is your enclave application running on an untrusted environment. The code in the host can't access the code loaded into the enclave. 
+**The host** is where your enclave application is running on top and is an untrusted environment. The enclave code deployed on the host can't be accessed by the host. 
 
-**The enclave** is where code and data run inside the TEE implementation. Secure computations should occur in the enclave to assure secrets and sensitive data stay protected. 
+**The enclave** is where the application code and its cached data/memory is run, also referred as TEE. Secure computations would occur in the enclaves to assure secrets and sensitive of the data stay protected. 
 
-When you start developing an enclave application, you need to determine what code and data need protection. The code that you choose to put into the trusted component is isolated from the rest of your application. Once the enclave is initialized and the code is loaded to memory, that code can't be read or changed from outside protected environment.
+During application design it is important to identify and determine what part of the application needs to run in the enclaves. The code that you choose to put into the trusted component is isolated from the rest of your application. Once the enclave is initialized and the code is loaded to memory, that code can't be read or changed from the untrusted components.
 
 ### Open Enclave Software Development Kit (OE SDK) <a id="oe-sdk"></a>
 
