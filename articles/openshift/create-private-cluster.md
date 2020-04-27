@@ -80,17 +80,15 @@ Next, you will create a virtual network containing two empty subnets.
    ```console
    LOCATION=eastus        #the location of your cluster
    RESOURCEGROUP="v4-$LOCATION"    #the name of the resource group where you want to create your cluster
-   CLUSTER=cluster        #the name of your cluster
+   CLUSTER=aro-cluster        #the name of your cluster
    ```
 
 1. **Create a resource group**
 
     An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create][az-group-create] command.
 
-    The following example creates a resource group named *aro-rg* in the *eastus* location.
-
     ```azurecli-interactive
-    az group create --name aro-rg --location eastus
+    az group create --name $RESOURCEGROUP --location $LOCATION
     ```
 
     The following example output shows the resource group created successfully:
@@ -108,17 +106,17 @@ Next, you will create a virtual network containing two empty subnets.
     }
     ```
 
-3. **Create a virtual network.**
+2. **Create a virtual network.**
 
     Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets, for the master and worker nodes.
 
-    Create a new virtual network in the same resource group you created earlier, for example in *aro-rg*.
+    Create a new virtual network in the same resource group you created earlier.
 
     ```azurecli-interactive
     az network vnet create \
-    --resource-group aro-rg \
+    --resource-group $RESOURCEGROUP \
     --name aro-vnet \
-    --address-prefixes 10.0.0.0/8
+    --address-prefixes 10.0.0.0/22
     ```
 
     The following example output shows the virtual network created successfully:
@@ -128,7 +126,7 @@ Next, you will create a virtual network containing two empty subnets.
     "newVNet": {
         "addressSpace": {
         "addressPrefixes": [
-            "10.0.0.0/8"
+            "10.0.0.0/22"
         ]
         },
         "id": "/subscriptions/<guid>/resourceGroups/aro-rg/providers/Microsoft.Network/virtualNetworks/aro-vnet",
@@ -141,34 +139,34 @@ Next, you will create a virtual network containing two empty subnets.
     }
     ```
 
-4. **Add an empty subnet for the master nodes.**
+3. **Add an empty subnet for the master nodes.**
 
     ```azurecli-interactive
     az network vnet subnet create \
-    --resource-group aro-rg \
+    --resource-group $RESOURCEGROUP \
     --vnet-name aro-vnet \
     --name master-subnet \
-    --address-prefixes 10.0.1.0/24 \
+    --address-prefixes 10.0.0.0/23 \
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **Add an empty subnet for the worker nodes.**
+4. **Add an empty subnet for the worker nodes.**
 
     ```azurecli-interactive
     az network vnet subnet create \
-    --resource-group aro-rg \
+    --resource-group $RESOURCEGROUP \
     --vnet-name aro-vnet \
     --name worker-subnet \
-    --address-prefixes 10.1.0.0/20 \
+    --address-prefixes 10.0.1.0/23 \
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-6. **[Disable subnet private endpoint policies](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) on the master subnet.** This is required to be able to connect and manage the cluster.
+5. **[Disable subnet private endpoint policies](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) on the master subnet.** This is required to be able to connect and manage the cluster.
 
     ```azurecli-interactive
     az network vnet subnet update \
     --name master-subnet \
-    --resource-group aro-rg \
+    --resource-group ar \
     --vnet-name aro-vnet \
     --disable-private-link-service-network-policies true
     ```
@@ -179,8 +177,8 @@ Run the following command to create a cluster. Note the `apiserver-visibility` a
 
 ```azurecli-interactive
 az aro create \
-  --resource-group aro-rg \
-  --name aro-cluster \
+  --resource-group $RESOURCEGROUP \
+  --name $CLUSTER \
   --vnet aro-vnet \
   --master-subnet master-subnet \
   --worker-subnet worker-subnet \
@@ -204,8 +202,8 @@ You can log into the cluster using the `kubeadmin` user.  Run the following comm
 
 ```azurecli-interactive
 az aro list-credentials \
-  --name aro-cluster \
-  --resource-group aro-rg
+  --name $CLUSTER \
+  --resource-group $RESOURCEGROUP
 ```
 
 The following example output shows the password will be in `kubeadminPassword`.
@@ -221,8 +219,8 @@ You can find the cluster console URL by running the following command, which wil
 
 ```azurecli-interactive
  az aro show \
-    --name aro-cluster \
-    --resource-group aro-rg \
+    --name $CLUSTER \
+    --resource-group $RESOURCEGROUP \
     --query "consoleProfile.url" -o tsv
 ```
 
@@ -246,7 +244,7 @@ You can also download the latest release of the CLI appropriate to your machine 
 Retrieve the API server's address.
 
 ```azurecli-interactive
-apiServer=$(az aro show -g aro-rg -n aro-cluster --query apiserverProfile.url -o tsv)
+apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.url -o tsv)
 ```
 
 >[!IMPORTANT]
