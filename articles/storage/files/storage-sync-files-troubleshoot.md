@@ -1032,14 +1032,14 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 There are two paths for failures in cloud tiering:
 
 - Files can fail to tier, which means that Azure File Sync unsuccessfully attempts to tier a file to Azure Files.
-- Files can fail to recall, which means that the Azure File Sync file system filter (StorageSync.sys) fails to download data when a user attempts to access a file which has been tiered.
+- Files can fail to recall, which means that the Azure File Sync file system filter (StorageSync.sys) fails to download data when a user attempts to access a file that has been tiered.
 
 There are two main classes of failures that can happen via either failure path:
 
 - Cloud storage failures
     - *Transient storage service availability issues*. For more information, see the [Service Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
     - *Inaccessible Azure file share*. This failure typically happens when you delete the Azure file share when it is still a cloud endpoint in a sync group.
-    - *Inaccessible storage account*. This failure typically happens when you delete the storage account while it still has an Azure file share which is a cloud endpoint in a sync group. 
+    - *Inaccessible storage account*. This failure typically happens when you delete the storage account while it still has an Azure file share that is a cloud endpoint in a sync group. 
 - Server failures 
   - *Azure File Sync file system filter (StorageSync.sys) is not loaded*. In order to respond to tiering/recall requests, the Azure File Sync file system filter must be loaded. The filter not being loaded can happen for several reasons, but the most common reason is that an administrator unloaded it manually. The Azure File Sync file system filter must be loaded at all times for Azure File Sync to properly function.
   - *Missing, corrupt, or otherwise broken reparse point*. A reparse point is a special data structure on a file that consists of two parts:
@@ -1134,7 +1134,7 @@ If files fail to be recalled:
 | 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | The file failed to recall due to authorization failure to the storage account. | To resolve this issue, verify [Azure File Sync has access to the storage account](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac). |
 | 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | The file failed to recall because the Azure file share is not accessible. | Verify the file share exists and is accessible. If the file share was deleted and recreated, perform the steps documented in the [Sync failed because the Azure file share was deleted and recreated](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134375810) section to delete and recreate the sync group. |
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | The file failed to recall due to insufficient system resources. | If the error persists, investigate which application or kernel-mode driver is exhausting system resources. |
-| 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | The file failed to recall due to insuffcient memory. | If the error persists, investigate which application or kernel-mode driver is causing the low memory condition. |
+| 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | The file failed to recall due to insufficient memory. | If the error persists, investigate which application or kernel-mode driver is causing the low memory condition. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | The file failed to recall due to insufficient disk space. | To resolve this issue, free up space on the volume by moving files to a different volume, increase the size of the volume, or force files to tier by using the Invoke-StorageSyncCloudTiering cmdlet. |
 
 ### Tiered files are not accessible on the server after deleting a server endpoint
@@ -1152,7 +1152,7 @@ Restoring access to your tiered files is possible if the following conditions ar
 
 If the above conditions are met, you can restore access to the files on the server by recreating the server endpoint at the same path on the server within the same sync group within 30 days. 
 
-If the above conditions are not met, restoring access is not possible as these tiered files on the server are now orphaned. Please follow the instructions below to remove the orphaned tiered files.
+If the above conditions are not met, restoring access is not possible as these tiered files on the server are now orphaned. Follow the instructions below to remove the orphaned tiered files.
 
 **Notes**
 - When tiered files are not accessible on the server, the full file should still be accessible if you access the Azure file share directly.
@@ -1199,7 +1199,7 @@ $orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
 ```
 **Notes** 
 - Tiered files modified on the server that are not synced to the Azure file share will be deleted.
-- Tiered files which are accessible (not orphan) will not be deleted.
+- Tiered files that are accessible (not orphan) will not be deleted.
 - Non-tiered files will remain on the server.
 
 7. Optional: Recreate the server endpoint if deleted in step 3.
