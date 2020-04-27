@@ -27,3 +27,12 @@ You can create a shared throughput database with autoscale by selecting the **Pr
 
 ## Azure Cosmos DB .NET V3 SDK
 
+### Create database
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/AutoscaleDocsSampleCode.cs?name=CreateDatabaseWithAutoscaleThroughput)]
+
+### Create container
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/AutoscaleDocsSampleCode.cs?name=CreateContainerWithAutoscaleThroughput)]
+
+### Change autoscale max throughput (RU/s)
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/AutoscaleDocsSampleCode.cs?name=ChangeAutoscaleThroughput)]
+
