@@ -161,11 +161,11 @@ The following table summarizes operations and typical overall durations:
 
 \*\*\* 12 hours is the current configuration but that might change in the future, so don't take a hard dependency on it. If you need to delete a virtual cluster earlier (to release the subnet for example), see [Delete a subnet after deleting an Azure SQL Database managed instance](sql-database-managed-instance-delete-virtual-cluster.md).
 
-### Instance availability during management
+### Instance availability during management operations
 
-Managed instances are not available to client applications during deployment and deletion operations.
+Managed instance is not available to client applications during deployment and deletion operations.
 
-Managed instances are available during update operations except a short downtime caused by the failover that happens at the end of update. It typically lasts up to 10 seconds even in case of interrupted long-running transactions, thanks to the [Accelerated database recovery](sql-database-accelerated-database-recovery.md).
+Managed instance is available during update operations except a short downtime caused by the failover that happens at the end of update. It typically lasts up to 10 seconds even in case of interrupted long-running transactions, thanks to the [Accelerated database recovery](sql-database-accelerated-database-recovery.md).
 
 > [!TIP]
 > Update of the reserved storage space in General Purpose service tier does not incur failover nor affect instance availability.
