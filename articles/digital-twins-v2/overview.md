@@ -89,18 +89,18 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 
 The table below lists the functional limits that Azure Digital Twins currently has.
 
-| Area | Capability | Limit | Adjustable |
-| --- | --- | --- | --- |
-| Azure Resource | Number of Azure Digital Twins instances in a region, per subscription | 10 | Yes
-| DigitalTwins | Number of Twins in an Azure Digital Twins instance | 200,000 | Yes |
-| DigitalTwins | Number of incoming relationships for a twin | 500 |  |
-| DigitalTwins | Number of outgoing relationships for a twin | 500 |  |
-| Query | Number of items returned in a single page | 100 | No |
-| Models | Number of levels of inheritance for a model | ? |  |
-| Models | Number of models supported in single *POST* call | 100? | No |
-| Models | Number of models within a single Azure Digital Twins instance | 10,000 | Yes |
-| Models | Number of dependencies for model IDs on a single *GET* call | 25? |  |
-| Endpoints | Number of endpoints for a single Azure Digital Twins instance | ? |  |	
+| Area | Capability | Limit |
+| --- | --- | --- |
+| Azure Resource | Number of Azure Digital Twins instances in a region, per subscription | 10 |
+| DigitalTwins | Number of Twins in an Azure Digital Twins instance | 200,000 |
+| DigitalTwins | Number of incoming relationships for a twin | 500 |
+| DigitalTwins | Number of outgoing relationships for a twin | 500 |
+| Query | Number of items returned in a single page | 100 |
+| Models | Number of levels of inheritance for a model | ? |
+| Models | Number of models supported in single *POST* call | 100? |
+| Models | Number of models within a single Azure Digital Twins instance | 10,000 |
+| Models | Number of dependencies for model IDs on a single *GET* call | 25? |
+| Endpoints | Number of endpoints for a single Azure Digital Twins instance | ? |	
 
 ## Next steps
 
