@@ -55,9 +55,9 @@ sudo privilege needed to run this command.
 sudo bash enable-kdump.sh
 ```
 
-- If the command output is Kdump is successfully enabled, please reboot the system to apply the change, then the Kdump is successfully enabled. Reboot the system to apply changes.
+- If the command outputs Kdump is successfully enabled, please reboot the system to apply the change, then the Kdump is successfully enabled. Reboot the system to apply changes.
 
-- If the command output is Failed to do certain operation, Exiting !!!!, then Kdump service is not enabled. Refer to section [Support issue](#support-issue).
+- If the command output is Failed to do certain operation, Exiting!!!!, then Kdump service is not enabled. Refer to section [Support issue](#support-issue).
 
 ## Test Kdump
 
