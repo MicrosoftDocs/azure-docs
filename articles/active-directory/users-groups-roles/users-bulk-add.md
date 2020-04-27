@@ -23,6 +23,24 @@ Azure Active Directory (Azure AD) supports bulk user create and delete operation
 
 In order to bulk create users in the administration portal, you must be signed in as a Global administrator or User administrator.
 
+## Understand the bulk upload spreadsheet
+
+Use the bulk upload spreadsheet as the template to help you successfully create Azure AD users in bulk.
+
+![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/users-bulk-add/create-template-example.png)
+
+First two rows must not be removed or modified, needed for processing
+There’s an example row that should be removed/replaced before upload
+Note: Older versions of the template may not have the sample row
+Provide info about Column header format
+Format is <Item> [PropertyName] <Required or not>. For example, “Name [displayName] Required”
+NOTE: Older versions of the template may have “Name (example: Chris Green) [displayName] *”
+For groups, format is the same but you have the option to choose which item you use. Ex. “Member object ID or user principal name [memberObjectIdOrUpn] Required”
+Required columns are list first
+Any additional columns included in the uploaded CSV file will be ignored
+
+I think we should recommend they download the latest version of the template periodically.
+
 ## To create users in bulk
 
 1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with an account that is a User administrator in the organization.

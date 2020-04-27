@@ -21,7 +21,7 @@ Using Azure Active Directory (Azure AD) portal, you can add a large number of me
 
 ## Understand the bulk upload spreadsheet
 
-The spreadsheet is the template you must use to successfully create Azure AD users in bulk. 
+Use the bulk upload spreadsheet as the template to fill in to successfully create Azure AD users in bulk.
 
 ![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/groups-bulk-import-members/template-with-callouts.png)
 
@@ -34,7 +34,7 @@ NOTE: Older versions of the template may have “Name (example: Chris Green) [di
 For groups, format is the same but you have the option to choose which item you use. Ex. “Member object ID or user principal name [memberObjectIdOrUpn] Required”
 Required columns are list first
 Any additional columns included in the uploaded CSV file will be ignored
-
+create-template-example
 I think we should recommend they download the latest version of the template periodically.
 
 ## To bulk import group members
