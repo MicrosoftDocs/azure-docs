@@ -22,3 +22,6 @@ spec:
 ```
 
 Save the file and exit your editor.
+
+## Next steps
+Check out more information on DNS Forwarding for OpenShift 4.3 [here](https://docs.openshift.com/container-platform/4.3/networking/dns-operator.html).

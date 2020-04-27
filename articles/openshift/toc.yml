@@ -6,18 +6,18 @@
       href: intro-openshift.md
 - name: Tutorials
   items:
-    - name: 1 - Create an Azure Red Hat OpenShift cluster
+    - name: 1 - Create an Azure Red Hat OpenShift 4 cluster
       href: tutorial-create-cluster.md
-    - name: 2 - Connect to an Azure Red Hat OpenShift cluster
+    - name: 2 - Connect to an Azure Red Hat OpenShift 4 cluster
       href: tutorial-connect-cluster.md
-    - name: 3 - Delete an Azure Red Hat OpenShift cluster
+    - name: 3 - Delete an Azure Red Hat OpenShift 4 cluster
       href: tutorial-delete-cluster.md
 - name: How-to guides
   expanded: true
   items:
     - name: Create a private Azure Red Hat OpenShift 4 cluster 
       href: howto-create-private-cluster.md
-    - name: Configure DNS Forwarding
+    - name: Configure DNS Forwarding for an Azure Red Hat OpenShift 4 cluster
       href: dns-forwarding.md
     - name: Azure Red Hat OpenShift 3.11
       items:
