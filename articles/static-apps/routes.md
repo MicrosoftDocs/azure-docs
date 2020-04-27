@@ -20,21 +20,22 @@ Routing in Azure Static Web Apps defines back-end routing rules and authorizatio
 
 The topic of routing significantly overlaps with authentication and authorization concepts. Make sure to read the [authentication and authorization](authentication-authorization.md) guide along with this article.
 
-## Placement
+## Location
 
 The _routes.json_ file must exist at the root of built app. If your web app includes a build step that copies built files to a specific folder, then the _routes.json_ file needs to exist in this folder. For instance, React apps often build files to a _public_ folder. The _routes.json_ file would need to be placed in this folder.
 
+The following table lists the appropriate location for a number of front-end JavaScript frameworks and libraries.
+
+|Framework / library | Location  |
+|---------|----------|
+| Angular | _dist_   |
+| React   | _build_  |
+| Svelte  | _dist_   |
+| Vue     | _public_ |
+
 ## Defining routes
 
-Routes are defined in the _routes.json_ file as an array of route rules on the `routes` property.
-
-```json
-{
-  "routes": [ ... ]
-}
-```
-
-Each rule is composed of a route pattern, along with one or more of the optional rule properties.
+Routes are defined in the _routes.json_ file as an array of route rules on the `routes` property. Each rule is composed of a route pattern, along with one or more of the optional rule properties. See the [example route file](#example-route-file) for usage examples.
 
 | Rule property  | Required | Default value | Comment                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
@@ -81,7 +82,7 @@ For instance, to implement routes for a calendar application, you can map all UR
 }
 ```
 
-The _calendar.html_ file can then use client-side routing to serve a different view for URL variations like `/calendar/january/1`, `/calendar/august/18`, and `/calendar/december/25`.
+The _calendar.html_ file can then use client-side routing to serve a different view for URL variations like `/calendar/january/1`, `/calendar/2020`, and `/calendar/overview`.
 
 You can also secure routes with wildcards. In the following example, any file requested under the _admin_ path requires an authenticated user who is a member of the _administrator_ role.
 
@@ -137,7 +138,7 @@ The following table lists the available platform error overrides:
 
 ## Example route file
 
-The following example shows how to build route rules in a _routes.json_ file.
+The following example shows how to build route rules in a _routes.json_ file. Some routes use the [/.auth system folder](authentication-authorization.md) that access authentication-related utility endpoints.
 
 ```json
 {
