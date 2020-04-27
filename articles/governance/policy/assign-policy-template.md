@@ -75,7 +75,7 @@ Some additional resources:
 Select **Compliance** in the left side of the page. Then locate the **Audit VMs that do not use
 managed disks** policy assignment you created.
 
-![Policy compliance overview page](./media/assign-policy-template/policy-compliance.png)
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Policy compliance overview page" border="false":::
 
 If there are any existing resources that aren't compliant with this new assignment, they appear
 under **Non-compliant resources**.
@@ -93,7 +93,7 @@ To remove the assignment created, follow these steps:
 1. Right-click the **Audit VMs that do not use managed disks** policy assignment and select **Delete
    assignment**.
 
-   ![Delete an assignment from the compliance overview page](./media/assign-policy-template/delete-assignment.png)
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Delete an assignment from the compliance overview page" border="false":::
 
 ## Next steps
 

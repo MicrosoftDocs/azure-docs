@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/23/2020
 ms.author: aschhab
 
 ---
@@ -61,7 +61,7 @@ When multiple concurrent receivers pull from the queue, the messages belonging t
 
 The previous illustration shows three concurrent session receivers. One Session with `SessionId` = 4 has no active, owning client, which means that no messages are delivered from this specific session. A session acts in many ways like a sub queue.
 
-The session lock held by the session receiver is an umbrella for the message locks used by the *peek-lock* settlement mode. A receiver can't have two messages concurrently "in flight," but the messages must be processed in order. A new message can only be obtained when the prior message has been completed or dead-lettered. Abandoning a message causes the same message to be served again with the next receive operation.
+The session lock held by the session receiver is an umbrella for the message locks used by the *peek-lock* settlement mode. Only one receiver can have a lock on a session. A receiver may have many in-flight messages, but the messages will be received in order. Abandoning a message causes the same message to be served again with the next receive operation.
 
 ### Message session state
 
