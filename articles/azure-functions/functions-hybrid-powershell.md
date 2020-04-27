@@ -124,7 +124,7 @@ Hybrid connections are configured from the networking section of the function ap
 
 ## Download and install the hybrid connection
 
-1. Select **Download connection manager** to save the .msi file locally on your computer.
+1. Select **Download connection manager** to save the *.msi* file locally on your computer.
 
     :::image type="content" source="./media/functions-hybrid-powershell/download-hybrid-connection-installer.png" alt-text="Download the installer." border="true":::
 
@@ -141,7 +141,7 @@ Hybrid connections are configured from the networking section of the function ap
 
     :::image type="content" source="./media/functions-hybrid-powershell/hybrid-connection-ui.png" alt-text="Open the Hybrid Connection UI." border="true":::
 
-1. Select the **Enter Manually** button and paste the connection string from the clipboard.
+1. Select **Enter Manually** and paste the connection string from the clipboard.
 
     :::image type="content" source="./media/functions-hybrid-powershell/enter-manual-connection.png" alt-text="Paste the hybrid connection." border="true":::
 
@@ -158,7 +158,7 @@ Hybrid connections are configured from the networking section of the function ap
     :::image type="content" source="./media/functions-hybrid-powershell/select-configuration.png" alt-text="Configure a password for the administrator account." border="true":::
 
 1. Name the setting **ContosoUserPassword**, and enter the password. Select **OK**.
-1. Select **OK** and then **Save** to store the password in the function application.
+1. Select **Save** to store the password in the function application.
 
     :::image type="content" source="./media/functions-hybrid-powershell/save-administrator-password.png" alt-text="Save the password for the administrator account." border="true":::
 
