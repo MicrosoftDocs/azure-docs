@@ -85,7 +85,7 @@ Next, you will create a virtual network containing two empty subnets.
     An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create][az-group-create] command.
 
     ```azurecli-interactive
-    az group create --name $CLUSTER --location $LOCATION
+    az group create --name $RESOURCEGROUP --location $LOCATION
     ```
 
     The following example output shows the resource group created successfully:
@@ -123,16 +123,16 @@ Next, you will create a virtual network containing two empty subnets.
     "newVNet": {
         "addressSpace": {
         "addressPrefixes": [
-            "10.0.0.0/8"
+            "10.0.0.0/22"
         ]
-        },
+     },
         "id": "/subscriptions/<guid>/resourceGroups/aro-rg/providers/Microsoft.Network/virtualNetworks/aro-vnet",
         "location": "eastus",
         "name": "aro-vnet",
         "provisioningState": "Succeeded",
         "resourceGroup": "aro-rg",
         "type": "Microsoft.Network/virtualNetworks"
-    }
+     }
     }
     ```
 
@@ -143,7 +143,7 @@ Next, you will create a virtual network containing two empty subnets.
     --resource-group $RESOURCEGROUP \
     --vnet-name aro-vnet \
     --name master-subnet \
-    --address-prefixes 10.0.1.0/24 \
+    --address-prefixes 10.0.0.0/23 \
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
@@ -154,7 +154,7 @@ Next, you will create a virtual network containing two empty subnets.
     --resource-group $RESOURCEGROUP \
     --vnet-name aro-vnet \
     --name worker-subnet \
-    --address-prefixes 10.1.0.0/20 \
+    --address-prefixes 10.0.1.0/23 \
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
