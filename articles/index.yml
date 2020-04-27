@@ -1458,7 +1458,7 @@ tools:
     # Card
     - title: Terraform
       imageSrc: https://docs.microsoft.com/media/logos/logo_terraform.svg
-      url: terraform/index.yml
+      url: /azure/developer/terraform/
     # Card
     - title: Ansible
       imageSrc: ./media/index/ansible.svg
