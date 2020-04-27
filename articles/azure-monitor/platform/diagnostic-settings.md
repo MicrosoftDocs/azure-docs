@@ -5,7 +5,7 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/27/2020
 ms.subservice: logs
 ---
 
@@ -26,9 +26,10 @@ Each Azure resource requires its own diagnostic setting, which defines the follo
 A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to 5 diagnostic settings.
 
 > [!NOTE]
-> [Platform metrics](metrics-supported.md) are collected automatically to [Azure Monitor Metrics](data-platform-metrics.md). Diagnostic settings can be used to collect metrics for certain Azure services into Azure Monitor Logs for analysis with other monitoring data using [log queries](../log-query/log-query-overview.md) with certain limitation. 
+> [Platform metrics](metrics-supported.md) are collected automatically to [Azure Monitor Metrics](data-platform-metrics.md). Diagnostic settings can be used to collect metrics for certain Azure services into Azure Monitor Logs for analysis with other monitoring data using [log queries](../log-query/log-query-overview.md) with certain limitations. 
 > Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values. *For example*: The 'IOReadBytes' metric on an Blockchain can be explored and charted on a per node level. However, when exported via diagnostic settings, the metric exported represents as all read bytes for all nodes.
-> In addition, due to internal limitations not all metrics are exportable to Azure Monitor Logs / Log Analytics. For more information, see the [ list of exportable metrics](metrics-supported-export-diagnostic-settings.md).
+> In addition, due to internal limitations not all metrics are exportable to Azure Monitor Logs / Log Analytics. For more information, see the [list of exportable metrics](metrics-supported-export-diagnostic-settings.md). 
+> To get around these limitations for specific metrics, we suggest you manually extract them using the [Metrics REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metrics/list) and import them into Azure Monitor Logs using the [Azure Monitor Data collector API](data-collector-api.md).  
 
 ## Destinations
 
