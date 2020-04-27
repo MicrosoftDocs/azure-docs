@@ -354,6 +354,8 @@
               href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Provide an encryption key on a request
           href: storage-blob-customer-provided-key.md
+        - name: Create an encryption scope
+          href: encryption-scope-create.md
       - name: Configure client-side encryption
         items:
         - name: .NET

@@ -37,13 +37,13 @@ To create an encryption scope in the Azure portal, follow these steps:
 
 # [PowerShell](#tab/powershell)
 
-To create an encryption scope with PowerShell, first install the Az.Storage module version [1.13.4-preview](https://www.powershellgallery.com/packages/Az.Storage/1.13.4-preview). Remove any other versions of the Az.Storage module. Use the following command to install the preview module: 
+To create an encryption scope with PowerShell, first install the Az.Storage module version [1.13.4-preview](https://www.powershellgallery.com/packages/Az.Storage/1.13.4-preview). Remove any other versions of the Az.Storage module. Use the following command to install the preview module:
 
 ```powershell
 Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.13.4-preview –AllowPrerelease –AllowClobber –Force
 ```
 
-To create a new encryption scope that uses Microsoft-managed keys, call the Get-AzStorageEncryptionScope command with the `-StorageEncryption` parameter. Remember to replace the placeholder values with your own values:
+To create a new encryption scope that uses Microsoft-managed keys, call the New-AzStorageEncryptionScope command with the `-StorageEncryption` parameter. Remember to replace the placeholder values with your own values:
 
 ```powershell
 New-AzStorageEncryptionScope -ResourceGroupName <resource_group> `
@@ -52,7 +52,7 @@ New-AzStorageEncryptionScope -ResourceGroupName <resource_group> `
     -StorageEncryption
 ```
 
-To create a new encryption scope that uses customer-managed keys with Azure Key Vault, first assign a managed identity to the storage account. This managed identity is used to grant permissions to the storage account to retrieve the key from the key vault. Next, call the Get-AzStorageEncryptionScope command with the `-KeyvaultEncryption` parameter, and specify the key URI. Remember to replace the placeholder values with your own values:
+To create a new encryption scope that uses customer-managed keys with Azure Key Vault, first assign a managed identity to the storage account. This managed identity is used to grant permissions to the storage account to retrieve the key from the key vault. Next, call the New-AzStorageEncryptionScope command with the `-KeyvaultEncryption` parameter, and specify the key URI. Remember to replace the placeholder values with your own values:
 
 ```powershell
 $storageAccount = Set-AzStorageAccount -ResourceGroupName <resource_group> `
