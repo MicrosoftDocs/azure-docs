@@ -304,7 +304,7 @@ The requirements for using an existing storage account:
 - Storage account firewall rules must be turned off. See [Configure Azure Storage firewalls and virtual network](../../storage/common/storage-network-security.md)
 - Deployment script's user-assigned managed identity must have permissions to manage the storage account, which include read, create, delete file shares.
 
-When an existing storage account is used, the script service creates a file share using a unique name. See [Clean up deployment script resources](#clean-up-deployment-script-resources) for how the script service cleans up the resource.
+When an existing storage account is used, the script service creates a file share with a unique name. See [Clean up deployment script resources](#clean-up-deployment-script-resources) for how the script service cleans up the file share.
 
 ## Clean up deployment script resources
 
@@ -315,8 +315,8 @@ The life cycle of these resources is controlled by the following properties in t
 - **cleanupPreference**: Clean up preference when the script execution gets in a terminal state. The supported values are:
 
   - **Always**: Delete the automatically created resources once script execution gets in a terminal state. If an existing storage account is used, the script service deletes the file share created in the storage account. Because the deploymentScripts resource may still be present after the resources are cleaned up, the script service persist the script execution results, for example, stdout, outputs, return value, etc. before the resources are deleted.
-  - **OnSuccess**: Delete the automatically created resources only when the script execution is successful. If an existing storage account is used, the script service doesn't remove the file share. You can still access the resources to find the debug information.
-  - **OnExpiration**: Delete the resources only when the **retentionInterval** setting is expired. If an existing storage account is used, the script service removes the file share, but retain the storage account.
+  - **OnSuccess**: Delete the automatically created resources only when the script execution is successful. If an existing storage account is used, the script service removes the file share only when the script execution is successful. You can still access the resources to find the debug information.
+  - **OnExpiration**: Delete the automatically resources only when the **retentionInterval** setting is expired. If an existing storage account is used, the script service removes the file share, but retain the storage account.
 
 - **retentionInterval**: Specify the time interval that a script resource will be retained and after which will be expired and deleted.
 
