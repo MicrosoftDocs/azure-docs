@@ -1,6 +1,6 @@
 ---
-title: Deploy a self-hosted Azure API Management gateway to Azure Kubernetes Service | Microsoft Docs
-description: Learn how to deploy a self-hosted Azure API Management gateway to Azure Kubernetes Service
+title: Deploy a self-hosted gateway to Azure Kubernetes Service | Microsoft Docs
+description: Learn how to deploy self-hosted gateway component of Azure API Management to Azure Kubernetes Service
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -8,17 +8,16 @@ manager: gwallace
 editor: ''
 
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
+
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 04/26/2020
 ms.author: apimpm
 
 ---
 
-# Deploy a self-hosted Azure API Management gateway to Azure Kubernetes Service
+# Deploy a self-hosted gateway to Azure Kubernetes Service
 
-This article provides the steps for deploying self-hosted Azure API Management gateway into an [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) Cluster. For deploying self-hosted gateway to other Kubernetes clusters (e.g., clusters in a foreign cloud), see [deploy self-hosted gateway to Kubernetes](api-management-howto-deploy-self-hosted-gateway-to-k8s.md).
+This article provides the steps for deploying self-hosted gateway component of Azure API Management to [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/). For deploying self-hosted gateway to a Kubernetes cluster see this[document](api-management-howto-deploy-self-hosted-gateway-to-k8s.md).
 
 ## Prerequisites
 
@@ -36,19 +35,19 @@ This article provides the steps for deploying self-hosted Azure API Management g
 6. Select **<gateway-name>.yml** file link next to **Deployment** to download the file.
 7. Adjust the port mappings and container name in the yml file as needed.
 8. Depending on your scenario, you might need to change the [service type](https://docs.microsoft.com/azure/aks/concepts-network#services). The default value is `NodePort`.
-9. Select the **copy** icon located at the right end of the **Deploy** text box to save the `kubectl` command to clipboard. 
+9. Select the **copy** icon located at the right end of the **Deploy** text box to save the `kubectl` command to clipboard.
 10. Paste the command to the terminal (or command) window. Note that the command expects the downloaded environment file to be present in the current directory.
 ```console
     kubectl apply -f <gateway-name>.yaml
 ```
 10. Execute the command. The command instructs your AKS cluster to run the container, using self-hosted gateway's image downloaded from the Microsoft Container Registry, and to configure the container to expose HTTP (8080) and HTTPS (443) ports.
-11. Run the below command to check the gateway pod is running. Note that your pod name will be different. 
+11. Run the below command to check the gateway pod is running. Note that your pod name will be different.
 ```console
 kubectl get pods
 NAME                                   READY     STATUS    RESTARTS   AGE
 contoso-apim-gateway-59f5fb94c-s9stz   1/1       Running   0          1m
 ```
-12. Run the below command to check the gateway service is running. Note that your service name and IP addresses will be different. 
+12. Run the below command to check the gateway service is running. Note that your service name and IP addresses will be different.
 ```console
 kubectl get services
 NAME             TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
