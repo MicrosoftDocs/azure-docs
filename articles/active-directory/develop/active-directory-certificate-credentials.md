@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.author: ryanwi
+ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ---

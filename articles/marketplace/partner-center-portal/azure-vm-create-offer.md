@@ -29,19 +29,19 @@ Publishing to Azure Marketplace has the following benefits:
 
 ### Before you begin
 
-If you haven't done so yet, review the [Virtual machine offer publishing guide](https://aka.ms/Virtualmachineofferpublishingguide) and this Azure virtual machine material:
+If you haven't done so yet, review the [Virtual machine offer publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) and this Azure virtual machine material:
 
 - Quickstart guides
   - [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
   - [GitHub Azure Quickstart templates](https://github.com/azure/azure-quickstart-templates)
 - Tutorials
-  - [Linux VMs](https://aka.ms/LinuxVMtutorial)
-  - [Windows VMs](https://aka.ms/windowsvms)
+  - [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
+  - [Windows VMs](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - Samples
-  - [Azure CLI Samples for Linux VMs](https://aka.ms/linuxclisamples)
-  - [Azure PowerShell for Linux VMs](https://aka.ms/linuxpowershellsamples)
-  - [Azure CLI Samples for Windows VMs](https://aka.ms/windowsclisamples)
-  - [Azure PowerShell for Windows VMs](https://aka.ms/windowspowershellvmsamples)
+  - [Azure CLI Samples for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
+  - [Azure PowerShell for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
+  - [Azure CLI Samples for Windows VMs](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
+  - [Azure PowerShell for Windows VMs](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
 
 ### Fundamentals in technical knowledge
 
@@ -57,11 +57,11 @@ Your engineering team should understand the following Microsoft technologies:
 
 Before you can create an Azure virtual machine offer, you must have a commercial marketplace account in Partner Center. If you haven't created one yet, see [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
 
-1. Log in to [Partner Center](https://partner.microsoft.com/dashboard/home), and then from the top menu, select **Dashboard**.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home), and then from the top menu, select **Dashboard**.
 2. In the left-nav bar, select **Commercial Marketplace**, then **Overview**.
 3. On the **Overview** page, select **+ New offer**, then **Azure Virtual Machine**. The **New offer** dialog box appears.
 
-![Illustrates the Overview page in Partner Center with the New offer button and Azure Virtual Machine offer selected.](media/avm-create7.png)
+    ![Illustrates the Overview page in Partner Center with the New offer button and Azure Virtual Machine offer selected.](media/avm-create7.png)
 
 ## Offer ID and alias
 
@@ -86,7 +86,7 @@ To enable a test drive, select the **Enable a test drive** check box. To remove 
 Additional test drive resources:
 
 - [Technical best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Marketing best practices](https://aka.ms/TestDriveMarketingBestPractices)
+- [Marketing best practices](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - [Test Drives overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (make sure your pop-up blocker is off).
 
 ### Lead management
@@ -94,12 +94,12 @@ Additional test drive resources:
 When publishing your offer to the commercial marketplace with Partner Center, connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you will enable **Test Drive** (see prior section), otherwise it's optional.
 
 1. Select a lead destination where you want us to send customer leads. Partner Center supports the following CRM systems:
-    - [Dynamics 365](https://aka.ms/Dyn365LeadMgmt) for customer engagement
-    - [Marketo](https://aka.ms/LeadMgmtMarketo)
-    - [Salesforce](https://aka.ms/LeadMgmtSalesforce)
+    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for customer engagement
+    - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
+    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
-    > If your CRM system isn't listed above, use [Azure Table](https://aka.ms/AzureTableLeadMgmt) or [Https Endpoint](https://aka.ms/LeadMgmtHTTPS) to store customer lead data. Then export the data to your CRM system.
+    > If your CRM system isn't listed above, use [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data. Then export the data to your CRM system.
 
 2. Connect your offer to the lead destination when publishing in Partner Center.
 3. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before it goes live, you can also test your lead connection by trying to deploy the offer yourself in the preview environment.
@@ -111,9 +111,9 @@ Select **Save draft** before continuing.
 
 This page lets you define the categories and industries used to group your offer on the marketplace, your app version, and the legal contracts that support your offer.
 
-### Category
+### Categories
 
-Select a minimum of one and a maximum of three categories. These categories are used to place your offer in the appropriate marketplace search areas. In the offer description, explain how your offer supports these categories. Virtual machine offers appear under the **Compute** category in Azure Marketplace.
+Select a minimum of one and a maximum of five categories. These categories are used to place your offer in the appropriate marketplace search areas. In the offer description, explain how your offer supports these categories. Virtual machine offers appear under the **Compute** category in Azure Marketplace.
 
 ### Legal
 
@@ -229,7 +229,6 @@ Provide the support website where customers can reach your support team.
 
 - Azure Global support website
 - Azure Government support website
-- and so on
 
 ### Partner support contact
 
@@ -251,6 +250,9 @@ Provide contact information for Microsoft to use when there are issues with your
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
 
+>[!Note]
+>If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
+
 #### Marketplace logos
 
 Provide PNG files of your offer's logo in the following four pixel sizes:
@@ -270,7 +272,7 @@ Add up to five screenshots that show how your offer works. Each screenshot must 
 
 Add up to five videos that demonstrate your offer. These should be hosted on an external video service. Enter each video's name, web address, and a thumbnail PNG image of the video at 1280 x 720 pixels in size.
 
-For additional marketplace listing resources, see [Best practices for marketplace offer listings](https://aka.ms/LdMgmtOfferListingBestPractices).
+For additional marketplace listing resources, see [Best practices for marketplace offer listings](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
 
 Select **Save draft** before continuing.
 
@@ -292,7 +294,7 @@ Select **Save draft** before proceeding to the next section, Plan overview.
 
 ## Plan overview
 
-You can provide different plan options within the same offer in Partner Center. These plans were previously referred to as SKUs. An offer requires at least one plan, which can differ in terms of monetization audience, Azure clouds, features, or VM images.
+You can provide different plan options within the same offer in Partner Center. These plans were previously referred to as SKUs. An offer requires at least one plan, which can differ in terms of monetization audience, Azure regions, features, or VM images.
 
 After you create your plans, the **Plan overview** tab shows:
 
@@ -322,7 +324,7 @@ Select **Create**.
 
 ### Plan setup
 
-Set the high-level configuration for the type of plan, whether it reuses technical configuration from another plan, and in what clouds the plan should be available. Your selections here determine which fields are displayed on other tabs for the same plan.
+Set the high-level configuration for the type of plan, whether it reuses technical configuration from another plan, and in which Azure regions the plan should be available. Your selections here determine which fields are displayed on other tabs for the same plan.
 
 #### Reuse technical configuration
 
@@ -331,24 +333,24 @@ If you have more than one plan of the same type, and the packages are identical 
 > [!NOTE]
 > When you reuse the technical configuration from another plan, the entire **Technical configuration** tab disappears from this plan. The Technical configuration details from the other plan, including any updates you make in the future, will be used for this plan as well. This setting can't be changed after this plan is published.
 
-#### Cloud availability
+#### Azure regions
 
-Your plan must be made available in at least one cloud.
+Your plan must be made available in at least one Azure region.
 
-Select the **Azure Global** option to make your plan available to customers in all public Azure regions that have commercial marketplace integration. For details, see [Geographic availability and currency support](https://aka.ms/AzureGovCurrencies).
+Select the **Azure Global** option to make your plan available to customers in all public Azure regions that have commercial marketplace integration. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Select the **Azure Government Cloud** option to make your plan available in the [Azure Government Cloud](https://aka.ms/WhatIsAzureGovernment). this is a government-community cloud with controlled access for customers from U.S. federal, state, local or tribal agencies as well as partners eligible to serve these entities. As the publisher, you're responsible for any compliance controls, security measures, and best practices to serve this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
+Select the **Azure Government** option to make your plan available in the [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) region. This region provides controlled access for customers from  U.S. federal, state, local, or tribal entities, as well as partners eligible to serve them. You, as the publisher, are responsible for any compliance controls, security measures, and best practices. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
 
-Before publishing to [Azure Government](https://aka.ms/azuregovpublish), test and validate your plan in the environment as certain endpoints may differ. To set up and test your plan, request a trial account from [Microsoft Azure Government trial](https://aka.ms/AzureGovernmentTrial).
+Before publishing to [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), test and validate your plan in the environment as certain endpoints may differ. To set up and test your plan, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
-> After your plan is published and available in a specific cloud, you can't remove that cloud.
+> After your plan is published and available in a specific Azure region, you can't remove that region.
 
-#### Azure Government Cloud certifications
+#### Azure Government certifications
 
-This option is only visible if **Azure Government Cloud** is selected under **Cloud availability**.
+This option is only visible if you select **Azure Government** under **Azure regions**.
 
-Azure Government services handle data that is subject to certain government regulations and requirements. For example, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS. To bring awareness to your certifications for these programs, you can provide up to 100 links that describe them. These can be either links to your listing on the program directly or links to descriptions of your compliance with them on your own websites. These links visible to Azure Government Cloud customers only.
+Azure Government services handle data that is subject to certain government regulations and requirements. For example, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS. To bring awareness to your certifications for these programs, you can provide up to 100 links that describe them. These can be either links to your listing on the program directly or links to descriptions of your compliance with them on your own websites. These links visible to Azure Government customers only.
 
 Select **Save draft** before continuing.
 
@@ -380,9 +382,11 @@ On this tab, you'll configure the following:
 
 #### Markets
 
-Every plan must be available in at least one market. Select the check box for every market location where this plan should be available for purchase (users in these markets can still deploy the offer to all Azure regions for the clouds selected). The **Tax Remitted** button shows countries in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either **Free** or **Bring your own license** (BYOL).
+Every plan must be available in at least one market. Select the check box for every market location where this plan should be available for purchase (users in these markets can still deploy the offer to all Azure regions selected in **[Plan setup](#plan-setup)**). The **Tax Remitted** button shows countries in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either **Free** or **Bring your own license** (BYOL).
 
 If you've already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to current exchange rates. Always review the price for each market before publishing. Review prices using the **Export prices (xlsx)** link after saving your changes.
+
+When you remove a market, customers from that market using active deployments will not be able to create new deployments or scale up their existing deployments. Existing deployments will not be affected.
 
 #### Pricing
 
@@ -416,16 +420,16 @@ You can design each plan to be visible to everyone or to only a preselected audi
 
 #### Hide plan
 
-If your virtual machine is meant to be used only indirectly when referenced through another solution template or managed application, select this box to publish your virtual machine or offer but hide it from customers searching and browsing for it directly.
+If your virtual machine is meant to be used only indirectly when referenced through another solution template or managed application, select this box to publish your virtual machine but hide it from customers searching and browsing for it directly.
 
 > [!NOTE]
-> Hidden plans do not support preview links.
+> Hidden plans don't support preview links.
 
 Select **Save draft** before continuing.
 
 ### Technical configuration
 
-Provide the images and other technical properties associated with this plan.
+Provide the images and other technical properties associated with this plan. For details, see [Create an Azure VM technical asset](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
 
 > [!NOTE]
 > This tab isn't shown if you configured this plan to reuse packages from another plan on the **Plan setup** tab.
@@ -454,7 +458,7 @@ Open public or private ports on a deployed virtual machine.
 
 #### VM Images
 
-Provide a disk version and the SAS URI for the virtual machine images. Add up to 16 data disks for each VM image. Provide only one new image version per plan in a given submission. After an image has been published you can't edit it, but you can delete it. Deleting a version will prevent your users from deploying a new instance of the deleted version.
+Provide a disk version and the SAS URI for the virtual machine images. Add up to 16 data disks for each VM image. Provide only one new image version per plan in a given submission. After an image has been published you can't edit it, but you can delete it. Deleting a version will prevent both new and existing users from deploying a new instance of the deleted version.
 
 - **Disc version** is the version of the image you are providing.
 - **SAS URI** is the location in Azure Storage where you have stored the operating system VHD.
@@ -548,4 +552,4 @@ These examples show how the offer appears in Azure Marketplace.
 
 ## Next step
 
-- [Update an existing offer in the commercial marketplace](https://aka.ms/UpdateOfferCM)
+- [Update an existing offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)

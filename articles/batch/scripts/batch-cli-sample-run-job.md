@@ -5,7 +5,7 @@ services: batch
 documentationcenter: ''
 author: LauraBrenner
 manager: evansma
-editor: tysonn
+
 
 ms.assetid:
 ms.service: batch

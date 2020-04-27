@@ -105,7 +105,7 @@ If you have permission to access and use your organization's cloud-based apps, y
 
 View and use your organization's apps from an Intune Managed Browser on your iOS and Android devices.
 
-1. On your mobile device, download and install the Intune Managed Browser app from the [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) and the [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
+1. On your mobile device, download and install the Intune Managed Browser app from the Apple App Store and the Google Play Store.
 
 2. Open the Intune Managed Browser app, go to https://myapps.microsoft.com, or use the link provided by your organization if they direct you to a customized page, such as https://myapps.microsoft.com/contoso.com.
 

@@ -4,7 +4,7 @@ description: Learn how to manage database roles and users on an Analysis Service
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -20,10 +20,9 @@ Role permissions include:
 *  **Process** - Users can connect to and perform process operations on the database, and analyze model database data.
 *  **Read** -  Users can use a client application to connect to and analyze model database data.
 
-When creating a tabular model project, you create roles and add users or groups to those roles by using Role Manager in Visual Studio with Analysis Services projects. When deployed to a server, you use SQL Server Management Studio (SSMS), [Analysis Services PowerShell cmdlets](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference), or [Tabular Model Scripting Language](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) to add or remove roles and user members.
+When creating a tabular model project, you create roles and add users or groups to those roles by using Role Manager in Visual Studio with Analysis Services projects. When deployed to a server, use SQL Server Management Studio (SSMS), [Analysis Services PowerShell cmdlets](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference), or [Tabular Model Scripting Language](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) to add or remove roles and user members.
 
-**Security groups** must be [mail-enabled](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) with the `MailEnabled` property set to `True`. When specifying a group by email address use `obj:groupid@tenantid`.
-
+When adding a **security group**, use `obj:groupid@tenantid`.
 
 ## To add or manage roles and users in Visual Studio  
   
@@ -128,7 +127,7 @@ Row filters define which rows in a table can be queried by members of a particul
   
 Row filters can be defined only for roles with Read and Read and Process permissions. By default, if a row filter is not defined for a particular table, members  can query all rows in the table unless cross-filtering applies from another table.
   
- Row filters require a DAX formula, which must evaluate to a TRUE/FALSE value, to define the rows that can be queried by members of that particular role. Rows not included in the DAX formula cannot be queried. For example, the Customers table with the following row filters expression, *=Customers [Country] = “USA”*, members of the Sales role can only see customers in the USA.  
+ Row filters require a DAX formula, which must evaluate to a TRUE/FALSE value, to define the rows that can be queried by members of that particular role. Rows not included in the DAX formula cannot be queried. For example, the Customers table with the following row filters expression, *=Customers [Country] = "USA"*, members of the Sales role can only see customers in the USA.  
   
 Row filters apply to the specified rows and related rows. When a table has multiple relationships, filters apply security for the relationship that is active. Row filters are intersected with other row filers defined for related tables, for example:  
   

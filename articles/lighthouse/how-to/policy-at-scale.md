@@ -36,7 +36,7 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 {
     Select-AzSubscription -SubscriptionId $ManagedSub.subscriptionId
 
-    New-AzDeployment -Name mgmt `
+    New-AzSubscriptionDeployment -Name mgmt `
                      -Location eastus `
                      -TemplateUri "https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/templates/policy-enforce-https-storage/enforceHttpsStorage.json" `
                      -AsJob
@@ -65,7 +65,7 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 {
     select-azsubscription -subscriptionId $ManagedSub.subscriptionId
 
-    Remove-AzDeployment -Name mgmt -AsJob
+    Remove-AzSubscriptionDeployment -Name mgmt -AsJob
 
     $Assignment = Get-AzPolicyAssignment | where-object {$_.Name -like "enforce-https-storage-assignment"}
 

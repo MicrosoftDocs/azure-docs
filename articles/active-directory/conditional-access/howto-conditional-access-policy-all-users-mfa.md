@@ -38,7 +38,7 @@ Organizations may have many cloud applications in use. Not all of those applicat
 
 ## Create a Conditional Access policy
 
-The following steps will help create a Conditional Access policy to require those assigned administrative roles to perform multi-factor authentication.
+The following steps will help create a Conditional Access policy to require All users to perform multi-factor authentication.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.

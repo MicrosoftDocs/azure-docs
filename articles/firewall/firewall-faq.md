@@ -67,9 +67,9 @@ The Web Application Firewall (WAF) is a feature of Application Gateway that prov
 
 The Azure Firewall service complements network security group functionality. Together, they provide better "defense-in-depth" network security. Network security groups provide distributed network layer traffic filtering to limit traffic to resources within virtual networks in each subscription. Azure Firewall is a fully stateful, centralized network firewall as-a-service, which provides network- and application-level protection across different subscriptions and virtual networks.
 
-## Are Network Security Groups (NSGs) supported on the Azure Firewall subnet?
+## Are Network Security Groups (NSGs) supported on the AzureFirewallSubnet?
 
-Azure Firewall is a managed service with multiple protection layers, including platform protection with NIC level NSGs (not viewable).  Subnet level NSGs aren't required on the Azure Firewall subnet, and are disabled to ensure no service interruption.
+Azure Firewall is a managed service with multiple protection layers, including platform protection with NIC level NSGs (not viewable).  Subnet level NSGs aren't required on the AzureFirewallSubnet, and are disabled to ensure no service interruption.
 
 ## How do I set up Azure Firewall with my service endpoints?
 

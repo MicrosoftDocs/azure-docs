@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.author: ryanwi
+ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ---
@@ -46,8 +46,8 @@ The ROPC flow is a single request: it sends the client identification and user's
 > [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
-```
-// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required. 
+```HTTP
+// Line breaks and spaces are for legibility only.  This is a public client, so no secret is required.
 
 POST {tenant}/oauth2/v2.0/token
 Host: login.microsoftonline.com
@@ -63,13 +63,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter | Condition | Description |
 | --- | --- | --- |
 | `tenant` | Required | The directory tenant that you want to log the user into. This can be in GUID or friendly name format. This parameter can't be set to `common` or `consumers`, but may be set to `organizations`. |
-| `client_id` | Required | The Application (client) ID that the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. | 
+| `client_id` | Required | The Application (client) ID that the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. |
 | `grant_type` | Required | Must be set to `password`. |
 | `username` | Required | The user's email address. |
 | `password` | Required | The user's password. |
 | `scope` | Recommended | A space-separated list of [scopes](v2-permissions-and-consent.md), or permissions, that the app requires. In an interactive flow, the admin or the user must consent to these scopes ahead of time. |
-| `client_secret`| Sometimes required | If your app is a public client, then the `client_secret` or `client_assertion` cannot be included.  If the app is a confidential client, then it must be included. | 
-| `client_assertion` | Sometimes required | A different form of `client_secret`, generated using a certificate.  See [certificate credentials](active-directory-certificate-credentials.md) for more details. | 
+| `client_secret`| Sometimes required | If your app is a public client, then the `client_secret` or `client_assertion` cannot be included.  If the app is a confidential client, then it must be included. |
+| `client_assertion` | Sometimes required | A different form of `client_secret`, generated using a certificate.  See [certificate credentials](active-directory-certificate-credentials.md) for more details. |
 
 ### Successful authentication response
 

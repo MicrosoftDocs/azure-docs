@@ -7,7 +7,7 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 04/14/2020
 ms.author: sstein
 ---
 # SQL Database release notes
@@ -43,6 +43,7 @@ This article lists SQL Database features that are currently in public preview. F
 | <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD server principals (logins)</a> | Create server-level logins using <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> statement. |
 | [Transactional Replication](sql-database-managed-instance-transactional-replication.md) | Replicate the changes from your tables into other databases placed on Managed Instances, Single Databases, or SQL Server instances, or update your tables when some rows are changed in other Managed Instances or SQL Server instance. For information, see [Configure replication in an Azure SQL Database managed instance database](replication-with-sql-database-managed-instance.md). |
 | Threat detection |For information, see [Configure threat detection in Azure SQL Database managed instance](sql-database-managed-instance-threat-detection.md).|
+| Long-term backup retention | For information, see [Configure long-term back up retention in Azure SQL Database managed instance](sql-database-managed-instance-long-term-backup-retention-configure.md). | 
 
 ---
 
@@ -89,7 +90,7 @@ The following features are enabled in Managed instance deployment model in H1 20
 |[Exceeding storage space with small database files](#exceeding-storage-space-with-small-database-files)||Has Workaround||
 |[GUID values shown instead of database names](#guid-values-shown-instead-of-database-names)||Has Workaround||
 |[Error logs aren't persisted](#error-logs-arent-persisted)||No Workaround||
-|[Transaction scope on two databases within the same instance isn't supported](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Has Workaround||
+|[Transaction scope on two databases within the same instance isn't supported](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Has Workaround|March 2020|
 |[CLR modules and linked servers sometimes can't reference a local IP address](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Has Workaround||
 |Database consistency not verified using DBCC CHECKDB after restore database from Azure Blob Storage.||Resolved|Nov 2019|
 |Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.||Resolved|Oct 2019|
@@ -110,7 +111,7 @@ If failover group spans across instances in different Azure subscriptions or res
 
 ### SQL Agent roles need explicit EXECUTE permissions for non-sysadmin logins
 
-If non-sysadmin logins are added to any of [SQL Agent fixed database roles](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles), there exists an issue in which explicit EXECUTE permissions need to be granted to the master stored procedures for these logins to work. If this issue is encountered, the error message “The EXECUTE permission was denied on the object <object_name> (Microsoft SQL Server, Error: 229)” will be shown.
+If non-sysadmin logins are added to any of [SQL Agent fixed database roles](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles), there exists an issue in which explicit EXECUTE permissions need to be granted to the master stored procedures for these logins to work. If this issue is encountered, the error message "The EXECUTE permission was denied on the object <object_name> (Microsoft SQL Server, Error: 229)" will be shown.
 
 **Workaround**: Once you add logins to either of SQL Agent fixed database roles: SQLAgentUserRole, SQLAgentReaderRole or SQLAgentOperatorRole, for each of the logins added to these roles execute the below T-SQL script to explicitly grant EXECUTE permissions to the stored procedures listed.
 
@@ -163,7 +164,7 @@ Cross-database Service Broker dialogs will stop delivering the messages to the s
 ### Impersonification of Azure AD login types is not supported
 
 Impersonation using `EXECUTE AS USER` or `EXECUTE AS LOGIN` of following AAD principals is not supported:
--	Aliased AAD users. The following error is returned in this case `15517`.
+-    Aliased AAD users. The following error is returned in this case `15517`.
 - AAD logins and users based on AAD applications or service principals. The following errors are returned in this case `15517` and `15406`.
 
 ### @query parameter not supported in sp_send_db_mail
@@ -223,7 +224,7 @@ Error logs that are available in managed instance aren't persisted, and their si
 
 ### Transaction scope on two databases within the same instance isn't supported
 
-The `TransactionScope` class in .NET doesn't work if two queries are sent to two databases within the same instance under the same transaction scope:
+**(Resolved in March 2020)** The `TransactionScope` class in .NET doesn't work if two queries are sent to two databases within the same instance under the same transaction scope:
 
 ```csharp
 using (var scope = new TransactionScope())
@@ -248,9 +249,7 @@ using (var scope = new TransactionScope())
 
 ```
 
-Although this code works with data within the same instance, it required MSDTC.
-
-**Workaround:** Use [SqlConnection.ChangeDatabase(String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) to use another database in a connection context instead of using two connections.
+**Workaround (not needed since March 2020):** Use [SqlConnection.ChangeDatabase(String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) to use another database in a connection context instead of using two connections.
 
 ### CLR modules and linked servers sometimes can't reference a local IP address
 
