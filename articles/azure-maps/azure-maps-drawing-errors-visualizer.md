@@ -3,7 +3,7 @@ title: Use Azure Maps Drawing Error Visualizer | Microsoft Azure Maps
 description: In this article, you'll learn about how to visualize warnings and errors returned by the Creator Conversion API.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/23/2020
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,7 +12,7 @@ manager: philmea
 
 # Using the Azure Maps Drawing Error Visualizer
 
-When an API development environment makes a request to the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion), the API will return a response to indicate success or failure. If the request fails, the API will return a link to the Drawing Error Visualizer, a stand-alone web application that displays [Drawing package warnings and errors](drawing-conversion-error-codes.md) detected during the conversion process. The Error Visualizer web application consists of a static page that you can use without connecting to the internet.  You can use the Error Visualizer to fix errors and warnings in accordance with [Drawing package requirements](drawing-requirements.md).
+The Drawing Error Visualizer is a stand-alone web application that displays [Drawing package warnings and errors](drawing-conversion-error-codes.md) detected during the conversion process. The Error Visualizer web application consists of a static page that you can use without connecting to the internet.  You can use the Error Visualizer to fix errors and warnings in accordance with [Drawing package requirements](drawing-requirements.md). The [Azure Maps Conversion API](https://docs.microsoft.com/rest/api/maps/data/conversion) only returns a response with a link to the Error Visualizer only when an error is detected.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
     >[!NOTE]
     >If your conversion process succeeds, you will not receive a link to the Error Visualizer tool.
 
-3. Under the response **Headers** tab in the Postman application, look for the `diagnosticPackageLocation` property, returned by the Conversion API. The response should look something like the following:
+3. Under the response **Headers** tab in the Postman application, look for the `diagnosticPackageLocation` property, returned by the Conversion API. The response should appear like the following JSON:
 
     ```json
     {
@@ -47,28 +47,31 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
     }
     ```
 
-4. Download the Drawing Package Error Visualizer by performing a `HTTP-GET` request on the `diagnosticPackageLocation` URL.
+4. Download the Drawing Package Error Visualizer by making a `HTTP-GET` request on the `diagnosticPackageLocation` URL.
 
 ## Setup
 
-Inside the downloaded zipped package from the `diagnosticPackageLocation` link, you'll find two files. The _VisualizationTool.zip_ is the standalone web application for Drawing Error Visualizer. The _ConversionWarningsAndErrors.json_ file contains a formatted list of warnings, errors, and additional details that are used by the _VisualizationTool.zip_.
+Inside the downloaded zipped package from the `diagnosticPackageLocation` link, you'll find two files.
 
-![Content of zipped package returned by the Azure Maps Conversion API](./media/azure-maps-dwg-errors-visualizer/content-of-the-zipped-package.png)
+* _VisualizationTool.zip_: Contains the source code, media, and web page for the Drawing Error Visualizer.
+* _ConversionWarningsAndErrors.json_: Contains a formatted list of warnings, errors, and additional details that are used by the Drawing Error Visualizer.
 
-Unzip the _VisualizationTool.zip_ folder. It contains an _assets_ folder with images and media files, a _static_ folder with source code, and an index.html file of the web page.
+Unzip the _VisualizationTool.zip_ folder. It contains the following items:
 
-![Content of zipped package for VisualizationTool.zip](./media/azure-maps-dwg-errors-visualizer/content-of-the-visualization-tool.png)
+* _assets_ folder: contains images and media files
+* _static_ folder: source code
+* _index.html_ file: the web application.
 
 Open the _index.html_ file using any of the browsers below, with the respective version number. You may use a different version, if the version offers equally compatible behavior as the listed version.
 
-- Microsoft Edge 80
-- Safari 13
-- Chrome 80
-- Firefox 74
+* Microsoft Edge 80
+* Safari 13
+* Chrome 80
+* Firefox 74
 
 ## Using the Drawing Error Visualizer tool
 
-After launching the Drawing Error Visualizer tool, you will be presented with the upload page. The upload page contains a drag & drop box. The drag & drop box also functions as button that launches a File Explorer dialog.
+After launching the Drawing Error Visualizer tool, you'll be presented with the upload page. The upload page contains a drag and drop box. The drag & drop box also functions as button that launches a File Explorer dialog.
 
 ![Drawing Error Visualizer App - Start Page](./media/azure-maps-dwg-errors-visualizer/start-page.png)
 
