@@ -21,6 +21,14 @@
       href: howto-create-private-cluster.md
     - name: Configure DNS Forwarding for an Azure Red Hat OpenShift 4 cluster
       href: dns-forwarding.md
+    - name: Monitoring and logging for Azure Red Hat OpenShift 4
+      items:
+        - name: Azure Monitor for containers in Azure Red Hat OpenShift 4 (preview)
+          items: 
+            - name: Configure Azure Monitor for containers for Azure Red Hat OpenShift 4 (preview)
+              href : ../azure-monitor/insights/container-insights-azure-redhat4-setup
+            - name: Disable Azure Monitor for containers in Azure Red Hat OpenShift 3.11 (preview)
+              href: ../zure-monitor/insights/container-insights-optout-openshift-v4
     - name: Azure Red Hat OpenShift 3.11
       items:
         - name: Set up your Azure Red Hat OpenShift dev environment for Azure Red Hat OpenShift 3.11
@@ -37,7 +45,7 @@
           href: howto-manage-projects.md
         - name: Create a private Azure Red Hat OpenShift 3.11 cluster
           href: howto-create-private-cluster.md
-        - name: Monitoring and logging
+        - name: Monitoring and logging for Azure Red Hat OpenShift 3.11
           items:
             - name: Azure Monitor for containers in Azure Red Hat OpenShift 3.11 (preview)
               items:
