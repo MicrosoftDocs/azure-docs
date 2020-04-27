@@ -12,6 +12,9 @@ In this report, an acquisition means a new customer has obtained a license to yo
 
 The Acquisitions report does not include data about refunds, reversals, chargebacks, and so on. To estimate your solution proceeds, visit Payout summary. 
 
+> [!NOTE]
+> Data latency on this report is 5 days. This report would contain data until 5 days in the past.
+
 <a name="BKMK_Edit"> </a>
 ## Apply filters
 
