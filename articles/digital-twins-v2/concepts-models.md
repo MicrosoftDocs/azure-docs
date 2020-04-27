@@ -58,48 +58,48 @@ Twin type models can be written in any text editor. The DTDL language follows JS
 
 ### Example model code
 
-Here is an example of a typical model, written as a DTDL interface: 
+Here is an example of a typical model, written as a DTDL interface. The model describes planets, each with a name, a mass, and a temperature. The planet may have moons as satellites, and it may contain craters.
 
 ```json
 [
-{
+  {
     "@id": "dtmi:com:contoso:Planet;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2",
     "displayName": "Planet",
     "contents": [
-        {
-            "@type": "Property",
-            "name": "name",
-            "schema": "string"
-        },
-        {
-            "@type": "Property",
-            "name": "mass",
-            "schema": "double"
-        },
-        {
-            "@type": "Telemetry",
-            "name": "Temperature",
-            "schema": "double"
-        },
-        {
-            "@type": "Relationship",
-            "name": "satellites",
-            "target": "dtmi:com:contoso:Moon;1"
-        }
-    ],
-    "components": [
-        {
-            "@type": "Component",
-            "name": "deepestCrater",
-            "schema": "dtmi:com:contoso:Crater;1"
-        }
+      {
+        "@type": "Property",
+        "name": "name",
+        "schema": "string"
+      },
+      {
+        "@type": "Property",
+        "name": "mass",
+        "schema": "double"
+      },
+      {
+        "@type": "Telemetry",
+        "name": "Temperature",
+        "schema": "double"
+      },
+      {
+        "@type": "Relationship",
+        "name": "satellites",
+        "target": "dtmi:com:contoso:Moon;1"
+      },
+      {
+        "@type": "Component",
+        "name": "deepestCrater",
+        "schema": "dtmi:com:contoso:Crater;1"
+      }
     ]
-},
-{
-    //Interface definition for dtmi:com:contoso:Crater;1
-}
+  },
+  {
+    "@id": "dtmi:com:contoso:Crater;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2"
+  }
 ]
 ```
 
@@ -112,6 +112,9 @@ The fields of the DTDL document are:
 | `@context` | Sets the [context](https://niem.github.io/json/reference/json-ld/context/) for the JSON document. Models should use `dtmi:dtdl:context;2`. |
 | `displayName` | [optional] Allows you to give the model a friendly name if desired. |
 | `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (*Property*, *Telemetry*, *Command*, *Relationship*, or *Component*) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a *Property*). |
+
+> [!NOTE]
+> Note that the component interface (*Crater* in this example) is defined in the same array as the interface that uses it (*Planet*). Components must be defined this way in API calls in order for the interface to be found.
 
 ### Schema options
 
