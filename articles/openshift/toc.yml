@@ -17,8 +17,6 @@
   items:
     - name: Create a private Azure Red Hat OpenShift 4 cluster 
       href: howto-create-private-cluster.md
-    - name: Configure a custom Certificate Authority (CA)
-      href: custom-ca.md 
     - name: Configure DNS Forwarding
       href: dns-forwarding.md
     - name: Azure Red Hat OpenShift 3.11

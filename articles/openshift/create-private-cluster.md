@@ -11,7 +11,7 @@ ms.custom: mvc
 #Customer intent: As an operator, I need to create a private Azure Red Hat OpenShift cluster
 ---
 
-# Create an Azure Red Hat OpenShift 4private cluster
+# Create an Azure Red Hat OpenShift 4 private cluster
 
 In this article, you'll prepare your environment to create Azure Red Hat OpenShift private clusters running OpenShift 4. You'll learn how to:
 
