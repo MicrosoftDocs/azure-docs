@@ -43,7 +43,9 @@ To create an encryption scope with PowerShell, first install the Az.Storage modu
 Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.13.4-preview –AllowPrerelease –AllowClobber –Force
 ```
 
-To create a new encryption scope that uses Microsoft-managed keys, call the New-AzStorageEncryptionScope command with the `-StorageEncryption` parameter. Remember to replace the placeholder values with your own values:
+### Create an encryption scope protected by Microsoft-managed keys
+
+To create a new encryption scope that is protected by Microsoft-managed keys, call the New-AzStorageEncryptionScope command with the `-StorageEncryption` parameter. Remember to replace the placeholder values with your own values:
 
 ```powershell
 New-AzStorageEncryptionScope -ResourceGroupName <resource_group> `
@@ -52,17 +54,17 @@ New-AzStorageEncryptionScope -ResourceGroupName <resource_group> `
     -StorageEncryption
 ```
 
-To create a new encryption scope that uses customer-managed keys with Azure Key Vault, first assign a managed identity to the storage account. This managed identity is used to grant permissions to the storage account to retrieve the key from the key vault. Next, call the New-AzStorageEncryptionScope command with the `-KeyvaultEncryption` parameter, and specify the key URI. Remember to replace the placeholder values with your own values:
+### Create an encryption scope protected by customer-managed keys
+
+To create a new encryption scope that is protected by customer-managed keys with Azure Key Vault, first configure customer-managed keys for the storage account. For more information, see [Configure customer-managed keys with Azure Key Vault by using PowerShell](../common/storage-encryption-keys-powershell.md).
+
+Next, call the New-AzStorageEncryptionScope command with the `-KeyvaultEncryption` parameter, and specify the key URI. Remember to replace the placeholder values with your own values:
 
 ```powershell
-$storageAccount = Set-AzStorageAccount -ResourceGroupName <resource_group> `
-    -Name <storage-account> `
-    -AssignIdentity
-
 New-AzStorageEncryptionScope -ResourceGroupName <resource_group> `
-    -AccountName <storage-account>
+    -AccountName <storage-account> `
     -EncryptionScopeName <encryption-scope> `
-    -KeyUri <key-uri>
+    -KeyUri <key-uri> `
     -KeyvaultEncryption
 ```
 
@@ -101,7 +103,14 @@ To disable an encryption scope in the Azure portal, navigate to the **Encryption
 
 # [PowerShell](#tab/powershell)
 
-???Need PS module
+To disable an encryption scope with PowerShell, call the Update-AzStorageEncryptionScope command and include the `-State` parameter with a value of `disabled`. To re-enable an encryption scope, call the same command with the `-State` parameter set to `enabled`.
+
+```powershell
+Update-AzStorageEncryptionScope -ResourceGroupName <resource_group> `
+    -StorageAccountName <storage-account> `
+    -EncryptionScopeName <encryption-scope> `
+    -State disabled
+```
 
 # [Azure CLI](#tab/cli)
 
@@ -109,14 +118,7 @@ To disable an encryption scope in the Azure portal, navigate to the **Encryption
 
 ---
 
-If your encryption scope uses customer-managed keys for Azure Key Vault, then you can also delete the key in the key vault to disable the encryption scope. Keep in mind that customer-managed keys in Azure Key Vault are protected by soft delete and purge protection, and a deleted key is subject to the behavior defined for by those properties. For more information, see one of the following topics in the Azure Key Vault documentation:
-
-- [How to use soft-delete with PowerShell](../../key-vault/general/soft-delete-powershell.md)
-- [How to use soft-delete with CLI](../../key-vault/general/soft-delete-cli.md)
-
-> [!NOTE]
-> It is not possible to delete an encryption scope.
-
 ## Next steps
 
 - [Azure Storage encryption for data at rest](../common/storage-service-encryption.md)
+- [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](../common/encryption-customer-managed-keys.md)

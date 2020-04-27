@@ -70,15 +70,15 @@ Read operations on a blob that belongs to an encryption scope happen transparent
 
 When you disable an encryption scope, any subsequent read or write operations made with the encryption scope will fail with HTTP error code 403 (Forbidden). If you re-enable the encryption scope, read and write operations will proceed normally again.
 
-If an encryption scope is protected with a customer-managed key in Azure Key Vault, then you can also delete the key to disable the encryption scope. Keep in mind that a key vault that stores customer-managed keys for Azure Storage encryption must be configured with the **Soft Delete** and **Purge Protection** properties. These properties protect keys from deletion, so be sure to take this behavior into account if you delete a customer-managed key. For more information, see one one of the following articles in the Azure Key Vault documentation:
+If your encryption scope is protected with customer-managed keys for Azure Key Vault, then you can also delete the associated key in the key vault in order to disable the encryption scope. Keep in mind that customer-managed keys in Azure Key Vault are protected by soft delete and purge protection, and a deleted key is subject to the behavior defined for by those properties. For more information, see one of the following topics in the Azure Key Vault documentation:
 
-- [Azure Key Vault - How to use soft-delete with PowerShell](../../key-vault/general/soft-delete-powershell.md)
-- [Azure Key Vault - How to use soft-delete with CLI](../../key-vault/general/soft-delete-cli.md)
-
-When an encryption scope is disabled, you are no longer billed for it. ???Need more info on pricing/costs???
+- [How to use soft-delete with PowerShell](../../key-vault/general/soft-delete-powershell.md)
+- [How to use soft-delete with CLI](../../key-vault/general/soft-delete-cli.md)
 
 > [!NOTE]
 > It is not possible to delete an encryption scope.
+
+When an encryption scope is disabled, you are no longer billed for it. ???Need more info on pricing/costs???
 
 ## Next steps
 
