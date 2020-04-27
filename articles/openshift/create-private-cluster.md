@@ -166,7 +166,7 @@ Next, you will create a virtual network containing two empty subnets.
     ```azurecli-interactive
     az network vnet subnet update \
     --name master-subnet \
-    --resource-group ar \
+    --resource-group $RESOURCEGROUP \
     --vnet-name aro-vnet \
     --disable-private-link-service-network-policies true
     ```
