@@ -362,6 +362,9 @@
     - name: Debug & troubleshoot parallel run step
       displayName: debug_batch consume pipeline parallelrunstep inference
       href: how-to-debug-parallel-run-step.md
+    - name: Iterating & evolving pipelines
+      displayName: iterating modularizing testing
+      href: concept-pipeline-practices-tips.md 
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
