@@ -96,11 +96,6 @@ Application Insights can gather telemetry data from any internet-connected appli
 
      ![Metrics tab: Average browser page load time chart](./media/dotnetcore-quick-start/8metrics.png)
 
-## Video
-
-- External step-by-step video about [configuring Application Insights with .NET Core and Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) from scratch.
-- External step-by-step video about [configuring Application Insights with .NET Core and Visual Studio Code](https://youtu.be/ygGt84GDync) from scratch.
-
 ## Clean up resources
 When you are done testing, you can delete the resource group and all related resources. To do so follow the steps below.
 

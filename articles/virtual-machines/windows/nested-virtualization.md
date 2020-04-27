@@ -1,16 +1,11 @@
 ---
 title: How to enable nested virtualization in Azure Virtual Machines  
 description: How to enable nested virtualization in Azure Virtual Machines
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-
 ms.author: cynthn
 ms.date: 10/09/2017
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 
 

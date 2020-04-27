@@ -91,6 +91,8 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Concepts
   items: 
+    - name: Plan and manage costs
+      href: concept-plan-manage-cost.md
     - name: Workspace
       href: concept-workspace.md
     - name: Environments
@@ -149,12 +151,15 @@
             - name: Use Private Link
               displayName: private endpoint
               href: how-to-configure-private-link.md
-            - name: Secure web services with SSL
+            - name: Secure web services with TLS
               href: how-to-secure-web-service.md
+              displayName: ssl
             - name: Use Azure AD identity in AKS deployments
               href: how-to-use-azure-ad-identity.md
             - name: Regenerate storage access keys
               href: how-to-change-storage-access-key.md
+            - name: Use Azure Firewall
+              href: how-to-access-azureml-behind-firewall.md
         - name: Set up authentication
           displayName: authentication, auth, oauth
           href: how-to-setup-authentication.md

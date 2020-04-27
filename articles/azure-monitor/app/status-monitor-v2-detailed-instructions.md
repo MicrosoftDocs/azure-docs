@@ -215,7 +215,7 @@ The Application Insights SDK will need to send your app's telemetry to Microsoft
 
 Use the `Enable-ApplicationInsightsMonitoring` command to enable monitoring.
 
-See the [API reference](../../azure-monitor/app/status-monitor-v2-api-reference.md) for a detailed description of how to use this cmdlet.
+See the [API reference](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference#enable-applicationinsightsmonitoring) for a detailed description of how to use this cmdlet.
 
 
 
