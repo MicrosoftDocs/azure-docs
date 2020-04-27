@@ -117,7 +117,7 @@ aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
     pin_sdk_version=False)
 ```
 
-## Build your data preparation step
+## Prepare data for automated machine learning
 
 ### Write the data preparation code
 
@@ -382,3 +382,6 @@ run.wait_for_completion()
 
 The code above combines the data preparation, automated ML, and model-registering steps into a `Pipeline` object. It then checks if an experiment named `titanic_automl` exists in the workspace. If not, it creates one. It submits the `Pipeline` to the `Experiment`, creating a `Run` object that will asynchronously run the pipeline. The `wait_for_completion()` function blocks until the run completes.
 
+## Next Steps
+
+- Explore a wide variety of Automated ML Notebooks 
