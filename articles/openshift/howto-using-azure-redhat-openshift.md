@@ -52,7 +52,7 @@ The `az aro` extension allows you to create, access, and delete Azure Red Hat Op
 2. Run the following command to install the `az aro` extension:
 
    ```console
-   az extension add -n aro --index https://az.aroapp.io/preview
+   az extension add -n aro --index https://az.aroapp.io/stable
    ```
 
 3. Verify the ARO extension is registered.
@@ -61,7 +61,7 @@ The `az aro` extension allows you to create, access, and delete Azure Red Hat Op
    az -v
    ...
    Extensions:
-   aro                                0.3.0
+   aro                                1.0.0
    ...
    ```
 
