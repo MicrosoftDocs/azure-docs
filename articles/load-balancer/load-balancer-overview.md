@@ -80,4 +80,4 @@ See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-p
 
 For more information on Azure Load Balancer limitations and components, see [Azure Load Balancer concepts and limitations](./concepts-limitations.md)
 
-For an Azure load balancing options comparison, see [Overview of load-balancing options in Azure].
+For an Azure load balancing options comparison, see [Overview of load-balancing options in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
