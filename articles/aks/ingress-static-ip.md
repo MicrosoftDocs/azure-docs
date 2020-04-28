@@ -283,7 +283,7 @@ certificate.cert-manager.io/tls-secret created
 
 ## Test the ingress configuration
 
-Open a web browser to the FQDN of your Kubernetes ingress controller, such as *https://demo-aks-ingress.eastus.cloudapp.azure.com*.
+Open a web browser to the FQDN of your Kubernetes ingress controller, such as *`https://demo-aks-ingress.eastus.cloudapp.azure.com`*.
 
 As these examples use `letsencrypt-staging`, the issued TLS/SSL certificate is not trusted by the browser. Accept the warning prompt to continue to your application. The certificate information shows this *Fake LE Intermediate X1* certificate is issued by Let's Encrypt. This fake certificate indicates `cert-manager` processed the request correctly and received a certificate from the provider:
 
@@ -297,7 +297,7 @@ The demo application is shown in the web browser:
 
 ![Application example one](media/ingress/app-one.png)
 
-Now add the */hello-world-two* path to the FQDN, such as *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two*. The second demo application with the custom title is shown:
+Now add the */hello-world-two* path to the FQDN, such as *`https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two`*. The second demo application with the custom title is shown:
 
 ![Application example two](media/ingress/app-two.png)
 
