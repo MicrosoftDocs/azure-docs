@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 07/15/2019
 
 ms.custom: mvc
-----
+---
 
 # Quickstart: Start monitoring your website with Azure Monitor Application Insights
 
@@ -26,7 +26,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 1. Select **Create a resource** > **Management tools** > **Application Insights**.
 
    > [!NOTE]
-   >If this is your first time creating an Application Insights resource see [Create an Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+   >If this is your first time creating an Application Insights resource see [Create an Application Insights resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 1. When the configuration box appears, use the following table to complete the input fields:
 
     | Settings        | Value           | Description  |
