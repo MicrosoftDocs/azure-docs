@@ -16,11 +16,11 @@ The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/dat
 
 ## Prerequisites
 
-The drawing package includes drawings saved in DWG format, the native file format for Autodesk’s AutoCAD® software, a trademark of Autodesk, Inc.
+The Drawing package includes drawings saved in DWG format, which is the native file format for Autodesk’s AutoCAD® software, a trademark of Autodesk, Inc.
 
-You may choose any CAD software to produce the drawings in the drawing package.  
+You may choose any CAD software to produce the drawings in the Drawing package.  
 
-The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion), which converts the drawing package, has been developed and tested using AutoCAD DWG file format, with AC1032 as the internal format version for the DWG files. You are encouraged to select AC1032 for the internal DWG file format version.  
+The [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) converts the Drawing package into map data.  The Conversion service as been developed and tested using the AutoCAD DWG file format, with AC1032 as the internal format version for the DWG files. You're encouraged to select AC1032 for the internal DWG file format version.  
 
 Glossary of terms used within this document.
 
@@ -34,7 +34,7 @@ Glossary of terms used within this document.
 
 ## Drawing Package structure
 
-A  Drawing package consists of files in AutoCAD DWG file format and a manifest file for a single facility, zipped into a single .zip extension file. The DWG files can be organized in any way inside the folder, but the manifest file must live at the root directory of the folder. The folder must be zipped in a single archive file, with a .zip extension. The next sections detail the requirements for the DWG files, manifest file, and the content of these files.  
+A Drawing package is a .zip file that consists of files in AutoCAD DWG file format and a manifest file for a single facility. The DWG files can be organized in any way inside the folder, but the manifest file must live at the root directory of the folder. The folder must be zipped in a single archive file, with a .zip extension. The next sections detail the requirements for the DWG files, manifest file, and the content of these files.  
 
 ## DWG files requirements
 
@@ -59,7 +59,7 @@ Moreover:
 
 * The origins of drawings for all DWG files must align to the same latitude and longitude.
 * Each level must be in the same orientation as the other levels
-* Self-intersecting polygons will be automatically repaired, and the  [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) will raise a warning. It is recommended to manually inspect the repaired results as they may not match the expected results.
+* Self-intersecting polygons will be automatically repaired, and the  [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) will raise a warning. It's recommended to manually inspect the repaired results as they may not match the expected results.
 
 All layer entities must be one of the following types: Line, PolyLine, Polygon, Circular Arc, Circle, Text (single line). Any other entity types will be ignored.
 
@@ -81,7 +81,7 @@ The next sections detail the requirements for each layer.
 
 The DWG file for each level must contain a layer to define that level's perimeter. This layer is referred  to as the exterior layer. For example, if a facility contains two levels, then it needs to have two DWG files, with an exterior layer for each file.
 
-Regardless of how many entity drawings are in the exterior layer, the [resulting facility dataset](tutorial-creator-indoor-maps.md#create-a-feature-stateset) will contain only **one** level feature for each DWG file. Additionally:
+Now matter how many entity drawings are in the exterior layer, the [resulting facility dataset](tutorial-creator-indoor-maps.md#create-a-feature-stateset) will contain only **one** level feature for each DWG file. Additionally:
 
 * Exteriors must be drawn as Polygon, PolyLine (closed), Circle
 
@@ -388,7 +388,7 @@ Below is a sample manifest file for the sample Drawing package. To download the 
 
 ## Next steps
 
-Once your drawing package meets the requirements, you may use the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) to convert the package to a map data set. Then, you can use the data set to generate an indoor map using the Indoor Maps module. Learn more about using the Indoor Maps module by reading the following articles:
+Once your Drawing package meets the requirements, you may use the [Azure Maps Conversion service](https://docs.microsoft.com/rest/api/maps/data/conversion) to convert the package to a map data set. Then, you can use the data set to generate an indoor map using the Indoor Maps module. Learn more about using the Indoor Maps module by reading the following articles:
 
 > [!div class="nextstepaction"]
 >[Creator for indoor maps](creator-for-indoor-maps.md)

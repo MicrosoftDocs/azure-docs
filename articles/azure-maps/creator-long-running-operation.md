@@ -13,11 +13,11 @@ ms.custom: mvc
 
 # Creator Long-Running Operation API
 
-Some API in Azure Maps follow an [Asynchronous Request-Reply pattern](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply). This pattern allows Azure Maps to provide highly available and responsive services through long-running asynchronous background processing. This article explains Azure Map's specific implementation of performing asynchronous background processing.
+Some API in Azure Maps use an [Asynchronous Request-Reply pattern](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply). This pattern allows Azure Maps to provide highly available and responsive services. This article explains Azure Map's specific implementation of long-running asynchronous background processing.
 
 ## Submitting a request
 
-A client application initiates a long-running operation through a synchronous call to an HTTP API. Typically, this call is in the form of an HTTP POST request. When an asynchronous workload is successfully created, the API will return an HTTP `202` status code, indicating that the request has been accepted. This response contains a `Location` header pointing to an endpoint that the client can poll to check the status of the long-running operation.
+A client application starts a long-running operation through a synchronous call to an HTTP API. Typically, this call is in the form of an HTTP POST request. When an asynchronous workload is successfully created, the API will return an HTTP `202` status code, indicating that the request has been accepted. This response contains a `Location` header pointing to an endpoint that the client can poll to check the status of the long-running operation.
 
 ### Example of a success response
 
@@ -27,7 +27,7 @@ Location: https://atlas.microsoft.com/service/operations/{operationId}
 
 ```
 
-If the call does not pass validation, the API will instead return an HTTP `400` response for a Bad Request. The response body will provide the client more information on why the request was invalid.
+If the call doesn't pass validation, the API will instead return an HTTP `400` response for a Bad Request. The response body will provide the client more information on why the request was invalid.
 
 ### Monitoring the operation status
 

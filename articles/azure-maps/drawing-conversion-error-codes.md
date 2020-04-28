@@ -94,7 +94,7 @@ To suppress a warning in the future, make changes to the original drawing such t
 
 Invalid archive format detected. Archive isn't a valid ZIP file. For example:
 
-* When the user called the Data upload service, the data wasn't inside a zip file or the data wasn't inside a supported zip format. GZip and 7Zip aren't supported file formats.
+* When the user called the Data upload service, the data wasn't inside a zip file or the data wasn't inside a supported zip format. GZip and 7-Zip aren't supported file formats.
 
 To resolve this error:
 
@@ -107,10 +107,11 @@ Unable to read user data object from storage. For example:
 
 * User provided an incorrect `udid` parameter
 
-To resolve this error:
+To resolve this error, confirm all of the following:
 
-1. Make sure you provide a correct `udid` for the uploaded package.
-2. Make sure Creator has been created for the Azure Maps account you used for uploading your Drawing package, and that the call to Conversion service matches Azure Maps account (for example, uses the same Azure Maps subscription key).
+1. That you have provide a correct `udid` for the uploaded package.
+2. That Azure Maps Creator has been enabled for the Azure Maps account you used for uploading the Drawing package.
+3. That the API request to the Conversion service contains the subscription key to the Azure Maps account you used for uploading the Drawing package.
 
 ### dwgError
 
@@ -167,7 +168,7 @@ Manifest georeference is invalid. For example, the user could be georeferencing:
 * Out of range latitude or longitude value
 * Out of range rotation value
 
-Check your georefereced values.
+Check your georeferenced values.
 
 For GeoJSON, the coordinates order is longitude and latitude. If you don't use the correct order, you may accidentally refer to an out of range latitude or longitude value.
 

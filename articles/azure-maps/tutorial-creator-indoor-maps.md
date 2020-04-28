@@ -12,7 +12,7 @@ manager: philmea
 
 # Use Creator to create indoor maps
 
-This tutorial shows you how to create indoor maps. In this tutorial, you will learn how to use the API to:
+This tutorial shows you how to create indoor maps. In this tutorial, you'll learn how to use the API to:
 
 > [!div class="checklist"]
 > * Upload your indoor map Drawing package
@@ -37,7 +37,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 ## Upload a Drawing package
 
 Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) to upload the Drawing package to Azure Maps resources.
- The Data Upload API is a long running transaction that implements the pattern defined here. Once the operation completes, we will use the `udid` to access the uploaded package to convert it. Follow the steps below to obtain the `udid`.
+ The Data Upload API is a long running transaction that implements the pattern defined here. Once the operation completes, we'll use the `udid` to access the uploaded package to convert it. Follow the steps below to obtain the `udid`.
 
 1. Open the Postman app. Near the top of the Postman app, select **New**. In the **Create New** window, select **Collection**.  Name the collection and select the **Create** button.
 
@@ -71,7 +71,7 @@ Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpr
     }
     ```
 
-8. To retrieve content metadata, create a **GET** HTTP request on the `resourceLocation` URL you copied in step 7. The response body contains a unique `udid` for the uploaded content, the location to access/download the content in the future, and some other metadata about the content like created/updated date, size, etc. An example of the overall response is:
+8. To retrieve content metadata, create a **GET** HTTP request on the `resourceLocation` URL you copied in step 7. The response body contains a unique `udid` for the uploaded content, the location to access/download the content in the future, and some other metadata about the content like created/updated date, size, and so on. An example of the overall response is:
 
      ```json
     {
@@ -98,7 +98,7 @@ Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpr
 
 3. Click the **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response, and look for the **Location** key. Copy the value of the **Location** key, which is the `status URL` for the conversion request.
 
-4. Start a new **GET** HTTP method in the builder tab. Append your Azure Maps primary subscription key to the `status URL`. Make a **GET** request at the `status URL` from the previous step. If the conversion process has not yet completed, you may see something like the following:
+4. Start a new **GET** HTTP method in the builder tab. Append your Azure Maps primary subscription key to the `status URL`. Make a **GET** request at the `status URL` from the previous step. If the conversion process hasn't yet completed, you may see something like the following:
 
     ```json
     {
@@ -108,7 +108,7 @@ Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpr
     }
     ```
 
-5. Once the request completes successfully, you will see a success status message in the response body.  Copy the `conversionId` from the `resourceLocation` URL for the converted package. The `conversionId` is used by other API to access the converted map data.
+5. Once the request completes successfully, you'll see a success status message in the response body.  Copy the `conversionId` from the `resourceLocation` URL for the converted package. The `conversionId` is used by other API to access the converted map data.
 
     ```json
    {
@@ -123,7 +123,7 @@ Use the [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpr
 >[!NOTE]
 >The Postman application does not natively support HTTP Long Running Requests. As a result, you may notice a long delay while making a **GET** request at the status URL.  Wait about thirty seconds and try clicking the **Send** button again until the response shows success or fail.
 
-The sample Drawing package should be successfully converted without errors.  However, if you do receive errors, the response, as shown below, will give you a link to the [Drawing error visualizer](azure-maps-drawing-errors-visualizer.md). To receive recommendations on how to resolve conversion errors and warnings, see the [Drawing conversion errors and warnings](drawing-conversion-error-codes.md).
+The sample Drawing package should be converted without errors. However, if you receive errors using your own Drawing package, the response, as shown below, will give you a link to the [Drawing error visualizer](azure-maps-drawing-errors-visualizer.md). To receive recommendations on how to resolve conversion errors and warnings, see the [Drawing conversion errors and warnings](drawing-conversion-error-codes.md).
 
 ```json
 {
@@ -157,7 +157,7 @@ The dataset is a collection of map features, such as buildings, levels, and room
     https://atlas.microsoft.com/dataset/operations/{operationsId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
-5. When the **GET** HTTP request completes successfully, the response header will contain the `datasetId` for the created dataset. Copy the `datasetId`. You will need to use the `datasetId` in order to create a tileset.
+5. When the **GET** HTTP request completes successfully, the response header will contain the `datasetId` for the created dataset. Copy the `datasetId`. You'll need to use the `datasetId` to create a tileset.
 
     ```json
     {
@@ -199,7 +199,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
 
 ## Query datasets with WFS API
 
- Datasets can be queried using  [WFS API](https://docs.microsoft.com/rest/api/maps/wfs). The steps below show you how to retrieve all feature collections in a dataset, a specific collection, and a specific feature and feature **ID** in a collection. The feature **ID** uniquely identifies the feature within the dataset. It is used, for example, to identify which feature state should be updated in a given stateset.
+ Datasets can be queried using  [WFS API](https://docs.microsoft.com/rest/api/maps/wfs). The steps below show you how to retrieve all feature collections in a dataset, a specific collection, and a specific feature and feature **ID** in a collection. The feature **ID** uniquely identifies the feature within the dataset. It's used, for example, to identify which feature state should be updated in a given stateset.
 
 1. In the Postman application, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** and select a collection. Click **Save**
 
@@ -243,7 +243,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-5. Copy the feature `id` for a unit feature that has style properties that can be dynamically modified.  Because the unit occupancy status and temperature can be dynamically updated, we will use this feature `id` in the next section. In the following example, the feature `id` is "UNIT26". We will refer to the style properties of this feature as states, and we will use the feature to make a stateset.
+5. Copy the feature `id` for a unit feature that has style properties that can be dynamically modified.  Because the unit occupancy status and temperature can be dynamically updated, we'll use this feature `id` in the next section. In the following example, the feature `id` is "UNIT26". we'll refer to the style properties of this feature as states, and we'll use the feature to make a stateset.
 
      ```json
     {
@@ -375,7 +375,7 @@ A tileset is a set of vector tiles that render on the map. Tilesets are created 
     >[!NOTE]
     > The update will only be saved if the time posted stamp is after the time stamp of the previous request. We can pass any keyname that we've previously configured during creation.
 
-7. Upon a successful update, you will receive a `200 OK` HTTP status code. If you have  [dynamic styling implemented](indoor-map-dynamic-styling.md) for an indoor map, the update will display in your rendered map at the specified time stamp.
+7. Upon a successful update, you'll receive a `200 OK` HTTP status code. If you have  [dynamic styling implemented](indoor-map-dynamic-styling.md) for an indoor map, the update will display in your rendered map at the specified time stamp.
 
 The [Feature Get States API](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) allows you to retrieve the state of a feature using its feature `ID`. You can also delete the stateset and its resources by using the [Feature State Delete API](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
 
