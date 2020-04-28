@@ -14,7 +14,7 @@ ms.author: babanisa
 # Authenticating access to Azure Event Grid resources
 This article provides information on authenticating access to Azure Event Grid resources. 
 
-## Azure Active Directory authentication for Webhook endpoints
+## Azure AD authentication for Webhook endpoints
 You can secure your webhook endpoint by using Azure Active Directory (Azure AD) to authenticate and authorize Event Grid to publish events to your endpoints. You'll need to create an Azure AD Application, create a role and service principle in your application authorizing Event Grid, and configure the event subscription to use the Azure AD Application. [Learn how to configure AAD with Event Grid](secure-webhook-delivery.md).
 
 You can secure your webhook endpoint by adding query parameters to the webhook URL when creating an Event Subscription. Set one of these query parameters to be a secret such as an [access token](https://en.wikipedia.org/wiki/Access_token). The webhook can use the secret to recognize the event is coming from Event Grid with valid permissions. Event Grid will include these query parameters in every event delivery to the webhook.
@@ -23,7 +23,7 @@ When editing the Event Subscription, the query parameters aren't displayed or re
 
 Finally, it's important to note that Azure Event Grid only supports HTTPS webhook endpoints.
 
-## Shared Access Signature or key authentication for custom topics
+## SAS or key authentication for custom topics
 Custom topics use either Shared Access Signature (SAS) or key authentication. We recommend SAS, but key authentication provides simple programming, and is compatible with many existing webhook publishers.
 
 You include the authentication value in the HTTP header. For SAS, use **aeg-sas-token** for the header value. For key authentication, use **aeg-sas-key** for the header value.

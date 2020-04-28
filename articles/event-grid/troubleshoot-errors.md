@@ -29,7 +29,7 @@ This troubleshooting guide provides you with a list of Azure Event Grid error co
 
 ## Troubleshoot event subscription validation
 
-During event subscription creation, if you're seeing an error message such as "The attempt to validate the provided endpoint https:\//your-endpoint-here failed. For more details, visit https:\//aka.ms/esvalidation", it indicates that there's a failure in the validation handshake. To resolve this error, verify the following aspects:
+During event subscription creation, if you're seeing an error message such as `The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation`, it indicates that there's a failure in the validation handshake. To resolve this error, verify the following aspects:
 
 - Do a HTTP POST to your webhook url with a [sample SubscriptionValidationEvent](webhook-event-delivery.md#validation-details) request body using Postman or curl or similar tool.
 - If your webhook is implementing synchronous validation handshake mechanism, verify that the ValidationCode is returned as part of the response.
