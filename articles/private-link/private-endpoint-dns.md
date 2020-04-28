@@ -30,7 +30,7 @@ Your applications don't need to change the connection URL. When attempting to re
 
 For Azure services, use the recommended zone names as described in the following table:
 
-| Private Link resource type | Subresource | Zone name | Public zone name |
+| Private Link resource type | Subresource | private DNS Zone name | Public DNS zone name |
 |---|---|---|---|
 | SQL DB (Microsoft.Sql/servers) | Sql Server (sqlServer) | privatelink.database.windows.net | database.windows.net |
 | Azure Synapse Analytics (Microsoft.Sql/servers) | Sql Server (sqlServer) | privatelink.database.windows.net | database.windows.net |
@@ -74,7 +74,7 @@ DNS is a critical component to make the application work correctly by resolving 
 Based on your preferences, the following scenarios are available for DNS resolution integrated:
 
 - [Virtual Network workloads without custom DNS server](#virtual-network-workloads-without-custom-dns-server)
-- [On premises workloads](#onpremisesworkloads)
+- [On premises workloads using a Custom DNS server](#on-premises-workloads-using-a-custom-dns-server)
 
 
 ## Virtual Network workloads without custom DNS server
@@ -106,9 +106,10 @@ In this scenario there's a [hub & spoke](https://docs.microsoft.com/azure/archit
 
 :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="hub and spoke with azure provided dns":::
 
-## On premises workloads
+## On premises workloads using a Custom DNS server
  
-In order to get on premises clients to resolve the IP address of a private endpoint , you must use a DNS forwarder deployed in Azure.
+For on premises workloads to be able to resolve an FQDN of a private endpoint into the private IP address, you must use a custom DNS server to forward the resolution for Azure service [public DNS zones](#azure-services-dns-zone-configuration) deployed in Azure.
+
 
 The following scenario is appropriate for an on premises network that has a DNS forwarder in Azure, which in turn is responsible for resolving all the DNS queries via a server level forwarder to the Azure provided DNS [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) 
 
