@@ -209,7 +209,7 @@ In this step, create a Power App with a search box, a search button, and a displ
 
    The following screenshot shows the formula bar for the **OnSelect** action.
 
-       :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Button OnSelect" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/2-6-search-button-event.png" alt-text="Button OnSelect" border="true":::
 
    This action will cause the button to update a new collection called *azResult* with the result of the search query, using the text in the *txtQuery* text box as the query term.
 
