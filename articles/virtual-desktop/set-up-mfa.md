@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -31,23 +31,17 @@ Here's what you'll need to get started:
 - Enable Azure MFA for all your users. For more information about how to do that, see [How to require two-step verification for a user](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
 
 >[!NOTE]
->The following setting also applies to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient/index.html).
+>The following setting also applies to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/arm/webclient).
 
 ## Opt in to the Conditional Access policy
 
 1. Open **Azure Active Directory**.
 
-2. Go to the **All applications** tab. In the "Application type" drop-down menu, select **Enterprise Applications**, then search for **Windows Virtual Desktop Client**.
-
-    ![A screenshot of the All applications tab. The user entered "windows virtual desktop client" into the search bar, and the app has shown up in the search results.](media/all-applications-search.png)
+2. Go to the **All applications** tab. In the "Application type" drop-down menu, then select **Enterprise Applications**.
 
 3. Select **Conditional Access**.
 
-    ![A screenshot showing the user hovering their mouse cursor over the Conditional Access tab.](media/conditional-access-location.png)
-
 4. Select **+ New policy**.
-
-   ![A screenshot of the Conditional Access page. The user is hovering their mouse cursor over the new policy button.](media/new-policy-button.png)
 
 5. Enter a **name** for the **rule**, then **select** the *name of the **group** you created in the prerequisites.
 
@@ -55,14 +49,12 @@ Here's what you'll need to get started:
 
 7. Next, open **Cloud Apps or actions**.
 
-8. On the **Select** panel, select the **Windows Virtual Desktop** Enterprise app.
+8. On the **Select** panel, select the **Windows Virtual Desktop** Enterprise app (app ID: 9cdead84-a844-4324-93f2-b2e6bb768d07).
 
-    ![A screenshot of the Cloud apps or actions page. The user has selected the Windows Virtual Desktop app by selecting the check mark next to it. The selected app is highlighted in red.](media/cloud-apps-select.png)
+    ![A screenshot of the Cloud apps or actions page. The user has selected the Windows Virtual Desktop app by selecting the check mark next to it. The selected app has a blue check mark next to it.](media/cloud-apps-select.png)
+
+    ![A screenshot of the Cloud apps or actions page. The user has selected the Windows Virtual Desktop app and is looking at the app's settings.](media/cloud-apps-enterprise.png)
     
-    >[!NOTE]
-    >You should also see the Windows Virtual Desktop Client app selected on the left side of the screen, as shown in the following image. You need both the Windows Virtual Desktop and Windows Virtual Desktop Client Enterprise apps for the policy to work.
-    >
-    > ![A screenshot of the Cloud apps or actions page. The Windows Virtual Desktop and Windows Virtual Desktop Client apps are highlighted in red.](media/cloud-apps-enterprise-selected.png)
 
 9. Select **Select**
 
