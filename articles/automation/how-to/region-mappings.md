@@ -15,7 +15,7 @@ manager: carmonm
 
 When enabling Update Management, Change Tracking and Inventory, or Start/Stop VMs during off-hours, only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription. This mapping only applies to the Automation account and the Log Analytics workspace. The Log Analytics workspace and Automation account must be in the same subscription, but can be in different resource groups deployed to the same region.
 
-For further information, see [Log Analytics workspace and Automation account](../azure-monitor/insights/solutions.md#log-analytics- workspace-and-automation-account).
+For further information, see [Log Analytics workspace and Automation account](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
 ## Supported mappings
 

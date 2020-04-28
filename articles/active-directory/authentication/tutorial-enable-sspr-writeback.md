@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/18/2020
+ms.date: 04/24/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -66,7 +66,7 @@ To set up the appropriate permissions for password writeback to occur, complete 
 1. From the **Permissions** tab, select **Add**.
 1. For **Principal**, select the account that permissions should be applied to (the account used by Azure AD Connect).
 1. In the **Applies to** drop-down list, select **Descendant User objects**.
-1. Under *Permissions*, select the boxes for the following options:
+1. Under *Permissions*, select the box for the following option:
     * **Reset password**
 1. Under *Properties*, select the boxes for the following options. You need to scroll through the list to find these options, which may already be set by default:
     * **Write lockoutTime**
@@ -78,7 +78,7 @@ To set up the appropriate permissions for password writeback to occur, complete 
 
 When you update permissions, it might take up to an hour or more for these permissions to replicate to all the objects in your directory.
 
-Password policies in the on-premises AD DS environment may prevent password resets from being correctly processed. For password writeback to work most efficiently, the group policy for *Minimum password age* must be set to 0. This setting can be found under **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies** within `gpedit.msc`. 
+Password policies in the on-premises AD DS environment may prevent password resets from being correctly processed. For password writeback to work most efficiently, the group policy for *Minimum password age* must be set to 0. This setting can be found under **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies** within `gpedit.msc`.
 
 If you update the group policy, wait for the updated policy to replicate, or use the `gpupdate /force` command.
 

@@ -356,14 +356,14 @@
       href: backup-azure-vms-troubleshoot.md
     - name: Azure Backup agent or VM extension timed out
       href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
+    - name: Azure Backup agent
+      href: backup-azure-mars-troubleshoot.md
     - name: Files and folders backup is slow
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
     - name: Azure Backup Server
       href: backup-azure-mabs-troubleshoot.md
     - name: System Center DPM
       href: backup-azure-scdpm-troubleshooting.md
-    - name: Azure Backup agent
-      href: backup-azure-mars-troubleshoot.md
     - name: Azure File share
       href: troubleshoot-azure-files.md
     - name: SQL Server
