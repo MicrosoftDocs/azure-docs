@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/23/2020
+ms.date: 04/28/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -38,9 +38,9 @@ The first step to perform an access review is to find and open the access review
 
 If you don't have the email, you can find your pending access reviews by following these steps.
 
-1. Sign in to the MyApps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Sign in to the My Apps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-    ![MyApps portal listing apps you have permissions to](./media/review-your-access/myapps-access-panel.png)
+    ![My Apps portal listing apps you have permissions to](./media/review-your-access/myapps-access-panel.png)
 
 1. In the upper-right corner of the page, click the user symbol, which displays your name and default organization. If more than one organization is listed, select the organization that requested an access review.
 
@@ -70,7 +70,7 @@ Once you have opened the access review, you can see your access.
 
 1. Click **Submit**.
 
-    Your selection is submitted and you returned to the MyApps portal.
+    Your selection is submitted and you returned to the My Apps portal.
 
     If you want to change your response, re-open the access reviews page and update your response. You can change your response at any time until the access review has ended.
 
@@ -106,11 +106,11 @@ The first step to perform an access review is to find and open the access review
  
    ![Pending access reviews list for apps and groups](./media/review-your-access/access-reviews-list-preview.png)
 
-### MyApps portal
+### My Apps portal
 
-1. Sign in to the MyApps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Sign in to the My Apps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-    ![MyApps portal listing apps you have permissions to](./media/review-your-access/myapps-access-panel.png)
+    ![My Apps portal listing apps you have permissions to](./media/review-your-access/myapps-access-panel.png)
 
 2. Click the **Access reviews** tile to see a list of pending access reviews.
 

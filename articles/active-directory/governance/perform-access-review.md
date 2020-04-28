@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/22/2020
+ms.date: 04/28/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -38,9 +38,9 @@ You can start the Access Review process from the notification email or by going 
 
 - **If you don't have the email**, you can find your pending access reviews by following these steps.
 
-    1. Sign in to the MyApps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
+    1. Sign in to the My Apps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-        ![MyApps portal listing apps you have permissions to](./media/perform-access-review/myapps-access-panel.png)
+        ![My Apps portal listing apps you have permissions to](./media/perform-access-review/myapps-access-panel.png)
 
     1. In the upper-right corner of the page, click the user next to your name and default organization. If more than one organization is listed, select the organization that requested an access review.
 
@@ -106,11 +106,11 @@ To make access reviews easier and faster for you, we also provide recommendation
 
 You can preview the reviewer experience with the updated user interface in My Access two different ways:
 
-### MyApps portal
+### My Apps portal
 
-1. Sign in to the MyApps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Sign in to the My Apps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-    ![MyApps portal listing apps you have permissions to](./media/perform-access-review/myapps-access-panel.png)
+    ![My Apps portal listing apps you have permissions to](./media/perform-access-review/myapps-access-panel.png)
 
 2. Click the **Access reviews** tile to see a list of pending access reviews.
 
