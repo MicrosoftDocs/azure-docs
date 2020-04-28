@@ -52,7 +52,9 @@ With Azure Marketplace, customers can discover technical applications built for 
 Azure Marketplace offers can be purchased through:
 
 * [The web-based storefront](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [The Azure portal][Azure portal]
+* [Azure portal](https://portal.azure.com) <br> 
+>[!Note]
+>Requires an Azure account. If you don't have one, you're redirected to the **Welcome to Azure** page, to create one.  
 * [The Azure Command Line Interface (CLI)](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
@@ -330,7 +332,7 @@ Leads are customers who are deploying your products from the Marketplace. Whethe
 
 **Where can I get help in setting up my lead destination?**
 
-Learn more in [Partner Center-Get Customer Leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) documentation, or submit a support ticket through [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) by selecting your offer type and lead management.
+Learn more in [Partner Center-Get Customer Leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) documentation, or submit a support ticket through [Help and support](https://partner.microsoft.com/support/v2/?stage=1) by selecting your offer type and lead management.
 
 **Am I required to configure a lead destination to publish an offer on Marketplace?**
 
@@ -352,7 +354,7 @@ Publishers based in the following countries/regions can currently sell in the Az
 1. Select the offer from the **All Offers** tab.
 1. In the pane on the left side of the screen, select the **SKUs** tab.
 1. Select the SKU for deletion and click the **delete** button for that SKU.
-1. [Republish](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) the offer to Azure Marketplace.
+1. [Republish](./partner-center-portal/update-existing-offer.md#review-and-publish-an-updated-offer) the offer to Azure Marketplace.
 
 For more information, see [updating an offer](./partner-center-portal/update-existing-offer.md).
 
