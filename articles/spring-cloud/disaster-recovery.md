@@ -27,3 +27,36 @@ Ensuring high availability and protection from disasters requires that you deplo
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) provides DNS-based traffic load-balancing and can distribute network traffic across multiple regions.  Use Azure Traffic Manager to direct customers to the closest Azure Spring Cloud service instance to them.  For best performance and redundancy, direct all application traffic through Azure Traffic Manager before sending it to your Azure Spring Cloud service.
 
 If you have Azure Spring Cloud applications in multiple regions, use Azure Traffic Manager to control the flow of traffic to your applications in each regions.  Define an Azure Traffic Manager endpoint for each service using the service IP. Customers should connect to an Azure Traffic Manager DNS name pointing to the Azure Spring Cloud service.  Azure Traffic Manager load balances traffic across the defined endpoints.  If a disaster strikes a data center, Azure Traffic Manager will direct traffic from that region to its pair, ensuring service continuity.
+
+## Create Azure Traffic Manager for Azure Spring Cloud
+
+1. Create Azure Spring Cloud in two different regions.
+You will need two service instances of Azure Spring Cloud deployed in two different regions (East US and West Europe). Launch an existing Azure Spring Cloud application using the Azure portal to create two service instances. Each will serve as primary and fail-over endpoint for Traffic. 
+**Two service instances info:**
+
+| Service Name | Location | Application |
+|--|--|--|
+| service-sample-a | East US | gateway / auth-service / account-service |
+| service-sample-b | West Europe | gateway / auth-service / account-service |
+
+2. Setup Custom Domain for Service
+Follow [Custom Domain Document](/articles/spring-cloud/spring-cloud-tutorial-custom-domain.md) to set up custom domain for these two existing service instances. After successful set up, both service instances will bind to custom domain: bcdr-test.contoso.com
+
+3. Create a traffic manager and two endpoints: [Create a Traffic Manager profile using the Azure portal](https://docs.microsoft.com/en-us/azure/traffic-manager/quickstart-create-traffic-manager-profile). 
+
+Here is the traffic manager profile:
+* Traffic Manager DNS Name: http://asc-bcdr.trafficmanager.net
+* One Endpoint Profile: 
+Type: External Endpoint
+Target: service-sample-a.asc-test.net
+Priority: 1
+Custom Header Settings: host: bcdr-test.contoso.com
+* Other Endpoint Profile: 
+Type: External Endpoint
+Target: service-sample-b.asc-test.net
+Priority: 2
+Custom Header Settings: host: bcdr-test.contoso.com
+
+4. Create a CNAME record in DNS Zone: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
+
+5. Now, the environment is completely setup. Customers should able to access the app via: bcdr-test.contoso.com
