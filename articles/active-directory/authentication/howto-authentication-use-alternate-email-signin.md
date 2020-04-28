@@ -52,7 +52,7 @@ One alternative to these scenarios is for users to sign in with their email addr
 
 Traditional Active Directory Domain Services (AD DS) or Active Directory Federation Services (AD FS) authentication happens directly on your network and is handled by your AD DS infrastructure. With hybrid authentication, users to sign in directly to Azure AD.
 
-You can synchronize your on-premises AD DS to Azure AD using [Azure AD Connect][azure-ad-connect] and configure it to use Password Hash Sync or Pass-Through Authentication. In both cases, the user submits their username and password to Azure AD, which validate the credentials and issues a ticket. This validation directly in Azure AD removes the need for your organization to host and manage an AD FS infrastructure.
+You can synchronize your on-premises AD DS environment to Azure AD using [Azure AD Connect][azure-ad-connect] and configure it to use Password Hash Sync or Pass-Through Authentication. In both cases, the user submits their username and password to Azure AD, which validate the credentials and issues a ticket. This validation directly in Azure AD removes the need for your organization to host and manage an AD FS infrastructure.
 
 ![Diagram of Azure AD hybrid identity with password hash synchronization](media/howto-authentication-use-alternate-email-signin/hybrid-password-hash-sync.png)
 
@@ -60,7 +60,7 @@ You can synchronize your on-premises AD DS to Azure AD using [Azure AD Connect][
 
 For more information, see [Choose the right authentication method for your Azure AD hybrid identity solution][hybrid-auth-methods].
 
-One of the user attributes that's automatically synchronized by Azure AD Connect is *ProxyAddresses*. If your users have their preferred sign-in email address in AD DS set in the *ProxyAddresses* attribute, it's automatically synchronized to the cloud.
+One of the user attributes that's automatically synchronized by Azure AD Connect is *ProxyAddresses*. If your users have their preferred sign-in email address set in AD DS as part of the *ProxyAddresses* attribute, it's automatically synchronized to the cloud.
 
 > [!IMPORTANT]
 > Only emails in verified domains for the tenant are synchronized to the cloud. Each Azure AD tenant has one or more verified domains, for which you have proven ownership, and are uniquely bound to you tenant.
@@ -69,11 +69,11 @@ One of the user attributes that's automatically synchronized by Azure AD Connect
 
 ## Enable sign-in with alternate email
 
-Once your users with the *ProxyAddresses* attribute set are synchronized to Azure AD using Azure AD Connect, you need to enable sign in with an alternate email for your tenant. This feature tells the Azure AD login servers to not only check the sign-in name against your UPN values, but also against your ProxyAddresses values for the alternate email address
+Once your users with the *ProxyAddresses* attribute set are synchronized to Azure AD using Azure AD Connect, you need to enable sign in with an alternate email for your tenant. This feature tells the Azure AD login servers to not only check the sign-in name against your UPN values, but also against your *ProxyAddresses* values for the alternate email address
 
-During preview, you can currently only enable this alternate email user sign-in feature using PowerShell. You need *tenant administrator* permissions to complete the following steps:
+During preview, you can currently only enable the alternate email user sign-in feature using PowerShell. You need *tenant administrator* permissions to complete the following steps:
 
-1. Launch PowerShell and install the *AzureADPreview* module using [Install-Module][Install-Module] cmdlet:
+1. Open an PowerShell session and install the *AzureADPreview* module using the [Install-Module][Install-Module] cmdlet:
 
     ```powershell
     Install-Module AzureADPreview
@@ -95,9 +95,9 @@ During preview, you can currently only enable this alternate email user sign-in 
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
     ```
 
-1. If there's no policy currently configured, the command returns nothing.
+1. If there's no policy currently configured, the command returns nothing. If a policy is returned, skip this step and move on to the next step to update an existing policy.
 
-    To add the *HomeRealmDiscoveryPolicy* policy to the tenant, use the [New-AzureADPolicy][New-AzureADPolicy] cmdlet and set the *AlternateIdLogin* attribute as shown in the following example:
+    To add the *HomeRealmDiscoveryPolicy* policy to the tenant, use the [New-AzureADPolicy][New-AzureADPolicy] cmdlet and set the *AlternateIdLogin* attribute to *"Enabled": true* as shown in the following example:
 
     ```powershell
     New-AzureADPolicy -Definition @('{"HomeRealmDiscoveryPolicy" :{"AlternateIdLogin":{"Enabled": true}}}') `
@@ -106,7 +106,7 @@ During preview, you can currently only enable this alternate email user sign-in 
         -Type "HomeRealmDiscoveryPolicy"
     ```
 
-    On successful completion, the command returns the policy ID, as shown in the following example output:
+    When the policy has been successfully created, the command returns the policy ID, as shown in the following example output:
 
     ```powershell
     Id                                   DisplayName                 Type                     IsOrganizationDefault
@@ -132,7 +132,7 @@ During preview, you can currently only enable this alternate email user sign-in 
     > [!IMPORTANT]
     > When you update the policy, make sure you include any old settings and the new *AlternateIdLogin* attribute.
 
-    The following example adds the *AlternateIdLogin* attribute and preserves the *AllowCloudPasswordValidation* attribute:
+    The following example adds the *AlternateIdLogin* attribute and preserves the *AllowCloudPasswordValidation* attribute that may have already been set:
 
     ```powershell
     Set-AzureADPolicy -id b581c39c-8fe3-4bb5-b53d-ea3de05abb4b `
@@ -147,13 +147,36 @@ During preview, you can currently only enable this alternate email user sign-in 
     ```powershell
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
     ```
-  
+
+## Test alternate email sign-in
+
+To test alternate email address sign-in works for a user, browse to [https://myprofile.microsoft.com][my-profile] and sign in with a user account based on their alternate email address, not their UPN. The sign-in experience should look and feel the same as with a UPN-based sign-in event.
+
+## Troubleshoot
+
+If users have trouble with sign-in using the alternate email address, review the following troubleshooting steps:
+
+1. Make sure the user account has their alternate email address set for the *ProxyAddresses* attribute in the on-prem AD DS environment.
+1. Verify that Azure AD Connect is configured and successfully synchronizes user accounts frm the on-prem AD DS environment into Azure AD.
+1. Confirm that the Azure AD *HomeRealmDiscoveryPolicy* policy has the *AlternateIdLogin* attribute set to *"Enabled": true*:
+
+    ```powershell
+    Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
+    ```
+
 ## Next steps
+
+To learn more about hybrid identity, such as Azure AD App Proxy or Azure AD Domain Services, see [Azure AD hybrid identity for access and management of on-prem workloads][hybrid-overview].
+
+For more information on hybrid identity operations, see [how password hash sync][phs-overview] or [pass-through authentication][pta-overview] synchronization work.
 
 <!-- INTERNAL LINKS -->
 [verify-domain]: ../fundamentals/add-custom-domain.md
 [hybrid-auth-methods]: ../hybrid/choose-ad-authn.md
 [azure-ad-connect]: ../hybrid/whatis-azure-ad-connect.md
+[hybrid-overview]: ../hybrid/cloud-governed-management-for-on-premises.md
+[phs-overview]: ../hybrid/how-to-connect-password-hash-synchronization.md
+[pta-overview]: ../hybrid/how-to-connect-pta-how-it-works.md
 
 <!-- EXTERNAL LINKS -->
 [Install-Module]: /powershell/module/powershellget/install-module
@@ -161,3 +184,4 @@ During preview, you can currently only enable this alternate email user sign-in 
 [Get-AzureADPolicy]: /powershell/module/azuread/get-azureadpolicy
 [New-AzureADPolicy]: /powershell/module/azuread/new-azureadpolicy
 [Set-AzureADPolicy]: /powershell/module/azuread/set-azureadpolicy
+[my-profile]: https://myprofile.microsoft.com

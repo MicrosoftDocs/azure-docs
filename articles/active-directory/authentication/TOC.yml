@@ -139,7 +139,7 @@
   - name: Use SMS-based authentication (preview)
     href: howto-authentication-sms-signin.md
   - name: Use alternate email address sign-in (preview)
-    href: howto-authentication-use-alternate-email-sign.md
+    href: howto-authentication-use-alternate-email-signin.md
   - name: Azure AD smart lockout
     href: howto-password-smart-lockout.md
   - name: Certificate-based authentication
