@@ -12,6 +12,8 @@ ms.author: cynthn
 
 # List, update, and delete image resources using PowerShell 
 
+You can manage your shared image gallery resources using Azure PowerShell.
+
 [!INCLUDE [virtual-machines-common-gallery-list-ps.md](../../includes/virtual-machines-common-gallery-list-ps.md)]
 
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]

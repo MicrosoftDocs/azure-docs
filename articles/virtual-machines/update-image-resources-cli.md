@@ -5,13 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 04/28/2020
 ms.author: cynthn
 
 ---
 
 # List, update, and delete image resources 
 
+You can manage your shared image gallery resources using the Azure CLI.
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli.md](../../includes/virtual-machines-common-gallery-list-cli.md)]
 

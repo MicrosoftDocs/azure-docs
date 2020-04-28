@@ -5,7 +5,7 @@ author: cynthn
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: tutorial
-ms.date: 04/24/2020
+ms.date: 04/28/2020
 ms.author: cynthn
 ms.custom: mvc
 
@@ -48,7 +48,10 @@ az vm create \
   --generate-ssh-keys
 ```
 
-The public IP address of your VM is shown in the output of the [az vm create](/cli/azure/vm) command. SSH to the public IP address of your VM as follows:
+> [!IMPORTANT]
+> The **ID** of your VM is shown in the output of the [az vm create](/cli/azure/vm) command. Copy this someplace safe so you can use it later in this tutorial.
+
+The public IP address of your VM is also shown in the output of the [az vm create](/cli/azure/vm) command. SSH to the public IP address of your VM as follows:
 
 ```console
 ssh azureuser@<publicIpAddress>
@@ -59,6 +62,8 @@ To customize your VM, let's install a basic web server. When the VM instance in 
 ```bash
 sudo apt-get install -y nginx
 ```
+
+When you are done, type `exit` to disconnect the SSH connection.
 
 ## Create an image gallery 
 
@@ -98,6 +103,9 @@ az sig image-definition create \
    --os-type Linux \
    --os-state specialized
 ```
+
+> [!IMPORTANT]
+> The **ID** of your image definition is shown in the output of the command. Copy this someplace safe so you can use it later in this tutorial.
 
 
 ## Create the image version
