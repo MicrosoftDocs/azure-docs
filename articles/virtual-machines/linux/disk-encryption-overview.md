@@ -52,29 +52,40 @@ Azure Disk Encryption is supported on a subset of the [Azure-endorsed Linux dist
 
 Linux server distributions that are not endorsed by Azure do not support Azure Disk Encryption; of those that are endorsed, only the following distributions and versions support Azure Disk Encryption:
 
-| Linux distribution | Version | Volume type supported for encryption|
+| Linux distribution | Version | SKU | Volume type supported for encryption |
 | --- | --- |--- |
-| Ubuntu | 18.04| OS and data disk |
-| Ubuntu | 16.04| OS and data disk |
-| Ubuntu | 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | OS and data disk |
-| RHEL | 7.7 | OS and data disk (see note below) |
-| RHEL | 7.6 | OS and data disk (see note below) |
-| RHEL | 7.5 | OS and data disk (see note below) |
-| RHEL | 7.4 | OS and data disk (see note below) |
-| RHEL | 7.3 | OS and data disk (see note below) |
-| RHEL | 7.2 | OS and data disk (see note below) |
-| RHEL | 6.8 | Data disk (see note below) |
-| RHEL | 6.7 | Data disk (see note below) |
-| CentOS | 7.7 | OS and data disk |
-| CentOS | 7.6 | OS and data disk |
-| CentOS | 7.5 | OS and data disk |
-| CentOS | 7.4 | OS and data disk |
-| CentOS | 7.3 | OS and data disk |
-| CentOS | 7.2n | OS and data disk |
-| CentOS | 6.8 | Data disk |
-| openSUSE | 42.3 | Data disk |
-| SLES | 12-SP4 | Data disk |
-| SLES | 12-SP3 | Data disk |
+| Ubuntu | 18.04 | 18.04-LTS | OS and data disk |
+| Ubuntu | 18.04 | 18.04-DAILY-LTS | OS and data disk |
+| Ubuntu | 16.04 | 16.04-DAILY-LTS | OS and data disk |
+| Ubuntu | 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | 14.04.5-LTS | OS and data disk |
+| Ubuntu | 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | OS and data disk |
+| RHEL | 7.7 | 7.7 | OS and data disk (see note below) |
+| RHEL | 7.7 | 7-RAW | OS and data disk (see note below) |
+| RHEL | 7.7 | 7-LVM | OS and data disk (see note below) |
+| RHEL | 7.6 | 7.6 | OS and data disk (see note below) |
+| RHEL | 7.5 | 7.5 | OS and data disk (see note below) |
+| RHEL | 7.4 | 7.4 | OS and data disk (see note below) |
+| RHEL | 7.3 | 7.3 | OS and data disk (see note below) |
+| RHEL | 7.2 | 7.2 | OS and data disk (see note below) |
+| RHEL | 6.8 | 6.8 | Data disk (see note below) |
+| RHEL | 6.7 | 6.7 | Data disk (see note below) |
+| CentOS | 7.7 | 7.7 | OS and data disk |
+| CentOS | 7.7 | 7-LVM | OS and data disk |
+| CentOS | 7.6 | 7.6 | OS and data disk |
+| CentOS | 7.5 |  7.5 | OS and data disk |
+| CentOS | 7.4 | 7.4 | OS and data disk |
+| CentOS | 7.3 | 7.3 | OS and data disk |
+| CentOS | 7.2n | 7.2n | OS and data disk |
+| CentOS | 7.1 | 7.1 | Data disk only |
+| CentOS | 7.0 | 7.0 | Data disk only |
+| CentOS | 6.8 | 6.8 | Data disk only |
+| CentOS | 6.7 | 6.7 | Data disk only |
+| CentOS | 6.6 | 6.6 | Data disk only |
+| CentOS | 6.5 | 6.5 | Data disk only |
+| openSUSE | 42.3 | 42.3 | Data disk only |
+| SLES Priority | 12-SP4 | 12-SP4 | Data disk only |
+| SLES Priority | 12-SP3 | 12-SP3 | Data disk only |
+| SLES HPC | 12-SP3 | 12-SP3 | Data disk only |
 
 > [!NOTE]
 > The new Azure Disk Encryption implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images.  
