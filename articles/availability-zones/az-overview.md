@@ -67,7 +67,7 @@ Azure services are grouped into three categories: foundational, mainstream, and 
 - **Mainstream** – Available in all recommended regions within 12 months of the region/service general availability; demand-driven in alternate regions (many are already deployed into a large subset of alternate regions).
 - **Specialized** – Targeted service offerings, often industry-focused or backed by customized/specialized hardware. Demand-driven availability across regions (many are already deployed into a large subset of recommended regions).
 
-To see which services are deployed in a given region, as well as the future roadmap for preview or general availability of services in a region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all)
+To see which services are deployed in a given region, as well as the future roadmap for preview or general availability of services in a region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all).
 
 If a service offering is not available in a specific region, you can share your interest by contacting your Microsoft sales representative.
 
@@ -78,7 +78,7 @@ If a service offering is not available in a specific region, you can share your 
 
 ### Service categories
 
-Azure classifies services into three categories: foundational, mainstream, and specialized. Service categories are assigned at general availability – many services start their lifecycle as a specialized service and as demand and utilization increases may be promoted to mainstream or foundational. This section lists the following services:
+Azure classifies services into three categories: foundational, mainstream, and specialized. Service categories are assigned at general availability. Many services start their lifecycle as a specialized service and as demand and utilization increases may be promoted to mainstream or foundational. This section lists the following services:
 
 - Services that are regional. For information about non-regional services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 - Older generation virtual machines are not listed. For more information, see documentation at [Previous generations of virtual machine sizes](../virtual-machines/sizes-previous-gen.md).
