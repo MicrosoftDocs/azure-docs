@@ -25,3 +25,4 @@ TODO
 - Discussion:
   - {shawn} Disambiguation needed RE RTC / chat apis
   - I've heard that we're offering "persistent chat", and also that customers will be 100% responsible for storage. Is Spool offering tightly-coupled storage, or will our customers roll their own persistance?  
+ 
