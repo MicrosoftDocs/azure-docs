@@ -18,6 +18,8 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 
 # App sign-in flow with Microsoft identity platform
 
+This topic discusses the basic sign-in flow for web, desktop, and mobile apps using Microsoft identity platform. See [Authentication flows and app scenarios](authentication-flows-app-scenarios.md) to learn about sign-in scenarios supported by Microsoft identity platform.
+
 ## Web app sign-in flow
 
 When a user navigates in the browser to a web app, the following happens:
@@ -51,7 +53,7 @@ User authentication happens via the browser. The OpenID protocol uses standard H
 * The redirect is provided by the web app in the form of a redirect URI. This redirect URI is registered with the Azure AD application object. There can be several redirect URIs because the application may be deployed at several URLs. So the web app will also need to specify the redirect URI to use.
 * Azure AD verifies that the redirect URI sent by the web app is one of the registered redirect URIs for the app.
 
-## Desktop and mobile app sign-in flow with Microsoft identity platform
+## Desktop and mobile app sign-in flow
 
 The flow described above applies, with slight differences, to desktop and mobile applications.
 
