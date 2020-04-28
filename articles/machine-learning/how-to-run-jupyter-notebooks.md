@@ -63,7 +63,7 @@ For an example, see [Tutorial: Create your first ML experiment](tutorial-1st-exp
 You can access all Git operations by using a terminal window. All Git files and folders will be stored in your workspace file system.
 
 > [!NOTE]
-> Add your files and folders anywhere under the **/Users** folder so they will be visible in all your Jupyter environments.
+> Add your files and folders anywhere under the **~/cloudfiles/code/Users** folder so they will be visible in all your Jupyter environments.
 
 To access the terminal:
 
@@ -78,7 +78,6 @@ To access the terminal:
 1. If you don't see the icon, select the **...** to the right of the compute target and then select **Open terminal** .
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Open terminal from ...":::
-
 
 
 Learn more about [cloning Git repositories into your workspace file system](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
