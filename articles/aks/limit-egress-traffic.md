@@ -160,8 +160,8 @@ The following FQDN / application rules are required for AKS clusters that have t
 |-----------------------------------------|-----------|----------|
 | gov-prod-policy-data.trafficmanager.net | HTTPS:443 | This address is used for correct operation of Azure Policy. (currently in preview in AKS) |
 | raw.githubusercontent.com | HTTPS:443 | This address is used to pull the built-in policies from GitHub to ensure correct operation of Azure Policy. (currently in preview in AKS) |
-| *.gk.\<location\>.azmk8s.io | HTTPS:443    | Azure policy add-on that talks to Gatekeeper audit endpoint running in master server to get the audit results. |
-| dc.services.visualstudio.com | HTTPS:443 | Azure policy add-on that sends telemetry data to applications insights endpoint. |
+| *.gk.\<location\>.azmk8s.io | HTTPS:443    | Azure Policy add-on that talks to Gatekeeper audit endpoint running in master server to get the audit results. |
+| dc.services.visualstudio.com | HTTPS:443 | Azure Policy add-on that sends telemetry data to applications insights endpoint. |
 
 ## Required by Windows Server based nodes (in public preview) enabled
 

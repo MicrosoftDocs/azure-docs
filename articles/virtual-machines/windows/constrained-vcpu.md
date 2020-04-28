@@ -2,14 +2,9 @@
 title: Azure constrained vCPU sizes - Windows 
 description: Lists the Vm sizes that are capable of having a constrained vCPU count.
 services: virtual-machines-windows
-documentationcenter: ''
 author: joelpelley
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
