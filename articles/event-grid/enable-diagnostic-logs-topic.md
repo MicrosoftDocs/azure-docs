@@ -11,12 +11,12 @@ ms.author: spelluru
 ---
 
 #  Diagnostic logs for an Azure event grid topic
-Diagnostic Settings now allows Event Grid users to capture and view **publish and delivery failure** Logs in either a Storage account, an event hub or a Log Analytics Workspace. This article provides step-by-step instructions to enable these settings on an Event Grid Topic.
+Diagnostic Settings now allow Event Grid users to capture and view **publish and delivery failure** Logs in either a Storage account, an event hub or a Log Analytics Workspace. This article provides step-by-step instructions to enable these settings on an Event Grid Topic.
 
 ## Prerequisites
 
 - A provisioned event grid topic
-- A provisioned destination for capturing diagnostic logs. It can one of the following destinations in the same location as the Event Grid topic:
+- A provisioned destination for capturing diagnostic logs. It can one of the following destinations in the same location as the event grid topic:
     - Azure storage account
     - Event hub
     - Log Analytics workspace
@@ -52,7 +52,7 @@ Diagnostic Settings now allows Event Grid users to capture and view **publish an
 1. Once you enable a storage account as a capture destination and Event Grid starts emitting diagnostic logs, you should see new containers named **insights-logs-deliveryfailures** and **insights-logs-publishfailures** in the storage account. 
 
     ![Storage - containers for diagnostic logs](./media/enable-diagnostic-logs-topic/storage-containers.png)
-2. As you navigate through one of the containers, you will end up at a blob in JSON format. The file contains a log entries for either a delivery failure or a publish failure. The navigation path represents the **ResourceId** of the Event Grid topic and the timestamp (minute level) as to when the log entries were emitted. The blob/JSON file, which is downloadable, in the end adheres to the schema described in the next section. 
+2. As you navigate through one of the containers, you will end up at a blob in JSON format. The file contains log entries for either a delivery failure or a publish failure. The navigation path represents the **ResourceId** of the event grid topic and the timestamp (minute level) as to when the log entries were emitted. The blob/JSON file, which is downloadable, in the end adheres to the schema described in the next section. 
 
     ![JSON file in the storage](./media/enable-diagnostic-logs-topic/select-json.png)
 3. You should see content in the JSON file similar to the following example: 
@@ -68,7 +68,7 @@ Diagnostic Settings now allows Event Grid users to capture and view **publish an
     }
     ```
 
-## Pubish and delivery failure log schema
+## Publish and delivery failure log schema
 
 | Property name | Data type | Description |
 | ------------- | --------- | ----------- | 
