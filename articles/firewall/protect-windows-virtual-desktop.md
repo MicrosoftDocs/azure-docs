@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 04/28/2020
 ms.author: victorh
 ---
 
@@ -13,7 +13,7 @@ ms.author: victorh
 
 Windows Virtual Desktop (WVD) is a desktop and app virtualization service that runs on Azure. When an end user connects to a Windows Virtual Desktop environment, their session is run by a host pool. A host pool is a collection of Azure virtual machines that register to Windows Virtual Desktop as session hosts. These virtual machines run in your virtual network and are subject to the virtual network security controls. They need outbound Internet access to the WVD service to operate properly and might also need outbound Internet access for end users. Azure Firewall can help you lock down your environment and filter outbound traffic.
 
-![Windows Virtual Desktop architecture](media/protect-windows-virtual-desktop/wvd-architecture-diagram.png)
+![Windows Virtual Desktop architecture](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png)
 
 Follow the guidelines in this article to provide additional protection for your WVD host pool using Azure Firewall.
 
