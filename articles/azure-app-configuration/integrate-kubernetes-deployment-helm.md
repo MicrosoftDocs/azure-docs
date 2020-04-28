@@ -1,5 +1,5 @@
 ---
-title: "Integrate Azure App Configuration with Kubernetes Deployment using Helm"
+title: Integrate Azure App Configuration with Kubernetes Deployment using Helm
 description: Learn how to use dynamic configurations in Kubernetes deployment with Helm. 
 services: azure-app-configuration
 author: shenmuxiaosen
@@ -14,7 +14,19 @@ ms.author: shuawan
 ---
 # Integrate with Kubernetes Deployment Using Helm
 
-In this tutorial, we will use a sample Helm chart and show how to generate configurations and secrets from the App Configuration that can be used in Kubernetes deployment.
+Helm provides a way to define, install, and upgrade applications running in Kubernetes. A Helm chart contains the information necessary to create an instance of a Kubernetes application. Configuration is stored outside of the chart itself, in a file called *values.yaml*. 
+
+During the release process, Helm merges the chart with the proper configuration to run the application. For example, variables defined in *values.yaml* can be referenced as environment variables inside the running containers. Helm also supports creation of Kubernetes Secrets, which can be mounted as data volumes or exposed as environment variables.
+
+You can override the values stored in *values.yaml* by providing additional YAML-based configuration files on the command line when running Helm. Azure App Configuration supports exporting configuration values to YAML files. Integrating this export capability into your deployment allows your Kubernetes applications to leverage configuration values stored in App Configuration.
+
+In this tutorial, you learn how to:
+> [!div class="checklist"]
+> * Use values from App Configuration when deploying an application to Kubernetes using Helm.
+> * Create a Kubernetes Secret based on a Key Vault reference in App Configuration.
+
+This tutorial assumes basic understanding of managing Kubernetes with Helm. 
+Learn more about installing applications with Helm in [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-helm).
 
 ## Prerequisites
 
@@ -22,8 +34,6 @@ In this tutorial, we will use a sample Helm chart and show how to generate confi
 - Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.4.0 or later)
 - Install [Helm](https://helm.sh/docs/intro/install/) (version 2.14.0 or later)
 - A Kubernetes cluster.
-
-This tutorial assumes basic understanding of managing Kubernetes with Helm. Learn more about installing applications with Helm in [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-helm).
 
 ## Create an App Configuration store
 
@@ -42,21 +52,25 @@ This tutorial assumes basic understanding of managing Kubernetes with Helm. Lear
 1. Sign in to the [Azure portal](https://portal.azure.com) and add a secret to [Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault) with name **Password** and value **myPassword**. 
 2. Select the App Configuration store instance that you created in previous section.
 
-1. Select **Configuration Explorer**.
+3. Select **Configuration Explorer**.
 
-1. Select **+ Create** > **Key vault reference**, and then specify the following values:
+4. Select **+ Create** > **Key vault reference**, and then specify the following values:
     - **Key**: Select **secrets.password**.
     - **Label**: Leave this value blank.
     - **Subscription**, **Resource group**, and **Key vault**: Enter the values corresponding to those in the key vault you created in previous step.
     - **Secret**: Select the secret named **Password** that you created in the previous section.
 
 ## Create Helm chart ##
-First, we will create a sample Helm chart with the following command
+First, create a sample Helm chart with the following command
 ```console
 helm create mychart
 ```
 
-Helm will create a new directory called mychart with the structure shown below. You can follow the [charts guide](https://helm.sh/docs/chart_template_guide/getting_started/) to learn more.
+Helm creates a new directory called mychart with the structure shown below. 
+
+> [!TIP]
+> Follow this [charts guide](https://helm.sh/docs/chart_template_guide/getting_started/) to learn more.
+
 ```
 mychart
 |-- Chart.yaml
@@ -70,7 +84,7 @@ mychart
 `-- values.yaml
 ```
 
-Next, we will update the *deployment.yaml* file and add the following snippet which adds two environment variables to the container under **spec:template:spec:containers**. It shows how to dynamically pass configurations into deployment.
+Next, update the **spec:template:spec:containers** section of the *deployment.yaml* file. The following snippet adds two environment variables to the container. You'll set their values dynamically at deployment time.
 
 ```yaml
 env:
@@ -141,7 +155,10 @@ spec:
     {{- end }}
 ```
 
-Then we add a *secrets.yaml* file under the templates folder with following content. It will be used to store Kubernetes Secrets, such as passwords. The secrets will be accessible from inside the container. Learn more about how to use [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets).
+To store sensitive data as Kubernetes Secrets, add a *secrets.yaml* file under the templates folder.
+
+> [!TIP]
+> Learn more about how to use [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets).
 
 ```yaml
 apiVersion: v1
@@ -153,7 +170,7 @@ data:
   password: {{ .Values.secrets.password }}
 ```
 
-Finally, we can update the *values.yaml* file with the following content to optionally provide default values of the configuration settings and secrets that we referenced in the *deployment.yaml* and *secrets.yaml* files earlier. Their actual values will be overwritten by configuration pulled from the App Configuration.
+Finally, update the *values.yaml* file with the following content to optionally provide default values of the configuration settings and secrets that referenced in the *deployment.yaml* and *secrets.yaml* files. Their actual values will be overwritten by configuration pulled from the App Configuration.
 
 ```yaml
 # settings will be overwritten by App Configuration
@@ -163,33 +180,42 @@ settings:
 ```
 
 ## Pass configuration data from App Configuration during Helm install ##
-First, we download the configuration from App Configuration to a *myConfig.yaml* file. We use a key filter to only download those keys that start with **settings.**. If in your case the key filter is not sufficient to exclude keys of Key Vault references, you may use the argument **--skip-keyvault** to exclude them. Learn more about the [export command](https://docs.microsoft.com/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export). 
+First, download the configuration from App Configuration to a *myConfig.yaml* file. Use a key filter to only download those keys that start with **settings.**. If in your case the key filter is not sufficient to exclude keys of Key Vault references, you may use the argument **--skip-keyvault** to exclude them. 
+
+> [!TIP]
+> Learn more about the [export command](https://docs.microsoft.com/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export). 
+
 ```azurecli-interactive
 az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml
 ```
 
-Then we download secrets to a *mySecrets.yaml* file. Note the parameter **--resolve-keyvault** is used so the Key Vault references will be resolved and the actual values in the Key Vault will be retrieved. Make sure the credential that is used to run this command has access permission to the corresponding Key Vault. As this file contains sensitive information, keep the file with care and clean up when it's not needed anymore.
+Next, download secrets to a file called *mySecrets.yaml*. The command-line argument **--resolve-keyvault** resolves the Key Vault references by retrieving the actual values in Key Vault. You'll need to run this command with credentials that have access permissions to the corresponding Key Vault.
+
+> [!WARNING]
+> As this file contains sensitive information, keep the file with care and clean up when it's not needed anymore.
+
 ```azurecli-interactive
 az appconfig kv export -n myAppConfiguration -d file --path mySecrets.yaml --key "secrets.*" --separator "." --resolve-keyvault --format yaml
 ```
 
-In the end, pass those two files during Helm install with argument **-f** to overwrite *values.yaml*.
+Use helm upgrade's **-f** argument to pass in the two configuration files you've created. They'll override the configuration values defined in *values.yaml* with the values exported from App Configuration.
+
 ```console
 helm upgrade --install -f myConfig.yaml -f mySecrets.yaml "example" ./mychart 
 ```
 
-If there is a concern for putting sensitive data in persistent storage, export content of key vault references to memory. Besides files Helm also allows passing literal key values with argument **--set**. Learn more about [Helm usage](https://helm.sh/docs/intro/using_helm/).
+You can also use the **--set** argument for helm upgrade to pass literal key values. Using the **--set** argument is a good way to avoid persisting sensitive data to disk. 
 
 ```powershell
 $secrets = az appconfig kv list -n myAppConfiguration --key "secrets.*" --resolve-keyvault --query "[*].{name:key, value:value}" | ConvertFrom-Json
 
 foreach ($secret in $secrets) {
-  $keyvaules += $secret.name + "=" + $secret.value + ","
+  $keyvalues += $secret.name + "=" + $secret.value + ","
 }
 
-if ($keyvaules){
-  $keyvaules = $keyvaules.TrimEnd(',')
-  helm upgrade --install --set $keyvaules "example" ./mychart 
+if ($keyvalues){
+  $keyvalues = $keyvalues.TrimEnd(',')
+  helm upgrade --install --set $keyvalues "example" ./mychart 
 }
 else{
   helm upgrade --install "example" ./mychart 
@@ -197,9 +223,12 @@ else{
 
 ```
 
-We can verify configurations and secrets are successfully pulled by accessing [Kubernetes Dashboard](https://docs.microsoft.com/azure/aks/kubernetes-dashboard). Two settings, **color** and **message**, stores in App Configuration were populated into container's environment variables.
+Verify that configurations and secrets were set successfully by accessing the [Kubernetes Dashboard](https://docs.microsoft.com/azure/aks/kubernetes-dashboard). You'll see that the **color** and **message** values from App Configuration were populated into the container's environment variables.
+
 ![Quickstart app launch local](./media/kubernetes-dashboard-env-variables.png)
+
 One secret, **password**, stores as Key Vault reference in App Configuration was also added into Kubernetes Secrets. 
+
 ![Quickstart app launch local](./media/kubernetes-dashboard-secrets.png)
 
 ## Clean up resources
