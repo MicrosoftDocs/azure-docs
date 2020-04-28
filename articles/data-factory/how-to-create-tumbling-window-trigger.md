@@ -14,6 +14,8 @@ ms.date: 09/11/2019
 ---
 
 # Create a trigger that runs a pipeline on a tumbling window
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article provides steps to create, start, and monitor a tumbling window trigger. For general information about triggers and the supported types, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
 
 Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping, and contiguous time intervals. A tumbling window trigger has a one-to-one relationship with a pipeline and can only reference a singular pipeline.
@@ -224,5 +226,5 @@ To monitor trigger runs and pipeline runs in the Azure portal, see [Monitor pipe
 
 ## Next steps
 
-* For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers).
+* For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution).
 * [Create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md)

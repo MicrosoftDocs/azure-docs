@@ -8,6 +8,7 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: robinsh
+ms.custom: [amqp, mqtt]
 ---
 
 # Azure IoT device SDK for C

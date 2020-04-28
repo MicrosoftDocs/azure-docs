@@ -12,7 +12,7 @@ ms.author: victorh
 
 # Configure TLS termination with Key Vault certificates by using Azure PowerShell
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Application Gateway supports integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the Application Gateway v2 SKU.
+[Azure Key Vault](../key-vault/general/overview.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Application Gateway supports integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the Application Gateway v2 SKU.
 
 For more information, see [TLS termination with Key Vault certificates](key-vault-certs.md).
 
@@ -66,7 +66,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> The -EnableSoftDelete flag must be used for TLS termination to function properly. If you're configuring [Key Vault soft-delete through the Portal](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior), the retention period must be kept at 90 days, the default value. Application Gateway doesn't support a different retention period yet. 
+> The -EnableSoftDelete flag must be used for TLS termination to function properly. If you're configuring [Key Vault soft-delete through the Portal](../key-vault/general/overview-soft-delete.md#soft-delete-behavior), the retention period must be kept at 90 days, the default value. Application Gateway doesn't support a different retention period yet. 
 
 ### Create a virtual network
 

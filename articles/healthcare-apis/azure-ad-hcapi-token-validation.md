@@ -99,9 +99,9 @@ Once the server has verified the authenticity of the token, the FHIR server will
 When using the Azure API for FHIR, the server will validate:
 
 1. The token has the right `Audience` (`aud` claim).
-1. The user or principal that the token was issued for is allowed to access the FHIR server data plane. The `oid` claim of the token contains an identity object ID, which uniquely identifies the user or principal.
+1. The `oid` claim contains an identity object ID, which is in the list of allowed object IDs.
 
-We recommend that the FHIR service be [configured to use Azure RBAC](configure-azure-rbac.md) to manage data plane role assignments. But you can also [configure local RBAC](configure-local-rbac.md) if your FHIR service uses an external or secondary Azure Active Directory tenant. 
+See details on [finding identity object IDs](find-identity-object-ids.md). 
 
 When using the OSS Microsoft FHIR server for Azure, the server will validate:
 

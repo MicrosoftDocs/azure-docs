@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/12/2020
+ms.date: 04/23/2020
 ---
 
 # Manage Apache Hadoop clusters in HDInsight by using the Azure portal
@@ -220,7 +220,7 @@ The password is changed on all nodes in the cluster.
    | Name |"Change ssh password" |
    | Bash script URI |The URI to the changepassword.sh file |
    | Node type(s): (Head, Worker, Nimbus, Supervisor, or Zookeeper.) |✓ for all node types listed |
-   | Parameters |Enter the SSH user name and then the new password. There should be one space between the user name and the password. |
+   | Parameters |Enter the SSH user name and then the new password. There should be one space between the user name and the password. The following characters are not supported in ssh passwords: " ' ` / \ < % ~ | $ &
    | Persist this script action ... |Leave this field unchecked. |
 
 6. Select **Create** to apply the script. Once the script finishes, you're able to connect to the cluster using SSH with the new password.
