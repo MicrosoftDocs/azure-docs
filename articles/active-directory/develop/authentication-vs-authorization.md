@@ -46,5 +46,5 @@ For other topics covering authentication and authorization basics:
 
 To learn more about the protocols that Microsoft identity platform implements:
 
-* See [OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform](active-directory-v2-protocols.md)
-* See [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md)
+* See [OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform](active-directory-v2-protocols.md) for more information on the OpenID Connect and OAuth 2.0 standards.
+* See [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md) for more information on how Microsoft identity platform supports Single Sign-On.
