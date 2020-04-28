@@ -15,7 +15,9 @@ ms.author: sideeksh
 This article describes how to replicate, failover, and failback Azure virtual machines from one Availability Zone to another within the same Azure region.
 
 >[!NOTE]
+
 > Site Recovery currently does not support Recovery Plans for Zone to Zone Disaster Recovery. This support is coming soon.
+
 > Support for Zone to Zone disaster recovery is currently limited to two regions: Southeast Asia and UK South. Support for other regions that have zones is coming soon. 
 
 Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running, during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines, including replication, failover, and failback. In the case of Azure virtual machines, Site Recovery helps with replication, failover, and failback between two Azure regions. It is the recommended Disaster Recovery option to keep your applications up and running in the event of regional outages. It also helps address the compliance needs of your organization when it comes to resiliency against different types of failures.
@@ -59,11 +61,17 @@ As mentioned above, Zone to Zone Disaster Recovery reduces complexity as it leve
 ## Interoperability with Azure platform features
 
 • IaaS V1/V2: Classic VMs are not supported. ARM VMs are supported.
+
 • ADE V1/V2: Both ADE v1 (dual pass, with AAD) and ADE v2 (single pass, without AAD) are supported.
+
 • Managed/Unmanaged Disk: Both are supported.
+
 • Customer Managed Keys: Supported.
+
 • Proximity Placement Groups: Not yet supported.
+
 • Backup Interoperability: File level backup and restore is supported. Disk and VM level backup and restores are not supported.
+
 • Hot Add / Remove: Disks can be added after enabling Zone to Zone replication. Removal of disks after enabling Zone to Zone replication is not supported.
 
 ## Setup Site Recovery Zone to Zone Disaster Recovery
