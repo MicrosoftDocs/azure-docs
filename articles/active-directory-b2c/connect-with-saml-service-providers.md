@@ -125,7 +125,7 @@ You can change the value of the `IssuerUri` metadata. This is the issuer URI tha
     <!-- SAML Token Issuer technical profile -->
     <TechnicalProfile Id="Saml2AssertionIssuer">
       <DisplayName>Token Issuer</DisplayName>
-      <Protocol Name="None"/>
+      <Protocol Name="SAML2"/>
       <OutputTokenFormat>SAML2</OutputTokenFormat>
       <Metadata>
         <!-- The issuer contains the policy name; it should be the same name as configured in the relying party application. B2C_1A_signup_signin_SAML is used below. -->
@@ -138,11 +138,11 @@ You can change the value of the `IssuerUri` metadata. This is the issuer URI tha
       </CryptographicKeys>
       <InputClaims/>
       <OutputClaims/>
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-sp"/>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-issuer"/>
     </TechnicalProfile>
 
     <!-- Session management technical profile for SAML based tokens -->
-    <TechnicalProfile Id="SM-Saml-sp">
+    <TechnicalProfile Id="SM-Saml-issuer">
       <DisplayName>Session Management Provider</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
     </TechnicalProfile>
