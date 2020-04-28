@@ -114,7 +114,7 @@ Equals, Not equals | GET, POST, PUT, DELETE, HEAD, OPTIONS, TRACE
 
 #### Key information
 
-- Only the GET request method can generate cached content in Azure CDN. All other request methods are proxied through the network. 
+- Only the GET request method can generate cached content in Azure Front Door. All other request methods are proxied through the network. 
 
 ## Request protocol
 
