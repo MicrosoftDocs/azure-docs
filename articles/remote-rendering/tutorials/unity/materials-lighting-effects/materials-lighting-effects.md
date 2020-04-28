@@ -14,9 +14,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > * Highlight and outline models and model components
-> * Slicing through models with cut planes
 > * Apply different materials to models
-> * Raycast with spatial queries.
+> * Slicing through models with cut planes
 > * Simple animations for remotely rendered objects
 
 ## Prerequisites

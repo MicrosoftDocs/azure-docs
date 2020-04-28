@@ -604,7 +604,7 @@ The `LoadModel` method is designed to accept a model path, progress handler and 
 /// <param name="parent">The parent Transform for this remote entity</param>
 /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
 /// <returns>An awaitable Remote Rendering Entity</returns>
-public async Task<Entity> LoadModel(string modelName, Transform parent = null, ProgressHandler progress = null)
+public async Task<Entity> LoadModel(string modelPath, Transform parent = null, ProgressHandler progress = null)
 {
     //Create a root object to parent a loaded model to
     var modelEntity = ARRSessionService.CurrentActiveSession.Actions.CreateEntity();
@@ -612,17 +612,20 @@ public async Task<Entity> LoadModel(string modelName, Transform parent = null, P
     //Get the game object representation of this entity
     var modelGameObject = modelEntity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
 
-    //Ensure the entity will sync translations with the server
+    //Ensure the entity will its transform with the server
     var sync = modelGameObject.GetComponent<RemoteEntitySyncObject>();
     sync.SyncEveryFrame = true;
 
-    //Parent the new object under the defined parent 
-    if(parent != null)
+    //Parent the new object under the defined parent
+    if (parent != null)
+    {
         modelGameObject.transform.SetParent(parent, false);
+        modelGameObject.name = parent.name + "_Entity";
+    }
 
 #if UNITY_WSA
     //Anchor the model in the world, prefer anchoring parent if there is one
-    if(parent != null)
+    if (parent != null)
     {
         parent.gameObject.AddComponent<WorldAnchor>();
     }
@@ -632,17 +635,24 @@ public async Task<Entity> LoadModel(string modelName, Transform parent = null, P
     }
 #endif
 
-    modelEntity.BindToUnityGameObject(modelGameObject);
-
     //Load a model that will be parented to the entity
-    var loadModelParams = new LoadModelFromSASParams(modelName, modelEntity);
+    var loadModelParams = new LoadModelFromSASParams(modelPath, modelEntity);
     var async = ARRSessionService.CurrentActiveSession.Actions.LoadModelFromSASAsync(loadModelParams);
     if(progress != null)
         async.ProgressUpdated += progress;
     var result = await async.AsTask();
-    return result.Root;
+    return modelEntity;
 }
 ```
+
+The code above is performing the following steps:
+
+1. Create a remote entity.
+1. Create a local GameObject to represent the remote entity.
+1. Configure the local GameObject to sync its state (i.e. Transform) to the remote entity every frame.
+1. Set a name and add a **WorldAnchor** to assist stabilization.
+1. Load model data from Blob Storage into the remote entity.
+1. Return the parent Entity
 
 Because there can be multiple models, and we'd like to interact, load/unload, etc. with each separately, we'll specify the details of the remote model in a separate script.
 
@@ -823,7 +833,8 @@ public class RemoteRenderedModel : MonoBehaviour
         if (ModelEntity == null)
             return;
 
-        ModelEntity.DestroyGameObject(EntityExtensions.DestroyGameObjectFlags.DestroyEmptyParents);
+        var modelGameObject = ModelEntity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
+        Destroy(modelGameObject);
         ModelEntity.Destroy();
         ModelEntity = null;
 
@@ -849,16 +860,17 @@ public class RemoteRenderedModel : MonoBehaviour
 
 The application now has everything in place required to load a view a remotely rendered model! Now we need to define the model to load and where to load it.
 
-1. Create a new GameObject in the scene and name it **TestEngine**.
-1. Add the *RemoteRenderedModel* script to **TestEngine**.\
- ![Add RemoteRenderedModel component](./media/add-remote-rendered-model-script.png)\
-1. Fill in the `Model Display Name` and the `Model Path` with "*TestModel*" and "*builtin://Engine*" respectively. The 'built in engine path' is a special path that references a test model built into Azure Remote Rendering.\ ![Position object on Z axis](./media/add-model-script.png)
-1. Position the **TestEngine** object in front of the camera, at position **x = 0, y = 1, z = 3**.\
- ![Position object on Z axis](./media/test-model-position.png)
+1. Create a new GameObject in the scene and name it **TestModel**.
+1. Add the *RemoteRenderedModel* script to **TestModel**.\
+![Add RemoteRenderedModel component](./media/add-remote-rendered-model-script.png)\
+1. Fill in the `Model Display Name` and the `Model Path` with "*TestModel*" and "*builtin://Engine*" respectively. The 'built in engine path' is a special path that references a test model built into Azure Remote Rendering.\
+![Specify model details](./media/add-model-script.png)
+1. Position the **TestModel** object in front of the camera, at position **x = 0, y = 1, z = 3**.\
+![Position object](./media/test-model-position.png)
 1. Ensure **AutomaticallyLoad** is turned on.
 1. Press **Play** in the Unity Editor to test the application.
 
-Watch the Console panel as the application progresses through its states. Keep in mind, some states may take some time to complete without a progress update. Eventually, you'll see the logs from the model loading and then the test model will be rendered in the scene. Try moving and rotating the **TestEngine** GameObject you created to see the model rendered from different perspectives.
+Watch the Console panel as the application progresses through its states. Keep in mind, some states may take some time to complete without a progress update. Eventually, you'll see the logs from the model loading and then the test model will be rendered in the scene. Try moving and rotating the **TestModel** GameObject you created to see the model rendered from different perspectives.
 
 ![Unity Log](./media/unity-loading-log.png)
 
