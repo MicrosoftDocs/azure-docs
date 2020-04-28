@@ -78,6 +78,16 @@ For Standard Load Balancer pricing information, see [Load Balancer pricing](http
 Basic Load Balancer is offered at no charge.
 See [SLA for Load Balancer](https://aka.ms/lbsla). Basic Load Balancer has no SLA.
 
+## Types of Load Balancer
+
+Internal Load Balancer = ILB
+
+|This is   | Standard  Load Balancer   |Internal Load Balancer|
+|----------|-----------|------------|
+|table     |data       |here        |
+|it doesn't|actually   |have to line up nicely!|
+| SLA | | |
+
 ## Next steps
 
 See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer.
