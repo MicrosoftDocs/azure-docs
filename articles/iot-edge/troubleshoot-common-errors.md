@@ -40,6 +40,76 @@ The IoT Edge runtime sets up a network for each of the modules to communicate on
 
 Ensure that there is a route to the internet for the IP addresses assigned to this bridge/NAT network. Sometimes a VPN configuration on the host overrides the IoT Edge network.
 
+## IoT Edge agent can't access a module's image (403)
+
+**Observed behavior:**
+
+A container fails to run, and the edgeAgent logs show a 403 error.
+
+**Root cause:**
+
+The IoT Edge agent doesn't have permissions to access a module's image.
+
+**Resolution:**
+
+Make sure that your registry credentials are correctly specified in your deployment manifest.
+
+## Edge Agent module reports 'empty config file' and no modules start on the device
+
+**Observed behavior:**
+
+The device has trouble starting modules defined in the deployment. Only the edgeAgent is running but continually reporting 'empty config file...'.
+
+**Root cause:**
+
+By default, IoT Edge starts modules in their own isolated container network. The device may be having trouble with DNS name resolution within this private network.
+
+**Resolution:**
+
+**Option 1: Set DNS server in container engine settings**
+
+Specify the DNS server for your environment in the container engine settings, which will apply to all container modules started by the engine. Create a file named `daemon.json` specifying the DNS server to use. For example:
+
+```json
+{
+    "dns": ["1.1.1.1"]
+}
+```
+
+The above example sets the DNS server to a publicly accessible DNS service. If the edge device cannot access this IP from its environment, replace it with DNS server address that is accessible.
+
+Place `daemon.json` in the right location for your platform:
+
+| Platform | Location |
+| --------- | -------- |
+| Linux | `/etc/docker` |
+| Windows host with Windows containers | `C:\ProgramData\iotedge-moby\config` |
+
+If the location already contains `daemon.json` file, add the **dns** key to it and save the file.
+
+Restart the container engine for the updates to take effect.
+
+| Platform | Command |
+| --------- | -------- |
+| Linux | `sudo systemctl restart docker` |
+| Windows (Admin Powershell) | `Restart-Service iotedge-moby -Force` |
+
+**Option 2: Set DNS server in IoT Edge deployment per module**
+
+You can set DNS server for each module's *createOptions* in the IoT Edge deployment. For example:
+
+```json
+"createOptions": {
+  "HostConfig": {
+    "Dns": [
+      "x.x.x.x"
+    ]
+  }
+}
+```
+
+Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as well.
+
 ## IoT Edge hub fails to start
 
 **Observed behavior:**
@@ -121,23 +191,11 @@ In the deployment.json file:
 
 4. Save the file and apply it to your IoT Edge device again.
 
-## IoT Edge agent can't access a module's image (403)
-
-A container fails to run, and the edgeAgent logs show a 403 error.
-
-**Root cause:**
-
-The IoT Edge agent doesn't have permissions to access a module's image.
-
-**Resolution:**
-
-Make sure that your registry credentials are correctly specified in your deployment manifest
-
 ## IoT Edge security daemon fails with an invalid hostname
 
 **Observed behavior:**
 
-The command `sudo journalctl -u iotedge` fails and prints the following message:
+Attempting to [check the IoT Edge security manager logs](troubleshoot.md#check-the-status-of-the-iot-edge-security-manager-and-its-logs) fails and prints the following message:
 
 ```output
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
@@ -172,11 +230,34 @@ When you see this error, you can resolve it by configuring the DNS name of your 
       notepad C:\ProgramData\iotedge\config.yaml
       ```
 
+## Can't get the IoT Edge daemon logs on Windows
+
+**Observed behavior:**
+
+You get an EventLogException when using `Get-WinEvent` on Windows.
+
+**Root cause:**
+
+The `Get-WinEvent` PowerShell command relies on a registry entry to be present to find logs by a specific `ProviderName`.
+
+**Resolution:**
+
+Set a registry entry for the IoT Edge daemon. Create a **iotedge.reg** file with the following content, and import in to the Windows Registry by double-clicking it or using the `reg import iotedge.reg` command:
+
+```reg
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
+"CustomSource"=dword:00000001
+"EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
+"TypesSupported"=dword:00000007
+```
+
 ## Stability issues on smaller devices
 
 **Observed behavior:**
 
-You may encounter stability problems on constrained devices like the Raspberry Pi, especially when used as a gateway. Symptoms include out of memory exceptions in the edge hub module, downstream devices cannot connect or the device stops sending telemetry messages after a few hours.
+You may encounter stability problems on resource constrained devices like the Raspberry Pi, especially when used as a gateway. Symptoms include out of memory exceptions in the IoT Edge hub module, downstream devices failing to connect, or the device failing to send telemetry messages after a few hours.
 
 **Root cause:**
 
@@ -206,37 +287,13 @@ In the deployment manifest:
       "value": "false"
     }
   },
-...
 ```
 
-## Can't get the IoT Edge daemon logs on Windows
+## IoT Edge module fails to send a message to edgeHub with 404 error
 
 **Observed behavior:**
 
-If you get an EventLogException when using `Get-WinEvent` on Windows, check your registry entries.
-
-**Root cause:**
-
-The `Get-WinEvent` PowerShell command relies on a registry entry to be present to find logs by a specific `ProviderName`.
-
-**Resolution:**
-
-Set a registry entry for the IoT Edge daemon. Create a **iotedge.reg** file with the following content, and import in to the Windows Registry by double-clicking it or using the `reg import iotedge.reg` command:
-
-```reg
-Windows Registry Editor Version 5.00
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
-"CustomSource"=dword:00000001
-"EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
-"TypesSupported"=dword:00000007
-```
-
-## IoT Edge module fails to send a message to the edgeHub with 404 error
-
-**Observed behavior:**
-
-A custom IoT Edge module fails to send a message to the edgeHub with a 404 `Module not found` error. The IoT Edge daemon prints the following message to the logs:
+A custom IoT Edge module fails to send a message to the IoT Edge hub with a 404 `Module not found` error. The IoT Edge daemon prints the following message to the logs:
 
 ```output
 Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 )
@@ -248,65 +305,25 @@ The IoT Edge daemon enforces process identification for all modules connecting t
 
 **Resolution:**
 
-As of version 1.0.7, all module processes are authorized to connect. If upgrading to 1.0.7 isn't possible, complete the following steps. For more information, see the [1.0.7 release changelog](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
+As of version 1.0.7, all module processes are authorized to connect. For more information, see the [1.0.7 release changelog](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
 
-Make sure that the same process ID is always used by the custom IoT Edge module to send messages to the edgeHub. For instance, make sure to `ENTRYPOINT` instead of `CMD` command in your Docker file, since `CMD` will lead to one process ID for the module and another process ID for the bash command running the main program whereas `ENTRYPOINT` will lead to a single process ID.
+If upgrading to 1.0.7 isn't possible, complete the following steps. Make sure that the same process ID is always used by the custom IoT Edge module to send messages to the edgeHub. For instance, make sure to `ENTRYPOINT` instead of `CMD` command in your Docker file, since `CMD` will lead to one process ID for the module and another process ID for the bash command running the main program whereas `ENTRYPOINT` will lead to a single process ID.
 
-## Edge Agent module continually reports 'empty config file' and no modules start on the device
+## IoT Edge module deploys successfully then disappears from device
 
 **Observed behavior:**
 
-The device has trouble starting modules defined in the deployment. Only the edgeAgent is running but continually reporting 'empty config file...'.
+After setting modules for an IoT Edge device, the modules are deployed successfully but after a few minutes they disappear from the device and from the device details in the Azure portal. Perhaps other modules than the ones defined appear on the device.
 
 **Root cause:**
 
-By default, IoT Edge starts modules in their own isolated container network. The device may be having trouble with DNS name resolution within this private network.
+If an automatic deployment targets a device, it takes priority over manually setting the modules for a single device. The **Set modules** functionality in Azure portal or **Create deployment for single device** functionality in Visual Studio Code will take effect for a moment. You see the modules that you defined start on the device. Then the automatic deployment's priority kicks in and overwrites the device's desired properties.
 
 **Resolution:**
 
-**Option 1: Set DNS server in container engine settings**
+Only use one type of deployment mechanism per device, either an automatic deployment or individual device deployments. If you have multiple automatic deployments targeting a device, you can change priority or target descriptions to make sure the correct one applies to a given device. If the automatic deployment targets tags in the device twin, you can update the device twin to no longer match the target description. 
 
-Specify the DNS server for your environment in the container engine settings, which will apply to all container modules started by the engine. Create a file named `daemon.json` specifying the DNS server to use. For example:
-
-```json
-{
-    "dns": ["1.1.1.1"]
-}
-```
-
-The above example sets the DNS server to a publicly accessible DNS service. If the edge device cannot access this IP from its environment, replace it with DNS server address that is accessible.
-
-Place `daemon.json` in the right location for your platform:
-
-| Platform | Location |
-| --------- | -------- |
-| Linux | `/etc/docker` |
-| Windows host with Windows containers | `C:\ProgramData\iotedge-moby\config` |
-
-If the location already contains `daemon.json` file, add the **dns** key to it and save the file.
-
-Restart the container engine for the updates to take effect.
-
-| Platform | Command |
-| --------- | -------- |
-| Linux | `sudo systemctl restart docker` |
-| Windows (Admin Powershell) | `Restart-Service iotedge-moby -Force` |
-
-**Option 2: Set DNS server in IoT Edge deployment per module**
-
-You can set DNS server for each module's *createOptions* in the IoT Edge deployment. For example:
-
-```json
-"createOptions": {
-  "HostConfig": {
-    "Dns": [
-      "x.x.x.x"
-    ]
-  }
-}
-```
-
-Be sure to set this configuration for the *edgeAgent* and *edgeHub* modules as well.
+For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 
 ## Next steps
 
