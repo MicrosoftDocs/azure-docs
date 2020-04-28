@@ -43,10 +43,10 @@ In developing and deploying this app, you learn how to:
 
 - Create an Azure Key Vault instance and store and retrieve secrets from it.
 - Deploy Azure Database for Azure SQL, set up secure data, and authorize access to it.
-- Deploy the Azure web app with App Service environment which is a dedicated isolated with front-end firewall aEcess.
+- Deploy the Azure web app with App Service environment which is a dedicated isolated with front-end firewall access.
 - Create and configure an Azure Application Gateway instance with a firewall that uses [OWASP Top 10 Ruleset](https://coreruleset.org/).
 - Enable encryption of data in transit and at rest by using Azure services.
-- Set up the Azure policy and blue prints to evaluate the compliances
+- Set up Azure Policy and Azure Blueprints to evaluate the compliance.
 
 After you develop and deploy this app, you will have set up the following sample web app along with the configuration and security measures that are described.
 

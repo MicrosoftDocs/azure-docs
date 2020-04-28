@@ -59,17 +59,28 @@ Operating system configuration can drift from the recommended settings over time
   |---------------|-------------------------|--------------------|--------------|--------------|
   |   SuSE        |  SLES 12 SP2            |   3.1.3h           |  2.3.0.40    |   1.6.0.34   |
   |   SuSE        |  SLES 12 SP3            |   3.1.3h           |  2.3.0.44    |   1.6.0.36   |
-  |   SuSE        |  SLES 12 SP4            |   3.2.3b           |  2.3.0.47    |   2.0.0.54   |
+  |   SuSE        |  SLES 12 SP4            |   3.2.3i           |  2.3.0.47    |   2.0.0.54   |
+  |   SuSE        |  SLES 12 SP2            |   3.2.3i           |  2.3.0.45    |   1.6.0.37   |
+  |   SuSE        |  SLES 12 SP3            |   3.2.3i           |  2.3.0.45    |   1.6.0.37   |
   |   Red Hat     |  RHEL 7.2               |   3.1.3h           |  2.3.0.39    |   1.6.0.34   |
  
 
 ### Commands for driver upgrade and to clean old rpm packages
+
+#### Command to check existing installed drivers
 ```
-rpm -U driverpackage.rpm
-rpm -e olddriverpackage.rpm
+rpm -qa | grep enic/fnic 
+```
+#### Delete existing eNIC/fNIC rpm
+```
+rpm -e <old-rpm-package>
+```
+#### Install the recommended eNIC/fNIC driver packages
+```
+rpm -ivh <enic/fnic.rpm> 
 ```
 
-#### Commands to confirm
+#### Commands to confirm the installation
 ```
 modinfo enic
 modinfo fnic
