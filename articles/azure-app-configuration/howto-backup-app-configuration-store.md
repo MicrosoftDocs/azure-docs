@@ -139,7 +139,7 @@ Create a system-assigned managed identity for your Azure Function app. Replace `
 az webapp identity assign --name ConfigurationStoreBackup --resource-group <resource_group_name>
 ```
 
-Grant access to primary and secondary App Configuration stores by following instructions here: [Grant access to App Configuration](./howto-integrate-azure-managed-service-identity?tabs=core3x#grant-access-to-app-configuration). 
+Grant access to primary and secondary App Configuration stores by following instructions here: [Grant access to App Configuration](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core3x#grant-access-to-app-configuration). 
 - Primary store should grant `App Configuration Data Reader` access to your Function App.
 - Secondary store should grant `App Configuration Data Owner` access to your Function App.
 
