@@ -36,7 +36,7 @@ If you need to move a key vault to another region, the solution is to create a n
 
 You can backup each individual secret, key, and certificate in your vault using the backup command. This will download your secrets as an encrypted blob. You can then restore the blob into your new key vault. The commands are documented in the link below.
 
-[Azure Key Vault Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault)
+[Azure Key Vault Commands](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault)
 
 ### Limitations
 
