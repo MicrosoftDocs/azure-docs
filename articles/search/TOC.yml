@@ -68,6 +68,8 @@
       href: cognitive-search-tutorial-blob.md
     - name: Python
       href: cognitive-search-tutorial-blob-python.md
+  - name: Query from Power Apps   
+    href: search-howto-powerapps.md  
 - name: Samples
   items:
   - name: C# samples
@@ -234,8 +236,6 @@
         href: index-add-suggesters.md
       - name: Add autocomplete and suggestions
         href: search-autocomplete-tutorial.md
-    - name: Query from Power Apps   
-      href: search-howto-powerapps.md  
     - name: Syntax reference
       items:
       - name: Simple query syntax
@@ -262,9 +262,11 @@
     items:
     - name: Work with results
       href: search-pagination-page-layout.md
-    - name: Relevance tuning (scoring profiles)    
+    - name: Relevance scoring
+      href: index-similarity-and-scoring.md
+    - name: Scoring profiles 
       href: index-add-scoring-profiles.md
-    - name: Relevance tuning (similarity algorithm)  
+    - name: Similarity algorithm
       href: index-ranking-similarity.md
   - name: Plan
     items:
@@ -455,10 +457,6 @@
       href: https://wolterskluwereap.azurewebsites.net/
     - name: JFK files demo
       href: https://aka.ms/jfkfiles
-    - name: NYC Jobs demo
-      href: https://aka.ms/azjobsdemo
-    - name: Search use cases
-      href: https://searchsamples.azurewebsites.net/
   - name: Training
     items:
     - name: Introduction (Microsoft Learn)

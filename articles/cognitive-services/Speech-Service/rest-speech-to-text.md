@@ -3,13 +3,13 @@ title: Speech-to-text API reference (REST) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the speech-to-text REST API. In this article, you'll learn about authorization options, query options, how to structure a request and receive a response.
 services: cognitive-services
-author: trevorbye
+author: yinhew
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.author: trbye
+ms.date: 04/23/2020
+ms.author: yinhew
 ---
 
 # Speech-to-text REST API
@@ -49,6 +49,7 @@ These parameters may be included in the query string of the REST request.
 | `language` | Identifies the spoken language that is being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
 | `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include multiple results with confidence values and four different representations. The default setting is `simple`. | Optional |
 | `profanity` | Specifies how to handle profanity in recognition results. Accepted values are `masked`, which replaces profanity with asterisks, `removed`, which removes all profanity from the result, or `raw`, which includes the profanity in the result. The default setting is `masked`. | Optional |
+| `pronunciationScoreParams` | Specifies the parameters for showing pronunciation scores in recognition results, which assess the pronunciation quality of speech input, with indicators of accuracy, fluency, completeness, etc. This parameter is a base64 encoded json containing multiple detailed parameters. See [Pronunciation assessment parameters](#pronunciation-assessment-parameters) for how to build this parameter. | Optional |
 | `cid` | When using the [Custom Speech portal](how-to-custom-speech.md) to create custom models, you can use custom models via their **Endpoint ID** found on the **Deployment** page. Use the **Endpoint ID** as the argument to the `cid` query string parameter. | Optional |
 
 ## Request headers
@@ -75,6 +76,38 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 
 >[!NOTE]
 >The above formats are supported through REST API and WebSocket in the Speech service. The [Speech SDK](speech-sdk.md) currently supports the WAV format with PCM codec as well as [other formats](how-to-use-codec-compressed-audio-input-streams.md).
+
+## Pronunciation assessment parameters
+
+This table lists required and optional parameters for pronunciation assessment.
+
+| Parameter | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| ReferenceText | The text that the pronunciation will be evaluated against. | Required |
+| GradingSystem | The point system for score calibration. Accepted values are `FivePoint` and `HundredMark`. The default setting is `FivePoint`. | Optional |
+| Granularity | The evaluation granularity. Accepted values are `Phoneme`, which shows the score on the full text, word and phoneme level, `Word`, which shows the score on the full text and word level, `FullText`, which shows the score on the full text level only. The default setting is `Phoneme`. | Optional |
+| Dimension | Defines the output criteria. Accepted values are `Basic`, which shows the accuracy score only, `Comprehensive` shows scores on more dimensions (e.g. fluency score and completeness score on the full text level, error type on word level). Check [Response parameters](#response-parameters) to see definitions of different score dimensions and word error types. The default setting is `Basic`. | Optional |
+| EnableMiscue | Enables miscue calculation. With this enabled, the pronounced words will be compared to the reference text, and will be marked with omission/insertion based on the comparison. Accepted values are `False` and `True`. The default setting is `False`. | Optional |
+| ScenarioId | A GUID indicating a customized point system. | Optional |
+
+Below is an example JSON containing the pronunciation assessment parameters:
+
+```json
+{
+  "ReferenceText": "Good morning.",
+  "GradingSystem": "HundredMark",
+  "Granularity": "FullText",
+  "Dimension": "Comprehensive"
+}
+```
+
+The following sample code shows how to build the pronunciation assessment parameters into the URL query parameter:
+
+```csharp
+var pronunciationScoreParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
+var pronunciationScoreParamsBytes = Encoding.UTF8.GetBytes(pronunciationScoreParamsJson);
+var pronunciationScoreParams = Convert.ToBase64String(pronunciationScoreParamsBytes);
+```
 
 ## Sample request
 
@@ -173,6 +206,11 @@ Each object in the `NBest` list includes:
 | `ITN` | The inverse-text-normalized ("canonical") form of the recognized text, with phone numbers, numbers, abbreviations ("doctor smith" to "dr smith"), and other transformations applied. |
 | `MaskedITN` | The ITN form with profanity masking applied, if requested. |
 | `Display` | The display form of the recognized text, with punctuation and capitalization added. This parameter is the same as `DisplayText` provided when format is set to `simple`. |
+| `AccuracyScore` | The score indicating the pronunciation accuracy of the given speech. |
+| `FluencyScore` | The score indicating the fluency of the given speech. |
+| `CompletenessScore` | The score indicating the completeness of the given speech by calculating the ratio of pronounced words towards entire input. |
+| `PronScore` | The overall score indicating the pronunciation quality of the given speech. This is calculated from `AccuracyScore`, `FluencyScore` and `CompletenessScore` with weight. |
+| `ErrorType` | This value indicates whether a word is omitted, inserted or badly pronounced, compared to `ReferenceText`. Possible values are `None` (meaning no error on this word), `Omission`, `Insertion` and `Mispronunciation`. |
 
 ## Sample responses
 
@@ -208,6 +246,45 @@ A typical response for `detailed` recognition:
         "ITN" : "rewind me to buy 5 pencils",
         "MaskedITN" : "rewind me to buy 5 pencils",
         "Display" : "Rewind me to buy 5 pencils.",
+      }
+  ]
+}
+```
+
+A typical response for recognition with pronunciation assessment:
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "Offset": "400000",
+  "Duration": "11000000",
+  "NBest": [
+      {
+        "Confidence" : "0.87",
+        "Lexical" : "good morning",
+        "ITN" : "good morning",
+        "MaskedITN" : "good morning",
+        "Display" : "Good morning.",
+        "PronScore" : 84.4,
+        "AccuracyScore" : 100.0,
+        "FluencyScore" : 74.0,
+        "CompletenessScore" : 100.0,
+        "Words": [
+            {
+              "Word" : "Good",
+              "AccuracyScore" : 100.0,
+              "ErrorType" : "None",
+              "Offset" : 500000,
+              "Duration" : 2700000
+            },
+            {
+              "Word" : "morning",
+              "AccuracyScore" : 100.0,
+              "ErrorType" : "None",
+              "Offset" : 5300000,
+              "Duration" : 900000
+            }
+        ]
       }
   ]
 }
