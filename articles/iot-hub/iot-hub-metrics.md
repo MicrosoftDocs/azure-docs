@@ -40,6 +40,9 @@ IoT Hub provides several metrics to give you an overview of the health of your h
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
+|Routing Deliveries | Routing Delivery Attempts | Count | Total | this is the routing delivery metric | ResourceID,<br>Result,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName |
+|RoutingDeliveryLatency| Routing Latency | Milliseconds | Average | this is the routing delivery latency metric | ResourceID,<br>RoutingSource,<br>EndpointType,<br>EndpointName|
+|Routing Data Size In Bytes Delivered| RoutingDeliveryDataSizeInBytes | Bytes | Total | The total number of bytes routed by IoT Hub to custom endpoint and built-in endpoint. Use the dimensions to identify data size routed to a specific type of endpoint or for a specific routing source.| ResourceID,<br>RoutingSource,<br>EndpointType<br>EndpointName|
 |d2c.telemetry.ingress.<br>allProtocol|Telemetry message send attempts|Count|Total|Number of device-to-cloud telemetry messages attempted to be sent to your IoT hub|None|
 |d2c.telemetry.ingress.<br>success|Telemetry messages sent|Count|Total|Number of device-to-cloud telemetry messages sent successfully to your IoT hub|None|
 |c2d.commands.egress.<br>complete.success|C2D message deliveries completed|Count|Total|Number of cloud-to-device message deliveries completed successfully by the device|None|
@@ -105,10 +108,7 @@ IoT Hub provides several metrics to give you an overview of the health of your h
 |totalDeviceCount|Total devices (preview)|Count|Average|Number of devices registered to your IoT hub|None|
 |connectedDeviceCount|Connected devices (preview)|Count|Average|Number of devices connected to your IoT hub|None|
 |configurations|Configuration Metrics|Count|Total|Metrics for Configuration Operations|None|
-|## Per-Endpoint Metrics**||||||
-|Routing Deliveries | Routing Delivery Attempts | Count | Total | this is the routing delivery metric | ResourceID,<br>Result,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName |
-|RoutingDeliveryLatency| Routing Latency | Milliseconds | Average | this is the routing delivery latency metric | ResourceID,<br>RoutingSource,<br>EndpointType,<br>EndpointName|
-|Routing Data Size In Bytes Delivered| RoutingDeliveryDataSizeInBytes | Bytes | Total | The total number of bytes routed by IoT Hub to custom endpoint and built-in endpoint. Use the dimensions to identify data size routed to a specific type of endpoint or for a specific routing source.| ResourceID,<br>RoutingSource,<br>EndpointType<br>EndpointName|
+
 
 ## Next steps
 

@@ -11,9 +11,10 @@
 ---
 
 <!-- operation names for the diag logs for IoT Hub -->
- 
+
+
 |Operation Name|Error Code (resultType)|Level|Description|Notes|
-|      |                 | | | |
+|------------- |----------|-----|-----------|--------|
 |UndefinedRouteEvaluation |   |Information|We log undefined evaluation when a message cannot be evaluated with a giving condition. Example = a property on the route condition is not present in the message.|  |
 |RouteEvaluationError|  |Error|Error evaluating message because of an issue with the message format. For example: content encoding not specified. Content type not valid.|This one has many sub-events in the spec doc. For example: routeEvaluationError-Content encoding not specified. routeEvaluationError-ContentType not valid. When this event is logged, we log the exception information with it, which can provide more information for the customer on why the evaluation failed. Examples: Content encoding is not specified in system properties. Error in $body query. Expecting a tags/desired/reported.|
 |DroppedMessage|   |Error|Message dropped by routing as message didn't match any routing query. Message failed to send after several retries because of dead endpoint.|   |

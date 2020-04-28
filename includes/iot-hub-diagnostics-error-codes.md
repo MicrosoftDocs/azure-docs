@@ -11,13 +11,14 @@
 ---
 
 <!-- Error codes output by the diagnostic logs (2.2.1.1.5)-->
- 
+
+
 |Error Code|Description|
-|      |                 |
+|----------|-----------|
 |404015|ContainerNotFound|
 |400033| Container Disabled|
 |401002| IotHub Unauthorized Access|
-|500007| Azure Storage Timedout|
+|500007| Azure Storage Timed out|
 |413001| Message too large|
 |403004| Device maximum queue depth exceeded|
 |503008| Receive link throttled|
@@ -26,4 +27,3 @@
 |503|Service Unavailable|
 |500001|Server Error|
 |400103| InvalidContentEncodingOrType|
-

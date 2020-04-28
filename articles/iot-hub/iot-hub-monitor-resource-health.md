@@ -122,19 +122,22 @@ This category does not include specific errors about the messages themselves (li
 
 ```json
 {
-    "time":"2019-12-12T03:25:14Z", 
-    "resourceId":"/SUBSCRIPTIONS/91D12660-3DEC-467A-BE2A-213B5544DDC0/RESOURCEGROUPS/JUAN-TEST/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/JUANHUB1", 
-    "operationName":"endpointUnhealthy", 
-    "category":"Routes", 
-    "level":"Error", 
-    "resultType":"403004", 
-    "resultDescription":"DeviceMaximumQueueDepthExceeded", 
-    "properties":"{\"deviceId\":null,\"endpointName\":\"juan-sb-1\",\"messageId\":null,\"details\":\"DeviceMaximumQueueDepthExceeded\",\"routeName\":null,\"statusCode\":\"403\"}",
-    "location":"westus"
+    "records":
+    [
+        {
+            "time":"2019-12-12T03:25:14Z",
+            "resourceId":"/SUBSCRIPTIONS/91D12660-3DEC-467A-BE2A-213B5544DDC0/RESOURCEGROUPS/ANON-TEST/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/ANONHUB1",
+            "operationName":"endpointUnhealthy",
+            "category":"Routes",
+            "level":"Error",
+            "resultType":"403004",
+            "resultDescription":"DeviceMaximumQueueDepthExceeded",
+            "properties":"{\"deviceId\":null,\"endpointName\":\"juan-sb-1\",\"messageId\":null,\"details\":\"DeviceMaximumQueueDepthExceeded\",\"routeName\":null,\"statusCode\":\"403\"}",
+            "location":"westus"
+        }
+    ]
 }
 ```
-
-**[robinsh: replaced the old JSON with the new. old had "records" as a higher-level category, took it out]**
 
 #### Error list for last known error
 
