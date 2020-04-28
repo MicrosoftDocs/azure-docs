@@ -6,7 +6,7 @@ author: HeidiLohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -23,33 +23,26 @@ You can configure the assignment type of your personal desktop host pool to adju
 >[!NOTE]
 > The instructions in this article only apply to personal desktop host pools, not pooled host pools, since users in pooled host pools aren't assigned to specific session hosts.
 
+## Prerequisites
+
+This article assumes you've already downloaded and installed the Windows Virtual Desktop PowerShell module. If you haven't, follow the instructions in [Set up the PowerShell module](powershell-module.md).
+
 ## Configure automatic assignment
 
 Automatic assignment is the default assignment type for new personal desktop host pools created in your Windows Virtual Desktop environment. Automatically assigning users doesn't require a specific session host.
 
 To automatically assign users, first assign them to the personal desktop host pool so that they can see the desktop in their feed. When an assigned user launches the desktop in their feed, they will claim an available session host if they have not already connected to the host pool, which completes the assignment process.
 
-Before you start, [download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) if you haven't already. 
-
-> [!NOTE]
-> Make sure you've installed Windows Virtual Desktop PowerShell module version 1.0.1534.2001 or later before following these instructions.
-
-After that, run the following cmdlet to sign in to your account:
-
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
 To configure a host pool to automatically assign users to VMs, run the following PowerShell cmdlet:
 
 ```powershell
-Set-RdsHostPool <tenantname> <hostpoolname> -AssignmentType Automatic
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -PersonalDesktopAssignmentType Automatic
 ```
 
 To assign a user to the personal desktop host pool, run the following PowerShell cmdlet:
 
 ```powershell
-Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
 ## Configure direct assignment
@@ -59,19 +52,19 @@ Unlike automatic assignment, when you use direct assignment, you must assign the
 To configure a host pool to require direct assignment of users to session hosts, run the following PowerShell cmdlet:
 
 ```powershell
-Set-RdsHostPool <tenantname> <hostpoolname> -AssignmentType Direct
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -PersonalDesktopAssignmentType Direct
 ```
 
 To assign a user to the personal desktop host pool, run the following PowerShell cmdlet:
 
 ```powershell
-Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
 To assign a user to a specific session host, run the following PowerShell cmdlet:
 
 ```powershell
-Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -AssignedUser <userupn>
+Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser <userupn>
 ```
 
 ## Next steps
@@ -80,3 +73,6 @@ Now that you've configured the personal desktop assignment type, you can sign in
 
 - [Connect with the Windows Desktop client](connect-windows-7-and-10.md)
 - [Connect with the web client](connect-web.md)
+- [Connect with the Android client](connect-android.md)
+- [Connect with the iOS client](connect-ios.md)
+- [Connect with the macOS client](connect-macos.md)
