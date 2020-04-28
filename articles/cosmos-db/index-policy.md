@@ -94,11 +94,12 @@ See [this section](how-to-manage-indexing-policy.md#indexing-policy-examples) fo
 
 ## Include/exclude precedence
 
-If your included paths and excluded paths have a conflict, the deeper path takes precedence.
+If your included paths and excluded paths have a conflict, the more precise path takes precedence.
 
 Here's an example:
 
 **Included Path**: `/food/ingredients/nutrition/*`
+
 **Excluded Path**: `/food/ingredients/*`
 
 In this case, the included path takes precedence over the excluded path because it is more precise. Based on these paths, any data in the `food/ingredients` path or nested within would be excluded from the index. The exception would be data within the included path: `/food/ingredients/nutrition/*`, which would be indexed.
