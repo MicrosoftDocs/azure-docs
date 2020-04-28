@@ -46,9 +46,10 @@ DevOps Starter creates a CI/CD pipeline in Azure Pipelines. You can create a new
 
 1. Create a new Azure DevOps organization or choose an existing organization. 
 
-    a. Enter a name for your project in Azure DevOps.  
+    1. Enter a name for your project in Azure DevOps.  
 
-    b. Select your Azure subscription and location, enter a name for your application, and then select **Done**.  
+    1. Select your Azure subscription and location, enter a name for your application, and then select **Done**.  
+    
      After few minutes, the Starter dashboard is displayed in the Azure portal. A sample application is set up in a repository in your Azure DevOps organization, a build is executed, and your application is deployed to Azure. This dashboard provides visibility into your code repository, your CI/CD pipeline, and your application in Azure.  
     
 2. Select **Browse** to view your running application.
