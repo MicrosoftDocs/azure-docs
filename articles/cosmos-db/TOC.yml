@@ -39,7 +39,7 @@
           href: sql-api-java-get-started.md
         - name: Async Java
           href: sql-api-async-java-get-started.md
-        - name: Async Java end-to-end sample app
+        - name: Async Java sample with change feed
           href: create-sql-api-java-changefeed.md
         - name: Node.js
           href: sql-api-nodejs-get-started.md
@@ -51,6 +51,8 @@
           href: sql-api-java-application.md
         - name: Node.js
           href: sql-api-nodejs-application.md
+      - name: Build a mobile app
+        items:
         - name: Xamarin
           href: mobile-apps-with-xamarin.md
     - name: 2 - Migrate data
@@ -110,7 +112,7 @@
         displayName: request units, RUs, RU
         href: scaling-throughput.md
       - name: Conflict types and resolution policies
-        displayName: last write wins, custom
+        displayName: last write wins, custom, multi master, multi-master
         href: conflict-resolution-policies.md
       - name: Global distribution - under the hood
         href: global-dist-under-the-hood.md
@@ -134,10 +136,10 @@
       - name: Provision throughput on containers and databases
         displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
         href: set-throughput.md
-      - name: Provision throughput - autopilot mode
-        href: provision-throughput-autopilot.md
-      - name: Autopilot FAQ
-        href: autopilot-faq.md
+      - name: Provision throughput - autoscale mode
+        href: provision-throughput-autoscale.md
+      - name: Autoscale FAQ
+        href: autoscale-faq.md
     - name: SQL query
       items:
       - name: Getting started
@@ -516,6 +518,7 @@
         - name: Total Cost of Ownership (TCO)
           href: total-cost-ownership.md
         - name: Understand your bill
+          displayName: free tier
           href: understand-your-bill.md
         - name: Optimize provisioned throughput cost
           displayName: request units, RUs, RU
@@ -529,6 +532,7 @@
         - name: Optimize multi-region cost
           href: optimize-cost-regions.md
         - name: Optimize development/testing cost
+          displayName: free tier
           href: optimize-dev-test.md
         - name: Optimize cost with reserved capacity
           href: cosmos-db-reserved-capacity.md
@@ -573,7 +577,7 @@
         - name: What is Cassandra API in Cosmos DB?
           href: cassandra-introduction.md
         - name: Wire protocol support
-          href: cassandra-support.md
+          href: cassandra-support.md       
       - name: Quickstarts
         items:
         - name: .NET
@@ -597,6 +601,8 @@
           href: cassandra-import-data.md
       - name: Concepts
         items:
+        - name: FAQ
+          href: cassandra-faq.md           
         - name: Elastic scale
           href: manage-scale-cassandra.md
         - name: Secondary Indexes
@@ -606,7 +612,7 @@
         - name: Change feed
           href: cassandra-change-feed.md
         - name: Store and manage Spring Data 
-          href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context
+          href: https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context
         - name: Cassandra and Spark
           items:
           - name: Introduction
@@ -717,7 +723,7 @@
         - name: Manage data indexing
           href: mongodb-indexing.md
         - name: Store and manage Spring Data
-          href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context
+          href: https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context
         - name: MongoDB extension commands
           href: mongodb-custom-commands.md
           displayName: custom commands
@@ -757,14 +763,6 @@
         items:
         - name: 1 - Query data
           href: tutorial-query-graph.md
-      - name: Reference
-        items:
-        - name: Response Headers
-          href: gremlin-headers.md
-        - name: Limits
-          href: gremlin-limits.md
-        - name: Compatibility
-          href: gremlin-compatibility.md
       - name: How-to guides
         items:
         - name: Graph data modeling
@@ -784,7 +782,7 @@
         - name: Visualize graph data
           href: graph-visualization.md
         - name: Store and manage Spring Data
-          href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context
+          href: https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context
         - name: Manage using Resource Manager templates
           href: manage-gremlin-with-resource-manager.md
           displayName: ARM
@@ -792,6 +790,14 @@
           href: powershell-samples-gremlin.md
         - name: Manage using Azure CLI
           href: cli-samples-gremlin.md
+      - name: Reference
+        items:
+        - name: Response Headers
+          href: gremlin-headers.md
+        - name: Limits
+          href: gremlin-limits.md
+        - name: Compatibility
+          href: gremlin-compatibility.md
     - name: Table API
       items:
       - name: Overview
@@ -1037,6 +1043,8 @@
         href: monitor-cosmos-db.md
       - name: Monitor server-side latency
         href: monitor-server-side-latency.md
+      - name: Monitor request unit usage
+        href: monitor-request-unit-usage.md
       - name: Monitor with diagnostic logs
         href: cosmosdb-monitor-resource-logs.md
       - name: Audit control plane logs
@@ -1088,9 +1096,9 @@
       - name: Azure Event Hubs and Azure Storage
         href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
       - name: Use Spring Boot Starter
-        href: https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context
+        href: https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context
       - name: Spring Data developer guide
-        href: https://docs.microsoft.com/azure/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=/azure/cosmos-db/context/context
+        href: https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=/azure/cosmos-db/context/context
       - name: ODBC driver
         href: odbc-driver.md
     - name: Migrate data to Cosmos DB
@@ -1174,8 +1182,8 @@
       href: https://azure.microsoft.com/try/cosmosdb/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cosmos-db/
-    - name: Multi-master benefits
-      href: multi-master-benefits.md
+    - name: Performance levels
+      href: performance-levels.md
     - name: Use cases
       items:
       - name: Common use cases

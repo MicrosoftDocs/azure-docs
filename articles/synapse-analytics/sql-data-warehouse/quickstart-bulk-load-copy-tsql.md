@@ -33,7 +33,7 @@ This quickstart assumes you already have a SQL pool. If a SQL pool hasn't been c
 
 ## Create the target table
 
-In this example, we'll be loading data from the New York taxi dataset. we'll load a table called Trip that represents taxi trips taken within a single year. Run the following to create the table:
+In this example, we'll be loading data from the New York taxi dataset. We'll load a table called Trip that represents taxi trips taken within a single year. Run the following to create the table:
 
 ```sql
 CREATE TABLE [dbo].[Trip]

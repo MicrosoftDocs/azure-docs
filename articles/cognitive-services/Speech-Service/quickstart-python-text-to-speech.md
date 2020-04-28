@@ -3,13 +3,13 @@ title: "Convert text-to-speech, Python - Speech service"
 titleSuffix: Azure Cognitive Services
 description: In this article, you'll learn how to convert text-to-speech using Python and the Text-to-Speech REST API. The sample text included in this guide is structured as Speech Synthesis Markup Language (SSML). This allows you to choose the voice and language of the speech response.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/10/2020
-ms.author: dapine
+ms.date: 04/13/2020
+ms.author: trbye
 ---
 
 # Convert text-to-speech using Python
@@ -21,7 +21,7 @@ This article requires an [Azure Cognitive Services account](https://docs.microso
 ## Prerequisites
 
 * Python 2.7.x or 3.x
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio  <span class="docon docon-navigate-external x-hidden-focus"></span></a>, <a href="https://code.visualstudio.com/download" target="_blank"> Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"></span></a>, or your favorite text editor
 * An Azure subscription key for the Speech service
 
 ## Create a project and import required modules
