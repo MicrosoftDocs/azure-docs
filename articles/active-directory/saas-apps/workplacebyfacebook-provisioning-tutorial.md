@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2019
+ms.date: 04/28/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -34,7 +34,7 @@ If you have an existing integration with Workplace by Facebook, please see the b
 If you have an existing Workplace integration with a valid token, no action is required. **As of 04/28/2020 we have automatically migrated all applications that are not in quarantine due to invalid credentials.**
  
 #### How can I tell if my application has been migrated? 
-* In the Azure Portal: When your application is migrated, the banner in the authorization section about upcomming changes will be removed and the secret token field will be replaced with a blue authorize button. 
+* In the Azure Portal: When your application is migrated, the banner in the authorization section about upcoming changes will be removed and the secret token field will be replaced with a blue authorize button. 
 * In the Workplace by Facebook portal: Review the Azure AD app to ensure that it is approved.  
 
 #### The admin credentials section is greyed out on my application and I can't save. Why?
