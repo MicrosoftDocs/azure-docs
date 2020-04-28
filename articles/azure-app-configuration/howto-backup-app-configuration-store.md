@@ -107,7 +107,7 @@ In this tutorial, we are working with a C# Azure Function which has the followin
 - Azure Functions runtime version 3.x
 - Function triggered by timer
 
-To learn more about creating Azure Functions, see: [Create a function in Azure that is triggered by a timer](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-scheduled-function) and [Develop Azure Functions using Visual Studio](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs).
+To learn more about creating Azure Functions, see: [Create a function in Azure that is triggered by a timer](/azure/azure-functions/functions-create-scheduled-function) and [Develop Azure Functions using Visual Studio](/azure/azure-functions/functions-develop-vs).
 
 For a quickstart, you can download the project files for a sample function and publish it to your own Azure Function App:
 - [Azure Function sample code](https://github.com/Azure/AppConfiguration/tree/master/examples)
@@ -132,18 +132,18 @@ az functionapp config appsettings set --name ConfigurationStoreBackup --resource
 
 ## Integrate with Azure Managed Identities
 
-Create a system-assigned managed identity for your Azure Function app. Replace `<resource_group_name>` with the resource group you created earlier. For more information, see [Add a system-assigned identity](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity).
+Create a system-assigned managed identity for your Azure Function app. Replace `<resource_group_name>` with the resource group you created earlier. For more information, see [Add a system-assigned identity](/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity).
 
 
 ```azurecli-interactive
 az webapp identity assign --name ConfigurationStoreBackup --resource-group <resource_group_name>
 ```
 
-Grant access to primary and secondary App Configuration stores by following instructions here: [Grant access to App Configuration](https://docs.microsoft.com/en-us/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core3x#grant-access-to-app-configuration). 
+Grant access to primary and secondary App Configuration stores by following instructions here: [Grant access to App Configuration](./howto-integrate-azure-managed-service-identity?tabs=core3x#grant-access-to-app-configuration). 
 - Primary store should grant `App Configuration Data Reader` access to your Function App.
 - Secondary store should grant `App Configuration Data Owner` access to your Function App.
 
-Repeat the process for granting access to the storage queue by following instructions here: [Assign RBAC roles using the Azure portal](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal).
+Repeat the process for granting access to the storage queue by following instructions here: [Assign RBAC roles using the Azure portal](/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal).
 - Assign `Storage Queue Data Contributor` role to your Function App.
 
 ## Trigger an App Configuration event
