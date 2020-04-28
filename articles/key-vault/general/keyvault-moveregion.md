@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault moving a vault to a different region | Microsoft Docs
-description: Guidance on moving a keyvault to a different region.
+description: Guidance on moving a key vault to a different region.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -26,7 +26,7 @@ If you need to move a key vault to another region, the solution is to create a n
 
 * Key Vault names are globally unique. You will not be able to reuse the same vault name.
 
-* You will need to reconfigure access policies and network configuration settings in the new key vault. 
+* You will need to reconfigure access policies and network configuration settings in the new key vault.
 
 * You will need to reconfigure soft-delete and purge protection in the new key vault.
 
