@@ -328,7 +328,7 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 Datasets created from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1,  Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL can be used as input to any pipeline step. You can write output to a [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py), [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py), or if you want to write data to a specific datasore use [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). 
 
 > [!IMPORTANT]
-> Writing output data back to a datastore using PipelineData is only supported for Azure Blob and Azure File share datastores. This functionality is not supported for ADLS Gen 2 datastores at this time.
+> Writing output data back to a datastore using PipelineData is only supported for Azure Blob and Azure File share datastores. This functionality is not supported for [ADLS Gen 2 datastores](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py) at this time.
 
 ```python
 dataset_consuming_step = PythonScriptStep(
