@@ -26,7 +26,7 @@ There are several options for getting started if your are new to pipelines:
 
 ## How do you modularize pipeline code? 
 
-Modules and the `ModuleStep` class give you a great opportunity to modularize your ML code. However, it has to be kept in mind that moving between pipeline steps is vastly more expensive than a function call. The question you must ask isn't so much "Are these functions and data conceptually different than the ones in this other section?" but "Do I want these functions and data to evolve separately?" or "Is this an expensive computation whose output I can reuse?" For more information, see thisn'tebook [How to create Module, ModuleVersion, and use them in a pipeline with ModuleStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb).
+Modules and the `ModuleStep` class give you a great opportunity to modularize your ML code. However, it has to be kept in mind that moving between pipeline steps is vastly more expensive than a function call. The question you must ask isn't so much "Are these functions and data conceptually different than the ones in this other section?" but "Do I want these functions and data to evolve separately?" or "Is this computation expensive and can I reuse its output?" For more information, see thisn'tebook [How to create Module, ModuleVersion, and use them in a pipeline with ModuleStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb).
 
 As discussed previously, separating data preparation from training is often one such opportunity. Sometimes data preparation is complex and time-consuming enough that you might break the process into separate pipeline steps. Other opportunities include post-training testing and analysis. 
 
@@ -44,11 +44,11 @@ When you want to quickly iterate, you can clone your pipeline, making a pipeline
 
 Separate pipelines are natural lines along which to split effort. Multiple developers or even multiple teams can work on different steps, so long as the data and arguments flowing between steps are agreed upon. 
 
-During active development, you can retrieve `PipelineRun` and `StepRun` run results from the workspace, use these objects to download final and intermediate output and artifacts, and use those for your own modularized work.
+During active development, you can retrieve `PipelineRun` and `StepRun` run results from the workspace, use these objects to download final and intermediate output, and use those artifacts for your own modularized work.
 
 ## Use pipelines to test techniques in isolation
 
-Real-world ML solutions generally involve considerable customization of every step. The raw data often needs to be filtered, transformed, and augmented. The training processes might have several potential architectures and, for deep learning, many possible variations for layer sizes and activation functions. Even with a consistent architecture, hyperparameter search can produce significant wins.
+Real-world ML solutions generally involve considerable customization of every step. Raw data often needs to be prepared in some way: filtered, transformed, and augmented. The training processes might have several potential architectures and, for deep learning, many possible variations for layer sizes and activation functions. Even with a consistent architecture, hyperparameter search can produce significant wins.
 
 In addition to tools like [AutoML](concept-automated-ml.md) and [automated hyperparameter search](how-to-tune-hyperparameters.md), pipelines can be an important tool for A/B testing solutions. If you have several variants of your pipeline steps, it's easy to generate separate runs trying their variations: 
 
