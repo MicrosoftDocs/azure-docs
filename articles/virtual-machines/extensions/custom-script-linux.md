@@ -95,7 +95,7 @@ These items should be treated as sensitive data and specified in the extensions 
        "storageAccountName": "<storage-account-name>",
        "storageAccountKey": "<storage-account-key>",
        "fileUris": ["https://.."],
-        "managedIdentity" : "<managed-identity-identifier>"
+       "managedIdentity" : "<managed-identity-identifier>"
     }
   }
 }

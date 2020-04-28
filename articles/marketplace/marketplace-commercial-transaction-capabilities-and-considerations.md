@@ -203,7 +203,7 @@ When subscription or Pay-as-You-Go pricing models are selected, Microsoft acts a
 
 For more information and legal policies, see the [Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) (available in Partner Center).
 
-To get help on billing questions, please contact [commercial marketplace publisher support](https://aka.ms/marketplacepublishersupport).
+To get help on billing questions, please contact [commercial marketplace publisher support](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## Transact requirements
 
