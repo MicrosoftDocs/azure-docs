@@ -28,35 +28,35 @@ This article uses GitHub template repos to make it easy for you to create a new 
 
 - Navigate to the following location to create a new repository
   - https://github.com/staticwebdev/angular-basic/generate
-- Name your repository **my-first-static-app**
+- Name your repository **my-first-static-web-app**
 - Click the **Create repository from template** button
 
 # [React](#tab/react)
 
 - Navigate to the following location to create a new repository
   - https://github.com/staticwebdev/react-basic/generate
-- Name your repository **my-first-static-app**
+- Name your repository **my-first-static-web-app**
 - Click the **Create repository from template** button
 
 # [Vue](#tab/vue)
 
 - Navigate to the following location to create a new repository
   - https://github.com/staticwebdev/vue-basic/generate
-- Name your repository **my-first-static-app**
+- Name your repository **my-first-static-web-app**
 - Click the **Create repository from template** button
 
 # [No Framework](#tab/vanilla-javascript)
 
 - Navigate to the following location to create a new repository
   - https://github.com/staticwebdev/vanilla-basic/generate
-- Name your repository **my-first-static-app**
+- Name your repository **my-first-static-web-app**
 - Click the **Create repository from template** button
 
 ---
 
-## Create a static app
+## Create a static web app
 
-Now that the repo is created, you can create a static app from the Azure portal.
+Now that the repo is created, you can create a static web app from the Azure portal.
 
 - Navigate to the [Azure portal](https://portal.azure.com)
 - In the top bar, search for **Static Web Apps**
@@ -68,7 +68,7 @@ Begin by configuring your new app and linking it to a GitHub repository.
 
 - Select your _Azure subscription_
 - Select or create a new _Resource Group_
-- Name the app **my-first-static-app**.
+- Name the app **my-first-static-web-app**.
   - Valid characters are `a-z` (case insensitive), `0-9`, and `_`.
 - Select _Region_ closest to you
 - Select the **Free** _SKU_
@@ -130,7 +130,7 @@ Once the provisioning and deployment is complete, you can click on the _URL_ lin
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the static app through the following steps:
+If you're not going to continue to use this application, you can delete the static web app through the following steps:
 
 1. Open the [Azure portal](https://portal.azure.com)
 1. Search for **my-first-static-app** from the top search bar
