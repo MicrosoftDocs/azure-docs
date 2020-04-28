@@ -124,8 +124,6 @@ Once Change Tracking and Inventory detects a change for a tracked file, you can 
 
 3. You're viewing the file contents in a side-by-side view. You can select **Inline** to see an inline view of the changes.
 
-   ![View file changes](./media/change-tracking-file-contents/view-file-changes.png)
-
 ## Track registry keys
 
 Use the following steps to configure registry key tracking on Windows computers:
