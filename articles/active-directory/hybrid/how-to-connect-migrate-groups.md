@@ -121,4 +121,4 @@ Set-ADGroup -Identity $dn -Replace @{'mS-DS-ConsistencyGuid'=$targetGuid} -Error
 ```
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
+Learn more about [integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
