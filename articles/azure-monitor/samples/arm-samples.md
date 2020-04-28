@@ -40,10 +40,10 @@ az group deployment create \
 
 ## List of sample templates
 
-- [Agents](armagent.md) - Includes Log Analytics agent and diagnostic extension.
+- [Agents](arm-agent.md) - Includes Log Analytics agent and diagnostic extension.
 - [Diagnostic settings](arm-diagnostic-settings.md) - Create diagnostic settings to forward logs and metrics from different resource types.
-- [Log alert rules](arm-alerts-logs.md) - Alerts from log queries and Azure activity log.
-- [Metric alert rules](arm-alerts-metrics.md) - Alerts from metrics using different kinds of logic.
+- [Log alert rules](arm-alerts-log.md) - Alerts from log queries and Azure activity log.
+- [Metric alert rules](arm-alerts-metric.md) - Alerts from metrics using different kinds of logic.
 - [Azure Monitor for VMs](arm-vminsights.md) - Onboard virtual machines to Azure Monitor for VMs.
 
 
