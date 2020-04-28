@@ -28,17 +28,16 @@ The following steps demonstrate how to create a new repository and clone the fil
 1. In the _Repository name_ box, enter **my-vanilla-api**
 1. Click **Create repository from template**
 
-![Create a new repository from vanilla-basic](media/add-api/create-repository.png)
+:::image type="content" source="media/add-api/create-repository.png" alt-text="Create a new repository from vanilla-basic":::
 
 Once your project is created, you can use Visual Studio Code to clone the Git repository.
 
- 1. Press **F1** to open command in the command palette.
+ 1. Press **F1** to open command in the Command Palette.
  1. Paste the URL into the _Git: Clone_ prompt, and press **Enter**.
 
-![Clone a GitHub project using Visual Studio Code](media/add-api/vscode-git-0.png)
+:::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Clone a GitHub project using Visual Studio Code":::
 
-
-![Clone a GitHub project using Visual Studio Code](media/add-api/github-clone-url.png)
+:::image type="content" source="media/add-api/github-clone-url.png" alt-text="Clone a GitHub project using Visual Studio Code":::
 
 
 ## Create your local project
@@ -50,17 +49,17 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 [!NOTE]
 > You can give this folder any name. We are using `api` as an example.
 
-2. Press **F1** to open the command pallatte
+2. Press **F1** to open the Command Palette
 3. Type **Azure Functions: Create New Project...**
 4. Press **Enter**
 
-![Create a new Azure Functions using Visual Studio Code](media/add-api/create-azure-functions-vscode-0.png)
+:::image type="content" source="media/add-api/create-azure-functions-vscode-0.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
 
 5. Choose **Browse**
 6. Select the **api** folder as the directory for your project workspace
 7. Choose **Select**
 
-![Create a new Azure Functions using Visual Studio Code](media/add-api/create-azure-functions-vscode-1.png)
+:::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
 
 8. Provide the following information at the prompts:
 
@@ -141,7 +140,7 @@ Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.mic
 
     When the Core Tools are installed, your app starts in the _Terminal_ panel. As a part of the output, you can see the URL endpoint of your HTTP-triggered function running locally.
 
-![Create a new Azure Functions using Visual Studio Code](media/add-api/create-azure-functions-vscode-2.png)
+:::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
 
 3. With Core Tools running, navigate to the following URL to execute a `GET` request.
 
@@ -149,7 +148,7 @@ Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.mic
 
 4. A response is returned, which looks like the following in the browser:
 
-![Create a new Azure Functions using Visual Studio Code](media/add-api/create-azure-functions-vscode-3.png)
+:::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
 
 After you've verified that the function runs correctly, you can now call the API from the JavaScript application.
 
@@ -195,7 +194,7 @@ With Core Tools running, use the [Live Server](https://marketplace.visualstudio.
 
 3. Press **F1** and choose **Live Server: Open with Live Server**.
 
-![Create a new Azure Functions using Visual Studio Code](media/add-api/create-azure-functions-vscode-4.png)
+:::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
 
 [!NOTE]
 > You can use other HTTP servers or proxies to serve the `index.html` file. Accessing the `index.html` from `file:///` will not work.
@@ -204,17 +203,16 @@ With Core Tools running, use the [Live Server](https://marketplace.visualstudio.
 
 Using Visual Studio Code, commit and push your changes to the remote git repository.
 
-1. Pressing **F1** to open the command pallatte
+1. Pressing **F1** to open the Command Palette
 1. Type **Git: Commit All**
 1. Add a commit message
 1. Type in **Git: push**
 
-![Create a new Azure Functions using Visual Studio Code](media/add-api/vscode-git-1.png)
-
+:::image type="content" source="media/add-api/vscode-git-1.png" alt-text="Commit and push changes to the remote git repository":::
 
 ## Create static app in the Azure Portal 
 
-![Create a new repository from vanilla-basic - screen 1](media/add-api/create-static-app-on-azure-portal-1.png)
+:::image type="content" source="media/add-api/create-static-app-on-azure-portal-1.png" alt-text="Create static app on Azure Portal - screen 1":::
 
 1. Navigate to the [Azure portal](https://portal.azure.com)
 1. Type **Static Web Apps** in the top search bar
@@ -222,7 +220,7 @@ Using Visual Studio Code, commit and push your changes to the remote git reposit
 1. Click **Add**
 - Select your _Azure subscription_
 - Select or create a new _Resource Group_
-- Name the app **my-vanilla-ap-**.
+- Name the app **my-vanilla-api**.
 - Select _Region_ closest to you
 - Select the **Free** _SKU_
 - Click the **Sign-in with GitHub** button and authenticate with GitHub
@@ -231,7 +229,7 @@ Using Visual Studio Code, commit and push your changes to the remote git reposit
 - Select **master** from the _Branch_ drop-down
 - Click the **Next: Build >** button to edit the build configuration
 
-![Create static app on Azure Portal - screen 2](media/add-api/create-static-app-on-azure-portal-2.png)
+:::image type="content" source="media/add-api/create-static-app-on-azure-portal-2.png" alt-text="Create static app on Azure Portal - screen 2":::
 
 Next, add the following the build details.
 
@@ -247,18 +245,18 @@ Next, add the following the build details.
 |  Api location | The location of the API backend. This points to the root folder of the Azure Functions App project (optional) | No |
 |  App artifact location | The location of of the build output folder. Some front-end JavaScript frameworks have a build step that places production files in a folder. This setting points to the build output folder. | No |
 
-![Create static app on Azure Portal - screen 3](media/add-api/create-static-app-on-azure-portal-3.png)
+:::image type="content" source="media/add-api/create-static-app-on-azure-portal-3.png" alt-text="Create static app on Azure Portal - screen 3":::
 
 1. Click **Create**
 1. Wait for deployment to finish (this may take a minute)
 1. Navigate to `https://github.com/<YOUR_GITHUB_ACCOUNT>/my-vanilla-api/actions?query=workflow%3A"Azure+Pages+CI%2FCD"`
 1. Make sure the build is successful
 
-![GitHub Workflow](media/add-api/github-workflow-0.png)
+:::image type="content" source="media/add-api/github-workflow-0.png" alt-text="GitHub Workflow":::
 
 The deployed API will be available at `https://<STATIC_APP_NAME>.azurestaticapps.net/api/<FUNCTION_OR_ROUTE_NAME>`.
 
-![GitHub Workflow](media/add-api/github-workflow-1.png)
+:::image type="content" source="media/add-api/github-workflow-1.png" alt-text="GitHub Workflow":::
 
 You can access the API endpoint by using the `cURL` command or your browser (for GET requests).
 
