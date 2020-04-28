@@ -50,7 +50,7 @@ The following table includes links to Azure CLI script examples to manage single
 | [Import a database from a bacpac file](scripts/sql-database-import-from-bacpac-cli.md)| Imports a database to a logical SQL server from a *.bacpac* file. |
 |||
 
-Learn more about the [single database Azure CLI API](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases).
+Learn more about the [single database Azure CLI API](sql-database-single-databases-manage.md#azure-cli).
 
 # [Azure SQL Managed Instance](#tab/managed-instance)
 

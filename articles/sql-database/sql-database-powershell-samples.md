@@ -52,7 +52,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 | [Update the SQL Data Sync sync schema](scripts/sql-database-sync-update-schema.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script adds or removes items from the Data Sync sync schema. |
 |||
 
-Learn more about the [Single Database Azure PowerShell API](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases).
+Learn more about the [Single Database Azure PowerShell API](sql-database-single-databases-manage.md#powershell).
 
 ## [Azure SQL Managed Instance](#tab/managed-instance)
 

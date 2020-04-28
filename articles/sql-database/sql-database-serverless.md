@@ -1,10 +1,10 @@
 ---
-title: Serverless
-description: This article describes the new serverless compute tier and compares it with the existing provisioned compute tier
+title: Serverless compute tier 
+description: This article describes the new serverless compute tier and compares it with the existing provisioned compute tier for Azure SQL Database. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: test 
+ms.custom: test sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: oslake
@@ -14,11 +14,11 @@ ms.date: 4/3/2020
 ---
 # Azure SQL Database serverless
 
-Azure SQL Database serverless is a compute tier for single databases that automatically scales compute based on workload demand and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns.
+Serverless is a compute tier for single Azure SQL Databases that automatically scales compute based on workload demand and bills for the amount of compute used per second. The serverless compute tier also automatically pauses databases during inactive periods when only storage is billed and automatically resumes databases when activity returns.
 
 ## Serverless compute tier
 
-The serverless compute tier for a single database is parameterized by a compute autoscaling range and an autopause delay.  The configuration of these parameters shape the database performance experience and compute cost.
+The serverless compute tier for single Azure SQL Databases is parameterized by a compute autoscaling range and an autopause delay.  The configuration of these parameters shape the database performance experience and compute cost.
 
 ![serverless billing](./media/sql-database-serverless/serverless-billing.png)
 

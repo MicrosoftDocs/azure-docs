@@ -5,7 +5,7 @@ keywords: introduction to sql,intro to sql,what is sql database
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom:
+ms.custom: sqldbrb=3
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
