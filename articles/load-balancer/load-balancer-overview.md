@@ -33,12 +33,7 @@ An **[internal (or private) load balancer](./concepts-limitations.md#internalloa
 
 *Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
 
-For more information on the individual load balancer components, see [Azure Load Balancer components and limitations](./concepts-limitations.md)
-
->[!NOTE]
-> Azure provides a suite of fully managed load-balancing solutions for your scenarios. If you need high-performance, low-latency, Layer-7 load balancing, see [What is Azure Application Gateway?](../application-gateway/overview.md) If you're looking for global DNS load balancing, see [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md) Your end-to-end scenarios may benefit from combining these solutions.
->
-> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
+For more information on the individual load balancer components, see [Azure Load Balancer components and limitations](./concepts-limitations.md).
 
 ## Why use Azure Load Balancer?
 With Standard Load Balancer, you can scale your applications and create highly available services. 
@@ -84,3 +79,5 @@ See [Upgrade a Basic Load Balancer](upgrade-basic-standard.md) to upgrade Basic 
 See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer.
 
 For more information on Azure Load Balancer limitations and components, see [Azure Load Balancer concepts and limitations](./concepts-limitations.md)
+
+For an Azure load balancing options comparison, see [Overview of load-balancing options in Azure].
