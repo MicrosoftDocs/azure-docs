@@ -155,7 +155,7 @@ Without filtering, endpoints receive a variety of events from Azure Digital Twin
 
 You can restrict the events being sent by adding a filter to an endpoint.
 
-To add a filter, you can use a PUT request to *https://{YourHost}/ EventRoutes/myNewRoute?api-version=2020-03-01-preview* with the following body:
+To add a filter, you can use a PUT request to *https://{YourHost}/EventRoutes/myNewRoute?api-version=2020-03-01-preview* with the following body:
 
 ```json  
 {
