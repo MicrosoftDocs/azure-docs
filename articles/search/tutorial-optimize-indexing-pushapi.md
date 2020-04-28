@@ -206,6 +206,16 @@ public static double EstimateObjectSize(object data)
 
 This allows us to determine which batch size is most efficient by MB/s.
 
+The function requires an `ISearchIndexClient` as well as the number of tries you'd like to test for each batch size. As there may be some variability in indexing times for batch, we try each batch three times by default to make the results more significant.
+
+```csharp
+await TestBatchSizes(indexClient, numTries: 3);
+```
+
+When you run the function, you should see an output like the following:
+
+   ![Output of test batch size function](media/tutorial-optimize-data-indexing/test-batch-sizes.png "Output of test batch size function")
+
 ## 5 - Index data
 
 ### Use multiple threads/workers
@@ -223,7 +233,108 @@ As you ramp up the requests hitting the search service, you may encounter [HTTP 
 
 In the event of a failure, requests should be retried using an [exponential backoff retry strategy](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
-Azure Cognitive Search's .NET SDK automatically retries 503s and other failed requests but you'll need to implement your own logic to retry 207s. Open source tools such as [Polly](https://github.com/App-vNext/Polly) can also be used to implement a retry strategy. In this sample, 
+Azure Cognitive Search's .NET SDK automatically retries 503s and other failed requests but you'll need to implement your own logic to retry 207s. Open source tools such as [Polly](https://github.com/App-vNext/Polly) can also be used to implement a retry strategy. In this sample, we implement our own exponential backoff strategy:
+
+```csharp
+// Define parameters for exponential backoff
+int attempts = 0;
+TimeSpan delay = delay = TimeSpan.FromSeconds(2);
+int maxRetryAttempts = 5;
+```
+
+```csharp
+// Create batch of documents for indexing
+IndexBatch<Hotel> batch = IndexBatch.Upload(hotels);
+
+// Implement exponential backoff
+do
+{
+    try
+    {
+        attempts++;
+        var response = await indexClient.Documents.IndexAsync(batch);
+        return response;
+    }
+    catch (IndexBatchException ex)
+    {
+        Console.WriteLine("[Attempt: {0} of {1} Failed] - Error: {2}", attempts, maxRetryAttempts, ex.Message);
+
+        if (attempts == maxRetryAttempts)
+            break;
+
+        // Find the failed items and create a new batch to retry
+        batch = ex.FindFailedActionsToRetry(batch, x => x.HotelId);
+        Console.WriteLine("Retrying failed documents using exponential backoff...\n");
+
+        Task.Delay(delay).Wait();
+        delay = delay * 2;
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("[Attempt: {0} of {1} Failed] - Error: {2} \n", attempts, maxRetryAttempts, ex.Message);
+        
+        if (attempts == maxRetryAttempts)
+            break;
+
+        Task.Delay(delay).Wait();
+        delay = delay * 2;
+    }
+} while (true);
+```
+
+```csharp
+public static async Task IndexData(ISearchIndexClient indexClient, List<Hotel> hotels, int batchSize, int numThreads)
+{
+    int numDocs = hotels.Count;
+    Console.WriteLine("Uploading {0} documents...\n", numDocs.ToString());
+
+    DateTime startTime = DateTime.Now;
+    Console.WriteLine("Started at: {0} \n", startTime);
+    Console.WriteLine("Creating {0} threads...\n", numThreads);
+
+    // Creating a list to hold active tasks
+    List<Task<DocumentIndexResult>> uploadTasks = new List<Task<DocumentIndexResult>>();
+
+    for (int i = 0; i < numDocs; i += batchSize)
+    {
+        List<Hotel> hotelBatch = hotels.GetRange(i, batchSize);
+        var task = ExponentialBackoffAsync(indexClient, hotelBatch, i);
+        uploadTasks.Add(task);
+        Console.WriteLine("Sending a batch of {0} docs starting with doc {1}...\n", batchSize, i);
+
+        // Checking if we've hit the specified number of threads
+        if (uploadTasks.Count >= numThreads)
+        {
+            Task<DocumentIndexResult> firstTaskFinished = await Task.WhenAny(uploadTasks);
+            Console.WriteLine("Finished a thread, kicking off another...");
+            uploadTasks.Remove(firstTaskFinished);
+        }
+    }
+
+    // waiting for remaining results to finish
+    await Task.WhenAll(uploadTasks);
+
+    DateTime endTime = DateTime.Now;
+
+    TimeSpan runningTime = endTime - startTime;
+    Console.WriteLine("\nEnded at: {0} \n", endTime);
+    Console.WriteLine("Upload time total: {0}", runningTime);
+
+    double timePerBatch = Math.Round(runningTime.TotalMilliseconds / (numDocs / batchSize), 4);
+    Console.WriteLine("Upload time per batch: {0} ms", timePerBatch);
+
+    double timePerDoc = Math.Round(runningTime.TotalMilliseconds / numDocs, 4);
+    Console.WriteLine("Upload time per document: {0} ms \n", timePerDoc);
+}
+```
+
+```cmd
+ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8).Wait();
+```
+
+![Output of index data function](media/tutorial-optimize-data-indexing/index-data-start.png "Output of index data function")
+
+![Error from index data function](media/tutorial-optimize-data-indexing/index-data-error.png "Output of test batch size function")
 
 ## 6 - Explore index
 
