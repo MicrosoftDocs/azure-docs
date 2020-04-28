@@ -32317,6 +32317,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/api-management/api-management-howto-deploy-self-hosted-gateway-to-k8s.md",
+      "redirect_url": "/azure/api-management/how-to-deploy-self-hosted-gateway-kubernetes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-howto-deploy-self-hosted-gateway-to-docker.md",
+      "redirect_url": "/azure/api-management/how-to-deploy-self-hosted-gateway-docker",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/container-service/kubernetes/container-service-deploy-spring-boot-app-on-kubernetes.md",
       "redirect_url": "/java/azure/spring-framework/deploy-spring-boot-java-app-on-kubernetes",
       "redirect_document_id": false
