@@ -9,12 +9,16 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create DB - Portal
-    href: quickstart-create-mysql-server-database-using-azure-portal.md
-  - name: Create DB - Azure CLI
-    href: quickstart-create-mysql-server-database-using-azure-cli.md
-  - name: Create DB - Azure CLI up command
-    href: quickstart-create-server-up-azure-cli.md
+  - name: Create DB
+    items:
+    - name: Create DB - Portal
+      href: quickstart-create-mysql-server-database-using-azure-portal.md
+    - name: Create DB - Azure CLI
+      href: quickstart-create-mysql-server-database-using-azure-cli.md
+    - name: Create DB - Azure CLI up command
+      href: quickstart-create-server-up-azure-cli.md
+    - name: Create DB - Azure PowerShell
+      href: quickstart-create-mysql-server-database-using-azure-powershell.md
   - name: Connect & query
     items:
     - name: PHP
@@ -22,7 +26,7 @@
     - name: Java
       href: connect-java.md
     - name: .NET
-      href: connect-csharp.md    
+      href: connect-csharp.md
     - name: Python
       href: connect-python.md
     - name: Node.js
@@ -74,7 +78,7 @@
     - name: Pricing tiers
       href: concepts-pricing-tiers.md
     - name: Prepay for reserved capacity
-      href: concept-reserved-pricing.md        
+      href: concept-reserved-pricing.md
     - name: Limits
       href: concepts-limits.md
   - name: Data access & security
@@ -90,7 +94,7 @@
     - name: Virtual Network
       href: concepts-data-access-and-security-vnet.md
     - name: Advanced Threat Protection
-      href: concepts-data-access-and-security-threat-protection.md   
+      href: concepts-data-access-and-security-threat-protection.md
     - name: Private Link
       href: concepts-data-access-security-private-link.md
     - name: Data Encryption
@@ -141,7 +145,7 @@
     - name: Data-in replication
       href: concepts-data-in-replication.md
     - name: Read replicas
-      href: concepts-read-replicas.md  
+      href: concepts-read-replicas.md
 - name: How-to guides
   items:
   - name: Manage a server
@@ -160,6 +164,8 @@
       href: howto-restore-server-portal.md
     - name: Azure CLI
       href: howto-restore-server-cli.md
+    - name: Azure PowerShell
+      href: howto-restore-server-powershell.md
   - name: Migrate a database
     items:
     - name: Dump & restore
@@ -192,16 +198,18 @@
       href: howto-auto-grow-storage-portal.md
     - name: Azure CLI
       href: howto-auto-grow-storage-cli.md
+    - name: Azure PowerShell
+      href: howto-auto-grow-storage-powershell.md
   - name: Access server logs
     items:
     - name: Slow query logs
-      items: 
+      items:
       - name: Azure portal
         href: howto-configure-server-logs-in-portal.md
       - name: Azure CLI
         href: howto-configure-server-logs-in-cli.md
     - name: Audit logs
-      items: 
+      items:
       - name: Azure portal
         href: howto-configure-audit-logs-portal.md
       - name: Azure CLI
@@ -264,6 +272,8 @@
       href: howto-restart-server-portal.md
     - name: Azure CLI
       href: howto-restart-server-cli.md
+    - name: Azure PowerShell
+      href: howto-restart-server-powershell.md
 - name: Reference
   items:
   - name: Azure CLI

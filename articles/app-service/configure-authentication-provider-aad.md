@@ -22,6 +22,9 @@ Follow these best practices when setting up your app and authentication:
 - Configure each App Service app with its own registration.
 - Avoid permission sharing between environments by using separate app registrations for separate deployment slots. When testing new code, this practice can help prevent issues from affecting the production app.
 
+> [!NOTE]
+> This feature is currently not available on Linux Consumption plan for Azure Functions
+
 ## <a name="express"> </a>Configure with express settings
 
 > [!NOTE]
