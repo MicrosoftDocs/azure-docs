@@ -88,7 +88,7 @@ To set up Log Analytics for a new object:
     For example, when you're enabling diagnostics for an app group, you'll see options to configure checkpoints, errors, and management. For workspaces, these categories configure a feed to track when users subscribe to the list of apps. To learn more about diagnostic settings see [Create diagnostic setting to collect resource logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md). 
 
      >[!IMPORTANT] 
-     >Remember to enable diagnostics for each ARM object that you want to monitor. Data will be available for activities after diagnostics has been enabled. It might take a few hours after first set-up.  
+     >Remember to enable diagnostics for each Azure Resource Manager object that you want to monitor. Data will be available for activities after diagnostics has been enabled. It might take a few hours after first set-up.  
 
 5. Enter a name for your settings configuration, then select **Send to Log Analytics**. The name you use shouldn't have spaces and should conform to [Azure naming conventions](../azure-resource-manager/management/resource-name-rules.md). As part of the logs, you can select all the options that you want added to your Log Analytics, such as Checkpoint, Error, Management, and so on.
 
@@ -141,7 +141,7 @@ Log Analytics only reports in these intermediate states for connection activitie
 
 The following example queries show how the diagnostics feature generates a report for the most frequent activities in your system.
 
-To get list of connections made by your users, run this cmdlet:
+To get a list of connections made by your users, run this cmdlet:
 
 ```powershell
 WVDConnections 
