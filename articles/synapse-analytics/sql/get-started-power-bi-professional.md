@@ -53,10 +53,10 @@ There are two steps prior to using samples:
 
 ### Create database
 
-Since you'll use a demo environment, you should create your own database for demo purposes. A database is needed for views creation. In this documentation, you'll use this database in sample queries.
+For this getting started article, you should create your own database to utilize as a demo. A database is needed for views creation. You'll use this database in some of the sample queries within this documentation.
 
 > [!NOTE]
-> Note that databases are used only for viewing metadata, not actual data.
+> Databases are used only for viewing metadata, not for actual data.
 >
 > Write down the database name you're using, you'll need it later on.
 
@@ -99,7 +99,7 @@ Select **Azure** in the menu and then **Azure SQL Database**.
 
 ### Step 2 - Select database
 
-Write URL for the database and name of the database where the view resides.
+Write the URL for the database and the name of the database where the view resides.
 ![Select database on the endpoint.](./media/get-started-power-bi-professional/step-2-db.png)
 
 ## Next steps
