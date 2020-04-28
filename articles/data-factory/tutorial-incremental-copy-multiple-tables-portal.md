@@ -306,7 +306,7 @@ In the last step, you create a linked service to link your source SQL Server dat
 1. In the **New Linked Service** window, do the following steps:
 
     1. Enter **AzureSqlDatabaseLinkedService** for **Name**. 
-    1. For **Server name**, select the name of your Azure SQL server from the drop-down list. 
+    1. For **Server name**, select the name of your logical SQL server from the drop-down list. 
     1. For **Database name**, select the Azure SQL database in which you created customer_table and project_table as part of the prerequisites. 
     1. For **User name**, enter the name of user that has access to the Azure SQL database. 
     1. For **Password**, enter the **password** for the user. 

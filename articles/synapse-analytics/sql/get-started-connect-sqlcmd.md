@@ -74,7 +74,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 
 ### Use SQL pool
 
-After connection, you can issue any supported Transact-SQL statements against the instance.  In this example, queries are submitted in interactive mode:
+After connection, you can issue any supported [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (T-SQL) statements against the instance. In this example, queries are submitted in interactive mode:
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I

@@ -1,10 +1,10 @@
 ---
 title: How to use batching to improve application performance
-description: The topic provides evidence that batching database operations greatly improves the speed and scalability of your Azure SQL Database applications. Although these batching techniques work for any SQL Server database, the focus of the article is on Azure.
+description: The topic provides evidence that batching database operations greatly improves the speed and scalability of your Azure SQL Database and Azure SQL Managed Instance applications. Although these batching techniques work for any SQL Server database, the focus of the article is on Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: 
+ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -12,23 +12,23 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ---
-# How to use batching to improve SQL Database application performance
+# How to use batching to improve Azure SQL Database and Azure SQL Managed Instance application performance
 
-Batching operations to Azure SQL Database significantly improves the performance and scalability of your applications. In order to understand the benefits, the first part of this article covers some sample test results that compare sequential and batched requests to a SQL Database. The remainder of the article shows the techniques, scenarios, and considerations to help you to use batching successfully in your Azure applications.
+Batching operations to Azure SQL Database and Azure SQL Managed Instance significantly improves the performance and scalability of your applications. In order to understand the benefits, the first part of this article covers some sample test results that compare sequential and batched requests to a database in Azure SQL Database or Azure SQL Managed Instance. The remainder of the article shows the techniques, scenarios, and considerations to help you to use batching successfully in your Azure applications.
 
-## Why is batching important for SQL Database
+## Why is batching important for Azure SQL Database and Azure SQL Managed Instance
 
 Batching calls to a remote service is a well-known strategy for increasing performance and scalability. There are fixed processing costs to any interactions with a remote service, such as serialization, network transfer, and deserialization. Packaging many separate transactions into a single batch minimizes these costs.
 
-In this paper, we want to examine various SQL Database batching strategies and scenarios. Although these strategies are also important for on-premises applications that use SQL Server, there are several reasons for highlighting the use of batching for SQL Database:
+In this article, we want to examine various batching strategies and scenarios. Although these strategies are also important for on-premises applications that use SQL Server, there are several reasons for highlighting the use of batching for Azure SQL Database and Azure SQL Managed Instance:
 
-* There is potentially greater network latency in accessing SQL Database, especially if you are accessing SQL Database from outside the same Microsoft Azure datacenter.
-* The multitenant characteristics of SQL Database means that the efficiency of the data access layer correlates to the overall scalability of the database. SQL Database must prevent any single tenant/user from monopolizing database resources to the detriment of other tenants. In response to usage in excess of predefined quotas, SQL Database can reduce throughput or respond with throttling exceptions. Efficiencies, such as batching, enable you to do more work on SQL Database before reaching these limits. 
-* Batching is also effective for architectures that use multiple databases (sharding). The efficiency of your interaction with each database unit is still a key factor in your overall scalability. 
+* There is potentially greater network latency in accessing Azure SQL Database and Azure SQL Managed Instance, especially if you are accessing Azure SQL Database or Azure SQL Managed Instance from outside the same Microsoft Azure datacenter.
+* The multitenant characteristics of Azure SQL Database and Azure SQL Managed Instance means that the efficiency of the data access layer correlates to the overall scalability of the database. In response to usage in excess of predefined quotas, Azure SQL Database and Azure SQL Managed Instance can reduce throughput or respond with throttling exceptions. Efficiencies, such as batching, enable you to do more work before reaching these limits.
+* Batching is also effective for architectures that use multiple databases (sharding). The efficiency of your interaction with each database unit is still a key factor in your overall scalability.
 
-One of the benefits of using SQL Database is that you don’t have to manage the servers that host the database. However, this managed infrastructure also means that you have to think differently about database optimizations. You can no longer look to improve the database hardware or network infrastructure. Microsoft Azure controls those environments. The main area that you can control is how your application interacts with SQL Database. Batching is one of these optimizations. 
+One of the benefits of using Azure SQL Database or Azure SQL Managed Instance is that you don’t have to manage the servers that host the database. However, this managed infrastructure also means that you have to think differently about database optimizations. You can no longer look to improve the database hardware or network infrastructure. Microsoft Azure controls those environments. The main area that you can control is how your application interacts with Azure SQL Database and Azure SQL Managed Instance. Batching is one of these optimizations.
 
-The first part of the paper examines various batching techniques for .NET applications that use SQL Database. The last two sections cover batching guidelines and scenarios.
+The first part of this article examines various batching techniques for .NET applications that use Azure SQL Database or Azure SQL Managed Instance. The last two sections cover batching guidelines and scenarios.
 
 ## Batching strategies
 
@@ -52,6 +52,7 @@ dbOperations.Add("insert MyTable values ('new value',1)");
 dbOperations.Add("insert MyTable values ('new value',2)");
 dbOperations.Add("insert MyTable values ('new value',3)");
 ```
+
 The following ADO.NET code sequentially performs these operations.
 
 ```csharp
@@ -110,20 +111,20 @@ The following table shows some ad hoc testing results. The tests performed the s
 > [!NOTE]
 > Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
 
-Based on the previous test results, wrapping a single operation in a transaction actually decreases performance. But as you increase the number of operations within a single transaction, the performance improvement becomes more marked. The performance difference is also more noticeable when all operations occur within the Microsoft Azure datacenter. The increased latency of using SQL Database from outside the Microsoft Azure datacenter overshadows the performance gain of using transactions.
+Based on the previous test results, wrapping a single operation in a transaction actually decreases performance. But as you increase the number of operations within a single transaction, the performance improvement becomes more marked. The performance difference is also more noticeable when all operations occur within the Microsoft Azure datacenter. The increased latency of using Azure SQL Database or Azure SQL Managed Instance from outside the Microsoft Azure datacenter overshadows the performance gain of using transactions.
 
-Although the use of transactions can increase performance, continue to [observe best practices for transactions and connections](https://msdn.microsoft.com/library/ms187484.aspx). Keep the transaction as short as possible, and close the database connection after the work completes. The using statement in the previous example assures that the connection is closed when the subsequent code block completes.
+Although the use of transactions can increase performance, continue to [observe best practices for transactions and connections](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms187484(v=sql.105)). Keep the transaction as short as possible, and close the database connection after the work completes. The using statement in the previous example assures that the connection is closed when the subsequent code block completes.
 
 The previous example demonstrates that you can add a local transaction to any ADO.NET code with two lines. Transactions offer a quick way to improve the performance of code that makes sequential insert, update, and delete operations. However, for the fastest performance, consider changing the code further to take advantage of client-side batching, such as table-valued parameters.
 
-For more information about transactions in ADO.NET, see [Local Transactions in ADO.NET](https://docs.microsoft.com/dotnet/framework/data/adonet/local-transactions).
+For more information about transactions in ADO.NET, see [Local Transactions in ADO.NET](/dotnet/framework/data/adonet/local-transactions).
 
 ### Table-valued parameters
 
 Table-valued parameters support user-defined table types as parameters in Transact-SQL statements, stored procedures, and functions. This client-side batching technique allows you to send multiple rows of data within the table-valued parameter. To use table-valued parameters, first define a table type. The following Transact-SQL statement creates a table type named **MyTableType**.
 
 ```sql
-    CREATE TYPE MyTableType AS TABLE 
+    CREATE TYPE MyTableType AS TABLE
     ( mytext TEXT,
       num INT );
 ```
@@ -166,11 +167,11 @@ In the previous example, the **SqlCommand** object inserts rows from a table-val
 To improve the previous example further, use a stored procedure instead of a text-based command. The following Transact-SQL command creates a stored procedure that takes the **SimpleTestTableType** table-valued parameter.
 
 ```sql
-CREATE PROCEDURE [dbo].[sp_InsertRows] 
+CREATE PROCEDURE [dbo].[sp_InsertRows]
 @TestTvp as MyTableType READONLY
 AS
 BEGIN
-INSERT INTO MyTable(mytext, num) 
+INSERT INTO MyTable(mytext, num)
 SELECT mytext, num FROM @TestTvp
 END
 GO
@@ -197,12 +198,10 @@ The following table shows ad hoc test results for the use of table-valued parame
 
 > [!NOTE]
 > Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
-> 
-> 
 
 The performance gain from batching is immediately apparent. In the previous sequential test, 1000 operations took 129 seconds outside the datacenter and 21 seconds from within the datacenter. But with table-valued parameters, 1000 operations take only 2.6 seconds outside the datacenter and 0.4 seconds within the datacenter.
 
-For more information on table-valued parameters, see [Table-Valued Parameters](https://msdn.microsoft.com/library/bb510489.aspx).
+For more information on table-valued parameters, see [Table-Valued Parameters](/sql/relational-databases/tables/use-table-valued-parameters-database-engine).
 
 ### SQL bulk copy
 
@@ -223,7 +222,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-There are some cases where bulk copy is preferred over table-valued parameters. See the comparison table of Table-Valued parameters versus BULK INSERT operations in the article [Table-Valued Parameters](https://msdn.microsoft.com/library/bb510489.aspx).
+There are some cases where bulk copy is preferred over table-valued parameters. See the comparison table of Table-Valued parameters versus BULK INSERT operations in the article [Table-Valued Parameters](/sql/relational-databases/tables/use-table-valued-parameters-database-engine).
 
 The following ad hoc test results show the performance of batching with **SqlBulkCopy** in milliseconds.
 
@@ -237,12 +236,10 @@ The following ad hoc test results show the performance of batching with **SqlBul
 
 > [!NOTE]
 > Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
-> 
-> 
 
 In smaller batch sizes, the use table-valued parameters outperformed the **SqlBulkCopy** class. However, **SqlBulkCopy** performed 12-31% faster than table-valued parameters for the tests of 1,000 and 10,000 rows. Like table-valued parameters, **SqlBulkCopy** is a good option for batched inserts, especially when compared to the performance of non-batched operations.
 
-For more information on bulk copy in ADO.NET, see [Bulk Copy Operations in SQL Server](https://msdn.microsoft.com/library/7ek5da1a.aspx).
+For more information on bulk copy in ADO.NET, see [Bulk Copy Operations in SQL Server](/dotnet/framework/data/adonet/sql/bulk-copy-operations-in-sql-server).
 
 ### Multiple-row Parameterized INSERT statements
 
@@ -280,18 +277,16 @@ The following ad hoc test results show the performance of this type of insert st
 
 > [!NOTE]
 > Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
-> 
-> 
 
 This approach can be slightly faster for batches that are less than 100 rows. Although the improvement is small, this technique is another option that might work well in your specific application scenario.
 
 ### DataAdapter
 
-The **DataAdapter** class allows you to modify a **DataSet** object and then submit the changes as INSERT, UPDATE, and DELETE operations. If you are using the **DataAdapter** in this manner, it is important to note that separate calls are made for each distinct operation. To improve performance, use the **UpdateBatchSize** property to the number of operations that should be batched at a time. For more information, see [Performing Batch Operations Using DataAdapters](https://msdn.microsoft.com/library/aadf8fk2.aspx).
+The **DataAdapter** class allows you to modify a **DataSet** object and then submit the changes as INSERT, UPDATE, and DELETE operations. If you are using the **DataAdapter** in this manner, it is important to note that separate calls are made for each distinct operation. To improve performance, use the **UpdateBatchSize** property to the number of operations that should be batched at a time. For more information, see [Performing Batch Operations Using DataAdapters](/dotnet/framework/data/adonet/performing-batch-operations-using-dataadapters).
 
 ### Entity framework
 
-Entity Framework does not currently support batching. Different developers in the community have attempted to demonstrate workarounds, such as override the **SaveChanges** method. But the solutions are typically complex and customized to the application and data model. The Entity Framework codeplex project currently has a discussion page on this feature request. To view this discussion, see [Design Meeting Notes - August 2, 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
+[Entity Framework 6](https://github.com/dotnet/ef6) now supports batching.
 
 ### XML
 
@@ -307,7 +302,7 @@ For these reasons, the use of XML for batch queries is not recommended.
 
 ## Batching considerations
 
-The following sections provide more guidance for the use of batching in SQL Database applications.
+The following sections provide more guidance for the use of batching in Azure SQL Database and Azure SQL Managed Instance applications.
 
 ### Tradeoffs
 
@@ -328,12 +323,10 @@ In our tests, there was typically no advantage to breaking large batches into sm
 
 > [!NOTE]
 > Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
-> 
-> 
 
 You can see that the best performance for 1000 rows is to submit them all at once. In other tests (not shown here), there was a small performance gain to break a 10000 row batch into two batches of 5000. But the table schema for these tests is relatively simple, so you should perform tests on your specific data and batch sizes to verify these findings.
 
-Another factor to consider is that if the total batch becomes too large, SQL Database might throttle and refuse to commit the batch. For the best results, test your specific scenario to determine if there is an ideal batch size. Make the batch size configurable at runtime to enable quick adjustments based on performance or errors.
+Another factor to consider is that if the total batch becomes too large, Azure SQL Database or Azure SQL Managed Instance might throttle and refuse to commit the batch. For the best results, test your specific scenario to determine if there is an ideal batch size. Make the batch size configurable at runtime to enable quick adjustments based on performance or errors.
 
 Finally, balance the size of the batch with the risks associated with batching. If there are transient errors or the role fails, consider the consequences of retrying the operation or of losing the data in the batch.
 
@@ -350,8 +343,6 @@ What if you took the approach of reducing the batch size but used multiple threa
 
 > [!NOTE]
 > Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
-> 
-> 
 
 There are several potential reasons for the degradation in performance due to parallelism:
 
@@ -382,7 +373,7 @@ Although there are some scenarios that are obvious candidate for batching, there
 
 For example, consider a web application that tracks the navigation history of each user. On each page request, the application could make a database call to record the user’s page view. But higher performance and scalability can be achieved by buffering the users’ navigation activities and then sending this data to the database in batches. You can trigger the database update by elapsed time and/or buffer size. For example, a rule could specify that the batch should be processed after 20 seconds or when the buffer reaches 1000 items.
 
-The following code example uses [Reactive Extensions - Rx](https://msdn.microsoft.com/data/gg577609) to process buffered events raised by a monitoring class. When the buffer fills or a timeout is reached, the batch of user data is sent to the database with a table-valued parameter.
+The following code example uses [Reactive Extensions - Rx](https://docs.microsoft.com/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) to process buffered events raised by a monitoring class. When the buffer fills or a timeout is reached, the batch of user data is sent to the database with a table-valued parameter.
 
 The following NavHistoryData class models the user navigation details. It contains basic information such as the user identifier, the URL accessed, and the access time.
 
@@ -486,7 +477,7 @@ CREATE TABLE [dbo].[PurchaseOrder](
 [OrderDate] [datetime] NOT NULL,
 [CustomerID] [int] NOT NULL,
 [Status] [nvarchar](50) NOT NULL,
-CONSTRAINT [PrimaryKey_PurchaseOrder] 
+CONSTRAINT [PrimaryKey_PurchaseOrder]
 PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
 ```
 
@@ -499,14 +490,14 @@ CREATE TABLE [dbo].[PurchaseOrderDetail](
 [ProductID] [int] NOT NULL,
 [UnitPrice] [money] NULL,
 [OrderQty] [smallint] NULL,
-CONSTRAINT [PrimaryKey_PurchaseOrderDetail] PRIMARY KEY CLUSTERED 
+CONSTRAINT [PrimaryKey_PurchaseOrderDetail] PRIMARY KEY CLUSTERED
 ( [OrderID] ASC, [OrderDetailID] ASC ))
 ```
 
 The OrderID column in the PurchaseOrderDetail table must reference an order from the PurchaseOrder table. The following definition of a foreign key enforces this constraint.
 
 ```sql
-ALTER TABLE [dbo].[PurchaseOrderDetail]  WITH CHECK ADD 
+ALTER TABLE [dbo].[PurchaseOrderDetail]  WITH CHECK ADD
 CONSTRAINT [FK_OrderID_PurchaseOrder] FOREIGN KEY([OrderID])
 REFERENCES [dbo].[PurchaseOrder] ([OrderID])
 ```
@@ -514,14 +505,14 @@ REFERENCES [dbo].[PurchaseOrder] ([OrderID])
 In order to use table-valued parameters, you must have one user-defined table type for each target table.
 
 ```sql
-CREATE TYPE PurchaseOrderTableType AS TABLE 
+CREATE TYPE PurchaseOrderTableType AS TABLE
 ( OrderID INT,
     OrderDate DATETIME,
     CustomerID INT,
     Status NVARCHAR(50) );
 GO
 
-CREATE TYPE PurchaseOrderDetailTableType AS TABLE 
+CREATE TYPE PurchaseOrderDetailTableType AS TABLE
 ( OrderID INT,
     ProductID INT,
     UnitPrice MONEY,
@@ -540,14 +531,14 @@ SET NOCOUNT ON;
 
 -- Table that connects the order identifiers in the @orders
 -- table with the actual order identifiers in the PurchaseOrder table
-DECLARE @IdentityLink AS TABLE ( 
-SubmittedKey int, 
-ActualKey int, 
+DECLARE @IdentityLink AS TABLE (
+SubmittedKey int,
+ActualKey int,
 RowNumber int identity(1,1)
 );
 
 -- Add new orders to the PurchaseOrder table, storing the actual
--- order identifiers in the @IdentityLink table   
+-- order identifiers in the @IdentityLink table
 INSERT INTO PurchaseOrder ([OrderDate], [CustomerID], [Status])
 OUTPUT inserted.OrderID INTO @IdentityLink (ActualKey)
 SELECT [OrderDate], [CustomerID], [Status] FROM @orders ORDER BY OrderID;
@@ -555,13 +546,13 @@ SELECT [OrderDate], [CustomerID], [Status] FROM @orders ORDER BY OrderID;
 -- Match the passed-in order identifiers with the actual identifiers
 -- and complete the @IdentityLink table for use with inserting the details
 WITH OrderedRows As (
-SELECT OrderID, ROW_NUMBER () OVER (ORDER BY OrderID) As RowNumber 
+SELECT OrderID, ROW_NUMBER () OVER (ORDER BY OrderID) As RowNumber
 FROM @orders
 )
 UPDATE @IdentityLink SET SubmittedKey = M.OrderID
 FROM @IdentityLink L JOIN OrderedRows M ON L.RowNumber = M.RowNumber;
 
--- Insert the order details into the PurchaseOrderDetail table, 
+-- Insert the order details into the PurchaseOrderDetail table,
 -- using the actual order identifiers of the master table, PurchaseOrder
 INSERT INTO PurchaseOrderDetail (
 [OrderID],
@@ -582,7 +573,7 @@ This stored procedure can be used from code or from other Transact-SQL calls. Se
 declare @orders as PurchaseOrderTableType
 declare @details as PurchaseOrderDetailTableType
 
-INSERT @orders 
+INSERT @orders
 ([OrderID], [OrderDate], [CustomerID], [Status])
 VALUES(1, '1/1/2013', 1125, 'Complete'),
 (2, '1/13/2013', 348, 'Processing'),
@@ -614,14 +605,14 @@ CREATE TABLE [dbo].[Employee](
 [FirstName] [nvarchar](50) NOT NULL,
 [LastName] [nvarchar](50) NOT NULL,
 [SocialSecurityNumber] [nvarchar](50) NOT NULL,
-CONSTRAINT [PrimaryKey_Employee] PRIMARY KEY CLUSTERED 
+CONSTRAINT [PrimaryKey_Employee] PRIMARY KEY CLUSTERED
 ([EmployeeID] ASC ))
 ```
 
 In this example, you can use the fact that the SocialSecurityNumber is unique to perform a MERGE of multiple employees. First, create the user-defined table type:
 
 ```sql
-CREATE TYPE EmployeeTableType AS TABLE 
+CREATE TYPE EmployeeTableType AS TABLE
 ( Employee_ID INT,
     FirstName NVARCHAR(50),
     LastName NVARCHAR(50),
@@ -633,12 +624,12 @@ Next, create a stored procedure or write code that uses the MERGE statement to p
 
 ```sql
 MERGE Employee AS target
-USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
+USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees)
 AS source ([FirstName], [LastName], [SocialSecurityNumber])
 ON (target.[SocialSecurityNumber] = source.[SocialSecurityNumber])
-WHEN MATCHED THEN 
+WHEN MATCHED THEN
 UPDATE SET
-target.FirstName = source.FirstName, 
+target.FirstName = source.FirstName,
 target.LastName = source.LastName
 WHEN NOT MATCHED THEN
     INSERT ([FirstName], [LastName], [SocialSecurityNumber])
@@ -651,7 +642,7 @@ For more information, see the documentation and examples for the MERGE statement
 
 The following list provides a summary of the batching recommendations discussed in this article:
 
-* Use buffering and batching to increase the performance and scalability of SQL Database applications.
+* Use buffering and batching to increase the performance and scalability of Azure SQL Database and Azure SQL Managed Instance applications.
 * Understand the tradeoffs between batching/buffering and resiliency. During a role failure, the risk of losing an unprocessed batch of business-critical data might outweigh the performance benefit of batching.
 * Attempt to keep all calls to the database within a single datacenter to reduce latency.
 * If you choose a single batching technique, table-valued parameters offer the best performance and flexibility.
@@ -662,13 +653,12 @@ The following list provides a summary of the batching recommendations discussed 
 * For update and delete operations, use table-valued parameters with stored procedure logic that determines the correct operation on each row in the table parameter.
 * Batch size guidelines:
   * Use the largest batch sizes that make sense for your application and business requirements.
-  * Balance the performance gain of large batches with the risks of temporary or catastrophic failures. What is the consequence of retries or loss of the data in the batch? 
-  * Test the largest batch size to verify that SQL Database does not reject it.
+  * Balance the performance gain of large batches with the risks of temporary or catastrophic failures. What is the consequence of retries or loss of the data in the batch?
+  * Test the largest batch size to verify that Azure SQL Database or Azure SQL Managed Instance does not reject it.
   * Create configuration settings that control batching, such as the batch size or the buffering time window. These settings provide flexibility. You can change the batching behavior in production without redeploying the cloud service.
 * Avoid parallel execution of batches that operate on a single table in one database. If you do choose to divide a single batch across multiple worker threads, run tests to determine the ideal number of threads. After an unspecified threshold, more threads will decrease performance rather than increase it.
 * Consider buffering on size and time as a way of implementing batching for more scenarios.
 
 ## Next steps
 
-This article focused on how database design and coding techniques related to batching can improve your application performance and scalability. But this is just one factor in your overall strategy. For more ways to improve performance and scalability, see [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md) and [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md).
-
+This article focused on how database design and coding techniques related to batching can improve your application performance and scalability. But this is just one factor in your overall strategy. For more ways to improve performance and scalability, see [Database performance guidance](sql-database-performance-guidance.md) and [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md).

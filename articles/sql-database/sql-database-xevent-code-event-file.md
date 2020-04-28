@@ -4,7 +4,7 @@ description: Provides PowerShell and Transact-SQL for a two-phase code sample th
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: conceptual
 author: MightyPen
@@ -12,7 +12,7 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 03/12/2019
 ---
-# Event File target code for extended events in SQL Database
+# Event File target code for extended events in Azure SQL Database
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
@@ -108,7 +108,7 @@ $policySasPermission = 'rwl';  # Leave this value alone, as 'rwl'.
 
 # The ending display lists your Azure subscriptions.
 # One should match the $subscriptionName value you assigned
-#   earlier in this PowerShell script. 
+#   earlier in this PowerShell script.
 
 'Choose an existing subscription for the current PowerShell environment.';
 
@@ -117,7 +117,7 @@ Select-AzSubscription -Subscription $subscriptionName;
 #-------------- 4 ------------------------
 
 '
-Clean up the old Azure Storage Account after any previous run, 
+Clean up the old Azure Storage Account after any previous run,
 before continuing this new run.';
 
 if ($storageAccountName) {
@@ -131,7 +131,7 @@ if ($storageAccountName) {
 [System.DateTime]::Now.ToString();
 
 '
-Create a storage account. 
+Create a storage account.
 This might take several minutes, will beep when ready.
   ...PLEASE WAIT...';
 

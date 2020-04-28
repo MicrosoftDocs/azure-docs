@@ -183,7 +183,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 Depending on the architecture or usage of your application, you may consider different strategies for ensuring that the OBO flow is successful. In all cases, the ultimate goal is to ensure proper consent is given so that the client app can call the middle-tier app, and the middle tier app has permission to call the back-end resource.
 
 > [!NOTE]
-> Previously the Microsoft account system (personal accounts) did not support the "Known client application" field, nor could it show combined consent.  This has been added and all apps in the Microsoft identity platform can use the known client application approach for gettign consent for OBO calls.
+> Previously the Microsoft account system (personal accounts) did not support the "Known client application" field, nor could it show combined consent.  This has been added and all apps in the Microsoft identity platform can use the known client application approach for getting consent for OBO calls.
 
 ### /.default and combined consent
 

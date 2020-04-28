@@ -64,7 +64,7 @@ Create an Azure SQL Database with Adventure Works LT sample data following [Crea
 
 ## Azure services to access SQL server
 
-For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL server. Ensure that **Allow access to Azure services** setting is turned **ON** for your Azure SQL server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure SQL Data Warehouse. To verify and turn on this setting, do the following steps:
+For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL server. Ensure that **Allow access to Azure services** setting is turned **ON** for your logical SQL server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure SQL Data Warehouse. To verify and turn on this setting, do the following steps:
 
 1. Click **All services** on the left and click **SQL servers**.
 2. Select your server, and click **Firewall** under **SETTINGS**.

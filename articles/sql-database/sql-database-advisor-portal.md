@@ -4,7 +4,7 @@ description: Use the Azure portal to find performance recommendations that can o
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: danimir

@@ -1,10 +1,10 @@
 ---
-title: Import or export a SQL database
-description: Import or export an Azure SQL database without allowing Azure services to access the server.
+title: Import or export an Azure SQL Database without allowing Azure services to access the server.
+description: Import or export an Azure SQL Database without allowing Azure services to access the server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -12,9 +12,9 @@ ms.author: sstein
 ms.reviewer: 
 ms.date: 01/08/2020
 ---
-# Import or export an Azure SQL database without allowing Azure services to access the server
+# Import or export an Azure SQL Database without allowing Azure services to access the server
 
-This article shows you how to import or export an Azure SQL database when *Allow Azure Services* is set to *OFF* on the Azure SQL server. The workflow uses an Azure virtual machine to run SqlPackage to perform the import or export operation.
+This article shows you how to import or export an Azure SQL Database when *Allow Azure Services* is set to *OFF* on the Azure SQL server. The workflow uses an Azure virtual machine to run SqlPackage to perform the import or export operation.
 
 ## Sign in to the Azure portal
 
@@ -74,7 +74,7 @@ For additional information, see [SqlPackage.exe](https://docs.microsoft.com/sql/
 
 ## Create a firewall rule to allow the VM access to the database
 
-Add the virtual machine's public IP address to the SQL Database server firewall.
+Add the virtual machine's public IP address to the Azure SQL Database logical server's firewall.
 
 The following steps create a server-level IP firewall rule for your virtual machine's public IP address and enables connectivity from the virtual machine.
 
@@ -90,7 +90,7 @@ The following steps create a server-level IP firewall rule for your virtual mach
 
 4. Choose **Add client IP** on the toolbar to add your virtual machine's public IP address to a new server-level IP firewall rule. A server-level IP firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
-5. Select **Save**. A server-level IP firewall rule is created for your virtual machine's public IP address opening port 1433 on the SQL Database server.
+5. Select **Save**. A server-level IP firewall rule is created for your virtual machine's public IP address opening port 1433 on the logical server.
 
 6. Close the **Firewall settings** page.
 
@@ -98,7 +98,7 @@ The following steps create a server-level IP firewall rule for your virtual mach
 
 ## Export a database using SqlPackage
 
-To export a SQL database using the [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) command-line utility, see [Export parameters and properties](https://docs.microsoft.com/sql/tools/sqlpackage#export-parameters-and-properties). The SqlPackage utility ships with the latest versions of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt), or you can download the latest version of [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
+To export an Azure SQL Database using the [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) command-line utility, see [Export parameters and properties](https://docs.microsoft.com/sql/tools/sqlpackage#export-parameters-and-properties). The SqlPackage utility ships with the latest versions of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt), or you can download the latest version of [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
 
 We recommend the use of the SqlPackage utility for scale and performance in most production environments. For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
@@ -117,14 +117,14 @@ To import a SQL Server database using the [SqlPackage](https://docs.microsoft.co
 
 For scale and performance, we recommend using SqlPackage in most production environments rather than using the Azure portal. For a SQL Server Customer Advisory Team blog about migrating using `BACPAC` files, see [migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
-The following SqlPackage command imports the **AdventureWorks2017** database from local storage to an Azure SQL Database server. It creates a new database called **myMigratedDatabase** with a **Premium** service tier and a **P6** Service Objective. Change these values as appropriate for your environment.
+The following SqlPackage command imports the **AdventureWorks2017** database from local storage to an Azure SQL Database. It creates a new database called **myMigratedDatabase** with a **Premium** service tier and a **P6** Service Objective. Change these values as appropriate for your environment.
 
 ```cmd
 sqlpackage.exe /a:import /tcs:"Data Source=<serverName>.database.windows.net;Initial Catalog=myMigratedDatabase>;User Id=<userId>;Password=<password>" /sf:AdventureWorks2017.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
 
 > [!IMPORTANT]
-> To connect to a SQL Database server managing a single database from behind a corporate firewall, the firewall must have port 1433 open. To connect to a managed instance, you must have a [point-to-site connection](sql-database-managed-instance-configure-p2s.md) or an express route connection.
+> To connect to the logical server managing a single database from behind a corporate firewall, the firewall must have port 1433 open. To connect to an Azure SQL Managed Instance, you must have a [point-to-site connection](sql-database-managed-instance-configure-p2s.md) or an express route connection.
 
 This example shows how to import a database using SqlPackage with Active Directory Universal Authentication.
 

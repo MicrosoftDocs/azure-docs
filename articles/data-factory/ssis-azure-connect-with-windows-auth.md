@@ -27,7 +27,7 @@ You can use Windows authentication to access data stores, such as SQL Servers, f
 > [!WARNING]
 > If you do not use any of the above methods to access data stores with Windows authentication, your packages that depend on Windows authentication are not able to access them and fail at run time. 
 
-The rest of this article describes how to configure SSIS catalog (SSISDB) hosted in Azure SQL Database server/Managed Instance to run packages on Azure-SSIS IR that use Windows authentication to access data stores. 
+The rest of this article describes how to configure SSIS catalog (SSISDB) hosted in logical SQL server/SQL Managed instance to run packages on Azure-SSIS IR that use Windows authentication to access data stores. 
 
 ## You can only use one set of credentials
 
@@ -37,7 +37,7 @@ When you use Windows authentication in an SSIS package, you can only use one set
 
 To provide domain credentials that let packages use Windows authentication to access data stores on premises, do the following things:
 
-1. With SQL Server Management Studio (SSMS) or another tool, connect to Azure SQL Database server/Managed Instance that hosts SSISDB. For more info, see [Connect to SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. With SQL Server Management Studio (SSMS) or another tool, connect to logical SQL server/SQL Managed instance that hosts SSISDB. For more info, see [Connect to SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. With SSISDB as the current database, open a query window.
 
@@ -53,7 +53,7 @@ To provide domain credentials that let packages use Windows authentication to ac
 
 To view the active domain credentials, do the following things:
 
-1. With SSMS or another tool, connect to Azure SQL Database server/Managed Instance that hosts SSISDB. For more info, see [Connect to SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. With SSMS or another tool, connect to logical SQL server/SQL Managed instance that hosts SSISDB. For more info, see [Connect to SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. With SSISDB as the current database, open a query window.
 
@@ -68,7 +68,7 @@ To view the active domain credentials, do the following things:
 ### Clear domain credentials
 To clear and remove the credentials that you provided as described in this article, do the following things:
 
-1. With SSMS or another tool, connect to Azure SQL Database server/Managed Instance that hosts SSISDB. For more info, see [Connect to SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. With SSMS or another tool, connect to logical SQL server/SQL Managed instance that hosts SSISDB. For more info, see [Connect to SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. With SSISDB as the current database, open a query window.
 
@@ -133,7 +133,7 @@ To access a file share on premises from packages running in Azure, do the follow
 
 To access a file share on Azure VM from packages running in Azure, do the following things:
 
-1. With SSMS or another tool, connect to Azure SQL Database server/Managed Instance that hosts SSISDB. For more info, see [Connect to SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. With SSMS or another tool, connect to logical SQL server/SQL Managed instance that hosts SSISDB. For more info, see [Connect to SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. With SSISDB as the current database, open a query window.
 
@@ -149,7 +149,7 @@ For more info about Azure Files, see [Azure Files](https://azure.microsoft.com/s
 
 To access a file share in Azure Files from packages running in Azure, do the following things:
 
-1. With SSMS or another tool, connect to Azure SQL Database server/Managed Instance that hosts SSISDB. For more info, see [Connect to SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
+1. With SSMS or another tool, connect to logical SQL server/SQL Managed instance that hosts SSISDB. For more info, see [Connect to SSISDB in Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-to-catalog-database).
 
 2. With SSISDB as the current database, open a query window.
 

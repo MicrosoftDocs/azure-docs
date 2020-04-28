@@ -4,7 +4,7 @@ description: This topic shows you how to use Ruby to create a program that conne
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: 
+ms.custom: sqldbrb=2 
 ms.devlang: ruby
 ms.topic: quickstart
 author: stevestein
@@ -12,17 +12,17 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 03/25/2019
 ---
-# Quickstart: Use Ruby to query an Azure SQL database
+# Quickstart: Use Ruby to query an Azure SQL Database
 
-This quickstart demonstrates how to use [Ruby](https://www.ruby-lang.org) to connect to an Azure SQL database and query data with Transact-SQL statements.
+This quickstart demonstrates how to use [Ruby](https://www.ruby-lang.org) to connect to an Azure SQL Database and query data with Transact-SQL statements.
 
 ## Prerequisites
 
 To complete this quickstart, you need the following prerequisites:
 
-- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
+- An Azure SQL Database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
-  || Single database | Managed instance |
+  || SQL Database | SQL Managed Instance |
   |:--- |:--- |:---|
   | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -52,7 +52,7 @@ Get the connection information you need to connect to the Azure SQL database. Yo
 
 2. Navigate to the **SQL databases**  or **SQL managed instances** page.
 
-3. On the **Overview** page, review the fully qualified server name next to **Server name** for a single database or the fully qualified server name next to **Host** for a managed instance. To copy the server name or host name, hover over it and select the **Copy** icon. 
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for an Azure SQL Database or the fully qualified server name next to **Host** for an Azure SQL Managed Instance. To copy the server name or host name, hover over it and select the **Copy** icon. 
 
 ## Create code to query your SQL database
 
@@ -94,7 +94,7 @@ Get the connection information you need to connect to the Azure SQL database. Yo
 1. Verify that the top 20 Category/Product rows from your database are returned. 
 
 ## Next steps
-- [Design your first Azure SQL database](sql-database-design-first-database.md).
+- [Design your first Azure SQL Database](sql-database-design-first-database.md).
 - [GitHub repository for TinyTDS](https://github.com/rails-sqlserver/tiny_tds).
 - [Report issues or ask questions about TinyTDS](https://github.com/rails-sqlserver/tiny_tds/issues).
 - [Ruby driver for SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/).

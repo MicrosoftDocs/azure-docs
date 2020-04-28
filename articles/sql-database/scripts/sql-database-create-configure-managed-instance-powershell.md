@@ -1,10 +1,11 @@
 ---
-title: PowerShell example - create a managed instance in Azure SQL Database 
-description: Azure PowerShell example script to create a managed instance in Azure SQL Database
+title: "PowerShell:  Create an instance"
+titleSuffix: Azure SQL Managed Instance 
+description: Azure PowerShell example script to create an Azure SQL Managed Instance 
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
 author: stevestein
@@ -12,9 +13,9 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/25/2019
 ---
-# Use PowerShell to create an Azure SQL Database managed instance
+# Use PowerShell to create an Azure SQL Managed Instance
 
-This PowerShell script example creates an Azure SQL Database managed instance in a dedicated subnet within a new virtual network. It also configures a route table and a network security group for the virtual network. Once the script has been successfully run, the managed instance can be accessed from within the virtual network or from an on-premises environment. See [Configure Azure VM to connect to an Azure SQL Database Managed Instance](../sql-database-managed-instance-configure-vm.md) and [Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises](../sql-database-managed-instance-configure-p2s.md).
+This PowerShell script example creates an Azure SQL Managed Instance in a dedicated subnet within a new virtual network. It also configures a route table and a network security group for the virtual network. Once the script has been successfully run, the SQL Managed Instance can be accessed from within the virtual network or from an on-premises environment. See [Configure Azure VM to connect to an Azure SQL Database Managed Instance](../sql-database-managed-instance-configure-vm.md) and [Configure a point-to-site connection to an Azure SQL Managed Instance from on-premises](../sql-database-managed-instance-configure-p2s.md).
 
 > [!IMPORTANT]
 > For limitations, see [supported regions](../sql-database-managed-instance-resource-limits.md#supported-regions) and [supported subscription types](../sql-database-managed-instance-resource-limits.md#supported-subscription-types).
@@ -51,7 +52,7 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzRouteTable](/powershell/module/az.network/New-AzRouteTable) | Creates a route table |
 | [Get-AzRouteTable](/powershell/module/az.network/Get-AzRouteTable) | Gets route tables |
 | [Set-AzRouteTable](/powershell/module/az.network/Set-AzRouteTable) | Sets the goal state for a route table |
-| [New-AzSqlInstance](/powershell/module/az.sql/New-AzSqlInstance) | Creates an Azure SQL Database managed instance |
+| [New-AzSqlInstance](/powershell/module/az.sql/New-AzSqlInstance) | Creates an Azure SQL Managed Instance |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
@@ -59,4 +60,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
 
-Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).
+Additional SQL Managed Instance PowerShell script samples can be found in the [Azure SQL Managed Instance PowerShell scripts](../sql-database-powershell-samples.md).

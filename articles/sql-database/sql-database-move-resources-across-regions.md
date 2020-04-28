@@ -59,7 +59,7 @@ This article provides a general workflow for moving resources to a different reg
 
 1. Create a [failover group](sql-database-single-database-failover-group-tutorial.md#2---create-the-failover-group) between the logical server of the source to the logical server of the target.  
 1. Add the databases you want to move to the failover group. 
-    - Replication of all added databases will be initiated automatically. For more information, see [Best practices for using failover groups with single databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). 
+    - Replication of all added databases will be initiated automatically. For more information, see [Best practices for using failover groups with single databases](sql-database-auto-failover-group.md#best-practices-for-sql-database). 
  
 ### Monitor the preparation process
 
@@ -108,7 +108,7 @@ Once the move completes, remove the resources in the source region to avoid unne
  
 1.  Create a separate [failover group](sql-database-elastic-pool-failover-group-tutorial.md#3---create-the-failover-group) between each elastic pool on the source logical server and its counterpart elastic pool on the target server. 
 1.  Add all the databases in the pool to the failover group. 
-    - Replication of the added databases will be initiated automatically. For more information, see [best practices for failover groups with elastic pools](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). 
+    - Replication of the added databases will be initiated automatically. For more information, see [best practices for failover groups with elastic pools](sql-database-auto-failover-group.md#best-practices-for-sql-database). 
 
   > [!NOTE]
   > While it is possible to create a failover group that includes multiple elastic pools, we strongly recommend that you create a separate failover group for each pool. If you have a large number of databases across multiple elastic pools that you need to move, you can run the preparation steps in parallel and then initiate the move step in parallel. This process will scale better and will take less time compared to having multiple elastic pools in the same failover group. 

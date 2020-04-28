@@ -1,10 +1,10 @@
 ---
 title: Monitor performance of a sharded multi-tenant database
-description: "Monitor and manage performance of sharded multi-tenant Azure SQL database in a multi-tenant SaaS app"
+description: "Monitor and manage performance of sharded multi-tenant Azure SQL Database in a multi-tenant SaaS app"
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -12,9 +12,9 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 01/25/2019
 ---
-# Monitor and manage performance of sharded multi-tenant Azure SQL database in a multi-tenant SaaS app
+# Monitor and manage performance of sharded multi-tenant Azure SQL Database in a multi-tenant SaaS app
 
-In this tutorial, several key performance management scenarios used in SaaS applications are explored. Using a load generator to simulate activity across sharded multi-tenant databases, the built-in monitoring and alerting features of SQL Database are demonstrated.
+In this tutorial, several key performance management scenarios used in SaaS applications are explored. Using a load generator to simulate activity across sharded multi-tenant databases, the built-in monitoring and alerting features of Azure SQL Database are demonstrated.
 
 The Wingtip Tickets SaaS Multi-tenant Database app uses a sharded multi-tenant data model, where venue (tenant) data is distributed by tenant ID across potentially multiple databases. Like many SaaS applications, the anticipated tenant workload pattern is unpredictable and sporadic. In other words, ticket sales may occur at any time. To take advantage of this typical database usage pattern, databases can be scaled up and down to optimize the cost of a solution. With this type of pattern, it's important to monitor database resource usage to ensure that loads are reasonably balanced across potentially multiple databases. You also need to ensure that individual databases have adequate resources and are not hitting their [DTU](sql-database-purchase-models.md#dtu-based-purchasing-model) limits. This tutorial explores ways to monitor and manage databases, and how to take corrective action in response to variations in workload.
 

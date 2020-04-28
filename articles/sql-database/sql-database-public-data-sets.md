@@ -4,7 +4,7 @@ description: Learn about public data sets that you can use to prototype and test
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom:
+ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: reference
 author: stevestein

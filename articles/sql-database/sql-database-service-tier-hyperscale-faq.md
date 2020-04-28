@@ -4,7 +4,7 @@ description: Answers to common questions customers ask about an Azure SQL databa
 services: sql-database
 ms.service: sql-database
 ms.subservice: 
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: dimitri-furman

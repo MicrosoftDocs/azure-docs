@@ -1,23 +1,22 @@
 ---
 title: Use Azure Resource Health to monitor database health
-description: Use Azure Resource Health to monitor SQL Database health, helps you diagnose and get support when an Azure issue impacts your SQL resources.
+description: Use Azure Resource Health to monitor Azure SQL Database and Azure SQL Managed Instance health, helps you diagnose and get support when an Azure issue impacts your SQL resources.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: 
+ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
-
 ---
-# Use Resource Health to troubleshoot connectivity for Azure SQL Database
+# Use Resource Health to troubleshoot connectivity for Azure SQL Database and Azure SQL Managed Instance
 
 ## Overview
 
-[Resource Health](../service-health/resource-health-overview.md#get-started) for SQL Database helps you diagnose and get support when an Azure issue impacts your SQL resources. It informs you about the current and past health of your resources and helps you mitigate issues. Resource health provides technical support when you need help with Azure service issues.
+[Resource Health](../service-health/resource-health-overview.md#get-started) for Azure SQL Database and Azure SQL Managed Instance  helps you diagnose and get support when an Azure issue impacts your SQL resources. It informs you about the current and past health of your resources and helps you mitigate issues. Resource health provides technical support when you need help with Azure service issues.
 
 ![Overview](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 
@@ -53,11 +52,11 @@ The health status of **Unknown** indicates that Resource Health hasn't received 
 
 ## Historical information
 
-You can access up to 14 days of health history in the Health history section of Resource Health. The section will also contain the downtime reason (when available) for the downtimes reported by Resource Health. Currently, Azure shows the downtime for your SQL database resource at a two-minute granularity. The actual downtime is likely less than a minute – average is 8s.
+You can access up to 14 days of health history in the Health history section of Resource Health. The section will also contain the downtime reason (when available) for the downtimes reported by Resource Health. Currently, Azure shows the downtime for your database resource at a two-minute granularity. The actual downtime is likely less than a minute – average is 8s.
 
 ### Downtime reasons
 
-When your SQL Database experiences downtime, analysis is performed to determine a reason. When available, the downtime reason is reported in the Health History section of Resource Health. Downtime reasons are typically published 30 minutes after an event.
+When your database experiences downtime, analysis is performed to determine a reason. When available, the downtime reason is reported in the Health History section of Resource Health. Downtime reasons are typically published 30 minutes after an event.
 
 #### Planned maintenance
 

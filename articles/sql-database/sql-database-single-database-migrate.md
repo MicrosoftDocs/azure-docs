@@ -1,11 +1,11 @@
 ---
-title: SQL Server database migration to a single/pooled database
-description: Learn how about SQL Server database migration to a single database or an elastic pool in Azure SQL Database. 
+title: SQL Server database migration to a single or pooled Azure SQL Database
+description: Learn about SQL Server database migration to Azure SQL Database.
 keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -15,13 +15,13 @@ ms.date: 02/11/2019
 ---
 # SQL Server database migration to Azure SQL Database
 
-In this article, you learn about the primary methods for migrating a SQL Server 2005 or later database to a single or pooled database in Azure SQL Database. For information on migrating to a Managed Instance, see [Migrate to SQL Server instance to Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md). For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
+In this article, you learn about the primary methods for migrating a SQL Server 2005 or later database to a single or pooled Azure SQL Database. For information on migrating to an Azure SQL Managed Instance, see [Migrate to SQL Server instance to Azure SQL Managed Instance](sql-database-managed-instance-migrate.md). For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
 
 ## Migrate to a single database or a pooled database
 
 There are two primary methods for migrating a SQL Server 2005 or later database to a single or pooled database in Azure SQL Database. The first method is simpler but requires some, possibly substantial, downtime during the migration. The second method is more complex, but substantially eliminates downtime during the migration.
 
-In both cases, you need to ensure that the source database is compatible with Azure SQL Database using the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). SQL Database V12 is approaching [feature parity](sql-database-features.md) with SQL Server, other than issues related to server-level and cross-database operations. Databases and applications that rely on [partially supported or unsupported functions](sql-database-transact-sql-information.md) need some [re-engineering to fix these incompatibilities](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues) before the SQL Server database can be migrated.
+In both cases, you need to ensure that the source database is compatible with Azure SQL Database using the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). SQL Database is approaching [feature parity](sql-database-features.md) with SQL Server, other than issues related to server-level and cross-database operations. Databases and applications that rely on [partially supported or unsupported functions](sql-database-transact-sql-information.md) need some [re-engineering to fix these incompatibilities](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues) before the SQL Server database can be migrated.
 
 > [!NOTE]
 > To migrate a non-SQL Server database, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/).
@@ -52,7 +52,7 @@ The following list contains recommendations for best performance during the impo
 - Disable auto-statistics during migration
 - Partition tables and indexes
 - Drop indexed views, and recreate them once finished
-- Remove rarely queried historical data to another database and migrate this historical data to a separate Azure SQL database. You can then query this historical data using [elastic queries](sql-database-elastic-query-overview.md).
+- Remove rarely queried historical data to another database and migrate this historical data to a separate Azure SQL Database. You can then query this historical data using [elastic queries](sql-database-elastic-query-overview.md).
 
 ### Optimize performance after the migration completes
 
@@ -74,18 +74,18 @@ With transactional replication, all changes to your data or schema show up in yo
 ## Migration to SQL Database using Transaction Replication workflow
 
 > [!IMPORTANT]
-> Use the latest version of SQL Server Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. Older versions of SQL Server Management Studio cannot set up SQL Database as a subscriber. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> Use the latest version of SQL Server Management Studio to remain synchronized with updates to Azure and SQL Database. Older versions of SQL Server Management Studio cannot set up SQL Database as a subscriber. [Update SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Set up Distribution
-   - [Using SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_1)
-   - [Using Transact-SQL](https://msdn.microsoft.com/library/ms151192.aspx#Anchor_2)
+   - [Using SQL Server Management Studio (SSMS)](/sql/relational-databases/replication/configure-publishing-and-distribution/)
+   - [Using Transact-SQL](/sql/relational-databases/replication/configure-publishing-and-distribution/)
 
 2. Create Publication
-   - [Using SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_1)
-   - [Using Transact-SQL](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
+   - [Using SQL Server Management Studio (SSMS)](/sql/relational-databases/replication/configure-publishing-and-distribution/)
+   - [Using Transact-SQL](/sql/relational-databases/replication/configure-publishing-and-distribution/)
 3. Create Subscription
-   - [Using SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
-   - [Using Transact-SQL](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
+   - [Using SQL Server Management Studio (SSMS)](/sql/relational-databases/replication/create-a-push-subscription/)
+   - [Using Transact-SQL](/sql/relational-databases/replication/create-a-push-subscription/)
 
 Some tips and differences for migrating to SQL Database
 
@@ -110,7 +110,7 @@ There are a wide variety of compatibility issues that you might encounter, depen
 In addition to searching the Internet and using these resources, use the [MSDN SQL Server community forums](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) or [StackOverflow](https://stackoverflow.com/).
 
 > [!IMPORTANT]
-> SQL Database Managed Instance enables you to migrate an existing SQL Server instance and its databases with minimal to no compatibility issues. See [What is an Managed Instance](sql-database-managed-instance.md).
+> Azure SQL Managed Instance enables you to migrate an existing SQL Server instance and its databases with minimal to no compatibility issues. See [What is an Azure SQL Managed Instance](sql-database-managed-instance.md).
 
 ## Next steps
 

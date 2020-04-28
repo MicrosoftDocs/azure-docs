@@ -1,13 +1,14 @@
 ### YamlMime:Landing
 
-title: Azure SQL Database monitoring and performance tuning # < 60 chars
-summary: Azure SQL Database provides tools to help you collect metrics and diagnostic information to monitor your database and improve its performance. # < 160 chars
+title: Azure SQL Database and Azure SQL Managed Instance monitoring and performance tuning # < 60 chars
+summary: Azure SQL Database  and Azure SQL Managed Instance provides tools to help you collect metrics and diagnostic information to monitor your database and improve its performance. # < 160 chars
 
 metadata:
-  title: Azure SQL Database monitoring and tuning documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Azure SQL Database  and Azure SQL Managed Instance monitoring and tuning documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Learn about Azure SQL Database monitoring and performance tuning tools that help you collect metrics and diagnostics and improve database performance.
   ms.service: sql-database #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: performance # Optional; Remove if no subservice is used.
+  ms.custom: sqldbrb=2
   ms.topic: landing-page # Required
   ms.collection: performance # Optional; Remove if no collection is used.
   author: CarlRabeler #Required; your GitHub user alias, with correct capitalization.
@@ -20,7 +21,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About monitoring and performance tuning
+  - title: Get started with monitoring and performance tuning
     linkLists:
       - linkListType: overview
         links:
@@ -32,7 +33,7 @@ landingContent:
             url: https://app.pluralsight.com/library/courses/microsoft-azure-database-playbook-monitoring
 
   # Card (optional)
-  - title: Intelligent performance recommendations
+  - title: Azure SQL Database intelligent performance recommendations
     linkLists:
       - linkListType: concept
         links:
@@ -48,7 +49,7 @@ landingContent:
             url: https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player
 
   # Card
-  - title: Resource limits
+  - title: Azure SQL Database and Azure SQL Managed Instance resource limits
     linkLists:
       - linkListType: concept
         links:
@@ -63,10 +64,10 @@ landingContent:
           - text: Managed instance resource limits
             url: sql-database-managed-instance-resource-limits.md
           - text: Managed instance pools resource limits
-            url: sql-database-instance-pools.md#instance-pools-resource-limitations
+            url: sql-database-instance-pools.md#resource-limitations
 
   # Card (optional)
-  - title: Intelligent performance analysis
+  - title: Intelligent performance analysis for Azure SQL Database and Azure SQL Managed Instance
     linkLists:
       - linkListType: overview
         links: 
@@ -90,7 +91,7 @@ landingContent:
             url: https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player
 
   # Card
-  - title: Manual performance tuning
+  - title: Manual performance tuning for Azure SQL Database and Azure SQL Managed Instance
     linkLists:
       - linkListType: overview
         links:
@@ -110,7 +111,7 @@ landingContent:
             url: sql-database-hyperscale-performance-diagnostics.md
 
   # Card
-  - title: Resource scaling
+  - title: Azure SQL Database and Azure SQL Managed Instance resource scaling
     linkLists:
       - linkListType: overview
         links:

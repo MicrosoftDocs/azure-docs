@@ -5,7 +5,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1
-titleSuffix: Azure SQL Database and Azure Synapse
+titleSuffix: Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse
 ms.devlang: 
 ms.topic: conceptual
 author: DavidTrigano
@@ -162,9 +162,9 @@ You can use the REST API to programmatically manage classifications and recommen
 - [List Recommended By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): Gets the recommended sensitivity labels of the specified database.
 
 ### Use PowerShell cmdlets
-You can use PowerShell to manage classifications and recommendations for Azure SQL Database and managed instances.
+Manage classifications and recommendations for Azure SQL Database and Azure SQL Managed Instance using PowerShell.
 
-#### PowerShell cmdlets for SQL Database
+#### PowerShell cmdlets for Azure SQL Database
 
 - [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
 - [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
@@ -173,7 +173,7 @@ You can use PowerShell to manage classifications and recommendations for Azure S
 - [Enable-AzSqlDatabaSesensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
 - [Disable-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
 
-#### PowerShell cmdlets for Managed Instance
+#### PowerShell cmdlets for Azure SQL Managed Instance
 
 - [Get-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
 - [Set-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
