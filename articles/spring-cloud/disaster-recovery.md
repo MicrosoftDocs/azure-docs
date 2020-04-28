@@ -32,6 +32,7 @@ If you have Azure Spring Cloud applications in multiple regions, use Azure Traff
 
 1. Create Azure Spring Cloud in two different regions.
 You will need two service instances of Azure Spring Cloud deployed in two different regions (East US and West Europe). Launch an existing Azure Spring Cloud application using the Azure portal to create two service instances. Each will serve as primary and fail-over endpoint for Traffic. 
+
 **Two service instances info:**
 
 | Service Name | Location | Application |
