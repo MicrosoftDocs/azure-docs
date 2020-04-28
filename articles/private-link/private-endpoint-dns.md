@@ -30,37 +30,38 @@ Your applications don't need to change the connection URL. When attempting to re
 
 For Azure services, use the recommended zone names as described in the following table:
 
-|Private Link resource type   |Subresource  |Zone name  |Public zone name    |
-|---------|---------|---------|---------|
-|SQL DB (Microsoft.Sql/servers)    |  Sql Server (sqlServer)        |   privatelink.database.windows.net       |database.windows.net    |
-|Azure Synapse Analytics (Microsoft.Sql/servers)    |  Sql Server (sqlServer)        | privatelink.database.windows.net |database.windows.net    |
-|Storage Account (Microsoft.Storage/storageAccounts)    |  Blob (blob, blob_secondary)        |    privatelink.blob.core.windows.net      |blob.core.windows.net    |
-|Storage Account (Microsoft.Storage/storageAccounts)    |    Table (table, table_secondary)      |   privatelink.table.core.windows.net       |table.core.windows.net    |
-|Storage Account (Microsoft.Storage/storageAccounts)    |    Queue (queue, queue_secondary)     |   privatelink.queue.core.windows.net       |queue.core.windows.net    |
-|Storage Account (Microsoft.Storage/storageAccounts)   |    File (file, file_secondary)      |    privatelink.file.core.windows.net      |file.core.windows.net    |
-|Storage Account (Microsoft.Storage/storageAccounts)     |  Web (web, web_secondary)        |    privatelink.web.core.windows.net      |web.core.windows.net    |
-|Data Lake File System Gen2 (Microsoft.Storage/storageAccounts)  |  Data Lake File System Gen2 (dfs, dfs_secondary)        |     privatelink.dfs.core.windows.net     |dfs.core.windows.net    |
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|SQL    |privatelink.documents.azure.com|documents.azure.com    |
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|MongoDB    |privatelink.mongo.cosmos.azure.com|mongo.cosmos.azure.com    |
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|cassandra.cosmos.azure.com    |
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Gremlin    |privatelink.gremlin.cosmos.azure.com|gremlin.cosmos.azure.com    |
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Table|privatelink.table.cosmos.azure.com|table.cosmos.azure.com    |
-|Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers)|postgresqlServer|privatelink.postgres.database.azure.com|postgres.database.azure.com    |
-|Azure Database for MySQL (Microsoft.DBforMySQL/servers)|mysqlServer|privatelink.mysql.database.azure.com|mysql.database.azure.com    |
-|Azure Database for MariaDB (Microsoft.DBforMariaDB/servers)|mariadbServer|privatelink.mariadb.database.azure.com|mariadb.database.azure.com    |
-|Azure Key Vault (Microsoft.KeyVault/vaults)|vault|privatelink.vaultcore.azure.net|vaultcore.azure.net    |
-|Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters)    | managedCluster | {guid}.privatelink.{region}.azmk8s.io|{guid}.{region}.azmk8s.io    |
-|Azure Search (Microsoft.Search/searchServices)|searchService|privatelink.search.windows.net|search.windows.net    |   
-|Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.io |azurecr.io    |
-|Azure App Configuration (Microsoft.Appconfiguration/configurationStores)| configurationStore | privatelink.azconfig.io|azconfig.io    |
-|Azure Backup (Microsoft.RecoveryServices/vaults)| vault |privatelink.{region}.backup.windowsazure.com|{region}.backup.windowsazure.com    |
-|Azure Event Hub (Microsoft.EventHub/namespaces)| namespace |privatelink.servicebus.windows.net|servicebus.windows.net    |
-|Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace |privatelink.servicebus.windows.net|servicebus.windows.net    |
-|Azure Relay (Microsoft.Relay/namespaces) | namespace |privatelink.servicebus.windows.net|servicebus.windows.net    |
-|Azure Event Grid (Microsoft.EventGrid/topics)     | topic | topic.{region}.privatelink.eventgrid.azure.net|topic.{region}.eventgrid.azure.net    |
-|Azure Event Grid (Microsoft.EventGrid/domains) | domain | domain.{region}.privatelink.eventgrid.azure.net |domain.{region}.eventgrid.azure.net    |
-|Azure WebApps (Microsoft.Web/sites)    | site | privatelink.azurewebsites.net |azurewebsites.net    |
-|Azure Machine Learning(Microsoft.MachineLearningServices/workspaces)    | workspace | privatelink.api.azureml.ms |api.azureml.ms    |
+| Private Link resource type                                                             | Subresource                                     | Zone name                                       | Public zone name                    |
+|----------------------------------------------------------------------------------------|-------------------------------------------------|-------------------------------------------------|-------------------------------------|
+| SQL DB (Microsoft.Sql/servers)                                                         | Sql Server (sqlServer)                          | privatelink.database.windows.net                | database.windows.net                |
+| Azure Synapse Analytics (Microsoft.Sql/servers)                                        | Sql Server (sqlServer)                          | privatelink.database.windows.net                | database.windows.net                |
+| Storage Account (Microsoft.Storage/storageAccounts)                                    | Blob (blob, blob_secondary)                     | privatelink.blob.core.windows.net               | blob.core.windows.net               |
+| Storage Account (Microsoft.Storage/storageAccounts)                                    | Table (table, table_secondary)                  | privatelink.table.core.windows.net              | table.core.windows.net              |
+| Storage Account (Microsoft.Storage/storageAccounts)                                    | Queue (queue, queue_secondary)                  | privatelink.queue.core.windows.net              | queue.core.windows.net              |
+| Storage Account (Microsoft.Storage/storageAccounts)                                    | File (file, file_secondary)                     | privatelink.file.core.windows.net               | file.core.windows.net               |
+| Storage Account (Microsoft.Storage/storageAccounts)                                    | Web (web, web_secondary)                        | privatelink.web.core.windows.net                | web.core.windows.net                |
+| Data Lake File System Gen2 (Microsoft.Storage/storageAccounts)                         | Data Lake File System Gen2 (dfs, dfs_secondary) | privatelink.dfs.core.windows.net                | dfs.core.windows.net                |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)                             | SQL                                             | privatelink.documents.azure.com                 | documents.azure.com                 |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)                             | MongoDB                                         | privatelink.mongo.cosmos.azure.com              | mongo.cosmos.azure.com              |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)                             | Cassandra                                       | privatelink.cassandra.cosmos.azure.com          | cassandra.cosmos.azure.com          |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)                             | Gremlin                                         | privatelink.gremlin.cosmos.azure.com            | gremlin.cosmos.azure.com            |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)                             | Table                                           | privatelink.table.cosmos.azure.com              | table.cosmos.azure.com              |
+| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers)      | postgresqlServer                                | privatelink.postgres.database.azure.com         | postgres.database.azure.com         |
+| Azure Database for MySQL (Microsoft.DBforMySQL/servers)                                | mysqlServer                                     | privatelink.mysql.database.azure.com            | mysql.database.azure.com            |
+| Azure Database for MariaDB (Microsoft.DBforMariaDB/servers)                            | mariadbServer                                   | privatelink.mariadb.database.azure.com          | mariadb.database.azure.com          |
+| Azure Key Vault (Microsoft.KeyVault/vaults)                                            | vault                                           | privatelink.vaultcore.azure.net                 | vaultcore.azure.net                 |
+| Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters) | managedCluster                                  | {guid}.privatelink.{region}.azmk8s.io           | {guid}.{region}.azmk8s.io           |
+| Azure Search (Microsoft.Search/searchServices)                                         | searchService                                   | privatelink.search.windows.net                  | search.windows.net                  |
+| Azure Container Registry (Microsoft.ContainerRegistry/registries)                      | registry                                        | privatelink.azurecr.io                          | azurecr.io                          |
+| Azure App Configuration (Microsoft.Appconfiguration/configurationStores)               | configurationStore                              | privatelink.azconfig.io                         | azconfig.io                         |
+| Azure Backup (Microsoft.RecoveryServices/vaults)                                       | vault                                           | privatelink.{region}.backup.windowsazure.com    | {region}.backup.windowsazure.com    |
+| Azure Event Hub (Microsoft.EventHub/namespaces)                                        | namespace                                       | privatelink.servicebus.windows.net              | servicebus.windows.net              |
+| Azure Service Bus (Microsoft.ServiceBus/namespaces)                                    | namespace                                       | privatelink.servicebus.windows.net              | servicebus.windows.net              |
+| Azure Relay (Microsoft.Relay/namespaces)                                               | namespace                                       | privatelink.servicebus.windows.net              | servicebus.windows.net              |
+| Azure Event Grid (Microsoft.EventGrid/topics)                                          | topic                                           | topic.{region}.privatelink.eventgrid.azure.net  | topic.{region}.eventgrid.azure.net  |
+| Azure Event Grid (Microsoft.EventGrid/domains)                                         | domain                                          | domain.{region}.privatelink.eventgrid.azure.net | domain.{region}.eventgrid.azure.net |
+| Azure WebApps (Microsoft.Web/sites)                                                    | site                                            | privatelink.azurewebsites.net                   | azurewebsites.net                   |
+| Azure Machine Learning(Microsoft.MachineLearningServices/workspaces)                   | workspace                                       | privatelink.api.azureml.ms                      | api.azureml.ms                      |
+
  
 
 
@@ -73,7 +74,7 @@ DNS is a critical component to make the application work correctly by resolving 
 Based on your preferences, the following scenarios are available for DNS resolution integrated:
 
 - [Virtual Network workloads without custom DNS server](#virtual-network-workloads-without-custom-dns-server)
-- [On premises workloads](#on-premises-workloads)
+- [On premises workloads](#onpremisesworkloads)
 
 
 ## Virtual Network workloads without custom DNS server
