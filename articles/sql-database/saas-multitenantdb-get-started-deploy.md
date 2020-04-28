@@ -4,12 +4,12 @@ description: "Deploy and explore the sharded Wingtip Tickets SaaS multi-tenant d
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: MightyPen
-ms.author: genemi
-ms.reviewer: billgib, stein
+author: stevestein
+ms.author: sstein
+ms.reviewer:
 ms.date: 10/16/2018
 ---
 # Deploy and explore a sharded multi-tenant application

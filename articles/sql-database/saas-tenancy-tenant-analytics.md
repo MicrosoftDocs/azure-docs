@@ -1,15 +1,15 @@
 ---
 title: Cross-tenant analytics using extracted data
-description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases in a single tenant app."
+description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Databases in a single tenant app."
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: anjangsh,billgib,genemi
+ms.reviewer: 
 ms.date: 12/18/2018
 ---
 # Cross-tenant analytics using extracted data - single-tenant app
@@ -77,7 +77,7 @@ In this tutorial, analysis is performed on ticket sales data. In the current ste
 2. Press **F5** to run the script and create ticket purchasing history for every event in each venue.  The script runs for several minutes to generate tens of thousands of tickets.
 
 ### Deploy the analytics store
-Often there are numerous transactional databases that together hold all tenant data. You must aggregate the tenant data from the many transactional databases into one analytics store. The aggregation enables efficient query of the data. In this tutorial, an Azure SQL Database database is used to store the aggregated data.
+Often there are numerous transactional databases that together hold all tenant data. You must aggregate the tenant data from the many transactional databases into one analytics store. The aggregation enables efficient query of the data. In this tutorial, an Azure SQL Database is used to store the aggregated data.
 
 In the following steps, you deploy the analytics store, which is called **tenantanalytics**. You also deploy predefined tables that are populated later in the tutorial:
 1. In PowerShell ISE, open *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 

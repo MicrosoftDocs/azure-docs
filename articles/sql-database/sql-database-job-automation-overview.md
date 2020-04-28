@@ -1,9 +1,9 @@
 ---
 title: Job automation
-description: 'Use Job Automation to run Transact-SQL (T-SQL) scripts across a set of one or more Azure SQL databases'
+description: 'Use Job Automation to run Transact-SQL (T-SQL) scripts across a set of one or more databases'
 services: sql-database
 ms.service: sql-database
-ms.custom: 
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: overview
 author: jovanpop-msft
@@ -13,10 +13,12 @@ ms.date: 03/10/2020
 ---
 # Automate management tasks using database jobs
 
-Azure SQL Database enables you to create and schedule jobs that could be periodically executed against one or many databases to run T-SQL queries and perform maintenance tasks.
+You can create and schedule jobs that could be periodically executed against one or many databases to run T-SQL queries and perform maintenance tasks.
+
+You can define target database or groups of databases where the job will be executed, and also define schedules for running a job.
+A job handles the task of logging in to the target database. You also define, maintain, and persist Transact-SQL scripts to be executed across a group of databases.
+
 Every job logs the status of execution and also automatically retries the operations if any failure occurs.
-You can define target database or groups of Azure SQL databases where the job will be executed, and also define schedules for running a job.
-A job handles the task of logging in to the target database. You also define, maintain, and persist Transact-SQL scripts to be executed across a group of Azure SQL databases.
 
 ## When to use automated jobs
 
@@ -28,7 +30,7 @@ There are several scenarios when you could use job automation:
   - Rebuild indexes to improve query performance. Configure jobs to execute across a collection of databases on a recurring basis, such as during off-peak hours.
   - Collect query results from a set of databases into a central table on an on-going basis. Performance queries can be continually executed and configured to trigger additional tasks to be executed.
 - Collect data for reporting
-  - Aggregate data from a collection of Azure SQL databases into a single destination table.
+  - Aggregate data from a collection of databases into a single destination table.
   - Execute longer running data processing queries across a large set of databases, for example the collection of customer telemetry. Results are collected into a single destination table for further analysis.
 - Data movements
   - Create jobs that replicate changes made in your databases to other databases or collect updates made in remote databases and apply changes in the database.
@@ -36,16 +38,16 @@ There are several scenarios when you could use job automation:
 
 ## Overview
 
-The following job scheduling technologies are available in Azure SQL Database:
+The following job scheduling technologies are available:
 
-- **SQL Agent Jobs** are classic and battle-tested SQL Server job scheduling component that is available in Managed Instance. SQL Agent Jobs are not available in Azure SQL single databases.
+- **SQL Agent Jobs** are classic and battle-tested SQL Server job scheduling component that is available in Azure SQL Managed Instance. SQL Agent Jobs are not available in Azure SQL Database.
 - **Elastic Database Jobs (preview)** are Job Scheduling services that execute custom jobs on one or many Azure SQL Databases.
 
-It is worth noting a couple of differences between SQL Agent (available on-premises and as part of SQL Database Managed Instance), and the Database Elastic Job agent (available for single databases in Azure SQL database and databases in SQL Data Warehouse).
+It is worth noting a couple of differences between SQL Agent (available on-premises and as part of SQL Managed Instance), and the Database Elastic Job agent (available for single databases in Azure SQL Database and databases in SQL Data Warehouse).
 
 | |Elastic Jobs |SQL Agent |
 |---------|---------|---------|
-|Scope | Any number of Azure SQL databases and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different SQL Database servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shardmap (dynamically enumerated at job runtime). | Any individual database in the same SQL Server instance as the SQL agent. |
+|Scope | Any number of Azure SQL Databases and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different SQL Database servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shardmap (dynamically enumerated at job runtime). | Any individual database in the same instance as the SQL agent. |
 |Supported APIs and Tools | Portal, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SQL Server Management Studio (SSMS) |
 
 ## SQL Agent Jobs
@@ -85,7 +87,7 @@ A schedule can define the following conditions for the time when a job runs:
 - On a recurring schedule.
 
 > [!Note]
-> Managed Instance currently does not enable you to start a job when the instance is "idle".
+> SQL Managed Instance currently does not enable you to start a job when the instance is "idle".
 
 ### Job notifications
 
@@ -179,7 +181,7 @@ The following image shows a job agent executing jobs across the different types 
 |Component | Description (additional details are below the table) |
 |---------|---------|
 |[**Elastic Job agent**](#elastic-job-agent) | The Azure resource you create to run and manage Jobs. |
-|[**Job database**](#job-database) | An Azure SQL database the job agent uses to store job related data, job definitions, etc. |
+|[**Job database**](#job-database) | An Azure SQL Database the job agent uses to store job related data, job definitions, etc. |
 |[**Target group**](#target-group) | The set of servers, pools, databases, and shard maps to run a job against. |
 |[**Job**](#job) | A job is a unit of work that is composed of one or more [job steps](#job-step). Job steps specify the T-SQL script to run, as well as other details required to execute the script. |
 
@@ -187,15 +189,15 @@ The following image shows a job agent executing jobs across the different types 
 
 An Elastic Job agent is the Azure resource for creating, running, and managing jobs. The Elastic Job agent is an Azure resource you create in the portal ([PowerShell](elastic-jobs-powershell.md) and REST are also supported).
 
-Creating an **Elastic Job agent** requires an existing SQL database. The agent configures this existing database as the [*Job database*](#job-database).
+Creating an **Elastic Job agent** requires an existing Azure SQL Database. The agent configures this existing database as the [*Job database*](#job-database).
 
-The Elastic Job agent is free. The job database is billed at the same rate as any SQL database.
+The Elastic Job agent is free. The job database is billed at the same rate as any Azure SQL Database.
 
 #### Job database
 
 The *Job database* is used for defining jobs and tracking the status and history of job executions. The *Job database* is also used to store agent metadata, logs, results, job definitions, and also contains many useful stored procedures and other database objects for creating, running, and managing jobs using T-SQL.
 
-For the current preview, an existing Azure SQL database (S0 or higher) is required to create an Elastic Job agent.
+For the current preview, an existing Azure SQL Database (S0 or higher) is required to create an Elastic Job agent.
 
 The *Job database* doesn't literally need to be new, but should be a clean, empty, S0 or higher service objective. The recommended service objective of the *Job database* is S1 or higher, but the optimal choice depends on the performance needs of your job(s): the number of job steps, the number of job targets, and how frequently jobs are run. For example, an S0 database might be sufficient for a job agent that runs few jobs an hour targeting less than ten databases, but running a job every minute might not be fast enough with an S0 database, and a higher service tier might be better.
 

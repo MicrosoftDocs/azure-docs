@@ -4,12 +4,12 @@ description: "Learn how to use Azure SQL Database geo-replicas to recover a mult
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: AyoOlubeko
-ms.author: craigg
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: 
 ms.date: 01/25/2019
 ---
 # Disaster recovery for a multi-tenant SaaS application using database geo-replication
@@ -166,7 +166,7 @@ The recovery script performs the following tasks:
    > [!Note]
    > In an outage scenario, the primary databases in the original region are offline.  Force fail over on the secondary breaks the connection to the primary without trying to apply any residual queued transactions. In a DR drill scenario like this tutorial, if there is any update activity at the time of failover there could be some data loss. Later, during repatriation, when you fail over databases in the recovery region back to the original region, a normal failover is used to ensure there is no data loss.
 
-1. Monitors the SQL database service to determine when databases have been failed over. Once a tenant database is failed over, it updates the catalog to record the recovery state of the tenant database and mark the tenant as online.
+1. Monitors the service to determine when databases have been failed over. Once a tenant database is failed over, it updates the catalog to record the recovery state of the tenant database and mark the tenant as online.
 	* Tenant databases can be accessed by the application as soon as they're marked online in the catalog.
 	* A sum of rowversion values in the tenant database is stored in the catalog. This value acts as a fingerprint that allows the repatriation process to determine if the database has been updated in the recovery region.
 
