@@ -515,7 +515,7 @@ productDirectory:
       imageSrc: ./media/index/azure-vmware.svg
       azureCategories:
         - compute
-      url: azure-vmware/index.md
+      url: azure-vmware/index.yml
     # Card
     - title: Batch
       summary: Cloud-scale job scheduling and compute management
