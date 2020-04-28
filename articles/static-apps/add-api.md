@@ -258,13 +258,11 @@ The deployed API will be available at `https://<STATIC_APP_NAME>.azurestaticapps
 
 :::image type="content" source="media/add-api/github-workflow-1.png" alt-text="GitHub Workflow":::
 
-You can access the API endpoint by using the `cURL` command or your browser (for GET requests).
+You can also find the application URL from the Azure Portal:
 
-```bash
-curl "https://thankful-water-0eb4bc604.staticsitescanary.net/api/message"
-```
+:::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Access static app URL from Azure Portal":::
 
-Or you can directly access your Azure Static Web App at https://thankful-water-0eb4bc604.staticsitescanary.net and check the result on the screen.
+Or you can directly access your Azure Static Web App at https://calm-ocean-0096b9c04.staticsitescanary.net and check the result on the screen.
 
 ## Clean up resources
 
