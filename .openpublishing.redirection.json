@@ -608,6 +608,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/use-case-excel-studio.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/azure-ml-customer-churn-scenario.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/text-analytics-module-tutorial.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/extend-your-experiment-with-r.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/debug-models.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/troubleshooting-creating-ml-workspace.md",
+      "redirect_url": "/azure/machine-learning/studio/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/basics-infographic-with-algorithm-examples.md",
+      "redirect_url": "/azure/machine-learning/how-to-select-algorithms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/convert-training-experiment-to-scoring-experiment.md",
+      "redirect_url": "/azure/machine-learning/studio/deploy-a-machine-learning-web-service",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/studio/consume-web-service-with-web-app-template.md",
       "redirect_url": "/azure/machine-learning/studio/consume-web-services",
       "redirect_document_id": false
@@ -2831,6 +2871,11 @@
       "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-univ.md",
       "redirect_url": "https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/quickstart-v2-javascipt-auth-code.md",
+      "redirect_url": "/azure/active-directory/develop/quickstart-v2-javascript-auth-code",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-wpf.md",
