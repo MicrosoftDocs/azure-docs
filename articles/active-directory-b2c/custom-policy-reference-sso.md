@@ -160,6 +160,7 @@ The following `SM-Saml-issuer` technical profile is used by [SAML issuer technic
   <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
 </TechnicalProfile>
 ```
+
 #### Metadata
 
 | Attribute | Required | Description|
@@ -170,4 +171,4 @@ The following `SM-Saml-issuer` technical profile is used by [SAML issuer technic
 
 ## Next steps
 
-- Learn more about [Azure AD B2C session](session.md).
+- Learn more about [Azure AD B2C session](session-overview.md).

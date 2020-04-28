@@ -58,4 +58,4 @@ The following use cases are enabled using these properties:
 
 ## Next steps
 
-- Learn more about [Azure AD B2C session](session.md).
+- Learn more about [Azure AD B2C session](session-overview.md).

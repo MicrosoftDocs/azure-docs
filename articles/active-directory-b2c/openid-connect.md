@@ -145,7 +145,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | {tenant} | Yes | Name of your Azure AD B2C tenant |
 | {policy} | Yes | The user flow that was used to acquire the authorization code. You can't use a different user flow in this request. Add this parameter to the query string, not to the POST body. |
 | client_id | Yes | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application. |
-| client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, threfore not used on this flow. If using a client secret, please change it on a periodic basis. |
+| client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, therefore not used on this flow. If using a client secret, please change it on a periodic basis. |
 | code | Yes | The authorization code that you acquired in the beginning of the user flow. |
 | grant_type | Yes | The type of grant, which must be `authorization_code` for the authorization code flow. |
 | redirect_uri | Yes | The `redirect_uri` parameter of the application where you received the authorization code. |
@@ -258,7 +258,7 @@ Error responses look like:
 
 ## Send a sign-out request
 
-When you want to sign the user out of the application, it isn't enough to clear the application's cookies or otherwise end the session with the user. Redirect the user to Azure AD B2C to sign out. If you fail to do so, the user might be able to reauthenticate to your application without entering their credentials again. For more information, see [Azure AD B2C session](session.md).
+When you want to sign the user out of the application, it isn't enough to clear the application's cookies or otherwise end the session with the user. Redirect the user to Azure AD B2C to sign out. If you fail to do so, the user might be able to reauthenticate to your application without entering their credentials again. For more information, see [Azure AD B2C session](session-overview.md).
 
 To sign out the user, redirect the user to the `end_session` endpoint that is listed in the OpenID Connect metadata document described earlier:
 

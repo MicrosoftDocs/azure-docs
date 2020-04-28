@@ -76,8 +76,8 @@
     href: user-overview.md
   - name: User profile attributes
     href: user-profile-attributes.md
-  - name: Session
-    href: session.md
+  - name: SSO sessions
+    href: session-overview.md
 - name: How-to guides
   items:
   - name: App integration
