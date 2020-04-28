@@ -416,10 +416,7 @@ For more information on using WSS and HTTPS protocols, see [container security](
 
 #### Analyze sentiment
 
-If you provided your Text Analytics API credentials [to the container](#analyze-sentiment-on-the-speech-to-text-output), you can use the Speech SDK to send speech recognition requests with sentiment analysis.
-
-> [!NOTE]
-> You can configure API responses to use either a *simple* or *detailed* format.
+If you provided your Text Analytics API credentials [to the container](#analyze-sentiment-on-the-speech-to-text-output), you can use the Speech SDK to send speech recognition requests with sentiment analysis. You can configure the API responses to use either a *simple* or *detailed* format.
 
 # [Simple format](#tab/simple-format)
 
