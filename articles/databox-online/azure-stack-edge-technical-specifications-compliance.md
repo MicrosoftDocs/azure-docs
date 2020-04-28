@@ -93,7 +93,7 @@ The following table lists the dimensions of the shipping package in millimeters 
 
 ### Enclosure weight
 
-The device package weighs 66 lbs. and requires two persons to handle it. The weight of the device depends on the configuration of the enclosure.
+The device package weighs 61 lbs. and requires two persons to handle it. The weight of the device depends on the configuration of the enclosure.
 
 |     Enclosure                                 |     Weight          |
 |-----------------------------------------------|---------------------|
