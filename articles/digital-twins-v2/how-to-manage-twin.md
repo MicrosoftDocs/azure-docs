@@ -15,11 +15,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Create and manage digital twins
+# Manage digital twins
 
-Entities in your environment are represented by [digital twins](concepts-twins-graph.md).
-
-Once you have a working [Azure Digital Twins instance](how-to-set-up-instance.md) and have set up [authentication](how-to-authenticate-client.md) for your client app, you can use the **DigitalTwins APIs** to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. This article focuses on managing digital twins; to work with relationships and the graph as a whole, see [How-to: Manage a twin graph with relationships](how-to-manage-graph.md).
+Entities in your environment are represented by [digital twins](concepts-twins-graph.md). You can use the [**DigitalTwins APIs**](how-to-use-apis.md) to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [How-to: Manage a twin graph with relationships](how-to-manage-graph.md).
 
 [!INCLUDE [digital-twins-generate-sdk.md](../../includes/digital-twins-generate-sdk.md)]
 
@@ -34,7 +32,7 @@ await client.DigitalTwins.AddAsync("myNewTwinID", initData);
 > [!TIP]
 > All SDK functions come in synchronous and asynchronous versions.
 
-To create a digital twin in this preview release, you need to provide:
+To create a digital twin, you need to provide:
 * The desired ID for the digital twin
 * The [model](concepts-models.md) you want to use 
 * Initial values for all properties of the digital twin
@@ -77,7 +75,7 @@ Dictionary<string, object> initData = new Dictionary<string, object>()
 };
 ```
 
-### Full twin creation code
+### Full digital twin creation code
 
 The following code sample uses the information you've learned in this section to create a twin of type *Room* and initialize it:
 
@@ -109,9 +107,9 @@ public Task<boolean> CreateRoom(string id, double temperature, double humidity)
 }
 ```
 
-## Get twin data for an entire digital twin
+## Get data for a digital twin
 
-You can access the data of any digital twin by calling:
+You can access the full data of any digital twin by calling:
 
 ```csharp
 object result = await client.DigitalTwins.GetByIdAsync(id);
@@ -203,7 +201,7 @@ Here is an example of JSON Patch code. This document replaces the *mass* and *ra
 ]
 ```
 
-### Update properties in components
+### Update properties in digital twin components
 
 Recall that a model may contain components, allowing it to be made up of other models. 
 
@@ -219,7 +217,7 @@ To patch properties in a digital twin's components, you will use path syntax in 
 ]
 ```
 
-### Change the twin's model
+### Update a digital twin's model
 
 The `Update` function can also be used to migrate a digital twin to a different model. 
 

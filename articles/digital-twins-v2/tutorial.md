@@ -23,7 +23,7 @@ In this tutorial, you will...
 * Set up an Azure Digital Twins instance
 * Learn about the sample building scenario and instantiate the pre-written components
 * Use an [Azure Functions](../azure-functions/functions-overview.md) app to route simulated telemetry from an [IoT Hub](../iot-hub/about-iot-hub.md) device into digital twin properties
-* Propagate changes through the twin graph, by processing digital twin notifications with Azure Functions, endpoints, and routes
+* Propagate changes through the **twin graph**, by processing digital twin notifications with Azure Functions, endpoints, and routes
 
 The tutorial is driven by a sample project written in C#. Get the sample project on your machine by [downloading the Azure Digital Twins samples repository as a ZIP file](https://github.com/Azure-Samples/digital-twins-samples/archive/master.zip).
 
@@ -77,7 +77,9 @@ A console window will open, carry out authentication, and wait for a command. In
 
 The command is: `buildingScenario`.
 
-The output of this command is a series of confirmation messages as three twins are created and connected in your Azure Digital Twins instance: a floor named *floor1*, a room named *room21*, and a temperature sensor named *thermostat67*. They are connected into the following graph:
+The output of this command is a series of confirmation messages as three [**digital twins**](concepts-twins-graph.md) are created and connected in your Azure Digital Twins instance: a floor named *floor1*, a room named *room21*, and a temperature sensor named *thermostat67*. As you can see, these digital twins represent the entities that would exist in a real-world environment.
+
+They are connected via relationships into the following [**twin graph**](concepts-twins-graph.md). The twin graph represents the environment as a whole, including how the entities interact with and relate to each other.
 
 :::image type="content" source="media/tutorial/building-scenario-graph.png" alt-text="A graph showing that floor1 contains room21, and room21 contains thermostat67" border="false":::
 
@@ -91,7 +93,7 @@ After this, you can stop running the project. Keep the solution open in Visual S
 
 An Azure Digital Twins graph is meant to be driven by telemetry from real devices. 
 
-In this step, you will connect a simulated thermostat device registered in [IoT Hub](../iot-hub/about-iot-hub.md) to the digital twin that represents it in Azure Digital Twins. As the simulated device emits telemetry, the data will be directed through an [Azure Functions](../azure-functions/functions-overview.md) app that triggers a corresponding update in the digital twin. In this way, the digital twin stays up to date with the real device's data.
+In this step, you will connect a simulated thermostat device registered in [IoT Hub](../iot-hub/about-iot-hub.md) to the digital twin that represents it in Azure Digital Twins. As the simulated device emits telemetry, the data will be directed through an [Azure Functions](../azure-functions/functions-overview.md) app that triggers a corresponding update in the digital twin. In this way, the digital twin stays up to date with the real device's data. In Azure Digital Twins, the process of directing events data from one place to another is called [**routing events**](concepts-route-events.md).
 
 This happens in this part of the end-to-end scenario (**arrow B**):
 
