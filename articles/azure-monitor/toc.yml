@@ -64,14 +64,16 @@
     items:
     - name: Overview
       href: samples/arm-samples.md
-    - name: Action groups
-      href: samples/arm-action-groups.md
     - name: Agents
       href: samples/arm-agent.md
-    - name: Alert rules - logs
-      href: samples/arm-alerts-log.md
-    - name: Alert rules - metrics
-      href: samples/arm-alerts-metric.md
+    - name: Alerts
+      items: 
+      - name: Log alert rules
+        href: samples/arm-alerts-log.md
+      - name: Metric alert rules
+        href: samples/arm-alerts-metric.md
+      - name: Action groups
+        href: samples/arm-action-groups.md
     - name: Application Insights
       href: samples/arm-appinsights.md
     - name: Azure Monitor for Containers
