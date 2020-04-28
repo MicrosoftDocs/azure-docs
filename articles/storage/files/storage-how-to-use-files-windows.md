@@ -16,7 +16,7 @@ In order to use an Azure file share outside of the Azure region it is hosted in,
 
 You can use Azure file shares on a Windows installation that is running either in an Azure VM or on-premises. The following table illustrates which OS versions support accessing file shares in which environment:
 
-| Windows version        | SMB version | Mountable in Azure VM | Mountable On-Premises |
+| Windows version        | SMB version | Mountable in Azure VM | Mountable on-premises |
 |------------------------|-------------|-----------------------|-----------------------|
 | Windows Server 2019 | SMB 3.0 | Yes | Yes |
 | Windows 10<sup>1</sup> | SMB 3.0 | Yes | Yes |
@@ -121,7 +121,7 @@ You should now be able to mount or access the share without having to supply add
 #### Advanced cmdkey scenarios
 There are two additional scenarios to consider with cmdkey: storing credentials for another user on the machine, such as a service account, and storing credentials on a remote machine with PowerShell remoting.
 
-Storing the credentials for another user on the machine is very easy: when logged into your account, simply execute the following PowerShell command:
+Storing the credentials for another user on the machine is easy: when logged into your account, simply execute the following PowerShell command:
 
 ```powershell
 $password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
@@ -134,7 +134,7 @@ This will open a new PowerShell window under the user context of your service ac
 Storing the credentials on a remote machine using PowerShell remoting is not however possible, as cmdkey does not allow access, even for additions, to its credential store when the user is logged in via PowerShell remoting. We recommend logging into the machine with [Remote Desktop](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows).
 
 ### Mount the Azure file share with PowerShell
-Run the following commands from a regular (i.e. not an elevated) PowerShell session to mount the Azure file share. Remember to replace `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>`, and `<desired-drive-letter>` with the proper information.
+Run the following commands from a regular (not an elevated) PowerShell session to mount the Azure file share. Remember to replace `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>`, and `<desired-drive-letter>` with the proper information.
 
 ```powershell
 $resourceGroupName = "<your-resource-group-name>"
@@ -177,27 +177,23 @@ Remove-PSDrive -Name <desired-drive-letter>
 
 1. Open File Explorer. This can be done by opening from the Start Menu, or by pressing Win+E shortcut.
 
-2. Navigate to the **This PC** item on the left-hand side of the window. This will change the menus available in the ribbon. Under the Computer menu, select **Map network drive**.
+1. Navigate to the **This PC** item on the left-hand side of the window. This will change the menus available in the ribbon. Under the Computer menu, select **Map network drive**.
     
     ![A screenshot of the "Map network drive" drop-down menu](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. Copy the UNC path from the **Connect** pane in the Azure portal. 
-
-    ![The UNC path from the Azure Files Connect pane](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
-
-4. Select the drive letter and enter the UNC path. 
+1. Select the drive letter and enter the UNC path, the UNC path format is <storageAccountName>.file.core.windows.net/<fileShareName>. For example: `anexampleaccountname.file.core.windows.net/example-share-name`
     
     ![A screenshot of the "Map Network Drive" dialog](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
-5. Use the storage account name prepended with `AZURE\` as the username and a storage account key as the password.
+1. Use the storage account name prepended with `AZURE\` as the username and a storage account key as the password.
     
     ![A screenshot of the network credential dialog](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
 
-6. Use Azure file share as desired.
+1. Use Azure file share as desired.
     
     ![Azure file share is now mounted](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
-7. When you are ready to dismount the Azure file share, you can do so by right-clicking on the entry for the share under the **Network locations** in File Explorer and selecting **Disconnect**.
+1. When you are ready to dismount the Azure file share, you can do so by right-clicking on the entry for the share under the **Network locations** in File Explorer and selecting **Disconnect**.
 
 ### Accessing share snapshots from Windows
 If you have taken a share snapshot, either manually or automatically through a script or service like Azure Backup, you can view previous versions of a share, a directory, or a particular file from file share on Windows. You can take a share snapshot from the [Azure portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md), and [Azure CLI](storage-how-to-use-files-cli.md).
