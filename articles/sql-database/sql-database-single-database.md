@@ -1,10 +1,10 @@
 ---
-title: What is a single database
-description: Learn about single database in Azure SQL Database
+title: What is a single database?
+description: Learn about the single database deployment option in Azure SQL Database. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom:
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 04/08/2019
 ---
-# What is a single database in Azure SQL Database
+# What is a single database in Azure SQL Database? 
 
-The single database deployment option creates a database in Azure SQL Database with its own set of resources and is managed via a SQL Database server. With a single database, each database is isolated from each other and portable, each with its own service tier within the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or [vCore-based purchasing model](sql-database-service-tiers-vcore.md) and a guaranteed compute size.
+The single database deployment option creates a database in Azure SQL Database with its own set of resources and is managed via a [logical SQL server](sql-database-servers.md). With a single database, each database is isolated from each other and portable, each with its own service tier within the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or [vCore-based purchasing model](sql-database-service-tiers-vcore.md) and a guaranteed compute size.
 
 > [!IMPORTANT]
-> Single database is one of three deployment options for Azure SQL Database. The other two are [elastic pools](sql-database-elastic-pool.md) and [managed instance](sql-database-managed-instance.md).
+> Single database is one deployment option for Azure SQL Database. The other is [elastic pools](sql-database-elastic-pool.md). 
 > [!NOTE]
 > For a glossary of terms in Azure SQL Database, see [SQL Database terms glossary](sql-database-glossary-terms.md)
 
@@ -35,12 +35,13 @@ You use the built-in [performance monitoring](sql-database-performance-guidance.
 
 ## Availability capabilities
 
-Single databases, elastic pools, and managed instances all provide many availability characteristics. For information, see [Availability characteristics](sql-database-technical-overview.md#availability-capabilities).
+Single databases and elastic pools provide many availability characteristics. For information, see [Availability characteristics](sql-database-technical-overview.md#availability-capabilities).
 
 ## Transact-SQL differences
 
 Most Transact-SQL features that applications use are fully supported in both Microsoft SQL Server and Azure SQL Database. For example, the core SQL components such as data types, operators, string, arithmetic, logical, and cursor functions, work identically in SQL Server and SQL Database. There are, however, a few T-SQL differences in DDL (data-definition language) and DML (data manipulation language) elements resulting in T-SQL statements and queries that are only partially supported (which we discuss later in this article).
-In addition, there are some features and syntax that is not supported at all because Azure SQL Database is designed to isolate features from dependencies on the master database and the operating system. As such, most server-level activities are inappropriate for SQL Database. T-SQL statements and options are not available if they configure server-level options, operating system components, or specify file system configuration. When such capabilities are required, an appropriate alternative is often available in some other way from SQL Database or from another Azure feature or service.
+
+In addition, there are some features and syntax that are not supported because Azure SQL Database is designed to isolate features from dependencies on the master database and the operating system. As such, most server-level activities are inappropriate for SQL Database. T-SQL statements and options are not available if they configure server-level options, operating system components, or specify file system configuration. When such capabilities are required, an appropriate alternative is often available in some other way from SQL Database or from another Azure feature or service.
 
 For more information, see [Resolving Transact-SQL differences during migration to SQL Database](sql-database-transact-sql-information.md).
 
@@ -49,7 +50,7 @@ For more information, see [Resolving Transact-SQL differences during migration t
 SQL Database provides a range of [built-in security and compliance](sql-database-security-overview.md) features to help your application meet various security and compliance requirements.
 
 > [!IMPORTANT]
-> Azure SQL Database (all deployment options), has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
+> Azure SQL Database, has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
 
 ## Next steps
 

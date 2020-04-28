@@ -4,7 +4,7 @@ description: Transact-SQL statements that are less than fully supported in Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom:
+ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein

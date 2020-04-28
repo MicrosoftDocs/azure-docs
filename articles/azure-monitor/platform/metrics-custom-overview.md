@@ -209,7 +209,7 @@ During the public preview, the ability to publish custom metrics is available on
 
 ## Latency and storage retention
 
-Adding a brand new metric or a new dimension being added to a metric may take up to 2 to 3 minutes to appear. Once in the system, data should apear in less than 30 seconds 99% of the time. 
+Adding a brand new metric or a new dimension being added to a metric may take up to 2 to 3 minutes to appear. Once in the system, data should appear in less than 30 seconds 99% of the time. 
 
 If you delete a metric or remove a dimension, the change can take a week to a month to be deleted from the system.
 

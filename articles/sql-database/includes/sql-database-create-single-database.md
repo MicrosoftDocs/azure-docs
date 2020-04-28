@@ -8,13 +8,13 @@ ms.author: mathoma
 ms.reviewer: vanto
 ---
 
-In this step, you create an Azure SQL Database server and a single database that uses AdventureWorksLT sample data. You can create the database by using Azure portal menus and screens, or by using an Azure CLI or PowerShell script in the Azure Cloud Shell.
+In this step, you create a logical SQL Database and a single database that uses AdventureWorksLT sample data. You can create the database by using Azure portal menus and screens, or by using an Azure CLI or PowerShell script in the Azure Cloud Shell.
 
 All the methods include setting up a server-level firewall rule to allow the public IP address of the computer you're using to access the server. For more information about creating server firewall rules, see [Create a server-level firewall](../sql-database-server-level-firewall-rule.md). You can also set database-level firewall rules. See [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database). 
 
 # [Portal](#tab/azure-portal)
 
-To create a resource group, SQL server, and single database in the Azure portal:
+To create a resource group, logical SQL server, and single database in the Azure portal:
 
 1. Sign in to the [portal](https://portal.azure.com).
 1. From the Search bar, search for and select **Azure SQL**.
@@ -72,7 +72,7 @@ To create a resource group, SQL server, and single database in the Azure portal:
 
 # [Azure CLI](#tab/azure-cli)
 
-You can create an Azure resource group, SQL server, and single database using the Azure command-line interface (Azure CLI). If you don't want to use the Azure Cloud Shell, [install Azure CLI](/cli/azure/install-azure-cli) on your computer.
+You can create an Azure resource group, logical SQL server, and single database using the Azure command-line interface (Azure CLI). If you don't want to use the Azure Cloud Shell, [install Azure CLI](/cli/azure/install-azure-cli) on your computer.
 
 To run the following code sample in Azure Cloud Shell, select **Try it** in the code sample title bar. When the Cloud Shell opens, select **Copy** in the code sample title bar, and paste the code sample into the Cloud Shell window. In the code, replace `<Subscription ID>` with your Azure Subscription ID, and for `$startip` and `$endip`, replace `0.0.0.0` with the public IP address of the computer you're using.
 
@@ -84,7 +84,7 @@ You can also use the Azure Cloud Shell from the Azure portal, by selecting the C
    
 The first time you use Cloud Shell in the portal, select **Bash** in the **Welcome** dialog. Subsequent sessions will use Azure CLI in a Bash environment, or you can select **Bash** from the Cloud Shell control bar. 
 
-The following Azure CLI code creates an Azure resource group, SQL server, single database, and firewall rule for access to the server. Make sure to record the generated resource group and server names, so you can manage these resources later.
+The following Azure CLI code creates an Azure resource group, logical SQL server, single database, and firewall rule for access to the server. Make sure to record the generated resource group and server names, so you can manage these resources later.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -154,7 +154,7 @@ For more Azure SQL Database Azure CLI samples, see [Azure CLI samples](../sql-da
 
 # [PowerShell](#tab/azure-powershell)
 
-You can create an Azure resource group, SQL server, and single database using Windows PowerShell. If you don't want to use the Azure Cloud Shell, [install the Azure PowerShell module](/powershell/azure/install-az-ps).
+You can create an Azure resource group, logical SQL server, and single database using Windows PowerShell. If you don't want to use the Azure Cloud Shell, [install the Azure PowerShell module](/powershell/azure/install-az-ps).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
