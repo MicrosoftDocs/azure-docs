@@ -71,9 +71,9 @@ Once you've completed the metastore migration, run a post-upgrade tool to make p
 |Non-ACID managed tables|External tables with property 'external.table.purge'='true'|
 |ACID managed tables|ACID managed tables|
 
-You may need to adjust the properties of your warehouse before executing the migration. For example, if you expect that some table will be accessed by a third party (such as an HDInsight 3.6 cluster), that table must be external once the migration is complete. In HDInsight 4.0, all managed tables are expected to be transactional. Therefore, managed tables in HDInsight 4.0 should be accessed by only HDInsight 4.0 clusters.
+You may need to adjust the properties of your warehouse before executing this tool. For example, if you expect that some table will be accessed by a third party (such as an HDInsight 3.6 cluster), that table must be external once the tool is complete. In HDInsight 4.0, all managed tables are expected to be transactional. Therefore, managed tables in HDInsight 4.0 should be accessed by only HDInsight 4.0 clusters.
 
-Once your table properties are set correctly, execute the Hive warehouse migration tool from the HDInsight 4.0 cluster using the SSH shell:
+Once your table properties are set correctly, execute the Hive post-upgrade tool from the HDInsight 4.0 cluster using the SSH shell:
 
 1. Connect to your cluster headnode using SSH. For instructions, see [Connect to HDInsight using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
 1. Open a login shell as the Hive user by running `sudo su - hive`
@@ -84,7 +84,7 @@ Once your table properties are set correctly, execute the Hive warehouse migrati
     /usr/hdp/$STACK_VERSION/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true -m automatic --modifyManagedTables
     ```
 
-After the migration tool completes, your Hive warehouse will be ready for HDInsight 4.0.
+After the tool completes, your Hive warehouse will be ready for HDInsight 4.0.
 
 ## Migrate from internal metastore
 
