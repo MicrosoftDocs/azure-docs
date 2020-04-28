@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting the onboarding of Azure Automation management solutions
-description: Learn how to troubleshoot solution onboarding errors.
+description: Learn how to troubleshoot Azure Automation solution onboarding errors.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -11,7 +11,7 @@ manager: carmonm
 ---
 # Troubleshoot solution onboarding
 
-You might receive error messages when you onboard the Update Management solution or the Change Tracking and Inventory solution. This article describes the various errors that might occur and how to resolve them.
+You might receive error messages when you onboard the Azure Automation Update Management solution or the Change Tracking and Inventory solution. This article describes the various errors that might occur and how to resolve them.
 
 ## Known issues
 
