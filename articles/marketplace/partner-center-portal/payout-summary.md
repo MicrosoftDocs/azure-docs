@@ -20,7 +20,7 @@ If you sell offerings in the Azure Marketplace, you’ll also see info on succes
 - [Roles and permission to access the payout report](#roles-and-permission-to-access-the-payout-report)
 - [Payout report: difference between Cloud Partner Portal and Partner Center](#payout-report-difference-between-cloud-partner-portal-and-partner-center)
 - [Customer types](#customer-types)
-- [Corelation between payout and usage](#corelation-between-payout-and-usage)
+- [Correlation between payout and usage](#correlation-between-payout-and-usage)
 - [Transaction history download](#transaction-history-download-export)
 - [Billing questions and support](#billing-questions-and-support)
 
