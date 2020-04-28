@@ -39,7 +39,7 @@ Access tokens are passed to a web API as the bearer token in the `Authorization`
 
 ## JSON Web Tokens (JWTs) and claims
 
-Microsoft identity platform implements security tokens as JSON Web Tokens (JWTs) that contain claims.
+Microsoft identity platform implements security tokens as **JSON Web Tokens (JWTs)** that contain **claims**.
 
 A [claim](developer-glossary.md#claim) provides assertions about one entity, such as a client application or [resource owner](developer-glossary.md#resource-owner), to another entity, such as a resource server.
 
