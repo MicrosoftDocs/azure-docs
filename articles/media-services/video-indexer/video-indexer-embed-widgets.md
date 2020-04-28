@@ -31,7 +31,7 @@ A Cognitive Insights widget includes all visual insights that were extracted fro
 |`language`|A short language code (language name)|Controls insights language.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>or `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | A short language code | Controls the language of the UI. The default value is `en`. <br/>Example: `locale=de`.|
 |`tab` | The default selected tab | Controls the **Insights** tab that's rendered by default. <br/>Example: `tab=timeline` renders the insights with the **Timeline** tab selected.|
-|`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the “trial” should be used for the location value.| 
+|`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter.| 
 
 ### Player widget
 
@@ -45,7 +45,7 @@ You can use the Player widget to stream video by using adaptive bit rate. The Pl
 |`type`| | Activates an audio player skin (the video part is removed).<br/> Example: `type=audio`. |
 |`autoplay` | A Boolean value | Indicates if the player should start playing the video when loaded. The default value is `true`.<br/> Example: `autoplay=false`. |
 |`language`/`locale` | A language code | Controls the player language. The default value is `en-US`.<br/>Example: `language=de-DE`.|
-|`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the “trial” should be used for the location value.| 
+|`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter.| 
 
 ### Editor widget
 
@@ -56,7 +56,7 @@ You can use the Editor widget to create new projects and manage a video's insigh
 |`accessToken`<sup>*</sup> | String | Provides access to videos that are only in the account that's used to embed the widget.<br> The Editor widget requires the `accessToken` parameter. |
 |`language` | A language code | Controls the player language. The default value is `en-US`.<br/>Example: `language=de-DE`. |
 |`locale` | A short language code | Controls the insights language. The default value is `en`.<br/>Example: `language=de`. |
-|`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the “trial” should be used for the location value.| 
+|`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` paramete.| 
 
 <sup>*</sup>The owner should provide `accessToken` with caution.
 
