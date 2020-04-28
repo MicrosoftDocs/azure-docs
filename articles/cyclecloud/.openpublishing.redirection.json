@@ -2,12 +2,12 @@
     "redirections": [
         {
             "source_path": "quickstart-install-cyclecloud.md",
-            "redirect_url": "/cyclecloud/qs-install-marketplace",
+            "redirect_url": "/qs-install-marketplace",
             "redirect_document_id": true
         },
         {
             "source_path": "quickstart-create-and-run-cluster.md",
-            "redirect_url": "/azure/cyclecloud/tutorials/create-cluster",
+            "redirect_url": "/tutorials/create-cluster",
             "redirect_document_id": true
         },
         {
@@ -22,7 +22,7 @@
         },
         {
             "source_path": "clusters.md",
-            "redirect_url": "concepts/clusters",
+            "redirect_url": "/azure/cyclecloud/concepts/clusters",
             "redirect_document_id": true
         },
         {
