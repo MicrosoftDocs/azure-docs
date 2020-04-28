@@ -16,7 +16,7 @@ Get started with Azure confidential computing by using the Azure Marketplace to 
 
 This tutorial is recommended if you want to quickly start deploying a confidential computing virtual machine. The VMs are run on specialty hardware and require specific configuration inputs to run as intended. The marketplace offering described in this quickstart makes it easier to deploy, by restricting user input.
 
-If you're interested in deploying a confidential compute virtual machine with more custom configuration, follow the [Azure portal Confidential Compute virtual machine deployment steps.](quick-create-portal.md).
+If you're interested in deploying a confidential compute virtual machine with more custom configuration, follow the [Azure portal Confidential Compute virtual machine deployment steps](quick-create-portal.md).
 
 ## Prerequisites
 
