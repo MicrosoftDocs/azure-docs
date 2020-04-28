@@ -322,6 +322,9 @@ Tumbling window triggers are a type of trigger that fires at a periodic time int
 
 For more information about tumbling window triggers and, for examples, see [Create a tumbling window trigger](how-to-create-tumbling-window-trigger.md).
 
+> [!IMPORTANT]
+> Unlike schedule trigger which is "fire and forget", tumbling window trigger **waits for the pipeline run** to reach a final state (Succeeded, Failed, Cancelled). Based on the final status of the triggered pipeline run the status of trigger run is updated.
+
 ## Event-based trigger
 
 An event-based trigger runs pipelines in response to an event, such as the arrival of a file, or the deletion of a file, in Azure Blob Storage.
