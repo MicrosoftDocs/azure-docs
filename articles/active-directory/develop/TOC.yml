@@ -448,9 +448,13 @@
   - name: Automatic user provisioning (SCIM)
     items:
     - name: What is automatic user provisioning?
-      href: /azure/active-directory/manage-apps/user-provisioning
-    - name: Building and integrating a SCIM endpoint
-      href: /azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups
+      href: /azure/active-directory/app-provisioning/user-provisioning
+    - name: Develop and integrating a SCIM endpoint
+      href: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
+    - name: Common provisioning scenarios
+      href: articles/active-directory/app-provisioning/scim-graph-scenarios
+    - name: Automate configuration using MS Graph
+      href: articles/active-directory/app-provisioning/application-provisioning-configure-api
 - name: How-to guides
   items:
   - name: Authentication
