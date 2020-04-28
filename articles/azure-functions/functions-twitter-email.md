@@ -127,7 +127,7 @@ Azure Functions provides a great way to offload processing tasks in a logic apps
 
 5. To test the function, select **Test** from the top menu. On the **Input** tab, enter a value of `0.2` in the **Body**, and then select **Run**. A value of **RED** is returned in the **HTTP response content** on the **Output** tab. 
 
-    ![Define the proxy settings](./media/functions-twitter-email/07-function-test.png)
+    :::image type="content" source="./media/functions-twitter-email/07-function-test.png" alt-text="Define the proxy settings":::
 
 Now you have a function that categorizes sentiment scores. Next, you create a logic app that integrates your function with your Twitter and Cognitive Services API. 
 
