@@ -418,7 +418,7 @@ If you provided your Text Analytics API credentials [to the container](#analyze-
 > [!NOTE]
 > You can configure API responses to use either a *simple* or *detailed* format.
 
-# [Simple format](#tab/csharp)
+# [Simple format](#tab/simple-format)
 
 To configure the Speech client to use a simple format, add `"Sentiment"` as a value for `Simple.Extensions`. If you want to choose a specific Text Analytics model version, replace `'latest'` in the `speechcontext-phraseDetection.sentimentAnalysis.modelversion` property configuration.
 
@@ -452,7 +452,7 @@ speech_config.set_service_property(
 }
 ```
 
-# [Detailed format](#tab/csharp)
+# [Detailed format](#tab/detailed-format)
 
 To configure the Speech client to use a detailed format, add `"Sentiment"` as a value for `Detailed.Extensions`, `Detailed.Options`, or both. If you want to choose a specific Text Analytics model version, replace `'latest'` in the `speechcontext-phraseDetection.sentimentAnalysis.modelversion` property configuration.
 
@@ -526,6 +526,8 @@ speech_config.set_service_property(
     channel=speechsdk.ServicePropertyChannel.UriQueryParameter
 )
 ```
+
+---
 
 ### Text-to-speech or Custom Text-to-speech
 
