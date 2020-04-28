@@ -25,7 +25,7 @@ Instance(**Type I and Type II**)
 
 ## Supported SKUs
 
-|  Hana Large Instance Type   |  OS Vendor   |  OS Package Version   |  SKU	       |
+|  Hana Large Instance type   |  OS vendor   |  OS package version   |  SKU	       |
 |-----------------------------|--------------|-----------------------|-------------|
 |   Type I                    |  SuSE        |   SLES 12 SP3         |  S224m      |
 |   Type I                    |  SuSE        |   SLES 12 SP4         |  S224m      |
@@ -38,7 +38,7 @@ Instance(**Type I and Type II**)
 |   Type II                   |  SuSE        |   SLES 12 SP3         |  S384xm     |
 |   Type II                   |  SuSE        |   SLES 12 SP4         |  S384xm     |
 
-## Pre-requisites
+## Prerequisites
 
 - Kdump service uses `/var/crash` directory to write dumps, make sure the partition corresponds to this directory has sufficient space to accommodate dumps.
 
@@ -48,12 +48,12 @@ Instance(**Type I and Type II**)
 
 - Run this script on HANA Large Instance using the below command
 
-> [!NOTE]
-> sudo privilege needed to run this command.
+    > [!NOTE]
+    > sudo privilege needed to run this command.
 
-```bash
-sudo bash enable-kdump.sh
-```
+    ```bash
+    sudo bash enable-kdump.sh
+    ```
 
 - If the command outputs Kdump is successfully enabled, please reboot the system to apply the change, then the Kdump is successfully enabled. Reboot the system to apply changes.
 
@@ -66,10 +66,10 @@ sudo bash enable-kdump.sh
 
 - Trigger a kernel crash
 
-```bash
-echo 1 > /proc/sys/kernel/sysrq
-echo c > /proc/sysrq-trigger
-```
+    ```bash
+    echo 1 > /proc/sys/kernel/sysrq
+    echo c > /proc/sysrq-trigger
+    ```
 
 - After the system reboots successfully, check the `/var/crash` directory for kernel crash logs.
 
