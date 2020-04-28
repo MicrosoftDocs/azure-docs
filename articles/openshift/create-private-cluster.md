@@ -78,9 +78,9 @@ Next, you will create a virtual network containing two empty subnets.
 1. **Set the following variables.**
 
    ```console
-   LOCATION=eastus        #the location of your cluster
-   RESOURCEGROUP="v4-$LOCATION"    #the name of the resource group where you want to create your cluster
-   CLUSTER=aro-cluster        #the name of your cluster
+   LOCATION=eastus                 # the location of your cluster
+   RESOURCEGROUP="v4-$LOCATION"    # the name of the resource group where you want to create your cluster
+   CLUSTER=aro-cluster             # the name of your cluster
    ```
 
 1. **Create a resource group**
@@ -157,7 +157,7 @@ Next, you will create a virtual network containing two empty subnets.
     --resource-group $RESOURCEGROUP \
     --vnet-name aro-vnet \
     --name worker-subnet \
-    --address-prefixes 10.0.1.0/23 \
+    --address-prefixes 10.0.2.0/23 \
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
