@@ -480,7 +480,9 @@
         "articles/service-fabric-mesh/*md": "atsenthi",
         "articles/notebooks/*.md": "jasonh",
         "articles/service-health/*.md": "stbaron",
-        "articles/aks/**/*.md": "mlearned"
+        "articles/aks/**/*.md": "mlearned",
+        "articles/media-services/*.md": "juliako",
+        "articles/media-services/**/*.md": "juliako"	      
       },
       "ms.service": {
         "articles/batch/*.md": "batch",
@@ -521,8 +523,10 @@
         "articles/service-fabric-mesh/*.md": "service-fabric-mesh",
         "articles/service-health/**/*.md": "service-health",
         "articles/aks/**/*.md": "container-service",
+        "articles/remote-rendering/**/*.md": "azure-remote-rendering",
         "acticles/object-understanding/**/*.md": "azure-object-understanding",
-        "articles/remote-rendering/**/*.md": "azure-remote-rendering"
+        "articles/media-services/*.md": "media-services",
+        "articles/media-services/**/*.md": "media-services"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture",
