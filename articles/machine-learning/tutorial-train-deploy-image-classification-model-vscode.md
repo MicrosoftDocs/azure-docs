@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 02/24/2020
+ms.date: 04/13/2020
 #Customer intent: As a professional data scientist, I want to learn how to train and deploy an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
 ---
 
@@ -95,71 +95,33 @@ To create a compute target:
 1. Choose a VM size. Select **Standard_F2s_v2** from the list of options. The size of your VM has an impact on the amount of time it takes to train your models. For more information on VM sizes, see [sizes for Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 1. Name your compute "TeamWkspc-com" and press **Enter** to create your compute.
 
-After a few minutes, the new compute target appears in the *Compute* node of your workspace.
-
-## Create a run configuration
-
-When you submit a training run to a compute target, you also submit the configuration needed to run the training job. For example, the script that contains the training code and the Python dependencies needed to run it.
-
-To create a run configuration:
-
-1. On the Visual Studio Code activity bar, select the **Azure** icon. The Azure Machine Learning view appears. 
-1. Expand your subscription node. 
-1. Expand the **TeamWorkspace** node. 
-1. Under the workspace node, right-click the **TeamWkspc-com** compute node and choose **Create Run Configuration**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Create a run configuration](./media/tutorial-train-deploy-image-classification-model-vscode/create-run-configuration.png)
-
-1. Name your run configuration "MNIST-rc" and press **Enter** to create your run configuration.
-1. Then, select **TensorFlow Single-Node Training** as the training job type.
-1. Press **Enter** to browse the script file to run on the compute. In this case, the script to train the model is the `train.py` file inside the `vscode-tools-for-ai/mnist-vscode-docs-sample` directory.
-1. Enter the following into the input box to specify the required packages.
-    
-    ```text
-    pip: azureml-defaults; conda: python=3.6.2, tensorflow=1.15.0
-    ```
-    
-    A file called `MNIST-rc.runconfig` appears in VS Code with content similar to the one below:
+    A file appears in VS Code with content similar to the one below:
 
     ```json
     {
-        "script": "train.py",
-        "framework": "Python",
-        "communicator": "None",
-        "target": "TeamWkspc-com",
-        "environment": {
-            "python": {
-                "userManagedDependencies": false,
-                "condaDependencies": {
-                    "dependencies": [
-                        "python=3.6.2",
-                        "tensorflow=1.15.0",
-                        {
-                            "pip": [
-                                "azureml-defaults"
-                            ]
-                        }
-                    ]
-                }
-            },
-            "docker": {
-                "baseImage": "mcr.microsoft.com/azureml/base:0.2.4",
-                "enabled": true,
-                "baseImageRegistry": {
-                    "address": null,
-                    "username": null,
-                    "password": null
-                }
+        "location": "westus2",
+        "tags": {},
+        "properties": {
+            "computeType": "AmlCompute",
+            "description": "",
+            "properties": {
+                "vmSize": "Standard_F2s_v2",
+                "vmPriority": "dedicated",
+                "scaleSettings": {
+                    "maxNodeCount": 4,
+                    "minNodeCount": 0,
+                    "nodeIdleTimeBeforeScaleDown": 120
+                },
+                "userAccountCredentials": {
+                    "adminUserName": "",
+                    "adminUserPassword": "",
+                    "adminUserSshPublicKey": ""
+                },
+                "subnetName": "",
+                "vnetName": "",
+                "vnetResourceGroupName": "",
+                "remoteLoginPortPublicAccess": ""
             }
-        },
-        "nodeCount": 1,
-        "history": {
-            "outputCollection": true,
-            "snapshotProject": false,
-            "directoriesToWatch": [
-                "logs"
-            ]
         }
     }
     ```
@@ -171,7 +133,152 @@ To create a run configuration:
     Azure ML: Save and Continue
     ```
 
-The `MNIST-rc` run configuration is added under the *TeamWkspc-com* compute node.
+After a few minutes, the new compute target appears in the *Compute* node of your workspace.
+
+## Create a run configuration
+
+When you submit a training run to a compute target, you also submit the configuration needed to run the training job. For example, the script that contains the training code and the Python dependencies needed to run it.
+
+To create a run configuration:
+
+1. On the Visual Studio Code activity bar, select the **Azure** icon. The Azure Machine Learning view appears. 
+1. Expand your subscription node. 
+1. Expand the **TeamWorkspace > Compute** node. 
+1. Under the compute node, right-click the **TeamWkspc-com** compute node and choose **Create Run Configuration**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Create a run configuration](./media/tutorial-train-deploy-image-classification-model-vscode/create-run-configuration.png)
+
+1. Name your run configuration "MNIST-rc" and press **Enter** to create your run configuration.
+1. Then, select **Create new Azure ML Environment**. Environments define the dependencies required to run your scripts.
+1. Name your environment "MNIST-env" and press **Enter**.
+1. Select **Conda dependencies file** from the list.
+1. Press **Enter** to browse the Conda dependencies file. In this case, the dependencies file is the `env.yml` file inside the `vscode-tools-for-ai/mnist-vscode-docs-sample` directory.
+
+    A file appears in VS Code with content similar to the one below:
+
+    ```json
+    {
+        "name": "MNIST-env",
+        "version": "1",
+        "python": {
+            "interpreterPath": "python",
+            "userManagedDependencies": false,
+            "condaDependencies": {
+                "name": "vs-code-azure-ml-tutorial",
+                "channels": [
+                    "defaults"
+                ],
+                "dependencies": [
+                    "python=3.6.2",
+                    "tensorflow=1.15.0",
+                    "pip",
+                    {
+                        "pip": [
+                            "azureml-defaults"
+                        ]
+                    }
+                ]
+            },
+            "baseCondaEnvironment": null
+        },
+        "environmentVariables": {},
+        "docker": {
+            "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+            "baseDockerfile": null,
+            "baseImageRegistry": {
+                "address": null,
+                "username": null,
+                "password": null
+            },
+            "enabled": false,
+            "arguments": []
+        },
+        "spark": {
+            "repositories": [],
+            "packages": [],
+            "precachePackages": true
+        },
+        "inferencingStackVersion": null
+    }
+    ```
+
+1. Once you're satisfied with your configuration, save it by opening the command palette and entering the following command:
+
+    ```text
+    Azure ML: Save and Continue
+    ```
+
+1. Press **Enter** to browse the script file to run on the compute. In this case, the script to train the model is the `train.py` file inside the `vscode-tools-for-ai/mnist-vscode-docs-sample` directory.
+
+    A file called `MNIST-rc.runconfig` appears in VS Code with content similar to the one below:
+
+    ```json
+    {
+        "script": "train.py",
+        "framework": "Python",
+        "communicator": "None",
+        "target": "TeamWkspc-com",
+        "environment": {
+            "name": "MNIST-env",
+            "version": "1",
+            "python": {
+                "interpreterPath": "python",
+                "userManagedDependencies": false,
+                "condaDependencies": {
+                    "name": "vs-code-azure-ml-tutorial",
+                    "channels": [
+                        "defaults"
+                    ],
+                    "dependencies": [
+                        "python=3.6.2",
+                        "tensorflow=1.15.0",
+                        "pip",
+                        {
+                            "pip": [
+                                "azureml-defaults"
+                            ]
+                        }
+                    ]
+                },
+                "baseCondaEnvironment": null
+            },
+            "environmentVariables": {},
+            "docker": {
+                "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+                "baseDockerfile": null,
+                "baseImageRegistry": {
+                    "address": null,
+                    "username": null,
+                    "password": null
+                },
+                "enabled": false,
+                "arguments": []
+            },
+            "spark": {
+                "repositories": [],
+                "packages": [],
+                "precachePackages": true
+            },
+            "inferencingStackVersion": null
+        },
+        "history": {
+            "outputCollection": true,
+            "snapshotProject": false,
+            "directoriesToWatch": [
+                "logs"
+            ]
+        }
+    }
+    ```
+
+1. Once you're satisfied with your configuration, save it by opening the command palette and entering the following command:
+
+    ```text
+    Azure ML: Save and Continue
+    ```
+
+The `MNIST-rc` run configuration is added under the *TeamWkspc-com* compute node and the `MNIST-env` environment configuration is added under the *Environments* node.
 
 ## Train the model
 
@@ -260,7 +367,7 @@ To deploy a web service as an ACI :
 1. Right-click the **MNIST-TensorFlow-model** and select **Deploy Service from Registered Model**.
 
     > [!div class="mx-imgBorder"]
-    > ![Deploy the model](./media/tutorial-train-deploy-image-classification-model-vscode/register-model.png)
+    > ![Deploy the model](./media/tutorial-train-deploy-image-classification-model-vscode/deploy-model.png)
 
 1. Select **Azure Container Instances**.
 1. Name your service "mnist-tensorflow-svc" and press **Enter**.
@@ -296,6 +403,7 @@ To deploy a web service as an ACI :
         ]
     }
     ```
+
 1. Once you're satisfied with your configuration, save it by opening the command palette and entering the following command:
 
     ```text

@@ -1,4 +1,4 @@
-- name: App Service Static Apps Documentation
+- name: Azure Static Web Apps Documentation
   href: index.yml
 - name: Overview
   items:
@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Build your first static site
+    - name: Build your first static app
       href: getting-started.md
 - name: Concepts
   items:
@@ -31,10 +31,6 @@
       href: add-api.md
     - name: Configure environment variables
       href: environment-variables.md
-    - name: Add a database
-      href: add-database.md
-    - name: Connect and disconnect from a GitHub repo
-      href: connect-disconnect-repo.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator

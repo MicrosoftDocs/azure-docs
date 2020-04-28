@@ -2,7 +2,7 @@
 title: Create parameter file
 description: Create parameter file for passing in values during deployment of an Azure Resource Manager template
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 04/20/2020
 ---
 # Create Resource Manager parameter file
 
@@ -14,7 +14,7 @@ The parameter file has the following format:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "<first-parameter-name>": {
@@ -33,7 +33,7 @@ The following parameter file includes a plain text value and a value that is sto
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "<first-parameter-name>": {
@@ -80,7 +80,7 @@ The first detail to notice is the name of each parameter. The values in your par
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storagePrefix": {
@@ -95,7 +95,7 @@ Notice the type of the parameter. The values in your parameter file must have th
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storagePrefix": {
@@ -112,7 +112,7 @@ Next, look for a default value. If a parameter has a default value, you can prov
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storagePrefix": {
@@ -129,7 +129,7 @@ Finally, look at the allowed values and any restrictions like max length. They t
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storagePrefix": {
@@ -148,7 +148,7 @@ The following example shows the formats of different parameter types.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "exampleString": {

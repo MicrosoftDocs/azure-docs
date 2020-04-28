@@ -4,10 +4,11 @@ description: Learn how to take your Azure IoT Edge solution from development to 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/02/2020
+ms.date: 4/24/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom:  [amqp, mqtt]
 ---
 
 # Prepare to deploy your IoT Edge solution in production
@@ -128,6 +129,8 @@ When moving from test scenarios to production scenarios, remember to remove debu
 * **Important**
   * Manage access to your container registry
   * Use tags to manage versions
+* **Helpful**
+  * Store runtime containers in your private registry
 
 ### Manage access to your container registry
 
@@ -159,6 +162,17 @@ A tag is a docker concept that you can use to distinguish between versions of do
 Tags also help you to enforce updates on your IoT Edge devices. When you push an updated version of a module to your container registry, increment the tag. Then, push a new deployment to your devices with the tag incremented. The container engine will recognize the incremented tag as a new version and will pull the latest module version down to your device.
 
 For an example of a tag convention, see [Update the IoT Edge runtime](how-to-update-iot-edge.md#understand-iot-edge-tags) to learn how IoT Edge uses rolling tags and specific tags to track versions.
+
+### Store runtime containers in your private registry
+
+You know about storing your container images for custom code modules in your private Azure registry, but you can also use it to store public container images such as for the edgeAgent and edgHub runtime modules. Doing so may be required if you have very tight firewall restrictions as these runtime containers are stored in the Microsoft Container Registry (MCR).
+
+Obtain the images with the Docker pull command to place in your registry. Be aware that you will need to update the images with each new release of IoT Edge runtime.
+
+| IoT Edge runtime container | Docker pull command |
+| --- | --- |
+| [Azure IoT Edge Agent](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
+| [Azure IoT Edge HUb](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
 
 ## Networking
 
@@ -195,6 +209,8 @@ This checklist is a starting point for firewall rules:
    | \*.docker.io  | 443 | Docker Hub access (optional) |
 
 Some of these firewall rules are inherited from Azure Container Registry. For more information, see [Configure rules to access an Azure container registry behind a firewall](../container-registry/container-registry-firewall-access-rules.md).
+
+If you don't want to configure your firewall to allow access to public container registries, you can store images in your private container registry, as described in [Store runtime containers in your private registry](#store-runtime-containers-in-your-private-registry).
 
 ### Configure communication through a proxy
 

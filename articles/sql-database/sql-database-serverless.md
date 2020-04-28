@@ -133,6 +133,8 @@ Autoresuming is triggered if any of the following conditions are true at any tim
 |Modifying certain database metadata|Adding new database tags.<br>Changing max vCores, min vCores, or autopause delay.|
 |SQL Server Management Studio (SSMS)|Using SSMS versions earlier than 18.1 and opening a new query window for any database in the server will resume any auto-paused database in the same server. This behavior does not occur if using SSMS version 18.1 or later.|
 
+Monitoring, management, or other solutions performing any of the operations listed above will trigger auto-resuming.
+
 Autoresuming is also triggered during the deployment of some service updates which require the database be online.
 
 ### Connectivity

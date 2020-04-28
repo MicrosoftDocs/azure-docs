@@ -19,7 +19,7 @@ This article describes how to create such access token.
 
 ## Token service REST API
 
-To create access tokens, the *Secure Token Service* provides a single REST API. The URL for the ARR STS service is [https://sts.mixedreality.azure.com](https://sts.mixedreality.azure.com).
+To create access tokens, the *Secure Token Service* provides a single REST API. The URL for the ARR STS service is https:\//sts.mixedreality.azure.com.
 
 ### 'Get token' request
 

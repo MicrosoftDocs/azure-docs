@@ -226,8 +226,6 @@
         href: app/remove-application-insights.md
     - name: Codeless monitoring
       items: 
-      - name: Any environment - Java (preview)
-        href: app/java-in-process-agent.md
       - name: Azure VM and scale set
         href: app/azure-vm-vmss-apps.md
       - name: Azure App Service
@@ -242,36 +240,36 @@
       - name: Kubernetes applications
         displayname: aks, microservice, istio, service mesh, application monitoring, monitor kubernetes, monitor aks
         href: app/kubernetes.md
-      - name: Status Monitor (legacy)
-        displayname: IIS monitoring, on premises monitoring, on prem, 
-        href: app/monitor-performance-live-website-now.md
+      - name: Standalone - any environment
+        items:  
+          - name: Java (preview)
+            items:
+            - name: Overview
+              href: app/java-in-process-agent.md
+            - name: Configuration options
+              href: app/java-standalone-config.md 
+            - name: JVM arguments setup 
+              href: app/java-standalone-arguments.md
       - name: On-Premises servers
         items:
-        - name: Overview
-          displayname: IIS monitoring, on premises monitoring, on prem, 
-          href: app/status-monitor-v2-overview.md
-        - name: Getting started
-          href: app/status-monitor-v2-get-started.md
-        - name: Detailed instructions
-          href: app/status-monitor-v2-detailed-instructions.md
-        - name: Troubleshooting and known issues
-          href: app/status-monitor-v2-troubleshoot.md
-        - name: API Disable-InstrumentationEngine
-          href: app/status-monitor-v2-api-disable-instrumentation-engine.md
-        - name: API Disable-ApplicationInsightsMonitoring
-          href: app/status-monitor-v2-api-disable-monitoring.md
-        - name: API Enable-InstrumentationEngine
-          href: app/status-monitor-v2-api-enable-instrumentation-engine.md
-        - name: API Enable-ApplicationInsightsMonitoring
-          href: app/status-monitor-v2-api-enable-monitoring.md
-        - name: API Get-ApplicationInsightsMonitoringConfig
-          href: app/status-monitor-v2-api-get-config.md
-        - name: API Get-ApplicationInsightsMonitoringStatus
-          href: app/status-monitor-v2-api-get-status.md
-        - name: API Set-ApplicationInsightsMonitoringConfig
-          href: app/status-monitor-v2-api-set-config.md
-        - name: API Start-ApplicationInsightsMonitoringTrace
-          href: app/status-monitor-v2-api-start-trace.md
+        - name: ASP.NET
+          items:
+            - name: Overview
+              displayname: IIS monitoring, on premises monitoring, on prem 
+              href: app/status-monitor-v2-overview.md
+            - name: Getting started
+              href: app/status-monitor-v2-get-started.md
+            - name: Detailed instructions
+              href: app/status-monitor-v2-detailed-instructions.md
+            - name: Troubleshooting
+              href: app/status-monitor-v2-troubleshoot.md
+            - name: API reference
+              href: app/status-monitor-v2-api-reference.md
+            - name: Status Monitor (legacy)
+              displayname: IIS monitoring, on premises monitoring, on prem 
+              href: app/monitor-performance-live-website-now.md
+        - name: Java
+          href: app/java-on-premises.md
     - name: Create a resource
       href: app/create-new-resource.md 
     - name: Application dashboard
@@ -318,8 +316,6 @@
         href: app/pre-aggregated-metrics-log-metrics.md
       - name: Log-based metrics definitions
         href: platform/app-insights-metrics.md
-      - name: Classic metrics explorer   
-        href: app/metrics-explorer.md
     - name: Search
       href: app/diagnostic-search.md
     - name: Profiler
@@ -696,8 +692,10 @@
           href: insights/container-insights-enable-existing-clusters.md
         - name: Enable for hybrid cluster
           href: insights/container-insights-hybrid-setup.md
-        - name: Enable for Azure Red Hat OpenShift
+        - name: Enable for Azure Red Hat OpenShift v3
           href: insights/container-insights-azure-redhat-setup.md
+        - name: Enable for Azure Red Hat OpenShift v4
+          href: insights/container-insights-azure-redhat4-setup.md
         - name: Region mappings
           href: insights/container-insights-region-mapping.md
       - name: Monitor performance
@@ -730,16 +728,24 @@
         href: insights/container-insights-update-metrics.md
       - name: Health monitoring configuration
         href: insights/container-insights-health-monitors-config.md
-      - name: Disable monitoring AKS
-        href: insights/container-insights-optout.md
-      - name: Disable monitoring Red Hat OpenShift
-        href: insights/container-insights-optout-openshift.md  
+      - name: Disable monitoring
+        items:
+          - name: Disable monitoring AKS
+            href: insights/container-insights-optout.md
+          - name: Disable monitoring Red Hat OpenShift v3
+            href: insights/container-insights-optout-openshift-v3.md
+          - name: Disable monitoring Red Hat OpenShift v4
+            href: insights/container-insights-optout-openshift-v4.md
+          - name: Disable monitoring hybrid cluster
+            href: insights/container-insights-optout-hybrid.md
       - name: Troubleshooting
         href: insights/container-insights-troubleshoot.md
     - name: Docker and Windows Container monitoring
       href: insights/containers.md
   - name: Monitor other resources
     items:
+    - name: Key Vault
+      href: insights/key-vault-insights-overview.md
     - name: Storage
       items:
       - name: Azure Monitor for Storage
@@ -1075,6 +1081,8 @@
         href: platform/itsmc-connections.md
       - name: Create Service Manager web app
         href: platform/itsmc-service-manager-script.md
+      - name: Fix ServiceNow ITSM sync problems
+        href: platform/itsmc-resync-servicenow.md
   - name: Automate 
     items:
     - name: Autoscale
@@ -1201,6 +1209,8 @@
       href: platform/diagnostic-logs-schema.md
     - name: Activity log schema
       href: platform/activity-log-schema.md
+  - name: Azure Monitor Logs table reference
+    href: https://docs.microsoft.com/azure/azure-monitor/reference/
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure CLI - Application Insights (Preview)
