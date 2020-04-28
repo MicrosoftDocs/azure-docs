@@ -35,7 +35,7 @@ When you receive errors during runbook execution in Azure Automation, you can us
 
 3. **Ensure that your nodes and Automation workspace have the required modules.** 
 
-    If your runbook imports any modules, verify that they are available to your Automation account using the steps listed in [Import modules](../shared-resources/modules.md#importing-modules). Update your modules to the latest version by following the instructions at [Update Azure modules in Azure Automation](..//automation-update-azure-modules.md). For more troubleshooting information, see [Troubleshoot modules](shared-resources.md#modules).
+    If your runbook imports any modules, verify that they are available to your Automation account using the steps listed in [Import modules](../shared-resources/modules.md#import-modules). Update your modules to the latest version by following the instructions at [Update Azure modules in Azure Automation](..//automation-update-azure-modules.md). For more troubleshooting information, see [Troubleshoot modules](shared-resources.md#modules).
 
 4. **Do if your runbook is suspended or unexpectedly fails.**
 
@@ -179,7 +179,7 @@ This error is probably caused by using an incomplete migration from AzureRM to A
 
 ### Resolution
 
-We don't recommend the use of Az and AzureRM cmdlets in the same runbook. To learn more about the correct use of these modules, see [Migrating to Az modules](../shared-resources/modules.md#migrating-to-az-modules).
+We don't recommend the use of Az and AzureRM cmdlets in the same runbook. To learn more about the correct use of these modules, see [Migrating to Az modules](../shared-resources/modules.md#migrate-to-az-modules).
 
 ## <a name="task-was-cancelled"></a>Scenario: The runbook fails with the error: A task was canceled
 
