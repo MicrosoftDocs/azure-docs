@@ -64,7 +64,7 @@ It is better to start with a few utterances, then [review endpoint utterances](l
 
 Utterance normalization is the process of ignoring the effects of punctuation and diacritics during training and prediction. Use [application settings](luis-reference-application-settings.md) to control how utterance normalization impacts utterance predictions.
 
-## Utterance normalization for diacritics and punctuation
+## Utterance normalization for diacritics, punctuation, and stemming
 
 Utterance normalization is defined when you create or import the app because it is a setting in the app JSON file. The utterance normalization settings are turned off by default.
 
@@ -76,12 +76,13 @@ Diacritics are marks or signs within the text, such as:
 
 If your app turns normalization on, scores in the **Test** pane, batch tests, and endpoint queries will change for all utterances using diacritics or punctuation.
 
-Turn on utterance normalization for diacritics or punctuation to your LUIS JSON app file in the `settings` parameter.
+Turn on utterance normalization for punctuation, diacritics, or stemming to your LUIS JSON app file in the `settings` parameter.
 
 ```JSON
 "settings": [
     {"name": "NormalizePunctuation", "value": "true"},
-    {"name": "NormalizeDiacritics", "value": "true"}
+    {"name": "NormalizeDiacritics", "value": "true"},
+    {"name": "MorphologicalAnalyzer", "value": "true"}
 ]
 ```
 
@@ -89,7 +90,9 @@ Normalizing **punctuation** means that before your models get trained and before
 
 Normalizing **diacritics** replaces the characters with diacritics in utterances with regular characters. For example: `Je parle français` becomes `Je parle francais`.
 
-Normalization doesn't mean you will not see punctuation and diacritics in your example utterances or prediction responses, merely that they will be ignored during training and prediction.
+Normalizing **stemming** replaces tokens with their stemmed form in utterances with additional prefixes or suffixes such as the plural form suffix 's'. For example: `show me pictures of cats` becomes `show me picture of cat`. **Morphology** analyzes the structure of words such as stems, prefixes, and suffixes; and stemming is a form of morphology.
+
+Normalization doesn't mean you will not see punctuation, diacritics, or the original unstemmed tokens in your example utterances or prediction responses, merely that they will be ignored during training and prediction.
 
 ### Punctuation marks
 
