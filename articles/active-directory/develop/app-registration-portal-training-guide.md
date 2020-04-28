@@ -3,7 +3,7 @@ title: New Azure portal app registration experience
 titleSuffix: Microsoft identity platform
 description: An introduction to the new App registration experience in the Azure portal
 services: active-directory
-author: archieag
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/8/2019
-ms.author: aragra
+ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ---
