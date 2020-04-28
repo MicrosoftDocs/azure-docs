@@ -6,6 +6,14 @@
     href: overview.md
   - name: Differences from Public Preview 1
     href: overview-differences.md
+- name: Quickstart
+  items:
+  - name: Get started with Azure Digital Twins
+    href: quickstart.md
+- name: Tutorial
+  items:
+  - name: Build an end-to-end solution
+    href: tutorial.md
 - name: Concepts
   items:
   - name: Twin models
@@ -26,8 +34,8 @@
   items:
   - name: Create an Azure Digital Twins instance
     href: how-to-set-up-instance.md
-  - name: Authenticate against Azure Digital Twins
-    href: how-to-authenticate.md
+  - name: Authenticate a client application
+    href: how-to-authenticate-client.md
   - name: Ingest telemetry from IoT Hub
     href: how-to-ingest-iot-hub-data.md
   - name: Set up an Azure Function

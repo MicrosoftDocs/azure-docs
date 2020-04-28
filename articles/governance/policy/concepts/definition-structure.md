@@ -764,7 +764,7 @@ Policy, use one of the following methods:
   Use the [Azure Policy extension for Visual Studio Code](../how-to/extension-for-vscode.md) to view
   and discover aliases for resource properties.
 
-  ![Azure Policy extension for Visual Studio Code](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy extension for Visual Studio Code" border="false":::
 
 - Azure Resource Graph
 

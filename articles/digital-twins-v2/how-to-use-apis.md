@@ -20,8 +20,8 @@ ms.service: digital-twins
 This article gives a brief overview of the API surface of Azure Digital Twins, and how to use it with an existing Azure Digital Twins instance. 
 
 > [!NOTE]
-> * To learn how to create an Azure Digital Twins instance, please see [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md).
-> * To learn how to authenticate and connect to an instance, please see [How-to: Authenticate against Azure Digital Twins](how-to-authenticate.md).
+> * To learn how to create an Azure Digital Twins instance, see [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md).
+> * To learn how to authenticate a client app and connect it to an instance, see [How-to: Authenticate a client application](how-to-authenticate-client.md).
 
 The Azure Digital Twins API surface can be broadly divided into the following categories: 
 
@@ -35,7 +35,7 @@ The Azure Digital Twins API surface can be broadly divided into the following ca
 During this preview release, Azure Digital Twins does not ship with an SDK. You can either use the REST APIs directly, or you can generate an SDK using AutoRest.
 
 To generate an SDK, you will need:
-* [AutoRest](https://github.com/Azure/autorest), version 2.0.4413
+* [AutoRest](https://github.com/Azure/autorest), version 2.0.4413 (version 3 isn't currently supported)
 * [Node.js](https://nodejs.org) as a pre-requisite to AutoRest
 * The [Azure Digital Twins API definitions](https://dev.azure.com/ADT-PM-STAGING/PrivatePreviewStage/_git/PrivatePreviewStage?path=%2FOpenApiSpec%2Fdigitaltwins.json) OpenAPI (Swagger) file
 
