@@ -38,7 +38,7 @@ If you have an existing Workplace integration with a valid token, no action is r
 * In the Workplace by Facebook portal: Review the Azure AD app to ensure that it is approved.  
 
 #### The admin credentials section is greyed out on my application and I can't save. Why?
-We have locked down the admin credentials section for Workplace customers that have not migrated. Please use the following URL if the admin credentials section is greyed out and you need to authorize access again. **?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true** (http://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true)
+We have locked down the admin credentials section for Workplace customers that have not migrated. Please use the following URL if the admin credentials section is greyed out and you need to authorize access again. **?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true** (https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true)
 
 
 ## Capabilities supported
