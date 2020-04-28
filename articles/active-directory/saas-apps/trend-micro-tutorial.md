@@ -62,7 +62,7 @@ You'll complete these basic steps to configure and test Azure AD SSO with Trend 
 
 1. [Configure Azure AD SSO](#configure-azure-ad-sso) to enable the feature for your users.
     1. [Create an Azure AD user](#create-an-azure-ad-test-user) to test Azure AD single sign-on.
-    1. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable the user for Azure AD single sign-on.
+    1. [Grant the Azure AD test user](#grant-the-azure-ad-test-user-access-to-trend-micro-web-security) access to Trend Micro Web Security.
     1. [Configure user and group synchronization settings in Azure AD](#configure-user-and-group-synchronization-settings-in-azure-ad).
 1. [Configure Trend Micro Web Security SSO](#configure-trend-micro-web-security-sso) on the application side.
 1. [Test SSO](#test-sso) to verify the configuration.
@@ -71,7 +71,7 @@ You'll complete these basic steps to configure and test Azure AD SSO with Trend 
 
 Complete these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Trend Micro Web Security (TMWS)** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Trend Micro Web Security (TMWS)** application integration page, in the **Manage** section, select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, select the pen button for **Basic SAML Configuration** to edit the settings:
 
@@ -111,62 +111,62 @@ Complete these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user called B.Simon in the Azure portal.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. In the left pane in the Azure portal, select **Azure Active Directory**. Select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+   1. In the **Name** box, enter `B.Simon`.  
+   1. In the **User name** box, enter **\<username>@\<companydomain>.\<extension>**. For example, `B.Simon@contoso.com`.
+   1. Select **Show password**, and then write down the value that's displayed in the **Password** box.
+   1. Select **Create**.
 
-### Assign the Azure AD test user
+### Grant the Azure AD test user access to Trend Micro Web Security
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Trend Micro Web Security(TMWS).
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Trend Micro Web Security.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Trend Micro Web Security(TMWS)**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. In the Azure portal, select **Enterprise applications**, and then select **All applications**.
+1. In the applications list, select **Trend Micro Web Security (TMWS)**.
+1. In the app's overview page, in the **Manage** section, select **Users and groups**:
 
-   ![The "Users and groups" link](common/users-groups-blade.png)
+   ![Select Users and groups](common/users-groups-blade.png)
 
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box:
 
-    ![The Add User link](common/add-assign-user.png)
+    ![Select Add user](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+1. In the **Users and groups** dialog box, select **B.Simon** in the Users list, and then click the **Select** button at the bottom of the screen.
+1. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog box, select **Assign**.
 
 ### Configure user and group synchronization settings in Azure AD
 
-1. From the left navigation, click **Azure Active Directory**.
+1. In the left pane, select **Azure Active Directory**.
 
-1. Under **Manage**, click **App registrations** and then click your new enterprise application under the **All applications** area.
+1. Under **Manage**, select **App registrations**, and then select your new enterprise application under **All applications**.
 
-1. Under **Manage**, click **Certificates & secrets**.
+1. Under **Manage**, select **Certificates & secrets**.
 
-1. Under the Client secrets area that appears, click **New client secret**.
+1. In the **Client secrets** area, select **New client secret**.
 
-1. On the Add a client secret screen that appears, optionally add a description and select an expiration period for this client secret, and then click **Add**. The newly added client secret appears under the Client secrets area.
+1. On the **Add a client secret screen**, optionally add a description and select an expiration period for the client secret, and then select **Add**. The new client secret appears in the **Client secrets** area.
 
-1. Record the value. Later, you will type the information into TMWS.
+1. Record the client secret value. Later, you'll enter it into Trend Micro Web Security.
 
-1. Under **Manage**, click **API permissions**. 
+1. Under **Manage**, select **API permissions**. 
 
-1. On the API permissions screen that appears, click **Add a permission**.
+1. In the **API permissions** window, select **Add a permission**.
 
-1. On the Microsoft APIs tab of the Request API permissions screen that appears, click **Microsoft Graph** and then **Application permissions**.
+1. On the **Microsoft APIs** tab of the **Request API permissions** window, select **Microsoft Graph** and then **Application permissions**.
 
-1. Locate and add the following permissions: 
+1. Locate and add these permissions: 
 
     * Group.Read.All
     * User.Read.All
 
-1. Click **Add permissions**. A message appears to confirm that your settings were saved successfully. The newly added permissions appear on the API permissions screen.
+1. Select **Add permissions**. A message appears to confirm that your settings were saved. The new permissions appear in the **API permissions** window.
 
-1. Under the Grant consent area, click **Grant admin consent for < your administrator account > (Default Directory)** and then **Yes**. A message appears to confirm that the admin consent for the requested permissions was successfully granted.
+1. In the **Grant consent** area, select **Grant admin consent for \<your administrator account> (Default Directory)** and then **Yes**. A message appears to confirm that the admin consent for the requested permissions was successfully granted.
 
 1. Click **Overview**. 
 
