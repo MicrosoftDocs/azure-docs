@@ -91,7 +91,7 @@ This article describes some items you should check to help you troubleshoot Azur
 
 ### Reprocess a request
 
-If a fulfillment error is met after triggering an access package reprocess request, you must wait while the system reprocesses the request. The system tries multiple times to reprocess for several hours, so you can't force reprocessing during this time. 
+If an error is met after triggering an access package reprocess request, you must wait while the system reprocesses the request. The system tries multiple times to reprocess for several hours, so you can't force reprocessing during this time. 
 
 You can only reprocess a request that has a status of **Delivery failed** or **Partially delivered** and a completed date of less than one week.
 
