@@ -373,7 +373,7 @@ You must upload a `.pdf` file that lists your offer's key usage scenarios listed
 
 ### App tests automation
 
-You must upload an **App tests automation** file here (.app).
+If your offer is an Add-on app, you must upload an **App tests automation** file (.app). This file is not applicable to Connect apps.
 
 ### Test accounts
 
