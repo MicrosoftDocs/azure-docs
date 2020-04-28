@@ -51,8 +51,8 @@ To view general status of an application type, select **Apps** in the left navig
 ## App instances status
 
 To view the status of a specific instance of a deployed app, click the **Name** of the app in the **Apps** UI. The results will display:
-* AppInstance.status: Whether the instance is running or its state
-* DiscoveryStatus: The registered status of the app instance in Eureka server
+* **Status**: Whether the instance is running or its state
+* **DiscoveryStatus**: The registered status of the app instance in Eureka server
 
  ![App instances status](media/spring-cloud-concept-app-status/apps-ui-instance-status.png)
 
