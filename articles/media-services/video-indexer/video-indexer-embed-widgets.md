@@ -64,10 +64,10 @@ You can use the Editor widget to create new projects and manage a video's insigh
 
 This section discusses embgedding the public and pirvate content into apps.
 
-Make sure to add the `location` parameter to the link, if your resource is not in the **trail** region. The parameter should be set to the [Azure regions in which Video Indexer exists](regions.md). For example: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` paramete. For example: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 > [!IMPORTANT]
-> Sharing the widget link will include the access token and grant the read-only permissions to your account.
+> Sharing a link for the **Player** or **Insights** widget will include the access token and grant the read-only permissions to your account.
 
 ### Public content
 
@@ -78,7 +78,7 @@ Make sure to add the `location` parameter to the link, if your resource is not i
 5. Copy the embed code (appears in **Copy the embedded code** in the **Share & Embed** dialog).
 6. Add the code to your app.
 
-## Private content
+### Private content
 
 To embed a private video, you must pass an access token in the `src` attribute of the iframe:
 
