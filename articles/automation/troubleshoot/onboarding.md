@@ -49,7 +49,7 @@ There's currently no workaround for this issue.
 
 #### Issue
 
-You receive one of the following messages when you attempt to onboard a VM to a solution.
+You receive one of the following messages when you attempt to onboard a VM to a solution:
 
 ```error
 The solution cannot be enabled due to missing permissions for the virtual machine or deployments
@@ -71,7 +71,7 @@ Ensure that you have correct [permissions needed to onboard machines](../automat
 
 #### Issue
 
-You receive the following message when you attempt to onboard a VM to a solution.
+You receive the following message when you attempt to onboard a VM to a solution:
 
 ```error
 Failed to configure automation account for diagnostic logging
@@ -79,7 +79,7 @@ Failed to configure automation account for diagnostic logging
 
 #### Cause
 
-This error can be caused if the pricing tier doesn't match the subscription's billing model. See [Monitoring usage and estimated costs in Azure Monitor](https://aka.ms/PricingTierWarning).
+This error can be caused if the pricing tier doesn't match the subscription's billing model. For more information, see [Monitoring usage and estimated costs in Azure Monitor](https://aka.ms/PricingTierWarning).
 
 #### Resolution
 
@@ -124,7 +124,7 @@ Check the notifications in the upper-right corner of the Azure portal, or go to 
 
 #### Issue
 
-You receive the following error message when you try to unlink a workspace.
+You receive the following error message when you try to unlink a workspace:
 
 ```error
 The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
@@ -145,7 +145,7 @@ Remove the following solutions from your workspace if you're using them:
 After you remove the solutions, you can unlink your workspace. It's important to clean up any existing artifacts from these solutions from your workspace and your Automation account:
 
 * For Update Management, remove **Update Deployments (Schedules)** from your Automation account.
-* For Start/Stop VMs during off-hours, remove any locks on solution components in your Automation account under **Settings** > **Locks**. See [Remove the Start/Stop VMs during off-hours solution](../automation-solution-vm-management.md#remove-the-solution).
+* For Start/Stop VMs during off-hours, remove any locks on solution components in your Automation account under **Settings** > **Locks**. For more information, see [Remove the Start/Stop VMs during off-hours solution](../automation-solution-vm-management.md#remove-the-solution).
 
 ## <a name="mma-extension-failures"></a>Log Analytics for Windows extension failures
 

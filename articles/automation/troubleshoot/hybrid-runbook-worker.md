@@ -67,7 +67,7 @@ The Hybrid Runbook Worker receives event 15011, indicating that a query result i
 
 #### Cause
 
-The Hybrid Runbook Worker hasn't been configured correctly for the automated deployment solution. This solution contains a part that connects the VM to the Log Analytics workspace. The PowerShell script looks for the workspace in the subscription with the supplied name. In this case, the Log Analytics workspace is in a different subscription. The script can't find the workspace and tries to create one, but the name is already taken. Thus the deployment fails.
+The Hybrid Runbook Worker hasn't been configured correctly for the automated deployment solution. This solution contains a part that connects the VM to the Log Analytics workspace. The PowerShell script looks for the workspace in the subscription with the supplied name. In this case, the Log Analytics workspace is in a different subscription. The script can't find the workspace and tries to create one, but the name is already taken. As a result, the deployment fails.
 
 #### Resolution
 
@@ -89,7 +89,7 @@ The Hybrid Runbook Worker machine hasn't pinged Azure Automation for more than 3
 
 #### Resolution
 
-Start the worker machine, and then rereregister it with Azure Automation. See instructions for installing the runbook environment and connecting to Azure Automation in [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md).
+Start the worker machine, and then rereregister it with Azure Automation. For instructions on how to install the runbook environment and connect to Azure Automation, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md).
 
 ### <a name="no-cert-found"></a>Scenario: No certificate was found in the certificate store on the Hybrid Runbook Worker
 
@@ -133,7 +133,7 @@ The following issues are possible causes:
 #### Resolution
 
 ##### Mistyped workspace ID or key
-To verify if the agent's workspace ID or workspace key has been mistyped, see [Adding or removing a workspace – Windows agent](../../azure-monitor/platform/agent-manage.md#windows-agent) for the Windows agent or [Adding or removing a workspace – Linux agent](../../azure-monitor/platform/agent-manage.md#linux-agent) for the Linux agent. Make sure to select the full string from the Azure portal, and copy and paste it carefully.
+To verify if the agent's workspace ID or workspace key was mistyped, see [Adding or removing a workspace – Windows agent](../../azure-monitor/platform/agent-manage.md#windows-agent) for the Windows agent or [Adding or removing a workspace – Linux agent](../../azure-monitor/platform/agent-manage.md#linux-agent) for the Linux agent. Make sure to select the full string from the Azure portal, and copy and paste it carefully.
 
 ##### Configuration not downloaded
 
@@ -165,7 +165,7 @@ nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
 ```
 
-The following list shows the processes that are started for a Linux Hybrid Runbook Worker. They're all located in the */var/opt/microsoft/omsagent/state/automationworker/* directory.
+The following list shows the processes that are started for a Linux Hybrid Runbook Worker. They're all located in the /var/opt/microsoft/omsagent/state/automationworker/ directory.
 
 * **oms.conf**: The worker manager process. It's started directly from DSC.
 * **worker.conf**: The Auto-Registered hybrid worker process. It's started by the worker manager. This process is used by Update Management and is transparent to the user. This process isn't present if the Update Management solution isn't enabled on the machine.
@@ -211,7 +211,7 @@ This issue can be caused by your proxy or network firewall blocking communicatio
 
 #### Resolution
 
-Logs are stored locally on each hybrid worker at **C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes**. You can verify if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event logs. These logs indicate a connectivity or other type of issue that affects onboarding of the role to Azure Automation, or an issue encountered under normal operations. For additional help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](../../azure-monitor/platform/agent-windows-troubleshoot.md).
+Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can verify if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event logs. These logs indicate a connectivity or other type of issue that affects onboarding of the role to Azure Automation, or an issue encountered under normal operations. For additional help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](../../azure-monitor/platform/agent-windows-troubleshoot.md).
 
 Hybrid workers send [Runbook output and messages](../automation-runbook-output-and-messages.md) to Azure Automation in the same way that runbook jobs running in the cloud send output and messages. You can enable the Verbose and Progress streams just as you do for runbooks.
 
@@ -229,7 +229,7 @@ The connection to Active Directory Federation Services (AD FS) on the server can
 
 #### Resolution
 
-You can resolve the issue for the Orchestrator sandbox by migrating your script to use the Azure Active Directory modules instead of the MSOnline module for PowerShell cmdlets. See [Migrating from Orchestrator to Azure Automation (Beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
+You can resolve the issue for the Orchestrator sandbox by migrating your script to use the Azure Active Directory modules instead of the MSOnline module for PowerShell cmdlets. For more information, see [Migrating from Orchestrator to Azure Automation (Beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
 
 ​If you want to continue to use the MSOnline module cmdlets, change your script to use [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Specify values for the `ComputerName` and `Credential` parameters. 
 
@@ -250,7 +250,7 @@ This code change starts an entirely new PowerShell session under the context of 
 
 Your Hybrid Runbook Worker machine is running, but you don't see heartbeat data for the machine in the workspace.
 
-The following example query shows the machines in a workspace and their last heartbeat.
+The following example query shows the machines in a workspace and their last heartbeat:
 
 ```loganalytics
 // Last heartbeat of each computer
@@ -278,7 +278,7 @@ Start-Service -Name HealthService
 
 #### Issue
 
-You receive the following message when you try to add a Hybrid Runbook Worker by using the `Add-HybridRunbookWorker` cmdlet.
+You receive the following message when you try to add a Hybrid Runbook Worker by using the `Add-HybridRunbookWorker` cmdlet:
 
 ```error
 Machine is already registered
