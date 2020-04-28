@@ -1,5 +1,5 @@
 ---
-title: What Is Azure Communication Services?
+title: About Azure Communication Services
 description: Learn how Azure Communication Services helps you develop rich user experiences with real-time communications.
 author: mikben
 manager: jken
@@ -12,7 +12,7 @@ ms.service: azure-project-spool
 
 ---
 
-# What Is Azure Communication Services?
+# About Azure Communication Services
 
 Azure Communication Services (ACS) allows you to easily add real-time communications features to your applications without worrying about the underlying infrastructure. It's a communications platform as a service (CPaaS) that allows you to focus on your customer experience while Azure handles the heavy lifting behind the scenes.
 
