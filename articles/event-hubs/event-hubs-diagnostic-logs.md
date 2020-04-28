@@ -169,7 +169,7 @@ Kafka user error log JSON includes elements listed in the following table:
 | resourceId | Internal ID, which contains Azure subscription ID and namespace name |
 | message | Informational message, which provides details about an error |
 
-## Event Hubs virtual network (VNet) connection event schema
+## Event Hubs virtual network connection event schema
 
 Event Hubs virtual network (VNet) connection event JSON includes elements listed in the following table:
 
