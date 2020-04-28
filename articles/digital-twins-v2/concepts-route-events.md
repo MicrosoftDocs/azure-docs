@@ -72,7 +72,7 @@ await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<e
 
 * The `endpoint-ID` identifies an endpoint, such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
 
-The event route object passed to `EventRoutes.Add` also takes a **filter** parameter, which can be used to restrict the types of events that follow this route.
+The event route object passed to `EventRoutes.Add` also takes a [**filter** parameter](./how-to-manage-routes.md#filter-events), which can be used to restrict the types of events that follow this route.
 
 Routes can be also created using the [Azure Digital Twins CLI](how-to-use-cli.md).
 

@@ -153,7 +153,7 @@ Without filtering, endpoints receive a variety of events from Azure Digital Twin
 * Life-cycle events, fired when twins or relationships are created or deleted
 * Model change events, fired when [models](concepts-models.md) configured in an Azure Digital Twins instance are added or deleted
 
-You can restrict these by adding a filter to an endpoint.
+You can restrict the events being sent by adding a filter to an endpoint.
 
 To add a filter, you can use a PUT request to *https://{YourHost}/ EventRoutes/myNewRoute?api-version=2020-03-01-preview* with the following body:
 
@@ -164,22 +164,28 @@ To add a filter, you can use a PUT request to *https://{YourHost}/ EventRoutes/m
 }
 ``` 
 
-Here are the types of filter that you can use:
+## Supported Route Filters
 
-| Filter name | Description | Filter text |
+| Filter name | Description | Filter Schema | Supported Values | 
+| --- | --- | --- | --- |
+| Type | The class of event flowing through your Twin instance | "filter" : "type = '<[eventType](./concepts-route-events.md#types-of-event-messages)>'" | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Edge.Create`<br>`Microsoft.DigitalTwins.Edge.Update`<br> `Microsoft.DigitalTwins.Edge.Delete` <br> `microsoft.iot.telemetry`  |
+| Source | Name of Digital Twins instance | "filter" : "source = '\<hostname\>'" |  For notifications: `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> For telemetry: `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/ digitaltwins/<twinId>`|
+| Subject | A description of the event in the context of the event source above | "filter": " subject = '\<subject\>'" | **For notifications** the subject is `<twinid>` <br> or a URI format for subjects, which are uniquely identified by multiple parts or IDs:<br>`<twinid>/relationships/<relationship>/<edgeid>`<br> **For telemetry** the subject is the component path (if the telemetry is emitted from a twin component) i.e. `comp1.comp2`. If the telemetry is not emitted from a component, then its subject field is empty. |
+| Content type | Content type of data value. | "filter": "datacontenttype = '\<contentType\>'" | `application/json` |
+| Spec version | The version of the event schema you are using. | "filter": "specversion = '\<version\>'" | Must be `1.0`. This describes the CloudEvents schema version 1.0 |
+| Enabled | Allows creating a route with no filtering, or temporarily disabling a route | "filter" : "\<enabled\>" | `true` = route is enabled with no filtering <br> `false` = route is disabled |
+<!--
+| ID | *Not implemented for public preview* | "filter": "id = '…'" | |
+| Schema | *Not implemented for public preview*  | "filter": "dataschema = '…'" | |
+-->
+
+It is also possible to combine filters using the following operations:
+
+| Filter name | Filter Schema | Example | 
 | --- | --- | --- |
-| Type |  | `"filter": "type = '…'"` |
-| Source |  | `"filter": " source = '…'"` |
-| Subject |  | `"filter": " subject = '…'"` |
-| ID |  | `"filter": "id = '…'"` |
-| Schema |  | `"filter": "dataschema = '…'"` |
-| Content type |  | `"filter": "datacontenttype = '…'"` |
-| Spec version |  | `"filter": "specversion = '…'"` |
-| Type/subject combination |  | `"filter": "type = '…' AND subject != '…'"` |
-| Type/type combination |  | `"filter": "type = '…' OR type = '…'"` |
-| Type/subject/source/ID combination |  | `"filter": "(type = '…' AND subject = '…') OR (source = '…' AND id = '…')"` |
-| True |  | `"filter": "true"` |
-| False |  | `"filter": "false"` |
+| AND / OR | "filter": "\<filter1\> AND \<filter2\>" | `"filter": "type != 'microsoft.iot.telemetry' AND datacontenttype = 'application/json'"` |
+| AND / OR | "filter": "\<filter1\> AND \<filter2\>" | `"filter": "type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json'"` |
+| Nested operations | "filter": "(\<Comparison1\>) AND (\<Comparison2\>)" | `"filter": "(type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json') OR (specversion != '1.0')"` |
 
 > [!NOTE]
 > During preview, only string equality is supported (=, !=).
@@ -188,7 +194,7 @@ When you implement or update a filter, the change may take a few minutes to be r
 
 ## Manage endpoints and routes with CLI
 
-Endpoints and routes can also be managed using the Azure Digital Twins CLI. The commands for this can be found in [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md).
+Endpoints and routes can also be managed using the Azure Digital Twins CLI. The commands can be found in [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md).
 
 ## Monitor event routes
 
