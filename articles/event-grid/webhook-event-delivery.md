@@ -1,6 +1,6 @@
 ---
-title: Azure Event Grid security and authentication
-description: This article describes different ways of authenticating access to your Event Grid resources (WebHook, subscriptions, custom topics)
+title: WebHook event delivery
+description: This article describes WebHook event delivery and endpoint validation when using webhooks. 
 services: event-grid
 author: banisadr
 manager: timlt
@@ -21,7 +21,7 @@ Like many other services that support webhooks, Event Grid requires you to prove
 - Azure Automation via [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
 - Azure Functions with [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md)
 
-## Validation handshakes
+## Endpoint validation with Event Grid events
 If you're using any other type of endpoint, such as an HTTP trigger based Azure function, your endpoint code needs to participate in a validation handshake with Event Grid. Event Grid supports two ways of validating the subscription.
 
 1. **Synchronous handshake**: At the time of event subscription creation, Event Grid sends a subscription validation event to your endpoint. The schema of this event is similar to any other Event Grid event. The data portion of this event includes a `validationCode` property. Your application verifies that the validation request is for an expected event subscription, and returns the validation code in the response synchronously. This handshake mechanism is supported in all Event Grid versions.
@@ -37,7 +37,7 @@ If you're using any other type of endpoint, such as an HTTP trigger based Azure 
 > [!NOTE]
 > Using self-signed certificates for validation isn't supported. Use a signed certificate from a certificate authority (CA) instead.
 
-## Validation details
+### Validation details
 
 - At the time of event subscription creation/update, Event Grid posts a subscription validation event to the target endpoint.
 - The event contains a header value "aeg-event-type: SubscriptionValidation".
@@ -82,7 +82,7 @@ Or, you can manually validate the subscription by sending a GET request to the v
 
 For an example of handling the subscription validation handshake, see a [C# sample](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
-## Validation with CloudEvents
+## Endpoint validation with CloudEvents v1.0
 If you are already familiar with Event Grid, you may be aware of Event Grid's endpoint validation handshake for preventing abuse. CloudEvents v1.0 implements its own [abuse protection semantics](webhook-event-delivery.md) using the HTTP OPTIONS method. You can read more about it [here](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When using the CloudEvents schema for output, Event Grid uses with the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism.
 
 ## Next steps
