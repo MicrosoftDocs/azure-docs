@@ -70,7 +70,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 
 ## Exclude an individual database
 
-The following example shows how to execute a job against all databases in a SQL Database server, except for the database named *MappingDB*.  
+The following example shows how to execute a job against all databases in a SQL Database logical server, except for the database named *MappingDB*.  
 Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql

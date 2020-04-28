@@ -1,7 +1,7 @@
 ---
-title: Import/Export service takes a long time
-description: "Azure SQL Database Import/Export service takes a long time to import or export a database"
-ms.custom: seo-lt-2019
+title: Import and export of a database takes a long time
+description: "Azure SQL Database and Azure SQL Managed Instance Import/Export service takes a long time to import or export a database"
+ms.custom: seo-lt-2019, sqldbrb=1
 services: sql-database
 ms.service: sql-database
 ms.topic: troubleshooting
@@ -12,9 +12,9 @@ ms.date: 09/27/2019
 manager: dcscontentpm
 ---
 
-# Azure SQL Database Import/Export service takes a long time to import or export a database
+# Azure SQL Database and Managed Instance Import/Export service takes a long time to import or export a database
 
-When you use the Azure SQL Database Import/Export service, the process might take longer than expected. This article describes the potential causes for this delay and alternative workaround methods.
+When you use the Import/Export service, the process might take longer than expected. This article describes the potential causes for this delay and alternative workaround methods.
 
 ## Azure SQL Database Import/Export service
 

@@ -4,11 +4,11 @@ description: "Learn to use Azure SQL Database geo-redundant backups to recover a
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: AyoOlubeko
-ms.author: craigg
+author: stevestein
+ms.author: sstein
 ms.reviewer: sstein
 ms.date: 01/14/2019
 ---
@@ -90,7 +90,7 @@ Before you start the recovery process, review the normal healthy state of the ap
 
 3. In the [Azure portal](https://portal.azure.com), review and open the resource group in which you deployed the app.
 
-   Notice the resources and the region in which the app service components and SQL Database servers are deployed.
+   Notice the resources and the region in which the app service components and SQL Database logical servers are deployed.
 
 ## Sync the tenant configuration into the catalog
 
@@ -153,7 +153,7 @@ The recovery process does the following:
 
 	* Because restore requests are processed in parallel across all pools, it's better to distribute important tenants across many pools. 
 
-10. Monitors the SQL Database service to determine when databases are restored. After a tenant database is restored, it's marked online in the catalog, and a rowversion sum for the tenant database is recorded. 
+10. Monitors the service to determine when databases are restored. After a tenant database is restored, it's marked online in the catalog, and a rowversion sum for the tenant database is recorded. 
 
 	* Tenant databases can be accessed by the application as soon as they're marked online in the catalog.
 
@@ -355,7 +355,7 @@ After cleaning up the scripts, the application is back where it started. At this
 ## Designing the application to ensure that the app and the database are co-located 
 The application is designed to always connect from an instance in the same region as the tenant's database. This design reduces latency between the application and the database. This optimization assumes the app-to-database interaction is chattier than the user-to-app interaction.  
 
-Tenant databases might be spread across recovery and original regions for some time during repatriation. For each database, the app looks up the region in which the database is located by doing a DNS lookup on the tenant server name. In SQL Database, the server name is an alias. The aliased server name contains the region name. If the application isn't in the same region as the database, it redirects to the instance in the same region as the database server. Redirecting to the instance in the same region as the database minimizes latency between the app and the database.  
+Tenant databases might be spread across recovery and original regions for some time during repatriation. For each database, the app looks up the region in which the database is located by doing a DNS lookup on the tenant server name. The server name is an alias. The aliased server name contains the region name. If the application isn't in the same region as the database, it redirects to the instance in the same region as the database server. Redirecting to the instance in the same region as the database minimizes latency between the app and the database.  
 
 ## Next steps
 
