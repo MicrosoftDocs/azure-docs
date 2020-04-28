@@ -166,7 +166,7 @@ Operator | File name | Case transform
 
 #### Key information
 
-- To specify multiple file names, separate each file name with a single space. 
+- To specify multiple file names, separate each file name by pressing ENTER. 
 
 ## Request path
 
