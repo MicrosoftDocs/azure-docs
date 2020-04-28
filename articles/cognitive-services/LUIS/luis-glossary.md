@@ -8,35 +8,35 @@ ms.date: 04/27/2020
 # Language understanding glossary of common vocabulary and concepts
 The Language Understanding (LUIS) glossary explains terms that you might encounter as you work with the LUIS API Service.
 
-## <a name="active-version"></a>Active version
+## Active version
 
 The active version is the version of your app that is updated when you make changes to the model using the LUIS portal. In the LUIS portal, if you want to make changes to a version that is not the active version, you need to first set that version as active.
 
-## <a name="active-learning"></a>Active learning
+## Active learning
 
 Active learning is a technique of machine learning in which the machine learned model is used to identify informative new examples to label. In LUIS, active learning refers to adding utterances from the endpoint traffic whose current predictions are unclear to improve your model. Click on "review endpoint utterances", to view utterances to label.
 
-## <a name="application"></a>Application (App)
+## Application (App)
 
-In LUIS, your application, or app, is a collection of machine learned models, built on the same data set, that work together to predict intents and entities for a particular scenario. Each application has a separate prediction endpoint.
+In LUIS, your application, or app, is a collection of machine learned models, built on the same data set, that works together to predict intents and entities for a particular scenario. Each application has a separate prediction endpoint.
 
-If you are building an HR bot, you might have a set of intents, such as “Schedule leave time”, “inquire about benefits” and “update personal information” and entities for each one of those intents that you group into a single application.
+If you are building an HR bot, you might have a set of intents, such as "Schedule leave time", "inquire about benefits" and "update personal information" and entities for each one of those intents that you group into a single application.
 
-## <a name="authoring"></a>Authoring
+## Authoring
 
 Authoring is the ability to create, manage and deploy a LUIS app, either using the LUIS portal or the authoring APIs.
 
-### <a name="authoring-key"></a>Authoring Key
+### Authoring Key
 
 Previously named "Programmatic" key. Used to author the app. Not used for production-level endpoint queries. For more information, see [Key limits](luis-limits.md#key-limits).
 
-### <a name="authoring-resource"></a>Authoring Resource
+### Authoring Resource
 
 Your LUIS authoring resource is a manageable item that is available through Azure. The resource is your access to the associated authoring, training, and publishing abilities of the Azure service. The resource includes authentication, authorization, and security information you need to access the associated Azure service.
 
 The authoring resource has an Azure "kind" of `LUIS-Authoring`.
 
-## <a name="batch-test"></a>Batch test
+## Batch test
 
 Batch testing is the ability to validate a current LUIS app's models with a consistent and known test set of user utterances. The batch test is defined in a [JSON formatted file](luis-concept-batch-test.md#batch-file-format).
 
@@ -45,19 +45,19 @@ See also:
 * [How-to](luis-how-to-batch-test.md) run a batch test
 * [Tutorial](luis-tutorial-batch-testing.md) - create and run a batch test
 
-### <a name="f-measure"></a>F-measure
+### F-measure
 
 In batch testing, a measure of the test's accuracy.
 
-### <a name="false-negative"></a>False negative (FN)
+### False negative (FN)
 
 In batch testing, the data points represent utterances in which your app incorrectly predicted the absence of the target intent/entity.
 
-### <a name="false-positive"></a>False positive (FP)
+### False positive (FP)
 
 In batch testing, the data points represent utterances in which your app incorrectly predicted the existence of the target intent/entity.
 
-### <a name="precision"></a>Precision
+### Precision
 In batch testing, precision (also called positive predictive value) is the fraction of relevant utterances among the retrieved utterances.
 
 An example for an animal batch test is the number of sheep that were predicted divided by the total number of animals (sheep and non-sheep alike).
@@ -76,32 +76,32 @@ A true negative is when your app correctly predicts no match. In batch testing, 
 
 True positive (TP) A true positive is when your app correctly predicts a match. In batch testing, a true positive occurs when your app predicts an intent or entity for an example that has been labeled with that intent or entity.
 
-## <a name="classifier"></a>Classifier
+## Classifier
 
 A classifier is a machine learned model that predicts what category or class an input fits into.
 
 An [intent](#intent) is an example of a classifier.
 
-## <a name="collaborator"></a>Collaborator
+## Collaborator
 
 A collaborator is conceptually the same thing as a [contributor](#contributor). A collaborator is granted access when an owner adds the collaborator's email address to an app that isn't controlled with role-based access (RBAC). If you are still using collaborators, you should migrate your LUIS account, and use LUIS authoring resources to manage contributors with RBAC.
 
-## <a name="contributor"></a>Contributor
+## Contributor
 
 A contributor is not the [owner](#owner) of the app, but has the same permissions to add, edit, and delete the intents, entities, utterances. A contributor provides role-based access (RBAC) to a LUIS app.
 
 See also:
 * [How-to](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource) add contributors
 
-## <a name="descriptor"></a>Descriptor
+## Descriptor
 
 A descriptor is the term formerly used for a machine learning [feature](#feature).
 
-## <a name="domain"></a>Domain
+## Domain
 
-In the LUIS context, a domain is an area of knowledge. Your domain is specific to your scenario. Different domains use specific language and terminology that have meaning in the context of the domain. For example, if you are building an application to play music, your application would have terms and language specific to music – words like “song, track, album, lyrics, b-side, artist”. For examples of domains, see [prebuilt domains](#prebuilt-domain).
+In the LUIS context, a domain is an area of knowledge. Your domain is specific to your scenario. Different domains use specific language and terminology that have meaning in the context of the domain. For example, if you are building an application to play music, your application would have terms and language specific to music – words like "song, track, album, lyrics, b-side, artist". For examples of domains, see [prebuilt domains](#prebuilt-domain).
 
-## <a name="endpoint"></a>Endpoint
+## Endpoint
 
 ### Authoring endpoint
 
@@ -115,7 +115,7 @@ The LUIS prediction endpoint URL is where you submit LUIS queries after the [LUI
 
 Your access to the prediction endpoint is authorized with the LUIS prediction key.
 
-## <a name="entity"></a>Entity
+## Entity
 
 Entities are words in utterances that describe information used to fulfill or identify an intent. If your entity is complex and you would like your model to identify specific parts, you can break your model into subentities. For example, you might want you model to predict an address, but also the subentities of street, city, state, and zipcode. Entities can also be used as features to models. Your response from the LUIS app will include both the predicted intents and all the entities.
 
@@ -131,7 +131,7 @@ The entity schema is the structure you define for machine learned entities with 
 
 A subentity is a child entity of a machine-learned entity.
 
-## <a name="features"></a>Features
+## Features
 
 In machine learning, a feature is a characteristic that helps the model recognize a particular concept. It is a hint that LUIS can use, but not a hard rule.
 
@@ -143,13 +143,13 @@ These hints are used in conjunction with the labels to learn how to predict new 
 
 A required feature is a way to constrain the output of a LUIS model. When a feature for an entity is marked as required, the feature must be present in the example for the entity to be predicted, regardless of what the machine learned model predicts.
 
-Consider an example where you have a prebuilt-number feature that you have marked as required on the quantity entity for a menu ordering bot. When your bot sees “I want a bajillion large pizzas?”, bajillion will not be predicted as a quantity regardless of the context in which it appears. Bajillion is not a valid number and won’t be predicted by the number pre-built entity.
+Consider an example where you have a prebuilt-number feature that you have marked as required on the quantity entity for a menu ordering bot. When your bot sees `I want a bajillion large pizzas?`, bajillion will not be predicted as a quantity regardless of the context in which it appears. Bajillion is not a valid number and won’t be predicted by the number pre-built entity.
 
-## <a name="intent"></a>Intent
+## Intent
 
 An intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's input, such as booking a flight, or paying a bill. In LUIS, an utterance as a whole is classified as an intent, but parts of the utterance are extracted as entities
 
-## <a name="labeling"></a>Labeling examples
+## Labeling examples
 
 Labeling, or marking, is the process of associating a positive or negative example with a model.
 
@@ -159,38 +159,33 @@ In LUIS, intents within an app are mutually exclusive. This means when you add a
 ### Labeling for entities
 In LUIS, you label a word or phrase in an intent's example utterance with an entity as a _positive_ example. Labeling shows the intent what it should predict for that utterance. The labeled utterances are used to train the intent.
 
-## <a name="list-entity"></a>List entity
+## List entity
 
 A list entity represents a fixed, closed set of related words along with their synonyms. List entities are exact matches, unlike machined learned entities.
 
-The entity will be predicted if a word in the list entity is included in the list. For example, if you have a list entity called “size” and you have the words “small, medium, large” in the list, then the size entity will be predicted for all utterances where the words “small”, “medium”, or “large” are used regardless of the context.
+The entity will be predicted if a word in the list entity is included in the list. For example, if you have a list entity called "size" and you have the words "small, medium, large" in the list, then the size entity will be predicted for all utterances where the words "small", "medium", or "large" are used regardless of the context.
 
-## <a name="luis-app"></a>LUIS app
+## LUIS app
 
 See the definition for [application (app)](#application-app).
 
-## <a name="model"></a>Model
+## Model
 
 A (machine learned) model is a function that makes a prediction on input data. In LUIS, we refer to intent classifiers and entity extractors generically as "models", and we refer to a collection of models that are trained, published, and queried together as an "app".
 
-## <a name="normalized-value"></a>Normalized value
+## Normalized value
 
 You add values to your [list](list-entity) entities. Each of those values can have a list of one or more synonyms. Only the normalized value is returned in the response.
 
-## <a name="owner"></a>Owner
+## Owner
 
 Each app has one owner who is the person that created the app. The owner manages permissions to the application in the Azure portal.
 
-<!--
-## <a name="pattern"></a>Patterns
-The previous Pattern feature is replaced with [Patterns](luis-concept-patterns.md). Use patterns to improve prediction accuracy by providing fewer training examples.
--->
-
-## <a name="phrase-list"></a>Phrase list
+## Phrase list
 
 A phrase list is a specific type of machine learning feature that includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products).
 
-## <a name="prebuilt-domains"></a>Prebuilt model
+## Prebuilt model
 
 A prebuilt model is an intent, entity, or collection of both, along with labeled examples. These common prebuilt models can be added to your add to reduce the model development work required for your app.
 
@@ -226,33 +221,28 @@ The prediction resource has an Azure "kind" of `LUIS`.
 
 The score is a number from 0 and 1 that is a measure of how confident the system is that a particular input utterance matches a particular intent. A score closer to 1 means the system is very confident about its output and a score closer to 0 means the system is confident that the input does not match a particular output. Scores in the middle mean the system is very unsure of how to make the decision.
 
-For example, take a model that is used to identify if some customer text includes a food order. It might give a score of 1 for "i'd like to order one coffee" (the system is very confident that this is an order) and a score of 0 for "my team won the game last night" (the system is very confident that this is NOT an order). And it might have a score of 0.5 for "let's have some tea" (isn't sure if this is an order or not).
+For example, take a model that is used to identify if some customer text includes a food order. It might give a score of 1 for "I'd like to order one coffee" (the system is very confident that this is an order) and a score of 0 for "my team won the game last night" (the system is very confident that this is NOT an order). And it might have a score of 0.5 for "let's have some tea" (isn't sure if this is an order or not).
 
-## <a name="programmatic-key"></a>Programmatic key
+## Programmatic key
 
 Renamed to [authoring key](#authoring-key).
 
-## <a name="publish"></a>Publish
+## Publish
 
 Publishing means making a LUIS active version available on either the staging or production [endpoint](#endpoint).
 
-## <a name="quota"></a>Quota
+## Quota
 
 LUIS quota is the limitation of the Azure subscription tier. The LUIS quota can be limited by both requests per second (HTTP Status 429) and total requests in a month (HTTP Status 403).
 
-## <a name="sentiment-analysis"></a>Sentiment Analysis
+## Sentiment Analysis
 Sentiment analysis provides positive or negative values of the utterances provided by Text Analytics.
 
-## <a name="speech-priming"></a>Speech priming
+## Speech priming
 
-Speech priming allows your speech service to be primed with your LUIS model.
+Speech priming improves the recognition of spoken words and phrases that are commonly used in your scenario. For speech priming enabled applications, all LUIS labeled examples are used to improve speech recognition accuracy by creating a customized speech model for this specific application. For example, in a chess game you want to make sure that when the user says "Move knight", it isn’t interpreted as "Move night". The LUIS app should include examples in which "knight" is labeled as an entity.
 
-<!--
-## <a name="spelling-correction"></a>Spelling correction
-
-Enable Bing spell checker to correct misspelled words in the utterances before prediction.
--->
-## <a name="starter-key"></a>Starter key
+## Starter key
 
 A free key to use when first starting out using LUIS.
 
@@ -269,20 +259,20 @@ In LUIS list entities, you can create a normalized value, which can each have a 
 
 The model will return the normalized value for the entity when any of synonyms are seen in the input.
 
-## <a name="test"></a>Test
+## Test
 
 Testing a LUIS app means viewing model predictions.
 
-## <a name="timezoneoffset"></a>Timezone offset
+## Timezone offset
 
 The endpoint includes timezoneOffset. This is the number in minutes you want to add or remove from the datetimeV2 prebuilt entity. For example, if the utterance is "what time is it now?", the datetimeV2 returned is the current time for the client request. If your client request is coming from a bot or other application that is not the same as your bot's user, you should pass in the offset between the bot and the user.
 
 See [Change time zone of prebuilt datetimeV2 entity](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
 
-## <a name="token"></a>Token
+## Token
 A token is the smallest unit that can be labeled in an entity. Tokenization is based on the application's culture.
 
-## <a name="train"></a>Train
+## Train
 
 Training is the process of teaching LUIS about any changes to the active version since the last training.
 
@@ -294,10 +284,10 @@ Training data is the set of information that is needed to train a model. This in
 
 Training errors are predictions on your training data that do not match their labels.
 
-## <a name="utterance"></a>Utterance
+## Utterance
 
 An utterance is user input that is short text representative of a sentence in a conversation. It is a natural language phrase such as "book 2 tickets to Seattle next Tuesday". Example utterances are added to train the model and the model predicts on new utterance at runtime
 
-## <a name="version"></a>Version
+## Version
 
 A LUIS version is a specific instance of a LUIS application associated with a LUIS app ID and the published endpoint. Every LUIS app has at least one version.
