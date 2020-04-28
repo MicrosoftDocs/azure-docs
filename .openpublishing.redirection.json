@@ -51949,6 +51949,11 @@
       "source_path": "articles/terraform/index.yml",
       "redirect_url": "/azure/developer/terraform/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-auditing-and-threat-detection-powershell.md",
+      "redirect_url": "/azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell",
+      "redirect_document_id": true
     }
  ]
 }
