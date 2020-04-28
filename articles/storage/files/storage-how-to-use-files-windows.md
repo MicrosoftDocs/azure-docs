@@ -181,7 +181,7 @@ Remove-PSDrive -Name <desired-drive-letter>
     
     ![A screenshot of the "Map network drive" drop-down menu](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-1. Select the drive letter and enter the UNC path, the UNC path format is <storageAccountName>.file.core.windows.net/<fileShareName>. For example: `anexampleaccountname.file.core.windows.net/example-share-name`
+1. Select the drive letter and enter the UNC path, the UNC path format is `<storageAccountName>.file.core.windows.net/<fileShareName>`. For example: `anexampleaccountname.file.core.windows.net/example-share-name`
     
     ![A screenshot of the "Map Network Drive" dialog](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
