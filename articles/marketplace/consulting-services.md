@@ -66,8 +66,9 @@ For AppSource, the eligible competencies are listed in the following table:
 
 Additional resources and support:
 
-* [Microsoft cloud enablement desk](https://aka.ms/CEDnominate): Complete the partner nomination form for the cloud enablement desk guided experience to connect to a cloud program specialist who can articulate Microsoft Partner Network benefits and serve as guide to competency attainment.  
+* [Microsoft cloud enablement desk](https://partner.microsoft.com/campaigns/ced-nomination-form/): Complete the partner nomination form for the cloud enablement desk guided experience to connect to a cloud program specialist who can articulate Microsoft Partner Network benefits and serve as guide to competency attainment.  
 * [Become a Power BI partner](https://powerbi.microsoft.com/become-a-partner/): Submit a request to get listed on Power BI showcase.
+
 
 For more information about competencies, go to the [Microsoft Partner Network Competencies](https://partner.microsoft.com/membership/competencies) page. 
 
