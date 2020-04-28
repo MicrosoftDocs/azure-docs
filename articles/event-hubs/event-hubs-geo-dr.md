@@ -1,6 +1,6 @@
 ---
 title: Geo-disaster recovery - Azure Event Hubs| Microsoft Docs
-description: How to use geographical regions to failover and perform disaster recovery in Azure Event Hubs
+description: How to use geographical regions to fail over and perform disaster recovery in Azure Event Hubs
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -18,14 +18,14 @@ ms.author: shvija
 ---
 
 # Azure Event Hubs - Geo-disaster recovery 
-When entire Azure regions or datacenters (if no [availability zones](../availability-zones/az-overview.md) are used) experience downtime, it is critical for data processing to continue to operate in a different region or datacenter. As such, *Geo-disaster recovery* and *Geo-replication* are important features for any enterprise. Azure Event Hubs supports both geo-disaster recovery and geo-replication, at the namespace level. 
+When entire Azure regions or datacenters (if no [availability zones](../availability-zones/az-overview.md) are used) experience downtime, it's critical for data processing to continue to operate in a different region or datacenter. As such, *Geo-disaster recovery* and *Geo-replication* are important features for any enterprise. Azure Event Hubs supports both geo-disaster recovery and geo-replication, at the namespace level. 
 
 > [!NOTE]
 > The Geo-disaster recovery feature is only available for the [standard and dedicated SKUs](https://azure.microsoft.com/pricing/details/event-hubs/).  
 
 ## Outages and disasters
 
-It's important to note the distinction between "outages" and "disasters." An **outage** is the temporary unavailability of Azure Event Hubs, and can affect some components of the service, such as a messaging store, or even the entire datacenter. However, after the problem is fixed, Event Hubs becomes available again. Typically, an outage does not cause the loss of messages or other data. An example of such an outage might be a power failure in the datacenter. Some outages are only short connection losses due to transient or network issues. 
+It's important to note the distinction between "outages" and "disasters." An **outage** is the temporary unavailability of Azure Event Hubs, and can affect some components of the service, such as a messaging store, or even the entire datacenter. However, after the problem is fixed, Event Hubs becomes available again. Typically, an outage doesn't cause the loss of messages or other data. An example of such an outage might be a power failure in the datacenter. Some outages are only short connection losses because of transient or network issues. 
 
 A *disaster* is defined as the permanent, or longer-term loss of an Event Hubs cluster, Azure region, or datacenter. The region or datacenter may or may not become available again, or may be down for hours or days. Examples of such disasters are fire, flooding, or earthquake. A disaster that becomes permanent might cause the loss of some messages, events, or other data. However, in most cases there should be no data loss and messages can be recovered once the data center is back up.
 
@@ -35,15 +35,15 @@ The Geo-disaster recovery feature of Azure Event Hubs is a disaster recovery sol
 
 The disaster recovery feature implements metadata disaster recovery, and relies on primary and secondary disaster recovery namespaces. 
 
-The Geo-disaster recovery feature is available for the [standard and dedicated SKUs](https://azure.microsoft.com/pricing/details/event-hubs/) only. You do not need to make any connection string changes, as the connection is made via an alias.
+The Geo-disaster recovery feature is available for the [standard and dedicated SKUs](https://azure.microsoft.com/pricing/details/event-hubs/) only. You don't need to make any connection string changes, as the connection is made via an alias.
 
 The following terms are used in this article:
 
 -  *Alias*: The name for a disaster recovery configuration that you set up. The alias provides a single stable Fully Qualified Domain Name (FQDN) connection string. Applications use this alias connection string to connect to a namespace. 
 
--  *Primary/secondary namespace*: The namespaces that correspond to the alias. The primary namespace is "active" and receives messages (this can be an existing or new namespace). The secondary namespace is "passive" and does not receive messages. The metadata between both is in sync, so both can seamlessly accept messages without any application code or connection string changes. To ensure that only the active namespace receives messages, you must use the alias. 
+-  *Primary/secondary namespace*: The namespaces that correspond to the alias. The primary namespace is "active" and receives messages (can be an existing or new namespace). The secondary namespace is "passive" and doesn't receive messages. The metadata between both is in sync, so both can seamlessly accept messages without any application code or connection string changes. To ensure that only the active namespace receives messages, you must use the alias. 
 
--  *Metadata*: Entities such as event hubs and consumer groups; and their properties of the service that are associated with the namespace. Note that only entities and their settings are replicated automatically. Messages and events are not replicated. 
+-  *Metadata*: Entities such as event hubs and consumer groups; and their properties of the service that are associated with the namespace. Only entities and their settings are replicated automatically. Messages and events aren't replicated. 
 
 -  *Failover*: The process of activating the secondary namespace.
 
@@ -68,7 +68,7 @@ The following section is an overview of the failover process, and explains how t
 
 ### Setup
 
-You first create or use an existing primary namespace, and a new secondary namespace, then pair the two. This pairing gives you an alias that you can use to connect. Because you use an alias, you do not have to change connection strings. Only new namespaces can be added to your failover pairing. Finally, you should add some monitoring to detect if a failover is necessary. In most cases, the service is one part of a large ecosystem, thus automatic failovers are rarely possible, as very often failovers must be performed in sync with the remaining subsystem or infrastructure.
+You first create or use an existing primary namespace, and a new secondary namespace, then pair the two. This pairing gives you an alias that you can use to connect. Because you use an alias, you don't have to change connection strings. Only new namespaces can be added to your failover pairing. Finally, you should add some monitoring to detect if a failover is necessary. In most cases, the service is one part of a large ecosystem, thus automatic failovers are rarely possible, as often failovers must be performed in sync with the remaining subsystem or infrastructure.
 
 ### Example
 
@@ -80,9 +80,9 @@ You can automate failover either with monitoring systems, or with custom-built m
 
 If you initiate the failover, two steps are required:
 
-1. If another outage occurs, you want to be able to failover again. Therefore, set up another passive namespace and update the pairing. 
+1. If another outage occurs, you want to be able to fail over again. Therefore, set up another passive namespace and update the pairing. 
 
-2. Pull messages from the former primary namespace once it is available again. After that, use that namespace for regular messaging outside of your geo-recovery setup, or delete the old primary namespace.
+2. Pull messages from the former primary namespace once it's available again. After that, use that namespace for regular messaging outside of your geo-recovery setup, or delete the old primary namespace.
 
 > [!NOTE]
 > Only fail forward semantics are supported. In this scenario, you fail over and then re-pair with a new namespace. Failing back is not supported; for example, in a SQL cluster. 
@@ -105,7 +105,7 @@ The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/sam
 
 Note the following considerations to keep in mind with this release:
 
-1. By design, Event Hubs geo-disaster recovery does not replicate data, and therefore you cannot reuse the old offset value of your primary event hub on your secondary event hub. We recommend restarting your event receiver with one of the following:
+1. By design, Event Hubs geo-disaster recovery does not replicate data, and therefore you cannot reuse the old offset value of your primary event hub on your secondary event hub. We recommend restarting your event receiver with one of the following methods:
 
 - *EventPosition.FromStart()* - If you wish read all data on your secondary event hub.
 - *EventPosition.FromEnd()* - If you wish to read all new data from the time of connection to your secondary event hub.
@@ -113,7 +113,7 @@ Note the following considerations to keep in mind with this release:
 
 2. In your failover planning, you should also consider the time factor. For example, if you lose connectivity for longer than 15 to 20 minutes, you might decide to initiate the failover. 
  
-3. The fact that no data is replicated means that currently active sessions are not replicated. Additionally, duplicate detection and scheduled messages may not work. New sessions, scheduled messages, and new duplicates will work. 
+3. The fact that no data is replicated means that currently active sessions aren't replicated. Additionally, duplicate detection and scheduled messages may not work. New sessions, scheduled messages, and new duplicates will work. 
 
 4. Failing over a complex distributed infrastructure should be [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) at least once. 
 
@@ -126,7 +126,7 @@ The Event Hubs Standard SKU supports [Availability Zones](../availability-zones/
 > [!NOTE]
 > The Availability Zones support for Azure Event Hubs Standard is only available in [Azure regions](../availability-zones/az-overview.md#services-support-by-region) where availability zones are present.
 
-You can enable Availability Zones on new namespaces only, using the Azure portal. Event Hubs does not support migration of existing namespaces. You cannot disable zone redundancy after enabling it on your namespace.
+You can enable Availability Zones on new namespaces only, using the Azure portal. Event Hubs doesn't support migration of existing namespaces. You can't disable zone redundancy after enabling it on your namespace.
 
 ![3][]
 
