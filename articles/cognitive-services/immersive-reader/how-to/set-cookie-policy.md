@@ -17,7 +17,7 @@ ms.author: pasta
 
 The Immersive Reader will disable cookie usage by default. If you enable cookie usage, then the Immersive Reader may use cookies to maintain user preferences and track feature usage. If you enable cookie usage in the Immersive Reader, please consider the requirements of EU Cookie Compliance Policy. It is the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy.
 
-The cookie policy can be set through the Immersive Reader [options](../reference.md#options). See [CookiePolicy enum](../reference.md#cookiepolicy-enum) for more information.
+The cookie policy can be set through the Immersive Reader [options](../reference.md#options).
 
 ## Enable Cookie Usage
 
