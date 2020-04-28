@@ -59,7 +59,11 @@ Notice the `optional` parameter passed into the `AddAzureAppConfiguration` funct
 
 ## Synchronization between configuration stores
 
-It's important that your geo-redundant configuration stores all have the same set of data. You can use the **Export** function in App Configuration to copy data from the primary store to the secondary on demand. This function is available through both the Azure portal and the CLI.
+It's important that your geo-redundant configuration stores all have the same set of data. There are two ways to achieve this:
+
+### Export key-values from primary config store
+
+You can use the **Export** function in App Configuration to copy data from the primary store to the secondary on demand. This function is available through both the Azure portal and the CLI.
 
 From the Azure portal, you can push a change to another configuration store by following these steps.
 
@@ -67,16 +71,23 @@ From the Azure portal, you can push a change to another configuration store by f
 
 1. In the new blade that opens, specify the subscription, resource group, and resource name of your secondary store, then select **Apply**.
 
-1. The UI is updated so that you can choose what configuration data you want to export to your secondary store. You can leave the default time value as is and set both **From label** and **To label** to the same value. Select **Apply**.
+1. The UI is updated so that you can choose what configuration data you want to export to your secondary store. You can leave the default time value as is and set both **From label** and **Label** to the same value. Select **Apply**. Repeat this for all the labels in your primary store.
 
-1. Repeat the previous steps for all configuration changes.
+1. Repeat the previous steps whenever your configuration changes.
 
-To automate this export process, use the Azure CLI. The following command shows how to export a single configuration change from the primary store to the secondary:
+To automate this export process, use the Azure CLI. The following command shows how to export all configurations from the primary store to the secondary:
 
 ```azurecli
-    az appconfig kv export --destination appconfig --name {PrimaryStore} --label {Label} --dest-name {SecondaryStore} --dest-label {Label}
+    az appconfig kv export --destination appconfig --name {PrimaryStore} --dest-name {SecondaryStore} --label * --preserve-labels -y
 ```
+
+### Use Azure Event Grid
+
+You can also automate the backup process with a one-time setup, leveraging Azure App Configuration's integration with Azure Event Grid.
+Any changes in key values will publish an event to Azure Event Grid, which can then be consumed by one of the many event handlers supported by Azure Event Grid.
+For a detailed tutorial on how to automate the backup process, see [Automatically backup key values from Azure App Configuration store](./howto-backup-app-configuration-store.md).
 
 ## Next steps
 
-In this article, you learned how to augment your application to achieve geo-resiliency during runtime for App Configuration. You also can embed configuration data from App Configuration at build or deployment time. For more information, see [Integrate with a CI/CD pipeline](./integrate-ci-cd-pipeline.md).
+In this article, you learned how to augment your application to achieve geo-resiliency during runtime for App Configuration. For automating this setup, you can refer to [Automatically backup key values from Azure App Configuration store](./howto-backup-app-configuration-store.md).
+You also can embed configuration data from App Configuration at build or deployment time. For more information, see [Integrate with a CI/CD pipeline](./integrate-ci-cd-pipeline.md).
