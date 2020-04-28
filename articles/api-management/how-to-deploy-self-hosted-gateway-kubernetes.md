@@ -22,7 +22,7 @@ This article describes the steps for deploying self-hosted gateway component of 
 > [Single-node clusters](https://kubernetes.io/docs/setup/#learning-environment) work well for development and evaluation purposes. Use [Kubernetes Certified](https://kubernetes.io/partners/#conformance) multi-node clusters on-premises or in the cloud for production workloads.
 - [Provision a self-hosted gateway resource in your API Management instance](api-management-howto-provision-self-hosted-gateway.md).
 
-## Deploy the self-hosted gateway to Kubernetes
+## Deploy to Kubernetes
 
 1. Select **Gateways** from under **Deployment and infrastructure**.
 2. Select the self-hosted gateway resource you intend to deploy.
