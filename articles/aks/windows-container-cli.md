@@ -21,7 +21,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.61 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+
+### Install aks-preview CLI extension
+
+To use Windows Server containers, you need the *aks-preview* CLI extension version 0.4.12 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### Limitations
 
@@ -80,6 +90,7 @@ az aks create \
     --enable-addons monitoring \
     --kubernetes-version 1.16.7 \
     --generate-ssh-keys \
+    --enable-vmss \
     --vm-set-type VirtualMachineScaleSets \
     --load-balancer-sku standard \
     --network-plugin azure

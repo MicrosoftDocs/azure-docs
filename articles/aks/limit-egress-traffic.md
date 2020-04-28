@@ -165,7 +165,7 @@ The following FQDN / application rules are required for AKS clusters that have t
 
 ## Required by Windows Server based nodes enabled
 
-The following FQDN / application rules are required for Windows Server based AKS clusters:
+The following FQDN / application rules are required for using Windows Server based node pools:
 
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
