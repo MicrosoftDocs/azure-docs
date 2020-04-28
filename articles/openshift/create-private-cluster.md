@@ -267,8 +267,8 @@ In this article, an Azure Red Hat OpenShift cluster running OpenShift 4 was depl
 
 Advance to the next article to learn how to configure the cluster for authentication using Azure Active Directory.
 
-> [!div class="nextstepaction"]
-> [Configure authentication with Azure Active Directory using the command line](configure-azure-ad-cli.md)
 
-> [!div class="nextstepaction"]
-> [Configure authentication with Azure Active Directory using the Azure portal and OpenShift web console](configure-azure-ad-cli.md)
+* [Configure authentication with Azure Active Directory using the command line](configure-azure-ad-cli.md)
+
+
+* [Configure authentication with Azure Active Directory using the Azure portal and OpenShift web console](configure-azure-ad-cli.md)

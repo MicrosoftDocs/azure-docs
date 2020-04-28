@@ -83,7 +83,7 @@
     - name: Supported resources for Azure Red Hat OpenShift 3.11
       href: supported-resources.md
     - name: Supported resources for Azure Red Hat OpenShift 4.3
-      href: aro4x-support-policies.md
+      href: support-policies-v4.md
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: Red Hat OpenShift documentation

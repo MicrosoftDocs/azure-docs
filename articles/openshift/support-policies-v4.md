@@ -60,17 +60,3 @@ Azure Red Hat OpenShift 4 supports worker node instances on the following virtua
 |Fsv2|Standard_F8s_v2|8|16|
 |Fsv2|Standard_F16s_v2|16|32|
 |Fsv2|Standard_F32s_v2|32|64|
-
-## Supported azure regions
-
-Azure Red Hat OpenShift 4 supports the following regions:
-
-* Australia East
-* East US
-* East US 2
-* North Europe
-* South Central US
-* Southeast Asia
-* UK South
-* West Europe
-* West US 2
