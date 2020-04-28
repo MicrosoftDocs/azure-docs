@@ -155,7 +155,6 @@ Register SQL Server VM in lightweight mode with PowerShell:
 
 ### Full management mode
 
-
 If the SQL IaaS Extension has already been installed to the VM manually, then you can register the SQL Server VM in full mode without restarting the SQL Server service. **However, if the SQL IaaS extension has not been installed, registering in full mode will install the SQL IaaS extension in full mode and restart the SQL Server service. Please proceed with caution.**
 
 
@@ -168,6 +167,29 @@ To register your SQL Server VM directly in full mode (and possibly restart your 
   # Register with SQL VM resource provider in full mode
   New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
   ```
+
+Registering the SQL Server VM in Full mode directly and bypassing the Lightweight installation is also possible.  **However, registering in full mode will install the SQL IaaS extension in full mode, put the SQL Server into single user mode and will restart the SQL Server service. Please proceed with caution.**
+
+# [AZ CLI](#tab/bash)
+
+Register your SQL Server VM in Full mode with the Az CLI: 
+
+  ```azurecli-interactive
+   az sql vm create --name sqlvm --resourcegroup myresourcegroup --location eastus --license-type PAYG --sql-mgmt-type Full
+ ```
+
+# [PowerShell](#tab/powershell)
+
+Register your SQL Server VM in Full mode with PowerShell: 
+
+  ```powershell-interactive
+  # Get the existing compute VM
+  $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+          
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+    -LicenseType PAYG -SqlManagementType Full
+  ```
+
 
 ### NoAgent management mode 
 
