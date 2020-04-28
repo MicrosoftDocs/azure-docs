@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/28/2020
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Hyperscale (Citus)
@@ -80,9 +80,8 @@ following to get your users and applications back up and running:
 
 ## Next steps
 
-* Learn how to restore using [the Azure
-  portal](/azure/postgresql/howto-restore-server-portal).
-* Learn how to restore using [the Azure
-  CLI](/azure/postgresql/howto-restore-server-cli).
-* To learn more about business continuity, see the [business continuity
-  overview](/azure/postgresql/concepts-business-continuity).
+* Learn about [Azure availability
+  zones](/azure/availability-zones/az-overview).
+* Set [suggested
+  alerts](/azure/postgresql/howto-hyperscale-alert-on-metric#suggested-alerts)
+for Hyperscale (Citus) server groups.
